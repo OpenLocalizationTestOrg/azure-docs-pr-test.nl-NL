@@ -1,6 +1,6 @@
 ---
-title: Een virtuele machine van Azure versleutelen | Microsoft Docs
-description: In dit document leest u hoe u een virtuele machine van Azure kunt versleutelen wanneer u een waarschuwingsbericht ontvangt van het Azure Beveiligingscentrum.
+title: een virtuele Machine van Azure aaaEncrypt | Microsoft Docs
+description: Dit document helpt u een virtuele Machine van Azure tooencrypt na de ontvangst van een waarschuwing van Azure Security Center.
 services: security, security-center
 documentationcenter: na
 author: TomShinder
@@ -14,134 +14,134 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7c7c6eed39d16bde8a0dfaffe3a3331c58101634
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Een virtuele machine van Azure versleutelen
-Het Azure Beveiligingscentrum stuurt u een waarschuwingsbericht wanneer u virtuele machines hebt die niet versleuteld zijn. Deze waarschuwingsberichten hebben een hoge prioriteit. Het wordt aangeraden om deze virtuele machines te versleutelen.
+Het Azure Beveiligingscentrum stuurt u een waarschuwingsbericht wanneer u virtuele machines hebt die niet versleuteld zijn. Deze waarschuwingen wordt weergegeven als hoog Dreigingsniveau en Hallo aanbeveling is tooencrypt deze virtuele machines.
 
 ![Aanbevelingen voor schijfversleuteling](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> De informatie in dit document is van toepassing op het versleutelen van virtuele machines zonder een encryptiesleutel (vereist voor back-ups van virtuele machines met Azure Backup). Raadpleeg het artikel [Azure Disk Encryption voor virtuele Azure-machines in Windows en Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) voor informatie over het gebruik van een coderingssleutel ter ondersteuning van Azure Backup voor versleutelde virtuele Azure-machines.
+> Hallo-informatie in dit document is van toepassing tooencrypting virtuele machines zonder gebruik van een coderingssleutel Key (dit is vereist voor back-ups van virtuele machines maken met Azure Backup). Zie artikel Hallo [Azure Disk Encryption for Windows en Linux Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) voor meer informatie over toouse een coderingssleutel Key toosupport Azure Backup voor versleutelde Azure Virtual Machines.
 >
 >
 
-Wanneer het Azure Beveiligingscentrum heeft vastgesteld welke Azure Virtual Machines versleuteld moeten worden, volgt u de volgende stappen om dit te doen:
+Azure Virtual Machines die zijn geïdentificeerd door Azure Security Center welke tooencrypt, raden we Hallo stappen te volgen:
 
-* Installeer en configureer Azure PowerShell. Hierdoor kunt u de PowerShell-opdrachten uitvoeren die nodig zijn om de vereisten voor het versleutelen van Azure Virtual Machines te installeren.
-* Download het Azure PowerShell-script met vereisten voor Azure Disk Encryption en voer dit uit.
+* Installeer en configureer Azure PowerShell. Hierdoor kunt u toorun Hallo PowerShell-opdrachten vereist tooset up Hallo vereisten vereist tooencrypt Azure Virtual Machines.
+* Verkrijgen en hello Azure schijf versleuteling vereisten Azure PowerShell-script uitvoeren
 * Versleutel uw virtuele machines
 
-Dit document is bedoeld om u in staat te stellen zelf uw virtuele machines te versleutelen, zelfs als u weinig tot geen kennis hebt van Azure PowerShell.
-In dit document gaan we ervan uit dat u gebruikmaakt van Windows 10 als clientmachine om Azure Disk Encryption te configureren.
+Hallo-doel van dit document is tooenable tooencrypt u uw virtuele machines, zelfs als er weinig tot geen kennis in Azure PowerShell.
+Dit document wordt ervan uitgegaan dat u gebruikmaakt van Windows 10 als clientmachine Hallo waarin u Azure Disk Encryption configureren.
 
-Er zijn een aantal manieren om de vereisten te installeren en de versleuteling te configureren voor Azure Virtual Machines. Als u al goed bekend bent met Azure PowerShell of Azure CLI, maakt u mogelijk liever gebruik van een andere manier.
+Er zijn veel manieren die gebruikt toosetup Hallo vereisten en tooconfigure versleuteling voor Azure Virtual Machines worden kunnen. Als u al goed bekend bent met Azure PowerShell of Azure CLI, kunt u alternatieve methoden toouse mogelijk liever.
 
 > [!NOTE]
-> Zie [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0) voor meer informatie over andere manieren om de versleuteling van virtuele machines van Azure te configureren.
+> Zie toolearn meer informatie over andere manieren tooconfiguring versleuteling voor Azure virtual machines [Azure Disk Encryption for Windows en Linux Azure Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
 >
 >
 
 ## <a name="install-and-configure-azure-powershell"></a>Azure PowerShell installeren en configureren
-Azure PowerShell-versie 1.2.1 of hoger moet op uw computer geïnstalleerd zijn. Het artikel [How to install and configure Azure PowerShell](/powershell/azure/overview) bevat alle stappen die u moet volgen om uw computer zo in te richten dat deze kan werken met Azure PowerShell. De eenvoudigste manier is de installatiemethode met behulp van de Web PI die beschreven staat in dat artikel. Als u Azure PowerShell al hebt geïnstalleerd, dient u dit opnieuw te installeren met behulp van de Web PI zodat u beschikt over de nieuwste versie van Azure PowerShell.
+Azure PowerShell-versie 1.2.1 of hoger moet op uw computer geïnstalleerd zijn. Hallo artikel [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview) bevat alle Hallo stappen u moet tooprovision van uw computer toowork met Azure PowerShell. de eenvoudigste manier Hallo is toouse Hallo Web PI installatie benadering die in dit artikel worden vermeld. Zelfs als u al hebt Azure PowerShell geïnstalleerd, installeert u opnieuw met Hallo Web PI benadering, zodat u de meest recente versie van Azure PowerShell Hallo hebt.
 
-## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Download het configuratiescript met vereisten voor Azure Disk Encryption en voer dit uit.
-Het configuratiescript met vereisten voor Azure Disk Encryption installeert alle vereisten voor het versleutelen van uw Azure Virtual Machines.
+## <a name="obtain-and-run-hello-azure-disk-encryption-prerequisites-configuration-script"></a>Verkrijgen en vereisten voor Azure disk encryption Hallo configuratiescript uitvoeren
+Hallo configuratiescript met Azure schijf versleuteling vereisten stelt alle Hallo vereisten voor het versleutelen van uw Azure Virtual Machines.
 
-1. Ga naar de GitHub-pagina met het [installatiescript voor vereisten voor Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
-2. Klik op de GitHub-pagina op de knop **Onbewerkt**.
-3. Gebruik **CTRL-A** om alle tekst op de pagina te selecteren en gebruik vervolgens **CTRL-C** om alle tekst op de pagina naar het klembord te kopiëren.
-4. Open **Kladblok** en plak de gekopieerde tekst in Kladblok.
+1. Ga toohello GitHub-pagina met Hallo [Azure schijf versleuteling installatiescript voor vereisten](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+2. Klik op de Github-pagina Hallo Hallo **Raw** knop.
+3. Gebruik **CTRL-A** tooselect alle tekst op de pagina Hallo Hallo en gebruik vervolgens **CTRL-C** toocopy alle tekst op Hallo pagina toohello Klembord Hallo.
+4. Open **Kladblok** en plak de tekst hello gekopieerd in Kladblok.
 5. Maak een nieuwe map op uw C:-schijf met de naam **AzureADEScript**.
-6. Sla het Kladblok-bestand op: klik op **Bestand** en vervolgens op **Opslaan als**. Vul in het tekstvak Bestandsnaam de naam **“ADEPrereqScript.ps1”** in en klik op **Opslaan**. (Zet de naam tussen aanhalingstekens, anders wordt het bestand opgeslagen als .txt-bestand).
+6. Sla het Kladblok-bestand Hallo: klik op **bestand**, klikt u vervolgens op **OpslaanAls**. Voer in Hallo tekstvak Bestandsnaam de naam **"ADEPrereqScript.ps1"** en klik op **opslaan**. (Zorg ervoor dat u plaats Hallo aanhalingstekens rond Hallo-naam, anders wordt het Hallo-bestand opgeslagen met een bestandsextensie .txt).
 
-De inhoud van het script is nu opgeslagen. Open het script in de PowerShell ISE:
+Nu dat Hallo script inhoud is opgeslagen, opent u Hallo script in Hallo PowerShell ISE:
 
-1. Klik in het startmenu op **Cortana**. Vraag **Cortana** naar “PowerShell” door **PowerShell** te typen in het zoekvak.
+1. Klik in het Menu Start hello, **Cortana**. Vraag **Cortana** "PowerShell" door te typen **PowerShell** in het zoekvak Hallo.
 2. Klik met de rechtermuisknop op **Windows PowerShell ISE** en klik op **Als administrator uitvoeren**.
-3. In het venster **Administrator: Windows PowerShell ISE** klikt u op **Weergeven** en vervolgens op **Scriptvenster weergeven**.
-4. Als u het venster **Opdrachten** ziet aan de rechterkant van het venster, klikt u op de **“x”** in de rechterbovenhoek om dit venster te sluiten. Als u de tekst niet goed kunt lezen omdat deze te klein is, gebruikt u **CTRL+ het plus-teken (+)**. Als de tekst te groot is, gebruikt u **CTRL + het min-teken (-)**.
-5. Klik op **Bestand** en vervolgens op **Openen**. Blader naar de map **C:\AzureADEScript** en dubbelklik op het bestand **ADEPrereqScript**.
-6. De inhoud van het **ADEPrereqScript** wordt nu weergegeven in de PowerShell ISE. De verschillende onderdelen, zoals opdrachten, parameters en variabelen zijn voorzien van kleurcodering zodat u deze eenvoudig kunt onderscheiden.
+3. In Hallo **Administrator: Windows PowerShell ISE** venster, klikt u op **weergave** en klik vervolgens op **scriptvenster weergeven**.
+4. Als u Hallo ziet **opdrachten** deelvenster aan de rechterkant Hallo van Hallo-venster, klikt u op Hallo **'x'** in Hallo rechtsboven Hallo deelvenster tooclose deze. Als de tekst hello te klein voor u toosee is, gebruikt u **CTRL + het plus** ('Add' hello is ' + ' melden). Als de tekst hello te groot is, gebruikt u **CTRL + het min** (aftrekken is Hallo '-' aanmelding).
+5. Klik op **Bestand** en vervolgens op **Openen**. Navigeer toohello **C:\AzureADEScript** map en Hallo Dubbelklik op Hallo **ADEPrereqScript**.
+6. Hallo **ADEPrereqScript** inhoud wordt nu weergegeven in de PowerShell ISE Hallo en gekleurde toohelp u verschillende onderdelen, zoals opdrachten, parameters en variabelen makkelijker te zien is.
 
-Uw scherm ziet er nu als volgt uit.
+U ziet nu ongeveer Hallo afbeelding hieronder.
 
 ![PowerShell ISE-venster](./media/security-center-disk-encryption/security-center-disk-encryption-fig2.png)
 
-Het bovenste venster wordt het ‘scriptvenster' genoemd en het onderste venster de 'console'. Deze termen zullen we verderop in dit artikel gebruiken.
+het bovenste deelvenster Hallo is waarnaar wordt verwezen tooas Hallo 'scriptvenster' en Hallo onderste deelvenster is waarnaar wordt verwezen tooas Hallo 'console'. Deze termen zullen we verderop in dit artikel gebruiken.
 
-## <a name="run-the-azure-disk-encryption-prerequisites-powershell-command"></a>Voer de PowerShell-opdracht met vereisten voor Azure Disk Encryption uit.
-Het script met vereisten voor Azure Disk Encryption vraagt u na het openen om de volgende informatie:
+## <a name="run-hello-azure-disk-encryption-prerequisites-powershell-command"></a>Hello Azure disk encryption vereisten PowerShell-opdracht uitvoeren
+Vereisten voor Azure Disk Encryption script Hello wordt u gevraagd voor Hallo informatie te volgen nadat u bent Hallo script begonnen:
 
-* **Naam resourcegroep**: naam van de resourcegroep waar u de Key Vault in wilt plaatsen.  Als er nog geen resourcegroep met de door u ingevulde naam bestaat, wordt deze aangemaakt. Als u al een resourcegroep hebt die u in dit abonnement wilt gebruiken, vul dan de naam van die resourcegroep in.
-* **Naam Key Vault**: naam van de sleutelkluis waar versleutelingssleutels in moeten worden geplaatst. Als u nog geen Key Vault hebt met de door u ingevulde naam bestaat, wordt deze aangemaakt. Als u al een Key Vault hebt die u wilt gebruiken, vul dan de naam van die Key Vault in.
-* **Locatie**: de locatie van de Key Vault. Zorg ervoor dat de Key Vault en de VM’s die moeten worden versleuteld, zich op dezelfde locatie bevinden. Als u de locatie niet weet, volg dan de stappen verderop in dit artikel om deze te vinden.
-* **Naam Azure Active Directory-toepassing** : naam van de Azure Active Directory-toepassing die wordt gebruikt om geheimen over te schrijven naar de Key Vault. Als er nog geen toepassing met deze naam bestaat, wordt deze aangemaakt. Als u al een Azure Active Directory-toepassing hebt die u wilt gebruiken, vul dan de naam van die Azure Active Directory-toepassing in.
+* **De Resourcegroepnaam** - naam van de resourcegroep die u wilt dat tooput Hallo Hallo Sleutelkluis in.  Een nieuwe resourcegroep met de Hallo-naam die u invoert wordt gemaakt als er niet al een met die naam gemaakt. Als u al een resourcegroep die u wilt dat toouse in dit abonnement hebt, voert u Hallo-naam van die resourcegroep.
+* **Naam Sleutelkluis** -naam van Hallo Sleutelkluis waar versleutelingssleutels in sleutels toobe geplaatst worden. Als u nog geen Key Vault hebt met de door u ingevulde naam bestaat, wordt deze aangemaakt. Als u al een Sleutelkluis die u toouse wilt, Voer Hallo-naam van bestaande Sleutelkluis Hallo.
+* **Locatie** -locatie van Hallo Sleutelkluis. Zorg ervoor dat Hallo Sleutelkluis en de virtuele machines toobe versleuteld in Hallo dezelfde locatie. Als u niet Hallo locatie weet, er zijn stappen verderop in dit artikel waarin wordt uitgelegd hoe u toofind uit.
+* **Azure Active Directory-toepassingsnaam** -naam van hello Azure Active Directory-toepassing die wordt gebruikt toowrite geheimen toohello Sleutelkluis. Als er nog geen toepassing met deze naam bestaat, wordt deze aangemaakt. Als u al een Azure Active Directory-toepassing die u toouse wilt hebt, Voer Hallo-naam van die Azure Active Directory-toepassing.
 
 > [!NOTE]
-> Als u wilt weten waarom u een Azure Active Directory-toepassing moet maken, zie dan het gedeelte *Register an application with Azure Active Directory* in het artikel [Getting Started with Azure Key Vault](../key-vault/key-vault-get-started.md).
+> Als u dit als toowhy interessant moet u een Azure Active Directory-toepassing, toocreate Zie *een toepassing registreren met Azure Active Directory* in Hallo artikel [aan de slag met Azure Key Vault](../key-vault/key-vault-get-started.md).
 >
 >
 
-Volg de volgende stappen om een virtuele machine van Azure te versleutelen:
+Voer Hallo stappen tooencrypt een virtuele Machine van Azure te volgen:
 
-1. Als u de PowerShell ISE hebt gesloten, open PowerShell ISE dan met verhoogde bevoegdheid. Volg de bovenstaande instructies in dit artikel wanneer PowerShell ISE nog niet geopend is. Wanneer u het script hebt gesloten, open dan het bestand **ADEPrereqScript.ps1** door te klikken op **Bestand**, **Openen** en het script te selecteren in de map **c:\AzureADEScript**. Wanneer u dit artikel in zijn geheel hebt gevolgd, ga dan verder naar de volgende stap.
-2. In de console van de PowerShell ISE (het onderste venster van de  PowerShell ISE) verandert u de focus naar de locatie van het script door **cd c:\AzureADEScript** te typen en op **ENTER** te drukken.
-3. Stel het uitvoerbeleid op uw machine in zodat u het script kunt uitvoeren. Typ **Set-ExecutionPolicy Unrestricted** in de console en druk op ENTER. Wanneer u een dialoogvenster ziet over het effect van de wijzigingen in het uitvoerbeleid klikt u op **Ja op alles** of **Ja** Als u **Ja op alles** ziet, selecteert u die optie; als u **Ja op alles**niet ziet, klik dan op **Ja**).
-4. Meld u aan bij uw Azure-account. Typ **Login-AzureRmAccount** in de console en druk op **ENTER**. Er wordt een dialoogvenster weergegeven waarin u uw gegevens kunt invoeren (zorg ervoor dat u bevoegd bent om de virtuele machines te wijzigen; als u die bevoegdheid niet hebt, kunt u de virtuele machines niet versleutelen. Als u niet weet of u bevoegd bent, neem dan contact op met de eigenaar van uw abonnement of uw beheerder). U ziet nu informatie over uw **omgeving**, **account**, **tenant-ID**, **abonnements-ID** en **huidige opslagaccount**. Kopieer uw **abonnements-ID** naar het Kladblok. Dit hebt u nodig in stap 6.
-5. Bepaal bij welk abonnement uw virtuele machine hoort en de locatie ervan. Ga naar [https://portal.azure.com](ttps://portal.azure.com) en meld u aan.  Klik op **Virtuele machines** in de linkerkant van het scherm. U ziet een lijst met uw virtuele machines en de abonnementen waar deze bij horen.
+1. Als u Hallo PowerShell ISE hebt gesloten, opent u Hallo PowerShell ISE dan met verhoogde bevoegdheid. Volg Hallo-instructies eerder in dit artikel als Hallo die PowerShell ISE nog niet is geopend. Als u Hallo script hebt gesloten, open vervolgens Hallo **ADEPrereqScript.ps1** te klikken op **bestand**, klikt u vervolgens **openen** en Hallo script selecteren in Hallo **c:\ AzureADEScript** map. Als u dit artikel hebt gevolgd van Hallo begin, ga dan verder op de volgende stap toohello.
+2. Wijzigen in de console Hallo Hallo PowerShell ISE (onderste deelvenster Hallo Hallo PowerShell ISE) Hallo focus toohello lokale van Hallo script door te typen **cd c:\AzureADEScript** en druk op **ENTER**.
+3. Hallo-uitvoeringsbeleid op uw computer zo instellen dat u kunt Hallo-script uitvoeren. Type **Set-ExecutionPolicy Unrestricted** in de console Hallo en druk op ENTER. Als u een dialoogvenster om te informeren over Hallo gevolgen van het beleid voor Hallo wijziging tooexecution ziet, klik op **Ja tooall** of **Ja** (als u ziet **Ja tooall**, selecteert u die optie – als u ziet geen **Ja tooall**, klikt u vervolgens op **Ja**).
+4. Meld u aan bij uw Azure-account. Typ in het Hallo-console **Login-AzureRmAccount** en druk op **ENTER**. Een dialoogvenster weergegeven waarin u uw referenties invoeren (Zorg ervoor dat u hebt rechten toochange Hallo virtuele machines-als u geen rechten hebt, u zich niet kunnen tooencrypt ze. Als u niet weet of u bevoegd bent, neem dan contact op met de eigenaar van uw abonnement of uw beheerder). U ziet nu informatie over uw **omgeving**, **account**, **tenant-ID**, **abonnements-ID** en **huidige opslagaccount**. Kopiëren Hallo **SubscriptionId** tooNotepad. U moet toouse dit in stap &#6;.
+5. Welk abonnement uw virtuele machine vinden tooand behoort de locatie. Ga te[https://portal.azure.com](ttps://portal.azure.com) en zich aanmelden.  Klik op Hallo linkerkant van de pagina hello, **virtuele Machines**. U ziet een lijst van de virtuele machines en het Hallo-abonnementen waartoe ze behoren.
 
    ![Virtuele machines](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
-6. Ga terug naar de PowerShell ISE. Stel de context van het abonnement in waarin het script wordt uitgevoerd. Typ **Select-AzureRmSubscription –SubscriptionId <your_subscription_Id>** in de console (vervang **< your_subscription_Id >** door uw abonnements-ID) en druk op **ENTER**. U ziet nu informatie over de omgeving, **account**, **tenant-ID**, **abonnements-ID** en **huidige opslagaccount**.
-7. U kunt nu het script uitvoeren. Klik op de knop **Script uitvoeren** of druk op **F5**.
+6. PowerShell ISE toohello retourneren. Stel Hallo abonnementscontext waarin Hallo script wordt uitgevoerd. Typ in het Hallo-console **Select-AzureRmSubscription – SubscriptionId < your_subscription_Id >** (Vervang **< your_subscription_Id >** met uw abonnements-ID) en druk op  **Voer**. Ziet u informatie over het Hallo-omgeving, **Account**, **TenantId**, **SubscriptionId** en **huidige Opslagaccount**.
+7. U bent nu klaar toorun Hallo script. Klik op Hallo **-Script uitvoeren** of drukt u op **F5** op Hallo toetsenbord.
 
    ![Het PowerShell-script uitvoeren](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
-8. Het script vraagt om de **resourceGroupName:**. Voer de naam van de *Resourcegroep* in die u wilt gebruiken en druk vervolgens op **ENTER**. Als u geen resourcegroep hebt, voer dan de naam in die u wilt gebruiken voor een nieuwe resourcegroep. Als u al een *Resourcegroep* hebt die u wilt gebruiken (zoals de groep waar uw virtuele machine zich bevindt), vul dan de naam van de bestaande resourcegroep in.
-9. Het script vraagt om de **keyVaultName:**. Voer de naam van de *Key Vault* in die u wilt gebruiken en druk vervolgens op ENTER. Als u geen sleutelkluis hebt, voer dan de naam in die u wilt gebruiken voor een nieuwe sleutelkluis. Als u al een Key Vault hebt die u wilt gebruiken, vul dan de naam van die *Key Vault* in.
-10. Het script vraagt om de **location:**. Voer de naam van de locatie in waar de VM die u wilt versleutelen zich bevindt en druk vervolgens op **ENTER**. Als u de locatie niet meer weet, gaat u terug naar stap 5.
-11. Het script vraagt om de **aadAppName:**. Voer de naam van de *Azure Active Directory*-toepassing in die u wilt gebruiken en druk vervolgens op **ENTER**. Als u geen sleutelkluis hebt, voer dan de naam in die u wilt gebruiken voor een nieuwe sleutelkluis. Als u al een *Azure Active Directory-toepassing* hebt die u wilt gebruiken, vul dan de naam van de bestaande *Azure Active Directory-toepassing in*.
-12. Een aanmeldvenster wordt weergegeven. Vul uw gegevens in (u dient zich inderdaad nog een keer aan te melden).
-13. Het script wordt uitgevoerd. Wanneer het is voltooid, wordt u gevraagt om de waarden van de velden **aadClientID**, **aadClientSecret**, **diskEncryptionKeyVaultUrl**, en **keyVaultResourceId** te kopiëren. Kopieer deze waarden naar het klembord en plak ze in het Kladblok.
-14. Ga terug naar de PowerShell ISE, plaats de cursor aan het einde van de laatste regel en druk op **ENTER**.
+8. Hallo script vraagt om **resourceGroupName:** -Geef de naam Hallo van *resourcegroep* gewenste toouse, drukt u vervolgens op **ENTER**. Als u nog geen hebt, voer een naam die u voor een nieuwe toouse wilt instellen. Als u al een *resourcegroep* die u toouse (zoals Hallo een uw virtuele machine), voer de naam Hallo Hallo bestaande resourcegroep.
+9. Hallo script vraagt om **keyVaultName:** -Voer de naam Hallo Hallo *Sleutelkluis* u wilt dat toouse en druk op ENTER. Als u nog geen hebt, voer een naam die u voor een nieuwe toouse wilt instellen. Als u al een Sleutelkluis die u toouse wilt hebt, Voer Hallo-naam van bestaande Hallo *Sleutelkluis*.
+10. Hallo script vraagt om **locatie:** : Voer de naam Hallo Hallo locatie in welke Hallo gewenste tooencrypt VM zich bevindt en druk op **ENTER**. Als u niet meer Hallo locatie weet, gaat u terug toostep #5.
+11. Hallo script vraagt om **aadAppName:** -Voer de naam Hallo Hallo *Azure Active Directory* toepassing die u wilt dat toouse, drukt u vervolgens op **ENTER**. Als u nog geen hebt, voer een naam die u voor een nieuwe toouse wilt instellen. Als u al een *Azure Active Directory-toepassing* u wilt dat toouse, Voer Hallo-naam van bestaande Hallo *Azure Active Directory-toepassing*.
+12. Een aanmeldvenster wordt weergegeven. Geef uw referenties (Ja, u zich eenmaal hebt aangemeld, maar u moet nu toodo nogmaals).
+13. Hallo-script wordt uitgevoerd en als voltooid, wordt u gevraagt toocopy Hallo waarden Hallo **aadClientID**, **aadClientSecret**, **diskEncryptionKeyVaultUrl**, en **keyVaultResourceId**. Elk van deze waarden toohello Klembord Kopieer en plak deze in Kladblok.
+14. Toohello PowerShell ISE terug en plaatst u Hallo cursor aan einde van de laatste regel Hallo en druk op Hallo **ENTER**.
 
-Het resultaat van het script ziet er als volgt uit:
+Hallo-uitvoer van Hallo script ziet er ongeveer als welkomstscherm hieronder:
 
 ![PowerShell-resultaat](./media/security-center-disk-encryption/security-center-disk-encryption-fig5.png)
 
-## <a name="encrypt-the-azure-virtual-machine"></a>De virtuele machine van Azure versleutelen
-U kunt nu uw virtuele machine versleutelen. Als uw virtuele machine zich in dezelfde resourcegroep bevindt als uw Key Vault, kunt u verdergaan naar het gedeelte met de stappen voor het versleutelen. Als uw virtuele machine zich niet in dezelfde resourcegroep bevindt als uw Key Vault, moet u het volgende invullen in de console in de PowerShell ISE:
+## <a name="encrypt-hello-azure-virtual-machine"></a>Hallo virtuele machine van Azure versleutelen
+U bent nu klaar tooencrypt uw virtuele machine. Als uw virtuele machine zich bevindt in Hallo dezelfde resourcegroep als uw Sleutelkluis, kunt u toohello versleuteling stappen sectie gaan. Als uw virtuele machine zich niet in hello dezelfde resourcegroep als uw Sleutelkluis, moet u tooenter Hallo volgende in Hallo-console in Hallo PowerShell ISE:
 
 **$resourceGroupName = <’Virtual_Machine_RG’>**
 
-Vervang **< Virtual_Machine_RG >** door de naam van de resourcegroep waar uw virtuele machines zich bevinden, tussen enkele aanhalingstekens. Druk vervolgens op **ENTER**.
-Om te bevestigen dat u de juiste naam van de resourcegroep hebt ingevoerd, typt u het volgende in de PowerShell ISE-console:
+Vervang **< Virtual_Machine_RG >** met Hallo-naam van resourcegroep Hallo waarin uw virtuele machines zijn opgenomen, tussen enkele aanhalingstekens. Druk vervolgens op **ENTER**.
+tooconfirm die Hallo juiste naam van de resourcegroep hebt ingevoerd, typt u Hallo volgende Hallo PowerShell ISE-console:
 
 **$resourceGroupName**
 
-Druk op **ENTER**. U ziet nu de naam van de resourcegroep waar uw virtuele machines zich bevinden. Bijvoorbeeld:
+Druk op **ENTER**. U ziet Hallo-naam van resourcegroep die uw virtuele machines zich bevinden in. Bijvoorbeeld:
 
 ![PowerShell-resultaat](./media/security-center-disk-encryption/security-center-disk-encryption-fig6.png)
 
 ### <a name="encryption-steps"></a>Stappen voor het versleutelen
-PowerShell heeft als eerste de naam van de virtuele machine nodig die u wilt versleutelen. Typ in de console:
+Eerst moet u de naam van de Hallo PowerShell tootell van Hallo virtuele machine die u wilt tooencrypt. Typ in het Hallo-console:
 
 **$vmName = <’your_vm_name’>**
 
-Vervang **<’your_vm_name’>** door de naam van de VM (zet de naam tussen enkele aanhalingstekens) en druk vervolgens op **ENTER**.
+Vervang **<'your_vm_name ' >** met de naam van uw VM hello (Zorg ervoor dat Hallo naam tussen enkele aanhalingstekens) en druk vervolgens op **ENTER**.
 
-Om te bevestigen dat u de juiste naam van de VM hebt ingevoerd, typt u:
+tooconfirm die Hallo juiste naam van de VM hebt ingevoerd, typt:
 
 **$vmName**
 
-Druk op **ENTER**. U ziet nu de naam van de virtuele machine die u wilt versleutelen. Bijvoorbeeld:
+Druk op **ENTER**. U ziet Hallo-naam van Hallo virtuele machine die u wilt tooencrypt. Bijvoorbeeld:
 
 ![PowerShell-resultaat](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
-U kunt de versleutelingsopdracht om alle stations op de virtuele machine te versleutelen op twee manieren uitvoeren. Bij de eerste manier typt u de volgende opdracht in de PowerShell ISE-console:
+Er zijn twee methoden toorun Hallo versleuteling opdracht tooencrypt alle stations op Hallo virtuele machine. de eerste methode Hallo is tootype Hallo volgende opdracht in Hallo PowerShell ISE-console:
 
 ~~~
 Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId -VolumeType All
@@ -149,32 +149,32 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMNa
 
 Na deze opdracht drukt u op **ENTER**.
 
-Bij de tweede  manier klikt u in het scriptvenster (het bovenste venster van de PowerShell ISE) en scrolt u naar de onderkant van het script. Selecteer de bovenstaande opdrachtlijst, klik met de rechtermuisknop en klik vervolgens op **Selectie uitvoeren** of druk op **F8**.
+de tweede methode Hallo is tooclick in Hallo scriptvenster (Hallo het bovenste deelvenster Hallo PowerShell ISE) en schuif omlaag toohello onderaan Hallo script. Markeer Hallo bovenstaande Opdrachtlijst, en klik vervolgens op de rechtermuisknop en klik vervolgens op **selectie uitvoeren** of druk op **F8** op Hallo toetsenbord.
 
 ![PowerShell ISE](./media/security-center-disk-encryption/security-center-disk-encryption-fig8.png)
 
-Bij beide methodes wordt er een dialoogvenster weergegeven waarin staat dat het ongeveer 10-15 minuten duurt voordat de bewerking is voltooid. Klik op **Ja**.
+Ongeacht Hallo methode u gebruikt, verschijnt een dialoogvenster waarin wordt gemeld dat het Hallo bewerking toocomplete 10-15 minuten duurt. Klik op **Ja**.
 
-Tijdens het versleutelingsproces kunt u teruggaan naar de Azure Portal en de status van de virtuele machine bekijken. Klik op **Virtual Machines** aan de linkerkant van de pagina. Klik vervolgens in de blade **Virtual Machines** op de naam van de virtuele machine die u aan het versleutelen bent. Een blade wordt weergegeven waarin u kunt zien dat de **Status** vermeldt dat de machine aan het **Bijwerken** is. Dit toont aan dat versleuteling wordt uitgevoerd.
+Tijdens het Hallo-versleutelingsproces plaatsvindt, kunt u retourneren toohello Azure-Portal en ziet Hallo status van Hallo virtuele machine. Op Hallo linkerkant van Hallo pagina, klikt u op **virtuele Machines**, klik dan in Hallo **virtuele Machines** blade, klikt u op de naam Hallo van Hallo virtuele machine versleutelen bent. Hallo-blade die wordt weergegeven, zult u merken dat Hallo **Status** gesteld dat het **Updating**. Dit toont aan dat versleuteling wordt uitgevoerd.
 
-![Meer informatie over de VM](./media/security-center-disk-encryption/security-center-disk-encryption-fig9.png)
+![Meer informatie over Hallo VM](./media/security-center-disk-encryption/security-center-disk-encryption-fig9.png)
 
-Ga terug naar de PowerShell ISE. Wanneer het script is voltooid, ziet het scherm er als volgt uit.
+PowerShell ISE toohello retourneren. Wanneer het Hallo-script is voltooid, ziet u wat wordt weergegeven in onderstaande afbeelding ziet Hallo.
 
 ![PowerShell-resultaat](./media/security-center-disk-encryption/security-center-disk-encryption-fig10.png)
 
-Om aan te tonen dat de virtuele machine nu versleuteld is, gaat u terug naar de Azure Portal en klikt u op **Virtual Machines** aan de linkerkant van de pagina. Klik op de naam van de virtuele machine die u hebt versleuteld. Klik in de blade **Instellingen** op **Schijven**.
+toodemonstrate die Hallo van virtuele machine nu versleuteld terug toohello Azure-Portal en klikt u op **virtuele Machines** op Hallo linkerkant van Hallo pagina. Klik op de naam Hallo van Hallo virtuele machine die u versleuteld. In Hallo **instellingen** blade, klikt u op **schijven**.
 
 ![Opties voor instellingen](./media/security-center-disk-encryption/security-center-disk-encryption-fig11.png)
 
-In de blade **Schijven** ziet u dat de **Versleuteling** is **Ingeschakeld**.
+Op Hallo **schijven** blade ziet u dat **versleuteling** is **ingeschakeld**.
 
 ![Schijfeigenschappen](./media/security-center-disk-encryption/security-center-disk-encryption-fig12.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit document hebt u kunnen lezen hoe u een virtuele machine van Azure kunt versleutelen. Zie de volgende onderwerpen voor meer informatie over het Azure Beveiligingscentrum:
+In dit document, u leert hoe tooencrypt een virtuele Machine van Azure. toolearn meer informatie over Azure Security Center Hallo ziet:
 
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md): ontdek hoe u de status van uw Azure-bronnen kunt monitoren.
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren
-* [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service
+* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md) : meer informatie over hoe toomonitor Hallo status van uw Azure-resources
+* [Het beheer van is en reageert toosecurity waarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md) -informatie over hoe toomanage en gereageerd had toosecurity waarschuwingen
+* [Veelgestelde vragen over Azure Security Center](security-center-faq.md) : Raadpleeg Veelgestelde vragen over het gebruik van Hallo-service
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) (Azure-beveiligingsblog): lees blogberichten over de beveiliging en naleving van Azure

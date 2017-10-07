@@ -1,6 +1,6 @@
 ---
-title: Een upgrade naar de Azure Search Service REST API versie 2016-09-01 | Microsoft Docs
-description: Een upgrade naar de Azure Search Service REST API versie 2016-09-01
+title: aaaUpgrading toohello Azure Search Service REST API versie 2016-09-01 | Microsoft Docs
+description: Een upgrade toohello Azure Search Service REST API versie 2016-09-01
 services: search
 documentationcenter: 
 author: brjohnstmsft
@@ -14,47 +14,47 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: brjohnst
-ms.openlocfilehash: f6a189c2e314b91c490583a86d8bacca8ec78a0f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d0276b9cc52996a59f9aa726c27e62c6082eb908
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Een upgrade naar de Azure Search Service REST API versie 2016-09-01
-Als u versie 2015-02-28 of 2015-02-28-Preview van de [Azure Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx), dit artikel helpt u bij het bijwerken van uw toepassing gebruik de volgende algemeen beschikbaar API-versie, 2016-09-01.
+# <a name="upgrading-toohello-azure-search-service-rest-api-version-2016-09-01"></a>Een upgrade toohello Azure Search Service REST API versie 2016-09-01
+Als u versie 2015-02-28 of 2015-02-28-Preview Hallo [Azure Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx), dit artikel helpt u bij het bijwerken van uw toepassing toouse Hallo volgende algemeen beschikbaar API-versie, 2016-09-01.
 
-Versie 2016-09-01 van de REST API bevat een aantal wijzigingen uit eerdere versies. Dit zijn vooral achterwaarts compatibel, zodat uw code te wijzigen, moet alleen minimale inspanning, afhankelijk van welke versie u hebt gebruikt vóór nodig. Zie [stappen voor het upgraden](#UpgradeSteps) voor instructies over het wijzigen van uw code voor het gebruik van de nieuwe API-versie.
+Versie 2016-09-01 Hallo REST-API bevat een aantal wijzigingen uit eerdere versies. Dit zijn vooral achterwaarts compatibel, zodat uw code te wijzigen, moet alleen minimale inspanning, afhankelijk van welke versie u hebt gebruikt vóór nodig. Zie [stappen tooupgrade](#UpgradeSteps) voor instructies over het toochange uw code toouse Hallo nieuwe API-versie.
 
 > [!NOTE]
-> Uw Azure Search-service-exemplaar ondersteunt verschillende versies van de REST-API, met inbegrip van de meest recente versie. U kunt blijven gebruiken van een versie wanneer het is niet meer de meest recente versie, maar het is raadzaam dat u uw code voor het gebruik van de nieuwste versie migreren.
+> Verschillende versies van de REST-API, met inbegrip van de meest recente Hallo biedt ondersteuning voor uw Azure Search-service-exemplaar. Wanneer deze niet langer Hallo recentste is, maar het is raadzaam dat u de nieuwste versie van code toouse Hallo migreert, kunt u een versie toouse blijven.
 
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-2016-09-01"></a>Wat is er nieuw in versie 2016-09-01
-Versie 2016-09-01 is de tweede algemeen beschikbaar versie van de Azure Search Service REST-API. Nieuwe functies in deze API-versie:
+Versie 2016-09-01 is Hallo tweede algemeen beschikbaar release van hello Azure Search Service REST API. Nieuwe functies in deze API-versie:
 
-* [Aangepaste analyzers](https://aka.ms/customanalyzers), waarmee u controle over het proces van het converteren van tekst in worden geïndexeerd en doorzoekbare tokens krijgen.
-* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) en [Azure Table Storage](search-howto-indexing-azure-tables.md) indexeerfuncties waarmee u kunt eenvoudig gegevens importeren uit Azure storage in Azure Search op een planning of op aanvraag.
-* [Veld toewijzingen](search-indexer-field-mappings.md), waarmee u aanpassen hoe indexeerfuncties gegevens importeren in Azure Search.
-* ETags, waarmee u kunt de definities van indexen, Indexeerfuncties en gegevensbronnen op een gelijktijdigheid-veilige manier bijwerken. 
+* [Aangepaste analyzers](https://aka.ms/customanalyzers), waarmee u tootake controle over Hallo proces van het converteren van tekst in worden geïndexeerd en doorzoekbare tokens.
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) en [Azure Table Storage](search-howto-indexing-azure-tables.md) indexeerfuncties waarmee u tooeasily gegevens importeren uit Azure storage in Azure Search op een planning of op aanvraag.
+* [Veld toewijzingen](search-indexer-field-mappings.md), waarmee u toocustomize hoe indexeerfuncties gegevens importeren in Azure Search.
+* ETags, waarmee u tooupdate Hallo definities van indexen, Indexeerfuncties en gegevensbronnen op een manier gelijktijdigheid-safe. 
 
 <a name="UpgradeSteps"></a>
 
-## <a name="steps-to-upgrade"></a>Stappen voor het upgraden
-Als u een van versie 2015-02-28 upgrade, hoeft u waarschijnlijk te wijzigingen aanbrengt aan uw code anders dan het versienummer wijzigen. De enige situaties waarin u code wijzigen mogelijk moet zijn wanneer:
+## <a name="steps-tooupgrade"></a>Stappen tooupgrade
+Als u een van versie 2015-02-28 upgrade, u waarschijnlijk geen toomake wijzigingen tooyour code, dan toochange Hallo versienummer. Hallo alleen situaties waarin u toochange code mogelijk moet zijn wanneer:
 
 * Uw code mislukt wanneer het niet-herkende eigenschappen worden geretourneerd in een API-reactie. Standaard moet worden genegeerd in uw toepassing eigenschappen die niet wordt herkend.
-* Uw code zich blijft voordoen API-aanvragen en probeert opnieuw te verzenden naar de nieuwe API-versie. Bijvoorbeeld: dit kan gebeuren als uw toepassing blijft voortzetting tokens die zijn geretourneerd door de Search-API draaien (voor meer informatie zoekt `@search.nextPageParameters` in de [Search API Reference](https://msdn.microsoft.com/library/azure/dn798927.aspx#Anchor_1)).
+* Uw code zich blijft voordoen API-aanvragen en tooresend probeert ze toohello nieuwe API-versie. Bijvoorbeeld: dit kan gebeuren als uw toepassing blijft voortzetting tokens die zijn geretourneerd door het Hallo-API van zoekservice draaien (voor meer informatie zoekt `@search.nextPageParameters` in Hallo [Search API Reference](https://msdn.microsoft.com/library/azure/dn798927.aspx#Anchor_1)).
 
-Als beide situaties van toepassing is, moet u mogelijk uw code dienovereenkomstig wijzigen. Anders wordt er geen wijzigingen moeten niet nodig, tenzij u wilt beginnen met de [nieuwe functies](#WhatsNew) van 2016-09-01-versie.
+Als beide situaties tooyou toepast, vervolgens moet u mogelijk toochange uw code dienovereenkomstig. Anders geen wijzigingen moeten niet nodig, tenzij u wilt dat toostart met Hallo [nieuwe functies](#WhatsNew) van 2016-09-01-versie.
 
-Als u een van versie 2015-02-28-Preview upgrade, de bovenstaande ook van toepassing, maar u moet ook rekening houden sommige preview-functies zijn niet beschikbaar in versie 2016-09-01:
+Als u een van versie 2015-02-28-Preview upgrade, Hallo hierboven is ook van toepassing, maar u moet ook rekening houden sommige preview-functies zijn niet beschikbaar in versie 2016-09-01:
 
 * Azure Blob Storage-indexeerfunctie ondersteuning voor CSV-bestanden en blobs met JSON-matrices.
 * Synoniemen
 * 'Meer als volgt' query 's
 
-Als uw code deze functies gebruikt, is het niet mogelijk om te werken naar 2016-09-01 zonder uw gebruik ervan worden verwijderd.
+Als uw code deze functies gebruikt, zich u niet kunnen tooupgrade too2016-09-01 zonder uw gebruik ervan worden verwijderd.
 
 > [!IMPORTANT]
 > Maak onthouden, preview-API's zijn bedoeld voor testen en evalueren en mag niet worden gebruikt in een productieomgeving.
@@ -62,9 +62,9 @@ Als uw code deze functies gebruikt, is het niet mogelijk om te werken naar 2016-
 > 
 
 ## <a name="conclusion"></a>Conclusie
-Als u meer informatie over het gebruik van de Azure Search Service REST API, Zie de onlangs bijgewerkt [API Reference](https://msdn.microsoft.com/library/azure/dn798935.aspx) op MSDN.
+Als u meer informatie over het gebruik van Azure Search Service REST API Hallo nodig, raadpleegt u Hallo onlangs bijgewerkt [API Reference](https://msdn.microsoft.com/library/azure/dn798935.aspx) op MSDN.
 
-Uw feedback is Welkom op Azure Search. Als u problemen ondervindt, gerust ons om hulp te vragen op de [Azure Search MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) of [StackOverflow](http://stackoverflow.com/). Als u een vraag over de Azure Search op StackOverflow vraagt, controleert u of deze met een label `azure-search`.
+Uw feedback is Welkom op Azure Search. Als u problemen ondervindt, kunt u gratis tooask ons voor hulp bij het Hallo [Azure Search MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) of [StackOverflow](http://stackoverflow.com/). Als vraagt u een vraag over Azure zoeken op StackOverflow, zorg ervoor dat tootag met `azure-search`.
 
 Hartelijk dank voor het gebruik van Azure Search.
 

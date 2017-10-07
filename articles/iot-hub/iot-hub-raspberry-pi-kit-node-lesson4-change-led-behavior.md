@@ -1,6 +1,6 @@
 ---
-title: 'Raspberry Pi (knooppunt) verbinden met Azure IoT - les 4: app wijzigen | Microsoft Docs'
-description: De berichten te wijzigen van de LED van in- en uitschakelen gedrag aanpassen.
+title: 'Verbinding maken met frambozen Pi (knooppunt) tooAzure IoT - les 4: app wijzigen | Microsoft Docs'
+description: Hallo-berichten toochange Hallo LED van in- en uitschakelen gedrag aanpassen.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,30 +17,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: b2ae23ac9cc1723936c4b4e1900b95cdcde744df
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 99b542fcb8639add0f5a0f7a49dd8abd0e224a51
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="change-the-on-and-off-behavior-of-the-led"></a>De on- en uitgeschakeld gedrag van de LED wijzigen
+# <a name="change-hello-on-and-off-behavior-of-hello-led"></a>Hallo in- en uitschakelen gedrag van Hallo LED wijzigen
 ## <a name="what-you-will-do"></a>Wat u doet
-De berichten te wijzigen van de LED van in- en uitschakelen gedrag aanpassen. Als u problemen hebt, oplossingen zoeken op de [probleemoplossing pagina](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Hallo-berichten toochange Hallo LED van in- en uitschakelen gedrag aanpassen. Als u problemen hebt, zoeken naar oplossingen op Hallo [probleemoplossing pagina](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Wat u leert
-Aanvullende Node.js-functies gebruiken voor het wijzigen van de LED van in- en uitgeschakeld gedrag.
+Gebruik aanvullende Node.js functies toochange Hallo LED van in- en uitgeschakeld gedrag.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
-U moet hebt voltooid [een voorbeeldtoepassing uitvoeren op frambozen Pi cloud-naar-apparaat-berichten ontvangen](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md).
+U moet hebt voltooid [een voorbeeldtoepassing uitvoeren op frambozen Pi tooreceive cloud-naar-apparaatberichten](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md).
 
 ## <a name="add-nodejs-functions"></a>Node.js-functies toevoegen
-1. De voorbeeldtoepassing openen in Visual Studio code met de volgende opdrachten:
+1. Hallo-voorbeeldtoepassing openen in Visual Studio code door het uitvoeren van de volgende opdrachten Hallo:
    
    ```bash
    cd Lesson4
    code .
    ```
-2. Open de `app.js` bestand en voeg vervolgens de volgende functies aan het einde:
+2. Open Hallo `app.js` bestand en voeg vervolgens Hallo functies aan Hallo einde volgen:
    
    ```javascript
    function turnOnLED() {
@@ -53,7 +53,7 @@ U moet hebt voltooid [een voorbeeldtoepassing uitvoeren op frambozen Pi cloud-na
    ```
    
    ![bestand App.js, waarbij toegevoegde functies](media/iot-hub-raspberry-pi-lessons/lesson4/updated_app_js.png)
-3. De volgende condities voordat de standaardtabel in het blok switch-aanvraag van de `receiveMessageCallback` functie:
+3. Toevoegen van de volgende voorwaarden voordat Hallo standaard één in Hallo switch case blok Hallo Hallo `receiveMessageCallback` functie:
    
    ```javascript
    case 'on':
@@ -64,8 +64,8 @@ U moet hebt voltooid [een voorbeeldtoepassing uitvoeren op frambozen Pi cloud-na
      break;
    ```
    
-   Nu hebt u de voorbeeldtoepassing om te reageren op meer instructies via berichten geconfigureerd. De instructie 'op' Hiermee schakelt u de LED en schakelt u de instructie "off" uit de LED.
-4. Open het bestand gulpfile.js en voeg vervolgens een nieuwe functie voordat de functie `sendMessage`:
+   U hebt nu Hallo voorbeeld toepassing toorespond toomore instructies via berichten geconfigureerd. Hallo 'aan'-instructie Hiermee schakelt u Hallo LED en Hallo "off" instructie Hallo LED uitgeschakeld.
+4. Hallo gulpfile.js bestand openen en voeg vervolgens een nieuwe functie voordat de functie Hallo `sendMessage`:
    
    ```javascript
    var buildCustomMessage = function (messageId) {
@@ -80,26 +80,26 @@ U moet hebt voltooid [een voorbeeldtoepassing uitvoeren op frambozen Pi cloud-na
    ```
    
    ![Bestand met toegevoegde functie Gulpfile.js](media/iot-hub-raspberry-pi-lessons/lesson4/updated_gulpfile.png)
-5. In de `sendMessage` werken, worden vervangen door de regel `var message = buildMessage(sentMessageCount);` met de nieuwe regel wordt weergegeven in het volgende fragment:
+5. In Hallo `sendMessage` werkt, Hallo regel vervangen `var message = buildMessage(sentMessageCount);` met Hallo nieuwe regel wordt weergegeven in het volgende codefragment Hallo:
    
    ```javascript
    var message = buildCustomMessage(sentMessageCount);
    ```
-6. Sla de wijzigingen op.
+6. Alle Hallo wijzigingen worden opgeslagen.
 
-### <a name="deploy-and-run-the-sample-application"></a>Implementeren en uitvoeren van de voorbeeldtoepassing
-Implementeren en uitvoeren van de voorbeeldtoepassing op Pi met de volgende opdracht:
+### <a name="deploy-and-run-hello-sample-application"></a>Implementeren en uitvoeren van de voorbeeldtoepassing Hallo
+Implementeren en uitvoeren van de voorbeeldtoepassing Hallo op Pi door het uitvoeren van de volgende opdracht Hallo:
 
 ```bash
 gulp deploy && gulp run
 ```
 
-U ziet de LED inschakelen voor twee seconden en klik vervolgens uitschakelen voor een andere twee seconden. Het laatste bericht met 'stop' stopt de voorbeeldtoepassing wordt uitgevoerd.
+U ziet Hallo LED inschakelen voor twee seconden en klik vervolgens uitschakelen voor een andere twee seconden. Hallo laatste 'stop'-bericht stopt Hallo voorbeeldtoepassing wordt uitgevoerd.
 
 ![Voorbeeld van een toepassing met in- en uitschakelen berichten](media/iot-hub-raspberry-pi-lessons/lesson4/gulp_on_and_off.png)
 
-Gefeliciteerd. U hebt de berichten die worden verzonden naar Pi uit uw IoT-hub is aangepast.
+Gefeliciteerd. U hebt is aangepast Hallo-berichten die tooPi uit uw IoT-hub worden verzonden.
 
 ### <a name="summary"></a>Samenvatting
-Deze optionele sectie laat zien hoe berichten aan te passen zodat de voorbeeldtoepassing op een andere manier de in- en uitgeschakeld gedrag van de LED kunt beheren.
+Deze optionele sectie laat zien hoe toocustomize berichten zodat de voorbeeldtoepassing Hallo Hallo in- en uitschakelen gedrag van Hallo LED op een andere manier kunt beheren.
 

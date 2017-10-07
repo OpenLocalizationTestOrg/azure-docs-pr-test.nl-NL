@@ -1,6 +1,6 @@
 ---
-title: "Controleer of verkeer verifiëren met Azure-netwerk-Watcher IP-flow - REST | Microsoft Docs"
-description: Dit artikel wordt beschreven hoe u kunt controleren als verkeer naar of van een virtuele machine wordt toegestaan of geweigerd
+title: Controleer aaaVerify verkeer met Azure-netwerk-Watcher IP-flow - REST | Microsoft Docs
+description: Dit artikel wordt beschreven hoe toocheck als tooor van een virtuele machine verkeer wordt toegestaan of geweigerd
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 6d3ce00a7d4f9c0cd57fa8815625a1065b03b5b5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 956db0d326db597c6c402a9e8d4a5522c47c02d6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Controleer of het verkeer wordt toegestaan of geweigerd met IP-stroom controleren of een onderdeel van Azure-netwerk-Watcher
 
@@ -30,17 +30,17 @@ ms.lasthandoff: 07/11/2017
 > - [Azure REST-API](network-watcher-check-ip-flow-verify-rest.md)
 
 
-IP-stroom controleren is een functie van netwerk-Watcher die u controleren kunt of er verkeer is toegestaan naar of van een virtuele machine. De validatie kan worden uitgevoerd voor binnenkomend of uitgaand verkeer. Dit scenario is nuttig voor het ophalen van de huidige status of een virtuele machine contact met een externe bron of de back-end opnemen kunt. IP-stroom controleren om te controleren of als uw regels Netwerkbeveiligingsgroep (NSG) juist zijn geconfigureerd en problemen oplossen stromen die worden geblokkeerd door het NSG-regels kunnen worden gebruikt. Een andere reden voor het gebruik van IP-stroom controleren om ervoor te zorgen verkeer dat u blokkeren wilt is goed door het NSG worden geblokkeerd.
+IP-stroom controleren is een functie van netwerk-Watcher waarmee u tooverify als verkeer wordt toegestaan tooor van een virtuele machine. Hallo validatie kan worden uitgevoerd voor binnenkomend of uitgaand verkeer. Dit scenario is nuttig tooget een huidige status van of een virtuele machine tooan externe bron- of back-end praten kunt. IP-stroom controleren gebruikte tooverify is als uw regels Netwerkbeveiligingsgroep (NSG) juist zijn geconfigureerd en oplossen van stromen die worden geblokkeerd door het NSG-regels. Een andere reden voor het gebruik van IP-stroom controleren die u blokkeren wilt tooensure-verkeer wordt geblokkeerd goed door Hallo NSG.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-ARMclient wordt gebruikt voor het aanroepen van de REST-API met behulp van PowerShell. ARMClient is gevonden op chocolatey op [ARMClient op Chocolatey](https://chocolatey.org/packages/ARMClient)
+ARMclient is gebruikte toocall Hallo REST-API met behulp van PowerShell. ARMClient is gevonden op chocolatey op [ARMClient op Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-Dit scenario wordt ervan uitgegaan dat u de stappen in al hebt gevolgd [maken van een netwerk-Watcher](network-watcher-create.md) voor het maken van een netwerk-Watcher.
+Dit scenario wordt ervan uitgegaan dat u hebt al Hallo stappen uitgevoerd in [maken van een netwerk-Watcher](network-watcher-create.md) toocreate een netwerk-Watcher.
 
 ## <a name="scenario"></a>Scenario
 
-Dit scenario maakt gebruik van IP-stroom controleren om te controleren of als een virtuele machine naar een andere computer via poort 443 communiceren kan. Als het verkeer wordt geweigerd, wordt de beveiligingsregel die dat verkeer wordt geweigerd. Voor meer informatie over IP-stroom controleren, gaat u naar [IP-stroom overzicht controleren](network-watcher-ip-flow-verify-overview.md)
+Dit scenario maakt gebruik van IP-stroom controleren tooverify als een virtuele machine tooanother computer via poort 443 communiceren kan. Als het Hallo-verkeer wordt geweigerd, wordt Hallo beveiligingsregel die dat verkeer wordt geweigerd. toolearn meer over IP-stroom controleren, gaat u naar [IP-stroom overzicht controleren](network-watcher-ip-flow-verify-overview.md)
 
 In dit scenario u:
 
@@ -56,10 +56,10 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Een virtuele machine ophalen
 
-Voer het volgende script om te retourneren van een virtuele machine. De volgende code moet waarden voor de variabelen:
+Hallo script tooreturn na een virtuele machine uitvoeren. Hallo moet volgende code waarden voor Hallo variabelen:
 
-* **subscriptionId** -de abonnements-Id te gebruiken.
-* **resourceGroupName** -de naam van een resourcegroep die virtuele machines bevatten.
+* **subscriptionId** -Hallo toouse voor abonnement-Id.
+* **resourceGroupName** - hello naam van een resourcegroep die virtuele machines bevatten.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -68,7 +68,7 @@ $resourceGroupName = "<resource group name>"
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-De informatie die nodig is de id onder het type `Microsoft.Compute/virtualMachines`. De resultaten moeten zijn vergelijkbaar met het volgende codevoorbeeld:
+Hallo informatie die nodig is Hallo-id onder Hallo type `Microsoft.Compute/virtualMachines`. Hallo resultaten moeten vergelijkbaar toohello codevoorbeeld te volgen:
 
 ```json
 ...,
@@ -100,15 +100,15 @@ pute/virtualMachines/ContosoVM/extensions/CustomScriptExtension"
 
 ## <a name="call-ip-flow-verify"></a>Aanroep van IP-stroom controleren
 
-Het volgende voorbeeld wordt een verzoek om te controleren of het verkeer voor een opgegeven virtuele machine. Het antwoord retourneert als het verkeer wordt toegestaan of als het verkeer wordt geweigerd. Als verkeer wordt geweigerd dat ook wordt het verkeer wordt geblokkeerd door welke regel.
+Hallo wordt volgende voorbeeld een aanvraag tooverify Hallo verkeer voor een opgegeven virtuele machine. antwoord Hallo retourneert als Hallo verkeer wordt toegestaan of als het Hallo-verkeer wordt geweigerd. Als verkeer wordt geweigerd dat deze ook welke regel blokkeert verkeer Hallo retourneert.
 
 > [!NOTE]
-> IP-stroom controleren vereist dat de VM-resource wordt toegewezen.
+> IP-stroom controleren vereist dat de VM-resource hello wordt toegewezen.
 
-Het script is vereist voor de resource-Id van een virtuele machine en een netwerkinterfacekaart op de virtuele machine. Deze waarden worden geleverd door de voorgaande uitvoer.
+Hallo script vereist Hallo resource-Id van een virtuele machine en een netwerkinterfacekaart op Hallo virtuele machine. Deze waarden worden geleverd door Hallo voorafgaand aan de uitvoer.
 
 > [!Important]
-> De naam van de resourcegroep in de aanvraag-URI is voor alle netwerk-Watcher REST-aanroepen die het bevat de netwerk-Watcher-instantie, niet de bronnen die u wilt de diagnostische acties uitvoeren op.
+> Voor alle netwerk-Watcher REST Hallo aanroepen Resourcegroepnaam in Hallo aanvraag-URI is Hallo een bestand met de Hallo netwerk-Watcher-exemplaar niet Hallo resources u Hallo diagnostische acties uitvoert op.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -141,9 +141,9 @@ $requestBody = @"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/ipFlowVerify?api-version=2016-12-01" $requestBody -verbose
 ```
 
-## <a name="understanding-the-results"></a>Inzicht in de resultaten
+## <a name="understanding-hello-results"></a>Understanding Hallo resultaten
 
-Het antwoord dat u terughalen vertelt u of het verkeer wordt toegestaan of geweigerd. Het antwoord ziet eruit als een van de volgende voorbeelden:
+antwoord Hallo die u terughalen vertelt u of Hallo verkeer wordt toegestaan of geweigerd. antwoord Hallo ziet eruit als een van de Hallo volgen voorbeelden:
 
 **Toegestaan**
 
@@ -165,7 +165,7 @@ Het antwoord dat u terughalen vertelt u of het verkeer wordt toegestaan of gewei
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie als verkeer wordt geblokkeerd en mag geen [Netwerkbeveiligingsgroepen beheren](../virtual-network/virtual-network-manage-nsg-arm-portal.md) voor meer informatie over Netwerkbeveiligingsgroepen.
+Zie als verkeer wordt geblokkeerd en mag geen [Netwerkbeveiligingsgroepen beheren](../virtual-network/virtual-network-manage-nsg-arm-portal.md) toolearn meer over Netwerkbeveiligingsgroepen.
 
 
 

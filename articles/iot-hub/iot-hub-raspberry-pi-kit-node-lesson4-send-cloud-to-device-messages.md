@@ -1,13 +1,13 @@
 ---
 featureFlags: usabilla
-title: 'Raspberry Pi (knooppunt) verbinden met Azure IoT - les 4: Cloud-naar-apparaat | Microsoft Docs'
-description: De voorbeeldtoepassing wordt uitgevoerd op Pi en bewaakt binnenkomende berichten van uw IoT-hub. Een nieuwe gulp taak verzendt berichten naar Pi uit uw iothub de LED knipperen.
+title: 'Verbinding maken met frambozen Pi (knooppunt) tooAzure IoT - les 4: Cloud-naar-apparaat | Microsoft Docs'
+description: Hallo-voorbeeldtoepassing wordt uitgevoerd op Pi en bewaakt binnenkomende berichten van uw IoT-hub. Een nieuwe gulp taak verzendt berichten tooPi van uw IoT hub tooblink Hallo LED.
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timlt
 tags: 
-keywords: cloud naar apparaat, het bericht uit de cloud
+keywords: cloud toodevice, het bericht uit de cloud
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
 ms.assetid: 6ae6539e-1163-4490-8d72-fdf7803e3054
@@ -18,76 +18,76 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: b8e9e51391f9b6737762b3404658297ab4c82783
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d69ded4e30c27378481ab2a4fb9c5b73be7bd44e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="run-the-sample-application-to-receive-cloud-to-device-messages"></a>Uitvoeren van de voorbeeldtoepassing cloud-naar-apparaat-berichten ontvangen
-In dit artikel hebt implementeren u een voorbeeld van toepassing op frambozen Pi 3. De voorbeeldtoepassing controleert binnenkomende berichten van uw IoT-hub. U kunt ook een taak gulp uitvoeren op uw computer om berichten te verzenden naar Pi uit uw IoT-hub. Wanneer de voorbeeldtoepassing de berichten ontvangt, wordt de LED knippert. Als u problemen hebt, oplossingen zoeken op de [probleemoplossing pagina](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+# <a name="run-hello-sample-application-tooreceive-cloud-to-device-messages"></a>Hallo voorbeeld tooreceive cloud-naar-apparaat toepassingsberichten uitvoeren
+In dit artikel hebt implementeren u een voorbeeld van toepassing op frambozen Pi 3. Hallo-voorbeeldtoepassing controleert binnenkomende berichten van uw IoT-hub. U ook uitvoeren een gulp taak op uw computer toosend berichten tooPi uit uw IoT-hub. Wanneer de voorbeeldtoepassing Hallo Hallo-berichten ontvangt, knippert het Hallo LED. Als u problemen hebt, zoeken naar oplossingen op Hallo [probleemoplossing pagina](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## <a name="what-you-will-do"></a>Wat u doet
-* Verbinding maken met de voorbeeldtoepassing met uw iothub.
-* Implementeren en uitvoeren van de voorbeeldtoepassing.
-* Berichten verzenden van uw IoT-hub tot Pi de LED knipperen.
+* Sluit Hallo voorbeeld toepassing tooyour iothub.
+* Implementeren en uitvoeren van de voorbeeldtoepassing Hallo.
+* Berichten verzenden van uw IoT hub tooPi tooblink Hallo LED.
 
 ## <a name="what-you-will-learn"></a>Wat u leert
 In dit artikel leert u het:
-* Het bewaken van inkomende berichten van uw IoT-hub
-* Het cloud-naar-apparaat-berichten verzenden vanuit uw IoT-hub tot Pi.
+* Hoe toomonitor inkomende berichten uit uw IoT-hub
+* Hoe toosend cloud-naar-apparaat-berichten uit uw IoT hub tooPi.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
-* Raspberry Pi 3, die zijn ingesteld voor gebruik. Zie voor meer informatie over het instellen van Pi, [configureren van uw apparaat](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md).
-* Een IoT-hub die wordt gemaakt in uw Azure-abonnement. Zie voor meer informatie over het maken van uw IoT-hub, [uw IoT-hub maken en registreren van frambozen Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md).
+* Raspberry Pi 3, die zijn ingesteld voor gebruik. hoe tooset van Pi, Zie toolearn [configureren van uw apparaat](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md).
+* Een IoT-hub die wordt gemaakt in uw Azure-abonnement. toolearn hoe toocreate uw IoT-hub Zie [uw IoT-hub maken en registreren van frambozen Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md).
 
-## <a name="connect-the-sample-application-to-your-iot-hub"></a>Verbinding maken met de voorbeeldtoepassing met uw iothub
-1. Zorg ervoor dat u in de map opslagplaats `iot-hub-node-raspberrypi-getting-started`. De voorbeeldtoepassing openen in Visual Studio Code met de volgende opdrachten:
+## <a name="connect-hello-sample-application-tooyour-iot-hub"></a>Verbinding maken met de Hallo voorbeeld toepassing tooyour IoT-hub
+1. Zorg ervoor dat u in Hallo opslagplaats map `iot-hub-node-raspberrypi-getting-started`. Hallo-voorbeeldtoepassing openen in Visual Studio Code door het uitvoeren van de volgende opdrachten Hallo:
    
    ```bash
    cd Lesson4
    code .
    ```
    
-   U ziet de `app.js` bestand de `app` submap. De `app.js` bestand is het belangrijkste bronbestand met de code voor het bewaken van binnenkomende berichten uit iothub. De `blinkLED` functie de LED knippert.
+   Kennisgeving Hallo `app.js` bestand in Hallo `app` submap. Hallo `app.js` bestand is Hallo sleutel bronbestand die Hallo code toomonitor binnenkomende berichten uit IoT-hub Hallo bevat. Hallo `blinkLED` functie Hallo LED knippert.
    
-   ![Structuur van de opslagplaats in de voorbeeldtoepassing](media/iot-hub-raspberry-pi-lessons/lesson4/repo_structure.png)
-2. Het configuratiebestand initialiseren met de volgende opdrachten:
+   ![Structuur van de opslagplaats in Hallo-voorbeeldtoepassing](media/iot-hub-raspberry-pi-lessons/lesson4/repo_structure.png)
+2. Hallo-configuratiebestand met behulp van de volgende opdrachten Hallo initialiseren:
    
    ```bash
    npm install
    gulp init
    ```
    
-   Als u de stappen in voltooid [een Azure-functie-app en storage-account maken](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md) op deze computer, alle configuraties worden overgenomen, zodat u kunt doorgaan met de taak van het implementeren en uitvoeren van de voorbeeldtoepassing. Als u de stappen in voltooid [een Azure-functie-app en storage-account maken](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md) op een andere computer, moet u Vervang de tijdelijke aanduidingen in de `config-raspberrypi.json` bestand. De `config-raspberrypi.json` bestand bevindt zich in de submap van de basismap.
+   Als u de stappen in Hallo voltooid [een Azure-functie-app en storage-account maken](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md) op deze computer, alle Hallo-configuraties worden overgenomen, zodat u kunt toohello taak implementeren en uitvoeren van de voorbeeldtoepassing Hallo overslaan. Als u de stappen in Hallo voltooid [een Azure-functie-app en storage-account maken](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md) op een andere computer, moet u tooreplace Hallo tijdelijke aanduidingen in Hallo `config-raspberrypi.json` bestand. Hallo `config-raspberrypi.json` bestand bevindt zich in de submap Hallo van de basismap.
    
-   ![Inhoud van het bestand config raspberrypi.json](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
+   ![Inhoud van Hallo config raspberrypi.json bestand](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
 
-* Vervang **[apparaat-hostnaam of IP-adres]** met het IP-adres van Pi of de hostnaam die u door het uitvoeren van de `devdisco list --eth` opdracht.
-* Vervang **[apparaat-verbindingsreeks IoT]** met de verbindingsreeks voor apparaten die u door het uitvoeren van de `az iot device show-connection-string --hub-name {my hub name} --device-id {device id} -g iot-sample {resource group name}` opdracht.
-* Vervang **[IoT hub verbindingsreeks]** met de verbindingsreeks voor IoT-hub die u door het uitvoeren van de `az iot hub show-connection-string --name {my hub name} -g iot-sample {resource group name}` opdracht.
+* Vervang **[apparaat-hostnaam of IP-adres]** met Hallo IP-adres van Pi of Hallo hostnaam die u door het uitvoeren van Hallo `devdisco list --eth` opdracht.
+* Vervang **[apparaat-verbindingsreeks IoT]** met Hallo apparaat verbindingsreeks die u door het uitvoeren van Hallo `az iot device show-connection-string --hub-name {my hub name} --device-id {device id} -g iot-sample {resource group name}` opdracht.
+* Vervang **[IoT hub verbindingsreeks]** Hello verbindingsreeks van het IoT-hub die u door het uitvoeren van Hallo `az iot hub show-connection-string --name {my hub name} -g iot-sample {resource group name}` opdracht.
 
 > [!NOTE]
 > Voer **gulp install-hulpprogramma's** en, als u dit nog niet hebt gedaan in les 1.
 
-## <a name="deploy-and-run-the-sample-application"></a>Implementeren en uitvoeren van de voorbeeldtoepassing
-Implementeren en uitvoeren van de voorbeeldtoepassing op Pi met de volgende opdracht:
+## <a name="deploy-and-run-hello-sample-application"></a>Implementeren en uitvoeren van de voorbeeldtoepassing Hallo
+Implementeren en uitvoeren van de voorbeeldtoepassing Hallo op Pi door het uitvoeren van de volgende opdracht Hallo:
 
 ```bash
 gulp deploy && gulp run
 ```
 
-De opdracht implementeert de voorbeeldtoepassing tot Pi. Vervolgens wordt de toepassing uitgevoerd op Pi en een afzonderlijke taak op de hostcomputer Pi 20 knipperen berichten verzenden van uw IoT-hub.
+Hallo opdracht implementeert Hallo voorbeeld toepassing tooPi. Vervolgens het Hallo toepassing uitvoert op een afzonderlijke taak op de host en Pi computer toosend 20 knipperen berichten tooPi uit uw IoT-hub.
 
-Na de voorbeeldtoepassing wordt uitgevoerd, start het luisteren naar berichten van uw IoT-hub. De taak gulp verzendt ondertussen diverse 'knipperen'-berichten van uw IoT-hub tot Pi. Voor elk bericht knipperen die Pi ontvangt, de voorbeeldtoepassing roept de `blinkLED` functie de LED knipperen.
+Na het Hallo-voorbeeldtoepassing wordt uitgevoerd, start het luisteren toomessages uit uw IoT-hub. Ondertussen verzendt Hallo gulp taak aantal 'knipperen' e-mailberichten van uw IoT hub tooPi. Voor elk bericht knipperen die Pi ontvangt, roept de voorbeeldtoepassing Hallo Hallo `blinkLED` functie tooblink Hallo LED.
 
-U ziet de LED knipperen elke twee seconden als de taak gulp 20 berichten uit uw iothub tot Pi verzendt. Het laatste bestand is een 'stop' weergegeven waarin wordt gemeld de toepassing dat meer uitgevoerd.
+U ziet Hallo LED knipperen elke twee seconden als Hallo taak verzendt 20 berichten van uw IoT hub tooPi gulp. Hallo laatste is een een 'stop' weergegeven waarin wordt uitgelegd Hallo toepassing toostop uitgevoerd.
 
 ![Voorbeeld van een toepassing met de opdracht gulp en berichten knipperen](media/iot-hub-raspberry-pi-lessons/lesson4/gulp_blink.png)
 
 ## <a name="summary"></a>Samenvatting
-U hebt verzonden berichten uit uw IoT-hub tot Pi de LED knipperen. De volgende taak is optioneel: de aan- en uitgeschakeld gedrag van de LED wijzigen.
+U hebt berichten uit uw IoT hub tooPi tooblink Hallo LED verzonden. de volgende taak Hallo is optioneel: Hallo in- en uitschakelen gedrag van Hallo LED wijzigen.
 
 ## <a name="next-steps"></a>Volgende stappen
-[De on- en uitgeschakeld gedrag van de LED wijzigen](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
+[Hallo in- en uitschakelen gedrag van Hallo LED wijzigen](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 

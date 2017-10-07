@@ -1,6 +1,6 @@
 ---
-title: Onverwachte fout bij het uitvoeren van toestemming voor een toepassing | Microsoft Docs
-description: Fouten die tijdens het proces optreden kunnen van een toepassing en wat u kunt doen over ze ermee akkoord dat wordt beschreven
+title: AAA onverwachte fout bij het uitvoeren van toestemming tooan toepassing | Microsoft Docs
+description: Fouten die zich kunnen voordoen tijdens Hallo van ermee akkoord dat tooan toepassings- en wat u kunt doen over te komen aan bod
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,68 +13,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: fd500fdd4c8642bad96dcf71eebcf1fad461a35f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: dfee35f3a10e3cc4313109cedd972499452320f1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="unexpected-error-when-performing-consent-to-an-application"></a>Onverwachte fout bij het uitvoeren van toestemming voor een toepassing
+# <a name="unexpected-error-when-performing-consent-tooan-application"></a>Onverwachte fout bij het uitvoeren van toestemming tooan toepassing
 
-Dit artikel bevat fouten die kunnen optreden tijdens het proces om een toepassing met. Als u problemen met onverwachte toestemming wordt gevraagd dat niet eventuele foutberichten bevatten, Zie [verificatie scenario's voor Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
+Dit artikel bevat fouten die zich tijdens Hallo van ermee akkoord dat tooan toepassing voordoen kunnen. Als u problemen met onverwachte toestemming wordt gevraagd dat niet eventuele foutberichten bevatten, Zie [verificatie scenario's voor Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
 
-Veel toepassingen die zijn geïntegreerd met Azure Active Directory vereisen machtigingen voor toegang tot andere bronnen om te werken. Wanneer deze resources ook worden geïntegreerd met Azure Active Directory, toegang tot deze is vaak aangevraagd met het gemeenschappelijke kader voor toestemming. 
+Veel toepassingen die zijn geïntegreerd met Azure Active Directory vereisen machtigingen tooaccess andere bronnen in de volgorde toofunction. Wanneer u deze resources zijn ook worden geïntegreerd met Azure Active Directory, toestemming machtigingen tooaccess ze vaak wordt aangevraagd met behulp van algemene Hallo framework. 
 
-Dit resulteert in een instemmingsprompt wordt weergegeven, die treedt meestal op de eerste keer dat een toepassing wordt gebruikt, maar kan ook optreden op een later gebruik van de toepassing.
+Dit resulteert in een instemmingsprompt wordt weergegeven, die doorgaans Hallo eerst een toepassing wordt gebruikt, maar kan ook optreden op een later gebruik van de toepassing hello plaatsvindt.
 
-Bepaalde voorwaarden worden voldaan voor een gebruiker toe te staan de machtigingen die vereist zijn voor een toepassing. Als u deze voorwaarden niet wordt voldaan, kunnen er diverse fouten optreden. Deze omvatten:
+Bepaalde voorwaarden worden voldaan voor een gebruiker tooconsent toohello machtigingen vereist zijn voor een toepassing. Als u deze voorwaarden niet wordt voldaan, kunnen er diverse fouten optreden. Deze omvatten:
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Niet-geautoriseerde Machtigingsfout aanvragen
-* **AADSTS90093:** &lt;clientAppDisplayName&gt; vraagt een of meer machtigingen die u bent niet gemachtigd om u te verlenen. Neem contact op met een beheerder, die u kunt deze toepassing namens jou toestemming.
+* **AADSTS90093:** &lt;clientAppDisplayName&gt; vraagt een of meer machtigingen die u niet bent gemachtigd toogrant. Neem contact op met een beheerder, die kan toothis toepassing namens jou toestemming.
 
-Deze fout treedt op wanneer een gebruiker die geen beheerder van een bedrijf wil gebruik van een toepassing die de machtigingen die alleen een beheerder kan verlenen aanvraagt. Deze fout kan worden opgelost door een beheerder toegang verlenen tot de toepassing namens hun organisatie.
+Deze fout treedt op wanneer een gebruiker die geen beheerder van een bedrijf probeert een toepassing die de machtigingen die alleen een beheerder kan verlenen aanvraagt toouse. Deze fout kan worden opgelost door een beheerder het verlenen van toegang toohello toepassing namens hun organisatie.
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Beleid voorkomt dat machtigingen verlenen fout
-* **AADSTS90093:** beheerder van &lt;tenantDisplayName&gt; heeft een beleid dat u niet verlenen ingesteld &lt;naam van de app&gt; de machtigingen die het aanvraagt. Neem contact op met de beheerder van &lt;tenantDisplayName&gt;, wie machtigingen kunt verlenen voor deze app namens jou.
+* **AADSTS90093:** beheerder van &lt;tenantDisplayName&gt; heeft een beleid dat u niet verlenen ingesteld &lt;naam van de app&gt; Hallo machtigingen het vraagt. Neem contact op met de beheerder van &lt;tenantDisplayName&gt;, wie machtigingen toothis app namens jou kunnen verlenen.
 
-Deze fout treedt op wanneer de beheerder de mogelijkheid voor gebruikers om toestemming aan toepassingen, uitgeschakeld en vervolgens een gebruiker die geen beheerder probeert te gebruiken van een toepassing die toestemming nodig. Deze fout kan worden opgelost door een beheerder toegang verlenen tot de toepassing namens hun organisatie.
+Deze fout treedt op wanneer de beheerder uitgeschakeld Hallo mogelijkheid voor gebruikers tooconsent tooapplications wordt, en vervolgens een gebruiker die geen beheerder probeert een toepassing die toestemming nodig om toouse. Deze fout kan worden opgelost door een beheerder het verlenen van toegang toohello toepassing namens hun organisatie.
 
 ## <a name="intermittent-problem-error"></a>Onregelmatige probleem fout
-* **AADSTS90090:** het lijkt erop dat we een onregelmatig probleem opname van de machtigingen die u hebt geprobeerd te verlenen aan aangetroffen &lt;clientAppDisplayName&gt;. Probeer het later opnieuw.
+* **AADSTS90090:** het lijkt erop dat we een onregelmatig probleem recording Hallo machtigingen die u hebt geprobeerd toogrant te aangetroffen&lt;clientAppDisplayName&gt;. Probeer het later opnieuw.
 
-Deze fout geeft aan dat er een probleem onregelmatige service aan de clientzijde is opgetreden. Deze kan worden opgelost door probeert toe te staan de toepassing opnieuw.
+Deze fout geeft aan dat er een probleem onregelmatige service aan de clientzijde is opgetreden. Deze kan worden opgelost door tooconsent toohello toepassing opnieuw probeert.
 
 ## <a name="resource-not-available-error"></a>Resource niet beschikbaar-fout
-* **AADSTS65005:** de app &lt;clientAppDisplayName&gt; aangevraagd machtigingen voor toegang tot een resource &lt;resourceAppDisplayName&gt; die is niet beschikbaar. 
+* **AADSTS65005:** Hallo app &lt;clientAppDisplayName&gt; aangevraagd machtigingen tooaccess een resource &lt;resourceAppDisplayName&gt; die is niet beschikbaar. 
 
-Neem contact op met de ontwikkelaar van toepassingen.
+Neem contact op met de ontwikkelaar van de toepassing hello.
 
 ##  <a name="resource-not-available-in-tenant-error"></a>De resource is niet beschikbaar in de tenant-fout
-* **AADSTS65005:** &lt;clientAppDisplayName&gt; toegang tot een bron aanvraagt &lt;resourceAppDisplayName&gt; die is niet beschikbaar in uw organisatie &lt; tenantDisplayName&gt;. 
+* **AADSTS65005:** &lt;clientAppDisplayName&gt; vraagt toegang tooa resource &lt;resourceAppDisplayName&gt; die is niet beschikbaar in uw organisatie &lt; tenantDisplayName&gt;. 
 
 Zorg ervoor dat deze resource beschikbaar is of neem contact op met de beheerder van &lt;tenantDisplayName&gt;.
 
 ## <a name="permissions-mismatch-error"></a>Fout met niet overeenkomende machtigingen
-* **AADSTS65005:** de app aangevraagd toestemming voor toegang tot resources &lt;resourceAppDisplayName&gt;. Deze aanvraag is mislukt omdat deze komt niet overeen met hoe de app is vooraf geconfigureerd tijdens de registratie van de app. Neem contact op met de app vendor.* *
+* **AADSTS65005:** Hallo app aangevraagd toestemming tooaccess resource &lt;resourceAppDisplayName&gt;. Deze aanvraag is mislukt omdat deze komt niet overeen met het hoe Hallo app is vooraf geconfigureerd tijdens de registratie van de app. Neem contact op met Hallo app vendor.* *
 
-Deze fouten die alle optreden wanneer de toepassing die een gebruiker probeert toe te staan machtigingen vraagt voor toegang tot een resource-toepassing die niet is gevonden in de map van de organisatie (tenant). Dit kan verschillende redenen optreden:
+Deze alle fouten optreden wanneer de toepassing hello een gebruiker probeert tooconsent toois aanvragen machtigingen tooaccess een resource-toepassing die niet is gevonden in de map van de organisatie van de Hallo (tenant). Dit kan verschillende redenen optreden:
 
--   De ontwikkelaar van de client-toepassing heeft de toepassing niet goed geconfigureerd, waardoor toegang vragen tot een ongeldige resource. De ontwikkelaar moet in dit geval wordt de configuratie van de clienttoepassing lost dit probleem bijwerken.
+-   toepassingsontwikkelaar Hallo-client heeft de toepassing niet goed geconfigureerd, waardoor toorequest toegang tooan ongeldige resource. In dit geval moet Hallo toepassingsontwikkelaar bijwerken Hallo configuratie van Hallo client toepassing tooresolve dit probleem.
 
--   Een Service-Principal voor de doeltoepassing resource bestaat niet in de organisatie, of in het verleden bestond maar is verwijderd. U lost dit probleem, moet een Service-Principal voor de resource-toepassing in de organisatie worden ingericht zodat de clienttoepassing machtigingen kan aanvragen. Dit kan gebeuren in een aantal manieren, afhankelijk van het type toepassing, met inbegrip van:
+-   Een Service-Principal voor de doeltoepassing resource Hallo bestaat niet in de organisatie hello, of voorkomen in het verleden Hallo maar is verwijderd. tooresolve dit probleem, een Service-Principal voor Hallo resource toepassing moet worden ingericht in Hallo organisatie zodat het Hallo-clienttoepassing tooit machtigingen kan aanvragen. Dit kan gebeuren in een aantal manieren, afhankelijk van Hallo type toepassing, met inbegrip van:
 
-    -   Ophalen van een abonnement voor de resource-toepassing (Microsoft gepubliceerde toepassingen)
+    -   Ophalen van een abonnement voor de resource-toepassing hello (Microsoft gepubliceerde toepassingen)
 
-    -   Ermee akkoord dat de resource-toepassing
+    -   Ermee akkoord dat toohello resource toepassing
 
-    -   Machtigingen van de toepassing via Azure Portal
+    -   Machtigingen Hallo toepassing via hello Azure Portal
 
-    -   Het toevoegen van de toepassing van de Azure AD-Toepassingsgalerie
+    -   Hallo-toepassing toe te voegen uit hello Azure AD-Toepassingsgalerie
 
 ## <a name="next-steps"></a>Volgende stappen 
 
 [Apps, machtigingen en toestemming in Azure Active Directory (v1-eindpunt)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
 
-[Scopes, machtigingen en toestemming in Azure Active Directory (v2.0-eindpunt)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
+[Scopes, machtigingen en toestemming in hello Azure Active Directory (v2.0-eindpunt)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
 
 

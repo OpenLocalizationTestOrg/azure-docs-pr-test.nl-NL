@@ -1,5 +1,5 @@
 ---
-title: (afgeschaft) Binaire classificatie - Azure | Microsoft Docs
+title: AAA(deprecated) binaire classificatie - Azure | Microsoft Docs
 description: (afgeschaft) Binaire classificatie
 services: machine-learning
 documentationcenter: 
@@ -16,42 +16,42 @@ ms.date: 01/06/2017
 ms.author: jaymathe
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 1a83392f90bb5a9fb183334c03ccec20dd3f3520
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 0496fcec9952ca243270caf67f55fe191b2dc9f8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-binary-classifier"></a>(afgeschaft) Binaire classificatie
 
 > [!NOTE]
-> De Microsoft-DataMarket wordt buiten gebruik gesteld en deze API is afgeschaft. 
+> Hallo Microsoft DataMarket wordt buiten gebruik gesteld en deze API is afgeschaft. 
 > 
-> U kunt zoeken veel nuttige voorbeeld experimenten en API's in de [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Zie voor meer informatie over de Gallery [Share en het detecteren van bronnen in de Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+> U vindt veel nuttige voorbeeld experimenten en API's in Hallo [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Zie voor meer informatie over Hallo galerie [Share en het detecteren van bronnen in Hallo Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-Stel dat u hebt een gegevensset en zou willen voorspellen van een binaire afhankelijke variabele op basis van de onafhankelijke variabelen. 'Logistic Regression' is een populair statistische techniek voor dergelijke voorspellingen. Hier de afhankelijke variabele is binary of dichotomous en p is de kans van de aanwezigheid van het kenmerk van belang. 
+Stel dat u hebt een gegevensset en wilt toopredict een binaire afhankelijke variabele op basis van Hallo onafhankelijke variabelen. 'Logistic Regression' is een populair statistische techniek voor dergelijke voorspellingen. Hier Hallo afhankelijke variabele binary of dichotomous, en p Hallo kans van de aanwezigheid van Hallo-kenmerk van belang. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Een eenvoudig scenario mogelijk waarin een onderzoeker probeert te voorspellen of een potentiële student waarschijnlijk een aanbieding toelating om een universiteit op basis van gegevens is (GPA in middelbare school, familie inkomsten, residente status gendervraagstukken) te accepteren. Het verwachte resultaat is de kans van de potentiële student de toelating-aanbieding accepteren. Dit [webservice](https://datamarket.azure.com/dataset/aml_labs/log_regression) past het logistic regressiemodel in de gegevens en de waarschijnlijkheidswaarde (y) voor elk van de metingen in de gegevens levert.  
+Een eenvoudig scenario mogelijk waarin een onderzoeker probeert toopredict of een potentiële student waarschijnlijk tooaccept een toelating aanbieding tooa universiteit op basis van gegevens is (GPA in middelbare school, familie inkomsten, residente status gendervraagstukken). Hallo voorspelde uitkomst is de kans op Hallo van Hallo potentiële student Hallo toelating aanbieding accepteren. Dit [webservice](https://datamarket.azure.com/dataset/aml_labs/log_regression) past Hallo logistic regression toohello modelgegevens en uitvoer Hallo waarschijnlijkheidswaarde (y) voor elk Hallo metingen in Hallo-gegevens.  
 
-> Deze webservice kan bijvoorbeeld worden gebruikt door gebruikers – mogelijk via een mobiele app via een website of zelfs op een lokale computer. Maar het doel van de webservice is ook als een voorbeeld van hoe Azure Machine Learning-webservices boven op R code maken kan worden gebruikt. Met een paar regels code R en klikt op een knop in Azure Machine Learning Studio, worden een experiment gemaakt met R code en gepubliceerd als een webservice. De webservice kan vervolgens worden gepubliceerd naar Azure Marketplace en verbruikt door gebruikers en apparaten over de hele wereld zonder instellingen infrastructuur door de auteur van de webservice.  
+> Deze webservice kan bijvoorbeeld worden gebruikt door gebruikers – mogelijk via een mobiele app via een website of zelfs op een lokale computer. Maar Hallo doel van de webservice Hallo is ook tooserve als een voorbeeld van hoe Azure Machine Learning-webservices gebruikte toocreate boven op R-code kan zijn. Met een paar regels code R en klikt op een knop in Azure Machine Learning Studio, worden een experiment gemaakt met R code en gepubliceerd als een webservice. Hallo-webservice vervolgens gepubliceerde toohello Azure Marketplace kan worden en verbruikt door gebruikers en apparaten via Hallo wereld zonder instellingen infrastructuur door de auteur Hallo van Hallo-webservice.  
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Gebruik van web-service
-Deze webservice geeft de voorspelde waarden van de afhankelijke variabele op basis van de onafhankelijke variabelen voor alle van de metingen. De webservice voor verwacht de eindgebruiker voor het invoeren van gegevens als een tekenreeks waarin rijen worden gescheiden door komma (,) en kolommen worden gescheiden door puntkomma (;). De webservice 1 rij verwacht op een tijdstip en de eerste kolom van de afhankelijke variabele worden verwacht. Een voorbeeld van de gegevensset kan er als volgt uitzien:
+Deze web-service biedt Hallo voorspelde waarden van Hallo afhankelijke variabele op basis van onafhankelijke variabelen Hallo voor alle Hallo opmerkingen. Hallo-webservice verwacht Hallo eindgebruiker tooinput gegevens als een tekenreeks waarin rijen worden gescheiden door komma (,) en kolommen worden gescheiden door puntkomma (;). Hallo-webservice 1 rij tegelijk verwacht en Hallo eerste kolom toobe Hallo afhankelijke variabele verwacht. Een voorbeeld van de gegevensset kan er als volgt uitzien:
 
 ![Voorbeeldgegevens][1]
 
-Opmerkingen zonder een afhankelijke variabele moeten worden ingevoerd als 'N.V.T.' voor y. De gegevens die invoer voor de bovenstaande gegevensset zou de volgende tekenreeks zijn: '1; 5; 2,1; 1; 6,0; 5.3; 2.1,0; 5; 5,0; 3; 4,1; 2; 1, N.V.T.; 3; 4'. De uitvoer is de voorspelde waarde voor elk van de rijen op basis van de onafhankelijke variabelen. 
+Opmerkingen zonder een afhankelijke variabele moeten worden ingevoerd als 'N.V.T.' voor y. Hallo gegevens invoeren voor Hallo hierboven gegevensset zou worden Hallo de volgende tekenreeks: '1; 5; 2,1; 1; 6,0; 5.3; 2.1,0; 5; 5,0; 3; 4,1; 2; 1, N.V.T.; 3; 4'. Hallo-uitvoer is hello voorspelde waarde voor elk van de rijen Hallo gebaseerd op Hallo onafhankelijke variabelen. 
 
-> Deze service wordt gehost op Azure Marketplace, een OData-service Deze kunnen worden aangeroepen via POST of GET-methoden. 
+> Deze service is gehost op Azure Marketplace Hallo een OData-service Deze kunnen worden aangeroepen via POST of GET-methoden. 
 > 
 > 
 
-Er zijn meerdere manieren van de consumptie van de service op automatische wijze (een voorbeeld-app is [hier](http://microsoftazuremachinelearning.azurewebsites.net/BinaryClassifier.aspx)).
+Er zijn meerdere manieren Hallo-service op automatische wijze verbruikt (een voorbeeld-app is [hier](http://microsoftazuremachinelearning.azurewebsites.net/BinaryClassifier.aspx)).
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>C#-code voor het web service starten:
     public class Input
@@ -82,11 +82,11 @@ Er zijn meerdere manieren van de consumptie van de service op automatische wijze
 
 
 ## <a name="creation-of-web-service"></a>Maken van de webservice
-> Deze webservice is gemaakt met behulp van Azure Machine Learning. Voor een gratis proefversie, evenals de inleidende video's over het maken van experimenten en [web publicatieservices](machine-learning-publish-a-machine-learning-web-service.md), Zie [azure.com/ml](http://azure.com/ml). Hieronder vindt u een schermopname van het experiment dat de web-service en een voorbeeld van code voor elk van de modules in het experiment gemaakt.
+> Deze webservice is gemaakt met behulp van Azure Machine Learning. Voor een gratis proefversie, evenals de inleidende video's over het maken van experimenten en [web publicatieservices](machine-learning-publish-a-machine-learning-web-service.md), Zie [azure.com/ml](http://azure.com/ml). Hieronder staat een screenshot van Hallo experiment die Hallo web service en voorbeeld-code hebt gemaakt voor elk Hallo-modules in Hallo experiment.
 > 
 > 
 
-In Azure Machine Learning, een nieuw, leeg experiment is gemaakt en twee [R-Script uitvoeren] [ execute-r-script] modules opgehaald naar de werkruimte. Deze webservice wordt een Azure Machine Learning-experiment uitgevoerd met een onderliggende R-script. Er zijn 2-onderdelen voor dit experiment: schemadefinitie, en training model + score berekenen. De eerste module definieert de verwachte structuur van de invoergegevensset, waarbij de eerste variabele de afhankelijke variabele en de resterende variabelen onafhankelijk zijn. De tweede module past een algemene logistic regressiemodel van de invoergegevens.    
+In Azure Machine Learning, een nieuw, leeg experiment is gemaakt en twee [R-Script uitvoeren] [ execute-r-script] modules opgehaald op Hallo-werkruimte. Deze webservice wordt een Azure Machine Learning-experiment uitgevoerd met een onderliggende R-script. Er zijn 2-onderdelen toothis experimenteren: schemadefinitie, en training model + score berekenen. de eerste module Hallo Hallo verwacht-structuur van Hallo invoergegevensset, waarbij de eerste variabele Hallo Hallo afhankelijke variabele en resterende Hallo-variabelen zijn onafhankelijk wordt gedefinieerd. Hallo tweede module past een algemene logistic regressiemodel voor Hallo invoergegevens.    
 
 ![Experiment stroom][2]
 
@@ -120,10 +120,10 @@ In Azure Machine Learning, een nieuw, leeg experiment is gemaakt en twee [R-Scri
 
 
 ## <a name="limitations"></a>Beperkingen
-Dit is een zeer eenvoudig voorbeeld van een binaire classificatie-webservice. Zoals u kunt zien van de bovenstaande voorbeeldcode, er is geen fout vastgelegd is geïmplementeerd en wordt de service wordt ervan uitgegaan dat alles een binary/continue variabele (geen categorische functies toegestaan), als de service alleen invoer numerieke waarden op het moment van het maken van deze webservice . Ook de service momenteel worden verwerkt beperkt gegevensgrootte, behoren tot de aard van de aanvraag/antwoord van de aanroep van webservice en het feit dat het model is wordt passen elke keer dat de webservice wordt aangeroepen. 
+Dit is een zeer eenvoudig voorbeeld van een binaire classificatie-webservice. Zoals u kunt zien van Hallo voorbeeldcode hierboven, geen fout vastgelegd is geïmplementeerd en Hallo-service wordt ervan uitgegaan dat alles een binary/continue variabele (geen categorische functies toegestaan), als Hallo service alleen invoer numerieke waarden op Hallo moment Hallo gemaakt van deze Web-service. Bovendien Hallo-service verwerkt momenteel beperkt gegevensgrootte, vanwege toohello aanvragen/reacties aard van de webservice Hallo aanroep en Hallo feit dat Hallo model is wordt geschikt telkens wanneer Hallo-webservice wordt aangeroepen. 
 
 ## <a name="faq"></a>Veelgestelde vragen
-Zie voor veelgestelde vragen over het verbruik van de webservice of publiceren naar Azure Marketplace [hier](machine-learning-marketplace-faq.md).
+Zie voor veelgestelde vragen over het verbruik van de webservice Hallo of publishing toohello Azure Marketplace [hier](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-binary-classifier/binary1.png
 [2]: ./media/machine-learning-r-csharp-binary-classifier/binary2.png

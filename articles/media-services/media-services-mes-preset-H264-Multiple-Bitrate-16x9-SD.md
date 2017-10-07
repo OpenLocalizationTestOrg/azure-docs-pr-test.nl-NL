@@ -1,6 +1,6 @@
 ---
-title: Geselecteerde instelling H264 Meerdere Bitrate 16 x 9 SD | Microsoft Docs
-description: Het onderwerp een overzicht van de ** standaardinstelling H264 Multiple Bitrate 16 x 9 SD ** taak definitie.
+title: aaaH264 meerdere Bitrate 16 x 9 SD | Microsoft Docs
+description: Hallo onderwerp een overzicht van Hallo ** standaardinstelling H264 Multiple Bitrate 16 x 9 SD ** taak definitie.
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: d5836589932e27e7439fb89fca7be63f0856681e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e392369af1af21b958ff2877c8202377d7efcd80
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="h264-multiple-bitrate-16x9-sd"></a>Geselecteerde instelling H264 Meerdere Bitrate 16 x 9 SD
-`Media Encoder Standard`definieert een aantal standaardinstellingen die u gebruiken kunt bij het maken van codering taken codering. Kunt u ofwel een `preset name` om op te geven naar welke indeling u wilt uw mediabestand coderen. U kunt maken met uw eigen JSON of XML gebaseerde standaardinstellingen (met UTF-8- of UTF-16-codering. U zou geeft u het aangepaste vooraf ingesteld op de encoder. Voor een overzicht van de vooraf ingestelde namen ondersteund door dit `Media Encoder Standard` encoder, Zie [taak standaardinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`definieert een aantal standaardinstellingen die u gebruiken kunt bij het maken van codering taken codering. Kunt u ofwel een `preset name` toospecify naar welke indeling u tooencode wilt dat uw mediabestand. U kunt maken met uw eigen JSON of XML gebaseerde standaardinstellingen (met UTF-8- of UTF-16-codering. U zou vervolgens Hallo aangepaste vooraf ingestelde toohello encoder doorgeven. Voorinstelling voor Hallo lijst met alle Hallo namen die worden ondersteund door dit `Media Encoder Standard` encoder, Zie [taak standaardinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- In dit onderwerp leest de `H264 Multiple Bitrate 16x9 SD` vooraf in XML en JSON-indeling.  
+ In dit onderwerp leest Hallo `H264 Multiple Bitrate 16x9 SD` vooraf in XML en JSON-indeling.  
   
- Deze definitie levert een set van 5 GOP uitgelijnde MP4-bestanden, variërend van 1900 kbps tot 400 kbps en aansluiting AAC audio. Voor gedetailleerde informatie over profiel bitrate, snelheid, enz. dit wordt vooraf ingesteld, controleert u de XML- of JSON zoals hieronder gedefinieerd. Zie voor uitleg van welke elk element in deze standaardinstellingen middelen en de geldige waarden voor elk element in de [Media Encoder Standard schema](media-services-mes-schema.md) onderwerp.  
+ Deze definitie levert een set van 5 GOP uitgelijnde MP4-bestanden, variërend van 1900 kbps too400 kbps en aansluiting AAC audio. Voor gedetailleerde informatie over het profiel bitrate, snelheid, enz. dit wordt vooraf ingestelde, onderzoekt Hallo XML- of JSON zoals hieronder gedefinieerd. Zie voor uitleg van welke elk element in deze standaardinstellingen middelen en Hallo geldige waarden voor elk element Hallo [Media Encoder Standard schema](media-services-mes-schema.md) onderwerp.  
   
 > [!NOTE]
->  Bij het wijzigen van de `Width` en `Height` waarden in lagen en zorg ervoor dat de hoogte-breedteverhouding consistent blijft. Bijvoorbeeld: 1920 x 1080, 1280 x 720, 1080 x 576 640 x 360. U moet een combinatie van hoogte-breedteverhouding niet zoals gebruiken: 1280 x 720, 720 x 480, 640 x 360.  
+>  Bij het wijzigen van Hallo `Width` en `Height` waarden in lagen en zorg ervoor dat Hallo hoogte-breedteverhouding consistent blijven. Bijvoorbeeld: 1920 x 1080, 1280 x 720, 1080 x 576 640 x 360. U moet een combinatie van hoogte-breedteverhouding niet zoals gebruiken: 1280 x 720, 720 x 480, 640 x 360.  
   
  XML  
   

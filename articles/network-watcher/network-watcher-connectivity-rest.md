@@ -1,6 +1,6 @@
 ---
-title: Controleer de verbinding met Azure-netwerk-Watcher - Azure-portal | Microsoft Docs
-description: Deze pagina wordt uitgelegd hoe u connectiviteit met de netwerk-Watcher in de Azure portal controleren
+title: aaaCheck connectiviteit met de Azure-netwerk-Watcher - Azure-portal | Microsoft Docs
+description: Deze pagina wordt uitgelegd hoe toocheck connectiviteit met de netwerk-Watcher in hello Azure-portal
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: gwallace
-ms.openlocfilehash: ca62bea581acb59d3c3c0b8a204cc9d42de2b27f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8560011906fcce46d31556fc52cbfa671e8e653a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Controleer de verbinding met de netwerk-Watcher van Azure met Azure portal
+# <a name="check-connectivity-with-azure-network-watcher-using-hello-azure-portal"></a>Controleer de verbinding met de netwerk-Watcher van Azure met behulp van hello Azure-portal
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -27,41 +27,41 @@ ms.lasthandoff: 08/18/2017
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST-API](network-watcher-connectivity-rest.md)
 
-Informatie over het gebruik van verbinding om te controleren als direct TCP-verbinding van een virtuele machine naar een opgegeven eindpunt kan worden gemaakt.
+Meer informatie over hoe toouse connectiviteit tooverify als een directe TCP-verbinding van een virtuele machine tooa opgegeven eindpunt kan worden vastgesteld.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u hebt de volgende bronnen:
+In dit artikel wordt ervan uitgegaan dat er Hallo resources te volgen:
 
-* Een exemplaar van netwerk-Watcher in de regio die u wilt controleren, connectiviteit.
+* Een exemplaar van netwerk-Watcher in Hallo regio die u wilt toocheck connectiviteit.
 
-* Virtuele machines connectiviteit met controleren.
+* Virtuele machines toocheck connectiviteit met.
 
-ARMclient wordt gebruikt voor het aanroepen van de REST-API met behulp van PowerShell. ARMClient is gevonden op chocolatey op [ARMClient op Chocolatey](https://chocolatey.org/packages/ARMClient).
+ARMclient is gebruikte toocall Hallo REST-API met behulp van PowerShell. ARMClient is gevonden op chocolatey op [ARMClient op Chocolatey](https://chocolatey.org/packages/ARMClient).
 
-Dit scenario wordt ervan uitgegaan dat u de stappen in al hebt gevolgd [maken van een netwerk-Watcher](network-watcher-create.md) voor het maken van een netwerk-Watcher.
+Dit scenario wordt ervan uitgegaan dat u hebt al Hallo stappen uitgevoerd in [maken van een netwerk-Watcher](network-watcher-create.md) toocreate een netwerk-Watcher.
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 > [!IMPORTANT]
-> Controle van de verbinding zijn nodig voor de extensie van een virtuele machine `AzureNetworkWatcherExtension`. Voor het installeren van de extensie op een Windows-virtuele machine gaat u naar [extensie voor het virtuele machine voor Windows Azure-netwerk-Watcher Agent](../virtual-machines/windows/extensions-nwa.md) en voor Linux-VM naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md).
+> Controle van de verbinding zijn nodig voor de extensie van een virtuele machine `AzureNetworkWatcherExtension`. Ga voor het Hallo-uitbreiding installeren op een virtuele machine van Windows naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Windows](../virtual-machines/windows/extensions-nwa.md) en voor Linux-VM naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md).
 
-## <a name="register-the-preview-capability"></a>Registreren van de preview-mogelijkheden
+## <a name="register-hello-preview-capability"></a>Hallo preview mogelijkheid registreren
 
-Controle van de verbinding is momenteel in de openbare preview, voor deze functie moet worden geregistreerd. Voer hiervoor de volgende PowerShell-voorbeeld:
+Controle van de verbinding is momenteel in openbare preview toouse deze functie toobe geregistreerd moet. toodo deze, Voer Hallo PowerShell-voorbeeld te volgen:
 
 ```powershell
 Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-Om te controleren of dat de registratie is gelukt, voert u het volgende Powershell-voorbeeld:
+tooverify hello registratie is gelukt, Hallo volgende Powershell-voorbeeld uitvoeren:
 
 ```powershell
 Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
 ```
 
-Als de functie juist is geregistreerd, de uitvoer moet overeenkomen met het volgende:
+Als het Hallo-functie is juist is geregistreerd, Hallo uitvoer, moet overeenkomen met Hallo volgende:
 
 ```
 FeatureName                             ProviderName      RegistrationState
@@ -71,7 +71,7 @@ AllowNetworkWatcherConnectivityCheck    Microsoft.Network Registered
 
 ## <a name="log-in-with-armclient"></a>Meld u aan met ARMClient
 
-Aanmelden bij armclient met uw Azure-referenties.
+Meld u bij tooarmclient met uw Azure-referenties.
 
 ```PowerShell
 armclient login
@@ -79,12 +79,12 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Een virtuele machine ophalen
 
-Voer het volgende script om te retourneren van een virtuele machine. Deze informatie is nodig voor het uitvoeren van de verbinding. 
+Hallo script tooreturn na een virtuele machine uitvoeren. Deze informatie is nodig voor het uitvoeren van de verbinding. 
 
-De volgende code moet waarden voor de volgende variabelen:
+Hallo na code moet waarden voor Hallo variabelen te volgen:
 
-- **subscriptionId** -de abonnements-ID te gebruiken.
-- **resourceGroupName** -de naam van een resourcegroep die virtuele machines bevatten.
+- **subscriptionId** -Hallo toouse voor abonnement-ID.
+- **resourceGroupName** - hello naam van een resourcegroep die virtuele machines bevatten.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -93,7 +93,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-De ID van de virtuele machine wordt gebruikt van de volgende uitvoer in het volgende voorbeeld:
+Hallo-ID van Hallo virtuele machine wordt van de volgende Hallo uitvoer, gebruikt in Hallo voorbeeld te volgen:
 
 ```json
 ...
@@ -108,9 +108,9 @@ De ID van de virtuele machine wordt gebruikt van de volgende uitvoer in het volg
 }
 ```
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>Controleer de verbinding met een virtuele machine
+## <a name="check-connectivity-tooa-virtual-machine"></a>Controleer de connectiviteit tooa virtuele machine
 
-In dit voorbeeld controleert de verbinding met een doel-virtuele machine via poort 80.
+In dit voorbeeld controleert connectiviteit tooa bestemde virtuele machine via poort 80.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -137,11 +137,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Omdat deze bewerking lang actief is, de URI het resultaat wordt geretourneerd als de antwoordheader zoals weergegeven in het volgende antwoord:
+Omdat deze bewerking lang is wordt uitgevoerd, Hallo URI voor Hallo resultaat geretourneerd als Hallo antwoordheader zoals weergegeven in het volgende antwoord Hallo:
 
 **Belangrijke waarden**
 
-* **Locatie** -deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking voltooid is
+* **Locatie** -deze eigenschap bevat Hallo URI waar Hallo resultaten zijn wanneer hello bewerking is voltooid
 
 ```
 HTTP/1.1 202 Accepted
@@ -162,7 +162,7 @@ null
 
 ### <a name="response"></a>Antwoord
 
-Het antwoord van de volgende is van het vorige voorbeeld.  In dit antwoord de `ConnectionStatus` is **onbereikbaar**. U kunt zien dat alle tests mislukte verzonden. De verbinding is mislukt bij het virtuele apparaat als gevolg van een gebruiker geconfigureerde `NetworkSecurityRule` met de naam **UserRule_Port80**, is geconfigureerd voor het blokkeren van inkomend verkeer op poort 80. Deze informatie kan worden gebruikt om te onderzoeken verbindingsproblemen.
+Hallo na antwoord is van het vorige voorbeeld Hallo.  In dit antwoord Hallo `ConnectionStatus` is **onbereikbaar**. U kunt zien dat alle tests verzonden mislukte Hallo. Hallo-connectiviteit op Hallo virtueel apparaat is mislukt vanwege tooa gebruiker geconfigureerde `NetworkSecurityRule` met de naam **UserRule_Port80**, tooblock binnenkomend verkeer op poort 80 geconfigureerd. Deze informatie kan gebruikte tooresearch verbindingsproblemen zijn.
 
 ```json
 {
@@ -226,7 +226,7 @@ Het antwoord van de volgende is van het vorige voorbeeld.  In dit antwoord de `C
 
 ## <a name="validate-routing-issues"></a>Problemen met routing valideren
 
-Het voorbeeld wordt de verbinding tussen een virtuele machine en een extern eindpunt.
+Hallo voorbeeld controleert de connectiviteit tussen een virtuele machine en een extern eindpunt.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -253,11 +253,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Omdat deze bewerking lang actief is, de URI het resultaat wordt geretourneerd als de antwoordheader zoals weergegeven in het volgende antwoord:
+Omdat deze bewerking lang is wordt uitgevoerd, Hallo URI voor Hallo resultaat geretourneerd als Hallo antwoordheader zoals weergegeven in het volgende antwoord Hallo:
 
 **Belangrijke waarden**
 
-* **Locatie** -deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking voltooid is
+* **Locatie** -deze eigenschap bevat Hallo URI waar Hallo resultaten zijn wanneer hello bewerking is voltooid
 
 ```
 HTTP/1.1 202 Accepted
@@ -278,7 +278,7 @@ null
 
 ### <a name="response"></a>Antwoord
 
-In het volgende voorbeeld wordt de `connectionStatus` wordt weergegeven als **onbereikbaar**. In de `hops` details, kunt u zien onder `issues` dat het verkeer is geblokkeerd vanwege een `UserDefinedRoute`.
+Hallo in Hallo voorbeeld te volgen, `connectionStatus` wordt weergegeven als **onbereikbaar**. In Hallo `hops` details, kunt u zien onder `issues` dat Hallo verkeer is geblokkeerd vanwege tooa `UserDefinedRoute`.
 
 ```json
 {
@@ -322,7 +322,7 @@ In het volgende voorbeeld wordt de `connectionStatus` wordt weergegeven als **on
 
 ## <a name="check-website-latency"></a>Latentie van de website controleren
 
-Het volgende voorbeeld wordt de verbinding met een website.
+Hallo volgende voorbeeld wordt gecontroleerd Hallo connectiviteit tooa website.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -349,11 +349,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Omdat deze bewerking lang actief is, de URI het resultaat wordt geretourneerd als de antwoordheader zoals weergegeven in het volgende antwoord:
+Omdat deze bewerking lang is wordt uitgevoerd, Hallo URI voor Hallo resultaat geretourneerd als Hallo antwoordheader zoals weergegeven in het volgende antwoord Hallo:
 
 **Belangrijke waarden**
 
-* **Locatie** -deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking voltooid is
+* **Locatie** -deze eigenschap bevat Hallo URI waar Hallo resultaten zijn wanneer hello bewerking is voltooid
 
 ```
 HTTP/1.1 202 Accepted
@@ -374,7 +374,7 @@ null
 
 ### <a name="response"></a>Antwoord
 
-In het volgende antwoord ziet u de `connectionStatus` wordt weergegeven als **bereikbaar**. Als een verbinding geslaagd is, zijn latentie waarden opgegeven.
+In Hallo antwoord te volgen, ziet u Hallo `connectionStatus` wordt weergegeven als **bereikbaar**. Als een verbinding geslaagd is, zijn latentie waarden opgegeven.
 
 ```json
 {
@@ -407,9 +407,9 @@ In het volgende antwoord ziet u de `connectionStatus` wordt weergegeven als **be
 }
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>Controleer de verbinding met een opslag-eindpunt
+## <a name="check-connectivity-tooa-storage-endpoint"></a>Controleer de connectiviteit tooa opslag eindpunt
 
-Het volgende voorbeeld wordt de verbinding van een virtuele machine met een blog van storage-account.
+Hallo volgende voorbeeld wordt gecontroleerd Hallo verbinding hebben met een virtuele machine tooa blog van storage-account.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -436,11 +436,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Omdat deze bewerking lang actief is, de URI het resultaat wordt geretourneerd als de antwoordheader zoals weergegeven in het volgende antwoord:
+Omdat deze bewerking lang is wordt uitgevoerd, Hallo URI voor Hallo resultaat geretourneerd als Hallo antwoordheader zoals weergegeven in het volgende antwoord Hallo:
 
 **Belangrijke waarden**
 
-* **Locatie** -deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking voltooid is
+* **Locatie** -deze eigenschap bevat Hallo URI waar Hallo resultaten zijn wanneer hello bewerking is voltooid
 
 ```
 HTTP/1.1 202 Accepted
@@ -461,7 +461,7 @@ null
 
 ### <a name="response"></a>Antwoord
 
-Het volgende voorbeeld is de reactie van de vorige API-aanroep uitgevoerd. Als de controle geslaagd is, de `connectionStatus` eigenschap wordt weergegeven als **bereikbaar**.  U vindt de details met betrekking tot het aantal hops is vereist voor het bereiken van de storage-blob en latentie.
+Hallo is volgende voorbeeld antwoord Hallo Hallo vorige API-aanroep wordt uitgevoerd. Als het Hallo-controle is geslaagd, Hallo `connectionStatus` eigenschap wordt weergegeven als **bereikbaar**.  U vindt Hallo-gegevens met betrekking tot Hallo aantal hops vereist tooreach Hallo storage-blob en latentie.
 
 ```json
 {
@@ -496,7 +496,7 @@ Het volgende voorbeeld is de reactie van de vorige API-aanroep uitgevoerd. Als d
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het automatiseren van pakket opnamen met waarschuwingen van de virtuele machine met weer te geven [maken van een waarschuwing geactiveerd pakketopname](network-watcher-alert-triggered-packet-capture.md)
+Meer informatie over hoe tooautomate pakket worden vastgelegd met waarschuwingen van de virtuele machine door [maken van een waarschuwing geactiveerd pakketopname](network-watcher-alert-triggered-packet-capture.md)
 
 Als bepaalde verkeer is toegestaan in of buiten uw virtuele machine in via vinden [controleren IP-stroom controleren](network-watcher-check-ip-flow-verify-portal.md)
 

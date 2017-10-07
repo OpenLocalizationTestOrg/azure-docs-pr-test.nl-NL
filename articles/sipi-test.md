@@ -1,6 +1,6 @@
 ---
 title: Sipi testbestand | Microsoft Docs
-description: Testbestand naar ReadyForTest afhankelijkheden controleren
+description: Afhankelijkheden van toocheck ReadyForTest testen
 services: active-directory-b2c
 documentationcenter: 
 author: Sipi
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: Sipi
-ms.openlocfilehash: 871d58818dcbaee5f7a5f07c19e2297ec6459a6f
-ms.sourcegitcommit: b0af2a2cf44101a1b1ff41bd2ad795eaef29612a
+ms.openlocfilehash: afd3dc94dfb30926b316256fb06a768a391004f5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sipi-test-file"></a>Sipi testbestand
 
-Met behulp van deze Quickstart kunt u binnen enkele minuten een toepassing registreren in een B2C-tenant van Microsoft Azure Active Directory (Azure AD). Wanneer u klaar bent, is de toepassing geregistreerd voor gebruik in de Azure B2C-tenant.
+Met behulp van deze Quickstart kunt u binnen enkele minuten een toepassing registreren in een B2C-tenant van Microsoft Azure Active Directory (Azure AD). Wanneer u klaar bent, wordt uw toepassing geregistreerd voor gebruik in hello Azure B2C-tenant.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u een toepassing wilt maken waarin consumenten zich kunnen registreren en aanmelden, moet u de toepassing eerst registreren bij een Azure Active Directory B2C-tenant. Haal uw eigen tenant op aan de hand van de stappen in [Een Azure AD B2C-tenant maken](active-directory-b2c-get-started.md).
+toobuild een toepassing waarin zich kunnen registreren en aanmelden consumenten, moet u eerst tooregister Hallo toepassing met een Azure Active Directory B2C-tenant. Haal uw eigen tenant met behulp van Hallo stappen die worden beschreven in [een Azure AD B2C-tenant maken](active-directory-b2c-get-started.md).
 
-Toepassingen die zijn gemaakt vanaf de blade Azure AD B2C in Azure Portal, moeten vanaf dezelfde locatie worden beheerd. Als u de B2C-toepassingen bewerkt met PowerShell of een andere portal, worden de toepassingen niet meer ondersteund en werken ze niet met Azure AD B2C. Zie voor meer informatie de sectie [Mislukte toepassingen](#faulted-apps). 
+Toepassingen die zijn gemaakt op basis van hello Azure AD B2C-blade in hello Azure-portal moeten worden beheerd vanaf Hallo dezelfde locatie. Als u Hallo B2C-toepassingen met PowerShell of een andere portal hebt bewerkt, moet deze worden niet ondersteund en werken niet met Azure AD B2C. Zie de details in Hallo [mislukt apps](#faulted-apps) sectie. 
 
-## <a name="navigate-to-b2c-settings"></a>Navigeren naar de B2C-instellingen
+## <a name="navigate-toob2c-settings"></a>Navigeer tooB2C instellingen
 
-Meld u als globale beheerder van de B2C-tenant aan bij [Azure Portal](https://portal.azure.com/). 
+Meld u bij toohello [Azure-portal](https://portal.azure.com/) zoals Hallo globale beheerder van Hallo B2C-tenant. 
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-Kies de volgende stappen op basis van het toepassingstype dat u wilt registreren:
+De volgende stappen op basis van het toepassingstype Hallo die u registreert kiezen:

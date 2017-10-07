@@ -1,6 +1,6 @@
 ---
-title: Maak een Linux-VM in Azure met meerdere NIC's | Microsoft Docs
-description: Informatie over het maken van een Linux-VM met meerdere NIC's gekoppeld met behulp van de Azure CLI 2.0 of Resource Manager-sjablonen.
+title: een Linux-VM in Azure met meerdere NIC's aaaCreate | Microsoft Docs
+description: Meer informatie over hoe toocreate een Linux-VM met meerdere NIC's gekoppeld tooit hello Azure CLI 2.0 of Resource Manager-sjablonen.
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 8a2931e462079c101c91497d459d7d3126234244
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2723405914777a5dce4354d4f5d8413e357f58e7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Het maken van een virtuele Linux-machine in Azure met meerdere netwerk netwerkinterfacekaarten
-U kunt een virtuele machine (VM) maken in Azure met meerdere virtuele netwerkinterfaces (NIC's) is gekoppeld. Een veelvoorkomend scenario is om verschillende subnetten voor front-end en back-end-verbinding of een netwerk dat is toegewezen aan een oplossing met bewaking of back-up. Dit artikel wordt uitgelegd hoe een virtuele machine maken met meerdere NIC's gekoppeld en hoe toevoegen of verwijderen van NIC's van een bestaande virtuele machine. Voor gedetailleerde informatie, waaronder het maken van meerdere NIC's in uw eigen Bash-scripts Lees meer over [implementeren meerdere NIC's VMs](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Andere [VM-grootten](sizes.md) ondersteunen een verschillend aantal NIC's, dus het formaat van uw virtuele machine dienovereenkomstig.
+# <a name="how-toocreate-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Hoe toocreate virtuele Linux-machine in Azure met meerdere netwerk netwerkinterfacekaarten
+U kunt een virtuele machine (VM) maken in Azure die meerdere virtuele netwerkinterfaces (NIC's) die zijn gekoppeld tooit heeft. Een veelvoorkomend scenario toohave verschillende subnetten voor front-end en back-end-connectiviteit is of een netwerk toegewezen tooa bewaking of back-upoplossing. Dit artikel wordt uitgelegd hoe toocreate met meerdere NIC's een virtuele machine gekoppeld tooit en hoe tooadd of verwijder NIC's van een bestaande virtuele machine. Voor gedetailleerde informatie, met inbegrip van hoe toocreate meerdere NIC's in uw eigen Bash-scripts, lees meer over [implementeren meerdere NIC's VMs](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Andere [VM-grootten](sizes.md) ondersteunen een verschillend aantal NIC's, dus het formaat van uw virtuele machine dienovereenkomstig.
 
-Dit artikel wordt uitgelegd hoe u een virtuele machine maken met meerdere NIC's met de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](multiple-nics-nodejs.md).
+Dit artikel wordt uitgelegd hoe toocreate een virtuele machine met meerdere NIC's met Azure CLI 2.0 Hallo. U kunt ook uitvoeren met deze stappen Hello [Azure CLI 1.0](multiple-nics-nodejs.md).
 
 
 ## <a name="create-supporting-resources"></a>Ondersteunende resources maken
-Installeer de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/#login).
+Meest recente installatie Hallo [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u bij het gebruik van de Azure-account tooan [az aanmelding](/cli/azure/#login).
 
-In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. Voorbeeld parameternamen opgenomen *myResourceGroup*, *mystorageaccount*, en *myVM*.
+In Hallo vervangen volgende voorbeelden parameternamen voorbeeld door uw eigen waarden. Voorbeeld parameternamen opgenomen *myResourceGroup*, *mystorageaccount*, en *myVM*.
 
-Maak eerst een resourcegroep met [az groep maken](/cli/azure/group#create). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *eastus* locatie:
+Maak eerst een resourcegroep met [az groep maken](/cli/azure/group#create). Hallo volgende voorbeeld maakt u een resourcegroep met de naam *myResourceGroup* in Hallo *eastus* locatie:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Maken van het virtuele netwerk met [az network vnet maken](/cli/azure/network/vnet#create). Het volgende voorbeeld wordt een virtueel netwerk met de naam *myVnet* en subnet met de naam *mySubnetFrontEnd*:
+Virtueel netwerk met Hallo maken [az network vnet maken](/cli/azure/network/vnet#create). Hallo volgende voorbeeld wordt een virtueel netwerk met de naam *myVnet* en subnet met de naam *mySubnetFrontEnd*:
 
 ```azurecli
 az network vnet create \
@@ -48,7 +48,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-Een subnet maken voor de back-end-verkeer met [az network vnet subnet maken](/cli/azure/network/vnet/subnet#create). Het volgende voorbeeld wordt een subnet met de naam *mySubnetBackEnd*:
+Maak een subnet voor back-end-verkeer Hallo met [az network vnet subnet maken](/cli/azure/network/vnet/subnet#create). Hallo volgende voorbeeld wordt een subnet met de naam *mySubnetBackEnd*:
 
 ```azurecli
 az network vnet subnet create \
@@ -58,7 +58,7 @@ az network vnet subnet create \
     --address-prefix 192.168.2.0/24
 ```
 
-Maken van een netwerkbeveiligingsgroep met [az netwerk nsg maken](/cli/azure/network/nsg#create). Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup*:
+Maken van een netwerkbeveiligingsgroep met [az netwerk nsg maken](/cli/azure/network/nsg#create). Hallo volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -67,7 +67,7 @@ az network nsg create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>Maak en configureer meerdere NIC 's
-Maak twee NIC's met [az netwerk nic maken](/cli/azure/network/nic#create). Het volgende voorbeeld maakt u twee NIC's met de naam *myNic1* en *myNic2*, de netwerkbeveiligingsgroep verbonden met één NIC die verbinding maken met elk subnet:
+Maak twee NIC's met [az netwerk nic maken](/cli/azure/network/nic#create). Hallo volgende voorbeeld maakt u twee NIC's met de naam *myNic1* en *myNic2*, met elkaar verbonden Hallo netwerkbeveiligingsgroep, met één NIC tooeach subnet verbinding te maken:
 
 ```azurecli
 az network nic create \
@@ -84,10 +84,10 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-## <a name="create-a-vm-and-attach-the-nics"></a>Een virtuele machine maken en koppelen van de NIC 's
-Wanneer u de virtuele machine, maakt de NIC's geven u hebt gemaakt met `--nics`. U moet ook Wees voorzichtig wanneer u de VM-grootte. Er gelden beperkingen voor het totale aantal NIC's die u aan een virtuele machine toevoegen kunt. Lees meer over [Linux VM-grootten](sizes.md). 
+## <a name="create-a-vm-and-attach-hello-nics"></a>Een virtuele machine maken en koppelen van Hallo NIC 's
+Wanneer u Hallo VM maakt, geef Hallo NIC's u hebt gemaakt met `--nics`. U moet ook tootake voorzichtig wanneer u Hallo VM-grootte selecteert. Er gelden beperkingen voor Hallo kunt u het totale aantal NIC's die u tooa VM kunt toevoegen. Lees meer over [Linux VM-grootten](sizes.md). 
 
-Maak een VM met [az vm create](/cli/azure/vm#create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVM*:
+Maak een VM met [az vm create](/cli/azure/vm#create). Hallo volgende voorbeeld wordt een virtuele machine met de naam *myVM*:
 
 ```azurecli
 az vm create \
@@ -100,10 +100,10 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
-## <a name="add-a-nic-to-a-vm"></a>Een NIC toevoegen aan een virtuele machine
-De vorige stappen kunt u een virtuele machine met meerdere NIC's gemaakt. U kunt ook NIC's toevoegen aan een bestaande virtuele machine met de Azure CLI 2.0. 
+## <a name="add-a-nic-tooa-vm"></a>Toevoegen van een NIC tooa VM
+de vorige stappen Hallo gemaakt van een virtuele machine met meerdere NIC's. U kunt ook NIC's tooan bestaande VM Hello Azure CLI 2.0 toevoegen. 
 
-Maken van een ander NIC met [az netwerk nic maken](/cli/azure/network/nic#create). Het volgende voorbeeld wordt een NIC met de naam *myNic3* verbonden met de back-end subnet netwerk beveiligingsgroep en in de vorige stappen hebt gemaakt:
+Maken van een ander NIC met [az netwerk nic maken](/cli/azure/network/nic#create). Hallo volgende voorbeeld wordt een NIC met de naam *myNic3* toohello back-end-subnet en netwerkbeveiligingsgroep gemaakt in de vorige stappen Hallo verbonden:
 
 ```azurecli
 az network nic create \
@@ -114,13 +114,13 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Als een NIC toevoegen aan een bestaande virtuele machine, met de virtuele machine eerst ongedaan [az vm ongedaan](/cli/azure/vm#deallocate). Het volgende voorbeeld de virtuele machine met de naam deallocates *myVM*:
+een NIC tooan tooadd bestaande VM eerst ongedaan Hallo VM met [az vm ongedaan](/cli/azure/vm#deallocate). Hallo volgende voorbeeld deallocates Hallo VM met de naam *myVM*:
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Toevoegen van de NIC met [az vm nic toevoegen](/cli/azure/vm/nic#add). Het volgende voorbeeld wordt *myNic3* naar *myVM*:
+Voeg Hallo NIC met [az vm nic toevoegen](/cli/azure/vm/nic#add). Hallo volgende voorbeeld wordt *myNic3* te*myVM*:
 
 ```azurecli
 az vm nic add \
@@ -129,20 +129,20 @@ az vm nic add \
     --nics myNic3
 ```
 
-Start de virtuele machine met [az vm start](/cli/azure/vm#start):
+Start met virtuele machine Hallo [az vm start](/cli/azure/vm#start):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="remove-a-nic-from-a-vm"></a>Een NIC van een virtuele machine verwijderen
-Als u wilt verwijderen een NIC van een bestaande virtuele machine, met de virtuele machine eerst ongedaan [az vm ongedaan](/cli/azure/vm#deallocate). Het volgende voorbeeld de virtuele machine met de naam deallocates *myVM*:
+een NIC van een bestaande VM tooremove eerst Hallo VM ongedaan gemaakt met [az vm ongedaan](/cli/azure/vm#deallocate). Hallo volgende voorbeeld deallocates Hallo VM met de naam *myVM*:
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Verwijderen van de NIC met [az vm nic verwijderen](/cli/azure/vm/nic#remove). Het volgende voorbeeld verwijdert u *myNic3* van *myVM*:
+Verwijder Hallo NIC met [az vm nic verwijderen](/cli/azure/vm/nic#remove). Hallo volgende voorbeeld wordt verwijderd *myNic3* van *myVM*:
 
 ```azurecli
 az vm nic remove \
@@ -151,7 +151,7 @@ az vm nic remove \
     --nics myNic3
 ```
 
-Start de virtuele machine met [az vm start](/cli/azure/vm#start):
+Start met virtuele machine Hallo [az vm start](/cli/azure/vm#start):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -159,7 +159,7 @@ az vm start --resource-group myResourceGroup --name myVM
 
 
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>Meerdere NIC's met behulp van Resource Manager-sjablonen maken
-Azure Resource Manager-sjablonen gebruiken declaratieve JSON-bestanden voor het definiëren van uw omgeving. U vindt een [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Resource Manager-sjablonen kunnen u meerdere exemplaren van een bron tijdens implementatie, zoals het maken van meerdere NIC's maken. U gebruikt *kopie* om op te geven van het aantal exemplaren te maken:
+Azure Resource Manager-sjablonen gebruiken declaratieve JSON-bestanden toodefine uw omgeving. U vindt een [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Resource Manager-sjablonen bieden een manier toocreate meerdere exemplaren van een bron tijdens implementatie, zoals meerdere NIC's maken. U gebruikt *kopie* toospecify Hallo aantal exemplaren toocreate:
 
 ```json
 "copy": {
@@ -170,7 +170,7 @@ Azure Resource Manager-sjablonen gebruiken declaratieve JSON-bestanden voor het 
 
 Lees meer over [maken van meerdere exemplaren die gebruikmaken van *kopie*](../../resource-group-create-multiple.md). 
 
-U kunt ook een `copyIndex()` toe te voegen vervolgens een nummer aan de naam van een resource, zodat u kunt maken `myNic1`, `myNic2`, enzovoort. Hier volgt een voorbeeld van de waarde voor de index:
+U kunt ook een `copyIndex()` toothen toevoeg-een nummer tooa resourcenaam, zodat u toocreate `myNic1`, `myNic2`, enzovoort Hallo hieronder vindt u een voorbeeld van de indexwaarde Hallo:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
@@ -179,4 +179,4 @@ U kunt ook een `copyIndex()` toe te voegen vervolgens een nummer aan de naam van
 U kunt een compleet voorbeeld van lezen [meerdere NIC's met behulp van Resource Manager-sjablonen maken](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk [Linux VM-grootten](sizes.md) bij het maken van een virtuele machine met meerdere NIC's. Let op het maximum aantal NIC's die ondersteuning biedt voor elke VM-grootte. 
+Bekijk [Linux VM-grootten](sizes.md) bij het toocreating met meerdere NIC's een virtuele machine. Betalen aandacht toohello maximum aantal NIC's die ondersteuning biedt voor elke VM-grootte. 

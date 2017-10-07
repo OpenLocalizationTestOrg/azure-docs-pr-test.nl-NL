@@ -1,6 +1,6 @@
 ---
-title: Wijzig de facturering voor Azure RemoteApp | Microsoft Docs
-description: Informatie over het stoppen wordt gefactureerd voor Azure RemoteApp.
+title: aaaChange hello facturering voor Azure RemoteApp | Microsoft Docs
+description: Meer informatie over hoe toostop wordt gefactureerd voor Azure RemoteApp.
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 18c369c4e8ccf828c35ec4a964e61f13613f899b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a0d449a6a9759c4b55156c1694fcd161a1face76
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-stop-being-billed-for-azure-remoteapp"></a>Hoe u wordt gefactureerd voor Azure RemoteApp
+# <a name="how-toostop-being-billed-for-azure-remoteapp"></a>Hoe toostop wordt gefactureerd voor Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees Hallo [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
 > 
 
-Als u Azure RemoteApp-verzamelingen, zelfs met geen gebruikers zijn toegewezen hebt, wordt u gefactureerd voor RemoteApp. Als u wilt stoppen deze facturering, alle uw verzamelingen te verwijderen. 
+Als u Azure RemoteApp-verzamelingen, zelfs met geen gebruikers zijn toegewezen hebt, wordt u gefactureerd voor RemoteApp. toostop deze facturering, verwijdert u alle collecties. 
 
-Uw verzameling verwijderen:
+toodelete uw verzameling:
 
-1. Open de RemoteApp-pagina in de klassieke Azure-portal.
-2. Klik op de verzameling die u wilt verwijderen en klik vervolgens op **verwijderen** aan de onderkant van de pagina.
+1. Open in de klassieke Azure-portal Hallo, Hallo RemoteApp-pagina.
+2. Klik op Hallo verzameling u toodelete wilt en klik vervolgens op **verwijderen** Hallo Hallo pagina onderaan in.
 3. Herhaal deze stap voor elke verzameling in uw abonnement. 
 
-Het duurt enkele minuten elke verzameling verwijderen.
+Het duurt enkele minuten toodelete elke verzameling.
 

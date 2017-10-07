@@ -1,12 +1,12 @@
 ---
-title: 'Connect Arduino (C) naar Azure IoT - les 1: apparaat configureren | Microsoft Docs'
+title: 'Connect Arduino (C) tooAzure IoT - les 1: apparaat configureren | Microsoft Docs'
 description: Configureer Adafruit Doezelaar M0 Wi-Fi voor eerste gebruik.
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: arduino instellen, verbinding maken met arduino pc, setup arduino, arduino mededelingenbord
+keywords: arduino instellen, verbinding arduino toopc, setup arduino, arduino mededelingenbord
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: f5b334f0-a148-41aa-b374-ce7b9f5b305a
@@ -17,49 +17,49 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 9e319292e5d30dea7e45857e435825861aad1c84
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 30b764e8ff6221995456283a226e79f064b2d74e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-your-device"></a>Uw apparaat configureren
 ## <a name="what-you-will-do"></a>Wat u doet
-Het mededelingenbord Adafruit Doezelaar M0 Wi-Fi Arduino voor eerste gebruik door de bestuur, het opstarten van samen te configureren. Als u problemen hebt, moet u uitkijken voor oplossingen op de [probleemoplossing pagina](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md).
+Configureren het mededelingenbord Adafruit Doezelaar M0 Wi-Fi Arduino voor eerste gebruik Hallo mededelingenbord, het opstarten van en samen te stellen. Als u problemen hebt, zoekt u naar oplossingen op Hallo [probleemoplossing pagina](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md).
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
-Om deze bewerking niet voltooien, moet u de volgende onderdelen voor uw Adafruit Doezelaar M0 Wi-Fi Starter Kit:
+toocomplete deze bewerking moet u volgende onderdelen voor uw Adafruit Doezelaar M0 Wi-Fi Starter Kit Hallo:
 
-* De Adafruit Doezelaar M0 Wi-Fi-kaart
-* Een B Micro van Type A USB-kabel
+* Hallo Adafruit Doezelaar M0 Wi-Fi mededelingenbord
+* Een tooType Micro B een USB-kabel
 
 ![Kit][kit]
 
 U hebt ook het volgende nodig:
 
 * Een computer met Windows, Mac of Linux.
-* Een draadloze verbinding voor uw kaart Arduino verbinding maken met.
-* Een internetverbinding beschikken om het downloaden van hulpprogramma voor serverconfiguratie.
+* Een draadloze verbinding voor uw Arduino mededelingenbord tooconnect aan.
+* Een Internet verbinding toodownload configuratiehulpprogramma.
 
 ## <a name="what-you-will-learn"></a>Wat u leert
 In dit artikel leert u het:
 
-* Informatie over het samenstellen van het mededelingenbord Arduino en inschakelen voor de volgende uitkomsten.
-* Het toevoegen van de seriële poort machtigingen op Ubuntu.
+* Hoe tooassemble Arduino mededelingenbord- en stroomkabels lessen deze voor hello te volgen.
+* Hoe tooadd seriële poort machtigingen op Ubuntu.
 
-## <a name="connect-your-arduino-board-to-your-computer"></a>Het mededelingenbord Arduino aansluiten op uw computer
+## <a name="connect-your-arduino-board-tooyour-computer"></a>Verbinding maken met uw computer Arduino mededelingenbord tooyour
 
-1. De micro USB-kabel aansluiten op de bovenste micro USB-poort.
+1. Hallo micro USB-kabel aansluiten op Hallo bovenste micro USB-poort.
 
    ![Bovenste micro USB-poort][top-micro-usb-port]
 
-2. Het andere einde van USB-kabel aansluiten op uw computer.
+2. Plug Hallo andere einde van USB-kabel op uw computer.
 
    ![Computer USB][computer-usb]
 
 ## <a name="add-serial-port-permissions-on-ubuntu"></a>Machtigingen van de seriële poort toevoegen aan Ubuntu
 
-Als u Windows of Mac OS gebruikt, kunt u deze sectie overslaan. Ubuntu moet u de volgende stappen uit om ervoor te zorgen dat de gebruiker normaal linux de machtigingen heeft voor de USB-poort van het mededelingenbord Arduino niet bewerken.
+Als u Windows of Mac OS gebruikt, kunt u deze sectie overslaan. Ubuntu moet u Hallo stappen toomake ervoor Hallo normale linux gebruiker heeft Hallo machtigingen toooperate op Hallo USB-poort van het mededelingenbord Arduino te volgen.
 
 1. Nu als normale gebruiker in de terminal:
 
@@ -77,25 +77,25 @@ Als u Windows of Mac OS gebruikt, kunt u deze sectie overslaan. Ubuntu moet u de
    crw-rw---- 1 root dialout 188, 0 5 apr 23.01 ttyACM0
    ```
 
-   De '0' mogelijk een ander nummer of meerdere items kunnen worden geretourneerd. In het eerste geval de gegevens die we nodig is `uucp`, wordt in de tweede `dialout`, dit is de eigenaar van de groep van het bestand.
+   Hallo '0' mogelijk een ander nummer of meerdere items kunnen worden geretourneerd. Hallo eerste case Hallo gegevens die we nodig is `uucp`, in Hallo is het tweede `dialout`, dit is de Groepseigenaar Hallo van Hallo-bestand.
 
-2. Gebruiker toevoegen aan de aan de groep:
+2. Gebruikersgroep toohello toohello toevoegen:
 
    ```bash
    sudo usermod -a -G group-name username
    ```
 
-   Waar `group-name` zijn de gegevens gevonden in de eerste stap en `username` uw linux-gebruikersnaam.
+   Waar `group-name` Hallo-gegevens gevonden in de eerste stap Hallo en `username` uw linux-gebruikersnaam.
 
-3. U moet zich aanmelden en opnieuw om deze wijziging van kracht en voltooit de installatie.
+3. U moet toolog out en in opnieuw voor deze wijziging tootake effect en volledige Hallo setup.
 
 ## <a name="summary"></a>Samenvatting
-In dit artikel hebt u geleerd hoe het mededelingenbord Arduino configureren. De volgende taak is het installeren van de benodigde hulpprogramma's en software in voorbereiding voor het uitvoeren van een voorbeeld van toepassing op het mededelingenbord Arduino.
+In dit artikel hebt u geleerd hoe tooconfigure het mededelingenbord Arduino. de volgende taak Hallo is tooinstall Hallo vereiste hulpprogramma's en software in voorbereiding voor het uitvoeren van een voorbeeld van toepassing op het mededelingenbord Arduino.
 
 ![Hardware is gereed][hardware-is-ready]
 
 ## <a name="next-steps"></a>Volgende stappen
-[Download de hulpprogramma 's][get-the-tools]
+[Hallo-hulpprogramma's ophalen][get-the-tools]
 <!-- Images and links -->
 
 [kit]: media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/kit.png

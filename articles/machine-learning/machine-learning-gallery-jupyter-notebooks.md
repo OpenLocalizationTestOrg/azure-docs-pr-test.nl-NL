@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery Jupyter-notebooks | Microsoft Docs
-description: Detecteren van Jupyter notebooks in de Cortana Intelligence Gallery.
+title: aaaCortana Intelligence Gallery Jupyter-notebooks | Microsoft Docs
+description: Detecteren van Jupyter notebooks in Hallo Cortana Intelligence Gallery.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,59 +14,59 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: ff7d5c372500c2cd392ed65a921d8a994b090f23
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 459968ddbcf1da17e6993dd577a90b4dd3847cfa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="discover-jupyter-notebooks-in-the-cortana-intelligence-gallery"></a>Detecteren van Jupyter Notebooks in de Cortana Intelligence Gallery
+# <a name="discover-jupyter-notebooks-in-hello-cortana-intelligence-gallery"></a>Detecteren van Jupyter Notebooks in Hallo Cortana Intelligence Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="jupyter-notebooks"></a>Jupyter Notebooks
 **[Jupyter-Notebooks](https://gallery.cortanaintelligence.com/notebooks)**  code, gegevensvisualisaties en documentatie opnemen in een enkele, interactieve canvas.
-Laptops in de galerie bieden zelfstudies en gedetailleerde uitleg van geavanceerde machine learning-technieken en oplossingen.
+Laptops in Hallo galerie bieden zelfstudies en gedetailleerde uitleg van geavanceerde machine learning-technieken en oplossingen.
 
 ## <a name="discover"></a>Ontdekken
-  Als u wilt bladeren voor laptops in de galerie, opent u de [galerie](http://gallery.cortanaintelligence.com) en klik op **notitieblokken** aan de bovenkant van de startpagina van de galerie.
+  toobrowse voor laptops in Hallo Gallery geopend Hallo [galerie](http://gallery.cortanaintelligence.com) en klik op **notitieblokken** Hallo boven aan het Hallo-galerie-startpagina.
 
- De  **[Jupyter-Notebooks](https://gallery.cortanaintelligence.com/notebooks)**  pagina geeft een lijst met de meest populaire laptops.
-Klik op **alle** om alle notitieblokken weer te geven.
-Op deze pagina kunt u alle notitieblokken in de galerie bladeren. U kunt ook zoeken door filtercriteria voldoen aan de linkerkant van de pagina en invoeren zoektermen boven selecteren.
+ De  **[Jupyter-Notebooks](https://gallery.cortanaintelligence.com/notebooks)**  pagina geeft een lijst van de meest populaire laptops Hallo weer.
+Klik op **alle** tooview alle notitieblokken.
+Op deze pagina kunt u alle notitieblokken in Hallo galerie bladeren. Ook kunt u zoeken door de filtercriteria op Hallo links van Hallo pagina selecteren en invoeren zoektermen op Hallo top.
 
- Klik op een laptop open pagina van de notebook details en meer informatie lezen. Feedback geven op deze pagina die u kunt opmerkingen of vragen via het gedeelte met opmerkingen. U kunt deze zelfs delen met vrienden of collega's met behulp van de share-mogelijkheden van LinkedIn of Twitter. U kunt ook e-een koppeling naar de notebook om uit te nodigen van andere gebruikers op de pagina weer te geven.
+ Klik op een laptop tooopen pagina van de notebook details en meer informatie lezen. Feedback geven op deze pagina die u kunt opmerkingen of vragen via de sectie Opmerkingen Hallo. U kunt het zelfs delen met vrienden of collega's met behulp van Hallo bestandsshare mogelijkheden van LinkedIn of Twitter. U kunt een koppeling toothe notebook tooinvite ook andere pagina gebruikers tooview Hallo e.
 
 ![Dit item delen met vrienden](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Uw eigen opmerkingen toevoegen](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="download"></a>Downloaden
-U kunt een kopie van uw laptop downloaden uit de galerie in uw werkruimte van Machine Learning Studio.
+U kunt een kopie van uw laptop van Hallo galerij downloaden naar uw werkruimte van Machine Learning Studio.
 
-### <a name="download-from-the-gallery"></a>Downloaden uit de galerie
-Een kopie van een laptop downloaden uit de galerie:
+### <a name="download-from-hello-gallery"></a>Downloaden van Hallo galerie
+een kopie van een laptop van Hallo galerie toodownload:
 
-1. Open de notebook detailpagina in de galerie
+1. Hallo-notebook detailpagina openen in Hallo galerie
 2. Klik op **openen in Studio**
-3. Selecteer de regio en de werkruimte die u wilt gebruiken
+3. Hallo regio en gewenste toouse werkruimte selecteren
    
-    ![Jupyter-notebook openen vanuit de galerie](media/machine-learning-gallery-jupyter-notebooks/open-notebook-from-gallery.png)
+    ![Jupyter-notebook openen vanuit Hallo galerie](media/machine-learning-gallery-jupyter-notebooks/open-notebook-from-gallery.png)
 
-Wanneer u klikt op **openen in Studio**, de laptop is geladen in de werkruimte van Machine Learning Studio en (als u bent nog niet aangemeld bij Studio, wordt u gevraagd aan te melden met je Microsoft-account voordat de laptop is geopend gekopieerd naar de werkruimte). U vindt de notebook later door te klikken op **notitieblokken** aan de linkerkant van de startpagina Studio.
+Wanneer u klikt op **openen in Studio**, Hallo notebook is geladen in de werkruimte van Machine Learning Studio en geopend (als u nog niet bent aangemeld in tooStudio, kunt u zich na vragen aan gebruiker toosign aan met uw Microsoft-account voordat Hallo laptop is gekopieerde tooyour werkruimte). U vindt de notebook hello later opnieuw door te klikken op **notitieblokken** op Hallo linkerkant van Hallo Studio startpagina.
 
 ### <a name="download-in-machine-learning-studio"></a>In Machine Learning Studio downloaden
-U kunt een van de dezelfde galerie laptops ook openen terwijl u in Machine Learning Studio werkt:
+U kunt ook openen Hallo dezelfde galerie notitieblokken terwijl u in Machine Learning Studio werkt:
 
 1. Klik in Machine Learning Studio **+ nieuw**
-2. Selecteer **Notebook** -er wordt een lijst van laptops uit de galerie weergegeven dat u kunt kiezen uit of u een specifieke notebook met behulp van het zoekvak kunt vinden
+2. Selecteer **Notebook** -er wordt een lijst van notitieblokken van Hallo galerie weergegeven dat u kunt kiezen uit of vindt u een specifieke laptop met een zoekvak Hallo
 3. Wijs met de muis op een laptop en selecteer **Open Notebook**
    
     ![Open galerie notebook uit in Machine Learning Studio](media/machine-learning-gallery-jupyter-notebooks/open-notebook-from-studio.png)
 
-Een kopie van de laptop is gedownload en geopend in uw werkruimte in de sectie Jupyter-Notebooks in Machine Learning Studio.
-De notebook wordt weergegeven, samen met uw andere notitieblokken op de **notitieblokken** pagina van Studio (op het [Studio startpagina](https://studio.azureml.net/), klikt u op **notitieblokken** aan de linkerkant).
+Een kopie van de notebook Hallo is gedownload en geopend in uw werkruimte in Hallo Jupyter-Notebooks sectie van Machine Learning Studio.
+Hallo-notebook wordt weergegeven, samen met uw andere notitieblokken op Hallo **notitieblokken** pagina van Studio (op Hallo [Studio startpagina](https://studio.azureml.net/), klikt u op **notitieblokken** op Hallo links).
 
-**[BRENG ME NAAR DE GALERIE >>](http://gallery.cortanaintelligence.com)**
+**[NEMEN mij toohello GALERIE >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Storage Explorer probleemoplossingsgids | Microsoft Docs
-description: Overzicht van de twee foutopsporingsfunctie van Azure
+title: aaaAzure Opslagverkenner probleemoplossingsgids | Microsoft Docs
+description: Overzicht van Hallo twee foutopsporingsfunctie van Azure
 services: virtual-machines
 documentationcenter: 
 author: Deland-Han
@@ -14,68 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: delhan
-ms.openlocfilehash: 470b2d87ffdc4769bb2963df7dea646901469e00
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5152f70418707d65c0a4bce9a916336829956219
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer probleemoplossingsgids
 
 ## <a name="introduction"></a>Inleiding
 
-Microsoft Azure Opslagverkenner (Preview) is een zelfstandige app waardoor u eenvoudig werken met Azure Storage-gegevens op Windows, Mac OS- en Linux. De app kan verbinding maken toStorage accounts die worden gehost op Azure, soevereine Clouds en Azure-Stack.
+Microsoft Azure Opslagverkenner (Preview) is een zelfstandige app waardoor u tooeasily werken met Azure Storage-gegevens op Windows, Mac OS- en Linux. Hallo-app kunt verbinden toStorage accounts die worden gehost op Azure, soevereine Clouds en Azure-Stack.
 
 Deze handleiding bevat een overzicht van oplossingen voor algemene problemen gezien in Opslagverkenner.
 
 ## <a name="sign-in-issues"></a>Problemen met aanmelden
 
-Voordat u doorgaat, probeer uw toepassing opnieuw te starten en zien of de problemen te corrigeren.
+Voordat u doorgaat, probeer uw toepassing opnieuw te starten en Zie of Hallo problemen kunnen worden opgelost.
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>Fout: Zelf-ondertekend certificaat in de certificaatketen
 
-Er zijn diverse redenen waarom u deze fout kan optreden, en de twee meest voorkomende redenen zijn als volgt:
+Er zijn diverse redenen waarom u deze fout kan optreden en de meest voorkomende twee redenen Hallo zijn als volgt:
 
-1. De app is verbonden via een transparante proxy-, wat betekent dat een server (zoals de bedrijfsserver van uw) onderscheppen HTTPS-verkeer, ontsleutelen van deze en vervolgens versleutelen met behulp van een zelfondertekend certificaat.
+1. Hallo-app is verbonden via een transparante proxy-, wat betekent dat een server (zoals de bedrijfsserver van uw) onderscheppen HTTPS-verkeer, ontsleutelen van deze en vervolgens versleutelen met behulp van een zelfondertekend certificaat.
 
-2. U kunt een toepassing, zoals antivirussoftware, die is injecteren van een zelfondertekend SSL-certificaat in de HTTPS-berichten die u ontvangt worden uitgevoerd.
+2. U kunt een toepassing, zoals antivirussoftware, die is injecteren van een zelfondertekend SSL-certificaat in Hallo HTTPS-berichten die u ontvangt worden uitgevoerd.
 
-Wanneer Opslagverkenner een van de problemen tegenkomt, kan het niet meer te weten of het ontvangen bericht voor HTTPS is geknoeid. Als u een kopie van het zelfondertekend certificaat hebt, kunt u Opslagverkenner vertrouwen. Als u die het certificaat is injecteren weet, als volgt te werk:
+Wanneer Opslagverkenner Hallo problemen tegenkomt, kan het niet meer te weten of Hallo ontvangen HTTPS-bericht is geknoeid. Als u een kopie van Hallo zelf-ondertekend certificaat hebt, kunt u Opslagverkenner vertrouwen. Als u die is injecteren Hallo certificaat weet, volgt u deze stappen toofind het:
 
 1. Open SSL installeren
 
-    - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (een van de lichte versies moet voldoende)
+    - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (Hallo lichte versies moet voldoende)
 
     - Mac- en Linux: moet worden opgenomen met het besturingssysteem
 
 2. Open SSL uitvoeren
 
-    - Windows: open de map wilt installeren, klik op **/bin/**, en dubbelklik vervolgens op **openssl.exe**.
+    - Windows: Hallo-installatiemap openen, klikt u op **/bin/**, en dubbelklik vervolgens op **openssl.exe**.
     - Mac- en Linux: Voer **openssl** van een definitieve.
 
 3. Uitvoeren van s_client - showcerts-microsoft.com:443 verbinding
 
-4. Zoek naar de zelfondertekende certificaten. Als u niet zeker dat zelf ondertekend weet, zoek naar elke locatie het onderwerp ('s:') en de verlener ('i') zijn hetzelfde.
+4. Zoek naar de zelfondertekende certificaten. Als u welke zijn zelf-ondertekend weet, zoek overal Hallo onderwerp ('s:') en verlener ('i') zijn dezelfde Hallo.
 
-5. Wanneer u zelfondertekende certificaten hebt gevonden, voor elk adres kopieert en plakt u alles uit en inclusief **---BEGIN CERTIFICATE---** naar **---EINDCERTIFICAAT---** naar een nieuw .cer-bestand.
+5. Wanneer u zelfondertekende certificaten hebt gevonden, voor elk adres kopieert en plakt u alles uit en inclusief **---BEGIN CERTIFICATE---** te**---EINDCERTIFICAAT---** tooa nieuwe cer-bestand.
 
-6. Open Opslagverkenner, klik op **bewerken** > **SSL-certificaten** > **certificaten importeren**, en gebruik vervolgens de bestandskiezer om te zoeken, selecteert, en Open het cer-bestanden die u hebt gemaakt.
+6. Open Opslagverkenner, klik op **bewerken** > **SSL-certificaten** > **certificaten importeren**, en vervolgens gebruik Hallo bestand objectkiezer toofind, selecteert, en open Hallo cer-bestanden die u hebt gemaakt.
 
-Als u geen zelfondertekende certificaten met behulp van de bovenstaande stappen niet kunt vinden, contact met ons opnemen via het hulpprogramma feedback voor meer informatie.
+Als u geen zelfondertekende certificaten met behulp van Hallo bovenstaande stappen niet kunt vinden, contact met ons opnemen via Hallo feedbackprogramma voor meer informatie.
 
-### <a name="unable-to-retrieve-subscriptions"></a>Kan geen abonnementen ophalen
+### <a name="unable-tooretrieve-subscriptions"></a>Kan geen tooretrieve abonnementen
 
-Als u niet ophalen van uw abonnementen, nadat u zich hebt aangemeld, volg deze stappen om dit probleem oplossen:
+Als u tooretrieve uw abonnementen na het aanmelden, volg deze stappen tootroubleshoot dit probleem:
 
-- Controleer of dat uw account toegang tot de abonnementen heeft wanneer u zich aanmeldt bij de Azure Portal.
+- Controleer of uw account toegang toohello abonnementen door aanmeldt bij hello Azure-Portal.
 
-- Zorg ervoor dat u bent aangemeld met behulp van de juiste omgeving (Azure, Azure China, Duitse Azure, Azure US Government of aangepaste omgeving/Azure Stack).
+- Zorg ervoor dat u bent aangemeld met behulp van de juiste omgeving hello (Azure, Azure China, Duitse Azure, Azure US Government of aangepaste omgeving/Azure Stack).
 
-- Als u zich achter een proxy, zorg er dan voor dat u de proxy Opslagverkenner juist hebt geconfigureerd.
+- Als u zich achter een proxy, zorg er dan voor dat Hallo Opslagverkenner proxy correct geconfigureerd.
 
-- Verwijder en readding van het account.
+- Verwijder en readding Hallo-account.
 
-- Probeer een van de volgende bestanden worden verwijderd uit de hoofddirectory (dat wil zeggen, C:\Users\ContosoUser) en vervolgens opnieuw toe te voegen het account:
+- Verwijder Hallo volgende bestanden uit de hoofddirectory (dat wil zeggen, C:\Users\ContosoUser) en vervolgens opnieuw toe te voegen Hallo-account:
 
     - .adalcache
 
@@ -83,25 +83,25 @@ Als u niet ophalen van uw abonnementen, nadat u zich hebt aangemeld, volg deze s
 
     - .extaccounts
 
-- Bekijk de ontwikkelhulpprogramma's console (door op F12 wordt gedrukt) wanneer u voor eventuele foutberichten aanmeldt zich:
+- Console voor controle Hallo developer's (door op F12 te drukken) wanneer u zich aanmeldt voor eventuele foutberichten:
 
 ![Hulpprogramma's voor ontwikkelaars](./media/storage-explorer-troubleshooting/4022501_en_2.png)
 
-### <a name="unable-to-see-the-authentication-page"></a>Kan niet voor een overzicht van de verificatiepagina
+### <a name="unable-toosee-hello-authentication-page"></a>Kan geen toosee Hallo verificatiepagina
 
-Als u niet wilt weergeven van de verificatiepagina als volgt te werk om dit probleem oplossen:
+Als u pagina kan niet toosee Hallo-verificatie, volg deze stappen tootroubleshoot dit probleem:
 
-- Afhankelijk van de snelheid van uw verbinding duurt lang voordat de aanmeldingspagina te laden, wacht u minstens één minuut voordat u sluit het verificatiedialoogvenster.
+- Afhankelijk van Hallo snelheid van uw verbinding, kan het Hallo-aanmeldingspagina tooload even duren voordat, wacht ten minste één minuut voordat het dialoogvenster verificatie hello wordt gesloten.
 
-- Als u zich achter een proxy, zorg er dan voor dat u de proxy Opslagverkenner juist hebt geconfigureerd.
+- Als u zich achter een proxy, zorg er dan voor dat Hallo Opslagverkenner proxy correct geconfigureerd.
 
-- De developer-console weergeven door op de F12-toets te drukken. Bekijk de antwoorden van de developer-console en ontdek of voor u een aanwijzing Waarom vindt verificatie werkt niet.
+- Weergave Hallo developer-console door Hallo F12-toets te drukken. Hallo-antwoorden van Hallo developer-console te bekijken en zien of voor u een aanwijzing Waarom vindt verificatie werkt niet.
 
 ### <a name="cannot-remove-account"></a>Kan account niet verwijderen
 
-Als u niet om een account te verwijderen, of als de koppeling opnieuw verifiëren heeft geen invloed, volg deze stappen om dit probleem oplossen:
+Volg deze stappen tootroubleshoot dit probleem als u tooremove een account of Hallo opnieuw verifiëren koppeling heeft geen invloed:
 
-- Probeer de volgende bestanden worden verwijderd uit de hoofddirectory en vervolgens readding het account:
+- Verwijder Hallo volgende bestanden uit de hoofddirectory en vervolgens readding Hallo-account:
 
     - .adalcache
 
@@ -109,7 +109,7 @@ Als u niet om een account te verwijderen, of als de koppeling opnieuw verifiëre
 
     - .extaccounts
 
-- Als u wilt verwijderen SAS opslagbronnen aangesloten, verwijdert u de volgende bestanden:
+- Als u tooremove SAS Storage-resources die zijn gekoppeld wilt, verwijder Hallo volgende bestanden:
 
     - De map %AppData%/StorageExplorer voor Windows
 
@@ -118,67 +118,67 @@ Als u niet om een account te verwijderen, of als de koppeling opnieuw verifiëre
     - ~/.config/StorageExplorer voor Linux
 
 > [!NOTE]
->  U moet alle uw referenties opnieuw invoeren als u deze bestanden verwijdert.
+>  U hebt tooreenter alle uw referenties als u deze bestanden verwijdert.
 
 ## <a name="proxy-issues"></a>Proxy-problemen
 
-Controleer eerst of dat de volgende informatie die u hebt ingevoerd juist zijn:
+Controleer eerst of die Hallo volgende informatie die u hebt ingevoerd juist zijn:
 
-- De proxy-URL en het poortnummer
+- proxy-URL en poort Hallo getal
 
-- Gebruikersnaam en wachtwoord, indien vereist door de proxy
+- Gebruikersnaam en wachtwoord, indien vereist door het Hallo-proxy
 
 ### <a name="common-solutions"></a>Algemene oplossingen
 
-Als u steeds problemen ondervindt nog, volg deze stappen voor het oplossen van deze:
+Als u steeds problemen ondervindt nog, volgt u deze stappen tootroubleshoot ze:
 
-- Als u verbinding met Internet maken kunt zonder gebruik van uw proxyserver, moet u controleren of Opslagverkenner zonder proxyinstellingen zijn ingeschakeld werkt. Als dit het geval is, is er mogelijk een probleem met uw proxy-instellingen. Werken met de proxy-beheerder om de problemen te identificeren.
+- Als u verbinding van toohello Internet maken kunt zonder gebruik van uw proxyserver, moet u controleren of Opslagverkenner zonder proxyinstellingen zijn ingeschakeld werkt. Als dit Hallo geval is, is er mogelijk een probleem met uw proxy-instellingen. Werken met uw proxy-beheerder tooidentify Hallo problemen.
 
-- Controleer of andere toepassingen die gebruikmaken van de proxyserver werken zoals verwacht.
+- Controleer of andere toepassingen die gebruikmaken van de proxyserver Hallo werken zoals verwacht.
 
-- Controleer of u verbinding kunt maken voor de Microsoft Azure-portal met behulp van uw webbrowser
+- Controleer of u kunt verbinding maken toohello Microsoft Azure-portal met behulp van uw webbrowser
 
 - Controleer of u kunt reacties van uw service-eindpunten te ontvangen. Voer een van de eindpunt-URL's in uw browser. Als u verbinding maken kunt, ontvangt u een InvalidQueryParameterValue of een vergelijkbare XML-antwoord.
 
-- Als iemand anders Opslagverkenner ook met de proxyserver gebruikt, controleert u of dat ze verbinding kunnen maken. Als ze verbinding maken kunnen, hebt u mogelijk contact op met uw proxy-server.
+- Als iemand anders Opslagverkenner ook met de proxyserver gebruikt, controleert u of dat ze verbinding kunnen maken. Als ze verbinding maken kunnen, hebt u mogelijk toocontact uw proxy-server-beheerder.
 
 ### <a name="tools-for-diagnosing-issues"></a>Hulpprogramma's voor het oplossen van problemen
 
-Als u hulpprogramma's voor netwerken, zoals Fiddler voor Windows hebt, kunt u mogelijk problemen als volgt:
+Als u beschikt over hulpprogramma's voor netwerken, zoals Fiddler voor Windows, hebt u mogelijk kunnen toodiagnose Hallo problemen als volgt:
 
-- Als u om te werken via de proxy hebt, moet u wellicht uw netwerken hulpprogramma om verbinding via de proxy te configureren.
+- Als u toowork via de proxy hebt, hebben uw netwerken hulpprogramma tooconnect via proxy Hallo tooconfigure.
 
-- Controleer het poortnummer dat wordt gebruikt door uw netwerken hulpprogramma.
+- Controleer Hallo poortnummer dat wordt gebruikt door uw netwerken hulpprogramma.
 
-- Voer de URL van de lokale host en het poortnummer van de netwerken hulpprogramma als proxy-instellingen in Opslagverkenner. Als deze isdone correct uw netwerken hulpprogramma start logging netwerkaanvragen door Opslagverkenner voor beheer en service-eindpunten. Voer bijvoorbeeld https://cawablobgrs.blob.core.windows.net/ voor het eindpunt van de blob in een browser en ontvangt u een antwoord lijkt op het volgende voorbeeld, waarin wordt voorgesteld de bron bestaat, hoewel u geen toegang toe heeft.
+- Hallo lokale host-URL en de netwerken van het hulpprogramma poortnummer als proxy-instellingen in Opslagverkenner Hallo invoeren. Als deze isdone correct uw netwerken hulpprogramma start logging netwerkaanvragen door Opslagverkenner toomanagement en service-eindpunten. Voer bijvoorbeeld https://cawablobgrs.blob.core.windows.net/ voor het eindpunt van de blob in een browser en ontvangt u een antwoord lijkt op de volgende hello, die wordt voorgesteld Hallo resource bestaat, hoewel u geen toegang toe heeft.
 
 ![Voorbeeld van code](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
 ### <a name="contact-proxy-server-admin"></a>Neem contact op met de serverbeheerder proxy
 
-Als uw proxy-instellingen correct zijn, hebt u mogelijk contact opnemen met uw beheerder proxy-server en
+Als de proxy-instellingen correct zijn, hebt u mogelijk toocontact uw proxy-server-beheerder en
 
-- Zorg ervoor dat uw proxy geen verkeer naar Azure management of de resource-eindpunten blokkeert.
+- Zorg ervoor dat de proxy worden niet geblokkeerd verkeer tooAzure management of resource-eindpunten.
 
-- Controleer of het verificatieprotocol dat wordt gebruikt door de proxyserver. Opslagverkenner biedt momenteel geen ondersteuning voor NTLM-proxy's.
+- Controleer of Hallo authenticatieprotocol dat wordt gebruikt door de proxyserver. Opslagverkenner biedt momenteel geen ondersteuning voor NTLM-proxy's.
 
-## <a name="unable-to-retrieve-children-error-message"></a>Foutbericht 'Kan niet naar onderliggende elementen ophalen'
+## <a name="unable-tooretrieve-children-error-message"></a>Het foutbericht 'Kan geen tooRetrieve kinderen'
 
-Als u met Azure via een proxy verbonden bent, moet u controleren of de proxyinstellingen juist zijn. Als u zijn toegang tot een resource verleend aan de eigenaar van het abonnement of account, Controleer of u hebt gelezen of lijst met machtigingen voor die bron.
+Als u verbonden tooAzure via een proxy bent, moet u controleren of de proxyinstellingen juist zijn. Als u toegang tooa resource zijn verleend van Hallo eigenaar van het Hallo-abonnement of account, Controleer of u hebt gelezen of lijst met machtigingen voor die bron.
 
 ### <a name="issues-with-sas-url"></a>Problemen met SAS-URL
-Als u verbinding met een service met behulp van een SAS-URL en deze fout optreedt maakt:
+Als u verbinding tooa service met behulp van een SAS-URL en deze fout optreedt maakt:
 
-- Controleer of dat de URL van de vereiste machtigingen voor lezen of lijst van bronnen biedt.
+- Controleer of dat Hallo URL de benodigde machtigingen Hallo tooread of lijst met resources biedt.
 
-- Controleer of de URL is niet verlopen.
+- Controleer of deze Hallo die URL niet is verlopen.
 
-- Als de SAS-URL is gebaseerd op een toegangsbeleid, controleert u of het beleid voor toegang niet is ingetrokken.
+- Als Hallo SAS-URL is gebaseerd op een toegangsbeleid, controleert u of Hallo-beleid niet is ingetrokken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als geen van de oplossingen die voor u werken, Geef uw probleem via het hulpprogramma feedback met uw e-mailadres en zo veel meer informatie over het probleem dat is opgenomen als u kunnen, zodat we kunnen contact met u voor het oplossen van het probleem.
+Als geen van de oplossingen Hallo werkt, Geef uw probleem via Hallo feedback hulpprogramma met uw e-mailadres en zoveel mogelijk details over Hallo probleem opgenomen als u kunnen, zodat we kunnen contact met u voor het oplossen van Hallo probleem.
 
-Om dit te doen, klikt u op **Help** menu en klik vervolgens op **Feedback verzenden**.
+toodo, klikt u op **Help** menu en klik vervolgens op **Feedback verzenden**.
 
 ![Feedback](./media/storage-explorer-troubleshooting/4022503_en_1.png)

@@ -1,6 +1,6 @@
 ---
-title: Vinden van de volgende hop met Azure-netwerk-Watcher volgende Hop - Azure CLI 1.0 | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u kunt vinden wat het volgende hoptype is en IP-adres met de volgende Hop met Azure CLI.
+title: de volgende hop aaaFind met Azure-netwerk-Watcher volgende Hop - Azure CLI 1.0 | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u welke Hallo type voor het volgende hop is en het gebruik van IP-adres van volgende Hop met Azure CLI kunt vinden.
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: ff88e945060ae033717ceb29db1352e112f05a3f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 54124c051021413695d70ba93c370605abc6ebbe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-10"></a>Uitzoeken wat het volgende hoptype gebruikt de mogelijkheid van de volgende Hop in Azure met Azure CLI 1.0 netwerk-Watcher
+# <a name="find-out-what-hello-next-hop-type-is-using-hello-next-hop-capability-in-azure-network-watcher-using-azure-cli-10"></a>Ontdek welke Hallo volgend hoptype Hallo volgende Hop mogelijkheid gebruikt in Azure met Azure CLI 1.0 netwerk-Watcher
 
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-check-next-hop-portal.md)
@@ -29,42 +29,42 @@ ms.lasthandoff: 07/11/2017
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
 > - [Azure REST-API](network-watcher-check-next-hop-rest.md)
 
-De volgende hop is een functie van netwerk-Watcher die de mogelijkheid get biedt de volgende hoptype en IP-adres op basis van een opgegeven virtuele machine. Deze functie is handig bij het bepalen of een virtuele machine uitgaand verkeer van een gateway, internet of virtuele netwerken om te gaan naar de bestemming passeert.
+De volgende hop is een functie van netwerk-Watcher die de mogelijkheid Hallo biedt Hallo volgend hoptype en IP-adres op basis van een opgegeven virtuele machine ophalen. Deze functie is handig bij het bepalen of een virtuele machine uitgaand verkeer van een gateway, internet of virtuele netwerken tooget tooits bestemming passeert.
 
 Dit artikel wordt platformoverschrijdende Azure CLI 1.0 gebruikt die beschikbaar is voor Windows, Mac en Linux.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit scenario gebruikt u de Azure CLI het volgende hoptype en IP-adres vinden.
+In dit scenario gebruikt u Azure CLI toofind Hallo volgend hoptype hello en IP-adres.
 
-Dit scenario wordt ervan uitgegaan dat u de stappen in al hebt gevolgd [maken van een netwerk-Watcher](network-watcher-create.md) voor het maken van een netwerk-Watcher. Het scenario wordt ervan uitgegaan dat er een resourcegroep met een geldige virtuele machine bestaat om te worden gebruikt.
+Dit scenario wordt ervan uitgegaan dat u hebt al Hallo stappen uitgevoerd in [maken van een netwerk-Watcher](network-watcher-create.md) toocreate een netwerk-Watcher. Hallo scenario wordt ervan uitgegaan dat een resourcegroep met een geldige virtuele machine toobe gebruikt bestaat.
 
 ## <a name="scenario"></a>Scenario
 
-Het scenario beschreven in dit artikel maakt gebruik van volgende Hop, een functie van netwerk-Watcher waarmee wordt gezocht naar de volgende hoptype en IP-adres voor een resource. Voor meer informatie over de volgende Hop, gaat u naar [volgende Hop overzicht](network-watcher-next-hop-overview.md).
+Hallo scenario beschreven in dit artikel maakt gebruik van volgende Hop, een functie van netwerk-Watcher waarmee wordt gezocht naar het volgende hoptype hello en IP-adres voor een resource. toolearn meer informatie over het volgende Hop, gaat u naar [volgende Hop overzicht](network-watcher-next-hop-overview.md).
 
 
 ## <a name="get-next-hop"></a>Ophalen van de volgende Hop
 
-Ophalen van de volgende hop we noemen de `azure netowrk watcher next-hop` cmdlet. De cmdlet geven we de resourcegroep voor netwerk-Watcher, de NetworkWatcher virtuele machine Id, IP-bronadres en IP-doeladres. In dit voorbeeld is het IP-doeladres voor een virtuele machine in een ander virtueel netwerk. Er is een virtuele netwerkgateway tussen de twee virtuele netwerken. 
+tooget hello volgende hop noemen we Hallo `azure netowrk watcher next-hop` cmdlet. We geven Hallo cmdlet Hallo netwerk-Watcher-resourcegroep, Hallo NetworkWatcher virtuele machine Id, IP-bronadres en IP-doeladres. In dit voorbeeld is de IP-doeladres Hallo tooa VM in een ander virtueel netwerk. Er is een virtuele netwerkgateway tussen Hallo twee virtuele netwerken. 
 
 ```azurecli
 azure network watcher next-hop -g resourceGroupName -n networkWatcherName -t targetResourceId -a <source-ip> -d <destination-ip>
 ```
 
 > [!NOTE]
-Als de virtuele machine meerdere NIC's heeft en doorsturen via IP is ingeschakeld op een van de NIC's en vervolgens de NIC-parameter (-ik nic-id) moet worden opgegeven. Anders is optioneel.
+Als Hallo VM meerdere NIC's en doorsturen via IP is ingeschakeld op Hallo NIC's, klikt u vervolgens Hallo NIC-parameter (-ik nic-id) moet worden opgegeven. Anders is optioneel.
 
 ## <a name="review-results"></a>Resultaten bekijken
 
-Na voltooiing wordt worden de resultaten geleverd. De volgende hop-IP-adres en het type resource dat is geretourneerd.
+Als u klaar worden Hallo resultaten geleverd. Hallo volgende hop IP-adres wordt geretourneerd en Hallo type resource is.
 
 ```
 data:    Next Hop Ip Address             : 10.0.1.2
 info:    network watcher next-hop command OK
 ```
 
-De volgende lijst bevat de momenteel beschikbare NextHopType waarden:
+Hallo bevat volgende lijst de momenteel beschikbare NextHopType waarden Hallo:
 
 **Volgend Hoptype**
 
@@ -78,4 +78,4 @@ De volgende lijst bevat de momenteel beschikbare NextHopType waarden:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het bekijken van de groep beveiligingsinstellingen van uw netwerk via een programma te bezoeken [NSG controleren met de netwerk-Watcher](network-watcher-nsg-auditing-powershell.md)
+Meer informatie over hoe tooreview uw netwerk groep beveiligingsinstellingen programmatisch in via [NSG controleren met de netwerk-Watcher](network-watcher-nsg-auditing-powershell.md)

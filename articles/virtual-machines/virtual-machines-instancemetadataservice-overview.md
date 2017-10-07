@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Azure-instantie Service metagegevens | Microsoft Docs
-description: RESTful-interface voor informatie over de compute, netwerk en toekomstig onderhoud gebeurtenissen van de virtuele machine.
+title: Overzicht van de Service-exemplaar metagegevens aaaAzure | Microsoft Docs
+description: RESTful-interface tooget informatie over compute, netwerk en toekomstig onderhoud gebeurtenissen van de virtuele machine.
 services: virtual-machines-windows, virtual-machines-linux,virtual-machines-scale-sets, cloud-services
 documentationcenter: virtual-machines
 author: harijay
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: harijay
-ms.openlocfilehash: d601d8fdb92bf2d3253ba99cdeee10e09591689c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e87cdf28f80b9ef8cc566b637549c48846862f0c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-instance-metadata-service"></a>Service voor Azure-instantie metagegevens 
 
 
-De Azure-Service-exemplaar metagegevens bevat informatie over het uitvoeren van de virtuele machine-exemplaren die kunnen worden gebruikt voor het beheren en configureren van uw virtuele machines.
+Hello Azure exemplaar metagegevens Service biedt informatie over het uitvoeren van de virtuele machine-exemplaren die kunnen worden gebruikt toomanage en configureren van uw virtuele machines.
 Dit omvat gegevens zoals SKU netwerkconfiguratie en toekomstig onderhoud gebeurtenissen. Zie voor meer informatie over wat voor soort informatie beschikbaar is, [metagegevens categorieën](#instance-metadata-data-categories).
 
-Service voor de metagegevens van Azure exemplaar is een REST-eindpunt toegankelijk voor alle IaaS VM's die worden gemaakt via de [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Het eindpunt is beschikbaar op een bekende niet-routeerbare IP-adres (`169.254.169.254`) die kan alleen worden benaderd binnen de virtuele machine.
+Azure instantie metagegevens-Service is een REST-eindpunt toegankelijk tooall IaaS VM's die zijn gemaakt via Hallo [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Hallo-eindpunt is beschikbaar op een bekende niet-routeerbare IP-adres (`169.254.169.254`) die kan alleen worden benaderd binnen Hallo VM.
 
 ### <a name="important-information"></a>Belangrijke informatie
 
-Deze service is **algemeen beschikbaar** in globale Azure-regio's. Het is openbare Preview voor Government, China en Duitse Azure-Cloud. Het ontvangt regelmatig updates om nieuwe informatie over de virtuele machine-exemplaren weer te geven. Deze pagina geeft de actuele [gegevenscategorieën](#instance-metadata-data-categories) beschikbaar.
+Deze service is **algemeen beschikbaar** in globale Azure-regio's. Het is openbare Preview voor Government, China en Duitse Azure-Cloud. Het ontvangt regelmatig updates tooexpose nieuwe informatie over exemplaren van de virtuele machine. Deze pagina geeft Hallo up-to-date [gegevenscategorieën](#instance-metadata-data-categories) beschikbaar.
 
 ## <a name="service-availability"></a>Beschikbaarheid van de service
-De service is beschikbaar in alle algemeen beschikbaar globale Azure-regio's. De service zich in de openbare preview van de overheid, China of Duitsland regio's.
+Hallo-service is beschikbaar in alle algemeen beschikbaar globale Azure-regio's. Hallo-service zich in de openbare preview in Hallo Government, China of Duitsland regio's.
 
 Regio's                                        | Beschikbaarheid?
 -----------------------------------------------|-----------------------------------------------
@@ -42,26 +42,26 @@ Regio's                                        | Beschikbaarheid?
 [Azure China](https://www.azure.cn/)                                                           | Preview-versie
 [Azure Duitsland](https://azure.microsoft.com/en-us/overview/clouds/germany/)                    | Preview-versie
 
-Deze tabel wordt bijgewerkt zodra de service beschikbaar in andere Azure-clouds.
+Deze tabel wordt bijgewerkt zodra Hallo service beschikbaar in andere Azure-clouds.
 
-Maak een VM uit om de Service-exemplaar voor metagegevens uitproberen, [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) of de [Azure-portal](http://portal.azure.com) in de bovenstaande regio's en volg de onderstaande voorbeelden.
+tootry uit Hallo Service-exemplaar voor metagegevens, maak een VM van [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) of Hallo [Azure-portal](http://portal.azure.com) in Hallo hierboven regio's en volg de volgende Hallo voorbeelden.
 
 ## <a name="usage"></a>Gebruik
 
 ### <a name="versioning"></a>Versiebeheer voor onderdelen
-De Service-exemplaar voor metagegevens is samengestelde. Versies zijn verplicht en de huidige versie is `2017-04-02`.
+Hallo metagegevens-Service-exemplaar is samengesteld. Versies zijn verplicht en de huidige versie Hallo is `2017-04-02`.
 
 > [!NOTE] 
-> Eerdere versies van de preview van geplande gebeurtenissen {laatste} wordt ondersteund als de api-versie. Deze indeling wordt niet meer ondersteund en in de toekomst wordt afgeschaft.
+> Eerdere versies van de preview van geplande gebeurtenissen {laatste} wordt ondersteund als Hallo api-versie. Deze indeling wordt niet meer ondersteund en in toekomstige hello wordt afgeschaft.
 
-Als er nieuwere versies toevoegt, oudere versies is nog steeds toegankelijk voor compatibiliteit als uw scripts afhankelijk van specifieke gegevensindelingen zijn. Houd er echter rekening mee dat de huidige preview version(2017-03-01) mogelijk niet beschikbaar zodra de service in het algemeen beschikbaar is.
+Als er nieuwere versies toevoegt, oudere versies is nog steeds toegankelijk voor compatibiliteit als uw scripts afhankelijk van specifieke gegevensindelingen zijn. Bedenk wel dat Hallo huidige preview version(2017-03-01) mogelijk niet beschikbaar zodra de service Hallo algemeen beschikbaar is.
 
 ### <a name="using-headers"></a>Met behulp van Headers
-Wanneer u de Service-exemplaar voor metagegevens query uitvoert, moet u de header geven `Metadata: true` om te controleren of de aanvraag is niet per ongeluk wordt omgeleid.
+Wanneer u query Hallo exemplaar metagegevens Service uitvoert, moet u opgeven Hallo header `Metadata: true` tooensure Hallo verzoek is niet per ongeluk omgeleid.
 
 ### <a name="retrieving-metadata"></a>Ophalen van metagegevens
 
-Metagegevens van het exemplaar is beschikbaar voor het uitvoeren van virtuele machines die zijn gemaakt/beheerd met behulp van [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Toegang tot alle gegevenscategorieën voor een exemplaar van de virtuele machine met de volgende aanvraag:
+Metagegevens van het exemplaar is beschikbaar voor het uitvoeren van virtuele machines die zijn gemaakt/beheerd met behulp van [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Toegang tot alle gegevenscategorieën voor een exemplaar van de virtuele machine met behulp van de volgende aanvraag Hallo:
 
 ```
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
@@ -71,34 +71,34 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > Alle query's voor exemplaar-metagegevens zijn hoofdlettergevoelig.
 
 ### <a name="data-output"></a>Data-uitvoer
-Standaard stuurt de metagegevens-Service-exemplaar gegevens in JSON-indeling (`Content-Type: application/json`). Verschillende API's kunnen echter gegevens in verschillende indelingen geretourneerd als aangevraagd.
-De volgende tabel bevat een verwijzing naar andere indelingen met de die API 's kunnen ondersteunen.
+Standaard Hallo exemplaar metagegevens Service gegevens worden geretourneerd in JSON-indeling (`Content-Type: application/json`). Verschillende API's kunnen echter gegevens in verschillende indelingen geretourneerd als aangevraagd.
+Hallo bevat volgende tabel een verwijzing naar andere indelingen met de die API 's kunnen ondersteunen.
 
 API | Standaardindeling voor gegevens | Andere indelingen
 --------|---------------------|--------------
 /Instance | JSON | Tekst
 /scheduledevents | JSON | Geen
 
-Geef de vereiste indeling als een parameter van de querytekenreeks worden opgegeven in de aanvraag voor toegang tot een niet-standaard antwoordindeling moet. Bijvoorbeeld:
+een niet-standaard antwoordindeling tooaccess opgeven Hallo aangevraagde indeling als een parameter querystring in Hallo-aanvraag. Bijvoorbeeld:
 
 ```
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
 ```
 
 ### <a name="security"></a>Beveiliging
-Het exemplaar metagegevens Service-eindpunt is alleen toegankelijk vanuit de actieve sessie van de virtuele machine op een niet-routeerbare IP-adres. Bovendien verzoeken met een `X-Forwarded-For` header is geweigerd door de service.
-Moet ook aanvragen bevatten een `Metadata: true` header om ervoor te zorgen dat de werkelijke aanvraag rechtstreeks bestemd en geen deel uit van onbedoelde omleiding is. 
+Hallo exemplaar metagegevens Service-eindpunt is alleen toegankelijk vanuit Hallo met een exemplaar van de virtuele machine op een niet-routeerbare IP-adres. Bovendien verzoeken met een `X-Forwarded-For` header is geweigerd door Hallo-service.
+Ook aanvragen toocontain moet een `Metadata: true` header tooensure die Hallo werkelijke aanvraag rechtstreeks is bestemd en geen deel uit van onbedoelde omleiding. 
 
 ### <a name="error"></a>Fout
-Als er een gegevenselement niet gevonden of een onjuist gevormde aanvraag, retourneert de Service-exemplaar voor metagegevens standaard HTTP-fouten. Bijvoorbeeld:
+Als er een gegevenselement niet gevonden of een onjuist gevormde aanvraag, retourneert Hallo exemplaar metagegevens Service standaard HTTP-fouten. Bijvoorbeeld:
 
 HTTP-statuscode | Reden
 ----------------|-------
 200 OK |
 400 onjuiste aanvraag | Ontbrekende `Metadata: true` koptekst
-404 – Niet gevonden | Het gevraagde element does't bestaan 
+404 – Niet gevonden | Hallo gevraagde element does't bestaan 
 405 methode is niet toegestaan | Alleen `GET` en `POST` aanvragen worden ondersteund
-429 te veel aanvragen | De API ondersteunt momenteel maximaal 5 query's per seconde
+429 te veel aanvragen | Hallo-API ondersteunt momenteel maximaal 5 query's per seconde
 Fout 500-Service     | Probeer na enige tijd
 
 ### <a name="examples"></a>Voorbeelden
@@ -117,7 +117,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 **Antwoord**
 
 > [!NOTE] 
-> Het antwoord is een JSON-tekenreeks. Het volgende voorbeeld-antwoord is voor de leesbaarheid pretty afgedrukt.
+> Hallo-antwoord is een JSON-tekenreeks. Hallo volgende voorbeeld van een antwoord is voor de leesbaarheid pretty afgedrukt.
 
 ```
 {
@@ -164,7 +164,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 **Antwoord**
 
 > [!NOTE] 
-> Het antwoord is een JSON-tekenreeks. Het volgende voorbeeld-antwoord is voor de leesbaarheid pretty afgedrukt.
+> Hallo-antwoord is een JSON-tekenreeks. Hallo volgende voorbeeld van een antwoord is voor de leesbaarheid pretty afgedrukt.
 
 ```
 {
@@ -212,13 +212,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 **Aanvraag**
 
-Metagegevens van het exemplaar kan worden opgehaald in Windows via het hulpprogramma PowerShell `curl`: 
+Metagegevens van het exemplaar kan worden opgehaald in Windows via Hallo PowerShell hulpprogramma `curl`: 
 
 ```
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
 ```
 
-Of via de `Invoke-RestMethod` cmdlet:
+Of via Hallo `Invoke-RestMethod` cmdlet:
     
 ```
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
@@ -227,7 +227,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 **Antwoord**
 
 > [!NOTE] 
-> Het antwoord is een JSON-tekenreeks. Het volgende voorbeeld-antwoord is voor de leesbaarheid pretty afgedrukt.
+> Hallo-antwoord is een JSON-tekenreeks. Hallo volgende voorbeeld van een antwoord is voor de leesbaarheid pretty afgedrukt.
 
 ```
 {
@@ -274,26 +274,26 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```
 
 ## <a name="instance-metadata-data-categories"></a>Exemplaar metagegevens gegevenscategorieën
-De volgende gegevenscategorieën zijn beschikbaar via de Service-exemplaar voor metagegevens:
+Hallo na gegevenscategorieën zijn beschikbaar via Hallo exemplaar metagegevens Service:
 
 Gegevens | Beschrijving
 -----|------------
-location | Azure-regio de virtuele machine wordt uitgevoerd in de
-naam | Naam van de virtuele machine 
-Aanbieding | Bieden informatie over de VM-afbeelding. Deze waarde is alleen aanwezig voor afbeeldingen van afbeelding voor Azure-galerie geïmplementeerd.
-Uitgever | Uitgever van de VM-installatiekopie
-SKU | Specifieke SKU voor de VM-installatiekopie  
-Versie | Versie van de VM-afbeelding 
+location | Azure regio Hallo VM wordt uitgevoerd
+naam | Naam van Hallo VM 
+Aanbieding | Informatie voor de VM-installatiekopie Hallo bieden. Deze waarde is alleen aanwezig voor afbeeldingen van afbeelding voor Azure-galerie geïmplementeerd.
+Uitgever | Uitgever van de VM-installatiekopie Hallo
+SKU | Specifieke SKU voor Hallo VM-installatiekopie  
+Versie | Versie van de VM-installatiekopie Hallo 
 besturingssysteemtype | Linux- of Windows 
-platformUpdateDomain |  [Updatedomein](virtual-machines-windows-manage-availability.md) in de virtuele machine wordt uitgevoerd
-platformFaultDomain | [Foutdomein](virtual-machines-windows-manage-availability.md) in de virtuele machine wordt uitgevoerd
-vmId | [De unieke id](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) voor de virtuele machine
+platformUpdateDomain |  [Updatedomein](virtual-machines-windows-manage-availability.md) Hallo VM wordt uitgevoerd in
+platformFaultDomain | [Foutdomein](virtual-machines-windows-manage-availability.md) Hallo VM wordt uitgevoerd in
+vmId | [De unieke id](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) voor Hallo VM
 vmSize | [VM-grootte](virtual-machines-windows-sizes.md)
-IPv4/privateIpAddress | Lokale IPv4-adres van de virtuele machine 
-IPv4/publicIpAddress | Openbaar IPv4-adres van de virtuele machine
-subnetadres / | Subnetadres van de virtuele machine
+IPv4/privateIpAddress | Lokale IPv4-adres van Hallo VM 
+IPv4/publicIpAddress | Openbare IPv4-adres van Hallo VM
+subnetadres / | Subnetadres Hallo VM
 subnetvoorvoegsel / | Subnetvoorvoegsel, voorbeeld 24
-IPv6/IP-adres | Lokale IPv6-adres van de virtuele machine
+IPv6/IP-adres | Lokale IPv6-adres van Hallo VM
 MAC-adres | Mac-adres van VM 
 scheduledevents | Op dit moment in de openbare Preview Zie [scheduledevents](virtual-machines-scheduled-events.md)
 
@@ -301,7 +301,7 @@ scheduledevents | Op dit moment in de openbare Preview Zie [scheduledevents](vir
 
 ### <a name="tracking-vm-running-on-azure"></a>Uitgevoerd op Azure VM bijhouden
 
-Als een serviceprovider mogelijk nodig bij te houden van het aantal virtuele machines met uw software of agents die u wilt volgen Uniekheid van de virtuele machine. Als u een unieke ID voor een virtuele machine ophalen, gebruikt u de `vmId` veld van metagegevens-Service-exemplaar.
+Als een serviceprovider gewenste tootrack Hallo aantal virtuele machines met uw software of agenten die tootrack uniekheid Hallo VM nodig hebt. toobe kunnen tooget een unieke ID voor een virtuele machine, gebruik Hallo `vmId` veld van metagegevens-Service-exemplaar.
 
 **Aanvraag**
 
@@ -317,8 +317,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Plaatsing van containers domein veroorzaakt of bij te werken op basis van gegevens partities 
 
-Voor bepaalde scenario's, de plaatsing van replica's van verschillende gegevens is van primair belang. Bijvoorbeeld: [HDFS replica plaatsing](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) of plaatsing van de container via een [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) mogelijk dat u wilt weten de `platformFaultDomain` en `platformUpdateDomain` op de virtuele machine wordt uitgevoerd.
-U kunt deze gegevens rechtstreeks via de Service-exemplaar voor metagegevens opvragen.
+Voor bepaalde scenario's, de plaatsing van replica's van verschillende gegevens is van primair belang. Bijvoorbeeld: [HDFS replica plaatsing](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) of plaatsing van de container via een [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) mogelijk tooknow hello `platformFaultDomain` en `platformUpdateDomain` Hallo VM wordt uitgevoerd op.
+U kunt deze gegevens rechtstreeks via Hallo exemplaar metagegevens Service opvragen.
 
 **Aanvraag**
 
@@ -332,9 +332,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 0
 ```
 
-### <a name="getting-more-information-about-the-vm-during-support-case"></a>Meer informatie over de virtuele machine tijdens ondersteuningsaanvraag ophalen 
+### <a name="getting-more-information-about-hello-vm-during-support-case"></a>Meer informatie over Hallo VM tijdens ondersteuningsaanvraag ophalen 
 
-Als een serviceprovider krijgt u mogelijk een telefoongesprek ondersteuning waarin u wilt weten van meer informatie over de virtuele machine. Vragen van de klant voor het delen van de compute-metagegevens kunt basisinformatie voor de medewerker weten over de aard van de virtuele machine in Azure. 
+Als een serviceprovider mogelijk dat u een telefoongesprek ondersteuning waar u wilt tooknow meer informatie over Hallo VM. Hallo klant tooshare vragen kunt Hallo compute metagegevens basisinformatie voor Hallo ondersteuning professional tooknow over Hallo-type van de virtuele machine in Azure. 
 
 **Aanvraag**
 
@@ -345,7 +345,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 **Antwoord**
 
 > [!NOTE] 
-> Het antwoord is een JSON-tekenreeks. Het volgende voorbeeld-antwoord is voor de leesbaarheid pretty afgedrukt.
+> Hallo-antwoord is een JSON-tekenreeks. Hallo volgende voorbeeld van een antwoord is voor de leesbaarheid pretty afgedrukt.
 
 ```
 {
@@ -365,7 +365,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 }
 ```
 
-### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Voorbeelden van het aanroepen van metagegevensservice met behulp van verschillende talen in de virtuele machine 
+### <a name="examples-of-calling-metadata-service-using-different-languages-inside-hello-vm"></a>Voorbeelden van het aanroepen van metagegevensservice met behulp van verschillende talen in Hallo VM 
 
 Taal | Voorbeeld 
 ---------|----------------
@@ -380,23 +380,23 @@ Bash       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.sh
     
 
 ## <a name="faq"></a>Veelgestelde vragen
-1. Ik krijg de fout `400 Bad Request, Required metadata header not specified`. Wat betekent dit?
-   * De Service-exemplaar voor metagegevens is vereist voor de header `Metadata: true` in de aanvraag moet worden doorgegeven. Deze header wordt doorgegeven in de REST-aanroep staat toegang tot de Service-exemplaar voor metagegevens. 
+1. Ik krijg Hallo fout `400 Bad Request, Required metadata header not specified`. Wat betekent dit?
+   * Hallo exemplaar metagegevens Service Hallo header vereist `Metadata: true` toobe doorgegeven in Hallo-aanvraag. Deze header doorgeven in een REST-aanroep hello, kunt access toohello exemplaar metagegevens Service. 
 2. Waarom niet krijg ik compute-informatie voor mijn VM?
-   * De Service-exemplaar voor metagegevens ondersteunt momenteel alleen exemplaren gemaakt met Azure Resource Manager. In de toekomst kunnen we ondersteuning voor virtuele machines van Cloud Service toevoegen.
+   * Hallo exemplaar metagegevens Service ondersteunt momenteel alleen exemplaren gemaakt met Azure Resource Manager. In toekomstige hello, kunnen we ondersteuning voor virtuele machines van Cloud Service toevoegen.
 3. Ik heb mijn virtuele Machine via Azure Resource Manager een tijd terug gemaakt. Waarom kan ik geen Zie compute-metagegevens?
-   * Voor alle virtuele machines na Sep 2016 is gemaakt, voegt u een [Tag](../azure-resource-manager/resource-group-using-tags.md) om te beginnen te zien compute metagegevens. Voor oudere virtuele machines (gemaakt vóór Sep-2016), software-extensies of gegevens schijven aan de virtuele machine vernieuwen-metagegevens.
-4. Waarom krijg ik de fout `500 Internal Server Error`?
-   * Probeer uw aanvraag op basis van de exponentiële back uit het systeem. Neem contact op met de ondersteuning van Azure als het probleem zich blijft voordoen.
+   * Voor alle virtuele machines na Sep 2016 is gemaakt, voegt u een [Tag](../azure-resource-manager/resource-group-using-tags.md) toostart zien compute-metagegevens. Voor oudere virtuele machines (gemaakt vóór Sep-2016), software-extensies of gegevens schijven toohello VM toorefresh metagegevens.
+4. Waarom krijg ik Hallo fout `500 Internal Server Error`?
+   * Probeer uw aanvraag op basis van de exponentiële back uit het systeem. Neem contact op met de ondersteuning van Azure als Hallo probleem zich blijft voordoen.
 5. Waar kan ik aanvullende vragen/opmerkingen delen
    * Uw opmerkingen over http://feedback.azure.com verzenden.
 7. Dit werkt voor virtuele Machine Scale ingesteld exemplaar, zou?
    * Ja is metagegevens-service beschikbaar voor Scale-exemplaren instellen. 
-6. Hoe krijg ik ondersteuning voor de service
-   * Als u ondersteuning voor de service, een ondersteuning probleem maken in Azure-portal voor de virtuele machine waar u ze niet ophalen van metagegevens antwoord na lang pogingen 
+6. Hoe krijg ik ondersteuning voor Hallo-service
+   * tooget ondersteuning voor het Hallo-service een probleem maken in Azure portal voor Hallo VM waar u zich niet kunnen tooget metagegevens antwoord na lang pogingen 
 
    ![Ondersteuning voor Instance Metagegevens](./media/virtual-machines-instancemetadataservice-overview/InstanceMetadata-support.png)
     
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de [scheduledevents](virtual-machines-scheduled-events.md) API **In Public Preview** geleverd door de Service-exemplaar voor metagegevens.
+- Meer informatie over Hallo [scheduledevents](virtual-machines-scheduled-events.md) API **In Public Preview** geleverd door Hallo metagegevens-Service-exemplaar.

@@ -1,6 +1,6 @@
 ---
-title: Productsjablonen in Azure API Management | Microsoft Docs
-description: Informatie over het aanpassen van de inhoud van de product-pagina's in de Azure API Management-portal voor ontwikkelaars.
+title: aaaProduct sjablonen in Azure API Management | Microsoft Docs
+description: Meer informatie over hoe toocustomize Hallo inhoud van het product Hallo-pagina's in hello Azure API Management-portal voor ontwikkelaars.
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 9ddbb9860b437cb3e7334bdf5891f2fba1cffb76
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 60600299287aad87f9b621782ab5ceb866601d03
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="product-templates-in-azure-api-management"></a>Productsjablonen in Azure API Management
-Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van developer portal-pagina's met behulp van een set van sjablonen die hun inhoud configureren. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [resources String](api-management-template-resources.md#strings), [Glyph-resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u aanzienlijke flexibiliteit voor het configureren van de inhoud van de pagina's naar wens met behulp van deze sjablonen.  
+Azure API Management biedt dat u Hallo mogelijkheid toocustomize Hallo inhoud van developer portal-pagina's met behulp van een set van sjablonen die hun inhoud configureren. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en het Hallo-editor naar keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [resources String](api-management-template-resources.md#strings), [ De glyph-resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u aanzienlijke flexibiliteit tooconfigure Hallo inhoud van het Hallo-pagina's naar wens met behulp van deze sjablonen.  
   
- De sjablonen in deze sectie kunt u de inhoud van de product-pagina's in de ontwikkelaarsportal aanpassen.  
+ Hallo-sjablonen in deze sectie kunt u toocustomize Hallo inhoud van het Hallo productpagina's in Hallo-portal voor ontwikkelaars.  
   
 -   [Lijst met producten](#ProductList)  
   
 -   [Product](#Product)  
   
 > [!NOTE]
->  Standaard-voorbeeldsjablonen zijn opgenomen in de volgende documentatie, maar nog worden gewijzigd vanwege continu verbeteringen. U kunt de live standaardsjablonen weergeven in de ontwikkelaarsportal door te navigeren naar de gewenste afzonderlijke sjablonen. Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Standaard-voorbeeldsjablonen zijn opgenomen in de volgende documentatie Hallo, maar onderwerp toochange vanwege toocontinuous verbeteringen zijn. U kunt Hallo live standaardsjablonen in Hallo developer-portal door te navigeren toohello gewenst afzonderlijke sjablonen weergeven. Zie voor meer informatie over het werken met sjablonen [hoe toocustomize API Management-portal voor ontwikkelaars met behulp van sjablonen Hallo](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="ProductList"></a>Lijst met producten  
- De **productlijst** sjabloon kunt u de hoofdtekst van de pagina van de lijst met product in de ontwikkelaarsportal aanpassen.  
+ Hallo **productlijst** sjabloon kunt u toocustomize Hallo hoofdtekst van de lijst productpagina Hallo in Hallo-portal voor ontwikkelaars.  
   
  ![Lijst met producten](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
   
@@ -66,7 +66,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ### <a name="controls"></a>Besturingselementen  
- De `Product list` sjabloon mogelijk gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
+ Hallo `Product list` sjabloon mogelijk gebruikt u de volgende Hallo [pagina besturingselementen](api-management-page-controls.md).  
   
 -   [besturingselement voor paginering](api-management-page-controls.md#paging-control)  
   
@@ -76,9 +76,9 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|Zoekresultaten oproepen|[Wisselgeheugengebruik](api-management-template-data-model-reference.md#Paging) entiteit.|De paginerings-informatie voor de verzameling producten.|  
-|Filteren|[Filteren](api-management-template-data-model-reference.md#Filtering) entiteit.|De informatie filteren voor de pagina van de lijst met producten.|  
-|Producten|Verzameling van [Product](api-management-template-data-model-reference.md#Product) entiteiten.|De producten die zichtbaar is voor de huidige gebruiker.|  
+|Zoekresultaten oproepen|[Wisselgeheugengebruik](api-management-template-data-model-reference.md#Paging) entiteit.|Hallo paginering informatie voor de verzameling van Hallo-producten.|  
+|Filteren|[Filteren](api-management-template-data-model-reference.md#Filtering) entiteit.|Hallo filteren van gegevens voor Hallo producten pagina lijst.|  
+|Producten|Verzameling van [Product](api-management-template-data-model-reference.md#Product) entiteiten.|Hallo producten zichtbaar toohello huidige gebruiker.|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
   
@@ -99,7 +99,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
         {  
             "Id": "56f9445ffaf7560049060001",  
             "Title": "Starter",  
-            "Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",  
+            "Description": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",  
             "Terms": "",  
             "ProductState": 1,  
             "AllowMultipleSubscriptions": false,  
@@ -108,7 +108,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
         {  
             "Id": "56f9445ffaf7560049060002",  
             "Title": "Unlimited",  
-            "Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",  
+            "Description": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",  
             "Terms": null,  
             "ProductState": 1,  
             "AllowMultipleSubscriptions": false,  
@@ -119,7 +119,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ##  <a name="Product"></a>Product  
- De **Product** sjabloon kunt u de hoofdtekst van de productpagina in de ontwikkelaarsportal aanpassen.  
+ Hallo **Product** sjabloon kunt u toocustomize Hallo hoofdtekst van Hallo productpagina in Hallo-portal voor ontwikkelaars.  
   
  ![Developer portal productpagina](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
   
@@ -193,7 +193,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ### <a name="controls"></a>Besturingselementen  
- De `Product list` sjabloon mogelijk gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
+ Hallo `Product list` sjabloon mogelijk gebruikt u de volgende Hallo [pagina besturingselementen](api-management-page-controls.md).  
   
 -   [abonneren knop](api-management-page-controls.md#subscribe-button)  
   
@@ -201,17 +201,17 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|Product|[Product](api-management-template-data-model-reference.md#Product)|Het opgegeven product.|  
-|IsDeveloperSubscribed|Booleaanse waarde|Hiermee wordt aangegeven of de huidige gebruiker is geabonneerd op dit product.|  
-|SubscriptionState|Aantal|De status van het abonnement. Mogelijke statussen zijn:<br /><br /> -   `0 - suspended`– het abonnement is geblokkeerd en de abonnee kan API's van het product niet aanroepen.<br />-   `1 - active`– het abonnement actief is.<br />-   `2 - expired`– het abonnement is bereikt de verloopdatum en is gedeactiveerd.<br />-   `3 - submitted`– de Abonnementaanvraag is gemaakt door de ontwikkelaar, maar is nog niet goedgekeurd of afgewezen.<br />-   `4 - rejected`– de Abonnementaanvraag is geweigerd door een beheerder.<br />-   `5 - cancelled`– het abonnement is geannuleerd door de ontwikkelaar of beheerder.|  
+|Product|[Product](api-management-template-data-model-reference.md#Product)|Hallo opgegeven product.|  
+|IsDeveloperSubscribed|Booleaanse waarde|Hiermee wordt de huidige gebruiker Hallo geabonneerde toothis product.|  
+|SubscriptionState|Aantal|Hallo-status van het Hallo-abonnement. Mogelijke statussen zijn:<br /><br /> -   `0 - suspended`– Hallo-abonnement is geblokkeerd en Hallo abonnee kan API's van Hallo product niet aanroepen.<br />-   `1 - active`– Hallo abonnement actief is.<br />-   `2 - expired`– Hallo-abonnement is bereikt de verloopdatum en is gedeactiveerd.<br />-   `3 - submitted`– Hallo Abonnementaanvraag is gemaakt door de ontwikkelaar Hallo, maar is nog niet goedgekeurd of afgewezen.<br />-   `4 - rejected`– Hallo Abonnementaanvraag is geweigerd door een beheerder.<br />-   `5 - cancelled`– Hallo-abonnement is geannuleerd door Hallo ontwikkelaar of beheerder.|  
 |Limieten|matrix|Deze eigenschap is afgeschaft en mag niet worden gebruikt.|  
 |DelegatedSubscriptionEnabled|Booleaanse waarde|Of [delegering](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) is ingeschakeld voor dit abonnement.|  
-|DelegatedSubscriptionUrl|Tekenreeks|Als delegering is ingeschakeld, de URL van de gedelegeerde abonnement.|  
-|IsAgreed|Booleaanse waarde|Als het product termen, zijn ongeacht of de huidige gebruiker heeft ingestemd met de voorwaarden.|  
-|Abonnementen|Verzameling van [abonnement samenvatting](api-management-template-data-model-reference.md#SubscriptionSummary) entiteiten.|De abonnementen aan het product.|  
-|API 's|Verzameling van [API](api-management-template-data-model-reference.md#API) entiteiten.|De API's in dit product.|  
-|CannotAddBecauseSubscriptionNumberLimitReached|Booleaanse waarde|Hiermee wordt aangegeven of de huidige gebruiker komt in aanmerking voor een abonnement voor dit product met betrekking tot de limiet voor het abonnement.|  
-|CannotAddBecauseMultipleSubscriptionsNotAllowed|Booleaanse waarde|Hiermee wordt aangegeven of de huidige gebruiker komt in aanmerking voor een abonnement voor dit product met betrekking tot meerdere abonnementen of niet wordt toegestaan.|  
+|DelegatedSubscriptionUrl|Tekenreeks|Als delegering is ingeschakeld, gedelegeerd Hallo abonnement URL.|  
+|IsAgreed|Booleaanse waarde|Als Hallo product voorwaarden heeft, of de huidige gebruiker Hallo heeft ingestemd toohello voorwaarden.|  
+|Abonnementen|Verzameling van [abonnement samenvatting](api-management-template-data-model-reference.md#SubscriptionSummary) entiteiten.|Hallo abonnementen toohello product.|  
+|API 's|Verzameling van [API](api-management-template-data-model-reference.md#API) entiteiten.|Hallo API's in dit product.|  
+|CannotAddBecauseSubscriptionNumberLimitReached|Booleaanse waarde|Hallo-huidige gebruiker wordt aangegeven of in aanmerking komende toosubscribe toothis product met inachtneming van toohello abonnementslimiet.|  
+|CannotAddBecauseMultipleSubscriptionsNotAllowed|Booleaanse waarde|Hiermee wordt de huidige gebruiker Hallo in aanmerking komende toosubscribe toothis product met inachtneming van toomultiple abonnementen of niet wordt toegestaan.|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
   
@@ -220,7 +220,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
     "Product": {  
         "Id": "56f9445ffaf7560049060001",  
         "Title": "Starter",  
-        "Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",  
+        "Description": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",  
         "Terms": "",  
         "ProductState": 1,  
         "AllowMultipleSubscriptions": false,  
@@ -258,4 +258,4 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](api-management-developer-portal-templates.md).
+Zie voor meer informatie over het werken met sjablonen [hoe toocustomize API Management-portal voor ontwikkelaars met behulp van sjablonen Hallo](api-management-developer-portal-templates.md).

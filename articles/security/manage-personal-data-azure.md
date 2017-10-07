@@ -1,6 +1,6 @@
 ---
-title: Persoonlijke gegevens beheren in Microsoft Azure | Microsoft Docs
-description: richtlijnen voor het corrigeren, bijwerken, verwijderen en exporteren van persoonlijke gegevens in Azure Active Directory en Azure SQL Database
+title: aaaManage persoonlijke gegevens in Microsoft Azure | Microsoft Docs
+description: hulp bij hoe toocorrect, bijwerken, verwijderen en exporteren van persoonlijke gegevens in Azure Active Directory en Azure SQL Database
 services: security
 documentationcenter: na
 author: barclayn
@@ -14,88 +14,88 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: b04c745feb710d3d1d8a1fce23807168d6e6fa3d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 032f70d32377cb9395cb2c35c27dad05001537c4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-personal-data-in-microsoft-azure"></a>Persoonlijke gegevens beheren in Microsoft Azure
 
-In dit artikel biedt richtlijnen voor het corrigeren, bijwerken, verwijderen en exporteren van persoonlijke gegevens in Azure Active Directory en Azure SQL Database.
+In dit artikel biedt richtlijnen voor hoe toocorrect, bijwerken, verwijderen en exporteren van persoonlijke gegevens in Azure Active Directory en Azure SQL Database.
 
 ## <a name="scenario"></a>Scenario
 
-Een bedrijf Dublin gebaseerde biedt one-stop winkelen voor hoge einde bestemming bruiloften in Ierland en over de hele wereld voor zowel een lokale en internationale klanten. Ze hebben kantoren, klanten, werknemers en leveranciers over de hele wereld om de plaatsen die ze bieden volledig te verwerken.
+Een bedrijf Dublin gebaseerde biedt hoge einde bestemming bruiloften in Ierland en Hallo wereld voor zowel een lokale en internationale klant base one-stop winkelen. Ze hebben kantoren, klanten, werknemers en leveranciers rond hello world toofully service Hallo plaatsen die ze bieden.
 
-Tussen veel andere items het bedrijf houdt van geen r.s.v.p. 's die voedselallergieën en via de voeding voorkeuren bevatten. Bruiloft gasten kunnen worden geregistreerd voor verschillende activiteiten zoals horseback fiets, surfen, is aangewezen ritjes, enz., en zelfs communiceren met elkaar op een centrale webpagina tijdens de maanden voorafgaand aan de gebeurtenis. Het bedrijf verzamelt persoonlijke gegevens van werknemers, leveranciers, klanten en bruiloft gasten. Vanwege de internationale aard van het bedrijf moet het bedrijf met meerdere niveaus van regelgeving voldoen.
+Tussen veel andere items Hallo bedrijf houdt van geen r.s.v.p. 's die voedselallergieën en via de voeding voorkeuren bevatten. Bruiloft gasten kunnen worden geregistreerd voor verschillende activiteiten zoals horseback fiets, surfen, is aangewezen ritjes, enz., en zelfs communiceren met elkaar op een centrale webpagina tijdens Hallo maanden voorafgaand toohello gebeurtenis. Hallo bedrijf verzamelt persoonlijke gegevens van werknemers, leveranciers, klanten en bruiloft gasten. Vanwege Hallo moet internationale aard van de onderneming Hallo Hallo voldoen aan meerdere niveaus van de regelgeving.
 
 ## <a name="problem-statement"></a>Probleemformulering
 
-- Beheerders van gegevens moet kunnen juiste onnauwkeurig persoonlijke informatie en update onvolledig of veranderende persoonlijke gegevens.
+- Beheerders van gegevens moet kunnen toocorrect onnauwkeurig persoonlijke informatie en update onvolledig of veranderende persoonlijke gegevens.
 
-- Gegevens beheerders nodig moet kunnen persoonlijke gegevens op verzoek van een onderwerp gegevens verwijderen.
+- Gegevens beheerders nodig moet kunnen toodelete persoonlijke gegevens op verzoek Hallo van een onderwerp gegevens.
 
-- Beheerders van gegevens moet gegevens exporteren en opgeven in een onderwerp van de gegevens in een algemene, gestructureerde indeling op zijn of haar verzoek.
+- Gegevens admins tooexport gegevens nodig en geef deze tooa gegevens onderwerp in een algemene, gestructureerde indeling op zijn of haar verzoek.
 
 ## <a name="company-goals"></a>Bedrijfsdoelstellingen
 
 - Onjuiste of onvolledige klant, bruiloft Gast werknemer en persoonlijke gegevens van de leverancier moeten worden gecorrigeerd of bijgewerkt in Azure Active Directory en Azure SQL Database.
 
-- Persoonlijke gegevens, moet op verzoek van een onderwerp gegevens in Azure Active Directory en Azure SQL Database worden verwijderd.
+- Persoonlijke gegevens, moet op Hallo verzoek van een onderwerp gegevens in Azure Active Directory en Azure SQL Database worden verwijderd.
 
-- Persoonlijke gegevens moet in een algemene, gestructureerde indeling op verzoek van een onderwerp gegevens worden geëxporteerd.
+- Persoonlijke gegevens moet in een algemene, gestructureerde indeling op Hallo verzoek van een onderwerp gegevens worden geëxporteerd.
 
 ## <a name="solutions"></a>Oplossingen
 
 ### <a name="azure-active-directory-rectifycorrect-inaccurate-or-incomplete-personal-data-and-erasedelete-personal-datauser-profiles"></a>Azure Active Directory: onjuiste of onvolledige persoonlijke gegevens herstellen/corrigeren en persoonlijke gegevens/gebruikersprofielen wissen en verwijderen
 
 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) van Microsoft cloud-gebaseerde, multitenant directory en identity management-service is.
-U kunt corrigeren, bijwerken of verwijderen van klanten en werknemers gebruikersprofielen en gebruikersgegevens werk die persoonlijke gegevens bevatten, zoals naam, werk titel, adres of telefoonnummer, een gebruiker in uw [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (AAD) omgeving met behulp van de [Azure-portal](https://portal.azure.com/).
+U kunt corrigeren, bijwerken of verwijderen van klanten en werknemers gebruikersprofielen en gebruikersgegevens werk die persoonlijke gegevens bevatten, zoals naam, werk titel, adres of telefoonnummer, een gebruiker in uw [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (AAD) omgeving met behulp van Hallo [Azure-portal](https://portal.azure.com/).
 
-U moet zich aanmelden met een account met globale beheerdersrechten voor de map.
+U moet zich aanmelden met een account met globale beheerdersrechten voor Hallo-directory.
 
 #### <a name="how-do-i-correct-or-update-user-profile-and-work-information-in-azure-active-directory"></a>Hoe corrigeren of bijwerken van gebruikersprofiel en werk ik gegevens in Azure Active Directory?
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor Hallo-directory.
 
-2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
+2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak Hallo en selecteer vervolgens **Enter**.
 
     ![Media/image1.png](media/manage-personal-data-azure/image001.png)
 
-3. Op de **gebruikers en groepen** blade Selecteer **gebruikers**.
+3. Op Hallo **gebruikers en groepen** blade Selecteer **gebruikers**.
 
     ![Media/image2.png](media/manage-personal-data-azure/image003.png)
 
-4. Op de **gebruikers en groepen - gebruikers** blade, selecteert u een gebruiker in de lijst en selecteer vervolgens het volgende op de blade voor de geselecteerde gebruiker **profiel** om weer te geven van de gebruikersgegevens voor het profiel dat moet worden gecorrigeerd of bijgewerkt.
+4. Op Hallo **gebruikers en groepen - gebruikers** blade, selecteer een gebruiker in de lijst Hallo en selecteer vervolgens het volgende op de blade voor de geselecteerde gebruiker Hallo Hallo **profiel** tooview Hallo profielgegevens die toobe gecorrigeerd behoeften of bijgewerkt.
 
     ![Media/image3.png](media/manage-personal-data-azure/image005.png)
 
-5. Corrigeer of werkt u de gegevens en selecteer vervolgens in de opdrachtbalk **opslaan.**
+5. Corrigeer of Hallo-informatie bijwerken en selecteer vervolgens in de opdrachtbalk Hallo **opslaan.**
 
-6.  Selecteer op de blade voor de geselecteerde gebruiker **Info werken** om weer te geven van gebruikersgegevens werk die moet worden gecorrigeerd of bijgewerkt.
+6.  Selecteer op de blade voor de geselecteerde gebruiker Hallo Hallo **Info werken** tooview werk gebruikersgegevens die toobe behoeften gecorrigeerd of bijgewerkt.
 
     ![Media/image4.png](media/manage-personal-data-azure/image007.png)
 
-7. Corrigeer of bijwerken van de gegevens voor het werk van gebruiker en selecteer vervolgens in de opdrachtbalk **opslaan.**
+7. Corrigeer of Hallo werk gebruikersgegevens bijwerken en selecteer vervolgens in de opdrachtbalk Hallo **opslaan.**
 
 #### <a name="how-do-i-delete-a-user-profile-in-azure-active-directory"></a>Hoe verwijder ik een gebruikersprofiel in Azure Active Directory?
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor Hallo-directory.
 
-2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
+2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak Hallo en selecteer vervolgens **Enter**.
 
     ![](media/manage-personal-data-azure/image001.png)
 
-3. Op de **gebruikers en groepen** blade Selecteer **gebruikers**.
+3. Op Hallo **gebruikers en groepen** blade Selecteer **gebruikers**.
 
     ![Media/image2.png](media/manage-personal-data-azure/image003.png)
 
-4. Selecteer op de blade **Gebruikers en groepen - Gebruikers** een gebruiker in de lijst.
+4. Op Hallo **gebruikers en groepen - gebruikers** blade, selecteert u een gebruiker in de lijst Hallo.
 
     ![Media/image3.png](media/manage-personal-data-azure/image007.png)
 
-5. Selecteer op de blade voor de geselecteerde gebruiker **overzicht**, en selecteer vervolgens in de opdrachtbalk **verwijderen**.
+5. Selecteer op de blade voor de geselecteerde gebruiker Hallo Hallo **overzicht**, en selecteer vervolgens in de opdrachtbalk Hallo **verwijderen**.
 
     ![](media/manage-personal-data-azure/image013.png)
 
@@ -103,25 +103,25 @@ U moet zich aanmelden met een account met globale beheerdersrechten voor de map.
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50) is een cloud-database die kan softwareontwikkelaars maken en onderhouden van toepassingen.
 
-Persoonlijke gegevens kunnen worden bijgewerkt [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50) met behulp van standaard SQL-query's, en kan ook worden verwijderd. Bovendien kunnen persoonlijke gegevens worden geëxporteerd vanuit SQL-Database met een aantal methoden, met inbegrip van de Azure SQL-Server importeren en exporteren van de wizard en in verschillende indelingen, waaronder een Bacpac-bestand.
+Persoonlijke gegevens kunnen worden bijgewerkt [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50) met behulp van standaard SQL-query's, en kan ook worden verwijderd. Bovendien kunnen persoonlijke gegevens uit SQL-Database met verschillende methoden, waaronder hello Azure SQL-Server importeren en de wizard exporteren en in verschillende indelingen, waaronder een Bacpac-bestand worden geëxporteerd.
 
 #### <a name="how-do-i-correct-update-or-erase-personal-data-in-sql-database"></a>Hoe ik corrigeren, bijwerken of persoonlijke gegevens in SQL-Database wissen?
 
-Als u wilt weten hoe u op te lossen of persoonlijke gegevens in SQL-Database bijwerken, gaat u naar de [Update (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql), [tekst bijwerken](https://docs.microsoft.com/sql/t-sql/queries/updatetext-transact-sql), [bijwerken met algemene tabelexpressie](https://docs.microsoft.com/sql/t-sql/queries/with-common-table-expression-transact-sql), of [Update schrijven tekst](https://docs.microsoft.com/sql/t-sql/queries/writetext-transact-sql) documentatie.
+toolearn hoe toocorrect of update persoonlijke gegevens in SQL-Database, gaat u naar Hallo [Update (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql), [tekst bijwerken](https://docs.microsoft.com/sql/t-sql/queries/updatetext-transact-sql), [bijwerken met algemene tabelexpressie](https://docs.microsoft.com/sql/t-sql/queries/with-common-table-expression-transact-sql), of [ Tekst schrijven bijwerken](https://docs.microsoft.com/sql/t-sql/queries/writetext-transact-sql) documentatie.
 
-Als u wilt weten hoe u om persoonlijke gegevens in SQL-Database te verwijderen, gaat u naar de [verwijderen (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) documentatie.
+toolearn hoe toodelete persoonlijke gegevens in SQL-Database, gaat u naar Hallo [verwijderen (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) documentatie.
 
-#### <a name="how-do-i-export-personal-data-to-a-bacpac-file-in-sql-database"></a>Hoe exporteer persoonlijke gegevens naar een Bacpac-bestand in SQL-Database?
+#### <a name="how-do-i-export-personal-data-tooa-bacpac-file-in-sql-database"></a>Hoe exporteer ik persoonlijke gegevens tooa Bacpac-bestand in de SQL-Database
 
-Een Bacpac-bestand bevat de gegevens van de SQL-Database en de metagegevens en een zip-bestand met een Bacpac-extensie is. U kunt dit doen met behulp van de [Azure-portal](https://portal.azure.com/), het opdrachtregelprogramma SQLPackage, SQL Server Management Studio (SSMS) of PowerShell.
+Een Bacpac-bestand bevat Hallo SQL-Database gegevens en metagegevens en een zip-bestand met een Bacpac-extensie is. U kunt dit doen met behulp van Hallo [Azure-portal](https://portal.azure.com/), Hallo SQLPackage opdrachtregelprogramma, SQL Server Management Studio (SSMS) of PowerShell.
 
-Voor informatie over het exporteren van gegevens naar een Bacpac-bestand, gaat u naar de [een Azure SQL database naar een Bacpac-bestand exporteren](https://docs.microsoft.com/azure/sql-database/sql-database-export) pagina met gedetailleerde instructies voor elke methode die hierboven worden genoemd.
+toolearn hoe tooexport tooa Bacpac-gegevensbestand, gaat u naar Hallo [een Azure SQL database tooa Bacpac-bestand exporteren](https://docs.microsoft.com/azure/sql-database/sql-database-export) pagina met gedetailleerde instructies voor elke methode die hierboven worden genoemd.
 
-Hoe exporteer persoonlijke gegevens uit SQL-Database met de SQL Server Wizard importeren en exporteren?
+Hoe exporteer persoonlijke gegevens van SQL Database met SQL Server Importeer Hallo Wizard en exporteren?
 
-Deze wizard kunt u gegevens kopiëren van een bron naar doel. Voor een inleiding tot de wizard, met inbegrip van het ophalen, machtigingen informatie en hoe u hulp bij het hulpprogramma, gaat u naar de [importeren en exporteren van gegevens met de SQL Server Wizard importeren en exporteren](https://docs.microsoft.com/sql/integration-services/import-export-data/import-and-export-data-with-the-sql-server-import-and-export-wizard) webpagina.
+Deze wizard kunt u gegevens kopiëren van een bron tooa doel. Een inleiding toohello wizard, met inbegrip van hoe tooget deze machtigingen informatie en hoe tooget helpen met Hallo hulpprogramma, gaat u naar Hallo [importeren en exporteren van gegevens met Hallo SQL Server importeren en exporteren Wizard](https://docs.microsoft.com/sql/integration-services/import-export-data/import-and-export-data-with-the-sql-server-import-and-export-wizard) webpagina.
 
-Voor een overzicht van stappen voor de wizard, gaat u naar de [stappen in de SQL Server Wizard importeren en exporteren](https://docs.microsoft.com/sql/integration-services/import-export-data/steps-in-the-sql-server-import-and-export-wizard) webpagina.
+Voor een overzicht van stappen voor het Hallo-wizard, gaat u naar Hallo [stappen in de Wizard exporteren en SQL Server Importeer Hallo](https://docs.microsoft.com/sql/integration-services/import-export-data/steps-in-the-sql-server-import-and-export-wizard) webpagina.
 
 ## <a name="next-steps"></a>Volgende stappen
 

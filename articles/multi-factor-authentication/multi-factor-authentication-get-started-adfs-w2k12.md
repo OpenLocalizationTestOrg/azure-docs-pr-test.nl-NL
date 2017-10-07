@@ -1,6 +1,6 @@
 ---
-title: MFA Server met AD FS in Windows Server | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u aan de slag gaat met Azure Multi-Factor Authentication en AD FS in Windows Server 2012 R2 en 2016.
+title: aaaMFA Server met AD FS in Windows Server | Microsoft Docs
+description: Dit artikel wordt beschreven hoe tooget de slag met Azure multi-factor Authentication en AD FS in Windows Server 2012 R2 en 2016.
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -15,115 +15,115 @@ ms.topic: get-started-article
 ms.date: 03/29/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2481c18f12d74a90938ffb0353dd000fe73f440
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 656785abcc63a020add765a86670b488a3b84b51
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Azure Multi-Factor Authentication-server configureren om met AD FS in Windows Server te werken
-Als u gebruikmaakt van Active Directory Federation Services (AD FS) en u cloud- of on-premises resources wilt beveiligen, kunt u Azure Multi-Factor Authentication Server configureren voor gebruik met AD FS. Deze configuratie activeert verificatie in twee stappen voor waardevolle eindpunten.
+# <a name="configure-azure-multi-factor-authentication-server-toowork-with-ad-fs-in-windows-server"></a>Azure multi-factor Authentication-Server toowork configureren met AD FS in Windows Server
+Als u Active Directory Federation Services (AD FS) gebruiken en toosecure cloud of on-premises resources wilt, kunt u de Azure multi-factor Authentication-Server toowork met AD FS kunt configureren. Deze configuratie activeert verificatie in twee stappen voor waardevolle eindpunten.
 
-In dit artikel wordt besproken hoe u de Azure Multi-Factor Authentication-server gebruikt met AD FS in Windows Server 2012 R2 of Windows Server 2016. Lees over het [beveiligen van cloudresources en on-premises resources met behulp van de Azure Multi-Factor Authentication-server met AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md) voor meer informatie.
+In dit artikel wordt besproken hoe u de Azure Multi-Factor Authentication-server gebruikt met AD FS in Windows Server 2012 R2 of Windows Server 2016. Voor meer informatie lezen over het te[cloud en on-premises resources beveiligen met behulp van Azure multi-factor Authentication-Server met AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md).
 
 ## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Windows Server AD FS beveiligen met Azure Multi-Factor Authentication-server
-Bij de installatie van de Azure Multi-Factor Authentication-server hebt u de volgende opties:
+Wanneer u Azure multi-factor Authentication-Server installeert, hebt u Hallo volgende opties:
 
-* De Azure Multi-Factor Authentication-server lokaal op dezelfde server installeren als AD FS
-* De Azure Multi-Factor Authentication-adapter lokaal installeren op de AD FS-server en de Multi-Factor Authentication-server op een andere computer installeren
+* Azure multi-factor Authentication-Server lokaal installeren op Hallo dezelfde server als AD FS
+* Hello Azure multi-factor Authentication-adapter lokaal installeren op Hallo AD FS-server en installeer de multi-factor Authentication-Server op een andere computer
 
-Houd rekening met de volgende informatie voordat u begint:
+Voordat u begint, worden op de hoogte van de volgende informatie Hallo:
 
-* U bent niet verplicht de Azure Multi-Factor Authentication-server op uw AD FS-server te installeren. U moet echter de Multi-Factor Authentication-adapter voor AD FS installeren op een Windows Server 2012 R2 of Windows Server 2016 met AD FS. U kunt de server op een andere computer installeren als de versie hiervan wordt ondersteund en de AD FS-adapter afzonderlijk installeren op uw federatieve AD FS-server. Zie de volgende procedures voor informatie over hoe u de adapter afzonderlijk kunt installeren.
-* Als uw organisatie verificatiemethoden voor sms-berichten of mobiele apps gebruikt, bevatten de tekenreeksen die in Bedrijfsinstellingen zijn gedefinieerd een tijdelijke aanduiding, <$*toepassingsnaam*$>. In MFA Server v7.1 kunt u de naam van een toepassing opgeven die wordt gebruikt in plaats van deze tijdelijke aanduiding. In v7.0 of ouder wordt deze tijdelijke aanduiding niet automatisch vervangen wanneer u de AD FS-adapter gebruikt. Voor deze oudere versies wordt aangeraden de tijdelijke aanduiding te verwijderen uit de relevante tekenreeksen als u AD FS beveiligt.
-* Het account waarmee u zich aanmeldt, moet gebruikersrechten hebben voor het maken van beveiligingsgroepen in de Active Directory-service.
-* De wizard Multi-Factor Authentication AD FS-adapter installeren maakt een beveiligingsgroep met de naam PhoneFactor Admins in uw exemplaar van Active Directory. Vervolgens wordt het AD FS-serviceaccount van uw federatieve service toegevoegd aan deze groep. Controleer op uw domeincontroller of de PhoneFactor Admins-groep inderdaad is gemaakt en dat de AD FS-serviceaccount lid is van deze groep. Voeg, indien nodig, het AD FS-serviceaccount handmatig toe aan de groep PhoneFactor Admins in uw domeincontroller.
-* Zie voor informatie over het installeren van de webservice-SDK met de gebruikersportal [De gebruikersportal implementeren voor de Azure Multi-Factor Authentication-server.](multi-factor-authentication-get-started-portal.md)
+* U bent geen vereiste tooinstall Azure multi-factor Authentication-Server op uw AD FS-server. U moet echter Hallo multi-factor Authentication-adapter installeren voor AD FS op een Windows Server 2012 R2 of Windows Server 2016 met AD FS. U kunt Hallo-server installeren op een andere computer, als dit een ondersteunde versie is en u Hallo AD FS-adapter afzonderlijk op uw federatieve AD FS-server installeren. Hallo Zie volgende procedures toolearn hoe tooinstall Hallo adapter afzonderlijk.
+* Als uw organisatie van SMS-berichten of mobiele app verificatiemethoden te gebruiken gebruikmaakt, Hallo tekenreeksen die zijn gedefinieerd in de bedrijfsinstellingen bevatten een tijdelijke aanduiding <$*toepassingsnaam*$>. In MFA Server v7.1 kunt u de naam van een toepassing opgeven die wordt gebruikt in plaats van deze tijdelijke aanduiding. In v7.0 of ouder, wordt deze tijdelijke aanduiding niet automatisch vervangen wanneer u Hallo AD FS-adapter. Verwijderen Hallo tijdelijke aanduiding voor deze oudere versies van de desbetreffende tekenreeksen Hallo wanneer u AD FS beveiligen.
+* Hallo-account waarmee u toosign in moet gebruiker rechten toocreate beveiligingsgroepen hebben in uw Active Directory-service.
+* installatiewizard Hallo multi-factor Authentication AD FS-adapter wordt gemaakt van een beveiligingsgroep met de naam PhoneFactor Admins in uw exemplaar van Active Directory. Vervolgens wordt Hallo AD FS-serviceaccount van uw federation service toothis groep toegevoegd. Controleer of op uw domeincontroller die Hallo PhoneFactor Admins-groep is gemaakt en dat Hallo AD FS-serviceaccount lid is van deze groep. Indien nodig, handmatig toevoegen van Hallo AD FS-service-account toohello PhoneFactor Admins-groep op uw domeincontroller.
+* Lees voor informatie over het installeren van Hallo Web Service SDK met de gebruikersportal Hallo over [Hallo-gebruikersportal implementeren voor Azure multi-factor Authentication-Server.](multi-factor-authentication-get-started-portal.md)
 
-### <a name="install-azure-multi-factor-authentication-server-locally-on-the-ad-fs-server"></a>De Azure Multi-Factor Authentication-server lokaal op de AD FS-server installeren
+### <a name="install-azure-multi-factor-authentication-server-locally-on-hello-ad-fs-server"></a>Azure multi-factor Authentication-Server lokaal installeren op Hallo AD FS-server
 1. Download en installeer de Azure Multi-Factor Authentication-server op uw AD FS-server. Lees [Aan de slag met de Azure Multi-Factor Authentication-server](multi-factor-authentication-get-started-server.md) voor informatie over de installatie.
-2. Klik in de beheerconsole van de Azure Multi-Factor Authentication-server op het pictogram **AD FS**. Selecteer de opties **Registreren van gebruikers toestaan** en **Toestaan dat gebruikers de methode selecteren**.
-3. Selecteer de aanvullende opties die u wilt opgeven voor uw organisatie.
+2. Klik in beheerconsole voor hello Azure multi-factor Authentication-Server op Hallo **AD FS** pictogram. Hallo-opties selecteren **gebruikersregistratie toestaan** en **toestaan dat gebruikers de methode tooselect**.
+3. Selecteer eventueel aanvullende opties die u wilt toospecify voor uw organisatie.
 4. Klik op **AD FS-adapter installeren**.
    
    <center>![Cloud](./media/multi-factor-authentication-get-started-adfs-w2k12/server.png)</center>
 
-5. Als het Active Directory-venster wordt weergegeven, betekent dit twee dingen. Uw computer is lid van een domein en de Active Directory-configuratie voor de beveiliging van de communicatie tussen de AD FS-adapter en de Multi-Factor Authentication-service is niet voltooid. Klik op **Volgende** om deze configuratie automatisch te voltooien of schakel het selectievakje **Automatische Active Directory-configuratie overslaan en instellingen handmatig configureren** in. Klik op **Volgende**.
-6. Als het venster Lokale groep wordt weergegeven, betekent dit twee dingen. Uw computer is geen lid van een domein en de configuratie van de lokale groep voor de beveiliging van de communicatie tussen de AD FS-adapter en de Multi-Factor Authentication-service is niet voltooid. Klik op **Volgende** om deze configuratie automatisch te voltooien of schakel het selectievakje **Automatische lokale groep-configuratie overslaan en instellingen handmatig configureren** in. Klik op **Volgende**.
-7. Klik in de installatiewizard op **Volgende**. Azure Multi-Factor Authentication-server maakt de PhoneFactor Admins-groep en voegt de AD FS-serviceaccount toe aan de PhoneFactor Admins-groep.
+5. Als Hallo Active Directory-venster wordt weergegeven, betekent dit dat twee dingen. Uw computer is lid tooa domein en Hallo Active Directory-configuratie voor het beveiligen van communicatie tussen Hallo AD FS-adapter en Hallo multi-factor Authentication-service is voltooid. Klik op **volgende** tooautomatically deze configuratie te voltooien, of selecteer Hallo **automatische Active Directory-configuratie overslaan en instellingen handmatig** selectievakje. Klik op **Volgende**.
+6. Als de lokale groep-windows hello wordt weergegeven, betekent dit dat twee dingen. Uw computer is geen gekoppelde tooa domein en Hallo lokale groep-configuratie voor het beveiligen van communicatie tussen Hallo AD FS-adapter en Hallo multi-factor Authentication-service is voltooid. Klik op **volgende** tooautomatically deze configuratie te voltooien, of selecteer Hallo **automatische lokale groep-configuratie overslaan en instellingen handmatig** selectievakje. Klik op **Volgende**.
+7. Klik in de installatiewizard Hallo **volgende**. Azure multi-factor Authentication-Server maakt Hallo PhoneFactor Admins-groep en voegt Hallo AD FS-service-account toohello PhoneFactor Admins-groep.
    <center>![Cloud](./media/multi-factor-authentication-get-started-adfs-w2k12/adapter.png)</center>
-8. Klik op de pagina **Installatieprogramma uitvoeren** op **Volgende**.
-9. Klik in het installatieprogramma voor de Multi-Factor Authentication AD FS-adapter op **Volgende**.
-10. Klik op **Sluiten** nadat de installatie is voltooid.
-11. Wanneer de adapter is geïnstalleerd, moet u deze registreren bij AD FS. Open Windows PowerShell en voer de volgende opdracht uit:<br>
+8. Op Hallo **start het installatieprogramma** pagina, klikt u op **volgende**.
+9. Klik in het installatieprogramma van Hallo multi-factor Authentication AD FS-adapter op **volgende**.
+10. Klik op **sluiten** wanneer Hallo-installatie is voltooid.
+11. Wanneer het Hallo-adapter is geïnstalleerd, moet u het registreren met AD FS. Open Windows PowerShell en Voer Hallo volgende opdracht uit:<br>
     `C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
     <center>![Cloud](./media/multi-factor-authentication-get-started-adfs-w2k12/pshell.png)</center>
-12. Bewerk het algemene authenticatiebeleid in AD FS om de zojuist geregistreerde adapter te gebruiken. Ga in de AD FS-beheerconsole naar het knooppunt **Authentication Policies**. Klik in het gedeelte **Multi-factor Authentication** op de koppeling **Edit** naast het gedeelte **Global Settings**. Selecteer in het venster **Edit Global Authentication Policy** **Multi-Factor Authentication** als een aanvullende verificatiemethode en klik op **OK**. De adapter wordt geregistreerd als WindowsAzureMultiFactorAuthentication. Start de AD FS-service opnieuw op voordat de registratie van kracht wordt.
+12. toouse uw zojuist geregistreerde bewerken Hallo algemene verificatiebeleid in AD FS-adapter. Ga in de Hallo AD FS-beheerconsole toohello **verificatiebeleid** knooppunt. In Hallo **multi-factor Authentication** sectie, klikt u op Hallo **bewerken** koppelen van de volgende toohello **globale instellingen** sectie. In Hallo **algemeen verificatiebeleid bewerken** Selecteer **multi-Factor Authentication** als aanvullende authenticatiemethode en klik vervolgens op **OK**. Hallo-adapter wordt geregistreerd als WindowsAzureMultiFactorAuthentication. Hallo registratie tootake effect Hallo AD FS service opnieuw starten.
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-adfs-w2k12/global.png)</center>
 
-De Multi-Factor Authentication-server is nu ingesteld voor gebruik als een extra verificatieprovider voor gebruik met AD FS.
+Op dit moment is multi-factor Authentication-Server ingesteld toobe een extra authenticatie provider toouse met AD FS.
 
-## <a name="install-a-standalone-instance-of-the-ad-fs-adapter-by-using-the-web-service-sdk"></a>Een zelfstandig exemplaar van de AD FS-adapter installeren met behulp van de webservice-SDK
-1. Installeer de webservice-SDK op de server waarop de Multi-Factor Authentication-server wordt uitgevoerd.
-2. Kopieer de volgende bestanden uit de map \Program Files\Multi-Factor Authentication Server naar de server waarop u de AD FS-adapter wilt installeren:
+## <a name="install-a-standalone-instance-of-hello-ad-fs-adapter-by-using-hello-web-service-sdk"></a>Een zelfstandig exemplaar van Hallo AD FS-adapter installeren met behulp van Hallo Web Service SDK
+1. Hallo Web Service SDK installeren op Hallo-server waarop multi-factor Authentication-Server wordt uitgevoerd.
+2. Kopiëren Hallo volgende bestanden van Hallo \Program Files\Multi-Factor Authentication-Server directory toohello server waarop u van plan tooinstall Hallo AD FS-adapter bent:
    * MultiFactorAuthenticationAdfsAdapterSetup64.msi
    * Register-MultiFactorAuthenticationAdfsAdapter.ps1
    * Unregister-MultiFactorAuthenticationAdfsAdapter.ps1
    * MultiFactorAuthenticationAdfsAdapter.config
-3. Voer het installatiebestand MultiFactorAuthenticationAdfsAdapterSetup64.msi uit.
-4. Klik in het installatieprogramma van de AD FS-adapter van Multi-Factor Authentication op **Volgende** om de installatie te starten.
-5. Klik op **Sluiten** nadat de installatie is voltooid.
+3. Hallo bestanden MultiFactorAuthenticationAdfsAdapterSetup64.msi-installatiebestand uitvoeren.
+4. Klik in het installatieprogramma van Hallo multi-factor Authentication AD FS-adapter op **volgende** toostart Hallo-installatie.
+5. Klik op **sluiten** wanneer Hallo-installatie is voltooid.
 
-## <a name="edit-the-multifactorauthenticationadfsadapterconfig-file"></a>Bewerk het bestand MultiFactorAuthenticationAdfsAdapter.config
-Volg deze stappen om het bestand MultiFactorAuthenticationAdfsAdapter.config te bewerken:
+## <a name="edit-hello-multifactorauthenticationadfsadapterconfig-file"></a>Hallo MultiFactorAuthenticationAdfsAdapter.config bestand bewerken
+Volg deze stappen tooedit hello MultiFactorAuthenticationAdfsAdapter.config bestand:
 
-1. Stel het knooppunt **UseWebServiceSdk** in op **true**.  
-2. Stel de waarde voor **WebServiceSdkUrl** in op de URL van de webservice-SDK voor Multi-Factor Authentication. Bijvoorbeeld: *https://contoso.com/&lt;naamvancertificaat&gt;/MultiFactorAuthWebServicesSdk/PfWsSdk.asmx*, waarbij *naamvancertificaat* de naam is van uw certificaat.  
-3. Bewerk het script Register-MultiFactorAuthenticationAdfsAdapter.ps1 door *-ConfigurationFilePath-&lt;pad&gt;* toe te voegen aan het einde van de opdracht `Register-AdfsAuthenticationProvider`, waarbij *&lt;pad&gt;* het volledige pad is naar het bestand MultiFactorAuthenticationAdfsAdapter.config.
+1. Set Hallo **UseWebServiceSdk** knooppunt te**true**.  
+2. Hallo waarde instellen voor **webservicesdkurl in** toohello URL Hallo multi-factor Authentication Web Service SDK. Bijvoorbeeld: *https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, waarbij *certificatename* Hallo-naam van uw certificaat.  
+3. Hallo Register-MultiFactorAuthenticationAdfsAdapter.ps1 script bewerken door toe te voegen *- ConfigurationFilePath &lt;pad&gt;*  toohello einde van Hallo `Register-AdfsAuthenticationProvider` opdracht, waarbij  *&lt;pad&gt;*  Hallo volledig pad toohello MultiFactorAuthenticationAdfsAdapter.config-bestand.
 
-### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>De webservice-SDK configureren met een gebruikersnaam en wachtwoord
-Er zijn twee opties voor het configureren van de webservice-SDK. De eerste is met een gebruikersnaam en wachtwoord, de tweede is met een clientcertificaat. Volg deze stappen voor de eerste optie of sla dit gedeelte over voor de tweede optie.  
+### <a name="configure-hello-web-service-sdk-with-a-username-and-password"></a>Hallo Web Service SDK configureren met een gebruikersnaam en wachtwoord
+Er zijn twee opties voor het configureren van Hallo Web Service SDK. Hallo eerst is met een gebruikersnaam en wachtwoord, hello tweede met een clientcertificaat. Volg deze stappen voor de eerste optie Hallo of overslaan voor Hallo tweede.  
 
-1. Stel de waarde voor **WebServiceSdkUsername** in op een account dat lid is van de veiligheidsgroep PhoneFactor Admins. Gebruik de indeling &lt;domein&gt;&#92;&lt;gebruikersnaam&gt;.  
-2. Stel de waarde voor **WebServiceSdkPassword** in op het juiste accountwachtwoord.
+1. Hallo waarde instellen voor **webservicesdkusername in** tooan-account dat lid is van Hallo beveiligingsgroep PhoneFactor Admins. Gebruik Hallo &lt;domein&gt;&#92;&lt; gebruikersnaam&gt; indeling.  
+2. Hallo waarde instellen voor **webservicesdkpassword in** toohello geschikte accountwachtwoord.
 
-### <a name="configure-the-web-service-sdk-with-a-client-certificate"></a>De webservice-SDK configureren met een clientcertificaat
-Als u geen gebruikersnaam en wachtwoord wilt gebruiken, volgt u deze stappen voor het configureren van de webservice-SDK met een clientcertificaat.
+### <a name="configure-hello-web-service-sdk-with-a-client-certificate"></a>Hallo Web Service SDK configureren met een clientcertificaat
+Als u niet toouse een gebruikersnaam en wachtwoord wilt, volgt u deze stappen tooconfigure Hallo Web Service SDK met een clientcertificaat.
 
-1. Verkrijg een certificaat van een certificeringsinstantie voor de server waarop de webservice-SDK wordt uitgevoerd. Lees hoe u [clientcertificaten kunt verkrijgen](https://technet.microsoft.com/library/cc770328.aspx).  
-2. Importeer het clientcertificaat in het persoonlijke certificaatarchief van de lokale computer op de server waarop de webservice-SDK wordt uitgevoerd. Zorg dat het openbare certificaat van de certificeringsinstantie zich bevindt in de certificaatopslag met vertrouwde basiscertificaten.  
-3. Exporteer de openbare en persoonlijke sleutels van het clientcertificaat naar een PFX-bestand.  
-4. Exporteer de openbare sleutel in Base64-indeling naar een CER-bestand.  
-5. Controleer in Serverbeheer of het onderdeel Web Server (IIS)\Web Server\Security\IIS Client Certificate Mapping Authentication (Verificatie van IIS-clientcertificaattoewijzing) is geïnstalleerd. Als dit niet is geïnstalleerd, kiest u **Functies en onderdelen toevoegen** om dit onderdeel toe te voegen.  
-6. Dubbelklik in IIS-beheer op **Configuratie-editor** voor de website die de virtuele map van de webservice-SDK bevat. Het is belangrijk om de website te selecteren, niet de virtuele map.  
-7. Ga naar het gedeelte **system.webServer/security/authentication/iisClientCertificateMappingAuthentication**.  
-8. Stel enabled in op **true**.  
-9. Stel oneToOneCertificateMappingsEnabled in op **true**.  
-10. Klik op de knop **...** naast oneToOneMappings en vervolgens op de koppeling **Toevoegen**.  
-11. Open het CER-bestand dat u eerder hebt geëxporteerd in base 64-indeling. Verwijder *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----* en alle regeleinden. Kopieer de resulterende tekenreeks.  
-12. Stel het certificaat in op de tekenreeks die u in de vorige stap hebt gekopieerd.  
-13. Stel enabled in op **true**.  
-14. Stel Gebruikersnaam in op een account dat lid is van de veiligheidsgroep PhoneFactor Admins. Gebruik de indeling &lt;domein&gt;&#92;&lt;gebruikersnaam&gt;.  
-15. Stel het wachtwoord in op het juiste accountwachtwoord en sluit vervolgens de Configuratie-editor.  
-16. Klik op de koppeling **Toepassen**.  
-17. Dubbelklik in de virtuele map van de webservice-SDK op **Verificatie**.  
-18. Controleer of ASP.NET-imitatie en Basisverificatie zijn ingesteld op **Ingeschakeld** en of alle overige items zijn ingesteld op **Uitgeschakeld**.  
-19. Dubbelklik in de virtuele map van de webservice-SDK op **SSL-instellingen**.  
-20. Stel Clientcertificaten in op **Accepteren** en klik daarna op **Toepassen**.  
-21. Kopieer het PFX-bestand dat u eerder hebt geëxporteerd naar de server waarop de AD FS-adapter wordt uitgevoerd.  
-22. Importeer het PFX-bestand in het persoonlijke certificaatarchief van de lokale computer.  
-23. Klik met de rechtermuisknop en selecteer **Persoonlijke sleutels beheren**, en verleen leestoegang tot het account waarmee u zich aanmeldt bij de AD FS-service.  
-24. Open het clientcertificaat en kopieer de vingerafdruk van het tabblad **Details**.  
-25. Stel in het bestand MultiFactorAuthenticationAdfsAdapter.config **WebServiceSdkCertificateThumbprint** in op de tekenreeks die u in de vorige stap hebt gekopieerd.  
+1. Verkrijg een certificaat van een certificeringsinstantie voor Hallo-server die als Hallo Web Service SDK wordt uitgevoerd. Meer informatie over hoe te[clientcertificaten verkrijgen](https://technet.microsoft.com/library/cc770328.aspx).  
+2. Importeren Hallo client certificate toohello lokale computer persoonlijke certificaatarchief op Hallo-server waarop Hallo Web Service SDK wordt uitgevoerd. Zorg ervoor dat Hallo certificeringsinstantie openbaar certificaat is in het certificaatarchief Vertrouwde basiscertificaten.  
+3. Hallo openbare en persoonlijke sleutels van Hallo client certificate tooa pfx-bestand exporteren.  
+4. Exporteer de openbare sleutel Hallo in Base64-indeling tooa cer-bestand.  
+5. Klik in Serverbeheer of dat Hallo webserver (IIS) \web verificatie van clientcertificaten toewijzen van deze functie is geïnstalleerd. Als dit niet is geïnstalleerd, selecteert u **functies en onderdelen toevoegen** tooadd deze functie.  
+6. Dubbelklik in IIS-beheer **configuratie-Editor** op Hallo-website die Hallo Web Service SDK virtuele map bevat. Belangrijke tooselect Hallo website, niet Hallo virtuele map is.  
+7. Ga toohello **system.webServer/security/authentication/iisClientCertificateMappingAuthentication** sectie.  
+8. Set ingeschakeld te**true**.  
+9. Stel oneToOneCertificateMappingsEnabled te**true**.  
+10. Klik op Hallo **...**  volgende toooneToOneMappings knop en klik vervolgens op Hallo **toevoegen** koppeling.  
+11. Open Hallo Base64 cer-bestand die u eerder hebt geëxporteerd. Verwijder *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----* en alle regeleinden. Kopieer de resulterende tekenreeks Hallo.  
+12. Certificaat set toohello-tekenreeks in de voorgaande stap Hallo hebt gekopieerd.  
+13. Set ingeschakeld te**true**.  
+14. Gebruikersnaam tooan account dat lid is van de beveiligingsgroep PhoneFactor Admins Hallo instellen. Gebruik Hallo &lt;domein&gt;&#92;&lt; gebruikersnaam&gt; indeling.  
+15. Hallo wachtwoord toohello juiste accountwachtwoord instellen en sluit vervolgens configuratie-Editor.  
+16. Klik op Hallo **toepassen** koppeling.  
+17. Dubbelklik in Hallo virtuele map Web Service SDK en **verificatie**.  
+18. Controleer of ASP.NET-imitatie en basisverificatie te ingesteld**ingeschakeld**, en dat alle overige items te zijn ingesteld**uitgeschakelde**.  
+19. Dubbelklik in Hallo virtuele map Web Service SDK en **SSL-instellingen**.  
+20. Stel clientcertificaten te**accepteren**, en klik vervolgens op **toepassen**.  
+21. Hallo pfx-bestand geëxporteerd van eerdere toohello-server met AD FS-adapter Hallo kopiëren.  
+22. Hallo pfx-bestand toohello lokale computer persoonlijke certificaatarchief importeren.  
+23. Met de rechtermuisknop en selecteer **persoonlijke sleutels beheren**, en vervolgens Verleen leestoegang toohello account waarmee u toosign in toohello AD FS-service.  
+24. Hallo client certificaat en de kopie Hallo vingerafdruk openen vanuit Hallo **Details** tabblad.  
+25. Stel in het bestand MultiFactorAuthenticationAdfsAdapter.config hello **WebServiceSdkCertificateThumbprint** toohello tekenreeks in de vorige stap Hallo hebt gekopieerd.  
 
-Voer als laatste stap het script \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 uit in PowerShell om de adapter te registreren. De adapter wordt geregistreerd als WindowsAzureMultiFactorAuthentication. Start de AD FS-service opnieuw op voordat de registratie van kracht wordt.
+Ten slotte tooregister Hallo-adapter, Hallo \Program Files\Multi uitvoeren-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 script in PowerShell. Hallo-adapter wordt geregistreerd als WindowsAzureMultiFactorAuthentication. Hallo registratie tootake effect Hallo AD FS service opnieuw starten.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Azure AD-resources beveiligen met behulp van AD FS
-Voor de beveiliging van uw cloudresource stelt u een claimregel in die ervoor zorgt dat Active Directory Federation Services de multipleauthn-claim verstuurt wanneer een gebruiker de verificatie in twee stappen voltooit. Deze claim wordt doorgegeven aan Azure AD. Volg deze procedure om de stappen te doorlopen:
+toosecure uw cloudresource, instellen van een regel voor claims zodat Active Directory Federation Services Hallo multipleauthn claim verzendt wanneer een gebruiker wordt verificatie in twee stappen is uitgevoerd. Deze claim is tooAzure AD doorgegeven. Volg deze procedure toowalk Hallo stappen:
 
 1. Open AD FS-beheer.
-2. Selecteer **Relying Party-vertrouwensrelaties** aan de linkerkant.
+2. Selecteer aan de linkerkant Hallo **Relying Party-vertrouwensrelaties**.
 3. Klik met de rechtermuisknop op **Identiteitsplatform van Microsoft Office 365** en selecteer **Claimregels bewerken...**
 
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
@@ -132,15 +132,15 @@ Voor de beveiliging van uw cloudresource stelt u een claimregel in die ervoor zo
 
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
 
-5. Selecteer in de wizard Transformatieclaimregels toevoegen **Passthrough of Een binnenkomende claim filteren** in de vervolgkeuzelijst en klik op **Volgende**.
+5. Op Hallo transformeren Wizard Claimregel voor toevoegen, selecteert u **doorgeven of filteren van een binnenkomende Claim** in Hallo vervolgkeuzelijst en klik op **volgende**.
 
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
 
 6. Geef de regel een naam.
-7. Selecteer **Authenticatiemethodereferenties** als het type voor binnenkomende claims.
+7. Selecteer **Verwijdingen verificatiemethode** als Hallo binnenkomende claimtype.
 8. Selecteer **Alle claimwaarden doorgeven**.
     ![Wizard Claimregel voor transformatie toevoegen](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
-9. Klik op **Voltooien**. Sluit de AD FS-beheerconsole.
+9. Klik op **Voltooien**. Sluit Hallo AD FS-beheerconsole.
 
 ## <a name="related-topics"></a>Verwante onderwerpen
-Zie de [Veelgestelde vragen over Azure Multi-Factor Authentication](multi-factor-authentication-faq.md) voor oplossingen voor problemen
+Zie voor het oplossen van problemen Hallo [Azure multi-factor Authentication Veelgestelde vragen](multi-factor-authentication-faq.md)

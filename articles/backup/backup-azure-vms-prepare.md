@@ -1,5 +1,5 @@
 ---
-title: Voorbereiden van uw omgeving tot back-up van virtuele machines in Azure | Microsoft Docs
+title: aaaPreparing uw omgeving tooback van virtuele machines in Azure | Microsoft Docs
 description: Zorg ervoor dat uw omgeving is voorbereid voor de back-ups van virtuele machines in Azure
 services: backup
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/25/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 072efdccaa8df5d430314d753a437b524986b53c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3b914c507dd6ad703ea799115ae84ac229e27787
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="prepare-your-environment-to-back-up-azure-virtual-machines"></a>Uw omgeving voorbereiden op het maken van back-ups van virtuele Azure-machines
+# <a name="prepare-your-environment-tooback-up-azure-virtual-machines"></a>Voorbereiden van uw omgeving tooback van virtuele machines in Azure
 > [!div class="op_single_selector"]
 > * [Resource Manager-model](backup-azure-arm-vms-prepare.md)
 > * [Klassieke model](backup-azure-vms-prepare.md)
@@ -30,80 +30,80 @@ ms.lasthandoff: 07/11/2017
 
 Voordat u kunt back-up Azure een virtuele machine (VM), zijn er drie voorwaarden moeten bestaan.
 
-* U moet een back-upkluis maken of een bestaande back-upkluis identificeren *in dezelfde regio bevinden als uw VM*.
-* Geen netwerkverbinding tussen de Azure openbare Internet-adressen en de Azure-opslag-eindpunten.
-* Installeer de VM-agent op de virtuele machine.
+* U moet een back-upkluis toocreate of een bestaande back-upkluis identificeren *in Hallo dezelfde regio bevinden als uw VM*.
+* Geen netwerkverbinding tussen hello Azure Internet adressen en hello Azure storage-eindpunten.
+* Hallo VM-agent installeren op Hallo VM.
 
-Als u weet dat deze voorwaarden al bestaat in uw omgeving en gaat u verder met de [Back-up van uw virtuele machines artikel](backup-azure-vms.md). Anders loodst lezen op, in dit artikel u door de stappen voor het voorbereiden van uw back-up van een virtuele machine van Azure-omgeving.
+Als u deze voorwaarden al bestaat in uw omgeving en doorgaan toohello [Back-up van uw virtuele machines artikel](backup-azure-vms.md). Anders loodst lezen op, in dit artikel u door Hallo stappen tooprepare uw tooback omgeving van een virtuele machine in Azure.
 
 ##<a name="supported-operating-system-for-backup"></a>Ondersteund besturingssysteem voor back-up
- * **Linux**: Azure Backup ondersteunt [een lijst met distributies die zijn goedgekeurd door Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), met uitzondering van Core OS Linux. _Andere Bring-Your-eigenaar-Linux-distributies ook mogelijk werken zolang de VM-agent beschikbaar op de virtuele machine is en ondersteuning voor Python bestaat. We tekent echter niet de distributies voor back-up._
+ * **Linux**: Azure Backup ondersteunt [een lijst met distributies die zijn goedgekeurd door Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), met uitzondering van Core OS Linux. _Andere Bring-Your-eigenaar-Linux-distributies ook mogelijk werken zolang Hallo VM-agent beschikbaar op Hallo virtuele machine is en ondersteuning voor Python bestaat. We tekent echter niet de distributies voor back-up._
  * **Windows Server**: versies ouder dan Windows Server 2008 R2 worden niet ondersteund.
 
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Beperkingen bij een back-up en herstellen van een virtuele machine
 > [!NOTE]
-> Azure heeft twee implementatiemodellen voor het maken en werken met resources: [Resource Manager en classic](../azure-resource-manager/resource-manager-deployment-model.md). De volgende lijst bevat de beperkingen bij implementatie in het klassieke model.
+> Azure heeft twee implementatiemodellen voor het maken en werken met resources: [Resource Manager en classic](../azure-resource-manager/resource-manager-deployment-model.md). Hallo volgende lijst bevat Hallo beperkingen bij implementatie in het klassieke model Hallo.
 >
 >
 
 * Back-ups van virtuele machines met meer dan 16 gegevensschijven wordt niet ondersteund.
 * Back-ups van virtuele machines met een gereserveerd IP-adres en er is geen gedefinieerde eindpunt wordt niet ondersteund.
-* Back-upgegevens bevat geen gekoppeld netwerkstations is gekoppeld aan VM.
-* Een bestaande virtuele machine kan tijdens het herstel niet worden vervangen. Eerst de bestaande virtuele machine en alle gekoppelde schijven verwijderen en vervolgens de gegevens terugzetten vanaf back-up.
+* Back-upgegevens bevat geen tooVM van netwerk gekoppelde stations die zijn gekoppeld.
+* Een bestaande virtuele machine kan tijdens het herstel niet worden vervangen. Hallo bestaande virtuele machine en alle gekoppelde schijven eerst te verwijderen en vervolgens Hallo gegevens terugzetten vanaf back-up.
 * Regio-overschrijdende back-up en herstel wordt niet ondersteund.
-* Back-ups van virtuele machines met behulp van de Azure Backup-service wordt ondersteund in alle openbare gebieden van Azure (Zie de [controlelijst](https://azure.microsoft.com/regions/#services) van ondersteunde regio's). Als de regio die u zoekt niet vandaag ondersteund wordt, wordt deze niet in de vervolgkeuzelijst weergegeven tijdens het maken van de kluis.
-* Back-ups van virtuele machines met behulp van de Azure Backup-service wordt alleen ondersteund voor Selecteer besturingssystemen:
+* Back-ups van virtuele machines met behulp van hello Azure Backup-service wordt ondersteund in alle openbare gebieden van Azure (Zie Hallo [controlelijst](https://azure.microsoft.com/regions/#services) van ondersteunde regio's). Als Hallo regio die u zoekt niet vandaag ondersteund wordt, wordt deze niet weergegeven in de vervolgkeuzelijst Hallo tijdens het maken van de kluis.
+* Back-ups van virtuele machines met behulp van hello Azure Backup-service wordt alleen ondersteund voor Selecteer besturingssystemen:
 * Herstellen van een domeincontroller wordt (DC) VM die deel uitmaakt van een multi-DC-configuratie alleen ondersteund door PowerShell. Lees meer over [een multi-DC-domeincontroller terugzetten](backup-azure-restore-vms.md#restoring-domain-controller-vms).
-* Herstellen van virtuele machines waarvoor de volgende speciale netwerkconfiguraties wordt alleen ondersteund door PowerShell. Virtuele machines die u maakt met behulp van de werkstroom terugzetten in de gebruikersinterface wordt geen van deze netwerkconfiguraties nadat de herstelbewerking voltooid is. Zie voor meer informatie, [herstellen van virtuele machines met speciale netwerkconfiguraties](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
+* Herstellen van virtuele machines waarvoor speciale netwerkconfiguraties na hello wordt alleen ondersteund door PowerShell. Virtuele machines die u maakt met behulp van Hallo terugzetten werkstroom in Hallo UI geen deze netwerkconfiguraties nadat Hallo restore-bewerking voltooid is. toolearn meer, Zie [herstellen van virtuele machines met speciale netwerkconfiguraties](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
   * Virtuele machines onder een load balancer-configuratie (intern en extern)
   * Virtuele machines met meerdere gereserveerde IP-adressen
   * Virtuele machines met meerdere netwerkadapters
 
 ## <a name="create-a-backup-vault-for-a-vm"></a>Een back-upkluis maken voor een virtuele machine
-Een back-upkluis is een entiteit waarmee alle back-ups en herstelpunten worden opgeslagen die in de loop van de tijd zijn gemaakt. De back-upkluis bevat ook de back-upbeleid dat wordt toegepast op de virtuele machines back-up wordt gemaakt.
+Een back-upkluis is een entiteit waarmee alle Hallo back-ups en herstelpunten die zijn gemaakt na verloop van tijd worden opgeslagen. Hallo back-upkluis bevat ook back-upbeleid Hallo die worden toegepast toohello virtuele machines back-up wordt gemaakt.
 
 > [!IMPORTANT]
-> Vanaf maart 2017 is het niet meer mogelijk om de klassieke portal te gebruiken voor het maken van back-upkluizen. Bestaande back-upkluizen worden nog wel ondersteund en het is mogelijk om [Azure PowerShell te gebruiken voor het maken van back-upkluizen](./backup-client-automation-classic.md#create-a-backup-vault). U wordt echter geadviseerd om voor alle implementaties Recovery Services-kluizen te maken, aangezien toekomstige verbeteringen alleen van toepassing zullen zijn op Recovery Services-kluizen.
+> Vanaf maart 2017, kunt u niet meer gebruiken Hallo klassieke portal toocreate Backup-kluizen. Bestaande Backup-kluizen worden nog steeds ondersteund en is het mogelijk te[gebruik van Azure PowerShell toocreate Backup-kluizen](./backup-client-automation-classic.md#create-a-backup-vault). Microsoft raadt echter aan dat u Recovery Services-kluizen voor alle implementaties maken omdat toekomstige verbeteringen tooRecovery Services-kluizen, alleen van toepassing.
 
 
-Deze afbeelding ziet u de relaties tussen de verschillende entiteiten van de Azure Backup: ![Azure Backup-entiteiten en relaties](./media/backup-azure-vms-prepare/vault-policy-vm.png)
+Deze afbeelding ziet u Hallo relaties tussen Hallo entiteiten met verschillende Azure Backup: ![Azure Backup-entiteiten en relaties](./media/backup-azure-vms-prepare/vault-policy-vm.png)
 
 
 
 ## <a name="network-connectivity"></a>Netwerkverbinding
-Om de VM-momentopnamen te beheren, moet de Backup-extensie verbinding hebben met de Azure openbare IP-adressen. Zonder de juiste internetverbinding time-out van de virtuele machine HTTP-aanvragen en de back-upbewerking is mislukt. Als uw implementatie beschikt over toegangsbeperkingen (via een netwerkbeveiligingsgroep (NSG), bijvoorbeeld), kies een van deze opties voor het ontwikkelen van een duidelijke pad voor de back-verkeer:
+In de volgorde toomanage Hallo VM momentopnamen Hallo Backup-extensie moet connectiviteit toohello Azure openbare IP-adressen. Zonder Hallo juiste verbinding met Internet mislukt Hallo virtuele machine HTTP-aanvragen time-out en Hallo back-up. Als uw implementatie beschikt over toegangsbeperkingen (via een netwerkbeveiligingsgroep (NSG), bijvoorbeeld), kies een van deze opties voor het ontwikkelen van een duidelijke pad voor de back-verkeer:
 
-* [Geaccepteerde het Azure datacenter IP ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653) -Raadpleeg het artikel voor instructies over hoe naar geaccepteerde de IP-adressen.
+* [Geaccepteerde hello Azure datacenter IP-adresbereiken](http://www.microsoft.com/en-us/download/details.aspx?id=41653) -Zie Hallo-artikel voor instructies over hoe toowhitelist Hallo IP-adressen.
 * Implementeer een HTTP-proxyserver voor het routeren van verkeer.
 
-Wanneer u beslist welke optie u moet gebruiken, zijn de verschillen tussen beheerbaarheid, gedetailleerde controle en kosten.
+Wanneer u beslist welke optie toouse, zijn Hallo verschillen tussen beheerbaarheid, gedetailleerde controle en kosten.
 
 | Optie | Voordelen | Nadelen |
 | --- | --- | --- |
-| Whitelist IP-adresbereiken |Er zijn geen extra kosten.<br><br>Voor toegang tot te openen in een NSG, gebruikt u de <i>Set AzureNetworkSecurityRule</i> cmdlet. |Moeilijk te beheren als de betrokken IP-adresbereiken op den duur veranderen.<br><br>Biedt toegang tot het geheel van Azure en niet alleen de opslag. |
-| HTTP-proxy |Gedetailleerd beheer in de proxy van de opslag URL's toegestaan. Voor gedetailleerde controle van de installatie in de proxy https://\*.blob.core.windows.net/\* URL patroon moet wilt plaatsen. Aan de goedgekeurde IP-adressen alleen het storage-account dat wordt gebruikt door de virtuele machine, https://\<storageAccount\>.blob.core.windows.net/\* URL patroon moet wilt plaatsen. <br>Één punt Internet toegang tot virtuele machines.<br>Ten aanzien van wijzigingen in de Azure-IP-adres. |Extra kosten voor het uitvoeren van een virtuele machine met de proxysoftware. |
+| Whitelist IP-adresbereiken |Er zijn geen extra kosten.<br><br>Gebruik voor toegang tot te openen in een NSG, Hallo <i>Set AzureNetworkSecurityRule</i> cmdlet. |Complexe toomanage als Hallo van invloed op IP-adresbereiken wijzigen gedurende een bepaalde periode.<br><br>Biedt toegang tot toohello geheel van Azure en niet alleen de opslag. |
+| HTTP-proxy |Gedetailleerde controle in Hallo proxy over Hallo opslag URL's toegestaan. gedetailleerde controle toosetup in Hallo-proxy https://\*.blob.core.windows.net/\* URL patroon moet toobe wilt plaatsen. alleen Hallo storage-account die wordt gebruikt door de virtuele machine, Hallo toowhitelist https://\<storageAccount\>.blob.core.windows.net/\* URL patroon moet toobe wilt plaatsen. <br>Één punt Internet toegang tooVMs.<br>Geen onderwerp tooAzure IP-adreswijzigingen. |Extra kosten voor het uitvoeren van een virtuele machine met Hallo proxysoftware. |
 
-### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>De Azure-datacenter geaccepteerde IP-adresbereiken
-Aan de lijst met geaccepteerde het Azure datacenter IP-adresbereiken, raadpleegt u de [Azure-website](http://www.microsoft.com/en-us/download/details.aspx?id=41653) voor meer informatie over de IP-adresbereiken en instructies.
+### <a name="whitelist-hello-azure-datacenter-ip-ranges"></a>Geaccepteerde hello Azure datacenter IP-adresbereiken
+Raadpleeg Hallo toowhitelist hello Azure datacenter IP-adresbereiken [Azure-website](http://www.microsoft.com/en-us/download/details.aspx?id=41653) voor meer informatie over het Hallo-IP-adresbereiken en instructies.
 
 ### <a name="using-an-http-proxy-for-vm-backups"></a>Met behulp van een HTTP-proxy voor VM-back-ups
-Wanneer een back-up van een VM, verzendt de Backup-extensie op de virtuele machine opdrachten voor het beheer van de momentopname naar Azure Storage met behulp van een HTTPS-API. De Backup-extensie-verkeer via de HTTP-proxy routeren omdat dit het enige onderdeel dat is geconfigureerd voor toegang tot het openbare Internet.
+Wanneer een back-up van een VM, verzendt Hallo Backup-extensie op Hallo VM Hallo momentopname management opdrachten tooAzure opslag met een HTTPS-API. Hallo Backup-extensie-verkeer via Hallo HTTP-proxy te routeren omdat dit de enige onderdeel Hallo geconfigureerd voor toegang tot toohello openbare Internet.
 
 > [!NOTE]
-> Er is geen aanbeveling voor de proxysoftware die moet worden gebruikt. Zorg ervoor dat u kiest een proxy die uitgaande gebruikerspad is en die compatibel is met de onderstaande configuratiestappen. Zorg ervoor dat de procedure van derden mag niet de proxy-instellingen worden gewijzigd
+> Er is geen aanbeveling voor Hallo proxysoftware die moet worden gebruikt. Zorg ervoor dat u kiest een proxy die uitgaande gebruikerspad heeft en dit is compatibel met de onderstaande Hallo configuratiestappen. Zorg ervoor dat de procedure van derden Hallo proxy-instellingen niet wijzigen
 >
 >
 
-In onderstaande voorbeeldafbeelding ziet de drie configuratiestappen die nodig zijn voor het gebruik van een HTTP-proxy:
+Hallo voorbeeld in onderstaande afbeelding ziet u drie Hallo-configuratiestappen nodig toouse een HTTP-proxy:
 
-* App VM routeert alle HTTP-verkeer voor het openbare Internet via Proxy VM is gebonden.
-* Proxy VM zorgt ervoor dat binnenkomend verkeer van virtuele machines in het virtuele netwerk.
-* De Netwerkbeveiligingsgroep (NSG) met de naam NSF-lockdown moet een beveiliging regel waardoor uitgaand internetverkeer van Proxy VM.
+* App VM routes die alle HTTP-verkeer voor gebonden Hallo Internet via Proxy VM.
+* Proxy VM zorgt ervoor dat binnenkomend verkeer van virtuele machines in het virtuele netwerk Hallo.
+* Hallo Netwerkbeveiligingsgroep (NSG) met de naam NSF-lockdown moet een beveiliging regel waardoor uitgaand internetverkeer van Proxy VM.
 
 ![NSG met HTTP-proxy-implementatie-diagram](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
 
-Volg deze stappen voor het gebruik van een HTTP-proxy om communicatie met het openbare Internet:
+toouse een HTTP-proxy toocommunicating toohello openbare Internet, als volgt te werk:
 
 #### <a name="step-1-configure-outgoing-network-connections"></a>Step 1. Uitgaande netwerkverbindingen configureren
 ###### <a name="for-windows-machines"></a>Voor Windows-machines
@@ -116,13 +116,13 @@ Hiermee wordt het instellen van proxyserver-configuratie voor Lokaal systeemacco
      psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
      ```
      Internet explorer-venster wordt geopend.
-3. Ga naar Extra -> Internet-opties -> verbindingen LAN-instellingen ->.
+3. Ga tooTools -> Internet-opties -> verbindingen LAN-instellingen ->.
 4. Controleer de proxy-instellingen voor systeem-account. Stel Proxy IP-adres en poort.
 5. Sluit Internet Explorer.
 
 Dit stelt een proxyconfiguratie voor alle computers en wordt gebruikt voor alle uitgaande HTTP/HTTPS-verkeer.
 
-Als u hebt een proxyserver ingesteld op het huidige gebruikersaccount (niet een lokaal systeemaccount), gebruikt u het volgende script toepassen op SYSTEMACCOUNT:
+Als u hebt een proxyserver ingesteld op het huidige gebruikersaccount (niet een lokaal systeemaccount), gebruikt u Hallo na script tooapply ze tooSYSTEMACCOUNT:
 
 ```
    $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
@@ -139,74 +139,74 @@ Als u hebt een proxyserver ingesteld op het huidige gebruikersaccount (niet een 
 >
 
 ###### <a name="for-linux-machines"></a>Voor Linux-machines
-Voeg de volgende regel om de ```/etc/environment``` bestand:
+Hallo volgende regel toohello toevoegen ```/etc/environment``` bestand:
 
 ```
 http_proxy=http://<proxy IP>:<proxy port>
 ```
 
-Voeg de volgende regels voor de ```/etc/waagent.conf``` bestand:
+Toevoegen van de volgende regels toohello Hallo ```/etc/waagent.conf``` bestand:
 
 ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Stap 2. Binnenkomende verbindingen toestaan op de proxy-server:
-1. Open Windows Firewall op de proxyserver. De eenvoudigste manier om toegang tot de firewall is om te zoeken naar Windows Firewall met geavanceerde beveiliging.
+#### <a name="step-2-allow-incoming-connections-on-hello-proxy-server"></a>Stap 2. Binnenkomende verbindingen toestaan op Hallo proxyserver:
+1. Open Windows Firewall op Hallo proxy-server. Hallo gemakkelijkste manier tooaccess Hallo firewall is toosearch voor Windows Firewall met geavanceerde beveiliging.
 
-    ![De Firewall openen](./media/backup-azure-vms-prepare/firewall-01.png)
-2. In het dialoogvenster Windows Firewall met de rechtermuisknop op **regels voor binnenkomende verbindingen** en klik op **nieuwe regel...** .
+    ![Hallo Firewall openen](./media/backup-azure-vms-prepare/firewall-01.png)
+2. In het dialoogvenster Hallo Windows Firewall met de rechtermuisknop op **regels voor binnenkomende verbindingen** en klik op **nieuwe regel...** .
 
     ![Een nieuwe regel maken](./media/backup-azure-vms-prepare/firewall-02.png)
-3. In de **nieuwe Wizard regel voor binnenkomende**, kies de **aangepaste** optie voor de **regeltype** en klik op **volgende**.
-4. Op de pagina selecteren de **programma**, kies **alle programma's** en klik op **volgende**.
-5. Op de **protocollen en poorten** pagina, voer de volgende informatie en klik op **volgende**:
+3. In Hallo **nieuwe Wizard regel voor binnenkomende**, kies Hallo **aangepaste** optie voor Hallo **regeltype** en klik op **volgende**.
+4. Op Hallo pagina tooselect hello **programma**, kies **alle programma's** en klik op **volgende**.
+5. Op Hallo **protocollen en poorten** pagina, Voer Hallo volgende informatie en klik op **volgende**:
 
     ![Een nieuwe regel maken](./media/backup-azure-vms-prepare/firewall-03.png)
 
    * voor *protocoltype* kiezen *TCP*
-   * voor *lokale poort* kiezen *bepaalde poorten*, Geef in het veld hieronder de ```<Proxy Port>``` die is geconfigureerd.
+   * voor *lokale poort* kiezen *bepaalde poorten*, opgeven in onderstaande Hallo veld Hallo ```<Proxy Port>``` die is geconfigureerd.
    * voor *externe poort* Selecteer *alle poorten*
 
-     Klik helemaal tot aan het einde voor de rest van de wizard en geef een naam op voor deze regel.
+     Voor Hallo rest van de wizard hello, klik op alle Hallo manier toohello einde en geef een naam op voor deze regel.
 
-#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>Stap 3. Een uitzonderingsregel toevoegen aan het NSG:
-Voer de volgende opdracht in een Azure PowerShell-opdrachtprompt:
+#### <a name="step-3-add-an-exception-rule-toohello-nsg"></a>Stap 3. Een uitzondering regel toohello NSG toevoegen:
+Voer Hallo volgende opdracht in een Azure PowerShell-opdrachtprompt:
 
-De volgende opdracht voegt een uitzondering aan het NSG. Deze uitzondering kan TCP-verkeer vanaf een willekeurige poort op 10.0.0.5 aan een internetadres op poort 80 (HTTP) of 443 (HTTPS). Als u een specifieke poort in het openbare Internet vereist, moet u om toe te voegen die poort naar de ```-DestinationPortRange``` ook.
+Hallo volgende opdracht wordt een uitzondering toohello NSG toegevoegd. Deze uitzondering kan TCP-verkeer vanaf een willekeurige poort op 10.0.0.5 tooany internetadres op poort 80 (HTTP) of 443 (HTTPS). Als u een specifieke poort in nodig Hallo openbare Internet worden ervoor tooadd die poort toohello ```-DestinationPortRange``` ook.
 
 ```
 Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
 Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
 ```
 
-*Zorg ervoor dat u de namen in het voorbeeld door de details voor uw implementatie vervangen.*
+*Zorg ervoor dat u Hallo namen in Hallo voorbeeld door Hallo details juiste tooyour implementatie vervangen.*
 
 ## <a name="vm-agent"></a>VM-agent
-Voordat u kunt back-up van de virtuele machine van Azure, moet u ervoor zorgen dat de Azure VM-agent correct is geïnstalleerd op de virtuele machine. Omdat de VM-agent een optioneel onderdeel op het moment dat de virtuele machine is gemaakt is, zorg ervoor dat het selectievakje in voor de VM-agent is geselecteerd voordat de virtuele machine is ingericht.
+Voordat u kunt back-up hello Azure virtuele machine, moet u ervoor zorgen dat hello Azure VM-agent correct is geïnstalleerd op Hallo virtuele machine. Aangezien Hallo VM-agent is een optioneel onderdeel Hallo hoelang Hallo van virtuele machine wordt gemaakt, zorg ervoor dat het selectievakje Hallo voor Hallo VM-agent is ingeschakeld voordat Hallo virtuele machine is ingericht.
 
 ### <a name="manual-installation-and-update"></a>Handmatige installatie en bijwerken
-De VM-agent is al aanwezig in virtuele machines die zijn gemaakt van de Azure-galerie. Virtuele machines die worden gemigreerd van lokale datacenters moet echter niet de VM-agent is geïnstalleerd. Voor deze virtuele machines moet de VM-agent expliciet worden geïnstalleerd. Lees meer over [de VM-agent installeren op een bestaande VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
+Hallo VM-agent is al aanwezig in virtuele machines die zijn gemaakt van hello Azure-galerie. Virtuele machines die worden gemigreerd van lokale datacenters zou echter geen Hallo VM-agent is geïnstalleerd. Voor deze virtuele machines moet Hallo VM-agent toobe expliciet worden geïnstalleerd. Lees meer over [installeren Hallo VM-agent op een bestaande virtuele machine](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
 
 | **Bewerking** | **Windows** | **Linux** |
 | --- | --- | --- |
-| De VM-agent installeren |<li>Download en installeer de [agent-MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U hebt Administrator-bevoegdheden nodig om de installatie te kunnen uitvoeren. <li>[Werk de VM-eigenschap bij](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) om aan te geven dat de agent is geïnstalleerd. |<li> Installeer de meest recente [Linux-agent](https://github.com/Azure/WALinuxAgent) vanuit GitHub. U hebt Administrator-bevoegdheden nodig om de installatie te kunnen uitvoeren. <li> [Werk de VM-eigenschap bij](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) om aan te geven dat de agent is geïnstalleerd. |
-| De VM-agent bijwerken |Bijwerken van de VM-agent is net zo eenvoudig als het opnieuw installeren van de [binaire bestanden voor VM-agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |Volg de instructies op [bijwerken van de Linux VM-agent ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br><br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |
-| De installatie van de VM-agent valideren |<li>Ga naar de map *C:\WindowsAzure\Packages* in de Azure VM. <li>Het bestand WaAppAgent.exe moet hier aanwezig zijn.<li> Klik met de rechtermuisknop op het bestand, ga naar **Eigenschappen** en selecteer vervolgens het tabblad **Details**. In het veld Productversie moet versie 2.6.1198.718 of hoger worden weergegeven. |N.v.t. |
+| Hallo VM-agent installeren |<li>Download en installeer Hallo [agent-MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U moet Administrator-bevoegdheden toocomplete Hallo installatie. <li>[Werk Hallo VM eigenschap](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) tooindicate die Hallo agent is geïnstalleerd. |<li> Meest recente Hallo installeren [Linux-agent](https://github.com/Azure/WALinuxAgent) vanuit GitHub. U moet Administrator-bevoegdheden toocomplete Hallo installatie. <li> [Werk Hallo VM eigenschap](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) tooindicate die Hallo agent is geïnstalleerd. |
+| Hallo VM-agent bijwerken |Bijwerken Hallo VM-agent is net zo eenvoudig als opnieuw geïnstalleerd Hallo [binaire bestanden voor VM-agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl Hallo VM-agent wordt bijgewerkt. |Volg de instructies Hallo op [Hallo Linux VM-agent bijwerken ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br><br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl Hallo VM-agent wordt bijgewerkt. |
+| Hallo VM-agent-installatie valideren |<li>Navigeer toohello *C:\WindowsAzure\Packages* map in hello Azure VM. <li>U moet Hallo WaAppAgent.exe bestand aanwezig is.<li> Met de rechtermuisknop op het Hallo-bestand, gaat u te**eigenschappen**, en selecteer vervolgens Hallo **Details** tabblad Hallo productversie veld moet 2.6.1198.718 of hoger. |N.v.t. |
 
-Meer informatie over de [VM-agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) en [hoe u deze installeert](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+Meer informatie over Hallo [VM-agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) en [hoe tooinstall het](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
 ### <a name="backup-extension"></a>Backup-extensie
-Als u wilt back-up van de virtuele machine, installeert de Azure Backup-service een uitbreiding op de VM-agent. De Azure Backup-service wordt probleemloos bijgewerkt en er wordt zonder tussenkomst van de gebruiker een patch voor de Backup-extensie uitgevoerd.
+tooback hello virtuele machine hello Azure Backup-service installeert een extensie toohello VM-agent. upgrades naadloos Hello Azure Backup-service en -patches Hallo Backup-extensie zonder tussenkomst van de extra kosten voor gebruikers.
 
-De Backup-extensie is geïnstalleerd als de virtuele machine wordt uitgevoerd. Een actieve virtuele machine biedt ook de kans het grootst dat een toepassingsconsistente herstelpunt ophalen. Echter, de Azure Backup service back-up van de virtuele machine blijven, zelfs als deze is uitgeschakeld en de extensie kan niet worden geïnstalleerd (aka Offline VM). In dit geval wordt het herstelpunt zich *crashconsistent* zoals hierboven wordt beschreven.
+Hallo Backup-extensie is geïnstalleerd als Hallo VM wordt uitgevoerd. Een actieve virtuele machine biedt ook Hallo grootste kans een toepassingsconsistente herstelpunt. Echter hello Azure Backup-service tooback up Hallo VM--wordt voortgezet zelfs als deze is uitgeschakeld en Hallo-extensie kan niet worden geïnstalleerd (aka Offline VM). In dit geval Hallo herstelpunt zich *crashconsistent* zoals hierboven wordt beschreven.
 
 ## <a name="questions"></a>Vragen?
-Als u vragen hebt of als er een functie is die u graag opgenomen ziet worden, [stuur ons dan uw feedback](http://aka.ms/azurebackup_feedback).
+Als u vragen hebt of als er een functie die u toosee opgenomen wilt, [Stuur ons feedback](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u uw omgeving voor back-ups van uw virtuele machine hebt voorbereid, wordt de volgende logische stap is het maken van een back-up. De planning artikel vindt meer gedetailleerde informatie over back-ups van virtuele machines.
+Nu u uw omgeving voor back-ups van uw virtuele machine hebt voorbereid, de volgende logische stap is toocreate een back-up. Hallo planning artikel biedt gedetailleerde informatie over back-ups van virtuele machines.
 
 * [Back-up van virtuele machines](backup-azure-vms.md)
 * [Uw VM-back-infrastructuur plannen](backup-azure-vms-introduction.md)

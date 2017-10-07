@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van Table storage (C++) | Microsoft Docs
-description: Sla gestructureerde gegevens op in de cloud met Azure Table Storage, een oplossing voor NoSQL-gegevensopslag.
+title: aaaHow toouse Table storage (C++) | Microsoft Docs
+description: Gestructureerde gegevens opslaan in Hallo cloud met Azure Table storage, een NoSQL-gegevensarchief.
 services: cosmos-db
 documentationcenter: .net
 author: mimig1
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: mimig
-ms.openlocfilehash: 8314292cdb9b7a3f464c60119ed10f6b06ed4d10
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8096fe531427ba4858f7f4cb7f664f941892d1c9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-table-storage-from-c"></a>Hoe Table storage gebruiken met C++
+# <a name="how-toouse-table-storage-from-c"></a>Hoe toouse Table storage uit het C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>Overzicht
-Deze handleiding wordt beschreven hoe u veelvoorkomende scenario's uitvoeren met behulp van de service Azure Table storage. De voorbeelden zijn geschreven in C++ en gebruik de [Azure Storage-clientbibliotheek voor C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). De scenario's worden behandeld: **maken en het verwijderen van een tabel** en **werken met tabelentiteiten**.
+Deze handleiding leert u hoe tooperform algemene scenario's met behulp van hello Azure Table storage-service. Hallo-voorbeelden zijn geschreven in C++ en gebruiken van Hallo [Azure Storage-clientbibliotheek voor C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Hallo scenario's worden behandeld: **maken en het verwijderen van een tabel** en **werken met tabelentiteiten**.
 
 > [!NOTE]
-> Deze handleiding is bedoeld voor de Azure Storage-clientbibliotheek voor C++ versie 1.0.0 en hoger. De aanbevolen versie is Storage-clientbibliotheek 2.2.0, die beschikbaar is via [NuGet](http://www.nuget.org/packages/wastorage) of [GitHub](https://github.com/Azure/azure-storage-cpp/).
+> Doel is van deze handleiding hello Azure Storage-clientbibliotheek voor C++ versie 1.0.0 en hoger. Hallo aanbevolen versie is Storage-clientbibliotheek 2.2.0, die beschikbaar is via [NuGet](http://www.nuget.org/packages/wastorage) of [GitHub](https://github.com/Azure/azure-storage-cpp/).
 > 
 > 
 
@@ -37,17 +37,17 @@ Deze handleiding wordt beschreven hoe u veelvoorkomende scenario's uitvoeren met
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-c-application"></a>Een C++-toepassing maken
-In deze handleiding gebruikt u opslagfuncties dat kunnen worden uitgevoerd binnen een C++-toepassing. Om dit te doen, moet u voor het installeren van de Azure Storage-clientbibliotheek voor C++ en een Azure storage-account maken in uw Azure-abonnement.  
+In deze handleiding gebruikt u opslagfuncties dat kunnen worden uitgevoerd binnen een C++-toepassing. toodo geval is, moet u tooinstall hello Azure Storage-clientbibliotheek voor C++ en een Azure storage-account maken in uw Azure-abonnement.  
 
-Voor het installeren van de Azure Storage-clientbibliotheek voor C++, kunt u de volgende methoden:
+tooinstall hello Azure Storage-clientbibliotheek voor C++, kunt u Hallo volgende methoden:
 
-* **Linux:** Volg de instructies op de [Azure Storage-clientbibliotheek voor C++ Leesmij](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) pagina.  
-* **Windows:** In Visual Studio, klikt u op **Extra > NuGet Package Manager > Package Manager Console**. Typ de volgende opdracht in de [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) en druk op Enter.  
+* **Linux:** Hallo instructies gegeven op Hallo [Azure Storage-clientbibliotheek voor C++ Leesmij](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) pagina.  
+* **Windows:** In Visual Studio, klikt u op **Extra > NuGet Package Manager > Package Manager Console**. Type Hallo volgende opdracht in Hallo [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) en druk op Enter.  
   
      Install-Package wastorage
 
-## <a name="configure-your-application-to-access-table-storage"></a>Uw toepassing configureren voor toegang tot Table storage
-Toevoegen aan dat de volgende instructies op de bovenkant van het bestand C++ is waar u de Azure storage-API's gebruiken voor toegang tot tabellen bevatten:  
+## <a name="configure-your-application-tooaccess-table-storage"></a>Configureren van uw toepassing tooaccess Table storage
+Toegevoegd Hallo volgende overzichten toohello boven in Hallo C++ bestand waar u toouse hello Azure storage-API's tooaccess tabellen bevatten:  
 
 ```cpp
 #include <was/storage_account.h>
@@ -55,72 +55,72 @@ Toevoegen aan dat de volgende instructies op de bovenkant van het bestand C++ is
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Een Azure-opslag-verbindingsreeks instellen
-Een Azure-opslag-client gebruikt een verbindingsreeks voor opslag voor het opslaan van eindpunten en referenties voor toegang tot gegevens beheerservices. Wanneer een client-toepassing wordt uitgevoerd, moet u de verbindingsreeks voor opslag in de volgende indeling opgeven. De naam van uw opslagaccount en de toegangssleutel voor opslag gebruiken voor het opslagaccount wordt vermeld in de [Azure Portal](https://portal.azure.com) voor de *AccountName* en *AccountKey* waarden. Zie voor informatie over de storage-accounts en toegangstoetsen, [over Azure storage-accounts](../storage/common/storage-create-storage-account.md). Dit voorbeeld ziet hoe u een statisch veld voor het opslaan van de verbindingsreeks kunt declareren:  
+Een Azure-opslag-client maakt gebruik van een storage connection string toostore eindpunten en referenties voor toegang tot gegevens beheerservices. Wanneer een client-toepassing wordt uitgevoerd, moet u Hallo verbindingsreeks voor opslag in de volgende indeling Hallo opgeven. Gebruik Hallo de naam van uw storage-account en Hallo toegangssleutel voor opslag voor Hallo storage-account wordt vermeld in Hallo [Azure Portal](https://portal.azure.com) voor Hallo *AccountName* en *AccountKey* waarden. Zie voor informatie over de storage-accounts en toegangstoetsen, [over Azure storage-accounts](../storage/common/storage-create-storage-account.md). Dit voorbeeld ziet hoe u een statisch veld toohold Hallo-verbindingsreeks kunt declareren:  
 
 ```cpp
-// Define the connection string with your values.
+// Define hello connection string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-Testen van uw toepassing in uw lokale Windows-computer, kunt u de Azure [opslagemulator](../storage/common/storage-use-emulator.md) die is geïnstalleerd met de [Azure SDK](https://azure.microsoft.com/downloads/). De opslagemulator is een hulpprogramma dat de Azure Blob, wachtrijen en tabellen services beschikbaar zijn op uw lokale ontwikkelcomputer simuleert. Het volgende voorbeeld ziet u hoe u een statisch veld voor het opslaan van de verbindingsreeks naar uw lokale opslagemulator kunt declareren:  
+tootest uw toepassing in uw lokale Windows-computer, kunt u hello Azure [opslagemulator](../storage/common/storage-use-emulator.md) die is geïnstalleerd met Hallo [Azure SDK](https://azure.microsoft.com/downloads/). Hallo-opslagemulator is een hulpprogramma dat hello Azure Blob, wachtrijen en tabellen services beschikbaar zijn op uw lokale ontwikkelcomputer simuleert. Hallo volgende voorbeeld ziet u hoe u een statisch veld toohold Hallo connection string tooyour lokale opslagemulator kunt declareren:  
 
 ```cpp
-// Define the connection string with Azure storage emulator.
+// Define hello connection string with Azure storage emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-De Azure-opslagemulator starten, klikt u op de **Start** knop of druk op de Windows-toets. Begint te typen **Azure-Opslagemulator**, en selecteer vervolgens **Microsoft Azure-Opslagemulator** uit de lijst met toepassingen.  
+toostart hello Azure-opslagemulator, klikt u op Hallo **Start** of drukt u op Hallo Windows-toets. Begint te typen **Azure-Opslagemulator**, en selecteer vervolgens **Microsoft Azure-Opslagemulator** in Hallo lijst met toepassingen.  
 
-De volgende voorbeelden wordt ervan uitgegaan dat u een van deze twee methoden hebt gebruikt om op te halen van de verbindingsreeks voor opslag.  
+Hallo volgende voorbeelden wordt ervan uitgegaan dat u een van deze twee methoden tooget Hallo-opslagverbindingsreeks hebt gebruikt.  
 
 ## <a name="retrieve-your-connection-string"></a>De verbindingsreeks ophalen
-U kunt de **cloud_storage_account** klasse vertegenwoordigt de gegevens van uw storage-account. Voor het ophalen van gegevens over uw storage-account van de verbindingsreeks voor opslag, kunt u de parseermethode.
+U kunt Hallo **cloud_storage_account** klasse toorepresent gegevens over uw storage-account. tooretrieve uw opslag accountgegevens van de opslagverbindingsreeks hello, kunt u de methode parse hello gebruiken.
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-Vervolgens maakt geen verwijzing ophalen naar een **cloud_table_client** klasse, zoals het kunt u profiteren van reference-objecten voor tabellen en entiteiten die zijn opgeslagen in de tabel storage-service. De volgende code maakt een **cloud_table_client** object met behulp van het opslagobject account we hierboven opgehaald:  
+Vervolgens wordt een verwijzing tooa ophalen **cloud_table_client** klasse, zoals het kunt u profiteren van reference-objecten voor tabellen en entiteiten die zijn opgeslagen in Hallo Table storage-service. Hallo volgende code maakt een **cloud_table_client** object met behulp van Hallo account opslagobject we hierboven opgehaald:  
 
 ```cpp
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 ```
 
 ## <a name="create-a-table"></a>Een tabel maken
-Een **cloud_table_client** object kunt u profiteren van reference-objecten voor tabellen en entiteiten. De volgende code maakt een **cloud_table_client** object en gebruikt deze om een nieuwe tabel maken.
+Een **cloud_table_client** object kunt u profiteren van reference-objecten voor tabellen en entiteiten. Hallo volgende code maakt een **cloud_table_client** object en gebruikt deze toocreate een nieuwe tabel.
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);  
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Retrieve a reference to a table.
+// Retrieve a reference tooa table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create the table if it doesn't exist.
+// Create hello table if it doesn't exist.
 table.create_if_not_exists();  
 ```
 
-## <a name="add-an-entity-to-a-table"></a>Een entiteit toevoegen aan een tabel
-Als u wilt een entiteit toevoegen aan een tabel, maakt u een nieuwe **table_entity** object en doorgegeven aan **table_operation::insert_entity**. De volgende code gebruikt de voornaam van de klant als de rijsleutel en de achternaam als de partitiesleutel. De partitie- en rijsleutel van een entiteit vormen samen de unieke id van de entiteit in de tabel. Entiteiten met dezelfde partitiesleutel kunnen sneller worden opgevraagd dan die met verschillende partitiesleutels, maar met verschillende partitiesleutels kunt grotere schaalbaarheid van parallelle bewerking. Zie voor meer informatie [Microsoft Azure storage controlelijst voor prestaties en schaalbaarheid](../storage/common/storage-performance-checklist.md).
+## <a name="add-an-entity-tooa-table"></a>Een entiteit tooa tabel toevoegen
+tooadd een entiteit tooa tabel, maakt u een nieuwe **table_entity** object en geef dit door te**table_operation::insert_entity**. Hallo volgende code gebruikt de voornaam van de klant Hallo als Hallo rijsleutel en de achternaam als partitiesleutel Hallo. Samen een entiteit partitie en rijsleutel een unieke identificatie Hallo entiteit in Hallo tabel. Entiteiten met dezelfde partitiesleutel kan sneller worden opgevraagd dan die met verschillende Hallo partitie-sleutels, maar met verschillende partitiesleutels kunt grotere schaalbaarheid van parallelle bewerking. Zie voor meer informatie [Microsoft Azure storage controlelijst voor prestaties en schaalbaarheid](../storage/common/storage-performance-checklist.md).
 
-De volgende code maakt een nieuw exemplaar van **table_entity** met sommige gegevens van de klant worden opgeslagen. De volgende code-aanroepen **table_operation::insert_entity** maken een **table_operation** object voor het invoegen van een entiteit in een tabel en de nieuwe Tabelentiteit gekoppeld. Ten slotte de code de execute-methode aanroepen op de **cloud_table** object. En de nieuwe **table_operation** verzendt een aanvraag naar de tabel-service naar de nieuwe klantentiteit in de tabel 'gebruikers' invoegen.  
+Hallo volgende code maakt een nieuw exemplaar van **table_entity** met sommige klant gegevens toobe opgeslagen. de volgende aanroepen code Hallo **table_operation::insert_entity** toocreate een **table_operation** object tooinsert een entiteit in een tabel en gekoppeld Hallo nieuwe Tabelentiteit met het. Ten slotte Hallo code-aanroepen Hallo methode niet uitvoeren op Hallo **cloud_table** object. En nieuwe Hallo **table_operation** verzendt een aanvraag toohello tabel service tooinsert Hallo nieuwe klantentiteit in Hallo 'gebruikers' tabel.  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Retrieve a reference to a table.
+// Retrieve a reference tooa table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create the table if it doesn't exist.
+// Create hello table if it doesn't exist.
 table.create_if_not_exists();
 
 // Create a new customer entity.
@@ -132,30 +132,30 @@ properties[U("Email")] = azure::storage::entity_property(U("Walter@contoso.com")
 
 properties[U("Phone")] = azure::storage::entity_property(U("425-555-0101"));
 
-// Create the table operation that inserts the customer entity.
+// Create hello table operation that inserts hello customer entity.
 azure::storage::table_operation insert_operation = azure::storage::table_operation::insert_entity(customer1);
 
-// Execute the insert operation.
+// Execute hello insert operation.
 azure::storage::table_result insert_result = table.execute(insert_operation);
 ```
 
 ## <a name="insert-a-batch-of-entities"></a>Een batch entiteiten invoegen
-U kunt een batch entiteiten met de service tabel invoegen in één schrijfbewerking. De volgende code maakt een **table_batch_operation** object en vervolgens voegt u drie bewerkingen voor het invoegen. Elke bewerking insert is toegevoegd door het maken van een nieuwe entiteitsobject, de waarden in te stellen en vervolgens het aanroepen van de methode invoegen op het **table_batch_operation** -object op voor de entiteit koppelen aan een nieuwe insert-bewerking. Vervolgens **cloud_table.execute** aangeroepen om de bewerking niet uitvoeren.  
+U kunt een batch entiteiten toohello service tabel invoegen in één schrijfbewerking. Hallo volgende code maakt een **table_batch_operation** object en vervolgens voegt u drie bewerkingen tooit invoegen. Elke bewerking insert is toegevoegd door het maken van een nieuwe entiteitsobject, de waarden in te stellen en vervolgens aanroepen Hallo Voeg de methode op Hallo **table_batch_operation** object tooassociate Hallo entiteit met een nieuwe bewerking insert. Vervolgens **cloud_table.execute** tooexecute Hallo-bewerking wordt aangeroepen.  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
 // Define a batch operation.
 azure::storage::table_batch_operation batch_operation;
 
-// Create a customer entity and add it to the table.
+// Create a customer entity and add it toohello table.
 azure::storage::table_entity customer1(U("Smith"), U("Jeff"));
 
 azure::storage::table_entity::properties_type& properties1 = customer1.properties();
@@ -163,7 +163,7 @@ properties1.reserve(2);
 properties1[U("Email")] = azure::storage::entity_property(U("Jeff@contoso.com"));
 properties1[U("Phone")] = azure::storage::entity_property(U("425-555-0104"));
 
-// Create another customer entity and add it to the table.
+// Create another customer entity and add it toohello table.
 azure::storage::table_entity customer2(U("Smith"), U("Ben"));
 
 azure::storage::table_entity::properties_type& properties2 = customer2.properties();
@@ -171,7 +171,7 @@ properties2.reserve(2);
 properties2[U("Email")] = azure::storage::entity_property(U("Ben@contoso.com"));
 properties2[U("Phone")] = azure::storage::entity_property(U("425-555-0102"));
 
-// Create a third customer entity to add to the table.
+// Create a third customer entity tooadd toohello table.
 azure::storage::table_entity customer3(U("Smith"), U("Denise"));
 
 azure::storage::table_entity::properties_type& properties3 = customer3.properties();
@@ -179,44 +179,44 @@ properties3.reserve(2);
 properties3[U("Email")] = azure::storage::entity_property(U("Denise@contoso.com"));
 properties3[U("Phone")] = azure::storage::entity_property(U("425-555-0103"));
 
-// Add customer entities to the batch insert operation.
+// Add customer entities toohello batch insert operation.
 batch_operation.insert_or_replace_entity(customer1);
 batch_operation.insert_or_replace_entity(customer2);
 batch_operation.insert_or_replace_entity(customer3);
 
-// Execute the batch operation.
+// Execute hello batch operation.
 std::vector<azure::storage::table_result> results = table.execute_batch(batch_operation);
 ```
 
-Een aantal zaken te weten over batchbewerkingen:  
+Een aantal dingen toonote over batchbewerkingen:  
 
-* U kunt maximaal 100 invoegen, verwijderen, samenvoegen, vervangen, invoegen of merge en invoegen of vervangen bewerkingen uitvoeren in een willekeurige combinatie in één batch.  
-* Een batchbewerking kan een bewerking ophalen hebben als dit de enige bewerking in de batch.  
-* Alle entiteiten in een batchbewerking moeten dezelfde partitiesleutel hebben.  
-* Een batchbewerking is beperkt tot een nettolading met gegevens van 4 MB.  
+* U kunt uitvoeren om too100 invoegen, verwijderen, samenvoegen, vervangen, invoegen of merge en invoegen of vervangen bewerkingen in een willekeurige combinatie in één batch.  
+* Een batchbewerking kan een bewerking ophalen hebben als het Hallo enige bewerking in Hallo batch.  
+* Alle entiteiten in een batchbewerking moeten Hallo hebben dezelfde partitiesleutel.  
+* Een batchbewerking is beperkt tooa 4 MB aan gegevens nettolading.  
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Alle entiteiten in een partitie ophalen
-Gebruiken om te vragen een tabel voor alle entiteiten in een partitie, een **table_query** object. Het volgende codevoorbeeld geeft een filter voor entiteiten waarbij 'Smith' de partitiesleutel is. In dit voorbeeld worden de velden van elke entiteit in de queryresultaten naar de console afgedrukt.  
+een tabel voor alle entiteiten in een partitie, gebruik tooquery een **table_query** object. Hallo geeft volgende codevoorbeeld een filter voor entiteiten waarbij 'Smith' hello partitiesleutel is. Dit voorbeeld wordt Hallo velden van elke entiteit in Hallo query resultaten toohello-console.  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Construct the query operation for all customer entities where PartitionKey="Smith".
+// Construct hello query operation for all customer entities where PartitionKey="Smith".
 azure::storage::table_query query;
 
 query.set_filter_string(azure::storage::table_query::generate_filter_condition(U("PartitionKey"), azure::storage::query_comparison_operator::equal, U("Smith")));
 
-// Execute the query.
+// Execute hello query.
 azure::storage::table_query_iterator it = table.execute_query(query);
 
-// Print the fields for each customer.
+// Print hello fields for each customer.
 azure::storage::table_query_iterator end_of_results;
 for (; it != end_of_results; ++it)
 {
@@ -228,22 +228,22 @@ for (; it != end_of_results; ++it)
 }  
 ```
 
-De query in dit voorbeeld wordt de entiteiten die overeenkomen met de filtercriteria. Als er grote tabellen en moet de tabelentiteiten downloaden vaak we raden aan dat opslaat u uw gegevens in Azure storage-blobs in plaats daarvan.
+Hallo-query in dit voorbeeld worden alle Hallo entiteiten die overeenkomen met de filtercriteria Hallo. Als u grote tabellen hebt en toodownload Hallo tabelentiteiten vaak, raden wij aan dat u uw gegevens in Azure storage-blobs in plaats daarvan opslaat.
 
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Een bereik van entiteiten in een partitie ophalen
-Als u geen query wilt uitvoeren op alle entiteiten in een partitie, kunt u een bereik opgeven door het partitiesleutelfilter te combineren met een rijsleutelfilter. Het volgende codevoorbeeld maakt gebruik van twee filters om alle entiteiten met de partitie 'Smith' op te halen waarbij de rijsleutel (voornaam) begint met een letter die in het alfabet vóór de 'E' komt. Vervolgens worden de resultaten van de query afgedrukt.  
+Als u niet tooquery alle Hallo entiteiten in een partitie wilt, kunt u een bereik opgeven door een combinatie van Hallo partitie sleutel filter met een rijsleutelfilter. Hallo volgende codevoorbeeld maakt gebruik van twee filters tooget alle entiteiten in de partitie 'Smith' waarbij Hallo rijsleutel (voornaam) begint met een letter 'E' in hello alfabet vóór en vervolgens afgedrukt Hallo queryresultaten.  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create the table query.
+// Create hello table query.
 azure::storage::table_query query;
 
 query.set_filter_string(azure::storage::table_query::combine_filter_conditions(
@@ -252,10 +252,10 @@ query.set_filter_string(azure::storage::table_query::combine_filter_conditions(
     azure::storage::query_logical_operator::op_and,
     azure::storage::table_query::generate_filter_condition(U("RowKey"), azure::storage::query_comparison_operator::less_than, U("E"))));
 
-// Execute the query.
+// Execute hello query.
 azure::storage::table_query_iterator it = table.execute_query(query);
 
-// Loop through the results, displaying information about the entity.
+// Loop through hello results, displaying information about hello entity.
 azure::storage::table_query_iterator end_of_results;
 for (; it != end_of_results; ++it)
 {
@@ -268,22 +268,22 @@ for (; it != end_of_results; ++it)
 ```
 
 ## <a name="retrieve-a-single-entity"></a>Eén entiteit ophalen
-U kunt een query schrijven om één specifieke entiteit op te halen. De volgende code gebruikt **table_operation::retrieve_entity** om op te geven van de klant 'Jeff Smith'. Deze methode retourneert één entiteit in plaats van een verzameling en de geretourneerde waarde is in **table_result**. Het opgeven van zowel partitie- als rijsleutels in een query is de snelste manier om één entiteit op te halen uit de Tabelservice.  
+U kunt een query tooretrieve één specifieke entiteit schrijven. Hallo volgende code gebruikt **table_operation::retrieve_entity** toospecify Hallo klant 'Jeff Smith'. Deze methode retourneert één entiteit in plaats van een verzameling en hello geretourneerde waarde is in **table_result**. Het opgeven van de partitie-als rijsleutels in een query is Hallo snelste manier tooretrieve uit de tabelservice Hallo één entiteit.  
 
 ```cpp
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Retrieve the entity with partition key of "Smith" and row key of "Jeff".
+// Retrieve hello entity with partition key of "Smith" and row key of "Jeff".
 azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
 azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
 
-// Output the entity.
+// Output hello entity.
 azure::storage::table_entity entity = retrieve_result.entity();
 const azure::storage::table_entity::properties_type& properties = entity.properties();
 
@@ -293,16 +293,16 @@ std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") <
 ```
 
 ## <a name="replace-an-entity"></a>Een entiteit vervangen
-Ter vervanging van een entiteit ophalen uit de tabelservice, wijzigt het entiteitsobject en sla de wijzigingen terug naar de tabel-service. De volgende code wijzigt het telefoonnummer en e-mailadres van een bestaande klant. In plaats van aanroepen **table_operation::insert_entity**, deze code gebruikt **table_operation::replace_entity**. Met deze bewerking wordt de entiteit op de server volledig vervangen, tenzij de entiteit op de server sinds het ophalen is gewijzigd. In dat geval mislukt de bewerking. Hiermee wordt voorkomen dat de toepassing per ongeluk een wijziging overschrijft die door een ander onderdeel van uw toepassing is aangebracht tussen het moment van ophalen en het moment van bijwerken. De juiste verwerking van deze fout wordt de entiteit opnieuw ophalen, breng uw wijzigingen (indien nog geldig) en voert u een andere **table_operation::replace_entity** bewerking. In de volgende sectie wordt beschreven hoe u dit gedrag kunt wijzigen.  
+tooreplace een entiteit ophalen uit de tabelservice hello, Hallo entiteitsobject wijzigen en vervolgens weer toohello tabelservice Hallo wijzigingen opslaan. Hallo wijzigt volgende code het telefoonnummer en e-mailadres van een bestaande klant. In plaats van aanroepen **table_operation::insert_entity**, deze code gebruikt **table_operation::replace_entity**. Hierdoor Hallo entiteit toobe volledig vervangen op Hallo van server, tenzij het Hallo-entiteit op Hallo-server is gewijzigd sinds het is opgehaald, in welk geval Hallo-bewerking mislukt. Hiermee wordt de toepassing per ongeluk een wijziging overschrijft aangebracht tussen Hallo ophalen en bijwerken door een ander onderdeel van uw toepassing tooprevent. Hallo correcte verwerking van deze fout is tooretrieve Hallo entiteit opnieuw, breng uw wijzigingen (indien nog geldig) en voert u een andere **table_operation::replace_entity** bewerking. Hallo volgende sectie wordt uitgelegd hoe u toooverride dit gedrag.  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
 // Replace an entity.
@@ -316,24 +316,24 @@ properties_to_replace[U("Phone")] = azure::storage::entity_property(U("425-555-0
 // Specify a new email address.
 properties_to_replace[U("Email")] = azure::storage::entity_property(U("JeffS@contoso.com"));
 
-// Create an operation to replace the entity.
+// Create an operation tooreplace hello entity.
 azure::storage::table_operation replace_operation = azure::storage::table_operation::replace_entity(entity_to_replace);
 
-// Submit the operation to the Table service.
+// Submit hello operation toohello Table service.
 azure::storage::table_result replace_result = table.execute(replace_operation);
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>Een entiteit invoegen of vervangen
-**table_operation::replace_entity** bewerkingen mislukken als de entiteit is gewijzigd nadat deze is opgehaald van de server. Bovendien moet u ophalen de entiteit van de server eerst om **table_operation::replace_entity** lukken. Soms echter, u niet weet of de entiteit op de server bestaat en de huidige waarden die erin niet relevant zijn: de update worden deze allemaal overschreven. Hiervoor gebruikt u een **table_operation::insert_or_replace_entity** bewerking. Met deze bewerking wordt de entiteit ingevoegd als deze niet bestaat of vervangen als deze wel bestaat, ongeacht wanneer de laatste update is uitgevoerd. In het volgende codevoorbeeld wordt de klantentiteit voor Jeff Smith nog steeds opgehaald, maar deze wordt vervolgens terug naar de server via opgeslagen **table_operation::insert_or_replace_entity**. Wijzigingen in de entiteit tussen het ophalen en de update-bewerking worden overschreven.  
+**table_operation::replace_entity** bewerkingen mislukken als Hallo entiteit is gewijzigd sinds het ophalen van Hallo-server. Bovendien moet u Hallo entiteit ophalen van server eerst in de volgorde voor Hallo **table_operation::replace_entity** toobe geslaagd. Soms echter u niet weet of het Hallo entiteit op Hallo-server bestaat en Hallo van de huidige waarden die erin niet relevant zijn: de update worden deze allemaal overschreven. tooaccomplish, gebruikt u een **table_operation::insert_or_replace_entity** bewerking. Deze bewerking wordt Hallo entiteit ingevoegd als deze niet bestaat of vervangen als het geval is, ongeacht wanneer de laatste update Hallo is uitgevoerd. In Hallo volgende codevoorbeeld, Hallo klantentiteit voor Jeff Smith wordt nog steeds opgehaald, maar deze wordt vervolgens opgeslagen back toohello server via **table_operation::insert_or_replace_entity**. Eventuele updates van toohello entiteit tussen Hallo ophalen en bijwerken bewerking worden overschreven.  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
 // Insert-or-replace an entity.
@@ -348,37 +348,37 @@ properties_to_insert_or_replace[U("Phone")] = azure::storage::entity_property(U(
 // Specify an email address.
 properties_to_insert_or_replace[U("Email")] = azure::storage::entity_property(U("Jeffsm@contoso.com"));
 
-// Create an operation to insert-or-replace the entity.
+// Create an operation tooinsert-or-replace hello entity.
 azure::storage::table_operation insert_or_replace_operation = azure::storage::table_operation::insert_or_replace_entity(entity_to_insert_or_replace);
 
-// Submit the operation to the Table service.
+// Submit hello operation toohello Table service.
 azure::storage::table_result insert_or_replace_result = table.execute(insert_or_replace_operation);
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Een query uitvoeren op een subset van entiteitseigenschappen
-Een query naar een tabel ophalen slechts enkele eigenschappen van een entiteit. De query in de volgende code gebruikt de **table_query::set_select_columns** methode om te worden alleen de e-mailadressen van entiteiten in de tabel retourneren.  
+Een query tooa tabel ophalen slechts enkele eigenschappen van een entiteit. Hallo query in de volgende code Hallo gebruikt Hallo **table_query::set_select_columns** methode tooreturn alleen Hallo e-mailadressen van entiteiten in Hallo tabel.  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Define the query, and select only the Email property.
+// Define hello query, and select only hello Email property.
 azure::storage::table_query query;
 std::vector<utility::string_t> columns;
 
 columns.push_back(U("Email"));
 query.set_select_columns(columns);
 
-// Execute the query.
+// Execute hello query.
 azure::storage::table_query_iterator it = table.execute_query(query);
 
-// Display the results.
+// Display hello results.
 azure::storage::table_query_iterator end_of_results;
 for (; it != end_of_results; ++it)
 {
@@ -400,59 +400,59 @@ for (; it != end_of_results; ++it)
 > 
 
 ## <a name="delete-an-entity"></a>Een entiteit verwijderen
-U kunt een entiteit gemakkelijk verwijderen nadat u deze hebt opgehaald. Wanneer de entiteit is opgehaald, aanroepen **table_operation::delete_entity** met de entiteit wilt verwijderen. Roep vervolgens de **cloud_table.execute** methode. De volgende code haalt en verwijdert een entiteit met een partitiesleutel van 'Smith' en een rijsleutel van 'Jeff'.  
+U kunt een entiteit gemakkelijk verwijderen nadat u deze hebt opgehaald. Wanneer het Hallo-entiteit wordt opgehaald, aanroepen **table_operation::delete_entity** met Hallo entiteit toodelete. Roep vervolgens Hallo **cloud_table.execute** methode. Hallo volgende code haalt en verwijdert een entiteit met een partitiesleutel van 'Smith' en een rijsleutel van 'Jeff'.  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
+// Create an operation tooretrieve hello entity with partition key of "Smith" and row key of "Jeff".
 azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
 azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
 
-// Create an operation to delete the entity.
+// Create an operation toodelete hello entity.
 azure::storage::table_operation delete_operation = azure::storage::table_operation::delete_entity(retrieve_result.entity());
 
-// Submit the delete operation to the Table service.
+// Submit hello delete operation toohello Table service.
 azure::storage::table_result delete_result = table.execute(delete_operation);  
 ```
 
 ## <a name="delete-a-table"></a>Een tabel verwijderen
-Ten slotte wordt met het volgende codevoorbeeld een tabel uit een opslagaccount verwijderd. Een verwijderde tabel kan gedurende een bepaalde tijd na de verwijdering niet opnieuw worden gemaakt.  
+Ten slotte verwijdert Hallo volgende codevoorbeeld een tabel uit een opslagaccount. Een tabel die is verwijderd is niet beschikbaar toobe opnieuw worden gemaakt voor een bepaalde tijd na Hallo verwijderen.  
 
 ```cpp
-// Retrieve the storage account from the connection string.
+// Retrieve hello storage account from hello connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the table client.
+// Create hello table client.
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
-// Create a cloud table object for the table.
+// Create a cloud table object for hello table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
+// Create an operation tooretrieve hello entity with partition key of "Smith" and row key of "Jeff".
 azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
 azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
 
-// Create an operation to delete the entity.
+// Create an operation toodelete hello entity.
 azure::storage::table_operation delete_operation = azure::storage::table_operation::delete_entity(retrieve_result.entity());
 
-// Submit the delete operation to the Table service.
+// Submit hello delete operation toohello Table service.
 azure::storage::table_result delete_result = table.execute(delete_operation);
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u de basisprincipes van table storage hebt geleerd, volgt u deze koppelingen voor meer informatie over Azure Storage:  
+Nu u Hallo basisprincipes van table storage hebt geleerd, volgt u deze koppelingen toolearn meer over Azure Storage:  
 
-* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken in Windows, macOS en Linux.
-* [Het Blob storage gebruiken met C++](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Hoe Queue storage gebruiken met C++](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is een gratis, zelfstandige app van Microsoft waarmee u toowork visueel met Azure Storage-gegevens op Windows-, Mac OS- en Linux.
+* [Hoe toouse C++ Blob-opslag](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Hoe toouse Queue storage vanuit C++](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Lijst van Azure Storage-resources in C++](../storage/common/storage-c-plus-plus-enumeration.md)
 * [Opslagclientbibliotheek voor C++-verwijzing](http://azure.github.io/azure-storage-cpp)
 * [Documentatie bij Azure Storage](https://azure.microsoft.com/documentation/services/storage/)

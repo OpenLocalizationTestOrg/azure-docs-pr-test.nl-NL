@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure Redis Cache - zelfstudies, API-verwijzing | Microsoft Docs
-description: Meer informatie over het gebruik van Azure Redis Cache, een veilige gegevenscache en berichtbroker die toepassingen snel toegang geeft tot gegevens. Zelfstudies, API-verwijzingen en meer.
+title: aaaAzure Redis-Cache documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Meer informatie over hoe toouse Azure Redis-Cache, een cache van de beveiligde gegevens en de messaging broker waarmee toepassingen snel toegang toodata tot. Zelfstudies, API-verwijzingen en meer.
 services: redis-cache
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 19756171a8831eef9ac25cfa619a815d17140257
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1344e242321b84fe2fbd3bc466a3cb82aba177f4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="redis-cache-documentation"></a>Documentatie voor Redis Cache
 
-Meer informatie over het gebruik van Azure Redis Cache, een veilige gegevenscache en berichtbroker die toepassingen toegang tot gegevens geeft met hoge doorvoer en lage latentie. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u Redis Cache gebruikt vanuit een willekeurige toepassing in Azure.
+Meer informatie over hoe toouse Azure Redis-Cache, een cache van de beveiligde gegevens en de messaging broker met hoge doorvoer en lage latentie toegang toodata voor toepassingen. Zelfstudies, API-referenties en andere documentatie die u zien hoe toouse Redis-Cache vanuit elke toepassing in Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>

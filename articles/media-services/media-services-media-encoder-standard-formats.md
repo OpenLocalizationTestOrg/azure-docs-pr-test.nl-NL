@@ -1,5 +1,5 @@
 ---
-title: Media Encoder Standard indelingen en codecs
+title: aaaMedia Encoder Standard indelingen en codecs
 description: In dit onderwerp geeft een overzicht van Media Encoder Standard indelingen en codecs.
 services: media-services
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 1115408443e11c8b0d26b83217c5f63e4b6ba819
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 51a67f372dff579383ffcfa988e8f4d38ad44a72
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard Formats and Codecs (Indelingen en codecs voor Media Encoder Standard)
-Dit document bevat een lijst met de meest voorkomende importeren en exporteren bestandsindelingen die u met Media Encoder Standard gebruiken kunt.
+Dit document bevat een lijst met Hallo meest voorkomende importeren en exporteren bestandsindelingen die u met Media Encoder Standard gebruiken kunt.
 
 ## <a name="input-containerfile-formats"></a>Invoer Container/bestandsindelingen
 | Bestandsindelingen (bestandsextensies) | Ondersteund |
@@ -39,30 +39,30 @@ Dit document bevat een lijst met de meest voorkomende importeren en exporteren b
 | QuickTime (MOV) |Ja |
 
 > [!NOTE]
-> Een lijst van de meer veelvoorkomende bestandsextensies is hoger. Media Encoder Standard ondersteunt vele andere (bijvoorbeeld: .m2ts, .mpeg2video, .qt). Als u probeert een bestand te coderen en u krijgt een foutbericht over de indeling die niet wordt ondersteund, geeft u een feedback [hier](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
+> Hierboven is een lijst met bestandsextensies Hallo meer vaak wordt aangetroffen. Media Encoder Standard ondersteunt vele andere (bijvoorbeeld: .m2ts, .mpeg2video, .qt). Als u een bestand tooencode probeert en u krijgt een foutbericht over Hallo-indeling niet wordt ondersteund, geeft u een feedback [hier](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
 > 
 > 
 
 ### <a name="audio-formats-in-input-containers"></a>Audio-indelingen in invoer-containers
-Media Encoder Standard biedt ondersteuning voor uitvoering van de volgende audio-indelingen in invoer-containers:
+Media Encoder Standard ondersteunt opslagkosten Hallo audio-indelingen in invoer-containers te volgen:
 
 * MXF, GXF en QuickTime bestanden die hebben audio houdt met interleaved stereo of 5.1-voorbeelden
 
 of
 
-* MXF, GXF en QuickTime bestanden waarin de audio wordt uitgevoerd als afzonderlijke PCM-nummers, maar de kanaaltoewijzing (in stereo of 5.1) kan worden afgeleid van metagegevens van het bestand
+* MXF, GXF en QuickTime bestanden waar audio Hallo wordt uitgevoerd als afzonderlijke PCM-nummers, maar Hallo kanaaltoewijzing (toostereo of 5.1) kunnen worden afgeleid van de metagegevens van de Hallo-bestand
 
-Houd er rekening mee dat er geen ondersteuning voor kanaaltoewijzing expliciete/een gebruiker opgegeven in de nabije toekomst zal worden opgegeven.
+Houd er rekening mee dat er geen ondersteuning voor expliciete/een gebruiker opgegeven kanaaltoewijzing worden vermeld in Hallo nabije toekomst.
 
 ## <a name="input-video-codecs"></a>Video-Codecs invoer
 | Video-Codecs invoer | Ondersteund |
 | --- | --- | --- | --- |
-| AVC 8-bits/10-bits, maximaal 4:2:2, inclusief AVCIntra |8-bits 4:2:0 en 4:2:2 |
+| AVC 8-bits/10-bits, up too4:2:2, met inbegrip van AVCIntra |8-bits 4:2:0 en 4:2:2 |
 | Avid DNxHD (in MXF) |Ja |
 | DVCPro/DVCProHD (in MXF) |Ja |
 | Digitale video (DV) (in AVI-bestanden) |Ja |
 | JPEG 2000 |Ja |
-| MPEG-2 (maximaal 422 profiel en een hoog niveau, inclusief varianten zoals XDCAM, XDCAM HD, XDCAM IMX, CableLabs® en D10) |Maximaal 422 profiel |
+| MPEG-2 (too422 profiel en een hoog niveau, inclusief varianten zoals XDCAM, XDCAM HD, XDCAM IMX, CableLabs® en D10) |Profiel voor de too422 van |
 | MPEG-1 |Ja |
 | VC-1/WMV9 |Ja |
 | Canopus hoofdkantoor/HQX |Nee |
@@ -79,7 +79,7 @@ Houd er rekening mee dat er geen ondersteuning voor kanaaltoewijzing expliciete/
 ## <a name="input-audio-codecs"></a>Audio-invoer Codecs
 | Audio-invoer Codecs | Ondersteund |
 | --- | --- | --- | --- |
-| AAC (AAC Kredietbrief AAC HE en AAC-HEv2; maximaal 5.1) |Ja |
+| AAC (AAC Kredietbrief AAC HE en AAC-HEv2; up too5.1) |Ja |
 | MPEG-laag 2 |Ja |
 | MP3 (MPEG-1 Audio laag 3) |Ja |
 | Windows Media Audio |Ja |
@@ -94,7 +94,7 @@ Houd er rekening mee dat er geen ondersteuning voor kanaaltoewijzing expliciete/
 | Dolby® digitale Plus (E-AC3) |Nee |
 
 ## <a name="output-formats-and-codecs"></a>Uitvoerindelingen en codecs
-De volgende tabel bevat de codecs en bestandsindelingen die worden ondersteund voor exporteren.
+Hallo volgende tabel geeft een lijst Hallo codecs en bestandsindelingen die worden ondersteund voor exporteren.
 
 | Bestandsindeling | Video-Codec | Audio-Codec |
 | --- | --- | --- |
@@ -110,5 +110,5 @@ De volgende tabel bevat de codecs en bestandsindelingen die worden ondersteund v
 ## <a name="see-also"></a>Zie ook
 [Codering van inhoud op aanvraag met Azure mediaservices](media-services-encode-asset.md)
 
-[Het coderen met Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
+[Hoe tooencode met Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 

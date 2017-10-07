@@ -1,6 +1,6 @@
 ---
-title: Azure WebHooks gebruiken voor het bewaken van Media Services taak meldingen met .NET | Microsoft Docs
-description: Informatie over het Azure WebHooks gebruiken voor het bewaken van meldingen voor Media Services-taak. Het codevoorbeeld is geschreven in C# en maakt gebruik van de Media Services SDK voor .NET.
+title: aaaUse Azure WebHooks toomonitor Media Services taak meldingen met .NET | Microsoft Docs
+description: Meer informatie over hoe taak toouse Azure WebHooks toomonitor Media Services-meldingen. Hallo-codevoorbeeld is geschreven in C# en Hallo Media Services SDK voor .NET gebruikt.
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,63 +14,63 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: juliako
-ms.openlocfilehash: eaa875a7c78de0b69c81514ea023f9b8bceb2656
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b7df597da20e551cb2a02cd21c96c7bddf9e1a66
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Gebruik Azure WebHooks voor het bewaken van Media Services taak meldingen met .NET
-Wanneer u taken uitvoert, moet u vaak een manier om de voortgang van de taak volgen. U kunt meldingen voor Media Services-taak bewaken met behulp van Azure Webhooks of [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). Dit onderwerp leest hoe u werkt met Webhooks.
+# <a name="use-azure-webhooks-toomonitor-media-services-job-notifications-with-net"></a>Azure WebHooks toomonitor Media Services taak meldingen gebruiken met .NET
+Wanneer u taken uitvoert, moet u vaak een manier tootrack taak uitgevoerd. U kunt meldingen voor Media Services-taak bewaken met behulp van Azure Webhooks of [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). Dit onderwerp wordt beschreven hoe toowork met Webhooks.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
+Hallo volgen vereist toocomplete Hallo-zelfstudie:
 
 * Een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
-* Een Media Services-account. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
-* Kennis van [het gebruik van Azure functions](../azure-functions/functions-overview.md). Bekijk ook [HTTP- en webhook bindingen van Azure functions](../azure-functions/functions-bindings-http-webhook.md).
+* Een Media Services-account. een Media Services-account toocreate Zie [hoe tooCreate een Media Services-Account](media-services-portal-create-account.md).
+* Kennis van [hoe toouse Azure functions](../azure-functions/functions-overview.md). Bekijk ook [HTTP- en webhook bindingen van Azure functions](../azure-functions/functions-bindings-http-webhook.md).
 
 Dit onderwerp wordt beschreven hoe u
 
-*  Een Azure-functie die kan worden aangepast om te reageren op webhooks definiëren. 
+*  Een Azure-functie die aangepaste toorespond toowebhooks definiëren. 
     
-    In dit geval wordt de webhook geactiveerd door Media Services wanneer uw coderingstaak status wordt gewijzigd. De functie voor de aanroep van de webhook van het Media Services-meldingen luistert en publiceert de uitvoerasset zodra de taak is voltooid. 
+    In dit geval wordt Hallo webhook geactiveerd door Media Services wanneer uw coderingstaak status wordt gewijzigd. Hallo functie luistert naar Hallo webhook aanroepen van het Media Services-meldingen en publiceert Hallo uitvoerasset zodra het Hallo-taak is voltooid. 
     
     >[!NOTE]
     >Voordat u doorgaat, moet u weten hoe [bindingen van Azure Functions HTTP- en webhook](../azure-functions/functions-bindings-http-webhook.md) werken.
     >
     
-* Een webhook toevoegen aan uw codering taak en geef de webhook-URL en de geheime sleutel die deze webhook reageert op. In het voorbeeld is de code die de codering taak maakt een console-app.
+* Een webhook tooyour codering taak toevoegen en geef Hallo webhook-URL en de geheime sleutel die deze webhook reageert op. In Hallo voorbeeld is het Hallo-code die Hallo codering taak maakt een console-app.
 
 ## <a name="setting-up-webhook-notification-azure-functions"></a>Instellen van 'webhook melding' Azure functions
 
-De code in deze sectie toont een implementatie van een Azure-functie die een webhook is. In dit voorbeeld wordt de functie luistert naar de aanroep van de webhook van het Media Services-meldingen en publiceert de uitvoerasset zodra de taak is voltooid.
+Hallo-code in deze sectie toont een implementatie van een Azure-functie die een webhook is. In dit voorbeeld Hallo functie luistert naar Hallo webhook aanroepen van het Media Services-meldingen en publiceert Hallo uitvoerasset zodra het Hallo-taak is voltooid.
 
-De webhook verwacht een ondertekeningssleutel (referenties) op overeenkomen met de naam die u bij het configureren van het meldingseindpunt doorgeven. De handtekeningsleutel is de 64-byte Base64-gecodeerd-waarde die wordt gebruikt voor het beveiligen en uw retouraanroepen WebHooks secure van Azure Media Services. 
+Hallo webhook verwacht een handtekeningcertificaat sleutel (referenties) toomatch Hallo een u bij het configureren van het meldingseindpunt Hallo doorgeven. Hallo ondertekeningssleutel is Hallo 64 bytes Base64-gecodeerde waarde die is gebruikte tooprotect en beveiligen van uw retouraanroepen WebHooks van Azure Media Services. 
 
-In de volgende code, de **VerifyWebHookRequestSignature** methode doet de controle op de melding. Het doel van deze validatie is om ervoor te zorgen dat het bericht is verzonden door Azure Media Services en nog niet is geknoeid. De handtekening is optioneel voor Azure functions omdat u de **Code** waarde als een queryparameter via Transport Layer Security (TLS). 
+Hallo in Hallo code te volgen, **VerifyWebHookRequestSignature** methode verificatie op Hallo Meldingsbericht Hallo. Hallo-doel van deze validatie is tooensure die Hallo-bericht is verzonden door Azure Media Services en nog niet is geknoeid. Hallo-handtekening is optioneel voor Azure functions omdat u Hallo **Code** waarde als een queryparameter via Transport Layer Security (TLS). 
 
-U vindt de definitie van de verschillende Media Services .NET-Azure-functies (inclusief wordt weergegeven in dit onderwerp) [hier](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+U vindt Hallo definitie van de verschillende Media Services .NET-Azure-functies (inclusief Hallo een weergegeven in dit onderwerp) [hier](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-Het volgende codevoorbeeld ziet u de definities van Azure functieparameters en drie bestanden die gekoppeld aan de functie Azure zijn: function.json project.json en run.csx.
+Hallo volgende codevoorbeeld toont Hallo definities van Azure functieparameters en drie bestanden die gekoppeld aan hello Azure functie zijn: function.json project.json en run.csx.
 
 ### <a name="application-settings"></a>Toepassingsinstellingen 
 
-De volgende tabel bevat de parameters die worden gebruikt door de Azure-functie die in deze sectie zijn gedefinieerd. 
+Hallo toont volgende tabel Hallo-parameters die worden gebruikt door hello Azure functie gedefinieerd in deze sectie. 
 
 |Naam|Definitie|Voorbeeld| 
 |---|---|---|
 |AMSAccount|De naam van uw AMS-account. |juliakomediaservices|
 |AMSKey |De sleutel van uw AMS-account. | JUWJdDaOHQQqsZeiXZuE76eDt2SO + YMJk25Lghgy2nY =|
-|MediaServicesStorageAccountName |De naam van het opslagaccount dat is gekoppeld aan uw AMS-account.| storagepkeewmg5c3peq|
-|MediaServicesStorageAccountKey |Een sleutel van het opslagaccount dat is gekoppeld aan uw AMS-account.|
+|MediaServicesStorageAccountName |De naam van Hallo storage-account dat is gekoppeld aan uw AMS-account.| storagepkeewmg5c3peq|
+|MediaServicesStorageAccountKey |Een sleutel van Hallo storage-account dat is gekoppeld aan uw AMS-account.|
 |SigningKey |Een handtekeningsleutel.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | Een adres van de webhook-eindpunt. | https://juliakofuncapp.azurewebsites.NET/API/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ### <a name="functionjson"></a>Function.JSON
 
-Het bestand function.json definieert de functiebindingen en andere configuratie-instellingen. De runtime maakt gebruik van dit bestand om te bepalen welke gebeurtenissen u wilt bewaken en het doorgeven van gegevens in en gegevens retourneren van een functie wordt uitgevoerd. 
+Hallo function.json bestand definieert het Hallo-functiebindingen en andere configuratie-instellingen. Hallo runtime maakt gebruik van dit bestand toodetermine Hallo gebeurtenissen toomonitor en hoe werken uitvoering toopass gegevens in en gegevens uit. 
 
     {
       "bindings": [
@@ -96,7 +96,7 @@ Het bestand function.json definieert de functiebindingen en andere configuratie-
     
 ### <a name="projectjson"></a>Project.JSON
 
-Het bestand project.json bevat afhankelijkheden. 
+Hallo project.json bestand bevat de afhankelijkheden. 
 
     {
       "frameworks": {
@@ -111,11 +111,11 @@ Het bestand project.json bevat afhankelijkheden.
     
 ### <a name="runcsx"></a>Run.csx
 
-De volgende C#-code bevat een definitie van een Azure-functie die een webhook is. De functie voor de aanroep van de webhook van het Media Services-meldingen luistert en publiceert de uitvoerasset zodra de taak is voltooid. 
+Hallo bevat volgende C#-code een definitie van een Azure-functie die een webhook is. Hallo functie luistert naar Hallo webhook aanroepen van het Media Services-meldingen en publiceert Hallo uitvoerasset zodra het Hallo-taak is voltooid. 
 
 
 >[!NOTE]
->Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
+>Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). Hallo moet u dezelfde beleids-ID als u altijd dezelfde Hallo dagen / toegangsmachtigingen, bijvoorbeeld een beleid voor locators die beoogde tooremain aanwezig gedurende een lange periode (niet-upload policies zijn). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
 
     ///////////////////////////////////////////////////
     #r "Newtonsoft.Json"
@@ -177,7 +177,7 @@ De volgende C#-code bevat een definitie van een Azure-functie die een webhook is
                 if(_context!=null)   
                 {                        
                 string urlForClientStreaming = PublishAndBuildStreamingURLs(msg.Properties["JobId"]);
-                log.Info($"URL to the manifest for client streaming using HLS protocol: {urlForClientStreaming}");
+                log.Info($"URL toohello manifest for client streaming using HLS protocol: {urlForClientStreaming}");
                 }
             }
 
@@ -210,19 +210,19 @@ De volgende C#-code bevat een definitie van een Azure-functie die een webhook is
         TimeSpan.FromDays(30),
         AccessPermissions.Read);
 
-        // Create a locator to the streaming content on an origin. 
+        // Create a locator toohello streaming content on an origin. 
         ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
         policy,
         DateTime.UtcNow.AddMinutes(-5));
 
 
-        // Get a reference to the streaming manifest file from the  
-        // collection of files in the asset. 
+        // Get a reference toohello streaming manifest file from hello  
+        // collection of files in hello asset. 
         var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
                     EndsWith(".ism")).
                     FirstOrDefault();
 
-        // Create a full URL to the manifest file. Use this for playback
+        // Create a full URL toohello manifest file. Use this for playback
         // in streaming media clients. 
         string urlForClientStreaming = originLocator.Path + manifestFile.Name + "/manifest" +  "(format=m3u8-aapl)";
         return urlForClientStreaming;
@@ -278,7 +278,7 @@ De volgende C#-code bevat een definitie van een Azure-functie die een webhook is
     private static readonly char[] HexLookup = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 
     /// <summary>
-    /// Converts a <see cref="T:byte[]"/> to a hex-encoded string.
+    /// Converts a <see cref="T:byte[]"/> tooa hex-encoded string.
     /// </summary>
     private static string ToHex(byte[] data)
     {
@@ -320,7 +320,7 @@ De volgende C#-code bevat een definitie van een Azure-functie die een webhook is
 
 ### <a name="function-output"></a>Uitvoer van functie
 
-Het bovenstaande voorbeeld de volgende uitvoer geproduceerd, uw waarden variëren.
+Hallo in bovenstaand voorbeeld Hallo na uitvoer geproduceerd, uw waarden variëren.
 
     C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
     Request Body = {
@@ -339,19 +339,19 @@ Het bovenstaande voorbeeld de volgende uitvoer geproduceerd, uw waarden variëre
       }
     }
     
-    URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+    URL toohello manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
-## <a name="adding-webhook-to-your-encoding-task"></a>Webhook toe te voegen aan uw codering taak
+## <a name="adding-webhook-tooyour-encoding-task"></a>Webhook tooyour codering taak toevoegen
 
-In deze sectie wordt de code die aan een taak toevoegt van een webhook-melding weergegeven. U kunt ook een taak niveau melding die zou nuttiger zijn voor een taak met gekoppelde taken toevoegen.  
+In deze sectie wordt Hallo-code die wordt toegevoegd een webhook melding tooa taak weergegeven. U kunt ook een taak niveau melding die zou nuttiger zijn voor een taak met gekoppelde taken toevoegen.  
 
-1. Maak in Visual Studio een nieuwe C#-consoletoepassing. Voer de naam van de naam, de locatie en de oplossing en klik op OK.
-2. Gebruik [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) voor het installeren van Azure Media Services.
+1. Maak in Visual Studio een nieuwe C#-consoletoepassing. Voer Hallo naam, locatie en de oplossing en klik op OK.
+2. Gebruik [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) tooinstall Azure Media Services.
 3. App.config-bestand bijwerken met de juiste waarden: 
     
     * Azure Media Services-naam en sleutel die van meldingen verzenden 
-    * webhook-URL die u verwacht dat de meldingen wilt ontvangen 
-    * de ondertekeningssleutel die overeenkomt met de sleutel die uw webhook verwacht. De handtekeningsleutel is de 64-byte Base64-gecodeerd-waarde die wordt gebruikt voor het beveiligen en uw retouraanroepen WebHooks secure van Azure Media Services. 
+    * webhook-URL die tooget Hallo meldingen, verwacht 
+    * Hallo ondertekeningssleutel die overeenkomt met Hallo-sleutel die uw webhook verwacht. Hallo ondertekeningssleutel is Hallo 64 bytes Base64-gecodeerde waarde die is gebruikte tooprotect en beveiligen van uw retouraanroepen WebHooks van Azure Media Services. 
 
             <appSettings>
               <add key="MediaServicesAccountName" value="AMSAcctName" />
@@ -360,7 +360,7 @@ In deze sectie wordt de code die aan een taak toevoegt van een webhook-melding w
               <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
             </appSettings>
             
-4. Uw Program.cs-bestand bijwerken met de volgende code:
+4. Uw Program.cs-bestand met de volgende code Hallo bijwerken:
 
         using System;
         using System.Configuration;
@@ -371,7 +371,7 @@ In deze sectie wordt de code die aan een taak toevoegt van een webhook-melding w
         {
             class Program
             {
-            // Read values from the App.config file.
+            // Read values from hello App.config file.
             private static readonly string _mediaServicesAccountName =
                 ConfigurationManager.AppSettings["MediaServicesAccountName"];
             private static readonly string _mediaServicesAccountKey =
@@ -387,7 +387,7 @@ In deze sectie wordt de code die aan een taak toevoegt van een webhook-melding w
             static void Main(string[] args)
             {
 
-                // Used the cached credentials to create CloudMediaContext.
+                // Used hello cached credentials toocreate CloudMediaContext.
                 _context = new CloudMediaContext(new MediaServicesCredentials(
                         _mediaServicesAccountName,
                         _mediaServicesAccountKey));
@@ -396,7 +396,7 @@ In deze sectie wordt de code die aan een taak toevoegt van een webhook-melding w
 
                 IAsset newAsset = _context.Assets.FirstOrDefault();
 
-                // Check for existing Notification Endpoint with the name "FunctionWebHook"
+                // Check for existing Notification Endpoint with hello name "FunctionWebHook"
 
                 var existingEndpoint = _context.NotificationEndPoints.Where(e => e.Name == "FunctionWebHook").FirstOrDefault();
                 INotificationEndPoint endpoint = null;
@@ -413,11 +413,11 @@ In deze sectie wordt de code die aan een taak toevoegt van een webhook-melding w
                 Console.WriteLine("Notification Endpoint Created with Key : {0}", keyBytes.ToString());
                 }
 
-                // Declare a new encoding job with the Standard encoder
+                // Declare a new encoding job with hello Standard encoder
                 IJob job = _context.Jobs.Create("MES Job");
 
-                // Get a media processor reference, and pass to it the name of the 
-                // processor to use for the specific task.
+                // Get a media processor reference, and pass tooit hello name of hello 
+                // processor toouse for hello specific task.
                 IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
                 ITask task = job.Tasks.AddNew("My encoding task",
@@ -425,15 +425,15 @@ In deze sectie wordt de code die aan een taak toevoegt van een webhook-melding w
                 "Adaptive Streaming",
                 TaskOptions.None);
 
-                // Specify the input asset to be encoded.
+                // Specify hello input asset toobe encoded.
                 task.InputAssets.Add(newAsset);
 
-                // Add an output asset to contain the results of the job. 
+                // Add an output asset toocontain hello results of hello job. 
                 // This output is specified as AssetCreationOptions.None, which 
-                // means the output asset is not encrypted. 
+                // means hello output asset is not encrypted. 
                 task.OutputAssets.AddNew(newAsset.Name, AssetCreationOptions.None);
 
-                // Add the WebHook notification to this Task and request all notification state changes.
+                // Add hello WebHook notification toothis Task and request all notification state changes.
                 // Note that you can also add a job level notification
                 // which would be more useful for a job with chained tasks.  
                 if (endpoint != null)
@@ -448,8 +448,8 @@ In deze sectie wordt de code die aan een taak toevoegt van een webhook-melding w
 
                 job.Submit();
 
-                Console.WriteLine("Expect WebHook to be triggered for the Job ID: {0}", job.Id);
-                Console.WriteLine("Expect WebHook to be triggered for the Task ID: {0}", task.Id);
+                Console.WriteLine("Expect WebHook toobe triggered for hello Job ID: {0}", job.Id);
+                Console.WriteLine("Expect WebHook toobe triggered for hello Task ID: {0}", task.Id);
 
                 Console.WriteLine("Job Submitted");
 

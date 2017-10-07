@@ -1,6 +1,6 @@
 ---
-title: Aanbevolen procedures voor clients van Azure RemoteApp | Microsoft Docs
-description: Meer informatie over aanbevolen procedures voor het gebruik van de RemoteApp-clients
+title: procedures voor Azure RemoteApp-clients aaaBest | Microsoft Docs
+description: Meer informatie over aanbevolen procedures voor het gebruik van Hallo RemoteApp-clients
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 416cd37a907010176fe331ddb908a35b6fd6b253
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: aa0ccb2f51d381462b78d60e966b87a67d8c247e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="best-practices-for-azure-remoteapp-clients"></a>Aanbevolen procedures voor Azure RemoteApp-clients
 > [!IMPORTANT]
-> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees Hallo [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
 > 
 
-De volgende informatie kunt u Azure RemoteApp-clients gebruiken:
+Hallo volgende informatie kunt u Azure RemoteApp-clients gebruiken:
 
-* Gebruik altijd de nieuwste client. Dit zorgt ervoor dat de versie van de client die u met de nieuwste oplossingen voor problemen, verbeteringen en functies heeft. Mogelijk moet u zich aanmeldt automatisch updates ontvangen voor de client in de relevante Store.
-* RemoteApp wordt dan automatisch afgemeld als u een bepaalde tijdsperiode niet actief zijn. Om gegevensverlies te voorkomen, is het raadzaam uw toepassingen te sluiten wanneer u klaar bent met de service.
+* Gebruik altijd de nieuwste client Hallo. Dit zorgt ervoor dat Hallo clientversie die u uitvoert heeft Hallo nieuwste oplossingen voor problemen, verbeteringen en functies. Mogelijk moet u toosign up tooautomatically updates voor Hallo client ontvangen in Hallo relevante Store.
+* RemoteApp wordt dan automatisch afgemeld als u een bepaalde tijdsperiode niet actief zijn. In volgorde tooprevent gegevensverlies raden wij uw toepassingen te sluiten wanneer u klaar bent met Hallo-service.
 

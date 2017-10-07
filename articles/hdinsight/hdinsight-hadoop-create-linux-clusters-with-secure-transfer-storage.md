@@ -1,6 +1,6 @@
 ---
-title: Hadoop-cluster maken met opslagaccounts voor veilige overdracht in Azure HDInsight | Microsoft Docs
-description: Informatie over het maken van HDInsight-clusters met Azure-opslag-accounts voor veilige overdracht.
+title: aaaCreate Hadoop-cluster met een veilige overdracht storage-accounts in Azure HDInsight | Microsoft Docs
+description: Meer informatie over hoe HDInsight-clusters met veilige overdracht toocreate ingeschakeld voor Azure storage-accounts.
 keywords: aan de slag met hadoop, hadoop linux, hadoop Quick Start, veilige overdracht, azure opslagaccount
 services: hdinsight
 documentationcenter: 
@@ -16,43 +16,43 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/21/2017
 ms.author: jgao
-ms.openlocfilehash: 370b2f081930fe88527436a1a127309aed6681f0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0acb8814ad0d5d5b5652d930b2e3da90f9d7978d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Hadoop-cluster maken met opslagaccounts voor veilige overdracht in Azure HDInsight
 
-De functie [Veilige overdracht vereist](../storage/common/storage-require-secure-transfer.md) verhoogt de beveiliging van uw Azure-opslagaccount door alle aanvragen naar uw account af te dwingen via een beveiligde verbinding. Deze functie en het wasbs-schema worden alleen ondersteund door HDInsight-clusterversie 3.6 of nieuwer. 
+Hallo [vereiste gegevensoverdracht Secure](../storage/common/storage-require-secure-transfer.md) functie verhoogt Hallo beveiliging van uw Azure Storage-account door het afdwingen van alle aanvragen tooyour-account via een beveiligde verbinding. Deze functie en Hallo wasbs-schema worden alleen ondersteund door de HDInsight-cluster versie 3,6 of hoger. 
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u met deze zelfstudie begint, moet u over de volgende onderdelen beschikken:
 
-* **Azure-abonnement**: voor het maken van een gratis proefaccount van één maand, bezoekt u [azure.microsoft.com/free](https://azure.microsoft.com/free).
-* **Een Azure-opslagaccount met veilige overdracht**. Zie [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) en [Veilige overdracht vereisen](../storage/common/storage-require-secure-transfer.md) voor instructies.
-* **Een Blob-container in het opslagaccount**. 
+* **Azure-abonnement**: toocreate een gratis één maand-proefaccount, te bladeren[azure.microsoft.com/free](https://azure.microsoft.com/free).
+* **Een Azure-opslagaccount met veilige overdracht**. Zie voor instructies Hallo [een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) en [vereisen veilige overdracht](../storage/common/storage-require-secure-transfer.md).
+* **Een Blob-container op Hallo opslagaccount**. 
 ## <a name="create-cluster"></a>Cluster maken
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-template-deploy.md). De sjabloon bevindt zich in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Het maken van een Azure Resource Manager-sjabloon is niet vereist voor deze zelfstudie. Zie [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden om clusters te maken en inzicht te krijgen in de eigenschappen die worden gebruikt in deze zelfstudie.
+In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-template-deploy.md). Hallo-sjabloon bevindt zich in [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Het maken van een Azure Resource Manager-sjabloon is niet vereist voor deze zelfstudie. Voor andere methoden voor het maken van cluster en inzicht Hallo-eigenschappen die in deze zelfstudie gebruikt, Zie [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Klik op de volgende afbeelding om u aan te melden bij Azure en de Resource Manager-sjabloon in Azure Portal te openen. 
+1. Klik op Hallo installatiekopie toosign in tooAzure en open Hallo Resource Manager-sjabloon in hello Azure-portal. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-existing-default-storage-account%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-existing-default-storage-account%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy tooAzure"></a>
 
-2. Volg de instructies voor het maken van het cluster met de volgende specificaties: 
+2. Ga als volgt Hallo instructies toocreate Hallo cluster Hello volgende specificaties: 
 
-    - Geef HDInsight versie 3.6 op.  De standaardversie is 3.5. Versie 3.6 of hoger is vereist.
+    - Geef HDInsight versie 3.6 op.  Hallo standaardversie is 3.5. Versie 3.6 of hoger is vereist.
     - Geef een opslagaccount met veilige overdracht op.
-    - Gebruik de korte naam voor het opslagaccount.
-    - Zowel het opslagaccount als de blob-container moeten vooraf zijn gemaakt. 
+    - Korte naam voor het Hallo-opslagaccount gebruiken.
+    - Zowel Hallo storage-account en de blob-container Hallo moeten vooraf worden gemaakt. 
 
-    Zie [Cluster maken](./hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster) voor instructies. 
+    Zie voor instructies Hallo [cluster maken](./hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). 
 
-Als u een scriptactie gebruikt om uw eigen configuratiebestanden te verstrekken, moet u wasbs gebruiken in de volgende instellingen:
+Als u uw eigen configuratiebestanden script actie tooprovide opgeeft, moet u wasbs in Hallo volgende instellingen:
 
 - fs.defaultFS (core-site)
 - spark.eventLog.dir 
@@ -60,36 +60,36 @@ Als u een scriptactie gebruikt om uw eigen configuratiebestanden te verstrekken,
 
 ## <a name="add-additional-storage-accounts"></a>Extra opslagaccounts toevoegen
 
-Er zijn verschillende opties om extra opslagaccounts met veilige overdracht toe te voegen:
+Er zijn verschillende opties tooadd extra veilige overdracht ingeschakeld storage-accounts:
 
-- De Azure Resource Manager-sjabloon in de laatste sectie wijzigen.
-- Een cluster maken met [Azure Portal](https://portal.azure.com) en een gekoppelde opslagaccount opgeven.
-- Een scriptactie gebruiken om extra opslagaccounts met veilige overdracht toe te voegen aan een bestaand HDInsight-cluster.  Zie [Extra opslagaccounts toevoegen aan HDInsight](hdinsight-hadoop-add-storage.md) voor meer informatie.
+- Hello Azure Resource Manager-sjabloon in de laatste sectie Hallo wijzigen.
+- Maken van een cluster met de Hallo [Azure-portal](https://portal.azure.com) en gekoppelde storage-account opgeven.
+- Gebruik script actie tooadd extra veilige overdracht ingeschakeld storage accounts tooan bestaand HDInsight-cluster.  Zie voor meer informatie [toevoegen van extra opslagruimte accounts tooHDInsight](hdinsight-hadoop-add-storage.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe een HDInsight-cluster kunt maken en veilige overdracht kunt inschakelen voor de opslagaccounts.
+In deze zelfstudie hebt u geleerd hoe toocreate een HDInsight-cluster, en schakel veilige transfer toohello storage-accounts.
 
-Zie de volgende artikelen voor meer informatie over het analyseren van gegevens met HDInsight:
+toolearn meer informatie over het analyseren van gegevens met HDInsight, Zie Hallo artikelen te volgen:
 
-* Zie [Hive gebruiken met HDInsight][hdinsight-use-hive] voor meer informatie over het gebruik van Hive met HDInsight, waaronder over het uitvoeren van Hive-query's vanuit Visual Studio.
-* Zie [Pig gebruiken met HDInsight][hdinsight-use-pig] voor meer informatie over Pig, een taal die wordt gebruikt voor het omzetten van gegevens.
-* Zie [MapReduce gebruiken met HDInsight][hdinsight-use-mapreduce] voor meer informatie over MapReduce, een middel om programma's te schrijven die gegevens verwerken op Hadoop.
-* Zie voor meer informatie over het gebruik van de HDInsight-hulpprogramma's voor Visual Studio om gegevens op HDInsight te analyseren [Aan de slag met Visual Studio Hadoop-hulpprogramma's voor HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
+* toolearn meer informatie over het gebruik van Hive met HDInsight, met inbegrip van hoe tooperform Hive query's vanuit Visual Studio, Zie [Hive gebruiken met HDInsight][hdinsight-use-hive].
+* toolearn over Pig, een taal gebruikt tootransform gegevens, Zie [Pig gebruiken met HDInsight][hdinsight-use-pig].
+* Zie toolearn over MapReduce, een manier toowrite-programma's die gegevens op Hadoop, verwerken [MapReduce gebruiken met HDInsight][hdinsight-use-mapreduce].
+* toolearn over het gebruik van Hallo HDInsight Tools voor Visual Studio tooanalyze gegevens in HDInsight, Zie [aan de slag met Visual Studio Hadoop-hulpprogramma's voor HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-Zie de volgende artikelen voor meer informatie over hoe HDInsight gegevens opslaat en over het ophalen van gegevens in HDInsight:
+toolearn meer informatie over hoe HDInsight gegevens opslaat of hoe tooget gegevens in HDInsight, raadpleegt u Hallo artikelen te volgen:
 
 * Zie [Azure Storage gebruiken met HDInsight](hdinsight-hadoop-use-blob-storage.md) voor meer informatie over hoe HDInsight Azure Storage gebruikt.
-* Zie [Gegevens uploaden naar HDInsight][hdinsight-upload-data] voor meer informatie over het uploaden van gegevens naar HDInsight.
+* Voor meer informatie over tooupload gegevens tooHDInsight, Zie [uploaden van gegevens tooHDInsight][hdinsight-upload-data].
 
-Zie de volgende artikelen voor meer informatie over het maken of beheren van een HDInsight-cluster:
+toolearn meer informatie over het maken of beheren van een HDInsight-cluster, Zie Hallo artikelen te volgen:
 
-* Zie voor meer informatie over het beheren van uw HDInsight-cluster op basis van Linux [HDInsight-clusters beheren met Ambari](hdinsight-hadoop-manage-ambari.md).
-* Zie voor meer informatie over de opties die u kunt selecteren bij het maken van een HDInsight-cluster [HDInsight op Linux maken met aangepaste opties](hdinsight-hadoop-provision-linux-clusters.md).
-* Als u bekend bent met Linux en Hadoop, maar u meer details wilt weten over Hadoop op HDInsight, raadpleegt u [Werken met HDInsight op Linux](hdinsight-hadoop-linux-information.md). Dit artikel biedt informatie zoals:
+* toolearn over het beheren van uw Linux gebaseerde HDInsight-cluster, Zie [HDInsight-clusters beheren met Ambari](hdinsight-hadoop-manage-ambari.md).
+* Zie toolearn meer informatie over het Hallo-opties die u selecteren kunt bij het maken van een HDInsight-cluster [HDInsight op Linux met aangepaste opties maken](hdinsight-hadoop-provision-linux-clusters.md).
+* Als u bekend met Linux en Hadoop bent, maar tooknow details over Hadoop op HDInsight hello wilt, Zie [werken met HDInsight op Linux](hdinsight-hadoop-linux-information.md). Dit artikel biedt informatie zoals:
   
-  * URL's voor services die worden gehost op het cluster, zoals Ambari en WebHCat
-  * De locatie van Hadoop-bestanden en voorbeelden op het lokale bestandssysteem
-  * Het gebruik van Azure Storage (WASB) in plaats van HDFS als de standaard gegevensopslag
+  * URL's voor services die worden gehost op het Hallo-cluster, zoals Ambari en WebHCat
+  * Hallo-locatie van Hadoop-bestanden en voorbeelden op het lokale bestandssysteem Hallo
+  * Hallo gebruik van Azure Storage (WASB) in plaats van HDFS als Hallo standaard gegevensopslag
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 

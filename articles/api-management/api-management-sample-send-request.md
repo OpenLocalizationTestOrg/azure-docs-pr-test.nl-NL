@@ -1,6 +1,6 @@
 ---
-title: Met behulp van API Management-service voor het genereren van HTTP-aanvragen
-description: Informatie over het gebruik van beleidsregels voor aanvraag en antwoord in API Management externe services van uw API niet aanroepen
+title: aaaUsing API Management-service toogenerate HTTP-aanvragen
+description: Meer informatie over de aanvraag en -antwoord beleid toouse van API Management toocall externe services van uw API
 services: api-management
 documentationcenter: 
 author: darrelmiller
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: e778943715d6ca5256ad612d82bdc1f82197df0d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8002ee453057513340328d99f298703c3b3a9531
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-external-services-from-the-azure-api-management-service"></a>Met behulp van externe services van de Azure API Management-service
-De beleidsregels die beschikbaar zijn in Azure API Management-service kan een breed scala aan goed functioneren op basis van uitsluitend op de inkomende aanvraag, het uitgaande antwoord en basisinformatie over de configuratie kunnen doen. Echter, kunnen communiceren met externe services van API Management beleid wordt geopend veel meer mogelijkheden.
+# <a name="using-external-services-from-hello-azure-api-management-service"></a>Met behulp van externe services van hello Azure API Management-service
+Hallo-beleid beschikbaar is in Azure API Management-service kan een breed scala aan goed functioneren op basis van uitsluitend op Hallo inkomende aanvraag, het uitgaande antwoord Hallo en basisinformatie over de configuratie kunnen doen. Echter, kunnen toointeract met externe services van API Management wordt beleid wordt geopend veel meer mogelijkheden.
 
-We eerder hebben gezien hoe we kunnen werken met de [Azure Event Hub-service voor logboekregistratie, bewaken en analytics](api-management-log-to-eventhub-sample.md). In dit artikel wordt gedemonstreerd service op basis van beleid waarmee u communiceren met een externe HTTP. Dit beleid kunnen worden gebruikt voor activering van externe gebeurtenissen of voor het ophalen van informatie die wordt gebruikt om de oorspronkelijke aanvraag en antwoord op een bepaalde manier te bewerken.
+We eerder hebben gezien hoe we kunnen werken met Hallo [Azure Event Hub-service voor logboekregistratie, bewaken en analytics](api-management-log-to-eventhub-sample.md). In dit artikel wordt gedemonstreerd service op basis van beleid waarmee u toointeract met een externe HTTP. Dit beleid kunnen worden gebruikt voor activering van externe gebeurtenissen of voor het ophalen van informatie die wordt gebruikt toomanipulate Hallo oorspronkelijke aanvraag en -antwoord op een bepaalde manier zijn.
 
 ## <a name="send-one-way-request"></a>Een-manier-verzoek om te verzenden
-Mogelijk de meest eenvoudige externe interactie wordt de stijl die wordt gestart en vergeet van aanvraag waarmee een externe service op de hoogte gesteld van een soort belangrijke gebeurtenis. Gebruiken we het beleid voor toegangsbeheer stroom `choose` voor het detecteren van elk soort voorwaarde dat we geïnteresseerd bent in en klik, als de voorwaarde is voldaan, kunnen we een externe HTTP-aanvraag met de [-één-manier-Verzendaanvraag](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) beleid. Dit kan een aanvraag naar een berichtensysteem zoals Hipchat of vertraging of een e-mailbericht API zoals SendGrid of MailChimp, of voor kritieke ondersteuningsaanvragen als PagerDuty. Alle deze berichtsystemen hebben eenvoudige HTTP-APIs die we kunnen eenvoudig worden aangeroepen.
+Mogelijk hello eenvoudigste externe interactie is Hallo fire en vergeet stijl van de aanvraag waarmee een externe service toobe de hoogte gesteld van een soort belangrijke gebeurtenis. We kunnen beleid voor toegangsbeheer stroom hello gebruiken `choose` toodetect elk soort voorwaarde bent geïnteresseerd en klikt u vervolgens aan als hello voorwaarde wordt voldaan, maken we een externe HTTP-aanvraag met Hallo [-één-manier-verzoek om te verzenden](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) beleid. Dit kan een aanvraag tooa berichtensysteem zoals Hipchat of vertraging of een e-mailbericht API zoals SendGrid of MailChimp, of voor kritieke ondersteuningsaanvragen als PagerDuty. Alle deze berichtsystemen hebben eenvoudige HTTP-APIs die we kunnen eenvoudig worden aangeroepen.
 
 ### <a name="alerting-with-slack"></a>Waarschuwingen met Slack
-Het volgende voorbeeld laat zien hoe u een bericht te verzenden naar toegestane chatruimten als de HTTP-statuscode van antwoord groter dan of gelijk zijn aan 500 is. Een 500-bereikfout duidt op een probleem met onze end-API die de client van onze API kan zichzelf niet omzetten. Normaal gesproken een soort interventie van onze kant.  
+Hallo volgende voorbeeld laat zien hoe een bericht tooa toosend vertraging chat ruimte als Hallo HTTP-code voor antwoordstatus is groter dan of gelijk zijn aan too500. Een 500-bereikfout geeft aan zichzelf kan niet worden omgezet door een probleem met onze end-API die Hallo-client van de API. Normaal gesproken een soort interventie van onze kant.  
 
 ```xml
 <choose>
@@ -56,31 +56,31 @@ Het volgende voorbeeld laat zien hoe u een bericht te verzenden naar toegestane 
 </choose>
 ```
 
-Vertraging heeft het begrip van inkomende web haken. Bij het configureren van een binnenkomende web haakje genereert Slack een speciale URL waarmee u een eenvoudige POST-aanvraag en het doorgeven van een bericht in de ongebruikt kanaal. De JSON-hoofdtekst die we maken is gebaseerd op een indeling die is gedefinieerd door vertraging.
+Vertraging heeft Hallo begrip van inkomende web hooks. Bij het configureren van een binnenkomende web haakje genereert Slack een speciale URL waarmee u een eenvoudige POST-aanvraag toodo en toopass een bericht in Hallo ongebruikt kanaal. Hallo JSON-hoofdtekst die we maken is gebaseerd op een indeling die is gedefinieerd door vertraging.
 
 ![Toegestane Web haakje](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>Fire is en goed vergeten?
-Er zijn bepaalde voor-en nadelen wanneer u een stijl fire en vergeet van aanvraag. Als voor een bepaalde reden mislukt de aanvraag en de fout wordt niet gerapporteerd. In dit geval wordt de complexiteit van een secundaire fout reporting systeem en de extra kosten van het wachten op het antwoord dat niet gerechtvaardigd. Voor scenario's waar het is essentieel om te controleren van het antwoord, wordt de [aanvragen verzenden](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) beleid is een betere optie.
+Er zijn bepaalde voor-en nadelen wanneer u een stijl fire en vergeet van aanvraag. Als voor een bepaalde reden Hallo aanvraag mislukt en Hallo fout niet worden gerapporteerd. In dit geval is Hallo complexiteit van het met een secundaire fout rapportagesysteem en Hallo extra kosten van wachten op antwoord Hallo niet gerechtvaardigd. Voor scenario's waarin het antwoord van essentiële toocheck Hallo, vervolgens Hallo [aanvragen verzenden](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) beleid is een betere optie.
 
 ## <a name="send-request"></a>Aanvragen verzenden
-De `send-request` beleid maakt gebruik van een externe service voor complexe verwerkingsfuncties uitvoeren en retourneren van gegevens naar de API management-service kunnen worden gebruikt voor verdere beleidsverwerking.
+Hallo `send-request` beleid schakelt u met behulp van een externe service tooperform complexe verwerking van functies en beleidsretourgegevens toohello API management-service die kan worden gebruikt voor verdere beleidsverwerking.
 
 ### <a name="authorizing-reference-tokens"></a>Verwijzingstokens autoriseren
-Een belangrijke functie van API Management met het beveiligen van de back-end-bronnen. Als de autorisatie-server die wordt gebruikt door uw API maakt [JWT-tokens](http://jwt.io/) als onderdeel van de stroom OAuth2 als [Azure Active Directory](../active-directory/active-directory-aadconnect.md) komt, kunt u de `validate-jwt` beleid om de geldigheid van het token. Echter enkele autorisatieservers maken zogenaamde [verwijzen naar tokens](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) die zonder dat een aanroep naar de autorisatie-server kan niet worden geverifieerd.
+Een belangrijke functie van API Management met het beveiligen van de back-end-bronnen. Als Hallo autorisatie-server die wordt gebruikt door uw API maakt [JWT-tokens](http://jwt.io/) als onderdeel van de stroom OAuth2 als [Azure Active Directory](../active-directory/active-directory-aadconnect.md) komt, kunt u Hallo `validate-jwt` beleid tooverify Hallo geldigheid van Hallo-token. Echter enkele autorisatieservers maken zogenaamde [verwijzen naar tokens](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) die zonder dat een aanroep back toohello autorisatie-server kan niet worden geverifieerd.
 
 ### <a name="standardized-introspection"></a>Gestandaardiseerde introspection
-In het verleden is er geen gestandaardiseerde manier om een verwijzingstoken met een server van de autorisatie te controleren. Echter een onlangs voorgestelde standaard [RFC 7662](https://tools.ietf.org/html/rfc7662) is gepubliceerd door de IETF die definieert hoe een resource-server kan de geldigheid van een token.
+In de afgelopen Hallo is er geen gestandaardiseerde manier om een verwijzingstoken met een server van de autorisatie te controleren. Echter een onlangs voorgestelde standaard [RFC 7662](https://tools.ietf.org/html/rfc7662) is gepubliceerd door Hallo IETF die definieert hoe een bronserver Hallo geldigheid van een token kunt controleren.
 
-### <a name="extracting-the-token"></a>Het uitpakken van het token
-De eerste stap is het token ophalen uit de autorisatie-header. Waarde van de header moet zijn geformatteerd met het `Bearer` autorisatieschema, een spatie en vervolgens de autorisatie token conform [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Er zijn helaas gevallen waarbij het autorisatieschema wordt weggelaten. Voor het account voor deze tijdens het parseren van we de waarde van de header op een spatie splitsen en selecteert u de laatste tekenreeks in de geretourneerde matrix van tekenreeksen. Dit biedt een oplossing voor onjuist ingedeeld autorisatie-header.
+### <a name="extracting-hello-token"></a>Hallo-token ophalen
+de eerste stap Hallo is tooextract Hallo-token van Hallo autorisatie-header. Hallo-header-waarde moet zijn geformatteerd met Hallo `Bearer` autorisatieschema, een spatie en vervolgens Hallo autorisatie token conform [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Er zijn helaas gevallen waarbij Hallo autorisatieschema wordt weggelaten. tooaccount voor deze tijdens het parseren van, we splitsen Hallo headerwaarde op een spatie en selecteer Hallo laatste tekenreeks uit Hallo matrix met tekenreeksen die zijn geretourneerd. Dit biedt een oplossing voor onjuist ingedeeld autorisatie-header.
 
 ```xml
 <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
 ```
 
-### <a name="making-the-validation-request"></a>Maken van de validatieaanvraag
-Wanneer wij het verificatietoken hebt, maken we de aanvraag voor het valideren van het token. RFC 7662 roept deze introspection proces en vereist dat u `POST` een HTML-formulier op de resource introspection. Het HTML-formulier moet ten minste een sleutel-waardepaar bevatten met de sleutel `token`. Deze aanvraag naar de autorisatie-server moet ook worden geverifieerd om ervoor te zorgen dat kwaadwillende clients kunnen niet voor geldige tokens sleepnetten gaat.
+### <a name="making-hello-validation-request"></a>Hallo-validatieaanvraag maken
+Wanneer we Hallo verificatietoken hebt, maken we Hallo aanvraag toovalidate Hallo-token. RFC 7662 roept deze introspection proces en vereist dat u `POST` een HTML-formulier toohello introspection resource. Hallo HTML-formulier moet ten minste een sleutel-waardepaar bevatten met Hallo sleutel `token`. Deze aanvraag toohello autorisatie-server moet ook geverifieerde tooensure die schadelijke clients kunnen niet voor geldige-tokens sleepnetten gaat.
 
 ```xml
 <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
@@ -96,13 +96,13 @@ Wanneer wij het verificatietoken hebt, maken we de aanvraag voor het valideren v
 </send-request>
 ```
 
-### <a name="checking-the-response"></a>Het antwoord controleren
-De `response-variable-name` kenmerk wordt gebruikt om toegang te geven het geretourneerde antwoord. De naam zijn gedefinieerd in deze eigenschap kan worden gebruikt als een sleutel in de `context.Variables` woordenlijst voor toegang tot de `IResponse` object.
+### <a name="checking-hello-response"></a>Antwoord Hallo controleren
+Hallo `response-variable-name` kenmerk is gebruikte toogive toegang Hallo antwoord geretourneerd. Hallo naam zijn gedefinieerd in deze eigenschap kan worden gebruikt als een sleutel in Hallo `context.Variables` woordenlijst tooaccess hello `IResponse` object.
 
-Uit het antwoordobject kan de instantie worden opgehaald en RFC 7622 leest ons dat het antwoord een JSON-object moet, en moet ten minste een eigenschap genaamd bevatten `active` dat een Booleaanse waarde. Wanneer `active` is ingesteld op true en vervolgens het token als geldig wordt aangemerkt.
+Uit het Hallo-antwoordobject Hallo hoofdtekst kan worden opgehaald en RFC 7622 vertellen Hallo antwoord moet een JSON-object zijn, en moet ten minste een eigenschap met de naam bevatten `active` dat een Booleaanse waarde. Wanneer `active` is ingesteld op true en vervolgens het Hallo-token als geldig wordt aangemerkt.
 
 ### <a name="reporting-failure"></a>Reporting is mislukt
-We gebruiken een `<choose>` beleid om te detecteren of het token ongeldig is en als dat het geval is, retourneert een 401-respons.
+We gebruiken een `<choose>` beleid toodetect als Hallo-token is ongeldig en als dat het geval is, retourneert een 401-respons.
 
 ```xml
 <choose>
@@ -117,17 +117,17 @@ We gebruiken een `<choose>` beleid om te detecteren of het token ongeldig is en 
 </choose>
 ```
 
-Als per [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) waarin wordt beschreven hoe `bearer` tokens moeten worden gebruikt, wordt ook geretourneerd een `WWW-Authenticate` header met de 401-respons. De WWW-verificatie is bedoeld om een client op het maken van een aanvraag goed geautoriseerde instrueren. Vanwege de grote verscheidenheid aan benaderingen mogelijk met de OAuth2-framework is het lastig om alle benodigde informatie te communiceren. Er zijn gelukkig pogingen uitgevoerd om te helpen [clients ontdekken hoe goed aanvragen naar een resource-server te autoriseren](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+Als per [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) waarin wordt beschreven hoe `bearer` tokens moeten worden gebruikt, wordt ook geretourneerd een `WWW-Authenticate` header met Hallo 401-respons. Hallo WWW-verificatie is bedoeld tooinstruct een client op het tooconstruct een goed ongeautoriseerde aanvraag. Vervaldatum toohello breed scala aan benaderingen mogelijk met Hallo OAuth2-framework, is het moeilijk toocommunicate alle Hallo informatie nodig hebt. Gelukkig zijn inspanningen Bezig toohelp [clients ontdekken hoe tooproperly aanvragen tooa bronserver autoriseren](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### <a name="final-solution"></a>Definitieve oplossing
-Het samenstellen van alle onderdelen, krijgen we het volgende beleid:
+Het samenstellen van alle Hallo stukken, krijgen we Hallo volgende beleid:
 
 ```xml
 <inbound>
   <!-- Extract Token from Authorization header parameter -->
   <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
 
-  <!-- Send request to Token Server to validate token (see RFC 7662) -->
+  <!-- Send request tooToken Server toovalidate token (see RFC 7662) -->
   <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
     <set-url>https://microsoft-apiappec990ad4c76641c6aea22f566efc5a4e.azurewebsites.net/introspection</set-url>
     <set-method>POST</set-method>
@@ -156,32 +156,32 @@ Het samenstellen van alle onderdelen, krijgen we het volgende beleid:
 </inbound>
 ```
 
-Dit is slechts een aantal voorbeelden van hoe de `send-request` beleid kan worden gebruikt om nuttige externe services integreren met het proces voor aanvragen en -antwoorden die door de API Management-service.
+Dit is slechts een aantal voorbeelden van hoe Hallo `send-request` beleid gebruikte toointegrate nuttig externe services samen Hallo-proces voor aanvragen en antwoorden tot Hallo API Management-service kan worden.
 
 ## <a name="response-composition"></a>Antwoord samenstelling
-De `send-request` beleid kan worden gebruikt voor het verbeteren van een primaire aanvraag voor een back endsysteem, zoals in het vorige voorbeeld hebt gezien, of het kan worden gebruikt als een volledige vervangen voor van de back-end-aanroep. Met deze techniek kunnen we gemakkelijk maken samengestelde bronnen die worden samengevoegd uit meerdere verschillende systemen.
+Hallo `send-request` beleid kan worden gebruikt voor het verbeteren van een primaire aanvraag tooa back-end-systeem als hebt gezien in het vorige voorbeeld Hallo of het kan worden gebruikt als een volledige vervangen voor van Hallo back-end-aanroep. Met deze techniek kunnen we gemakkelijk maken samengestelde bronnen die worden samengevoegd uit meerdere verschillende systemen.
 
 ### <a name="building-a-dashboard"></a>Een dashboard maken
-Soms wilt u mogelijk gegevens die in meerdere back endsystemen, bijvoorbeeld voorkomt openbaar, om een dashboard. De KPI's afkomstig zijn van alle verschillende back-ends, maar u liever niet voorzien in directe toegang tot en het normaal zou zijn handig als u alle gegevens in één aanvraag kan worden opgehaald. Enkele van de back-end-gegevens moet wellicht enkele segmenteren en opdelen en eerst een beetje opschonen! Kunnen in de cache die samengestelde bron zou een nuttig zijn voor de back-end-belasting te verminderen, zoals u weet dat gebruikers hebben een gewoonte van hammering de toets F5 om te zien als hun underperforming metrische gegevens kan worden gewijzigd.    
+Soms wilt u toobe kunnen tooexpose informatie die in meerdere back endsystemen voorkomt bijvoorbeeld toodrive een dashboard. Hallo KPI's afkomstig zijn van alle verschillende back-ends, maar u liever niet tooprovide directe toegang toothem en het normaal zou zijn nice als alle Hallo-gegevens in één aanvraag kunnen worden opgehaald. Sommige Hallo back-end gegevens moet mogelijk bepaalde segmenteren en opdelen en eerst een beetje opschonen! Kan toocache samengestelde bron is een nuttig tooreduce wordt Hallo back-end laden als u weet dat gebruikers hebben een gewoonte van Hallo F5-toets in volgorde toosee hammering als hun underperforming metrische gegevens kan worden gewijzigd.    
 
-### <a name="faking-the-resource"></a>De resource faking
-De eerste stap voor het ontwikkelen van onze dashboard-resource is voor het configureren van een nieuwe bewerking in de publicatieportal van API Management. Dit is een tijdelijke aanduiding voor bewerking gebruikt voor het configureren van ons beleid samenstelling om samen te stellen van onze dynamische bron.
+### <a name="faking-hello-resource"></a>Hallo resource faking
+eerste stap toobuilding Hallo onze dashboard-bron is een nieuwe bewerking in de publicatieportal van API Management Hallo tooconfigure. Dit is een tijdelijke aanduiding voor bewerking gebruikt tooconfigure onze samenstelling beleid toobuild onze dynamische bron.
 
 ![Dashboard-bewerking](./media/api-management-sample-send-request/api-management-dashboard-operation.png)
 
-### <a name="making-the-requests"></a>De aanvragen
-Eenmaal de `dashboard` bewerking is gemaakt kunnen we een beleid specifiek voor die bewerking configureren. 
+### <a name="making-hello-requests"></a>Hallo-aanvragen
+Eenmaal Hallo `dashboard` bewerking is gemaakt kunnen we een beleid specifiek voor die bewerking configureren. 
 
 ![Dashboard-bewerking](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
-De eerste stap is queryparameters ophalen uit de binnenkomende aanvraag zodat we ze naar onze back-end doorsturen kan. In dit voorbeeld onze dashboard op basis van een bepaalde periode informatie wordt weergegeven een daarom heeft een `fromDate` en `toDate` parameter. Kunnen we gebruiken de `set-variable` beleid voor het ophalen van de informatie uit de aanvraag-URL.
+de eerste stap Hallo tooextract is queryparameters van Hallo inkomende aanvraag, zodat we ze tooour back-end kan doorsturen. In dit voorbeeld onze dashboard op basis van een bepaalde periode informatie wordt weergegeven een daarom heeft een `fromDate` en `toDate` parameter. We kunnen hello gebruiken `set-variable` tooextract Hallo beleidsgegevens van Hallo aanvraag-URL.
 
 ```xml
 <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
 <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
 ```
 
-Zodra deze informatie kunnen we aanvragen op alle back endsystemen. Elke aanvraag vormt een nieuwe URL met de parameterinformatie en roept de desbetreffende server en het antwoord worden opgeslagen in een context-variabele.
+Zodra deze informatie kunnen we aanvragen tooall Hallo back-end-systemen. Elke aanvraag vormt een nieuwe URL met informatie voor de parameter Hallo en roept de desbetreffende server en antwoord Hallo opslaat in een context-variabele.
 
 ```xml
 <send-request mode="new" response-variable-name="revenuedata" timeout="20" ignore-error="true">
@@ -205,10 +205,10 @@ Zodra deze informatie kunnen we aanvragen op alle back endsystemen. Elke aanvraa
 </send-request>
 ```
 
-Deze aanvragen worden uitgevoerd in de juiste volgorde niet ideaal is. In een toekomstige release we een nieuw beleid aangeroepen introducing `wait` waarmee al deze aanvragen worden parallel uitgevoerd.
+Deze aanvragen worden uitgevoerd in de juiste volgorde niet ideaal is. In een toekomstige release we een nieuw beleid aangeroepen introducing `wait` waarmee al deze aanvragen tooexecute parallel.
 
 ### <a name="responding"></a>Reageert
-Maken van de samengestelde reactie we gebruiken de [return antwoord](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) beleid. De `set-body` element een expressie kunt gebruiken om een nieuwe samen te stellen `JObject` met alle onderdeel verklaringen ingesloten als eigenschappen.
+tooconstruct samengestelde antwoord Hallo gebruiken we Hallo [return antwoord](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) beleid. Hallo `set-body` element kunt een expressie tooconstruct een nieuwe `JObject` met alle Hallo onderdeel verklaringen ingesloten als eigenschappen.
 
 ```xml
 <return-response response-variable-name="existing response variable">
@@ -226,7 +226,7 @@ Maken van de samengestelde reactie we gebruiken de [return antwoord](https://msd
 </return-response>
 ```
 
-Het volledige beleid ziet er als volgt uit:
+Hallo voltooid beleid ziet er als volgt uit:
 
 ```xml
 <policies>
@@ -278,13 +278,13 @@ Het volledige beleid ziet er als volgt uit:
 </policies>
 ```
 
-In de configuratie van de tijdelijke aanduiding voor betekent bewerking die kunnen we de resource dashboard voor ten minste een uur worden opgeslagen omdat we begrijpen de aard van de gegevens wat configureren dat zelfs als het een uur verouderd, dat nog steeds moeten voldoende effectieve om waardevolle informatie aan de gebruikers over te brengen.
+In de configuratie van Hallo tijdelijke aanduiding voor bewerking die kunnen we configureren Hallo Hallo dashboard resource toobe in cache opgeslagen voor ten minste een uur omdat we Hallo aard van Hallo gegevens houdt in dat zelfs als deze een verouderd begrijpen, dat nog steeds moeten voldoende effectieve uur tooconvey waardevolle informatie toohello gebruikers.
 
 ## <a name="summary"></a>Samenvatting
-Azure API Management-service biedt flexibele beleidsregels die u kunnen selectief worden toegepast op HTTP-verkeer en Hiermee samenstelling van back-end-services. Of u wilt uw API-gateway met waarschuwingen, functies, verificatie, validatie-mogelijkheden verbeteren of maken van nieuwe samengestelde resources op basis van meerdere back-end-services de `send-request` en bijbehorende beleid opent u een wereld van mogelijkheden.
+Azure API Management-service biedt flexibele beleidsregels die selectief kunnen worden toegepast tooHTTP verkeer en Hiermee samenstelling van back-end-services. Of u wilt dat tooenhance uw API-gateway met waarschuwingen, functies, verificatie, validatie mogelijkheden of maken van nieuwe samengestelde resources op basis van meerdere back-end-services, Hallo `send-request` en bijbehorende beleid opent u een wereld van mogelijkheden.
 
 ## <a name="watch-a-video-overview-of-these-policies"></a>Bekijk een video-overzicht van deze beleidsregels
-Voor meer informatie over de [-één-manier-Verzendaanvraag](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [aanvragen verzenden](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest), en [return antwoord](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) beleidsregels die in dit artikel, bekijk Neem de volgende video.
+Voor meer informatie over Hallo [-één-manier-Verzendaanvraag](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [aanvragen verzenden](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest), en [return antwoord](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) beleidsregels die in dit artikel, neem Hallo volgende video bekijken.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
 > 

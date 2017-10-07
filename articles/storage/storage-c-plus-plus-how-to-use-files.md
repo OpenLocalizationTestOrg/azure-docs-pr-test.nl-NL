@@ -1,6 +1,6 @@
 ---
-title: Ontwikkelen voor Azure File storage met C++ | Microsoft Docs
-description: Informatie over het ontwikkelen van C++-toepassingen en services die Azure File storage gebruiken voor het opslaan van gegevens uit een bestand.
+title: aaaDevelop voor Azure File storage met C++ | Microsoft Docs
+description: Meer informatie over hoe toodevelop C++-toepassingen en services die gebruikmaken van Azure File storage toostore bestandsgegevens.
 services: storage
 documentationcenter: .net
 author: renashahmsft
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: renashahmsft
-ms.openlocfilehash: fc0d8451442f1337db4a36718c3fc746f8eb5125
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 40c3aac94214a91121913e2ded315031aeed1c30
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="develop-for-azure-file-storage-with-c"></a>Ontwikkelen voor Azure File storage met C++
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
@@ -27,33 +27,33 @@ ms.lasthandoff: 08/03/2017
 
 ## <a name="about-this-tutorial"></a>Over deze zelfstudie
 
-In deze zelfstudie leert u basisbewerkingen op Azure File storage uit te voeren. Via voorbeelden die zijn geschreven in C++, leert u hoe u Maak shares en mappen, uploaden, weergeven en verwijderen van bestanden. Als u niet bekend met Azure File storage bent, wordt gaan via de concepten in de volgende secties nuttig zijn bij het begrijpen van de voorbeelden.
+In deze zelfstudie leert u hoe tooperform basisbewerkingen op Azure File storage. Door steekproeven geschreven in C++, leert u hoe toocreate deelt en mappen, uploaden, weergeven en verwijderen van bestanden. Als u nieuwe tooAzure File storage, wordt gaan via Hallo concepten Hallo die in volgende secties nuttig zijn Hallo voorbeelden begrijpen.
 
 
 * Maken en verwijderen van de Azure-bestandsshares
 * Maken en verwijderen van mappen
 * Bestanden en mappen in een Azure-bestandsshare opsommen
 * Uploaden, downloaden en een bestand verwijderen
-* Stel een quotum (maximumgrootte) voor een Azure-bestandsshare
-* Een Shared Access Signature (SAS-sleutel) maken voor een bestand dat gebruikmaakt van een gedeeld toegangsbeleid dat voor de share is gedefinieerd.
+* Hallo quotum (maximumgrootte) voor een Azure-bestandsshare instellen
+* Maak een shared access signature (SAS-sleutel) voor een bestand dat gebruikmaakt van een gedeeld toegangsbeleid dat is gedefinieerd op Hallo-share.
 
 > [!Note]  
-> Omdat Azure File storage zijn toegankelijk via SMB, is het mogelijk om eenvoudige toepassingen die toegang hebben tot de Azure-bestandsshare met behulp van de standard C++-i/o-klassen en -functies te schrijven. In dit artikel wordt beschreven hoe schrijven van toepassingen die gebruikmaken van de Azure Storage C++ SDK, die gebruikmaakt van de [Azure File storage REST-API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) voor communicatie met Azure File storage.
+> Omdat Azure File storage zijn toegankelijk via SMB, is het mogelijk toowrite eenvoudige toepassingen die toegang hebben tot hello Azure bestandsshare met behulp van Hallo standard C++ i/o-klassen en -functies. In dit artikel wordt beschreven hoe toowrite toepassingen die gebruikmaken van Azure Storage C++ SDK, die gebruikmaakt van Hallo Hallo [Azure File storage REST-API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) tootalk tooAzure File storage.
 
 ## <a name="create-a-c-application"></a>Een C++-toepassing maken
-Als u wilt de voorbeelden bouwt, moet u de Azure Storage-clientbibliotheek 2.4.0 voor C++ installeren. U moet hebt een Azure storage-account ook gemaakt.
+Voorbeelden van toobuild hello, moet u tooinstall hello Azure Storage-clientbibliotheek 2.4.0 voor C++. U moet hebt een Azure storage-account ook gemaakt.
 
-De Azure Storage Client 2.4.0 voor C++ installeert, kunt u een van de volgende methoden gebruiken:
+tooinstall hello Azure Storage Client 2.4.0 voor C++, kunt u een van de volgende methoden hello gebruiken:
 
-* **Linux:** Volg de instructies in de [Azure Storage-clientbibliotheek voor C++ Leesmij](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) pagina.
-* **Windows:** In Visual Studio, klikt u op **extra &gt; NuGet Package Manager &gt; Package Manager Console**. Typ de volgende opdracht in de [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) en druk op **ENTER**.
+* **Linux:** Hallo instructies gegeven in Hallo [Azure Storage-clientbibliotheek voor C++ Leesmij](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) pagina.
+* **Windows:** In Visual Studio, klikt u op **extra &gt; NuGet Package Manager &gt; Package Manager Console**. Type Hallo volgende opdracht in Hallo [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) en druk op **ENTER**.
   
 ```
 Install-Package wastorage
 ```
 
-## <a name="set-up-your-application-to-use-azure-file-storage"></a>Instellen van uw toepassing Azure File storage gebruiken
-Toevoegen aan dat de volgende instructies toe aan de bovenkant van het bronbestand voor C++ waar u wilt bewerken Azure File storage instructies bevatten:
+## <a name="set-up-your-application-toouse-azure-file-storage"></a>Instellen van uw toepassing toouse Azure File storage
+Toegevoegd volgende Hallo bevatten instructies toohello bovenaan Hallo C++-bronbestand waar u toomanipulate Azure File storage:
 
 ```cpp
 #include <was/storage_account.h>
@@ -61,16 +61,16 @@ Toevoegen aan dat de volgende instructies toe aan de bovenkant van het bronbesta
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Een Azure-opslag-verbindingsreeks instellen
-U moet verbinding maken met uw Azure storage-account voor het gebruik van File storage. De eerste stap is om een verbindingsreeks die we gebruiken om verbinding maken met uw storage-account te configureren. We gaan een statische variabele hiervoor definiëren.
+toouse opslag van bestanden, moet u tooconnect tooyour Azure storage-account. Hallo eerste stap zou zijn tooconfigure een verbindingsreeks, we gebruiken tooconnect tooyour storage-account. We gaan een statische variabele toodo definiëren die.
 
 ```cpp
-// Define the connection-string with your values.
+// Define hello connection-string with your values.
 const utility::string_t 
 storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-## <a name="connecting-to-an-azure-storage-account"></a>Verbinding maken met een Azure storage-account
-U kunt de **cloud_storage_account** klasse vertegenwoordigt de informatie van uw Opslagaccount. Voor het ophalen van gegevens over uw storage-account van de verbindingsreeks voor opslag, kunt u de **parseren** methode.
+## <a name="connecting-tooan-azure-storage-account"></a>Verbinding maken met tooan Azure storage-account
+U kunt Hallo **cloud_storage_account** klasse toorepresent uw Storage-Account. tooretrieve uw opslag accountgegevens van de opslagverbindingsreeks hello, kunt u Hallo **parseren** methode.
 
 ```cpp
 // Retrieve storage account from connection string.    
@@ -79,23 +79,23 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## <a name="create-an-azure-file-share"></a>Een Azure-bestandsshare maken
-Alle bestanden en mappen in Azure File storage bevinden zich in een zogenaamd een **Share**. Uw storage-account kan als veel shares als de capaciteit van uw account kunt hebben. Als u wilt toegang krijgen tot een share en de inhoud ervan, moet u een Azure File storage-client gebruiken.
+Alle bestanden en mappen in Azure File storage bevinden zich in een zogenaamd een **Share**. Uw storage-account kan als veel shares als de capaciteit van uw account kunt hebben. tooobtain toegang tooa share en de inhoud ervan, moet u een Azure File storage client toouse.
 
 ```cpp
-// Create the Azure File storage client.
+// Create hello Azure File storage client.
 azure::storage::cloud_file_client file_client = 
   storage_account.create_cloud_file_client();
 ```
 
-U kunt vervolgens een een verwijzing naar een share ophalen met behulp van de Azure File storage-client.
+U kunt vervolgens een verwijzing tooa share verkrijgen met behulp van hello Azure File storage client.
 
 ```cpp
-// Get a reference to the file share
+// Get a reference toohello file share
 azure::storage::cloud_file_share share = 
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 ```
 
-Gebruik voor het maken van de share de **create_if_not_exists** methode van de **cloud_file_share** object.
+Gebruik Hallo-share Hallo toocreate **create_if_not_exists** methode Hallo **cloud_file_share** object.
 
 ```cpp
 if (share.create_if_not_exists()) {    
@@ -103,28 +103,28 @@ if (share.create_if_not_exists()) {
 }
 ```
 
-Op dit moment **delen** bevat een verwijzing naar een share met de naam **mijn-voorbeeld-share**.
+Op dit moment **delen** bevat een verwijzing tooa share met de naam **mijn-voorbeeld-share**.
 
 ## <a name="delete-an-azure-file-share"></a>Verwijderen van een Azure-bestandsshare
-Verwijderen van een share wordt gedaan door het aanroepen van de **delete_if_exists** methode voor het object cloud_file_share. Hier volgt voorbeeldcode die dat doet.
+Verwijderen van een share wordt uitgevoerd door de aanroepende Hallo **delete_if_exists** methode voor het object cloud_file_share. Hier volgt voorbeeldcode die dat doet.
 
 ```cpp
-// Get a reference to the share.
+// Get a reference toohello share.
 azure::storage::cloud_file_share share = 
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 
-// delete the share if exists
+// delete hello share if exists
 share.delete_share_if_exists();
 ```
 
 ## <a name="create-a-directory"></a>Een map maken
-U kunt opslag indelen door de gegevens van de bestanden in submappen in plaats van ze allemaal in de hoofdmap. Azure File storage kunt u zoveel mappen als uw account kunt maken. De code hieronder maakt u een map met de naam **mijn-voorbeeld-directory** onder de hoofdmap, evenals een submap met de naam **mijn-voorbeeld-submap**.
+U kunt opslag indelen door de bestanden in submappen in plaats van ze allemaal in de hoofdmap Hallo gegevens. Azure File storage, kunt u toocreate veel mappen als uw account wordt toegestaan. Hallo-code hieronder maakt u een map met de naam **mijn-voorbeeld-directory** onder de hoofdmap hello, evenals een submap met de naam **mijn-voorbeeld-submap**.
 
 ```cpp
-// Retrieve a reference to a directory
+// Retrieve a reference tooa directory
 azure::storage::cloud_file_directory directory = share.get_directory_reference(_XPLATSTR("my-sample-directory"));
 
-// Return value is true if the share did not exist and was successfully created.
+// Return value is true if hello share did not exist and was successfully created.
 directory.create_if_not_exists();
 
 // Create a subdirectory.
@@ -137,31 +137,31 @@ subdirectory.create_if_not_exists();
 Als u een map is een eenvoudige taak, maar houd er rekening mee dat u een map met nog steeds bestanden of andere mappen niet verwijderen.
 
 ```cpp
-// Get a reference to the share.
+// Get a reference toohello share.
 azure::storage::cloud_file_share share = 
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 
-// Get a reference to the directory.
+// Get a reference toohello directory.
 azure::storage::cloud_file_directory directory = 
   share.get_directory_reference(_XPLATSTR("my-sample-directory"));
 
-// Get a reference to the subdirectory you want to delete.
+// Get a reference toohello subdirectory you want toodelete.
 azure::storage::cloud_file_directory sub_directory =
   directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
 
-// Delete the subdirectory and the sample directory.
+// Delete hello subdirectory and hello sample directory.
 sub_directory.delete_directory_if_exists();
 
 directory.delete_directory_if_exists();
 ```
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Bestanden en mappen in een Azure-bestandsshare opsommen
-Eenvoudig het verkrijgen van een lijst met bestanden en mappen in een share wordt gedaan door het aanroepen van **list_files_and_directories** op een **cloud_file_directory** verwijzing. Voor toegang tot de uitgebreide set eigenschappen en methoden voor een geretourneerde **list_file_and_directory_item**, belt u het **list_file_and_directory_item.as_file** methode voor het ophalen van een **cloud_file**  object, of de **list_file_and_directory_item.as_directory** methode voor het ophalen van een **cloud_file_directory** object.
+Eenvoudig het verkrijgen van een lijst met bestanden en mappen in een share wordt gedaan door het aanroepen van **list_files_and_directories** op een **cloud_file_directory** verwijzing. tooaccess Hallo uitgebreide set eigenschappen en methoden voor een geretourneerde **list_file_and_directory_item**, moet u Hallo aanroepen **list_file_and_directory_item.as_file** methode tooget een **cloud_ bestand** object of Hallo **list_file_and_directory_item.as_directory** methode tooget een **cloud_file_directory** object.
 
-De volgende code laat zien hoe ophalen en de uitvoer van de URI van elk item in de hoofdmap van de share.
+Hallo volgende code laat zien hoe tooretrieve en uitvoer Hallo URI van elk item in de hoofdmap Hallo Hallo-share.
 
 ```cpp
-//Get a reference to the root directory for the share.
+//Get a reference toohello root directory for hello share.
 azure::storage::cloud_file_directory root_dir = 
   share.get_root_directory_reference();
 
@@ -182,16 +182,16 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 ```
 
 ## <a name="upload-a-file"></a>Bestand uploaden
-Op de minst bevat een bestandsshare in Azure een hoofdmap waarin de bestanden kunnen zich bevinden. In deze sectie leert u hoe een bestand van de lokale opslag naar de hoofdmap van een share te uploaden.
+Op Hallo zeer minste, bevat een Azure-bestandsshare de hoofdmap waarin de bestanden kunnen zich bevinden. In deze sectie leert u hoe een bestand van de lokale opslag op Hallo tooupload de hoofdmap van een share.
 
-De eerste stap bij het uploaden van een bestand is te halen van een verwijzing naar de map waarin dit zich moet bevinden. U doet dit door de **get_root_directory_reference** methode van de shareobject.
+Hallo eerste stap bij het uploaden van een bestand is tooobtain een verwijzing toohello map waarin dit zich moet bevinden. Dit doet u door de aanroepende Hallo **get_root_directory_reference** methode van Hallo share-object.
 
 ```cpp
-//Get a reference to the root directory for the share.
+//Get a reference toohello root directory for hello share.
 azure::storage::cloud_file_directory root_dir = share.get_root_directory_reference();
 ```
 
-Nu dat u een verwijzing naar de hoofdmap van de share hebt, kunt u een bestand op deze uploaden. In dit voorbeeld bestandsuploads uit een bestand, tekst en een stroom.
+Nu dat u de hoofdmap van een verwijzing toohello van Hallo-share hebt, kunt u een bestand op deze uploaden. In dit voorbeeld bestandsuploads uit een bestand, tekst en een stroom.
 
 ```cpp
 // Upload a file from a stream.
@@ -214,9 +214,9 @@ file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 ```
 
 ## <a name="download-a-file"></a>Bestand downloaden
-Om bestanden te downloaden, eerst ophalen van een bestandsverwijzing en roept u vervolgens de **download_to_stream** methode inhoud van het bestand overdragen naar een stroomobject dat u vervolgens blijven in een lokaal bestand behouden kunt. U kunt ook de **download_to_file** methode voor het downloaden van de inhoud van een bestand naar een lokaal bestand. U kunt de **download_text** methode voor het downloaden van de inhoud van een bestand op als een tekenreeks.
+toodownload bestanden, eerst ophalen van een bestandsverwijzing en vervolgens aanroepen Hallo **download_to_stream** methode tootransfer Hallo bestand inhoud tooa stream-object, dat u vervolgens kunt blijven behouden tooa lokaal bestand. U kunt ook hello gebruiken **download_to_file** methode toodownload Hallo inhoud van een lokaal bestand tooa-bestand. U kunt Hallo **download_text** methode toodownload Hallo inhoud van een bestand als een tekenreeks.
 
-Het volgende voorbeeld wordt de **download_to_stream** en **download_text** methoden voor het demonstreren van downloaden van de bestanden die zijn gemaakt in de vorige secties.
+Hallo volgende voorbeeld wordt Hallo **download_to_stream** en **download_text** methoden toodemonstrate Hallo-bestanden die zijn gemaakt in de vorige secties downloaden.
 
 ```cpp
 // Download as text
@@ -239,10 +239,10 @@ outfile.close();
 ```
 
 ## <a name="delete-a-file"></a>Een bestand verwijderen
-Een andere algemene Azure File storage-bewerking wordt verwijderen van bestanden. De volgende code verwijdert een bestand met de naam my-voorbeeld-bestand-3 opgeslagen onder de hoofdmap.
+Een andere algemene Azure File storage-bewerking wordt verwijderen van bestanden. Hallo verwijdert volgende code een bestand met de naam my-voorbeeld-bestand-3 opgeslagen onder Hallo-hoofdmap.
 
 ```cpp
-// Get a reference to the root directory for the share.    
+// Get a reference toohello root directory for hello share.    
 azure::storage::cloud_file_share share = 
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 
@@ -255,30 +255,30 @@ azure::storage::cloud_file file =
 file.delete_file_if_exists();
 ```
 
-## <a name="set-the-quota-maximum-size-for-an-azure-file-share"></a>Stel een quotum (maximumgrootte) voor een Azure-bestandsshare
-U kunt het quotum (of de maximale grootte) instellen voor een bestandsshare, in gigabytes. U kunt ook controleren hoeveel gegevens er momenteel zijn opgeslagen in de share.
+## <a name="set-hello-quota-maximum-size-for-an-azure-file-share"></a>Hallo quotum (maximumgrootte) voor een Azure-bestandsshare instellen
+U kunt Hallo quotum (of de maximale grootte) instellen voor een bestandsshare, in gigabytes. U kunt ook controleren hoeveel gegevens er momenteel zijn opgeslagen op Hallo share toosee.
 
-Door het quotum voor een share in te stellen, kunt u de totale grootte instellen van de bestanden die zijn opgeslagen in de share. Als de totale grootte van de bestanden in de share het quotum voor de share overschrijdt, kunnen clients bestaande bestanden niet meer vergroten en geen nieuwe bestanden meer maken, tenzij deze bestanden leeg zijn.
+Door de instelling Hallo quotum voor een share, kunt u Hallo totale grootte van bestanden op Hallo share Hallo beperken. Als Hallo totale grootte van bestanden op Hallo share overschrijdt Hallo quota ingesteld voor de share Hallo en clients worden niet kan tooincrease Hallo grootte van de bestaande bestanden of nieuwe bestanden maken, tenzij deze bestanden leeg zijn.
 
-In onderstaand voorbeeld ziet u hoe u het huidige gebruik voor een share controleert en een quotum voor de share instelt.
+Hallo voorbeeld hieronder ziet u hoe toocheck huidige gebruik voor een share Hallo en hoe tooset quotum voor de share Hallo Hallo.
 
 ```cpp
-// Parse the connection string for the storage account.
+// Parse hello connection string for hello storage account.
 azure::storage::cloud_storage_account storage_account = 
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the file client.
+// Create hello file client.
 azure::storage::cloud_file_client file_client = 
   storage_account.create_cloud_file_client();
 
-// Get a reference to the share.
+// Get a reference toohello share.
 azure::storage::cloud_file_share share = 
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 if (share.exists())
 {
     std::cout << "Current share usage: " << share.download_share_usage() << "/" << share.properties().quota();
 
-    //This line sets the quota to 2560GB
+    //This line sets hello quota too2560GB
     share.resize(2560);
 
     std::cout << "Quota increased: " << share.download_share_usage() << "/" << share.properties().quota();
@@ -287,16 +287,16 @@ if (share.exists())
 ```
 
 ## <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Een Shared Access Signature genereren voor een bestand of bestandsshare
-U kunt een shared access signature (SAS) voor een bestandsshare of voor een afzonderlijk bestand genereren. U kunt op een bestandsshare ook een beleid voor gedeelde toegang maken om handtekeningen voor gedeelde toegang te beheren. Het maken van een beleid voor gedeelde toegang wordt aanbevolen omdat dit een manier biedt om de SAS in te trekken als deze verdacht is.
+U kunt een shared access signature (SAS) voor een bestandsshare of voor een afzonderlijk bestand genereren. U kunt ook een gedeeld toegangsbeleid op een bestandsshare-toomanage gedeelde toegang handtekeningen maken. Maken van een gedeeld toegangsbeleid wordt aanbevolen, aangezien deze een manier om Hallo SAS intrekken biedt als deze verdacht.
 
-In het volgende voorbeeld wordt een beleid voor gedeelde toegang gemaakt op een share en wordt dat beleid vervolgens gebruikt om de beperkingen te verstrekken voor een SAS voor een bestand in de share.
+Hallo volgende voorbeeld wordt een beleid voor gedeelde toegang gemaakt op een bestandsshare op en gebruikt u vervolgens dat tooprovide Hallo beleidsbeperkingen voor een SAS voor een bestand in Hallo delen.
 
 ```cpp
-// Parse the connection string for the storage account.
+// Parse hello connection string for hello storage account.
 azure::storage::cloud_storage_account storage_account = 
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the file client and get a reference to the share
+// Create hello file client and get a reference toohello share
 azure::storage::cloud_file_client file_client = 
   storage_account.create_cloud_file_client();
 
@@ -311,37 +311,37 @@ if (share.exists())
     azure::storage::file_shared_access_policy sharedPolicy = 
       azure::storage::file_shared_access_policy();
 
-    //set permissions to expire in 90 minutes
+    //set permissions tooexpire in 90 minutes
     sharedPolicy.set_expiry(utility::datetime::utc_now() + 
        utility::datetime::from_minutes(90));
 
     //give read and write permissions
     sharedPolicy.set_permissions(azure::storage::file_shared_access_policy::permissions::write | azure::storage::file_shared_access_policy::permissions::read);
 
-    //set permissions for the share
+    //set permissions for hello share
     azure::storage::file_share_permissions permissions;    
 
-    //retrieve the current list of shared access policies
+    //retrieve hello current list of shared access policies
     azure::storage::shared_access_policies<azure::storage::file_shared_access_policy> policies;
 
-    //add the new shared policy
+    //add hello new shared policy
     policies.insert(std::make_pair(policy_name, sharedPolicy));
 
-    //save the updated policy list
+    //save hello updated policy list
     permissions.set_policies(policies);
     share.upload_permissions(permissions);
 
-    //Retrieve the root directory and file references
+    //Retrieve hello root directory and file references
     azure::storage::cloud_file_directory root_dir = 
         share.get_root_directory_reference();
     azure::storage::cloud_file file = 
       root_dir.get_file_reference(_XPLATSTR("my-sample-file-1"));
 
-    // Generate a SAS for a file in the share 
+    // Generate a SAS for a file in hello share 
     //  and associate this access policy with it.        
     utility::string_t sas_token = file.get_shared_access_signature(sharedPolicy);
 
-    // Create a new CloudFile object from the SAS, and write some text to the file.        
+    // Create a new CloudFile object from hello SAS, and write some text toohello file.        
     azure::storage::cloud_file file_with_sas(azure::storage::storage_credentials(sas_token).transform_uri(file.uri().primary_uri()));
     utility::string_t text = _XPLATSTR("My sample content");        
     file_with_sas.upload_text(text);        
@@ -354,7 +354,7 @@ if (share.exists())
 }
 ```
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende bronnen voor meer informatie over Azure Storage:
+toolearn meer informatie over Azure Storage, bekijk deze resources:
 
 * [Opslagclientbibliotheek voor C++](https://github.com/Azure/azure-storage-cpp)
 * [Azure Storage-Service bestandsvoorbeelden in C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)

@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Sample Script - ACS DC/OS-Cluster maken | Microsoft Docs
+title: aaaAzure voorbeeldscript CLI - ACS DC/OS-Cluster maken | Microsoft Docs
 description: Azure CLI Sample Script - ACS DC/OS-Cluster maken
 services: container-service
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: ff90aee308a993ae0d36288191d1496affacce2a
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: cbc990e5e650487d6aa4572c7ff5e1c3fa150906
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-container-service-dcos-cluster"></a>Een Azure Container Service DC/OS-Cluster maken
 
@@ -44,7 +44,7 @@ az acs create \
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie 
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Hallo na de opdracht tooremove Hallo-resourcegroep, VM en alle gerelateerde resources worden uitgevoerd.
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -52,7 +52,7 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Script uitleg
 
-Dit script maakt gebruik van de volgende opdrachten om de implementatie te maken. Elk item in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+Dit script maakt gebruik van Hallo opdrachten toocreate Hallo implementatie te volgen. Elk item in de tabel Hallo koppelingen toocommand specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
@@ -61,6 +61,6 @@ Dit script maakt gebruik van de volgende opdrachten om de implementatie te maken
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+Zie voor meer informatie over hello Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Extra Azure Container Service CLI scriptvoorbeelden vindt u in de [Azure Container Service documentatie](../cli-samples.md).
+Extra Azure Container Service CLI scriptvoorbeelden kunnen u vinden in Hallo [Azure Container Service documentatie](../cli-samples.md).

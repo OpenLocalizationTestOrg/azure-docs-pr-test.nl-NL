@@ -1,6 +1,6 @@
 ---
-title: Adressen van de beheerserver Azure App Service-omgeving
-description: Geeft een lijst van de adressen van de beheerserver gebruikt voor de opdracht van een App-serviceomgeving
+title: adressen van de beheerserver aaaAzure App Service-omgeving
+description: Adressen van de lijsten Hallo beheerserver gebruikt toocommand een App-serviceomgeving
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: e97a084772fd16252d925b62498d2e696629a25d
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: b34b6266dc3a35915421b14bf34eddc07c2825c0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="app-service-environment-management-addresses"></a>Adressen van de beheerserver App Service-omgeving
 
-De App Service-Environment(ASE) is een implementatie van de Azure App Service in een subnet in uw Azure Virtual Network (VNet).  De as-omgeving moet toegankelijk is vanaf de Azure App Service, zodat deze kan worden beheerd.  Deze as-omgeving beheer van verkeer over de gebruiker beheerde netwerk wordt verzonden.  Ze afkomstig zijn van Azure App Service-beheerservers naar het openbare VIP die is gekoppeld aan het as-omgeving.  Voor meer informatie over de as-omgeving networking afhankelijkheden lezen [-overwegingen en de App-serviceomgeving][networking].  Voor algemene informatie over de as-omgeving kunt u beginnen met [Inleiding tot de App-serviceomgeving][intro].
+Hallo-App Service Environment(ASE) is een implementatie van hello Azure App Service in een subnet in uw Azure Virtual Network (VNet).  Hallo as-omgeving moet toegankelijk is vanaf hello Azure App Service, zodat deze kan worden beheerd.  Deze as-omgeving beheer van verkeer passeert Hallo gebruiker beheerd netwerk.  Het is afkomstig uit Azure App Service management servers toohello openbare VIP die is gekoppeld aan het Hallo-as-omgeving.  Voor meer informatie over Hallo as-omgeving networking afhankelijkheden lezen [-overwegingen en Hallo App Service-omgeving][networking].  Voor algemene informatie over het Hallo-as-omgeving kunt u beginnen met [inleiding toohello App Service-omgeving][intro].
 
-Dit document worden de bron-IP-adressen voor beheer van verkeer naar de as-omgeving. U kunt deze adressen gebruiken voor het maken van Netwerkbeveiligingsgroepen voor binnenkomend verkeer vergrendelen of ze in routetabellen gebruiken indien nodig.  U moet gebruiken voor het gebruik van deze informatie:
+Dit document worden Hallo bron, IP-adressen voor beheer van verkeer toohello as-omgeving. U kunt deze adressen toocreate Netwerkbeveiligingsgroepen toolock omlaag binnenkomend verkeer gebruiken of in routetabellen gebruiken, indien nodig.  toouse deze informatie moet u toouse:
 
-* de IP-adressen die worden vermeld voor alle regio 's
-* de IP-adressen die met de regio die overeenkomen in uw as-omgeving is geïmplementeerd.
+* Hallo IP-adressen die worden vermeld voor alle regio 's
+* Hallo IP-adressen die overeenkomen toohello regio die uw as-omgeving is geïmplementeerd in.
 
-Het binnenkomende beheerverkeer afkomstig zijn deze IP-adressen via poorten 454 en 455.
+Hallo binnenkomende beheer van verkeer binnenkomt van deze IP-adressen tooports 454 en 455.
 
 | Regio | Adressen |
 |--------|-----------|

@@ -1,6 +1,6 @@
 ---
-title: Schakel diagnostische gegevens in Azure Cloud Services met behulp van PowerShell | Microsoft Docs
-description: Informatie over het inschakelen van diagnostische gegevens voor cloudservices met behulp van PowerShell
+title: aaaEnable diagnostische gegevens in Azure Cloud Services met behulp van PowerShell | Microsoft Docs
+description: Meer informatie over hoe diagnostische gegevens tooenable voor cloud services met behulp van PowerShell
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -14,19 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: adegeo
-ms.openlocfilehash: 8dd9724981860c9cd4ccc443cc2bfdc465811e7c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7c7444df13edc8d7f5663e20ec7558d36aac45d4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Diagnostische gegevens in Azure Cloud Services met behulp van PowerShell inschakelen
-U kunt diagnostische gegevens, zoals Logboeken, verzamelen prestatiemeteritems enzovoort van een Cloudservice met de extensie Azure Diagnostics. In dit artikel wordt beschreven hoe de Azure Diagnostics-extensie inschakelen voor een Cloudservice met behulp van PowerShell.  Zie [installeren en configureren van Azure PowerShell](/powershell/azure/overview) voor de vereisten die nodig zijn voor dit artikel.
+U kunt diagnostische gegevens, zoals Logboeken verzamelen, prestatiemeteritems enzovoort vanuit een Cloudservice met hello Azure Diagnostics-extensie. Dit artikel wordt beschreven hoe tooenable extensie voor diagnostische gegevens van Azure Hallo voor een Cloudservice met behulp van PowerShell.  Zie [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview) voor Hallo vereisten die nodig zijn voor dit artikel.
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>De extensie voor diagnostische gegevens inschakelen als onderdeel van het implementeren van een cloudservice
-Deze aanpak is van toepassing op type continue integratie van scenario's, waarbij de extensie voor diagnostische gegevens kan worden ingeschakeld als onderdeel van de implementatie van de cloudservice. Bij het maken van een nieuwe Cloudservice-implementatie kunt u de extensie voor diagnostische gegevens inschakelen door door te geven in de *ExtensionConfiguration* -parameter voor de [nieuw AzureDeployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-3.7.0) cmdlet. De *ExtensionConfiguration* parameter neemt een matrix van configuraties voor diagnostische gegevens die kunnen worden gemaakt met de [nieuw AzureServiceDiagnosticsExtensionConfig](/powershell/module/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) cmdlet.
+Deze aanpak is van toepassing toocontinuous integratie soort scenario's waarbij Hallo diagnostics uitbreiding kan worden ingeschakeld als onderdeel van de implementatie van cloudservice Hallo. Bij het maken van een nieuwe Cloudservice-implementatie kunt u Hallo-extensie voor diagnostische gegevens inschakelen door door te geven in Hallo *ExtensionConfiguration* parameter toohello [nieuw AzureDeployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-3.7.0) cmdlet. Hallo *ExtensionConfiguration* parameter neemt een matrix van configuraties voor diagnostische gegevens die kunnen worden gemaakt met de Hallo [nieuw AzureServiceDiagnosticsExtensionConfig](/powershell/module/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) cmdlet.
 
-Het volgende voorbeeld ziet hoe u diagnostische gegevens voor een cloudservice met een WebRole en WorkerRole, elk met de configuratie van een andere diagnostische kunt inschakelen.
+Hallo volgende voorbeeld ziet u hoe u diagnostische gegevens voor een cloudservice met een WebRole en WorkerRole, elk met de configuratie van een andere diagnostische kunt inschakelen.
 
 ```powershell
 $service_name = "MyService"
@@ -41,23 +41,23 @@ $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "Worke
 New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig)
 ```
 
-Als het configuratiebestand van de diagnostische gegevens wordt een `StorageAccount` element met de naam van een opslagaccount, wordt de `New-AzureServiceDiagnosticsExtensionConfig` cmdlet automatisch gebruikmaken van dit opslagaccount. Dit werkt, moet het storage-account zich in hetzelfde abonnement als de Cloud-Service wordt geïmplementeerd.
+Als Hallo diagnostische gegevens van het configuratiebestand wordt een `StorageAccount` element met de naam van een account, klikt u vervolgens Hallo `New-AzureServiceDiagnosticsExtensionConfig` cmdlet automatisch gebruikmaken van dit opslagaccount. Voor deze toowork Hallo storage-account moet toobe in hetzelfde abonnement Hallo zoals Hallo Cloud Service wordt geïmplementeerd.
 
-Azure SDK versie 2.6 bewerken publiceren van de extensieconfiguratiebestanden die worden gegenereerd door het MSBuild bevat Doeluitvoer de naam van de opslag op basis van de configuratietekenreeks voor diagnostische gegevens opgegeven in het configuratiebestand (.cscfg) van de service. Het onderstaande script laat zien hoe u de configuratiebestanden voor de uitbreiding van de doel-uitvoer publiceren parseren en het configureren van extensie voor diagnostische gegevens voor elke rol bij het implementeren van de cloudservice.
+Azure SDK versie 2.6 verdere Hallo configuratie extensiebestanden die worden gegenereerd door Hallo MSBuild publiceren bevat Doeluitvoer Hallo opslagaccountnaam op basis van Hallo diagnostics configuratietekenreeks die is opgegeven in het Hallo-service-configuratiebestand (.cscfg). Hallo script hieronder toont u hoe tooparse Hallo extensieconfiguratiebestanden uit Hallo Doeluitvoer publiceren en extensie voor diagnostische gegevens voor elke rol configureren wanneer Hallo cloudservice wordt geïmplementeerd.
 
 ```powershell
 $service_name = "MyService"
 $service_package = "C:\build\output\CloudService.cspkg"
 $service_config = "C:\build\output\ServiceConfiguration.Cloud.cscfg"
 
-#Find the Extensions path based on service configuration file
+#Find hello Extensions path based on service configuration file
 $extensionsSearchPath = Join-Path -Path (Split-Path -Parent $service_config) -ChildPath "Extensions"
 
 $diagnosticsExtensions = Get-ChildItem -Path $extensionsSearchPath -Filter "PaaSDiagnostics.*.PubConfig.xml"
 $diagnosticsConfigurations = @()
 foreach ($extPath in $diagnosticsExtensions)
 {
-    #Find the RoleName based on file naming convention PaaSDiagnostics.<RoleName>.PubConfig.xml
+    #Find hello RoleName based on file naming convention PaaSDiagnostics.<RoleName>.PubConfig.xml
     $roleName = ""
     $roles = $extPath -split ".",0,"simplematch"
     if ($roles -is [system.array] -and $roles.Length -gt 1)
@@ -84,11 +84,11 @@ foreach ($extPath in $diagnosticsExtensions)
 New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration $diagnosticsConfigurations
 ```
 
-Visual Studio Online maakt gebruik van een soortgelijke benadering voor geautomatiseerde implementaties van Cloud Services met de extensie voor diagnostische gegevens. Zie [publiceren AzureCloudDeployment.ps1](https://github.com/Microsoft/vso-agent-tasks/blob/master/Tasks/AzureCloudPowerShellDeployment/Publish-AzureCloudDeployment.ps1) voor een compleet voorbeeld.
+Visual Studio Online maakt gebruik van een soortgelijke benadering voor geautomatiseerde implementaties van Cloud Services met Hallo-extensie voor diagnostische gegevens. Zie [publiceren AzureCloudDeployment.ps1](https://github.com/Microsoft/vso-agent-tasks/blob/master/Tasks/AzureCloudPowerShellDeployment/Publish-AzureCloudDeployment.ps1) voor een compleet voorbeeld.
 
-Als er geen `StorageAccount` is opgegeven in de configuratie van diagnostische gegevens, moet u doorgeeft in de *StorageAccountName* parameter aan de cmdlet. Als de *StorageAccountName* parameter wordt opgegeven, wordt de cmdlet gebruik altijd het opslagaccount dat is opgegeven in de parameter en niet de naam die is opgegeven in het configuratiebestand van de diagnostische gegevens.
+Als er geen `StorageAccount` is opgegeven in de configuratie van de diagnostische hello, moet u toopass in Hallo *StorageAccountName* parameter toohello cmdlet. Als hello *StorageAccountName* parameter wordt opgegeven, wordt Hallo cmdlet wordt altijd Hallo-opslagaccount die is opgegeven in de parameter hello gebruiken en niet Hallo die is opgegeven in het configuratiebestand voor Hallo diagnostische gegevens.
 
-Als het opslagaccount voor diagnostische gegevens in een ander abonnement uit de Cloudservice is, moet u expliciet de *StorageAccountName* en *StorageAccountKey* parameters aan de cmdlet. De *StorageAccountKey* parameter is niet nodig als het opslagaccount voor diagnostische gegevens in hetzelfde abonnement behoren, aangezien de cmdlet kan automatisch een query en de waarde van de sleutel bij het inschakelen van de extensie voor diagnostische gegevens. Evenwel opgeven als het opslagaccount voor diagnostische gegevens in een ander abonnement en vervolgens de cmdlet mogelijk niet de sleutel automatisch ophalen en u expliciet moet de sleutel via de *StorageAccountKey* parameter.
+Als Hallo diagnostics storage-account in een ander abonnement van Hallo Cloud-Service, is moet u tooexplicitly in Hallo doorgeeft *StorageAccountName* en *StorageAccountKey* parameters toohello cmdlet. Hallo *StorageAccountKey* parameter is niet nodig bij Hallo diagnostics storage-account bevindt zich in hetzelfde abonnement Hallo als Hallo cmdlet kunt automatisch een query Hallo sleutelwaarde ingesteld bij het Hallo-extensie voor diagnostische gegevens inschakelen. Als hello opslagaccount voor diagnostische gegevens is echter in een ander abonnement en vervolgens Hallo cmdlet mogelijk kunnen tooget Hallo sleutel niet automatisch worden en moet u tooexplicitly Hallo sleutel via Hallo opgeven *StorageAccountKey* parameter.
 
 ```powershell
 $webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
@@ -96,7 +96,7 @@ $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "Worke
 ```
 
 ## <a name="enable-diagnostics-extension-on-an-existing-cloud-service"></a>De extensie voor diagnostische gegevens inschakelen voor een bestaande cloudservice
-U kunt de [Set AzureServiceDiagnosticsExtension](/powershell/module/azure/set-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet inschakelen of werk de configuratie van diagnostische gegevens op een Cloudservice die al wordt uitgevoerd.
+U kunt Hallo [Set AzureServiceDiagnosticsExtension](/powershell/module/azure/set-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet tooenable of update configuratie van diagnostische gegevens op een Cloudservice die al wordt uitgevoerd.
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 
@@ -112,28 +112,28 @@ Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagco
 ```
 
 ## <a name="get-current-diagnostics-extension-configuration"></a>De huidige configuratie van de extensie voor diagnostische gegevens ophalen
-Gebruik de [Get-AzureServiceDiagnosticsExtension](/powershell/module/azure/get-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet ophalen van de huidige configuratie van diagnostische gegevens voor een cloudservice.
+Gebruik Hallo [Get-AzureServiceDiagnosticsExtension](/powershell/module/azure/get-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet tooget Hallo huidige configuratie van diagnostische voor een cloudservice.
 
 ```powershell
 Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
 ## <a name="remove-diagnostics-extension"></a>De extensie voor diagnostische gegevens verwijderen
-Uitschakelen van diagnostische gegevens op een cloudservice kunt u de [verwijderen AzureServiceDiagnosticsExtension](/powershell/module/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet.
+tooturn uitschakelen diagnostische gegevens in een cloud-service dat u kunt Hallo [verwijderen AzureServiceDiagnosticsExtension](/powershell/module/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet.
 
 ```powershell
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
-Als u de extensie voor diagnostische gegevens met behulp van ingeschakeld *Set AzureServiceDiagnosticsExtension* of de *nieuw AzureServiceDiagnosticsExtensionConfig* zonder de *rol*u vervolgens een parameter kan de extensie verwijderen met *verwijderen AzureServiceDiagnosticsExtension* zonder de *rol* parameter. Als de *rol* parameter is gebruikt bij het inschakelen van de uitbreiding wordt moet ook worden gebruikt bij het verwijderen hiervan.
+Als u Hallo extensie voor diagnostische gegevens met behulp van ingeschakeld *Set AzureServiceDiagnosticsExtension* of Hallo *nieuw AzureServiceDiagnosticsExtensionConfig* zonder Hallo *rol* parameter en u kunt verwijderen Hallo met behulp van de extensie *verwijderen AzureServiceDiagnosticsExtension* zonder Hallo *rol* parameter. Als hello *rol* parameter is gebruikt bij het inschakelen en vervolgens het Hallo-uitbreiding moet ook worden gebruikt bij het verwijderen van Hallo-extensie.
 
-De extensie voor diagnostische gegevens verwijderen voor elke afzonderlijke rol:
+tooremove hello extensie voor diagnostische gegevens van elke afzonderlijke rol:
 
 ```powershell
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het gebruik van Azure diagnoses en andere technieken voor het oplossen van problemen [diagnostische gegevens inschakelen in Azure Cloud Services en virtuele Machines](cloud-services-dotnet-diagnostics.md).
-* De [Diagnostics configuratieschema](https://msdn.microsoft.com/library/azure/dn782207.aspx) worden de verschillende XML-configuraties opties voor de extensie voor diagnostische gegevens.
-* Zie voor meer informatie over het inschakelen van de extensie voor diagnostische gegevens voor virtuele Machines, [een Windows virtuele machine met de controle en diagnostische gegevens met Azure Resource Manager-sjabloon maken](../virtual-machines/windows/extensions-diagnostics-template.md)
+* Zie voor meer informatie over het gebruik van Azure diagnostics- en andere technieken tootroubleshoot problemen [diagnostische gegevens inschakelen in Azure Cloud Services en virtuele Machines](cloud-services-dotnet-diagnostics.md).
+* Hallo [Diagnostics configuratieschema](https://msdn.microsoft.com/library/azure/dn782207.aspx) Hallo verschillende configuraties van de XML-opties voor Hallo-extensie voor diagnostische gegevens wordt uitgelegd.
+* hoe tooenable Hallo-extensie voor diagnostische gegevens voor virtuele Machines, Zie toolearn [een Windows virtuele machine met de controle en diagnostische gegevens met Azure Resource Manager-sjabloon maken](../virtual-machines/windows/extensions-diagnostics-template.md)

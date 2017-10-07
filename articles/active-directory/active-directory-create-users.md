@@ -1,6 +1,6 @@
 ---
-title: Nieuwe gebruikers toevoegen aan Azure Active Directory | Microsoft Docs
-description: In dit artikel wordt uitgelegd hoe u nieuwe gebruikers kunt toevoegen of gebruikersinformatie kunt wijzigen in Azure Active Directory.
+title: aaaAdd nieuwe gebruikers tooAzure Active Directory | Microsoft Docs
+description: Legt uit hoe nieuwe gebruikers tooadd gebruikersgegevens in Azure Active Directory of wijzigen.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -17,67 +17,67 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: ff4b742e772a6062885313e9bb49e55907fe125a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 72f67ad41022fd19fd94c8e1301943b0db1e57bf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Nieuwe gebruikers of gebruikers met een Microsoft-account toevoegen aan Azure Active Directory
-Gebruikers toevoegen om uw directory te vullen. In dit artikel wordt uitgelegd hoe u nieuwe gebruikers kunt toevoegen in uw organisatie en hoe u gebruikers met een Microsoft-account kunt toevoegen. Zie [Add users from other directories or partner companies in Azure Active Directory](active-directory-create-users-external.md) (Engelstalig) voor meer informatie over het toevoegen van gebruikers van andere directory's in Azure Active Directory of over het toevoegen van gebruikers van partnerbedrijven. Toegevoegde gebruikers hebben standaard geen gebruikersrechten, maar u kunt op elk gewenst moment rollen aan ze toewijzen.
+# <a name="add-new-users-or-users-with-microsoft-accounts-tooazure-active-directory"></a>Nieuwe gebruikers toevoegen of met Microsoft-accounts tooAzure Active Directory
+Toevoegen van gebruikers toopopulate uw directory. Dit artikel wordt uitgelegd hoe tooadd nieuwe gebruikers in uw organisatie en hoe tooadd gebruikers die Microsoft-account. Zie [Add users from other directories or partner companies in Azure Active Directory](active-directory-create-users-external.md) (Engelstalig) voor meer informatie over het toevoegen van gebruikers van andere directory's in Azure Active Directory of over het toevoegen van gebruikers van partnerbedrijven. Toegevoegde gebruikers hebben geen beheerdersrechten standaard, maar u kunt functies toothem toewijzen op elk gewenst moment.
 
 > [!IMPORTANT]
-> Microsoft raadt u aan Azure AD te beheren met het [Azure AD-beheercentrum](https://aad.portal.azure.com) in Azure Portal in plaats van de klassieke Azure portal waarnaar in dit artikel wordt verwezen. Voor informatie over het toevoegen van een gebruiker in de Azure AD-beheercentrum, Zie [nieuwe gebruikers toevoegen aan Azure Active Directory](active-directory-users-create-azure-portal.md).
+> Microsoft raadt aan dat u Azure AD beheren met Hallo [Azure AD-beheercentrum](https://aad.portal.azure.com) in Hallo hello Azure-portal in plaats van de klassieke Azure-portal waarnaar wordt verwezen in dit artikel. Voor hoe tooadd een gebruiker in hello Azure AD-beheercentrum, Zie [toevoegen van nieuwe gebruikers tooAzure Active Directory](active-directory-users-create-azure-portal.md).
 
 ## <a name="add-a-user"></a>Een gebruiker toevoegen
-1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com) met een account met globale beheerdersrechten voor de directory.
-2. Selecteer **Active Directory** en selecteer vervolgens de naam van de organisatiedirectory.
-3. Selecteer de tab **Gebruikers** en selecteer vervolgens in de opdrachtbalk **Gebruiker toevoegen**.
-4. Selecteer op de pagina **Vertel ons meer over deze gebruiker** onder **Type gebruiker** een van de volgende opties:
+1. Meld u aan toohello [klassieke Azure-portal](https://manage.windowsazure.com) met een account met globale beheerdersrechten voor Hallo-directory.
+2. Selecteer **Active Directory**, en selecteer vervolgens Hallo-naam van de organisatiedirectory.
+3. Selecteer Hallo **gebruikers** tabblad en selecteer vervolgens in de opdrachtbalk Hallo **gebruiker toevoegen**.
+4. Op Hallo **Vertel ons meer over deze gebruiker** pagina onder **Type gebruiker**, selecteer:
 
    * **Nieuwe gebruiker in uw organisatie**: hiermee voegt u een nieuw gebruikersaccount toe aan uw directory.
-   * **Gebruiker met een bestaand Microsoft-account**: hiermee voegt u een bestaand Microsoft-consumentenaccount toe aan uw directory (bijvoorbeeld een Outlook-account)
+   * **Gebruiker met een bestaand Microsoft-account** – voegt u een bestaande Microsoft consumer account tooyour map (bijvoorbeeld een Outlook-account)
 5. Afhankelijk van de waarde van **Type gebruiker** voert u een gebruikersnaam in (voor de nieuwe gebruiker) of een e-mailadres (voor een gebruiker met een Microsoft-account).
-6. Geef op de **profielpagina** van de gebruiker een voor- en achternaam op, een gebruiksvriendelijke naam en een gebruikersrol uit de lijst **Rollen**. Zie [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md) (Engelstalig) voor meer informatie over gebruikers- en beheerdersrollen. Activeer desgewenst de optie **Meervoudige verificatie inschakelen** voor de gebruiker.
-7. Selecteer op de pagina **Tijdelijk wachtwoord instellen** de optie **Maken**.
+6. Op gebruiker Hallo **profiel** pagina, Geef een naam en achternaam, een gebruiksvriendelijke naam en een gebruikersrol uit Hallo **rollen** lijst. Zie [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md) (Engelstalig) voor meer informatie over gebruikers- en beheerdersrollen. Opgeven of te**multi-factor Authentication inschakelen** voor Hallo-gebruiker.
+7. Op Hallo **tijdelijk wachtwoord** pagina **maken**.
 
 > [!IMPORTANT]
-> Als uw organisatie meer dan één domein gebruikt, is het nuttig op de hoogte te zijn van de volgende problemen die zich kunnen voordoen bij het toevoegen van een gebruikersaccount:
+> Als uw organisatie meer dan één domein gebruikt, moet u weten over Hallo problemen te volgen wanneer u een gebruikersaccount toevoegen:
 >
-> * Als u gebruikersaccounts met dezelfde UPN (user principal name) wilt toevoegen in meerdere domeinen, voegt u bijvoorbeeld **eerst** geoffgrisso@contoso.onmicrosoft.com toe, **gevolgd door** geoffgrisso@contoso.com.
-> * Voeg geoffgrisso@contoso.com **niet** vóór geoffgrisso@contoso.onmicrosoft.com toe. De volgorde is belangrijk en het kan lastig zijn verkeerd ingevoerde adressen ongedaan te maken.
+> * tooadd gebruikersaccounts met dezelfde UPN (User Principal Name) in meerdere domeinen, Hallo **eerste** toevoegen, bijvoorbeeld geoffgrisso@contoso.onmicrosoft.com, **gevolgd door** geoffgrisso@contoso.com.
+> * Voeg geoffgrisso@contoso.com **niet** vóór geoffgrisso@contoso.onmicrosoft.com toe. Deze volgorde is belangrijk en omslachtige tooundo kan zijn.
 >
 >
 
 ## <a name="change-user-information"></a>Gebruikersgegevens wijzigen
-U kunt elk gebruikerskenmerk wijzigen, behalve de object-ID.
+U kunt elk gebruikerskenmerk, met uitzondering van Hallo object-ID.
 
 1. Open uw directory.
-2. Selecteer de tab **Gebruikers** en selecteer vervolgens de weergavenaam van de gebruiker die u wilt wijzigen.
+2. Selecteer Hallo **gebruikers** tabblad en selecteer vervolgens Hallo weergavenaam van de gebruiker die u wilt dat toochange Hallo.
 3. Voer de wijzigingen uit en klik vervolgens op **Opslaan**.
 
-Als de gebruiker die u wijzigt, is gesynchroniseerd met uw on-premises Active Directory-service, kunt u de gebruikersinformatie niet wijzigen met deze procedure. Gebruik uw beheerhulpprogramma's voor on-premises Active Directory om de gebruiker te wijzigen.
+Als het Hallo-gebruiker die u wilt wijzigen, is gesynchroniseerd met uw on-premises Active Directory-service, kunt u gebruikersgegevens Hallo met deze procedure niet wijzigen. toochange hello gebruiker, uw lokale Active Directory-beheerhulpprogramma's gebruiken.
 
 ## <a name="guest-user-management-and-limitations"></a>Beheer van gastgebruikers en beperkingen
-Gastaccounts zijn accounts van gebruikers uit andere directory's. Ze zijn uitgenodigd voor uw directory zodat ze toegang hebben tot SharePoint-documenten, toepassingen of andere Azure-resources. Bij een gastaccount in een directory is het onderliggende UserType-kenmerk ingesteld op "Gast." Gewone gebruikers (met name de leden van uw directory) hebben het UserType-kenmerk "Lid."
+Gastaccounts zijn accounts van gebruikers uit andere directory's die uitgenodigde tooyour directory tooaccess SharePoint-documenten, toepassingen of andere Azure-resources zijn. Een gastaccount in uw directory heeft de onderliggende UserType-kenmerk ingesteld te 'gast'. Gewone gebruikers (met name de leden van uw directory) hebben Hallo UserType-kenmerk "Lid."
 
-Gasten hebben een beperkte set rechten in de directory. Deze rechten beperken de mogelijkheden van gasten om informatie over andere gebruikers in de directory te bekijken. Gastgebruikers kunnen echter wel communiceren met de gebruikers en groepen van de resources waarmee ze werken. Gastgebruikers hebben de volgende mogelijkheden:
+Gasten hebben een beperkte set rechten in Hallo-directory. Deze rechten beperken Hallo mogelijkheid voor gasten toodiscover informatie over andere gebruikers in de directory Hallo. Gastgebruikers kunnen echter wel communiceren met het Hallo-gebruikers en groepen die zijn gekoppeld aan Hallo resources waarmee die ze werken op. Gastgebruikers hebben de volgende mogelijkheden:
 
-* Andere gebruikers en groepen zien die gekoppeld zijn aan een Azure-abonnement waaraan ze zijn toegewezen
-* De leden zien van groepen waar ze bij horen
-* Andere gebruikers opzoeken in de directory, als ze het volledige e-mailadres van de gebruiker kennen
-* Een beperkte set kenmerken bekijken van de gebruikers die ze opzoeken. Het gaat om de weergavenaam, het e-mailadres, de UPN (user principal name) en een foto van miniatuurformaat
-* Een lijst samenstellen met geverifieerde domeinen in de directory
-* Instemmen met toepassingen zodat ze dezelfde toegang hebben als leden in uw directory
+* Zie andere gebruikers en groepen die zijn gekoppeld aan een Azure-abonnement toowhich waaraan ze zijn toegewezen
+* Zie Hallo leden van groepen toowhich die ze horen
+* Opzoeken van andere gebruikers in de directory hello, als ze Hallo volledige e-mailadres van Hallo gebruiker kennen
+* Zie een beperkt aantal kenmerken van Hallo gebruikers die ze--de naam van de beperkte toodisplay, e-mailadres, UPN (user Principal name) en een foto van miniatuurformaat opzoeken
+* Een lijst met geverifieerde domeinen in de map Hallo ophalen
+* Toestemming tooapplications, zodat ze Hallo dezelfde toegang hebben als leden in uw directory hebben
 
 ## <a name="set-guest-user-access-policies"></a>Toegangsbeleid instellen voor gasten
-De tab **Configureren** van een directory bevat opties voor het beheren van toegang van gastgebruikers. Deze opties kunnen alleen worden gewijzigd in de klassieke Azure-portal door een hoofdbeheerder van de directory. Op dit moment is er geen PowerShell- of API-methode beschikbaar.
+Hallo **configureren** tabblad van een directory bevat opties toocontrol toegang van gastgebruikers. Deze opties kunnen alleen worden gewijzigd in de klassieke Azure-portal door een hoofdbeheerder van de directory. Op dit moment is er geen PowerShell- of API-methode beschikbaar.
 
-Als u het tabblad **Configureren** wilt openen in de klassieke Azure-portal, selecteert u **Active Directory** en vervolgens de naam van de directory.
+Hallo tooopen **configureren** tabblad hello Azure classic portal, selecteer **Active Directory**, en selecteer vervolgens de naam Hallo van Hallo-directory.
 
 ![Het tabblad Configureren in Azure Active Directory][1]
 
-Vervolgens kunt u de opties voor het beheren van toegang van gastgebruikers bewerken.
+U kunt vervolgens Hallo opties toocontrol toegang van gastgebruikers bewerken.
 
 ![Opties voor het beheren van toegang voor gastgebruikers][2]
 

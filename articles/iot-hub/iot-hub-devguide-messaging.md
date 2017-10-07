@@ -1,5 +1,5 @@
 ---
-title: Inzicht in Azure IoT Hub messaging | Microsoft Docs
+title: messaging-aaaUnderstand Azure IoT Hub | Microsoft Docs
 description: Handleiding voor ontwikkelaars - apparaat-naar-cloud- en cloud-naar-apparaat met IoT Hub berichten. Bevat informatie over berichtindelingen en ondersteunde communicatieprotocollen.
 services: iot-hub
 documentationcenter: .net
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: f54398d7ac46bf178d2bb603669b399d25370736
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a610741e23e243f392f1c042f9ab4a00d42f734f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>Apparaat-naar-cloud- en cloud-naar-apparaat met IoT Hub messaging
 
-Gebruik IoT Hub messaging om te communiceren met uw apparaten met:
+Gebruik IoT Hub berichten toocommunicate met uw apparaten met:
 
-* Verzenden van [apparaat-naar-cloud] [ lnk-d2c] berichten van uw apparaten aan uw oplossing voor back-end.
-* Verzenden van [cloud-naar-apparaat] [ lnk-c2d] berichten van de oplossing voor back-end op uw apparaten.
+* Verzenden van [apparaat-naar-cloud] [ lnk-d2c] berichten van uw apparaten tooyour oplossing back-end.
+* Verzenden van [cloud-naar-apparaat] [ lnk-c2d] berichten van Hallo oplossing terug eindigen tooyour apparaten.
 
-Core-eigenschappen van de IoT Hub messaging-functionaliteit zijn de betrouwbaarheid en duurzaamheid van berichten. Deze eigenschappen inschakelen herstelmogelijkheden bij onregelmatige connectiviteit aan de kant van het apparaat en pieken in aan de kant van de cloud voor gebeurtenisverwerking laden. IoT Hub implementeert *ten minste eenmaal* levering wordt gegarandeerd dat voor zowel cloud-naar-apparaat als apparaat-naar-cloud-berichten.
+Core-eigenschappen van de IoT Hub messaging-functionaliteit zijn Hallo betrouwbaarheid en duurzaamheid van berichten. Deze eigenschappen herstelmogelijkheden toointermittent connectiviteit op Hallo apparaat aan clientzijde inschakelen en tooload bereikt in gebeurtenisverwerking Hallo cloud-zijde. IoT Hub implementeert *ten minste eenmaal* levering wordt gegarandeerd dat voor zowel cloud-naar-apparaat als apparaat-naar-cloud-berichten.
 
-Zie de artikelen voor een inleiding tot de mogelijkheden van IoT Hub, [Azure en Internet der dingen] [ lnk-azure-iot] en [overzicht van de service Azure IoT Hub][lnk-iot-hub-overview].
+Zie voor een inleiding toohello mogelijkheden van IoT Hub, Hallo artikelen [Azure en Internet der dingen] [ lnk-azure-iot] en [overzicht van de service Azure IoT Hub Hallo] [lnk-iot-hub-overview].
 
-## <a name="when-to-use-iot-hub-messaging"></a>Het gebruik van IoT-Hub messaging
+## <a name="when-toouse-iot-hub-messaging"></a>Wanneer toouse Iothub messaging
 
-Apparaat-naar-cloud-berichten voor het verzenden van time series Telemetrie en waarschuwingen uit de app op uw apparaat en cloud-naar-apparaat-berichten gebruiken voor eenzijdige meldingen app op uw apparaat.
+Apparaat-naar-cloud-berichten voor het verzenden van time series Telemetrie en waarschuwingen uit de app op uw apparaat en cloud-naar-apparaat-berichten voor eenzijdige meldingen tooyour apparaat app gebruiken.
 
-* Raadpleeg [apparaat-naar-cloud communicatie richtlijnen] [ lnk-d2c-guidance] indien in waarover twijfel bestaat tussen het gebruik van apparaat-naar-cloud-berichten, gemelde eigenschappen of bestand uploaden.
-* Raadpleeg [Cloud-naar-apparaat communicatie richtlijnen] [ lnk-c2d-guidance] indien in waarover twijfel bestaat tussen het gebruik van cloud-naar-apparaat-berichten, gewenste eigenschappen of directe methoden.
+* Raadpleeg te[apparaat-naar-cloud communicatie richtlijnen] [ lnk-d2c-guidance] indien in waarover twijfel bestaat tussen het gebruik van apparaat-naar-cloud-berichten, gemelde eigenschappen of bestand uploaden.
+* Raadpleeg te[Cloud-naar-apparaat communicatie richtlijnen] [ lnk-c2d-guidance] indien in waarover twijfel bestaat tussen het gebruik van cloud-naar-apparaat-berichten, gewenste eigenschappen of directe methoden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

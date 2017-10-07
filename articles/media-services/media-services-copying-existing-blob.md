@@ -1,6 +1,6 @@
 ---
-title: "Kopiëren van BLOB's van een opslagaccount naar een Azure Media Services-asset | Microsoft Docs"
-description: "Dit onderwerp leest hoe u een bestaande blob kopiëren naar een Media Services actief. Het voorbeeld wordt een Azure Media Services .NET SDK Extensions."
+title: aaaCopying blobs uit een opslagaccount naar een Azure Media Services-asset | Microsoft Docs
+description: Dit onderwerp wordt beschreven hoe een bestaande toocopy blob in een Media Services-Asset. Hallo voorbeeld maakt gebruik van Azure Media Services .NET SDK Extensions.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,26 +14,26 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: juliako
-ms.openlocfilehash: 2bc1f0114a096920d4a7c9cb57e44c9b3612bf86
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 40660e5cbb3698fb2b0bdf414751e47d367794da
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Bestaande blobs kopiëren naar een Media Services-activum
-Dit onderwerp wordt beschreven hoe blobs van een opslagaccount kopieert naar een nieuw Azure Media Services (AMS) asset met [Azure Media Services .NET SDK Extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
+Dit onderwerp wordt beschreven hoe toocopy blobs uit een opslagaccount in een nieuw Azure Media Services (AMS) asset met [Azure Media Services .NET SDK Extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
 
-De uitbreidingsmethoden werkt met:
+Hallo uitbreidingsmethoden werkt met:
 
 - Gewone activa.
 - Live archief activa (FragBlob-indeling).
-- Bron- en doelserver activa die behoren tot verschillende Media Services-account (zelfs op verschillende datacenters). Echter, mogelijk zijn er kosten door dit te doen. Zie voor meer informatie over prijzen [gegevensoverdrachten](https://azure.microsoft.com/pricing/#header-11).
+- Bron- en doelserver tegoeden die eigendom zijn toodifferent Media Services-accounts (zelfs op verschillende datacenters). Echter, mogelijk zijn er kosten door dit te doen. Zie voor meer informatie over prijzen [gegevensoverdrachten](https://azure.microsoft.com/pricing/#header-11).
 
 > [!NOTE]
-> U moet niet proberen om de inhoud van de blob-containers die zijn gegenereerd door Media Services zonder gebruik van Media Service-API's te wijzigen.
+> U moet niet proberen toochange Hallo inhoud van de blob-containers die zijn gegenereerd door Media Services zonder gebruik van Media Service-API's.
 > 
 
-Het onderwerp bevat twee codevoorbeelden:
+Hallo onderwerp bevat twee codevoorbeelden:
 
 1. Kopieer blobs uit een actief in één AMS-account in een nieuwe asset in een ander AMS-account.
 2. Blobs van sommige opslagaccount kopieert naar een nieuwe asset in een AMS-account.
@@ -42,16 +42,16 @@ Het onderwerp bevat twee codevoorbeelden:
 
 ### <a name="prerequisites"></a>Vereisten
 
-Twee Media Services-accounts. Zie het onderwerp [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie.
+Twee Media Services-accounts. Zie onderwerp Hallo [hoe tooCreate een Media Services-Account](media-services-portal-create-account.md).
 
 ### <a name="download-sample"></a>Voorbeeld downloaden
-U kunt de stappen in dit artikel of u kunt een steekproef die het bevat de code die wordt beschreven in dit artikel downloaden [hier](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
+U kunt Hallo stappen in dit artikel of u kunt een steekproef die het Hallo-code die wordt beschreven in dit artikel bevat downloaden [hier](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
 
 ### <a name="set-up-your-project"></a>Instellen van uw project
 
 1. Uw ontwikkelomgeving instellen, zoals beschreven in [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md). 
 2. Voeg andere verwijzingen die vereist voor dit project zijn toe: System.Configuration.
-3. De sectie appSettings toevoegen aan het .config-bestand en werk de waarden op basis van uw Media Services-accounts, het doelopslagaccount en de id van de bron actief.  
+3. Hallo appSettings sectie toohello .config-bestand en update Hallo waarden op basis van uw Media Services-accounts, Hallo doelopslagaccount en bron, asset-ID. Hallo toevoegen  
 
 ```   
 <appSettings>
@@ -67,7 +67,7 @@ U kunt de stappen in dit artikel of u kunt een steekproef die het bevat de code 
 
 ### <a name="copy-blobs-from-an-asset-in-one-ams-account-into-an-asset-in-another-ams-account"></a>Blobs kopiëren van een activum in één AMS-account in een actief in een ander AMS-account
 
-De volgende code maakt gebruik van uitbreiding **IAsset.Copy** methode alle bestanden in de asset bron kopiëren naar de bestemming asset met behulp van slechts één uitbreiding.
+Hallo volgende code maakt gebruik van uitbreiding **IAsset.Copy** methode toocopy alle bestanden in Hallo bron asset in Hallo bestemming asset met behulp van slechts één uitbreiding.
 
 ```
 using System;
@@ -98,23 +98,23 @@ namespace CopyExistingBlobsIntoAsset
             var tokenCredentials2 = new AzureAdTokenCredentials(_destAADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
             var tokenProvider2 = new AzureAdTokenProvider(tokenCredentials2);
 
-            // Create the context for your source Media Services account.
+            // Create hello context for your source Media Services account.
             _sourceContext = new CloudMediaContext(new Uri(_sourceRESTAPIEndpoint), tokenProvider1);
 
-            // Create the context for your destination Media Services account.
+            // Create hello context for your destination Media Services account.
             _destContext = new CloudMediaContext(new Uri(_destRESTAPIEndpoint), tokenProvider2);
 
-            // Get the credentials of the default Storage account bound to your destination Media Services account.
+            // Get hello credentials of hello default Storage account bound tooyour destination Media Services account.
             StorageCredentials destinationStorageCredentials =
                 new StorageCredentials(_destStorageAccountName, _destStorageAccountKey);
 
-            // Get a reference to the source asset in the source context.
+            // Get a reference toohello source asset in hello source context.
             IAsset sourceAsset = _sourceContext.Assets.Where(a => a.Id == _sourceAssetID).First();
 
-            // Create an empty destination asset in the destination context.
+            // Create an empty destination asset in hello destination context.
             IAsset destinationAsset = _destContext.Assets.Create(sourceAsset.Name, AssetCreationOptions.None);
 
-            // Copy the files in the source asset instance into the destination asset instance.
+            // Copy hello files in hello source asset instance into hello destination asset instance.
             sourceAsset.Copy(destinationAsset, destinationStorageCredentials);
 
             Console.WriteLine("Done");
@@ -127,14 +127,14 @@ namespace CopyExistingBlobsIntoAsset
 
 ### <a name="prerequisites"></a>Vereisten
 
-- Een opslagaccount van waaruit u wilt kopiëren van BLOB's.
-- Een AMS-account waarin u wilt kopiëren van BLOB's.
+- Een opslagaccount van waaruit u wilt dat toocopy blobs.
+- Een AMS-account waarin u wilt dat toocopy blobs.
 
 ### <a name="set-up-your-project"></a>Instellen van uw project
 
 1. Uw ontwikkelomgeving instellen, zoals beschreven in [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md). 
 2. Voeg andere verwijzingen die vereist voor dit project zijn toe: System.Configuration.
-3. De sectie appSettings toevoegen aan het .config-bestand en werk de waarden op basis van de bron-opslag- en doelserver AMS-accounts.
+3. Hallo appSettings sectie toohello .config-bestand en het Hallo-waarden bijwerken op basis van uw opslag van de bron en bestemming AMS-accounts toevoegen.
 
 ```
 <appSettings>
@@ -149,10 +149,10 @@ namespace CopyExistingBlobsIntoAsset
 
 ### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-a-ams-account"></a>Blobs van sommige opslagaccount kopiëren naar een nieuwe asset in een AMS-account
 
-De volgende code opgehaald blobs uit een opslagaccount in een Media Services-asset. 
+Hallo volgende code kopieën blobs uit een opslagaccount in een Media Services-asset. 
 
 >[!NOTE]
->Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
+>Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). Hallo moet u dezelfde beleids-ID als u altijd dezelfde Hallo dagen / toegangsmachtigingen, bijvoorbeeld een beleid voor locators die beoogde tooremain aanwezig gedurende een lange periode (niet-upload policies zijn). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
 
 ```
 using System;
@@ -167,7 +167,7 @@ namespace CopyExistingBlobsIntoAsset
 {
     class Program
     {
-        // Read values from the App.config file.
+        // Read values from hello App.config file.
         private static readonly string _AMSAADTenantDomain =
             ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _AMSRESTAPIEndpoint =
@@ -192,7 +192,7 @@ namespace CopyExistingBlobsIntoAsset
                 AzureEnvironments.AzureCloudEnvironment);
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-            // Create the context for your source Media Services account.
+            // Create hello context for your source Media Services account.
             _context = new CloudMediaContext(new Uri(_AMSRESTAPIEndpoint), tokenProvider);
             
             _sourceStorageAccount =
@@ -226,7 +226,7 @@ namespace CopyExistingBlobsIntoAsset
             ILocator destinationLocator =
                 _context.Locators.CreateLocator(LocatorType.Sas, asset, writePolicy);
 
-            // Get the asset container URI and Blob copy from mediaContainer to assetContainer. 
+            // Get hello asset container URI and Blob copy from mediaContainer tooassetContainer. 
             CloudBlobContainer destAssetContainer =
                 destBlobStorage.GetContainerReference((new Uri(destinationLocator.Path)).Segments[1]);
 
@@ -258,14 +258,14 @@ namespace CopyExistingBlobsIntoAsset
             destinationLocator.Delete();
             writePolicy.Delete();
 
-            // Set the primary asset file.
+            // Set hello primary asset file.
             // If, for example, we copied a set of Smooth Streaming files, 
-            // set the .ism file to be the primary file. 
-            // If we, for example, copied an .mp4, then the mp4 would be the primary file. 
+            // set hello .ism file toobe hello primary file. 
+            // If we, for example, copied an .mp4, then hello mp4 would be hello primary file. 
             var ismAssetFile = asset.AssetFiles.ToList().
                 Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).ToArray().FirstOrDefault();
 
-            // The following code assigns the first .ism file as the primary file in the asset.
+            // hello following code assigns hello first .ism file as hello primary file in hello asset.
             // An asset should have one .ism file.  
             if (ismAssetFile != null)
             {
@@ -277,10 +277,10 @@ namespace CopyExistingBlobsIntoAsset
         }
 
         /// <summary>
-        /// Copies the specified blob into the specified container.
+        /// Copies hello specified blob into hello specified container.
         /// </summary>
-        /// <param name="sourceBlob">The source container.</param>
-        /// <param name="destinationContainer">The destination container.</param>
+        /// <param name="sourceBlob">hello source container.</param>
+        /// <param name="destinationContainer">hello destination container.</param>
         static private void CopyBlob(ICloudBlob sourceBlob, CloudBlobContainer destinationContainer)
         {
             var signature = sourceBlob.GetSharedAccessSignature(new SharedAccessBlobPolicy
@@ -298,17 +298,17 @@ namespace CopyExistingBlobsIntoAsset
             else
             {
 
-                // Display the size of the source blob.
+                // Display hello size of hello source blob.
                 Console.WriteLine(sourceBlob.Properties.Length);
 
-                Console.WriteLine(string.Format("Copy blob '{0}' to '{1}'", sourceBlob.Uri, destinationBlob.Uri));
+                Console.WriteLine(string.Format("Copy blob '{0}' too'{1}'", sourceBlob.Uri, destinationBlob.Uri));
                 destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + signature));
 
                 while (true)
                 {
-                    // The StartCopyFromBlob is an async operation, 
-                    // so we want to check if the copy operation is completed before proceeding. 
-                    // To do that, we call FetchAttributes on the blob and check the CopyStatus. 
+                    // hello StartCopyFromBlob is an async operation, 
+                    // so we want toocheck if hello copy operation is completed before proceeding. 
+                    // toodo that, we call FetchAttributes on hello blob and check hello CopyStatus. 
                     destinationBlob.FetchAttributes();
                     if (destinationBlob.CopyState.Status != CopyStatus.Pending)
                     {
@@ -318,7 +318,7 @@ namespace CopyExistingBlobsIntoAsset
                     System.Threading.Thread.Sleep(1000);
                 }
 
-                // Display the size of the destination blob.
+                // Display hello size of hello destination blob.
                 Console.WriteLine(destinationBlob.Properties.Length);
 
             }
@@ -330,7 +330,7 @@ namespace CopyExistingBlobsIntoAsset
 
 U kunt nu de geüploade assets coderen. Zie [Assets coderen](media-services-portal-encode.md) voor meer informatie.
 
-U kunt ook Azure Functions gebruiken om een coderingstaak te activeren op basis van een bestand dat binnenkomt in de geconfigureerde container. Zie [dit voorbeeld](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ) voor meer informatie.
+U kunt ook Azure Functions tootrigger een codeertaak op basis van een bestand in container Hallo geconfigureerd die binnenkomen. Zie [dit voorbeeld](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ) voor meer informatie.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

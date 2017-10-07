@@ -1,6 +1,6 @@
 ---
-title: Gegevens in Azure blob storage met Pandas | Microsoft Docs
-description: Hoe gegevens die zijn opgeslagen in Azure blob-container met Pandas verkennen.
+title: aaaExplore gegevens in Azure blob-opslag met Pandas | Microsoft Docs
+description: Hoe tooexplore gegevens die zijn opgeslagen in Azure blob-container met behulp van Pandas.
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.openlocfilehash: e1b33b17270122a38228484a56c8324c5b4505a0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 28f3c0aebf2300006066c4b19dcb1f0a76a1deb2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Met Pandas gegevens verkennen in Azure Blok-opslag
-Dit document wordt beschreven hoe gegevens die zijn opgeslagen in het gebruik van Azure blob-container verkennen [Pandas](http://pandas.pydata.org/) Python-pakket.
+Dit document bevat informatie over hoe tooexplore gegevens die zijn opgeslagen in Azure blob-container met behulp van [Pandas](http://pandas.pydata.org/) Python-pakket.
 
-De volgende **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u gegevens uit verschillende omgevingen met opslag verkennen met behulp van hulpprogramma's. Deze taak is een stap in de [gegevens wetenschap proces]().
+Hallo volgende **menu** tootopics waarin wordt beschreven hoe toouse hulpprogramma's voor tooexplore gegevens uit verschillende omgevingen voor opslag is gekoppeld. Deze taak is een stap in Hallo [gegevens wetenschap proces]().
 
 [!INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
@@ -31,12 +31,12 @@ De volgende **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u 
 In dit artikel wordt ervan uitgegaan dat u hebt:
 
 * Een Azure storage-account gemaakt. Als u instructies nodig hebt, raadpleegt u [een Azure Storage-account maken](../storage/common/storage-create-storage-account.md#create-a-storage-account)
-* Uw gegevens opgeslagen in een Azure blob storage-account. Als u instructies nodig hebt, raadpleegt u [verplaatsen van gegevens naar en van Azure Storage](../storage/common/storage-moving-data.md)
+* Uw gegevens opgeslagen in een Azure blob storage-account. Als u instructies nodig hebt, raadpleegt u [Moving gegevens tooand uit Azure Storage](../storage/common/storage-moving-data.md)
 
-## <a name="load-the-data-into-a-pandas-dataframe"></a>De gegevens in een DataFrame Pandas laden
-Om te verkennen en het bewerken van een gegevensset, moet deze eerst worden gedownload van de bron van de blob naar een lokaal bestand, die vervolgens kan worden geladen in een DataFrame Pandas. Hier volgen de stappen voor deze procedure:
+## <a name="load-hello-data-into-a-pandas-dataframe"></a>Hallo gegevens laden in een DataFrame Pandas
+tooexplore en manipuleren van een gegevensset, moet eerst worden gedownload vanuit het Hallo blob bron tooa lokale bestand, die vervolgens kan worden geladen in een DataFrame Pandas. Hier volgen Hallo stappen toofollow voor deze procedure:
 
-1. Download de gegevens van Azure-blob met de volgende Python-codevoorbeeld met behulp van blob-service. De variabele in de volgende code vervangen door uw eigen specifieke waarden: 
+1. Hallo gegevens downloaden vanaf Azure blob met Hallo Python-codevoorbeeld met behulp van blob-service te volgen. Hallo-variabele in Hallo na de code die uw specifieke waarden vervangt: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -52,52 +52,52 @@ Om te verkennen en het bewerken van een gegevensset, moet deze eerst worden gedo
         blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
         blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
         t2=time.time()
-        print(("It takes %s seconds to download "+blobname) % (t2 - t1))
-2. De gegevens in een Pandas gegevens tijdskader uit het gedownloade bestand gelezen.
+        print(("It takes %s seconds toodownload "+blobname) % (t2 - t1))
+2. Hallo-gegevens lezen in een Pandas gegevens tijdskader van Hallo gedownload bestand.
    
-        #LOCALFILE is the file path    
+        #LOCALFILE is hello file path    
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-U bent nu klaar voor de gegevens verkennen en het genereren van functies op deze dataset.
+Nu u bent gereed tooexplore Hallo gegevens en genereren van de functies voor deze gegevensset.
 
 ## <a name="blob-dataexploration"></a>Voorbeelden van gegevensverkenning met Pandas
-Hier volgen enkele voorbeelden van methoden voor het verkennen van gegevens met behulp van Pandas:
+Hier volgen enkele voorbeelden van de manieren tooexplore-gegevens met behulp van Pandas:
 
-1. Inspecteer de **aantal rijen en kolommen** 
+1. Hallo inspecteren **aantal rijen en kolommen** 
    
-        print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
-2. **Inspecteer** enkele van de eerste of laatste **rijen** in de volgende gegevensset:
+        print 'hello size of hello data is: %d rows and  %d columns' % dataframe_blobdata.shape
+2. **Inspecteer** eerste of laatste paar Hallo **rijen** in Hallo gegevensset te volgen:
    
         dataframe_blobdata.head(10)
    
         dataframe_blobdata.tail(10)
-3. Controleer de **gegevenstype** elke kolom is geïmporteerd als het gebruik van de volgende voorbeeldcode
+3. Controleer de Hallo **gegevenstype** elke kolom is geïmporteerd als het gebruik van de volgende voorbeeldcode Hallo
    
         for col in dataframe_blobdata.columns:
             print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
-4. Controleer de **elementaire statistieken** voor de kolommen in de gegevens als volgt instellen
+4. Controleer de Hallo **elementaire statistieken** voor Hallo kolommen in gegevensset als volgt Hallo
    
         dataframe_blobdata.describe()
-5. Het aantal items voor elke waarde in de kolom als volgt bekijken
+5. Bekijkt hello aantal items voor elke waarde in de kolom als volgt
    
         dataframe_blobdata['<column_name>'].value_counts()
-6. **Ontbrekende waarden tellen** ten opzichte van het werkelijke aantal vermeldingen in elke kolom met de volgende voorbeeldcode
+6. **Ontbrekende waarden tellen** versus werkelijke aantal vermeldingen in elke kolom met de volgende voorbeeldcode Hallo Hallo
    
         miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
         print miss_num
-7. Als u hebt **ontbrekende waarden** voor een specifieke kolom in de gegevens verwijderen ze als volgt:
+7. Als u hebt **ontbrekende waarden** voor een specifieke kolom in Hallo gegevens verwijderen ze als volgt:
    
      dataframe_blobdata_noNA dataframe_blobdata.dropna() dataframe_blobdata_noNA.shape =
    
-   Ontbrekende waarden te vervangen op een andere manier is met de modusfunctie:
+   Er is een andere manier tooreplace ontbrekende waarden met Hallo modusfunctie:
    
      dataframe_blobdata_mode dataframe_blobdata.fillna = ({< column_name >: .mode()[0]}) dataframe_blobdata ['< column_name >"]        
-8. Maak een **histogram** getekend met een variabele aantal opslaglocaties uitzetten van de distributie van een variabele    
+8. Maak een **histogram** getekend met een variabele aantal opslaglocaties tooplot Hallo distributie van een variabele    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
    
         np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
-9. Bekijk **correlaties** tussen variabelen met behulp van een scatterplot of via de ingebouwde correlatiefunctie
+9. Bekijk **correlaties** tussen variabelen met een scatterplot of functie van de ingebouwde correlation Hallo
    
         #relationship between column_a and column_b using scatter plot
         plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])

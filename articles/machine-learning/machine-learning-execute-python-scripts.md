@@ -1,5 +1,5 @@
 ---
-title: Python machine learning-scripts uitvoeren | Microsoft Docs
+title: aaaExecute Python machine learning-scripts | Microsoft Docs
 description: Overzichten ontwerp grondbeginselen ondersteuning voor Python-scripts in Azure Machine Learning en basic gebruiksscenario's, mogelijkheden en beperkingen.
 keywords: Python machine learning pandas, python pandas, python-scripts, python-scripts uitvoeren
 services: machine-learning
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: bradsev
-ms.openlocfilehash: e8d6377bc939e6711a96e521b5f574fc8d060929
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8d23aaa972a46cb1a07ea0f18cc1e24933fe3e6f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Python-scripts voor Machine Learning uitvoeren in Azure Machine Learning Studio
 
-Dit onderwerp beschrijft de beginselen ontwerp is de huidige ondersteuning voor Python-scripts in Azure Machine Learning onderliggende. De belangrijkste mogelijkheden worden ook beschreven, met inbegrip van:
+Dit onderwerp beschrijft Hallo ontwerp grondbeginselen Hallo huidige ondersteuning voor Python-scripts in Azure Machine Learning. Hallo belangrijkste mogelijkheden worden ook beschreven, met inbegrip van:
 
 - basic-gebruiksscenario's uitvoeren
 - een experiment beoordelen in een webservice
@@ -32,7 +32,7 @@ Dit onderwerp beschrijft de beginselen ontwerp is de huidige ondersteuning voor 
 - onder supervisie Functieselectie uitvoeren
 - enkele beperkingen begrijpen
 
-[Python](https://www.python.org/) is een onmisbaar hulpmiddel bij het hulpprogramma borst van veel gegevenswetenschappers. Heeft:
+[Python](https://www.python.org/) is een onmisbaar hulpmiddel bij Hallo hulpprogramma borst van veel gegevenswetenschappers. Heeft:
 
 * een syntaxis elegante en beknopt 
 * ondersteuning voor meerdere platforms 
@@ -45,7 +45,7 @@ Python wordt gebruikt in alle fasen van een werkstroom die doorgaans in machine 
 - functie constructie
 - model trainen 
 - validatie van
-- implementatie van de modellen
+- implementatie van Hallo modellen
 
 Azure Machine Learning Studio ondersteunt insluiten Python-scripts in diverse delen van een machine learning-experiment, en ze ook naadloos publiceren als een webservices op Microsoft Azure.
 
@@ -54,58 +54,58 @@ Azure Machine Learning Studio ondersteunt insluiten Python-scripts in diverse de
 
 ## <a name="design-principles-of-python-scripts-in-machine-learning"></a>Principes van Python-scripts in Machine Learning
 
-De primaire interface met Python in Azure Machine Learning Studio is via de [Python Script uitvoeren] [ execute-python-script] module weergegeven in afbeelding 1.
+Hallo primaire interface tooPython in Azure Machine Learning Studio is via Hallo [Python Script uitvoeren] [ execute-python-script] module weergegeven in afbeelding 1.
 
 ![image1](./media/machine-learning-execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
 ![image2](./media/machine-learning-execute-python-scripts/embedded-machine-learning-python-script.png)
 
-Afbeelding 1. De **Python Script uitvoeren** module.
+Afbeelding 1. Hallo **Python Script uitvoeren** module.
 
-De [Python Script uitvoeren] [ execute-python-script] -module in de Azure ML Studio maximaal drie invoer accepteert en maximaal twee uitvoer (beschreven in de volgende sectie), zoals de analoog R produceert de [R uitvoeren Script] [ execute-r-script] module. De Python-code wordt uitgevoerd is ingevoerd in het parametervak als een speciaal benoemde toegangspunt aangeroepen functie `azureml_main`. Hier volgen de belangrijkste principes gebruikt voor het implementeren van deze module:
+Hallo [Python Script uitvoeren] [ execute-python-script] -module in de Azure ML Studio up toothree invoer accepteert en produceert up tootwo uitvoer (beschreven in de volgende sectie Hallo), zoals de analoog R hello [ R-Script uitvoeren] [ execute-r-script] module. Hello Python code toobe uitgevoerd, wordt in ingevoerd Hallo parameter box als een speciaal benoemde toegangspunt aangeroepen functie `azureml_main`. Hier vindt u belangrijke Hallo-ontwerp principes tooimplement gebruikt deze module:
 
-1. *Moet idiomatische voor Python-gebruikers.* De meeste Python gebruikers rekening te houden met de code als functies in modules. Dus als een groot aantal uitvoerbare instructies in een module op het hoogste niveau is relatief zeldzame. Het script wordt hierdoor ook een speciaal benoemde Python-functie in plaats van alleen een reeks instructies. De objecten worden weergegeven in de functie zijn Python-bibliotheek Standaardtypen zoals [Pandas](http://pandas.pydata.org/) gegevensframes en [NumPy](http://www.numpy.org/) matrices.
-2. *Hoogwaardige tussen lokale moet hebben en in de cloud uitvoeringen.* De back-end gebruikt voor het uitvoeren van de Python-code is gebaseerd op [Anaconda](https://store.continuum.io/cshop/anaconda/), een veelgebruikte platformoverschrijdende wetenschappelijke Python-distributie. Het wordt geleverd met bijna 200 van de meest voorkomende Python-pakketten. Daarom gegevenswetenschappers voor foutopsporing en de code op hun lokale Azure Machine Learning-compatibele Anaconda-omgeving te kwalificeren. Gebruik vervolgens een bestaande ontwikkelomgeving, zoals [IPython](http://ipython.org/) notebook of [Python-Tools voor Visual Studio](http://aka.ms/ptvs), uit te voeren als onderdeel van een Azure ML-experiment. De `azureml_main` ingangspunt is een vanilla Python-functie en kan dus *** zonder Azure ML-specifieke code of de SDK geïnstalleerd worden geschreven.
-3. *Moet naadloos samenstelbare met andere Azure Machine Learning-modules.* De [Python Script uitvoeren] [ execute-python-script] module accepteert als invoer en uitvoer, standaard Azure Machine Learning-gegevenssets. De onderliggende structuur verbinding transparant en efficiënt van de Azure ML en Python runtimes. Dus kan Python worden gebruikt in combinatie met de bestaande Azure ML-werkstromen, inclusief verbindingen die gebruikmaken van R en SQLite. Een resultaat gegevens wetenschappelijk kan opstellen werkstromen die:
+1. *Moet idiomatische voor Python-gebruikers.* De meeste Python gebruikers rekening te houden met de code als functies in modules. Dus als een groot aantal uitvoerbare instructies in een module op het hoogste niveau is relatief zeldzame. Als gevolg hiervan neemt Hallo script vak ook een speciaal benoemde Python-functie als toojust tegenstelling tot een reeks instructies. Hallo objecten worden weergegeven in de functie Hallo zijn Python-bibliotheek Standaardtypen zoals [Pandas](http://pandas.pydata.org/) gegevensframes en [NumPy](http://www.numpy.org/) matrices.
+2. *Hoogwaardige tussen lokale moet hebben en in de cloud uitvoeringen.* Hallo back-end gebruikt tooexecute Hallo Python-code op basis van [Anaconda](https://store.continuum.io/cshop/anaconda/), een veelgebruikte platformoverschrijdende wetenschappelijke Python-distributie. Het wordt geleverd met sluiten too200 van Hallo meest voorkomende Python-pakketten. Daarom gegevenswetenschappers voor foutopsporing en de code op hun lokale Azure Machine Learning-compatibele Anaconda-omgeving te kwalificeren. Gebruik vervolgens een bestaande ontwikkelomgeving, zoals [IPython](http://ipython.org/) notebook of [Python-Tools voor Visual Studio](http://aka.ms/ptvs), toorun als onderdeel van een Azure ML-experiment. Hallo `azureml_main` ingangspunt is een vanilla Python-functie en kan dus *** zonder Azure ML-specifieke code worden geschreven of Hallo SDK is geïnstalleerd.
+3. *Moet naadloos samenstelbare met andere Azure Machine Learning-modules.* Hallo [Python Script uitvoeren] [ execute-python-script] module accepteert als invoer en uitvoer, standaard Azure Machine Learning-gegevenssets. de onderliggende structuur Hallo verbinding transparant en efficiënt hello Azure ML en Python runtimes. Dus kan Python worden gebruikt in combinatie met de bestaande Azure ML-werkstromen, inclusief verbindingen die gebruikmaken van R en SQLite. Een resultaat gegevens wetenschappelijk kan opstellen werkstromen die:
    * Python en Pandas gebruiken voor gegevens vooraf verwerken en opschonen
-   * de gegevens naar een SQL-transformatie, het samenvoegen van meerdere gegevenssets met formulier functies feed
-   * met behulp van de algoritmen in Azure Machine Learning modellen trainen 
-   * evalueren en verwerk de resultaten in R.
+   * feed Hallo tooa SQL gegevenstransformatie, meerdere gegevenssets tooform functies toevoegen
+   * Hallo-algoritmen gebruiken in Azure Machine Learning modellen trainen 
+   * evalueren en verwerk Hallo resultaten weergeven in R.
 
 
 ## <a name="basic-usage-scenarios-in-ml-for-python-scripts"></a>Basic-gebruiksscenario's in ML voor Python-scripts
 
-In deze sectie enquête we enkele eenvoudige gebruikt de [Python Script uitvoeren] [ execute-python-script] module. Invoer voor de Python-module worden weergegeven als Pandas gegevensframes. De functie moet een enkel Pandas gegevensframe binnen een Python-pakket retourneren [reeks](https://docs.python.org/2/c-api/sequence.html) zoals een tuple, lijst of NumPy matrix. Het eerste element van deze reeks wordt vervolgens geretourneerd in de eerste uitvoerpoort van de module. Dit schema wordt weergegeven in afbeelding 2.
+In deze sectie we enkele Hallo basic maakt gebruik van Hallo enquête [Python Script uitvoeren] [ execute-python-script] module. Invoer toohello Python-module worden weergegeven als Pandas gegevensframes. Hallo functie moet retourneren één Pandas gegevensframe verpakt binnen een Python [reeks](https://docs.python.org/2/c-api/sequence.html) zoals een tuple, lijst of NumPy matrix. Hallo eerste element van deze reeks wordt vervolgens Hallo eerste uitvoerpoort van Hallo module geretourneerd. Dit schema wordt weergegeven in afbeelding 2.
 
 ![image3](./media/machine-learning-execute-python-scripts/map-of-python-script-inputs-outputs.png)
 
-Afbeelding 2. Toewijzing van poorten parameters invoer- en retourwaarde naar uitvoerpoort.
+Afbeelding 2. Toewijzing van poorten tooparameters invoer- en retourwaarde toooutput poort.
 
-Meer gedetailleerde semantiek van hoe de ingangspoorten aan de parameters van toegewezen de `azureml_main` functie worden weergegeven in tabel 1:
+Meer gedetailleerde semantiek van hoe Hallo ingangspoorten toegewezen tooparameters Hallo downloaden `azureml_main` functie worden weergegeven in tabel 1:
 
 ![image1T](./media/machine-learning-execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
-Tabel 1. Toewijzing van ingangspoorten voor functieparameters.
+Tabel 1. Toewijzing van ingangspoorten toofunction parameters.
 
-De toewijzing tussen ingangspoorten en functieparameters is positionele:
+Hallo-toewijzing tussen ingangspoorten en functieparameters is positionele:
 
-- De eerste verbonden invoerpoort is toegewezen aan de eerste parameter van de functie. 
-- De tweede invoer (indien verbonden) is toegewezen aan de tweede parameter van de functie.
+- Hallo eerste verbonden invoerpoort is toegewezen toohello eerste parameter van Hallo-functie. 
+- Hallo tweede invoer (indien verbonden) is toegewezen toohello tweede parameter van Hallo-functie.
 
-Zie *Python voor gegevensanalyse* (O'Reilly 2012) door West McKinney voor meer informatie over Python Pandas en hoe deze kan worden gebruikt om gegevens te bewerken effectiever en efficiënter. 
+Zie *Python voor gegevensanalyse* (O'Reilly 2012) door West McKinney voor meer informatie over Python Pandas en hoe deze gegevens gebruikte toomanipulate effectiever en efficiënter kan zijn. 
 
 
 ## <a name="translation-of-input-and-output-types"></a>De vertaling van invoer en uitvoer typen 
-Invoergegevenssets in Azure ML worden geconverteerd naar gegevensframes in Pandas. Gegevensframes uitvoer worden terug naar de Azure ML-gegevenssets geconverteerd. De volgende conversies worden uitgevoerd:
+Invoergegevenssets in Azure ML zijn geconverteerde toodata frames in Pandas. Uitvoer gegevensframes omgezet back tooAzure ML gegevenssets. Hallo na conversies worden uitgevoerd:
 
-1. De tekenreeks en de numerieke kolommen worden geconverteerd als-is en de ontbrekende waarden in een gegevensset worden geconverteerd naar 'N.V.T.' waarden in Pandas. De dezelfde conversie wordt uitgevoerd op de manier waarop terug (NB-waarden in Pandas worden geconverteerd naar de ontbrekende waarden in de Azure ML).
-2. Index aanvalsvectoren in Pandas worden niet ondersteund in Azure ML. Alle ingevoerde gegevensframes in de functie Python hebben altijd een 64-bits numerieke index van 0 tot het aantal rijen min 1. 
-3. Azure ML-gegevenssets geen dubbele kolomnamen en kolomnamen, die geen tekenreeksen zijn. Als een frame uitvoer-gegevens niet-numerieke kolommen bevat, wordt het framework roept `str` op de kolomnamen. Ook zijn eventuele dubbele kolomnamen automatisch vervormd om te zorgen dat de namen uniek zijn. Het achtervoegsel (2) is toegevoegd aan de eerste kopie, (3) naar de tweede dubbel, enzovoort.
+1. Zo worden geconverteerd als tekenreeks en numerieke kolommen-is en de ontbrekende waarden in een gegevensset zijn geconverteerde too'NA' waarden in Pandas. Hallo dezelfde conversie wordt uitgevoerd op Hallo manier terug (NB-waarden in Pandas zijn geconverteerde toomissing waarden in de Azure ML).
+2. Index aanvalsvectoren in Pandas worden niet ondersteund in Azure ML. Alle ingevoerde gegevensframes in Hallo Python functie hebben altijd een numerieke index van de 64-bits van 0 toohello aantal rijen min 1. 
+3. Azure ML-gegevenssets geen dubbele kolomnamen en kolomnamen, die geen tekenreeksen zijn. Als een frame uitvoer-gegevens niet-numerieke kolommen bevat, Hallo framework aanroepen `str` op Hallo kolomnamen. Ook eventuele dubbele kolomnamen zijn automatisch vervormde tooinsure Hallo namen uniek zijn. Hallo-achtervoegsel (2) toegevoegd toohello eerste duplicaat, (3) de tweede dubbele toohello, enzovoort.
 
 
 ## <a name="operationalizing-python-scripts"></a>Operationele Python-scripts
 
-Alle [Python Script uitvoeren] [ execute-python-script] modules die worden gebruikt in een score experiment worden aangeroepen wanneer gepubliceerd als een webservice. Afbeelding 3 ziet u bijvoorbeeld een score experiment met de code voor een enkele Python-expressie niet evalueren. 
+Alle [Python Script uitvoeren] [ execute-python-script] modules die worden gebruikt in een score experiment worden aangeroepen wanneer gepubliceerd als een webservice. Afbeelding 3 ziet u bijvoorbeeld een score experiment met Hallo code tooevaluate één Python-expressie. 
 
 ![image4](./media/machine-learning-execute-python-scripts/figure3a.png)
 
@@ -116,15 +116,15 @@ Afbeelding 3. Web-service voor het evalueren van een Python-expressie.
 Een webservice die is gemaakt op basis van dit experiment:
 
 - neemt als invoer een Python-expressie (als tekenreeks)
-- verzendt het naar de Python-interpreter 
-- retourneert een tabel met zowel het geëvalueerde resultaat als de expressie.
+- verzendt het Python-interpreter toohello 
+- retourneert een tabel die zowel Hallo expressie als resultaat Hallo geëvalueerd.
 
 
 ## <a name="importing-existing-python-script-modules"></a>Bestaande Python scriptmodules importeren
 
-Een algemene gebruiksvoorbeeld voor veel gegevenswetenschappers is het opnemen van bestaande Python-scripts in Azure ML-experimenten. In plaats van dat alle code worden samengevoegd en in een vak één script worden geplakt, vereisen de [Python Script uitvoeren] [ execute-python-script] module een zipbestand met Python-modules op de derde invoerpoort accepteert. Het bestand is door het framework worden uitgevoerd tijdens runtime zijn uitgepakt en de inhoud worden toegevoegd aan het bibliotheekpad van Python-interpreter. De `azureml_main` toegangspunt dat deze modules kunt vervolgens rechtstreeks importeren door de functie.
+Een algemene gebruiksvoorbeeld voor veel gegevenswetenschappers is tooincorporate bestaande Python-scripts in Azure ML-experimenten. In plaats van het vereist dat alle code worden samengevoegd en in een vak één script worden geplakt, Hallo [Python Script uitvoeren] [ execute-python-script] module een zipbestand met Python-modules op de derde invoerpoort Hallo accepteert. Hallo-bestand is uitgepakt door Hallo uitvoering framework tijdens runtime en Hallo inhoud toohello bibliotheekpad van Python-interpreter Hallo worden toegevoegd. Hallo `azureml_main` toegangspunt dat deze modules kunt vervolgens rechtstreeks importeren door de functie.
 
-Een voorbeeld kunt u het bestand met een eenvoudige "Hallo, wereld" functie Hello.py.
+Hallo-bestand met een eenvoudige "Hallo, wereld" functie Hello.py kunt u een voorbeeld.
 
 ![image6](./media/machine-learning-execute-python-scripts/figure4.png)
 
@@ -136,7 +136,7 @@ Vervolgens maken we een bestand Hello.zip Hello.py met:
 
 Afbeelding 5. ZIP-bestand met de gebruiker gedefinieerde Python-code.
 
-Upload het zip-bestand als een gegevensset naar Azure Machine Learning Studio. Vervolgens maken en uitvoeren van een experiment die gebruikmaakt van de Python-code in het bestand Hello.zip door het image koppelt aan de derde invoerpoort van de **Python Script uitvoeren** module, zoals weergegeven in deze afbeelding.
+Hallo zip-bestand uploaden als een gegevensset in Azure Machine Learning Studio. Vervolgens maken en uitvoeren van een experiment die gebruikmaakt van Hallo Python-code in Hallo Hello.zip bestand door het koppelen van toohello derde invoerpoort Hallo **Python Script uitvoeren** module, zoals weergegeven in deze afbeelding.
 
 ![image8](./media/machine-learning-execute-python-scripts/figure6a.png)
 
@@ -144,31 +144,31 @@ Upload het zip-bestand als een gegevensset naar Azure Machine Learning Studio. V
 
 Afbeelding 6. Voorbeeldexperiment door gebruiker gedefinieerde Python code geüpload als een zip-bestand.
 
-De module-uitvoer laat zien dat het zip-bestand uitgepakt is en dat de functie `print_hello` is uitgevoerd.
+Hallo module uitvoer laat zien dat Hallo zip-bestand is uitgepakt en die functie Hallo `print_hello` is uitgevoerd.
  
 ![image10](./media/machine-learning-execute-python-scripts/figure7.png)
 
-Afbeelding 7. Gebruiker gedefinieerde functie gebruikt in de [Python Script uitvoeren] [ execute-python-script] module.
+Afbeelding 7. Gebruiker gedefinieerde functie gebruikt in Hallo [Python Script uitvoeren] [ execute-python-script] module.
 
 
 ## <a name="working-with-visualizations"></a>Werken met visualisaties
 
-Waarnemingspunten gemaakt met behulp van MatplotLib die kan worden weergegeven in de browser kunnen worden geretourneerd door de [Python Script uitvoeren][execute-python-script]. Maar de waarnemingspunten worden niet automatisch omgeleid naar installatiekopieën omdat ze bij gebruik van R. De gebruiker moet expliciet Sla dus waarnemingspunten naar PNG-bestanden als ze moeten worden geretourneerd naar Azure Machine Learning. 
+Waarnemingspunten gemaakt met behulp van MatplotLib die kan worden weergegeven in de browser Hallo kunnen worden geretourneerd door Hallo [Python Script uitvoeren][execute-python-script]. Maar Hallo waarnemingspunten zijn niet automatisch omgeleid tooimages omdat ze bij gebruik van R. Dus Hallo gebruikers moet expliciet een waarnemingspunten tooPNG bestanden opslaan als ze zijn geretourneerd toobe back tooAzure Machine Learning. 
 
-Voor het genereren van installatiekopieën van MatplotLib, moet u de volgende procedure uitvoeren:
+toogenerate installatiekopieën van MatplotLib, moet u Hallo procedure te volgen:
 
-* de back-end vanuit de renderer standaard Qt gebaseerde overschakelen naar 'Door' 
+* Hallo back-end switch te "Door" van Hallo renderer Qt gebaseerde standaard 
 * Maak een nieuw object van de afbeelding 
-* ophalen van de as en alle waarnemingspunten genereren in de App 
-* de afbeelding in een PNG-bestand opslaan 
+* Hallo as ophalen en het genereren van alle waarnemingspunten erin 
+* Hallo afbeelding tooa PNG-bestand opslaan 
 
-Dit proces wordt geïllustreerd in de volgende afbeelding 8 die een spreidingsgrafiek tekent matrix met de functie scatter_matrix in Pandas worden gemaakt.
+Dit proces wordt weergegeven in afbeelding 8 die u maakt een spreidingsgrafiek tekent matrix met Hallo scatter_matrix functie in Pandas na Hallo.
 
 ![image1v](./media/machine-learning-execute-python-scripts/figure-v1-8.png)
 
-Afbeelding 8. Code MatplotLib cijfers opslaan naar installatiekopieën.
+Afbeelding 8. Code toosave die matplotlib tooimages cijfers.
 
-Afbeelding 9 toont een experiment die gebruikmaakt van het script eerder weergegeven om terug te keren worden uitgezet via de tweede uitvoerpoort.
+Afbeelding 9 toont een experiment die eerder weergegeven tooreturn worden uitgezet via Tweede uitvoerpoort Hallo Hallo-script gebruikt.
 
 ![image2v](./media/machine-learning-execute-python-scripts/figure-v2-9a.png) 
 
@@ -176,40 +176,40 @@ Afbeelding 9 toont een experiment die gebruikmaakt van het script eerder weergeg
 
 Afbeelding 9. Visualiseren waarnemingspunten gegenereerd op basis van Python-code.
 
-Het is mogelijk meerdere cijfers geretourneerd door deze in verschillende afbeeldingen, de Azure Machine Learning-runtime neemt over alle installatiekopieën en ze voor visualisatie kan toevoegen.
+Mogelijke tooreturn meerdere cijfers wordt door deze in verschillende afbeeldingen, hello Azure Machine Learning runtime opgehaald alle installatiekopieën en ze voor visualisatie kan toevoegen.
 
 
 ## <a name="advanced-examples"></a>Geavanceerde voorbeelden
 
-De Anaconda-omgeving geïnstalleerd in Azure Machine Learning bevat algemene pakketten zoals NumPy SciPy en Scikits meer. Deze pakketten kunnen effectief worden gebruikt voor verschillende gegevensverwerkingstaken in een machine learning-pijplijn. Als u bijvoorbeeld illustratie de volgende experiment en het script van het gebruik van ensemble overbrengen in Scikits-informatie over het berekenen van de functie belang scores voor een gegevensset. De scores kunnen worden gebruikt om uit te voeren onder supervisie Functieselectie voordat een andere ML-model wordt ingevoerd.
+Hallo Anaconda omgeving is geïnstalleerd in Azure Machine Learning bevat algemene pakketten zoals NumPy SciPy en Scikits meer. Deze pakketten kunnen effectief worden gebruikt voor verschillende gegevensverwerkingstaken in een machine learning-pijplijn. Als u bijvoorbeeld illustreren hello volgende experiment en script Hallo gebruik van ensemble overbrengen in Scikits meer toocompute functie belang scores voor een gegevensset. Hallo scores mag gebruikte tooperform onder supervisie Functieselectie voordat een andere ML-model wordt ingevoerd.
 
-Hier volgt de Python-functie waarmee de scores belang en de volgorde van de functies op basis van de scores berekenen:
+Ga als volgt Hallo Python gebruikt de functie toocompute Hallo belang scores en functies op basis van Hallo scores Hallo:
 
 ![image11](./media/machine-learning-execute-python-scripts/figure8.png)
 
-Afbeelding 10. Waarden van positie functies werken door scores.
- Het volgende experiment vervolgens wordt berekend en retourneert de scores belang van functies in de gegevensset 'Pima Indische Diabetes' in Azure Machine Learning:
+Afbeelding 10. Functies van de functie toorank door scores.
+ Hallo volgende experiment vervolgens wordt berekend en retourneert Hallo belang scores van functies in Hallo 'Pima Indische Diabetes' gegevensset in Azure Machine Learning:
 
 ![image12](./media/machine-learning-execute-python-scripts/figure9a.png)
 ![image13](./media/machine-learning-execute-python-scripts/figure9b.png)    
 
-Afbeelding 11. Waarden van positie functies in de gegevensset Pima Indische Diabetes experimenteren.
+Afbeelding 11. Experiment toorank functies in Hallo Pima Indische Diabetes gegevensset.
 
 ## <a name="limitations"></a>Beperkingen
-De [Python Script uitvoeren] [ execute-python-script] heeft momenteel de volgende beperkingen:
+Hallo [Python Script uitvoeren] [ execute-python-script] heeft momenteel Hallo volgende beperkingen:
 
-1. *De uitvoering van de sandbox.* De Python-runtime is momenteel sandbox en, als gevolg hiervan kan geen toegang tot het netwerk of het lokale bestandssysteem op een persistente manier. Alle bestanden lokaal opgeslagen zijn geïsoleerd en verwijderd wanneer de module is voltooid. De Python-code heeft geen toegang tot de meeste mappen op de computer die op wordt uitgevoerd, de uitzondering wordt de huidige map en de bijbehorende submappen.
-2. *Een gebrek aan geavanceerde ontwikkeling en foutopsporing van ondersteuning.* De Python-module biedt op dit moment geen ondersteuning van IDE-functies zoals intellisense en foutopsporing. De volledige Python stack-trace is ook beschikbaar als de module is mislukt tijdens runtime. Maar deze moet worden weergegeven in het uitvoerlogboek voor voor de module. Momenteel wordt aangeraden dat u ontwikkelen en Python-scripts in een omgeving zoals IPython voor foutopsporing en vervolgens de code in de module te importeren.
-3. *Enkele gegevens frame uitvoer.* Het ingangspunt Python is alleen toegestaan als resultaat een gegevensframe enkele als uitvoer. Het is niet op dit moment mogelijk dat willekeurige Python-objecten, zoals getraind modellen rechtstreeks teruggestuurd naar de Azure Machine Learning-runtime. Zoals [R-Script uitvoeren][execute-r-script], die dezelfde beperking heeft, is het mogelijk in veel gevallen pickle objecten in een byte-matrix en ga daarna terug die binnen een gegevensframe.
-4. *Onvermogen om Python installatie aanpassen*. Er is momenteel de enige manier om aangepaste Python-modules toevoegen via het zip-bestand mechanisme die eerder zijn beschreven. Dit is geschikt voor kleine modules, is het lastig voor grote modules (met name die met native DLLs) of een groot aantal modules. 
+1. *De uitvoering van de sandbox.* Hallo Python-runtime is momenteel sandbox en, als gevolg hiervan kan geen toegang tot toohello netwerk of toohello lokaal bestandssysteem op een persistente manier. Alle bestanden lokaal opgeslagen zijn geïsoleerd en wordt verwijderd zodra het Hallo-module is voltooid. Hallo Python-code heeft geen toegang tot de meeste mappen op Hallo-machine die op wordt uitgevoerd, Hallo uitzondering wordt Hallo huidige map en de bijbehorende submappen.
+2. *Een gebrek aan geavanceerde ontwikkeling en foutopsporing van ondersteuning.* Hallo Python-module biedt op dit moment geen ondersteuning van IDE-functies zoals intellisense en foutopsporing. Als Hallo-module is mislukt tijdens runtime, is hello volledige Python stack-trace ook beschikbaar. Maar deze moet worden weergegeven in het logboek voor de module Hallo Hallo. Momenteel wordt aangeraden dat u ontwikkelen en fouten opsporen in Python-scripts in een omgeving zoals IPython en vervolgens Hallo code in Hallo-module importeren.
+3. *Enkele gegevens frame uitvoer.* Hallo Python-ingangspunt is alleen toegestaan tooreturn een één-frame als uitvoer. Het is niet mogelijk tooreturn die willekeurige Python-objecten, zoals getraind modellen back rechtstreeks toohello Azure Machine Learning-runtime. Zoals [R-Script uitvoeren][execute-r-script], die Hallo heeft dezelfde beperking, is het mogelijk in veel gevallen toopickle objecten in een byte matrix en ga daarna terug die binnen een gegevensframe.
+4. *Onvermogen toocustomize Python installatie*. Hallo alleen manier tooadd aangepaste Python-modules is momenteel via Hallo zip-bestand mechanisme die eerder zijn beschreven. Dit is geschikt voor kleine modules, is het lastig voor grote modules (met name die met native DLLs) of een groot aantal modules. 
 
 ## <a name="conclusions"></a>Conclusie trekt
-De [Python Script uitvoeren] [ execute-python-script] module kunt u een wetenschappelijk gegevens bestaande Python-code in de cloud-gebaseerde machine learning-werkstromen in Azure Machine Learning en in het naadloos opnemen operationeel maken als onderdeel van een webservice. De module Python-script werkt natuurlijk samen met andere modules in Azure Machine Learning. De module kan worden gebruikt voor een aantal taken van gegevensverkenning vooraf verwerken en het ophalen van functies en vervolgens evaluatie en na verwerking van de resultaten. De back-end-runtime gebruikt voor de uitvoering is gebaseerd op Anaconda, een uitgebreid geteste en gebruikte Python-distributie. Deze back-end kunt u eenvoudig u aan de ingebouwde bestaande code-elementen in de cloud.
+Hallo [Python Script uitvoeren] [ execute-python-script] module biedt een wetenschappelijk gegevens tooincorporate bestaande Python-code in de cloud gehoste machine learning werkstromen in Azure Machine Learning en tooseamlessly operationeel maken als onderdeel van een webservice. Hallo Python scriptmodule werkt natuurlijk samen met andere modules in Azure Machine Learning. Hallo-module kan worden gebruikt voor een bereik van taken van exploratie toopre verwerking van gegevens en het ophalen van de functies en vervolgens tooevaluation en naverwerking van Hallo resultaten. Hallo back-end runtime gebruikt voor de uitvoering is gebaseerd op Anaconda, een uitgebreid geteste en gebruikte Python-distributie. Deze back-end kunt u eenvoudig u tooon mededelingenbord bestaande code-elementen in de cloud Hallo.
 
-We verwachten bieden extra functionaliteit aan de [Python Script uitvoeren] [ execute-python-script] module zoals de mogelijkheid om te trainen en modellen in Python operationeel en betere ondersteuning toevoegen voor de ontwikkeling en foutopsporing in Azure Machine Learning Studio.
+We verwachten tooprovide aanvullende functionaliteit toohello [Python Script uitvoeren] [ execute-python-script] module, zoals Hallo mogelijkheid tootrain en modellen in Python operationeel en tooadd betere ondersteuning voor Hallo ontwikkeling en foutopsporing in Azure Machine Learning Studio.
 
 ## <a name="next-steps"></a>Volgende stappen
-Raadpleeg het [Python Developer Center](https://azure.microsoft.com/develop/python/) voor meer informatie.
+Zie voor meer informatie, Hallo [Python Developer Center](https://azure.microsoft.com/develop/python/).
 
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/

@@ -1,6 +1,6 @@
 ---
-title: Met Apache Kafka beginnen - HDInsight | Microsoft Docs
-description: Informatie over het maken van een Apache Kafka-cluster in Azure HDInsight. Informatie over het maken van onderwerpen, abonnees en consumenten.
+title: aaaStart met Apache Kafka - Azure HDInsight | Microsoft Docs
+description: Meer informatie over hoe een Apache Kafka toocreate in Azure HDInsight-cluster. Meer informatie over hoe toocreate onderwerpen, abonnees en consumenten.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,41 +15,41 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/14/2017
 ms.author: larryfr
-ms.openlocfilehash: 03e6996f0f44e04978080b3bd267e924f342b7fc
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: b93299d88dc2cf9a9764662509308ff75fd74474
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="start-with-apache-kafka-preview-on-hdinsight"></a>Met Apache Kafka (preview) in HDInsight beginnen
 
-Informatie over het maken en gebruiken van een [Apache Kafka](https://kafka.apache.org)-cluster in Azure HDInsight. Kafka is een open-source, gedistribueerd streamingplatform dat beschikbaar is met HDInsight. Het wordt vaak gebruikt als een berichtenbroker, omdat het een functionaliteit biedt die vergelijkbaar is met een publicatie-/abonnementswachtrij voor berichten.
+Meer informatie over hoe toocreate en gebruik een [Apache Kafka](https://kafka.apache.org) cluster in Azure HDInsight. Kafka is een open-source, gedistribueerd streamingplatform dat beschikbaar is met HDInsight. Dit wordt vaak gebruikt als broker bericht, aangezien deze vergelijkbare functionaliteit biedt tooa voor publiceren / abonneren berichtenwachtrij.
 
 > [!NOTE]
-> Er zijn momenteel twee versies van Kafka beschikbaar met HDInsight: 0.9.0 (HDInsight 3.4) en 0.10.0 (HDInsight 3.5 en 3.6). Voor de stappen in dit document wordt ervan uitgegaan dat u Kafka in HDInsight 3.6 gebruikt.
+> Er zijn momenteel twee versies van Kafka beschikbaar met HDInsight: 0.9.0 (HDInsight 3.4) en 0.10.0 (HDInsight 3.5 en 3.6). Hallo stappen in dit document wordt ervan uitgegaan dat u van Kafka op HDInsight 3.6 gebruikmaakt.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="create-a-kafka-cluster"></a>Een Kafka-cluster maken
 
-Gebruik de volgende stappen om een Kafka in HDInsight-cluster te maken:
+Gebruik Hallo stappen toocreate een Kafka op HDInsight-cluster te volgen:
 
-1. In [Azure Portal](https://portal.azure.com) selecteert u **+ NIEUW**, **Intelligence en analyse** en vervolgens **HDInsight**.
+1. Van Hallo [Azure-portal](https://portal.azure.com), selecteer **+ nieuw**, **Intelligence en analyse**, en selecteer vervolgens **HDInsight**.
    
     ![Een HDInsight-cluster maken](./media/hdinsight-apache-kafka-get-started/create-hdinsight.png)
 
-2. Voer bij **Basisbeginselen** de volgende informatie in:
+2. Van **basisbeginselen**, Voer Hallo volgende informatie:
 
-    * **Clusternaam**: de naam van het HDInsight-cluster.
-    * **Abonnement**: selecteer het abonnement dat u wilt gebruiken.
-    * **Aanmeldingsgebruikersnaam** en -**wachtwoord** van cluster: de aanmeldingsgegevens voor toegang tot het cluster via HTTPS. U gebruikt deze referenties voor toegang tot services als de Ambari-webinterface of de REST-API.
-    * **SSH-gebruikersnaam (Secure Shell)**: de aanmeldingsgegevens voor toegang tot het cluster via SSH. Het wachtwoord is standaard hetzelfde als het aanmeldingswachtwoord van het cluster.
-    * **Resourcegroep**: de resourcegroep waarin het cluster wordt gemaakt.
-    * **Locatie**: de Azure-regio waarin het cluster wordt gemaakt.
+    * **Clusternaam**: Hallo-naam van Hallo HDInsight-cluster.
+    * **Abonnement**: Hallo abonnement toouse selecteren.
+    * **Gebruikersnaam voor aanmelding cluster** en **Cluster aanmeldingswachtwoord**: Hallo aanmelding bij het openen van Hallo-cluster via HTTPS. U gebruikt deze referenties tooaccess services zoals Hallo Ambari-Webgebruikersinterface of REST-API.
+    * **Secure Shell (SSH) gebruikersnaam**: Hallo-aanmeldingsnaam die wordt gebruikt bij het openen van Hallo-cluster via SSH. Standaard is Hallo wachtwoord Hallo hetzelfde als Hallo aanmelding het wachtwoord van het cluster.
+    * **Resourcegroep**: Hallo resource groep toocreate Hallo cluster in.
+    * **Locatie**: hello Azure-regio toocreate Hallo cluster in.
    
  ![Abonnement selecteren](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
 
-3. Selecteer **Clustertype** en stel bij **Clusterconfiguratie** de volgende waarden in:
+3. Selecteer **type Cluster**, en de volgende set Hallo waarden uit **clusterconfiguratie**:
    
     * **Clustertype**: Kafka
 
@@ -57,65 +57,65 @@ Gebruik de volgende stappen om een Kafka in HDInsight-cluster te maken:
 
     * **Clusterlaag**: standaard
      
- Gebruik ten slotte de knop **Selecteren** om de instellingen op te slaan.
+ Gebruik tot slot Hallo **Selecteer** knop toosave instellingen.
      
  ![Clustertype selecteren](./media/hdinsight-apache-kafka-get-started/set-hdinsight-cluster-type.png)
 
-4. Nadat u het clustertype hebt geselecteerd, gebruikt u de knop __Selecteren__ om het clustertype te selecteren. Gebruik vervolgens de knop __Volgende__ om de basisconfiguratie te voltooien.
+4. Gebruik na het selecteren van clustertype Hallo Hallo __Selecteer__ knoptype tooset Hallo-cluster. Gebruik vervolgens Hallo __volgende__ knop toofinish basisconfiguratie.
 
-5. Selecteer of maak bij **Opslag** een opslagaccount. Voor de stappen in dit document laat u de andere velden op de standaardwaarden ingesteld. Gebruik de knop __Volgende__ om de opslagconfiguratie op te slaan.
+5. Selecteer of maak bij **Opslag** een opslagaccount. Laat Hallo andere velden op Hallo standaardwaarden voor Hallo stappen in dit document. Gebruik Hallo __volgende__ knop toosave opslagconfiguratie.
 
-    ![De instellingen van het opslagaccount voor HDInsight configureren](./media/hdinsight-apache-kafka-get-started/set-hdinsight-storage-account.png)
+    ![Hallo-opslag-accountinstellingen voor HDInsight instellen](./media/hdinsight-apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-6. Selecteer bij __Toepassingen (optioneel)__ de optie __Volgende__ om door te gaan. Er zijn geen toepassingen vereist voor dit voorbeeld.
+6. Van __toepassingen (optioneel)__, selecteer __volgende__ toocontinue. Er zijn geen toepassingen vereist voor dit voorbeeld.
 
-7. Selecteer bij __Clustergrootte__ de optie __Volgende__ om door te gaan.
+7. Van __clustergrootte__, selecteer __volgende__ toocontinue.
 
     > [!WARNING]
-    > Om beschikbaarheid van Kafka op HDInsight te garanderen, moet uw cluster ten minste drie werkknooppunten bevatten.
+    > de beschikbaarheid van de tooguarantee van Kafka op HDInsight, uw cluster moet ten minste drie worker-knooppunten bevatten.
 
-    ![De Kafka-clustergrootte instellen](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
+    ![Set Hallo Kafka clustergrootte](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
 
     > [!NOTE]
-    > De waarde voor de **schijven per werkknooppunt** bepaalt de schaalbaarheid van Kafka op HDInsight. Zie voor meer informatie [Configure storage and scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md).
+    > Hallo **schijven per werkrolknooppunt** besturingselementen voor gegevensinvoer Hallo schaalbaarheid van Kafka op HDInsight. Zie voor meer informatie [Configure storage and scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md).
 
-8. Selecteer bij __Geavanceerde instellingen__ de optie __Volgende__ om door te gaan.
+8. Van __geavanceerde instellingen__, selecteer __volgende__ toocontinue.
 
-9. Controleer bij **Samenvatting** de configuratie van het cluster. Gebruik de koppeling __Bewerken__ om onjuiste instellingen te wijzigen. Gebruik tot slot de knop __Maken__ om het cluster te maken.
+9. Van Hallo **samenvatting**, Controleer de configuratie van Hallo voor Hallo-cluster. Gebruik Hallo __bewerken__ koppelingen toochange alle instellingen die onjuist zijn. Gebruik tot slot the__Create__ knop toocreate Hallo cluster.
    
     ![Samenvatting clusterconfiguratie](./media/hdinsight-apache-kafka-get-started/hdinsight-configuration-summary.png)
    
     > [!NOTE]
-    > Het kan tot 20 minuten duren om het cluster te maken.
+    > Too20 minuten toocreate Hallo cluster kan duren.
 
-## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
+## <a name="connect-toohello-cluster"></a>Verbinding maken met cluster toohello
 
 > [!IMPORTANT]
-> Wanneer u de volgende stappen uitvoert, moet u een SSH-client gebruiken. Zie het document [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+> Bij het uitvoeren van Hallo stappen uit te voeren, moet u een SSH-client. Zie voor meer informatie, Hallo [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
-Gebruik SSH in uw client om verbinding te maken met het cluster:
+Gebruik van de client SSH tooconnect toohello cluster:
 
 ```ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net```
 
-Vervang **SSHUSER** door de SSH-gebruikersnaam die u hebt opgegeven tijdens het maken van het cluster. Vervang **CLUSTERNAME** door de naam van uw cluster.
+Vervang **SSHUSER** met Hallo SSH gebruikersnaam die u hebt opgegeven tijdens het maken van het cluster. Vervang **CLUSTERNAME** met de naam van de cluster Hallo Hallo.
 
-Voer het wachtwoord van het SSH-account in wanneer hierom wordt gevraagd.
+Voer desgevraagd Hallo wachtwoord die u voor Hallo SSH-account gebruikt.
 
 Zie [SSH-sleutels gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
 
-## <a id="getkafkainfo"></a>Informatie over Zookeeper- en brokerhosts ophalen
+## <a id="getkafkainfo"></a>Hallo Zookeeper en Broker hostinformatie ophalen
 
-Wanneer u met Kafka werkt, moet u twee hostwaarden weten: de *Zookeeper*-hosts en de *brokerhosts*. Deze hosts worden gebruikt met de Kafka-API en veel van de hulpprogramma's die bij Kafka worden meegeleverd.
+Als u werkt met Kafka, moet u weten twee waarden van de host. Hallo *Zookeeper* hosts en Hallo *Broker* hosts. Deze hosts worden gebruikt met Hallo Kafka API en veel Hallo-hulpprogramma's die worden geleverd met Kafka.
 
-Gebruik de volgende stappen om omgevingsvariabelen te maken die de hostinformatie bevatten. Deze omgevingsvariabelen worden in de stappen in dit document gebruikt.
+Gebruik Hallo volgende stappen toocreate omgevingsvariabelen die Hallo hostinformatie bevatten. Deze omgevingsvariabelen worden gebruikt in Hallo stappen in dit document.
 
-1. Wanneer er een SSH-verbinding is gemaakt met het cluster, gebruikt u de volgende opdracht om het hulpprogramma `jq` te installeren. Dit hulpprogramma wordt gebruikt om JSON-documenten te parseren en is handig bij het ophalen van informatie van de brokerhost:
+1. Van een cluster met SSH-verbinding toohello, gebruik Hallo volgende tooinstall Hallo opdracht `jq` hulpprogramma. Dit hulpprogramma is gebruikte tooparse JSON-documenten en is handig bij het ophalen van informatie over de host van de Hallo broker:
    
     ```bash
     sudo apt -y install jq
     ```
 
-2. Gebruik de volgende opdrachten om de omgevingsvariabelen in te stellen met informatie die is verkregen van Ambari:
+2. tooset hello omgevingsvariabelen met informatie opgehaald van Ambari, gebruik Hallo volgende opdrachten:
 
     ```bash
     CLUSTERNAME='your cluster name'
@@ -129,86 +129,86 @@ Gebruik de volgende stappen om omgevingsvariabelen te maken die de hostinformati
     ```
 
     > [!IMPORTANT]
-    > Stel `CLUSTERNAME=` in op de naam van het Kafka-cluster. Stel `PASSWORD=` in op het aanmeldingswachtwoord (beheerder) dat u hebt gebruikt bij het maken van het cluster.
+    > Stel `CLUSTERNAME=` toohello naam Hallo Kafka-cluster. Stel `PASSWORD=` toohello (admin) aanmeldingswachtwoord u hebt gebruikt bij het maken van Hallo-cluster.
 
-    De inhoud van `$KAFKAZKHOSTS` kan er als volgt uitzien:
+    Hallo volgende tekst is een voorbeeld van de inhoud van Hallo `$KAFKAZKHOSTS`:
    
     `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
    
-    De inhoud van `$KAFKABROKERS` kan er als volgt uitzien:
+    Hallo volgende tekst is een voorbeeld van de inhoud van Hallo `$KAFKABROKERS`:
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
     > [!NOTE]
-    > De opdracht `cut` wordt gebruikt om de lijst met hosts in te korten tot twee hostvermeldingen. U hoeft niet de volledige lijst met hosts op te geven bij het maken van een Kafka-consument of -producent.
+    > Hallo `cut` opdracht gebruikte tootrim Hallo lijst met hosts tootwo hostvermeldingen is. U hoeft niet tooprovide Hallo volledige lijst met hosts die bij het maken van een consumer Kafka of de producent.
    
     > [!WARNING]
-    > Ga er niet van uit dat de informatie die uit deze sessie naar voren komt altijd accuraat is. Als u het cluster schaalt, worden er nieuwe brokers toegevoegd of verwijderd. Als er een fout optreedt en een knooppunt is vervangen, kan de hostnaam van het knooppunt veranderen.
+    > Vertrouw niet op Hallo informatie geretourneerd door deze sessie tooalways nauwkeurig worden. Als u Hallo-cluster schaalt, worden nieuwe beleggingsmakelaars toegevoegd of verwijderd. Als een fout optreedt en een knooppunt wordt vervangen, kan Hallo-hostnaam voor het Hallo-knooppunt veranderen.
     >
-    > Haal de informatie over de Zookeeper- en brokerhosts kort voordat u deze gebruikt pas op, om er zeker van te zijn dat de gegevens geldig zijn.
+    > Kort voordat u deze tooensure die u hebt geldige informatie gebruiken, moet u Hallo Zookeeper en broker hosts informatie ophalen.
 
 ## <a name="create-a-topic"></a>Een onderwerp maken
 
-Kafka slaat gegevensstromen op in categorieën, zogenaamde *onderwerpen*. Wanneer er een SSH-verbinding is gemaakt met het hoofdknooppunt van het cluster, gebruikt u een script dat bij Kafka is meegeleverd om een onderwerp te maken:
+Kafka slaat gegevensstromen op in categorieën, zogenaamde *onderwerpen*. Gebruik van een SSH-verbinding tooa cluster headnode, een script Kafka toocreate voorzien van een onderwerp:
 
 ```bash
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
 ```
 
-Met deze opdracht brengt u een verbinding met Zookeeper tot stand met behulp van de hostinformatie die is opgeslagen in `$KAFKAZKHOSTS`. Maak vervolgens een Kafka-onderwerp met de naam **test**. U kunt controleren of het onderwerp is gemaakt door met het volgende script een lijst van de onderwerpen te genereren:
+Met deze opdracht verbindt met behulp van Hallo hostinformatie opgeslagen in tooZookeeper `$KAFKAZKHOSTS`, en maak vervolgens met de naam Kafka-onderwerp **testen**. U kunt controleren dat onderwerp Hallo is gemaakt met behulp van de volgende onderwerpen voor script toolist Hallo:
 
 ```bash
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
 ```
 
-Met deze opdracht krijgt u een lijst van Kafka-onderwerpen, waaronder het onderwerp **test**.
+Hallo uitvoer van deze opdracht geeft een lijst van Kafka-onderwerpen die Hallo bevat **testen** onderwerp.
 
 ## <a name="produce-and-consume-records"></a>Records maken en gebruiken
 
 Kafka slaat *records* op in onderwerpen. Records worden geproduceerd door *producenten* en worden gebruikt door *consumenten*. Producenten halen records op uit Kafka-*brokers*. Elk werkrolknooppunt in uw HDInsight-cluster is een Kafka-broker.
 
-Gebruik de volgende stappen om records op te slaan in het testonderwerp dat u eerder hebt gemaakt. Lees deze vervolgens met behulp van een consument:
+Gebruik Hallo stappen toostore records in Hallo test-onderwerp dat u eerder hebt gemaakt en leest u deze met een consumer te volgen:
 
-1. Gebruik tijdens de SSH-sessie een script dat bij Kafka is meegeleverd om records te schrijven naar het onderwerp:
+1. Van Hallo SSH-sessie, gebruikt u een script met Kafka toowrite records toohello onderwerp:
    
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test
     ```
    
-    Na deze opdracht keert u niet terug naar de prompt. In plaats daarvan typt u een paar tekstberichten en gebruikt u vervolgens **Ctrl + C** om verzending naar het onderwerp te stoppen. Elke regel wordt als een afzonderlijke record verzonden.
+    U geen resultaten op toohello vragen na deze opdracht. In plaats daarvan, typt u een paar tekstberichten en gebruik vervolgens **Ctrl + c drukken** toostop toohello onderwerp verzenden. Elke regel wordt als een afzonderlijke record verzonden.
 
-2. Gebruik een script dat bij Kafka is meegeleverd om records in het onderwerp te lezen:
+2. Gebruik een script met Kafka tooread records uit Hallo onderwerp:
    
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
     ```
    
-    Met deze opdracht haalt u de records van het onderwerp op en geeft u deze weer. Met `--from-beginning` wordt de consument gevraagd om bij het begin van de stream te beginnen, zodat alle records worden opgehaald.
+    Met deze opdracht haalt Hallo records van Hallo onderwerp en weergegeven. Met behulp van `--from-beginning` vertelt Hallo consumer toostart vanaf Hallo Hallo stream, zodat alle records worden opgehaald.
 
-3. Gebruik __Ctrl + C__ om de consument te stoppen.
+3. Gebruik __Ctrl + c drukken__ toostop Hallo consumer.
 
 ## <a name="producer-and-consumer-api"></a>Producent- en consument-API
 
-U kunt records ook programmatisch maken en gebruiken met behulp van de [Kafka-API's](http://kafka.apache.org/documentation#api). Als u een Java-producent en -consument wilt bouwen, gebruikt u de volgende stappen uit de ontwikkelomgeving.
+U kunt ook programmatisch produceren en te gebruiken van records met behulp van Hallo [Kafka-API's](http://kafka.apache.org/documentation#api). toobuild een producent Java en de consument gebruik Hallo volgende stappen uit uw ontwikkelomgeving.
 
 > [!IMPORTANT]
-> De volgende onderdelen moeten zijn geïnstalleerd in de ontwikkelingsomgeving:
+> Hiervoor hebt u Hallo componenten zijn geïnstalleerd in uw ontwikkelomgeving te volgen:
 >
 > * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) of een equivalent, zoals OpenJDK.
 >
 > * [Apache Maven](http://maven.apache.org/)
 >
-> * Een SSH-client en de opdracht `scp`. Zie het document [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+> * Een SSH-client en het Hallo `scp` opdracht. Zie voor meer informatie, Hallo [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
-1. Download de voorbeelden van [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started). Voor de producent/consumentvoorbeelden gebruikt u het project in de directory `Producer-Consumer`. Dit voorbeeld bevat de volgende klassen:
+1. Voorbeelden van Hallo downloaden [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started). Hallo producent/consumer bijvoorbeeld Hallo-project in hello gebruiken `Producer-Consumer` directory. In dit voorbeeld bevat Hallo klassen te volgen:
    
-    * **Uitvoering**: hiermee wordt de consument of de producent gestart.
+    * **Voer** -Hallo consumer of producent wordt gestart.
 
-    * **Producent**: hiermee kunnen 1.000.000 records in het onderwerp worden opgeslagen.
+    * **Producent** -stores 1.000.000 records toohello onderwerp.
 
-    * **Consument**: hiermee kunnen records in een onderwerp worden gelezen.
+    * **Consumer** -records van Hallo onderwerp leest.
 
-2. Wijzig de mappen in de locatie van de map `Producer-Consumer` en gebruik de volgende opdracht om een JAR-pakket te maken:
+2. een pakket jar toocreate mappen toohello locatie Hallo wijzigen `Producer-Consumer` directory en gebruik Hallo volgende opdracht:
 
     ```
     mvn clean package
@@ -216,63 +216,63 @@ U kunt records ook programmatisch maken en gebruiken met behulp van de [Kafka-AP
 
     Met deze opdracht maakt u een directory met de naam `target`, die een bestand met de naam `kafka-producer-consumer-1.0-SNAPSHOT.jar` bevat.
 
-3. Gebruik de volgende opdrachten om het bestand `kafka-producer-consumer-1.0-SNAPSHOT.jar` te kopiëren naar uw HDInsight-cluster:
+3. Gebruik Hallo deze opdrachten toocopy hello `kafka-producer-consumer-1.0-SNAPSHOT.jar` bestand tooyour HDInsight-cluster:
    
     ```bash
     scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
    
-    Vervang **SSHUSER** door de SSH-gebruiker van uw cluster en vervang **CLUSTERNAME** door de naam van het cluster. Voer het wachtwoord van de SSH-gebruiker in wanneer hierom wordt gevraagd.
+    Vervang **SSHUSER** met Hallo SSH-gebruiker voor uw cluster, en vervang **CLUSTERNAME** met Hallo-naam van het cluster. Als u wordt gevraagd Hallo wachtwoord invoeren voor Hallo SSH-gebruiker.
 
-4. Als de `scp`-opdracht het bestand heeft gekopieerd, maakt u verbinding met het cluster met behulp van SSH. Gebruik de volgende opdracht om records naar het testonderwerp te schrijven:
+4. Eenmaal Hallo `scp` opdracht kopiëren van het Hallo-bestand is voltooid, toohello-cluster via SSH verbinding. Gebruik Hallo opdracht toowrite records toohello Testonderwerp te volgen:
 
     ```bash
     java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
     ```
 
-5. Nadat het proces is voltooid, gebruikt u de volgende opdracht om het onderwerp te lezen:
+5. Zodra Hallo is voltooid, gebruikt u de volgende opdracht tooread uit Hallo onderwerp Hallo:
    
     ```bash
     java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS
     ```
    
-    De gelezen records worden weergegeven, samen met een telling van de records. Mogelijk ziet u tellingen van meer dan 1.000.000, omdat u in een eerdere stap meerdere records naar het onderwerp hebt verzonden met behulp van een script.
+    Hallo-records lezen, samen met een telling van records, wordt weergegeven. Mogelijk ziet u enkele van meer dan 1.000.000 geregistreerd als u meerdere records toohello onderwerp met een script in een eerdere stap hebt verzonden.
 
-6. Gebruik __Ctrl + C__ om de consument af te sluiten.
+6. Gebruik __Ctrl + c drukken__ tooexit Hallo consumer.
 
 ### <a name="multiple-consumers"></a>Meerdere consumenten
 
-Kafka-consumenten gebruiken een consumentengroep bij het lezen van records. Door dezelfde groep voor meerdere consumenten te gebruiken, worden leestaken voor onderwerpen gelijk verdeeld. Elke consument in de groep ontvangt een deel van de records. Voer de volgende stappen uit om dit proces in actie te zien:
+Kafka-consumenten gebruiken een consumentengroep bij het lezen van records. Met behulp van dezelfde groep Hallo met meerdere gebruikers, die balanced resulteert in een load leesbewerkingen van een onderwerp. Elke consumer in Hallo groep ontvangt een deel van het Hallo-records. toosee dit proces in actie, gebruik Hallo volgende stappen:
 
-1. Open een nieuwe SSH-sessie met het cluster, zodat u twee sessies hebt. Gebruik het volgende in elke sessie om een consument te starten met dezelfde consumentengroeps-id:
+1. Open een nieuw SSH-sessie toohello cluster, zodat er twee van deze. Gebruik in elke sessie Hallo na toostart Hallo een consumer met dezelfde consumer groeps-ID:
    
     ```bash
     java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
     ```
 
-    Deze opdracht start een consument met behulp van de groeps-id `mygroup`.
+    Deze opdracht start een consumer Hallo groeps-ID met `mygroup`.
 
     > [!NOTE]
-    > Gebruik de opdrachten in het gedeelte [Informatie over Zookeeper- en brokerhosts ophalen](#getkafkainfo) om `$KAFKABROKERS` in te stellen voor deze SSH-sessie.
+    > Hallo-opdrachten gebruiken in Hallo [hello Zookeeper en Broker host informatie](#getkafkainfo) sectie tooset `$KAFKABROKERS` voor deze SSH-sessie.
 
-2. Voor elke sessie worden nu de records geteld die worden ontvangen van het onderwerp. Het totaal van beide sessies moet hetzelfde zijn als wat u eerder ontving van één consument.
+2. Als elke sessie aantallen Hallo records die wordt ontvangen van Hallo onderwerp volgen. Hallo totaal van beide-sessies moet dezelfde worden Hallo als u eerder hebt ontvangen van een consumer.
 
-Gebruik door clients binnen dezelfde groep wordt verwerkt door de partities voor het onderwerp. Het eerder gemaakte onderwerp `test` heeft acht partities. Als u acht SSH-sessies opent en in alle sessies een consument start, leest de consument de records van één partitie voor het onderwerp.
+Verbruik door clients binnen dezelfde groep wordt verwerkt door Hallo partities voor Hallo onderwerp Hallo. Voor Hallo `test` onderwerp eerder hebt gemaakt, heeft acht partities. Als u acht SSH-sessies openen en een gebruiker worden gestart in alle sessies, leest de elke consumer records uit één partitie voor Hallo onderwerp.
 
 > [!IMPORTANT]
-> Een consumentengroep kan niet meer consumentexemplaren dan partities bevatten. In dit voorbeeld kan één consumentengroep maximaal acht consumenten bevatten, omdat het onderwerp dit aantal partities heeft. U kunt ook meerdere consumentengroepen hebben, waarvan elke groep niet meer dan acht consumenten bevat.
+> Een consumentengroep kan niet meer consumentexemplaren dan partities bevatten. In dit voorbeeld kan een consumergroep up tooeight consumenten bevatten, omdat dat Hallo aantal partities in Hallo onderwerp. U kunt ook meerdere consumentengroepen hebben, waarvan elke groep niet meer dan acht consumenten bevat.
 
-Records worden in Kafka opgeslagen in de volgorde waarin deze worden ontvangen binnen een partitie. Als u records *binnen een partitie* op volgorde wilt leveren, maakt u een consumentengroep waarvan het aantal consumentexemplaren gelijk is aan het aantal partities. Als u records *binnen het onderwerp* op volgorde wilt leveren, maakt u een consumentengroep met slechts één consumentexemplaar.
+Records die zijn opgeslagen in Kafka worden opgeslagen in Hallo volgorde die binnen een partitie worden ontvangen. tooachieve-gerangschikt leveringsmethode voor records *binnen een partitie*, een consumergroep waarbij Hallo aantal exemplaren van de consument van overeenkomt met het aantal partities Hallo maken. tooachieve-gerangschikt leveringsmethode voor records *Hallo onderwerp*, een consumergroep te maken met een consumer slechts één exemplaar.
 
 ## <a name="streaming-api"></a>Streaming-API
 
-De streaming-API is in versie 0.10.0 aan Kafka toegevoegd. Eerdere versies zijn afhankelijk van Apache Spark of Storm voor streamverwerking.
+Hallo streaming API is tooKafka toegevoegd in versie 0.10.0; eerdere versies zijn afhankelijk van Apache Spark of Storm voor de verwerking van de stroom.
 
-1. Download de voorbeelden van [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) naar uw ontwikkelingsomgeving als u dit nog niet hebt gedaan. Voor het streamingvoorbeeld gebruikt u het project in de directory `streaming`.
+1. Als u dit nog niet hebt gedaan, downloaden Hallo voorbeelden van [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) tooyour ontwikkelomgeving. Gebruik voor Hallo streaming-voorbeeld, Hallo-project in Hallo `streaming` directory.
    
-    Dit project bevat slechts één klasse: `Stream`. Deze leest records van het eerder gemaakte onderwerp `test`. De gelezen woorden worden geteld, en elk woord en de telling worden verzonden een onderwerp met de naam `wordcounts`. Het onderwerp `wordcounts` wordt in een latere stap in dit gedeelte gemaakt.
+    Dit project bevat slechts één klasse `Stream`, die records leest uit Hallo `test` onderwerp eerder hebt gemaakt. Het Hallo woorden lezen geteld en verzendt van elk woord en het aantal tooa onderwerp met de naam `wordcounts`. Hallo `wordcounts` onderwerp in een latere stap in deze sectie wordt gemaakt.
 
-2. In de opdrachtregel in uw ontwikkelingsomgeving wijzigt u de directory's in de locatie van de directory `Streaming`. Vervolgens gebruikt u de volgende opdracht om een JAR-pakket te maken:
+2. Vanaf de opdrachtregel Hallo in uw ontwikkelomgeving, wijzig mappen toohello locatie Hallo `Streaming` directory en gebruik Hallo opdracht toocreate een jar-pakket te volgen:
 
     ```bash
     mvn clean package
@@ -280,44 +280,44 @@ De streaming-API is in versie 0.10.0 aan Kafka toegevoegd. Eerdere versies zijn 
 
     Met deze opdracht maakt u een directory met de naam `target`, die een bestand met de naam `kafka-streaming-1.0-SNAPSHOT.jar` bevat.
 
-3. Gebruik de volgende opdrachten om het bestand `kafka-streaming-1.0-SNAPSHOT.jar` te kopiëren naar uw HDInsight-cluster:
+3. Gebruik Hallo deze opdrachten toocopy hello `kafka-streaming-1.0-SNAPSHOT.jar` bestand tooyour HDInsight-cluster:
    
     ```bash
     scp ./target/kafka-streaming-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-streaming.jar
     ```
    
-    Vervang **SSHUSER** door de SSH-gebruiker van uw cluster en vervang **CLUSTERNAME** door de naam van het cluster. Voer het wachtwoord van de SSH-gebruiker in wanneer hierom wordt gevraagd.
+    Vervang **SSHUSER** met Hallo SSH-gebruiker voor uw cluster, en vervang **CLUSTERNAME** met Hallo-naam van het cluster. Als u wordt gevraagd Hallo wachtwoord invoeren voor Hallo SSH-gebruiker.
 
-4. Nadat de opdracht `scp` klaar is met het kopiëren van het bestand, maakt u een SSH-verbinding met het cluster en gebruikt u de volgende opdracht om het onderwerp `wordcounts` te maken:
+4. Eenmaal Hallo `scp` opdracht kopiëren van het Hallo-bestand is voltooid, toohello-cluster via SSH verbinding maken met en gebruik vervolgens de volgende opdracht toocreate Hallo Hallo `wordcounts` onderwerp:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
     ```
 
-5. Start vervolgens het streamingproces met behulp van de volgende opdracht:
+5. Vervolgens start Hallo streaming-proces met behulp van de volgende opdracht Hallo:
    
     ```bash
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS 2>/dev/null &
     ```
    
-    Met deze opdracht wordt het streamingproces op de achtergrond gestart.
+    Deze opdracht start Hallo proces op de achtergrond Hallo streaming.
 
-6. Gebruik de volgende opdracht om berichten naar het onderwerp `test` te verzenden. Deze berichten worden verwerkt door het streamingvoorbeeld:
+6. Gebruik Hallo volgende opdracht toosend berichten toohello `test` onderwerp. Deze berichten worden verwerkt door Hallo streaming-voorbeeld:
    
     ```bash
     java -jar kafka-producer-consumer.jar producer $KAFKABROKERS &>/dev/null &
     ```
 
-7. Gebruik de volgende opdracht om de uitvoer weer te geven die tijdens het streamingproces wordt geschreven naar het onderwerp `wordcounts`:
+7. Gebruik Hallo tooview Hallo uitvoer van de opdracht die is geschreven toohello na `wordcounts` onderwerp door Hallo streaming proces:
    
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --from-beginning --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
     ```
    
     > [!NOTE]
-    > Om de gegevens te bekijken, geeft u de consument de opdracht om de sleutel af te drukken, evenals de deserialisatiefunctie die wordt gebruikt voor de sleutel en waarde. De sleutelnaam is het woord en de sleutelwaarde bevat de telling.
+    > tooview hello gegevens, moet u Hallo consumer tooprint Hallo sleutel en Hallo deserializer toouse voor Hallo-sleutel en waarde zien. Hallo sleutelnaam is Hallo word en Hallo sleutelwaarde bevat Hallo count.
    
-    De uitvoer lijkt op het volgende:
+    Hallo uitvoer is vergelijkbaar toohello de volgende tekst:
    
         dwarfs  13635
         ago     13664
@@ -335,11 +335,11 @@ De streaming-API is in versie 0.10.0 aan Kafka toegevoegd. Eerdere versies zijn 
         snow    13637
    
     > [!NOTE]
-    > De telling wordt verhoogd wanneer er een woord wordt gedetecteerd.
+    > Hallo aantal oploopt telkens wanneer een woord wordt aangetroffen.
 
-7. Gebruik __Ctrl + C__ om de consument af te sluiten. Gebruik vervolgens de opdracht `fg` om de streamingtaak weer op de voorgrond uit te voeren. Gebruik __Ctrl + C__ om af te sluiten.
+7. Gebruik Hallo __Ctrl + c drukken__ tooexit Hallo consumer en gebruik vervolgens Hallo `fg` opdracht toobring Hallo streaming achtergrond taak back toohello voorgrond. Gebruik __Ctrl + c drukken__ tooexit deze ook.
 
-## <a name="delete-the-cluster"></a>Het cluster verwijderen
+## <a name="delete-hello-cluster"></a>Hallo-cluster verwijderen
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -349,12 +349,12 @@ Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#cre
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit document hebt u de basisbeginselen geleerd van hoe u met Apache Kafka in HDInsight werkt. Gebruik de volgende documenten voor meer informatie over het werken met Kafka:
+In dit document, kunt u Hallo basisbeginselen van het werken met Apache Kafka op HDInsight hebt geleerd. Hallo toolearn meer informatie over het werken met Kafka volgende gebruiken:
 
 * [Hoge beschikbaarheid van uw gegevens met Kafka in HDInsight](hdinsight-apache-kafka-high-availability.md)
 * [De schaalbaarheid verhogen door beheerde schijven met Kafka in HDInsight te configureren](hdinsight-apache-kafka-scalability.md)
 * [Documentatie voor Apache Kafka](http://kafka.apache.org/documentation.html) op kafka.apache.org.
-* [MirrorMaker gebruiken voor het maken van een replica van Kafka in HDInsight](hdinsight-apache-kafka-mirroring.md)
+* [MirrorMaker toocreate een replica van Kafka op HDInsight gebruiken](hdinsight-apache-kafka-mirroring.md)
 * [Apache Storm gebruiken met Kafka in HDInsight](hdinsight-apache-storm-with-kafka.md)
 * [Apache Spark gebruiken met Kafka in HDInsight](hdinsight-apache-spark-with-kafka.md)
-* [Verbinding maken met Kafka via een Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)
+* [TooKafka verbinding via een virtueel Azure-netwerk](hdinsight-apache-kafka-connect-vpn-gateway.md)

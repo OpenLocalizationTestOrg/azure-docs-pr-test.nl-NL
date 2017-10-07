@@ -1,6 +1,6 @@
 ---
-title: Een Azure Mobile Engagement-app maken | Microsoft Docs
-description: Hierin wordt beschreven hoe u een nieuwe Mobile Engagement-app-verzameling in Azure maakt en begint met het beheren van uw apps met de Mobile Engagement-portal.
+title: een Azure Mobile Engagement-App aaaCreate | Microsoft Docs
+description: Beschrijft hoe een nieuwe Mobile Engagement-App-verzameling in Azure en start het beheren van uw apps met toocreate Hallo Mobile Engagement-portal.
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4da27e626dacfb6fcfbcb87458c37ea75689a33b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Een Azure Mobile Engagement-app maken
-In dit artikel wordt gedemonstreerd hoe u de methode **Snelle invoer** gebruikt voor het maken van een nieuwe **Azure Mobile Engagement**-app. Ook wordt uitgelegd hoe u naar uw **Mobile Engagement**-portal navigeert om uw apps te bewaken en beheren. 
+Dit artikel laat zien hoe toouse hello **snelle invoer** methode toocreate een nieuwe **Azure Mobile Engagement** App. Hallo artikel wordt ook toont hoe toonavigate tooyour **Mobile Engagement** portal in volgorde toostart controleren en beheren van uw apps. 
 
-U moet een minimale set 'basisintegratie' toevoegen om gegevens te kunnen verzamelen voor uw app en pushmeldingen te verzenden. De volledige integratiedocumentatie is te vinden in de [Mobile Engagement-integratie](mobile-engagement-windows-store-integrate-engagement.md).
+Houd er rekening mee dat u een minimale set 'basisintegratie' moet toevoegen in volgorde toobe kunnen toocollect gegevens voor uw app en om pushmeldingen te verzenden. de volledige integratiedocumentatie Hallo vindt u in Hallo [Mobile Engagement-integratie](mobile-engagement-windows-store-integrate-engagement.md).
 
 > [!IMPORTANT]
-> U hebt een actief Azure-account nodig om zelfstudies voor Azure Mobile Engagement te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Gratis proefversie van Azure</a> voor meer informatie.
+> toocomplete een Azure Mobile Engagement-zelfstudie, moet u een actief Azure-account hebben. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Gratis proefversie van Azure</a> voor meer informatie.
 > 
 > 
 
 ## <a name="setup-mobile-engagement-for-your-mobile-app-in-azure"></a>Mobile Engagement instellen voor uw mobiele app in Azure
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="navigate-to-your-mobile-engagement-portal"></a>Navigeer naar uw Mobile Engagement-portal.
-Als u wilt beginnen met het bewaken, controleren en beheren van uw toepassing, gaat u naar de Mobile Engagement-portal door te klikken op de knop **Engagement-portal** in de balk bovenaan.
+## <a name="navigate-tooyour-mobile-engagement-portal"></a>Navigeer tooyour Mobile Engagement-portal
+toostart controleren en beheren van uw toepassing navigeren tooyour Mobile Engagement-portal door te klikken op Hallo **Engagement-portal** knop in de bovenste balk Hallo.
 
-Wanneer u naar de Mobile Engagement-portal gaat, kunt u segmenten analyseren, maken en beheren, gebruikers bereiken enzovoort:    
+Wanneer u zich in de Mobile Engagement-portal Hallo, u kunt analyseren, maken en beheren van segmenten, bereiken toohello gebruikers, enz.:    
 
 * [Realtime-gegevens over uw toepassing bewaken](mobile-engagement-user-interface-monitor.md)
 * [Historische gegevens over uw toepassing analyseren](mobile-engagement-user-interface-analytics.md)
-* [Gebruikerssegmenten maken en beheren voor het identificeren van gebruikspatronen](mobile-engagement-user-interface-segments.md)
-* [Gebruikers van uw toepassing bereiken met pushmeldingen](mobile-engagement-user-interface-reach.md)
+* [Maken en beheren van de segmenten van gebruikers tooidentify gebruikspatronen](mobile-engagement-user-interface-segments.md)
+* [Bereiken toohello gebruikers van uw toepassing met pushmeldingen](mobile-engagement-user-interface-reach.md)
 
 ## <a name="see-also"></a>Zie ook
 [Uw strategie voor Mobile Engagement definiëren](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
-[Aan de slag met Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (u kunt andere mobiele platforms selecteren boven aan de pagina).
+[Aan de slag met Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (u kunt andere mobiele platforms bovenaan Hallo Hallo pagina selecteren).
 

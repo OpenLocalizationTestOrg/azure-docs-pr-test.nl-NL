@@ -1,6 +1,6 @@
 ---
-title: Linux-VM apparaatnamen zijn gewijzigd in Azure | Microsoft Docs
-description: De reden waarom uitgelegd apparaatnamen worden gewijzigd en bieden oplossing voor dit probleem.
+title: aaaLinux VM apparaatnamen zijn gewijzigd in Azure | Microsoft Docs
+description: Legt uit Hallo waarom apparaatnamen worden gewijzigd en bieden oplossing voor dit probleem.
 services: virtual-machines-linux
 documentationcenter: 
 author: genlin
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 07/12/2017
 ms.author: genli
-ms.openlocfilehash: 789f4580901a22dc3aaae9599c7205c76f268403
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 4d3a5853d61edd2c8e8b85ab69e5ed3b3bc00bb8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting-linux-vm-device-names-are-changed"></a>Voor probleemoplossing: Apparaatnamen Linux VM zijn gewijzigd
 
-Het artikel wordt uitgelegd waarom apparaatnamen zijn gewijzigd nadat u een Linux-virtuele machine (VM) opnieuw opstarten of de schijven opnieuw koppelen. Het bevat ook de oplossing voor dit probleem.
+Hallo artikel wordt uitgelegd waarom apparaatnamen zijn gewijzigd nadat u een Linux-virtuele machine (VM) opnieuw opstarten of opnieuw Hallo-schijven koppelen. Ook biedt het Hallo-oplossing voor dit probleem.
 
 ## <a name="symptom"></a>Symptoom
 
-U ondervinden de volgende problemen bij het uitvoeren van virtuele Linux-machines in Microsoft Azure.
+Hallo na de problemen bij het uitvoeren van virtuele Linux-machines in Microsoft Azure kunnen optreden.
 
-- De virtuele machine kan niet worden opgestart na het opnieuw opstarten.
+- Hallo VM mislukt tooboot na het opnieuw opstarten.
 
-- Als gegevensschijven worden ontkoppeld en gekoppeld, worden de namen van de apparaten voor schijven gewijzigd.
+- Als gegevensschijven worden ontkoppeld en gekoppeld, worden Hallo apparaten namen voor schijven gewijzigd.
 
-- Een toepassing of het script dat verwijst naar een schijf met behulp van de apparaatnaam is mislukt. U vindt dat de naam van het apparaat van de schijf is gewijzigd.
+- Een toepassing of het script dat verwijst naar een schijf met behulp van de apparaatnaam is mislukt. U vindt dat Hallo apparaatnaam van de schijf hello wordt gewijzigd.
 
 ## <a name="cause"></a>Oorzaak
 
-Apparaatpaden in Linux zijn niet gegarandeerd zijn consistent via opnieuw wordt opgestart. Apparaatnamen bestaan uit (letter) primaire en secundaire cijfers.  Als het stuurprogramma voor Linux opslag een nieuw apparaat detecteert, wijst die uit de beschikbare bereik de primaire en secundaire apparaat getallen toe aan het. Wanneer een apparaat wordt verwijderd, worden de cijfers van het apparaat vrijgemaakt voor het later opnieuw worden gebruikt.
+Apparaatpaden in Linux zijn niet gegarandeerd toobe consistent via opnieuw wordt opgestart. Apparaatnamen bestaan uit (letter) primaire en secundaire cijfers.  Wanneer Hallo Linux opslag apparaatstuurprogramma een nieuw apparaat detecteert, wordt er primaire en secundaire apparaat cijfers tooit toegewezen uit Hallo beschikbaar bereik. Wanneer een apparaat wordt verwijderd, zijn Hallo apparaat cijfers vrijgegeven toobe later opnieuw worden gebruikt.
 
-Het probleem doet zich voor omdat het apparaat scannen in Linux gepland door de SCSI-subsysteem asynchroon gebeurt. De laatste apparaat pad naamgeving varieert opnieuw wordt opgestart. 
+Hallo probleem doet zich voor omdat hello apparaat scannen in Linux gepland door de SCSI-subsysteem Hallo asynchroon verloopt. Hallo laatste apparaat pad naming varieert opnieuw wordt opgestart. 
 
 ## <a name="solution"></a>Oplossing
 
-U lost dit probleem, gebruik permanente naming. Er zijn vier methoden aan de naamgeving van permanente - bestandssysteem labels, door uuid-id en naar met het pad. Het bestandssysteem label en UUID methoden u beter voor Azure Linux VM's. 
+tooresolve dit probleem op door permanente naming gebruiken. Er zijn vier methoden toopersistent naming - bestandssysteem labels, door uuid, -id en pad. Aangeraden Hallo bestandssysteem label en UUID methoden voor Azure Linux VM's. 
 
-De meeste distributies Geef ofwel de **nofail** of **nobootwait** fstab-opties. Deze opties kunt een systeem op te starten, zelfs als de schijf niet koppelen bij het opstarten. Raadpleeg de distributie-documentatie voor meer informatie over deze parameters. Zie voor meer informatie over het configureren van een Linux-VM voor het gebruik van een UUID wanneer u een gegevensschijf toevoegen [verbinding maken met de Linux-VM te koppelen van de nieuwe schijf](add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk). 
+De meeste distributies bieden ook beide Hallo **nofail** of **nobootwait** fstab-opties. Deze opties inschakelen een tooboot systeem, zelfs als Hallo schijf toomount bij het opstarten is mislukt. Raadpleeg de documentatie van het distributiepunt Hallo voor meer informatie over deze parameters. Voor meer informatie over hoe tooconfigure een Linux-VM toouse een UUID wanneer u een gegevensschijf toevoegen zien [toohello Linux VM toomount Hallo nieuwe schijf verbinding](add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk). 
 
-Wanneer de Azure Linux-agent is geïnstalleerd op een virtuele machine, Udev-regels worden gebruikt om samen te stellen van een set van symbolische koppelingen onder **/dev/disk/azure**. Deze Udev-regels kunnen worden gebruikt door toepassingen en scripts voor het identificeren van schijven zijn gekoppeld aan de virtuele machine, het type en de LUN.
+Wanneer hello Azure Linux agent is geïnstalleerd op een virtuele machine, gebruikt het Udev regels tooconstruct een set van symbolische koppelingen onder **/dev/disk/azure**. Deze Udev-regels kunnen worden gebruikt door toepassingen en scripts tooidentify schijven zijn aangesloten toohello VM, het type en Hallo LUN.
 
 ## <a name="more-information"></a>Meer informatie
 
 ### <a name="identify-disk-luns"></a>Schijf-LUN's identificeren
 
-Een toepassing kunt LUN's gebruiken om de gekoppelde schijven en maken van de symbolische koppelingen zoeken. De Azure Linux-agent heeft nu udev-regels die symbolische koppelingen van een LUN voor de apparaten als volgt instellen:
+Een toepassing kunt LUN's toofind alle Hallo gekoppelde schijven en maken symbolische koppelingen. Hello Azure Linux agent bevat nu udev-regels die symbolische koppelingen vanaf een LUN toohello apparaten, als volgt instellen:
 
     $ tree /dev/disk/azure
 
@@ -70,7 +70,7 @@ Een toepassing kunt LUN's gebruiken om de gekoppelde schijven en maken van de sy
         └── lun1-part3 -> ../../../sdd3                                    
                                  
 
-LUN-gegevens kan ook worden opgehaald van de Linux Gast met lsscsi of vergelijkbare hulpprogramma als volgt.
+LUN-gegevens kan ook worden opgehaald van Hallo Linux Gast met lsscsi of vergelijkbare hulpprogramma als volgt.
 
        $ sudo lsscsi
 
@@ -84,7 +84,7 @@ LUN-gegevens kan ook worden opgehaald van de Linux Gast met lsscsi of vergelijkb
 
       [5:0:0:1] disk Msft Virtual Disk 1.0 /dev/sdd
 
-Deze Gast LUN-informatie kan worden gebruikt met Azure-abonnement metagegevens voor het identificeren van de locatie in Azure-opslag van de VHD die de partitiegegevens opslaat. Gebruik bijvoorbeeld de cli az:
+Deze Gast LUN-informatie kan worden gebruikt met Azure-abonnement metagegevens tooidentify Hallo locatie in Azure-opslag Hallo VHD die Hallo partitiegegevens opslaat. Gebruik bijvoorbeeld Hallo az cli:
 
     $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks                                        
     [                                                                                                                                                                  
@@ -116,7 +116,7 @@ Deze Gast LUN-informatie kan worden gebruikt met Azure-abonnement metagegevens v
 
 ### <a name="discover-filesystem-uuids-by-using-blkid"></a>Bestandssysteem UUID's detecteren met behulp van blkid
 
-Een script of toepassing kan de uitvoer van blkid of vergelijkbare bronnen met informatie lezen en opstelt symbolische koppelingen in **/dev** voor gebruik. De uitvoer bevat de UUID's van alle schijven die zijn gekoppeld aan de virtuele machine en de apparaat-bestand waarop ze gekoppeld zijn:
+Een script of toepassing kan lezen Hallo-uitvoer van blkid of vergelijkbare bronnen met informatie en opstelt symbolische koppelingen in **/dev** voor gebruik. Hallo-uitvoer wordt weergegeven Hallo UUID's van alle schijven die zijn gekoppeld toohello VM en Hallo apparaat bestand toowhich zijn gekoppeld:
 
     $ sudo blkid -s UUID
 
@@ -125,7 +125,7 @@ Een script of toepassing kan de uitvoer van blkid of vergelijkbare bronnen met i
     /dev/sdb1: UUID="176250df-9c7c-436f-94e4-d13f9bdea744"
     /dev/sdc1: UUID="b0048738-4ecc-4837-9793-49ce296d2692"
 
-De waagent udev-regels maken een reeks symbolische koppelingen onder **/dev/disk/azure**:
+Hallo waagent udev regels maken een reeks symbolische koppelingen onder **/dev/disk/azure**:
 
 
     $ ls -l /dev/disk/azure
@@ -137,24 +137,24 @@ De waagent udev-regels maken een reeks symbolische koppelingen onder **/dev/disk
     lrwxrwxrwx 1 root root 10 Jun  2 23:17 root-part1 -> ../../sda1
 
 
-De toepassing kan deze informatie gebruiken het opstartapparaat schijf en de resource (tijdelijke)-schijf te identificeren. In Azure, toepassingen moeten verwijzen naar **/dev/disk/azure/root-part1** of **/dev/disk/azure-resource-part1** voor het detecteren van deze partities.
+Hallo-toepassing kan deze informatie gebruiken Hallo schijf opstartapparaat en Hallo resource (tijdelijke) schijf identificeren. In Azure, toepassingen te raadplegen**/dev/disk/azure/root-part1** of **/dev/disk/azure-resource-part1** toodiscover deze partities.
 
-Als er extra partities in de lijst blkid, wordt deze op een gegevensschijf staan. Toepassingen kunnen de UUID voor deze partities onderhouden en een pad zoals gebruiken de onderstaande voor het detecteren van de naam van het apparaat tijdens runtime:
+Als er aanvullende partities uit Hallo blkid lijst, wordt deze op een gegevensschijf staan. Toepassingen kunnen onderhouden Hallo UUID voor deze partities en een pad zoals Hallo hieronder toodiscover Hallo apparaatnaam in runtime te gebruiken:
 
     $ ls -l /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692
 
     lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
 
     
-### <a name="get-the-latest-azure-storage-rules"></a>De nieuwste Azure-opslag-regels ophalen
+### <a name="get-hello-latest-azure-storage-rules"></a>Hallo nieuwste Azure-opslag-regels ophalen
 
-Voer de volgende opdrachten aan de nieuwste Azure-opslag-regels:
+meest recente Azure storage-regels toohello, voer de volgende opdrachten:
 
     # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
     # sudo udevadm trigger --subsystem-match=block
 
 
-Raadpleeg voor meer informatie de volgende artikelen:
+Zie voor meer informatie Hallo artikelen te volgen:
 
 - [Ubuntu: Met behulp van UUID](https://help.ubuntu.com/community/UsingUUID)
 
@@ -162,5 +162,5 @@ Raadpleeg voor meer informatie de volgende artikelen:
 
 - [Linux: Wat UUID's voor u kunnen doen](https://www.linux.com/news/what-uuids-can-do-you)
 
-- [Udev: Inleiding tot beheer van apparaten In moderne Linux-systeem](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
+- [Udev: Inleiding tooDevice In moderne Linux beheersysteem](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 

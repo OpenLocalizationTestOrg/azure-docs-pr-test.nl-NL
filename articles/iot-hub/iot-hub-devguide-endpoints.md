@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub eindpunten begrijpen | Microsoft Docs
+title: Azure IoT Hub-eindpunten aaaUnderstand | Microsoft Docs
 description: Handleiding voor ontwikkelaars - naslaginformatie over IoT Hub apparaat gerichte en gerichte service-eindpunten.
 services: iot-hub
 documentationcenter: .net
@@ -14,80 +14,80 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 93ada731fe70cf7d294537241f8104c0b89940ed
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8647f15d2f2a050ad5799ea82f4d2d46db0dbec1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referentie - eindpunten van IoT-Hub
 
 ## <a name="iot-hub-names"></a>Namen van de IoT-Hub
 
-U vindt de naam van de IoT-hub die als host fungeert voor uw eindpunten in de portal op de **overzicht** blade. Standaard is de DNS-naam van een IoT-hub ziet eruit als: `{your iot hub name}.azure-devices.net`.
+U vindt Hallo-naam van Hallo IoT-hub die als host fungeert voor uw eindpunten in de portal op Hallo Hallo **overzicht** blade. Standaard Hallo DNS-naam van een IoT-hub eruit: `{your iot hub name}.azure-devices.net`.
 
-Azure DNS kunt u een aangepaste DNS-naam voor uw iothub maken. Zie voor meer informatie [gebruik Azure DNS-instellingen van aangepast domein voor een Azure-service kan leveren](../dns/dns-custom-domain.md#azure-iot).
+U kunt Azure DNS toocreate een aangepaste DNS-naam voor uw IoT-hub. Zie voor meer informatie [gebruik Azure DNS tooprovide aangepast domeininstellingen voor een Azure-service](../dns/dns-custom-domain.md#azure-iot).
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lijst met ingebouwde IoT Hub-eindpunten
 
-Azure IoT Hub is een multitenant-service waarmee de functionaliteit voor verschillende actoren. Het volgende diagram toont de verschillende eindpunten dat IoT-Hub toont.
+Azure IoT Hub is een multitenant-service die de functionaliteit toovarious actoren beschrijft. Hallo volgende diagram toont Hallo verschillende eindpunten die IoT-Hub toont.
 
 ![IoT Hub-eindpunten][img-endpoints]
 
-De volgende lijst beschrijft de eindpunten:
+Hallo volgende lijst beschrijft Hallo eindpunten:
 
-* **Resourceprovider**. De resourceprovider IoT-Hub toont een [Azure Resource Manager] [ lnk-arm] interface. Deze interface kunnen eigenaren van de Azure-abonnement maken en verwijderen van IoT hubs en bijwerken van de eigenschappen van de IoT-hub. Eigenschappen van de IoT Hub reguleren [hub niveau beveiligingsbeleid][lnk-accesscontrol], in plaats van op apparaatniveau access control en functionele opties voor cloud-naar-apparaat en apparaat-naar-cloud-berichten. De resourceprovider IoT-Hub kunt u ook [apparaat-id's exporteren][lnk-importexport].
-* **Identiteiten Apparaatbeheer**. Elke IoT-hub toont een reeks HTTP REST-eindpunten voor het beheren van apparaat-id's (maken, ophalen, bijwerken en verwijderen). [Apparaat-id's] [ lnk-device-identities] worden gebruikt voor verificatie en toegangsbeheer van apparaat.
-* **Apparaatbeheer twin**. Elke IoT-hub toont een reeks gerichte service HTTP REST-eindpunt voor query- en [apparaat horende] [ lnk-twins] (update voor labels en eigenschappen).
-* **Taken management**. Elke IoT-hub toont een reeks gerichte service HTTP REST-eindpunt doorzoeken en beheren [taken][lnk-jobs].
-* **Apparaat-eindpunten**. Voor elk apparaat in het identiteitenregister toont IoT-Hub een set eindpunten:
+* **Resourceprovider**. Hallo resourceprovider IoT-Hub toont een [Azure Resource Manager] [ lnk-arm] interface. Deze interface kunnen Azure-abonnement eigenaars toocreate en IoT-hubs en tooupdate IoT hub eigenschappen verwijderen. Eigenschappen van de IoT Hub reguleren [hub niveau beveiligingsbeleid][lnk-accesscontrol]in plaats van toodevice niveau access control en functionele opties voor cloud-naar-apparaat en apparaat-naar-cloud-berichten. Hallo resourceprovider IoT-Hub kunt u ook te[apparaat-id's exporteren][lnk-importexport].
+* **Identiteiten Apparaatbeheer**. Elke IoT-hub toont een reeks HTTP REST-eindpunten toomanage apparaat-id's (maken, ophalen, bijwerken en verwijderen). [Apparaat-id's] [ lnk-device-identities] worden gebruikt voor verificatie en toegangsbeheer van apparaat.
+* **Apparaatbeheer twin**. Elke IoT-hub toont een set van gerichte service HTTP REST-eindpunt tooquery en update [apparaat horende] [ lnk-twins] (update voor labels en eigenschappen).
+* **Taken management**. Elke IoT-hub beschrijft een reeks gerichte service HTTP REST-eindpunt tooquery en beheren van [taken][lnk-jobs].
+* **Apparaat-eindpunten**. Voor elk apparaat in het identiteitenregister Hallo toont IoT-Hub een set eindpunten:
 
-  * *Apparaat-naar-cloud-berichten verzenden*. Een apparaat gebruikmaakt van dit eindpunt naar [apparaat-naar-cloud-berichten verzenden][lnk-d2c].
-  * *Cloud-naar-apparaat-berichten ontvangen*. Een apparaat gebruikmaakt van dit eindpunt voor het ontvangen van gerichte [cloud-naar-apparaatberichten][lnk-c2d].
-  * *Initiëren van bestandsuploads*. Een apparaat gebruikmaakt van dit eindpunt voor het ontvangen van een Azure Storage SAS-URI van IoT Hub [uploaden van een bestand][lnk-upload].
-  * *Ophalen en bijwerken van twin apparaateigenschappen*. Een apparaat gebruikmaakt van dit eindpunt voor toegang tot de [apparaat twin][lnk-twins]van eigenschappen.
-  * *Directe methodeaanvragen ontvangen*. Een apparaat dit eindpunt wordt geluisterd naar [directe methode][lnk-methods]van aanvragen.
+  * *Apparaat-naar-cloud-berichten verzenden*. Een apparaat gebruikmaakt van dit eindpunt te[apparaat-naar-cloud-berichten verzenden][lnk-d2c].
+  * *Cloud-naar-apparaat-berichten ontvangen*. Een apparaat gebruikmaakt van dit eindpunt tooreceive gericht [cloud-naar-apparaatberichten][lnk-c2d].
+  * *Initiëren van bestandsuploads*. Een apparaat gebruikmaakt van dit eindpunt tooreceive een Azure Storage SAS-URI van IoT-Hub te[uploaden van een bestand][lnk-upload].
+  * *Ophalen en bijwerken van twin apparaateigenschappen*. Een apparaat gebruikmaakt van dit eindpunt tooaccess de [apparaat twin][lnk-twins]van eigenschappen.
+  * *Directe methodeaanvragen ontvangen*. Een apparaat gebruikmaakt van dit eindpunt toolisten voor [directe methode][lnk-methods]van aanvragen.
 
     Deze eindpunten beschikbaar worden gesteld met [protocollen MQTT v3.1.1][lnk-mqtt], HTTP 1.1 en [AMQP 1.0] [ lnk-amqp] protocollen. AMQP is ook beschikbaar via [WebSockets] [ lnk-websockets] op poort 443.
 
-    De eindpunten van horende en methoden voor het apparaat zijn alleen beschikbaar wanneer u de [protocollen MQTT v3.1.1] [ lnk-mqtt] protocol.
+    Hallo apparaat horende en methoden eindpunten zijn alleen beschikbaar wanneer u Hallo [protocollen MQTT v3.1.1] [ lnk-mqtt] protocol.
 
-* **Service-eindpunten**. Elke IoT-hub toont een set eindpunten voor uw back-end oplossing kan communiceren met uw apparaten. Met één uitzondering, deze eindpunten zijn alleen toegankelijk met behulp van de [AMQP] [ lnk-amqp] protocol. Het aanroepen van methode eindpunt is toegankelijk via het HTTP-protocol.
+* **Service-eindpunten**. Elke IoT-hub toont een set eindpunten voor uw back-end oplossing toocommunicate met uw apparaten. Met één uitzondering, deze eindpunten zijn alleen toegankelijk met Hallo [AMQP] [ lnk-amqp] protocol. Hallo-methode aanroepen eindpunt is toegankelijk via Hallo HTTP-protocol.
   
-  * *Apparaat-naar-cloud-berichten ontvangen*. Dit eindpunt is compatibel met [Azure Event Hubs][lnk-event-hubs]. Een back-endservice kunt gebruiken om te lezen van de [apparaat-naar-cloudberichten] [ lnk-d2c] verzonden door uw apparaten. U kunt aangepaste eindpunten maken op uw IoT-hub naast deze ingebouwd eindpunt.
-  * *Cloud-naar-apparaat-berichten verzenden en ontvangen van bevestigingen voor levering*. Deze eindpunten inschakelen in uw back-end oplossing voor het verzenden van betrouwbare [cloud-naar-apparaatberichten][lnk-c2d], en de bijbehorende levering of verlopen bevestigingen ontvangen.
-  * *Bestandsmeldingen ontvangen*. Dit eindpunt messaging kunt u meldingen ontvangen wanneer uw apparaten is een bestand uploaden. 
-  * *Directe aanroepen van de methode*. Dit eindpunt kan een back-end-service aan te roepen een [directe methode] [ lnk-methods] op een apparaat.
-  * *Controle van gebeurtenissen ontvangstbewerkingen*. Dit eindpunt kunt u ontvangen van de controle van gebeurtenissen als uw IoT-hub is geconfigureerd voor het verzenden van deze bewerkingen. Zie voor meer informatie [IoT Hub operations bewaking][lnk-operations-mon].
+  * *Apparaat-naar-cloud-berichten ontvangen*. Dit eindpunt is compatibel met [Azure Event Hubs][lnk-event-hubs]. Een back-endservice kan worden gebruikt tooread hello [apparaat-naar-cloudberichten] [ lnk-d2c] verzonden door uw apparaten. U kunt aangepaste eindpunten maken op uw IoT-hub in toevoeging toothis ingebouwd eindpunt.
+  * *Cloud-naar-apparaat-berichten verzenden en ontvangen van bevestigingen voor levering*. Deze eindpunten inschakelen in uw oplossing voor back-end-toosend betrouwbare [cloud-naar-apparaatberichten][lnk-c2d], en tooreceive Hallo bijbehorende bevestigingen voor levering of verlopen.
+  * *Bestandsmeldingen ontvangen*. Dit eindpunt messaging kunt u meldingen van tooreceive wanneer uw apparaten is een bestand uploaden. 
+  * *Directe aanroepen van de methode*. Dit eindpunt kunt u een back-endservice tooinvoke een [directe methode] [ lnk-methods] op een apparaat.
+  * *Controle van gebeurtenissen ontvangstbewerkingen*. Dit eindpunt, kunt u tooreceive operations controle van gebeurtenissen als uw IoT hub is geconfigureerd tooemit ze. Zie voor meer informatie [IoT Hub operations bewaking][lnk-operations-mon].
 
-De [Azure IoT SDK's] [ lnk-sdks] artikel beschrijft de verschillende manieren toegang krijgen tot deze eindpunten.
+Hallo [Azure IoT SDK's] [ lnk-sdks] beschreven Hallo verschillende manieren tooaccess deze eindpunten.
 
-Alle eindpunten van IoT Hub gebruiken de [TLS] [ lnk-tls] protocol en er is geen eindpunt ooit wordt weergegeven op niet-versleuteld/niet-beveiligde kanalen.
+Alle eindpunten van IoT Hub gebruiken Hallo [TLS] [ lnk-tls] protocol en er is geen eindpunt ooit wordt weergegeven op niet-versleuteld/niet-beveiligde kanalen.
 
 ## <a name="custom-endpoints"></a>Aangepaste eindpunten
 
-U kunt bestaande Azure-services in uw abonnement koppelen aan uw IoT-hub om te fungeren als eindpunten voor het routeren van berichten. Deze eindpunten fungeren als service-eindpunten en worden gebruikt als een PUT voor berichtroutes. Apparaten kunnen niet rechtstreeks naar de extra eindpunten schrijven. Zie voor meer informatie over berichtroutes voor, de vermelding van de handleiding voor ontwikkelaars op [verzenden en ontvangen berichten met iothub][lnk-devguide-messaging].
+U kunt bestaande Azure-services in uw abonnement tooyour IoT hub tooact koppelen als eindpunten voor het routeren van berichten. Deze eindpunten fungeren als service-eindpunten en worden gebruikt als een PUT voor berichtroutes. Apparaten kunnen niet schrijven rechtstreeks toohello extra eindpunten. toolearn meer informatie over het berichtroutes, Zie Hallo developer guide vermelding op [verzenden en ontvangen berichten met iothub][lnk-devguide-messaging].
 
-IoT Hub ondersteunt momenteel de volgende Azure-services als extra eindpunten:
+IoT Hub ondersteunt momenteel hello Azure-services als extra eindpunten te volgen:
 
 * Event Hubs
 * Service Bus-wachtrijen
 * Service Bus-onderwerpen
 
-IoT Hub moet schrijftoegang tot deze service-eindpunten voor berichtroutering om te werken. Als u uw eindpunten via de Azure portal configureert, worden de benodigde machtigingen voor u toegevoegd. Zorg ervoor dat u uw services ter ondersteuning van de verwachte doorvoer configureren. Wanneer u uw IoT-oplossing voor het eerst configureert, moet u uw extra eindpunten controleren en eventuele benodigde aanpassingen maken voor de daadwerkelijke laadbewerking.
+IoT Hub moet schrijftoegang toothese service-eindpunten voor de routering toowork bericht. Als u uw eindpunten via hello Azure-portal configureert, worden de benodigde machtigingen Hallo toegevoegd voor u. Zorg ervoor dat u uw services toosupport Hallo verwacht doorvoer configureren. Wanneer u uw IoT-oplossing voor het eerst configureert, mag u toomonitor moet uw extra eindpunten en breng de gewenste wijzigingen voor de daadwerkelijke laadbewerking Hallo.
 
-Als een bericht overeenkomt met meerdere routes dat alle verwijzen naar hetzelfde eindpunt, biedt IoT Hub bericht slechts één keer naar dat eindpunt. Daarom is het niet nodig voor het configureren van Ontdubbeling op uw Service Bus-wachtrij of onderwerp. In gepartitioneerde wachtrijen garandeert partitie affiniteit bericht bestellen.
+Als een bericht overeenkomt met meerdere routes dat alle toohello verwijzen hetzelfde eindpunt IoT Hub biedt bericht toothat eindpunt slechts één keer. U doet daarom niet nodig tooconfigure Ontdubbeling op uw Service Bus-wachtrij of onderwerp. In gepartitioneerde wachtrijen garandeert partitie affiniteit bericht bestellen.
 
 > [!NOTE]
-> Service Bus-wachtrijen en onderwerpen die worden gebruikt als IoT-hubeindpunten mag geen **sessies** of **detectie van dubbele** ingeschakeld. Als een van deze opties zijn ingeschakeld, het eindpunt wordt weergegeven als **onbereikbaar** in de Azure portal.
+> Service Bus-wachtrijen en onderwerpen die worden gebruikt als IoT-hubeindpunten mag geen **sessies** of **detectie van dubbele** ingeschakeld. Als een van deze opties zijn ingeschakeld, Hallo-eindpunt wordt weergegeven als **onbereikbaar** in hello Azure-portal.
 
-Zie voor de grenzen van het aantal eindpunten die u kunt toevoegen, [quota's en beperking][lnk-devguide-quotas].
+Zie voor Hallo limieten op Hallo aantal eindpunten die u kunt toevoegen, [quota's en beperking][lnk-devguide-quotas].
 
 ## <a name="field-gateways"></a>Veld gateways
 
-In een IoT-oplossing een *veldgateway* tussen uw apparaten en de eindpunten van uw IoT-Hub. Deze bevindt zich doorgaans dicht bij uw apparaten. Uw apparaten communiceren rechtstreeks met de veldgateway met behulp van een protocol dat wordt ondersteund door de apparaten. De veldgateway verbindt met een IoT Hub-eindpunt met behulp van een protocol dat wordt ondersteund door de IoT Hub. Een veldgateway is mogelijk een specifiek apparaat of een laag energieniveau computer aangepaste gateway-software die wordt uitgevoerd.
+In een IoT-oplossing een *veldgateway* tussen uw apparaten en de eindpunten van uw IoT-Hub. Het is doorgaans bevindt sluiten tooyour apparaten. Uw apparaten communiceren rechtstreeks met Hallo veldgateway met behulp van een protocol dat wordt ondersteund door Hallo-apparaten. Hallo veld gatewayserver verbindt tooan IoT-hubeindpunt via een protocol dat wordt ondersteund door de IoT Hub. Een veldgateway is mogelijk een specifiek apparaat of een laag energieniveau computer aangepaste gateway-software die wordt uitgevoerd.
 
-U kunt [Azure IoT rand] [ lnk-iot-edge] voor het implementeren van een veldgateway. IoT-rand biedt functionaliteit, zoals multiplexing communicatie van meerdere apparaten op dezelfde IoT Hub-verbinding.
+U kunt [Azure IoT rand] [ lnk-iot-edge] tooimplement een veldgateway. IoT-rand biedt functionaliteit, zoals communicatie van meerdere apparaten op Hallo multiplex dezelfde IoT Hub-verbinding.
 
 ## <a name="next-steps"></a>Volgende stappen
 

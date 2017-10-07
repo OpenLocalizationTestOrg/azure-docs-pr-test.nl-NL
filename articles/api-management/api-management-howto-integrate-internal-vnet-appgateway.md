@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van Azure API Management in virtueel netwerk met Application Gateway | Microsoft Docs
-description: Meer informatie over het installeren en configureren van Azure API Management in een intern virtueel netwerk met Application Gateway (WAF) als FrontEnd
+title: aaaHow toouse Azure API Management in virtueel netwerk met Application Gateway | Microsoft Docs
+description: Meer informatie over hoe toosetup en Azure API Management in een intern virtueel netwerk met Application Gateway (WAF) als FrontEnd configureren
 services: api-management
 documentationcenter: 
 author: solankisamir
@@ -14,64 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2017
 ms.author: sasolank
-ms.openlocfilehash: 8131ded6b74e9c544bf70b1a4659ed07e5def04d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 74303a2ee8a10db633ab1740ec7267728eacb473
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>API Management in een interne VNET integreren met Application Gateway 
 
 ##<a name="overview"></a> Overzicht
  
-De API Management-service kan worden geconfigureerd in een virtueel netwerk in de interne modus waardoor alleen toegankelijk vanuit het virtuele netwerk. Azure Application Gateway is een PAAS-Service die voorziet in een load balancer van laag 7. Het fungeert als een reverse proxy-service en biedt tussen het aanbieden van een Web Application Firewall (WAF).
+Hallo API Management-service kan worden geconfigureerd in een virtueel netwerk in de interne modus waardoor alleen toegankelijk vanuit Hallo virtueel netwerk. Azure Application Gateway is een PAAS-Service die voorziet in een load balancer van laag 7. Het fungeert als een reverse proxy-service en biedt tussen het aanbieden van een Web Application Firewall (WAF).
 
-Combineren van API Management in een interne VNET met de toepassingsgateway frontend ingericht, kunt de volgende scenario's:
+Combineren van API Management ingericht in een interne VNET met Hallo Application Gateway frontend kunt Hallo volgen scenario's:
 
-* Gebruik dezelfde API Management-resource voor verbruik door consumenten interne en externe gebruikers.
+* Gebruik dezelfde Hallo API Management-resource voor verbruik door consumenten interne en externe gebruikers.
 * Gebruik één API Management-resource en hebt u een subset van API's die zijn gedefinieerd in API Management beschikbaar voor externe gebruikers.
-* Geef een directe manier toegang overschakelen naar de API Management via openbaar Internet, in- of uitschakelen. 
+* Bieden een directe manier tooswitch toegang tooAPI Management van Hallo openbare Internet in- of uitschakelen. 
 
 ##<a name="scenario"></a> Scenario
-Dit artikel wordt uitgelegd hoe u één API Management-service voor zowel interne als externe consumenten en maken het fungeren als een enkel frontend voor zowel on-premises en in de cloud-API's. U ziet ook hoe om alleen een subset van uw API's (in het voorbeeld dat ze zijn gemarkeerd in het groen) voor extern verbruik PathBasedRouting functionaliteit die beschikbaar is in Application Gateway met weer te geven.
+In dit artikel wordt uitgelegd hoe toouse één API-Management-service voor zowel interne als externe consumenten en fungeren als een enkel frontend voor zowel on-premises en in de cloud-API's. U ziet ook hoe tooexpose slechts een subset van uw API's (per Hallo zoals ze zijn gemarkeerd in het groen) voor extern verbruik met Hallo PathBasedRouting functionaliteit beschikbaar zijn in de toepassingsgateway.
 
-Uw API's worden in het eerste voorbeeld voor setup alleen via beheerd binnen het virtuele netwerk. Interne consumenten (gemarkeerd in oranje) hebben toegang tot alle uw interne en externe API's. Verkeer wordt nooit gedeeld met Internet wordt geleverd met een hoge prestaties via Express Route-circuits.
+Uw API's worden in de eerste installatie voorbeeld Hallo beheerd alleen vanuit binnen het virtuele netwerk. Interne consumenten (gemarkeerd in oranje) hebben toegang tot alle uw interne en externe API's. Verkeer wordt nooit wordt gedeeld tooInternet die wordt geleverd met een hoge prestaties via Express Route-circuits.
 
 ![URL-route](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
 ## <a name="before-you-begin"></a> Voordat u begint
 
-1. Installeer de nieuwste versie van de Azure PowerShell-cmdlets via het webplatforminstallatieprogramma. U kunt de nieuwste versie downloaden en installeren via het gedeelte **Windows PowerShell** op de pagina [Downloads](https://azure.microsoft.com/downloads/).
+1. Hallo meest recente versie van hello Azure PowerShell-cmdlets installeren met behulp van Hallo Web Platform Installer. U kunt downloaden en installeren van de meest recente versie Hallo van Hallo **Windows PowerShell** sectie Hallo [pagina Downloads](https://azure.microsoft.com/downloads/).
 2. Maak een virtueel netwerk en maak afzonderlijke subnetten voor API Management en Application Gateway. 
-3. Als u van plan bent te maken van een aangepaste DNS-server voor het virtuele netwerk, doen voordat u de implementatie start. Controleer die het werkt door te zorgen voor een virtuele machine gemaakt in een nieuw subnet in het virtuele netwerk kunt omzetten en toegang tot alle Azure-service-eindpunten.
+3. Als u van plan een aangepaste DNS-server voor het virtuele netwerk Hallo toocreate bent, doen voordat u Hallo implementatie start. Controleer die het werkt door te zorgen voor een virtuele machine gemaakt in een nieuw subnet in Hallo virtueel netwerk kunt omzetten en toegang tot alle Azure-service-eindpunten.
 
-## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>Wat is vereist voor het maken van een integratie tussen API Management en Application Gateway?
+## <a name="what-is-required-toocreate-an-integration-between-api-management-and-application-gateway"></a>Wat is vereist toocreate een integratie tussen API Management en Application Gateway?
 
-* **Back-endserverpool:** dit is het interne virtuele IP-adres van de API Management-service.
-* **Back-endserverpoolinstellingen:** elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen worden toegepast op alle servers in de pool.
-* **Front-endpoort:** dit is de openbare poort die in de toepassingsgateway wordt geopend. Roept het verkeer wordt omgeleid naar een van de back-endservers.
-* **Listener:** de listener beschikt over een front-endpoort, een protocol (Http of Https; deze waarden zijn hoofdlettergevoelig) en de SSL-certificaatnaam (als u SSL-offloading configureert).
-* **Regel:** de regel wordt een listener gebonden aan een back-end-servergroep.
-* **Aangepaste Health test:** Application Gateway gebruikt standaard IP-adres op basis van tests om te achterhalen welke servers in de BackendAddressPool actief zijn. De API Management service alleen reageert op aanvragen met de juiste host-header, daarom de testpakketten standaard mislukken. Een aangepaste health test moet worden gedefinieerd om te bepalen dat de service actief is en moet deze aanvragen worden doorgestuurd toepassingsgateway.
-* **Aangepaste Domeincertificaat:** voor toegang tot API Management vanaf het internet moet u een CNAME-toewijzing van de hostnaam van de toepassingsgateway front-DNS-naam te maken. Dit zorgt ervoor dat de hostnaam header en het certificaat verzonden naar Application Gateway die wordt doorgestuurd naar de API Management is een APIM als geldige kan herkennen.
+* **Back-endserverpool:** dit Hallo interne virtuele IP-adres van Hallo API Management-service is.
+* **Back-endserverpoolinstellingen:** elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen zijn toegepast tooall servers binnen Hallo van toepassingen.
+* **Front-endpoort:** dit Hallo openbare poort die in Hallo toepassingsgateway wordt geopend is. Roept het verkeer opgehaald omgeleide tooone Hallo back-endservers.
+* **Listener:** Hallo listener beschikt over een front-endpoort, een protocol (Http of Https; deze waarden zijn hoofdlettergevoelig), en Hallo SSL-certificaatnaam (als u SSL-offloading configureert).
+* **Regel:** Hallo regel een listener tooa back-endserverpool wordt gebonden.
+* **Aangepaste Health test:** Application Gateway maakt standaard gebruik van IP-adres op basis van tests toofigure uit welke servers in Hallo BackendAddressPool actief zijn. Hallo API Management-service reageert alleen toorequests waarvoor de juiste host-header hello, daarom Hallo standaard tests is mislukt. Een aangepaste health test moet toobe gedefinieerd toohelp toepassingsgateway bepalen dat Hallo-service actief is en moet deze aanvragen worden doorgestuurd.
+* **Aangepaste Domeincertificaat:** tooaccess API Management van Hallo internet, moet u een CNAME-toewijzing van de hostnaam toohello Application Gateway front-DNS-naam toocreate. Dit zorgt ervoor dat Hallo hostname-header en het certificaat dat is verzonden tooApplication Gateway die wordt doorgestuurd tooAPI Management is een die APIM als geldige herkennen kan.
 
 ## <a name="overview-steps"></a> Stappen die nodig zijn voor het integreren van API Management en Application Gateway 
 
 1. Maak een resourcegroep voor Resource Manager.
-2. Maak een virtueel netwerk, subnet en openbaar IP-adres voor de toepassingsgateway. Maak een ander subnet voor API Management.
-3. Maak een API Management-service binnen het VNET subnet die eerder is gemaakt en zorg ervoor dat u de interne modus.
-4. Het instellen van de aangepaste domeinnaam in de API Management-service.
+2. Maak een virtueel netwerk, subnet en openbaar IP-adres voor Hallo Application Gateway. Maak een ander subnet voor API Management.
+3. Maak een API Management-service binnen Hallo VNET subnet die eerder is gemaakt en zorg ervoor dat u interne Hallo-modus.
+4. Het instellen van de aangepaste domeinnaam Hallo in Hallo API Management-service.
 5. Maak een configuratieobject voor de toepassingsgateway.
 6. Een Application Gateway-resource maken.
-7. Maak een CNAME van de openbare DNS-naam van de toepassingsgateway naar de hostnaam van de proxy API Management.
+7. Maak een CNAME van Hallo openbare DNS-naam van Hallo Application Gateway toohello API Management proxy hostnaam.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Een resourcegroep maken voor Resource Manager
 
-Zorg ervoor dat u de nieuwste versie van Azure PowerShell gebruikt. Zie [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md) (Windows PowerShell gebruiken met Resource Manager) voor meer informatie.
+Zorg ervoor dat u van Hallo meest recente versie van Azure PowerShell gebruikmaakt. Zie [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md) (Windows PowerShell gebruiken met Resource Manager) voor meer informatie.
 
 ### <a name="step-1"></a>Stap 1
 
-Meld u aan bij Azure.
+Meld u bij tooAzure
 
 ```powershell
 Login-AzureRmAccount
@@ -81,7 +81,7 @@ Verifiëren met uw referenties.<BR>
 
 ### <a name="step-2"></a>Stap 2
 
-Controleer de abonnementen voor het account en selecteer deze.
+Controleer de abonnementen Hallo voor Hallo-account en selecteer deze.
 
 ```powershell
 Get-AzureRmSubscription -Subscriptionid "GUID of subscription" | Select-AzureRmSubscription
@@ -94,15 +94,15 @@ Maak een resourcegroep (u kunt deze stap overslaan als u een bestaande resourceg
 ```powershell
 New-AzureRmResourceGroup -Name "apim-appGw-RG" -Location "West US"
 ```
-Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. Deze locatie wordt gebruikt als de standaardlocatie voor resources in die resourcegroep. Zorg ervoor dat alle opdrachten voor het maken van een toepassingsgateway dezelfde resourcegroep gebruikt.
+Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. Dit wordt gebruikt als Hallo standaardlocatie voor resources in die resourcegroep. Zorg ervoor dat alle opdrachten toocreate een application gateway gebruik Hallo dezelfde resourcegroep.
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Een virtueel netwerk en een subnet voor de toepassingsgateway maken
+## <a name="create-a-virtual-network-and-a-subnet-for-hello-application-gateway"></a>Een virtueel netwerk en een subnet voor de toepassingsgateway Hallo maken
 
-Het volgende voorbeeld ziet hoe u een virtueel netwerk maken met de resource manager.
+Hallo volgende voorbeeld ziet u hoe een virtueel netwerk met toocreate Hallo resourcemanager.
 
 ### <a name="step-1"></a>Stap 1
 
-Het adresbereik 10.0.0.0/24 toewijzen aan de variabele subnet moet worden gebruikt voor toepassingsgateway tijdens het maken van een virtueel netwerk.
+Hallo adres adresbereik 10.0.0.0/24 toohello subnet variabele toobe gebruikt voor toepassingsgateway tijdens het maken van een virtueel netwerk toewijzen.
 
 ```powershell
 $appgatewaysubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim01" -AddressPrefix "10.0.0.0/24"
@@ -110,7 +110,7 @@ $appgatewaysubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim01" -Addres
 
 ### <a name="step-2"></a>Stap 2
 
-Het adresbereik 10.0.1.0/24 toewijzen aan de variabele subnet moet worden gebruikt voor API Management tijdens het maken van een virtueel netwerk.
+Hallo adresbereik 10.0.1.0/24 toohello subnet variabele toobe gebruikt voor API Management tijdens het maken van een virtueel netwerk toewijzen.
 
 ```powershell
 $apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10.0.1.0/24"
@@ -118,7 +118,7 @@ $apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefi
 
 ### <a name="step-3"></a>Stap 3
 
-Maak een virtueel netwerk met de naam **appgwvnet** in de resourcegroep **apim-appGw-RG** voor de regio VS-West is met het voorvoegsel 10.0.0.0/16 met subnetten 10.0.0.0/24 en 10.0.1.0/24.
+Maak een virtueel netwerk met de naam **appgwvnet** in de resourcegroep **apim-appGw-RG** voor de regio VS-West Hallo Hallo voorvoegsel 10.0.0.0/16 met met subnetten 10.0.0.0/24 en 10.0.1.0/24.
 
 ```powershell
 $vnet = New-AzureRmVirtualNetwork -Name "appgwvnet" -ResourceGroupName "apim-appGw-RG" -Location "West US" -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
@@ -126,7 +126,7 @@ $vnet = New-AzureRmVirtualNetwork -Name "appgwvnet" -ResourceGroupName "apim-app
 
 ### <a name="step-4"></a>Stap 4
 
-Wijs een subnetvariabele toe voor de volgende stappen
+Wijs een subnetvariabele toe voor de volgende stappen Hallo
 
 ```powershell
 $appgatewaysubnetdata=$vnet.Subnets[0]
@@ -134,56 +134,56 @@ $apimsubnetdata=$vnet.Subnets[1]
 ```
 ## <a name="create-an-api-management-service-inside-a-vnet-configured-in-internal-mode"></a>Maak een API Management-service binnen een VNET dat is geconfigureerd in de interne modus
 
-Het volgende voorbeeld laat zien hoe een API Management-service in een VNET dat is geconfigureerd voor interne toegang alleen maken.
+Hallo volgende voorbeeld ziet u hoe toocreate een API Management-service in een VNET geconfigureerd voor interne toegang alleen.
 
 ### <a name="step-1"></a>Stap 1
-Maak een virtueel netwerk van API Management-object met behulp van het subnet $apimsubnetdata die eerder is gemaakt.
+Maakt een virtueel netwerk van API Management-object met behulp van Hallo subnet $apimsubnetdata die eerder is gemaakt.
 
 ```powershell
 $apimVirtualNetwork = New-AzureRmApiManagementVirtualNetwork -Location "West US" -SubnetResourceId $apimsubnetdata.Id
 ```
 ### <a name="step-2"></a>Stap 2
-Maak een API Management-service in het virtuele netwerk.
+Maak een API Management-service binnen Hallo virtueel netwerk.
 
 ```powershell
 $apimService = New-AzureRmApiManagement -ResourceGroupName "apim-appGw-RG" -Location "West US" -Name "ContosoApi" -Organization "Contoso" -AdminEmail "admin@contoso.com" -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
-Nadat de bovenstaande opdracht is geslaagd verwijzen naar [DNS-configuratie vereist voor toegang tot interne VNET API Management-service](api-management-using-with-internal-vnet.md#apim-dns-configuration) om deze te openen.
+Raadpleeg nadat Hallo hierboven opdracht is geslaagd te[DNS-configuratie vereist tooaccess interne VNET API Management-service](api-management-using-with-internal-vnet.md#apim-dns-configuration) tooaccess deze.
 
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>Installatie van een aangepaste domeinnaam in API Management
 
 ### <a name="step-1"></a>Stap 1
-Upload het certificaat met persoonlijke sleutel voor het domein. In dit voorbeeld worden `*.contoso.net`. 
+Upload het Hallo-certificaat met persoonlijke sleutel voor Hallo domein. In dit voorbeeld worden `*.contoso.net`. 
 
 ```powershell
-$certUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName "apim-appGw-RG" -Name "ContosoApi" -HostnameType "Proxy" -PfxPath <full path to .pfx file> -PfxPassword <password for certificate file> -PassThru
+$certUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName "apim-appGw-RG" -Name "ContosoApi" -HostnameType "Proxy" -PfxPath <full path too.pfx file> -PfxPassword <password for certificate file> -PassThru
 ```
 
 ### <a name="step-2"></a>Stap 2
-Zodra het certificaat is geüpload, maakt u een hostnaam configuration-object voor de proxy gebruikt met een hostnaam van `api.contoso.net`, zoals de voorbeeld-certificaat biedt autoriteit voor het `*.contoso.net` domein. 
+Zodra het Hallo-certificaat is geüpload, een configuratieobject voor de hostnaam voor Hallo proxy maken met een hostnaam van `api.contoso.net`, zoals Hallo voorbeeld certificaat autoriteit voor Hallo biedt `*.contoso.net` domein. 
 
 ```powershell
 $proxyHostnameConfig = New-AzureRmApiManagementHostnameConfiguration -CertificateThumbprint $certUploadResult.Thumbprint -Hostname "api.contoso.net"
 $result = Set-AzureRmApiManagementHostnames -Name "ContosoApi" -ResourceGroupName "apim-appGw-RG" -ProxyHostnameConfiguration $proxyHostnameConfig
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Een openbaar IP-adres maken voor de front-endconfiguratie
+## <a name="create-a-public-ip-address-for-hello-front-end-configuration"></a>Een openbaar IP-adres voor de front-endconfiguratie Hallo maken
 
-Maak een openbare IP-resource **publicIP01** in de resourcegroep **apim-appGw-RG** voor de regio VS-West.
+Maak een openbare IP-resource **publicIP01** in de resourcegroep **apim-appGw-RG** voor de regio VS-West Hallo.
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -name "publicIP01" -location "West US" -AllocationMethod Dynamic
 ```
 
-Er wordt een IP-adres toegewezen aan de toepassingsgateway wanneer de service wordt gestart.
+Een IP-adres is toohello toepassingsgateway toegewezen wanneer Hallo-service wordt gestart.
 
 ## <a name="create-application-gateway-configuration"></a>De gatewayconfiguratie toepassing maken
 
-Alle configuratie-items moeten zijn ingesteld voordat u de toepassingsgateway maakt. Volg de onderstaande stappen om de configuratie-items te maken die nodig zijn voor een toepassingsgatewayresource.
+Alle configuratie-items moeten worden ingesteld voordat u de toepassingsgateway Hallo maakt. Hallo volgt Hallo configuratie-items maken die nodig zijn voor een toepassingsgatewayresource.
 
 ### <a name="step-1"></a>Stap 1
 
-Maak voor de toepassingsgateway een IP-configuratie en geef deze de naam **gatewayIP01**. Wanneer de toepassingsgateway wordt geopend, wordt er een IP-adres opgehaald via het geconfigureerde subnet en wordt het netwerkverkeer omgeleid naar de IP-adressen in de back-end-IP-pool. Onthoud dat elk exemplaar één IP-adres gebruikt.
+Maak voor de toepassingsgateway een IP-configuratie en geef deze de naam **gatewayIP01**. Wanneer de toepassingsgateway wordt geopend, een IP-adres van de geconfigureerde Hallo subnet opneemt en routeren netwerkverkeer toohello IP-adressen in Hallo backend-IP-adresgroep. Onthoud dat elk exemplaar één IP-adres gebruikt.
 
 ```powershell
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
@@ -191,14 +191,14 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name "gatewayIP01" -S
 
 ### <a name="step-2"></a>Stap 2
 
-Configureer de front-end-IP-poort voor het openbare IP-eindpunt. Dit is de poort waarmee gebruikers verbinding maken.
+Hallo front-end-IP-poort voor het openbare IP-eindpunt Hallo configureren. Dit is Hallo-poort waarmee gebruikers verbinding maken.
 
 ```powershell
 $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "port01"  -Port 443
 ```
 ### <a name="step-3"></a>Stap 3
 
-Configureer het front-end-IP-adres met openbaar IP-eindpunt.
+Hallo front-end-IP-met openbare IP-eindpunt configureren.
 
 ```powershell
 $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
@@ -206,15 +206,15 @@ $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -
 
 ### <a name="step-4"></a>Stap 4
 
-Configureer het certificaat voor de toepassingsgateway opnieuw versleutelen van het verkeer te doorlopen en ontsleuteld.
+Hallo-certificaat configureren voor hello Application Gateway gebruikt toodecrypt en Hallo-verkeer te doorlopen opnieuw versleutelen.
 
 ```powershell
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name "cert01" -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+$cert = New-AzureRmApplicationGatewaySslCertificate -Name "cert01" -CertificateFile <full path too.pfx file> -Password <password for certificate file>
 ```
 
 ### <a name="step-5"></a>Stap 5
 
-De HTTP-listener voor de toepassingsgateway maken. De front-end-IP-configuratie, poort en de ssl-certificaat aan toewijzen.
+Hallo HTTP-listener voor Hallo toepassingsgateway maken. Hallo front-end-IP-configuratie, poort en ssl-certificaat tooit toewijzen.
 
 ```powershell
 $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert
@@ -222,10 +222,10 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protoc
 
 ### <a name="step-6"></a>Stap 6
 
-Maken van een aangepaste test naar de service Management API `ContosoApi` proxy domein eindpunt. Het pad `/status-0123456789abcdef` is een standaardeindpunt van de status voor alle API Management-services worden gehost. Stel `api.contoso.net` als de hostnaam van een aangepaste test te beveiligen met SSL-certificaat.
+Maken van een aangepaste test toohello API Management-service `ContosoApi` proxy domein eindpunt. Hallo pad `/status-0123456789abcdef` is een standaardeindpunt health gehost op alle Hallo API Management-services. Stel `api.contoso.net` als een aangepaste test hostnaam toosecure met SSL-certificaat.
 
 > [!NOTE]
-> De hostnaam van de `contosoapi.azure-api.net` de hostnaam proxy is standaard geconfigureerd als een service met de naam `contosoapi` in openbare Azure is gemaakt. 
+> hostname Hallo `contosoapi.azure-api.net` is Hallo standaard proxy hostnaam geconfigureerd als een service met de naam `contosoapi` in openbare Azure is gemaakt. 
 > 
 
 ```powershell
@@ -234,15 +234,15 @@ $apimprobe = New-AzureRmApplicationGatewayProbeConfig -Name "apimproxyprobe" -Pr
 
 ### <a name="step-7"></a>Stap 7
 
-Upload het certificaat moet worden gebruikt op de bronnen van de groep back-end SSL zijn ingeschakeld. Dit is hetzelfde certificaat dat u hebt opgegeven in stap 4 hierboven.
+Upload het Hallo-certificaat toobe gebruikt op Hallo resources in de back-end SSL zijn ingeschakeld. Dit is Hallo hetzelfde certificaat dat u hebt opgegeven in stap 4 hierboven.
 
 ```powershell
-$authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile <full path to .cer file>
+$authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile <full path too.cer file>
 ```
 
 ### <a name="step-8"></a>Stap 8
 
-HTTP-back-end-instellingen voor de toepassingsgateway configureren. Dit omvat het instellen van een time-out optreedt voor de back-end-aanvraag waarna ze worden geannuleerd. Deze waarde verschilt van de time-out voor de test.
+HTTP-back-end-instellingen voor Application Gateway Hallo configureren. Dit omvat het instellen van een time-out optreedt voor de back-end-aanvraag waarna ze worden geannuleerd. Deze waarde verschilt van Hallo test time.
 
 ```powershell
 $apimPoolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "apimPoolSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimprobe -AuthenticationCertificates $authcert -RequestTimeout 180
@@ -250,7 +250,7 @@ $apimPoolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "apimP
 
 ### <a name="step-9"></a>Stap 9
 
-Configureer een backend-IP-adresgroep met de naam **apimbackend** met het interne virtuele IP-adres van de API Management-service die eerder is gemaakt.
+Configureer een backend-IP-adresgroep met de naam **apimbackend** met Hallo interne virtuele IP-adres van Hallo API Management-service die eerder is gemaakt.
 
 ```powershell
 $apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "apimbackend" -BackendIPAddresses $apimService.StaticIPs[0]
@@ -258,21 +258,21 @@ $apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "a
 
 ### <a name="step-10"></a>Stap 10
 
-Instellingen maken voor een dummy (niet-bestaand) back-end. Aanvragen voor API-paden die we niet wilt weergeven van API Management via Application Gateway wordt bereikt deze back-end en 404 retourneren.
+Instellingen maken voor een dummy (niet-bestaand) back-end. Aanvragen tooAPI paden die we niet wilt tooexpose van API Management via Application Gateway wordt bereikt deze back-end en 404 retourneren.
 
-HTTP-instellingen configureren voor de dummy back-end.
+HTTP-instellingen configureren voor Hallo dummy back-end.
 
 ```powershell
 $dummyBackendSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "dummySetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
-Configureer een dummy back-end **dummyBackendPool**, die verwijzen naar een FQDN-adres **dummybackend.com**. Dit adres FQDN bestaat niet in het virtuele netwerk.
+Configureer een dummy back-end **dummyBackendPool**, die tooa FQDN-adres wijst **dummybackend.com**. Dit adres FQDN bestaat niet in het virtuele netwerk Hallo.
 
 ```powershell
 $dummyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "dummyBackendPool" -BackendFqdns "dummybackend.com"
 ```
 
-Maken van de instelling van een regel voor de toepassingsgateway gebruikt standaard die naar de niet-bestaande back-end wijst **dummybackend.com** in het virtuele netwerk.
+Maak een regel instellen die Hallo Application Gateway gebruikt standaard die toohello niet-bestaande back-end wijst **dummybackend.com** in Hallo virtueel netwerk.
 
 ```powershell
 $dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistentapis" -Paths "/*" -BackendAddressPool $dummyBackendPool -BackendHttpSettings $dummyBackendSetting
@@ -280,25 +280,25 @@ $dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistenta
 
 ### <a name="step-11"></a>Stap 11
 
-URL-paden regel voor de back-end-adresgroepen configureren. Hierdoor is slechts een deel van de API's te selecteren in API Management voor blootgesteld aan het publiek. Bijvoorbeeld, als er `Echo API` (/ echo /), `Calculator API` (/calc/) enz. Controleer alleen `Echo API` toegankelijk is vanaf Internet). 
+URL-regel paden voor back-end-adresgroepen Hallo configureren. Hierdoor kunnen alleen enkele Hallo-API's van API Management voor wordt blootgesteld toohello openbaar. Bijvoorbeeld, als er `Echo API` (/ echo /), `Calculator API` (/calc/) enz. Controleer alleen `Echo API` toegankelijk is vanaf Internet). 
 
-Het volgende voorbeeld wordt een eenvoudige regel voor het '/ echo /' pad routering verkeer naar de back-end 'apimProxyBackendPool'.
+Hallo wordt volgende voorbeeld een eenvoudige regel voor Hallo '/ echo /' pad routering verkeer toohello back-end 'apimProxyBackendPool'.
 
 ```powershell
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-Als het pad komt niet overeen met de padregels wilt inschakelen via de API Management, de regelconfiguratie pad-kaart, configureert u een standaard-back-end-adresgroep met de naam **dummyBackendPool**. Bijvoorbeeld: http://api.contoso.net/calc/ * overschakelt naar de **dummyBackendPool** zoals deze is gedefinieerd als de standaardgroep voor niet-overeenkomende verkeer.
+Als Hallo pad komt niet overeen met de Hallo pad regels willen we tooenable van API Management, Hallo regel pad kaart configuratie configureert ook een standaard-back-end-adresgroep met de naam **dummyBackendPool**. Bijvoorbeeld: http://api.contoso.net/calc/ * gaat te**dummyBackendPool** zoals deze is gedefinieerd als de standaardgroep Hallo voor niet-overeenkomende verkeer.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
 ```
 
-Deze stap zorgt ervoor dat alleen aanvragen voor het pad '/ echo' door de toepassingsgateway zijn toegestaan. Aanvragen tot andere geconfigureerd in API Management-API's genereert 404-fouten van Application Gateway wanneer deze vanuit het Internet. 
+Hallo hierboven stap zorgt ervoor dat alleen aanvragen voor Hallo pad '/ echo' via Hallo Application Gateway zijn toegestaan. Aanvragen tooother API's die zijn geconfigureerd in API Management genereert 404-fouten van Application Gateway wanneer deze vanuit Hallo Internet. 
 
 ### <a name="step-12"></a>Stap 12
 
-Maak een instelling voor de toepassingsgateway te gebruiken URL-pad gebaseerde routering.
+Maak een instelling voor Hallo Application Gateway toouse URL-pad gebaseerde routering.
 
 ```powershell
 $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap
@@ -306,7 +306,7 @@ $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleTyp
 
 ### <a name="step-13"></a>Stap 13
 
-Het aantal exemplaren en de grootte voor de toepassingsgateway configureren. Hier gebruiken we de [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) voor een betere beveiliging van de API Management-resource.
+Hallo aantal exemplaren en de grootte voor Hallo Application Gateway configureren. We gebruiken hier Hallo [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) voor een betere beveiliging Hallo API Management-resource.
 
 ```powershell
 $sku = New-AzureRmApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
@@ -314,31 +314,31 @@ $sku = New-AzureRmApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity
 
 ### <a name="step-14"></a>Stap 14
 
-Configureer WAF 'Preventie'-modus.
+WAF toobe configureren in de modus 'Preventie'.
 ```powershell
 $config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
 ## <a name="create-application-gateway"></a>Toepassingsgateway maken
 
-Een toepassingsgateway maken met de configuratieobjecten uit de bovenstaande stappen.
+Een toepassingsgateway met alle Hallo configuratie-objecten uit de vorige stappen Hallo maken.
 
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name $applicationGatewayName -ResourceGroupName $resourceGroupName  -Location $location -BackendAddressPools $apimProxyBackendPool, $dummyBackendPool -BackendHttpSettingsCollection $apimPoolSetting, $dummyBackendSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert -Probes $apimprobe
 ```
 
-## <a name="cname-the-api-management-proxy-hostname-to-the-public-dns-name-of-the-application-gateway-resource"></a>De hostnaam van de API Management-proxy aan de openbare DNS-naam van de resource Application Gateway CNAME
+## <a name="cname-hello-api-management-proxy-hostname-toohello-public-dns-name-of-hello-application-gateway-resource"></a>CNAME Hallo API Management proxy hostnaam toohello openbare DNS-naam van Hallo Application Gateway resource
 
-Wanneer de gateway is gemaakt, gaat u in de volgende stap de front-end voor communicatie configureren. Wanneer u een openbaar IP-adres, vereist de toepassingsgateway een dynamisch toegewezen DNS-naam die niet eenvoudig te gebruiken. 
+Zodra Hallo gateway is gemaakt, is de volgende stap Hallo tooconfigure Hallo front-end voor communicatie. Wanneer u een openbaar IP-adres, vereist Application Gateway een dynamisch toegewezen DNS-naam die gemakkelijk toouse niet mogelijk. 
 
-De toepassingsgateway DNS-naam moet worden gebruikt voor het maken van een CNAME-record die de APIM proxy-hostnaam wijst (bv. `api.contoso.net` in de bovenstaande voorbeelden) aan deze DNS-naam. Voor het configureren van de frontend-IP-CNAME-record ophalen van de gegevens van de toepassingsgateway en de bijbehorende IP-en DNS-naam met behulp van de PublicIPAddress-element. Het gebruik van A-records wordt niet aanbevolen, omdat het VIP kan worden gewijzigd bij opnieuw opstarten van de gateway.
+Hallo toepassingsgateway van DNS-naam moet gebruikte toocreate een CNAME-record die Hallo APIM proxyhostnaam wijst (bijvoorbeeld `api.contoso.net` in bovenstaande Hallo voorbeelden) toothis DNS-naam. Hallo-details van Hallo Application Gateway en de bijbehorende IP-en DNS-naam met behulp van Hallo PublicIPAddress element tooconfigure Hallo frontend IP CNAME-record, worden opgehaald. Hallo-gebruik van A-records wordt niet aanbevolen omdat Hallo VIP kan worden gewijzigd bij opnieuw opstarten van de gateway.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -Name "publicIP01"
 ```
 
 ##<a name="summary"></a> Samenvatting
-Azure API Management geconfigureerd in een VNET biedt een interface één gateway voor alle geconfigureerde API's, ongeacht of deze gehoste on-premises of in de cloud. Integratie van Application Gateway met API Management biedt de flexibiliteit van selectief inschakelen van bepaalde API's voor het toegankelijk is op het Internet, evenals biedt u een Web Application Firewall als een frontend naar uw API Management-exemplaar.
+Azure API Management geconfigureerd in een VNET biedt een interface één gateway voor alle geconfigureerde API's, ongeacht of deze gehoste on-premises of in Hallo cloud. Integratie van Application Gateway met API Management flexibel Hallo van bepaalde API's toobe toegankelijk is op Internet Hallo selectief inschakelen, evenals bieden een Web Application Firewall als een frontend tooyour API Management-exemplaar.
 
 ##<a name="next-steps"></a> Volgende stappen
 * Meer informatie over Azure Application Gateway
@@ -346,5 +346,5 @@ Azure API Management geconfigureerd in een VNET biedt een interface één gatewa
   * [Application Gateway Web Application Firewall](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
   * [Application Gateway met behulp van Routing op basis van het pad](../application-gateway/application-gateway-create-url-route-arm-ps.md)
 * Meer informatie over API Management en VNETs
-  * [Met behulp van API Management is alleen beschikbaar in het VNET](api-management-using-with-internal-vnet.md)
+  * [Met behulp van API Management is alleen beschikbaar in Hallo VNET](api-management-using-with-internal-vnet.md)
   * [Met behulp van API Management in VNET](api-management-using-with-vnet.md)

@@ -1,6 +1,6 @@
 ---
-title: Gebeurtenissen verzenden naar een Azure Time Series Insights-omgeving | Microsoft Docs
-description: In deze zelfstudie worden de stappen besproken voor het verzenden van gebeurtenissen naar uw Time Series Insights-omgeving
+title: aaaSend gebeurtenissen tooAzure Time Series Insights omgeving | Microsoft Docs
+description: Deze zelfstudie wordt ingegaan op Hallo stappen toopush gebeurtenissen tooyour Time Series Insights omgeving
 keywords: 
 services: tsi
 documentationcenter: 
@@ -15,45 +15,45 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/21/2017
 ms.author: venkatja
-ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: dbccc23f61351a0033cd48c1a02fb3841b45d560
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Gebeurtenissen verzenden naar een Time Series Insights-omgeving met Event Hub
+# <a name="send-events-tooa-time-series-insights-environment-using-event-hub"></a>Verzenden van gebeurtenissen tooa Time Series Insights omgeving met event hub
 
-In deze zelfstudie wordt uitgelegd hoe u een Event Hub maakt en configureert, en een voorbeeldtoepassing uitvoert om gebeurtenissen te verzenden. Als u een bestaande Event Hub hebt die al gebeurtenissen in JSON-indeling bevat, kunt u deze zelfstudie overslaan en uw omgeving bekijken in [Time Series Insights](https://insights.timeseries.azure.com).
+Deze zelfstudie wordt uitgelegd hoe toocreate en event hub configureren en uitvoeren van een toepassing voorbeeld toopush gebeurtenissen. Als u een bestaande Event Hub hebt die al gebeurtenissen in JSON-indeling bevat, kunt u deze zelfstudie overslaan en uw omgeving bekijken in [Time Series Insights](https://insights.timeseries.azure.com).
 
 ## <a name="configure-an-event-hub"></a>Een Event Hub configureren
-1. Voor het maken van uw Event Hub volgt u de instructies in de Event Hub-[documentatie](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+1. toocreate een event hub, volg de instructies van Hallo Event Hub [documentatie](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 2. Zorg ervoor dat u een consumergroep maakt die uitsluitend door uw Time Series Insights-gebeurtenisbron wordt gebruikt.
 
   > [!IMPORTANT]
-  > Deze consumergroep mag niet worden gebruikt door een andere service (zoals een Stream Analytics-taak of een andere Time Series Insights-omgeving). Als de consumergroep wordt gebruikt door andere services, wordt de leesbewerking negatief beïnvloed voor deze omgeving en de andere services. Als u $Default als consumergroep selecteert, kan dit leiden tot mogelijk hergebruik door andere lezers.
+  > Deze consumergroep mag niet worden gebruikt door een andere service (zoals een Stream Analytics-taak of een andere Time Series Insights-omgeving). Als consumergroep wordt gebruikt door andere services, bewerking nadelig wordt beïnvloed voor deze omgeving lees- en andere services Hallo. Als u '$Default' als consumergroep hello, kan dit ertoe leiden toopotential opnieuw kunnen worden gebruikt door andere lezers.
 
   ![Event Hub-consumergroep selecteren](media/send-events/consumer-group.png)
 
-3. Maak in de Event Hub 'MySendPolicy'. Dit wordt gebruikt voor het verzenden van gebeurtenissen in het csharp-voorbeeld.
+3. Maak 'MySendPolicy' op Hallo event hub, dat wil gebruikte toosend gebeurtenissen in Hallo csharp voorbeeld.
 
   ![Een beleid voor gedeelde toegang selecteren en klikken op de knop Toevoegen](media/send-events/shared-access-policy.png)  
 
   ![Een nieuw beleid voor gedeelde toegang toevoegen](media/send-events/shared-access-policy-2.png)  
 
 ## <a name="create-time-series-insights-event-source"></a>Een Time Series Insights-gebeurtenisbron maken
-1. Als u nog geen gebeurtenisbron hebt gemaakt, volgt u [deze instructies](time-series-insights-add-event-source.md) om een gebeurtenisbron te maken.
+1. Als u een gebeurtenisbron nog niet hebt gemaakt, voert u de [deze instructies](time-series-insights-add-event-source.md) toocreate een gebeurtenisbron.
 
-2. Geef 'deviceTimestamp' op als de naam van de tijdstempeleigenschap. Deze eigenschap wordt gebruikt als de werkelijke tijdstempel in het csharp-voorbeeld. De naam van de tijdstempeleigenschap is hoofdlettergevoelig en waarden moeten de indeling __jjjj-MM-ddTUU. FFFFFFFK__ volgen wanneer ze als JSON worden verzonden naar een Event Hub. Als de eigenschap niet aanwezig is in de gebeurtenis, wordt de tijd gebruikt waarop de gebeurtenis in de wachtrij van de Event Hub is geplaatst.
+2. 'DeviceTimestamp' opgeven als de naam van de eigenschap timestamp Hallo – deze eigenschap wordt gebruikt als Hallo werkelijke tijdstempel in Hallo csharp voorbeeld. Hallo timestamp eigenschapsnaam is hoofdlettergevoelig en waarden moeten volgen op Hallo indeling __jjjj-MM-ddTUU. FFFFFFFK__ wanneer ze worden verzonden als JSON tooevent hub. Als het Hallo-eigenschap bestaat niet in de gebeurtenis hello, wordt vervolgens hello gebeurtenistijd hub in de wachtrij gebruikt.
 
   ![Gebeurtenisbron maken](media/send-events/event-source-1.png)
 
-## <a name="sample-code-to-push-events"></a>Voorbeeldcode uitvoeren om gebeurtenissen te pushen
-1. Ga naar het Event Hub-beleid 'MySendPolicy' en kopieer de verbindingsreeks met de beleidssleutel.
+## <a name="sample-code-toopush-events"></a>Voorbeeld code toopush gebeurtenissen
+1. Ga toohello event hub beleid 'MySendPolicy' en kopieer Hallo-verbindingsreeks met Hallo beleidssleutel.
 
   ![MySendPolicy-verbindingsreeks kopiëren](media/send-events/sample-code-connection-string.png)
 
-2. Voer de volgende code uit, waarmee voor elk van de drie apparaten 600 gebeurtenissen worden verzonden. Werk `eventHubConnectionString` bij met uw verbindingsreeks.
+2. Hallo na de code die gebeurtenissen toosend 600 per elk Hallo drie apparaten uitvoeren. Werk `eventHubConnectionString` bij met uw verbindingsreeks.
 
 ```csharp
 using System;
@@ -113,7 +113,7 @@ namespace Microsoft.Rdx.DataGenerator
                 sw.Flush();
                 ms.Position = 0;
 
-                // Send JSON to event hub.
+                // Send JSON tooevent hub.
                 EventData eventData = new EventData(ms);
                 eventHubClient.Send(eventData);
             }
@@ -144,7 +144,7 @@ Een eenvoudig JSON-object.
 ### <a name="sample-2"></a>Voorbeeld 2
 
 #### <a name="input"></a>Invoer
-Een JSON-matrix met twee JSON-objecten. Elk JSON-object wordt omgezet in een gebeurtenis.
+Een JSON-matrix met twee JSON-objecten. Elk JSON-object worden geconverteerde tooan gebeurtenis.
 ```json
 [
     {
@@ -185,7 +185,7 @@ Een JSON-object met een geneste JSON-matrix met twee JSON-objecten.
 
 ```
 #### <a name="output---2-events"></a>Uitvoer - 2 gebeurtenissen
-Houd er rekening mee dat de eigenschap 'location' naar elk van de gebeurtenissen wordt gekopieerd.
+Houd er rekening mee dat Hallo-eigenschap 'locatie' tooeach van Hallo gebeurtenis is gekopieerd.
 
 |location|events.id|events.timestamp|
 |--------|---------------|----------------------|
@@ -196,7 +196,7 @@ Houd er rekening mee dat de eigenschap 'location' naar elk van de gebeurtenissen
 
 #### <a name="input"></a>Invoer
 
-Een JSON-object met een geneste JSON-matrix met twee JSON-objecten. Uit deze invoer blijkt dat de algemene eigenschappen kunnen worden vertegenwoordigd door het complexe JSON-object.
+Een JSON-object met een geneste JSON-matrix met twee JSON-objecten. Deze invoer laat zien dat Hallo algemene eigenschappen kunnen worden vertegenwoordigd door Hallo complexe JSON-object.
 
 ```json
 {

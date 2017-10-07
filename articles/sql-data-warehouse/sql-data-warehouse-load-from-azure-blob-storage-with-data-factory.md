@@ -1,7 +1,7 @@
 ---
 redirect_url: /azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory
-title: Gegevens uit Azure blob-opslag laden in Azure SQL Data Warehouse (Azure Data Factory) | Microsoft Docs
-description: Informatie over het laden van gegevens met Azure Data Factory
+title: aaaLoad gegevens van Azure blob-opslag in Azure SQL Data Warehouse (Azure Data Factory) | Microsoft Docs
+description: Meer informatie over tooload gegevens met Azure Data Factory
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
@@ -17,11 +17,11 @@ ms.workload: data-services
 ms.date: 11/22/2016
 ms.author: barbkess
 ms.custom: loading
-ms.openlocfilehash: ca8bdfc21582253e8709a33eb624547fed4461d6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 29a220679a11cedefb0dfd06c0a6838f81a90447
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-data-from-azure-blob-storage-into-azure-sql-data-warehouse-azure-data-factory"></a>Gegevens uit Azure Blob-opslag laden in Azure SQL Data Warehouse (Azure Data Factory)
 > [!div class="op_single_selector"]
@@ -30,48 +30,48 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
- In deze zelfstudie ziet u hoe u een pijplijn maakt in Azure Data Factory om gegevens te verplaatsen van een Azure Storage-blob naar SQL Data Warehouse. Met deze stappen bewerkstelligt u het volgende:
+ Deze zelfstudie leert u hoe toocreate een pijplijn in Azure Data Factory toomove gegevens uit Azure Storage-Blob tooSQL Data Warehouse. U gaat Hello stappen te volgen:
 
 * U stelt voorbeeldgegevens in een Azure Storage-blob in.
-* U verbindt resources met Azure Data Factory.
-* U maakt een pijplijn om gegevens te verplaatsen van opslag-blobs naar SQL Data Warehouse
+* Verbinding maken met resources tooAzure Data Factory.
+* Een pijplijn toomove gegevens van de Storage-Blobs tooSQL Data Warehouse maken.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-Azure-SQL-Data-Warehouse-with-Azure-Data-Factory/player]
 > 
 > 
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Zie [Inleiding tot Azure Data Factory][Introduction to Azure Data Factory] om vertrouwd te raken met Azure Data Factory.
+toofamiliarize uzelf met Azure Data Factory, Zie [inleiding tooAzure Data Factory][Introduction tooAzure Data Factory].
 
 ### <a name="create-or-identify-resources"></a>Resources maken of identificeren
-Voordat u met deze zelfstudie begint, moet u beschikken over de volgende resources.
+Voordat u deze zelfstudie begint, moet u toohave Hallo resources te volgen.
 
-* **Azure Storage-blob**: in deze zelfstudie wordt een Azure Storage-blob gebruikt als gegevensbron voor de Azure Data Factory-pijplijn, dus u hebt er een nodig om de voorbeeldgegevens in op te slaan. Als u nog geen opslagaccount hebt, raadpleegt u [Een opslagaccount maken][Create a storage account].
-* **SQL Data Warehouse**: in deze zelfstudie worden de gegevens uit een Azure Storage-blob verplaatst naar SQL Data Warehouse. Hiervoor moet een datawarehouse online zijn waarin de voorbeeldgegevens van AdventureWorksDW zijn geladen. Als u nog geen datawarehouse hebt, kunt u [er een inrichten][Create a SQL Data Warehouse]. Als u wel een datawarehouse hebt, maar u dit nog niet hebt ingericht met de voorbeeldgegevens, kunt u [het handmatig laden][Load sample data into SQL Data Warehouse].
-* **Azure Data Factory**: de daadwerkelijke laadbewerking wordt voltooid door Azure Data Factory en dus moet u beschikken over een die u gebruiken kunt voor het bouwen van de data movement pijplijn. Als u niet al hebt, informatie over het maken van een in stap 1 van [aan de slag met Azure Data Factory (Data Factory-Editor)][Get started with Azure Data Factory (Data Factory Editor)].
-* **AZCopy**: u hebt AZCopy nodig om de voorbeeldgegevens van de lokale client te kopiëren naar uw Azure Storage-blob. Zie de [documentatie van AZCopy][AZCopy documentation] voor installatie-instructies.
+* **Azure Storage-Blob**: deze zelfstudie wordt Azure Storage-Blob als gegevensbron Hallo voor hello Azure Data Factory-pijplijn en dus moet u toohave één beschikbaar toostore Hallo voorbeeldgegevens. Als u niet al hebt, meer te weten hoe te[een opslagaccount maken][Create a storage account].
+* **SQL Data Warehouse**: met deze zelfstudie verplaatst Hallo-gegevens uit Azure Storage-Blob te SQL Data Warehouse en kan dus moeten toohave een datawarehouse online zijn waarin van Hallo voorbeeldgegevens van AdventureWorksDW zijn geladen. Als u nog geen datawarehouse, meer te weten hoe te[inrichten][Create a SQL Data Warehouse]. Als u wel een datawarehouse hebt, maar nog niet hebt ingericht met voorbeeldgegevens hello, kunt u [handmatig laden][Load sample data into SQL Data Warehouse].
+* **Azure Data Factory**: Azure Data Factory Hallo daadwerkelijke laadbewerking wordt voltooid en dus moet u toohave een waarmee u toobuild Hallo data movement pijplijn kunt. Als u niet al hebt, Ontdek hoe toocreate een in stap 1 van [aan de slag met Azure Data Factory (Data Factory-Editor)][Get started with Azure Data Factory (Data Factory Editor)].
+* **AZCopy**: moet u voorbeeldgegevens van AZCopy toocopy Hallo van uw lokale client tooyour Azure Storage-Blob. Zie voor installatie-instructies Hallo [documentatie van AZCopy][AZCopy documentation].
 
-## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>Stap 1: Voorbeeldgegevens kopiëren naar Azure Storage-blob
-Als u beschikt over alle benodigde onderdelen, bent u klaar om de voorbeeldgegevens te kopiëren naar uw Azure Storage-blob.
+## <a name="step-1-copy-sample-data-tooazure-storage-blob"></a>Stap 1: Voorbeeld gegevens tooAzure Storage-Blob kopiëren
+Wanneer u beschikt over alle Hallo onderdelen, bent u klaar toocopy sample data tooyour Azure Storage-Blob.
 
-1. [Voorbeeldgegevens downloaden][Download sample data]. Hiermee worden nog eens drie jaar aan verkoopgegevens toegevoegd aan de voorbeeldgegevens van AdventureWorksDW.
-2. Gebruik deze AZCopy-opdracht om de drie jaar aan gegevens naar uw Azure Storage-blob te kopiëren.
+1. [Voorbeeldgegevens downloaden][Download sample data]. Deze gegevens wordt een andere drie jaar aan verkoopgegevens tooyour voorbeeldgegevens van AdventureWorksDW toevoegen.
+2. Gebruik deze AZCopy-opdracht toocopy Hallo drie jaar aan gegevens tooyour Azure Storage-Blob.
 
 ````
 AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core.windows.net/<container name> /DestKey:<storage key> /Pattern:FactInternetSales.csv
 ````
 
 
-## <a name="step-2-connect-resources-to-azure-data-factory"></a>Stap 2: resources verbinden met Azure Data Factory
-Nu de gegevens zijn opgeslagen, kunt u de Azure Data Factory-pijplijn maken om de gegevens te kunnen verplaatsen van de Azure Blob-opslag naar SQL Data Warehouse.
+## <a name="step-2-connect-resources-tooazure-data-factory"></a>Stap 2: Verbinding maken met resources tooAzure Data Factory
+Nu sprake is van Hallo gegevens we kunt maken hello Azure Data Factory-pijplijn toomove Hallo gegevens uit Azure blob storage in SQL Data Warehouse.
 
-Open [Azure Portal][Azure portal] en selecteer uw gegevensfactory in het menu aan de linkerkant.
+tooget gestart, open Hallo [Azure-portal] [ Azure portal] en selecteer uw gegevensfactory in Hallo links menu.
 
 ### <a name="step-21-create-linked-service"></a>Stap 2.1: gekoppelde service maken
-Koppel uw Azure-opslagaccount en SQL Data Warehouse aan uw gegevensfactory.  
+Koppel uw Azure-opslagaccount en SQL Data Warehouse tooyour data factory.  
 
-1. Start het registratieproces door te klikken op de sectie Gekoppelde services van uw gegevensfactory en klik op Nieuwe gegevensopslag. Geef een naam op voor uw Azure-opslag, selecteer Azure Storage als type en voer uw accountnaam en accountsleutel in.
-2. Registreer SQL Data Warehouse door te navigeren naar de sectie Maken en implementeren, selecteer Nieuwe gegevensopslag en selecteer vervolgens Azure SQL Data Warehouse. Kopieer en plak deze sjabloon erin, en vul vervolgens uw specifieke gegevens in.
+1. Eerst Hallo registratieproces beginnen door te klikken op Hallo 'Gekoppelde Services' gedeelte van uw gegevensfactory en klik op 'Nieuw gegevensarchief'. Kies een tooregister de naam van uw azure-opslag, selecteer Azure Storage als type en voer uw accountnaam en Accountsleutel.
+2. tooregister SQL Data Warehouse gaat u de sectie 'Maken en implementeren' toohello, selecteert u 'Nieuw gegevensarchief' en 'Azure SQL Data Warehouse'. Kopieer en plak deze sjabloon erin, en vul vervolgens uw specifieke gegevens in.
 
 ```JSON
 {
@@ -86,11 +86,11 @@ Koppel uw Azure-opslagaccount en SQL Data Warehouse aan uw gegevensfactory.
 }
 ```
 
-### <a name="step-22-define-the-dataset"></a>Step 2.2: de gegevensset definiëren
-Na het maken van de gekoppelde services moet u de gegevenssets definiëren.  Dat houdt in dat u de structuur moet definiëren van de gegevens die worden verplaatst van de opslag naar het datawarehouse.  U kunt meer lezen over het aanmaakproces
+### <a name="step-22-define-hello-dataset"></a>Step 2.2: Hallo gegevensset definiëren
+Nadat het maken van Hallo gekoppelde services, moeten we toodefine Hallo gegevenssets.  Dit betekent hier Hallo structuur van Hallo-gegevens die worden verplaatst van uw opslag tooyour datawarehouse definiëren.  U kunt meer lezen over het aanmaakproces
 
-1. Start dit proces door te navigeren naar de sectie Maken en implementeren van uw gegevensfactory.
-2. Klik achtereenvolgens op Nieuwe gegevensset en Azure Blob-opslag om uw opslag te koppelen aan uw gegevensfactory.  Met onderstaand script kunt u uw gegevens definiëren in Azure Blob-opslag:
+1. Start dit proces door te navigeren toohello ' sectie maken en implementeren' van uw gegevensfactory.
+2. Klik op 'Nieuwe gegevensset' Azure Blob-opslag toolink uw opslag tooyour data factory.  U kunt Hallo hieronder script toodefine uw gegevens in Azure Blob-opslag:
 
 ```JSON
 {
@@ -124,7 +124,7 @@ Na het maken van de gekoppelde services moet u de gegevenssets definiëren.  Dat
 ```
 
 
-1. Vervolgens definieert u de gegevensset voor SQL Data Warehouse.  U begint op dezelfde manier, door te klikken op Nieuwe gegevensset. Klik vervolgens op Azure SQL Data Warehouse.
+1. Vervolgens definieert u de gegevensset voor SQL Data Warehouse.  U begint op Hallo dezelfde manier, door te klikken op 'Nieuwe gegevensset' en 'Azure SQL Data Warehouse'.
 
 ```JSON
 {
@@ -144,9 +144,9 @@ Na het maken van de gekoppelde services moet u de gegevenssets definiëren.  Dat
 ```
 
 ## <a name="step-3-create-and-run-your-pipeline"></a>Stap 3: een pijplijn maken en uitvoeren
-Tot slot moet u een pijplijn in Azure Data Factory instellen en uitvoeren.  Dit is de bewerking waarmee de daadwerkelijke gegevensverplaatsing wordt voltooid.  Een volledig overzicht van de bewerkingen die u met SQL Data Warehouse en Azure Data Factory kunt uitvoeren, vindt u [hier][Move data to and from Azure SQL Data Warehouse using Azure Data Factory].
+Ten slotte wordt en uitvoeren Hallo-pijplijn in Azure Data Factory.  Dit is Hallo-bewerking die Hallo daadwerkelijke gegevensverplaatsing wordt voltooid.  U vindt een volledig overzicht van Hallo-bewerkingen die u met SQL Data Warehouse en Azure Data Factory uitvoeren kunt [hier][Move data tooand from Azure SQL Data Warehouse using Azure Data Factory].
 
-Klik nu in de sectie Maken en implementeren op Meer opdrachten en vervolgens op Nieuwe pijplijn.  Nadat u de pijplijn hebt gemaakt, kunt u onderstaande code gebruiken voor de gegevensoverdracht naar uw datawarehouse:
+In de sectie 'Maken en implementeren' hello nu Klik op 'Meer opdrachten' 'Nieuwe pijplijn'.  Nadat u Hallo pijplijn gemaakt, kunt u Hallo hieronder de code tootransfer hello tooyour gegevens datawarehouse:
 
 ```JSON
 {
@@ -197,15 +197,15 @@ Klik nu in de sectie Maken en implementeren op Meer opdrachten en vervolgens op 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk de volgende onderwerpen voor meer informatie:
+toolearn starten, weer te geven:
 
 * [Leertraject voor Azure Data Factory][Azure Data Factory learning path].
-* [Azure SQL Data Warehouse Connector][Azure SQL Data Warehouse Connector]. Dit is het belangrijkste naslagonderwerp voor het gebruik van Azure Data Factory met Azure SQL Data Warehouse.
+* [Azure SQL Data Warehouse Connector][Azure SQL Data Warehouse Connector]. Dit is Hallo belangrijkste naslagonderwerp voor het gebruik van Azure Data Factory met Azure SQL Data Warehouse.
 
-Deze onderwerpen bevatten gedetailleerde informatie over Azure Data Factory. De informatie gaat over Azure SQL Database of HDInsight, maar is ook van toepassing op Azure SQL Data Warehouse.
+Deze onderwerpen bevatten gedetailleerde informatie over Azure Data Factory. Informatie over Azure SQL Database of HDinsight, maar Hallo-informatie is ook van toepassing tooAzure SQL Data Warehouse.
 
-* [Zelfstudie: aan de slag met Azure Data Factory][Tutorial: Get started with Azure Data Factory] Dit is de belangrijkste zelfstudie voor het verwerken van gegevens met Azure Data Factory. In deze zelfstudie maakt u uw eerste pijplijn voor het maandelijks transformeren en analyseren van weblogboeken met behulp van HDInsight. Opmerking: deze zelfstudie omvat geen kopieeractiviteit.
-* [Zelfstudie: gegevens kopiëren van Azure Storage-blob naar Azure SQL Database][Tutorial: Copy data from Azure Storage Blob to Azure SQL Database]. In deze zelfstudie maakt u een pijplijn in Azure Data Factory om gegevens te kopiëren van een Azure Storage-blob naar SQL Data Warehouse.
+* [Zelfstudie: Aan de slag met Azure Data Factory] [ Tutorial: Get started with Azure Data Factory] dit Hallo belangrijkste zelfstudie voor het verwerken van gegevens met Azure Data Factory is. In deze zelfstudie wordt u uw eerste pijplijn die gebruikmaakt van HDInsight tootransform bouwen en analyseren van weblogboeken op maandelijkse basis. Opmerking: deze zelfstudie omvat geen kopieeractiviteit.
+* [Zelfstudie: Gegevens kopiëren van Azure Storage-Blob tooAzure SQL-Database][Tutorial: Copy data from Azure Storage Blob tooAzure SQL Database]. In deze zelfstudie maakt u een pijplijn in Azure Data Factory toocopy gegevens uit Azure Storage-Blob tooAzure SQL-Database.
 
 <!--Image references-->
 
@@ -217,11 +217,11 @@ Deze onderwerpen bevatten gedetailleerde informatie over Azure Data Factory. De 
 [Create a storage account]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Data Factory]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Get started with Azure Data Factory (Data Factory Editor)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
-[Introduction to Azure Data Factory]: ../data-factory/data-factory-introduction.md
+[Introduction tooAzure Data Factory]: ../data-factory/data-factory-introduction.md
 [Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
-[Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[Move data tooand from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
-[Tutorial: Copy data from Azure Storage Blob to Azure SQL Database]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+[Tutorial: Copy data from Azure Storage Blob tooAzure SQL Database]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [Tutorial: Get started with Azure Data Factory]: ../data-factory/data-factory-build-your-first-pipeline.md
 
 <!--MSDN references-->

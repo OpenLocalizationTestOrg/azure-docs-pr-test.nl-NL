@@ -1,5 +1,5 @@
 ---
-title: Uw eerste Azure Container Instances-container maken | Azure Docs
+title: aaaCreate uw eerste Azure-Containerexemplaren container | Azure Docs
 description: Azure Container Instances implementeren en ermee aan de slag gaan
 services: container-instances
 documentationcenter: 
@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 07/26/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 905f69e5e1e237a31d9bb1e326969ec83292c244
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: b57c52714933bd3b28c44d33f9af7cd1f23fb951
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Uw eerste container maken in Azure Container Instances
 
-Met Azure Container Instances kunt u eenvoudig containers maken en beheren in Azure. In deze snelstartgids maakt u een container in Azure en geeft u deze op internet weer met een openbaar IP-adres. Deze bewerking wordt uitgevoerd in één opdracht. Binnen een paar seconden ziet u dit in uw browser:
+Azure Containerexemplaren maakt het eenvoudig toocreate en beheer containers in Azure. In deze snel starten, wordt u een container maken in Azure en maak deze toohello zichtbaar internet met een openbaar IP-adres. Deze bewerking wordt uitgevoerd in één opdracht. Binnen een paar seconden ziet u dit in uw browser:
 
 ![App die is geïmplementeerd met Azure Container Instances, weergegeven in de browser][aci-app-browser]
 
@@ -33,15 +33,15 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids gebruikmaken van Azure CLI versie 2.0.12 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, is deze snelstartgids vereist dat u de versie van de Azure CLI Hallo 2.0.12 worden uitgevoerd of hoger. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 Azure Container Instances zijn Azure-resources en moeten worden geplaatst in een Azure-resourcegroep, een logische verzameling waarin Azure resources worden geïmplementeerd en beheerd.
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). 
+Een resourcegroep maken met de Hallo [az groep maken](/cli/azure/group#create) opdracht. 
 
-In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
+Hallo volgende voorbeeld maakt u een resourcegroep met de naam *myResourceGroup* in Hallo *eastus* locatie.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -49,19 +49,19 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Een container maken
 
-U kunt een container maken door een naam, een Docker-installatiekopie en een Azure-resourcegroep op te geven. U kunt de container desgewenst weergeven op internet met een openbaar IP-adres. We gebruiken in dit geval een container die als host fungeert voor een zeer eenvoudige web-app die is geschreven in [Node.js](http://nodejs.org).
+U kunt een container maken door een naam, een Docker-installatiekopie en een Azure-resourcegroep op te geven. Hallo container toohello kan eventueel worden blootgesteld internet met een openbaar IP-adres. We gebruiken in dit geval een container die als host fungeert voor een zeer eenvoudige web-app die is geschreven in [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 
 ```
 
-Binnen enkele seconden krijgt u een reactie op uw aanvraag. In eerste instantie heeft de container de status **Maken** staat, maar deze moet binnen een paar seconden starten. U kunt de status controleren met de opdracht `show`:
+Binnen enkele seconden krijgt u een antwoord tooyour-aanvraag. In eerste instantie Hallo container zich in een **maken** staat, maar moet worden gestart binnen een paar seconden. U kunt met behulp van Hallo Hallo-status controleren `show` opdracht:
 
 ```azurecli-interactive
 az container show --name mycontainer --resource-group myResourceGroup
 ```
 
-Aan de onderkant van de uitvoer ziet u de inrichtingsstatus en het IP-adres van de container:
+Aan de onderkant van de Hallo van Hallo uitvoer ziet u de Inrichtingsstatus Hallo-container en het IP-adres:
 
 ```json
 ...
@@ -79,13 +79,13 @@ Aan de onderkant van de uitvoer ziet u de inrichtingsstatus en het IP-adres van 
 ...
 ```
 
-Als de container de status **Voltooid** heeft, u kunt deze benaderen in de browser met behulp van het opgegeven IP-adres. 
+Zodra het Hallo-container verplaatst toohello **geslaagd** staat, kunt u deze op Hallo browser Hallo IP-adres opgegeven bereiken. 
 
 ![App die is geïmplementeerd met Azure Container Instances, weergegeven in de browser][aci-app-browser]
 
-## <a name="pull-the-container-logs"></a>De containerlogboeken ophalen
+## <a name="pull-hello-container-logs"></a>Pull-hallo container Logboeken
 
-U kunt de logboeken voor de container die u hebt gemaakt ophalen met de opdracht `logs`:
+U kunt pull-logboeken voor Hallo-container hebt gemaakt met behulp van Hallo Hallo `logs` opdracht:
 
 ```azurecli-interactive
 az container logs --name mycontainer --resource-group myResourceGroup
@@ -99,9 +99,9 @@ listening on port 80
 ::ffff:10.240.255.105 - - [21/Jul/2017:00:01:46 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://104.210.39.122/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ```
 
-## <a name="delete-the-container"></a>De container verwijderen
+## <a name="delete-hello-container"></a>Hallo-container verwijderen
 
-Wanneer u klaar bent met de container, kunt u deze verwijderen met behulp van de opdracht `delete`:
+Wanneer u klaar bent met het Hallo-container, kunt u met behulp van Hallo verwijderen `delete` opdracht:
 
 ```azurecli-interactive
 az container delete --name mycontainer --resource-group myResourceGroup
@@ -109,7 +109,7 @@ az container delete --name mycontainer --resource-group myResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Alle code voor de container die wordt gebruikt in deze snelstartgids is beschikbaar [op GitHub][app-github-repo], samen met het Dockerfile. Als u wilt proberen om deze zelf te bouwen en te implementeren in Azure Container Instances met behulp van het Azure Container Registry, gaat u verder met de zelfstudie van Azure Container Instances.
+Alle Hallo code voor de Hallo container gebruikt in deze snel starten [op GitHub][app-github-repo], samen met de Dockerfile. Als u tootry zelf bouwen en implementeren van tooAzure Container-exemplaren die gebruikmaken van hello Azure Container register wilt, blijven toohello Azure Containerexemplaren zelfstudie.
 
 > [!div class="nextstepaction"]
 > [Zelfstudies voor Azure Container Instances](./container-instances-tutorial-prepare-app.md)

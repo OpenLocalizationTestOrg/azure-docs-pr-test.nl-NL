@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-Script steekproef - certificaat van de toepassing toevoegen aan een cluster | Microsoft Docs
-description: 'Azure PowerShell-Script voorbeeld: een toepassingscertificaat toevoegen aan een Service Fabric-cluster.'
+title: aaaAzure PowerShell-voorbeeldscript - toepassing cert tooa cluster toevoegen | Microsoft Docs
+description: Azure PowerShell-Script voorbeeld - een toepassing certificaat tooa Service Fabric-cluster toevoegen.
 services: service-fabric
 documentationcenter: 
 author: rwike77
@@ -15,32 +15,32 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9ccd6bb0458bc03e52103fa70cad26bd6bf98bd5
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: aba62598e2e4775012f89b5070bef5e61aec64f6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Het toepassingscertificaat van een toevoegen aan een Service Fabric-cluster
+# <a name="add-an-application-certificate-tooa-service-fabric-cluster"></a>Een toepassing certificaat tooa Service Fabric-cluster toevoegen
 
-Dit voorbeeldscript wordt een zelfondertekend certificaat gemaakt in de opgegeven Azure sleutelkluis en installeert deze met alle knooppunten van het Service Fabric-cluster. Het certificaat kan ook worden gedownload naar een lokale map. De naam van het gedownloade certificaat is dezelfde als de naam van het certificaat in de sleutelkluis. Pas de parameters zo nodig.
+Dit voorbeeldscript wordt gemaakt van een zelfondertekend certificaat in Hallo opgegeven Azure sleutelkluis en installeert deze tooall knooppunten van Hallo Service Fabric-cluster. Hallo-certificaat gedownload ook tooa lokale map. Hallo-naam van Hallo gedownload certificaat is dezelfde is als naam van het certificaat in de sleutelkluis Hallo Hallo HALLO hallo. Hallo parameters aanpassen indien nodig.
 
-Installeer zo nodig de Azure PowerShell met de instructie gevonden in de [Azure PowerShell handleiding](/powershell/azure/overview) en voer vervolgens `Login-AzureRmAccount` geen verbinding maken met Azure. 
+Installeer zo nodig hello Azure PowerShell met de instructie Hallo in Hallo gevonden [Azure PowerShell handleiding](/powershell/azure/overview) en voer vervolgens `Login-AzureRmAccount` toocreate een verbinding met Azure. 
 
 ## <a name="sample-script"></a>Voorbeeld van een script
 
-[!code-powershell[belangrijkste](../../../powershell_scripts/service-fabric/add-application-certificate/add-new-application-certificate.ps1 "een toepassingscertificaat toevoegen aan een cluster")]
+[!code-powershell[main](../../../powershell_scripts/service-fabric/add-application-certificate/add-new-application-certificate.ps1 "Add an application certificate tooa cluster")]
 
 ## <a name="script-explanation"></a>Script uitleg
 
-Dit script maakt gebruik van de volgende opdrachten: elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+Dit script maakt gebruik van Hallo opdrachten te volgen: elke opdracht in de tabel Hallo koppelingen toocommand specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [Voeg AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) | Een nieuw toepassingscertificaat toevoegen aan de virtuele-machineschaalset waaruit het cluster.  |
+| [Voeg AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) | Voeg dat een nieuwe toepassing certificaat toohello virtuele-machineschaalset waaruit Hallo-cluster.  |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure PowerShell-module [documentatie van Azure PowerShell](/powershell/azure/overview).
+Zie voor meer informatie over hello Azure PowerShell-module [documentatie van Azure PowerShell](/powershell/azure/overview).
 
-Aanvullende voorbeelden van de Azure Powershell voor Azure Service Fabric vindt u in de [voorbeelden van Azure PowerShell](../service-fabric-powershell-samples.md).
+Aanvullende voorbeelden van de Azure Powershell voor Azure Service Fabric vindt u in Hallo [voorbeelden van Azure PowerShell](../service-fabric-powershell-samples.md).

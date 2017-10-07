@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure Service Bus - zelfstudies, API-verwijzing | Microsoft Docs
-description: "Meer informatie over het instellen van berichten die toepassingen en services in on-premises en cloudomgevingen verbinden.  Zelfstudies, video’s, API-verwijzingen en meer."
+title: aaaAzure documentatie van Service Bus - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: "Meer informatie over hoe tooset van berichten die verbinding maakt toepassingen en services on-premises en in de cloud omgevingen.  Zelfstudies, video’s, API-verwijzingen en meer."
 services: service-bus
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/14/2017
 ms.author: carolz
-ms.openlocfilehash: 3401257f406c71ff26d0eb2f7ca5f7e830d91882
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 68df38c39d6f5da112b44025aaf393df542ce01a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="service-bus-documentation"></a>Documentatie voor Service Bus
 
-Meer informatie over het gebruik van Service Bus en Relay om on-premises en cloudomgevingen te verbinden. Zelfstudies, video's, API-verwijzingen en andere documentatie laten zien hoe u cloudberichten tussen toepassingen en services instelt.
+Informatie over hoe de Service Bus en Relay tooconnect toouse tussen lokale en cloud omgevingen. Zelfstudies, video's, API-referenties en andere documentatie tonen hoe tooset up cloud uitwisseling van berichten tussen toepassingen en services.
 
 <ul class="panelContent cardsFTitle">
     <li>

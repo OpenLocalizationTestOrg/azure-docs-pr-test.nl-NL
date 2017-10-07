@@ -1,6 +1,6 @@
 ---
-title: API-sjablonen in Azure API Management | Microsoft Docs
-description: Informatie over het aanpassen van de inhoud van de API's in de ontwikkelaarsportal in Azure API Management.
+title: aaaAPI sjablonen in Azure API Management | Microsoft Docs
+description: Meer informatie over hoe toocustomize Hallo inhoud van Hallo API's in Azure API Management Hallo developer-Portal.
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 3802868470f0f74cd1f895a00195259861ea16f8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fdfa76167cfaf3b23b22d6321904f34da077fecb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-templates-in-azure-api-management"></a>API-sjablonen in Azure API Management
-Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van developer portal-pagina's met behulp van een set van sjablonen die hun inhoud configureren. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [resources String](api-management-template-resources.md#strings), [Glyph-resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u aanzienlijke flexibiliteit voor het configureren van de inhoud van de pagina's naar wens met behulp van deze sjablonen.  
+Azure API Management biedt dat u Hallo mogelijkheid toocustomize Hallo inhoud van developer portal-pagina's met behulp van een set van sjablonen die hun inhoud configureren. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en het Hallo-editor naar keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [resources String](api-management-template-resources.md#strings), [ De glyph-resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u aanzienlijke flexibiliteit tooconfigure Hallo inhoud van het Hallo-pagina's naar wens met behulp van deze sjablonen.  
   
- De sjablonen in deze sectie kunt u de inhoud van de API's in de ontwikkelaarsportal aanpassen.  
+ Hallo-sjablonen in deze sectie kunt u toocustomize Hallo inhoud van Hallo API's in het Hallo-portal voor ontwikkelaars.  
   
 -   [API-lijst](#APIList)  
 -   [Bewerking](#Product)  
@@ -38,10 +38,10 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
     -   [Ruby](#Ruby)  
 
 > [!NOTE]
->  Standaard-voorbeeldsjablonen zijn opgenomen in de volgende documentatie, maar nog worden gewijzigd vanwege continu verbeteringen. U kunt de live standaardsjablonen weergeven in de ontwikkelaarsportal door te navigeren naar de gewenste afzonderlijke sjablonen. Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Standaard-voorbeeldsjablonen zijn opgenomen in de volgende documentatie Hallo, maar onderwerp toochange vanwege toocontinuous verbeteringen zijn. U kunt Hallo live standaardsjablonen in Hallo developer-portal door te navigeren toohello gewenst afzonderlijke sjablonen weergeven. Zie voor meer informatie over het werken met sjablonen [hoe toocustomize API Management-portal voor ontwikkelaars met behulp van sjablonen Hallo](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="APIList"></a>API-lijst  
- De **API lijst** sjabloon kunt u de hoofdtekst van de lijst met API-pagina in de ontwikkelaarsportal aanpassen.  
+ Hallo **API lijst** sjabloon kunt u toocustomize Hallo hoofdtekst van de pagina van de lijst met Hallo API in Hallo-portal voor ontwikkelaars.  
   
  ![Developer Portal API lijst](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Developer Portal API-Sjabloonlijst")  
   
@@ -76,7 +76,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ### <a name="controls"></a>Besturingselementen  
- De `API list` sjabloon mogelijk gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
+ Hallo `API list` sjabloon mogelijk gebruikt u de volgende Hallo [pagina besturingselementen](api-management-page-controls.md).  
   
 -   [besturingselement voor paginering](api-management-page-controls.md#paging-control)  
   
@@ -86,7 +86,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|API 's|Verzameling van [API-overzicht](api-management-template-data-model-reference.md#APISummary) entiteiten.|De API's zichtbaar is voor de huidige gebruiker.|  
+|API 's|Verzameling van [API-overzicht](api-management-template-data-model-reference.md#APISummary) entiteiten.|Hallo-API's zichtbaar toohello huidige gebruiker.|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
   
@@ -109,7 +109,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ##  <a name="Product"></a>Bewerking  
- De **bewerking** sjabloon kunt u de hoofdtekst van de pagina bewerking in de ontwikkelaarsportal aanpassen.  
+ Hallo **bewerking** sjabloon kunt u toocustomize Hallo hoofdtekst van Hallo bewerking pagina in het Hallo-portal voor ontwikkelaars.  
   
  ![Developer Portal bewerking pagina](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Ontwikkelaarsportal APIM sjablonen bewerking pagina")  
   
@@ -335,21 +335,21 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ### <a name="controls"></a>Besturingselementen  
- De `Operation` sjabloon staat niet toe dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ Hallo `Operation` sjabloon staat niet toe dat het gebruik van een Hallo [pagina besturingselementen](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Gegevensmodel  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|apiId|Tekenreeks|De id van de huidige API.|  
-|apiName|Tekenreeks|De naam van de API.|  
-|apiDescription|Tekenreeks|Een beschrijving van de API.|  
-|api|[API-overzicht](api-management-template-data-model-reference.md#APISummary) entiteit.|De huidige API.|  
-|bewerking|[Bewerking](api-management-template-data-model-reference.md#Operation)|De bewerking die momenteel wordt weergegeven.|  
-|sampleUrl|Tekenreeks|De URL voor de huidige bewerking.|  
+|apiId|Tekenreeks|Hallo-id van de huidige API Hallo.|  
+|apiName|Tekenreeks|de naam van de Hallo Hallo API.|  
+|apiDescription|Tekenreeks|Een beschrijving van Hallo API.|  
+|api|[API-overzicht](api-management-template-data-model-reference.md#APISummary) entiteit.|huidige Hallo-API.|  
+|bewerking|[Bewerking](api-management-template-data-model-reference.md#Operation)|Hallo weergegeven momenteel opnieuw.|  
+|sampleUrl|Tekenreeks|Hallo-URL voor de huidige bewerking Hallo.|  
 |operationMenu|[Bewerking menu](api-management-template-data-model-reference.md#Menu)|Een menu voor deze API-bewerkingen.|  
-|consoleUrl|URI|De URI voor de **Try it** knop.|  
-|Voorbeelden|Verzameling van [codevoorbeeld](api-management-template-data-model-reference.md#Sample) entiteiten.|De codevoorbeelden voor de huidige bewerking...|  
+|consoleUrl|URI|Hallo URI voor Hallo **Try it** knop.|  
+|Voorbeelden|Verzameling van [codevoorbeeld](api-management-template-data-model-reference.md#Sample) entiteiten.|Hallo-codevoorbeelden voor de huidige bewerking Hallo...|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
   
@@ -376,7 +376,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -456,7 +456,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -480,7 +480,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -504,7 +504,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -528,7 +528,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -552,7 +552,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -576,7 +576,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -600,7 +600,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -624,7 +624,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -639,7 +639,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ##  <a name="CodeSamples"></a>Codevoorbeelden  
- De volgende sjablonen kunnen u de instantie van de afzonderlijke codevoorbeelden op de pagina bewerking aanpassen.  
+ Hallo volgende sjablonen kunt u toocustomize Hallo hoofdtekst van de afzonderlijke codevoorbeelden Hallo op Hallo bewerking pagina.  
   
  ![Developer Portal sjablonen codevoorbeelden](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "codevoorbeelden APIM Developer Portal-sjablonen")  
   
@@ -660,7 +660,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 -   [Ruby](#Ruby)  
   
 ###  <a name="Curl"></a>CURL  
- De **DocumentationSamplesCurl** sjabloon kunt u dit codevoorbeeld in de sectie code voorbeelden van de pagina bewerking aanpassen.  
+ Hallo **DocumentationSamplesCurl** sjabloon kunt u toocustomize die code voorbeeld in Hallo code voorbeelden gedeelte Hallo bewerking pagina.  
   
 #### <a name="default-template"></a>Standaardsjabloon  
   
@@ -678,7 +678,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 ```  
   
 #### <a name="controls"></a>Besturingselementen  
- De code-voorbeeldsjablonen niet toestaan dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ Hallo voorbeeldsjablonen code staan geen gebruik van een Hallo [pagina besturingselementen](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Gegevensmodel  
  [Voorbeeld van code](api-management-template-data-model-reference.md#Sample) entiteit.  
@@ -700,7 +700,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -713,7 +713,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 ```  
   
 ###  <a name="CSharp"></a>C#  
- De **DocumentationSamplesCsharp** sjabloon kunt u dit codevoorbeeld in de sectie code voorbeelden van de pagina bewerking aanpassen.  
+ Hallo **DocumentationSamplesCsharp** sjabloon kunt u toocustomize die code voorbeeld in Hallo code voorbeelden gedeelte Hallo bewerking pagina.  
   
 #### <a name="default-template"></a>Standaardsjabloon  
   
@@ -731,7 +731,7 @@ namespace CSHttpClientSample
         static void Main()  
         {  
             MakeRequest();  
-            Console.WriteLine("Hit ENTER to exit...");  
+            Console.WriteLine("Hit ENTER tooexit...");  
             Console.ReadLine();  
         }  
   
@@ -857,7 +857,7 @@ namespace CSHttpClientSample
 ```  
   
 #### <a name="controls"></a>Besturingselementen  
- De code-voorbeeldsjablonen niet toestaan dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ Hallo voorbeeldsjablonen code staan geen gebruik van een Hallo [pagina besturingselementen](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Gegevensmodel  
  [Voorbeeld van code](api-management-template-data-model-reference.md#Sample) entiteit.  
@@ -879,7 +879,7 @@ namespace CSHttpClientSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -892,12 +892,12 @@ namespace CSHttpClientSample
 ```  
   
 ###  <a name="Stub"></a>Java  
- De **DocumentationSamplesJava** sjabloon kunt u dit codevoorbeeld in de sectie code voorbeelden van de pagina bewerking aanpassen.  
+ Hallo **DocumentationSamplesJava** sjabloon kunt u toocustomize die code voorbeeld in Hallo code voorbeelden gedeelte Hallo bewerking pagina.  
   
 #### <a name="default-template"></a>Standaardsjabloon  
   
 ```xml  
-// // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
+// // This sample uses hello Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 import java.net.URI;  
 import org.apache.http.HttpEntity;  
 import org.apache.http.HttpResponse;  
@@ -953,7 +953,7 @@ public class JavaSample
 ```  
   
 #### <a name="controls"></a>Besturingselementen  
- De code-voorbeeldsjablonen niet toestaan dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ Hallo voorbeeldsjablonen code staan geen gebruik van een Hallo [pagina besturingselementen](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Gegevensmodel  
  [Voorbeeld van code](api-management-template-data-model-reference.md#Sample) entiteit.  
@@ -975,7 +975,7 @@ public class JavaSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -988,7 +988,7 @@ public class JavaSample
 ```  
   
 ###  <a name="JavaScript"></a>JavaScript  
- De **DocumentationSamplesJs** sjabloon kunt u dit codevoorbeeld in de sectie code voorbeelden van de pagina bewerking aanpassen.  
+ Hallo **DocumentationSamplesJs** sjabloon kunt u toocustomize die code voorbeeld in Hallo code voorbeelden gedeelte Hallo bewerking pagina.  
   
 #### <a name="default-template"></a>Standaardsjabloon  
   
@@ -1042,7 +1042,7 @@ public class JavaSample
 ```  
   
 #### <a name="controls"></a>Besturingselementen  
- De code-voorbeeldsjablonen niet toestaan dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ Hallo voorbeeldsjablonen code staan geen gebruik van een Hallo [pagina besturingselementen](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Gegevensmodel  
  [Voorbeeld van code](api-management-template-data-model-reference.md#Sample) entiteit.  
@@ -1064,7 +1064,7 @@ public class JavaSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1077,7 +1077,7 @@ public class JavaSample
 ```  
   
 ###  <a name="ObjectiveC"></a>Objective-C  
- De **DocumentationSamplesObjc** sjabloon kunt u dit codevoorbeeld in de sectie code voorbeelden van de pagina bewerking aanpassen.  
+ Hallo **DocumentationSamplesObjc** sjabloon kunt u toocustomize die code voorbeeld in Hallo code voorbeelden gedeelte Hallo bewerking pagina.  
   
 #### <a name="default-template"></a>Standaardsjabloon  
   
@@ -1154,7 +1154,7 @@ int main(int argc, const char * argv[])
 ```  
   
 #### <a name="controls"></a>Besturingselementen  
- De code-voorbeeldsjablonen niet toestaan dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ Hallo voorbeeldsjablonen code staan geen gebruik van een Hallo [pagina besturingselementen](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Gegevensmodel  
  [Voorbeeld van code](api-management-template-data-model-reference.md#Sample) entiteit.  
@@ -1176,7 +1176,7 @@ int main(int argc, const char * argv[])
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1189,13 +1189,13 @@ int main(int argc, const char * argv[])
 ```  
   
 ###  <a name="PHP"></a>PHP  
- De **DocumentationSamplesPhp** sjabloon kunt u dit codevoorbeeld in de sectie code voorbeelden van de pagina bewerking aanpassen.  
+ Hallo **DocumentationSamplesPhp** sjabloon kunt u toocustomize die code voorbeeld in Hallo code voorbeelden gedeelte Hallo bewerking pagina.  
   
 #### <a name="default-template"></a>Standaardsjabloon  
   
 ```xml  
 <?php  
-// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
+// This sample uses hello Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 require_once 'HTTP/Request2.php';  
   
 $request = new Http_Request2('{{scheme}}://{{host}}{{path}}');  
@@ -1244,7 +1244,7 @@ catch (HttpException $ex)
 ```  
   
 #### <a name="controls"></a>Besturingselementen  
- De code-voorbeeldsjablonen niet toestaan dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ Hallo voorbeeldsjablonen code staan geen gebruik van een Hallo [pagina besturingselementen](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Gegevensmodel  
  [Voorbeeld van code](api-management-template-data-model-reference.md#Sample) entiteit.  
@@ -1266,7 +1266,7 @@ catch (HttpException $ex)
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1279,7 +1279,7 @@ catch (HttpException $ex)
 ```  
   
 ###  <a name="Python"></a>Python  
- De **DocumentationSamplesPython** sjabloon kunt u dit codevoorbeeld in de sectie code voorbeelden van de pagina bewerking aanpassen.  
+ Hallo **DocumentationSamplesPython** sjabloon kunt u toocustomize die code voorbeeld in Hallo code voorbeelden gedeelte Hallo bewerking pagina.  
   
 #### <a name="default-template"></a>Standaardsjabloon  
   
@@ -1362,7 +1362,7 @@ except Exception as e:
 ```  
   
 #### <a name="controls"></a>Besturingselementen  
- De code-voorbeeldsjablonen niet toestaan dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ Hallo voorbeeldsjablonen code staan geen gebruik van een Hallo [pagina besturingselementen](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Gegevensmodel  
  [Voorbeeld van code](api-management-template-data-model-reference.md#Sample) entiteit.  
@@ -1384,7 +1384,7 @@ except Exception as e:
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1397,7 +1397,7 @@ except Exception as e:
 ```  
   
 ###  <a name="Ruby"></a>Ruby  
- De **DocumentationSamplesRuby** sjabloon kunt u dit codevoorbeeld in de sectie code voorbeelden van de pagina bewerking aanpassen.  
+ Hallo **DocumentationSamplesRuby** sjabloon kunt u toocustomize die code voorbeeld in Hallo code voorbeelden gedeelte Hallo bewerking pagina.  
   
 #### <a name="default-template"></a>Standaardsjabloon  
   
@@ -1433,7 +1433,7 @@ puts response.body
 ```  
   
 #### <a name="controls"></a>Besturingselementen  
- De code-voorbeeldsjablonen niet toestaan dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ Hallo voorbeeldsjablonen code staan geen gebruik van een Hallo [pagina besturingselementen](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Gegevensmodel  
  [Voorbeeld van code](api-management-template-data-model-reference.md#Sample) entiteit.  
@@ -1455,7 +1455,7 @@ puts response.body
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1468,4 +1468,4 @@ puts response.body
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](api-management-developer-portal-templates.md).
+Zie voor meer informatie over het werken met sjablonen [hoe toocustomize API Management-portal voor ontwikkelaars met behulp van sjablonen Hallo](api-management-developer-portal-templates.md).

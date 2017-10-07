@@ -1,6 +1,6 @@
 ---
-title: "Uitgegeven claims in het SAML-token voor vooraf geïntegreerde apps in Azure Active Directory aanpassen | Microsoft Docs"
-description: "Informatie over het aanpassen van de uitgegeven claims in het SAML-token voor vooraf geïntegreerde apps in Azure Active Directory"
+title: "aaaCustomizing uitgegeven claims in Hallo SAML-token voor vooraf geïntegreerde apps in Azure Active Directory | Microsoft Docs"
+description: "Meer informatie over hoe toocustomize Hallo claims uitgegeven in Hallo SAML-token voor vooraf geïntegreerde apps in Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -15,66 +15,66 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 6d232759630fcc567788a8326b566b659f89d17a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: a376318929472403e799f02fdd3fbddc91d0a70c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Uitgegeven claims in het SAML-token voor vooraf geïntegreerde apps in Azure Active Directory aanpassen
-Azure Active Directory ondersteunt vandaag duizenden vooraf geïntegreerde toepassingen in de Azure AD-Toepassingsgalerie, met inbegrip van meer dan 360 die ondersteuning bieden voor eenmalige aanmelding met behulp van het SAML 2.0-protocol. Wanneer een gebruiker wordt geverifieerd op een toepassing via Azure AD via SAML, verzendt Azure AD een token naar de toepassing (via een HTTP POST). En vervolgens de toepassing valideert en gebruikt het token aan te melden van de gebruiker in in plaats van naar een gebruikersnaam en wachtwoord wordt gevraagd. Deze tokens SAML bevatten stukjes informatie over de gebruiker bekend als 'claims'.
+# <a name="customizing-claims-issued-in-hello-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Uitgegeven claims aanpassen in Hallo SAML-token voor vooraf geïntegreerde apps in Azure Active Directory
+Vandaag de dag duizenden vooraf geïntegreerde toepassingen in Azure Active Directory biedt ondersteuning in hello Azure AD-Toepassingsgalerie, met inbegrip van meer dan 360 die ondersteuning bieden voor eenmalige aanmelding met Hallo SAML 2.0-protocol. Wanneer een gebruiker zich tooan toepassing via Azure AD via SAML verifieert, stuurt Azure AD een token toohello-toepassing (via een HTTP POST). En vervolgens de toepassing hello valideert en Hallo token toolog Hallo gebruiker in gebruikt in plaats van naar een gebruikersnaam en wachtwoord wordt gevraagd. Deze tokens SAML bevatten stukjes informatie over Hallo gebruiker bekend als 'claims'.
 
-In de identity-uitspreken, een "claim" informatie een id-provider wordt gemeld dat een gebruiker in het token dat ze voor die gebruiker uitgeven. In [SAML-token](http://en.wikipedia.org/wiki/SAML_2.0), deze gegevens meestal is opgeslagen in de instructie SAML-kenmerk. De unieke ID van de gebruiker wordt meestal weergegeven in het onderwerp van het SAML-naam-id ook wel.
+In de identity-uitspreken, een "claim" is de gegevens over een id-provider over een gebruiker binnen Hallo token ze voor die gebruiker uitgeven. In [SAML-token](http://en.wikipedia.org/wiki/SAML_2.0), deze gegevens meestal is opgeslagen in Hallo SAML Attribute-instructie. Hallo wordt unieke ID van de gebruiker gewoonlijk weergegeven in Hallo die SAML-onderwerp wordt ook wel als naam-id.
 
-Standaard wordt in Azure Active Directory een SAML-token verstrekt aan uw toepassing waarin een claim NameIdentifier met een waarde van de gebruikersnaam van (AKA UPN-naam) in Azure AD. Deze waarde kan een unieke identificatie van de gebruiker. De SAML-token bevat ook extra claims met e-mailadres van de gebruiker, de voornaam en achternaam op.
+Azure Active Directory geeft standaard een SAML-token tooyour-toepassing waarin een claim NameIdentifier met een waarde van Hallo de gebruikersnaam van gebruiker (UPN AKA) in Azure AD. Deze waarde kan een unieke identificatie Hallo-gebruiker. Hallo SAML-token bevat ook extra claims met e-mailadres van de gebruiker hello, voornaam en achternaam op.
 
-Als u wilt weergeven of bewerken van de uitgegeven claims in het SAML-token naar de toepassing, de toepassing in Azure-portal te openen. Selecteer vervolgens de **weergeven en bewerken van alle andere gebruikerskenmerken** selectievakje in de **gebruikerskenmerken** sectie van de toepassing.
+tooview of bewerken Hallo claims uitgegeven in Hallo SAML-token toohello toepassing, open Hallo-toepassing in Azure-portal. Selecteer Hallo **weergeven en bewerken van alle andere gebruikerskenmerken** checkbox in Hallo **gebruikerskenmerken** sectie van de toepassing hello.
 
 ![Sectie van de kenmerken gebruiker][1]
 
-Er zijn twee mogelijke redenen waarom moet u mogelijk de uitgegeven claims in het SAML-token bewerken:
-* De toepassing is geschreven naar een andere set claimregels URI's is vereist of claimwaarden.
-* De toepassing is geïmplementeerd op een manier die de NameIdentifier claim iets anders dan de gebruikersnaam (AKA UPN-naam) opgeslagen in Azure Active Directory vereist.
+Er zijn twee mogelijke redenen waarom u tooedit Hallo uitgegeven claims in Hallo SAML-token wellicht:
+* de toepassing Hello is toorequire een andere set claim URI's of claimwaarden geschreven.
+* Hallo-toepassing is geïmplementeerd op een manier die Hallo NameIdentifier claim toobe iets anders dan van Hallo gebruikersnaam (AKA UPN-naam) opgeslagen in Azure Active Directory vereist.
 
-U kunt een van de standaardwaarden van de claim te bewerken. Selecteer de rij claim in de tabel SAML-token kenmerken. Hiermee opent u de **kenmerk bewerken** sectie en u vervolgens de claimnaam van de, waarde en naamruimte die is gekoppeld aan de claim kunt bewerken.
+U kunt een van de claim standaardwaarden Hallo bewerken. Selecteer Hallo claim rij in de tabel Hallo SAML-token kenmerken. Hiermee opent u Hallo **kenmerk bewerken** sectie en u vervolgens naam van claim, de waarde en de naamruimte die is gekoppeld aan Hallo claim kunt bewerken.
 
 ![Gebruikerskenmerk bewerken][2]
 
-U kunt ook verwijderen claims (met uitzondering van NameIdentifier) op basis van het snelmenu dat wordt geopend door te klikken op de **...**  pictogram.  U kunt ook toevoegen nieuwe claims op basis van de **toevoegen kenmerk** knop.
+U kunt ook claims (met uitzondering van NameIdentifier) met behulp van de contextmenu hello, wat wordt geopend door te klikken op Hallo verwijderen **...**  pictogram.  U kunt ook nieuwe claims op basis van Hallo toevoegen **toevoegen kenmerk** knop.
 
 ![Gebruikerskenmerk bewerken][3]
 
-## <a name="editing-the-nameidentifier-claim"></a>De claim NameIdentifier bewerken
-Voor het oplossen van het probleem waarbij de toepassing is geïmplementeerd met behulp van een andere gebruikersnaam, klikt u op de **gebruikers-id** vervolgkeuzelijst de **gebruikerskenmerken** sectie. Deze actie geeft een dialoogvenster met verschillende opties:
+## <a name="editing-hello-nameidentifier-claim"></a>Hallo NameIdentifier claim bewerken
+toosolve hello probleem waarbij de toepassing hello geïmplementeerd met behulp van een andere gebruikersnaam, klikt u op Hallo **gebruikers-id** in Hallo vervolgkeuzelijst **gebruikerskenmerken** sectie. Deze actie geeft een dialoogvenster met verschillende opties:
 
 ![Gebruikerskenmerk bewerken][4]
 
-Selecteer in de vervolgkeuzelijst **user.mail** om in te stellen van de claim NameIdentifier e-mailadres van de gebruiker in de map. Of selecteer **user.onpremisessamaccountname** in te stellen op de gebruiker de SAM-accountnaam van on-premises Azure AD zijn gesynchroniseerd.
+Selecteer in de vervolgkeuzelijst hello, **user.mail** tooset hello NameIdentifier claim toobe Hallo gebruiker e-mailadres in Hallo-directory. Of selecteer **user.onpremisessamaccountname** tooset toohello gebruiker SAM-accountnaam die zijn gesynchroniseerd vanaf lokale Azure AD.
 
-U kunt ook de speciale **ExtractMailPrefix()** functie voor het verwijderen van het domeinachtervoegsel van het e-mailadres, SAM-accountnaam of de UPN-naam. Alleen het eerste deel van de gebruikersnaam die wordt doorgegeven geëxtraheerd (bijvoorbeeld 'joe_smith' in plaats van joe_smith@contoso.com).
+U kunt ook speciale Hallo **ExtractMailPrefix()** functie tooremove Hallo domeinachtervoegsel van e-mailadres hello, SAM-accountnaam of Hallo UPN-naam. Dit pakt alleen het eerste deel van de gebruiker Hallo Hallo naam worden doorgegeven (bijvoorbeeld 'joe_smith' in plaats van joe_smith@contoso.com).
 
 ![Gebruikerskenmerk bewerken][5]
 
-We nu ook hebt toegevoegd de **join()** functie aan het geverifieerde domein met de waarde van de gebruiker-id. Wanneer u de functie join() in selecteert de **gebruikers-id** selecteert u eerst de gebruikers-id zoals zoals e-mailadres of de gebruiker principal-naam en selecteer vervolgens het geverifieerde domein in de tweede vervolgkeuzelijst. Als u het e-mailadres met het geverifieerde domein selecteert, wordt Azure AD de gebruikersnaam geëxtraheerd uit de eerste waarde joe_smith van joe_smith@contoso.com en voegt deze toe met contoso.onmicrosoft.com. Zie het volgende voorbeeld:
+We hebben nu Hallo toegevoegd **join()** functie toojoin Hallo geverifieerd domein met Hallo gebruiker-id-waarde. Wanneer u Hallo join() functie selecteert in Hallo **gebruikers-id** eerst op Hallo van gebruikers-id zoals zoals e-mailadres of de gebruiker principal-naam en selecteer vervolgens in Hallo tweede vervolgkeuzelijst uw geverifieerd domein. Als u e-mailadres Hallo met Hallo geverifieerde domein selecteert, wordt Azure AD Hallo gebruikersnaam geëxtraheerd uit de eerste waarde joe_smith Hallo van joe_smith@contoso.com en voegt deze toe met contoso.onmicrosoft.com. Zie Hallo voorbeeld te volgen:
 
 ![Gebruikerskenmerk bewerken][6]
 
 ## <a name="adding-claims"></a>Claims toevoegen
-Wanneer een claim toevoegen, kunt u de naam van het kenmerk (die niet strikt moet een patroon URI volgens de specificatie SAML volgen) opgeven. Stel de waarde voor elk gebruikerskenmerk die is opgeslagen in de map.
+Wanneer een claim toevoegen, kunt u Hallo kenmerknaam (die strikt hoeft niet toofollow een URI-patroon volgens Hallo SAML-specificatie) opgeven. Hallo tooany gebruiker kenmerkwaarde die is opgeslagen in de map Hallo ingesteld.
 
 ![Gebruikerskenmerk toevoegen][7]
 
-Bijvoorbeeld, moet u het verzenden van de afdeling die de gebruiker behoort binnen hun organisatie als een claim (zoals Sales). Geef de claimnaam zoals werd verwacht door de toepassing en selecteer vervolgens **user.department** als de waarde.
+U moet bijvoorbeeld toosend Hallo afdeling Hallo gebruiker behoort tooin hun organisatie als een claim (zoals Sales). Voer Hallo claimnaam zoals werd verwacht door de toepassing hello en selecteer vervolgens **user.department** Hallo-waarde.
 
 > [!NOTE]
-> Als voor een bepaalde gebruiker er geen waarde voor een geselecteerd kenmerk opgeslagen, is er geen die claim in het token wordt uitgegeven.
+> Als voor een bepaalde gebruiker er geen waarde voor een geselecteerd kenmerk opgeslagen, is er geen die claim in Hallo-token wordt uitgegeven.
 
 > [!TIP]
-> De **user.onpremisesecurityidentifier** en **user.onpremisesamaccountname** worden alleen ondersteund bij het synchroniseren van gebruikersgegevens van on-premises Active Directory met het [Azure AD Connect-hulpprogramma](../active-directory-aadconnect.md).
+> Hallo **user.onpremisesecurityidentifier** en **user.onpremisesamaccountname** worden alleen ondersteund bij het synchroniseren van gebruikersgegevens van lokale Active Directory met Hallo [Azure AD Connect-hulpprogramma](../active-directory-aadconnect.md).
 
 ## <a name="restricted-claims"></a>Beperkte claims
 
-Er zijn enkele beperkte claims in SAML. Als u deze claims toevoegt, klikt u vervolgens in Azure AD niet deze claims verzenden. Hieronder volgen de claimset SAML beperkt:
+Er zijn enkele beperkte claims in SAML. Als u deze claims toevoegt, klikt u vervolgens in Azure AD niet deze claims verzenden. Hieronder vindt u Hallo SAML claimset beperkt:
 
     | Claimtype (URI) |
     | ------------------- |
@@ -127,7 +127,7 @@ Er zijn enkele beperkte claims in SAML. Als u deze claims toevoegt, klikt u verv
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
-* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../active-directory-saas-custom-apps.md) (Eenmalige aanmelding configureren voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie bevinden)
+* [Eenmalige aanmelding tooapplications die zich niet in de Azure Active Directory-toepassingsgalerie Hallo configureren](../active-directory-saas-custom-apps.md)
 * [Het oplossen van problemen op basis van SAML eenmalige aanmelding](active-directory-saml-debugging.md)
 
 <!--Image references-->

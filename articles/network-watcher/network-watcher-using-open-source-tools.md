@@ -1,6 +1,6 @@
 ---
-title: Patronen in het netwerkverkeer met Azure-netwerk-Watcher en open-source hulpprogramma's visualiseren | Microsoft Docs
-description: Deze pagina beschrijft het gebruik van netwerk-Watcher pakketopname met Capanalysis voor het visualiseren van patronen in het netwerkverkeer naar en van uw virtuele machines.
+title: patronen in aaaVisualize het netwerkverkeer met Azure-netwerk-Watcher en open-source hulpprogramma's | Microsoft Docs
+description: Deze pagina wordt beschreven hoe toouse netwerk-Watcher pakket vastleggen met Capanalysis toovisualize verkeer patronen tooand van uw virtuele machines.
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: e27bb694d0cbcf1ff7c9d8ca4682a79c8b5c5cb1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fca9a226729162cd90d412c7b699ac54d2257a0d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualiseren patronen in het netwerkverkeer naar en van uw virtuele machines met open-source hulpprogramma 's
+# <a name="visualize-network-traffic-patterns-tooand-from-your-vms-using-open-source-tools"></a>Visualiseren netwerkverkeer patronen tooand van uw virtuele machines met open-source hulpprogramma 's
 
-Pakket opnamen bevatten gegevens van het netwerk waarmee u kunt het netwerk forensische en grondige pakketinspecties uitvoeren. Er zijn veel wordt geopend, source hulpprogramma's die u gebruiken kunt voor het analyseren van opnamen van pakket voor het verkrijgen van inzicht in uw netwerk. Een van deze programma is CapAnalysis, een visualisatie pakket open-source hulpprogramma. Pakket vastleggen gegevens te visualiseren is een waardevolle manier voor het afleiden van snel inzicht op patronen en afwijkingen in uw netwerk. Visualisaties bieden ook een manier om dergelijke insights te delen op een manier eenvoudig worden gebruikt.
+Pakket opnamen bevatten gegevens van het netwerk waarmee u tooperform netwerk forensisch en grondige inspecties van pakketten. Er zijn veel wordt geopend, source hulpprogramma's kunt u tooanalyze pakket opnamen toogain inzicht te krijgen over uw netwerk. Een van deze programma is CapAnalysis, een visualisatie pakket open-source hulpprogramma. Pakket vastleggen gegevens te visualiseren is een waardevolle manier tooquickly afgeleid insights op patronen en afwijkingen in uw netwerk. Visualisaties bieden ook een manier om dergelijke insights te delen op een manier eenvoudig worden gebruikt.
 
-Azure netwerk-Watcher biedt u de mogelijkheid voor het vastleggen van deze waardevolle gegevens doordat u voor het pakket opnamen uitvoeren op uw netwerk. In dit artikel bieden we een overzicht van het visualiseren en Verkrijg inzicht in het pakket worden vastgelegd met behulp van CapAnalysis met netwerk-Watcher.
+Azure netwerk-Watcher biedt dat u de mogelijkheid toocapture deze waardevolle gegevens doordat u tooperform pakket vastgelegd Hallo in uw netwerk. We bieden een overzicht van hoe toovisualize en beter inzicht in het pakket worden vastgelegd met behulp van CapAnalysis met netwerk-Watcher in dit artikel.
 
 ## <a name="scenario"></a>Scenario
 
-U hebt een eenvoudige webtoepassing geïmplementeerd op een virtuele machine in Azure wilt gebruiken van open-source hulpprogramma's voor het visualiseren van het netwerkverkeer om snel te identificeren stroom patronen en eventuele mogelijke afwijkingen. U kunt met de netwerk-Watcher verkrijgen van een pakketopname van uw netwerkomgeving en bewaar deze rechtstreeks van uw opslagaccount. CapAnalysis kunnen vervolgens de pakketopname rechtstreeks van de storage-blob voor opnemen en visualiseren van de inhoud ervan.
+Hebt u een eenvoudige webtoepassing geïmplementeerd op een virtuele machine in Azure wilt toouse open-source hulpprogramma's voor toovisualize de netwerk-verkeer tooquickly stroom patronen en eventuele mogelijke afwijkingen identificeren. U kunt met de netwerk-Watcher verkrijgen van een pakketopname van uw netwerkomgeving en bewaar deze rechtstreeks van uw opslagaccount. CapAnalysis kunt opnemen pakketopname van Hallo rechtstreeks van Hallo storage-blob en visualiseren van de inhoud ervan.
 
 ![scenario][1]
 
@@ -36,66 +36,66 @@ U hebt een eenvoudige webtoepassing geïmplementeerd op een virtuele machine in 
 
 ### <a name="install-capanalysis"></a>CapAnalysis installeren
 
-Als u wilt installeren CapAnalysis op een virtuele machine, kunt u hier de officiële instructies https://www.capanalysis.net/ca/how-to-install-capanalysis verwijzen.
-In volgorde extern toegang tot CapAnalysis, moeten we open poort 9877 op de virtuele machine door een nieuwe beveiligingsregel voor binnenkomende toe te voegen. Raadpleeg voor meer informatie over het maken van regels in Netwerkbeveiligingsgroepen [regels maken in een bestaande NSG](../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg). Wanneer de regel is toegevoegd, moet u kunnen toegang krijgen tot CapAnalysis van`http://<PublicIP>:9877`
+tooinstall CapAnalysis op een virtuele machine, raadpleegt u de officiële instructies toohello hier https://www.capanalysis.net/ca/how-to-install-capanalysis.
+In volgorde extern toegang tot CapAnalysis, moeten we tooopen poort 9877 op de virtuele machine door een nieuwe beveiligingsregel voor binnenkomende toe te voegen. Voor meer informatie over het maken van regels in Netwerkbeveiligingsgroepen, Raadpleeg te[regels maken in een bestaande NSG](../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg). Zodra het Hallo-regel is toegevoegd, moet u kunnen tooaccess CapAnalysis uit`http://<PublicIP>:9877`
 
-### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Gebruik Azure netwerk-Watcher pakket vastleggen sessie starten
+### <a name="use-azure-network-watcher-toostart-a-packet-capture-session"></a>Azure-netwerk-Watcher toostart een pakket vastleggen sessie gebruiken
 
-Netwerk-Watcher kunt u pakketten om bij te houden van verkeer van en naar een virtuele machine vastleggen. U kunt verwijzen naar de instructies op de [beheren pakket worden vastgelegd met de netwerk-Watcher](network-watcher-packet-capture-manage-portal.md) pakket vastleggen sessie starten. Deze pakketopname kan worden opgeslagen in een blob storage toegankelijk door CapAnalysis.
+Netwerk-Watcher kunt u toocapture pakketten tootrack binnenkomend en uitgaand verkeer een virtuele machine. U kunt verwijzen toohello instructies op de [beheren pakket worden vastgelegd met de netwerk-Watcher](network-watcher-packet-capture-manage-portal.md) toostart een pakket vastleggen sessie. Deze pakketopname kan worden opgeslagen in een opslag-blob toobe toegankelijk is voor CapAnalysis.
 
-### <a name="upload-a-packet-capture-to-capanalysis"></a>Een pakketopname uploaden naar CapAnalysis
-U kunt rechtstreeks uploaden een pakketopname die door de netwerk-watcher via het tabblad 'Importeren van URL' en het geven van een koppeling naar de blob storage waar het vastleggen van het pakket wordt opgeslagen.
+### <a name="upload-a-packet-capture-toocapanalysis"></a>Uploaden van een pakket vastleggen tooCapAnalysis
+U kunt rechtstreeks uploaden een pakketopname die door de netwerk-watcher Hallo 'Importeren van URL' tabblad en het geven van een koppeling toohello storage-blob waar Hallo pakketopname wordt opgeslagen.
 
-Wanneer een koppeling biedt naar CapAnalysis, zorg er dan voor dat een SAS-token toevoegen aan de URL van de opslag-blob.  Hiervoor gaat u naar de gedeelde-toegangshandtekening van het opslagaccount, de toegestane machtigingen aanwijzen en druk op de knop SAS genereren voor het maken van een token. Vervolgens kunt u deze SAS-token toevoegen aan de URL van de pakket vastleggen opslag-blob.
+Wanneer een koppeling tooCapAnalysis biedt, zorg ervoor dat tooappend een SAS-token toohello storage blob-URL.  toodo, tooShared toegangshandtekening van het opslagaccount Hallo navigeren, Hallo toegestane machtigingen toewijzen en druk op Hallo SAS genereren knop toocreate een token. Vervolgens kunt u deze SAS-token toohello pakket vastleggen opslag blob-URL toevoegen.
 
-De resulterende URL ziet er ongeveer als volgt: http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
+Hallo resulterende URL ziet er ongeveer als volgt: http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
 
 
 ### <a name="analyzing-packet-captures"></a>Analyseren van pakket worden vastgelegd
 
-CapAnalysis biedt verschillende opties voor het visualiseren van uw pakketopname, elke verstrekken analyse vanuit een ander perspectief. U kunt met deze visual samenvattingen inzicht in uw netwerkverkeer trends en snel een ongewone activiteit te herkennen. Enkele van deze functies worden weergegeven in de volgende lijst:
+CapAnalysis biedt verschillende opties toovisualize uw pakketopname, elke verstrekken analyse vanuit een ander perspectief. U kunt met deze visual samenvattingen inzicht in uw netwerkverkeer trends en snel een ongewone activiteit te herkennen. Enkele van deze functies worden weergegeven in Hallo volgende lijst:
 
 1. Stroom tabellen
 
-    Deze tabel geeft de lijst met stromen in de pakketgegevens, de tijdstempel die is gekoppeld aan de stromen en de verschillende protocollen die zijn gekoppeld aan de stroom, evenals de bron en doel-IP.
+    Deze tabel geeft u lijst met stromen in pakketgegevens Hallo Hallo, Hallo tijdstempel Hallo stromen gekoppeld en Hallo van verschillende protocollen die zijn gekoppeld aan het Hallo-stroom, evenals de IP-bron- en doelserver.
 
     ![capanalysis stroom pagina][5]
 
 1. Overzicht van Protocol
 
-    Dit deelvenster kunt u snel zien wat de distributie van netwerkverkeer via de verschillende protocollen en -locaties.
+    Dit deelvenster kunt u tooquickly Zie Hallo distributie van netwerkverkeer via Hallo verschillende protocollen en -locaties.
 
     ![overzicht van capanalysis protocol][6]
 
 1. statistieken
 
-    Dit deelvenster kunt u weergeven netwerkverkeer statistics – bytes verzonden en ontvangen van de bron en doel-IP-adressen, stromen voor elk van de bron en doel-IP-adressen,-protocol gebruikt voor verschillende stromen en de duur van stromen.
+    Dit deelvenster kunt u tooview netwerkverkeer statistics – bytes verzonden en ontvangen van de bron en doel-IP-adressen, stromen voor elk van de Hallo bron en doel-IP-adressen,-protocol gebruikt voor verschillende stromen en Hallo duur van stromen.
 
     ![capanalysis statistieken][7]
 
 1. geomap
 
-    Dit deelvenster bevat een overzichtsweergave van het netwerkverkeer met kleuren schalen van het volume van verkeer vanuit elk land. Gemarkeerde landen extra stroom statistieken zoals het deel van de gegevens worden verzonden en ontvangen van IP-adressen in dat land weergeven, kunt u selecteren.
+    Dit deelvenster biedt u een overzichtsweergave van het netwerkverkeer met kleuren toohello hoeveelheid verkeer vanuit elk land schalen. U kunt gemarkeerde landen tooview extra stroom statistieken zoals Hallo deel van de gegevens worden verzonden en ontvangen van IP-adressen in dat land selecteren.
 
     ![geomap][8]
 
 1. Filters
 
-    CapAnalysis biedt een set met filters voor snelle analyse van specifieke pakketten. U kunt bijvoorbeeld de gegevens filteren per protocol om specifieke inzicht in deze subset van verkeer te krijgen.
+    CapAnalysis biedt een set met filters voor snelle analyse van specifieke pakketten. U kunt bijvoorbeeld toofilter Hallo gegevens door protocol toogain specifieke insights op deze subset van verkeer.
 
     ![filters][11]
 
-    Ga naar [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) voor meer informatie over alle CapAnalysis mogelijkheden.
+    Ga naar [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) toolearn meer over de mogelijkheden van alle CapAnalysis.
 
 ## <a name="conclusion"></a>Conclusie
 
-Netwerk-Watcher pakket vastleggen functie kunt u voor het vastleggen van de gegevens die nodig zijn om netwerk forensische uitvoeren en het netwerkverkeer beter te begrijpen. In dit scenario wordt beschreven hoe pakket schermopnamen van netwerk-Watcher eenvoudig worden geïntegreerd met open-source hulpprogramma's. U kunt met open-source hulpprogramma's zoals CapAnalysis pakketten opnamen visualiseren, grondige pakketinspecties uitvoeren en snel trends te identificeren binnen het netwerkverkeer.
+Netwerk-Watcher pakket vastleggen functie kunt u toocapture Hallo gegevens nodig tooperform netwerk forensische en het netwerkverkeer beter te begrijpen. In dit scenario wordt beschreven hoe pakket schermopnamen van netwerk-Watcher eenvoudig worden geïntegreerd met open-source hulpprogramma's. U kunt met open-source hulpprogramma's zoals CapAnalysis toovisualize pakketten worden vastgelegd, grondige pakketinspecties uitvoeren en snel trends te identificeren binnen het netwerkverkeer.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga voor meer informatie over het NSG stroom logboeken naar [stroom NSG-Logboeken](network-watcher-nsg-flow-logging-overview.md)
+toolearn meer informatie over het NSG-logboeken stroom, gaat u naar [stroom NSG-Logboeken](network-watcher-nsg-flow-logging-overview.md)
 
-Meer informatie over het visualiseren van uw NSG stroom logboeken met Power BI in via [visualiseren NSG loopt logboeken met Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Meer informatie over hoe toovisualize uw NSG-flow registreert met Power BI in via [visualiseren NSG loopt logboeken met Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 <!--Image references-->
 
 [1]: ./media/network-watcher-using-open-source-tools/figure1.png

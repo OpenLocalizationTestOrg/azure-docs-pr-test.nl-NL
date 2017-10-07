@@ -1,6 +1,6 @@
 ---
-title: Inleiding tot de App Service-omgeving v1
-description: Meer informatie over de App Service-omgeving v1-functie met beveiligde, die lid zijn van VNet, toegewezen schaaleenheden voor het uitvoeren van uw apps.
+title: aaaIntroduction tooApp Service-omgeving v1
+description: Meer informatie over App Service-omgeving v1 Hallo-functie met beveiligde, die lid zijn van VNet, toegewezen schaaleenheden voor het uitvoeren van uw apps.
 services: app-service
 documentationcenter: 
 author: stefsch
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 38cb79eb32bd61cdbfb6da91d50e6713d71a2b0d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6e3cd1909b241887b5ec19412b9f7884d870cc3d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-app-service-environment-v1"></a>Inleiding tot de App Service-omgeving v1
+# <a name="introduction-tooapp-service-environment-v1"></a>Inleiding tooApp Service-omgeving v1
 
 > [!NOTE]
-> In dit artikel gaat over de v1 App Service-omgeving.  Er is een nieuwere versie van de App Service-omgeving die eenvoudiger te gebruiken en wordt uitgevoerd op krachtiger infrastructuur. Voor meer informatie over de nieuwe versie begin met het [Inleiding tot de App-serviceomgeving](../app-service/app-service-environment/intro.md).
+> In dit artikel gaat over het Hallo v1 App Service-omgeving.  Er is een nieuwere versie van App Service-omgeving die eenvoudiger toouse en wordt uitgevoerd op krachtiger infrastructuur Hallo. meer informatie over de nieuwe versie Hallo met Hallo beginnen toolearn [inleiding toohello App Service-omgeving](../app-service/app-service-environment/intro.md).
 > 
 
 ## <a name="overview"></a>Overzicht
@@ -36,56 +36,56 @@ App Service-omgevingen zijn ideaal voor toepassingsworkloads vereisen:
 
 Klanten kunnen meerdere App Service-omgevingen binnen één Azure-regio, evenals over meerdere Azure-regio's maken.  Dit maakt App Service-omgevingen ideaal voor horizontaal schalen status minder toepassingslagen ter ondersteuning van werklasten met hoge RPS.
 
-App Service-omgevingen zijn geïsoleerd, zodat slechts één klant toepassingen uitvoeren en altijd in een virtueel netwerk worden geïmplementeerd.  Klanten hebben fijnmazig controle over beide-toepassing voor binnenkomend en uitgaand netwerkverkeer en toepassingen kunnen verbinding maken snelle beveiligde verbindingen via virtuele netwerken met lokale bedrijfsbronnen.
+App Service-omgevingen zijn geïsoleerd toorunning alleen één klant toepassingen en altijd in een virtueel netwerk worden geïmplementeerd.  Klanten hebben fijnmazig controle over beide-toepassing voor binnenkomend en uitgaand netwerkverkeer en toepassingen kunnen verbinding maken van snelle beveiligde verbindingen via virtuele netwerken tooon-premises bedrijfsbronnen.
 
-Alle artikelen en hoe-aan de over App Service-omgevingen zijn beschikbaar in de [Leesmij-bestand voor Toepassingsserviceomgevingen](../app-service/app-service-app-service-environments-readme.md).
+Alle artikelen en hoe-aan de over App Service-omgevingen zijn beschikbaar in Hallo [Leesmij-bestand voor Toepassingsserviceomgevingen](../app-service/app-service-app-service-environments-readme.md).
 
-Voor een overzicht van hoe App Service-omgevingen grote schaal inschakelen en beveiligde netwerktoegang, Zie de [AzureCon diepgaand] [ AzureConDeepDive] op App Service-omgevingen.
+Voor een overzicht van hoe App Service-omgevingen grote schaal inschakelen en beveiligde netwerktoegang, Zie Hallo [AzureCon diepgaand] [ AzureConDeepDive] op App Service-omgevingen.
 
-Voor een dieper in op horizontaal schalen met meerdere App Service-omgevingen Zie het artikel over de installatie een [geografisch verspreide app footprint][GeodistributedAppFootprint].
+Voor een dieper in op horizontaal schalen met meerdere App Service-omgevingen raadpleegt u Hallo artikel over het toosetup een [geografisch verspreide app footprint][GeodistributedAppFootprint].
 
-Hoe de beveiligingsarchitectuur weergegeven in de diepgaand AzureCon is geconfigureerd, Zie het artikel over het implementeren van een [beveiligingsarchitectuur gelaagde](app-service-app-service-environment-layered-security.md) met App Service-omgevingen.
+toosee hoe Hallo-beveiligingsarchitectuur weergegeven in Hallo AzureCon diepgaand is geconfigureerd, Zie Hallo artikel over het implementeren van een [beveiligingsarchitectuur gelaagde](app-service-app-service-environment-layered-security.md) met App Service-omgevingen.
 
-Apps die worden uitgevoerd op App Service-omgevingen kunnen de geregeld door de upstream-apparaten, zoals web application Firewall (WAF) toegang hebben.  Het artikel over [een WAF configureren voor App Service-omgevingen](app-service-app-service-environment-web-application-firewall.md) bevat informatie over dit scenario. 
+Apps die worden uitgevoerd op App Service-omgevingen kunnen de geregeld door de upstream-apparaten, zoals web application Firewall (WAF) toegang hebben.  Hallo-artikel op [een WAF configureren voor App Service-omgevingen](app-service-app-service-environment-web-application-firewall.md) bevat informatie over dit scenario. 
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="dedicated-compute-resources"></a>Speciale berekenings-Resources
-Alle resources in een App-serviceomgeving compute zijn toegewezen aan één abonnement en een App Service-omgeving kan worden geconfigureerd met maximaal vijftig (50) rekenresources voor exclusief gebruik door één toepassing.
+Alle Hallo reken-en resources in een App Service-omgeving zijn uitsluitend tooa één abonnement hebt toegewezen en een App Service-omgeving kan worden geconfigureerd met up toofifty (50) rekenresources voor exclusief gebruik door één toepassing.
 
-Een App Service-omgeving bestaat uit een front-compute-resourcegroep, evenals één tot drie worker compute resourcegroepen. 
+Een App Service-omgeving bestaat uit een front-compute-resourcegroep, evenals een toothree worker compute resourcegroepen. 
 
-De front-groep bevat de rekenresources die verantwoordelijk is voor SSL-beëindiging als ook automatische taakverdeling van app-aanvragen in een App Service-omgeving. 
+Hallo front-groep bevat rekenresources die verantwoordelijk is voor SSL-beëindiging als ook automatische taakverdeling van app-aanvragen in een App Service-omgeving. 
 
-Elke worker-groep bevat rekenresources die zijn toegewezen aan [App Service-abonnementen][AppServicePlan], die een of meer Azure App Service-apps op hun beurt bevatten.  Omdat er kunnen maximaal drie verschillende werknemersgroepen in een App Service-omgeving, kunt u hebt de flexibiliteit om te kiezen verschillende rekenresources voor elke worker-groep.  
+Elke worker-groep bevat rekenresources te toegewezen[App Service-abonnementen][AppServicePlan], die een of meer Azure App Service-apps op hun beurt bevatten.  Aangezien er van de verschillende werknemersgroepen toothree in een App Service-omgeving zijn kunnen, hebben Hallo flexibiliteit toochoose verschillende rekenresources voor elke worker-groep.  
 
-Bijvoorbeeld: Hiermee kunt u één worker-groep maken met minder krachtige rekenresources voor App Service-abonnementen die bestemd zijn voor ontwikkeling of tests apps.  Een tweede (of zelfs derde) werknemersgroep kan krachtiger rekenresources die bestemd zijn voor het App Service-abonnementen met productie-apps gebruiken.
+Bijvoorbeeld: Hiermee kunt u een werknemersgroep toocreate met minder krachtige rekenresources voor App Service-abonnementen die bestemd zijn voor ontwikkeling of tests apps.  Een tweede (of zelfs derde) werknemersgroep kan krachtiger rekenresources die bestemd zijn voor het App Service-abonnementen met productie-apps gebruiken.
 
-Zie voor meer informatie over de hoeveelheid beschikbaar is op de front- en werkrollen opslaggroepen rekenresources [het configureren van een App-serviceomgeving][HowToConfigureanAppServiceEnvironment].  
+Zie voor meer informatie over Hallo hoeveelheid compute resources beschikbaar toohello front-end- en werknemersgroepen [hoe tooConfigure een App-serviceomgeving][HowToConfigureanAppServiceEnvironment].  
 
-Voor meer informatie over de beschikbare compute resource grootten die worden ondersteund in een App Service-omgeving, Raadpleeg de [prijzen van App Service] [ AppServicePricing] pagina en bekijk de beschikbare opties voor App Service-omgevingen in de prijscategorie Premium.
+Voor meer informatie over beschikbare Hallo resource grootten die worden ondersteund in een App Service-omgeving COMPUTE, raadpleegt u Hallo [prijzen van App Service] [ AppServicePricing] pagina en bekijk de beschikbare opties Hallo voor App Service-omgevingen in Hallo Premium prijscategorie.
 
 ## <a name="virtual-network-support"></a>Virtual Network-ondersteuning
-Een App Service-omgeving kunnen worden gemaakt in **beide** een virtueel netwerk van Azure Resource Manager, **of** een virtueel netwerk voor klassieke implementatie-model ([meer informatie over virtuele netwerken][MoreInfoOnVirtualNetworks]).  Omdat een App Service-omgeving altijd in een virtueel netwerk en nauwkeuriger binnen een subnet van een virtueel netwerk bestaat, kunt u gebruikmaken van de beveiligingsfuncties van virtuele netwerken om te beheren, zowel binnenkomend en uitgaand netwerkcommunicatie.  
+Een App Service-omgeving kunnen worden gemaakt in **beide** een virtueel netwerk van Azure Resource Manager, **of** een virtueel netwerk voor klassieke implementatie-model ([meer informatie over virtuele netwerken][MoreInfoOnVirtualNetworks]).  Omdat een App Service-omgeving altijd in een virtueel netwerk en nauwkeuriger binnen een subnet van een virtueel netwerk bestaat, kunt u zowel binnenkomende en uitgaande netwerkcommunicatie Hallo beveiligingsfuncties van virtuele netwerken toocontrol gebruikmaken.  
 
 Een App Service-omgeving kan worden beide Internetgericht met een openbaar IP-adres of interne geconfronteerd met alleen een adres Azure interne Load Balancer (ILB).
 
-U kunt [netwerkbeveiligingsgroepen] [ NetworkSecurityGroups] te beperken van binnenkomende netwerkcommunicatie met het subnet waarin een App Service-omgeving zich bevindt.  Hiermee kunt u apps achter upstream apparaten en services, zoals web application firewalls en aanbieders van SaaS-netwerk uitvoeren.
+U kunt [netwerkbeveiligingsgroepen] [ NetworkSecurityGroups] toorestrict binnenkomende communicatie toohello netwerksubnet waarin een App Service-omgeving zich bevindt.  Hiermee kunt u apps toorun achter upstream apparaten en services, zoals web application firewalls en aanbieders van SaaS-netwerk.
 
-Apps moeten ook vaak toegang tot bedrijfsbronnen zoals interne databases en -services.  Vaak wordt deze eindpunten om beschikbaar te maken alleen voor interne netwerkverkeer dat binnen een virtuele Azure-netwerk.  Zodra een App-serviceomgeving is toegevoegd aan hetzelfde virtuele netwerk als de interne services, apps die worden uitgevoerd in de omgeving ze toegankelijk zijn, inclusief eindpunten bereikbaar is via [Site-naar-Site] [ SiteToSite] en [Azure ExpressRoute] [ ExpressRoute] verbindingen.
+Apps moeten ook regelmatig tooaccess bedrijfsbronnen zoals interne databases en webservices.  Een veelgebruikte oplossing is toomake deze eindpunten beschikbaar alleen toointernal netwerkverkeer binnen een virtuele Azure-netwerk.  Zodra een App-serviceomgeving lid toohello is hetzelfde virtuele netwerk als Hallo interne services, apps die worden uitgevoerd in de omgeving Hallo ze toegankelijk zijn, inclusief eindpunten bereikbaar is via [Site-naar-Site] [ SiteToSite]en [Azure ExpressRoute] [ ExpressRoute] verbindingen.
 
-Voor meer informatie over de werking van App Service-omgevingen met virtuele netwerken en on-premises netwerken raadpleegt u de volgende artikelen op [netwerkarchitectuur][NetworkArchitectureOverview], [binnenkomend verkeer beheren][ControllingInboundTraffic], en [veilig verbinding te maken met back-ends][SecurelyConnectingToBackends]. 
+Voor meer informatie over de werking van App Service-omgevingen met virtuele netwerken en on-premises netwerken Raadpleeg Hallo artikelen op te volgen [netwerkarchitectuur][NetworkArchitectureOverview], [inkomende beheren Verkeer][ControllingInboundTraffic], en [veilig verbinding te maken tooBackends][SecurelyConnectingToBackends]. 
 
 ## <a name="getting-started"></a>Aan de slag
-Om aan de slag met App Service-omgevingen, Zie [hoe te maken van een App Service-omgeving][HowToCreateAnAppServiceEnvironment]
+tooget de slag met App Service-omgevingen, Zie [hoe tooCreate een App Service-omgeving][HowToCreateAnAppServiceEnvironment]
 
-Alle artikelen en hoe-aan de voor App Service-omgevingen zijn beschikbaar in de [Leesmij-bestand voor Toepassingsserviceomgevingen](../app-service/app-service-app-service-environments-readme.md).
+Alle artikelen en hoe-aan de voor App Service-omgevingen beschikbaar in Hallo zijn [Leesmij-bestand voor Toepassingsserviceomgevingen](../app-service/app-service-app-service-environments-readme.md).
 
-Zie voor meer informatie over het Azure App Service-platform [Azure App Service][AzureAppService].
+Zie voor meer informatie over hello Azure App Service-platform, [Azure App Service][AzureAppService].
 
-Zie voor een overzicht van de App Service-omgeving netwerkarchitectuur de [netwerk architectuuroverzicht] [ NetworkArchitectureOverview] artikel.
+Zie voor een overzicht van App Service-omgeving netwerkarchitectuur Hallo Hallo [netwerk architectuuroverzicht] [ NetworkArchitectureOverview] artikel.
 
-Zie voor meer informatie over het gebruik van een App Service-omgeving met ExpressRoute, het volgende artikel op [Express Route- en App Service-omgevingen][NetworkConfigDetailsForExpressRoute].
+Zie voor meer informatie over het gebruik van een App Service-omgeving met ExpressRoute, Hallo volgende artikel op [Express Route- en App Service-omgevingen][NetworkConfigDetailsForExpressRoute].
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Bewakingsgegevens van Azure gebruiken | Microsoft Docs
-description: Informatie over alle bewaking gegevensbronnen beschikbaar zijn op Azure vandaag.
+title: aaaConsume bewakingsgegevens van Azure | Microsoft Docs
+description: Meer informatie over alle Hallo vandaag bewaking van gegevensbronnen die beschikbaar zijn op Azure.
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 6586cad908e6527b874dc3f0ee256c6b2cea8c49
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3c7fdad7c25b4d456df395b453fa0e75d514b0b9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Bewakingsgegevens van Azure gebruiken
 
-Via de Azure-platform meebrengen we samen bewakingsgegevens op één plaats met de Azure-Monitor met pipeline, maar vrijwel Bevestig dat vandaag nog niet alle bewakingsgegevens nog beschikbaar zijn in deze pijplijn is. In dit artikel wordt we een overzicht van de verschillende manieren waarop u programmatisch toegang tot bewakingsgegevens van Azure-services.
+Over hello Azure-platform we meebrengen samen het bewaken van gegevens op één plaats met hello Azure Monitor pipeline, maar vrijwel Bevestig dat vandaag nog niet alle bewakingsgegevens nog beschikbaar zijn in deze pijplijn is. In dit artikel wordt samengevat we Hallo verschillende manieren waarop u programmatisch toegang tot bewakingsgegevens van Azure-services.
 
 ## <a name="options-for-data-consumption"></a>Opties voor het verbruik van gegevens
 
@@ -52,5 +52,5 @@ Via de Azure-platform meebrengen we samen bewakingsgegevens op één plaats met 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over [Azure Monitor metrische gegevens](monitoring-overview-metrics.md)
-- Meer informatie over [de Azure Activity Log](monitoring-overview-activity-logs.md)
+- Meer informatie over [hello Azure Activity Log](monitoring-overview-activity-logs.md)
 - Meer informatie over [diagnostische logboeken van Azure](monitoring-overview-of-diagnostic-logs.md)

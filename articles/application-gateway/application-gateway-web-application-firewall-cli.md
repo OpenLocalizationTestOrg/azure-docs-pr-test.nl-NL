@@ -1,6 +1,6 @@
 ---
-title: Web application firewall - Azure Application Gateway configureren | Microsoft Docs
-description: In dit artikel biedt richtlijnen voor het gebruik van web application firewall op een bestaande of nieuwe application gateway.
+title: aaaConfigure web application firewall - Azure Application Gateway | Microsoft Docs
+description: In dit artikel biedt richtlijnen voor hoe toostart met behulp van web application firewall op een bestaande of nieuwe application gateway.
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: gwallace
-ms.openlocfilehash: ac6c629ceaf1a8036643f593ce3d7ef9ea096ef8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d5354984760ceab12ed49efa9e18836e9f1d3c96
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Web application firewall configureren op een nieuwe of bestaande toepassingsgateway met Azure CLI
 
@@ -27,32 +27,32 @@ ms.lasthandoff: 08/18/2017
 > * [PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [Azure-CLI](application-gateway-web-application-firewall-cli.md)
 
-Informatie over het maken van een toepassingsgateway web application firewall is ingeschakeld of web application firewall toevoegen aan een bestaande toepassingsgateway.
+Meer informatie over hoe toocreate web application firewall ingeschakeld voor toepassingsgateway of web application firewall tooan bestaande toepassingsgateway toevoegen.
 
-De web application firewall (WAF) in Azure Application Gateway beveiligt webtoepassingen van algemene web gebaseerde aanvallen, zoals SQL-injectie, cross-site scripting aanvallen en sessie hijacks.
+Hallo web application firewall (WAF) in Azure Application Gateway beveiligt webtoepassingen van algemene web gebaseerde aanvallen, zoals SQL-injectie, cross-site scripting aanvallen en sessie hijacks.
 
-Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Toepassingsgateway biedt veel levering controller (ADC) toepassingsfuncties zoals HTTP taakverdeling, cookies gebaseerde affiniteit van de sessie laden, secure sockets layer (SSL)-offload, aangepaste statuscontroles, ondersteuning voor meerdere locaties en vele andere. Ga voor een volledige lijst met ondersteunde functies naar: [overzicht van toepassingsgateway](application-gateway-introduction.md).
+Azure Application Gateway is een load balancer in laag 7. Het biedt failover, HTTP-aanvragen routeren tussen verschillende servers, ongeacht of deze op Hallo cloud of on-premises. Toepassingsgateway biedt veel levering controller (ADC) toepassingsfuncties zoals HTTP taakverdeling, cookies gebaseerde affiniteit van de sessie laden, secure sockets layer (SSL)-offload, aangepaste statuscontroles, ondersteuning voor meerdere locaties en vele andere. toofind een volledige lijst van ondersteunde functies, gaat u naar: [overzicht van toepassingsgateway](application-gateway-introduction.md).
 
-Het volgende artikel toont hoe [web application firewall toevoegen aan een bestaande toepassingsgateway](#add-web-application-firewall-to-an-existing-application-gateway) en [maken van een toepassingsgateway die gebruikmaakt van web application firewall](#create-an-application-gateway-with-web-application-firewall).
+Hallo volgende artikel laat zien hoe te[web application firewall tooan bestaande toepassingsgateway toevoegen](#add-web-application-firewall-to-an-existing-application-gateway) en [maken van een toepassingsgateway die gebruikmaakt van web application firewall](#create-an-application-gateway-with-web-application-firewall).
 
 ![afbeelding van scenario][scenario]
 
-## <a name="prerequisite-install-the-azure-cli-20"></a>Voorwaarde: Installeer de Azure CLI 2.0
+## <a name="prerequisite-install-hello-azure-cli-20"></a>Voorwaarde: Installeer hello Azure CLI 2.0
 
-Als u wilt de stappen in dit artikel uitvoert, moet u [installeren van de Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+tooperform hello stappen in dit artikel, moet u te[hello Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI) installeren](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 ## <a name="waf-configuration-differences"></a>WAF configuratie verschillen
 
-Als u hebt gelezen [een toepassingsgateway maken met Azure CLI](application-gateway-create-gateway-cli.md), u inzicht in de SKU-instellingen bij het maken van een toepassingsgateway configureren. WAF biedt aanvullende instellingen op te geven bij het configureren van de SKU voor een toepassingsgateway. Er zijn geen aanvullende wijzigingen die u in de toepassingsgateway zelf aanbrengt.
+Als u hebt gelezen [een toepassingsgateway maken met Azure CLI](application-gateway-create-gateway-cli.md), u begrijpt Hallo SKU instellingen tooconfigure bij het maken van een toepassingsgateway. WAF biedt extra instellingen toodefine bij het configureren van Hallo SKU voor een toepassingsgateway. Er zijn geen aanvullende wijzigingen die u op Hallo application gateway zelf aanbrengt.
 
 | **Instelling** | **Details**
 |---|---|
-|**SKU** |Een normale toepassingsgateway zonder WAF ondersteunt **standaard\_kleine**, **standaard\_gemiddeld**, en **standaard\_grote**grootten. Dankzij de introductie van WAF, er zijn twee extra SKU's **WAF\_gemiddeld** en **WAF\_grote**. WAF wordt niet ondersteund op kleine Toepassingsgateways.|
-|**Modus** | Deze instelling wordt de modus van WAF. toegestane waarden zijn **detectie** en **preventie**. Wanneer WAF is ingesteld in de modus voor detectie, worden alle bedreigingen opgeslagen in een logboekbestand. Gebeurtenissen worden nog wel geregistreerd in de modus te voorkomen, maar de aanvaller ontvangt een niet-geautoriseerde 403-antwoord van de toepassingsgateway.|
+|**SKU** |Een normale toepassingsgateway zonder WAF ondersteunt **standaard\_kleine**, **standaard\_gemiddeld**, en **standaard\_grote**grootten. Dankzij de introductie van de Hallo van WAF, er zijn twee extra SKU's **WAF\_gemiddeld** en **WAF\_grote**. WAF wordt niet ondersteund op kleine Toepassingsgateways.|
+|**Modus** | Deze instelling is Hallo-modus van WAF. toegestane waarden zijn **detectie** en **preventie**. Wanneer WAF is ingesteld in de modus voor detectie, worden alle bedreigingen opgeslagen in een logboekbestand. Gebeurtenissen worden nog wel geregistreerd in '-modus, maar Hallo aanvaller een 403 onbevoegde reactie van de toepassingsgateway Hallo krijgt.|
 
-## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>Web application firewall toevoegen aan een bestaande application gateway
+## <a name="add-web-application-firewall-tooan-existing-application-gateway"></a>Web application firewall tooan bestaande toepassingsgateway toevoegen
 
-De volgende opdracht verandert een bestaande standaard application gateway met een ingeschakelde toepassing WAF gateway.
+Hallo volgt wijzigingen van de scriptopdracht een bestaande standaard application gateway tooa WAF ingeschakelde application gateway.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -64,11 +64,11 @@ az network application-gateway waf-config set \
   --resource-group "AdatumAppGatewayRG"
 ```
 
-Deze opdracht werkt u de toepassingsgateway met web application firewall. Ga naar [Application Gateway Diagnostics](application-gateway-diagnostics.md) om te begrijpen hoe de logboeken voor uw toepassingsgateway bekijken. Vanwege de aard van de beveiliging van WAF moeten Logboeken regelmatig worden gecontroleerd om te begrijpen van de beveiligingsstatus van uw webtoepassingen.
+Met deze opdracht werkt Hallo toepassingsgateway met web application firewall. Ga naar [Application Gateway Diagnostics](application-gateway-diagnostics.md) toounderstand hoe tooview voor uw toepassingsgateway registreert. Vervaldatum toohello aard van de beveiliging van WAF beoordeeld logboeken moeten toobe regelmatig toounderstand Hallo-beveiligingsstatus van uw webtoepassingen.
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>Een toepassingsgateway maken met web application firewall
 
-De volgende opdracht maakt een toepassingsgateway met web application firewall.
+Hallo volgende opdracht maakt een toepassingsgateway met web application firewall.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -95,11 +95,11 @@ az network application-gateway create \
 ```
 
 > [!NOTE]
-> Toepassingsgateways gemaakt met de basic web application firewall-configuratie zijn geconfigureerd met CRS 3.0 voor beveiliging.
+> Toepassingsgateways gemaakt met de Hallo basic web application firewall-configuratie zijn geconfigureerd met CRS 3.0 voor beveiliging.
 
 ## <a name="get-application-gateway-dns-name"></a>DNS-naam van toepassingsgateway verkrijgen
 
-Wanneer de gateway is gemaakt, gaat u in de volgende stap de front-end voor communicatie configureren. Wanneer u een openbare IP gebruikt, heeft de toepassingsgateway een dynamisch toegewezen DNS-naam nodig. Dit is niet gebruiksvriendelijk. Om ervoor te zorgen dat eindgebruikers de toepassingsgateway kunnen bereiken, kan een CNAME-record worden gebruikt die verwijst naar het openbare eindpunt van de toepassingsgateway. [Een aangepaste domeinnaam configureren voor in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Voor het configureren van een CNAME-record ophalen van gegevens van de toepassingsgateway en de bijbehorende IP-en DNS-naam met behulp van de PublicIPAddress-element dat is gekoppeld aan de toepassingsgateway. De DNS-naam van de toepassingsgateway moet worden gebruikt om een CNAME-record te maken die de twee webtoepassingen naar deze DNS-naam wijst. Het gebruik van A-records wordt niet aanbevolen, omdat het VIP kan veranderen wanneer de toepassingsgateway opnieuw wordt gestart.
+Zodra Hallo gateway is gemaakt, is de volgende stap Hallo tooconfigure Hallo front-end voor communicatie. Wanneer u een openbare IP gebruikt, heeft de toepassingsgateway een dynamisch toegewezen DNS-naam nodig. Dit is niet gebruiksvriendelijk. eindgebruikers tooensure kunt Hallo toepassingsgateway bereikt, een CNAME-record kan gebruikte toopoint toohello openbaar eindpunt van de toepassingsgateway Hallo. [Een aangepaste domeinnaam configureren voor in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). tooconfigure een CNAME-record ophalen van gegevens van de toepassingsgateway Hallo en de bijbehorende IP-en DNS-naam op Hallo PublicIPAddress element gekoppelde toohello application gateway met. Hallo application gateway DNS-naam moet gebruikte toocreate een CNAME-record punten Hallo twee web applications toothis DNS-naam. Hallo-gebruik van A-records wordt niet aanbevolen omdat Hallo VIP bij opnieuw opstarten van toepassingsgateway mag wijzigen.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -147,6 +147,6 @@ az network public-ip show \
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Informatie over het aanpassen van WAF regels in via: [web application firewall-regels via de Azure CLI 2.0 aanpassen](application-gateway-customize-waf-rules-cli.md).
+Meer informatie over hoe toocustomize WAF in via regels: [web application firewall-regels via hello Azure CLI 2.0 aanpassen](application-gateway-customize-waf-rules-cli.md).
 
 [scenario]: ./media/application-gateway-web-application-firewall-cli/scenario.png

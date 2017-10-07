@@ -1,6 +1,6 @@
 ---
-title: Het Azure-asset coderen met behulp van Media Encoder Standard | Microsoft Docs
-description: Informatie over het gebruik van Media Encoder Standard voor het coderen van media-inhoud op Azure Media Services. Codevoorbeelden REST API gebruiken.
+title: aaaHow tooencode een Azure-asset met behulp van Media Encoder Standard | Microsoft Docs
+description: Meer informatie over hoe toouse Media Encoder Standard tooencode media inhoud op Azure Media Services. Codevoorbeelden REST API gebruiken.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 796f3b5a4dd56a0160986600cbbcf38faf8add56
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b766bafded7ee98eda3e6ef149c31d5d8fe406fc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Hoe u een asset coderen met behulp van Media Encoder Standard
+# <a name="how-tooencode-an-asset-by-using-media-encoder-standard"></a>Hoe tooencode een asset met behulp van Media Encoder Standard
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 > * [REST](media-services-rest-encode-asset.md)
@@ -29,45 +29,45 @@ ms.lasthandoff: 08/29/2017
 >
 
 ## <a name="overview"></a>Overzicht
-Voor het leveren van digitale video via Internet, moet u de media comprimeren. Digitale videobestanden groot en mogelijk te groot om te leveren via Internet of voor uw klanten apparaten goed weer te geven. Codering is het proces van het comprimeren van video en audio zodat uw klanten het medium kunnen bekijken.
+toodeliver digitale video via Internet hello, moet u Hallo media comprimeren. Digitale videobestanden groot en mogelijk te groot toodeliver over Hallo Internet of voor uw klanten apparaten toodisplay goed. Codering is Hallo-proces van het comprimeren van video en audio zodat uw klanten het medium kunnen bekijken.
 
-Codering taken zijn een van de meest voorkomende verwerking in Azure Media Services. U creëert coderingstaken om mediabestanden te converteren van de ene naar de andere indeling. Wanneer u codeert, kunt u de Media Services ingebouwde encoder (Media Encoder Standard). U kunt ook een encoder geleverd door een partner Media Services gebruiken. Coderingsprogramma's van derden zijn beschikbaar via Azure Marketplace. U kunt de details van de codering van taken met behulp van vooraf ingestelde tekenreeksen die zijn gedefinieerd voor het coderingsprogramma of met behulp van vooraf ingestelde configuratiebestanden opgeven. Zie voor de soorten standaardinstellingen die beschikbaar zijn [taak standaardinstellingen voor Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
+Codering taken zijn een van de meest voorkomende verwerkingen Hallo in Azure Media Services. U maakt codering taken tooconvert media-bestanden vanuit een codering tooanother. Wanneer u codeert, kunt u Hallo Media Services ingebouwde codering (Media Encoder Standard). U kunt ook een encoder geleverd door een partner Media Services gebruiken. Coderingsprogramma's van derden zijn beschikbaar via hello Azure Marketplace. U kunt details op Hallo van coderingstaken met behulp van vooraf ingestelde tekenreeksen die zijn gedefinieerd voor het coderingsprogramma of met behulp van vooraf ingestelde configuratiebestanden opgeven. toosee hello typen standaardinstellingen die beschikbaar zijn, Zie [taak standaardinstellingen voor Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
 
-Elke taak kan een of meer taken afhankelijk van het type verwerking die u wilt bereiken hebben. Met de REST-API kunt u taken en hun bijbehorende taken op twee manieren maken:
+Elke taak kan een of meer taken, afhankelijk van Hallo type verwerken die u wilt dat tooaccomplish. U kunt via Hallo REST-API, taken en hun bijbehorende taken maken op twee manieren:
 
-* Taken kunnen worden gedefinieerd in line via de navigatie-eigenschap van de taken op taak entiteiten.
+* Taken kunnen worden gedefinieerd in line via Hallo taken navigatie-eigenschap op taak entiteiten.
 * Gebruik de OData-batch-verwerking.
 
-Het is raadzaam dat u altijd de bronbestanden te in een adaptive bitrate MP4-set coderen en vervolgens de set naar de gewenste indeling met behulp van converteren [dynamische pakketten](media-services-dynamic-packaging-overview.md).
+Het is raadzaam dat u altijd de bronbestanden te in een adaptive bitrate MP4-set coderen, en vervolgens Hallo set toohello gewenste indeling te met behulp van converteren [dynamische pakketten](media-services-dynamic-packaging-overview.md).
 
-Als uw uitvoerasset opslag versleuteld is, moet u het leveringsbeleid voor Assets configureren. Zie voor meer informatie [leveringsbeleid voor Assets configureren](media-services-rest-configure-asset-delivery-policy.md).
+Als uw uitvoerasset opslag versleuteld is, moet u Hallo-leveringsbeleid voor Assets configureren. Zie voor meer informatie [leveringsbeleid voor Assets configureren](media-services-rest-configure-asset-delivery-policy.md).
 
 ## <a name="considerations"></a>Overwegingen
 
 Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie [Setup voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md).
 
-Voordat u verwijst naar de media processors, Controleer of u de juiste media processor-ID. Zie voor meer informatie [mediaprocessoren ophalen](media-services-rest-get-media-processor.md).
+Voordat u verwijst naar de media processors, moet u controleren of hebt u Hallo juiste media processor-ID. Zie voor meer informatie [mediaprocessoren ophalen](media-services-rest-get-media-processor.md).
 
-## <a name="connect-to-media-services"></a>Verbinding met Media Services maken
+## <a name="connect-toomedia-services"></a>Verbinding maken met tooMedia Services
 
-Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+Voor informatie over hoe tooconnect toohello AMS API, Zie [toegang hello Azure Media Services-API met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Na het correct verbinding maakt met https://media.windows.net, ontvangt u een 301 omleiding opgeven van een andere URI van de Media Services. U moet de volgende aanroepen naar de nieuwe URI.
+>Nadat de verbinding tot stand toohttps://media.windows.net, ontvangt u een 301 omleiding opgeven van een andere URI van de Media Services. U moet de volgende aanroepen toohello ervoor nieuwe URI.
 
 ## <a name="create-a-job-with-a-single-encoding-task"></a>Een taak maken met een enkele taak voor codering
 > [!NOTE]
-> Als u met de REST-API van Media Services werkt, past u de volgende overwegingen:
+> Wanneer u met Hallo REST API voor Media Services werkt, letten hello volgende:
 >
 > Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie [Setup voor het ontwikkelen van REST-API voor Media Services](media-services-rest-how-to-use.md).
 >
-> Na het correct verbinding maakt met https://media.windows.net, ontvangt u een 301 omleiding opgeven van een andere URI van de Media Services. U moet de volgende aanroepen naar de nieuwe URI. Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
+> Nadat de verbinding tot stand toohttps://media.windows.net, ontvangt u een 301 omleiding opgeven van een andere URI van de Media Services. U moet de volgende aanroepen toohello ervoor nieuwe URI. Voor informatie over hoe tooconnect toohello AMS API, Zie [toegang hello Azure Media Services-API met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
 >
-> Wanneer met behulp van JSON en op te geven voor het gebruik van de **__metadata** -sleutelwoord in de aanvraag (bijvoorbeeld naar verwijst naar een gekoppelde object), stelt u de **accepteren** koptekst tot [uitgebreide JSON-indeling](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): accepteren: application/json; odata = verbose.
+> Wanneer met behulp van JSON en geven toouse hello **__metadata** sleutelwoord in Hallo-aanvraag (bijvoorbeeld tooreferences gekoppelde objecten), moet u Hallo instellen **accepteren** header te[uitgebreide JSON-indeling ](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accepteren: application/json; odata = verbose.
 >
 >
 
-Het volgende voorbeeld laat zien hoe maken en een taak met één taak ingesteld voor het coderen van een video op een specifieke oplossingsstatus en kwaliteit boeken. Wanneer u met Media Encoder Standard codeert, kunt u taak configuratie standaardinstellingen opgegeven [hier](http://msdn.microsoft.com/library/mt269960).
+Hallo volgende voorbeeld ziet u hoe toocreate en na een taak met één taak ingesteld tooencode video op een specifieke oplossingsstatus en kwaliteit. Wanneer u met Media Encoder Standard codeert, kunt u taak configuratie standaardinstellingen opgegeven [hier](http://msdn.microsoft.com/library/mt269960).
 
 Aanvraag:
 
@@ -89,27 +89,27 @@ Antwoord:
 
     . . .
 
-### <a name="set-the-output-assets-name"></a>Naam van de uitvoerasset instellen
-Het volgende voorbeeld ziet u hoe het kenmerk assetName instellen:
+### <a name="set-hello-output-assets-name"></a>Hallo uitvoerasset naam instellen
+Hallo volgende voorbeeld ziet u hoe tooset Hallo assetName kenmerk:
 
     { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
 ## <a name="considerations"></a>Overwegingen
-* TaskBody eigenschappen moeten letterlijke XML gebruiken voor het definiëren van het aantal invoer of uitvoer van de activa die worden gebruikt door de taak. Het onderwerp bevat de XML-Schema-definitie voor het XML-bestand.
-* In de definitie TaskBody elke interne waarde voor <inputAsset> en <outputAsset> JobInputAsset(value) of JobOutputAsset(value) moet worden ingesteld.
+* TaskBody eigenschappen moeten letterlijke XML toodefine Hallo aantal invoer of uitvoer-elementen die worden gebruikt door de taak hello gebruiken. Hallo onderwerp bevat Hallo XML-schemadefinitie voor Hallo XML.
+* In Hallo TaskBody definition, elke interne waarde voor <inputAsset> en <outputAsset> JobInputAsset(value) of JobOutputAsset(value) moet worden ingesteld.
 * Een taak kan meerdere uitvoer elementen hebben. Één JobOutputAsset(x) kan slechts eenmaal worden gebruikt als uitvoer van een taak in een taak.
 * U kunt JobInputAsset of JobOutputAsset opgeven als een invoer actief van een taak.
 * Taken moeten vormen geen cyclus.
-* De waardeparameter die u aan JobInputAsset of JobOutputAsset doorgeeft vertegenwoordigt de indexwaarde voor een asset. De werkelijke activa zijn gedefinieerd in de InputMediaAssets en OutputMediaAssets navigatie-eigenschappen op de definitie van de taak entiteit.
-* Omdat het Media Services is gebouwd op OData v3, de afzonderlijke elementen in de verzamelingen InputMediaAssets en OutputMediaAssets navigatie-eigenschap wordt verwezen door een ' __metadata: uri ' naam / waarde-paar.
-* InputMediaAssets toegewezen aan een of meer elementen die u hebt gemaakt in een Media Services. OutputMediaAssets worden gemaakt door het systeem. Ze niet verwijzen naar een bestaande asset.
-* OutputMediaAssets kan worden benoemd met het kenmerk assetName. Als dit kenmerk niet aanwezig is is, is de naam van de OutputMediaAsset ongeacht de interne tekst-waarde van de <outputAsset> -element is met een achtervoegsel van de waarde van de taak, of de taak-Id-waarde (in het geval waarbij de eigenschap Name is niet gedefinieerd). Bijvoorbeeld, als u een waarde voor assetName met "Voorbeeld" instelt, wordt de eigenschap OutputMediaAsset Name ingesteld op "Voorbeeld". Echter als u een waarde voor assetName niet hebt ingesteld, maar de taaknaam van de aan 'NewJob' ingesteld, zou klikt u vervolgens de naam van de OutputMediaAsset zijn "JobOutputAsset (waarde) _NewJob."
+* Hallo waardeparameter u doorgeeft tooJobInputAsset of JobOutputAsset vertegenwoordigt de indexwaarde Hallo voor een asset. Hallo werkelijke activa zijn gedefinieerd in Hallo InputMediaAssets en OutputMediaAssets navigatie-eigenschappen op Hallo entiteit taakdefinitie.
+* Omdat het Media Services is gebouwd op OData v3, afzonderlijke activa in Hallo InputMediaAssets Hallo en OutputMediaAssets navigatie-eigenschap verzamelingen wordt verwezen door een ' __metadata: uri ' naam / waarde-paar.
+* InputMediaAssets maps tooone of meer elementen die u hebt gemaakt in Media Services. OutputMediaAssets zijn gemaakt door Hallo-systeem. Ze niet verwijzen naar een bestaande asset.
+* OutputMediaAssets kan worden benoemd met Hallo assetName kenmerk. Als dit kenmerk niet aanwezig is, wordt de naam van de Hallo Hallo OutputMediaAsset de waarde van de interne tekst hello Hallo is <outputAsset> -element is en het achtervoegsel Hallo taaknaam waarde of Hallo taak-Id-waarde (in geval van Hallo waar Hallo Name-eigenschap niet is gedefinieerd). Bijvoorbeeld, als u een waarde voor assetName instellen Sample te "Voorbeeld" en vervolgens Hallo OutputMediaAsset de naam van de eigenschap is ingesteld te'." Als u niet een waarde voor assetName instellen, maar de taaknaam Hallo hebt ingesteld zou te 'NewJob' en klik vervolgens Hallo OutputMediaAsset naam wel "JobOutputAsset (waarde) _NewJob."
 
 ## <a name="create-a-job-with-chained-tasks"></a>Maken van een taak met gekoppelde taken
-In veel scenario's van toepassing willen ontwikkelaars maken van een reeks taken te verwerken. U kunt een reeks keten taken maken in Media Services. Elke taak voert de van de verschillende verwerkingsstappen en processors van verschillende media kunt gebruiken. De keten taken kunnen overdragen een asset van de ene taak naar de andere een lineaire reeks taken uitvoeren op de asset. De taken uitgevoerd in een taak zijn echter niet vereist zijn in een reeks. Wanneer u een keten taak, de keten maakt **ITask** objecten worden gemaakt in een enkel **IJob** object.
+In veel scenario's van toepassing wilt ontwikkelaars toocreate een reeks taken te verwerken. U kunt een reeks keten taken maken in Media Services. Elke taak voert de van de verschillende verwerkingsstappen en processors van verschillende media kunt gebruiken. Hallo teruggekoppeld taken kunnen een asset aanlevert uit één taak tooanother, een lineaire reeks taken uitvoeren op Hallo asset. Hallo-taken in een taak wordt uitgevoerd, zijn echter niet vereist toobe in een reeks. Wanneer u een keten taak maakt, Hallo teruggekoppeld **ITask** objecten worden gemaakt in een enkel **IJob** object.
 
 > [!NOTE]
-> Er is een limiet van 30 taken per taak. Als u meer dan 30 taken zijn gekoppeld wilt, maakt u meer dan één taak om de taken te bevatten.
+> Er is een limiet van 30 taken per taak. Als u toochain meer dan 30 taken moet, maakt u meer dan één taak toocontain Hallo taken.
 >
 >
 
@@ -147,13 +147,13 @@ In veel scenario's van toepassing willen ontwikkelaars maken van een reeks taken
 
 
 ### <a name="considerations"></a>Overwegingen
-Inschakelen van taak-koppeling:
+tooenable taak koppeling:
 
 * Een taak moet ten minste twee taken hebben.
-* Er moet ten minste één taak waarvan invoer de uitvoer van een andere taak in de taak is.
+* Er moet ten minste één taak waarvan invoer Hallo-uitvoer van een andere taak in het Hallo-taak is.
 
 ## <a name="use-odata-batch-processing"></a>Verwerking van gebruiken OData-batch
-Het volgende voorbeeld laat zien hoe OData batchverwerking gebruiken om te maken van een job en taken. Zie voor informatie over batchverwerking, [Open Data Protocol (OData) batchverwerking](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Hallo volgende voorbeeld ziet u hoe toouse OData verwerking toocreate batch een job en taken. Zie voor informatie over batchverwerking, [Open Data Protocol (OData) batchverwerking](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
     POST https://media.windows.net/api/$batch HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -214,9 +214,9 @@ Het volgende voorbeeld laat zien hoe OData batchverwerking gebruiken om te maken
 
 
 ## <a name="create-a-job-by-using-a-jobtemplate"></a>Een taak maken met behulp van een taaksjabloon
-Wanneer u meerdere elementen verwerkt met behulp van een gemeenschappelijke set taken, gebruiken een taaksjabloon opgeven van de standaardinstellingen van de taak standaard of instellen van de volgorde van taken.
+Wanneer u meerdere activa verwerken met behulp van een gemeenschappelijke set taken, gebruik die een standaardtaak taaksjabloon toospecify Hallo voorinstellingen of tooset Hallo volgorde van taken.
 
-Het volgende voorbeeld laat zien hoe een taaksjabloon maken met een TaskTemplate die is gedefinieerd in line. De TaskTemplate gebruikt Media Encoder Standard als de MediaProcessor voor het coderen van het assetbestand. Andere MediaProcessors kan echter ook worden gebruikt.
+Hallo volgende voorbeeld ziet u hoe toocreate een taaksjabloon met een TaskTemplate die inline gedefinieerde gegevens. Hallo TaskTemplate maakt gebruik van Media Encoder Standard Hallo als Hallo MediaProcessor tooencode Hallo asset-bestand. Andere MediaProcessors kan echter ook worden gebruikt.
 
     POST https://media.windows.net/API/JobTemplates HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -232,18 +232,18 @@ Het volgende voorbeeld laat zien hoe een taaksjabloon maken met een TaskTemplate
 
 
 > [!NOTE]
-> In tegenstelling tot andere entiteiten Media Services, moet u een nieuwe GUID-id definiëren voor elke TaskTemplate en plaats deze in de taskTemplateId en Id-eigenschap in de aanvraagtekst. Het schema met content-ID moet voldoen aan het schema dat wordt beschreven in Azure Media Services-entiteiten identificeren. Bovendien kan niet JobTemplates worden bijgewerkt. In plaats daarvan moet u een nieuw bestand met de bijgewerkte wijzigingen maken.
+> In tegenstelling tot andere entiteiten Media Services, moet u een nieuwe GUID-id definiëren voor elke TaskTemplate en plaats deze in Hallo taskTemplateId en Id-eigenschap in de aanvraagtekst. Hallo inhoud-id-schema moet volgen op Hallo schema beschreven in Azure Media Services-entiteiten identificeren. Bovendien kan niet JobTemplates worden bijgewerkt. In plaats daarvan moet u een nieuw bestand met de bijgewerkte wijzigingen maken.
 >
 >
 
-Als dit lukt, wordt het volgende antwoord geretourneerd:
+Als dit lukt, wordt de Hallo volgende antwoord geretourneerd:
 
     HTTP/1.1 201 Created
 
     . . .
 
 
-Het volgende voorbeeld ziet u hoe een taak die verwijst naar een taaksjabloon-Id te maken:
+Hallo volgende voorbeeld wordt getoond hoe toocreate een taak die verwijst naar een taaksjabloon-Id:
 
     POST https://media.windows.net/API/Jobs HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -258,7 +258,7 @@ Het volgende voorbeeld ziet u hoe een taak die verwijst naar een taaksjabloon-Id
     {"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A3f1fe4a2-68f5-4190-9557-cd45beccef92')"}}], "TemplateId" : "nb:jtid:UUID:15e6e5e6-ac85-084e-9dc2-db3645fbf0aa"}
 
 
-Als dit lukt, wordt het volgende antwoord geretourneerd:
+Als dit lukt, wordt de Hallo volgende antwoord geretourneerd:
 
     HTTP/1.1 201 Created
 
@@ -273,7 +273,7 @@ Als dit lukt, wordt het volgende antwoord geretourneerd:
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u weet dat het maken van een taak voor een asset coderen, Zie [het controleren van de voortgang van de taak met Media Services](media-services-rest-check-job-progress.md).
+Als u weet hoe toocreate een taak tooencode een activum, Zie [hoe toocheck taak uitgevoerd met Media Services](media-services-rest-check-job-progress.md).
 
 ## <a name="see-also"></a>Zie ook
 [Ophalen van Media-Processors](media-services-rest-get-media-processor.md)

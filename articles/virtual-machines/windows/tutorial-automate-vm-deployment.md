@@ -1,6 +1,6 @@
 ---
-title: Aanpassen van een Windows virtuele machine in Azure | Microsoft Docs
-description: Informatie over het gebruik van de extensie voor aangepaste scripts en Sleutelkluis om aan te passen Windows virtuele machines in Azure
+title: een Windows-VM in Azure aaaCustomize | Microsoft Docs
+description: Meer informatie over hoe toouse Hallo extensie voor aangepaste scripts en Sleutelkluis toocustomize Windows virtuele machines in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,45 +16,45 @@ ms.workload: infrastructure
 ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3be58bf8afbcff018b2b0d69a0e08c2c9ab1fca7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c03b2bb6d70875134c63ea2fe4c2e2c1777c2188
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Het aanpassen van een virtuele Windows-machine in Azure
-Als u wilt configureren (virtuele machines) in een snelle en consistente manier, is een vorm van automatisering doorgaans gewenst. Een gemeenschappelijke aanpak voor het aanpassen van een virtuele machine van Windows is met [aangepast Script uitbreiding voor Windows](extensions-customscript.md). In deze zelfstudie leert u het volgende:
+# <a name="how-toocustomize-a-windows-virtual-machine-in-azure"></a>Hoe toocustomize virtuele Windows-machine in Azure
+tooconfigure virtuele machines (VM's) in een snelle en consistente manier, een vorm van automatisering is doorgaans gewenste. Een algemene methode toocustomize een virtuele machine van Windows is toouse [aangepast Script uitbreiding voor Windows](extensions-customscript.md). In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * De extensie voor aangepaste scripts gebruiken voor het installeren van IIS
-> * Een virtuele machine die gebruikmaakt van de aangepaste Scriptextensie maken
-> * Een actieve IIS-site weergeven nadat de uitbreiding is toegepast
+> * Hallo aangepaste Scriptextensie tooinstall IIS gebruiken
+> * Een virtuele machine die gebruikmaakt van de aangepaste Scriptextensie Hallo maken
+> * Een actieve IIS-site weergeven nadat de Hallo-uitbreiding is toegepast
 
-Voor deze zelfstudie is moduleversie 3,6 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u upgraden wilt, Zie [Installeer Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
+Deze zelfstudie vereist hello Azure PowerShell-moduleversie 3,6 of hoger. Voer ` Get-Module -ListAvailable AzureRM` toofind Hallo versie. Als u tooupgrade moet, Zie [Installeer Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="custom-script-extension-overview"></a>Overzicht van de extensie aangepast script
-De aangepaste Scriptextensie downloads en scripts worden uitgevoerd op Azure Virtual machines. Deze uitbreiding is nuttig voor post-implementatieconfiguratie, software-installatie of een andere configuratie / beheertaak. Scripts kunnen worden gedownload van Azure storage of GitHub, of naar de Azure portal op extensie uitvoeringstijd.
+Hallo aangepaste Scriptextensie worden gedownload en scripts uitgevoerd op Azure Virtual machines. Deze uitbreiding is nuttig voor post-implementatieconfiguratie, software-installatie of een andere configuratie / beheertaak. Scripts kunnen worden gedownload van Azure storage of GitHub, of toohello Azure-portal op extensie uitvoeringstijd.
 
-De aangepaste scriptextensie kan worden geïntegreerd met Azure Resource Manager-sjablonen en kan ook worden uitgevoerd met de Azure CLI, PowerShell, Azure-portal of de REST-API van Azure virtuele Machine.
+Hallo-extensie voor aangepaste scripts worden geïntegreerd met Azure Resource Manager-sjablonen en kan ook worden uitgevoerd met hello Azure CLI, PowerShell, Azure-portal of hello Azure virtuele Machine REST-API.
 
-U kunt de aangepaste Scriptextensie gebruiken met Windows- en Linux-machines.
+U kunt Hallo aangepaste Scriptextensie gebruiken met Windows- en Linux-machines.
 
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
-Voordat u een virtuele machine maken kunt, maakt u een resourcegroep met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupAutomate* in de *EastUS* locatie:
+Voordat u een virtuele machine maken kunt, maakt u een resourcegroep met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Hallo volgende voorbeeld maakt u een resourcegroep met de naam *myResourceGroupAutomate* in Hallo *EastUS* locatie:
 
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location EastUS
 ```
 
-Stel dat een beheerder gebruikersnaam en wachtwoord voor de virtuele machines met [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Stel dat een beheerder gebruikersnaam en wachtwoord voor Hallo VM's met [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```powershell
 $cred = Get-Credential
 ```
 
-Nu kunt u de virtuele machine met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Het volgende voorbeeld maakt de vereiste virtuele netwerkonderdelen, de configuratie van het besturingssysteem, en maakt vervolgens een virtuele machine met de naam *myVM*:
+Nu kunt u de virtuele machine met Hallo [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Hallo volgende voorbeeld maakt Hallo vereist virtuele netwerkonderdelen, Hallo OS-configuratie, en maakt vervolgens een virtuele machine met de naam *myVM*:
 
 ```powershell
 # Create a subnet configuration
@@ -128,11 +128,11 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location EastUS -VM $vmConfig
 ```
 
-Het duurt enkele minuten duren voordat de resources en de VM moet worden gemaakt.
+Het duurt enkele minuten duren voordat het Hallo-resources en VM-toobe gemaakt.
 
 
 ## <a name="automate-iis-install"></a>IIS-installatie automatiseren
-Gebruik [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) voor het installeren van de aangepaste Scriptextensie. De extensie wordt uitgevoerd `powershell Add-WindowsFeature Web-Server` voor het installeren van de IIS-webserver en updates van de *Default.htm* pagina voor het weergeven van de hostnaam van de virtuele machine:
+Gebruik [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) tooinstall Hallo extensie voor aangepaste scripts. Hallo-extensie wordt uitgevoerd `powershell Add-WindowsFeature Web-Server` tooinstall Hallo IIS-webserver en klik vervolgens op updates Hallo *Default.htm* pagina tooshow Hallo hostnaam Hallo VM:
 
 ```powershell
 Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
@@ -147,7 +147,7 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
 
 
 ## <a name="test-web-site"></a>Test-website
-Het openbare IP-adres van de load balancer met [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Het volgende voorbeeld verkrijgt het IP-adres voor *myPublicIP* eerder hebt gemaakt:
+Hallo openbare IP-adres van de load balancer met verkrijgen [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Hallo volgende voorbeeld Hallo IP-adres krijgt voor *myPublicIP* eerder hebt gemaakt:
 
 ```powershell
 Get-AzureRmPublicIPAddress `
@@ -155,21 +155,21 @@ Get-AzureRmPublicIPAddress `
     -Name myPublicIP | select IpAddress
 ```
 
-Vervolgens kunt u het openbare IP-adres in invoeren aan een webbrowser. De website wordt weergegeven, inclusief de hostnaam van de virtuele machine die de load balancer verkeer naar het volgende voorbeeld gedistribueerde:
+Vervolgens kunt u in de webbrowser tooa Hallo openbaar IP-adres invoeren. Hallo-website wordt weergegeven, inclusief Hallo hostnaam Hallo VM die Hallo load balancer gedistribueerde tooas verkeer in het volgende voorbeeld Hallo:
 
 ![Actieve IIS-website](./media/tutorial-automate-vm-deployment/running-iis-website.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt automatisch u de IIS-installatie op een virtuele machine. U leert hoe naar:
+In deze zelfstudie maakt geautomatiseerde u Hallo IIS op een virtuele machine installeren. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * De extensie voor aangepaste scripts gebruiken voor het installeren van IIS
-> * Een virtuele machine die gebruikmaakt van de aangepaste Scriptextensie maken
-> * Een actieve IIS-site weergeven nadat de uitbreiding is toegepast
+> * Hallo aangepaste Scriptextensie tooinstall IIS gebruiken
+> * Een virtuele machine die gebruikmaakt van de aangepaste Scriptextensie Hallo maken
+> * Een actieve IIS-site weergeven nadat de Hallo-uitbreiding is toegepast
 
-Ga naar de volgende zelfstudie voor informatie over het maken van aangepaste installatiekopieën van virtuele machine.
+Hoe gaan van de volgende zelfstudie toolearn toohello toocreate aangepaste VM-installatiekopieën.
 
 > [!div class="nextstepaction"]
 > [Aangepaste VM-installatiekopieën maken](./tutorial-custom-images.md)

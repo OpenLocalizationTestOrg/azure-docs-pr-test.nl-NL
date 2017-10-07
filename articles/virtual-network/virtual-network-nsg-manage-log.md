@@ -1,6 +1,6 @@
 ---
-title: Bewaken van bewerkingen, gebeurtenissen en prestatiemeteritems voor het nsg's | Microsoft Docs
-description: Informatie over het inschakelen van tellers, gebeurtenissen en operationele logboekregistratie voor het nsg 's
+title: aaaMonitor bewerkingen, gebeurtenissen en prestatiemeteritems voor het nsg's | Microsoft Docs
+description: Meer informatie over hoe tooenable tellers, gebeurtenissen en operationele logboekregistratie voor het nsg's
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,59 +15,59 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f16f1a0ad693028ee7aba21574b5c8ddfcd27096
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Logboekanalyses voor netwerkbeveiligingsgroepen (NSG's)
 
-U kunt de volgende categorieën van diagnostische logboeken inschakelen voor het nsg's:
+Hallo diagnostische logboeken categorieën voor het nsg's te volgen, kunt u inschakelen:
 
-* **Gebeurtenis:** bevat vermeldingen voor welke NSG regels worden toegepast op virtuele machines en functies op basis van MAC-adres-instantie. De status voor deze regels worden verzameld om de 60 seconden.
-* **Regelteller:** bevat vermeldingen voor hoe vaak elke NSG regel wordt toegepast om te weigeren of verkeer toestaan.
+* **Gebeurtenis:** bevat vermeldingen voor welke NSG regels toegepaste tooVMs en de exemplaar-rollen op basis van MAC-adres zijn. Hallo-status voor deze regels worden verzameld om de 60 seconden.
+* **Regelteller:** bevat vermeldingen voor hoe vaak elke NSG regel is toegepast toodeny of verkeer toestaan.
 
 > [!NOTE]
-> Diagnostische logboeken zijn alleen beschikbaar voor het nsg's geïmplementeerd via het Azure Resource Manager-implementatiemodel. U kunt Diagnostische logboekregistratie voor het nsg's geïmplementeerd via het klassieke implementatiemodel niet inschakelen. Voor een beter begrip van de twee modellen, raadpleegt u de [wat Azure-implementatiemodellen](../resource-manager-deployment-model.md) artikel.
+> Diagnostische logboeken zijn alleen beschikbaar voor het nsg's geïmplementeerd via hello Azure Resource Manager-implementatiemodel. U kunt Diagnostische logboekregistratie voor het nsg's geïmplementeerd via de klassieke implementatiemodel Hallo niet inschakelen. Voor een beter begrip van Hallo twee modellen, verwijzen naar Hallo [wat Azure-implementatiemodellen](../resource-manager-deployment-model.md) artikel.
 
-Logboekregistratie van activiteit (voorheen bekend als audit- of operationele Logboeken) is standaard ingeschakeld voor het nsg's die zijn gemaakt via de Azure-implementatiemodel. Om te bepalen welke bewerkingen zijn voltooid op het nsg's in het activiteitenlogboek, zoeken naar gegevens die de volgende resourcetypen bevatten: 
+Logboekregistratie van activiteit (voorheen bekend als audit- of operationele Logboeken) is standaard ingeschakeld voor het nsg's die zijn gemaakt via de Azure-implementatiemodel. toodetermine welke bewerkingen zijn voltooid op het nsg's in het gebeurtenissenlogboek hello, zoeken naar vermeldingen met Hallo brontypen te volgen: 
 
 - Microsoft.ClassicNetwork/networkSecurityGroups 
 - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
 - Microsoft.Network/networkSecurityGroups
 - Microsoft.Network/networkSecurityGroups/securityRules 
 
-Lees de [overzicht van de Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) artikel voor meer informatie over activiteitenlogboeken. 
+Lees Hallo [overzicht van hello Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) artikel toolearn meer over activiteitenlogboeken. 
 
 ## <a name="enable-diagnostic-logging"></a>Bijhouden van diagnostische gegevens inschakelen
 
-Diagnostische logboekregistratie moet zijn ingeschakeld voor *elke* NSG die u wenst te verzamelen van gegevens voor. De [overzicht van Azure diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artikel wordt uitgelegd waar diagnostische logboeken kunnen worden verzonden. Als u een bestaande NSG geen hebt, voer de stappen in de [maken van een netwerkbeveiligingsgroep](virtual-networks-create-nsg-arm-pportal.md) artikel een maken. U kunt NSG Diagnostische logboekregistratie met behulp van een van de volgende methoden inschakelen:
+Diagnostische logboekregistratie moet zijn ingeschakeld voor *elke* NSG gewenste toocollect gegevens voor. Hallo [overzicht van Azure diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artikel wordt uitgelegd waar diagnostische logboeken kunnen worden verzonden. Als u een bestaande NSG geen hebt, volledige Hallo stappen voor het Hallo [maken van een netwerkbeveiligingsgroep](virtual-networks-create-nsg-arm-pportal.md) artikel toocreate een. U kunt NSG Diagnostische logboekregistratie met behulp van de volgende methoden Hallo inschakelen:
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Gebruik de portal voor het inschakelen van logboekregistratie, meld u aan bij de [portal](https://portal.azure.com). Klik op **meer services**, typ *netwerkbeveiligingsgroepen*. Selecteer het NSG u logboekregistratie wilt inschakelen voor. Volg de instructies voor niet-rekenresources in de [Schakel diagnostische logboeken in de portal](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artikel. Selecteer **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, of beide categorieën van Logboeken.
+toouse hello portal tooenable-registratie, aanmelding toohello [portal](https://portal.azure.com). Klik op **meer services**, typ *netwerkbeveiligingsgroepen*. Selecteer Hallo NSG tooenable gewenste voor logboekregistratie. Volg de instructies Hallo voor niet-rekenresources in Hallo [Schakel diagnostische logboeken in de portal Hallo](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artikel. Selecteer **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, of beide categorieën van Logboeken.
 
 ### <a name="powershell"></a>PowerShell
 
-Voor het gebruik van PowerShell logboekregistratie in te schakelen, volg de instructies in de [Schakel diagnostische logboeken via PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artikel. Evalueer de volgende informatie voordat u een opdracht invoert in het artikel:
+toouse PowerShell tooenable aan te melden, volg de instructies Hallo in Hallo [Schakel diagnostische logboeken via PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artikel. Evalueert de volgende informatie voordat u een opdracht invoert uit artikel Hallo Hallo:
 
-- U kunt bepalen dat de waarde moet worden gebruikt voor de `-ResourceId` parameter door de volgende vervangen [tekst] waar nodig, typt u de opdracht `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`. De uitvoer van de ID van de opdracht ziet er ongeveer uit */subscriptions/ [abonnement Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG name]*.
-- Als u alleen gegevens wilt verzamelen uit logboek categorie toevoegen `-Categories [category]` aan het einde van de opdracht in het artikel, waarbij categorie is *NetworkSecurityGroupEvent* of *NetworkSecurityGroupRuleCounter*. Als u niet de `-Categories` parameter gegevensverzameling is ingeschakeld voor zowel logboekbestand categorieën.
+- U kunt bepalen Hallo waarde toouse voor Hallo `-ResourceId` parameter door te vervangen Hallo na [tekst] toepasselijke Hallo-opdracht in te voeren `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`. Hallo-ID-uitvoer van Hallo opdracht er ongeveer als volgt te*/subscriptions/ [abonnement Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG name]*.
+- Als u alleen gegevens uit de categorie logboek toocollect toevoegen `-Categories [category]` toohello einde van Hallo-opdracht in Hallo artikel waar categorie is *NetworkSecurityGroupEvent* of *NetworkSecurityGroupRuleCounter*. Als u geen Hallo `-Categories` parameter gegevensverzameling is ingeschakeld voor zowel logboekbestand categorieën.
 
 ### <a name="azure-command-line-interface-cli"></a>Azure-opdrachtregelinterface (CLI)
 
-Voor het gebruik van de CLI logboekregistratie in te schakelen, volg de instructies in de [Schakel diagnostische logboeken via CLI](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artikel. Evalueer de volgende informatie voordat u een opdracht invoert in het artikel:
+toouse Hallo CLI tooenable logboekregistratie, volg de instructies Hallo in Hallo [Schakel diagnostische logboeken via CLI](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artikel. Evalueert de volgende informatie voordat u een opdracht invoert uit artikel Hallo Hallo:
 
-- U kunt bepalen dat de waarde moet worden gebruikt voor de `-ResourceId` parameter door de volgende vervangen [tekst] waar nodig, typt u de opdracht `azure network nsg show [resource-group-name] [nsg-name]`. De uitvoer van de ID van de opdracht ziet er ongeveer uit */subscriptions/ [abonnement Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG name]*.
-- Als u alleen gegevens wilt verzamelen uit logboek categorie toevoegen `-Categories [category]` aan het einde van de opdracht in het artikel, waarbij categorie is *NetworkSecurityGroupEvent* of *NetworkSecurityGroupRuleCounter*. Als u niet de `-Categories` parameter gegevensverzameling is ingeschakeld voor zowel logboekbestand categorieën.
+- U kunt bepalen Hallo waarde toouse voor Hallo `-ResourceId` parameter door te vervangen Hallo na [tekst] toepasselijke Hallo-opdracht in te voeren `azure network nsg show [resource-group-name] [nsg-name]`. Hallo-ID-uitvoer van Hallo opdracht er ongeveer als volgt te*/subscriptions/ [abonnement Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG name]*.
+- Als u alleen gegevens uit de categorie logboek toocollect toevoegen `-Categories [category]` toohello einde van Hallo-opdracht in Hallo artikel waar categorie is *NetworkSecurityGroupEvent* of *NetworkSecurityGroupRuleCounter*. Als u geen Hallo `-Categories` parameter gegevensverzameling is ingeschakeld voor zowel logboekbestand categorieën.
 
 ## <a name="logged-data"></a>Logboekgegevens
 
-Gegevens in JSON-indeling is geschreven voor beide logboeken. De specifieke gegevens die zijn geschreven voor elk Logboektype wordt vermeld in de volgende secties:
+Gegevens in JSON-indeling is geschreven voor beide logboeken. Hallo specifieke gegevens die zijn geschreven voor elk Logboektype wordt vermeld in Hallo uit te voeren:
 
 ### <a name="event-log"></a>Gebeurtenislogboek
-Dit logboek bevat informatie over welke NSG regels worden toegepast op virtuele machines en cloud service rolinstanties, op basis van MAC-adres. Het volgende voorbeeldgegevens worden geregistreerd voor elke gebeurtenis:
+Dit logboek bevat informatie over welke NSG regels worden toegepast tooVMs en cloud service rolinstanties, op basis van MAC-adres. Hallo bijvoorbeeld gegevens te volgen wordt voor elke gebeurtenis geregistreerd:
 
 ```json
 {
@@ -98,7 +98,7 @@ Dit logboek bevat informatie over welke NSG regels worden toegepast op virtuele 
 
 ### <a name="rule-counter-log"></a>Regel teller logboek
 
-Dit logboek bevat informatie over elke regel toegepast op resources. Het volgende voorbeeldgegevens worden geregistreerd telkens wanneer die een regel wordt toegepast:
+Dit logboek bevat informatie over de tooresources van elke regel van toepassing. Hallo volgende van de voorbeeldgegevens worden geregistreerd telkens wanneer die een regel wordt toegepast:
 
 ```json
 {
@@ -122,4 +122,4 @@ Dit logboek bevat informatie over elke regel toegepast op resources. Het volgend
 
 ## <a name="view-and-analyze-logs"></a>Weergeven en analyseren van Logboeken
 
-Lees voor meer informatie over het weergeven van de logboekgegevens van de activiteit, de [overzicht van de Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artikel. Lees voor meer informatie over het weergeven van diagnostische logboekgegevens, de [overzicht van Azure diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artikel. Als u diagnostische gegevens naar Log Analytics verzenden, kunt u de [Netwerkbeveiligingsgroep Azure analytics](../log-analytics/log-analytics-azure-networking-analytics.md) oplossing voor verbeterde insights (preview). 
+hoe tooview activiteit meld gegevens lezen Hallo toolearn [overzicht van hello Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artikel. hoe tooview diagnostische gegevens, meld lezen Hallo toolearn [overzicht van Azure diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artikel. Als u diagnostische gegevens tooLog Analytics verzendt, kunt u Hallo [Netwerkbeveiligingsgroep Azure analytics](../log-analytics/log-analytics-azure-networking-analytics.md) oplossing voor verbeterde insights (preview). 

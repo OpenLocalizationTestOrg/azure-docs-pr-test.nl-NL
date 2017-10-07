@@ -1,6 +1,6 @@
 ---
-title: Een statische HTML-web-app maken in Azure | Microsoft Docs
-description: Ontdek hoe eenvoudig het is om web-apps uit te voeren in App Service door een voorbeeld van een statische HTML-app te implementeren.
+title: een statische HTML aaaCreate web-app in Azure | Microsoft Docs
+description: Meer informatie over hoe toorun web-apps in Azure App Service door het implementeren van een statische HTML voorbeeld-app.
 services: app-service\web
 documentationcenter: 
 author: rick-anderson
@@ -15,48 +15,48 @@ ms.topic: quickstart
 ms.date: 05/26/2017
 ms.author: riande
 ms.custom: mvc
-ms.openlocfilehash: 42af5b08b8d2ff0c75fd73dcfa61c861647fd2c9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: efd8c8189a3aa1ac35602b688eeb31bff6f5a373
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Een statische HTML-web-app maken in Azure
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze Quickstart laat zien hoe u een eenvoudige HTML+CSS-site naar Azure Web Apps implementeert. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en u gebruikt Git om HTML-voorbeeldinhoud in de web-app te implementeren.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze snelstartgids ziet u hoe een basic HTML + CSS toodeploy site tooAzure Web-Apps. Maken van Hallo web-app met behulp van Hallo [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en u Git toodeploy voorbeeld HTML-inhoud toohello web-app gebruiken.
 
 ![Startpagina van voorbeeld-app](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux-computer. Vanaf het moment dat de vereiste onderdelen zijn geïnstalleerd, duurt het ongeveer vijf minuten om de stappen uit te voeren.
+U kunt stappen Hallo onder het gebruik van een Mac-, Windows- of Linux-machine. Zodra het Hallo-vereisten zijn geïnstalleerd, duurt het ongeveer vijf minuten toocomplete Hallo stappen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
+toocomplete deze snelstartgids:
 
 - [Git installeren.](https://git-scm.com/)
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, wordt in dit onderwerp vereist dat u hello Azure CLI versie 2.0 of hoger worden uitgevoerd. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). 
 
-## <a name="download-the-sample"></a>Het voorbeeld downloaden
+## <a name="download-hello-sample"></a>Hallo voorbeeld downloaden
 
-Voer in een terminalvenster de volgende opdracht uit om de opslagplaats van de voorbeeld-app te klonen op uw lokale computer.
+Voer in een terminalvenster Hallo opdracht tooclone Hallo voorbeeld-app-opslagplaats tooyour lokale computer te volgen.
 
 ```bash
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-Dit terminalvenster gebruikt u om alle opdrachten in deze Quickstart uit te voeren.
+U gebruikt deze toorun terminalvenster alle Hallo-opdrachten in deze snelstartgids.
 
-## <a name="view-the-html"></a>De HTML weergeven
+## <a name="view-hello-html"></a>Hallo HTML weergeven
 
-Ga naar de map die de voorbeeld-HTML bevat. Open het bestand *index.html* in uw browser.
+Navigeer toohello map waarin Hallo voorbeeld HTML. Open Hallo *index.html* bestand in uw browser.
 
 ![Startpagina van voorbeeld-app](media/app-service-web-get-started-html/hello-world-in-browser.png)
 
-[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [Log in tooAzure](../../includes/login-to-azure.md)] 
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
@@ -72,11 +72,11 @@ U hebt een lege, nieuwe web-app gemaakt in Azure.
 
 [!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push tooAzure](../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
 Counting objects: 13, done.
-Delta compression using up to 4 threads.
+Delta compression using up too4 threads.
 Compressing objects: 100% (11/11), done.
 Writing objects: 100% (13/13), 2.07 KiB | 0 bytes/s, done.
 Total 13 (delta 2), reused 0 (delta 0)
@@ -96,52 +96,52 @@ remote: Copying file: 'README.md'
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+toohttps://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-## <a name="browse-to-the-app"></a>Bladeren naar de app
+## <a name="browse-toohello-app"></a>Toohello app bladeren
 
-Ga in een browser naar de URL van de Azure-web-app:
+Ga in een browser toohello Azure-web-app-URL:
 
 ```
 http://<app_name>.azurewebsites.net
 ```
 
-De pagina wordt als een web-app uitgevoerd in Azure App Service.
+Hallo-pagina wordt uitgevoerd als een Azure App Service-web-app.
 
 ![Startpagina van voorbeeld-app](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-**Gefeliciteerd!** U hebt uw eerste HTML-app geïmplementeerd in App Service.
+**Gefeliciteerd!** U hebt uw eerste tooApp HTML-app Service geïmplementeerd.
 
-## <a name="update-and-redeploy-the-app"></a>De app bijwerken en opnieuw implementeren
+## <a name="update-and-redeploy-hello-app"></a>Bijwerken en het Hallo-app implementeren
 
-Open het bestand de *index.html* in een teksteditor en wijzig wat code. Wijzig bijvoorbeeld de tekst van de H1-kop 'Azure App Service - Sample Static HTML Site' in 'Azure App Service'.
+Open Hallo *index.html* bestand in een teksteditor en een wijziging toohello opmaak. Hallo H1-kop bijvoorbeeld wijzigen van de 'Azure App Service--voorbeeld statische HTML-website' toojust ' Azure App Service'.
 
-Leg uw wijzigingen vast in Git en push de codewijzigingen vervolgens naar Azure.
+Uw wijzigingen in Git en vervolgens push Hallo code wijzigingen tooAzure.
 
 ```bash
 git commit -am "updated HTML"
 git push azure master
 ```
 
-Als de implementatie is voltooid, vernieuwt u uw browser om de wijzigingen te bekijken.
+Zodra de implementatie is voltooid, vernieuw uw browser toosee Hallo wijzigingen.
 
 ![Bijgewerkte startpagina van voorbeeld-app](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
 ## <a name="manage-your-new-azure-web-app"></a>Uw nieuwe Azure-web-app beheren
 
-Ga naar <a href="https://portal.azure.com" target="_blank">Azure Portal</a> om de web-app te beheren die u hebt gemaakt.
+Ga toohello <a href="https://portal.azure.com" target="_blank">Azure-portal</a> toomanage Hallo web-app die u hebt gemaakt.
 
-Klik in het linkermenu op **App Services** en klik op de naam van uw Azure-web-app.
+In het linkermenu hello, klikt u op **App Services**, en klik vervolgens op Hallo-naam van uw Azure-web-app.
 
-![Navigatie in de portal naar de Azure-web-app](./media/app-service-web-get-started-html/portal1.png)
+![Navigatie in de portal tooAzure web-app](./media/app-service-web-get-started-html/portal1.png)
 
 De pagina Overzicht van uw web-app wordt weergegeven. Hier kunt u algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. 
 
 ![App Service-blade in Azure Portal](./media/app-service-web-get-started-html/portal2.png)
 
-Het linkermenu bevat een aantal pagina's voor het configureren van uw app. 
+Hallo linkermenu biedt verschillende pagina's voor het configureren van uw app. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

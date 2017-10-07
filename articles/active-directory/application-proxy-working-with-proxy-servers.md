@@ -1,6 +1,6 @@
 ---
-title: Werken met bestaande on-premises proxy-servers en Azure AD | Microsoft Docs
-description: Bevat informatie over het werken met bestaande lokale proxyservers.
+title: aaaWork met bestaande on-premises proxy-servers en Azure AD | Microsoft Docs
+description: Bevat informatie over hoe toowork met bestaande lokale proxyservers.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -13,43 +13,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: kgremban
-ms.openlocfilehash: bdca442755507c4ffe8d43692c5b7f2aa3a746f3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 7f8cec4f676f99bead5211bcbcf23056bd7f211f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Werken met bestaande lokale proxyservers
 
-In dit artikel wordt uitgelegd hoe connectors werken met uitgaande proxyservers toepassingsproxy van Azure Active Directory (Azure AD) configureren. Het is bedoeld voor klanten met een netwerkomgevingen met bestaande proxy's.
+Dit artikel wordt uitgelegd hoe tooconfigure toepassingsproxy van Azure Active Directory (Azure AD) connectors toowork met uitgaande proxyservers. Het is bedoeld voor klanten met een netwerkomgevingen met bestaande proxy's.
 
 We beginnen door te kijken deze belangrijkste implementatiescenario's:
-* Connectors configureren voor uw lokale uitgaande proxy overslaan.
-* Connectors configureren voor een uitgaande proxyconfiguratie gebruiken voor toegang tot Azure AD-toepassingsproxy.
+* Connectors toobypass uw lokale uitgaande proxy configureren.
+* Configureer connectors toouse een uitgaande proxyconfiguratie tooaccess Azure AD-toepassingsproxy.
 
 Zie voor meer informatie over hoe connectors werken [inzicht in Azure AD-toepassingsproxy connectors](application-proxy-understand-connectors.md).
 
-## <a name="configure-the-outbound-proxy"></a>De uitgaande proxy configureren
+## <a name="configure-hello-outbound-proxy"></a>Hallo uitgaande proxy configureren
 
-Als u een uitgaande proxyconfiguratie in uw omgeving hebt, gebruik een account met de juiste machtigingen voor het configureren van de uitgaande proxyconfiguratie. Omdat het installatieprogramma wordt uitgevoerd in de context van de gebruiker die de installatie uitvoert, kunt u de configuratie controleren met behulp van Microsoft Edge of een andere internetbrowser.
+Als u een uitgaande proxyconfiguratie in uw omgeving hebt, kunt u een account gebruiken met de juiste machtigingen tooconfigure Hallo uitgaande proxyconfiguratie. Omdat Hallo installatieprogramma wordt uitgevoerd in de context Hallo van Hallo-gebruiker die Hallo installatie doet, kunt u Hallo-configuratie controleren met behulp van Microsoft Edge of een andere internetbrowser.
 
-De proxy-instellingen in Microsoft Edge configureren:
+tooconfigure hello proxy-instellingen in Microsoft Edge:
 
-1. Ga naar **instellingen** > **weergave geavanceerde instellingen** > **Proxy-instellingen openen** > **installatie handmatige Proxy**.
-2. Stel **een proxyserver gebruiken** naar **op**, selecteer de **de proxyserver niet gebruiken voor lokale adressen (intranet)** selectievakje en wijzig vervolgens het adres en poort in overeenstemming met uw lokale proxyserver.
-3. Vul de benodigde proxy-instellingen.
+1. Ga te**instellingen** > **weergave geavanceerde instellingen** > **Open Proxy-instellingen** > **handmatige Proxy-instellingen** .
+2. Stel **een proxyserver gebruiken** te**op**, selecteer Hallo **Hallo proxyserver niet gebruiken voor lokale adressen (intranet)** selectievakje en het Hallo-adres en poort tooreflect wijzigen uw lokale proxyserver.
+3. Vul in Hallo nodig proxy-instellingen.
 
    ![In het dialoogvenster voor proxy-instellingen](./media/application-proxy-working-with-proxy-servers/proxy-bypass-local-addresses.png)
 
 ## <a name="bypass-outbound-proxies"></a>Uitgaande bypass-proxy 's
 
-Connectors hebben onderliggende besturingssysteemonderdelen die uitgaande aanvragen. Deze onderdelen wordt automatisch geprobeerd het vinden van een proxyserver op het netwerk. Ze Web Proxy Auto-Discovery (WPAD) gebruiken als deze ingeschakeld in de omgeving.
+Connectors hebben onderliggende besturingssysteemonderdelen die uitgaande aanvragen. Deze onderdelen worden automatisch een proxyserver op Hallo netwerk toolocate geprobeerd. Ze Web Proxy Auto-Discovery (WPAD) gebruiken als deze ingeschakeld in Hallo-omgeving.
 
-De OS-componenten probeert te vinden van een proxyserver door middel van een DNS-zoekactie voor wpad.domainsuffix. Als dit wordt omgezet in DNS, wordt vervolgens een HTTP-aanvraag naar de IP-adres voor wpad.dat gemaakt. Deze aanvraag wordt het configuratiescript in uw omgeving. De connector gebruikt dit script te selecteren van een server voor uitgaande proxyconfiguratie. Echter, connector verkeer mogelijk nog steeds niet via, vanwege de extra configuratie-instellingen op de proxy nodig.
+Hallo besturingssysteemonderdelen proberen toolocate een proxyserver door middel van een DNS-zoekactie voor wpad.domainsuffix. Als dit wordt omgezet in DNS, een HTTP-aanvraag vervolgens gemaakt toohello IP-adres voor wpad.dat. Deze aanvraag wordt Hallo configuratiescript in uw omgeving. Hallo-connector gebruikt dit script tooselect een uitgaande proxyserver. Echter, connector verkeer mogelijk nog steeds niet via, vanwege de extra configuratie-instellingen die nodig zijn op Hallo proxy.
 
-U kunt de connector voor het overslaan van de lokale proxy om ervoor te zorgen dat deze gebruikmaakt van directe verbinding met de Azure-services configureren. Het is raadzaam deze benadering (als dit het netwerkbeleid mogelijk), omdat het betekent dat u één minder configuratie hebt te onderhouden.
+U kunt configureren Hallo connector toobypass uw lokale proxy tooensure dat wordt gebruikt directe connectiviteit toohello Azure services. Het is raadzaam deze benadering (als dit het netwerkbeleid mogelijk), omdat het betekent dat u een minder configuratie toomaintain hebt.
 
-Bewerk het bestand C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config als wilt uitschakelen uitgaande proxyconfiguratie gebruik voor de connector, en voeg de *system.net* sectie in dit voorbeeld wordt weergegeven:
+toodisable uitgaande proxyconfiguratie gebruik voor Hallo-connector Hallo C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config bestand bewerken en toevoegen van Hallo *system.net* sectie in dit voorbeeld wordt weergegeven :
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -65,25 +65,25 @@ Bewerk het bestand C:\Program Files\Microsoft AAD App Proxy Connector\Applicatio
   </appSettings>
 </configuration>
 ```
-Om ervoor te zorgen dat de service-Connector Updater ook de proxy omzeilt, moet u een vergelijkbare wijziging aanbrengt in het bestand ApplicationProxyConnectorUpdaterService.exe.config in C:\Program Files\Microsoft AAD App Proxy Connector Updater.
+een vergelijkbare wijziging toohello ApplicationProxyConnectorUpdaterService.exe.config bestand in C:\Program Files\Microsoft AAD App Proxy Connector Updater tooensure dat Hallo Connector Updater service ook Hallo proxy, omzeilt maken
 
-Zorg kopieën van de originele bestanden te maken als u wilt terugkeren naar de standaard .config-bestanden.
+Worden ervoor toomake kopieën van de oorspronkelijke bestanden hello, geval u toorevert toohello standaard .config-bestanden die nodig is.
 
-## <a name="use-the-outbound-proxy-server"></a>Uitgaande proxyserver gebruiken
+## <a name="use-hello-outbound-proxy-server"></a>Hallo uitgaande proxyserver gebruiken
 
-Sommige omgevingen vereisen al het uitgaande verkeer door een uitgaande proxyconfiguratie, zonder uitzondering gaan. Als gevolg hiervan kan omzeilen van de proxy niet worden gebruikt.
+Sommige omgevingen is vereist voor alle uitgaande verkeer toogo via een uitgaande proxyconfiguratie, zonder uitzondering. Als gevolg hiervan kan omzeilen Hallo proxy niet worden gebruikt.
 
-U kunt de connector-verkeer via de uitgaande proxyconfiguratie kunt configureren, zoals wordt weergegeven in het volgende diagram:
+Hallo connector verkeer toogo via Hallo uitgaande proxyconfiguratie, kunt u configureren zoals wordt weergegeven in het volgende diagram Hallo:
 
- ![Connector-verkeer naar Azure AD-toepassingsproxy via een uitgaande proxy configureren](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
+ ![Configureren van de connector verkeer toogo via een uitgaande proxyconfiguratie tooAzure AD-toepassingsproxy](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
 
-Als gevolg van gelet alleen uitgaand verkeer, is er niet nodig om binnenkomende toegang via de firewall te configureren.
+Als gevolg hiervan hebben alleen uitgaand verkeer, er is geen tooconfigure moeten binnenkomende toegang via de firewalls.
 
-### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>Stap 1: De connector en verwante services via de uitgaande proxy configureren
+### <a name="step-1-configure-hello-connector-and-related-services-toogo-through-hello-outbound-proxy"></a>Stap 1: Hallo-connector configureren en gerelateerde services toogo via Hallo uitgaande proxyconfiguratie
 
-Gedekt eerder als WPAD is ingeschakeld in de omgeving en op de juiste wijze geconfigureerd, wordt de connector automatisch detecteren van de uitgaande proxyserver en probeert te gebruiken. U kunt echter expliciet de connector te doorlopen een uitgaande proxyconfiguratie configureren.
+Gedekt eerder als WPAD is ingeschakeld in de omgeving Hallo en juist geconfigureerde, Hallo-connector wordt automatisch gedetecteerd door Hallo uitgaande proxyconfiguratie server uit en proberen toouse deze. U kunt echter expliciet Hallo connector toogo via een uitgaande proxy configureren.
 
-Om dit te doen, bewerk het bestand C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config en voeg de *system.net* sectie in dit voorbeeld wordt weergegeven. Wijziging *proxyserver:8080* in overeenstemming met uw lokale proxy-servernaam of IP-adres en de poort die deze luistert op.
+toodo dus Hallo C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config bestand bewerken en toevoegen van Hallo *system.net* sectie in dit voorbeeld wordt weergegeven. Wijziging *proxyserver:8080* tooreflect uw lokale proxy-servernaam of IP-adres en Hallo dat deze luistert op poort.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -102,124 +102,124 @@ Om dit te doen, bewerk het bestand C:\Program Files\Microsoft AAD App Proxy Conn
 </configuration>
 ```
 
-Configureer vervolgens de service-Connector Updater voor het gebruik van de proxy door een vergelijkbare wijziging aan het bestand in C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
+Configureer vervolgens Hallo Connector Updater toouse Hallo-serviceproxy door het maken van een vergelijkbare wijziging toohello bestand in C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
 
-### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Stap 2: Configureer de proxy voor verkeer van de connector en verwante services kunnen stromen
+### <a name="step-2-configure-hello-proxy-tooallow-traffic-from-hello-connector-and-related-services-tooflow-through"></a>Stap 2: Hallo proxy tooallow verkeer van het Hallo-connector en verwante services tooflow via configureren
 
-Er zijn vier aspecten rekening moet houden bij de uitgaande proxy:
+Er zijn vier aspecten tooconsider op Hallo uitgaande proxyconfiguratie:
 * Uitgaande proxy-regels
 * Proxyverificatie
 * Proxy-poorten
 * SSL-inspectie
 
 #### <a name="proxy-outbound-rules"></a>Uitgaande proxy-regels
-Toegang tot de volgende eindpunten voor connector-Servicetoegang toestaan:
+Toegang toohello volgende eindpunten voor connector-Servicetoegang toestaan:
 
 * *. msappproxy.net
 * *. servicebus.windows.net
 
-Voor de initiële registratie, moet u toegang tot de volgende eindpunten toestaan:
+Voor de initiële registratie toestaan toegang toohello eindpunten te volgen:
 
 * login.windows.net
 * Login.microsoftonline.com
 
-Als u niet kan verbinding met FQDN-naam maken en moet in plaats daarvan IP-adresbereiken opgeven, gebruikt u deze opties:
+Als u kan geen verbinding met FQDN-naam en moeten toospecify IP-adresbereiken in plaats daarvan gebruik deze opties:
 
-* De connector uitgaande toegang tot alle bestemmingen toestaan.
-* De connector uitgaande toegang tot [Azure datacenter IP-adresbereiken](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). De uitdaging met behulp van de lijst met Azure datacenter IP-adresbereiken is wekelijks wordt bijgewerkt. U moet het plaatsen van een proces implementeren dat ervoor zorgt dat uw toegangsregels dienovereenkomstig worden bijgewerkt.
+* Hallo connector uitgaande toegang tooall bestemmingen toestaan.
+* Hallo connector uitgaande toegang te verlenen[Azure datacenter IP-adresbereiken](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). Hallo uitdaging met het gebruik van Hallo lijst met Azure datacenter IP-adresbereiken is wekelijks wordt bijgewerkt. U moet tooput een proces in place tooensure uw toegangsregels worden dienovereenkomstig bijgewerkt.
 
 #### <a name="proxy-authentication"></a>Proxyverificatie
 
-Proxyverificatie is momenteel niet ondersteund. We bevelen aan huidige is dat de connector anonieme toegang tot de Internet-doelen.
+Proxyverificatie is momenteel niet ondersteund. We bevelen aan huidige is tooallow Hallo connector anonieme toegang toohello Internet doelen.
 
 #### <a name="proxy-ports"></a>Proxy-poorten
 
-De connector maakt uitgaande SSL-verbindingen met de methode CONNECT. Deze methode wordt in wezen stelt u een tunnel via de uitgaande proxyconfiguratie. De proxyserver zodat de poorten 443 en 80 tunneling configureren.
+Hallo-connector maakt uitgaande verbindingen op basis van SSL met Hallo CONNECT methode. Deze methode wordt in wezen stelt u een tunnel via Hallo uitgaande proxyconfiguratie. Hallo proxy server tooallow tooports 443 en 80 tunneling configureren.
 
 >[!NOTE]
->Wanneer Service Bus wordt uitgevoerd via HTTPS, poort 443 gebruikt. Echter, standaard, Service Bus probeert rechtstreekse TCP-verbindingen en terugvalt op HTTPS alleen als directe verbinding mislukt.
+>Wanneer Service Bus wordt uitgevoerd via HTTPS, poort 443 gebruikt. Echter, standaard, Service Bus probeert rechtstreekse TCP-verbindingen en valt terug tooHTTPS alleen als directe verbinding mislukt.
 
-Zorg ervoor dat de connector rechtstreeks kan geen verbinding met de Azure-services voor poorten 9350, 9352 en 5671, om te zorgen dat de Service Bus-verkeer ook wordt verzonden via de uitgaande proxyserver.
+tooensure die Service Bus verkeer ook wordt verzonden via de uitgaande proxyserver Hallo Hallo, zorg die Hallo-connector kan niet rechtstreeks verbinding maken met toohello Azure services voor poorten 9350, 9352 en 5671.
 
 #### <a name="ssl-inspection"></a>SSL-inspectie
-Gebruik geen SSL-inspectie voor het verkeer van de connector, omdat er problemen optreden voor het verkeer van de connector.
+Gebruik geen SSL-inspectie voor verkeer van de connector hello, omdat er problemen optreden voor Hallo connector verkeer.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Connector-proxy problemen en service-verbindingsproblemen oplossen
-U ziet nu al het verkeer via de proxy. Als u problemen hebt, moet de volgende informatie voor probleemoplossing helpen.
+U ziet nu al het verkeer via Hallo proxy. Als u problemen ondervindt, kan Hallo volgende informatie over probleemoplossing helpen.
 
-De beste manier om te identificeren en oplossen van problemen met de netwerkverbinding van de connector is het nemen van een netwerkopname op de connector-service tijdens het starten van de connector-service. Dit kan geen sinecure, bekijken we snelle tips voor het vastleggen en netwerktracering filteren.
+Hallo van de beste manier tooidentify en het oplossen van de verbinding van connector problemen tootake vastleggen van een netwerk op Hallo connector-service tijdens het starten van de connectorservice Hallo is. Dit kan geen sinecure, bekijken we snelle tips voor het vastleggen en netwerktracering filteren.
 
-U kunt het programma voor bewaking van uw keuze. Voor de doeleinden van dit artikel hebben we Microsoft Network Monitor 3.4 gebruikt. U kunt [downloaden vanaf Microsoft](https://www.microsoft.com/download/details.aspx?id=4865).
+U kunt Hallo controlehulpprogramma van uw keuze. Voor de toepassing hello van dit artikel, hebben we Microsoft Network Monitor 3.4 gebruikt. U kunt [downloaden vanaf Microsoft](https://www.microsoft.com/download/details.aspx?id=4865).
 
-De voorbeelden en filters die we in de volgende secties gebruiken zijn specifiek voor Netwerkcontrole, maar de beginselen kunnen worden toegepast op alle analysehulpprogramma.
+Hallo-voorbeelden en filters die we gebruiken in de volgende secties Hallo zijn specifieke tooNetwork Monitor, maar Hallo beginselen analysehulpprogramma toegepaste tooany zijn.
 
 ### <a name="take-a-capture-by-using-network-monitor"></a>Uitvoeren van een vastleggen met behulp van Network Monitor
 
-Een vastleggen starten:
+toostart opnemen:
 
 1. Open Netwerkmonitor en klikt u op **nieuwe vastleggen**.
-2. Klik op de **Start** knop.
+2. Klik op Hallo **Start** knop.
 
    ![Het venster van Network Monitor](./media/application-proxy-working-with-proxy-servers/network-capture.png)
 
-Nadat u een opname hebt voltooid, klikt u op de **stoppen** knop om te beëindigen.
+Nadat u een opname hebt voltooid, klikt u op Hallo **stoppen** knop tooend deze.
 
 ### <a name="take-a-capture-of-connector-traffic"></a>Een maken van connector verkeer
 
-Voer de volgende stappen uit voor de eerste probleemoplossing:
+Voer voor de eerste probleemoplossing Hallo stappen te volgen:
 
-1. Stop de service Azure AD-Application Proxy Connector van services.msc.
-2. Start het vastleggen van het netwerk.
-3. Start de service Azure AD-Application Proxy Connector.
-4. Stop de netwerkopname.
+1. Van services.msc hello Azure AD-Application Proxy Connector-service niet stoppen.
+2. Hallo netwerkopname starten.
+3. Hello Azure AD-Application Proxy Connector-service starten.
+4. Hallo netwerkopname stoppen.
 
    ![Azure AD Connector voor toepassingsproxy-service in services.msc](./media/application-proxy-working-with-proxy-servers/services-local.png)
 
-### <a name="look-at-the-requests-from-the-connector-to-the-proxy-server"></a>Bekijk de aanvragen van de connector met de proxyserver
+### <a name="look-at-hello-requests-from-hello-connector-toohello-proxy-server"></a>Bekijkt hello aanvragen van Hallo connector toohello proxyserver
 
-Nu u hebt een netwerkopname, bent u klaar om te filteren. De sleutel te kijken naar de tracering is het registreren van het vastleggen te filteren.
+Nu u hebt een netwerkopname, bent u klaar toofilter deze. Hallo sleutel toolooking op Hallo trace is begrijpen hoe toofilter Hallo vastleggen.
 
-Een filter is als volgt (8080 is de poort van de proxy-service):
+Een filter is als volgt (waarbij 8080 Hallo service proxypoort is):
 
 **(http. Aanvraag of http. Antwoord) en tcp.port==8080**
 
-Als u dit filter in de **Filter weergeven** venster en selecteer **toepassen**, wordt de vastgelegde verkeer op basis van het filter gefilterd.
+Als u dit filter in Hallo **Filter weergeven** venster en selecteer **toepassen**, wordt vastgelegd Hallo-verkeer op basis van Hallo filter gefilterd.
 
-Het voorgaande filter geeft alleen de HTTP-aanvragen en antwoorden van de proxypoort. Voor een connector starten waarin de connector is geconfigureerd voor gebruik van een proxyserver, het filter, ziet er ongeveer als volgt:
+Hallo voorgaande filter geeft alleen Hallo HTTP-aanvragen en antwoorden van Hallo proxypoort. Voor een connector starten waarbij Hallo connector geconfigureerde toouse een proxyserver is, zou Hallo filter ongeveer het volgende weergegeven:
 
  ![Voorbeeld van de lijst met gefilterde HTTP-aanvragen en antwoorden](./media/application-proxy-working-with-proxy-servers/http-requests.png)
 
-U nu zoekt specifiek de CONNECT-aanvragen die communicatie met de proxyserver weergeven. Als dit lukt krijgt u een HTTP-OK (200) antwoord.
+U nu zoekt specifiek Hallo die Connect aanvragen die communicatie met de proxyserver Hallo weergeven. Als dit lukt krijgt u een HTTP-OK (200) antwoord.
 
-Als u overige reactiecodes zoals 407 of 502, wordt de proxy die verificatie vereist of niet de verkeer toestaat voor een andere reden. Nu benaderen u het ondersteuningsteam van proxy server.
+Als u de overige reactiecodes zoals 407 of 502, ziet is Hallo-proxy die verificatie vereist of niet Hallo verkeer toestaat voor een andere reden. Nu benaderen u het ondersteuningsteam van proxy server.
 
 ### <a name="identify-failed-tcp-connection-attempts"></a>Identificeren van mislukte pogingen voor TCP-verbinding
 
-Het andere gangbare scenario die u mogelijk geïnteresseerd in is de connector probeert rechtstreeks verbinding te maken, maar niet lukt.
+Hallo is andere veelvoorkomende scenario dat u mogelijk geïnteresseerd in hello connector probeert tooconnect rechtstreeks, maar niet lukt.
 
-Een ander filter van Network Monitor die u helpt bij het herkennen van dit probleem is:
+Er is een ander filter van Network Monitor waarmee u tooeasily dit probleem vast te stellen:
 
 **de eigenschap. TCPSynRetransmit**
 
-Een pakket SYN is het eerste pakket verzonden naar TCP-verbinding wordt gemaakt. Als dit pakket een antwoord retourneren heeft niet, wordt de SYN reattempted. De voorgaande filter kunt u eventuele verzonden SYN Zie. Vervolgens kunt u controleren of deze SYN komen met een connector-verkeer overeen.
+Een SYN-pakket is het eerste pakket Hallo verzonden tooestablish een TCP-verbinding. Als dit pakket een antwoord retourneren heeft niet, wordt de Hallo SYN reattempted. Kunt u Hallo toosee filter vóór alle verzonden SYN. Vervolgens kunt u controleren of deze SYN tooany connector-verkeer overeenkomen.
 
-Het volgende voorbeeld ziet u een mislukte verbindingspoging met Service Bus-poort 9352:
+Hallo volgende voorbeeld ziet u een mislukte verbindingspoging tooService buspoort 9352:
 
  ![Voorbeeld van een antwoord voor een mislukte poging](./media/application-proxy-working-with-proxy-servers/failed-connection-attempt.png)
 
-Als u dat lijkt op het vorige antwoord ziet, wordt de connector probeert te communiceren rechtstreeks met de Azure Service Bus-service. Als u verwacht de connector dat voor het rechtstreeks verbinding maken met de Azure-services, is dit antwoord een duidelijke aanwijzing dat er een probleem met het netwerk of de firewall.
+Als u ongeveer Hallo vóór het antwoord ziet, probeert Hallo connector toocommunicate rechtstreeks met hello Azure Service Bus-service. Als u verwacht Hallo connector toomake rechtstreekse verbindingen toohello Azure dat-services, dit antwoord is een duidelijke aanwijzing is dat er een probleem met het netwerk of de firewall.
 
 >[!NOTE]
->Als u zijn geconfigureerd voor een proxyserver gebruiken, kan deze reactie kan betekenen dat Service Bus een directe TCP-verbinding probeert voordat u probeert een verbinding via HTTPS.
+>Als u een proxyserver voor geconfigureerde toouse, kan deze reactie kan betekenen dat Service Bus een directe TCP-verbinding probeert voordat u de tooattempting een verbinding via HTTPS.
 >
 
-Analyse van netwerk-tracering is niet voor iedereen. Het kan wel een waardevol hulpmiddel voor snelle informatie over wat met uw netwerk gebeurt er.
+Analyse van netwerk-tracering is niet voor iedereen. Het kan wel een waardevol hulpmiddel tooget snelle informatie over wat met uw netwerk gebeurt er.
 
-Als u met problemen met de netwerkverbinding van de connector is het moeilijk doorgaat, maakt u een ticket aan ons ondersteuningsteam. Het team kan u helpen bij problemen op te lossen.
+Als u toostruggle met verbindingsproblemen connector doorgaat, maakt u een ticket aan ons ondersteuningsteam. Hallo-team kan u helpen verder op te lossen.
 
 Zie voor meer informatie over het oplossen van problemen met de Connector voor toepassingsproxy [Troubleshoot Application Proxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-troubleshoot).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 [Azure AD-toepassingsproxy connectors begrijpen](application-proxy-understand-connectors.md)<br>
-[Het installeren van de Azure AD Application Proxy Connector achtergrond](active-directory-application-proxy-silent-installation.md)
+[Hoe toosilently hello Azure AD-Application Proxy Connector installeren](active-directory-application-proxy-silent-installation.md)

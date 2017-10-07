@@ -13,7 +13,7 @@
 ### [Gids voor Key Vault-ontwikkelaars](key-vault-developers-guide.md)
 ### [Servicelimieten](key-vault-service-limits.md)
 ### [HSM-beveiligde sleutels](key-vault-hsm-protected-keys.md)
-### [Migreren naar .NET 2.0](key-vault-dotnet2api-release-notes.md)
+### [Too.NET 2.0 migreren](key-vault-dotnet2api-release-notes.md)
 ### Overzichten
 #### [Beveiligingsgebieden](key-vault-ovw-security-worlds.md)
 #### [Voorlopig verwijderen](key-vault-ovw-soft-delete.md)
@@ -26,9 +26,9 @@
 ### [Beschikbaarheid en redundantie](key-vault-disaster-recovery-guidance.md)
 ### [Tenant-id wijzigen](key-vault-subscription-move-fix.md)
 ### [Maken en beheren met CLI 2.0](key-vault-manage-with-cli2.md)
-### [De Key Vault-functie voor voorlopig verwijderen gebruiken met CLI](key-vault-soft-delete-cli.md)
-### [De Key Vault-functie voor voorlopig verwijderen gebruiken met PowerShell](key-vault-soft-delete-powershell.md)
-### [Groepen gebruiken om toegang te verlenen](key-vault-group-permissions-for-apps.md)
+### [Hoe toouse Sleutelkluis voorlopig verwijderen met CLI](key-vault-soft-delete-cli.md)
+### [Hoe toouse Sleutelkluis voorlopig verwijderen met PowerShell](key-vault-soft-delete-powershell.md)
+### [Gebruik groepen toogrant toegang](key-vault-group-permissions-for-apps.md)
 ### [Uw Key Vault beveiligen](key-vault-secure-your-key-vault.md)
 
 ## Automatiseren

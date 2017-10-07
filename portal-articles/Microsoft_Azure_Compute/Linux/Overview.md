@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Linux virtuele machines | Microsoft Docs
+title: overzicht van de virtuele machines aaaLinux | Microsoft Docs
 description: Help-inhoud voor een overzicht van Linux virtuele machines in Azure portal
 services: virtual-machines-linux
 author: sewatson
@@ -8,19 +8,19 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 0de3fc4cab53564d7d131666e4a8c0ace8a64fb8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f86980c9f39e1a0fbef78dbde0c60803d8ace25a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="linux-virtual-machines-documentation"></a>Documentatie voor virtuele Linux-machines
 
-Virtuele Azure Linux-machines bieden zeer schaalbare, beveiligde, gevirtualiseerde infrastructuur op aanvraag met behulp van Red Hat, Ubuntu of de Linux-distributie van uw keuze. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u virtuele Linux-machines maakt, configureert, beheert en schaalt.
+Linux virtuele Machines in Azure biedt een op aanvraag, hoge schaalbaarheid, beveiligde, gevirtualiseerde infrastructuur met Red Hat, Ubuntu of Hallo Linux-distributie van uw keuze. Informatie over hoe toocreate, configureren, beheren en schalen van virtuele Linux-machines met onze snelstartgidsen, zelfstudies en voorbeelden.
 
 ## <a name="5-minute-quickstarts"></a>QuickStarts van vijf minuten
 
-Meer informatie over het implementeren van een NGINX-webserver binnen een virtuele machine met Ubuntu:
+Meer informatie over hoe toodeploy NGINX-webserver binnen een virtuele Machine met Ubuntu:
 
 - [Azure Portal](/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -28,7 +28,7 @@ Meer informatie over het implementeren van een NGINX-webserver binnen een virtue
 
 ## <a name="step-by-step-tutorials"></a>Zelfstudies met stapsgewijze instructies
 
-Informatie over het implementeren, beheren en schalen van virtuele Linux-machines in Azure.
+Ontdek hoe toodeploy, beheren en schalen van virtuele Linux-machines in Azure.
 
 - [Virtuele Linux-machines maken en beheren](/azure/virtual-machines/linux/tutorial-manage-vm)
 - [VM-schijven maken en beheren](/azure/virtual-machines/linux/tutorial-manage-disks)
@@ -51,12 +51,12 @@ Informatie over het implementeren, beheren en schalen van virtuele Linux-machine
 
 ## <a name="samples"></a>Voorbeelden 
 
-Implementeer uw eerste toepassing in Azure.
+Uw eerste toepassing tooAzure implementeren.
 
 - [Azure-CLI](/azure/virtual-machines/virtual-machines-linux-cli-samples)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-powershell-samples)
 
 ## <a name="more"></a>Meer
 
-- [Ga naar de documentatie voor meer informatie](/azure/virtual-machines/linux/index)
+- [Ga naar de documentatie bij toolearn meer](/azure/virtual-machines/linux/index)
 - [Meer informatie over alle Azure-Services](https://aka.ms/j3wr7y)

@@ -1,6 +1,6 @@
 ---
-title: Excel en Hadoop koppelen met het Hive ODBC-stuurprogramma - Azure HDInsight | Microsoft Docs
-description: Informatie over het instellen en gebruiken van het Microsoft Hive ODBC-stuurprogramma voor Excel query uitvoeren op gegevens in HDInsight-clusters van Microsoft Excel.
+title: aaaConnect Excel tooHadoop Hello Hive ODBC-stuurprogramma - Azure HDInsight | Microsoft Docs
+description: Meer informatie over hoe Hallo Microsoft Hive ODBC-stuurprogramma voor Excel tooquery-gegevens in HDInsight-clusters van Microsoft Excel tooset up en het gebruik.
 keywords: hadoop, excel, hive excel, hive odbc
 services: hdinsight
 documentationcenter: 
@@ -17,94 +17,94 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/22/2017
 ms.author: jgao
-ms.openlocfilehash: 7818093e42c34ee671a035cde783a6622fb2a798
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f01f89e7d4203c739d56079dc589fc11f4aa2174
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Excel verbinden met Hadoop in Azure HDInsight met het Microsoft Hive ODBC-stuurprogramma
+# <a name="connect-excel-toohadoop-in-azure-hdinsight-with-hello-microsoft-hive-odbc-driver"></a>Excel-tooHadoop in Azure HDInsight verbinden met Hallo Microsoft Hive ODBC-stuurprogramma
 
 [!INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Microsoft Business Intelligence (BI) onderdelen Big Data-oplossing van Microsoft geïntegreerd met Apache Hadoop-clusters die zijn geïmplementeerd door de Azure HDInsight. Een voorbeeld van deze integratie is de mogelijkheid Excel verbindt met het Hive-datawarehouse van een Hadoop-cluster in HDInsight met behulp van het stuurprogramma Microsoft Hive Open Database Connectivity (ODBC).
+Microsoft Business Intelligence (BI) onderdelen Big Data-oplossing van Microsoft geïntegreerd met Apache Hadoop-clusters die zijn geïmplementeerd door hello Azure HDInsight. Een voorbeeld van deze integratie is Hallo mogelijkheid tooconnect Excel toohello Hive datawarehouse van een Hadoop-cluster in HDInsight met behulp van Hallo stuurprogramma Microsoft Hive Open Database Connectivity (ODBC).
 
-Het is ook mogelijk om de gegevens die zijn gekoppeld aan een HDInsight-cluster en andere gegevensbronnen, met inbegrip van andere (niet-HDInsight) Hadoop-clusters van Excel met de Microsoft Power Query-invoegtoepassing voor Excel te verbinden. Zie voor meer informatie over het installeren en gebruiken van Power Query [Excel verbinding naar HDInsight met Power Query][hdinsight-power-query].
+Het is ook mogelijk tooconnect Hallo gegevens die zijn gekoppeld aan een HDInsight-cluster en andere gegevensbronnen, inclusief andere (niet-HDInsight) Hadoop-clusters, vanuit Excel Hallo met Microsoft Power Query-invoegtoepassing voor Excel. Zie voor meer informatie over het installeren en gebruiken van Power Query [tooHDInsight Excel verbinding maken met Power Query][hdinsight-power-query].
 
 > [!NOTE]
-> Terwijl de stappen in dit artikel kunnen worden gebruikt met een Linux- of Windows gebaseerde HDInsight-cluster, is Windows vereist voor de clientwerkstation.
+> Terwijl Hallo stappen in dit artikel kan worden gebruikt met beide Linux of cluster in HDInsight op basis van Windows, Windows is vereist voor Hallo clientwerkstation.
 > 
 > 
 
 **Vereisten**:
 
-Voordat u dit artikel, hebt u de volgende items:
+Voordat u dit artikel, moet u de volgende items Hallo hebben:
 
-* **Een HDInsight-cluster**. Als u wilt maken, Zie [aan de slag met Azure HDInsight][hdinsight-get-started].
+* **Een HDInsight-cluster**. toocreate, Zie [aan de slag met Azure HDInsight][hdinsight-get-started].
 * **Een werkstation** met Office 2013 Professional Plus, Office 365 Pro Plus, zelfstandige versie van Excel 2013 of Office 2010 Professional Plus.
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Installeer Microsoft Hive ODBC-stuurprogramma
-Download en installeer Microsoft Hive ODBC-stuurprogramma van de [Downloadcentrum][hive-odbc-driver-download].
+Download en installeer Microsoft Hive ODBC-stuurprogramma van Hallo [Downloadcentrum][hive-odbc-driver-download].
 
-Dit stuurprogramma kan worden geïnstalleerd op een 32-bits of 64-bits versies van Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 en Windows Server 2012. Het stuurprogramma kan verbinding maken met Azure HDInsight (versie 1.6 of hoger) en Azure HDInsight-Emulator (v.1.0.0.0 en hoger). U moet de versie die overeenkomt met de versie van de toepassing waarbij u gebruikmaakt van het ODBC-stuurprogramma installeren. Het stuurprogramma wordt gebruikt voor deze zelfstudie uit Office Excel.
+Dit stuurprogramma kan worden geïnstalleerd op een 32-bits of 64-bits versies van Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 en Windows Server 2012. Hallo stuurprogramma kan verbinding tooAzure HDInsight (versie 1.6 of hoger) en Azure HDInsight-Emulator (v.1.0.0.0 en hoger). U dient Hallo-versie die overeenkomt met de versie Hallo van waarbij u gebruikmaakt van het ODBC-stuurprogramma Hallo Hallo-toepassing installeren. Hallo-stuurprogramma wordt voor deze zelfstudie gebruikt vanuit Office Excel.
 
 ## <a name="create-hive-odbc-data-source"></a>Hive ODBC-gegevensbron maken
-De volgende stappen ziet u het maken van een Hive ODBC-gegevensbron.
+Hallo volgende stappen ziet u hoe toocreate Hive ODBC-gegevensbron.
 
-1. Druk op de Windows-toets op het startscherm openen vanuit Windows 8 of Windows 10, en typ vervolgens **gegevensbronnen**.
-2. Klik op **instellen van ODBC-gegevensbronnen (32-bits)** of **instellen van ODBC-gegevensbronnen (64-bits)** , afhankelijk van uw Office-versie. Als u van Windows 7 gebruikmaakt, kiest u **ODBC-gegevensbronnen (32 bits)** of **ODBC-gegevensbronnen (64 bits)** van **Systeembeheer**. U ziet de **ODBC Data Source Administrator** dialoogvenster.
+1. Druk op Hallo Windows key tooopen Hallo-startscherm van Windows 8 of Windows 10 en typ vervolgens **gegevensbronnen**.
+2. Klik op **instellen van ODBC-gegevensbronnen (32-bits)** of **instellen van ODBC-gegevensbronnen (64-bits)** , afhankelijk van uw Office-versie. Als u van Windows 7 gebruikmaakt, kiest u **ODBC-gegevensbronnen (32 bits)** of **ODBC-gegevensbronnen (64 bits)** van **Systeembeheer**. U ziet Hallo **ODBC Data Source Administrator** dialoogvenster.
    
     ![Gegevensbronbeheer OBDC](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.DataSourceAdmin1.png "een met ODBC-gegevensbronbeheer DSN configureren")
 
-3. DNS van de gebruiker, klik op **toevoegen** openen de **nieuwe gegevensbron maken** wizard.
-4. Selecteer **stuurprogramma Microsoft Hive ODBC**, en klik vervolgens op **voltooien**. U ziet de **Microsoft Hive ODBC-stuurprogramma DNS-instellingen** dialoogvenster.
-5. Typ of selecteer de volgende waarden:
+3. DNS van de gebruiker, klik op **toevoegen** tooopen hello **nieuwe gegevensbron maken** wizard.
+4. Selecteer **stuurprogramma Microsoft Hive ODBC**, en klik vervolgens op **voltooien**. U ziet Hallo **Microsoft Hive ODBC-stuurprogramma DNS-instellingen** dialoogvenster.
+5. Typ of selecteer Hallo volgende waarden:
    
    | Eigenschap | Beschrijving |
    | --- | --- |
-   |  Naam van de gegevensbron |Geef uw gegevensbron een naam |
+   |  Naam van de gegevensbron |Geef een naam tooyour-gegevensbron |
    |  Host |Voer &lt;HDInsightClusterName>.azurehdinsight.net in. Bijvoorbeeld: myHDICluster.azurehdinsight.net |
-   |  Poort |Gebruik <strong>443</strong>. (Deze poort is gewijzigd van 563 in 443.) |
+   |  Poort |Gebruik <strong>443</strong>. (Deze poort is gewijzigd van 563 too443.) |
    |  Database |Gebruik <strong>Standaard</strong>. |
    |  Mechanisme |Selecteer <strong>Azure HDInsight Service</strong> |
-   |  Gebruikersnaam |Voer de gebruikersnaam van HDInsight-cluster HTTP. De standaardgebruikersnaam <strong>admin</strong>. |
+   |  Gebruikersnaam |Voer de gebruikersnaam van HDInsight-cluster HTTP. Hallo standaardgebruikersnaam <strong>admin</strong>. |
    |  Wachtwoord |Voer gebruikerswachtwoord HDInsight-cluster. |
    
     </table>
    
-    Er zijn een aantal belangrijke parameters moet denken wanneer u klikt op **geavanceerde opties**:
+    Er zijn een aantal belangrijke parameters toobe op de hoogte van wanneer u klikt op **geavanceerde opties**:
    
    | Parameter | Beschrijving |
    | --- | --- |
-   |  Gebruik systeemeigen Query |Wanneer deze optie is geselecteerd, probeert het ODBC-stuurprogramma niet TSQL converteren naar HiveQL. U dient alleen te gebruiken als u 100% zeker dat u verzendt pure HiveQL-instructies zijn. Wanneer u verbinding maakt met SQL Server of Azure SQL Database, laat u het vakje uitgeschakeld. |
-   |  Rijen per blok opgehaald |Tijdens ophalen van een groot aantal records kan afstemming van deze parameter worden vereist om ervoor te zorgen optimale prestaties. |
-   |  Standaard-tekenreekslengte kolom, binaire kolomlengte, decimaal kolomschaal |De lengte van het gegevenstype en Precision-systemen kunnen beïnvloeden hoe gegevens worden geretourneerd. Deze leiden tot onjuiste gegevens moeten worden opgehaald vanwege verlies van precisie en/of moet worden afgekapt. |
+   |  Gebruik systeemeigen Query |Wanneer deze optie is geselecteerd, probeert de ODBC-stuurprogramma Hallo tooconvert TSQL niet in HiveQL. U dient alleen te gebruiken als u 100% zeker dat u verzendt pure HiveQL-instructies zijn. Wanneer u verbinding maakt tooSQL Server of Azure SQL Database, laat u het vakje uitgeschakeld. |
+   |  Rijen per blok opgehaald |Tijdens het ophalen van een groot aantal records, afstemming van deze parameter mogelijk vereist tooensure optimale prestaties. |
+   |  Standaard-tekenreekslengte kolom, binaire kolomlengte, decimaal kolomschaal |Hallo-gegevenstype lengten en Precision-systemen kunnen beïnvloeden hoe gegevens worden geretourneerd. Ze leiden tot onjuiste gegevens toobe geretourneerd vanwege tooloss van precision en/of moet worden afgekapt. |
 
     ![Geavanceerde opties voor](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png "DSN geavanceerde configuratieopties")
 
-1. Klik op **testen** voor het testen van de gegevensbron. Wanneer de gegevensbron correct is geconfigureerd, worden *TESTS voltooid!*.
-2. Klik op **OK** om de Test-dialoogvenster te sluiten. De nieuwe gegevensbron worden vermeld op de **ODBC Data Source Administrator**.
-3. Klik op **OK** de wizard wilt afsluiten.
+1. Klik op **Test** tootest Hallo-gegevensbron. Wanneer het Hallo-gegevensbron correct is geconfigureerd, worden *TESTS voltooid!*.
+2. Klik op **OK** tooclose Hallo Test dialoogvenster. een nieuwe gegevensbron Hallo worden vermeld op Hallo **ODBC Data Source Administrator**.
+3. Klik op **OK** tooexit Hallo-wizard.
 
 ## <a name="import-data-into-excel-from-hdinsight"></a>Gegevens in Excel importeren vanuit HDInsight
-De volgende stappen beschrijven de manier waarop gegevens importeren uit een Hive-tabel in een Excel-werkmap met behulp van de ODBC-gegevensbron die u hebt gemaakt in de vorige sectie.
+Hallo volgende stappen beschrijven Hallo manier tooimport gegevens van een Hive-tabel in een Excel-werkmap Hallo ODBC-gegevensbron die u hebt gemaakt in de vorige sectie Hallo.
 
 1. Open een nieuwe of bestaande werkmap in Excel.
-2. Van de **gegevens** tabblad **gegevens ophalen**, klikt u op **van andere bronnen**, en klik vervolgens op **van ODBC** starten de **gegevens Wizard verbinding**.
+2. Van Hallo **gegevens** tabblad **gegevens ophalen**, klikt u op **van andere bronnen**, en klik vervolgens op **van ODBC** toolaunch hello  **Wizard Gegevensverbinding**.
    
     ![Wizard Gegevensverbinding Open](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png "wizard Gegevensverbinding openen")
-4. Selecteer de naam van de gegevensbron die u in de laatste sectie hebt gemaakt en klik vervolgens op **OK**.
-5. Voer de naam van de gebruiker Hadoop (de standaardnaam is admin) en het wachtwoord en klik vervolgens op **Connect**.
-6. Vouw op de Navigator **HIVE**, vouw **standaard**, klikt u op **hivesampletable**, en klik vervolgens op **Load**. Het duurt een paar seconden voordat de gegevens naar Excel worden geïmporteerd.
+4. Selecteer Hallo gegevensbron naam die u hebt gemaakt in de laatste sectie Hallo en klik vervolgens op **OK**.
+5. Voer de naam van de gebruiker Hadoop (de standaardnaam Hallo is admin) Hallo wachtwoord en klik vervolgens op **Connect**.
+6. Vouw op de Navigator **HIVE**, vouw **standaard**, klikt u op **hivesampletable**, en klik vervolgens op **Load**. Het duurt een paar seconden voordat gegevens geïmporteerde tooExcel opgehaald.
 
     ![HDInsight Hive ODBC navigator](./media/hdinsight-connect-excel-hive-ODBC-driver/hdinsight.hive.odbc.navigator.png "wizard Gegevensverbinding openen")
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe gebruikmaken van het stuurprogramma Microsoft Hive ODBC-gegevens ophalen van de HDInsight-Service in Excel. Op deze manier kunt u gegevens ophalen uit de HDInsight-Service in SQL-Database. Het is ook mogelijk om gegevens te uploaden naar HDInsight-Service. Voor meer informatie zie:
+In dit artikel hebt u geleerd hoe toouse Microsoft Hive ODBC-stuurprogramma tooretrieve gegevens van HDInsight-Service Hallo Hallo in Excel. Op deze manier kunt u gegevens ophalen uit Hallo HDInsight-Service in SQL-Database. Het is ook mogelijk tooupload gegevens in een HDInsight-Service. toolearn meer, Zie:
 
 * [Vertraging vluchtgegevens met HDInsight analyseren][hdinsight-analyze-flight-data]
-* [Gegevens uploaden naar HDInsight][hdinsight-upload-data]
+* [Uploaden van gegevens tooHDInsight][hdinsight-upload-data]
 * [Sqoop gebruiken met HDInsight][hdinsight-use-sqoop]
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md

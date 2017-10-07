@@ -1,6 +1,6 @@
 ---
-title: Een Azure App Service-omgeving maken met een Resource Manager-sjabloon
-description: Wordt uitgelegd hoe u een externe of ILB Azure App Service-omgeving maken met een Resource Manager-sjabloon
+title: aaaCreate een Azure App Service-omgeving met een Resource Manager-sjabloon
+description: Legt uit hoe toocreate een externe of ILB Azure App Service-omgeving met een Resource Manager-sjabloon
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,74 +13,74 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: e6b21086488352c1da914b4656ad1d216fd6de85
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c8aeedee675a6e931169b725ee916cc7fa8f762f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Een as-omgeving maken met een Azure Resource Manager-sjabloon
 
 ## <a name="overview"></a>Overzicht
-Azure App Service-omgevingen (ASEs) kunnen worden gemaakt met een eindpunt toegankelijk is via het internet of een eindpunt op een intern adres in een Azure-netwerk (VNet). Wanneer dit wordt gemaakt met een interne eindpunt, wordt dat eindpunt wordt verstrekt door een Azure onderdeel een interne load balancer (ILB) genoemd. De as-omgeving op een interne IP-adres, heet een ILB-as-omgeving. De as-omgeving met een openbaar eindpunt heet een externe as-omgeving. 
+Azure App Service-omgevingen (ASEs) kunnen worden gemaakt met een eindpunt toegankelijk is via het internet of een eindpunt op een intern adres in een Azure-netwerk (VNet). Wanneer dit wordt gemaakt met een interne eindpunt, wordt dat eindpunt wordt verstrekt door een Azure onderdeel een interne load balancer (ILB) genoemd. Hallo as-omgeving op een interne IP-adres, heet een ILB-as-omgeving. Hallo as-omgeving met een openbaar eindpunt heet een externe as-omgeving. 
 
-Een as-omgeving kan worden gemaakt met behulp van de Azure-portal of een Azure Resource Manager-sjabloon. In dit artikel wordt uitgelegd welke stappen en de syntaxis die u moet een externe as-omgeving of ILB as-omgeving maken met Resource Manager-sjablonen. Zie voor meer informatie over het maken van een as-omgeving in de Azure portal, [maken van een externe as-omgeving] [ MakeExternalASE] of [maken van een as-omgeving voor de ILB][MakeILBASE].
+Een as-omgeving kan worden gemaakt met behulp van hello Azure-portal of een Azure Resource Manager-sjabloon. In dit artikel wordt uitgelegd Hallo stappen en de syntaxis die u moet toocreate een externe as-omgeving of ILB as-omgeving met Resource Manager-sjablonen. hoe toocreate een as-omgeving in hello Azure-portal, Zie toolearn [maken van een externe as-omgeving] [ MakeExternalASE] of [maken van een as ILB-omgeving][MakeILBASE].
 
-Wanneer u een as-omgeving in de Azure portal maakt, kunt u uw VNet maken op hetzelfde moment of kies een bestaande VNet te implementeren in. Wanneer u een as-omgeving van een sjabloon maakt, moet u beginnen met: 
+Wanneer u een as-omgeving in hello Azure-portal maakt, kunt u uw VNet maken op Hallo dezelfde tijd of kies een bestaande VNet toodeploy in. Wanneer u een as-omgeving van een sjabloon maakt, moet u beginnen met: 
 
 * Een Resource Manager VNet.
-* Een subnet in dit VNet. De grootte van een as-omgeving van het is raadzaam `/25` met 128 adressen biedt bij toekomstige groei. Nadat de as-omgeving is gemaakt, kunt u de grootte niet wijzigen.
-* De resource-ID van uw VNet. U kunt deze informatie vinden vanuit de Azure-portal onder de eigenschappen van uw virtuele netwerk.
-* Het abonnement dat u implementeren wilt in.
-* De locatie die u implementeren wilt in.
+* Een subnet in dit VNet. De grootte van een as-omgeving van het is raadzaam `/25` met 128 adressen tooaccomodate toekomstige groei. Nadat Hallo as-omgeving is gemaakt, kunt u Hallo grootte niet wijzigen.
+* Hallo resource-ID van uw VNet. U kunt deze informatie vinden in hello Azure-portal onder de eigenschappen van uw virtuele netwerk.
+* Hallo-abonnement die u wilt dat toodeploy in.
+* gewenste toodeploy in Hallo-locatie.
 
-Voor het automatiseren van uw as-omgeving maken:
+tooautomate uw as-omgeving maken:
 
-1. De as-omgeving met een sjabloon maken. Als u een externe as-omgeving maakt, bent u klaar na deze stap. Als u een ILB-as-omgeving maakt, zijn er enkele aanvullende zaken te doen.
+1. Hallo-as-omgeving met een sjabloon maken. Als u een externe as-omgeving maakt, bent u klaar na deze stap. Als u een ILB-as-omgeving maakt, zijn er enkele meer dingen toodo.
 
 2. Nadat u uw as ILB-omgeving is gemaakt, wordt een SSL-certificaat dat overeenkomt met uw domein ILB as-omgeving geüpload.
 
-3. Het geüploade SSL-certificaat is toegewezen aan de as-omgeving voor de ILB als de 'standaard' SSL-certificaat.  Dit certificaat wordt gebruikt voor SSL-verkeer voor apps op de as ILB-omgeving wanneer ze het algemene hoofddomein dat toegewezen aan de as-omgeving (bijvoorbeeld https://someapp.mycustomrootcomain.com) gebruiken.
+3. Hallo is geüploade SSL-certificaat toegewezen toohello ILB as-omgeving als het SSL-certificaat 'standaard'.  Dit certificaat wordt gebruikt voor SSL-verkeer tooapps op Hallo ILB as-omgeving wanneer ze Hallo gemeenschappelijk hoofddomein dat is toegewezen toohello as-omgeving (bijvoorbeeld https://someapp.mycustomrootcomain.com) gebruiken.
 
 
-## <a name="create-the-ase"></a>De as-omgeving maken
+## <a name="create-hello-ase"></a>Hallo-as-omgeving maken
 Resource Manager-sjabloon die u een as-omgeving en de bijbehorende parameters-bestand maakt is beschikbaar [in een voorbeeld] [ quickstartasev2create] op GitHub.
 
-Als u maken van een as ILB-omgeving wilt, gebruikt u deze Resource Manager-sjabloon [voorbeelden][quickstartilbasecreate]. Ze voorzien in dat geval gebruiken. De meeste van de parameters in de *azuredeploy.parameters.json* bestand voor het maken van ILB ASEs en externe ASEs gelden. De volgende lijst illustreert parameters van speciale opmerking of die uniek zijn, zijn bij het maken van een as ILB-omgeving:
+Als u toomake een ILB-as-omgeving wilt, gebruikt u deze Resource Manager-sjabloon [voorbeelden][quickstartilbasecreate]. Ze voorzien toothat gebruiksvoorbeeld. De meeste van Hallo-parameters in Hallo *azuredeploy.parameters.json* bestand algemene toohello maken van ILB ASEs en externe ASEs zijn. Hallo hieronder illustreert parameters van speciale opmerking of die uniek zijn, zijn bij het maken van een as ILB-omgeving:
 
-* *interalLoadBalancingMode*: Stel deze optie om 3, wat betekent dat zowel HTTPS-verkeer op poort 80/443 en de controlegegevens channel-poorten te hebben geluisterd naar door de FTP-service op de as-omgeving In de meeste gevallen wordt gebonden aan een ILB-toegewezen virtueel netwerk interne adres. Als deze eigenschap is ingesteld op 2, worden alleen de FTP-service verwante poorten (zowel besturings- als kanalen) gekoppeld aan een ILB-adres. Het HTTP/HTTPS-verkeer blijft op het openbare VIP.
-* *dnsSuffix*: deze parameter bepaalt het hoofddomein standaard die toegewezen aan de as-omgeving. In de openbare variatie van Azure App Service, het hoofddomein standaard voor alle web-apps is *azurewebsites.net*. Omdat een ILB-as-omgeving is voor intern gebruik voor het virtuele netwerk van een klant, niet dat u de openbare dienst standaard hoofddomein gebruiken. Een as ILB-omgeving moet in plaats daarvan een standaard-hoofddomein die zinvol voor gebruik binnen een bedrijf intern virtueel netwerk hebben. Bijvoorbeeld, Contoso Corporation gebruiken een hoofddomein standaard van *interne contoso.com* voor apps die zijn bedoeld om te worden omgezet en toegankelijk zijn alleen binnen het virtuele netwerk van Contoso. 
-* *ipSslAddressCount*: deze parameter automatisch wordt standaard ingesteld op een waarde van 0 in de *azuredeploy.json* bestand omdat ILB ASEs slechts één ILB-adres hebben. Er zijn geen expliciete SSL IP-adressen voor een as ILB-omgeving. Daarom kan de IP-SSL-adresgroep voor een as ILB-omgeving moet worden ingesteld op nul. Anders treedt er een inrichten fout op. 
+* *interalLoadBalancingMode*: Stel In de meeste gevallen deze too3, wat betekent zowel HTTPS-verkeer op poort 80/443 dat, en Hallo controlegegevens/channel-poorten geluisterd tooby Hallo FTP-service op Hallo as-omgeving, worden afhankelijke tooan ILB toegewezen virtueel netwerk interne adres. Als deze eigenschap is ingesteld too2, alleen Hallo FTP-service-gerelateerde poorten (zowel besturings- als kanalen) zijn gebonden tooan ILB adres. Hallo HTTP/HTTPS-verkeer blijft op Hallo openbare VIP.
+* *dnsSuffix*: deze parameter bepaalt Hallo standaard hoofddomein dat is toegewezen toohello as-omgeving. In de openbare variatie op Hallo van Azure App Service, Hallo standaard hoofddomein voor alle web-apps is *azurewebsites.net*. Omdat een ILB-as-omgeving van de klant van de interne tooa virtueel netwerk, niet dat u zin toouse Hallo openbare van de service standaard hoofddomein. Een as ILB-omgeving moet in plaats daarvan een standaard-hoofddomein die zinvol voor gebruik binnen een bedrijf intern virtueel netwerk hebben. Bijvoorbeeld, Contoso Corporation gebruiken een hoofddomein standaard van *interne contoso.com* voor apps die bedoeld toobe omgezet en toegankelijk zijn alleen binnen het virtuele netwerk van Contoso zijn. 
+* *ipSslAddressCount*: deze parameter standaard automatisch tooa waarde van 0 in Hallo *azuredeploy.json* bestand omdat ILB ASEs slechts één ILB-adres hebben. Er zijn geen expliciete SSL IP-adressen voor een as ILB-omgeving. Hallo SSL IP-adresgroep voor een as ILB-omgeving moet daarom toozero ingesteld. Anders treedt er een inrichten fout op. 
 
-Na de *azuredeploy.parameters.json* bestand is ingevuld, de as-omgeving maken met behulp van het PowerShell-codefragment. Wijzig de bestandspaden zodat deze overeenkomen met de Resource Manager-sjabloonbestand locaties op uw computer. Vergeet niet uw eigen waarden voor de implementatienaam van Resource Manager en de naam van de resourcegroep opgeven:
+Na het Hallo *azuredeploy.parameters.json* bestand is ingevuld, Hallo as-omgeving maken met behulp van PowerShell-codefragment Hallo. Hallo paden toomatch Hallo Resource Manager-sjabloonbestand bestandslocaties op uw computer wijzigen. Houd rekening met toosupply uw eigen waarden voor implementatienaam Hallo-Resource Manager en Hallo de naam van resourcegroep:
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
 
     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
-Het duurt ongeveer een uur voor de as-omgeving moet worden gemaakt. Vervolgens de as-omgeving wordt weergegeven in de portal in de lijst met ASEs voor het abonnement waarmee de implementatie is geactiveerd.
+Het duurt ongeveer een uur Hallo as-omgeving toobe gemaakt. Vervolgens weergegeven Hallo as-omgeving in Hallo portal in de lijst Hallo van ASEs voor Hallo-abonnement dat Hallo implementatie geactiveerd.
 
-## <a name="upload-and-configure-the-default-ssl-certificate"></a>Uploaden en configureren van het SSL-certificaat voor "default"
-Een SSL-certificaat moet worden gekoppeld aan het as-omgeving als het 'standaard' SSL-certificaat dat wordt gebruikt voor SSL-verbindingen met apps. Als van de as-omgeving standaard DNS-achtervoegsel *interne contoso.com*, een verbinding met https://some-random-app.internal-contoso.com vereist een SSL-certificaat is geldig voor **.internal contoso.com*. 
+## <a name="upload-and-configure-hello-default-ssl-certificate"></a>Uploaden en Hallo 'standaard' SSL-certificaat configureren
+Een SSL-certificaat moet worden gekoppeld aan het Hallo-as-omgeving als Hallo 'standaard' SSL-certificaat dat is gebruikt tooestablish SSL-verbindingen tooapps. Als de as-omgeving Hallo standaard DNS-achtervoegsel *interne contoso.com*, een toohttps://some-random-app.internal-contoso.com verbinding vereist een SSL-certificaat is geldig voor **.internal contoso.com* . 
 
-Een geldig SSL-certificaat ophalen met behulp van de interne CA's, een certificaat aanschaffen van een externe verlener of met behulp van een zelfondertekend certificaat. Ongeacht de bron van het SSL-certificaat, moeten de volgende certificaat-kenmerken juist zijn geconfigureerd:
+Een geldig SSL-certificaat ophalen met behulp van de interne CA's, een certificaat aanschaffen van een externe verlener of met behulp van een zelfondertekend certificaat. Ongeacht Hallo bron van Hallo SSL-certificaat, moet de Hallo volgende certificaat-kenmerken juist zijn geconfigureerd:
 
-* **Onderwerp**: dit kenmerk moet worden ingesteld op **.your-hoofdmap-domain-here.com*.
-* **Alternatieve onderwerpnaam**: dit kenmerk moet bevatten beide **.your-hoofdmap-domain-here.com* en **.scm.your-hoofdmap-domain-here.com*. SSL-verbindingen met de SCM/Kudu-site die is gekoppeld aan elke app een adres van het formulier gebruiken *your-app-name.scm.your-root-domain-here.com*.
+* **Onderwerp**: dit kenmerk te moet worden ingesteld **.your-hoofdmap-domain-here.com*.
+* **Alternatieve onderwerpnaam**: dit kenmerk moet bevatten beide **.your-hoofdmap-domain-here.com* en **.scm.your-hoofdmap-domain-here.com*. SSL-verbindingen toohello SCM/Kudu site die is gekoppeld aan elke app gebruiken een adres van het formulier Hallo *your-app-name.scm.your-root-domain-here.com*.
 
-Met een geldig SSL-certificaat in de hand, worden twee aanvullende voorbereidende stappen uitgevoerd. Het SSL-certificaat, converteren/opslaan als een .pfx-bestand. Houd er rekening mee dat het .pfx-bestand moet alle tussenliggende bevatten en de hoofd-certificaten. Beveilig deze met een wachtwoord.
+Met een geldig SSL-certificaat in de hand, worden twee aanvullende voorbereidende stappen uitgevoerd. Hallo SSL-certificaat, converteren/opslaan als een .pfx-bestand. Houd er rekening mee dat Hallo pfx-bestand moet bevatten alle tussenliggende en de hoofd-certificaten. Beveilig deze met een wachtwoord.
 
-Het pfx-bestand moet worden geconverteerd naar een base64-tekenreeks omdat het SSL-certificaat wordt geüpload met behulp van een Resource Manager-sjabloon. Omdat Resource Manager-sjablonen tekstbestanden zijn, kan het pfx-bestand moet worden geconverteerd naar een base64-tekenreeks. Op deze manier kan zijn opgenomen als een parameter van de sjabloon.
+Hallo pfx-bestand moet toobe geconverteerd naar een base64-tekenreeks omdat de SSL-certificaat hello wordt geüpload met behulp van een Resource Manager-sjabloon. Omdat Resource Manager-sjablonen tekstbestanden zijn, kan Hallo pfx-bestand moet worden geconverteerd naar een base64-tekenreeks. Op deze manier kan zijn als een parameter van het Hallo-sjabloon opgenomen.
 
-Gebruik de volgende PowerShell-codefragment aan:
+Hallo volgende PowerShell-codefragment om te gebruiken:
 
 * Een zelfondertekend certificaat genereren.
-* Het certificaat exporteren als een .pfx-bestand.
-* Het pfx-bestand worden geconverteerd naar een base64-gecodeerde tekenreeks.
-* Sla de base64-gecodeerde tekenreeks naar een afzonderlijk bestand. 
+* Hallo-certificaat exporteren als een .pfx-bestand.
+* Hallo pfx-bestand worden geconverteerd naar een base64-gecodeerde tekenreeks.
+* Hallo base64-gecodeerde tekenreeks tooa afzonderlijk bestand opslaan. 
 
-Deze PowerShell-code voor base64-codering is gebaseerd op de [PowerShell scripts blog][examplebase64encoding]:
+Deze PowerShell-code voor base64-codering is gebaseerd op Hallo [PowerShell scripts blog][examplebase64encoding]:
 
         $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
@@ -94,16 +94,16 @@ Deze PowerShell-code voor base64-codering is gebaseerd op de [PowerShell scripts
         $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
         $fileContentEncoded | set-content ($fileName + ".b64")
 
-Nadat het SSL-certificaat is gegenereerd en geconverteerd naar een base64-gecodeerde tekenreeks, gebruikt u de voorbeeld-Resource Manager-sjabloon [de standaard SSL-certificaat configureren] [ quickstartconfiguressl] op GitHub. 
+Nadat Hallo SSL-certificaat wordt gegenereerd en geconverteerd tooa base64-gecodeerde tekenreeks, gebruikt u Hallo voorbeeld Resource Manager-sjabloon [Hallo standaard SSL-certificaat configureren] [ quickstartconfiguressl] op GitHub. 
 
-De parameters in de *azuredeploy.parameters.json* bestand worden hier vermeld:
+Hallo-parameters in Hallo *azuredeploy.parameters.json* bestand worden hier vermeld:
 
-* *appServiceEnvironmentName*: de naam van de as ILB-omgeving wordt geconfigureerd.
-* *existingAseLocation*: tekenreeks met de Azure-regio waar de as ILB-omgeving is geïmplementeerd.  Bijvoorbeeld: 'Zuid-centraal VS'.
-* *pfxBlobString*: de based64-gecodeerde tekenreeksrepresentatie van het pfx-bestand. Gebruik het bovenstaande codefragment en kopieer de tekenreeks in 'exportedcert.pfx.b64'. Plak deze in als de waarde van de *pfxBlobString* kenmerk.
-* *wachtwoord*: het wachtwoord dat wordt gebruikt voor het beveiligen van het pfx-bestand.
-* *certificateThumbprint*: vingerafdruk van het certificaat. Als u deze waarde wordt opgehaald uit PowerShell (bijvoorbeeld *$certificate. Vingerafdruk* van het vorige codefragment), kunt u de waarde is. Als u de waarde van het dialoogvenster Windows-certificaat kopieert, moet u het verwijderen van overbodige spaties. De *certificateThumbprint* ziet er ongeveer als AF3143EB61D43F6727842115BB7F17BBCECAECAE.
-* *Certificaatnaam*: een beschrijvende tekenreeks-id van uw eigen keuze die worden gebruikt voor de identiteit van het certificaat. De naam wordt gebruikt als onderdeel van de unieke id van de Resource Manager voor de *Microsoft.Web/certificates* entiteit die staat voor het SSL-certificaat. De naam van de *moet* eindigen met het volgende achtervoegsel: \_yourASENameHere_InternalLoadBalancingASE. De Azure-portal gebruikt dit achtervoegsel als een indicatie dat het certificaat wordt gebruikt voor het beveiligen van een as ingeschakeld met een ILB-omgeving.
+* *appServiceEnvironmentName*: naam Hallo Hallo ILB as-omgeving wordt geconfigureerd.
+* *existingAseLocation*: string met tekst hello Azure-regio waar hello ILB as-omgeving is geïmplementeerd.  Bijvoorbeeld: 'Zuid-centraal VS'.
+* *pfxBlobString*: Hallo based64-gecodeerde tekenreeksrepresentatie van Hallo pfx-bestand. Gebruik Hallo codefragment hierboven en kopieer Hallo tekenreeks in 'exportedcert.pfx.b64'. Plak deze in als waarde Hallo Hallo *pfxBlobString* kenmerk.
+* *wachtwoord*: Hallo serverwachtwoord toosecure Hallo pfx-bestand.
+* *certificateThumbprint*: Hallo vingerafdruk van het certificaat. Als u deze waarde wordt opgehaald uit PowerShell (bijvoorbeeld *$certificate. Vingerafdruk* van Hallo eerdere codefragment), kunt u Hallo-waarde is. Als u Hallo-waarde van het dialoogvenster Windows-certificaat Hallo kopieert, vergeet dan niet toostrip uit Hallo overbodige spaties. Hallo *certificateThumbprint* ziet er ongeveer als AF3143EB61D43F6727842115BB7F17BBCECAECAE.
+* *Certificaatnaam*: een beschrijvende tekenreeks-id van uw eigen keuze tooidentity Hallo certificaat gebruikt. Hallo-naam wordt gebruikt als onderdeel van Hallo unieke bronnenbeheerder-id voor Hallo *Microsoft.Web/certificates* entiteit die de SSL-certificaat Hallo vertegenwoordigt. de naam van de Hallo *moet* eindigen met het volgende achtervoegsel Hallo: \_yourASENameHere_InternalLoadBalancingASE. Dit achtervoegsel Hello Azure-portal gebruikt een indicator die Hallo certificaat is gebruikte toosecure een as ingeschakeld met een ILB-omgeving.
 
 Een afgekorte voorbeeld van *azuredeploy.parameters.json* Hier wordt weergegeven:
 
@@ -132,27 +132,27 @@ Een afgekorte voorbeeld van *azuredeploy.parameters.json* Hier wordt weergegeven
          }
     }
 
-Na de *azuredeploy.parameters.json* bestand is ingevuld, wordt het standaard SSL-certificaat configureren met behulp van het PowerShell-codefragment. Wijzig de bestandspaden aan waar de Resource Manager-sjabloon-bestanden bevinden zich op uw computer. Vergeet niet uw eigen waarden voor de implementatienaam van Resource Manager en de naam van de resourcegroep opgeven:
+Na het Hallo *azuredeploy.parameters.json* bestand is ingevuld, Hallo standaard SSL-certificaat configureren met behulp van PowerShell-codefragment Hallo. Hallo bestand paden toomatch waar Hallo Resource Manager-sjabloonbestanden op uw computer bevinden zich wijzigen. Houd rekening met toosupply uw eigen waarden voor implementatienaam Hallo-Resource Manager en Hallo de naam van resourcegroep:
 
      $templatePath="PATH\azuredeploy.json"
      $parameterPath="PATH\azuredeploy.parameters.json"
 
      New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
-Het duurt ongeveer 40 minuten per as-omgeving front-end de wijziging toepassen. Voor een standaardformaat as-omgeving die gebruikmaakt van twee front-ends, duurt de sjabloon bijvoorbeeld ongeveer één uur en 20 minuten om te voltooien. Terwijl de sjabloon die wordt uitgevoerd, kan niet de schaal van de as-omgeving.  
+Het duurt ongeveer 40 minuten per as-omgeving front-end tooapply Hallo wijziging. Bijvoorbeeld, bij een standaardformaat as-omgeving die gebruikmaakt van twee front-ends, krijgt Hallo sjabloon rond één uur en 20 minuten toocomplete. Tijdens het Hallo-sjabloon wordt uitgevoerd, kan niet Hallo as-omgeving schalen.  
 
-Nadat de sjabloon is voltooid, kan apps op de as ILB-omgeving kunnen worden benaderd via HTTPS. De verbindingen zijn beveiligd met behulp van het standaard SSL-certificaat. Het standaard SSL-certificaat wordt gebruikt wanneer de apps op de as ILB-omgeving worden aangepakt met behulp van een combinatie van naam van de toepassing plus de standaardnaam van de host. Https://mycustomapp.internal-contoso.com gebruikt bijvoorbeeld de standaard SSL-certificaat voor **.internal contoso.com*.
+Nadat Hallo-sjabloon is voltooid, kan apps op Hallo ILB as-omgeving kunnen worden benaderd via HTTPS. Hallo-verbindingen zijn beveiligd met behulp van Hallo standaard SSL-certificaat. Hallo standaard SSL-certificaat wordt gebruikt wanneer de apps op Hallo ILB as-omgeving door een combinatie van naam van de toepassing hello plus Hallo standaardhostnaam worden aangepakt. Https://mycustomapp.internal-contoso.com gebruikt bijvoorbeeld Hallo standaard SSL-certificaat voor **.internal contoso.com*.
 
-Ontwikkelaars kunnen echter net als bij apps die worden uitgevoerd op de openbare multitenant-service, configureren aangepaste hostnamen voor afzonderlijke apps. Ze kunnen ook unieke SNI-SSL-certificaatbindingen voor afzonderlijke apps configureren.
+Ontwikkelaars kunnen echter net als bij apps die worden uitgevoerd op Hallo openbare multitenant-service, configureren aangepaste hostnamen voor afzonderlijke apps. Ze kunnen ook unieke SNI-SSL-certificaatbindingen voor afzonderlijke apps configureren.
 
 ## <a name="app-service-environment-v1"></a>App Service-omgeving v1 ##
-App Service-omgeving zijn er twee versies: ASEv1 en ASEv2. De voorgaande informatie is gebaseerd op ASEv2. Deze sectie leest u de verschillen tussen ASEv1 en ASEv2.
+App Service-omgeving zijn er twee versies: ASEv1 en ASEv2. Hallo voorgaande informatie is gebaseerd op ASEv2. Deze sectie ziet u verschillen tussen ASEv1 en ASEv2 Hallo.
 
-In ASEv1 beheert u alle resources handmatig. Dat betekent onder meer de front-ends, werknemers en IP-adressen gebruikt voor SSL op basis van IP. Voordat u uw App Service-abonnement uitbreiden kunt, moet u de worker-groep die u wilt deze hosten uitschalen.
+In ASEv1 beheert u alle resources Hallo handmatig. Dat betekent onder meer Hallo-front-ends, werknemers en IP-adressen gebruikt voor SSL op basis van IP. Voordat u uw App Service-abonnement uitbreiden kunt, moet u uitschalen Hallo werknemersgroep dat u wilt dat toohost deze.
 
-ASEv1 maakt gebruik van een andere prijscategorie model uit ASEv2. In ASEv1 betaalt u voor elke core toegewezen. Dat betekent onder meer kernen die worden gebruikt voor de front-ends of workers die werkbelastingen worden niet als host. Grootte van de maximale schaal van een as-omgeving is in ASEv1, 55 totale hosts. Die bevat werknemers en -front-ends. Een voordeel ASEv1 is dat deze kan worden geïmplementeerd in een klassiek virtueel netwerk en een virtueel netwerk van Resource Manager. Zie voor meer informatie over ASEv1, [App Service-omgeving v1 inleiding][ASEv1Intro].
+ASEv1 maakt gebruik van een andere prijscategorie model uit ASEv2. In ASEv1 betaalt u voor elke core toegewezen. Dat betekent onder meer kernen die worden gebruikt voor de front-ends of workers die werkbelastingen worden niet als host. Hallo standaardgrootte maximale schaal van een as-omgeving is in ASEv1, 55 totale hosts. Die bevat werknemers en -front-ends. Een voordeel tooASEv1 is dat deze kan worden geïmplementeerd in een klassiek virtueel netwerk en een virtueel netwerk van Resource Manager. toolearn meer informatie over ASEv1, Zie [App Service-omgeving v1 inleiding][ASEv1Intro].
 
-Zie voor informatie over het maken van een ASEv1 met behulp van een Resource Manager-sjabloon [een v1 ILB as-omgeving maken met Resource Manager-sjabloon][ILBASEv1Template].
+Zie voor een ASEv1 toocreate met behulp van een Resource Manager-sjabloon [een v1 ILB as-omgeving maken met Resource Manager-sjabloon][ILBASEv1Template].
 
 
 <!--Links-->

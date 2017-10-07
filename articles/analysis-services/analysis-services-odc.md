@@ -1,6 +1,6 @@
 ---
-title: Maken van een ODC-bestand verbinding maken met een Azure Analysis Services-server | Microsoft Docs
-description: Informatie over het maken van een Office Data Connection-bestand om te verbinden met en gegevens ophalen uit een Analysis Services-server in Azure.
+title: aaaCreate een ODC-bestand tooconnect tooan Azure Analysis Services-server | Microsoft Docs
+description: Meer informatie over hoe een Office Data Connection-bestand tooconnect tooand toocreate gegevens ophalen uit een Analysis Services-server in Azure.
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -15,30 +15,30 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: owend
-ms.openlocfilehash: 530f3b5c9e90cb45ffb6e12d0d08a35f8d687471
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9c8c8df23b17f19905d7ec51af4eb63eb995045e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-office-data-connection-file"></a>Een Office Data Connection-bestand maken
 
-Informatie in dit artikel wordt beschreven hoe u een Office Data Connection-bestand vanaf Excel 2016 versienummer 16.0.7369.2117 verbinding maken met een Azure Analysis Services-server kunt maken of eerder, of Excel 2013. Een bijgewerkte [MSOLAP.7 provider](analysis-services-data-providers.md) is ook vereist.
+Informatie in dit artikel wordt beschreven hoe u een Office Data Connection-bestand tooconnect tooan Azure Analysis Services-server kunt maken van Excel 2016 versienummer 16.0.7369.2117 of eerder, of Excel 2013. Een bijgewerkte [MSOLAP.7 provider](analysis-services-data-providers.md) is ook vereist.
 
 
-1. Het verbindingsbestand voorbeeld kopiëren en plakken in een teksteditor. 
+1. Hallo verbinding voorbeeldbestand onderstaande kopiëren en plakken in een teksteditor. 
 
-2. In `odc:ConnectionString`, wijzigt u de volgende eigenschappen:
+2. In `odc:ConnectionString`, Hallo volgende eigenschappen wijzigen:
 
-    *   In `Data Source=asazure://<region>.asazure.windows.net/<servername>;` wijzigen `<region>` naar de regio van de Analysis Services-server en `<servername>` op de naam van uw server.
+    *   In `Data Source=asazure://<region>.asazure.windows.net/<servername>;` wijzigen `<region>` toohello gebied van de Analysis Services-server en `<servername>` toohello-naam van uw server.
 
-    *   In `Initial Catalog=<database>;` wijzigen `<database>` op de naam van uw database.
+    *   In `Initial Catalog=<database>;` wijzigen `<database>` toohello-naam van uw database.
 
-3. In `<odc:CommandText>Model</odc:CommandText>` wijzigen `Model` op de naam van uw model of perspectief. 
+3. In `<odc:CommandText>Model</odc:CommandText>` wijzigen `Model` toohello-naam van uw model of perspectief. 
 
-4. Sla het bestand met een `.odc` -extensie voor de C:\Users\\*gebruikersnaam*map \Documents\My-gegevensbronnen.
+4. Sla Hallo-bestand met een `.odc` extensie toohello C:\Users\\*gebruikersnaam*map \Documents\My-gegevensbronnen.
 
-5. Met de rechtermuisknop op het bestand en klik vervolgens op **openen in Excel**. Of in Excel op het **gegevens** lint, klikt u op **bestaande verbindingen**, selecteer het bestand en klik vervolgens op **Open**.
+5. Met de rechtermuisknop op het Hallo-bestand en klik vervolgens op **openen in Excel**. Of klik in Excel op Hallo **gegevens** lint, klikt u op **bestaande verbindingen**, selecteer het bestand en klik vervolgens op **Open**.
 
 
 

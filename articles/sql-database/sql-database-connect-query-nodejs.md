@@ -1,6 +1,6 @@
 ---
-title: Node.js gebruiken om een query uit te voeren voor een Azure SQL-database | Microsoft Docs
-description: In dit onderwerp ziet u hoe u Node.js gebruikt om een programma te maken dat is verbonden met een Azure SQL-database, en hoe u een query voor deze database uitvoert met behulp van Transact-SQL-instructies.
+title: aaaUse Node.js tooquery Azure SQL Database | Microsoft Docs
+description: Dit onderwerp leest u hoe toouse Node.js toocreate een programma dat verbinding tooan Azure SQL Database en de query maakt met behulp van Transact-SQL-instructies.
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -15,50 +15,50 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 1907a95df9132c059d7985b6d5cd913536bf3403
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3870130a486c218eafeb9cf792a4275de7fd6551
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-nodejs-to-query-an-azure-sql-database"></a>Node.js gebruiken om een query uit te voeren voor een Azure SQL-database
+# <a name="use-nodejs-tooquery-an-azure-sql-database"></a>Node.js tooquery een Azure SQL database gebruiken
 
-In deze beknopte zelfstudie wordt gedemonstreerd hoe u [Node.js](https://nodejs.org/en/) gebruikt om een programma te maken dat verbinding maakt met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om een query uit te voeren voor gegevens.
+Deze zelfstudie laat zien hoe toouse [Node.js](https://nodejs.org/en/) toocreate een programma tooconnect tooan Azure SQL database en Transact-SQL-instructies tooquery gegevens.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Zorg ervoor dat u over het volgende beschikt om deze beknopte zelfstudie te voltooien:
+toocomplete dit snelle zelfstudie begint, controleert u of hebt u de volgende Hallo:
 
-- Een Azure SQL-database. In deze zelfstudie worden de resources gebruikt die u hebt gemaakt in een van deze Quick Starts: 
+- Een Azure SQL-database. Hallo-resources die zijn gemaakt in een van deze snel aan de slag maakt gebruik van deze snel starten: 
 
    - [Database maken - Portal](sql-database-get-started-portal.md)
    - [Database maken - CLI](sql-database-get-started-cli.md)
    - [Database maken - PowerShell](sql-database-get-started-powershell.md)
 
-- Een [firewallregel op serverniveau](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) voor het openbare IP-adres van de computer die u gebruikt voor deze beknopte zelfstudie.
+- Een [firewallregel op serverniveau](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) voor openbaar IP-adres van de computer Hallo Hallo u gebruiken voor deze zelfstudie voor snel starten.
 - U hebt Node.js en verwante software voor uw besturingssysteem geïnstalleerd.
-    - **MacOS**: installeer Homebrew en Node.js, en installeer vervolgens het ODBC-stuurprogramma en SQLCMD. Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
-    - **Ubuntu**: installeer Node.js en installeer vervolgens het ODBC-stuurprogramma en SQLCMD. Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
-    - **Windows**: installeer Chocolatey en Node.js, en installeer vervolgens het ODBC-stuurprogramma en SQL CMD. Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
+    - **Mac OS**: Homebrew en Node.js installeren en installeer vervolgens Hallo ODBC-stuurprogramma en SQLCMD. Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
+    - **Ubuntu**: Installeer Node.js en installeer vervolgens Hallo ODBC-stuurprogramma en SQLCMD. Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
+    - **Windows**: Chocolatey en Node.js installeren en installeer vervolgens Hallo ODBC-stuurprogramma en SQL cmd.exe Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
 
 ## <a name="sql-server-connection-information"></a>SQL Server-verbindingsgegevens
 
-Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure SQL-database. U hebt de volledig gekwalificeerde servernaam, databasenaam en aanmeldingsgegevens in de volgende procedures nodig.
+Hallo verbinding informatie die nodig is tooconnect toohello Azure SQL-database worden opgehaald. U moet Hallo volledig gekwalificeerde servernaam, databasenaam en aanmeldingsgegevens in de volgende procedures Hallo.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Selecteer **SQL-databases** in het menu links en klik op uw database op de pagina **SQL-databases**. 
-3. Op de pagina **Overzicht** voor de database controleert u de volledig gekwalificeerde servernaam zoals in de volgende afbeelding wordt weergegeven. U kunt de cursor boven de servernaam houden om de optie **Klik om te kopiëren** naar boven te halen. 
+1. Meld u bij toohello [Azure-portal](https://portal.azure.com/).
+2. Selecteer **SQL-Databases** Hallo links menu en klik op de database op Hallo **SQL-databases** pagina. 
+3. Op Hallo **overzicht** servernaam pagina voor de database, bekijk Hallo volledig gekwalificeerd zoals weergegeven in Hallo installatiekopie te volgen. U kunt de muisaanwijzer op Hallo server name toobring up Hallo **klikt u op toocopy** optie. 
 
    ![servernaam](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Als u de aanmeldingsgegevens voor uw Azure SQL Database-server bent vergeten, gaat u naar de SQL Database-serverpagina om de beheerdersnaam voor de server weer te geven en, indien nodig, het wachtwoord opnieuw in te stellen.
+4. Als u Hallo aanmeldingsgegevens voor uw Azure SQL Database-server bent vergeten, navigeer toohello SQL server pagina tooview Hallo beheerder databaseservernaam en, indien nodig, opnieuw ingesteld wachtwoord Hallo.
 
 > [!IMPORTANT]
-> U moet een firewallregel hebben ingesteld voor het openbare IP-adres van de computer waarop u deze zelfstudie uitvoert. Als u een andere computer gebruikt of een ander openbaar IP-adres hebt, maakt u een [firewallregel op serverniveau met behulp van Azure Portal](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
+> U moet beschikken over een firewallregel voor het openbare IP-adres Hallo van Hallo-computer waarop u deze zelfstudie uitvoert. Als u zich op een andere computer of een ander openbaar IP-adres hebben, maakt u een [serverniveau firewall-regel met Azure-portal Hallo](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
 
 ## <a name="create-a-nodejs-project"></a>Een Node.js-project maken
 
-Open een opdrachtprompt en maak een map met de naam *sqltest*. Navigeer naar de map die u hebt gemaakt, en voer de volgende opdracht uit:
+Open een opdrachtprompt en maak een map met de naam *sqltest*. Navigeer toohello map u gemaakt en Hallo volgende opdracht uitvoeren:
 
     
     npm init -y
@@ -66,17 +66,17 @@ Open een opdrachtprompt en maak een map met de naam *sqltest*. Navigeer naar de 
     npm install async
     
 
-## <a name="insert-code-to-query-sql-database"></a>Code invoegen om een query uit te voeren voor een SQL-database
+## <a name="insert-code-tooquery-sql-database"></a>Code tooquery SQL-database invoegen
 
 1. Maak een nieuw bestand in uw ontwikkelomgeving of favoriete teksteditor **sqltest.js**.
 
-2. Vervang de inhoud door de volgende code en voeg de juiste waarden toe voor de server, de database, de gebruiker en het wachtwoord.
+2. Hallo inhoud vervangen door Hallo volgende code en voeg de juiste waarden Hallo voor uw server, de database, de gebruiker en het wachtwoord.
 
    ```js
    var Connection = require('tedious').Connection;
    var Request = require('tedious').Request;
 
-   // Create connection to database
+   // Create connection toodatabase
    var config = 
       {
         userName: 'someuser', // update me
@@ -90,7 +90,7 @@ Open een opdrachtprompt en maak een map met de naam *sqltest*. Navigeer naar de 
       }
    var connection = new Connection(config);
 
-   // Attempt to connect and execute queries if connection goes through
+   // Attempt tooconnect and execute queries if connection goes through
    connection.on('connect', function(err) 
       {
         if (err) 
@@ -105,7 +105,7 @@ Open een opdrachtprompt en maak een map met de naam *sqltest*. Navigeer naar de 
     );
 
    function queryDatabase()
-      { console.log('Reading rows from the Table...');
+      { console.log('Reading rows from hello Table...');
 
           // Read all rows from table
         request = new Request(
@@ -126,23 +126,23 @@ Open een opdrachtprompt en maak een map met de naam *sqltest*. Navigeer naar de 
       }
 ```
 
-## <a name="run-the-code"></a>De code uitvoeren
+## <a name="run-hello-code"></a>Hallo code uitvoeren
 
-1. Voer bij de opdrachtprompt de volgende opdrachten uit:
+1. Voer bij de opdrachtprompt Hallo Hallo opdrachten na:
 
    ```js
    node sqltest.js
    ```
 
-2. Controleer of de bovenste 20 rijen worden geretourneerd, en sluit vervolgens het toepassingsvenster.
+2. Verifieer dat Hallo top 20 rijen worden geretourneerd en het venster Hallo-toepassing sluit.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het [Microsoft-stuurprogramma Node.js voor SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
-- Meer informatie over [verbinding maken met en een query uitvoeren voor een Azure SQL-database met behulp van .NET Core](sql-database-connect-query-dotnet-core.md) in Windows/Linux/macOS.  
-- Meer informatie over [Aan de slag met .NET Core in Windows/Linux/macOS met behulp van de opdrachtregel](/dotnet/core/tutorials/using-with-xplat-cli).
-- Meer informatie over [Uw eerste Azure SQL-database ontwerpen met behulp van SSMS](sql-database-design-first-database.md) of [Uw eerste Azure SQL-database ontwerpen met behulp van .NET](sql-database-design-first-database-csharp.md).
-- Meer informatie over [Verbinding maken en query's uitvoeren met SSMS](sql-database-connect-query-ssms.md)
-- Meer informatie over [Verbinding maken en query's uitvoeren met Visual Studio Code](sql-database-connect-query-vscode.md).
+- Meer informatie over Hallo [Microsoft Node.js Driver voor SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
+- Meer informatie over hoe te[en verbinding en een Azure SQL database met behulp van .NET core query](sql-database-connect-query-dotnet-core.md) op Windows/Linux/Mac OS.  
+- Meer informatie over [aan de slag met .NET Core op Windows/Linux/Mac-OS, via de opdrachtregel Hallo](/dotnet/core/tutorials/using-with-xplat-cli).
+- Meer informatie over hoe te[ontwerpen van uw eerste Azure SQL database met behulp van SSMS](sql-database-design-first-database.md) of [ontwerpen van uw eerste Azure SQL database met .NET](sql-database-design-first-database-csharp.md).
+- Meer informatie over hoe te[Connect en query met SSMS](sql-database-connect-query-ssms.md)
+- Meer informatie over hoe te[Connect en query met Visual Studio Code](sql-database-connect-query-vscode.md).
 
 

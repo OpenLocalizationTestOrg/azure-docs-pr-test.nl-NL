@@ -1,6 +1,6 @@
 ---
-title: Technische documentatie van Azure Active Directory voorwaardelijke toegang | Microsoft Docs
-description: "Met voorwaardelijk toegangsbeheer controleert de Azure Active Directory de specifieke voorwaarden die u kiest bij het verifiëren van de gebruiker en alvorens deze toegang tot de toepassing. Als deze voorwaarden is voldaan, wordt de gebruiker geverifieerd en toegang te krijgen tot de toepassing."
+title: technische documentatie voor voorwaardelijke toegang van Active Directory aaaAzure | Microsoft Docs
+description: "Met voorwaardelijk toegangsbeheer controleert de Azure Active Directory Hallo bepaalde voorwaarden die u bij het verifiëren van de gebruiker Hallo en alvorens deze toegang toohello toepassing kiezen. Als deze voorwaarden is voldaan, wordt Hallo gebruiker geverifieerd en toegang toohello toepassing toegestaan."
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: ca16a5399f94fd1ab267e0798cade3fd83f75b13
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ee201405d1d17f130607a95bf455b60cd222dd0c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Technische documentatie van Azure Active Directory voorwaardelijke toegang
 
@@ -27,16 +27,16 @@ ms.lasthandoff: 08/29/2017
 Regels voor voorwaardelijke toegang worden ondersteund tussen de verschillende typen voor Azure AD-toepassing. Deze lijst bevat:
 
 
-* Toepassingen die zijn geregistreerd bij de toepassingsproxy van Azure
+* Toepassingen die zijn geregistreerd bij hello Azure-toepassingsproxy
 * Azure RemoteApp
 * Ontwikkelde line-of-business- en multitenant-toepassingen die zijn geregistreerd bij Azure AD
 * Dynamics CRM
-* Federatieve toepassingen uit de galerie van Azure AD-toepassing
+* Federatieve toepassingen van hello Azure AD-toepassingsgalerie
 * Microsoft Office 365 Yammer
 * Microsoft Office 365 Exchange Online
 * Microsoft Office 365 SharePoint Online (inclusief OneDrive voor bedrijven)
 * Microsoft Power BI 
-* Wachtwoord SSO-toepassingen uit de galerie van Azure AD-toepassing
+* Wachtwoord SSO-toepassingen van hello Azure AD-toepassingsgalerie
 * Visual Studio Team Services
 * Microsoft Teams
 
@@ -49,43 +49,43 @@ Regels voor voorwaardelijke toegang worden ondersteund tussen de verschillende t
 
 
 ## <a name="enable-access-rules"></a>Toegangsregels inschakelen
-Elke regel worden ingeschakeld of uitgeschakeld voor een per toepassing basissen. Wanneer regels zijn **ON** wordt ingeschakeld en afgedwongen voor gebruikers die toegang tot de toepassing. Wanneer ze zijn **OFF** ze worden niet gebruikt en heeft geen invloed op de aanmeldingsprocedure gebruikers.
+Elke regel worden ingeschakeld of uitgeschakeld voor een per toepassing basissen. Wanneer regels zijn **ON** wordt ingeschakeld en voor gebruikers die toegang tot de toepassing hello afgedwongen. Wanneer ze zijn **OFF** wordt niet gebruikt en wordt niet impact Hallo gebruikers zich aanmelden ervaring.
 
-## <a name="applying-rules-to-specific-users"></a>Regels toepassen op specifieke gebruikers
-Regels kunnen worden toegepast op bepaalde groepen gebruikers op basis van de beveiligingsgroep door in te stellen **toepassen op**. **Toepassen op** kan worden ingesteld op **alle gebruikers** of **groepen**. Als de waarde **alle gebruikers** regels geldt voor elke gebruiker met toegang tot de toepassing. De **groepen** optie specifieke beveiligings- en distributiegroepen worden geselecteerd, kunnen regels alleen afgedwongen voor deze groepen.
+## <a name="applying-rules-toospecific-users"></a>Toepassen van regels toospecific gebruikers
+Regels kunnen worden toegepast toospecific sets van gebruikers op basis van de beveiligingsgroep door in te stellen **toepassen op**. **Toepassen op** te kunnen worden ingesteld**alle gebruikers** of **groepen**. Als de waarde te**alle gebruikers** Hallo regels gelden tooany gebruiker met toegang toohello toepassing. Hallo **groepen** optie specifieke beveiligings- en distributiepunten groepen toobe is geselecteerd, kunnen regels alleen afgedwongen voor deze groepen.
 
-Bij het implementeren van een regel wordt het meestal eerst deze een beperkte set van gebruikers die lid van een pilot-groepen zijn toe te passen. Nadat de regel kan worden toegepast op **alle gebruikers**. Hierdoor wordt de regel moeten worden afgedwongen voor alle gebruikers in de organisatie.
+Bij het implementeren van een regel, is het gebruikelijk dat toofirst toepassen een beperkt aantal gebruikers die lid van een pilot-groepen zijn. Zodra de volledige Hallo regel te kan worden toegepast**alle gebruikers**. Hierdoor wordt toobe afgedwongen voor alle gebruikers in de organisatie Hallo Hallo-regel.
 
-Selecteer groepen kunnen ook worden vrijgesteld van beleid voor gebruik van de **behalve** optie. Leden van deze groepen worden vrijgesteld, zelfs als ze worden weergegeven in een opgenomen groep.
+Selecteer groepen kunnen ook worden vrijgesteld van met behulp van Hallo **behalve** optie. Leden van deze groepen worden vrijgesteld, zelfs als ze worden weergegeven in een opgenomen groep.
 
 ## <a name="at-work-networks"></a>'Op het werk' netwerken
-Regels voor voorwaardelijke toegang met een netwerk 'op het werk' afhankelijk zijn van vertrouwde IP-adresbereiken die zijn geconfigureerd in Azure AD, of gebruik van de claim 'binnen corpnet' vanaf AD FS. Deze regelgeving omvat:
+Regels voor voorwaardelijke toegang met een netwerk 'op het werk' afhankelijk zijn van vertrouwde IP-adresbereiken die zijn geconfigureerd in Azure AD of het gebruik van Hallo 'binnen corpnet' claim vanaf AD FS. Deze regelgeving omvat:
 
 * Meervoudige authenticatie niet op het werk
 * De toegang niet op het werk blokkeren
 
 Opties voor het opgeven 'op het werk' netwerken
 
-1. Configureren van vertrouwde IP-adresbereiken in de [configuratiepagina multi-factorauthenticatie](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Beleid voor voorwaardelijke toegang gebruiken de geconfigureerde bereiken op elk authenticatie-aanvraag en de uitgifte van tokens voor regels evalueren. 
-2. Gebruik van de binnen configureren corpnet claim deze optie kan worden gebruikt met federatieve-adreslijsten, met AD FS. Voor meer informatie over de binnen corpnet claims, Zie [Tusted IPs](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+1. Configureren van vertrouwde IP-adresbereiken in Hallo [configuratiepagina multi-factorauthenticatie](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Beleid voor voorwaardelijke toegang gebruikt op elke aanvraag en -token uitgifte tooevaluate verificatieregels Hallo geconfigureerd bereiken. 
+2. Gebruik van Hallo binnen corpnet claim configureren, deze optie kan worden gebruikt met federatieve-adreslijsten, met AD FS. toolearn meer informatie over Hallo binnen corpnet claims, Zie [Tusted IPs](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
 
 
 ## <a name="rules-based-on-application-sensitivity"></a>Regels op basis van de toepassing gevoeligheid
-Regels worden geconfigureerd per toepassing zodat de hoogwaardige services zonder enige impact op de toegang tot andere services worden beveiligd. Regels voor voorwaardelijke toegang kunnen worden geconfigureerd op de **configureren** tabblad van de toepassing. 
+Regels worden geconfigureerd per toepassing hello hoogwaardige services toobe beveiligd zonder enige impact op tooother toegangsservices toe. Regels voor voorwaardelijke toegang kunnen worden geconfigureerd op Hallo **configureren** tabblad van de toepassing hello. 
 
 Regels die momenteel worden aangeboden:
 
 * **Meervoudige authenticatie**
   
-  * Alle gebruikers die dit beleid wordt toegepast op worden te verifiëren via ten minste eenmaal meervoudige verificatie.
+  * Alle gebruikers die dit beleid toegepast toowill is vereist tooauthenticate via multi-factor authentication-server ten minste één keer worden.
 * **Meervoudige authenticatie niet op het werk**
   
-  * Als dit beleid wordt toegepast, worden alle gebruikers moeten multi-factor authentication-server ten minste eenmaal hebt uitgevoerd als ze vanaf een externe locatie voor niet-werk toegang de service tot. Als ze van een werk naar externe locatie, worden ze vereist multifactor-verificatie uitvoeren bij het openen van de service.
+  * Als dit beleid wordt toegepast, worden alle gebruikers vereiste toohave uitgevoerd multi-factor authentication-server ten minste eenmaal als ze toegang krijgen Hallo service vanaf een externe locatie niet werken tot. Als ze vanaf een locatie van de tooremote werk verplaatst, worden deze vereiste tooperform multifactor-verificatie bij het openen van Hallo-service.
 * **De toegang niet op het werk blokkeren** 
   
-  * Wanneer gebruikers naar een externe locatie van het werk verplaatsen, wordt deze geblokkeerd als het beleid 'Toegang niet op het werk blokkeren' op ze is toegepast.  Ze worden opnieuw kunnen wanneer op een locatie werk toegang.
+  * Wanneer gebruikers van werk tooa externe locatie worden verplaatst, wordt deze geblokkeerd als Hallo 'Toegang niet op het werk blokkeren' beleid is toegepast toothem.  Ze worden opnieuw kunnen wanneer op een locatie werk toegang.
 
 ## <a name="related-topics"></a>Verwante onderwerpen
-* [Beveiligen van toegang tot Office 365 en andere apps die zijn verbonden met Azure Active Directory](active-directory-conditional-access.md)
+* [Toegang beveiligen tooOffice 365 en andere apps verbonden tooAzure Active Directory](active-directory-conditional-access.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 

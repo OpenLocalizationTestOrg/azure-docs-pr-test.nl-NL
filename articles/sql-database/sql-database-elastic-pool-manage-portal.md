@@ -1,6 +1,6 @@
 ---
 title: 'Azure-portal: maken en beheren van een elastische pool SQL Database | Microsoft Docs'
-description: Informatie over het gebruik van de Azure portal en de ingebouwde intelligentie SQL-Database om te beheren, controleren en het juiste formaat een schaalbare elastische pool te optimaliseren van databaseprestaties en kosten beheren.
+description: Ontdek hoe toouse hello Azure-portal en SQL-Database ingebouwde intelligentie toomanage, bewaken en de prestaties van een schaalbare elastische pool toooptimize-database het juiste formaat en kosten beheren.
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -16,20 +16,20 @@ ms.author: ninarn
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 4ffd1db31f42967dc7f07aa979898dddbb333641
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e0de952bc0c91177f64c04363630783d72435741
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-and-manage-an-elastic-pool-with-the-azure-portal"></a>Maken en beheren van een elastische groep met de Azure-portal
-In dit onderwerp wordt beschreven hoe u maken en beheren van schaalbare [elastische pools](sql-database-elastic-pool.md) met de Azure-portal. U kunt ook maken en beheren van een Azure elastische groep met [PowerShell](sql-database-elastic-pool-manage-powershell.md), de REST-API of [C#](sql-database-elastic-pool-manage-csharp.md). U kunt ook maken en databases verplaatsen naar en van elastische pools met [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+# <a name="create-and-manage-an-elastic-pool-with-hello-azure-portal"></a>Maken en beheren van een elastische groep met hello Azure-portal
+Dit onderwerp leest u hoe toocreate en beheren van schaalbare [elastische pools](sql-database-elastic-pool.md) Hello Azure-portal. U kunt ook maken en beheren van een Azure elastische groep met [PowerShell](sql-database-elastic-pool-manage-powershell.md), Hallo REST-API of [C#](sql-database-elastic-pool-manage-csharp.md). U kunt ook maken en databases verplaatsen naar en van elastische pools met [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
 ## <a name="create-an-elastic-pool"></a>Elastische pool maken 
 
-Er zijn twee manieren kunt u een elastische pool. U kunt dit zelf doen, als u weet welke instellingen u voor uw groep wilt gebruiken, of u kunt gebruikmaken van wat de service u aanraadt. SQL-Database beschikt over ingebouwde intelligentie die raadt aan om een elastische groep is ingesteld als het kostenefficiënte op basis van de gebruikstelemetrie van uw databases.
+Er zijn twee manieren kunt u een elastische pool. U kunt dit doen vanaf het begin als u Hallo groep instellingen u wilt weet, of met een aanbeveling van Hallo-service. SQL-Database beschikt over ingebouwde intelligentie die raadt aan om een elastische groep is ingesteld als het kostenefficiënte op basis van Hallo voorbij gebruik telemetrie van uw databases.
 
-U kunt meerdere groepen maken op een server, maar u kunt geen databases van verschillende servers toevoegen aan dezelfde pool. 
+U kunt meerdere groepen maken op een server, maar u kunt geen databases van verschillende servers toevoegen in Hallo dezelfde groep. 
 
 > [!NOTE]
 > Elastische pools zijn algemeen beschikbaar in alle Azure-regio's, behalve in West-India, waar deze zich momenteel in de previewfase bevinden.  Algemene beschikbaarheid van elastische pools in deze regio zal zo snel mogelijk plaatsvinden.
@@ -37,120 +37,120 @@ U kunt meerdere groepen maken op een server, maar u kunt geen databases van vers
 
 ### <a name="step-1-create-an-elastic-pool"></a>Stap 1: Een elastische pool maken
 
-Een elastische pool te maken van een bestaand **server** blade in de portal is de eenvoudigste manier om te verplaatsen van bestaande databases in een elastische pool.
+Een elastische pool te maken van een bestaand **server** blade in de portal Hallo Hallo gemakkelijkste manier toomove bestaande databases in een elastische groep is.
 
 > [!NOTE]
-> U kunt ook een elastische pool maken door te zoeken naar **elastische SQL-groep** in de **Marketplace** of klikken op **+ toevoegen** in de **SQL elastische pools** blade bladeren. U bent een nieuwe of bestaande server via deze werkstroom van toepassingen opgeven.
+> U kunt ook een elastische pool maken door te zoeken naar **elastische SQL-groep** in Hallo **Marketplace** of klikken op **+ toevoegen** in Hallo **SQL elastische pools**blade bladeren. U zijn kunt toospecify een nieuwe of bestaande server via deze werkstroom van toepassingen.
 >
 >
 
-1. In de [Azure-portal](http://portal.azure.com/), klikt u op **meer services**  **>**  **SQL-servers**, en klik vervolgens op de server waarop de databases die u wilt toevoegen aan een elastische pool.
+1. In Hallo [Azure-portal](http://portal.azure.com/), klikt u op **meer services**  **>**  **SQL-servers**, en klik vervolgens op Hallo-server die Hallo bevat databases die u wilt dat tooadd tooan elastische pool.
 2. Klik op **Nieuwe groep**.
 
-    ![Voeg de groep toe aan een server](./media/sql-database-elastic-pool-create-portal/new-pool.png)
+    ![Groep tooa server toevoegen](./media/sql-database-elastic-pool-create-portal/new-pool.png)
 
     **-OF-**
 
-    Mogelijk ziet u een bericht weergegeven dat er aanbevolen elastische pools voor de server. Klik op het bericht om de groepen die worden aanbevolen op basis van de telemetrie van het databasegebruik te bekijken. Klik vervolgens op de categorie voor meer informatie en om de groep aan te passen. Zie [Aanbevelingen voor groepen begrijpen](#understand-elastic-pool-recommendations) verderop in dit onderwerp om te ontdekken hoe de aanbeveling tot stand is gekomen.
+    Mogelijk ziet u een bericht weergegeven dat er aanbevolen elastische pools voor Hallo-server. Hallo-bericht toosee Hallo aanbevolen pools voor op basis van historische database gebruik telemetrie, klikt u op en klikt u op Hallo laag toosee voor meer informatie en Hallo groep aanpassen. Zie [aanbevelingen voor Pools begrijpen](#understand-elastic-pool-recommendations) verderop in dit onderwerp voor hoe Hallo aanbeveling wordt gesteld.
 
     ![aanbevolen groep](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
-3. De **elastische pool** blade wordt weergegeven waarin u de instellingen voor uw groep opgeven. Als u hebt geklikt **nieuwe pool** in de vorige stap, de prijscategorie is **standaard** standaard en geen databases geselecteerd. U kunt een lege pool maken of een set bestaande databases van deze server opgeven die moeten worden verplaatst naar de pool. Als u een aanbevolen pool maakt, zijn de aanbevolen prijscategorie, de prestatie-instellingen en de lijst met databases vooraf ingevuld, maar u ze nog steeds wijzigen.
+3. Hallo **elastische pool** blade wordt weergegeven waarin u Hallo-instellingen opgeven voor uw toepassingen. Als u hebt geklikt **nieuwe pool** in de vorige stap Hallo Hallo prijscategorie is **standaard** standaard en geen databases geselecteerd. U kunt een lege groep maken of een set van bestaande databases van die server toomove in Hallo van toepassingen opgeven. Als u een aanbevolen pool maakt, Hallo aanbevolen prijscategorie, prestatie-instellingen en lijst met databases vooraf worden ingevuld, maar u kunt ze nog steeds wijzigen.
 
     ![Elastische groep configureren](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
 
-4. Kies een naam voor de elastische groep, of behoud de standaardnaam.
+4. Geef een naam voor de elastische groep Hallo of laat het veld als Hallo standaard.
 
 ### <a name="step-2-choose-a-pricing-tier"></a>Stap 2: kies een prijscategorie
 
-De prijscategorie van de pool bepaalt welke functies beschikbaar zijn voor de elastics in de groep en het maximale aantal edtu's (eDTU MAX) en opslag (GB) beschikbaar zijn voor elke database. Zie voor meer informatie de Servicecategorieën.
+Hallo bepaalt prijscategorie van pool Hallo functies beschikbaar toohello elastics in Hallo pool en Hallo maximumaantal edtu's (eDTU MAX) en opslag (GB) beschikbare tooeach database. Zie voor meer informatie de Servicecategorieën.
 
-Klik op **Prijscategorie** om de prijscategorie van de pool te wijzigen. Klik op de gewenste prijscategorie en vervolgens op **Selecteren**.
+toochange hello prijscategorie voor Hallo-groep, klikt u op **prijscategorie**, klikt u op de prijscategorie die u wilt en klik vervolgens op Hallo **Selecteer**.
 
 > [!IMPORTANT]
-> Nadat u de prijscategorie gekozen heeft en uw wijzigingen heeft opgeslagen door in de laatste stap op **OK** te klikken, kunt u de prijscategorie van de groep niet meer wijzigen. De prijscategorie voor een bestaande elastische pool niet wijzigen, een elastische pool maken in de gewenste prijscategorie en migreert de databases naar deze nieuwe pool.
+> Nadat u Hallo prijscategorie kiezen en uw wijzigingen door te klikken op **OK** in de laatste stap hello, niet meer kunnen toochange Hallo prijscategorie van Hallo van toepassingen. toochange Hallo prijscategorie voor een bestaande elastische pool, een elastische pool maken in de gewenste prijscategorie Hallo en Hallo databases toothis nieuwe toepassingen te migreren.
 >
 
 ![Een prijscategorie selecteren](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)
 
-### <a name="step-3-configure-the-pool"></a>Stap 3: configureer de groep
+### <a name="step-3-configure-hello-pool"></a>Stap 3: Hallo pool configureren
 
-Zodra de prijscategorie is ingesteld, klikt u op pool configureren Hier voegt u databases, set groepen met edtu's en opslag (GB adresgroep) en waar u de min en max edtu's voor de elastics instellen in de groep.
+Klik na het instellen van Hallo prijscategorie pool configureren Hier voegt u databases, set groepen met edtu's en opslag (GB adresgroep) en waar u Hallo min en max Edtu voor Hallo elastics instellen in de groep Hallo.
 
 1. Klik op **Groep configureren**
-2. Selecteer de databases die u aan de groep wilt toevoegen. Deze stap is optioneel bij het maken van de groep. Databases kunnen ook worden toegevoegd wanneer de groep is gemaakt.
-    Om databases toe te voegen klikt u op **Database toevoegen** en vervolgens op de databases die u wilt toevoegen. Klik als laatste op de knop **Selecteren**.
+2. Hallo-databases u tooadd toohello toepassingen wilt selecteren. Deze stap is optioneel bij het maken van Hallo van toepassingen. Databases kunnen worden toegevoegd nadat Hallo-groep is gemaakt.
+    tooadd databases, klik met de **database toevoegen**, klikt u op Hallo databases wilt tooadd en klik vervolgens op Hallo **Selecteer** knop.
 
     ![Databases toevoegen](./media/sql-database-elastic-pool-create-portal/add-databases.png)
 
-    Als de gebruikstelemetrie van de databases waar u mee werkt genoeg is, worden de grafiek **Geschat eDTU- en GB-gebruik** en het staafdiagram **Werkelijk eDTU-gebruik** bijgewerkt zodat u betere beslissingen kunt nemen met betrekking tot de configuratie. De service kan ook een bericht weergeven met een aanbeveling zodat u de groep het juiste formaat kunt geven. Zie [Dynamische aanbevelingen](#understand-elastic-pool-recommendations).
+    Hallo-databases waarmee u samenwerkt hebt voldoende gebruikstelemetrie, Hallo **geschat eDTU- en GB-gebruik** grafiek en Hallo **werkelijk eDTU-gebruik** staafdiagram update toohelp maken van configuratie beslissingen te nemen. Bovendien Hallo-service kan bieden u een aanbeveling bericht toohelp u het juiste formaat Hallo van toepassingen. Zie [Dynamische aanbevelingen](#understand-elastic-pool-recommendations).
 
-3. Gebruik de bedieningselementen op de pagina **Groep configureren** om de instellingen te verkennen en uw groep te configureren. Zie [limieten elastische pools](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) voor meer informatie over de limieten van elke servicecategorie en Zie [prijs- en Prestatieoverwegingen voor elastische pools](sql-database-elastic-pool.md) voor gedetailleerde richtlijnen voor het juiste formaat een elastische pool. Zie voor meer informatie over de groepsinstellingen [eigenschappen van de elastische groep](sql-database-elastic-pool.md#database-properties-for-pooled-databases).
+3. Hallo-opties op Hallo gebruiken **pool configureren** pagina tooexplore instellingen en uw pool te configureren. Zie [limieten elastische pools](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) voor meer informatie over de limieten van elke servicecategorie en Zie [prijs- en Prestatieoverwegingen voor elastische pools](sql-database-elastic-pool.md) voor gedetailleerde richtlijnen voor het juiste formaat een elastische pool. Zie voor meer informatie over de groepsinstellingen [eigenschappen van de elastische groep](sql-database-elastic-pool.md#database-properties-for-pooled-databases).
 
     ![Elastische groep configureren](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
-4. Klik op **Selectere** in de blade **Groep configureren** nadat u de instellingen heeft gewijzigd.
-5. Klik op **OK** om de groep te maken.
+4. Klik op **Selecteer** in Hallo **Pool configureren** blade na het wijzigen van instellingen.
+5. Klik op **OK** toocreate Hallo van toepassingen.
 
 ## <a name="understand-elastic-pool-recommendations"></a>Aanbevelingen voor elastische Pools begrijpen
 
-De SQL Database-service beoordeelt de gebruiksgeschiedenis en beveelt een of meerdere groepen aan wanneer deze kosteneffectiever zijn dan het gebruik van individuele databases. Elke aanbeveling wordt geconfigureerd met een unieke subset van de databases van de server die het meest geschikt zijn voor de groep.
+Hallo SQL Database-service beoordeelt de gebruiksgeschiedenis en beveelt een of meer groepen wanneer deze kosteneffectiever zijn dan het gebruik van individuele databases. Elke aanbeveling wordt geconfigureerd met een unieke subset van Hallo-server-databases die het meest Hallo van toepassingen geschikt.
 
 ![aanbevolen groep](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
 
-De aanbevelingen voor de groep bestaan uit:
+Hallo groep aanbeveling omvat:
 
-- Een prijscategorie voor de pool (Basic, Standard, Premium of RS Premium)
+- Een prijscategorie voor Hallo pool (Basic, Standard, Premium of RS Premium)
 - De juiste **eDTU’s voor de groep** (ook wel Max eDTU's per groep)
-- De **eDTU MAX** en **eDTU Min** per database
-- De lijst met aanbevolen databases voor de groep
+- Hallo **eDTU MAX** en **eDTU Min** per database
+- Hallo-lijst met aanbevolen databases voor Hallo van toepassingen
 
 > [!IMPORTANT]
-> De service houdt rekening met de laatste 30 dagen telemetrie bij het aanbevelen van groepen. Voor een database te worden beschouwd als kandidaat voor een elastische pool, moet er ten minste 7 dagen bestaan. Databases die zich al in een elastische pool bevinden, worden niet aanbevolen voor een elastische pool.
+> Hallo service wordt rekening gehouden Hallo afgelopen 30 dagen telemetrie bij het aanbevelen van pools. Voor een database toobe beschouwd als kandidaat voor een elastische pool, moet er ten minste 7 dagen bestaan. Databases die zich al in een elastische pool bevinden, worden niet aanbevolen voor een elastische pool.
 >
 
-De service beoordeelt wat de resource nodig heeft en hoe kosteneffectief het is om de individuele databases in elke servicecategorie te verplaatsen naar groepen van dezelfde categorie. Alle Standard databases op een server worden bijvoorbeeld beoordeeld op hoe ze in een Standard elastische groep passen. Dit betekent dat de service geen aanbevelingen doet voor het verplaatsen van databases naar een andere categorie, zoals het verplaatsen van een Standard database naar een Premium groep.
+Hallo service beoordeelt resourcebehoeften en kosteneffectiviteit zwevend Hallo één databases in elke servicelaag naar pools van Hallo dezelfde laag. Alle Standard databases op een server worden bijvoorbeeld beoordeeld op hoe ze in een Standard elastische groep passen. Dit betekent dat het Hallo-service maakt geen cross-aanbevelingen zoals het verplaatsen van een Standard database naar een Premium pool.
 
-Nadat databases zijn toegevoegd aan de groep, worden aanbevelingen dynamisch gegenereerd op basis van het gebruik van de databases die u hebt geselecteerd. Deze aanbevelingen worden weergegeven in de eDTU- en GB-gebruiksgrafiek en in een banner aan de bovenkant van de **pool configureren** blade. Deze aanbevelingen zijn bedoeld om u te helpen bij het maken van een elastische pool die geoptimaliseerd is voor uw specifieke databases.
+Na het toevoegen van databases toohello groep worden aanbevelingen dynamisch gegenereerd op basis van historisch gebruik Hallo Hallo-databases die u hebt geselecteerd. Deze aanbevelingen worden weergegeven in Hallo eDTU- en GB-gebruiksgrafiek en in een banner boven Hallo Hallo **pool configureren** blade. Deze aanbevelingen zijn bedoeld tooassist u bij het maken van een elastische pool geoptimaliseerd voor uw specifieke databases.
 
 ![dynamische aanbevelingen](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
 ## <a name="manage-and-monitor-an-elastic-pool"></a>Beheren en controleren van een elastische pool
 
-U kunt de Azure portal gebruiken om te controleren en beheren van een elastische groep en de databases in de pool. U kunt het gebruik van een elastische groep en de databases binnen die groep bewaken vanuit de portal. U kunt ook een aantal wijzigingen aanbrengen in uw elastische groep en alle wijzigingen tegelijk verzenden. Deze wijzigingen omvatten toevoegen of verwijderen van databases, elastische pool-instellingen wijzigen of database-instellingen wijzigen.
+U kunt hello Azure portal toomonitor gebruiken en een elastische pool en het Hallo-databases in de groep Hallo beheren. Vanuit de portal Hallo kunt u gebruik van een elastische pool en het Hallo-databases binnen die groep Hallo bewaken. U kunt ook een aantal wijzigingen tooyour elastische pool en dienen alle wijzigingen op Hallo dezelfde tijd. Deze wijzigingen omvatten toevoegen of verwijderen van databases, elastische pool-instellingen wijzigen of database-instellingen wijzigen.
 
-De volgende afbeelding toont een voorbeeld van de elastische groep. De weergave bevat:
+Hallo volgende afbeelding toont een voorbeeld van de elastische groep. Hallo-weergave bevat:
 
-*  De grafieken voor het brongebruik van de elastische groep en de databases die zijn opgenomen in de groep.
-*  De **configureren** knop wijzigingen aanbrengen in de elastische groep van toepassingen.
-*  De **database maken** knop waarmee een database wordt gemaakt en toegevoegd aan de huidige elastische groep.
+*  De grafieken voor het brongebruik van Hallo elastische pool en Hallo-databases die zijn opgenomen in de groep Hallo.
+*  Hallo **configureren** groep knop toomake toohello elastische pool wordt gewijzigd.
+*  Hallo **database maken** knop waarmee een database wordt gemaakt en de huidige elastische pool toohello toegevoegd.
 *  Groot aantal databases beheren elastische taken die u helpen door te voeren van Transact-SQL-scripts op alle databases in een lijst.
 
 ![Toepassingen weergeven][2]
 
-U kunt gaan naar een bepaalde groep om te zien van de bronnen beter worden benut. Standaard worden de toepassingen is geconfigureerd voor het weergeven van opslag en het eDTU-gebruik voor het afgelopen uur. De grafiek kan worden geconfigureerd voor andere metrische gegevens weergeven over verschillende tijdvensters.
+Het Resourcegebruik, kunt u tooa bepaalde toepassingen toosee gaan. Hallo-groep is standaard geconfigureerde tooshow opslag en het eDTU-gebruik voor Hallo afgelopen uur. Hallo-grafiek kunt geconfigureerde tooshow andere metrische gegevens worden via verschillende tijdvensters.
 
-1. Selecteer een elastische pool met werkt.
-2. Onder **elastische Pool bewaking** is een grafiek met het label **Resourcegebruik**. Klik op de grafiek.
+1. Selecteer een elastische pool toowork met.
+2. Onder **elastische Pool bewaking** is een grafiek met het label **Resourcegebruik**. Klik op Hallo-grafiek.
 
     ![Bewaking van de elastische groep][3]
 
-    De **metriek** blade wordt geopend, waarin een gedetailleerde weergave van de opgegeven metrische gegevens via de opgegeven periode.   
+    Hallo **metriek** blade wordt geopend, waarin een gedetailleerde weergave van Hallo metrische gegevens opgegeven via de opgegeven tijdvenster Hallo.   
 
     ![Blade met metrische gegevens][9]
 
-### <a name="to-customize-the-chart-display"></a>De grafiekweergave aanpassen
+### <a name="toocustomize-hello-chart-display"></a>grafiekweergave van toocustomize Hallo
 
-U kunt de metrische blade om weer te geven van andere metrische gegevens zoals CPU-percentage, gegevens-IO-percentage en log-IO-percentage gebruikt en de grafiek bewerken.
+U kunt Hallo grafiek en Hallo metrische blade toodisplay bewerken andere metrische gegevens zoals CPU-percentage, gegevens-IO-percentage en log-IO-percentage gebruikt.
 
-1. Klik op de blade metrische **bewerken**.
+1. Klik op Hallo metrische blade **bewerken**.
 
     ![Klik op bewerken][6]
 
-2. In de **grafiek bewerken** blade, selecteert u een tijdsbereik (voorbij vandaag de dag, uur of afgelopen week), of klik op **aangepaste** datumbereik selecteren in de afgelopen twee weken. Selecteer het grafiektype (staaf- of regel) en selecteer vervolgens de bronnen om te controleren.
+2. In Hallo **grafiek bewerken** blade, selecteert u een tijdsbereik (voorbij vandaag de dag, uur of afgelopen week), of klik op **aangepaste** tooselect een datumbereik in Hallo afgelopen twee weken. Hallo grafiektype (staaf- of regel) selecteren en selecteer vervolgens Hallo resources toomonitor.
 
    > [!Note]
-   > Metrische gegevens met de dezelfde eenheid kunnen worden weergegeven in de grafiek op hetzelfde moment. Bijvoorbeeld, als u 'eDTU percentage' selecteert kunt vervolgens u alleen selecteren andere metrische gegevens met percentage als de maateenheid.
+   > Alleen metrische gegevens met dezelfde eenheid kan worden weergegeven in Hallo Hallo grafiek op Hallo dezelfde tijd. Bijvoorbeeld, als u 'eDTU percentage' selecteert kunt vervolgens u alleen selecteren andere metrische gegevens met percentage als eenheid Hallo.
    >
 
     ![Klik op bewerken](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
@@ -161,81 +161,81 @@ U kunt de metrische blade om weer te geven van andere metrische gegevens zoals C
 
 Afzonderlijke databases kunnen ook worden gecontroleerd voor potentiële problemen.
 
-1. Onder **elastische Database bewaken**, er is een diagram waarin metrische gegevens voor vijf databases. Standaard het diagram toont de bovenste 5 databases in de groep door gemiddeld eDTU-gebruik in het afgelopen uur. Klik op de grafiek.
+1. Onder **elastische Database bewaken**, er is een diagram waarin metrische gegevens voor vijf databases. Standaard Hallo diagram toont Hallo bovenste 5 databases in de groep Hallo door gemiddeld eDTU-gebruik in Hallo afgelopen uur. Klik op Hallo-grafiek.
 
     ![Bewaking van de elastische groep][4]
 
-2. De **Database Resourcegebruik** blade wordt weergegeven. Dit biedt een gedetailleerde weergave van het Databasegebruik in de groep. Het raster in het onderste gedeelte van de blade kunt u geen databases selecteren in de groep om het gebruik ervan in de grafiek (maximaal 5 databases) weer te geven. U kunt ook de metrische gegevens en het tijdstip venster wordt weergegeven in de grafiek door te klikken op **grafiek bewerken**.
+2. Hallo **Database Resourcegebruik** blade wordt weergegeven. Dit biedt een gedetailleerde weergave van het Databasegebruik Hallo in Hallo van toepassingen. Hallo raster Hallo onder in de blade Hallo gebruikt, kunt u geen databases in Hallo groep toodisplay het gebruik ervan in de grafiek hello (omhoog too5 databases). U kunt ook aanpassen Hallo metrische gegevens en het tijdstip venster wordt weergegeven in de grafiek Hallo door te klikken op **grafiek bewerken**.
 
     ![Gebruik van de databaseblade resource][8]
 
-### <a name="to-customize-the-view"></a>De weergave aanpassen
+### <a name="toocustomize-hello-view"></a>toocustomize hello weergeven
 
-1. In de **Resourcegebruik van de Database** blade, klikt u op **grafiek bewerken**.
+1. In Hallo **Resourcegebruik van de Database** blade, klikt u op **grafiek bewerken**.
 
     ![Klik op de grafiek bewerken](./media/sql-database-elastic-pool-manage-portal/db-utilization-blade.png)
 
-2. In de **bewerken** blade grafiek, selecteert u een tijdsbereik (voorbij uur of afgelopen 24 uur) of klik op **aangepaste** selecteren van een andere dag in de afgelopen twee weken om weer te geven.
+2. In Hallo **bewerken** blade grafiek, selecteert u een tijdsbereik (voorbij uur of afgelopen 24 uur) of klik op **aangepaste** tooselect een andere dag in Hallo voorbij toodisplay 2 weken.
 
     ![Klik op aangepast](./media/sql-database-elastic-pool-manage-portal/editchart-date-time.png)
 
-3. Klik op de **vergelijken databases door** dropdown selecteren van een andere waarde voor gebruik bij het vergelijken van databases.
+3. Klik op Hallo **vergelijken databases door** dropdown tooselect verschillende metrische toouse bij het vergelijken van databases.
 
-    ![De grafiek bewerken](./media/sql-database-elastic-pool-manage-portal/edit-comparison-metric.png)
+    ![Hallo grafiek bewerken](./media/sql-database-elastic-pool-manage-portal/edit-comparison-metric.png)
 
-### <a name="to-select-databases-to-monitor"></a>Databases bewaken selecteren
+### <a name="tooselect-databases-toomonitor"></a>tooselect databases toomonitor
 
-In de databaselijst in de **Database Resourcegebruik** blade kunt u bepaalde databases vinden door te zoeken door de pagina's in de lijst of typ in de naam van een database. Gebruik de selectievakjes om de database te selecteren.
+In de lijst met de Hallo database in Hallo **Database Resourcegebruik** blade kunt u bepaalde databases vinden door te zoeken door Hallo pagina's in de lijst Hallo of door in het Hallo-naam van een database te typen. Hallo selectievakje tooselect Hallo database gebruiken.
 
-![Zoeken naar databases bewaken][7]
+![Zoeken naar databases toomonitor][7]
 
 
-## <a name="add-an-alert-to-an-elastic-pool-resource"></a>Een waarschuwing toevoegen aan een resource voor de elastische groep
+## <a name="add-an-alert-tooan-elastic-pool-resource"></a>Een elastische pool waarschuwing tooan resource toevoegen
 
-U kunt regels toevoegen aan een elastische groep die e-mail verzenden naar personen of waarschuwing tekenreeksen met URL-eindpunten wanneer de elastische groep treffers een drempelwaarde voor overbenutting die u hebt ingesteld.
+Regels tooan elastische groep die e-mail verzenden toopeople of waarschuwing tekenreeksen tooURL eindpunten wanneer Hallo elastische pool treffers een drempelwaarde voor overbenutting die u hebt ingesteld, kunt u toevoegen.
 
-**Een waarschuwing toevoegen aan een resource:**
+**een waarschuwing tooany resource tooadd:**
 
-1. Klik op de **Resourcegebruik** grafiek te openen de **metriek** blade klikt u op **waarschuwing toevoegen**, en geef vervolgens de informatie in de **een waarschuwingsregeltoevoegen** blade (**Resource** wordt automatisch ingesteld tot worden de toepassingen waarmee u werkt).
-2. Typ een **naam** en **beschrijving** die de waarschuwing u en de ontvangers identificeert.
-3. Kies een **metriek** die u wilt een waarschuwing in de lijst.
+1. Klik op Hallo **Resourcegebruik** grafiek tooopen Hallo **metriek** blade klikt u op **waarschuwing toevoegen**, en vult u de informatie in Hallo Hallo **een waarschuwing toevoegen regel** blade (**Resource** automatisch ingesteld toobe Hallo toepassingen waarmee u werkt).
+2. Typ een **naam** en **beschrijving** die Hallo waarschuwing tooyou en Hallo ontvangers identificeert.
+3. Kies een **metriek** dat u wilt dat tooalert uit Hallo-lijst.
 
-    De grafiek wordt dynamisch Resourcegebruik voor deze metriek bij het kiezen van een drempelwaarde.
+    Hallo diagram toont dynamisch Resourcegebruik voor die metrische toohelp die u kiest een drempelwaarde.
 
 4. Kies een **voorwaarde** (groter dan maximaal, enzovoort) en een **drempelwaarde**.
-5. Kies een **periode** tijdsperiode waarin de meetwaarde regel moet worden voldaan voordat de waarschuwing triggers.
+5. Kies een **periode** hoelang Hallo metriek regel moet worden voldaan voordat de waarschuwing Hallo-triggers.
 6. Klik op **OK**.
 
 Zie voor meer informatie [waarschuwingen van de SQL-Database maken in Azure portal](sql-database-insights-alerts-portal.md).
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Een database verplaatsen naar een elastische pool
 
-U kunt toevoegen of verwijderen van databases uit een bestaande groep. De databases kunnen zich in andere toepassingen. U kunt echter alleen databases die zich op dezelfde logische server toevoegen.
+U kunt toevoegen of verwijderen van databases uit een bestaande groep. Hallo-databases kunnen zich in andere toepassingen. U kunt echter alleen toevoegen databases die zijn op Hallo dezelfde logische server.
 
-1. In de blade voor de groep, onder **elastische databases** klikt u op **pool configureren**.
+1. Hallo-blade voor Hallo-toepassingen onder **elastische databases** klikt u op **pool configureren**.
 
     ![Klik op pool configureren][1]
 
-2. In de **pool configureren** blade, klikt u op **toevoegen aan groep**.
+2. In Hallo **pool configureren** blade, klikt u op **toopool toevoegen**.
 
-    ![Klik op toevoegen aan groep](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
+    ![Klik op toevoegen toopool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 
 
-3. In de **databases toevoegen** blade, selecteer de database of databases toevoegen aan de groep. Klik vervolgens op **Selecteer**.
+3. In Hallo **databases toevoegen** blade, selecteer Hallo database of databases tooadd toohello van toepassingen. Klik vervolgens op **Selecteer**.
 
-    ![Selecteer de databases toevoegen](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
+    ![Selecteer de databases tooadd](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
 
-    De **pool configureren** blade bevat nu de database die u hebt geselecteerd om te worden toegevoegd, klikt u met de status ingesteld op **in behandeling**.
+    Hallo **pool configureren** blade nu een lijst met toobe toegevoegd met de status ervan instellen te geselecteerde database Hallo**in behandeling**.
 
     ![In behandeling pool-toevoegingen](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
 
-3. In de **blade van de pool configureren**, klikt u op **opslaan**.
+3. In Hallo **blade van de pool configureren**, klikt u op **opslaan**.
 
     ![Op Opslaan klikken](./media/sql-database-elastic-pool-manage-portal/click-save.png)
 
 ## <a name="move-a-database-out-of-an-elastic-pool"></a>Een database verplaatst buiten een elastische pool
 
-1. In de **pool configureren** blade, selecteer de database of databases verwijderen.
+1. In Hallo **pool configureren** blade, selecteer Hallo database of databases tooremove.
 
     ![databases weergeven](./media/sql-database-elastic-pool-manage-portal/select-pools-removal.png)
 
@@ -243,41 +243,41 @@ U kunt toevoegen of verwijderen van databases uit een bestaande groep. De databa
 
     ![databases weergeven](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
 
-    De **pool configureren** blade bevat nu de database die u hebt geselecteerd om te worden verwijderd met de status ingesteld op **in behandeling**.
+    Hallo **pool configureren** blade nu een lijst met toobe verwijderd met de status ervan instellen te geselecteerde database Hallo**in behandeling**.
 
     ![voorbeeld database toevoegen en verwijderen](./media/sql-database-elastic-pool-manage-portal/pending-removal.png)
 
-3. In de **blade van de pool configureren**, klikt u op **opslaan**.
+3. In Hallo **blade van de pool configureren**, klikt u op **opslaan**.
 
     ![Op Opslaan klikken](./media/sql-database-elastic-pool-manage-portal/click-save.png)
 
 ## <a name="change-performance-settings-of-an-elastic-pool"></a>Instellingen van de prestaties van een elastische groep wijzigen
 
-Als u het Resourcegebruik van een elastische pool bewaken, ontdekt u dat bepaalde aanpassingen nodig zijn. De groep moet mogelijk een wijziging in de limieten van de prestaties of de opslag. Mogelijk wilt u de database-instellingen in de groep wijzigen. U kunt de installatie van de groep wijzigen op elk gewenst moment om op te halen van de beste balans van prestaties en kosten. Zie [wanneer moet een elastische pool worden gebruikt?](sql-database-elastic-pool.md) voor meer informatie.
+Tijdens het controleren van Resourcegebruik Hallo van een pool voor elastische ontdekt u dat bepaalde aanpassingen nodig zijn. Hallo-groep moet mogelijk een wijziging in Hallo prestaties of de opslag limieten. Mogelijk wilt u toochange Hallo database-instellingen in Hallo van toepassingen. U kunt setup Hallo van Hallo van toepassingen die op elk moment tooget Hallo beste balans van prestaties en kosten wijzigen. Zie [wanneer moet een elastische pool worden gebruikt?](sql-database-elastic-pool.md) voor meer informatie.
 
-De limieten voor edtu's of opslag per groep en edtu's per database wijzigen:
+toochange hello edtu's of opslag limieten per groep van toepassingen en edtu's per database:
 
-1. Open de **pool configureren** blade.
+1. Open Hallo **pool configureren** blade.
 
-    Onder **elastische groepsinstellingen**, gebruik de schuifregelaar voor de Groepsinstellingen wijzigen.
+    Onder **elastische groepsinstellingen**, ofwel groepsinstellingen schuifregelaar toochange hello gebruiken.
 
     ![Resourcegebruik van de elastische groep](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
 
-2. Wanneer de instelling wordt gewijzigd, worden de weergave de geschatte maandelijkse kosten van de wijziging.
+2. Wanneer Hallo-instelling wordt gewijzigd, ziet u Hallo weergave Hallo Geschatte maandelijkse kosten van Hallo wijzigen.
 
     ![Bijwerken van een elastische pool en nieuwe maandelijkse kosten](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
 
 ## <a name="latency-of-elastic-pool-operations"></a>Latentie van bewerkingen van de elastische groep
-* Doorgaans wijzigen van de edtu min's per database of max edtu's per database is voltooid in de 5 minuten of minder.
-* Het wijzigen van de edtu's per groep, is afhankelijk van de totale hoeveelheid ruimte die wordt gebruikt door alle databases in de groep. Wijzigingen duren gemiddeld 90 minuten of minder per 100 GB. Bijvoorbeeld, als de totale ruimte gebruikt door alle databases in de pool is 200 GB, dan is de verwachte latentie voor het wijzigen van de groeps-eDTU per pool drie uur of minder.
+* Hallo min edtu's per database of max edtu's per database doorgaans wijzigen is voltooid in de 5 minuten of minder.
+* Hallo edtu's per groep wijzigen hangt af van de totale hoeveelheid ruimte die wordt gebruikt door alle databases in de groep Hallo Hallo. Wijzigingen duren gemiddeld 90 minuten of minder per 100 GB. Bijvoorbeeld, als de totale ruimte hello worden gebruikt door alle databases in de groep Hallo is 200 GB en vervolgens Hallo verwachte latentie voor het wijzigen van Hallo groeps-eDTU per pool is drie uur of minder.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Om te begrijpen wat een elastische groep is, Zie [elastische pool in SQL-Database](sql-database-elastic-pool.md).
+- welke een elastische groep is, Zie toounderstand [elastische pool in SQL-Database](sql-database-elastic-pool.md).
 - Zie voor instructies over het gebruik van elastische pools [prijs- en Prestatieoverwegingen voor elastische pools](sql-database-elastic-pool.md).
-- Zie voor het gebruik van elastische taken Transact-SQL-scripts uitvoeren op een willekeurig aantal databases in de pool, [elastische taken overzicht](sql-database-elastic-jobs-overview.md).
-- Om te vragen via een willekeurig aantal databases in de groep, Zie [elastische query overzicht](sql-database-elastic-query-overview.md).
-- Zie voor transacties een willekeurig aantal databases in de pool [elastische transacties](sql-database-elastic-transactions-overview.md).
+- toouse elastische taken toorun Transact-SQL-scripts uitvoeren op een willekeurig aantal databases in de groep hello, Zie [elastische taken overzicht](sql-database-elastic-jobs-overview.md).
+- tooquery via een willekeurig aantal databases in de groep hello, Zie [elastische query overzicht](sql-database-elastic-query-overview.md).
+- Zie voor transacties een willekeurig aantal databases in de groep hello, [elastische transacties](sql-database-elastic-transactions-overview.md).
 
 
 <!--Image references-->

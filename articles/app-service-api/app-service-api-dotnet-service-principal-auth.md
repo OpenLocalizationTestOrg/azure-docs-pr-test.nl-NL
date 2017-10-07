@@ -1,6 +1,6 @@
 ---
-title: Verificatie van service-principal voor API Apps in Azure App Service | Microsoft Docs
-description: Informatie over het beveiligen van een API-app in Azure App Service voor scenario's voor service-naar-service.
+title: aaaService verificatie voor API Apps in Azure App Service | Microsoft Docs
+description: Meer informatie over hoe tooprotect een API-app in Azure App Service voor scenario's voor service-naar-service.
 services: app-service\api
 documentationcenter: .net
 author: alexkarcher-msft
@@ -14,143 +14,143 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: alkarche
-ms.openlocfilehash: 95653287546bbe358111ed16af0c30a53caff2b5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 94d9ee11f38293df4a2fd815ef02c59cc6defed4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-principal-authentication-for-api-apps-in-azure-app-service"></a>Verificatie van service-principal voor API Apps in Azure App Service
 ## <a name="overview"></a>Overzicht
-In dit artikel wordt uitgelegd hoe u App Service-verificatie voor *interne* toegang tot API-apps. Een interne scenario is waar u een API-app die u wilt worden alleen door uw eigen toepassingscode verbruikbare hebt. De aanbevolen manier om dit scenario implementeren in App Service wordt opgeroepen API-app beveiligen met Azure AD. U kunt de API-app met een bearer-token die u via Azure AD door het opgeven van de toepassings-id (service-principal) referenties beveiligde aanroepen. Zie voor alternatieven voor het gebruik van Azure AD de **authentication Service-naar-serviceconnector** sectie van de [overzicht van Azure App Service-authenticatie](../app-service/app-service-authentication-overview.md#service-to-service-authentication).
+Dit artikel wordt uitgelegd hoe toouse App Service-verificatie voor *interne* toegang tot tooAPI apps. Een interne scenario is waar u een API-app die u toobe verbruikbare alleen door uw eigen toepassingscode wilt. Hallo aanbevolen manier tooimplement dit scenario in App Service toouse Azure AD tooprotect Hallo heet API-app. U kunt Hallo beveiligd API-app met een bearer-token die u via Azure AD door het opgeven van de toepassings-id (service-principal) referenties aanroepen. Zie voor alternatieven toousing Azure AD, Hallo **authentication Service-naar-service** sectie Hallo [overzicht van Azure App Service-authenticatie](../app-service/app-service-authentication-overview.md#service-to-service-authentication).
 
 In dit artikel leert u het volgende:
 
-* Het gebruik van Azure Active Directory (Azure AD) voor een API-app beveiligen tegen niet-geverifieerde toegang.
-* Klik hier voor meer informatie over het gebruiken van een beveiligde API-app van een API-app, web-app of mobiele app via Azure AD-referenties voor service-principal (app-identiteit). Zie voor meer informatie over het gebruiken van een logische app [uw aangepaste API gebruiken die worden gehost op App Service met Logic apps](../logic-apps/logic-apps-custom-hosted-api.md).
-* Hoe om ervoor te zorgen dat de beveiligde API-app kan niet worden aangeroepen vanuit een browser door aangemelde gebruikers.
-* Hoe om ervoor te zorgen dat de beveiligde API-app kan alleen worden aangeroepen door een specifieke Azure AD service-principal.
+* Hoe toouse Azure Active Directory (Azure AD) tooprotect een API-app van niet-geverifieerde toegang.
+* Hoe tooconsume een beveiligde API-app uit een API-app, web-app of mobiele app met behulp van Azure AD-referenties voor service-principal (app-identiteit). Voor informatie over het tooconsume van een logische app, Zie [uw aangepaste API gebruiken die worden gehost op App Service met Logic apps](../logic-apps/logic-apps-custom-hosted-api.md).
+* Hoe toomake zorgen dat Hallo beschermd API-app kan niet worden aangeroepen vanuit een browser door gebruikers zijn aangemeld.
+* Hoe toomake zorgen dat Hallo beschermd API-app kan alleen worden aangeroepen door een specifieke service-principal voor Azure AD.
 
-Het artikel bestaat uit twee gedeelten:
+Hallo artikel bestaat uit twee gedeelten:
 
-* De [verificatie van de service-principal configureren in Azure App Service](#authconfig) sectie in het algemeen wordt uitgelegd hoe authentication configureren voor elke API-app en de beveiligde API-app gebruiken. Deze sectie is evenveel van toepassing op alle frameworks die worden ondersteund door App Service, waaronder .NET, Node.js en Java.
-* Beginnen met de [u doorgaat met de zelfstudies .NET aan de slag](#tutorialstart) sectie de zelfstudie leidt u door een 'interne toegang'-scenario voor een .NET-voorbeeldtoepassing die is uitgevoerd in App Service configureren. 
+* Hallo [hoe tooconfigure service-principal verificatie in Azure App Service](#authconfig) sectie wordt uitgelegd hoe u algemene tooconfigure verificatie voor een API-app, en hoe tooconsume Hallo beveiligd API-app. Deze sectie is evenveel van toepassing tooall frameworks die worden ondersteund door App Service, waaronder .NET, Node.js en Java.
+* Beginnen met Hallo [u doorgaat zelfstudies .NET-aan de slag Hallo](#tutorialstart) sectie Hallo zelfstudie leidt u door een 'interne toegang'-scenario voor een .NET-voorbeeldtoepassing die is uitgevoerd in App Service configureren. 
 
-## <a id="authconfig"></a>Verificatie van de service-principal in Azure App Service configureren
-Deze sectie bevat algemene instructies die betrekking hebben op elke API-app. Voor specifieke stappen voor de voorbeeldtoepassing te doen lijst-.NET, gaat u naar [u doorgaat met de .NET API Apps zelfstudie reeks](#tutorialstart).
+## <a id="authconfig"></a>Hoe tooconfigure service-principal verificatie in Azure App Service
+Deze sectie bevat algemene instructies die van toepassing zijn tooany API-app. Ga te voor stappen specifieke toohello tooDo lijst .NET-voorbeeldtoepassing[u doorgaat Hallo .NET API Apps-zelfstudie reeks](#tutorialstart).
 
-1. In de [Azure-portal](https://portal.azure.com/), gaat u naar de **instellingen** blade van de API-app die u wilt beveiligen en gaat u naar de **functies** sectie en klik op **verificatie / autorisatie**.
+1. In Hallo [Azure-portal](https://portal.azure.com/), navigeer toohello **instellingen** blade van Hallo API-app die u tooprotect wilt en gaat u naar Hallo **functies** sectie en klikt u op **Verificatie / autorisatie**.
    
     ![Verificatie/autorisatie in Azure-portal](./media/app-service-api-dotnet-user-principal-auth/features.png)
-2. In de **verificatie / autorisatie** blade, klikt u op **op**.
-3. In de **te ondernemen actie wanneer de aanvraag is niet geverifieerd** vervolgkeuzelijst, selecteer **aanmelden met Azure Active Directory** .
+2. In Hallo **verificatie / autorisatie** blade, klikt u op **op**.
+3. In Hallo **tootake actie wanneer de aanvraag is niet geverifieerd** vervolgkeuzelijst, selecteer **aanmelden met Azure Active Directory** .
 4. Onder **verificatieproviders**, selecteer **Azure Active Directory**.
    
     ![Verificatie/autorisatie-blade in Azure-portal](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
-5. Configureer de **Azure Active Directory-instellingen** blade Maak een nieuwe Azure AD-toepassing, of gebruik een bestaande Azure AD-toepassing als u al hebt die u wilt gebruiken.
+5. Hallo configureren **Azure Active Directory-instellingen** blade toocreate een nieuwe Azure AD-toepassing, of gebruik een bestaande Azure AD-toepassing als u al hebt dat u wilt dat toouse.
    
     Interne scenario's omvatten doorgaans een API-app aanroepen van een API-app. U kunt afzonderlijke Azure AD-toepassingen voor elke API-app of slechts één Azure AD-toepassing.
    
-    Zie voor gedetailleerde instructies voor deze blade [het configureren van uw App Service-toepassing voor het gebruik van Azure Active Directory-aanmelding](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
-6. Wanneer u met de blade verificatie provider configuratie bent klaar, klikt u op **OK**.
-7. In de **verificatie / autorisatie** blade, klikt u op **opslaan**.
+    Zie voor gedetailleerde instructies voor deze blade [hoe tooconfigure uw App Service-toepassing toouse Azure Active Directory-aanmelding](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+6. Wanneer u met de Hallo verificatie provider configuratie blade bent klaar, klikt u op **OK**.
+7. In Hallo **verificatie / autorisatie** blade, klikt u op **opslaan**.
    
     ![Op Opslaan klikken](./media/app-service-api-dotnet-service-principal-auth/authsave.png)
 
-Wanneer dit wordt gedaan, App Service kunt alleen aanvragen van aanroepfuncties in de geconfigureerde Azure AD-tenant. Geen verificatie of autorisatie-code is vereist in de beveiligde API-app. De bearer-token wordt doorgegeven aan de API-app samen met vaak gebruikte claims in HTTP-headers en kunt u die informatie in de code te valideren dat verzoeken afkomstig van een bepaalde aanroeper, zoals een service-principal zijn lezen.
+Wanneer dit wordt gedaan, staat App Service alleen aanvragen van aanroepfuncties in Azure AD-tenant Hallo geconfigureerd. Geen verificatie of autorisatie-code is vereist in Hallo beveiligd API-app. Hallo bearer-token wordt doorgegeven toohello API-app samen met veelgebruikte claims in HTTP-headers en kunt u deze informatie weer in code toovalidate die aanvragen afkomstig van een bepaalde aanroeper, zoals een service-principal zijn lezen.
 
-Deze functionaliteit verificatie werkt op dezelfde manier voor alle talen die App-service wordt ondersteund, waaronder .NET, Node.js en Java. 
+Deze functionaliteit verificatie werkt Hallo dezelfde manier voor alle talen die App-service ondersteunt, zoals .NET, Node.js en Java. 
 
-#### <a name="how-to-consume-the-protected-api-app"></a>De beveiligde API-app gebruiken
-De aanroeper moet een Azure AD-bearer-token met API-aanroepen opgeven. Als u een bearer-token met behulp van service-principal referenties, de aanroeper maakt gebruik van Active Directory Authentication Library (ADAL voor [.NET](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory), [Node.js](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs), of [Java](https://github.com/AzureAD/azure-activedirectory-library-for-java)). Als u een token, bevat de code die ADAL-aanroepen adal de volgende informatie:
+#### <a name="how-tooconsume-hello-protected-api-app"></a>Hoe tooconsume Hallo beveiligd API-app
+Hallo aanroeper moet een Azure AD-bearer-token met API-aanroepen opgeven. tooget bearer-token met behulp van service-principal referenties, Hallo aanroeper gebruikmaakt van Active Directory Authentication Library (ADAL voor [.NET](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory), [Node.js](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs), of [Java](https://github.com/AzureAD/azure-activedirectory-library-for-java)). een token tooget, Hallo-code die ADAL-aanroepen biedt tooADAL Hallo volgende informatie:
 
-* De naam van uw Azure AD-tenant.
-* De client-ID en clientgeheim (app-sleutel) van de Azure AD-app die is gekoppeld aan de aanroeper.
-* De client-ID van de Azure AD-toepassing die is gekoppeld aan de beveiligde API-app. (Als slechts één Azure AD-toepassing wordt gebruikt, is dit de dezelfde client-ID als voor de aanroeper.)
+* Hallo-naam van uw Azure AD-tenant.
+* Hallo-ID en client clientgeheim (app-sleutel) van hello Azure AD-app die is gekoppeld aan de aanroeper Hallo.
+* client-ID van Azure AD-toepassing die is gekoppeld aan Hallo HALLO hallo beveiligd API-app. (Als slechts één Azure AD-toepassing wordt gebruikt, dit is Hallo dezelfde client-ID als een voor de aanroeper Hallo Hallo.)
 
-Deze waarden zijn beschikbaar in de Azure AD's van de [klassieke Azure-portal](https://manage.windowsazure.com/).
+Deze waarden zijn beschikbaar in hello Azure AD-pagina's van Hallo [klassieke Azure-portal](https://manage.windowsazure.com/).
 
-Wanneer het token heeft aangeschaft, wordt het in de aanroeper bevat met HTTP-aanvragen in de autorisatie-header.  App Service valideert het token en kunnen de aanvragen voor het bereiken van de beveiligde API-app.
+Zodra het Hallo-token is aangeschaft, Hallo aanroeper opgenomen in de met HTTP-aanvragen in Hallo autorisatie-header.  App Service Hallo token valideert en kunnen Hallo aanvragen tooreach Hallo beveiligd API-app.
 
-#### <a name="how-to-protect-the-api-app-from-access-by-users-in-the-same-tenant"></a>Het beveiligen van de API-app tegen toegang door gebruikers in dezelfde tenant
-Voor gebruikers in dezelfde tenant-Bearer-tokens als geldig beschouwd voor het beveiligde API-app.  Als u wilt om ervoor te zorgen dat alleen een service-principal beveiligde API-app kunt aanroepen, moet u code toevoegen in de beveiligde API-app voor het valideren van de volgende claims uit het token:
+#### <a name="how-tooprotect-hello-api-app-from-access-by-users-in-hello-same-tenant"></a>Hoe tooprotect Hallo API-app tegen toegang door gebruikers in Hallo die dezelfde tenant
+Bearer-tokens voor gebruikers in dezelfde tenant worden beschouwd als geldig voor Hallo Hallo beveiligd API-app.  Als u wilt dat tooensure die alleen een service-principal kunt aanroepen Hallo beveiligde API-app, het toevoegen van de code in Hallo beschermd API app toovalidate Hallo claims van Hallo-token te volgen:
 
-* `appid`moet u de client-ID van de Azure AD-toepassing die is gekoppeld aan de aanroeper. 
-* `oid`(`objectidentifier`) moet de service-principal-ID van de aanroepfunctie. 
+* `appid`client-ID van hello Azure AD-toepassing die is gekoppeld aan de aanroeper Hallo Hallo moet. 
+* `oid`(`objectidentifier`) moet Hallo service principal-ID van de aanroepfunctie Hallo. 
 
-App Service biedt ook de `objectidentifier` claim in de header X-MS-CLIENT-PRINCIPAL-ID.
+App Service biedt ook Hallo `objectidentifier` claim in de header Hallo X-MS-CLIENT-PRINCIPAL-ID.
 
-### <a name="how-to-protect-the-api-app-from-browser-access"></a>Het beveiligen van de API-app van toegang tot de browser
-Als u claims in de code in de beveiligde API-app niet valideren, en als u een afzonderlijke Azure AD-toepassing voor de beveiligde API-app, zorg ervoor dat de Azure AD-toepassing antwoord-URL is niet hetzelfde zijn als de basis-URL van de API-app. Als de antwoord-URL rechtstreeks naar de beveiligde API-app verwijst, kan een gebruiker in de dezelfde Azure AD-tenant Blader naar de API-app, aanmelden en is de API aanroepen.
+### <a name="how-tooprotect-hello-api-app-from-browser-access"></a>Hoe tooprotect Hallo API-app van toegang tot de browser
+Als u claims in de code in Hallo beveiligd API-app niet valideren, en als u een afzonderlijke Azure AD-toepassing voor Hallo beveiligd API-app, zorg ervoor dat hello Azure AD-toepassing antwoord-URL is Hallo niet hetzelfde als het Hallo-API-app basis-URL. Als Hallo antwoord-URL rechtstreeks toohello beveiligd API-app verwijst, kan een gebruiker in Hallo dezelfde Azure AD-tenant toohello API-app bladeren, aanmelden en roepen Hallo-API.
 
-## <a id="tutorialstart"></a>U kunt doorgaan de zelfstudie reeks .NET API-Apps
-Als u de zelfstudie reeks Node.js of Java voor API-apps volgt, gaat u naar de [Vervolgstappen](#next-steps) sectie. 
+## <a id="tutorialstart"></a>U kunt doorgaan zelfstudie Hallo .NET API Apps-reeks
+Als u Hallo Node.js of Java zelfstudie reeksen voor API-apps volgt, gaat u verder toohello [Vervolgstappen](#next-steps) sectie. 
 
-De rest van dit artikel wordt de .NET API Apps zelfstudie reeks voortgezet en wordt ervan uitgegaan dat u hebt voltooid de [gebruiker verificatie zelfstudie](app-service-api-dotnet-user-principal-auth.md) en hebben de voorbeeldtoepassing die u uitvoert in Azure met de verificatie van de gebruiker is ingeschakeld.
+Hallo rest van dit artikel wordt voortgezet Hallo .NET API Apps-zelfstudie reeks en wordt ervan uitgegaan dat u Hallo hebt voltooid [gebruiker verificatie zelfstudie](app-service-api-dotnet-user-principal-auth.md) en Hallo-voorbeeldtoepassing die is uitgevoerd in Azure met gebruikersverificatie hebben ingeschakeld.
 
 ## <a name="set-up-authentication-in-azure"></a>Verificatie in Azure instellen
-In deze sectie u App Service zo configureren dat alleen HTTP-aanvragen dat kunt u de API app voor de gegevenslaag bereiken zijn degene die geldig Azure zijn AD-bearer-tokens. 
+In deze sectie u App Service zo configureren dat alleen HTTP-aanvragen kunt u tooreach Hallo API app voor de gegevenslaag Hallo zijn Hallo waarden die u geldige Azure hebt AD-bearer-tokens. 
 
-In de volgende sectie configureert u de API-app voor de middelste laag toepassing referenties te verzenden naar Azure AD, weer een bearer-token verkrijgen en de bearer-token verzenden naar de API app voor de gegevenslaag. Dit proces wordt weergegeven in het diagram.
+In Hallo volgende sectie, Hallo middelste laag API app toosend toepassing referenties tooAzure AD configureren, weer een bearer-token verkrijgen en Hallo bearer-token toohello gegevens laag API-app verzenden. Dit proces wordt weergegeven in Hallo-diagram.
 
 ![Service-verificatiediagram](./media/app-service-api-dotnet-service-principal-auth/appdiagram.png)
 
-Als u problemen ondervindt tijdens de zelfstudie aanwijzingen, raadpleegt u de [probleemoplossing](#troubleshooting) sectie aan het einde van de zelfstudie. 
+Als u problemen bij de volgende zelfstudie Hallo-instructies, Zie Hallo [probleemoplossing](#troubleshooting) sectie aan einde van de zelfstudie Hallo Hallo. 
 
-1. In de [Azure-portal](https://portal.azure.com/), gaat u naar de **instellingen** blade van de API-app die u voor de ToDoListDataAPI (gegevenslaag) API-app gemaakt en klik vervolgens op **instellingen**.
-2. In de **instellingen** blade vinden de **functies** sectie en klik vervolgens op **verificatie / autorisatie**.
+1. In Hallo [Azure-portal](https://portal.azure.com/), navigeer toohello **instellingen** blade van Hallo API-app die u voor Hallo ToDoListDataAPI (gegevenslaag) API-app gemaakt en klik vervolgens op **instellingen**.
+2. In Hallo **instellingen** blade, zoeken Hallo **functies** sectie en klik vervolgens op **verificatie / autorisatie**.
    
     ![Verificatie/autorisatie in Azure-portal](./media/app-service-api-dotnet-user-principal-auth/features.png)
-3. In de **verificatie / autorisatie** blade, klikt u op **op**.
-4. In de **te ondernemen actie wanneer de aanvraag is niet geverifieerd** vervolgkeuzelijst, selecteer **aanmelden met Azure Active Directory**.
+3. In Hallo **verificatie / autorisatie** blade, klikt u op **op**.
+4. In Hallo **tootake actie wanneer de aanvraag is niet geverifieerd** vervolgkeuzelijst, selecteer **aanmelden met Azure Active Directory**.
    
-    Dit is de instelling zorgt ervoor dat de App-Service om ervoor te zorgen dat alleen aanvragen reach API-app geverifieerde. Voor aanvragen met geldig bearer-tokens, App Service de tokens langs wordt doorgegeven aan de API-app en HTTP-headers met veelgebruikte claims die informatie gemakkelijker om beschikbaar te maken aan uw code wordt gevuld.
+    Dit is Hallo instelling zorgt ervoor dat de App Service-tooensure die alleen aanvragen reach Hallo API-app geverifieerde. Voor aanvragen met geldig bearer-tokens, App Service doorgegeven Hallo tokens langs toohello API-app en HTTP-headers met veelgebruikte claims toomake gevuld die informatie gemakkelijker beschikbaar tooyour code.
 5. Onder **verificatieproviders**, klikt u op **Azure Active Directory**.
    
     ![Verificatie/autorisatie-blade in Azure-portal](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
-6. In de **Azure Active Directory-instellingen** blade, klikt u op **Express**.
+6. In Hallo **Azure Active Directory-instellingen** blade, klikt u op **Express**.
    
-    Met de **Express** optie Azure automatisch een AAD-toepassing maken in uw Azure AD [tenant](https://msdn.microsoft.com/en-us/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). 
+    Hello **Express** optie Azure automatisch een AAD-toepassing maken in uw Azure AD [tenant](https://msdn.microsoft.com/en-us/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). 
    
-    U hoeft te maken van een tenant omdat elke Azure-account automatisch een heeft.
+    U hebt geen toocreate een tenant, omdat elke Azure-account automatisch een heeft.
 7. Onder **beheermodus**, klikt u op **nieuwe AD-App maken** als deze niet is geselecteerd.
    
-    De portal kunt aansluiten de **App maken** invoervak met een standaardwaarde. Standaard is de Azure AD-toepassing naam hetzelfde zijn als de API-app. Als u liever, kunt u een andere naam.
+    Hallo-portal kunt aansluiten Hallo **App maken** invoervak met een standaardwaarde. Naam standaard hello Azure AD-toepassing hello dezelfde als Hallo API-app. Als u liever, kunt u een andere naam.
    
     ![Azure AD-instellingen](./media/app-service-api-dotnet-service-principal-auth/aadsettings.png)
    
-    **Opmerking**: als alternatief kunt u een Azure AD van één toepassing voor zowel de aanroepende API-app en de beveiligde API-app. Als u met deze alternatieve hebt gekozen, moet u niet de **nieuwe AD-App maken** optie hier omdat u al een Azure AD-toepassing eerder in de gebruiker authenticatie-zelfstudie hebt gemaakt. Voor deze zelfstudie gebruikt u Azure AD-toepassingen voor de aanroepende API-app en de beveiligde API-app.
-8. Noteer de waarde die is in de **App maken** invoervak; u moet deze AAD-toepassing in de klassieke Azure portal later opzoeken.
+    **Opmerking**: als alternatief kunt u een Azure AD van één toepassing voor zowel Hallo aanroepen API-app en Hallo beveiligd API-app. Als u met deze alternatieve hebt gekozen, moet u niet Hallo **nieuwe AD-App maken** optie hier omdat u al een Azure AD-toepassing eerder in Hallo gebruiker verificatie zelfstudie hebt gemaakt. Voor deze zelfstudie maakt u afzonderlijke Azure AD-toepassingen voor de aanroepen van API-app en Hallo Hallo beveiligd API-app.
+8. Maak een notitie van Hallo waarde in Hallo **App maken** invoervak; u moet deze AAD-toepassing in opzoeken Hallo klassieke Azure-portal later.
 9. Klik op **OK**.
-10. In de **verificatie / autorisatie** blade, klikt u op **opslaan**.
+10. In Hallo **verificatie / autorisatie** blade, klikt u op **opslaan**.
     
     ![Op Opslaan klikken](./media/app-service-api-dotnet-service-principal-auth/saveauth.png)
     
-    App Service gemaakt in een Azure Active Directory-toepassing met **aanmeldings-URL** en **antwoord-URL** automatisch ingesteld op de URL van uw API-app. De laatste waarde kan gebruikers in uw AAD-tenant kunnen aanmelden en toegang tot de API-app.
+    App Service gemaakt in een Azure Active Directory-toepassing met **aanmeldings-URL** en **antwoord-URL** toohello-URL van uw API-app worden automatisch ingesteld. de laatste waarde Hallo kan gebruikers in uw AAD-tenant toolog in en toegang Hallo API-app.
 
-### <a name="verify-that-the-api-app-is-protected"></a>Controleren of de API-app is beveiligd
-1. Ga in een browser naar de URL van de API-app: in de **API-app** blade in de Azure-portal klikt u op de koppeling onder **URL**. 
+### <a name="verify-that-hello-api-app-is-protected"></a>Controleer of dat die Hallo API-app is beveiligd
+1. Ga in een browser toohello-URL van Hallo API-app: in Hallo **API-app** blade in hello Azure-portal, klikt u op de koppeling onder Hallo **URL**. 
    
-    U wordt omgeleid naar een aanmeldingsscherm omdat niet-geverifieerde aanvragen zijn niet toegestaan voor het bereiken van de API-app. 
+    U bent omgeleide tooa aanmeldingsscherm omdat niet-geverifieerde aanvragen tooreach Hallo API-app niet zijn toegestaan. 
    
-    Als uw browser naar de Swagger-gebruikersinterface gaat, kan al uw browser worden geregistreerd op--in dat geval open een InPrivate- of Incognito-venster en Ga naar de URL van de Swagger-gebruikersinterface.
+    Als uw browser Ga toohello Swagger-gebruikersinterface, uw browser mogelijk al aangemeld--in dat geval open een InPrivate- of Incognito-venster en ga toohello Swagger-gebruikersinterface-URL.
 2. Meld u aan met de referenties van een gebruiker in uw AAD-tenant.
    
-   Wanneer u bent aangemeld, wordt de pagina 'is gemaakt' in de browser weergegeven.
+   Wanneer u bent aangemeld, wordt de pagina 'gemaakt' hello weergegeven in Hallo browser.
 
-## <a name="configure-the-todolistapi-project-to-acquire-and-send-the-azure-ad-token"></a>Het project ToDoListAPI om toegang te verkrijgen en stuurt het token Azure AD configureren
-In deze sectie kunt u de volgende taken uitvoeren:
+## <a name="configure-hello-todolistapi-project-tooacquire-and-send-hello-azure-ad-token"></a>Hallo ToDoListAPI-project tooacquire configureren en stuurt hello Azure AD-token
+In deze sectie u Hallo volgende taken:
 
-* Voeg code toe in de middelste laag API-app die gebruikmaakt van Azure AD-toepassing-referenties voor een token verkrijgen en verzenden met HTTP-aanvragen naar de API app voor de gegevenslaag.
-* De referenties die u moet ophalen uit Azure AD.
-* Voer de referenties in Azure App Service-runtime-omgevingsinstellingen in de middelste laag API-app. 
+* Voeg code toe in Hallo middelste laag API-app die gebruikmaakt van Azure AD-toepassing referenties tooacquire een token en verzenden dat met HTTP-aanvragen API-app voor de laag toohello gegevens.
+* Hallo-referenties die u moet ophalen uit Azure AD.
+* Geef referenties op Hallo in Azure App Service runtime omgevingsinstellingen in Hallo middelste laag API-app. 
 
-### <a name="configure-the-todolistapi-project-to-acquire-and-send-the-azure-ad-token"></a>Het project ToDoListAPI om toegang te verkrijgen en stuurt het token Azure AD configureren
-De volgende wijzigingen aanbrengen in het project ToDoListAPI in Visual Studio.
+### <a name="configure-hello-todolistapi-project-tooacquire-and-send-hello-azure-ad-token"></a>Hallo ToDoListAPI-project tooacquire configureren en stuurt hello Azure AD-token
+Controleer Hallo volgende wijzigingen in Hallo ToDoListAPI-project in Visual Studio.
 
-1. Verwijder de opmerkingen in alle van de code in de *ServicePrincipal.cs* bestand.
+1. Verwijder de opmerkingen in alle code in Hallo Hallo *ServicePrincipal.cs* bestand.
    
-    Dit is de code die gebruikmaakt van ADAL voor .NET te verkrijgen van de Azure AD-bearer-token.  Dit maakt gebruik van verschillende configuratiewaarden die u later in de Azure-runtime-omgeving hebt ingesteld. Dit is de code: 
+    Dit is Hallo-code die gebruikmaakt van ADAL voor .NET tooacquire hello Azure AD bearer-token.  Dit maakt gebruik van verschillende configuratiewaarden die u later in hello Azure runtime-omgeving hebt ingesteld. Dit is Hallo code: 
    
         public static class ServicePrincipal
         {
@@ -175,38 +175,38 @@ De volgende wijzigingen aanbrengen in het project ToDoListAPI in Visual Studio.
             }
         }
    
-    **Opmerking:** deze code vereist de ADAL voor .NET-NuGet-pakket (Microsoft.IdentityModel.Clients.ActiveDirectory) dat al is geïnstalleerd in het project. Als u dit project helemaal maakt, moet u dit pakket installeert. Dit pakket wordt niet automatisch geïnstalleerd door de sjabloon API app nieuw project.
-2. In *domeincontrollers/ToDoListController*, herstel de code in de `NewDataAPIClient` methode waarmee het token wordt toegevoegd aan de HTTP-aanvragen in de autorisatie-header.
+    **Opmerking:** deze code vereist Hallo ADAL voor .NET-NuGet-pakket (Microsoft.IdentityModel.Clients.ActiveDirectory) dat al is geïnstalleerd in Hallo-project. Als u dit project helemaal maakt, hebt u tooinstall dit pakket. Dit pakket wordt niet automatisch geïnstalleerd door Hallo API-app-nieuw project-sjabloon.
+2. In *domeincontrollers/ToDoListController*, Opmerking verwijderen Hallo-code in Hallo `NewDataAPIClient` methode waarmee Hallo token tooHTTP aanvragen in Hallo autorisatie-header worden toegevoegd.
    
         client.HttpClient.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue("Bearer", ServicePrincipal.GetS2SAccessTokenForProdMSA().AccessToken);
-3. Implementeer het project ToDoListAPI. (Met de rechtermuisknop op het project en klik vervolgens op **publiceren > publiceren**.)
+3. Hallo ToDoListAPI-project implementeert. (Met de rechtermuisknop op het Hallo-project en klik vervolgens op **publiceren > publiceren**.)
    
-    Visual Studio implementeert het project en opent een browservenster met de basis-URL van de web-app. Hier ziet een fout 403-pagina normaal voor een poging is om naar een Web-API basis-URL vanuit een browser.
-4. Sluit de browser.
+    Visual Studio implementeert Hallo-project en basis-URL in een browser toohello van web-app wordt geopend. Hier ziet een fout 403-pagina normaal voor een poging toogo tooa Web API basis-URL vanuit een browser is.
+4. De browser sluiten Hallo.
 
 ### <a name="get-azure-ad-configuration-values"></a>Azure AD-configuratiewaarden ophalen
-1. In de [klassieke Azure-portal](https://manage.windowsazure.com/), gaat u naar **Azure Active Directory**.
-2. Op de **Directory** tabblad, klikt u op uw AAD-tenant.
-3. Klik op **toepassingen > Mijn bedrijf eigenaar is van toepassingen**, en klik vervolgens op het vinkje.
-4. Klik op de naam van de gebruiker die Azure voor u gemaakt wanneer u verificatie voor de ToDoListDataAPI (gegevenslaag) API-app hebt ingeschakeld in de lijst met toepassingen.
-5. Klik op het tabblad **Configureren**.
-6. Kopieer de **Client-ID** waarde en sla deze ergens kunt u dit uit later downloaden. 
-7. In het Azure classic portal Ga terug naar de lijst met **toepassingen mijn bedrijf eigenaar is van**, en klik op de AAD-toepassing die u hebt gemaakt voor de middelste laag API-app ToDoListAPI (de tekst die u in de vorige zelfstudie hebt gemaakt, niet de tekst die u in deze zelfstudie hebt gemaakt).
-8. Klik op het tabblad **Configureren**.
-9. Kopieer de **Client-ID** waarde en sla deze ergens kunt u dit uit later downloaden.
-10. Onder **sleutels**, selecteer **1 jaar** van de **Selecteer duur** vervolgkeuzelijst.
+1. In Hallo [klassieke Azure-portal](https://manage.windowsazure.com/), gaat u te**Azure Active Directory**.
+2. Op Hallo **Directory** tabblad, klikt u op uw AAD-tenant.
+3. Klik op **toepassingen > Mijn bedrijf eigenaar is van toepassingen**, en klik vervolgens op het vinkje Hallo.
+4. Klik op Hallo naam Hallo die Azure voor u gemaakt wanneer u verificatie voor Hallo ToDoListDataAPI (gegevenslaag) API-app hebt ingeschakeld in de lijst met toepassingen Hallo.
+5. Klik op Hallo **configureren** tabblad.
+6. Kopiëren Hallo **Client-ID** waarde en sla deze ergens kunt u dit uit later downloaden. 
+7. In de klassieke Azure-portal Hallo terug toohello lijst met **toepassingen mijn bedrijf eigenaar is van**, en klik op Hallo AAD-toepassing die u hebt gemaakt voor Hallo middelste laag API-app ToDoListAPI (Hallo dat u niet in de vorige zelfstudie Hallo hebt gemaakt Hallo dat die u in deze zelfstudie hebt gemaakt).
+8. Klik op Hallo **configureren** tabblad.
+9. Kopiëren Hallo **Client-ID** waarde en sla deze ergens kunt u dit uit later downloaden.
+10. Onder **sleutels**, selecteer **1 jaar** van Hallo **Selecteer duur** vervolgkeuzelijst.
 11. Klik op **Opslaan**.
     
      ![App-sleutel genereren](./media/app-service-api-dotnet-service-principal-auth/genkey.png)
-12. Kopieer de sleutelwaarde en sla deze ergens die kunt u dit uit later downloaden.
+12. Kopieer de sleutelwaarde Hallo en sla deze ergens die kunt u dit uit later downloaden.
     
      ![Kopiëren van de nieuwe app-sleutel](./media/app-service-api-dotnet-service-principal-auth/genkeycopy.png)
 
-### <a name="configure-azure-ad-settings-in-the-middle-tier-api-apps-runtime-environment"></a>Azure AD-instellingen configureren in de middelste laag API-app-runtime-omgeving
-1. Ga naar de [Azure-portal](https://portal.azure.com/), en navigeer vervolgens naar de **API-App** blade voor de API-app die als host fungeert voor het project TodoListAPI (middelste laag).
+### <a name="configure-azure-ad-settings-in-hello-middle-tier-api-apps-runtime-environment"></a>Azure AD-instellingen configureren in Hallo middelste laag API app runtime-omgeving
+1. Ga toohello [Azure-portal](https://portal.azure.com/), en navigeert u vervolgens toohello **API-App** blade voor Hallo API-app die als host fungeert voor project van Hallo TodoListAPI (middelste laag).
 2. Klik op **Instellingen > Toepassingsinstellingen**.
-3. In de **appinstellingen** sectie, het toevoegen van de volgende sleutels en waarden:
+3. In Hallo **appinstellingen** sectie, Hallo volgende sleutels en waarden toevoegen:
    
    | **Sleutel** | IDA instantie: |
    | --- | --- |
@@ -215,70 +215,70 @@ De volgende wijzigingen aanbrengen in het project ToDoListAPI in Visual Studio.
    
    | **Sleutel** | IDA ClientId: |
    | --- | --- |
-   | **Waarde** |Client-ID van de aanroepende toepassing (middelste laag - ToDoListAPI) |
+   | **Waarde** |Client-ID van Hallo aanroepen van toepassing (middelste laag - ToDoListAPI) |
    | **Voorbeeld** |960adec2-b74a-484a-960adec2-b74a-484a |
    
    | **Sleutel** | IDA: ClientSecret |
    | --- | --- |
-   | **Waarde** |App-sleutel van de aanroepende toepassing (middelste laag - ToDoListAPI) |
+   | **Waarde** |App-sleutel Hallo aanroepen van toepassing (middelste laag - ToDoListAPI) |
    | **Voorbeeld** |e65e8fc9-5f6b-48e8-e65e8fc9-5f6b-48e8 |
    
    | **Sleutel** | IDA Resource: |
    | --- | --- |
-   | **Waarde** |Client-ID van de toepassing genoemd (gegevenslaag - ToDoListDataAPI) |
+   | **Waarde** |Client-ID van aangeroepen toepassing hello (gegevenslaag - ToDoListDataAPI) |
    | **Voorbeeld** |e65e8fc9-5f6b-48e8-e65e8fc9-5f6b-48e8 |
    
-    **Opmerking**: voor `ida:Resource`, zorg ervoor dat u de aangeroepen toepassing gebruiken **client-ID** en niet de **App ID URI**.
+    **Opmerking**: voor `ida:Resource`, zorg ervoor dat u gebruikt naam van de toepassing hello **client-ID** en niet de **App ID URI**.
    
-    `ida:ClientId`en `ida:Resource` zijn verschillende waarden voor deze zelfstudie omdat u werkt met afzonderlijke applicaations Azure AD voor de middelste laag en de gegevenslaag. Als u één Azure AD-toepassing voor de aanroepende API-app en de beveiligde API-app, gebruikt u dezelfde waarde in beide `ida:ClientId` en `ida:Resource`.
+    `ida:ClientId`en `ida:Resource` zijn verschillende waarden voor deze zelfstudie omdat u werkt met afzonderlijke applicaations Azure AD voor de middelste laag Hallo en de gegevenslaag. Als u één Azure AD-toepassing voor het aanroepen van API-app en Hallo Hallo beveiligd API-app, gebruikt u dezelfde in beide waarde Hallo `ida:ClientId` en `ida:Resource`.
    
-    De code gebruikt ConfigurationManager ophalen van deze waarden, zodat kan worden opgeslagen in Web.config-bestand van het project of in de Azure-runtime-omgeving. Terwijl een ASP.NET-toepassing in Azure App Service wordt uitgevoerd, overschrijven de instellingen voor automatisch instellingen uit Web.config. Omgevingsinstellingen zijn doorgaans een [veiliger manier voor het opslaan van vertrouwelijke gegevens vergeleken met een Web.config-bestand](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+    Hallo code gebruikt ConfigurationManager tooget deze waarden, zodat kan worden opgeslagen in Web.config-bestand van het project Hallo of in hello Azure runtime-omgeving. Terwijl een ASP.NET-toepassing in Azure App Service wordt uitgevoerd, overschrijven de instellingen voor automatisch instellingen uit Web.config. Omgevingsinstellingen zijn doorgaans een [tooa Web.config-bestand ten opzichte van een veiliger manier toostore gevoelige informatie](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 4. Klik op **Opslaan**.
    
     ![Op Opslaan klikken](./media/app-service-api-dotnet-service-principal-auth/appsettings.png)
 
-### <a name="test-the-application"></a>De toepassing testen
-1. Ga in een browser naar de HTTPS-URL van de AngularJS-front-end web-app.
-2. Klik op de **To Do List** tabblad en meld u aan met referenties voor een gebruiker in uw Azure AD-tenant. 
-3. Toevoegen van taakitems om te controleren of de toepassing werkt.
+### <a name="test-hello-application"></a>Hallo toepassing testen
+1. Ga in een browser toohello HTTPS-URL van Hallo AngularJS-front-end web-app.
+2. Klik op Hallo **tooDo lijst** tabblad en meld u aan met referenties voor een gebruiker in uw Azure AD-tenant. 
+3. Taak items tooverify die toepassing hello werkt toevoegen.
    
-    ![Takenlijstpagina](./media/app-service-api-dotnet-service-principal-auth/mvchome.png)
+    ![pagina van de lijst met tooDo](./media/app-service-api-dotnet-service-principal-auth/mvchome.png)
    
-    Als de toepassing niet werkt zoals verwacht, Controleer alle instellingen die u hebt ingevoerd in de Azure-portal. Als u alle instellingen correct lijken, raadpleegt u de [probleemoplossing](#troubleshooting) verderop in deze zelfstudie.
+    Als de toepassing hello niet werkt zoals verwacht, Controleer alle Hallo-instellingen die u hebt ingevoerd in hello Azure-portal. Als alle Hallo instellingen toobe juist wordt weergegeven, Zie Hallo [probleemoplossing](#troubleshooting) verderop in deze zelfstudie.
 
-## <a name="protect-the-api-app-from-browser-access"></a>De API-app beveiligen tegen toegang tot de browser
-Voor deze zelfstudie die u hebt gemaakt een afzonderlijke Azure AD-toepassing voor de ToDoListDataAPI (gegevenslaag) API-app. Als u hebt gezien, wanneer de App Service een AAD-toepassing maakt, configureert het AAD-toepassing op een manier waarmee een gebruiker gaat u naar de API-app-URL in een browser en meld u aan. Dit betekent dat het is mogelijk voor gebruikers in uw Azure AD-tenant, niet alleen een service-principal, voor toegang tot de API. 
+## <a name="protect-hello-api-app-from-browser-access"></a>Hallo-API-app beveiligen tegen toegang tot de browser
+Voor deze zelfstudie die u hebt gemaakt een afzonderlijke Azure AD-toepassing voor Hallo ToDoListDataAPI (gegevenslaag) API-app. Als u hebt gezien, wanneer de App Service een AAD-toepassing maakt configureert het Hallo-AAD-toepassing op een manier die een gebruiker toogo toohello van API-app-URL in een browser en meld schakelt op. Dit betekent dat het is mogelijk voor gebruikers in uw Azure AD-tenant, niet alleen een service-principal, tooaccess Hallo API. 
 
-Als u voorkomen dat toegang tot de browser wilt zonder de code schrijven in de beveiligde API-app, kunt u de **antwoord-URL** in de AAD-toepassing zodat deze van de API-app verschilt basis-URL. 
+Als u toegang tot de tooprevent browser wilt zonder code schrijven in Hallo API-app beveiligd, kunt u Hallo **antwoord-URL** in AAD-toepassing hello zodat deze van Hallo API-app verschilt basis-URL. 
 
 ### <a name="disable-browser-access"></a>Toegang tot de browser uitschakelen
-1. In de klassieke portal **configureren** voor de AAD-toepassing die is gemaakt voor de TodoListService en wijzig de waarde in de **antwoord-URL** veld zodat het een geldige URL, maar niet de API-app-URL.
+1. In Hallo klassieke portal **configureren** voor Hallo AAD-toepassing die is gemaakt voor Hallo TodoListService en wijzig de waarde in Hallo Hallo **antwoord-URL** zodat het een geldige URL, maar niet Hallo API-app van veld DE URL.
 2. Klik op **Opslaan**.
 
 ### <a name="verify-browser-access-no-longer-works"></a>Controleer of toegang tot de browser niet meer werkt
-Eerder gecontroleerd dat u naar de API-app-URL vanuit een browser gaat door met de referenties van een afzonderlijke gebruiker aanmeldt. In deze sectie, controleert u of dit is niet langer mogelijk. 
+Eerder gecontroleerd dat kunt u toohello API-app-URL gaan vanuit een browser door met de referenties van een afzonderlijke gebruiker aanmeldt. In deze sectie, controleert u of dit is niet langer mogelijk. 
 
-1. In een nieuw browservenster en gaat u naar de URL van de API-app opnieuw.
-2. Registreren in wanneer u daarom wordt gevraagd.
-3. Aanmelding is geslaagd, maar leidt tot een foutpagina.
+1. Ga toohello-URL van de API-app Hallo opnieuw in een nieuw browservenster.
+2. Aanmelden bij gevraagd toodo dus.
+3. Aanmelding is geslaagd, maar tooan foutpagina leidt.
    
-    U kunt de AAD-app hebt geconfigureerd, zodat gebruikers in de AAD-tenant kunnen niet aanmelden en toegang de API vanuit een browser tot. U kunt nog steeds toegang tot de API-app met behulp van een token voor principal op service, waarmee u controleren kunt door te gaan naar de web-app-URL en meer taakitems toe te voegen.
+    U kunt Hallo AAD-app hebt geconfigureerd, zodat gebruikers in Hallo AAD-tenant kunnen niet aanmelden en toegang Hallo API vanuit een browser. U kunt nog steeds toegang tot Hallo API-app met behulp van een token voor principal op service, waarmee u controleren kunt door te gaan toohello van web-app-URL en meer taakitems toe te voegen.
 
-## <a name="restrict-access-to-a-particular-service-principal"></a>Beperk de toegang tot een bepaalde service-principal
-Momenteel aanroeper die een token kan krijgen voor een gebruiker of service-principal in uw Azure AD-tenant de TodoListDataAPI (gegevenslaag) API-app kunt aanroepen. Het is raadzaam om ervoor te zorgen dat de API app voor de gegevenslaag accepteert alleen aanroepen vanuit de app TodoListAPI (middelste laag) API, en alleen vanuit een bepaalde service-principal. 
+## <a name="restrict-access-tooa-particular-service-principal"></a>Beperken van toegang tooa bepaalde service-principal
+Momenteel aanroeper die een token kan krijgen voor een gebruiker of service-principal in uw Azure AD-tenant hello TodoListDataAPI (gegevenslaag) API-app kunt aanroepen. Hier kunt u ervoor dat Hallo API app voor de gegevenslaag accepteert alleen aanroepen van Hallo TodoListAPI (middelste laag) API-app, en alleen vanuit een bepaalde service-principal toomake. 
 
-U kunt deze beperkingen toevoegen door toe te voegen code voor het valideren van de `appid` en `objectidentifier` claims op binnenkomende oproepen.
+U kunt deze beperkingen toevoegen door toe te voegen code toovalidate hello `appid` en `objectidentifier` claims op binnenkomende oproepen.
 
-Voor deze zelfstudie kunt u de code te valideren en app-ID en service-principal-ID rechtstreeks in uw domeincontroller acties plaatsen.  Alternatieven zijn gebruik van een aangepaste `Authorize` kenmerk of het uitvoeren van deze validatie het opstarten (bijvoorbeeld OWIN middleware) takenreeksen. Zie voor een voorbeeld van de laatste [deze voorbeeldtoepassing](https://github.com/mohitsriv/EasyAuthMultiTierSample/blob/master/MyDashDataAPI/Startup.cs). 
+Voor deze zelfstudie plaatsen u Hallo-code die app-ID en de service-principal-ID rechtstreeks in uw domeincontroller acties worden gevalideerd.  Alternatieven zijn toouse een aangepaste `Authorize` kenmerk of toodo deze validatie in uw takenreeksen opstarten (bijvoorbeeld OWIN middleware). Zie voor een voorbeeld van de laatste Hallo [deze voorbeeldtoepassing](https://github.com/mohitsriv/EasyAuthMultiTierSample/blob/master/MyDashDataAPI/Startup.cs). 
 
-De volgende wijzigingen aanbrengen in het project TodoListDataAPI.
+Hallo na wijzigingen toohello TodoListDataAPI-project maken
 
-1. Open de *Controllers/TodoListController.cs* bestand.
-2. Verwijder de opmerkingen in de regels die ingesteld `trustedCallerClientId` en `trustedCallerServicePrincipalId`.
+1. Open Hallo *Controllers/TodoListController.cs* bestand.
+2. Verwijder de opmerkingen in Hallo-regels die ingesteld `trustedCallerClientId` en `trustedCallerServicePrincipalId`.
    
         private static string trustedCallerClientId = ConfigurationManager.AppSettings["todo:TrustedCallerClientId"];
         private static string trustedCallerServicePrincipalId = ConfigurationManager.AppSettings["todo:TrustedCallerServicePrincipalId"];
-3. Herstel de code in de methode CheckCallerId. Deze methode is aangeroepen aan het begin van elke actiemethode in de controller. 
+3. Verwijder de opmerkingen in Hallo-code in Hallo CheckCallerId methode. Deze methode wordt aangeroepen bij Hallo begin van elke actiemethode in het Hallo-controller. 
    
         private static void CheckCallerId()
         {
@@ -286,27 +286,27 @@ De volgende wijzigingen aanbrengen in het project TodoListDataAPI.
             string currentCallerServicePrincipalId = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
             if (currentCallerClientId != trustedCallerClientId || currentCallerServicePrincipalId != trustedCallerServicePrincipalId)
             {
-                throw new HttpResponseException(new HttpResponseMessage { StatusCode = HttpStatusCode.Unauthorized, ReasonPhrase = "The appID or service principal ID is not the expected value." });
+                throw new HttpResponseException(new HttpResponseMessage { StatusCode = HttpStatusCode.Unauthorized, ReasonPhrase = "hello appID or service principal ID is not hello expected value." });
             }
         }
-4. Implementeer het project ToDoListDataAPI in Azure App Service opnieuw.
-5. In de browser, Ga naar HTTPS-URL van de AngularJS-front-end web app en in de startpagina klikt u op de **To Do List** tabblad.
+4. Hallo ToDoListDataAPI project tooAzure App Service implementeren.
+5. Ga in uw browser toohello AngularJS-front-end van web-app HTTPS-URL en klik in de Hallo-startpagina op Hallo **tooDo lijst** tabblad.
    
-    De toepassing werkt niet omdat aanroepen naar de back-end mislukken. De nieuwe code is werkelijke appid en objectidentifier controleren maar nog geen deze de juiste waarden om te controleren ze tegen. De browser die de Console hulpprogramma's voor ontwikkelaars rapporteert dat de server een 401 HTTP-fout retourneert.
+    Hallo toepassing werkt niet omdat aanroepen toohello back-end mislukken. nieuwe code Hallo werkelijke appid en objectidentifier wordt gecontroleerd, maar deze heeft nog geen Hallo juiste waarden toocheck ze tegen. Hallo-browser de Console hulpprogramma's voor ontwikkelaars rapporten dat die Hallo-server retourneert een 401 HTTP-fout.
    
     ![Fout in Developer Tools Console](./media/app-service-api-dotnet-service-principal-auth/webapperror.png)
    
-    In de volgende stappen configureert u de verwachte waarden.
-6. Met Azure AD PowerShell, haal de waarde van de service-principal voor de Azure AD-toepassing die u hebt gemaakt voor het project TodoListWebApp.
+    In de stappen te volgen Hallo configureert u Hallo verwachte waarden.
+6. Met Azure AD PowerShell, Hallo waarde ophalen van Hallo service principal voor hello Azure AD-toepassing die u hebt gemaakt voor Hallo TodoListWebApp project.
    
-    a. Zie voor instructies over hoe u Azure PowerShell installeren en verbinding maken met uw abonnement, [Azure PowerShell gebruiken met Azure Resource Manager](../powershell-azure-resource-manager.md).
+    a. Voor instructies over het tooinstall Azure PowerShell en verbinding maken met abonnement tooyour, Zie [Azure PowerShell gebruiken met Azure Resource Manager](../powershell-azure-resource-manager.md).
    
-    b. Als u een lijst met de service-principals, uitvoeren van de `Login-AzureRmAccount` opdracht en vervolgens de `Get-AzureRmADServicePrincipal` opdracht.
+    b. een lijst met de service-principals tooget uitvoeren Hallo `Login-AzureRmAccount` opdracht in en klik vervolgens Hallo `Get-AzureRmADServicePrincipal` opdracht.
    
-    c. De object-id vinden voor de service-principal van de toepassing TodoListAPI en opslaan in een locatie die u later kunt kopiëren uit.
-7. Navigeer naar de blade API-app voor de API-app die u hebt geïmplementeerd op het project ToDoListDataAPI in de Azure portal.
+    c. Hallo objectid voor Hallo service-principal van Hallo TodoListAPI toepassing vinden en opslaan in een locatie die u later kunt kopiëren uit.
+7. Navigeer in hello Azure-portal, toohello-blade API-app voor Hallo API-app die u hebt geïmplementeerd Hallo ToDoListDataAPI-project.
 8. Klik op **instellingen > Toepassingsinstellingen**.
-9. In de **appinstellingen** sectie, het toevoegen van de volgende sleutels en waarden:
+9. In Hallo **appinstellingen** sectie, Hallo volgende sleutels en waarden toevoegen:
    
    | **Sleutel** | TODO:TrustedCallerServicePrincipalId |
    | --- | --- |
@@ -315,37 +315,37 @@ De volgende wijzigingen aanbrengen in het project TodoListDataAPI.
    
    | **Sleutel** | TODO:TrustedCallerClientId |
    | --- | --- |
-   | **Waarde** |Client-ID van het aanroepen van de toepassing - gekopieerd uit de TodoListAPI Azure AD-toepassing |
+   | **Waarde** |Client-ID van het aanroepen van de toepassing - gekopieerd vanuit Hallo TodoListAPI Azure AD-toepassing |
    | **Voorbeeld** |960adec2-b74a-484a-960adec2-b74a-484a |
 10. Klik op **Opslaan**.
     
      ![Op Opslaan klikken](./media/app-service-api-dotnet-service-principal-auth/trustedcaller.png)
-11. Klik in de startpagina en in uw browser, Ga terug naar de web-app-URL op de **To Do List** tabblad.
+11. In uw browser terug toohello van web-app-URL en in de startpagina Hallo op Hallo **tooDo lijst** tabblad.
     
-     Deze tijd de toepassing werkt zoals verwacht, omdat de aanroeper vertrouwde app-ID en service-principal-ID zijn de verwachte waarden.
+     Deze toepassing hello werkt zoals verwacht omdat Hallo aanroeper vertrouwde app-ID en service-principal-ID Hallo verwachte waarden.
     
-     ![Takenlijstpagina](./media/app-service-api-dotnet-service-principal-auth/mvchome.png)
+     ![pagina van de lijst met tooDo](./media/app-service-api-dotnet-service-principal-auth/mvchome.png)
 
-## <a name="building-the-projects-from-scratch"></a>Het bouwen van de projecten maken
-De twee Web API-projecten zijn gemaakt met behulp van de **Azure API-App** project sjabloon en de waarden van standaard domeincontroller vervangen door een ToDoList-controller. Voor het verkrijgen van Azure AD-service-principal tokens in het project ToDoListAPI de [Active Directory Authentication Library (ADAL) voor .NET](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) NuGet-pakket is geïnstalleerd.
+## <a name="building-hello-projects-from-scratch"></a>Hallo-projecten helemaal bouwen
+Hallo twee Web API-projecten zijn gemaakt met behulp van Hallo **Azure API-App** sjabloon en vervang Hallo standaard waarden domeincontroller met een domeincontroller ToDoList project. Voor het verkrijgen van Azure AD-service-principal tokens in de project ToDoListAPI Hallo Hallo [Active Directory Authentication Library (ADAL) voor .NET](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) NuGet-pakket is geïnstalleerd.
 
-Zie voor meer informatie over het maken van een AngularJS-toepassing voor één pagina met een Web-API-back-end zoals ToDoListAngular [handen op Lab: bouwen van een enkele toepassing pagina WACHTWOORDVERIFICATIE met ASP.NET Web API en Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs). Zie voor meer informatie over het toevoegen van Azure AD-verificatiecode [beveiligen AngularJS één pagina Apps met Azure AD](../active-directory/active-directory-devquickstarts-angular.md).
+Zie voor een single-page application ' AngularJS informatie over het te maken met een Web-API-back-end zoals ToDoListAngular, [handen op Lab: bouwen van een enkele toepassing pagina WACHTWOORDVERIFICATIE met ASP.NET Web API en Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs). Voor informatie over het tooadd verificatiecode van Azure AD, Zie [beveiligen AngularJS één pagina Apps met Azure AD](../active-directory/active-directory-devquickstarts-angular.md).
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 [!INCLUDE [troubleshooting](../../includes/app-service-api-auth-troubleshooting.md)]
 
-* Zorg ervoor dat u en niet door elkaar ToDoListAPI (middelste laag) ToDoListDataAPI (gegevenslaag). Bijvoorbeeld: in deze zelfstudie u verificatie toevoegen aan de gegevens laag API-app **, maar de app-sleutel moet afkomstig zijn van de Azure AD-toepassing die u hebt gemaakt voor de middelste laag API-app**.
+* Zorg ervoor dat u en niet door elkaar ToDoListAPI (middelste laag) ToDoListDataAPI (gegevenslaag). Bijvoorbeeld: in deze zelfstudie u verificatie toohello gegevens laag API-app toevoegen **maar Hallo app-sleutel moet afkomstig zijn van Azure AD-toepassing die u hebt gemaakt voor de middelste laag API-app Hallo Hallo**.
 
 ## <a name="next-steps"></a>Volgende stappen
-Dit is de laatste zelfstudie in de reeks API-Apps. 
+Dit is de laatste zelfstudie Hallo in Hallo reeks API-Apps. 
 
-Zie de volgende bronnen voor meer informatie over Azure Active Directory.
+Zie voor meer informatie over Azure Active Directory Hallo resources te volgen.
 
 * [Azure AD ontwikkelaarshandleiding](http://aka.ms/aaddev)
 * [Azure AD-scenario 's](http://aka.ms/aadscenarios)
 * [Azure AD-voorbeelden](http://aka.ms/aadsamples)
   
-    De [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) voorbeeld is vergelijkbaar met wat wordt weergegeven in deze zelfstudie, maar zonder verificatie van App Service.
+    Hallo [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) voorbeeld lijkt toowhat wordt weergegeven in deze zelfstudie, maar zonder verificatie van App Service.
 
-Voor informatie over andere manieren voor het implementeren van Visual Studio-projecten in API-apps met behulp van Visual Studio of [implementatie automatiseren](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) van een [broncodebeheersysteem](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), Zie [het implementeren van een Azure App Service-app](../app-service-web/web-sites-deploy.md).
+Voor informatie over andere manieren toodeploy Visual Studio-projecten tooAPI-apps met behulp van Visual Studio of [implementatie automatiseren](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) van een [broncodebeheersysteem](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), Zie [hoe toodeploy een Azure App Service-app](../app-service-web/web-sites-deploy.md).
 

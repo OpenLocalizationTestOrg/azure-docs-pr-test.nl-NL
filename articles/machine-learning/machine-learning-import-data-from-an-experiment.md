@@ -1,6 +1,6 @@
 ---
-title: Gegevens importeren in Machine Learning Studio vanaf een ander experiment | Microsoft Docs
-description: Het opslaan van trainingsgegevens in Azure Machine Learning Studio en worden gebruikt in een ander experiment.
+title: aaaImport gegevens naar Machine Learning Studio van een ander experiment | Microsoft Docs
+description: Hoe toosave trainingsgegevens in Azure Machine Learning Studio en deze gebruiken in een ander experiment.
 keywords: gegevens, gegevens, gegevensbronnen, trainingsgegevens importeren
 services: machine-learning
 documentationcenter: 
@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye;bradsev
-ms.openlocfilehash: ecfa2110d0d51511ceb5bd07b730732ecfa2e9e0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ca085149ed23c219a791ce09ac48dafeb807cb88
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="import-your-data-into-azure-machine-learning-studio-from-another-experiment"></a>Uw gegevens vanuit een ander experiment importeren in Azure Machine Learning Studio
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Er zijn vaak u wanneer wilt een tussenliggende resultaten van een experiment uitvoeren en deze gebruiken als onderdeel van een ander experiment. Om dit te doen, kunt u de module opslaan als een gegevensset:
+Er zijn wanneer u een tussenliggende resultaten van een experiment tootake wilt en worden gebruikt als onderdeel van een ander experiment. toodo dit u Hallo module opslaan als een gegevensset:
 
-1. Klik op de uitvoer van de module die u wilt opslaan als een dataset.
+1. Klik op Hallo-uitvoer van Hallo-module die u toosave als een gegevensset wilt.
 2. Klik op **opslaan als gegevensset**.
-3. Wanneer u wordt gevraagd, typt u een naam en een beschrijving op die manier kunt u eenvoudig identificeren van de gegevensset.
-4. Klik op de **OK** vinkje.
+3. Wanneer u wordt gevraagd, voer een naam en een beschrijving waarmee u tooidentify Hallo gegevensset eenvoudig.
+4. Klik op Hallo **OK** vinkje.
 
-Wanneer de opslagbewerking is voltooid, wordt de gegevensset beschikbaar voor gebruik in een experiment in uw werkruimte zijn. U vindt deze in de **gegevenssets opgeslagen** lijst in het modulepalet.
+Wanneer Hallo opslaan is voltooid, is Hallo gegevensset zijn beschikbaar voor gebruik in een experiment in uw werkruimte. U kunt deze vinden in Hallo **gegevenssets opgeslagen** lijst in het modulepalet Hallo.
 

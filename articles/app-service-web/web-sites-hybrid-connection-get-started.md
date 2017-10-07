@@ -1,5 +1,5 @@
 ---
-title: On-premises resources benaderen via hybride verbindingen in Azure App Service
+title: aaaAccess lokale bronnen in Azure App Service met behulp van hybride verbindingen
 description: Maak een verbinding tussen een web-app in Azure App Service en een on-premises resource die gebruikmaakt van een statische TCP-poort
 services: app-service
 documentationcenter: 
@@ -14,59 +14,59 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
 ms.author: cephalin
-ms.openlocfilehash: fbd22e6e285c5ddaef2a473671d4a06a97384b4a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: de7c57b94f4bd6250a93757817178e8455daae4a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="access-on-premises-resources-using-hybrid-connections-in-azure-app-service"></a>On-premises resources benaderen via hybride verbindingen in Azure App Service
-U kunt een Azure App Service-app verbinden met een on-premises resource die gebruikmaakt van een statische TCP-poort, zoals SQL Server, MySQL, HTTP-Web-API's en de meeste aangepaste webservices. In dit artikel laat zien hoe een hybride verbinding maken tussen App Service en een on-premises SQL Server database.
+U kunt verbinding maken met een Azure App Service-app tooany on-premises resource die gebruikmaakt van een statische TCP-poort, zoals SQL Server, MySQL, HTTP-Web-API's en de meeste aangepaste webservices. Dit artikel ziet u hoe toocreate een hybride verbinding tussen de App Service en een on-premises SQL Server database.
 
 > [!NOTE]
-> De Web-Apps-gedeelte van de functie hybride verbindingen is alleen beschikbaar in de [Azure Portal](https://portal.azure.com). Zie voor informatie over het maken van een verbinding in BizTalk Services [hybride verbindingen](http://go.microsoft.com/fwlink/p/?LinkID=397274). 
+> Hallo-Web-Apps-gedeelte van Hallo hybride verbindingen onderdeel is alleen beschikbaar in Hallo [Azure Portal](https://portal.azure.com). Zie voor een verbinding in BizTalk Services toocreate [hybride verbindingen](http://go.microsoft.com/fwlink/p/?LinkID=397274). 
 > 
-> Deze inhoud geldt ook voor mobiele Apps in Azure App Service. 
+> Deze inhoud is ook van toepassing tooMobile Apps in Azure App Service. 
 > 
 > 
 
 ## <a name="prerequisites"></a>Vereisten
 * Een Azure-abonnement. Zie voor een gratis abonnement [gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/). 
   
-    Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u doet geen toezeggingen.
-* Als u wilt een on-premises SQL Server of SQL Server Express-database met een hybride verbinding gebruiken, moet TCP/IP moet zijn ingeschakeld op een statische poort. Met behulp van een standaardexemplaar van SQL Server wordt aanbevolen omdat deze gebruikmaakt van statische poort 1433. Zie voor meer informatie over het installeren en configureren van SQL Server Express voor gebruik met hybride verbindingen [verbinding maken met een lokale SQL Server uit een Azure-website met behulp van hybride verbindingen](http://go.microsoft.com/fwlink/?LinkID=397979).
-* De computer waarop u de lokale hybride Verbindingsbeheer agent beschreven verderop in dit artikel installeert:
+    Als u wilt dat tooget de slag met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u verder te[App Service uitproberen](https://azure.microsoft.com/try/app-service/), waar u direct een tijdelijke en eenvoudige web-app kunt maken in App Service. U hebt geen creditcard nodig en u doet geen toezeggingen.
+* toouse een lokale SQL Server of SQL Server Express-database met een hybride verbinding, moet TCP/IP toobe ingeschakeld op een statische poort. Met behulp van een standaardexemplaar van SQL Server wordt aanbevolen omdat deze gebruikmaakt van statische poort 1433. Zie voor meer informatie over het installeren en configureren van SQL Server Express voor gebruik met hybride verbindingen [Connect tooan lokale SQL Server uit een Azure-website met behulp van hybride verbindingen](http://go.microsoft.com/fwlink/?LinkID=397979).
+* Hallo-computer waarop u Hallo op premises hybride Verbindingsbeheer agent beschreven verderop in dit artikel installeert:
   
-  * Moet verbinding maken met Azure via poort 5671
-  * Moet kunnen bereiken de *hostnaam*:*portnumber* van uw lokale resource. 
+  * Moet kunnen tooconnect tooAzure via poort 5671
+  * Moet kunnen tooreach hello *hostnaam*:*portnumber* van uw lokale resource. 
 
 > [!NOTE]
-> De stappen in dit artikel wordt ervan uitgegaan dat u gebruikmaakt van de browser van de computer die als host voor de lokale-agent voor hybride verbinding fungeert.
+> Hallo stappen in dit artikel wordt ervan uitgegaan dat u gebruikmaakt van Hallo Hallo-computer die als voor agent voor hybride verbinding voor Hallo lokale host fungeert browser.
 > 
 > 
 
-## <a name="create-a-web-app-in-the-azure-portal"></a>Een web-app maken in de Azure-Portal
+## <a name="create-a-web-app-in-hello-azure-portal"></a>Een web-app maken in hello Azure Portal
 > [!NOTE]
-> Als u al een web-app of een back-end voor mobiele App in de Azure-Portal die u wilt gebruiken voor deze zelfstudie hebt gemaakt, kunt u verder gaan naar [een hybride verbinding en een BizTalk Service maken](#CreateHC) en van daaruit starten.
+> Als u al een web-app of een back-end voor mobiele App in hello Azure-Portal wilt u toouse voor deze zelfstudie hebt gemaakt, kunt u verder gaan te[een hybride verbinding en een BizTalk Service maken](#CreateHC) en van daaruit starten.
 > 
 > 
 
-1. In de linkerbovenhoek van de [Azure Portal](https://portal.azure.com), klikt u op **nieuw** > **Web en mobiel** > **Web-App**.
+1. In Hallo linkerbovenhoek Hallo [Azure Portal](https://portal.azure.com), klikt u op **nieuw** > **Web en mobiel** > **Web-App**.
    
     ![Nieuwe web-app][NewWebsite]
-2. Op de **Web-app** blade een URL op en klik op **maken**. 
+2. Op Hallo **Web-app** blade een URL op en klik op **maken**. 
    
     ![Websitenaam][WebsiteCreationBlade]
-3. Na enkele ogenblikken de web-app wordt gemaakt en de blade web-app wordt weergegeven. De blade is een verticaal schuifbare dashboard waarmee u uw site beheren.
+3. Na enkele ogenblikken Hallo web-app wordt gemaakt en de blade web-app wordt weergegeven. Hallo-blade is een verticaal schuifbare dashboard waarmee u uw site beheren.
    
     ![Website worden uitgevoerd][WebSiteRunningBlade]
-4. Om te controleren of de site is live, klikt u op de **Bladeren** pictogram om de standaardpagina weer te geven.
+4. tooverify hello site live is, klikt u op Hallo **Bladeren** pictogram toodisplay Hallo standaardpagina.
    
-    ![Klik op Bladeren als u wilt zien van uw web-app][Browse]
+    ![Klik op Bladeren toosee uw web-app][Browse]
    
     ![App-standaardwebpagina][DefaultWebSitePage]
 
-Vervolgens maakt u een hybride verbinding en een BizTalk service voor de web-app.
+Vervolgens maakt u een hybride verbinding en een BizTalk service voor Hallo web-app.
 
 <a name="CreateHC"></a>
 
@@ -74,97 +74,97 @@ Vervolgens maakt u een hybride verbinding en een BizTalk service voor de web-app
 1. Klik in de blade van uw web-app op **alle instellingen** > **Networking** > **uw hybride-verbindingseindpunten configureren**.
    
     ![Hybride verbindingen][CreateHCHCIcon]
-2. Klik op de blade hybride verbindingen **toevoegen**.
+2. Klik op Hallo hybride verbindingen blade **toevoegen**.
    
     <!-- ![Add a hybrid connnection][CreateHCAddHC]
    -->
-3. De **toevoegen van een hybride verbinding** blade wordt geopend.  Aangezien dit de eerste hybride verbinding de **nieuwe hybride verbinding** optie vooraf geselecteerd, en de **hybride verbinding maken** er wordt een blade geopend voor u.
+3. Hallo **toevoegen van een hybride verbinding** blade wordt geopend.  Aangezien dit de eerste hybride verbinding, Hallo **nieuwe hybride verbinding** optie vooraf geselecteerd en Hallo **hybride verbinding maken** er wordt een blade geopend voor u.
    
     ![Een hybride verbinding maken][TwinCreateHCBlades]
    
-    Op de **blade voor hybride verbinding maken**:
+    Op Hallo **blade voor hybride verbinding maken**:
    
-   * Voor **naam**, Geef een naam op voor de verbinding.
-   * Voor **hostnaam**, voer de naam van de lokale computer die als host fungeert voor uw resource.
-   * Voor **poort**, voer het poortnummer dat gebruikmaakt van uw lokale resource (1433 voor een standaardexemplaar van SQL Server).
+   * Voor **naam**, Geef een naam voor het Hallo-verbinding.
+   * Voor **hostnaam**, voer de naam Hallo van Hallo lokale computer die als host fungeert voor uw resource.
+   * Voor **poort**, Voer Hallo-poortnummer dat gebruikmaakt van uw lokale resource (1433 voor een standaardexemplaar van SQL Server).
    * Klik op **Biz Talk Service**
-4. De **BizTalk Service maken** blade wordt geopend. Voer een naam voor de BizTalk service en klik vervolgens op **OK**.
+4. Hallo **BizTalk Service maken** blade wordt geopend. Voer een naam voor Hallo BizTalk service en klik vervolgens op **OK**.
    
     ![BizTalk service maken][CreateHCCreateBTS]
    
-    De **BizTalk Service maken** blade wordt gesloten en u keert terug naar de **hybride verbinding maken** blade.
-5. Klik op de blade maken hybride verbinding **OK**. 
+    Hallo **BizTalk Service maken** blade wordt gesloten en keert u terug toohello **hybride verbinding maken** blade.
+5. Klik op de blade voor Hallo maken hybride verbinding **OK**. 
    
     ![Klik op OK][CreateBTScomplete]
-6. Wanneer het proces is voltooid, wordt het meldingengebied in de Portal informeert dat de verbinding is gemaakt.
+6. Wanneer het Hallo-proces is voltooid, informeert Hallo meldingengebied in Hallo Portal dat Hallo verbinding is gemaakt.
    
     <!--- TODO
    
-    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
-    (full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-    Create hybrid conn step, you get the following error
-    Failed to create hybrid connection RelecIoudHC. The 
-    resource type could not be found in the namespace 
+    Everything fails at this step. I can't create a BizTalk service in hello dogfood portal. I switch toohello classic portal
+    (full portal) and created hello BizTalk service but it doesn't seem toolet you connnect them - When you finish the
+    Create hybrid conn step, you get hello following error
+    Failed toocreate hybrid connection RelecIoudHC. hello 
+    resource type could not be found in hello namespace 
     'Microsoft.BizTaIkServices for api version 2014-06-01'.
    
-    The error indicates it couldn't find the type, not the instance.
+    hello error indicates it couldn't find hello type, not hello instance.
     ![Success notification][CreateHCSuccessNotification]
     -->
-7. Op de blade web-app en de **hybride verbindingen** pictogram nu geeft aan dat er 1 hybride verbinding is gemaakt.
+7. Hallo op Hallo van web-app-blade **hybride verbindingen** pictogram nu geeft aan dat er 1 hybride verbinding is gemaakt.
    
     ![Een hybride verbinding is gemaakt][CreateHCOneConnectionCreated]
 
-U hebt op dit moment een belangrijk onderdeel van de cloudinfrastructuur voor hybride verbinding voltooid. Vervolgens maakt u een bijbehorende lokale apparaat.
+U hebt op dit moment een belangrijk onderdeel van hybride Hallo-verbinding cloudinfrastructuur voltooid. Vervolgens maakt u een bijbehorende lokale apparaat.
 
 <a name="InstallHCM"></a>
 
-## <a name="install-the-on-premises-hybrid-connection-manager-to-complete-the-connection"></a>Installeren van de lokale hybride Verbindingsbeheer om de verbinding te voltooien
-1. Klik op de web-app-blade **alle instellingen** > **Networking** > **uw hybride-verbindingseindpunten configureren**. 
+## <a name="install-hello-on-premises-hybrid-connection-manager-toocomplete-hello-connection"></a>Hallo op premises hybride Verbindingsbeheer toocomplete Hallo verbinding installeren
+1. Klik op Hallo van web-app-blade **alle instellingen** > **Networking** > **uw hybride-verbindingseindpunten configureren**. 
    
     ![Pictogram van hybride verbindingen][HCIcon]
-2. Op de **hybride verbindingen** blade de **Status** kolom voor het laatst toegevoegde eindpunt bevat **niet verbonden**. Klik op de verbinding om deze te configureren.
+2. Op Hallo **hybride verbindingen** blade, Hallo **Status** onlangs eindpunt bevat op kolom voor Hallo **niet verbonden**. Klik op Hallo verbinding tooconfigure deze.
    
     ![Niet verbonden][NotConnected]
    
-    De hybride verbinding-blade wordt geopend.
+    Hallo hybride verbinding blade wordt geopend.
    
     ![NotConnectedBlade][NotConnectedBlade]
-3. Klik op de blade **Listener Setup**.
+3. Klik op de blade Hallo **Listener Setup**.
    
     ![Klik op Listener Setup][ClickListenerSetup]
-4. De **hybride verbindingseigenschappen** blade wordt geopend. Onder **On-premises hybride Verbindingsbeheer**, kies **Klik hier om te installeren**.
+4. Hallo **hybride verbindingseigenschappen** blade wordt geopend. Onder **On-premises hybride Verbindingsbeheer**, kies **Klik hier tooinstall**.
    
-    ![Klik hier om te installeren][ClickToInstallHCM]
-5. Kies in het dialoogvenster Beveiliging waarschuwing toepassing uitgevoerd **uitvoeren** om door te gaan.
+    ![Klik hier tooinstall][ClickToInstallHCM]
+5. Kies in het Hallo-toepassing uitgevoerd waarschuwingsvenster, **uitvoeren** toocontinue.
    
-    ![Kies uitvoeren om door te gaan][ApplicationRunWarning]
-6. In de **User Account Control** dialoogvenster kiezen **Ja**.
+    ![Kies toocontinue uitvoeren][ApplicationRunWarning]
+6. In Hallo **User Account Control** dialoogvenster kiezen **Ja**.
    
    ![Klik op Ja][UAC]
-7. De hybride Verbindingsbeheer wordt gedownload en geïnstalleerd voor u. 
+7. Hallo hybride Verbindingsbeheer wordt gedownload en geïnstalleerd voor u. 
    
     ![Installeren][HCMInstalling]
-8. Wanneer de installatie is voltooid, klikt u op **sluiten**.
+8. Wanneer het Hallo-installatie is voltooid, klikt u op **sluiten**.
    
     ![Klik op sluiten][HCMInstallComplete]
    
-    Op de **hybride verbindingen** blade de **Status** kolom ziet u nu **verbonden**. 
+    Op Hallo **hybride verbindingen** blade, Hallo **Status** kolom ziet u nu **verbonden**. 
    
     ![Status verbonden][HCStatusConnected]
 
-Nu dat de infrastructuur van hybride verbinding voltooid is, kunt u een hybride-toepassing die gebruikmaakt van deze. 
+Nu die infrastructuur Hallo hybride verbinding voltooid is, kunt u een hybride-toepassing die gebruikmaakt van deze. 
 
 > [!NOTE]
-> De volgende secties laten zien hoe een hybride verbinding gebruiken met een back-end van Mobile Apps .NET project.
+> Hallo volgende secties ziet u hoe toouse een hybride verbinding met een back-end van Mobile Apps .NET project.
 > 
 > 
 
-## <a name="configure-the-mobile-app-net-backend-project-to-connect-to-the-sql-server-database"></a>Het project voor het back-end van Mobile App .NET verbinding maken met de SQL Server-database configureren
-In App Service is een back-end van Mobile Apps .NET project zojuist een ASP.NET web-app met een extra Mobile Apps SDK geïnstalleerd en wordt geïnitialiseerd. Voor het gebruik van uw web-app als een back-end van Mobile Apps, moet u [downloaden en het initialiseren van de backend voor mobiele Apps .NET SDK](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#install-sdk).  
+## <a name="configure-hello-mobile-app-net-backend-project-tooconnect-toohello-sql-server-database"></a>Hallo Mobile App .NET backend project tooconnect toohello SQL Server-database configureren
+In App Service is een back-end van Mobile Apps .NET project zojuist een ASP.NET web-app met een extra Mobile Apps SDK geïnstalleerd en wordt geïnitialiseerd. toouse uw web-app als een back-end van Mobile Apps, moet u [downloaden en te initialiseren Hallo Mobile Apps .NET backend SDK](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#install-sdk).  
 
-Voor mobiele Apps moet u ook een verbindingsreeks voor de lokale database definiëren en wijzigen van de back-end voor het gebruik van deze verbinding. 
+Voor mobiele Apps, u ook toodefine een verbindingsreeks nodig voor Hallo lokale-database en Hallo back-end toouse wijzigt u deze verbinding. 
 
-1. Open het bestand Web.config voor uw back-end van Mobile App .NET in Solution Explorer in Visual Studio, Ga naar de **connectionStrings** sectie, het toevoegen van een nieuwe vermelding SqlClient als volgt naar de lokale SQL Server-database verwijst:
+1. Zoek in Solution Explorer in Visual Studio openen Hallo Web.config-bestand voor uw mobiele App .NET back-end, Hallo **connectionStrings** sectie, het toevoegen van een nieuwe vermelding SqlClient zoals Hallo volgende, welke punten toohello lokale SQL Server-database:
    
         <add name="OnPremisesDBConnection"
          connectionString="Data Source=OnPremisesServer,1433;
@@ -174,15 +174,15 @@ Voor mobiele Apps moet u ook een verbindingsreeks voor de lokale database defini
          MultipleActiveResultSets=True"
          providerName="System.Data.SqlClient" />
    
-    Vervang `<**secure_password**>` in deze tekenreeks met het wachtwoord die u hebt gemaakt voor *HybridConnectionLogin*.
-2. Klik op **opslaan** in Visual Studio het Web.config-bestand wilt opslaan.
+    Houd er rekening mee tooreplace `<**secure_password**>` in deze tekenreeks met Hallo wachtwoord die u hebt gemaakt voor *HybridConnectionLogin*.
+2. Klik op **opslaan** in Visual Studio toosave Hallo Web.config-bestand.
    
    > [!NOTE]
-   > Deze instelling wordt gebruikt wanneer op de lokale computer wordt uitgevoerd. Wanneer in Azure wordt uitgevoerd, is deze instelling overschreven door de instelling voor de gedefinieerd in de portal.
+   > Deze instelling wordt gebruikt wanneer op de lokale computer Hallo. Wanneer in Azure wordt uitgevoerd, is deze instelling onderdrukt door Hallo verbindingsinstelling gedefinieerd in het Hallo-portal.
    > 
    > 
-3. Vouw de **modellen** map en open het modelbestand gegevens die eindigt in *Context.cs*.
-4. Wijzig de **DbContext** exemplaarconstructor voor het doorgeven van de waarde `OnPremisesDBConnection` naar de basistabel **DbContext** constructor, vergelijkbaar met het volgende fragment:
+3. Vouw Hallo **modellen** map en open Hallo gegevens modelbestand eindigt in *Context.cs*.
+4. Hallo wijzigen **DbContext** exemplaar-constructor toopass Hallo waarde `OnPremisesDBConnection` toohello base **DbContext** constructor, vergelijkbare toohello codefragment te volgen:
    
         public class hybridService1Context : DbContext
         {
@@ -192,25 +192,25 @@ Voor mobiele Apps moet u ook een verbindingsreeks voor de lokale database defini
             }
         }
    
-    De service wordt nu gebruiken voor de nieuwe verbinding met de SQL Server-database.
+    Hallo-service wordt nu Hallo nieuwe verbinding toohello SQL Server-database gebruiken.
 
-## <a name="update-the-mobile-app-backend-to-use-the-on-premises-connection-string"></a>De backend voor mobiele Apps voor het gebruik van de lokale verbindingsreeks bijwerken
-Vervolgens moet u een app-instelling voor deze nieuwe verbindingsreeks toevoegen zodat deze kan worden gebruikt in Azure.  
+## <a name="update-hello-mobile-app-backend-toouse-hello-on-premises-connection-string"></a>Hallo mobiele App back-end toouse Hallo lokale met verbindingsreeks bijwerken
+Vervolgens moet u tooadd een app-instelling voor deze nieuwe verbindingsreeks zodat deze kan worden gebruikt in Azure.  
 
-1. Terug in de [Azure-portal](https://portal.azure.com) in de web-app back-end-code voor uw mobiele App klikt u op **alle instellingen**, klikt u vervolgens **toepassingsinstellingen**.
-2. In de **Web-appinstellingen** blade omlaag naar **verbindingsreeksen** en voeg een nieuwe **SQL Server** verbindingstekenreeks met de naam `OnPremisesDBConnection` met een waarde zoals `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`.
+1. Terug in Hallo [Azure-portal](https://portal.azure.com) in Hallo web-app back-end-code voor uw mobiele App, klikt u op **alle instellingen**, klikt u vervolgens **toepassingsinstellingen**.
+2. In Hallo **Web-appinstellingen** blade Schuif naar beneden te**verbindingsreeksen** en voeg een nieuwe **SQL Server** verbindingstekenreeks met de naam `OnPremisesDBConnection` met een waarde zoals `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`.
    
-    Vervang `<**secure_password**>` met het beveiligd wachtwoord voor uw lokale-database.
+    Vervang `<**secure_password**>` met Hallo beveiligd wachtwoord voor uw lokale-database.
    
     ![Verbindingsreeks voor on-premises-database](./media/web-sites-hybrid-connection-get-started/set-sql-server-database-connection.png)
-3. Druk op **opslaan** om op te slaan van het hybride verbinding en verbinding string, u zojuist hebt gemaakt.
+3. Druk op **opslaan** toosave Hallo hybride verbinding en de verbindingsreeks u zojuist hebt gemaakt.
 
-Op dit moment kunt u het serverproject publiceren en testen van de nieuwe verbinding met uw bestaande Mobile Apps-clients. Gegevens worden gelezen uit en geschreven naar de lokale database met behulp van de hybride verbinding.
+U kunt op dit moment Hallo serverproject publiceren en testen van Hallo nieuwe verbinding met uw bestaande Mobile Apps-clients. Gegevens worden gelezen uit en toohello Hallo hybride verbinding met lokale-database geschreven.
 
 <a name="NextSteps"></a>
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het maken van een ASP.NET-webtoepassing die gebruikmaakt van een hybride verbinding [verbinding maken met een lokale SQL Server uit een Azure-website met behulp van hybride verbindingen](http://go.microsoft.com/fwlink/?LinkID=397979). 
+* Zie voor meer informatie over het maken van een ASP.NET-webtoepassing die gebruikmaakt van een hybride verbinding [Connect tooan lokale SQL Server uit een Azure-website met behulp van hybride verbindingen](http://go.microsoft.com/fwlink/?LinkID=397979). 
 
 ### <a name="additional-resources"></a>Aanvullende resources
 [Overzicht van hybride verbindingen](http://go.microsoft.com/fwlink/p/?LinkID=397274)
@@ -223,10 +223,10 @@ Op dit moment kunt u het serverproject publiceren en testen van de nieuwe verbin
 
 [Het bouwen van een echte hybride Cloud met naadloze toepassing draagbaarheid (Channel 9 video)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[Verbinding maken met een lokale SQL Server van Azure Mobile Services met behulp van hybride verbindingen (Channel 9 video)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
+[Verbinding maken met tooan lokale SQL-Server van Azure Mobile Services met behulp van hybride verbindingen (Channel 9 video)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 
 ## <a name="whats-changed"></a>Wat is er gewijzigd
-* Als u van Websites wilt overstappen op App Service, raadpleegt u de volgende handleiding: [Azure App Service en de invloed ervan op bestaande Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Zie voor een handleiding toohello wijzigingen van de Websites tooApp Service: [Azure App Service en de invloed ervan op bestaande Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- IMAGES -->
 [New]:./media/web-sites-hybrid-connection-get-started/B01New.png

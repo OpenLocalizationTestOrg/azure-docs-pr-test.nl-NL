@@ -1,6 +1,6 @@
 ---
-title: Een Service Fabric-cluster in- of schalen | Microsoft Docs
-description: Een Service Fabric-cluster in- of vraag door het instellen van regels voor automatisch schalen voor elk knooppunt type/virtuele-machineschaalset overeen te schalen. Toevoegen of verwijderen van knooppunten aan een Service Fabric-cluster
+title: aaaScale een Service Fabric-cluster in- of | Microsoft Docs
+description: Service Fabric-cluster in- of toomatch demand schalen door het instellen van regels voor automatisch schalen voor elk knooppunt type/virtuele-machineschaalset. Toevoegen of verwijderen van knooppunten tooa Service Fabric-cluster
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: 32d8fca81c20e77db4ed3aae05d017ccc2ce1be3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 37cfeaf80edc016cf6de017d1c2dc6fbcb8acc2a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Schalen van een Service Fabric-cluster in- of met regels voor automatisch schalen
-Virtuele-machineschaalsets zijn een Azure compute resource die u gebruiken kunt om te implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype dat is gedefinieerd in een Service Fabric-cluster is ingesteld als een afzonderlijke virtuele-machineschaalset. Elk knooppunttype kan vervolgens worden uitgebreid of uit onafhankelijk, hebben verschillende sets van poorten openen en andere capaciteitsmetrieken kan hebben. Lees meer over in de [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document. Omdat de typen van de Service Fabric-knooppunt in het cluster zijn gemaakt van de virtuele-machineschaalsets op de back-end, moet u regels voor elk knooppunt type/virtuele-machineschaalset automatisch schalen instellen.
+Virtuele-machineschaalsets zijn een Azure compute-resource toodeploy gebruiken en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype dat is gedefinieerd in een Service Fabric-cluster is ingesteld als een afzonderlijke virtuele-machineschaalset. Elk knooppunttype kan vervolgens worden uitgebreid of uit onafhankelijk, hebben verschillende sets van poorten openen en andere capaciteitsmetrieken kan hebben. Lees meer over in Hallo [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document. Aangezien Hallo Service Fabric-typen voor knooppunten in het cluster zijn gemaakt van de virtuele-machineschaalsets op Hallo back-end, moet u tooset van regels voor automatisch schalen voor elk knooppunt type/virtuele-machineschaalset.
 
 > [!NOTE]
-> Uw abonnement moet voldoende kernen om toe te voegen van de nieuwe virtuele machines die gezamenlijk dit cluster hebben. Er is geen modelvalidatie, er dus een tijd implementatie mislukt als een van de quotalimieten zijn bereikt.
+> Uw abonnement moet voldoende kernen tooadd Hallo van nieuwe virtuele machines die gezamenlijk dit cluster hebben. Er is geen modelvalidatie, er dus een tijd implementatie mislukt als een van de quotalimieten voor Hallo zijn bereikt.
 > 
 > 
 
-## <a name="choose-the-node-typevirtual-machine-scale-set-to-scale"></a>Kies het type knooppunt/virtuele-machineschaalset ingesteld om te schalen
-Op dit moment kunt zich u niet automatisch schalen regels opgeven voor virtuele-machineschaalsets met de portal, gebruikt u dus laat het ons Azure PowerShell (1.0 +) om een lijst van de knooppunttypen en vervolgens automatisch schalen regels toe te voegen aan deze.
+## <a name="choose-hello-node-typevirtual-machine-scale-set-tooscale"></a>Kies Hallo knooppunt type/virtuele-machineschaalset tooscale instellen
+Op dit moment niet kunnen toospecify Hallo automatisch schalen regels voor virtuele-machineschaalsets met de portal hello, dus laat ons gebruik van Azure PowerShell (1.0 +) toolist Hallo knooppunttypen en voeg vervolgens automatisch schalen regels toothem.
 
-Als u de lijst met virtuele-machineschaalset die gezamenlijk uw cluster, voert u de volgende cmdlets:
+tooget hello lijst van de VM-die schaalset gezamenlijk van uw cluster, Hallo volgende cmdlets worden uitgevoerd:
 
 ```powershell
 Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
@@ -39,78 +39,78 @@ Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/
 Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine scale set name>
 ```
 
-## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Regels voor het type knooppunt/virtuele-machineschaalset automatisch schalen instellen
-Als uw cluster typen met meerdere knooppunten heeft, Herhaal dat dit voor elk knooppunt typen/virtuele-machineschaalset ingesteld dat u schalen wilt (inkomend of uitgaand). Rekening gehouden met het aantal knooppunten die u hebt nodig voordat u een automatische schaling instellen. Het minimum aantal knooppunten die u voor het primaire knooppunttype hebt nodig wordt aangedreven door het niveau van betrouwbaarheid dat u hebt gekozen. Lees meer over [betrouwbaarheid niveaus](service-fabric-cluster-capacity.md).
+## <a name="set-auto-scale-rules-for-hello-node-typevirtual-machine-scale-set"></a>Instellen van regels voor automatisch schalen voor Hallo knooppunt type/virtuele-machineschaalset
+Als uw cluster typen met meerdere knooppunten heeft, Herhaal dat dit voor elk knooppunt typen/virtuele-machineschaalset ingesteld dat het gewenste tooscale (inkomend of uitgaand). Account Hallo aantal knooppunten rekening die u hebt nodig voordat u een automatische schaling instellen. minimum aantal knooppunten die u voor het primaire knooppunttype Hallo hebt nodig Hallo wordt aangedreven door Hallo betrouwbaarheid niveau die u hebt gekozen. Lees meer over [betrouwbaarheid niveaus](service-fabric-cluster-capacity.md).
 
 > [!NOTE]
-> Het primaire knooppunt bij het verkleinen tot minder dan het minimale aantal Controleer het cluster onstabiel of typ brengt u het naar beneden. Dit kan leiden tot verlies van gegevens voor uw toepassingen en de systeemservices.
+> Het verkleinen van Hallo primaire knooppunt type tooless dan het minimumaantal Hallo Hallo cluster instabiel maken of brengt u het naar beneden. Dit kan leiden tot verlies van gegevens voor uw toepassingen en Hallo systeemservices.
 > 
 > 
 
-De functie voor automatisch schalen wordt momenteel niet aangedreven door de belasting die uw toepassingen kunnen worden rapporteren naar Service Fabric. Op dit moment de dat u automatisch geschaald puur wordt aangedreven door de prestatiemeteritems die worden gegenereerd door elk van de virtuele Machine ingesteld scale dus exemplaren.  
+Hallo-functie voor automatisch schalen wordt momenteel niet aangedreven door Hallo belasting dat uw toepassingen tooService Fabric kunnen melden. Dus op dit moment Hallo wordt u automatisch geschaald uitsluitend aangedreven door Hallo-prestatiemeteritems die worden gegenereerd door elk Hallo exemplaren van virtuele machines scale set.  
 
-Volg deze instructies [voor het instellen van automatische-schaling voor elke virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
+Volg deze instructies [tooset up automatisch geschaald voor elke virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> In een schaal omlaag scenario, tenzij uw knooppunttype duurzaamheid niveau van de goud, Zilver heeft moet u aan te roepen de [cmdlet Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/azure/mt125993.aspx) met de naam van het juiste knooppunt.
+> In een schaal omlaag scenario, tenzij uw knooppunttype duurzaamheid niveau van de goud, Zilver heeft moet u toocall hello [cmdlet Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/azure/mt125993.aspx) met de naam van het juiste knooppunt Hallo.
 > 
 > 
 
-## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Virtuele machines handmatig toevoegen aan een knooppunt type/virtuele-machineschaalset
-Volg de sample/instructies in de [sjablonengalerie snel starten](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) het aantal virtuele machines in elke Nodetype te wijzigen. 
+## <a name="manually-add-vms-tooa-node-typevirtual-machine-scale-set"></a>Virtuele machines tooa knooppunt type/virtuele-machineschaalset handmatig toevoegen
+Volg Hallo voorbeeld/instructies in Hallo [snel starten-sjablonengalerie](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) toochange Hallo aantal virtuele machines in elke Nodetype. 
 
 > [!NOTE]
-> Toevoegen van virtuele machines kost tijd, zodat de toevoegingen aan onmiddellijk worden niet van plan bent. Plan daarom capaciteit goed in tijd, zodat het meer dan 10 minuten voordat het VM-capaciteit beschikbaar voor de replica's is toevoegen / service-exemplaren te worden geplaatst.
+> Toevoegen van virtuele machines kost tijd, dus niet van plan bent Hallo toevoegingen toobe onmiddellijk. Dus tooadd capaciteit plannen goed in tijd, tooallow gedurende meer dan tien minuten voordat Hallo VM-capaciteit beschikbaar voor replica's Hallo is-service-exemplaren tooget geplaatst.
 > 
 > 
 
-## <a name="manually-remove-vms-from-the-primary-node-typevirtual-machine-scale-set"></a>Virtuele machines handmatig van het primaire knooppunt type/virtuele-machineschaalset verwijderen
+## <a name="manually-remove-vms-from-hello-primary-node-typevirtual-machine-scale-set"></a>Virtuele machines handmatig uit Hallo primaire knooppunt type/virtuele-machineschaalset verwijderen
 > [!NOTE]
-> De service fabric system-services worden uitgevoerd in het primaire knooppunttype in uw cluster. Daarom moet nooit afgesloten of het aantal exemplaren in dat knooppunt types terugschroeven die kleiner zijn dan de betrouwbaarheidslaag garandeert. Raadpleeg [de details op betrouwbaarheid lagen hier](service-fabric-cluster-capacity.md). 
+> Hallo system service fabric-services worden uitgevoerd in Hallo primaire knooppunttype in uw cluster. Zo moet nooit afgesloten of Hallo aantal exemplaren in dat knooppunt types terugschroeven die kleiner zijn dan wat betrouwbaarheidslaag Hallo garandeert. Raadpleeg te[Hallo gegevens over de betrouwbaarheid tiers hier](service-fabric-cluster-capacity.md). 
 > 
 > 
 
-U moet de volgende stappen uit één VM-instantie tegelijk uitvoeren. Hierdoor kunnen de systeemservices (en uw stateful services) worden afsluiten op de VM-instantie die u wilt verwijderen en de nieuwe replica's die zijn gemaakt op andere knooppunten.
+U moet tooexecute Hallo volgende stappen één VM-instantie op een tijdstip. Hiermee kunt u systeemservices hello (en uw stateful services) toobe afsluiten op VM-instantie Hallo u wilt verwijderen en de nieuwe replica's die zijn gemaakt op andere knooppunten.
 
-1. Voer [uitschakelen ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) met opzet 'RemoveNode' naar het knooppunt uitschakelen u wilt verwijderen (hoogste exemplaar in het desbetreffende knooppunttype).
-2. Voer [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) om ervoor te zorgen dat het knooppunt inderdaad is overgegaan op uitgeschakeld. Als dat niet het geval is, wacht totdat het knooppunt is uitgeschakeld. U kunt geen wacht niet langer in deze stap.
-3. Volg de sample/instructies in de [sjablonengalerie snel starten](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) wijzigen van het aantal virtuele machines met één die Nodetype. Het exemplaar dat is verwijderd is de hoogste VM-instantie. 
-4. Herhaal stap 1 tot en met 3 indien nodig, maar nooit terugschroeven het aantal exemplaren in het primaire knooppunttypen die kleiner is dan wat de betrouwbaarheidslaag garandeert. Raadpleeg [de details op betrouwbaarheid lagen hier](service-fabric-cluster-capacity.md). 
+1. Voer [uitschakelen ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) met opzet 'RemoveNode' toodisable Hallo knooppunt gaat u tooremove (Hallo hoogste exemplaar in het desbetreffende knooppunttype).
+2. Voer [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) toomake ervoor dat knooppunt Hallo is inderdaad toodisabled overgegaan. Als dat niet het geval is, wacht totdat het Hallo-knooppunten is uitgeschakeld. U kunt geen wacht niet langer in deze stap.
+3. Volg Hallo voorbeeld/instructies in Hallo [snel starten-sjablonengalerie](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) toochange Hallo aantal virtuele machines met één die Nodetype. Hallo-instantie verwijderd is de hoogste VM-instantie Hallo. 
+4. Herhaal stap 1 tot en met 3 indien nodig, maar nooit terugschroeven Hallo aantal exemplaren in Hallo primaire knooppunttypen kleiner is dan wat betrouwbaarheidslaag Hallo garandeert. Raadpleeg te[Hallo gegevens over de betrouwbaarheid tiers hier](service-fabric-cluster-capacity.md). 
 
-## <a name="manually-remove-vms-from-the-non-primary-node-typevirtual-machine-scale-set"></a>Virtuele machines handmatig uit de niet-primaire knooppunt type/virtuele-machineschaalset verwijderen
+## <a name="manually-remove-vms-from-hello-non-primary-node-typevirtual-machine-scale-set"></a>Virtuele machines handmatig uit Hallo niet-primaire knooppunt type/virtuele-machineschaalset verwijderen
 > [!NOTE]
-> Voor een stateful service moet u een bepaald aantal knooppunten voor beschikbaarheid altijd maximaal worden onderhouden en het behouden van de status van uw service. Aan de zeer minimum moet u het aantal knooppunten gelijk zijn aan het aantal doel replica set van de partitie-/ service. 
+> Voor een stateful service moet u een bepaald aantal knooppunten toobe altijd up toomaintain beschikbaarheid en preserve status van uw service. Aan Hallo zeer minimale moet u het aantal knooppunten gelijk toohello doel replica set telling van de partitie-/ service Hallo Hallo. 
 > 
 > 
 
-In dat geval moet u het uitvoeren van de volgende stappen uit één VM-instantie in op een tijdstip. Hiermee kunt u de systeemservices (en uw stateful services) worden afsluiten op de VM-instantie die u wilt verwijderen en nieuwe replica's gemaakt waar u anders.
+U moet Hallo Hallo één VM-instantie stappen te volgen op een tijdstip worden uitgevoerd. Hiermee kunt u systeemservices hello (en uw stateful services) toobe afsluiten op Hallo VM-instantie die u wilt verwijderen en nieuwe replica's gemaakt waar u anders.
 
-1. Voer [uitschakelen ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) met opzet 'RemoveNode' naar het knooppunt uitschakelen u wilt verwijderen (hoogste exemplaar in het desbetreffende knooppunttype).
-2. Voer [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) om ervoor te zorgen dat het knooppunt inderdaad is overgegaan op uitgeschakeld. Als dat niet, wacht u tot de knooppunten is uitgeschakeld. U kunt geen wacht niet langer in deze stap.
-3. Volg de sample/instructies in de [sjablonengalerie snel starten](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) wijzigen van het aantal virtuele machines met één die Nodetype. Hiermee wordt de hoogste VM-instantie nu verwijderd. 
-4. Herhaal stap 1 tot en met 3 indien nodig, maar nooit terugschroeven het aantal exemplaren in het primaire knooppunttypen die kleiner is dan wat de betrouwbaarheidslaag garandeert. Raadpleeg [de details op betrouwbaarheid lagen hier](service-fabric-cluster-capacity.md).
+1. Voer [uitschakelen ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) met opzet 'RemoveNode' toodisable Hallo knooppunt gaat u tooremove (Hallo hoogste exemplaar in het desbetreffende knooppunttype).
+2. Voer [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) toomake ervoor dat knooppunt Hallo is inderdaad toodisabled overgegaan. Als dat niet, wacht u tot Hallo van knooppunten is uitgeschakeld. U kunt geen wacht niet langer in deze stap.
+3. Volg Hallo voorbeeld/instructies in Hallo [snel starten-sjablonengalerie](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) toochange Hallo aantal virtuele machines met één die Nodetype. Hiermee wordt de hoogste VM-instantie Hallo nu verwijderd. 
+4. Herhaal stap 1 tot en met 3 indien nodig, maar nooit terugschroeven Hallo aantal exemplaren in Hallo primaire knooppunttypen kleiner is dan wat betrouwbaarheidslaag Hallo garandeert. Raadpleeg te[Hallo gegevens over de betrouwbaarheid tiers hier](service-fabric-cluster-capacity.md).
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Gedrag kunnen zich in Service Fabric Explorer
-Wanneer u een cluster opschalen heeft de Service Fabric Explorer geeft het aantal knooppunten (virtuele-machineschaalset exemplaren) die deel van het cluster uitmaken.  Wanneer u schaalt een cluster omlaag u wordt echter wel het verwijderde knooppunt/VM-exemplaar in een slechte status weergegeven, tenzij u aanroepen [verwijderen ServiceFabricNodeState cmd](https://msdn.microsoft.com/library/mt125993.aspx) met de naam van het juiste knooppunt.   
+Wanneer u een cluster Hallo opschalen nieuwe Service Fabric Explorer Hallo aantal knooppunten (virtuele-machineschaalset exemplaren) die deel van Hallo-cluster uitmaken.  Wanneer u schaalt een cluster omlaag u wordt echter wel Hallo verwijderd knooppunt/VM-instantie in een slechte status weergegeven, tenzij u aanroepen [verwijderen ServiceFabricNodeState cmd](https://msdn.microsoft.com/library/mt125993.aspx) met de naam van het juiste knooppunt Hallo.   
 
-Hier is de uitleg van dit probleem.
+Hier is Hallo uitleg van dit probleem.
 
-De knooppunten die worden vermeld in Service Fabric Explorer zijn afspiegeling van welke het Service Fabric-systeemservices (FM specifiek) op de hoogte van het aantal knooppunten van het cluster had/heeft. Wanneer u de virtuele-machineschaalset vastgestelde schaalt, de virtuele machine is verwijderd maar FM system-service nog steeds denkt dat het knooppunt (dat is toegewezen aan de virtuele machine die is verwijderd) wordt terugkeren. Zo blijft de Service Fabric Explorer om weer te geven dat knooppunt (Hoewel de status is mogelijk fout of een onbekend).
+Hallo knooppunten die worden vermeld in Service Fabric Explorer zijn afspiegeling van welke Hallo Service Fabric-systeemservices (FM specifiek) op de hoogte van het aantal knooppunten Hallo cluster had/heeft Hallo. Wanneer u Hallo virtuele-machineschaalset vastgestelde schaalt, Hallo VM is verwijderd maar FM system-service nog steeds denkt dat Hallo-knooppunt (die is toegewezen toohello VM die is verwijderd) wordt keert u terug. Dus blijft Service Fabric Explorer toodisplay dat knooppunt (Hoewel Hallo-status is mogelijk fout of een onbekend).
 
-Om ervoor te zorgen dat een knooppunt worden verwijderd wanneer een virtuele machine wordt verwijderd, hebt u twee opties:
+In de volgorde toomake ervoor dat een knooppunt wordt verwijderd wanneer een virtuele machine wordt verwijderd, hebt u twee opties:
 
-1) Kies een duurzaamheid van goud of zilver (beschikbaar snel) voor de knooppunttypen in het cluster hebt u de infrastructuur-integratie. Dit wordt vervolgens automatisch verwijderd de knooppunten van de status van onze services (FM) wanneer u omlaag schalen.
-Raadpleeg [de details op duurzaamheid niveaus hier](service-fabric-cluster-capacity.md)
+1) Kies een duurzaamheid van goud of zilver (beschikbaar snel) voor knooppunttypen Hallo in uw cluster, waardoor u Hallo infrastructuur integratie. Die vervolgens wordt automatisch verwijderd Hallo knooppunten van de status van onze services (FM) wanneer u omlaag schalen.
+Raadpleeg te[Hallo meer informatie over duurzaamheid niveaus hier](service-fabric-cluster-capacity.md)
 
-2) Zodra de VM-instantie is verkleind, moet u de [cmdlet Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx).
+2) Hallo VM-instantie is verkleind, hoeft u toocall hello [cmdlet Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx).
 
 > [!NOTE]
-> Service Fabric-clusters vereisen een bepaald aantal knooppunten tegelijkertijd de tijd om te onderhouden, beschikbaarheid en het behouden van status - aangeduid als 'onderhoud quorum'. Het wordt dus doorgaans onveilige alle machines in het cluster afsluiten, tenzij u eerst hebt uitgevoerd een [volledige back-up van de staat](service-fabric-reliable-services-backup-restore.md).
+> Service Fabric-clusters tijd in beslag nemen een bepaald aantal knooppunten toobe up op alle Hallo volgorde toomaintain beschikbaarheid en preserve status - waarnaar wordt verwezen tooas 'onderhoud quorum'. Het wordt dus doorgaans onveilige tooshut omlaag alle Hallo-machines in de cluster Hallo tenzij u eerst hebt uitgevoerd een [volledige back-up van de staat](service-fabric-reliable-services-backup-restore.md).
 > 
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-Lees het volgende wanneer u ook meer informatie over het plannen van capaciteit van de cluster, upgraden van een cluster en partitioneren services:
+Lezen Hallo tooalso na meer over het plannen van capaciteit van de cluster, upgraden van een cluster en partitioneren services:
 
 * [De capaciteit van de cluster plannen](service-fabric-cluster-capacity.md)
 * [Cluster-upgrades](service-fabric-cluster-upgrade.md)

@@ -1,6 +1,6 @@
 ---
-title: Een functie in Azure maken die wordt geactiveerd door een GitHub-webhook | Microsoft Docs
-description: Gebruik Azure Functions voor het maken van een functie zonder server die wordt aangeroepen door een GitHub-webhook.
+title: een functie in Azure geactiveerd door een GitHub webhook aaaCreate | Microsoft Docs
+description: Azure Functions toocreate een zonder server-functie die wordt opgeroepen door een GitHub webhook gebruiken.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 038bb4cf0a9278416261c05ddaa0ee97d83b63c5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8ffcde82c9310d749159ed53eab113658e38a030
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Een door een GitHub-webhook geactiveerde functie maken
 
-Ontdek hoe u een functie maakt die wordt geactiveerd door een HTTP-webhookaanvraag met een specifieke GitHub-nettolading.
+Meer informatie over hoe toocreate een functie die wordt veroorzaakt door een HTTP-webhook-aanvraag met een GitHub-specifieke nettolading.
 
-![Een door een GitHub-webhook geactiveerde functie in Azure Portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
+![Github Webhook geactiveerd functie in hello Azure-portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -41,61 +41,61 @@ Ontdek hoe u een functie maakt die wordt geactiveerd door een HTTP-webhookaanvra
 
 ![De functie-app is gemaakt.](./media/functions-create-first-azure-function/function-app-create-success.png)
 
-Vervolgens maakt u een functie in de nieuwe functie-app.
+Vervolgens maakt u een functie in nieuwe Hallo-functie-app.
 
 <a name="create-function"></a>
 
 ## <a name="create-a-github-webhook-triggered-function"></a>Een door een GitHub-webhook geactiveerde functie maken
 
-1. Vouw de functie-app uit en klik op de knop **+** naast **Functies**. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen.
+1. Vouw de functie-app en klik op Hallo  **+**  knop naast te**functies**. Als dit eerste functie in uw app functie hello, selecteer **aangepaste functie**. De volledige set Hallo van functie-sjablonen worden weergegeven.
 
-    ![De Quick Start-pagina van Functions in Azure Portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
+    ![Functies Quick Start-pagina in hello Azure-portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Selecteer de **GitHub WebHook** sjabloon voor de gewenste taal. **Geef de functie een naam** en selecteer vervolgens **Maken**.
+2. Selecteer Hallo **GitHub WebHook** sjabloon voor de gewenste taal. **Geef de functie een naam** en selecteer vervolgens **Maken**.
 
-     ![Een door een GitHub-webhook geactiveerde functie maken in Azure Portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+     ![Maak een GitHub webhook geactiveerd-functie in hello Azure-portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 
-3. Klik in de nieuwe functie op **</> Functie-URL ophalen**, kopieer de waarden en sla deze op. Doe hetzelfde voor **</> GitHub-geheim ophalen**. U hebt deze waarden nodig voor het configureren van de webhook in GitHub.
+3. Klik in de nieuwe functie op **<> / Get function URL**, kopiëren en opslaan van Hallo waarden. Hetzelfde geldt voor Hallo **<> / ophalen van GitHub geheim**. U gebruikt deze waarden tooconfigure hello webhook in GitHub.
 
-    ![De functiecode controleren](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png)
+    ![Hallo functiecode bekijken](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png)
 
 Vervolgens maakt u een webhook in uw GitHub-opslagplaats.
 
-## <a name="configure-the-webhook"></a>De webhook configureren
+## <a name="configure-hello-webhook"></a>Hallo webhook configureren
 
-1. Navigeer naar een van uw opslagplaatsen in GitHub. U kunt ook een opslagplaats gebruiken die u hebt gesplitst. Als u een opslagplaats moet splitsen, gebruikt u <https://github.com/Azure-Samples/functions-quickstart>.
+1. Navigeer in GitHub, tooa opslagplaats waarvan u eigenaar. U kunt ook een opslagplaats gebruiken die u hebt gesplitst. Als u een opslagplaats toofork moet, gebruikt u <https://github.com/Azure-Samples/functions-quickstart>.
 
 1. Klik achtereenvolgens op **Instellingen**, **Webhooks** en **Webhook toevoegen**.
 
     ![Een GitHub-webhook toevoegen](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-1. Gebruik de instellingen zoals die in de tabel zijn opgegeven en klik vervolgens op **Webhook toevoegen**.
+1. Instellingen zoals opgegeven in de tabel hello gebruiken en klik vervolgens op **webhook toevoegen**.
 
-    ![Webhook-URL en geheim instellen](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
+    ![Hallo webhook-URL en geheim instellen](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 
 | Instelling | Voorgestelde waarde | Beschrijving |
 |---|---|---|
-| **URL van de nettolading** | Gekopieerde waarde | Gebruik de waarde die wordt geretourneerd door **</> Functie-URL ophalen**. |
-| **Geheim**   | Gekopieerde waarde | Gebruik de waarde die wordt geretourneerd door **</> GitHub-geheim ophalen**. |
-| **Inhoudstype** | application/json | De functie verwacht een JSON-nettolading. |
-| Gebeurtenistriggers | Ik wil afzonderlijke gebeurtenissen selecteren | We willen alleen activeren bij gebeurtenissen met een opmerking bij actie van het item.  |
+| **URL van de nettolading** | Gekopieerde waarde | Hallo-waarde geretourneerd door **<> / Get function URL**. |
+| **Geheim**   | Gekopieerde waarde | Hallo-waarde geretourneerd door **<> / ophalen van GitHub geheim**. |
+| **Inhoudstype** | application/json | Hallo functie verwacht een JSON-nettolading. |
+| Gebeurtenistriggers | Ik wil afzonderlijke gebeurtenissen selecteren | We willen alleen tootrigger op probleem Opmerking gebeurtenissen.  |
 | | Opmerking bij actie item |  |
 
-Nu is de webhook zo geconfigureerd dat de functie wordt geactiveerd wanneer er een nieuwe probleemopmerking wordt toegevoegd.
+Nu Hallo webhook geconfigureerde tootrigger is de functie wanneer een nieuwe probleem opmerking wordt toegevoegd.
 
-## <a name="test-the-function"></a>De functie testen
+## <a name="test-hello-function"></a>Hallo functie testen
 
-1. Open in uw GitHub-opslagplaats het tabblad **Problemen** in een nieuw browservenster.
+1. Open in uw GitHub-opslagplaats Hallo **problemen** tabblad in een nieuw browservenster.
 
-1. Klik in het nieuwe venster op **Nieuw probleem**, voer een titel in en klik op **Nieuw probleem verzenden**.
+1. Op het nieuwe venster Hallo **nieuwe probleem**, typt u een titel en klik vervolgens op **indienen van nieuwe probleem**.
 
-1. Typ een opmerking bij probleem en klik op **Opmerking**.
+1. Typ een opmerking in Hallo probleem, en klik op **Opmerking**.
 
     ![Voeg een opmerking bij de actie van het item van GitHub toe.](./media/functions-create-github-webhook-triggered-function/functions-github-webhook-add-comment.png)
 
-1. Ga terug naar de portal en bekijk de logboeken. Hier ziet u een traceervermelding met de tekst van de nieuwe opmerking.
+1. Ga terug toohello portal en bekijk Hallo Logboeken. Hier ziet u een vermelding in het traceerlogboek door Hallo nieuwe opmerkingstekst.
 
-     ![Bekijk de tekst van de opmerking in de logboeken.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
+     ![De tekst hello opmerking in Hallo logboeken weergeven.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

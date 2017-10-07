@@ -1,6 +1,6 @@
 ---
-title: Virtuele machines in Azure te migreren naar beheerde schijven | Microsoft Docs
-description: Migreren van virtuele machines in Azure gemaakt met behulp van niet-beheerde schijven in opslagaccounts beheerd schijven te gebruiken.
+title: Azure Virtual machines tooManaged schijven aaaMigrate | Microsoft Docs
+description: Azure virtuele machines die zijn gemaakt met behulp van niet-beheerde schijven in de storage-accounts toouse beheerde schijven migreren.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: e23697b390e03bd2b71f2c905882070d864d62ed
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 29420f13c4ffd5b25726e0ef1aafe89347286a89
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Virtuele machines in Azure te migreren naar beheerde schijven in Azure
+# <a name="migrate-azure-vms-toomanaged-disks-in-azure"></a>Migreren van virtuele Azure-machines tooManaged schijven in Azure
 
-Azure-beheerde schijven vereenvoudigt het beheer van uw opslag door het verwijderen van de noodzaak voor het beheren van afzonderlijk storage-accounts.  U kunt uw bestaande Azure-virtuele machines ook migreren naar schijven beheerd profiteren van betere betrouwbaarheid van virtuele machines in een Beschikbaarheidsset. Hiermee zorgt u ervoor dat de schijven van andere virtuele machines in een Beschikbaarheidsset zal voldoende los van elkaar om te voorkomen dat één punt van fouten. Schijven met een andere virtuele machines automatisch geplaatst in een Beschikbaarheidsset in verschillende opslagunits (stempels) Hiermee beperkt u het effect van één opslag scale unit storingen veroorzaakt door de hardware en software.
+Azure-schijven die worden beheerd vereenvoudigt het beheer van uw opslag door het verwijderen van Hallo nodig tooseparately storage-accounts beheren.  U kunt ook uw bestaande virtuele Azure-machines tooManaged schijven toobenefit migreren van betere betrouwbaarheid van virtuele machines in een Beschikbaarheidsset. Hiermee zorgt u ervoor dat de schijven Hallo van andere virtuele machines in een Beschikbaarheidsset voldoende geïsoleerd van elk andere tooavoid één punt van fouten worden. Schijven met een andere virtuele machines automatisch geplaatst in een Beschikbaarheidsset in verschillende opslagunits (stempels) Hiermee beperkt u Hallo impact van één scale unit Opslagfouten veroorzaakt vervaldatums toohardware-en software.
 Op basis van uw behoeften, kunt u kiezen uit twee soorten opties voor opslag:
 
-- [Premium-schijven beheerd](../../storage/common/storage-premium-storage.md) Solid State station (SSD) op basis van opslagmedia die highperformance, schijfondersteuning voor virtuele machines met I/O-intensieve werkbelastingen met lage latentie zorgt. U kunt profiteren van de snelheid en prestaties van deze schijven nemen door te migreren naar de Premium-schijven worden beheerd.
+- [Premium-schijven beheerd](../../storage/common/storage-premium-storage.md) Solid State station (SSD) op basis van opslagmedia die highperformance, schijfondersteuning voor virtuele machines met I/O-intensieve werkbelastingen met lage latentie zorgt. U kunt profiteren van Hallo snelheid en prestaties van deze schijven migreren tooPremium beheerd schijven op te nemen.
 
-- [Standard-beheerde schijven](../../storage/common/storage-standard-storage.md) opslagmedia harde schijf (HDD) op basis van gebruik en geschikt zijn voor het ontwikkelen en testen en andere werkbelastingen incidentele toegang die minder gevoelig voor prestaties variabiliteit zijn.
+- [Standard-beheerde schijven](../../storage/common/storage-standard-storage.md) opslagmedia harde schijf (HDD) op basis van gebruik en geschikt zijn voor het ontwikkelen en testen en andere werkbelastingen incidentele toegang die minder gevoelig tooperformance variabiliteit zijn.
 
-U kunt migreren naar schijven beheerd in de volgende scenario's:
+U kunt migreren tooManaged schijven in de volgende scenario's:
 
 | Migreren...                                            | Koppeling van documentatie                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Zelfstandige virtuele machines en virtuele machines in een beschikbaarheidsset naar beheerde schijven converteren   | [Virtuele machines voor het gebruik van beheerde schijven converteren](convert-unmanaged-to-managed-disks.md) |
-| Een enkele virtuele machine van klassiek naar Resource Manager op beheerde schijven     | [Een enkele virtuele machine migreren](migrate-single-classic-to-resource-manager.md)  | 
-| Alle virtuele machines in een vNet van klassieke, naar Resource Manager op beheerde schijven     | [Migreren van IaaS-middelen van klassiek naar Resource Manager](migration-classic-resource-manager-ps.md) en vervolgens [een virtuele machine van niet-beheerde schijven converteren naar beheerde schijven](convert-unmanaged-to-managed-disks.md) | 
+| Zelfstandige virtuele machines en virtuele machines in een beschikbaarheidsgroep set toomanaged schijven converteren   | [Virtuele machines toouse beheerd schijven converteren](convert-unmanaged-to-managed-disks.md) |
+| Een enkele virtuele machine van klassieke tooResource Manager op beheerde schijven     | [Een enkele virtuele machine migreren](migrate-single-classic-to-resource-manager.md)  | 
+| Alle Hallo-VM's in een vNet van klassieke tooResource Manager op beheerde schijven     | [Migreren van IaaS-resources van klassieke tooResource Manager](migration-classic-resource-manager-ps.md) en vervolgens [een virtuele machine van niet-beheerde schijven toomanaged schijven converteren](convert-unmanaged-to-managed-disks.md) | 
 
 
 
 
 
 
-## <a name="plan-for-the-conversion-to-managed-disks"></a>Plan voor de conversie naar schijven beheerd
+## <a name="plan-for-hello-conversion-toomanaged-disks"></a>Plannen voor de conversie Hallo tooManaged schijven
 
-Deze sectie helpt u bij het maken van de beste beslissing op schijf en VM-typen.
+Deze sectie helpt u bij toomake Hallo beste beslissing op schijf en VM-typen.
 
 
 ## <a name="location"></a>Locatie
 
-Kies een locatie waar Azure beheerd schijven beschikbaar zijn. Als u naar Premium-schijven worden beheerd overstapt, ook voor zorgen dat de Premium-opslag beschikbaar is in de regio waar u van plan bent om naar te verplaatsen. Zie [Azure-Services per regio](https://azure.microsoft.com/regions/#services) voor actuele informatie over beschikbare locaties.
+Kies een locatie waar Azure beheerd schijven beschikbaar zijn. Als u tooPremium beheerd schijven overstapt, zorg er ook voor Premium-opslag is beschikbaar in Hallo regio waar u van plan bent toomove aan. Zie [Azure-Services per regio](https://azure.microsoft.com/regions/#services) voor actuele informatie over beschikbare locaties.
 
 ## <a name="vm-sizes"></a>Formaten van virtuele machines
 
-Als u naar Premium-schijven worden beheerd migreert, hebt u voor het bijwerken van de grootte van de virtuele machine naar de Premium-opslag kunnen grootte beschikbaar in de regio waar de VM zich bevindt. Bekijk de VM-grootten Premium-opslag die geschikt zijn. De Azure VM-grootte specificaties worden vermeld in [grootten voor virtuele machines](sizes.md).
-Bekijk de prestatiekenmerken van virtuele machines die geschikt is voor Premium-opslag en kiest u de meest geschikte VM-grootte die het beste past bij uw workload. Zorg ervoor dat er voldoende bandbreedte beschikbaar op de virtuele machine is om het verkeer van de schijf.
+Als u tooPremium beheerd schijven migreert, hebt u tooupdate Hallo grootte van Hallo VM tooPremium kan grootte van de opslagruimte beschikbaar is in Hallo regio waar de VM zich bevindt. Bekijk Hallo VM-grootten die Premium-opslag die geschikt zijn. Hello Azure VM-grootte specificaties worden vermeld in [grootten voor virtuele machines](sizes.md).
+Bekijk de prestatiekenmerken Hallo van virtuele machines die geschikt is voor Premium-opslag en kies Hallo meest geschikte VM-grootte die het beste past bij uw werkbelasting. Zorg ervoor dat er voldoende bandbreedte beschikbaar op uw VM toodrive Hallo schijf verkeer is.
 
 ## <a name="disk-sizes"></a>Schijfformaten
 
 **Premium beheerde schijven**
 
-Er zijn zeven soorten beheerde premium-schijven die kunnen worden gebruikt met uw virtuele machine en elke principal heeft bepaalde IOPs en doorvoerlimieten limieten. In overweging nemen deze limieten bij het kiezen van het type Premium-schijf voor de virtuele machine op basis van de behoeften van uw toepassing in termen van capaciteit, prestaties, schaalbaarheid en piek worden geladen.
+Er zijn zeven soorten beheerde premium-schijven die kunnen worden gebruikt met uw virtuele machine en elke principal heeft bepaalde IOPs en doorvoerlimieten limieten. In overweging nemen deze limieten bij het kiezen van Hallo Premium schijftype voor uw virtuele machine op basis van Hallo behoeften van uw toepassing in termen van capaciteit, prestaties, schaalbaarheid en piek worden geladen.
 
 | Premium-schijven Type  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
@@ -71,7 +71,7 @@ Er zijn zeven soorten beheerde premium-schijven die kunnen worden gebruikt met u
 
 **Beheerde standaardschijven**
 
-Er zijn zeven soorten beheerde standaardschijven die kunnen worden gebruikt met uw virtuele machine. Elk van deze andere capaciteit hebben maar dezelfde IOPS en doorvoerlimieten hebben. Kies het type van de Standard-beheerde schijven op basis van de capaciteitsbehoeften van uw toepassing.
+Er zijn zeven soorten beheerde standaardschijven die kunnen worden gebruikt met uw virtuele machine. Elk van deze andere capaciteit hebben maar dezelfde IOPS en doorvoerlimieten hebben. Standard-beheerde schijven op basis van de capaciteitsbehoeften Hallo van uw toepassing hello type kiezen.
 
 | Standard-schijftype  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
@@ -83,11 +83,11 @@ Er zijn zeven soorten beheerde standaardschijven die kunnen worden gebruikt met 
 
 **Premium beheerde schijven**
 
-Beleid voor de schijfcache is standaard *alleen-lezen* voor alle Premium gegevensschijven, en *lezen-schrijven* voor de Premium-schijf is gekoppeld aan de VM. Deze configuratieinstelling wordt aanbevolen de optimale prestaties voor uw toepassing IOs bereiken. Voor schijven schrijven zware of alleen-schrijven gegevens (zoals SQL Server-logboekbestanden), uitschakelen schijfcache, zodat u kunt betere prestaties bereiken.
+Beleid voor de schijfcache is standaard *alleen-lezen* voor alle gegevensschijven Premium, Hallo en *lezen-schrijven* voor Hallo Premium besturingssysteemschijf gekoppeld toohello VM. Deze configuratieinstelling wordt aanbevolen tooachieve Hallo optimale prestaties voor uw toepassing IOs. Voor schijven schrijven zware of alleen-schrijven gegevens (zoals SQL Server-logboekbestanden), uitschakelen schijfcache, zodat u kunt betere prestaties bereiken.
 
 ## <a name="pricing"></a>Prijzen
 
-Controleer de [prijzen voor schijven beheerd](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Prijzen van beheerde Premium-schijven is hetzelfde als het niet-beheerde Premium-schijven. Maar prijzen voor beheerde standaardschijven is anders dan standaardschijven zonder begeleiding.
+Bekijk Hallo [prijzen voor schijven beheerd](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Prijzen van beheerde Premium-schijven is hetzelfde als Hallo onbeheerde Premium-schijven. Maar prijzen voor beheerde standaardschijven is anders dan standaardschijven zonder begeleiding.
 
 
 

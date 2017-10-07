@@ -1,6 +1,6 @@
 ---
-title: Synchronisatie-inhoud uit een cloud-map in Azure App Service
-description: Informatie over het implementeren van uw app in Azure App Service via inhoud synchronisatie uit een cloud-map.
+title: aaaSync inhoud van een map tooAzure voor cloud-App Service
+description: Meer informatie over hoe toodeploy uw app tooAzure App Service via inhoud synchroniseren vanuit een map van de cloud.
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 010e7dc492abefaa3afe814c0322af9f6fe5acd2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e1c6d53a427c36126d9cdb33cc21b4126b9d9c2f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Synchronisatie-inhoud uit een cloud-map in Azure App Service
-Deze zelfstudie leert u hoe u implementeert in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) door het synchroniseren van uw inhoud van de opslagservices populaire cloudtoepassingen zoals Dropbox en OneDrive. 
+# <a name="sync-content-from-a-cloud-folder-tooazure-app-service"></a>Synchronisatie-inhoud van een map tooAzure voor cloud-App Service
+Deze zelfstudie leert u hoe toodeploy te[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) door het synchroniseren van uw inhoud van de opslagservices populaire cloudtoepassingen zoals Dropbox en OneDrive. 
 
 ## <a name="overview"></a>Overzicht van de implementatie van inhoud synchroniseren
-De implementatie van inhoud op aanvraag-synchronisatie wordt mogelijk gemaakt door de [implementatie-engine Kudu](https://github.com/projectkudu/kudu/wiki) geïntegreerd met App Service. In de [Azure Portal](https://portal.azure.com), kunt u een map in de cloudopslag, werken met uw app-code en de inhoud in de map en synchroniseren in App Service met de op een knop te klikken. Inhoud synchronisatie maakt gebruik van de Kudu-proces voor het bouwen en uitvoeren. 
+Hallo inhoud op aanvraag-sync-implementatie wordt aangedreven door Hallo [implementatie-engine Kudu](https://github.com/projectkudu/kudu/wiki) geïntegreerd met App Service. In Hallo [Azure Portal](https://portal.azure.com), kunt u een map in de cloudopslag, werken met uw app-code en de inhoud in de map en sync tooApp Service Hello op een knop. Inhoud synchronisatie maakt gebruik van Hallo Kudu proces voor het bouwen en uitvoeren. 
 
-## <a name="contentsync"></a>Het inschakelen van inhoud sync-implementatie
-Inschakelen van inhoud synchroniseren vanuit de [Azure Portal](https://portal.azure.com), als volgt te werk:
+## <a name="contentsync"></a>Hoe tooenable inhoud implementatie synchroniseren
+tooenable inhoud synchroniseren vanuit Hallo [Azure Portal](https://portal.azure.com), als volgt te werk:
 
-1. Klik in de blade van uw app in de Azure Portal op **instellingen** > **Implementatiebron**. Klik op **bron kiezen**, selecteer daarna **OneDrive** of **Dropbox** als bron voor de implementatie. 
+1. Klik in de blade van uw app in Azure Portal Hallo op **instellingen** > **Implementatiebron**. Klik op **bron kiezen**, selecteer daarna **OneDrive** of **Dropbox** als Hallo bron voor de implementatie. 
    
     ![Inhoud synchroniseren](./media/app-service-deploy-content-sync/deployment_source.png)
    
    > [!NOTE]
-   > Vanwege onderliggende verschillen in de API's, **OneDrive voor bedrijven** wordt niet ondersteund op dit moment. 
+   > Vanwege onderliggende verschillen in Hallo-API's, **OneDrive voor bedrijven** wordt niet ondersteund op dit moment. 
    > 
    > 
-2. Het voltooien van de werkstroom autorisatie om in te schakelen van App Service toegang krijgen tot een specifiek pad van de vooraf gedefinieerde aangewezen voor OneDrive of Dropbox waarin alle inhoud van de App Service wordt opgeslagen.  
-    Na autorisatie App Service krijgt platform u de optie voor het maken van een map met inhoud onder het pad naar de aangewezen inhoud of een bestaande map met inhoud onder deze aangewezen Inhoudspad kiezen. De opgegeven paden naar inhoud toe onder uw cloud-opslag-accounts die worden gebruikt voor synchronisatie van App Service, zijn de volgende:  
+2. Volledige Hallo autorisatie werkstroom tooenable tooaccess App Service een specifieke vooraf gedefinieerde opgegeven pad voor OneDrive of Dropbox waarin alle inhoud van de App Service wordt opgeslagen.  
+    Hallo optie toocreate een map met inhoud onder Hallo aangewezen na autorisatie Hallo App Service-platform u krijgt, het pad naar inhoud of een bestaande map met inhoud onder deze aangewezen Inhoudspad toochoose. paden naar inhoud in uw cloud-opslag-accounts die worden gebruikt voor synchronisatie van App Service Hallo aangewezen zijn Hallo volgende:  
    
    * **OneDrive**:`Apps\Azure Web Apps` 
    * **Dropbox**:`Dropbox\Apps\Azure`
-3. Na de initiële synchronisatie van de inhoud kan de inhoud synchronisatie worden gestart op verzoek vanuit de Azure-portal. Geschiedenis van implementatie is beschikbaar met de **implementaties** blade.
+3. Na Hallo kan de initiële synchronisatie van de inhoud Hallo inhoud synchronisatie worden gestart op verzoek via hello Azure-portal. Geschiedenis van implementatie is beschikbaar met Hallo **implementaties** blade.
    
     ![Implementatiegeschiedenis](./media/app-service-deploy-content-sync/onedrive_sync.png)
 

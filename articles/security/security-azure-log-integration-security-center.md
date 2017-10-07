@@ -1,6 +1,6 @@
 ---
-title: Integratie van Azure logboek met security center | Microsoft Docs
-description: Meer informatie over het Azure Security center alerts werken met logboek-integratie
+title: aaaAzure logboek integratie met security center | Microsoft Docs
+description: Meer informatie over hoe tooget Azure Security center-waarschuwingen die werken met logboek-integratie
 services: security
 documentationcenter: na
 author: Barclayn
@@ -15,44 +15,44 @@ ums.workload: na
 ms.date: 03/22/2017
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 294a795746420233e961e67cceec4b0538e49ff6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bcc208d071ec03738215f2aee3b71c7b10927904
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-get-your-security-center-alerts-in-azure-log-integration"></a>Het ophalen van uw Security Center-waarschuwingen in de Azure-logboekanalyse-integratie
-Dit artikel bevat de stappen die nodig is voor de integratie van Azure Log-service voor het ophalen van informatie over beveiliging waarschuwingen gegenereerd door Azure Security Center. U moet hebt voltooid de stappen in de [aan de slag](security-azure-log-integration-get-started.md) artikel voordat u de stappen in dit artikel uitvoert.
+# <a name="how-tooget-your-security-center-alerts-in-azure-log-integration"></a>Hoe tooget uw Security Center waarschuwingen in Azure-logboekanalyse-integratie
+Dit artikel bevat Hallo stappen vereist tooenable hello Azure Log integratie service toopull beveiligingswaarschuwing informatie die wordt gegenereerd door Azure Security Center. U moet hebt voltooid Hallo stappen in Hallo [aan de slag](security-azure-log-integration-get-started.md) artikel voordat u Hallo stappen in dit artikel uitvoert.
 
 ## <a name="detailed-steps"></a>Gedetailleerde stappen
-De volgende stappen wordt de vereiste Azure Active Directory Service-Principal maken en toewijzen van de Service Principle leesrechten heeft voor het abonnement:
-1. Open de opdrachtprompt en navigeer naar **c:\Program Files\Microsoft Azure Log-integratie**
-2. Voer de opdracht``azlog createazureid``
+Hallo volgende stappen maakt Hallo vereist Azure Active Directory Service-Principal en toewijzen Hallo Service Principle leesmachtigingen toohello abonnement:
+1. Hallo-opdrachtprompt openen en te navigeren**c:\Program Files\Microsoft Azure Log-integratie**
+2. Hallo-opdracht uitvoeren``azlog createazureid``
 
-    Met deze opdracht wordt u gevraagd om uw Azure-aanmelding. De opdracht maakt u vervolgens een [Azure Active Directory Service-Principal](../active-directory/develop/active-directory-application-objects.md) in de Azure AD-Tenants die als host fungeren van de Azure-abonnementen waarin de aangemelde gebruiker een beheerder, CO-beheerder of een eigenaar is. De opdracht mislukt als de aangemelde gebruiker een gastgebruiker in de Azure AD-Tenant. Verificatie in Azure wordt uitgevoerd via Azure Active Directory (AD). Maken van een service-principal voor Azlog integratie maakt de identiteit van de Azure AD dat toegang tot het lezen van de Azure-abonnementen wordt verleend.
+    Met deze opdracht wordt u gevraagd om uw Azure-aanmelding. Hallo opdracht maakt u vervolgens een [Azure Active Directory Service-Principal](../active-directory/develop/active-directory-application-objects.md) in hello Azure AD-Tenants die als host fungeren hello Azure-abonnementen een beheerder, CO-beheerder of een eigenaar in welke Hallo aangemelde gebruiker is. Hallo-opdracht mislukt als Hallo aangemelde gebruiker een gastgebruiker in hello Azure AD-Tenant. TooAzure verificatie wordt gedaan via Azure Active Directory (AD). Maken van een service-principal voor Azlog integratie maakt hello Azure AD identity die toegang tooread wordt gegeven van de Azure-abonnementen.
 
-2. Vervolgens voert u een opdracht waarmee leestoegang hebben voor het abonnement worden toegewezen aan de service-principal gemaakt in stap 2. Als u een abonnements-id niet opgeeft, wordt de opdracht geprobeerd toewijzen van de rol van service principal lezer alle abonnementen op die u geen toegang hebben hebt. </br></br>
+2. Vervolgens voert u een opdracht die wordt toegewezen lezerstoegang op Hallo abonnement toohello service-principal gemaakt in stap 2. Als u niet een abonnements-id opgeeft, wordt Hallo opdracht tooassign Hallo service principal lezer rol tooall abonnementen toowhich u toegang hebben geprobeerd. </br></br>
 ``azlog authorize <SubscriptionID>`` </br> bijvoorbeeld </br>
 ``azlog authorize 0ee55555-0bc4-4a32-a4e8-c29980000000``
 
     >[!NOTE]
-    Mogelijk ziet u waarschuwingen als u de opdracht autoriseren onmiddellijk na de opdracht createazureid uitvoeren. Er is enige vertraging worden bijgewerkt tussen wanneer het Azure AD-account wordt gemaakt en wanneer het account is beschikbaar voor gebruik. Als u ongeveer 60 seconden wacht na het uitvoeren van de createazureid-opdracht de opdracht autoriseren uitvoeren, moet u deze waarschuwingen niet ziet.
+    Mogelijk ziet u waarschuwingen als u Hallo uitvoeren opdracht onmiddellijk na Hallo createazureid opdracht autoriseren. Er is enige vertraging worden bijgewerkt tussen wanneer hello Azure AD-account wordt gemaakt en wanneer Hallo-account is beschikbaar voor gebruik. Als u over wacht 60 seconden na het uitvoeren van Hallo createazureid opdracht toorun Hallo opdracht toestaan en klik vervolgens niet ziet u deze waarschuwingen.
 
-4. Controleer de volgende mappen om te bevestigen dat de Audit log JSON-bestanden er zijn:
+4. Controleer zijn er Hallo mappen tooconfirm die Hallo Audit log JSON-bestanden te volgen:
  * **c:\Users\azlog\AzureResourceManagerJson**
  * **c:\Users\azlog\AzureResourceManagerJsonLD** </br></br>
-5. Controleer de volgende mappen om te bevestigen dat Security Center-waarschuwingen in deze bestaat:</br></br>
+5. Hallo mappen tooconfirm die Security Center waarschuwingen aanwezig zijn in deze volgende controleren:</br></br>
  * **c:\Users\azlog\AzureSecurityCenterJson**
  * **c:\Users\azlog\AzureSecurityCenterJsonLD** </br></br>
 
-Als u problemen ondervindt wordt uitgevoerd tijdens de installatie en configuratie, opent u een [ondersteuningsaanvraag](/azure-supportability/how-to-create-azure-support-request.md), selecteer **logboek integratie** als de service waarvoor u ondersteuning aanvraagt.
+Als u problemen ondervindt tijdens het Hallo-installatie en configuratie, opent u een [ondersteuningsaanvraag](/azure-supportability/how-to-create-azure-support-request.md), selecteer **logboek integratie** als Hallo service waarvoor u ondersteuning aanvraagt.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende documenten voor meer informatie over de integratie van Azure-logboek:
+toolearn meer informatie over de integratie van Azure Log, Zie Hallo documenten te volgen:
 
 * [Microsoft Azure Log-integratie voor Azure logboeken](https://www.microsoft.com/download/details.aspx?id=53324) : Download Center voor meer informatie over de systeemvereisten en instructies op Azure-logboekanalyse-integratie installeren.
-* [Inleiding tot Azure-logboekanalyse integratie](security-azure-log-integration-overview.md) : dit document bevat een inleiding tot Azure-logboekanalyse integratie, de belangrijkste mogelijkheden en hoe het werkt.
-* [Partner configuratiestappen](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – dit blogbericht ziet u de integratie van Azure-logboekanalyse werken met partneroplossingen Splunk, HP ArcSight en IBM QRadar configureren.
+* [Inleiding tooAzure logboek integratie](security-azure-log-integration-overview.md) : dit document vindt u tooAzure logboek integratie, de belangrijkste mogelijkheden en hoe het werkt.
+* [Partner configuratiestappen](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – dit blogbericht leest u hoe tooconfigure Azure integratie toowork Meld met partneroplossingen Splunk, HP ArcSight en IBM QRadar.
 * [Azure-logboekanalyse integratie Veelgestelde vragen (FAQ)](security-azure-log-integration-faq.md) -deze Veelgestelde vragen over de antwoorden op vragen over Azure-logboekanalyse-integratie.
-* [Waarschuwingen met Azure Security Center integreren Meld integratie](../security-center/security-center-integrating-alerts-with-log-integration.md) : dit document ziet u hoe Security Center-waarschuwingen, samen met de virtuele machine beveiligingsgebeurtenissen die zijn verzameld door Azure Diagnostics- en Azure controlelogboeken met uw SIEM-oplossingen of logboekanalyse synchroniseren.
-* [Nieuwe functies voor Azure diagnoses en Azure controlelogboeken](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) : dit blogbericht maakt u kennis met Azure controlelogboeken en andere functies waarmee u inzicht in de bewerkingen van uw Azure-resources.
+* [Waarschuwingen met Azure Security Center integreren Meld integratie](../security-center/security-center-integrating-alerts-with-log-integration.md) : dit document leest u hoe toosync Security Center waarschuwingen, samen met de virtuele machine beveiligingsgebeurtenissen die zijn verzameld door Azure Diagnostics- en Azure controlelogboeken met uw logboekanalyse of SIEM-oplossing.
+* [Nieuwe functies voor Azure diagnoses en Azure controlelogboeken](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) : vindt u in dit blogbericht tooAzure controlelogboeken en andere functies waarmee u inzicht in Hallo bewerkingen van uw Azure-resources.

@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie Service Bus REST met Azure Relay | Microsoft Docs
+title: aaaService Bus REST-zelfstudie met Azure Relay | Microsoft Docs
 description: Bouw een eenvoudige Azure Service Bus relay-hosttoepassing een REST gebaseerde interface.
 services: service-bus-relay
 documentationcenter: na
@@ -14,40 +14,40 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2017
 ms.author: sethm
-ms.openlocfilehash: 0db9dbd2d2743907e3f0b259228201d4f5d0c3c2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b68650993a0390e7cef891ccb4236095cd86d4c1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF Relay REST-zelfstudie
 
-Deze zelfstudie wordt beschreven hoe u een eenvoudige Azure Relay-hosttoepassing een REST gebaseerde interface. Met REST kan een webclient, zoals een webbrowser, toegang krijgen tot de Service Bus-API's via HTTP-aanvragen.
+Deze zelfstudie wordt beschreven hoe de toepassing die een REST gebaseerde interface voor het hosten van toobuild een eenvoudige Azure-Relay. REST kan een webclient, zoals een webbrowser, tooaccess Hallo Service Bus-API's via HTTP-aanvragen.
 
-De Windows Communication Foundation (WCF) REST-programmeermodel gebruikt voor het maken van een REST-service op de Service Bus maakt gebruik van de zelfstudie. Zie [WCF REST Programming Model](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) (WCF REST-programmeermodel) en [Designing and Implementing Services](/dotnet/framework/wcf/designing-and-implementing-services) (Services ontwerpen en implementeren) in de WCF-documentatie voor meer informatie.
+Hallo-zelfstudie wordt gebruikgemaakt van Hallo Windows Communication Foundation (WCF) REST programming model tooconstruct een REST-service op de Service Bus. Zie voor meer informatie [WCF REST Programming Model](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) en [Services ontwerpen en implementeren](/dotnet/framework/wcf/designing-and-implementing-services) in Hallo WCF-documentatie.
 
 ## <a name="step-1-create-a-namespace"></a>Stap 1: Een naamruimte maken
 
-Als u de relayfuncties in Azure wilt gebruiken, moet u eerst een servicenaamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Azure-resources in uw toepassing. Volg [deze instructies](relay-create-namespace-portal.md) om een Relay-naamruimte te maken.
+met behulp van toobegin Hallo relay-functies in Azure, moet u eerst een Servicenaamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Azure-resources in uw toepassing. Ga als volgt Hallo [hier instructies](relay-create-namespace-portal.md) toocreate een Relay-naamruimte.
 
-## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Stap 2: Een REST gebaseerd WCF-servicecontract voor gebruik met Azure Relay definiëren
+## <a name="step-2-define-a-rest-based-wcf-service-contract-toouse-with-azure-relay"></a>Stap 2: Een toouse REST gebaseerd WCF-servicecontract met Azure Relay definiëren
 
-Wanneer u een service WCF REST-stijl maakt, moet u het contract definiëren. Het contract geeft aan welke bewerkingen door de host worden ondersteund. Een servicebewerking kan worden beschouwd als een webservicemethode. Contracten worden gemaakt door een C++-, C#- of Visual Basic-interface te definiëren. Elke methode in de interface komt overeen met een specifieke servicebewerking. Op elke interface moet het kenmerk [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) worden toegepast en op elke bewerking moet het kenmerk [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) worden toegepast. Als een methode in een interface met het kenmerk [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) niet beschikt over het kenmerk [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), wordt die methode niet weergegeven. In het voorbeeld na de procedure wordt de code weergegeven die voor deze taken wordt gebruikt.
+Wanneer u een service WCF REST-stijl maakt, moet u Hallo contract definiëren. Hallo contract geeft aan welke bewerkingen Hallo host ondersteunt. Een servicebewerking kan worden beschouwd als een webservicemethode. Contracten worden gemaakt door een C++-, C#- of Visual Basic-interface te definiëren. Elke methode in Hallo interface komt tooa specifieke servicebewerking overeen. Hallo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) -kenmerk moet worden toegepast tooeach interface en Hallo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) kenmerk moet toegepaste tooeach bewerking. Als een methode in een interface met Hallo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) heeft geen Hallo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), die methode niet weergegeven. Hallo-code die wordt gebruikt voor deze taken wordt weergegeven in het Hallo-voorbeeld Hallo procedure te volgen.
 
-Het belangrijkste verschil tussen een WCF-contract en een REST-stijlcontract is de toevoeging van een eigenschap aan de [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Met deze eigenschap kunt u een methode in uw interface toewijzen aan een methode aan de andere kant van de interface. In dit geval wordt [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) gebruikt om een methode te koppelen aan HTTP GET. Hierdoor kan Service Bus opdrachten die naar de interface worden verzonden, correct ophalen en interpreteren.
+Hallo belangrijkste verschil tussen een WCF-contract en een REST-stijlcontract is Hallo toevoeging van een eigenschap toohello [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Deze eigenschap kunt u een methode in uw interfacemethode tooa op Hallo toomap andere kant van het Hallo-interface. We gebruiken in dit geval [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) toolink een tooHTTP methode GET. Hierdoor kan Service Bus tooaccurately ophalen en interpreteren opdrachten toohello interface verzonden.
 
-### <a name="to-create-a-contract-with-an-interface"></a>Een contract met een interface maken
+### <a name="toocreate-a-contract-with-an-interface"></a>toocreate een contract met een interface
 
-1. Open Visual Studio als beheerder: klik met de rechtermuisknop op het programma in het menu **Start** en klik vervolgens op **Als administrator uitvoeren**.
-2. Maak een nieuw consoletoepassingsproject. Klik op het menu **Bestand**, selecteer **Nieuw** en selecteer vervolgens **Project**. Klik in het dialoogvenster **Nieuw project** op **Visual C#**, selecteer de sjabloon **Consoletoepassing** en geef deze de naam **ImageListener**. Gebruik de standaardwaarde voor **Locatie**. Klik op **OK** om het project te maken.
-3. Voor een C#-project maakt Visual Studio een `Program.cs`-bestand. Deze klasse bevat een lege `Main()`-methode, vereist voor de juiste opbouw van een consoletoepassingsproject.
-4. Voeg verwijzingen naar Service Bus en **System.ServiceModel.dll** aan het project toe door het Service Bus NuGet-pakket te installeren. Met dit pakket worden automatisch verwijzingen naar de Service Bus-bibliotheken en naar het **System.ServiceModel** van WCF toegevoegd. Klik in Solution Explorer met de rechtermuisknop op het project **ImageListener** en klik vervolgens op **NuGet-pakketten beheren**. Klik op het tabblad **Bladeren** en zoek naar `Microsoft Azure Service Bus`. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
-5. U moet expliciet een verwijzing naar **System.ServiceModel.Web.dll** toevoegen aan het project:
+1. Open Visual Studio als beheerder: klik met de rechtermuisknop Hallo programma in Hallo **Start** menu en klik vervolgens op **als administrator uitvoeren**.
+2. Maak een nieuw consoletoepassingsproject aan. Klik op Hallo **bestand** menu en selecteer **nieuw**, selecteer daarna **Project**. In Hallo **nieuw Project** in het dialoogvenster klikt u op **Visual C#**, selecteer Hallo **consoletoepassing** -sjabloon en noem deze **ImageListener**. Standaard-Hallo **locatie**. Klik op **OK** toocreate Hallo project.
+3. Voor een C#-project maakt Visual Studio een `Program.cs`-bestand. Deze klasse bevat een lege `Main()` methode, vereist voor een console application project toobuild correct.
+4. Voeg verwijzingen tooService Bus en **System.ServiceModel.dll** toohello project door Hallo Service Bus NuGet-pakket installeert. Dit pakket wordt automatisch toegevoegd verwijzingen toohello Service Bus-bibliotheken, evenals Hallo WCF **System.ServiceModel**. Klik in Solution Explorer met de rechtermuisknop op Hallo **ImageListener** project en klik vervolgens op **NuGet-pakketten beheren**. Klik op Hallo **Bladeren** tabblad en zoek naar `Microsoft Azure Service Bus`. Klik op **installeren**, en accepteer de gebruiksvoorwaarden Hallo.
+5. U moet expliciet een verwijzing te toevoegen**System.ServiceModel.Web.dll** toohello project:
    
-    a. Klik in Solution Explorer met de rechtermuisknop op de map **Verwijzingen** in de projectmap en klik vervolgens op **Verwijzing toevoegen**.
+    a. Klik in Solution Explorer met de rechtermuisknop op Hallo **verwijzingen** map onder Hallo projectmap en klik vervolgens op **verwijzing toevoegen**.
    
-    b. Klik in het dialoogvenster **Verwijzing toevoegen** op het tabblad **Framework** aan de linkerkant en typ **System.ServiceModel.Web** in het vak **Zoeken**. Schakel het selectievakje **System.ServiceModel.Web** in en klik vervolgens op **OK**.
-6. Voeg aan het begin van het bestand Program.cs de volgende `using`-instructies toe:
+    b. In Hallo **verwijzing toevoegen** dialoogvenster vak, klikt u op Hallo **Framework** tabblad aan de linkerkant hello en in Hallo **Search** in het vak **System.ServiceModel.Web** . Selecteer Hallo **System.ServiceModel.Web** selectievakje en klik vervolgens op **OK**.
+6. Voeg de volgende Hallo `using` instructies Hallo boven aan het bestand Program.cs Hallo.
    
     ```csharp
     using System.ServiceModel;
@@ -56,15 +56,15 @@ Het belangrijkste verschil tussen een WCF-contract en een REST-stijlcontract is 
     using System.IO;
     ```
    
-    [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) is de naamruimte die programmatisch toegang biedt tot de basisfuncties van WCF. Relay WCF maakt gebruik van veel van de objecten en kenmerken van WCF om servicecontracten te definiëren. U gebruikt deze naamruimte in de meeste van de relay-toepassingen. Op deze manier [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) helpt bij het definiëren het kanaal, dit is het object waarmee u met Azure Relay en de clientwebbrowser communiceren. Tot slot bevat [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) de typen waarmee u webtoepassingen kunt maken.
-7. Wijzig de naam van de naamruimte `ImageListener` in **Microsoft.ServiceBus.Samples**.
+    [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) is Hallo-naamruimte die programmatisch toegang toobasic onderdelen van WCF. Relay WCF maakt gebruik van veel van Hallo-objecten en kenmerken van WCF toodefine servicecontracten. U gebruikt deze naamruimte in de meeste van de relay-toepassingen. Op deze manier [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) helpt bij het Hallo-kanaal is Hallo-object waarmee u contact met de Azure-Relay en Hallo clientwebbrowser opnemen definiëren. Ten slotte [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) bevat Hallo typen waarmee u toocreate webtoepassingen.
+7. Wijzig de naam van Hallo `ImageListener` naamruimte te**Microsoft.ServiceBus.Samples**.
    
     ```csharp
     namespace Microsoft.ServiceBus.Samples
     {
         ...
     ```
-8. Definieer meteen na de openingsaccolade van de naamruimtedeclaratie een nieuwe interface met de naam **IImageContract** en pas het kenmerk **ServiceContractAttribute** met de waarde `http://samples.microsoft.com/ServiceModel/Relay/` toe op de interface. De naamruimtewaarde verschilt van de naamruimte die u in uw code gebruikt. De naamruimtewaarde wordt gebruikt als een unieke id voor dit contract en moet versie-informatie bevatten. Zie [Serviceversiebeheer](http://go.microsoft.com/fwlink/?LinkID=180498) voor meer informatie. Door de naamruimte expliciet op te geven, wordt voorkomen dat de standaardnaamruimtewaarde wordt toegevoegd aan de naam van het contract.
+8. Direct na de Hallo na accolades openen van de naamruimtedeclaratie hello, definiëren een nieuwe interface met de naam **IImageContract** en toepassing hello **ServiceContractAttribute** kenmerk toohello interface met een waarde van `http://samples.microsoft.com/ServiceModel/Relay/`. Hallo naamruimtewaarde verschilt van Hallo-naamruimte die u gebruiken voor de hele Hallo bereik van uw code. Hallo naamruimtewaarde wordt gebruikt als een unieke id voor dit contract en moet versie-informatie. Zie [Serviceversiebeheer](http://go.microsoft.com/fwlink/?LinkID=180498) voor meer informatie. Het expliciet opgeven van Hallo-naamruimte voorkomt u dat standaardnaamruimtewaarde hello toohello contractnaam wordt toegevoegd.
    
     ```csharp
     [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
@@ -72,7 +72,7 @@ Het belangrijkste verschil tussen een WCF-contract en een REST-stijlcontract is 
     {
     }
     ```
-9. Declareer in de `IImageContract`-interface een methode voor de enkelvoudige bewerking die door het `IImageContract`-contract wordt weergegeven in de interface en pas het kenmerk `OperationContractAttribute` toe op de methode die u wilt weergeven als onderdeel van het openbare Service Bus-contract.
+9. Binnen Hallo `IImageContract` interface, declareert u een methode voor het Hallo één bewerking Hallo `IImageContract` contract zichtbaar gemaakt in Hallo interface en toepassing hello `OperationContractAttribute` toohello methode waarmee u tooexpose als onderdeel van Hallo openbare Service Bus-kenmerk contract.
    
     ```csharp
     public interface IImageContract
@@ -81,7 +81,7 @@ Het belangrijkste verschil tussen een WCF-contract en een REST-stijlcontract is 
         Stream GetImage();
     }
     ```
-10. Voeg de waarde **WebGet** toe aan het kenmerk **OperationContract**.
+10. In Hallo **OperationContract** kenmerk, het toevoegen van Hallo **WebGet** waarde.
     
     ```csharp
     public interface IImageContract
@@ -91,18 +91,18 @@ Het belangrijkste verschil tussen een WCF-contract en een REST-stijlcontract is 
     }
     ```
     
-    In dat geval schakelt de relay-service op route HTTP GET aanvragen om te doen `GetImage`, en de retourwaarden van vertalen `GetImage` in een HTTP GETRESPONSE-antwoord. Verderop in de zelfstudie gebruikt u een webbrowser om toegang te krijgen tot deze methode en de installatiekopie weer te geven in de browser.
-11. Declareer direct na de `IImageContract`-definitie een kanaal dat de eigenschappen overneemt van de `IImageContract`- en `IClientChannel`-interface.
+    Dit doet, kunnen Hallo relay-service tooroute HTTP GET-te aanvragen`GetImage`, en tootranslate Hallo retourwaarden van `GetImage` in een HTTP GETRESPONSE-antwoord. Later in Hallo zelfstudie gebruikt u een web browser tooaccess deze methode als toodisplay Hallo installatiekopie in de browser Hallo.
+11. Direct na Hallo `IImageContract` definitie een kanaal dat eigenschappen van beide Hallo overneemt declareren `IImageContract` en `IClientChannel` interfaces.
     
     ```csharp
     public interface IImageChannel : IImageContract, IClientChannel { }
     ```
     
-    Een kanaal is het WCF-object waarmee de service en de client informatie aan elkaar doorgeven. U maakt het kanaal later in uw hosttoepassing. Azure Relay gebruikt dit kanaal om door te geven van de HTTP GET-aanvragen van de browser uw **GetImage** implementatie. De relay gebruikt dit kanaal ook te laten de **GetImage** waarde retourneren en zet deze om naar een HTTP GETRESPONSE voor de clientbrowser.
-12. Klik in het menu **Bouwen** op **Oplossing opbouwen** om de juistheid van uw werk tot nu toe te controleren.
+    Een kanaal is Hallo WCF-object waarmee Hallo-service en de client informatie tooeach andere doorgeven. Later, maakt u Hallo channel in uw hosttoepassing. Azure Relay gebruikt dit kanaal toopass Hallo HTTP GET-aanvragen van Hallo browser tooyour **GetImage** implementatie. Hallo relay gebruikt ook Hallo kanaal tootake hello **GetImage** waarde retourneren en zet deze om naar een HTTP GETRESPONSE voor de clientbrowser Hallo.
+12. Van Hallo **bouwen** menu, klikt u op **Build Solution** tooconfirm Hallo juistheid van uw werk tot nu toe.
 
 ### <a name="example"></a>Voorbeeld
-De volgende code toont een eenvoudige interface die een Relay WCF-contract wordt gedefinieerd.
+Hallo volgende code toont een eenvoudige interface die een Relay WCF-contract wordt gedefinieerd.
 
 ```csharp
 using System;
@@ -135,21 +135,21 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Stap 3: een op REST gebaseerd WCF-servicecontract voor gebruik met Service Bus implementeren
-Maken van een REST-stijl WCF Relay-service, moet u eerst het contract, die is gedefinieerd met behulp van een interface maken. De volgende stap is het implementeren van de interface. Hiervoor moet u een klasse met de naam **ImageService** maken die de door de gebruiker gedefinieerde **IImageContract**-interface implementeert. Nadat het contract is geïmplementeerd, configureert u de interface met een App.config-bestand. Het configuratiebestand bevat de benodigde informatie voor de toepassing, zoals de naam van de service, de naam van het contract en het type protocol dat wordt gebruikt om te communiceren met de relay-service. In het voorbeeld na de procedure wordt de code weergegeven die voor deze taken wordt gebruikt.
+## <a name="step-3-implement-a-rest-based-wcf-service-contract-toouse-service-bus"></a>Stap 3: Een REST gebaseerd WCF-servicecontract toouse Service Bus implementeren
+Maken van een REST-stijl WCF Relay-service, moet eerst de Hallo-contract wordt gedefinieerd door middel van een interface te maken. de volgende stap Hallo is tooimplement Hallo-interface. Dit omvat het maken van een klasse met de naam **ImageService** die gebruiker gedefinieerde Hallo implementeert **IImageContract** interface. Nadat u Hallo contract implementeert, configureert u Hallo-interface met een App.config-bestand. Hallo-configuratiebestand bevat de benodigde gegevens voor het Hallo-toepassing, zoals het Hallo-naam van Hallo-service, Hallo-naam van het Hallo-contract en Hallo type protocol dat wordt gebruikt toocommunicate met Hallo relay-service. Hallo-code die wordt gebruikt voor deze taken wordt vermeld in Hallo voorbeeld Hallo procedure te volgen.
 
-Net als bij de vorige stappen, is er weinig verschil tussen het implementeren van een REST-stijlcontract en een Relay WCF-contract.
+Als met de vorige stappen hello, er is weinig verschil tussen het implementeren van een REST-stijlcontract en een Relay WCF-contract.
 
-### <a name="to-implement-a-rest-style-service-bus-contract"></a>Een Service Bus-contract in REST-stijl implementeren
-1. Maak een nieuwe klasse met de naam **ImageService** direct na de definitie van de **IImageContract**-interface. Met de klasse **ImageService** wordt de **IImageContract**-interface geïmplementeerd.
+### <a name="tooimplement-a-rest-style-service-bus-contract"></a>Service Bus-contract tooimplement een REST-stijl
+1. Maak een nieuwe klasse met de naam **ImageService** direct na de definitie van Hallo Hallo **IImageContract** interface. Hallo **ImageService** klasse implementeert Hallo **IImageContract** interface.
    
     ```csharp
     class ImageService : IImageContract
     {
     }
     ```
-    Net als bij andere interface-implementaties kunt u de definitie implementeren in een ander bestand. In deze zelfstudie wordt de implementatie echter weergegeven in hetzelfde bestand als de interfacedefinitie en de `Main()`-methode.
-2. Pas het kenmerk [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) op de klasse **IImageService** toe om aan te geven dat de klasse een implementatie is van een WCF-contract.
+    Vergelijkbare tooother interface-implementaties, kunt u Hallo definitie implementeren in een ander bestand. Voor deze zelfstudie Hallo-implementatie wordt weergegeven in hetzelfde bestand als de interfacedefinitie Hallo Hallo en `Main()` methode.
+2. Toepassing hello [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) kenmerk toohello **IImageService** klasse tooindicate die klasse Hallo is een implementatie van een WCF-contract.
    
     ```csharp
     [ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
@@ -158,14 +158,14 @@ Net als bij de vorige stappen, is er weinig verschil tussen het implementeren va
     }
     ```
    
-    Zoals eerder is vermeld, is deze naamruimte geen traditionele naamruimte, maar maakt deze deel uit van de WCF-architectuur waarmee het contract wordt geïdentificeerd. Zie het onderwerp [Data Contract Names](https://msdn.microsoft.com/library/ms731045.aspx) (Gegevenscontractnamen) in de WCF-documentatie voor meer informatie.
-3. Voeg een JPG-afbeelding toe aan uw project.  
+    Zoals eerder is vermeld, is deze naamruimte geen traditionele naamruimte, In plaats daarvan uitmaakt het deel van Hallo WCF-architectuur waarmee Hallo contract identificeert. Zie voor meer informatie, Hallo [Data Contract Names](https://msdn.microsoft.com/library/ms731045.aspx) onderwerp in Hallo WCF-documentatie.
+3. Voeg een jpg-installatiekopie tooyour-project.  
    
-    Dit is een afbeelding die de service in de ontvangende browser weergeeft. Klik met de rechtermuisknop op het project en klik op **Toevoegen**. Klik vervolgens op **Bestaand item**. Gebruik het dialoogvenster **Bestaand item toevoegen** om te bladeren naar een geschikt JPG-bestand en klik vervolgens op **Toevoegen**.
+    Dit is een afbeelding die Hallo-service wordt weergegeven in Hallo ontvangen van de browser. Klik met de rechtermuisknop op het project en klik op **Toevoegen**. Klik vervolgens op **Bestaand item**. Gebruik Hallo **Add Existing Item** dialoogvenster vak toobrowse tooan geschikt jpg en klik vervolgens op **toevoegen**.
    
-    Als u het bestand toevoegt, moet u ervoor zorgen dat **Alle bestanden** is geselecteerd in de vervolgkeuzelijst naast het veld **Bestandsnaam:**. In de rest van deze zelfstudie wordt ervan uitgegaan dat de naam van de afbeelding 'image.jpg' is. Als u een ander bestand gebruikt, moet u de naam van de afbeelding wijzigen of moet u uw code wijzigen.
-4. Klik in **Solution Explorer** met de rechtermuisknop op het afbeeldingsbestand en klik op **Eigenschappen** om te controleren of de service die wordt uitgevoerd het affbeeldingsbestand kan vinden. Stel **Naar uitvoermap kopiëren** in het deelvenster **Eigenschappen** in op **Kopiëren indien nieuwer**.
-5. Voeg een verwijzing naar de **System.Drawing.dll**-assembly toe aan het project en voeg tevens de volgende gekoppelde `using`-instructies toe.  
+    Wanneer u Hallo bestand toevoegt, zorg ervoor dat **alle bestanden** is geselecteerd in de volgende toohello van Hallo vervolgkeuzelijst **bestandsnaam:** veld. Hallo rest van deze handleiding wordt ervan uitgegaan dat Hallo naam van Hallo afbeelding 'image.jpg' is. Als u een ander bestand hebt, wordt toorename Hallo afbeelding, of wijzig uw toocompensate code.
+4. er zeker die Hallo waarop service wordt uitgevoerd in Hallo installatiekopiebestand kan vinden toomake **Solution Explorer** met de rechtermuisknop op het Hallo-afbeeldingsbestand en klik vervolgens op **eigenschappen**. In Hallo **eigenschappen** deelvenster ingesteld **tooOutput Directory kopiëren** te**kopiëren indien nieuwer**.
+5. Voeg een verwijzing toohello **System.Drawing.dll** assembly toohello project en ook toevoegen Hallo volgende gekoppelde `using` instructies.  
    
     ```csharp
     using System.Drawing;
@@ -173,7 +173,7 @@ Net als bij de vorige stappen, is er weinig verschil tussen het implementeren va
     using Microsoft.ServiceBus;
     using Microsoft.ServiceBus.Web;
     ```
-6. Voeg in de klasse **ImageService** de volgende constructor toe waarmee de bitmap wordt geladen en voorbereid op verzending naar de clientbrowser.
+6. In Hallo **ImageService** klasse, het toevoegen van Hallo volgende constructor dat geladen bitmap Hallo en toosend bereidt het toohello clientbrowser.
    
     ```csharp
     class ImageService : IImageContract
@@ -188,7 +188,7 @@ Net als bij de vorige stappen, is er weinig verschil tussen het implementeren va
         }
     }
     ```
-7. Voeg direct na de vorige code de volgende **GetImage**-methode toe aan de klasse **ImageService** om een HTTP-bericht met de afbeelding te retourneren.
+7. Direct na de vorige code hello, voeg de volgende Hallo **GetImage** methode in Hallo **ImageService** klasse tooreturn een HTTP-bericht dat de installatiekopie Hallo bevat.
    
     ```csharp
     public Stream GetImage()
@@ -203,14 +203,14 @@ Net als bij de vorige stappen, is er weinig verschil tussen het implementeren va
     }
     ```
    
-    Deze implementatie maakt gebruik van **MemoryStream** om de afbeelding op te halen en deze voor te bereiden op streaming naar de browser. De streampositie start bij nul, de stream wordt gedeclareerd als JPEG en de gegevens worden gestreamd.
-8. Klik in het menu **Bouwen** op **Oplossing opbouwen**.
+    Maakt gebruik van deze implementatie **MemoryStream** tooretrieve Hallo installatiekopie en voorbereiden voor streaming toohello browser. Het Hallo stroompositie bij nul wordt gestart, declareert Hallo stroominhoud als jpeg en streams Hallo informatie.
+8. Van Hallo **bouwen** menu, klikt u op **Build Solution**.
 
-### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>De configuratie voor het uitvoeren van de webservice in Service Bus definiëren
-1. Dubbelklik in **Solution Explorer** op het bestand **App.config** om dit te openen in de Visual Studio-editor.
+### <a name="toodefine-hello-configuration-for-running-hello-web-service-on-service-bus"></a>toodefine hello configuratie voor het uitvoeren van Hallo-webservice in Service Bus
+1. In **Solution Explorer**, dubbelklikt u op **App.config** tooopen in Hallo Visual Studio-editor.
    
-    De **App.config** bestand bevat de servicenaam, het eindpunt (dat wil zeggen, de locatie die Azure Relay biedt voor clients en hosts om te communiceren met elkaar) en de binding (het type protocol dat wordt gebruikt voor communicatie). Hier het belangrijkste verschil is dat het geconfigureerde service-eindpunt naar verwijst een [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding.
-2. Het `<system.serviceModel>` XML-element is een WCF-element waarmee een of meer services worden gedefinieerd. Hier wordt het gebruikt om de servicenaam en het eindpunt te definiëren. Voeg onder aan het `<system.serviceModel>`-element (maar nog wel binnen `<system.serviceModel>`) een `<bindings>`-element toe met de volgende inhoud. Hiermee definieert u de bindingen die in de toepassing worden gebruikt. U kunt meerdere bindingen definiëren, maar in deze zelfstudie definieert u er slechts één.
+    Hallo **App.config** -bestand bevat de servicenaam hello, eindpunt (dat wil zeggen, Hallo locatie Azure Relay voor clients en hosts toocommunicate met elkaar biedt) en binding (Hallo type protocol dat wordt gebruikt toocommunicate). Hallo hier het belangrijkste verschil is dat Hallo geconfigureerd service-eindpunt verwijst tooa [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding.
+2. Hallo `<system.serviceModel>` XML-element is een WCF-element dat een of meer services definieert. Hier is het gebruikte toodefine Hallo servicenaam en -eindpunt. Hallo Hallo onderaan in `<system.serviceModel>` element (maar nog steeds binnen `<system.serviceModel>`), Voeg een `<bindings>` -element waarvoor Hallo inhoud na. Hiermee definieert u Hallo bindingen in de toepassing hello gebruikt. U kunt meerdere bindingen definiëren, maar in deze zelfstudie definieert u er slechts één.
    
     ```xml
     <bindings>
@@ -223,8 +223,8 @@ Net als bij de vorige stappen, is er weinig verschil tussen het implementeren va
     </bindings>
     ```
    
-    De vorige code definieert een Relay WCF [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding met **relayClientAuthenticationType** ingesteld op **geen**. Met deze instelling geeft u aan dat voor een eindpunt dat deze binding gebruikt, geen clientreferentie is vereist.
-3. Na het `<bindings>`-element voegt u een `<services>`-element toe. Net zoals bij bindingen kunt u meerdere services definiëren in een enkel configuratiebestand. In deze zelfstudie definieert u slechts een service.
+    Hallo vorige code definieert een Relay WCF [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding met **relayClientAuthenticationType** instellen te**geen**. Met deze instelling geeft u aan dat voor een eindpunt dat deze binding gebruikt, geen clientreferentie is vereist.
+3. Na het Hallo `<bindings>` element, Voeg een `<services>` element. Soortgelijke toohello bindingen kunt u meerdere services definiëren in een enkel configuratiebestand. In deze zelfstudie definieert u slechts een service.
    
     ```xml
     <services>
@@ -241,8 +241,8 @@ Net als bij de vorige stappen, is er weinig verschil tussen het implementeren va
     </services>
     ```
    
-    In deze stap configureert u een service die de vooraf gedefinieerde **webHttpRelayBinding**-binding gebruikt. Deze service gebruikt ook de standaard **sbTokenProvider**, die in de volgende stap wordt gedefinieerd.
-4. Na de `<services>` element, maakt een `<behaviors>` element met de volgende inhoud en vervang 'sas_key ' vervangen door de *Shared Access Signature* sleutel (SAS) u eerder hebt verkregen via de [Azure-portal] [Azure portal].
+    Deze stap configureert u een service die gebruikmaakt van standaard Hallo eerder gedefinieerd **webHttpRelayBinding**. Gebruikt ook Hallo standaard **sbTokenProvider**, die is gedefinieerd in de volgende stap Hallo.
+4. Na Hallo `<services>` element, maakt een `<behaviors>` element met Hallo inhoud te volgen, Vervang 'sas_key ' vervangen door Hallo *Shared Access Signature* (SAS)-sleutel die u eerder hebt verkregen via Hallo [Azure-portal ][Azure portal].
    
     ```xml
     <behaviors>
@@ -262,7 +262,7 @@ Net als bij de vorige stappen, is er weinig verschil tussen het implementeren va
             </serviceBehaviors>
     </behaviors>
     ```
-5. Terwijl App.config actief is, vervangt u in het `<appSettings>`-element de hele verbindingsreekswaarde door de verbindingsreeks die u eerder hebt verkregen via de portal. 
+5. Nog steeds in App.config in Hallo `<appSettings>` vervangen Hallo gehele gegevensbronwaarde met verbindingsreeks die u eerder hebt verkregen via de portal Hallo Hallo-element. 
    
     ```xml
     <appSettings>
@@ -271,10 +271,10 @@ Net als bij de vorige stappen, is er weinig verschil tussen het implementeren va
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SAS_KEY"/>
     </appSettings>
     ```
-6. Klik in het menu **Bouwen** op **Oplossing opbouwen** om de volledige oplossing op te bouwen.
+6. Van Hallo **bouwen** menu, klikt u op **Build Solution** toobuild Hallo hele oplossing.
 
 ### <a name="example"></a>Voorbeeld
-De volgende code toont het contract en de service-implementatie voor een op REST gebaseerde service die in Service Bus wordt uitgevoerd met de binding **WebHttpRelayBinding**.
+Hallo volgende code toont Hallo contract en de service-implementatie voor een op REST gebaseerde service die wordt uitgevoerd op de Service Bus met Hallo **WebHttpRelayBinding** binding.
 
 ```csharp
 using System;
@@ -336,7 +336,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-In het volgende voorbeeld wordt het aan de service gekoppelde bestand App.config weergegeven.
+Hallo ziet volgende voorbeeld Hallo App.config-bestand dat is gekoppeld met Hallo-service.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -346,7 +346,7 @@ In het volgende voorbeeld wordt het aan de service gekoppelde bestand App.config
     </startup>
     <system.serviceModel>
         <extensions>
-            <!-- In this extension section we are introducing all known service bus extensions. User can remove the ones they don't need. -->
+            <!-- In this extension section we are introducing all known service bus extensions. User can remove hello ones they don't need. -->
             <behaviorExtensions>
                 <add name="connectionStatusBehavior"
                     type="Microsoft.ServiceBus.Configuration.ConnectionStatusElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
@@ -429,54 +429,54 @@ In het volgende voorbeeld wordt het aan de service gekoppelde bestand App.config
 </configuration>
 ```
 
-## <a name="step-4-host-the-rest-based-wcf-service-to-use-azure-relay"></a>Stap 4: De REST gebaseerd WCF-service voor het gebruik van Azure Relay hosten
-Deze stap wordt beschreven hoe een webservice met een consoletoepassing met WCF Relay uit te voeren. Een volledig overzicht van de code die in deze stap wordt geschreven, vindt u in het voorbeeld na de procedure.
+## <a name="step-4-host-hello-rest-based-wcf-service-toouse-azure-relay"></a>Stap 4: Host Hallo REST gebaseerd WCF-service toouse Relay in Azure
+Deze stap wordt beschreven hoe toorun een web service met een consoletoepassing met WCF Relay. Een volledig overzicht van Hallo code die is geschreven in deze stap wordt vermeld in Hallo voorbeeld Hallo procedure te volgen.
 
-### <a name="to-create-a-base-address-for-the-service"></a>Een basisadres voor de service maken
-1. In de `Main()` declaratie van de functie, maakt u een variabele voor het opslaan van de naamruimte van uw project. Zorg ervoor dat u `yourNamespace` met de naam van de Relay-naamruimte die u eerder hebt gemaakt.
+### <a name="toocreate-a-base-address-for-hello-service"></a>een basisadres voor Hallo service toocreate
+1. In Hallo `Main()` declaratie van de functie, maakt u een variabele toostore Hallo-naamruimte van uw project. Zorg ervoor dat tooreplace `yourNamespace` met Hallo-naam van Hallo Relay naamruimte die u eerder hebt gemaakt.
    
     ```csharp
     string serviceNamespace = "yourNamespace";
     ```
-    Service Bus gebruikt de naam van uw naamruimte om een unieke URI te maken.
-2. Maak een `Uri`-exemplaar voor het basisadres van de service die is gebaseerd op de naamruimte.
+    Service Bus maakt gebruik van Hallo-naam van uw naamruimte toocreate een unieke URI.
+2. Maak een `Uri` exemplaar voor het basisadres Hallo van Hallo-service die is gebaseerd op Hallo-naamruimte.
    
     ```csharp
     Uri address = ServiceBusEnvironment.CreateServiceUri("https", serviceNamespace, "Image");
     ```
 
-### <a name="to-create-and-configure-the-web-service-host"></a>De webservicehost maken en configureren
-* Maak de webservicehost met het URI-adres dat u eerder in dit gedeelte hebt gemaakt.
+### <a name="toocreate-and-configure-hello-web-service-host"></a>toocreate en Hallo WebServiceHost configureren
+* Hallo web ServiceHost, met behulp van de URI-adres Hallo eerder hebt gemaakt in deze sectie maken.
   
     ```csharp
     WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
     ```
-    De servicehost is het WCF-object waarmee de hosttoepassing wordt gestart. In dit voorbeeld wordt het type host dat u wilt maken (een **ImageService**), doorgegeven en ook het adres waarop u de hosttoepassing wilt weergeven.
+    Hallo ServiceHost is Hallo WCF-object dat Hallo-hosttoepassing instantieert. In dit voorbeeld wordt doorgegeven Hallo type host dat u wilt dat toocreate (een **ImageService**), en ook Hallo-mailadres waarmee u tooexpose Hallo-hosttoepassing.
 
-### <a name="to-run-the-web-service-host"></a>De webservicehost uitvoeren
-1. Open de service.
+### <a name="toorun-hello-web-service-host"></a>toorun hello WebServiceHost
+1. Hallo-service openen.
    
     ```csharp
     host.Open();
     ```
-    De service wordt nu uitgevoerd.
-2. Geef een bericht weer waarin wordt aangegeven dat de service wordt uitgevoerd en hoe deze kan worden gestopt.
+    Hallo-service wordt nu uitgevoerd.
+2. Een bericht waarin staat dat Hallo-service wordt uitgevoerd en hoe toostop Hallo service weergegeven.
    
     ```csharp
-    Console.WriteLine("Copy the following address into a browser to see the image: ");
+    Console.WriteLine("Copy hello following address into a browser toosee hello image: ");
     Console.WriteLine(address + "GetImage");
     Console.WriteLine();
-    Console.WriteLine("Press [Enter] to exit");
+    Console.WriteLine("Press [Enter] tooexit");
     Console.ReadLine();
     ```
-3. Sluit de servicehost wanneer u klaar bent.
+3. Wanneer u klaar bent, sluit u Hallo ServiceHost.
    
     ```csharp
     host.Close();
     ```
 
 ## <a name="example"></a>Voorbeeld
-Het volgende voorbeeld bevat het servicecontract en de implementatie uit de vorige stappen in de zelfstudie. Hierin wordt de service gehost in een consoletoepassing. Compileer de volgende code in een uitvoerbaar bestand met de naam ImageListener.exe.
+Hallo volgende voorbeeld bevat Hallo servicecontract en de implementatie uit de vorige stappen in Hallo zelfstudie en hosts Hallo service in een consoletoepassing. Compileren Hallo na de code in een uitvoerbaar bestand met de naam ImageListener.exe.
 
 ```csharp
 using System;
@@ -538,10 +538,10 @@ namespace Microsoft.ServiceBus.Samples
             WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
             host.Open();
 
-            Console.WriteLine("Copy the following address into a browser to see the image: ");
+            Console.WriteLine("Copy hello following address into a browser toosee hello image: ");
             Console.WriteLine(address + "GetImage");
             Console.WriteLine();
-            Console.WriteLine("Press [Enter] to exit");
+            Console.WriteLine("Press [Enter] tooexit");
             Console.ReadLine();
 
             host.Close();
@@ -550,18 +550,18 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-### <a name="compiling-the-code"></a>De code compileren
-Nadat u de oplossing hebt opgebouwd, gaat u als volgt te werk om de toepassing uit te voeren:
+### <a name="compiling-hello-code"></a>Hallo code compileren
+Na het Hallo-oplossing bouwen, Hallo na toorun Hallo toepassing:
 
-1. Druk op **F5** of blader naar de locatie van het uitvoerbare bestand (ImageListener\bin\Debug\ImageListener.exe) om de service uit te voeren. Zorg ervoor dat de app actief blijft. Dit is vereist voor het uitvoeren van de volgende stap.
-2. Kopieer en plak het adres van de opdrachtprompt in een browser om de afbeelding te zien.
-3. Druk op **Enter** in het opdrachtpromptvenster om de app te sluiten wanneer u klaar bent.
+1. Druk op **F5**, of blader toohello uitvoerbaar bestandslocatie (ImageListener\bin\Debug\ImageListener.exe) toorun Hallo-service. Houd Hallo app wordt uitgevoerd, wordt dit tooperform Hallo volgende stap is vereist.
+2. Kopieer en plak Hallo-adres van de opdrachtprompt Hallo in een browser toosee Hallo-installatiekopie.
+3. Wanneer u klaar bent, drukt u op **Enter** in Hallo opdrachtprompt venster tooclose Hallo-app.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u een toepassing die gebruikmaakt van de Service Bus relay-service hebt gemaakt, gaat u naar de volgende artikelen voor meer informatie over Azure Relay:
+Nu u een toepassing die gebruikmaakt van Hallo Service Bus relay-service hebt gemaakt, gaat u naar Hallo toolearn meer artikelen over Azure Relay te volgen:
 
 * [Overzicht van Azure Service Bus-architectuur](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Overzicht van Azure Relay](relay-what-is-it.md)
-* [De relay WCF-service gebruiken met .NET](relay-wcf-dotnet-get-started.md)
+* [Hoe toouse Hallo WCF relay-service met .NET](relay-wcf-dotnet-get-started.md)
 
 [Azure portal]: https://portal.azure.com

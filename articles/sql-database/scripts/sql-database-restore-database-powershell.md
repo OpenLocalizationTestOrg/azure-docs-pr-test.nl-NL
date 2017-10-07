@@ -1,6 +1,6 @@
 ---
-title: PowerShell-voorbeeld, herstel, back-up, Azure SQL-database | Microsoft Docs
-description: Azure PowerShell-voorbeeldscript om terug te zetten van een Azure SQL database vanuit geografisch redundante back-ups
+title: aaaPowerShell voorbeeld, herstel, back-up, Azure SQL database | Microsoft Docs
+description: Azure PowerShell-voorbeeld script toorestore een Azure SQL-database vanuit geografisch redundante back-ups
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,25 +16,25 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: ae1d0c828ae1e7e1e7e07dcc7d6157187a3859d3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 68becb89e8a8680aa2efc3de8ad947e674c5fc35
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>PowerShell gebruiken voor het herstellen van een Azure SQL database vanuit back-ups
+# <a name="use-powershell-toorestore-an-azure-sql-database-from-backups"></a>Gebruik PowerShell toorestore een Azure SQL-database vanuit back-ups
 
-In dit voorbeeld van de PowerShell-script een Azure SQL database herstelt vanuit een geografisch redundante back-up, een verwijderde Azure SQL-database herstelt naar de meest recente back-up en wordt een Azure SQL database hersteld naar een bepaald punt in tijd.  
+Voorbeeld van deze PowerShell-script een Azure SQL database herstelt vanuit een geografisch redundante back-up, herstelt u een verwijderde Azure SQL database tooits meest recente back-up en wordt hersteld van een Azure SQL database tooa bepaald punt in tijd.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Voorbeeld van een script
 
-[!code-powershell[belangrijkste](../../../powershell_scripts/sql-database/restore-database/restore-database.ps1?highlight=17-18 "SQL-Database maken")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/restore-database/restore-database.ps1?highlight=17-18 "Create SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
+Na het uitvoeren van het voorbeeldscript Hallo mag na de opdracht Hallo gebruikte tooremove Hallo-resourcegroep en alle resources die zijn gekoppeld.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
@@ -42,7 +42,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Script uitleg
 
-Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+Dit script maakt gebruik van Hallo opdrachten te volgen. Elke opdracht in Hallo tabel koppelingen toocommand specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
@@ -56,6 +56,6 @@ Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel i
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Azure PowerShell [documentatie van Azure PowerShell](/powershell/azure/overview).
+Zie voor meer informatie over hello Azure PowerShell [documentatie van Azure PowerShell](/powershell/azure/overview).
 
-Voorbeelden van aanvullende SQL Database PowerShell-script kunnen worden gevonden in de [Azure SQL Database PowerShell-scripts](../sql-database-powershell-samples.md).
+Voorbeelden van aanvullende SQL Database PowerShell-script kunnen worden gevonden in Hallo [Azure SQL Database PowerShell-scripts](../sql-database-powershell-samples.md).

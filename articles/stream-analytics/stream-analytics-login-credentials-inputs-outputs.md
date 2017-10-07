@@ -1,6 +1,6 @@
 ---
 title: 'Stream Analytics: Aanmelden referenties voor de invoer en uitvoer draaien | Microsoft Docs'
-description: Informatie over het bijwerken van de referenties voor Stream Analytics-invoer en uitvoer.
+description: Meer informatie over hoe tooupdate Hallo-referenties voor Stream Analytics-invoer en uitvoer.
 keywords: aanmeldingsreferenties
 services: stream-analytics
 documentationcenter: 
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-ms.openlocfilehash: 2cb995a3969a8cb025f371ed0ab160cd04b0454d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ac2374c539012b66ab390656c5750024e02f6bdc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-in-stream-analytics-jobs"></a>Draaien aanmeldingsreferenties voor in- en uitgangen in Stream Analytics-taken
 ## <a name="abstract"></a>Abstracte
-Azure Stream Analytics toegestaan vandaag nog niet in de referenties op een i/o vervangen terwijl de taak wordt uitgevoerd.
+Azure Stream Analytics vandaag nog niet is toegestaan Hallo-referenties op een i/o vervangen terwijl Hallo-taak wordt uitgevoerd.
 
-Terwijl Azure Stream Analytics biedt ondersteuning voor het hervatten van een taak van laatste uitvoer, die we wilden delen van het gehele proces voor het minimaliseren van de vertraging tussen het stoppen en starten van de taak en roteren van de aanmeldingsreferenties.
+Terwijl Azure Stream Analytics biedt ondersteuning voor het hervatten van een taak van laatste uitvoer, wilden we tooshare Hallo gehele proces voor het minimaliseren Hallo vertraging tussen Hallo stoppen en starten van de taak Hallo en Hallo aanmeldingsreferenties draaien.
 
-## <a name="part-1---prepare-the-new-set-of-credentials"></a>Deel 1: voorbereiden van de nieuwe set referenties:
-Dit onderdeel is van toepassing op de volgende invoer/uitvoer:
+## <a name="part-1---prepare-hello-new-set-of-credentials"></a>Deel 1: voorbereiden Hallo nieuwe set referenties:
+Dit onderdeel is van toepassing toohello invoer/uitvoer te volgen:
 
 * Blob Storage
 * Event Hubs
@@ -38,51 +38,51 @@ Dit onderdeel is van toepassing op de volgende invoer/uitvoer:
 Voor andere invoer/uitvoer, gaat u verder met deel 2.
 
 ### <a name="blob-storagetable-storage"></a>BLOB storage-/ tabelnaam-opslag
-1. Ga naar de extensie van de opslag op de Azure Management portal:  
+1. Ga toohello opslag extensie op Hallo Azure Management portal:  
    ![graphic1][graphic1]
-2. Zoek naar de opslag die wordt gebruikt door de taak en gaat u in de App:  
+2. Zoek naar Hallo opslag van uw werk en gaat u in de App:  
    ![graphic2][graphic2]
-3. Klik op de opdracht toegangssleutels beheren:  
+3. Klik op Hallo toegangssleutels beheren-opdracht:  
    ![graphic3][graphic3]
-4. Tussen de primaire toegangssleutel en de secundaire toegangssleutel **kiest u het niet wordt gebruikt door uw taak**.
+4. Tussen Hallo primaire toegangssleutel en Hallo secundaire toegangssleutel, **Hallo niet gebruikt door uw werk kiezen**.
 5. Klik op opnieuw genereren:  
    ![graphic4][graphic4]
-6. Kopieer het zojuist gegenereerde sleutel:  
+6. Kopieer Hallo zojuist gegenereerde sleutel:  
    ![graphic5][graphic5]
-7. Deel 2 blijven.
+7. Blijven tooPart 2.
 
 ### <a name="event-hubs"></a>Event hubs
-1. Ga naar de Service Bus-uitbreiding op de Azure Management portal:  
+1. Ga toohello Service Bus-extensie op Hallo Azure Management portal:  
    ![graphic6][graphic6]
-2. Zoek naar de Service Bus-Namespace gebruikt door de taak en gaat u in de App:  
+2. Zoek naar Hallo Namespace van Service Bus gebruikt door de taak en gaat u in de App:  
    ![graphic7][graphic7]
-3. Als uw taak gebruikmaakt van een gedeeld toegangsbeleid op de Service Bus-Namespace, Ga naar stap 6  
-4. Ga naar het tabblad Event Hubs:  
+3. Als uw job een gedeeld toegangsbeleid op Hallo Namespace van Service Bus gebruikt, gaan toostep 6  
+4. Ga toohello Event Hubs tabblad:  
    ![graphic8][graphic8]
-5. Zoek naar de Event Hub gebruikt door de taak en gaat u in de App:  
+5. Zoek naar Hallo Event Hub gebruikt door de taak en gaat u in de App:  
    ![graphic9][graphic9]
-6. Ga naar het tabblad configureren:  
+6. Ga toohello tabblad configureren:  
    ![graphic10][graphic10]
-7. Zoek het beleid voor gedeelde toegang gebruikt door de taak op de vervolgkeuzelijst de naam van beleid:  
+7. Zoek op Hallo beleidsnaam vervolgkeuzelijst, Hallo gedeeld toegangsbeleid gebruikt door de taak:  
    ![graphic11][graphic11]
-8. Tussen de primaire sleutel en de secundaire sleutel **kiest u het niet wordt gebruikt door uw taak**.  
+8. Tussen Hallo primaire sleutel en secundaire sleutel Hallo **Hallo niet gebruikt door uw werk kiezen**.  
 9. Klik op opnieuw genereren:  
    ![graphic12][graphic12]
-10. Kopieer het zojuist gegenereerde sleutel:  
+10. Kopieer Hallo zojuist gegenereerde sleutel:  
    ![graphic13][graphic13]
-11. Deel 2 blijven.  
+11. Blijven tooPart 2.  
 
 ### <a name="sql-database"></a>SQL Database
 > [!NOTE]
-> Opmerking: u moet verbinding maken met de SQL Database-Service. We gaan laten zien hoe u dit doen met behulp van de beheerervaring op de Azure Management portal, maar u kunt sommige clientzijde hulpprogramma ook zoals SQL Server Management Studio te gebruiken.
+> Opmerking: u moet tooconnect toohello SQL Database-Service. We gaan tooshow hoe toodo beheerervaring op deze met Hallo hello Azure-beheerportal, maar u kunt ervoor kiezen toouse sommige clientzijde hulpprogramma ook zoals SQL Server Management Studio.
 >
 > 
 
-1. Ga naar de extensie van de SQL-Databases op de Azure Management portal:  
+1. Ga toohello SQL-Databases extensie op Hallo Azure Management portal:  
    ![graphic14][graphic14]
-2. Zoek de SQL-Database die wordt gebruikt door uw werk en **Klik op de server** koppeling op dezelfde regel:  
+2. Hallo SQL-Database gebruikt door de taak vinden en **Klik op de server Hallo** koppelen op Hallo dezelfde regel:  
    ![graphic15][graphic15]
-3. Klik op de opdracht beheren:  
+3. Klik op Hallo beheren-opdracht:  
    ![graphic16][graphic16]
 4. Type Database Master:  
    ![graphic17][graphic17]
@@ -90,86 +90,86 @@ Voor andere invoer/uitvoer, gaat u verder met deel 2.
    ![graphic18][graphic18]
 6. Klik op nieuwe Query:  
    ![graphic19][graphic19]
-7. Type in de volgende query waarbij < login_name > vervangt door uw gebruikersnaam en vervangen <enterStrongPasswordHere> met uw nieuwe wachtwoord:  
+7. Type in Hallo volgende query waarbij < login_name > vervangt door uw gebruikersnaam en het vervangen van <enterStrongPasswordHere> met uw nieuwe wachtwoord:  
    `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
 8. Klik op uitvoeren:  
    ![graphic20][graphic20]
-9. Ga terug naar stap 2 en deze keer klikt u op de database:  
+9. Ga terug toostep 2 en dit moment op Hallo database:  
    ![graphic21][graphic21]
-10. Klik op de opdracht beheren:  
+10. Klik op Hallo beheren-opdracht:  
    ![graphic22][graphic22]
 11. Typ uw gebruikersnaam, wachtwoord, en klik op aanmelden:  
    ![graphic23][graphic23]
 12. Klik op nieuwe Query:  
    ![graphic24][graphic24]
-13. Typ in de volgende query waarbij < gebruikersnaam > vervangt door een naam waarmee u deze aanmelding in de context van deze database wilt (u kunt u < login_name > bijvoorbeeld heeft dezelfde waarde opgeven) te identificeren en vervangen < login_name > met uw nieuwe gebruikersnaam:  
+13. Typ in de volgende query < gebruikersnaam > vervangen met een naam die u wilt dat tooidentify Hallo deze aanmelding in de context van deze database hello (u kunt opgeven Hallo dezelfde waarde die u < login_name > bijvoorbeeld gegeven) en < login_name > vervangen door de de gebruikersnaam van uw nieuwe:  
    `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Klik op uitvoeren:  
    ![graphic25][graphic25]
-15. Bieden nu de nieuwe gebruiker met dezelfde functies en de oorspronkelijke gebruiker heeft bevoegdheden.
-16. Deel 2 blijven.
+15. U moet nu de nieuwe gebruiker voorzien Hallo dezelfde functies en de oorspronkelijke gebruiker heeft bevoegdheden.
+16. Blijven tooPart 2.
 
-## <a name="part-2-stopping-the-stream-analytics-job"></a>Deel 2: De Stream Analytics-taak stoppen
-1. Ga naar de Stream Analytics-uitbreiding op de Azure Management portal:  
+## <a name="part-2-stopping-hello-stream-analytics-job"></a>Deel 2: Stoppen Hallo Stream Analytics-taak
+1. Ga toohello Stream Analytics-extensie op Hallo Azure Management portal:  
    ![graphic26][graphic26]
 2. Zoek uw taak en gaat u in de App:  
    ![graphic27][graphic27]
-3. Ga naar het tabblad invoer of de uitvoer op basis van of het roteren van de referenties op invoer of uitvoer.  
+3. Ga toohello invoer tabblad of Hallo uitvoer op basis van of het roteren van Hallo referenties op invoer of uitvoer.  
    ![graphic28][graphic28]
-4. Klik op de opdracht Stop en Bevestig dat de taak is gestopt:  
-   ![graphic29][graphic29] wacht u totdat de taak te stoppen.
-5. Zoek de invoer/uitvoer die u wilt draaien referenties op en gaat u in de App:  
+4. Klik op de opdracht stoppen is Hallo en Bevestig Hallo-taak is gestopt:  
+   ![graphic29][graphic29] Hallo taak toostop wacht.
+5. Zoek Hallo i/o-u wilt dat toorotate referenties op en gaat u in de App:  
    ![graphic30][graphic30]
-6. Ga naar deel 3.
+6. TooPart 3 worden voortgezet.
 
-## <a name="part-3-editing-the-credentials-on-the-stream-analytics-job"></a>Deel 3: De referenties op de Stream Analytics-taak bewerken
+## <a name="part-3-editing-hello-credentials-on-hello-stream-analytics-job"></a>Deel 3: Bewerken Hallo-referenties op Hallo Stream Analytics-taak
 ### <a name="blob-storagetable-storage"></a>BLOB storage-/ tabelnaam-opslag
-1. Zoek het sleutelveld van Storage-Account en uw zojuist gegenereerde sleutel plakken:  
+1. Hallo Opslagaccountsleutel veld vinden en uw zojuist gegenereerde sleutel plakken:  
    ![graphic31][graphic31]
-2. Klik op de opdracht opslaan en Bevestig de wijzigingen worden opgeslagen:  
+2. Klik op de opdracht opslaan Hallo en Bevestig uw wijzigingen:  
    ![graphic32][graphic32]
 3. Een verbindingstest wordt automatisch gestart wanneer u de wijzigingen opslaan, zorg ervoor dat geslaagd is.
-4. Ga naar deel 4.
+4. TooPart 4 worden voortgezet.
 
 ### <a name="event-hubs"></a>Event hubs
-1. Zoek het sleutelveld Event Hub-beleid en uw zojuist gegenereerde sleutel plakken:  
+1. Hallo Event Hub beleid sleutelveld vinden en uw zojuist gegenereerde sleutel plakken:  
    ![graphic33][graphic33]
-2. Klik op de opdracht opslaan en Bevestig de wijzigingen worden opgeslagen:  
+2. Klik op de opdracht opslaan Hallo en Bevestig uw wijzigingen:  
    ![graphic34][graphic34]
 3. Een verbindingstest wordt automatisch gestart wanneer u de wijzigingen opslaan, zorg ervoor dat met succes is verstreken.
-4. Ga naar deel 4.
+4. TooPart 4 worden voortgezet.
 
 ### <a name="power-bi"></a>Power BI
-1. Klik op de autorisatie vernieuwen:  
+1. Klik op Hallo vernieuwen autorisatie:  
 
    ![graphic35][graphic35]
-2. U krijgt de bevestiging van het volgende:  
+2. U ontvangt Hallo na de bevestiging:  
 
    ![graphic36][graphic36]
-3. Klik op de opdracht opslaan en Bevestig de wijzigingen worden opgeslagen:  
+3. Klik op de opdracht opslaan Hallo en Bevestig uw wijzigingen:  
    ![graphic37][graphic37]
 4. Een verbindingstest wordt automatisch gestart wanneer u uw wijzigingen hebt opgeslagen, zorg ervoor dat het heeft doorstaan.
-5. Ga naar deel 4.
+5. TooPart 4 worden voortgezet.
 
 ### <a name="sql-database"></a>SQL Database
-1. De velden gebruikersnaam en wachtwoord te vinden en plak de zojuist gemaakte set referenties in deze:  
+1. Hallo velden gebruikersnaam en wachtwoord te zoeken en plak de zojuist gemaakte set referenties in deze:  
    ![graphic38][graphic38]
-2. Klik op de opdracht opslaan en Bevestig de wijzigingen worden opgeslagen:  
+2. Klik op de opdracht opslaan Hallo en Bevestig uw wijzigingen:  
    ![graphic39][graphic39]
 3. Een verbindingstest wordt automatisch gestart wanneer u de wijzigingen opslaan, zorg ervoor dat met succes is verstreken.  
-4. Ga naar deel 4.
+4. TooPart 4 worden voortgezet.
 
 ## <a name="part-4-starting-your-job-from-last-stopped-time"></a>Deel 4: De taak starten vanuit de tijd van laatste gestopt
-1. De invoer/uitvoer verlaat:  
+1. Hallo Input/Output verlaat:  
    ![graphic40][graphic40]
-2. Klik op de opdracht Start:  
+2. Klik op de opdracht Start Hallo:  
    ![graphic41][graphic41]
-3. Kies het laatst is gestopt, en klik op OK:  
+3. Hallo laatste tijd geëindigd kiezen en klik op OK:  
    ![graphic42][graphic42]
-4. Ga naar deel 5.  
+4. TooPart 5 worden voortgezet.  
 
-## <a name="part-5-removing-the-old-set-of-credentials"></a>Deel 5: De oude set referenties verwijderen
-Dit onderdeel is van toepassing op de volgende invoer/uitvoer:
+## <a name="part-5-removing-hello-old-set-of-credentials"></a>Deel 5: Verwijderen van Hallo oude set referenties
+Dit onderdeel is van toepassing toohello invoer/uitvoer te volgen:
 
 * Blob Storage
 * Event Hubs
@@ -177,18 +177,18 @@ Dit onderdeel is van toepassing op de volgende invoer/uitvoer:
 * Table Storage
 
 ### <a name="blob-storagetable-storage"></a>BLOB storage-/ tabelnaam-opslag
-Herhaal Part 1 voor de toegangssleutel die eerder werd gebruikt door de taak voor het vernieuwen van de toegangssleutel nu niet worden gebruikt.
+Deel 1 herhalen voor Hallo toegangssleutel die eerder werd gebruikt door uw taak toorenew Hallo nu ongebruikte toegangssleutel.
 
 ### <a name="event-hubs"></a>Event hubs
-Herhaal Part 1 voor de sleutel die eerder werd gebruikt door de taak voor het vernieuwen van de sleutel nu niet worden gebruikt.
+Deel 1 herhalen voor Hallo sleutel die eerder werd gebruikt door uw taak toorenew Hallo nu ongebruikte sleutel.
 
 ### <a name="sql-database"></a>SQL Database
-1. Ga terug naar het queryvenster van deel 1 stap 7 en typt u de volgende query waarbij < previous_login_name > vervangt door de gebruikersnaam die eerder werd gebruikt door de taak:  
+1. Ga terug toohello queryvenster van deel 1 stap 7 en typt u Hallo query de volgende, waarbij < previous_login_name > vervangt door Hallo gebruikersnaam die eerder werd gebruikt door de taak:  
    `DROP LOGIN <previous_login_name>`  
 2. Klik op uitvoeren:  
    ![graphic43][graphic43]  
 
-U moet de volgende bevestiging krijgen: 
+U moet Hallo na de bevestiging krijgen: 
 
     Command(s) completed successfully.
 
@@ -196,7 +196,7 @@ U moet de volgende bevestiging krijgen:
 Voor verdere hulp kunt u mogelijk terecht op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
+* [Inleiding tooAzure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
 * [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)

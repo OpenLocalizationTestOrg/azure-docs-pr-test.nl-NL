@@ -1,5 +1,5 @@
 ---
-title: B2B-berichten in de Operations Management Suite - Azure Logic Apps bijhouden | Microsoft Docs
+title: aaaTrack B2B-berichten in de Operations Management Suite - Azure Logic Apps | Microsoft Docs
 description: Bijhouden van de B2B-communicatie voor uw integratie-account en logic apps in Operations Management Suite (OMS) met Azure Log Analytics
 author: padmavc
 manager: anneta
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 3ef7a4054be80547b0d91ad1f13777d915005f8b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f385a72008b19408bb45d61c440df0505b688175
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Bijhouden van de B2B-communicatie in de Microsoft Operations Management Suite (OMS)
+# <a name="track-b2b-communication-in-hello-microsoft-operations-management-suite-oms"></a>B2B-communicatie in de Microsoft Operations Management Suite (OMS) Hallo bijhouden
 
-Na het instellen van B2B-communicatie tussen twee bedrijfsprocessen of toepassingen via uw account integratie met deze entiteiten berichten met elkaar kunnen uitwisselen. Om te controleren of deze berichten correct worden verwerkt, u AS2, X12, bijhouden kunt en EDIFACT met berichten [Azure Log Analytics](../log-analytics/log-analytics-overview.md) in de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). U kunt bijvoorbeeld deze mechanismen voor het web gebaseerde bijhouden gebruiken voor het bijhouden van berichten:
+Na het instellen van B2B-communicatie tussen twee bedrijfsprocessen of toepassingen via uw account integratie met deze entiteiten berichten met elkaar kunnen uitwisselen. toocheck of deze berichten correct worden verwerkt, u AS2, X12, bijhouden kunt en EDIFACT met berichten [Azure Log Analytics](../log-analytics/log-analytics-overview.md) in Hallo [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). U kunt bijvoorbeeld deze mechanismen voor het web gebaseerde bijhouden gebruiken voor het bijhouden van berichten:
 
 * Aantal berichten en status
 * Bevestigingen status
@@ -32,22 +32,22 @@ Na het instellen van B2B-communicatie tussen twee bedrijfsprocessen of toepassin
 
 ## <a name="requirements"></a>Vereisten
 
-* Een logische app die ingesteld met de logboekregistratie van diagnostische gegevens. Meer informatie over [het maken van een logische app](logic-apps-create-a-logic-app.md) en [het instellen van logboekregistratie voor die app logica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* Een logische app die ingesteld met de logboekregistratie van diagnostische gegevens. Meer informatie over [hoe toocreate een logische app](logic-apps-create-a-logic-app.md) en [hoe tooset logboekregistratie voor die app logica van](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-* Integratie-account ingesteld met de controle en logboekregistratie. Meer informatie over [het maken van een account integratie](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) en [het instellen van controle en logboekregistratie voor dat account](../logic-apps/logic-apps-monitor-b2b-message.md).
+* Integratie-account ingesteld met de controle en logboekregistratie. Meer informatie over [hoe toocreate een account integratie](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) en [hoe tooset van controle en logboekregistratie voor dat account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Als u dat nog niet gedaan hebt, [diagnostische gegevens publiceren met logboekanalyse](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) in OMS.
+* Als u dat nog niet gedaan hebt, [publiceren diagnostische gegevens tooLog Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) in OMS.
 
 > [!NOTE]
-> Nadat u de vorige vereisten hebt voldaan, moet er een werkruimte in de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). U moet dezelfde OMS-werkruimte gebruiken voor het bijhouden van uw B2B-communicatie in OMS. 
+> Nadat u Hallo vorige vereisten hebt voldaan, moet u een werkruimte in Hallo hebben [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). U moet gebruiken Hallo dezelfde OMS-werkruimte voor het bijhouden van uw B2B-communicatie in OMS. 
 >  
-> Als u een OMS-werkruimte niet hebt, ontdek [het maken van een OMS-werkruimte](../log-analytics/log-analytics-get-started.md).
+> Als u een OMS-werkruimte niet hebt, ontdek [hoe toocreate een OMS-werkruimte](../log-analytics/log-analytics-get-started.md).
 
-## <a name="add-the-logic-apps-b2b-solution-to-the-operations-management-suite-oms"></a>De oplossing Logic Apps B2B toevoegen aan de Operations Management Suite (OMS)
+## <a name="add-hello-logic-apps-b2b-solution-toohello-operations-management-suite-oms"></a>Hallo Logic Apps B2B-oplossing toohello Operations Management Suite (OMS) toevoegen
 
-Als u wilt bijhouden B2B-berichten voor uw logische app OMS, moet u toevoegen de **Logic Apps B2B** oplossing naar de OMS-portal. Meer informatie over [oplossingen toe te voegen aan OMS](../log-analytics/log-analytics-get-started.md).
+toohave OMS bijhouden B2B-berichten voor uw logische app, moet u Hallo toevoegen **Logic Apps B2B** oplossing toohello OMS-portal. Meer informatie over [toe te voegen oplossingen tooOMS](../log-analytics/log-analytics-get-started.md).
 
-1. In de [Azure-portal](https://portal.azure.com), kies **meer Services**. Zoek naar 'log analytics' in en kies vervolgens **logboekanalyse** als volgt te werk:
+1. In Hallo [Azure-portal](https://portal.azure.com), kies **meer Services**. Zoek naar 'log analytics' in en kies vervolgens **logboekanalyse** als volgt te werk:
 
    ![Log Analytics vinden](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
@@ -59,7 +59,7 @@ Als u wilt bijhouden B2B-berichten voor uw logische app OMS, moet u toevoegen de
 
    ![Kies de OMS-portal](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. Nadat de OMS-startpagina wordt geopend, kiest u **galerie met oplossingen**.    
+4. Nadat het Hallo OMS-startpagina wordt geopend, kiest u **galerie met oplossingen**.    
 
    ![Kies de galerie met oplossingen](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
 
@@ -71,31 +71,31 @@ Als u wilt bijhouden B2B-berichten voor uw logische app OMS, moet u toevoegen de
 
    ![Kies toevoegen](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
 
-   Op de OMS-startpagina, de tegel voor **Logic Apps B2B-berichten** wordt nu weergegeven. 
-   Deze tegel-het aantal berichten updates wanneer uw B2B-berichten worden verwerkt.
+   Op de startpagina van Hallo OMS Hallo tegel voor **Logic Apps B2B-berichten** wordt nu weergegeven. 
+   Deze tegel updates aantal Hallo-berichten wanneer uw B2B-berichten worden verwerkt.
 
    ![OMS startpagina van de tegel Logic Apps B2B-berichten](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
-## <a name="track-message-status-and-details-in-the-operations-management-suite"></a>Berichtstatus en details in de Operations Management Suite bijhouden
+## <a name="track-message-status-and-details-in-hello-operations-management-suite"></a>Berichtstatus en details in Hallo Operations Management Suite bijhouden
 
-1. Nadat uw B2B-berichten worden verwerkt, kunt u de status en details voor deze berichten weergeven. Kies op de startpagina OMS de **Logic Apps B2B-berichten** tegel.
+1. Nadat uw B2B-berichten worden verwerkt, kunt u Hallo status en details voor deze berichten weergeven. Kiezen op Hallo OMS-startpagina Hallo **Logic Apps B2B-berichten** tegel.
 
    ![Aantal bijgewerkte berichten](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
    > [!NOTE]
-   > Standaard de **Logic Apps B2B-berichten** tegel ziet u gegevens op basis van een enkele dag. Om het bereik van de gegevens wijzigen in een ander interval, kiest u het bereik-besturingselement aan de bovenkant van de OMS-pagina:
+   > Standaard Hallo **Logic Apps B2B-berichten** tegel ziet u gegevens op basis van een enkele dag. toochange hello gegevens bereik tooa ander interval Hallo bereik besturingselement bovenaan Hallo Hallo OMS pagina kiezen:
    > 
    > ![Bereik van de gegevens wijzigen](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
    >
 
-2. Na het bericht weergegeven dashboard status, kunt u meer details voor een specifieke bericht-type, waarin gegevens op basis van een enkele dag weergeven. Kies de tegel voor **AS2**, **X12**, of **EDIFACT**.
+2. Na de status van de Hallo-bericht weergegeven dashboard, kunt u meer details voor een specifieke bericht-type, waarin gegevens op basis van een enkele dag weergeven. Kies Hallo tegel voor **AS2**, **X12**, of **EDIFACT**.
 
    ![Bericht-status weergeven](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
    Er wordt een lijst met berichten weergegeven voor uw gekozen tegel. 
-   Zie voor meer informatie over de eigenschappen voor elk berichttype deze beschrijvingen van de eigenschap bericht:
+   toolearn meer informatie over het Hallo-eigenschappen voor elk berichttype Zie deze beschrijvingen van de eigenschap bericht:
 
    * [AS2-berichteigenschappen](#as2-message-properties)
    * [Berichteigenschappen die X12](#x12-message-properties)
@@ -105,16 +105,16 @@ Als u wilt bijhouden B2B-berichten voor uw logische app OMS, moet u toevoegen de
 
    ![AS2-berichten weergeven](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
 
-3. Als u wilt weergeven of exporteren van de invoer en uitvoer voor specifieke berichten, die berichten te selecteren en kies **downloaden**. Wanneer u wordt gevraagd, sla het ZIP-bestand op uw lokale computer en pak vervolgens dat bestand. 
+3. tooview- of exportbewerking Hallo-invoer en uitvoer voor specifieke berichten die berichten te selecteren en kies **downloaden**. Wanneer u wordt gevraagd, Hallo ZIP-bestand tooyour lokale computer opslaan en pak vervolgens dat bestand. 
 
-   De uitgepakte map bevat een map voor elk bericht dat is geselecteerd. 
-   Als u bevestigingen hebt ingesteld, bevat de berichtenmap ook bestanden met details van de bevestiging. 
+   Hallo uitgepakte map bevat een map voor elk bericht dat is geselecteerd. 
+   Als u bevestigingen hebt ingesteld, zijn Hallo-berichtenmap bevat ook bestanden met details van de bevestiging. 
    Elke berichtenmap heeft ten minste deze bestanden: 
    
-   * Leesbare bestanden met de nettolading van de invoer en uitvoer nettolading details
-   * Gecodeerde bestanden met de invoer en uitvoer
+   * Leesbare bestanden met Hallo invoer nettolading en uitvoer nettolading details
+   * Gecodeerde bestanden met de Hallo in- en uitgangen
 
-   Voor elk berichttype kunt u de map en de naam bestandsindelingen hier vinden:
+   Voor elk berichttype kunt u Hallo-map en de naam van bestandsindelingen hier vinden:
 
    * [AS2 indelingen voor mappen en bestanden](#as2-folder-file-names)
    * [X12 map- en naam indelingen](#x12-folder-file-names)
@@ -122,49 +122,49 @@ Als u wilt bijhouden B2B-berichten voor uw logische app OMS, moet u toevoegen de
 
    ![Berichtbestanden downloaden](media/logic-apps-track-b2b-messages-omsportal/download-messages.png)
 
-4. Om weer te geven uitvoeren alle acties die dezelfde ID, op de **logboek zoeken** pagina, kiest u een bericht uit de lijst met berichten.
+4. tooview-ID, worden door alle acties die u hebt dezelfde Hallo uitvoeren op Hallo **logboek zoeken** pagina, kiest u een bericht uit de lijst met berichten Hallo.
 
    U kunt deze acties door de kolom, of zoeken naar specifieke resultaten sorteren.
 
-   ![Bewerkingen met dezelfde ID worden uitgevoerd](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
+   ![Handelingen met Hallo dezelfde ID uitvoeren](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
 
-   * Zoekresultaten met vooraf gedefinieerde query's, kiest u **Favorieten**.
+   * Kies toosearch resultaten met vooraf gedefinieerde query's **Favorieten**.
 
-   * Meer informatie over [query's maken door filters toe te voegen](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md). 
-   Of u meer informatie over [het zoeken van gegevens met logboek zoekopdrachten in logboekanalyse](../log-analytics/log-analytics-log-searches.md).
+   * Meer informatie over [hoe toobuild query's door filters toe te voegen](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md). 
+   Of u meer informatie over [hoe toofind gegevens met logboek moet worden gezocht in logboekanalyse](../log-analytics/log-analytics-log-searches.md).
 
-   * Om de query wijzigt in het zoekvak, bijwerken van de query met de kolommen en waarden die u wilt gebruiken als filters.
+   * toochange query in het zoekvak hello, update-query Hallo met Hallo kolommen en waarden dat u toouse wilt gebruiken als filters.
 
 <a name="message-list-property-descriptions"></a>
 
 ## <a name="property-descriptions-and-name-formats-for-as2-x12-and-edifact-messages"></a>Eigenschapbeschrijvingen en indelingen voor AS2, X 12 en EDIFACT-berichten
 
-Voor elk berichttype hier worden de eigenschapbeschrijvingen en indelingen voor gedownloade bestanden.
+Voor elk berichttype volgen hier beschrijvingen van de eigenschap Hallo en indelingen voor gedownloade bestanden.
 
 <a name="as2-message-properties"></a>
 
 ### <a name="as2-message-property-descriptions"></a>AS2-bericht eigenschapbeschrijvingen
 
-Hier volgen beschrijvingen van de eigenschap voor elk bericht AS2.
+Hier volgen beschrijvingen van de eigenschap Hallo voor elk bericht AS2.
 
 | Eigenschap | Beschrijving |
 | --- | --- |
-| Afzender | De Gast partner opgegeven in **instellingen ontvangen**, of de partner van de host is opgegeven in **instellingen voor verzenden** voor een AS2-overeenkomst |
-| Ontvanger | De partner host is opgegeven in **instellingen ontvangen**, of de partner Gast opgegeven **instellingen voor verzenden** voor een AS2-overeenkomst |
-| Logische apps | De logische app waar de AS2-acties instellen |
-| Status | De status van de AS2-bericht <br>Geslaagde = ontvangen of een geldige AS2-bericht verzonden. Er is geen MDN is ingesteld. <br>Geslaagde = ontvangen of een geldige AS2-bericht verzonden. MDN is ingesteld en ontvangen of MDN wordt verzonden. <br>Kan geen = een ongeldig AS2-bericht ontvangen. Er is geen MDN is ingesteld. <br>In behandeling = ontvangen of een geldige AS2-bericht verzonden. MDN is ingesteld en MDN wordt verwacht. |
-| ACK | De status van het bericht MDN <br>Geaccepteerd = ontvangen of verzonden, een positieve MDN. <br>= Wachten op ontvangen of verzenden van een MDN in behandeling. <br>Afgewezen = ontvangen of een negatieve MDN verzonden. <br>Niet vereist = MDN is niet ingesteld in de overeenkomst. |
-| Richting | De richting van de AS2-bericht |
-| Correlatie-ID | De ID die alle triggers en acties in een logische app correleert |
-| Bericht-ID | De AS2-bericht-ID van de berichtkoppen AS2 |
-| tijdstempel | De tijd waarop de actie AS2 het bericht verwerkt |
+| Afzender | Hallo Gast partner is opgegeven in **instellingen ontvangen**, of Hallo host partner opgegeven **instellingen voor verzenden** voor een AS2-overeenkomst |
+| Ontvanger | Hallo host partner is opgegeven in **instellingen ontvangen**, of Hallo Gast partner opgegeven **instellingen voor verzenden** voor een AS2-overeenkomst |
+| Logische apps | Hallo logische app waar Hallo AS2 acties instellen |
+| Status | Hallo status AS2-bericht <br>Geslaagde = ontvangen of een geldige AS2-bericht verzonden. Er is geen MDN is ingesteld. <br>Geslaagde = ontvangen of een geldige AS2-bericht verzonden. MDN is ingesteld en ontvangen of MDN wordt verzonden. <br>Kan geen = een ongeldig AS2-bericht ontvangen. Er is geen MDN is ingesteld. <br>In behandeling = ontvangen of een geldige AS2-bericht verzonden. MDN is ingesteld en MDN wordt verwacht. |
+| ACK | Hallo MDN berichtstatus <br>Geaccepteerd = ontvangen of verzonden, een positieve MDN. <br>In behandeling zijnde = tooreceive wachten of een MDN verzenden. <br>Afgewezen = ontvangen of een negatieve MDN verzonden. <br>Niet vereist = MDN is niet ingesteld in Hallo overeenkomst. |
+| Richting | Hallo richting AS2-bericht |
+| Correlatie-ID | Hallo-ID die alle Hallo triggers en acties in een logische app correleert |
+| Bericht-ID | Hallo AS2 bericht-ID van Hallo AS2-mailberichtkoppen |
+| tijdstempel | Hallo-tijd waarop Hallo AS2 actie Hallo-bericht verwerkt |
 |          |             |
 
 <a name="as2-folder-file-names"></a>
 
 ### <a name="as2-name-formats-for-downloaded-message-files"></a>AS2 indelingen voor gedownloade berichtbestanden
 
-Hier vindt u de naam indelingen voor elke map voor gedownloade AS2 bericht en de bestanden.
+Hier volgen Hallo indelingen voor elke map voor gedownloade AS2 bericht en de bestanden.
 
 | Bestand of map | Indeling van de |
 | :------------- | :---------- |
@@ -176,28 +176,28 @@ Hier vindt u de naam indelingen voor elke map voor gedownloade AS2 bericht en de
 
 ### <a name="x12-message-property-descriptions"></a>X12 bericht eigenschapbeschrijvingen
 
-Hier volgen beschrijvingen van de eigenschap voor elke X12 bericht.
+Hier volgen beschrijvingen van Hallo-eigenschap voor elke X12 bericht.
 
 | Eigenschap | Beschrijving |
 | --- | --- |
-| Afzender | De Gast partner opgegeven in **instellingen ontvangen**, of de partner van de host is opgegeven in **instellingen voor verzenden** voor een X12 overeenkomst |
-| Ontvanger | De partner host is opgegeven in **instellingen ontvangen**, of de partner Gast opgegeven **instellingen voor verzenden** voor een X12 overeenkomst |
-| Logische apps | De logische app waar de X12 acties zijn ingesteld |
-| Status | De X12 bericht-status <br>Geslaagde = ontvangen of een geldige X12 verzonden bericht. Er zijn geen functionele ack is ingesteld. <br>Geslaagde = ontvangen of een geldige X12 verzonden bericht. Functionele ack is ingesteld en ontvangen, of een functionele ack wordt verzonden. <br>Kan niet ontvangen = of een ongeldige X12 verzonden bericht. <br>In behandeling = ontvangen of een geldige X12 verzonden bericht. Functionele ack is ingesteld en een functionele ack wordt verwacht. |
-| ACK | Functionele Ack (997)-status <br>Geaccepteerd = ontvangen of een positief functionele bevestiging verzonden <br>Afgewezen = ontvangen of een negatieve functionele bevestiging verzonden <br>In behandeling zijnde = een functionele ack verwacht maar niet ontvangen. <br>In behandeling zijnde = gegenereerd een functionele ack maar kan niet verzenden naar partner. <br>Niet vereist = functionele ack is niet ingesteld. |
-| Richting | De X12 bericht richting |
-| Correlatie-ID | De ID die alle triggers en acties in een logische app correleert |
-| Bericht-type | Het berichttype voor EDI X 12 |
-| ICN | Het besturingselement Interchange nummer voor de X12 bericht |
-| TSCN | Het transactie ingesteld besturingselement nummer voor de X12 bericht |
-| tijdstempel | De tijd wanneer de X12 actie verwerkt het bericht |
+| Afzender | Hallo Gast partner is opgegeven in **instellingen ontvangen**, of Hallo host partner opgegeven **instellingen voor verzenden** voor een X12 overeenkomst |
+| Ontvanger | Hallo host partner is opgegeven in **instellingen ontvangen**, of Hallo Gast partner is opgegeven in **instellingen voor verzenden** voor een X12 overeenkomst |
+| Logische apps | Hallo logische app waar Hallo X12 acties instellen |
+| Status | status van X12 Hallo-bericht <br>Geslaagde = ontvangen of een geldige X12 verzonden bericht. Er zijn geen functionele ack is ingesteld. <br>Geslaagde = ontvangen of een geldige X12 verzonden bericht. Functionele ack is ingesteld en ontvangen, of een functionele ack wordt verzonden. <br>Kan niet ontvangen = of een ongeldige X12 verzonden bericht. <br>In behandeling = ontvangen of een geldige X12 verzonden bericht. Functionele ack is ingesteld en een functionele ack wordt verwacht. |
+| ACK | Functionele Ack (997)-status <br>Geaccepteerd = ontvangen of een positief functionele bevestiging verzonden <br>Afgewezen = ontvangen of een negatieve functionele bevestiging verzonden <br>In behandeling zijnde = een functionele ack verwacht maar niet ontvangen. <br>In behandeling zijnde = gegenereerd een functionele ack maar toopartner kan niet verzenden. <br>Niet vereist = functionele ack is niet ingesteld. |
+| Richting | richting van X12 Hallo-bericht |
+| Correlatie-ID | Hallo-ID die alle Hallo triggers en acties in een logische app correleert |
+| Bericht-type | Hallo EDI X 12 berichttype |
+| ICN | Hallo controle-aantal Interchange voor X12 Hallo-bericht |
+| TSCN | Hallo transactie ingesteld besturingselementnummer voor X12 Hallo-bericht |
+| tijdstempel | Hallo-tijd waarop de actie Hallo X12 Hallo-bericht verwerkt |
 |          |             |
 
 <a name="x12-folder-file-names"></a>
 
 ### <a name="x12-name-formats-for-downloaded-message-files"></a>X12 naam indelingen voor gedownloade berichtbestanden
 
-Hier vindt u de naam indelingen voor elk X12 gedownload bericht map en bestanden.
+Hier volgen Hallo indelingen voor elk X12 gedownload bericht map en bestanden.
 
 | Bestand of map | Indeling van de |
 | :------------- | :---------- |
@@ -209,28 +209,28 @@ Hier vindt u de naam indelingen voor elk X12 gedownload bericht map en bestanden
 
 ### <a name="edifact-message-property-descriptions"></a>EDIFACT bericht eigenschapbeschrijvingen
 
-Hier volgen beschrijvingen van de eigenschap voor elk bericht EDIFACT.
+Hier volgen beschrijvingen van de eigenschap Hallo voor elk bericht EDIFACT.
 
 | Eigenschap | Beschrijving |
 | --- | --- |
-| Afzender | De Gast partner opgegeven in **instellingen ontvangen**, of de partner van de host is opgegeven in **instellingen voor verzenden** voor een overeenkomst EDIFACT |
-| Ontvanger | De partner host is opgegeven in **instellingen ontvangen**, of de partner Gast opgegeven **instellingen voor verzenden** voor een overeenkomst EDIFACT |
-| Logische apps | De logische app waar de acties EDIFACT instellen |
-| Status | De status van het bericht EDIFACT <br>Geslaagde = ontvangen of een geldige EDIFACT-bericht verzonden. Er zijn geen functionele ack is ingesteld. <br>Geslaagde = ontvangen of een geldige EDIFACT-bericht verzonden. Functionele ack is ingesteld en ontvangen, of een functionele ack wordt verzonden. <br>Kan niet ontvangen = of een ongeldig EDIFACT-bericht verzonden <br>In behandeling = ontvangen of een geldige EDIFACT-bericht verzonden. Functionele ack is ingesteld en een functionele ack wordt verwacht. |
-| ACK | Functionele Ack (997)-status <br>Geaccepteerd = ontvangen of een positief functionele bevestiging verzonden <br>Afgewezen = ontvangen of een negatieve functionele bevestiging verzonden <br>In behandeling zijnde = een functionele ack verwacht maar niet ontvangen. <br>In behandeling zijnde = gegenereerd een functionele ack maar kan niet verzenden naar partner. <br>Niet vereist = functionele Ack is niet ingesteld. |
-| Richting | De richting van het bericht EDIFACT |
-| Correlatie-ID | De ID die alle triggers en acties in een logische app correleert |
-| Bericht-type | Het berichttype EDIFACT |
-| ICN | Het besturingselement Interchange nummer voor het bericht EDIFACT |
-| TSCN | Het transactie ingesteld besturingselement nummer voor het bericht EDIFACT |
-| tijdstempel | De tijd waarop de actie EDIFACT het bericht verwerkt |
+| Afzender | Hallo Gast partner is opgegeven in **instellingen ontvangen**, of Hallo host partner opgegeven **instellingen voor verzenden** voor een overeenkomst EDIFACT |
+| Ontvanger | Hallo host partner is opgegeven in **instellingen ontvangen**, of Hallo Gast partner opgegeven **instellingen voor verzenden** voor een overeenkomst EDIFACT |
+| Logische apps | Hallo logische app waar Hallo EDIFACT acties instellen |
+| Status | Hallo EDIFACT berichtstatus <br>Geslaagde = ontvangen of een geldige EDIFACT-bericht verzonden. Er zijn geen functionele ack is ingesteld. <br>Geslaagde = ontvangen of een geldige EDIFACT-bericht verzonden. Functionele ack is ingesteld en ontvangen, of een functionele ack wordt verzonden. <br>Kan niet ontvangen = of een ongeldig EDIFACT-bericht verzonden <br>In behandeling = ontvangen of een geldige EDIFACT-bericht verzonden. Functionele ack is ingesteld en een functionele ack wordt verwacht. |
+| ACK | Functionele Ack (997)-status <br>Geaccepteerd = ontvangen of een positief functionele bevestiging verzonden <br>Afgewezen = ontvangen of een negatieve functionele bevestiging verzonden <br>In behandeling zijnde = een functionele ack verwacht maar niet ontvangen. <br>In behandeling zijnde = gegenereerd een functionele ack maar toopartner kan niet verzenden. <br>Niet vereist = functionele Ack is niet ingesteld. |
+| Richting | Hallo richting EDIFACT-bericht |
+| Correlatie-ID | Hallo-ID die alle Hallo triggers en acties in een logische app correleert |
+| Bericht-type | Hallo EDIFACT berichttype |
+| ICN | Hallo controle-aantal Interchange voor EDIFACT het Hallo-bericht |
+| TSCN | Hallo transactie ingesteld besturingselementnummer voor EDIFACT het Hallo-bericht |
+| tijdstempel | Hallo-tijd waarop Hallo EDIFACT actie Hallo-bericht verwerkt |
 |          |               |
 
 <a name="edifact-folder-file-names"></a>
 
 ### <a name="edifact-name-formats-for-downloaded-message-files"></a>EDIFACT indelingen voor gedownloade berichtbestanden
 
-Hier vindt u de naam indelingen voor elke map voor gedownloade EDIFACT bericht en de bestanden.
+Hier volgen Hallo indelingen voor elke map voor gedownloade EDIFACT bericht en de bestanden.
 
 | Bestand of map | Indeling van de |
 | :------------- | :---------- |

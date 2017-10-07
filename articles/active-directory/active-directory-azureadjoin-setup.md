@@ -1,5 +1,5 @@
 ---
-title: Azure AD Join instellen voor gebruikers | Microsoft Docs
+title: aaaSetting stellen Azure AD Join voor uw gebruikers | Microsoft Docs
 description: Hier wordt uitgelegd hoe beheerders Azure AD Join kunnen instellen voor on-premises directory- en apparaatregistratie.
 services: active-directory
 documentationcenter: 
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.openlocfilehash: c37adc2654f7e931fdda22627e4a6ece2789fd86
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 60a5aeb11292cb6057ab1065c3ab77e5981d0cdb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="setting-up-azure-ad-join-in-your-organization"></a>Azure AD Join instellen in uw organisatie
-Voordat u Azure Active Directory Join (Azure AD Join) instelt, moet u uw on-premises directory van gebruikers synchroniseren met de cloud of handmatig beheerde accounts maken in Azure AD.
+Voordat u Azure Active Directory Join (Azure AD Join) instelt, moet u de synchronisatie tooeither registreert uw on-premises directory van gebruikers toohello cloud of handmatig beheerde accounts in Azure AD maken.
 
-Gedetailleerde instructies voor het synchroniseren van uw on-premises gebruikers naar Azure AD zijn te vinden in [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md) (Engelstalig).
+Gedetailleerde instructies voor het synchroniseren van uw lokale gebruikers tooAzure AD wordt beschreven in [uw on-premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md).
 
-Raadpleeg [Gebruikersaccounts en wachtwoorden](https://msdn.microsoft.com/library/azure/hh967609.aspx) als u handmatig gebruikers wilt maken en beheren in Azure AD.
+toomanually maken en beheren van gebruikers in Azure AD, te verwijzen[Gebruikersbeheer in Azure AD](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
 ## <a name="set-up-device-registration"></a>Apparaatregistratie instellen
-1. Meld u als beheerder aan bij de Azure-portal.
-2. Selecteer in het linkerdeelvenster **Active Directory**.
-3. Selecteer uw directory op het tabblad **Directory**.
-4. Selecteer de tab **Configureren**.
-5. Ga naar de sectie **Apparaten**.
-6. Stel het volgende in op het tabblad **Apparaten**:  
-   * **MAXIMUMAANTAL APPARATEN PER GEBRUIKER**: selecteer het maximumaantal apparaten dat een gebruiker mag hebben in Azure AD.  Als een gebruiker dit quotum bereikt, kan deze persoon geen apparaten meer toevoegen totdat een of meer van de bestaande apparaten zijn verwijderd.
-   * **MEERVOUDIGE VERIFICATIE VEREISEN VOOR HET TOEVOEGEN VAN APPARATEN**: hiermee stelt u in of gebruikers een tweede verificatiefactor moeten opgeven om hun apparaat toe te voegen aan Azure AD. Zie [Aan de slag met Azure Multi-Factor Authentication in de cloud](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md) voor meer informatie over meervoudige verificatie met Azure.
-   * **GEBRUIKERS MOGEN APPARATEN TOEVOEGEN AAN AZURE**: selecteer de gebruikers en groepen die apparaten mogen toevoegen aan Azure AD
-   * **EXTRA BEHEERDERS OP AZURE AD MET TOEGEVOEGDE APPARATEN**: met Azure AD Premium of de Enterprise Mobility Suite (EMS) kunt u kiezen welke gebruikers lokale beheerdersrechten ontvangen voor het apparaat. Globale beheerders en eigenaren van de apparaten ontvangen standaard lokale beheerdersrechten.
+1. Meld u aan toohello Azure-portal als beheerder.
+2. Selecteer in het linkerdeelvenster Hallo **Active Directory**.
+3. Op Hallo **Directory** tabblad, selecteer uw directory.
+4. Selecteer Hallo **configureren** tabblad.
+5. Ga toohello **apparaten** sectie.
+6. Op Hallo **apparaten** tabblad, Hallo volgende instellen:  
+   * **MAXIMUM aantal apparaten PER gebruiker**: Selecteer Hallo kunt u het maximum aantal apparaten dat een gebruiker in Azure AD hebben kan.  Als een gebruiker dit quotum bereikt, worden ze niet kunnen tooadd extra apparaten worden totdat een of meer van de bestaande apparaten zijn verwijderd.
+   * **VEREISEN multi-factor AUTH tooJOIN apparaten**: instellen of gebruikers zijn vereiste tooprovide een verificatie met tweede factor toojoin hun apparaat tooAzure AD. Zie voor meer informatie over Azure multi-factor Authentication [aan de slag met Azure multi-factor Authentication in de cloud Hallo](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+   * **GEBRUIKERS kunnen AZURE AD JOIN apparaten**: Hallo-gebruikers en groepen die zijn toegestaan toojoin apparaten tooAzure AD selecteren.
+   * **EXTRA beheerders op AZURE AD met toegevoegde apparaten**: met Azure AD Premium of Enterprise Mobility Suite (EMS) hello, kunt u kiezen welke gebruikers lokale administrator-rechten zijn verleend toohello apparaat. Globale beheerders en eigenaren van de apparaten ontvangen standaard lokale beheerdersrechten.
 
 <center>![Apparaatregistratie instellen](./media/active-directory-azureadjoin/active-directory-aadjoin-configure-devices.png) </center>
 
-Nadat u Azure AD Join hebt ingesteld voor gebruikers, kunnen ze verbinding maken met Azure AD via hun bedrijfs- of persoonlijke apparaten.
+Nadat u Azure AD Join voor uw gebruikers instellen, kunnen ze verbinding maken met tooAzure AD via hun zakelijke of persoonlijke apparaten.
 
-Met de volgende drie scenario's kunt u uw gebruikers in staat stellen Azure AD Join in te stellen:
+Hieronder volgen Hallo drie scenario's kunt u tooenable uw gebruikers tooset stellen Azure AD Join:
 
-* Gebruikers voegen rechtstreeks een bedrijfsapparaat toe aan Azure AD.
-* Gebruikers voegen via een domein een bedrijfsapparaat toe aan de on-premises Active Directory en breiden het apparaat vervolgens uit naar Azure AD.
-* Gebruikers voegen werk- of schoolaccounts toe aan Windows op een persoonlijk apparaat
+* Gebruikers lid worden van een apparaat in Bedrijfseigendom rechtstreeks tooAzure AD.
+* Gebruikers domein een bedrijfseigen apparaten toohello on-premises Active Directory en vervolgens Hallo apparaat tooAzure AD uitbreiden.
+* Gebruikers voegen werk of school tooWindows accounts op een persoonlijk apparaat
 
 ## <a name="additional-information"></a>Aanvullende informatie
-* [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md) (Windows 10 voor de onderneming: manieren om apparaten voor werk te gebruiken)
-* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md) (Cloudmogelijkheden uitbreiden naar Windows 10-apparaten met behulp van Azure Active Directory Join)
+* [Windows 10 voor Hallo ondernemingen: manieren toouse apparaten for work.](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Cloud-mogelijkheden tooWindows 10-apparaten via Azure Active Directory Join uitbreiden](active-directory-azureadjoin-user-upgrade.md)
 * [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md) (Gebruiksscenario’s voor Azure AD Join)
-* [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md) (Apparaten die lid zijn van een domein verbinden met Azure AD voor Windows 10-ervaringen)
+* [Verbinding maken met domein apparaten tooAzure AD voor Windows 10-ervaring](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD Join instellen](active-directory-azureadjoin-setup.md)
 

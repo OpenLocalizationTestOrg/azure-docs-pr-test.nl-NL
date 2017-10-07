@@ -1,5 +1,5 @@
 ---
-title: Azure RemoteApp-licentieverlening | Microsoft Docs
+title: aaaAzure RemoteApp-licentieverlening | Microsoft Docs
 description: Informatie over licentieverlening in Azure RemoteApp.
 services: remoteapp
 documentationcenter: 
@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 4c1ad1657ab628283f071afbc9361d67cc301417
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dfa808a65ea6b1a78bf74f3daddb9a84e186eebe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="how-does-licensing-work-in-azure-remoteapp"></a>Hoe werkt licentieverlening in Azure RemoteApp?
 > [!IMPORTANT]
-> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees Hallo [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
 > 
 
-U bent klaar met het instellen van uw Azure RemoteApp-service, u hebt sjablonen gemaakt en kunt apps voor uw gebruikers gaan publiceren. U hoeft nu nog maar een ding te regelen: de licentieverlening. Maar hoe werkt licentieverlening voor RemoteApp en de apps die u via RemoteApp deelt?
+Zodat u uw Azure RemoteApp-service, sjablonen gemaakt hebt ingesteld en zijn gereed toopublish apps tooyour gebruikers. Maar er is nog steeds een laatste ding toofigure uit:-licentieverlening. Alleen hoe werkt licentieverlening voor RemoteApp en Hallo-apps die u via RemoteApp deelt?
 
-Voor RemoteApp zijn geen Windows-licenties of Extern bureaublad-licenties vereist. Dat is allemaal geregeld binnen uw abonnement. (Raadpleeg de informatie over [prijsstelling](https://azure.microsoft.com/pricing/details/remoteapp).)
+Voor RemoteApp zijn geen Windows-licenties of Extern bureaublad-licenties vereist. Uw abonnement zorgt voor Hallo RemoteApp side zelf. (Bekijk details op Hallo van Hallo [prijsstelling](https://azure.microsoft.com/pricing/details/remoteapp).)
 
-Als u een van de installatiekopieën gebruikt die deel uitmaken van uw abonnement, kunt u alle apps die zijn geïnstalleerd op die installatiekopie delen zonder aparte licenties. Als u bijvoorbeeld de Windows Server 2012 R2-sjablooninstallatiekopie gebruikt voor het bouwen van uw verzameling, kunt u System Center Endpoint Protection delen met uw gebruikers. De enige uitzonderingen op deze regel zijn Office 365 ProPlus, waarvoor een apart abonnement is vereist, en Office 2013, dat niet in een productieverzameling kan worden gedeeld.
+Als u een van Hallo installatiekopieën die is opgenomen in uw abonnement, kunt u Hallo-Apps op die installatiekopie wordt geïnstalleerd zonder een aparte licentie delen. Als u uw verzameling Hallo Windows Server 2012 R2 sjabloon installatiekopie toobuild gebruikt, kunt u System Center Endpoint Protection delen met uw gebruikers. Hallo alleen uitzonderingen toothis regel zijn Office 365 ProPlus, waarvoor een apart abonnement is vereist, en Office 2013, dat in een productieverzameling kan niet worden gedeeld.
 
-Als u de Office 365-sjablooninstallatiekopie die wordt geleverd met RemoteApp wilt gebruiken, moet u een *bestaand* Office 365 ProPlus-abonnement hebben. Hetzelfde geldt voor elke Office 365-app die u met een aangepaste sjabloon publiceert. U moet de apps met uw eigen abonnement activeren. Dit geldt voor proefabonnementen en betaalde abonnementen. Als u de Office 365-sjablooninstallatiekopie wilt gebruiken tijdens de evaluatieperiode *en u hebt nog geen abonnement*, gaat u naar de Office 365-pagina, waar u zich kunt [aanmelden](https://go.microsoft.com/fwlink/p/?LinkID=403802) voor een proefabonnement. Zie [How do RemoteApp and Office work together?](remoteapp-o365.md) (Hoe werken RemoteApp en Office samen?) voor meer informatie.
+Als u wilt dat toouse Hallo Office 365-sjablooninstallatiekopie die wordt geleverd met RemoteApp, hebt u een *bestaande* Office 365 ProPlus-abonnement. Hallo geldt ook voor elke Office 365-app te publiceren met een aangepaste sjabloon. U moet tooactivate Hallo apps met uw eigen abonnement. Dit geldt voor proefabonnementen en betaalde abonnementen. Als u wilt dat toouse Hallo Office 365-sjablooninstallatiekopie tijdens het Hallo-proefversie *en u hebt al een abonnement*, toohello Office 365-pagina te gaan[aanmelden](https://go.microsoft.com/fwlink/p/?LinkID=403802) voor een proefabonnement. Zie [How do RemoteApp and Office work together?](remoteapp-o365.md) (Hoe werken RemoteApp en Office samen?) voor meer informatie.
 
-Als u tijdens de proefperiode geen proefabonnement op Office 365 wilt nemen, gebruikt u de Office 2013 Professional Plus-sjablooninstallatiekopie die wordt geleverd met RemoteApp. Deze installatiekopie kan slechts 30 dagen worden gebruikt en kan niet worden omgezet naar een betaalde verzameling.
+Als u niet tijdens de evaluatieperiode van Hallo tooget een Office 365-proefabonnement wilt, gebruikt u Hallo Office 2013 Professional Plus-sjablooninstallatiekopie die wordt geleverd met RemoteApp. Deze installatiekopie kan slechts 30 dagen worden gebruikt en kan niet worden omgezet naar een betaalde verzameling.
 
-Voor andere apps moet u ervoor zorgen dat u beschikt over de licentie om de app te delen.
+Voor andere apps moet u ervoor dat er Hallo licentie tooshare Hallo app toomake.
 
-Dat klinkt logisch, toch? U kunt elke app publiceren waarvoor u het wettelijk recht hebt om dat te doen. En u moet er zeker van zijn dat u het recht hebt om uw programma’s te delen.
+Dat klinkt logisch, toch? U kunt elke app die u hebt tooshare wettelijk recht publiceren. En moet u ervoor dat u echt toomake tooshare het gebruiksrecht heeft uw programma's.
 
-Houd er rekening mee dat u geen CAL of volumelicentieovereenkomst kunt gebruiken in een cloudverzameling. U kunt *wel* een volumelicentieovereenkomst gebruiken om toepassingen in uw hybride verzameling te activeren (met uitzondering van Office). Daarvoor moet u ze alleen installeren op uw sjablooninstallatiekopie van het volumelicentiemedium. Lees de informatie van de leverancier van de toepassing voor het installeren van licenties in een omgeving met extern bureaublad.
+Houd er rekening mee dat u geen CAL of volumelicentieovereenkomst kunt gebruiken in een cloudverzameling. U *kunt* een Volume License agreement tooactivate toepassingen in uw hybride verzameling (met uitzondering van Office) gebruiken. U hoeft alleen maar tooinstall ze in de sjabloon een installatiekopie van Hallo Volume License-media. Volg Hallo-informatie van Hallo toepassing leverancier tooinstall licenties in een omgeving met extern bureaublad.
 

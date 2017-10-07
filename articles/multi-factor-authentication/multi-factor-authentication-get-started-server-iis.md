@@ -1,6 +1,6 @@
 ---
-title: IIS-verificatie en Azure MFA Server | Microsoft Docs
-description: Dit is de pagina Azure Multi-Factor Authentication die u helpt bij het implementeren van IIS-verificatie en de Azure Multi-Factor Authentication-server.
+title: aaaIIS verificatie en Azure MFA-Server | Microsoft Docs
+description: Dit is hello Azure multi-factor authentication-pagina die u helpt bij het implementeren van IIS-verificatie en Azure multi-factor Authentication-Server.
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -15,64 +15,64 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017,it-pro
-ms.openlocfilehash: ab6f9110dccd3cfc15092f535650e8d8cb1af13c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 74bd39c2644e2bca0880baea3824cad4c9215111
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Azure Multi-Factor Authentication-server configureren voor IIS-webtoepassingen
 
-Gebruik de IIS-verificatiesectie van de Azure Multi-Factor Authentication-server (MFA) om IIS-verificatie in te schakelen en te configureren voor integratie met Microsoft IIS-webtoepassingen. Met de Azure MFA-server wordt een invoegtoepassing geïnstalleerd voor het filteren van aanvragen die worden ingediend bij de IIS-webserver om Azure Multi-Factor Authentication te kunnen toevoegen. De IIS-invoegtoepassing biedt ondersteuning voor verificatie op basis van formulier en geïntegreerde Windows-verificatie voor HTTP. Goedgekeurde IP-adressen kunnen ook zo worden geconfigureerd dat interne IP-adressen worden vrijgesteld van verificatie met twee factoren.
+Hallo IIS-verificatiesectie van hello Azure multi-factor Authentication (MFA) Server tooenable gebruiken en configureren van IIS-verificatie voor integratie met Microsoft IIS-webtoepassingen. Hello Azure MFA-Server installeert een invoegtoepassing die u kunt filteren van aanvragen wordt toohello IIS web server tooadd Azure multi-factor Authentication. Hallo IIS-invoegtoepassing biedt ondersteuning voor verificatie op basis van een formulier en geïntegreerde Windows-verificatie voor HTTP. Goedgekeurde dat IP-adressen kan ook worden geconfigureerd tooexempt interne IP-adressen van tweeledige verificatie.
 
 ![IIS-authenticatie](./media/multi-factor-authentication-get-started-server-iis/iis.png)
 
 ## <a name="using-form-based-iis-authentication-with-azure-multi-factor-authentication-server"></a>IIS-verificatie samen gebruiken met Azure Multi-Factor Authentication-server
-Als u een IIS-webtoepassing wilt beveiligen die gebruikmaakt van verificatie op basis van een formulier, moet u de Azure Multi-Factor Authentication-server op de IIS-webserver installeren en de server volgens de onderstaande procedure configureren:
+toosecure een IIS-webtoepassing die gebruikmaakt van verificatie op basis van formulieren, hello Azure multi-factor Authentication-Server op Hallo van IIS-webserver installeren en configureren Hallo Server per Hallo procedure te volgen:
 
-1. Klik op de Azure Multi-Factor Authentication-server in het menu links op het pictogram IIS-verificatie.
-2. Klik op het tabblad **Op formulier gebaseerd**.
+1. Klik in hello Azure multi-factor Authentication-Server, op Hallo verificatie van IIS-pictogram in het linkermenu Hallo.
+2. Klik op Hallo **op basis van formulieren** tabblad.
 3. Klik op **Add**.
-4. Als u de gebruikersnaam, het wachtwoord en de domeinvariabelen automatisch wilt detecteren, voert u de aanmeldings-URL (bijvoorbeeld https://localhost/contoso/auth/login.aspx) in het dialoogvenster Formulier-gebaseerde website automatisch configureren in en klikt u op **OK**.
-5. Schakel het selectievakje **Overeenkomende Multi-Factor Authentication-gebruiker vereisen** in als alle gebruikers zijn of moeten worden geïmporteerd in de server en aan Multi-Factor Authentication moeten worden onderworpen. Als een groot aantal gebruikers nog niet is geïmporteerd in de server en/of vrijgesteld zal zijn van Multi-Factor Authentication, laat u het vakje uitgeschakeld.
-6. Als de paginavariabelen niet automatisch kunnen worden gedetecteerd, klikt u op de **Handmatig opgeven** in het dialoogvenster Formulier-gebaseerde website automatisch configureren.
-7. Voer in het dialoogvenster Formulier-gebaseerde website toevoegen in het veld Indienings-URL de URL naar de aanmeldingspagina in en voer een toepassingsnaam in (optioneel). De naam van de toepassing wordt vermeld in Azure Multi-Factor Authentication-rapporten en kan worden weergegeven in verificatieberichten via sms of mobiele apps.
-8. Selecteer de juiste aanvraagindeling. Deze is voor de meeste webtoepassingen ingesteld op **POST of GET**.
-9. Voer de gebruikersnaamvariabele, de wachtwoordvariabele en de domeinvariabele in (als deze op de aanmeldingspagina worden weergegeven). Ga in een webbrowser naar de aanmeldingspagina, klik met de rechtermuisknop op de pagina en selecteer **Bron weergeven** om de namen van de invoervakken te vinden.
-10. Schakel het selectievakje **Overeenkomende Azure Multi-Factor Authentication-gebruiker vereisen** in als alle gebruikers zijn of moeten worden geïmporteerd in de Azure Multi-Factor Authentication-server en aan Multi-Factor Authentication onderworpen zijn. Als een groot aantal gebruikers nog niet is geïmporteerd in de server en/of vrijgesteld zal zijn van Multi-Factor Authentication, laat u het vakje uitgeschakeld.
-11. Klik op **Geavanceerd** om de geavanceerde instellingen te bekijken, zoals:
+4. variabelen voor de gebruikersnaam, wachtwoord en domein toodetect automatisch Hallo aanmeldings-URL (bijvoorbeeld https://localhost/contoso/auth/login.aspx) in het dialoogvenster Hallo-formulier-gebaseerde Website invoeren en op **OK**.
+5. Controleer Hallo **overeenkomende multi-factor Authentication-gebruiker vereisen** vak als alle gebruikers zijn of worden geïmporteerd in hello Server- en onderwerp toomulti-factorverificatie. Als een groot aantal gebruikers nog niet is geïmporteerd in Hallo Server en/of vrijgesteld van multi-factor authentication zijn zal, laat u Hallo vakje uitgeschakeld.
+6. Als de paginavariabelen Hallo kunnen niet automatisch worden gedetecteerd, klikt u op **handmatig opgeven** in het dialoogvenster van Hallo formulier-gebaseerde Website.
+7. Hallo URL toohello aanmeldingspagina invoeren in het veld van de indienings-URL Hallo Hallo formulier-gebaseerde Website in het dialoogvenster en voer een toepassingsnaam in (optioneel). de naam van de toepassing Hello wordt weergegeven in de Azure multi-factor Authentication-rapporten en kan worden weergegeven in verificatieberichten via SMS of mobiele App.
+8. Selecteer de juiste Aanvraagindeling Hallo. Dit is te ingesteld**POST of GET** voor de meeste webtoepassingen.
+9. Voer Hallo gebruikersnaamvariabele en wachtwoordvariabele domeinvariabele (als deze wordt weergegeven op de aanmeldingspagina Hallo). toofind Hallo namen van Hallo invoer vakken, gaat de aanmeldingspagina toohello in een webbrowser, met de rechtermuisknop op de pagina Hallo en selecteert **bron weergeven**.
+10. Controleer Hallo **gebruikersovereenkomst vereist Azure multi-factor Authentication** vak als alle gebruikers zijn of worden geïmporteerd in hello Server- en onderwerp toomulti-factorverificatie. Als een groot aantal gebruikers nog niet is geïmporteerd in Hallo Server en/of vrijgesteld van multi-factor authentication zijn zal, laat u Hallo vakje uitgeschakeld.
+11. Klik op **Geavanceerd** tooreview geavanceerde instellingen, met inbegrip van:
 
   - Een aangepast bestand voor de weigeringspagina selecteren
-  - Succesvolle verificaties voor de website voor een bepaalde periode in de cache opslaan met behulp van cookies
-  - Selecteer of u de primaire referenties wilt verifiëren aan de hand van een Windows-domein, LDAP-adreslijst. of RADIUS-server.
+  - Cache geslaagde verificaties toohello website voor een bepaalde periode met behulp van cookies
+  - Selecteer of tooauthenticate Hallo primaire referenties op basis van een Windows-domein, LDAP-adreslijst. of RADIUS-server.
 
-12. Klik op **OK** om terug te gaan naar het dialoogvenster Formulier-gebaseerde website toevoegen.
+12. Klik op **OK** tooreturn in het dialoogvenster toohello formulier-gebaseerde Website.
 13. Klik op **OK**.
-14. Zodra de URL- en paginavariabelen zijn gedetecteerd of ingevoerd, worden de websitegegevens weergegeven in het paneel Op formulier gebaseerd.
+14. Eenmaal Hallo URL en paginavariabelen zijn gedetecteerd of ingevoerd, Hallo websitegegevens weergegeven in Hallo paneel op formulier gebaseerd.
 
 ## <a name="using-integrated-windows-authentication-with-azure-multi-factor-authentication-server"></a>Geïntegreerde Windows-verificatie met Azure Multi-Factor Authentication-server gebruiken
-Als u een IIS-webtoepassing wilt beveiligen die gebruikmaakt van geïntegreerde Windows-verificatie voor HTTP, moet u de Azure MFA-server op de IIS-webserver installeren en de server aan de hand van de onderstaande stappen configureren:
+toosecure een IIS-webtoepassing die gebruikmaakt van geïntegreerde Windows-HTTP-verificatie, hello Azure MFA-Server op Hallo van IIS-webserver installeren en configureren Hallo Server Hello stappen te volgen:
 
-1. Klik op de Azure Multi-Factor Authentication-server in het menu links op het pictogram IIS-verificatie.
-2. Klik op het tabblad **HTTP**.
+1. Klik in hello Azure multi-factor Authentication-Server, op Hallo verificatie van IIS-pictogram in het linkermenu Hallo.
+2. Klik op Hallo **HTTP** tabblad.
 3. Klik op **Add**.
-4. Voer in het dialoogvenster Basis-URL toevoegen de URL in voor de website waar de HTTP-authenticatie wordt uitgevoerd (bijv. http://localhost/owa) en geef een Toepassingsnaam op (optioneel). De naam van de toepassing wordt vermeld in Azure Multi-Factor Authentication-rapporten en kan worden weergegeven in verificatieberichten via sms of mobiele apps.
-5. Pas de tijd voor time-out voor inactiviteit en voor Maximale sessie aan als de standaardwaarde niet voldoende is.
-6. Schakel het selectievakje **Overeenkomende Multi-Factor Authentication-gebruiker vereisen** in als alle gebruikers zijn of moeten worden geïmporteerd in de server en aan Multi-Factor Authentication moeten worden onderworpen. Als een groot aantal gebruikers nog niet is geïmporteerd in de server en/of vrijgesteld zal zijn van Multi-Factor Authentication, laat u het vakje uitgeschakeld.
-7. Schakel, indien gewenst, het selectievakje **Cookie gebruiken om voltooide authenticaties in de cache op te slaan** in.
+4. In dialoogvenster Hallo basis-URL toevoegen, Voer Hallo-URL voor Hallo-website waar de HTTP-verificatie wordt uitgevoerd (zoals http://localhost/owa) en geef een toepassingsnaam in (optioneel). de naam van de toepassing Hello wordt weergegeven in de Azure multi-factor Authentication-rapporten en kan worden weergegeven in verificatieberichten via SMS of mobiele App.
+5. Pas de Hallo inactiviteit en voor maximale sessieduur als Hallo standaard niet voldoende is.
+6. Controleer Hallo **overeenkomende multi-factor Authentication-gebruiker vereisen** vak als alle gebruikers zijn of worden geïmporteerd in hello Server- en onderwerp toomulti-factorverificatie. Als een groot aantal gebruikers nog niet is geïmporteerd in Hallo Server en/of vrijgesteld van multi-factor authentication zijn zal, laat u Hallo vakje uitgeschakeld.
+7. Controleer de Hallo **cookiecache** vak indien gewenst.
 8. Klik op **OK**.
 
 ## <a name="enable-iis-plug-ins-for-azure-multi-factor-authentication-server"></a>IIS-invoegtoepassingen inschakelen voor Azure Multi-Factor Authentication-server
-Nadat u de URL's en instellingen voor op formulier gebaseerde of HTTP-verificaties hebt ingesteld, selecteert u de locaties waar de IIS-invoegtoepassingen van Azure Multi-Factor Authentication moeten worden geladen en ingeschakeld in IIS. Gebruik de volgende procedure:
+Na het configureren van Hallo formulier-gebaseerde of HTTP-verificatie-URL's en -instellingen, selecteert Hallo locaties waar hello Azure multi-factor Authentication IIS-invoegtoepassingen moet worden geladen en ingeschakeld in IIS. Gebruik Hallo procedure te volgen:
 
-1. Indien uitgevoerd op IIS 6, klikt u op het tabblad **ISAPI**. Selecteer de website waaronder die webtoepassing wordt uitgevoerd (bijvoorbeeld de standaardwebsite) om de invoegtoepassing met het ISAPI-filter van Azure Multi-Factor Authentication voor die site in te schakelen.
-2. Indien uitgevoerd op IIS 7 of hoger, klikt u op het tabblad **Systeemeigen module**. Selecteer de server, websites of toepassingen om de IIS-invoegtoepassing op de gewenste niveaus in te schakelen.
-3. Klik op het vak **IIS-verificatie** inschakelen aan de bovenkant van het scherm. Azure Multi-Factor Authentication is nu de beveiliging van de geselecteerde IIS-toepassing. Zorg ervoor dat gebruikers in de server zijn geïmporteerd.
+1. Als wordt uitgevoerd op IIS 6, klikt u op Hallo **ISAPI** tabblad. Selecteer Hallo-website die Hallo webtoepassing wordt uitgevoerd onder (bijvoorbeeld standaardwebsite) tooenable hello Azure multi-factor Authentication ISAPI-filter invoegtoepassing voor die site.
+2. Als uitgevoerd op IIS 7 of hoger, klikt u op Hallo **systeemeigen Module** tabblad. Selecteer Hallo-server, websites of toepassingen tooenable Hallo IIS-invoegtoepassing op Hallo gewenste niveaus.
+3. Klik op Hallo **inschakelen IIS-verificatie** vak Hallo boven aan het welkomstscherm. Azure multi-factor Authentication is nu de beveiliging van de IIS-toepassing hello geselecteerd. Zorg ervoor dat gebruikers in Hallo Server zijn geïmporteerd.
 
 ## <a name="trusted-ips"></a>Goedgekeurde IP-adressen
-De goedgekeurde IP-adressen bieden gebruikers de mogelijkheid om Azure Multi-Factor Authentication over te slaan voor websiteverzoeken die afkomstig zijn van bepaalde IP-adressen of subnetten. Zo kunt u gebruikers vrijstellen van Azure Multi-Factor Authentication wanneer zij zich op kantoor aanmelden. Hiervoor geeft u het subnet van de werkplek op als een goedgekeurd IP-adres. Gebruik de volgende procedure als u goedgekeurde IP-adressen wilt configureren:
+Hallo kunnen goedgekeurde IP-adressen gebruikers toobypass Azure multi-factor Authentication voor websiteaanvragen die afkomstig zijn van specifieke IP-adressen of subnetten. U kunt bijvoorbeeld tooexempt gebruikers van Azure multi-factor Authentication bij het aanmelden van Hallo office. Hiervoor geeft u het subnet van kantoor Hallo als een goedgekeurde IP-adressen. tooconfigure vertrouwde IP-adressen, gebruikt u Hallo procedure te volgen:
 
-1. Klik op het tabblad **Goedgekeurde IP-adressen** in de sectie IIS-verificatie.
+1. In de sectie IIS-verificatie hello, klikt u op Hallo **goedgekeurde IP-adressen** tabblad.
 2. Klik op **Add**.
-3. Wanneer het dialoogvenster Goedgekeurd IP-adres toevoegen wordt weergegeven, selecteert u het keuzerondje **Eén IP-adres**, **IP-bereik** of **Subnet**.
-4. Voer het IP-adres, het bereik van IP-adressen of het subnet in dat u op de lijst van goedgekeurde IP-adressen wilt plaatsen. Als u een subnet wilt invoeren, selecteert u het geschikte Netmasker en klikt u op **OK**. De lijst van goedgekeurde IP-adressen is toegevoegd.
+3. Wanneer Hallo toevoegen goedgekeurde IP-adressen van het dialoogvenster wordt weergegeven, selecteert u Hallo **één IP-adres**, **IP-bereik**, of **Subnet** keuzerondje.
+4. Voer Hallo IP-adres, bereik van IP-adressen of subnet op dat u wilt plaatsen. Als een subnet, selecteer Hallo invoert netmasker geschikte en klikt u op **OK**. Hallo goedgekeurde IP-adressen is toegevoegd.

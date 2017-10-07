@@ -1,6 +1,6 @@
 ---
-title: Met Apache Storm en HBase-sensorgegevens analyseren | Microsoft Docs
-description: Informatie over het met een virtueel netwerk verbinding maken met Apache Storm. Storm gebruiken met HBase sensor om gegevens te verwerken van een event hub en deze te visualiseren met D3.js.
+title: aaaAnalyze sensorgegevens met Apache Storm en HBase | Microsoft Docs
+description: Meer informatie over hoe tooconnect tooApache Storm met een virtueel netwerk. Storm gebruiken met HBase tooprocess sensorgegevens van een event hub en deze te visualiseren met D3.js.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,146 +15,146 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/09/2017
 ms.author: larryfr
-ms.openlocfilehash: 0d1cc959c87bd64ed728f8b56c9b9156fa492a8b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e54fe9ffc720b0089f90e302b24a9438bd43999a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>Analyseren van sensorgegevens met Apache Storm, Event Hub en HBase in HDInsight (Hadoop)
 
-Informatie over het gebruik van Apache Storm op HDInsight om te verwerken van sensorgegevens uit Azure Event Hub. De gegevens vervolgens naar Apache HBase in HDInsight wordt opgeslagen en weergegeven met behulp van D3.js.
+Meer informatie over hoe toouse Apache Storm op HDInsight tooprocess sensorgegevens uit Azure Event Hub. Hallo gegevens vervolgens naar Apache HBase in HDInsight wordt opgeslagen en weergegeven met behulp van D3.js.
 
-De Azure Resource Manager-sjabloon die wordt gebruikt in dit document wordt gedemonstreerd hoe meerdere Azure-resources in een resourcegroep maken. De sjabloon maakt u een Azure-netwerk, twee HDInsight-clusters (Storm en HBase) en een Azure-Web-App. Een node.js-implementatie van een realtime webdashboard is automatisch geïmplementeerd naar de web-app.
+Hello Azure Resource Manager-sjabloon die wordt gebruikt in dit document wordt gedemonstreerd hoe toocreate meerdere Azure-resources in een resourcegroep. Hallo-sjabloon maakt u een Azure-netwerk, twee HDInsight-clusters (Storm en HBase) en een Azure-Web-App. Een node.js-implementatie van een realtime webdashboard is automatisch geïmplementeerd toohello web-app.
 
 > [!NOTE]
-> De informatie in dit document en deze in dit document HDInsight versie 3.6 vereisen.
+> Hallo-informatie in dit document en deze in dit document HDInsight versie 3.6 vereisen.
 >
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+> Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een Azure-abonnement.
-* [Node.js](http://nodejs.org/): gebruikt om een voorbeeld van het webdashboard lokaal op uw ontwikkelomgeving.
-* [Java en de JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): gebruikt voor het ontwikkelen van de Storm-topologie.
-* [Maven](http://maven.apache.org/what-is-maven.html): gebruikt voor het bouwen en compileren van het project.
-* [GIT](http://git-scm.com/): gebruikt voor het downloaden van het project vanuit GitHub.
-* Een **SSH** client: verbinding maken met de Linux gebaseerde HDInsight-clusters. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+* [Node.js](http://nodejs.org/): gebruikte toopreview Hallo webdashboard lokaal op uw ontwikkelomgeving.
+* [Java- en Hallo JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): toodevelop Hallo Storm-topologie wordt gebruikt.
+* [Maven](http://maven.apache.org/what-is-maven.html): gebruikte toobuild en compileren Hallo-project.
+* [GIT](http://git-scm.com/): gebruikte toodownload Hallo project vanuit GitHub.
+* Een **SSH** client: tooconnect toohello Linux gebaseerde HDInsight-clusters gebruikt. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
 
 > [!IMPORTANT]
-> U hoeft niet in een bestaand HDInsight-cluster. De stappen in dit document maken de volgende bronnen:
+> U hoeft niet in een bestaand HDInsight-cluster. Hallo stappen in dit document maken Hallo resources te volgen:
 > 
 > * Een Azure-netwerk
 > * Een Storm op HDInsight-cluster (op basis van Linux twee worker-knooppunten)
 > * Een HBase op HDInsight-cluster (op basis van Linux twee worker-knooppunten)
-> * Een Azure-Web-App die als host fungeert voor de webdashboard
+> * Een Azure-Web-App die als host fungeert voor Hallo webdashboard
 
 ## <a name="architecture"></a>Architectuur
 
 ![Architectuurdiagram](./media/hdinsight-storm-sensor-data-analysis/devicesarchitecture.png)
 
-In dit voorbeeld bestaat uit de volgende onderdelen:
+In dit voorbeeld bestaat uit Hallo volgende onderdelen:
 
 * **Azure Event Hubs**: bevat gegevens die worden verzameld van sensoren.
 * **Storm op HDInsight**: biedt realtime verwerking van gegevens uit Event Hub.
 * **HBase in HDInsight**: biedt een permanente NoSQL-gegevensopslag voor gegevens nadat deze is verwerkt door Storm.
-* **Azure Virtual Network service**: beveiligde communicatie tussen de Storm op HDInsight en HBase op HDInsight-clusters mogelijk maakt.
+* **Azure Virtual Network service**: beveiligde communicatie tussen Hallo Storm op HDInsight en HBase op HDInsight-clusters mogelijk maakt.
   
   > [!NOTE]
-  > Een virtueel netwerk is vereist wanneer de client Java HBase API. Het is niet toegankelijk via de openbare gateway voor HBase-clusters. HBase en Storm-clusters in hetzelfde virtuele netwerk te installeren, kunt de Storm-cluster (of elk ander systeem in het virtuele netwerk) rechtstreeks toegang krijgen tot HBase met client-API.
+  > Een virtueel netwerk is vereist wanneer Hallo Java HBase client-API. Het is niet toegankelijk via openbare gateway Hallo voor HBase-clusters. Installeren HBase en Storm-clusters in hetzelfde virtuele netwerk kunt Hallo Hallo Storm-cluster (of elk ander systeem in het virtuele netwerk Hallo) toodirectly toegang tot HBase met client-API.
 
 * **Dashboard website**: een voorbeeld van dashboard dat gegevens in real-time grafieken.
   
-  * De website is geïmplementeerd in Node.js.
-  * [Socket.IO](http://socket.io/) voor realtime-communicatie tussen de Storm-topologie en de website wordt gebruikt.
+  * Hallo-website is geïmplementeerd in Node.js.
+  * [Socket.IO](http://socket.io/) wordt gebruikt voor realtime-communicatie tussen Hallo Storm-topologie en Hallo-website.
     
     > [!NOTE]
     > Met Socket.io voor communicatie is een implementatiedetail. U kunt elk framework communicatie zoals onbewerkte WebSockets of SignalR gebruiken.
 
-  * [D3.js](http://d3js.org/) wordt gebruikt voor de gegevens die worden verzonden naar de website in een grafiek.
+  * [D3.js](http://d3js.org/) gebruikte toograph Hallo gegevens dat toohello website wordt verzonden.
 
 > [!IMPORTANT]
-> Twee clusters zijn vereist, omdat er geen ondersteunde methode is voor het maken van een HDInsight-cluster voor Storm en HBase.
+> Twee clusters zijn vereist, omdat er geen ondersteunde methode toocreate een HDInsight-cluster voor Storm en HBase.
 
-De topologie leest de gegevens uit Event Hub met behulp van de [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) klasse en schrijft gegevens in HBase met behulp van de [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/releases/1.0.1/javadocs/org/apache/storm/hbase/bolt/HBaseBolt.html) klasse. Communicatie met de website kan worden bereikt via [socket.io client.java](https://github.com/nkzawa/socket.io-client.java).
+Hallo topologie leest de gegevens uit Event Hub met behulp van Hallo [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) klasse en schrijft gegevens in HBase met Hallo [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/releases/1.0.1/javadocs/org/apache/storm/hbase/bolt/HBaseBolt.html) de klasse. Communicatie met de Hallo website kan worden bereikt via [socket.io client.java](https://github.com/nkzawa/socket.io-client.java).
 
-Het volgende diagram wordt de indeling van de topologie uitgelegd:
+Hallo volgende diagram wordt uitgelegd Hallo lay-out van Hallo-topologie:
 
 ![topologiediagram](./media/hdinsight-storm-sensor-data-analysis/sensoranalysis.png)
 
 > [!NOTE]
-> Dit diagram is een vereenvoudigde weergave van de topologie. Een exemplaar van elk onderdeel is gemaakt voor elke partitie in uw Event Hub. Deze instanties zijn verdeeld over de knooppunten in het cluster en gegevens worden gerouteerd tussen deze als volgt:
+> Dit diagram is een vereenvoudigde weergave van Hallo-topologie. Een exemplaar van elk onderdeel is gemaakt voor elke partitie in uw Event Hub. Deze instanties zijn verdeeld over Hallo knooppunten in cluster Hallo en gegevens worden gerouteerd tussen deze als volgt:
 > 
-> * Gegevens van de spout naar de parser gelijkmatig wordt verdeeld.
-> * Gegevens van de parser naar het Dashboard en de HBase worden gegroepeerd per apparaat-ID, zodat berichten van hetzelfde apparaat altijd naar hetzelfde onderdeel stromen.
+> * Gegevens van Hallo spout toohello parser gelijkmatig wordt verdeeld.
+> * Gegevens uit het Hallo-parser toohello Dashboard en HBase worden gegroepeerd per apparaat-ID, zodat berichten van hetzelfde apparaat altijd Hallo stromen toohello hetzelfde onderdeel.
 
 ### <a name="topology-components"></a>Topologie-onderdelen
 
-* **Event Hub Spout**: de spout is opgegeven als onderdeel van Apache Storm versie 0.10.0 of hoger.
+* **Event Hub Spout**: Hallo spout is opgegeven als onderdeel van Apache Storm versie 0.10.0 of hoger.
   
   > [!NOTE]
-  > De Event Hub spout gebruikt in dit voorbeeld is een Storm op HDInsight-cluster versie 3.5 of 3.6 vereist.
+  > Hallo Event Hub spout gebruikt in dit voorbeeld is een Storm op HDInsight-cluster versie 3.5 of 3.6 vereist.
 
-* **ParserBolt.java**: de gegevens die worden verstrekt door de spout is onbewerkte JSON en van tijd tot tijd meer dan een gebeurtenis op een tijdstip is verzonden. Deze bolt leest de gegevens die door de spout en parseert het JSON-bericht. De bolt verzendt vervolgens de gegevens als een tuple die meerdere velden bevat.
-* **DashboardBolt.java**: dit onderdeel wordt getoond hoe u van de clientbibliotheek Socket.io voor Java gegevens in realtime te verzenden naar de webdashboard.
-* **Er is geen hbase.yaml**: de definitie van de topologie bij uitvoering in lokale modus gebruikt. Het wordt HBase-onderdelen gebruikt.
-* **met hbase.yaml**: de definitie van de topologie die wordt gebruikt bij het uitvoeren van de topologie op het cluster. Dit maakt gebruik van HBase-onderdelen.
-* **dev.Properties**: de configuratiegegevens voor de Event Hub spout, HBase bolt en dashboard onderdelen.
+* **ParserBolt.java**: Hallo gegevens dat is verzonden door Hallo spout onbewerkte JSON en van tijd tot tijd meer dan een gebeurtenis op een tijdstip is verzonden. Deze bolt leest Hallo-gegevens die door Hallo spout en parseert JSON het Hallo-bericht. Hallo bolt verzendt vervolgens Hallo gegevens als een tuple die meerdere velden bevat.
+* **DashboardBolt.java**: dit onderdeel wordt gedemonstreerd hoe toouse Hallo Socket.io-clientbibliotheek voor Java toosend gegevens in realtime toohello webdashboard.
+* **Er is geen hbase.yaml**: Hallo topologie definitie wanneer in lokale modus uitgevoerd. Het wordt HBase-onderdelen gebruikt.
+* **met hbase.yaml**: Hallo topologie definitie gebruikt bij het uitvoeren van Hallo topologie op Hallo-cluster. Dit maakt gebruik van HBase-onderdelen.
+* **dev.Properties**: Hallo van configuratie-informatie voor Hallo Event Hub spout, HBase bolt en dashboard onderdelen.
 
 ## <a name="prepare-your-environment"></a>Uw omgeving voorbereiden
 
-Voordat u dit voorbeeld gebruiken, moet u een Azure Event Hub, die de Storm-topologie leest uit.
+Voordat u dit voorbeeld gebruiken, moet u een Azure Event Hub, welke Hallo Storm-topologie leest uit.
 
 ### <a name="configure-event-hub"></a>Event Hub configureren
 
-Event Hub is de gegevensbron voor dit voorbeeld. Gebruik de volgende stappen voor het maken van een Event Hub.
+Event Hub is Hallo gegevensbron voor dit voorbeeld. Volgende stappen toocreate een Event Hub hello gebruiken.
 
-1. Van de [Azure-portal](https://portal.azure.com), selecteer **+ nieuw** -> **Internet der dingen** -> **Event Hubs**.
-2. In de **Namespace maken** sectie, de volgende taken uitvoeren:
+1. Van Hallo [Azure-portal](https://portal.azure.com), selecteer **+ nieuw** -> **Internet der dingen** -> **Event Hubs**.
+2. In Hallo **Namespace maken** sectie, Hallo volgende taken uitvoeren:
    
-   1. Voer een **naam** voor de naamruimte.
+   1. Voer een **naam** voor Hallo-naamruimte.
    2. Selecteer een prijscategorie. **Basic** voldoende is voor dit voorbeeld.
-   3. Selecteer de Azure **abonnement** te gebruiken.
+   3. Selecteer hello Azure **abonnement** toouse.
    4. Selecteer een bestaande resourcegroep of maak een nieuwe.
-   5. Selecteer de **locatie** voor de Event Hub.
-   6. Selecteer **vastmaken aan dashboard**, en klik vervolgens op **maken**.
+   5. Selecteer Hallo **locatie** voor Hallo Event Hub.
+   6. Selecteer **pincode toodashboard**, en klik vervolgens op **maken**.
 
-3. Wanneer het proces voor het maken is voltooid, wordt de Event Hubs-informatie voor uw naamruimte wordt weergegeven. Hier kunt u selecteren **+ Event Hub toevoegen**. In de **Event Hub maken** sectie, voer een naam in van **sensordata**, en selecteer vervolgens **maken**. Laat de overige velden op de standaardwaarden.
-4. Selecteer in de Event Hubs-weergave voor de naamruimte, **Event Hubs**. Selecteer de **sensordata** vermelding.
-5. Selecteer in de Event Hub sensordata **gedeeld toegangsbeleid**. Gebruik de **+ toevoegen** koppeling naar de volgende beleidsregels toevoegen:
+3. Wanneer het proces voor het maken van Hallo is voltooid, wordt Hallo Event Hubs-informatie voor uw naamruimte weergegeven. Hier kunt u selecteren **+ Event Hub toevoegen**. In Hallo **Event Hub maken** sectie, voer een naam in van **sensordata**, en selecteer vervolgens **maken**. Laat Hallo andere velden op Hallo standaardwaarden.
+4. Hallo Event Hubs bekijken voor de naamruimte, selecteer **Event Hubs**. Selecteer Hallo **sensordata** vermelding.
+5. Selecteer in de Hallo sensordata Event Hub, **gedeeld toegangsbeleid**. Gebruik Hallo **+ toevoegen** koppeling tooadd Hallo beleidsregels te volgen:
 
     | De naam van beleid | Claims |
     | ----- | ----- |
     | apparaten | Verzenden |
     | storm | Luisteren |
 
-1. Selecteer beide beleidsregels en noteer de **primaire sleutel** waarde. U moet de waarde voor beide beleidsregels in toekomstige stappen.
+1. Selecteer beide beleidsregels en noteer Hallo **primaire sleutel** waarde. Hallo-waarde vereist voor beide beleidsregels in toekomstige stappen.
 
-## <a name="download-and-configure-the-project"></a>Downloaden en configureren van het project
+## <a name="download-and-configure-hello-project"></a>Downloaden en configureren van Hallo-project
 
-Gebruik de volgende voor het downloaden van het project vanuit GitHub.
+Gebruik hello toodownload Hallo project vanuit GitHub te volgen.
 
     git clone https://github.com/Blackmist/hdinsight-eventhub-example
 
-Nadat de opdracht is voltooid, hebt u de volgende mapstructuur:
+Nadat het Hallo-opdracht is voltooid, hebt u Hallo directory-structuur te volgen:
 
     hdinsight-eventhub-example/
-        TemperatureMonitor/ - this contains the topology
+        TemperatureMonitor/ - this contains hello topology
             resources/
-                log4j2.xml - set logging to minimal.
+                log4j2.xml - set logging toominimal.
                 no-hbase.yaml - topology definition without hbase components.
                 with-hbase.yaml - topology definition with hbase components.
             src/main/java/com/microsoft/examples/bolts/
                 ParserBolt.java - parses JSON data into tuples
-                DashboardBolt.java - sends data over Socket.IO to the web dashboard.
-        dashboard/nodejs/ - this is the node.js web dashboard.
-        SendEvents/ - utilities to send fake sensor data.
+                DashboardBolt.java - sends data over Socket.IO toohello web dashboard.
+        dashboard/nodejs/ - this is hello node.js web dashboard.
+        SendEvents/ - utilities toosend fake sensor data.
 
 > [!NOTE]
-> Dit document niet naar alle details van de code die is opgenomen in dit voorbeeld. De code is echter volledig toegelicht.
+> Dit document verder niet in toofull details van Hallo code is opgenomen in dit voorbeeld. Hallo-code is echter volledig toegelicht.
 
-Voor het configureren van het project lezen uit Event Hub, opent u de `hdinsight-eventhub-example/TemperatureMonitor/dev.properties` -bestand en de informatie van uw Event Hub toevoegen aan de volgende regels:
+tooconfigure hello project tooread van Event Hub, open Hallo `hdinsight-eventhub-example/TemperatureMonitor/dev.properties` bestands- en uw Event Hub informatie toohello volgende regels toevoegen:
 
 ```bash
 eventhub.read.policy.name: your_read_policy_name
@@ -167,52 +167,52 @@ eventhub.partitions: 2
 ## <a name="compile-and-test-locally"></a>Compileren en lokaal te testen
 
 > [!IMPORTANT]
-> De topologie lokaal, moet een werkende Storm-ontwikkelomgeving. Zie voor meer informatie [een Storm-ontwikkelomgeving instellen](http://storm.apache.org/releases/1.1.0/Setting-up-development-environment.html) op Apache.org.
+> Hallo-topologie lokaal, moet een werkende Storm-ontwikkelomgeving. Zie voor meer informatie [een Storm-ontwikkelomgeving instellen](http://storm.apache.org/releases/1.1.0/Setting-up-development-environment.html) op Apache.org.
 
 > [!WARNING]
-> Als u van een Windows-ontwikkelomgeving gebruikmaakt, ontvangt u mogelijk een `java.io.IOException` wanneer de topologie die lokaal wordt uitgevoerd. Zo ja, verplaatsen op voor het uitvoeren van de topologie op HDInsight.
+> Als u van een Windows-ontwikkelomgeving gebruikmaakt, ontvangt u mogelijk een `java.io.IOException` wanneer Hallo-topologie die lokaal wordt uitgevoerd. Zo ja, verder toorunning Hallo-topologie op HDInsight.
 
-Voordat u test, moet u het dashboard voor het weergeven van de uitvoer van de topologie en genereren van gegevens op te slaan in de Event Hub starten.
+Voordat u test, moet u Hallo dashboard tooview Hallo uitvoer van de topologie Hallo starten en genereren van gegevens toostore in de Event Hub.
 
 > [!IMPORTANT]
-> Het HBase-onderdeel van deze topologie is niet actief bij lokaal te testen. De Java-API voor het HBase-cluster niet toegankelijk van buiten het virtuele netwerk van Azure die de clusters bevat.
+> Hallo HBase-onderdeel van deze topologie is niet actief bij lokaal te testen. Hallo Java API voor Hallo HBase-cluster niet toegankelijk vanuit externe hello Azure Virtual Network die Hallo-clusters bevat.
 
-### <a name="start-the-web-application"></a>De webtoepassing starten
+### <a name="start-hello-web-application"></a>Hallo-webtoepassing starten
 
-1. Open een opdrachtprompt en wijzig de mappen te `hdinsight-eventhub-example/dashboard`. Gebruik de volgende opdracht voor het installeren van de afhankelijkheden die nodig is voor de webtoepassing:
+1. Open een opdrachtprompt en wijzig de mappen te`hdinsight-eventhub-example/dashboard`. Hallo opdracht tooinstall Hallo afhankelijkheden die nodig is voor de webtoepassing Hallo volgende gebruiken:
    
     ```bash
     npm install
     ```
 
-2. Gebruik de volgende opdracht om de webtoepassing te starten:
+2. Gebruik Hallo opdracht toostart Hallo-webtoepassing te volgen:
    
     ```bash
     node server.js
     ```
    
-    U ziet een bericht dat lijkt op de volgende tekst:
+    U ziet een bericht vergelijkbaar toohello volgende tekst:
    
         Server listening at port 3000
 
-3. Open een webbrowser en voer `http://localhost:3000/` als het adres. Een pagina zoals in de volgende afbeelding wordt weergegeven:
+3. Open een webbrowser en voer `http://localhost:3000/` als Hallo-adres. Een pagina vergelijkbaar toohello volgende afbeelding wordt weergegeven:
    
     ![webdashboard](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
    
-    Laat deze opdrachtprompt geopend. Nadat u hebt getest, gebruik Ctrl + C om te stoppen van de webserver.
+    Laat deze opdrachtprompt geopend. Nadat u hebt getest, Ctrl-C toostop Hallo webserver te gebruiken.
 
 ### <a name="generate-data"></a>Gegevens moeten genereren
 
 > [!NOTE]
-> De stappen in deze sectie gebruiken Node.js, zodat ze kunnen worden gebruikt op elk platform. Zie voor voorbeelden van andere taal de `SendEvents` directory.
+> Hallo stappen in deze sectie gebruiken Node.js zodat ze kunnen worden gebruikt op elk platform. Zie voor andere voorbeelden taal Hallo `SendEvents` directory.
 
-1. Open een nieuw opdrachtprompt, shell of terminal en wijzig de mappen te `hdinsight-eventhub-example/SendEvents/nodejs`. Gebruik de volgende opdracht voor het installeren van de afhankelijkheden die nodig is voor de toepassing:
+1. Open een nieuw opdrachtprompt, shell of terminal en wijzig de mappen te`hdinsight-eventhub-example/SendEvents/nodejs`. tooinstall hello afhankelijkheden die nodig is voor de toepassing hello, Hallo volgende opdracht gebruiken:
 
     ```bash
     npm install
     ```
 
-2. Open de `app.js` -bestand in een teksteditor en voeg de Event Hub-informatie die u eerder hebt verkregen toe:
+2. Open Hallo `app.js` bestand in een teksteditor en voeg Hallo Event Hub-informatie die u eerder hebt verkregen:
    
     ```javascript
     // ServiceBus Namespace
@@ -225,15 +225,15 @@ Voordat u test, moet u het dashboard voor het weergeven van de uitvoer van de to
     ```
    
    > [!NOTE]
-   > In dit voorbeeld wordt ervan uitgegaan dat u hebt gebruikt `sensordata` als de naam van uw Event Hub. En dat `devices` als de naam van het beleid dat is een `Send` claim.
+   > In dit voorbeeld wordt ervan uitgegaan dat u hebt gebruikt `sensordata` als Hallo-naam van uw Event Hub. En dat `devices` als Hallo-naam van het Hallo-beleid dat is een `Send` claim.
 
-3. Gebruik de volgende opdracht voor het invoegen van nieuwe vermeldingen in de Event Hub:
+3. Gebruik Hallo opdracht tooinsert nieuwe vermeldingen in de Event Hub te volgen:
    
     ```bash
     node app.js
     ```
    
-    Er zijn meerdere regels van uitvoer met de gegevens verzonden naar de Event Hub:
+    Ziet u meerdere regels van uitvoer met Hallo gegevens verzonden tooEvent Hub:
    
         {"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"0","Temperature":7}
         {"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"1","Temperature":39}
@@ -246,126 +246,126 @@ Voordat u test, moet u het dashboard voor het weergeven van de uitvoer van de to
         {"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"8","Temperature":43}
         {"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"9","Temperature":84}
 
-### <a name="build-and-start-the-topology"></a>Bouwen en starten van de topologie
+### <a name="build-and-start-hello-topology"></a>Bouwen en starten Hallo-topologie
 
-1. Open een nieuw opdrachtpromptvenster en wijzig de mappen te `hdinsight-eventhub-example/TemperatureMonitor`. Voor het bouwen en de topologie van het pakket, gebruikt u de volgende opdracht: 
+1. Open een nieuw opdrachtpromptvenster en wijzig de mappen te`hdinsight-eventhub-example/TemperatureMonitor`. toobuild en pakket Hallo topologie, Hallo volgende opdracht gebruiken: 
 
     ```bash
     mvn clean package
     ```
 
-2. Voor het starten van de topologie in de lokale modus, moet u de volgende opdracht gebruiken:
+2. toostart Hallo topologie in lokale modus, Hallo volgende opdracht gebruiken:
 
     ```bash
     storm jar target/TemperatureMonitor-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local --filter dev.properties resources/no-hbase.yaml
     ```
 
-    * `--local`Start de topologie in lokale modus.
-    * `--filter`maakt gebruik van de `dev.properties` bestand voor het vullen van de parameters in de definitie van de topologie.
-    * `resources/no-hbase.yaml`maakt gebruik van de `no-hbase.yaml` topologie definitie.
+    * `--local`Hallo-topologie start in de lokale modus.
+    * `--filter`maakt gebruik van Hallo `dev.properties` toopopulate parameters in de definitie van de topologie Hallo bestand.
+    * `resources/no-hbase.yaml`maakt gebruik van Hallo `no-hbase.yaml` topologie definitie.
  
-   Eenmaal gestart, wordt de topologie vermeldingen van Event Hub leest en zendt deze naar het dashboard op uw lokale computer uitgevoerd. Hier ziet u regels worden weergegeven in het webdashboard, vergelijkbaar met de volgende afbeelding:
+   Eenmaal gestart, Hallo topologie vermeldingen van Event Hub leest en verzendt deze toohello dashboard op uw lokale computer uitgevoerd. Hier ziet u regels worden weergegeven in Hallo webdashboard vergelijkbare toohello installatiekopie te volgen:
    
     ![dashboard met gegevens](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
 
-2. Terwijl het dashboard wordt uitgevoerd, gebruikt u de `node app.js` opdracht van de vorige stappen voor het nieuwe gegevens verzenden naar Event Hubs. Omdat de temperatuur-waarden worden willekeurig gegenereerd, de grafiek moet worden bijgewerkt voor het weergeven van grote wijzigingen in de temperatuur.
+2. Terwijl Hallo dashboard wordt uitgevoerd, gebruikt u Hallo `node app.js` opdracht van een vorige Hallo stappen toosend nieuwe gegevens tooEvent Hubs. Omdat Hallo temperatuur waarden worden willekeurig gegenereerd, moet Hallo grafiek tooshow grote veranderingen in de temperatuur bijwerken.
    
    > [!NOTE]
-   > U moet zich in de **hdinsight-eventhub-voorbeeld/SendEvents/Nodejs** directory wanneer u de `node app.js` opdracht.
+   > U moet zich in Hallo **hdinsight-eventhub-voorbeeld/SendEvents/Nodejs** directory wanneer u Hallo `node app.js` opdracht.
 
-3. Nadat u hebt gecontroleerd dat het dashboard worden bijgewerkt, stopt u de topologie met Ctrl + C. Ctrl + C kunt u ook de lokale webserver stoppen.
+3. Nadat u hebt gecontroleerd dat dashboard Hallo-updates, stop Hallo-topologie met Ctrl + C. U kunt ook Hallo lokale webserver met Ctrl + C toostop gebruiken.
 
 ## <a name="create-a-storm-and-hbase-cluster"></a>Een Storm en HBase-cluster maken
 
-De stappen in deze sectie gebruiken een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-template-deploy.md) voor het maken van een virtueel Azure-netwerk en een Storm en HBase-cluster op het virtuele netwerk. De sjabloon ook een Azure-Web-App maakt en implementeert een kopie van het dashboard in de App.
+Hallo stappen in dit gedeelte een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-template-deploy.md) toocreate een virtueel Azure-netwerk en een Storm en HBase-cluster op Hallo virtueel netwerk. Hallo sjabloon wordt ook een Azure-Web-App maakt en implementeert een kopie van het Hallo-dashboard in de App.
 
 > [!NOTE]
-> Een virtueel netwerk wordt gebruikt zodat de topologie die wordt uitgevoerd op het Storm-cluster kan rechtstreeks communiceren met de HBase-cluster met de HBase-Java-API.
+> Een virtueel netwerk wordt gebruikt zodat Hallo topologie uitgevoerd op Hallo Storm-cluster kan rechtstreeks communiceren met de Hallo Hallo HBase Java API met HBase-cluster.
 
-De Resource Manager-sjabloon gebruikt in dit document bevindt zich in een openbare blob-container op **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hbase-storm-cluster-in-vnet-3.6.json**.
+Hallo Resource Manager-sjabloon die wordt gebruikt in dit document bevindt zich in een openbare blob-container op **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hbase-storm-cluster-in-vnet-3.6.json**.
 
-1. Klik op de knop Volgende om te melden bij Azure en open de Resource Manager-sjabloon in de Azure-portal.
+1. Klik op Hallo na de knop toosign in tooAzure en open Hallo Resource Manager-sjabloon in hello Azure-portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet-3.6.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet-3.6.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy tooAzure"></a>
 
-2. Van de **aangepaste implementatie** sectie, voer de volgende waarden:
+2. Van Hallo **aangepaste implementatie** sectie, voert u Hallo volgende waarden:
    
     ![HDInsight-parameters](./media/hdinsight-storm-sensor-data-analysis/parameters.png)
    
-   * **Clusternaam baseren**: deze waarde wordt gebruikt als de basisnaam aan voor de Storm en HBase-clusters. Bijvoorbeeld, voeren **abc** maakt een Storm-cluster met de naam **storm abc** en een HBase-cluster met de naam **hbase abc**.
-   * **Aanmeldingsnaam van gebruiker cluster**: de gebruikersnaam van de beheerder voor de Storm en HBase-clusters.
-   * **Aanmeldingswachtwoord cluster**: het beheerderswachtwoord voor de Storm en HBase-clusters.
-   * **SSH-gebruikersnaam**: de SSH-gebruiker maken voor de Storm en HBase-clusters.
-   * **SSH-wachtwoord**: het wachtwoord voor de SSH-gebruiker voor de Storm en HBase-clusters.
-   * **Locatie**: de regio die in de clusters worden gemaakt.
+   * **Clusternaam baseren**: deze waarde wordt gebruikt als basisnaam van Hallo voor Hallo Storm en HBase-clusters. Bijvoorbeeld, voeren **abc** maakt een Storm-cluster met de naam **storm abc** en een HBase-cluster met de naam **hbase abc**.
+   * **Aanmeldingsnaam van gebruiker cluster**: Hallo-beheerdersgebruikersnaam voor Hallo Storm en HBase-clusters.
+   * **Aanmeldingswachtwoord cluster**: Hallo beheerder gebruikerswachtwoord voor Hallo Storm en HBase-clusters.
+   * **SSH-gebruikersnaam**: Hallo SSH gebruiker toocreate voor Hallo Storm en HBase-clusters.
+   * **SSH-wachtwoord**: Hallo-wachtwoord voor Hallo SSH-gebruiker voor Hallo Storm en HBase-clusters.
+   * **Locatie**: Hallo regio die in Hallo clusters worden gemaakt.
      
-     Klik op **OK** om de parameters op te slaan.
+     Klik op **OK** toosave Hallo parameters.
 
-3. Gebruik de **basisbeginselen** sectie een resourcegroep maken of een bestaande set selecteren.
-4. In de **locatie voor resourcegroep** vervolgkeuzemenu Selecteer dezelfde locatie als u geselecteerd voor de **locatie** parameter in de **instellingen** sectie.
-5. Lees de voorwaarden en selecteer vervolgens **ik ga akkoord met de voorwaarden en bepalingen bovengenoemde**.
-6. Controleer ten slotte **vastmaken aan dashboard** en selecteer vervolgens **aankoop**. Het duurt ongeveer 20 minuten om de clusters te maken.
+3. Gebruik Hallo **basisbeginselen** sectie toocreate een resourcegroep of een bestaande set selecteren.
+4. In Hallo **locatie voor resourcegroep** Selecteer vervolgkeuzemenu Hallo dezelfde locatie als u hebt geselecteerd voor Hallo **locatie** parameter in Hallo **instellingen** sectie.
+5. Hallo voorwaarden lezen en selecteer vervolgens **ik ga akkoord toohello voorwaarden bovengenoemde**.
+6. Controleer ten slotte **pincode toodashboard** en selecteer vervolgens **aankoop**. Het duurt ongeveer 20 minuten toocreate Hallo-clusters.
 
-Zodra de resources zijn gemaakt, wordt informatie over de resourcegroep weergegeven.
+Zodra het Hallo-resources zijn gemaakt, wordt informatie over de resourcegroep Hallo weergegeven.
 
-![De resourcegroep voor het vnet en clusters](./media/hdinsight-storm-sensor-data-analysis/groupblade.png)
+![De resourcegroep voor Hallo vnet en clusters](./media/hdinsight-storm-sensor-data-analysis/groupblade.png)
 
 > [!IMPORTANT]
-> Merk op dat de namen van de HDInsight-clusters **storm BASENAME** en **hbase BASENAME**, waarbij BASENAME is de naam die u hebt opgegeven in de sjabloon. U gebruikt deze namen in een latere stap bij het verbinden met de clusters. Ook Let op: de naam van de dashboardsite is **basename dashboard**. Deze waarde wordt verderop in dit document gebruikt.
+> Merk op dat de namen van HDInsight-clusters Hallo Hallo zijn **storm BASENAME** en **hbase BASENAME**, waarbij BASENAME Hallo-naam die u hebt opgegeven toohello sjabloon. U gebruikt deze namen in een latere stap bij het verbinden van toohello clusters. Let op: naam van dashboard-site Hallo Hallo is ook **basename dashboard**. Deze waarde wordt verderop in dit document gebruikt.
 
-## <a name="configure-the-dashboard-bolt"></a>Het Dashboard bolt configureren
+## <a name="configure-hello-dashboard-bolt"></a>Hallo Dashboard bolt configureren
 
-Om gegevens te verzenden naar het dashboard dat is geïmplementeerd als een web-app, moet u de volgende regel in wijzigen de `dev.properties`bestand:
+toosend gegevens toohello dashboard geïmplementeerd als een web-app, moet u volgt regel in Hallo Hallo wijzigen `dev.properties`bestand:
 
 ```yaml
 dashboard.uri: http://localhost:3000
 ```
 
-Wijziging `http://localhost:3000` naar `http://BASENAME-dashboard.azurewebsites.net` en sla het bestand. Vervang **BASENAME** met de basisnaam die u hebt opgegeven in de vorige stap. Ook kunt u de resourcegroep die eerder hebt gemaakt om te selecteren van het dashboard en de URL.
+Wijziging `http://localhost:3000` te`http://BASENAME-dashboard.azurewebsites.net` en Hallo-bestand op te slaan. Vervang **BASENAME** met Hallo basisnaam u hebt opgegeven in de vorige stap Hallo. U kunt ook Hallo resourcegroep tooselect Hallo dashboard en de weergave Hallo URL eerder hebt gemaakt.
 
-## <a name="create-the-hbase-table"></a>De HBase-tabel maken
+## <a name="create-hello-hbase-table"></a>Hallo HBase-tabel maken
 
-Voor het opslaan van gegevens in HBase, moeten we eerst een tabel maken. Resources die Storm nodig heeft om te schrijven naar vooraf maken, als bij het maken van bronnen van binnen een Storm topologie kan leiden tot meerdere exemplaren wilt maken van dezelfde resource. Maken van de bronnen buiten de topologie en Storm gebruiken voor lezen/schrijven en analyses.
+toostore gegevens in HBase, moeten we eerst een tabel maken. Vooraf resources die Storm toowrite te moet maken, zoals het toocreate resources uit binnen een Storm-topologie kunnen leiden tot meerdere exemplaren probeert toocreate Hallo dezelfde resource. Hallo bronnen buiten Hallo topologie maken en gebruiken van Storm voor lezen/schrijven en analyses.
 
-1. SSH gebruiken voor verbinding met de HBase-cluster met behulp van de SSH-gebruiker en het wachtwoord die u hebt opgegeven in de sjabloon tijdens het maken van het cluster. Bijvoorbeeld, als u verbinding maakt met behulp van de `ssh` opdracht, gebruikt u de volgende syntaxis:
+1. Gebruik SSH tooconnect toohello HBase-cluster met Hallo SSH-gebruiker en het wachtwoord u toohello sjabloon tijdens het maken van het cluster hebt opgegeven. Bijvoorbeeld, als u verbinding maakt met behulp van Hallo `ssh` opdracht, zou u Hallo syntaxis gebruikt:
    
     ```bash
     ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
    
-    Vervang `sshuser` met de SSH-gebruikersnaam die u hebt opgegeven bij het maken van het cluster. Vervang `clustername` met de naam van het HBase-cluster.
+    Vervang `sshuser` met Hallo SSH-gebruikersnaam die u hebt opgegeven bij het maken van Hallo-cluster. Vervang `clustername` met de naam van een Hallo HBase-cluster.
 
-2. Start de HBase-shell op de SSH-sessie.
+2. Start op Hallo SSH-sessie, Hallo HBase-shell.
    
     ```bash
     hbase shell
     ```
    
-    Nadat de shell is geladen, ziet u een `hbase(main):001:0>` prompt.
+    Nadat het Hallo-shell is geladen, ziet u een `hbase(main):001:0>` prompt.
 
-3. Voer de volgende opdracht om een tabel voor het opslaan van de sensorgegevens maken vanuit de HBase-shell:
+3. Voer van Hallo HBase-shell, Hallo opdracht toocreate een sensorgegevens tabel toostore hello te volgen:
    
     ```hbase
     create 'SensorData', 'cf'
     ```
 
-4. Controleer of dat de tabel is gemaakt met behulp van de volgende opdracht:
+4. Controleer of dat deze Hallo-tabel is gemaakt met behulp van de volgende opdracht Hallo:
    
     ```hbase
     scan 'SensorData'
     ```
    
-    Hiermee wordt informatie vergelijkbaar met het volgende voorbeeld, wat betekent dat er 0 rijen in de tabel.
+    Hiermee wordt informatie vergelijkbare toohello voorbeeld te volgen, wat betekent dat er 0 rijen in de tabel Hallo geretourneerd.
    
         ROW                   COLUMN+CELL                                       0 row(s) in 0.1900 seconds
 
-5. Voer `exit` om af te sluiten van de HBase-shell:
+5. Voer `exit` tooexit hello HBase-shell:
 
-## <a name="configure-the-hbase-bolt"></a>De HBase-bolt configureren
+## <a name="configure-hello-hbase-bolt"></a>Hallo HBase bolt configureren
 
-Voor het schrijven naar HBase uit het Storm-cluster, moet u de HBase-bolt opgeven met de configuratiedetails van uw HBase-cluster.
+toowrite tooHBase van Hallo Storm-cluster, moet u Hallo HBase bolt opgeven met de Hallo-configuratiegegevens van uw HBase-cluster.
 
-1. Gebruik een van de volgende voorbeelden voor het ophalen van het quorum Zookeeper voor uw HBase-cluster:
+1. Gebruik een van de Hallo volgen voorbeelden tooretrieve hello Zookeeper quorum voor uw HBase-cluster:
 
     ```bash
     CLUSTERNAME='your_HDInsight_cluster_name'
@@ -373,105 +373,105 @@ Voor het schrijven naar HBase uit het Storm-cluster, moet u de HBase-bolt opgeve
     ```
 
     > [!NOTE]
-    > Vervang `your_HDInsight_cluster_name` door de naam van uw HDInsight-cluster. Voor meer informatie over het installeren van de `jq` hulpprogramma, Zie [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+    > Vervang `your_HDInsight_cluster_name` met Hallo-naam van uw HDInsight-cluster. Voor meer informatie over het installeren van Hallo `jq` hulpprogramma, Zie [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
     >
-    > Voer desgevraagd het wachtwoord voor aanmelding bij de HDInsight-beheerder.
+    > Wanneer u wordt gevraagd, moet u Hallo wachtwoord opgeven voor Hallo HDInsight admin aanmelden.
 
     ```powershell
     $clusterName = 'your_HDInsight_cluster_name`
-    $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
+    $creds = Get-Credential -UserName "admin" -Message "Enter hello HDInsight login"
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/HBASE/components/HBASE_MASTER" -Credential $creds
     $respObj = ConvertFrom-Json $resp.Content
     $respObj.metrics.hbase.master.ZookeeperQuorum
     ```
 
     > [!NOTE]
-    > Vervang ' your_HDInsight_cluster_name met de naam van uw HDInsight-cluster. Voer desgevraagd het wachtwoord voor aanmelding bij de HDInsight-beheerder.
+    > Vervang ' your_HDInsight_cluster_name met Hallo-naam van uw HDInsight-cluster. Wanneer u wordt gevraagd, moet u Hallo wachtwoord opgeven voor Hallo HDInsight admin aanmelden.
     >
     > Dit voorbeeld vereist Azure PowerShell. Zie voor meer informatie over het gebruik van Azure PowerShell [aan de slag met Azure PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6)
 
-    De informatie die wordt geretourneerd door deze voorbeelden is vergelijkbaar met de volgende tekst:
+    Hallo-informatie die wordt geretourneerd door deze voorbeelden is vergelijkbaar toohello volgende tekst:
 
     `zk2-hbase.mf0yeg255m4ubit1auvj1tutvh.ex.internal.cloudapp.net:2181,zk0-hbase.mf0yeg255m4ubit1auvj1tutvh.ex.internal.cloudapp.net:2181,zk3-hbase.mf0yeg255m4ubit1auvj1tutvh.ex.internal.cloudapp.net:2181`
 
-    Deze informatie wordt gebruikt door Storm om te communiceren met de HBase-cluster.
+    Deze informatie wordt gebruikt door Storm toocommunicate met Hallo HBase-cluster.
 
-2. Wijzig de `dev.properties` -bestand en de Zookeeper quorum informatie toevoegen aan de volgende regel:
+2. Hallo wijzigen `dev.properties` bestands- en Hallo Zookeeper quorum informatie toohello volgt regel toevoegen:
 
     ```yaml
     hbase.zookeeper.quorum: your_hbase_quorum
     ```
 
-## <a name="build-package-and-deploy-the-solution-to-hdinsight"></a>Bouwen, pakket, en de oplossing implementeren in HDInsight
+## <a name="build-package-and-deploy-hello-solution-toohdinsight"></a>Bouwen, pakket, en Hallo oplossing tooHDInsight implementeren
 
-Gebruik de volgende stappen voor het implementeren van de Storm-topologie met het storm-cluster in uw ontwikkelomgeving.
+Gebruik in uw ontwikkelomgeving Hallo stappen toodeploy Hallo Storm-topologie toohello storm-cluster te volgen.
 
-1. Van de `TemperatureMonitor` directory, gebruik de volgende opdracht voor het uitvoeren van een nieuwe build en maak een JAR-pakket van uw project:
+1. Van Hallo `TemperatureMonitor` map gebruik Hallo volgende opdracht tooperform een nieuwe build en een JAR-pakket maken van uw project:
    
         mvn clean package
    
-    Deze opdracht maakt u een bestand met de naam `TemperatureMonitor-1.0-SNAPSHOT.jar in the `doel ' map van uw project.
+    Deze opdracht maakt u een bestand met de naam `TemperatureMonitor-1.0-SNAPSHOT.jar in hello `doel ' map van uw project.
 
-2. Scp gebruiken voor het uploaden van de `TemperatureMonitor-1.0-SNAPSHOT.jar` en `dev.properties` bestanden naar uw Storm-cluster. Vervang in het volgende voorbeeld wordt `sshuser` met de SSH-gebruiker die u hebt opgegeven bij het maken van het cluster en `clustername` met de naam van uw Storm-cluster. Voer desgevraagd het wachtwoord voor de SSH-gebruiker.
+2. Gebruik scp tooupload hello `TemperatureMonitor-1.0-SNAPSHOT.jar` en `dev.properties` bestanden tooyour Storm-cluster. Hallo volgt, Vervang in `sshuser` met Hallo SSH gebruiker die u hebt opgegeven bij het maken van Hallo-cluster, en `clustername` met Hallo-naam van uw Storm-cluster. Wanneer u wordt gevraagd, moet u Hallo wachtwoord opgeven voor Hallo SSH-gebruiker.
    
     ```bash
     scp target/TemperatureMonitor-1.0-SNAPSHOT.jar dev.properties sshuser@clustername-ssh.azurehdinsight.net:
     ```
 
    > [!NOTE]
-   > Dit kan enige tijd duren om de bestanden te uploaden.
+   > Het kan enkele minuten duren tooupload Hallo-bestanden.
 
-    Voor meer informatie over het gebruik van de `scp` en `ssh` opdrachten met HDInsight, Zie [SSH gebruiken met HDInsight](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    Voor meer informatie over het gebruik van Hallo `scp` en `ssh` opdrachten met HDInsight, Zie [SSH gebruiken met HDInsight](./hdinsight-hadoop-linux-use-ssh-unix.md)
 
-3. Zodra het bestand zijn geüpload, moet u een verbinding maken met de Storm-cluster via SSH.
+3. Zodra het Hallo-bestand zijn geüpload, verbinding maken met toohello Storm-cluster via SSH.
    
     ```bash
     ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
 
-    Vervang `sshuser` met de SSH-gebruikersnaam. Vervang `clustername` met de naam van het Storm-cluster.
+    Vervang `sshuser` met Hallo SSH-gebruikersnaam. Vervang `clustername` met de naam van een Hallo Storm-cluster.
 
-4. Gebruik de volgende opdracht bij de SSH-sessie voor het starten van de topologie:
+4. toostart Hallo topologie, na de opdracht van de SSH-sessie Hallo hello gebruiken:
    
     ```bash
     storm jar TemperatureMonitor-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote --filter dev.properties -R /with-hbase.yaml
     ```
 
-    * `--remote`verzendt de topologie van de Nimbus-service, die u het naar de supervisor knooppunten in het cluster distribueert.
-    * `--filter`maakt gebruik van de `dev.properties` bestand voor het vullen van de parameters in de definitie van de topologie.
-    * `-R /with-hbase.yaml`maakt gebruik van de `with-hbase.yaml` topologie die zijn opgenomen in het pakket.
+    * `--remote`Hallo-topologie toohello Nimbus-service, die u het toohello supervisor knooppunten in cluster Hallo distribueert verzendt.
+    * `--filter`maakt gebruik van Hallo `dev.properties` toopopulate parameters in de definitie van de topologie Hallo bestand.
+    * `-R /with-hbase.yaml`maakt gebruik van Hallo `with-hbase.yaml` topologie in Hallo pakket opgenomen.
 
-5. Nadat de topologie is gestart, open een browser naar de website die u in Azure hebt gepubliceerd, gebruikt u vervolgens de `node app.js` opdracht om gegevens te verzenden naar Event Hub. Hier ziet u de webdashboard bijwerken om de informatie weer te geven.
+5. Nadat het Hallo-topologie is gestart, opent u een browser toohello-website die u hebt gepubliceerd in Azure, vervolgens gebruik Hallo `node app.js` opdracht toosend gegevens tooEvent Hub. U ziet Hallo web dashboard toodisplay Hallo updategegevens.
    
     ![dashboard](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
 
 ## <a name="view-hbase-data"></a>HBase-gegevens weergeven
 
-Gebruik de volgende stappen voor het verbinding maken met HBase en te controleren dat de gegevens is geschreven naar de tabel:
+Volgende stappen tooconnect tooHBase hello gebruiken en controleer of dat Hallo gegevens toohello tabel is geschreven:
 
-1. SSH gebruiken voor verbinding met de HBase-cluster.
+1. SSH tooconnect toohello HBase-cluster gebruiken.
    
     ```bash
     ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
 
-    Vervang `sshuser` met de SSH-gebruikersnaam. Vervang `clustername` met de naam van het HBase-cluster.
+    Vervang `sshuser` met Hallo SSH-gebruikersnaam. Vervang `clustername` met de naam van een Hallo HBase-cluster.
 
-2. Start de HBase-shell op de SSH-sessie.
+2. Start op Hallo SSH-sessie, Hallo HBase-shell.
    
     ```bash
     hbase shell
     ```
    
-    Nadat de shell is geladen, ziet u een `hbase(main):001:0>` prompt.
+    Nadat het Hallo-shell is geladen, ziet u een `hbase(main):001:0>` prompt.
 
-3. Weergave rijen uit de tabel:
+3. Weergave rijen uit de tabel Hallo:
    
     ```hbase
     scan 'SensorData'
     ```
    
-    Met deze opdracht retourneert informatie vergelijkbaar met de volgende tekst, die aangeeft dat er gegevens in de tabel.
+    Deze opdracht retourneert informatie vergelijkbare toohello tekst te volgen, die aangeeft dat er gegevens in de tabel Hallo.
    
         hbase(main):002:0> scan 'SensorData'
         ROW                             COLUMN+CELL
@@ -498,23 +498,23 @@ Gebruik de volgende stappen voor het verbinding maken met HBase en te controlere
         10 row(s) in 0.1800 seconds
    
    > [!NOTE]
-   > Deze scanbewerking retourneert maximaal 10 rijen uit de tabel.
+   > Deze scanbewerking retourneert maximaal 10 rijen uit Hallo tabel.
 
 ## <a name="delete-your-clusters"></a>Uw clusters verwijderen
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Als u wilt de clusters-, opslag- en web-app in één keer verwijderen, de resourcegroep waarin ze te verwijderen.
+toodelete hello clusters-, opslag- en web-app in één keer Hallo resourcegroep waarin ze te verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer voorbeelden van Storm-topologieën met HDInsight [voorbeeldtopologieën van Storm op HDInsight](hdinsight-storm-example-topology.md)
 
-Zie voor meer informatie over de Apache Storm, de [Apache Storm](https://storm.incubator.apache.org/) site.
+Zie voor meer informatie over de Apache Storm Hallo [Apache Storm](https://storm.incubator.apache.org/) site.
 
-Zie voor meer informatie over HBase in HDInsight, het [HBase met HDInsight Overview](hdinsight-hbase-overview.md).
+Zie voor meer informatie over HBase in HDInsight hello [HBase met HDInsight Overview](hdinsight-hbase-overview.md).
 
-Zie voor meer informatie over Socket.io de [socket.io](http://socket.io/) site.
+Zie voor meer informatie over Socket.io hello [socket.io](http://socket.io/) site.
 
 Zie voor meer informatie over D3.js [D3.js - documenten met aangestuurd](http://d3js.org/).
 

@@ -1,6 +1,6 @@
 ---
-title: AzureLogCollector VM-extensie | Microsoft Docs
-description: "Beschrijft de AzureLogCollector VM-extensie, die worden verzameld van de logboekbestanden en samenbrengt op één locatie in Azure Storage."
+title: VM-extensie aaaAzureLogCollector | Microsoft Docs
+description: "Hierin wordt beschreven Hallo AzureLogCollector VM-extensie, die alle Hallo logboekbestanden verzamelt en samenbrengt op één locatie in Azure Storage."
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: squillace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
-ms.openlocfilehash: 629fc1f95f8596c11ceadeda44a9b57eaefc702e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 40b3d8bbf82445aa12d2f77d5db859d3019ff179
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azurelogcollector-extension"></a>AzureLogCollector-uitbreiding
 [!INCLUDE [virtual-machines-common-log-collector-extension](../../../includes/virtual-machines-common-log-collector-extension.md)]

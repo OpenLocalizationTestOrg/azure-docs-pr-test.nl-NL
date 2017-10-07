@@ -1,5 +1,5 @@
 ---
-title: Time-out bij inactiviteit voor Load Balancer TCP configureren | Microsoft Docs
+title: aaaConfigure Load Balancer TCP time-out bij inactiviteit voor | Microsoft Docs
 description: Time-out bij inactiviteit voor Load Balancer TCP configureren
 services: load-balancer
 documentationcenter: na
@@ -13,45 +13,45 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.openlocfilehash: d040fe6580b8ae777aecc9dd385ed33861530c38
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2bf0704b891f708e0a5bd7aa827441930f51cfaf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>TCP-time-out voor inactiviteit instellingen configureren voor Azure Load Balancer
 
-In de standaardconfiguratie heeft Azure Load Balancer een instelling voor time-out voor inactiviteit van vier minuten. Als een periode van inactiviteit langer dan de time-outwaarde is, is er geen garantie dat de TCP- of HTTP-sessie wordt onderhouden tussen de client en de cloudservice.
+In de standaardconfiguratie heeft Azure Load Balancer een instelling voor time-out voor inactiviteit van vier minuten. Als een periode van inactiviteit langer dan de time-outwaarde hello is, er is geen garantie dat Hallo TCP of HTTP-sessie wordt onderhouden tussen Hallo-client en de cloudservice.
 
-Wanneer de verbinding is gesloten, wordt de clienttoepassing het volgende foutbericht weergegeven: ' de onderliggende verbinding is gesloten: een verbinding waarvan wordt verwacht dat worden behouden door de server is gesloten. "
+Wanneer Hallo verbinding is gesloten, wordt de clienttoepassing Hallo volgende foutbericht weergegeven: ' hello onderliggende verbinding is gesloten: een verbinding waarvan wordt verwacht in stand gehouden toobe is gesloten door Hallo-server. '
 
-Vaak is het gebruik van een TCP-keepalive. Hierdoor blijft de verbinding actief voor een langere periode. Zie voor meer informatie deze [voorbeelden .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Met keep-alive is ingeschakeld, pakketten worden verzonden tijdens perioden van inactiviteit op de verbinding. Deze keepalive-pakketten Zorg dat de waarde voor time-out voor inactiviteit nooit bereikt is en gedurende een lange periode wordt bijgehouden.
+Een gebruikelijk is toouse een keep-alive TCP. Hierdoor blijft Hallo verbinding actief voor een langere periode. Zie voor meer informatie deze [voorbeelden .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Met keep-alive is ingeschakeld, pakketten worden verzonden tijdens perioden van inactiviteit op Hallo-verbinding. Deze keepalive-pakketten Zorg dat Hallo inactief time-outwaarde nooit bereikt is en hello wordt bijgehouden voor een lange periode.
 
-Deze instelling is geschikt voor binnenkomende verbindingen alleen. Om te voorkomen dat de verbinding verloren gaan, moet u de TCP-keepalive configureren met een interval van minder dan de instelling voor time-out voor inactiviteit of verhoog de waarde voor time-out voor inactiviteit. Toegevoegd ter ondersteuning van dergelijke scenario's, ondersteuning voor een configureerbare time-out voor inactiviteit. U kunt het nu instellen voor een duur van 4 tot en met 30 minuten.
+Deze instelling is geschikt voor binnenkomende verbindingen alleen. tooavoid overdragende Hallo verbinding, moet u Hallo TCP keepalive-configureren met een interval dat kleiner is dan Hallo time-out voor inactiviteit instelling of vergroot Hallo waarde time-out voor inactiviteit. toosupport dergelijke scenario's, ondersteuning voor een configureerbare time-out voor inactiviteit toegevoegd. U kunt het nu instellen voor een duur van 4 too30 minuten.
 
-TCP-keepalive geschikt is voor scenario's waarin batterij niet een beperking. Dit wordt niet aanbevolen voor mobiele toepassingen. Met een TCP-keepalive in een mobiele toepassing kan de accu raakt door apparaat sneller.
+TCP-keepalive geschikt is voor scenario's waarin batterij niet een beperking. Dit wordt niet aanbevolen voor mobiele toepassingen. Met een TCP-keepalive in een mobiele toepassing kunt verwijderen uit de Hallo apparaat accu sneller.
 
 ![TCP-time](./media/load-balancer-tcp-idle-timeout/image1.png)
 
-De volgende secties wordt beschreven hoe wijzig de instellingen van de time-out voor inactiviteit in virtuele machines en cloudservices.
+Hallo volgende secties wordt beschreven hoe toochange inactief time-outinstellingen in virtuele machines en cloudservices.
 
-## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>De TCP-time configureren voor uw openbare IP op exemplaarniveau tot 15 minuten
+## <a name="configure-hello-tcp-timeout-for-your-instance-level-public-ip-too15-minutes"></a>Hallo TCP-time configureren voor uw instantieniveau openbare IP-too15 minuten
 
 ```powershell
 Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
 ```
 
-`IdleTimeoutInMinutes` is optioneel. Als deze niet is ingesteld, wordt de standaardtime-out vier minuten. Het bereik van acceptabele time-out is 4 tot en met 30 minuten.
+`IdleTimeoutInMinutes` is optioneel. Als deze niet is ingesteld, is Hallo standaardtime-out vier minuten. Hallo time-out acceptabele bereik is 4 too30 minuten.
 
-## <a name="set-the-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>De time-out voor inactiviteit ingesteld bij het maken van een Azure-eindpunt op een virtuele machine
+## <a name="set-hello-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Time-out voor inactiviteit van Hallo ingesteld bij het maken van een Azure-eindpunt op een virtuele machine
 
-Als u wilt wijzigen van de instelling voor time-out voor een eindpunt, gebruikt u het volgende:
+toochange Hallo time-out instellen voor een eindpunt, gebruikt u de volgende Hallo:
 
 ```powershell
 Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
 ```
 
-Gebruik de volgende opdracht voor het ophalen van de time-out voor inactiviteit-configuratie:
+tooretrieve uw configuratie van de time-out voor inactiviteit, gebruik Hallo volgende opdracht:
 
     PS C:\> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
@@ -71,9 +71,9 @@ Gebruik de volgende opdracht voor het ophalen van de time-out voor inactiviteit-
     InternalLoadBalancerName :
     IdleTimeoutInMinutes : 15
 
-## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>De TCP-out instellen op een eindpuntset met gelijke taakverdeling
+## <a name="set-hello-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Hallo TCP-out instellen op een eindpuntset met gelijke taakverdeling
 
-Als eindpunten deel van een eindpuntset met gelijke taakverdeling uitmaken, kan de TCP-out moet worden ingesteld op de eindpuntset met gelijke taakverdeling. Bijvoorbeeld:
+Als eindpunten deel van een eindpuntset met gelijke taakverdeling uitmaken, moet TCP-time Hallo zijn ingesteld op Hallo taakverdeling eindpuntset. Bijvoorbeeld:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
@@ -81,9 +81,9 @@ Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Prot
 
 ## <a name="change-timeout-settings-for-cloud-services"></a>Time-outinstellingen voor cloudservices wijzigen
 
-U kunt de Azure SDK gebruiken om bij te werken van uw cloudservice. U eindpuntinstellingen voor cloudservices in het csdef-bestand. Bijwerken van de TCP-out voor de implementatie van een cloudservice, moet een upgrade van een implementatie. Een uitzondering hierop is als de time-out voor de TCP-alleen voor een openbaar IP-adres is opgegeven. Openbare IP-instellingen zijn in het .cscfg-bestand en u die kunt bijwerken via de implementatie-update en de upgrade.
+U kunt uw cloudservice hello Azure SDK tooupdate. U eindpuntinstellingen voor cloudservices in Hallo csdef-bestand. Hallo TCP-out voor de implementatie van een cloudservice bijwerken, moet een upgrade van een implementatie. Een uitzondering hierop is als Hallo TCP-time alleen voor een openbaar IP-adres is opgegeven. Openbare IP-instellingen zijn in Hallo .cscfg-bestand en u die kunt bijwerken via de implementatie-update en de upgrade.
 
-De wijzigingen csdef voor eindpuntinstellingen zijn:
+Hallo csdef wijzigingen voor eindpuntinstellingen zijn:
 
 ```xml
 <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
@@ -93,7 +93,7 @@ De wijzigingen csdef voor eindpuntinstellingen zijn:
 </WorkerRole>
 ```
 
-De wijzigingen cscfg-bestand voor de instelling voor de time-out voor openbare IP-adressen zijn:
+Hallo .cscfg wijzigingen voor de time-outinstelling Hallo op openbare IP-adressen zijn:
 
 ```xml
 <NetworkConfiguration>
@@ -110,7 +110,7 @@ De wijzigingen cscfg-bestand voor de instelling voor de time-out voor openbare I
 
 ## <a name="rest-api-example"></a>REST-API-voorbeeld
 
-U kunt de time-out voor inactiviteit TCP configureren met behulp van de servicebeheer-API. Zorg ervoor dat de `x-ms-version` header is ingesteld op versie `2014-06-01` of hoger. Werk de configuratie van de opgegeven taakverdeling invoer-eindpunten op alle virtuele machines in een implementatie.
+U kunt Hallo TCP time-out bij inactiviteit voor configureren met behulp van Hallo servicebeheer-API. Zorg ervoor dat Hallo `x-ms-version` header is ingesteld tooversion `2014-06-01` of hoger. Configuratie van de update Hallo Hallo opgegeven invoereindpunten taakverdeling op alle virtuele machines in een implementatie.
 
 ### <a name="request"></a>Aanvraag
 

@@ -1,6 +1,6 @@
 ---
-title: Het oplossen van de automatische registratie van Azure AD-domein aangesloten computers voor downlevel-clients voor Windows | Microsoft Docs
-description: Het oplossen van de automatische registratie van Azure AD-domein lid zijn van computers voor Windows downlevel-clients.
+title: aaaTroubleshooting hello automatische registratie van Azure AD-domein voor Windows downlevel-clients computers die lid zijn | Microsoft Docs
+description: Het oplossen van problemen Hallo automatische registratie van Azure AD-domein lid zijn van computers voor Windows downlevel-clients.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a7c8ef4c59c53c21258f0c61963d8f994a3946ba
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 84fe666576f13de09d1eaa5692517d45a4dbeebe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshooting-auto-registration-of-domain-joined-computers-to-azure-ad-for-windows-down-level-clients"></a>Het oplossen van automatische registratie van domein computers toegevoegd aan Azure AD. voor Windows downlevel-clients 
+# <a name="troubleshooting-auto-registration-of-domain-joined-computers-tooazure-ad-for-windows-down-level-clients"></a>Automatische registratie van domein het oplossen van problemen die lid zijn van computers tooAzure AD voor Windows downlevel-clients 
 
-In dit onderwerp is alleen van toepassing op de volgende clients: 
+In dit onderwerp is van toepassing alleen toohello volgende clients: 
 
 - Windows 7 
 - Windows 8.1 
@@ -31,38 +31,38 @@ In dit onderwerp is alleen van toepassing op de volgende clients:
 - Windows Server 2012 R2 
  
 
-Zie voor Windows 10 of Windows Server 2016 [computers probleemoplossing automatische registratie van domein worden toegevoegd aan Azure AD. – Windows 10 en Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md).
+Zie voor Windows 10 of Windows Server 2016 [automatische registratie van domein het oplossen van problemen die lid zijn van computers tooAzure AD – Windows 10 en Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md).
 
-Dit onderwerp wordt ervan uitgegaan dat u hebt geconfigureerd automatische registratie van apparaten domein vermelde in dat wordt beschreven in [automatische registratie van Windows-domein-apparaten met Azure Active Directory configureren](active-directory-device-registration-get-started.md).
+Dit onderwerp wordt ervan uitgegaan dat u hebt geconfigureerd automatische registratie van apparaten domein vermelde in dat wordt beschreven in [hoe tooconfigure automatische registratie van Windows-domein apparaten met Azure Active Directory](active-directory-device-registration-get-started.md).
  
-Dit onderwerp vindt u richtlijnen over het oplossen van problemen op te lossen.  
-Een aantal zaken om aan te geven voor geslaagde resultaten: 
+Dit onderwerp vindt u informatie over hoe tooresolve mogelijke problemen op te lossen.  
+Een aantal dingen toonote voor geslaagde resultaten: 
 
-- Registratie van deze clients over Azure AD is per gebruiker/apparaat. Als een voorbeeld: als jdoe en jharnett moet u zich bij dit apparaat aanmelden, de registratie van een afzonderlijke (DeviceID) wordt gemaakt voor elk van deze gebruikers in het tabblad gebruiker info.  
+- Registratie van deze clients over Azure AD is per gebruiker/apparaat. Als een voorbeeld: als jdoe en jharnett wilt toothis apparaat aanmelden, de registratie van een afzonderlijke (apparaat-id) voor elk van deze gebruikers in het tabblad info van Hallo gebruiker is gemaakt.  
 
-- De registratie van deze clients buiten het vak is geconfigureerd om te proberen bij het aanmelden of vergrendelen/ontgrendelen en kan er 5 minuten vertraging dat dit met behulp van een Task Scheduler-taak wordt geactiveerd. 
+- De registratie van deze clients out of box Hallo geconfigureerde tootry bij het aanmelden of vergrendelen/ontgrendelen is en kan er 5 minuten vertraging dat dit met behulp van een Task Scheduler-taak wordt geactiveerd. 
 
-- Een opnieuw installeren van het besturingssysteem of een handmatige opheffen van de registratie en opnieuw te registreren, kan een nieuwe registratie maakt op Azure AD en resulteert in meerdere vermeldingen op het tabblad gebruikers gegevens in de Azure portal. 
+- Een opnieuw installeren van het besturingssysteem hello of een handmatige opheffen van de registratie en opnieuw te registreren, kan een nieuwe registratie maakt op Azure AD en resulteert in meerdere vermeldingen Hallo gebruiker info tabblad in hello Azure-portal. 
 
 
-## <a name="step-1-retrieve-the-registration-status"></a>Stap 1: De registratiestatus ophalen 
+## <a name="step-1-retrieve-hello-registration-status"></a>Stap 1: De registratiestatus Hallo ophalen 
 
-**De registratiestatus controleren:**  
+**tooverify hello registratiestatus:**  
 
-1. Open de opdrachtprompt als beheerder 
+1. Open Hallo opdrachtprompt als beheerder 
 
 2. Type`"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
 
-Met deze opdracht geeft een dialoogvenster waarmee u meer informatie over de status van de join.
+Met deze opdracht geeft een dialoogvenster waarmee u meer informatie over de status van Hallo join.
 
 ![Werkplekdeelname voor Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/01.png)
 
 
-## <a name="step-2-evaluate-the-registration-status"></a>Stap 2: De registratiestatus van de 
+## <a name="step-2-evaluate-hello-registration-status"></a>Stap 2: De registratiestatus Hallo 
 
-Als de join niet geslaagd is, biedt in het dialoogvenster u informatie over het probleem dat is opgetreden.
+Als Hallo join niet geslaagd is, biedt Hallo dialoogvenster u meer informatie over Hallo probleem dat is opgetreden.
 
-**De meest voorkomende problemen zijn:**
+**Hallo meest voorkomende problemen zijn:**
 
 - Een onjuist geconfigureerde AD FS of Azure AD
 
@@ -76,26 +76,26 @@ Als de join niet geslaagd is, biedt in het dialoogvenster u informatie over het 
 
     ![Werkplekdeelname voor Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/04.png)
 
-- De service reageert niet 
+- Hallo-service reageert niet 
 
     ![Werkplekdeelname voor Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/05.png)
 
-U kunt ook de statusinformatie vinden in het gebeurtenislogboek onder **toepassingen en Services Log\Microsoft-Workplace Join**.
+U kunt ook Hallo statusinformatie vinden in het gebeurtenislogboek Hallo onder **toepassingen en Services Log\Microsoft-Workplace Join**.
   
-**De meest voorkomende oorzaken voor de registratie van een mislukte zijn:** 
+**Hallo meest voorkomende oorzaken van een mislukte inschrijving zijn:** 
 
-- Uw computer zich niet in het interne netwerk van de organisatie of een VPN zonder verbinding met een on-premises AD-domeincontroller.
+- Uw computer is niet op het interne netwerk van de organisatie van de hello of een VPN zonder verbinding tooan lokale AD-domeincontroller.
 
-- U bent aangemeld met een lokaal computeraccount op de computer. 
+- U bent aangemeld op de computer tooyour met een lokaal computeraccount. 
 
 - Problemen met de configuratie van service: 
 
-  - De federation-server is geconfigureerd voor ondersteuning van **WIAORMULTIAUTHN**. 
+  - Hallo federation-server is geconfigureerd toosupport **WIAORMULTIAUTHN**. 
 
-  - Er is geen Service Connection Point-object dat verwijst naar de domeinnaam van uw geverifieerde in Azure AD in het AD-forest waar de computer deel uitmaakt.
+  - Er is geen Service Connection Point-object dat tooyour geverifieerde domeinnaam op beheerpunten in Azure AD in Hallo AD-forest waar Hallo computer behoort.
 
-  - Een gebruiker heeft de limiet van apparaten bereikt. Zie aan de slag met Azure Active Directory-apparaatregistratie.
+  - Een gebruiker de Hallo heeft bereikt van apparaten. Zie aan de slag met Azure Active Directory-apparaatregistratie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie de [automatische apparaatregistratie Veelgestelde vragen](active-directory-device-registration-faq.md) 
+Zie voor meer informatie, Hallo [automatische apparaatregistratie Veelgestelde vragen](active-directory-device-registration-faq.md) 

@@ -1,6 +1,6 @@
 ---
-title: Hoe Queue storage gebruiken met Ruby | Microsoft Docs
-description: Informatie over het gebruik van de Azure Queue-service maken en verwijderen van wachtrijen, en invoegen, ophalen en verwijderen van berichten. De voorbeelden in Ruby geschreven.
+title: aaaHow toouse Queue storage met Ruby | Microsoft Docs
+description: Ontdek hoe toocreate toouse hello Azure Queue-service en delete-wachtrijen en invoegen, ophalen en verwijderen van berichten. De voorbeelden in Ruby geschreven.
 services: storage
 documentationcenter: ruby
 author: robinsh
@@ -14,20 +14,20 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-ms.openlocfilehash: b978b65bb3b717362697a41510c5b2b4d057cf1f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 726c7d2f08b2d5938ee5f9dcdc2735e447388856
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-queue-storage-from-ruby"></a>Queue Storage gebruiken met Ruby
+# <a name="how-toouse-queue-storage-from-ruby"></a>Hoe toouse Queue storage met Ruby
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Overzicht
-Deze handleiding wordt beschreven hoe u veelvoorkomende scenario's met de Microsoft Azure Queue Storage-service uitvoeren. De voorbeelden zijn geschreven met de Azure-API voor Ruby.
-De scenario's worden behandeld: **invoegen**, **inspecteren**, **ophalen**, en **verwijderen** wachtrij berichten, evenals **maken en verwijderen van wachtrijen**.
+Deze handleiding wordt getoond hoe tooperform algemene scenario's met behulp van Microsoft Azure Queue Storage-service Hallo. Hallo-voorbeelden zijn geschreven met behulp van Hallo Ruby Azure-API.
+Hallo scenario's worden behandeld: **invoegen**, **inspecteren**, **ophalen**, en **verwijderen** wachtrij berichten, evenals  **maken en verwijderen van wachtrijen**.
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -36,52 +36,52 @@ De scenario's worden behandeld: **invoegen**, **inspecteren**, **ophalen**, en *
 ## <a name="create-a-ruby-application"></a>Een Ruby-toepassing maken
 Maak een Ruby toepassing. Zie voor instructies [Ruby op Rails webtoepassing op een virtuele machine van Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
-## <a name="configure-your-application-to-access-storage"></a>Uw toepassing configureren voor toegang tot opslag
-Voor het gebruik van Azure-opslag die u wilt downloaden en gebruiken van het Ruby azure pakket bevat een set met gemak bibliotheken die met de storage REST-services communiceren.
+## <a name="configure-your-application-tooaccess-storage"></a>Uw toepassing tooAccess opslag configureren
+toouse Azure-opslag, moet u toodownload en gebruik Hallo Ruby azure, dit pakket bevat een set met gemak bibliotheken die met de Hallo storage REST-services communiceren.
 
-### <a name="use-rubygems-to-obtain-the-package"></a>RubyGems gebruiken om het pakket te verkrijgen
+### <a name="use-rubygems-tooobtain-hello-package"></a>RubyGems tooobtain Hallo pakket gebruiken
 1. Een opdrachtregelinterface gebruiken zoals **PowerShell** (Windows), **Terminal** (Mac) of **Bash** (Unix).
-2. Typ 'azure gem installeren' in het opdrachtvenster voor het installeren van de gem en afhankelijkheden.
+2. Typ 'gem installeren azure' hello opdracht venster tooinstall Hallo gem en afhankelijkheden.
 
-### <a name="import-the-package"></a>Het pakket importeren
-Uw favoriete teksteditor gebruiken, Voeg het volgende toe aan het begin van de Ruby bestand waarop u wilt opslag gebruiken:
+### <a name="import-hello-package"></a>Hallo-pakket importeren
+Uw favoriete teksteditor gebruiken, voegt Hallo toohello bovenaan Hallo Ruby bestand waarin u van plan toouse opslag bent te volgen:
 
 ```ruby
 require "azure"
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Een Azure-opslag-verbinding instellen
-De azure-module leest de omgevingsvariabelen **AZURE\_opslag\_ACCOUNT** en **AZURE\_opslag\_ACCESS_KEY** voor meer informatie verbinding maken met uw Azure storage-account vereist. Als deze omgevingsvariabelen zijn niet ingesteld, moet u de accountgegevens voordat u **Azure::QueueService** met de volgende code:
+Hello azure module lezen Hallo omgevingsvariabelen **AZURE\_opslag\_ACCOUNT** en **AZURE\_opslag\_ACCESS_KEY** voor informatie vereist tooconnect tooyour Azure storage-account. Als deze omgevingsvariabelen zijn niet ingesteld, moet u de accountgegevens Hallo voordat u **Azure::QueueService** Hello code te volgen:
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
 Azure.config.storage_access_key = "<your Azure storage access key>"
 ```
 
-Als u deze waarden van een klassiek of Resource Manager-opslagaccount in de Azure-portal:
+tooobtain deze waarden van een klassiek of Resource Manager-storage-account in hello Azure-portal:
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Ga naar het opslagaccount dat u wilt gebruiken.
-3. Klik op de blade instellingen aan de rechterkant **toegangstoetsen**.
-4. In de blade van de toegang tot sleutels die wordt weergegeven, ziet u de toegangssleutel 1 en toegangssleutel 2. U kunt een van beide gebruiken. 
-5. Klik op het pictogram kopiëren om de sleutel naar het Klembord kopiëren. 
+1. Meld u bij toohello [Azure-portal](https://portal.azure.com).
+2. Navigeer toohello gewenste toouse storage-account.
+3. Klik op Hallo instellingenblade op Hallo rechts **toegangstoetsen**.
+4. Hallo toegang sleutels blade die wordt weergegeven, ziet u Hallo toegangssleutel 1 en toegangssleutel 2. U kunt een van beide gebruiken. 
+5. Klik op Hallo kopiëren pictogram toocopy Hallo sleutel toohello Klembord. 
 
-Als u deze waarden van een klassieke opslagaccount in de klassieke Azure-portal:
+tooobtain deze waarden van een klassieke storage-account in de klassieke Azure portal Hallo:
 
-1. Meld u aan bij de [klassieke Azure portal](https://manage.windowsazure.com).
-2. Ga naar het opslagaccount dat u wilt gebruiken.
-3. Klik op **TOEGANGSSLEUTELS beheren** onderaan in het navigatiedeelvenster.
-4. In het pop-updialoogvenster ziet u de naam van het opslagaccount, de primaire toegangssleutel en de secundaire toegangssleutel. Voor toegangssleutel, kunt u een primaire of secundaire een. 
-5. Klik op het pictogram kopiëren om de sleutel naar het Klembord kopiëren.
+1. Meld u bij toohello [klassieke Azure portal](https://manage.windowsazure.com).
+2. Navigeer toohello gewenste toouse storage-account.
+3. Klik op **TOEGANGSSLEUTELS beheren** Hallo Hallo navigatiedeelvenster onderaan in.
+4. In het dialoogvenster pop hello ziet u opslagaccountnaam hello, de primaire toegangssleutel en de secundaire toegangssleutel. U kunt voor toegangssleutel, Hallo een primaire of secundaire één Hallo gebruiken. 
+5. Klik op Hallo kopiëren pictogram toocopy Hallo sleutel toohello Klembord.
 
 ## <a name="how-to-create-a-queue"></a>Procedure: Een wachtrij maken
-De volgende code maakt een **Azure::QueueService** object, waarmee u werkt met wachtrijen.
+Hallo volgende code maakt een **Azure::QueueService** object, waarmee u toowork met wachtrijen.
 
 ```ruby
 azure_queue_service = Azure::QueueService.new
 ```
 
-Gebruik de **create_queue()** methode voor het maken van een wachtrij met de opgegeven naam.
+Gebruik Hallo **create_queue()** methode toocreate een wachtrij met Hallo opgegeven naam.
 
 ```ruby
 begin
@@ -92,27 +92,27 @@ end
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Procedure: Een bericht in een wachtrij invoegen
-Voor het invoegen van een bericht in een wachtrij, gebruikt u de **create_message()** methode voor het maken van een nieuw bericht en voeg deze toe aan de wachtrij.
+een bericht in een wachtrij, gebruik Hallo tooinsert **create_message()** methode toocreate een nieuw bericht en voeg deze toohello wachtrij.
 
 ```ruby
 azure_queue_service.create_message("test-queue", "test message")
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Procedure: Bekijken van het volgende bericht
-U kunt het bericht vooraan in een wachtrij bekijken zonder het te verwijderen uit de wachtrij door het aanroepen van de **peek\_messages()** methode. Standaard **peek\_messages()** peeks op één bericht. U kunt ook opgeven hoeveel berichten die u wilt bekijken.
+## <a name="how-to-peek-at-hello-next-message"></a>Procedure: Inspecteren Hallo het Volgendebericht
+U kunt bekijken van Hallo-bericht in Hallo begin van een wachtrij zonder het te verwijderen uit de wachtrij Hallo door aanroepen Hallo **peek\_messages()** methode. Standaard **peek\_messages()** peeks op één bericht. U kunt ook opgeven hoeveel berichten u wilt dat toopeek.
 
 ```ruby
 result = azure_queue_service.peek_messages("test-queue",
   {:number_of_messages => 10})
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Procedure: Het volgende bericht uit de wachtrij halen
+## <a name="how-to-dequeue-hello-next-message"></a>Procedure: Hallo het Volgendebericht uit de wachtrij halen
 U kunt een bericht verwijderen uit een wachtrij in twee stappen.
 
-1. Als u aanroept **lijst\_messages()**, krijgt u het volgende bericht in een wachtrij standaard. U kunt ook opgeven hoeveel berichten die u wilt ophalen. De berichten die zijn geretourneerd door **lijst\_messages()** wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. U doorgeven de zichtbaarheid time-out in seconden als parameter.
-2. Voor het voltooien van het bericht uit de wachtrij te verwijderen, moet u ook aanroepen **delete_message()**.
+1. Als u aanroept **lijst\_messages()**, u het volgende Hallo-bericht in een wachtrij standaard ophalen. U kunt ook opgeven hoeveel berichten u wilt dat tooget. Hallo-berichten dat is geretourneerd door **lijst\_messages()** wordt onzichtbaar tooany andere codes die berichten lezen uit deze wachtrij. U doorgeven Hallo zichtbaarheid time-out in seconden als parameter.
+2. toofinish verwijderen Hallo-bericht uit de wachtrij hello, moet u ook aanroepen **delete_message()**.
 
-Dit proces in twee stappen van het verwijderen van een bericht zorgt ervoor dat wanneer uw code niet kan een bericht vanwege problemen met hardware of software te verwerken, een ander exemplaar van uw code kunt het bericht verschijnt en probeer het opnieuw. Uw code haalt **verwijderen\_message()** direct nadat het bericht is verwerkt.
+Dit proces in twee stappen van het verwijderen van een bericht zorgt ervoor dat wanneer uw code mislukt tooprocess een bericht vanwege problemen toohardware of software, een ander exemplaar van uw code krijgt Hallo hetzelfde bericht en probeer het opnieuw. Uw code haalt **verwijderen\_message()** direct nadat het Hallo-bericht is verwerkt.
 
 ```ruby
 messages = azure_queue_service.list_messages("test-queue", 30)
@@ -120,8 +120,8 @@ azure_queue_service.delete_message("test-queue",
   messages[0].id, messages[0].pop_receipt)
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedure: De inhoud van een bericht in de wachtrij wijzigen
-U kunt de inhoud van een bericht in de wachtrij wijzigen. De code hieronder maakt gebruik van de **update_message()** methode voor het bijwerken van een bericht. De methode retourneert een tuple waarin de pop ontvangst van het bericht uit de wachtrij en een UTC date tijd-waarde die aangeeft wanneer het bericht zichtbaar in de wachtrij zijn.
+## <a name="how-to-change-hello-contents-of-a-queued-message"></a>Procedure: Hallo inhoud van een bericht in de wachtrij wijzigen
+U kunt Hallo inhoud van een bericht in-place in Hallo wachtrij wijzigen. Hallo-code hieronder maakt gebruik van Hallo **update_message()** methode tooupdate een bericht. Hallo-methode retourneert een tuple die Hallo pop ontvangst van de wachtrij het Hallo-bericht bevat en een UTC date tijd-waarde die aangeeft wanneer het Hallo-bericht op Hallo wachtrij zichtbaar zijn.
 
 ```ruby
 message = azure_queue_service.list_messages("test-queue", 30)
@@ -134,9 +134,9 @@ pop_receipt, time_next_visible = azure_queue_service.update_message(
 Er zijn twee manieren waarop u het ophalen van berichten uit een wachtrij kunt aanpassen.
 
 1. U kunt een batch van bericht ophalen.
-2. U kunt een time-out langer of korter onzichtbaarheid instellen zodat uw code meer of minder tijd voor het volledig verwerken van elk bericht.
+2. U kunt een time-out langer of korter onzichtbaarheid instellen zodat uw code meer of minder tijd toofully elk bericht niet verwerken.
 
-Het volgende codevoorbeeld wordt de **lijst\_messages()** methode 15 berichten in één aanroep ophalen. Vervolgens wordt afgedrukt en elk bericht wordt verwijderd. De time-out voor onzichtbaarheid wordt ingesteld op vijf minuten voor elk bericht.
+Hallo volgende codevoorbeeld maakt gebruik van Hallo **lijst\_messages()** methode tooget 15 berichten in één aanroep. Vervolgens wordt afgedrukt en elk bericht wordt verwijderd. Hallo onzichtbaarheid toofive minuten voor de time-out voor elk bericht wordt ook ingesteld.
 
 ```ruby
 azure_queue_service.list_messages("test-queue", 300
@@ -146,8 +146,8 @@ azure_queue_service.list_messages("test-queue", 300
 end
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Procedure: De lengte van de wachtrij ophalen
-U kunt een schatting van het aantal berichten in de wachtrij ophalen. De **ophalen\_wachtrij\_metadata()** methode vraagt de queue-service om het aantal berichten bij benadering en metagegevens over de wachtrij te retourneren.
+## <a name="how-to-get-hello-queue-length"></a>Procedure: Hallo wachtrijlengte ophalen
+U kunt een schatting van het aantal berichten Hallo ophalen in de wachtrij Hallo. Hallo **ophalen\_wachtrij\_metadata()** methode vraagt Hallo wachtrij tooreturn Hallo bericht geschatte aantal en metagegevens over Hallo wachtrij.
 
 ```ruby
 message_count, metadata = azure_queue_service.get_queue_metadata(
@@ -155,16 +155,16 @@ message_count, metadata = azure_queue_service.get_queue_metadata(
 ```
 
 ## <a name="how-to-delete-a-queue"></a>Procedure: Een wachtrij verwijderen
-Aanroepen voor het verwijderen van een wachtrij en alle berichten hierin de **verwijderen\_queue()** methode voor het object in de wachtrij.
+een wachtrij en alle Hallo-berichten toodelete opgenomen in deze aanroep Hallo **verwijderen\_queue()** methode op Hallo wachtrij-object.
 
 ```ruby
 azure_queue_service.delete_queue("test-queue")
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u de basisprincipes van queue storage hebt geleerd, volgt u deze koppelingen voor meer informatie over complexere opslagtaken.
+Nu u Hallo basisprincipes van queue storage hebt geleerd, volgt u deze koppelingen toolearn over complexere opslagtaken.
 
-* Ga naar de [Blog Azure Storage-Team](http://blogs.msdn.com/b/windowsazurestorage/)
-* Ga naar de [Azure SDK voor Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) opslagplaats op GitHub
+* Ga naar Hallo [Blog van Azure Storage-Team](http://blogs.msdn.com/b/windowsazurestorage/)
+* Ga naar Hallo [Azure SDK voor Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) opslagplaats op GitHub
 
-Voor een vergelijking tussen de Azure Queue-Service die wordt besproken in dit artikel en de Azure Service Bus-wachtrijen beschreven in de [het gebruik van Service Bus-wachtrijen](/develop/ruby/how-to-guides/service-bus-queues/) artikel, Zie [Azure wachtrijen en Service Bus-wachtrijen - vergeleken en Tegenstelling tot](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Voor een vergelijking tussen hello Azure Queue-Service die wordt besproken in dit artikel en de Azure Service Bus-wachtrijen in Hallo besproken [hoe toouse Service Bus-wachtrijen](/develop/ruby/how-to-guides/service-bus-queues/) artikel, Zie [Azure wachtrijen en Service Bus-wachtrijen - vergeleken en Tegenstelling tot](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

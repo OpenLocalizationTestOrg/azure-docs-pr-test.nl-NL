@@ -1,6 +1,6 @@
 ---
-title: Inleiding tot het oplossen van problemen in de Azure-netwerk-Watcher resource | Microsoft Docs
-description: Deze pagina bevat een overzicht van de mogelijkheden van resource-voor probleemoplossing voor de netwerk-Watcher
+title: aaaIntroduction tooresource probleemoplossing in Azure-netwerk-Watcher | Microsoft Docs
+description: Deze pagina bevat een overzicht van de mogelijkheden van Hallo netwerk-Watcher resource voor probleemoplossing
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: gwallace
-ms.openlocfilehash: 0d5091b682d1b25c47b224394bcc2c46366eeb2a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ccbe4c1c2364473aba06e709460d67c773cf25ae
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Inleiding tot het oplossen van problemen in de Azure-netwerk-Watcher resource
+# <a name="introduction-tooresource-troubleshooting-in-azure-network-watcher"></a>Inleiding tooresource probleemoplossing in Azure-netwerk-Watcher
 
-Virtuele netwerkgateways bieden connectiviteit tussen lokale bronnen en andere virtuele netwerken in Azure. Bewaking van deze gateways en hun verbindingen essentieel is voor communicatie is niet verbroken. Netwerk-Watcher biedt de mogelijkheid om op te lossen virtuele netwerkgateways en verbindingen. Dit kan via de portal, PowerShell, CLI of REST-API worden aangeroepen. Aangeroepen, netwerk-Watcher diagnose stelt de status van de gateway van virtueel netwerk of de verbinding als de juiste resultaten retourneren. Deze aanvraag is een langdurige transactie, worden de resultaten geretourneerd nadat de diagnose voltooid is.
+Virtuele netwerkgateways bieden connectiviteit tussen lokale bronnen en andere virtuele netwerken in Azure. Bewaking van deze gateways en hun verbindingen is essentieel tooensuring communicatie is niet verbroken. Netwerk-Watcher Hallo mogelijkheid tootroubleshoot biedt virtuele netwerkgateways en verbindingen. Dit kan worden aangeroepen via Hallo-portal, PowerShell, CLI of REST-API. Als deze wordt aangeroepen, diagnoses netwerk-Watcher Hallo status van de virtuele netwerkgateway Hallo of verbinding en return Hallo juiste resultaten. Deze aanvraag is een langdurige transactie, worden Hallo resultaten geretourneerd wanneer Hallo diagnose voltooid is.
 
 ![portal][2]
 
 ## <a name="results"></a>Resultaten
 
-De voorlopige resultaten geven een overzicht van de status van de resource. Meer gedetailleerde informatie kan worden opgegeven voor resources, zoals wordt weergegeven in de volgende sectie:
+Hallo voorlopige resultaten geretourneerd geven een overzicht van Hallo-status van het Hallo-resource. Meer gedetailleerde informatie kan worden opgegeven voor resources, zoals wordt weergegeven in de volgende sectie Hallo:
 
-De volgende lijst bevat de waarden geretourneerd met de problemen met API:
+Hallo volgende lijst bevat Hallo waarden geretourneerd met de Hallo API oplossen:
 
-* **startTime** -deze waarde is de tijd die de problemen met API-aanroep is gestart.
-* **endTime** -deze waarde is de tijd waarop de probleemoplossing is beëindigd.
+* **startTime** -deze waarde is Hallo tijd Hallo oplossen API-aanroep is gestart.
+* **endTime** -deze waarde is Hallo tijd waarop het oplossen van Hallo is beëindigd.
 * **code** -deze waarde is niet in orde, als er een fout één diagnose.
-* **resultaten** -resultaten is een verzameling met resultaten geretourneerd op de netwerkverbinding of de virtuele netwerkgateway.
-    * **id** -deze waarde is het fouttype.
-    * **Samenvatting** -deze waarde is een overzicht van de fout.
-    * **gedetailleerde** -deze waarde bevat een gedetailleerde beschrijving van de fout.
-    * **recommendedActions** -deze eigenschap is een verzameling aanbevolen acties te ondernemen.
-      * **actionText** -deze waarde bevat de tekst beschrijven welke actie moet worden uitgevoerd.
-      * **actionUri** -deze waarde bevat de URI-documentatie over het om te fungeren.
-      * **actionUriText** -deze waarde is een korte beschrijving van de tekst in te grijpen.
+* **resultaten** -resultaten is een verzameling van resultaten op Hallo verbinding of Hallo virtuele netwerkgateway.
+    * **id** -deze waarde is het fouttype Hallo.
+    * **Samenvatting** -deze waarde is een overzicht van Hallo veroorzaakt.
+    * **gedetailleerde** -deze waarde bevat een gedetailleerde beschrijving van het Hallo-fout.
+    * **recommendedActions** -deze eigenschap is een verzameling aanbevolen acties tootake.
+      * **actionText** -deze waarde bevat Hallo beschrijvende tekst voor welke tootake in te grijpen.
+      * **actionUri** -Hallo URI toodocumentation vindt u deze waarde voor het tooact.
+      * **actionUriText** -deze waarde is een korte beschrijving van Hallo actietekst.
 
-De volgende tabellen geven de typen met verschillende domeinen met fouten (id onder de resultaten van de voorgaande lijst) die beschikbaar zijn en als de fout Logboeken maakt.
+Hallo volgende tabellen tonen Hallo verschillende domeinen met fouten typen (id onder de resultaten van de voorgaande lijst Hallo) die beschikbaar zijn en als Hallo veroorzaakt Logboeken maakt.
 
 ### <a name="gateway"></a>Gateway
 
@@ -54,12 +54,12 @@ De volgende tabellen geven de typen met verschillende domeinen met fouten (id on
 | GatewayNotFound | Kan de Gateway of Gateway niet is ingericht niet vinden. |Nee|
 | PlannedMaintenance |  Gateway-instantie is in onderhoud.  |Nee|
 | UserDrivenUpdate | Wanneer een gebruiker wordt bijgewerkt. Dit wordt mogelijk een bewerking formaat wijzigen. | Nee |
-| VipUnResponsive | Kan het primaire exemplaar van de Gateway niet bereiken. Dit gebeurt wanneer de health-test is mislukt. | Nee |
-| PlatformInActive | Er is een probleem met het platform. | Nee|
-| ServiceNotRunning | De onderliggende service is niet uitgevoerd. | Nee|
-| NoConnectionsFoundForGateway | Er bestaat geen verbindingen op de gateway. Dit is alleen een waarschuwing.| Nee|
+| VipUnResponsive | Kan de primaire instantie Hallo Hallo Gateway niet bereiken. Dit gebeurt wanneer Hallo health test is mislukt. | Nee |
+| PlatformInActive | Er is een probleem met het Hallo-platform. | Nee|
+| ServiceNotRunning | Hallo onderliggende service is niet uitgevoerd. | Nee|
+| NoConnectionsFoundForGateway | Er bestaat geen verbindingen op Hallo-gateway. Dit is alleen een waarschuwing.| Nee|
 | ConnectionsNotConnected | Verbindingen zijn niet verbonden. Dit is alleen een waarschuwing.| Ja|
-| GatewayCPUUsageExceeded | De huidige Gateway CPU-gebruik is > 95%. | Ja |
+| GatewayCPUUsageExceeded | de huidige Gateway CPU-gebruik Hallo is > 95%. | Ja |
 
 ### <a name="connection"></a>Verbinding
 
@@ -69,19 +69,19 @@ De volgende tabellen geven de typen met verschillende domeinen met fouten (id on
 | GatewayNotFound | Kan de Gateway of Gateway niet is ingericht niet vinden. |Nee|
 | PlannedMaintenance | Gateway-instantie is in onderhoud.  |Nee|
 | UserDrivenUpdate | Wanneer een gebruiker wordt bijgewerkt. Dit wordt mogelijk een bewerking formaat wijzigen.  | Nee |
-| VipUnResponsive | Kan het primaire exemplaar van de Gateway niet bereiken. Fout treedt op wanneer de health-test is mislukt. | Nee |
+| VipUnResponsive | Kan de primaire instantie Hallo Hallo Gateway niet bereiken. Dit gebeurt als Hallo health test is mislukt. | Nee |
 | ConnectionEntityNotFound | Verbindingsconfiguratie ontbreekt. | Nee |
-| ConnectionIsMarkedDisconnected | De verbinding is gemarkeerd als 'verbinding verbroken'. |Nee|
-| ConnectionNotConfiguredOnGateway | De onderliggende service heeft niet de verbinding geconfigureerd. | Ja |
-| ConnectionMarkedStandy | De onderliggende service is gemarkeerd als stand-by.| Ja|
+| ConnectionIsMarkedDisconnected | Hallo verbinding is gemarkeerd als 'verbinding verbroken'. |Nee|
+| ConnectionNotConfiguredOnGateway | onderliggende Hallo-service heeft geen Hallo-verbinding geconfigureerd. | Ja |
+| ConnectionMarkedStandy | Hallo onderliggende service is gemarkeerd als stand-by.| Ja|
 | Authentication | Vooraf gedeelde sleutel komt niet overeen. | Ja|
-| PeerReachability | De peer-gateway is niet bereikbaar. | Ja|
-| IkePolicyMismatch | De gateway van de peer heeft IKE-beleidsregels die worden niet ondersteund door Azure. | Ja|
-| WfpParse fout | Er is een fout opgetreden bij het parseren van het WPF-logboek. |Ja|
+| PeerReachability | Hallo peer gateway is niet bereikbaar. | Ja|
+| IkePolicyMismatch | Hallo peer gateway heeft IKE-beleidsregels die worden niet ondersteund door Azure. | Ja|
+| WfpParse fout | Er is een fout opgetreden bij het parseren Hallo WFP-logboek. |Ja|
 
 ## <a name="supported-gateway-types"></a>Ondersteunde gatewaytypen
 
-De volgende lijst bevat de ondersteuning ziet u welke gateways en verbindingen worden ondersteund bij het oplossen van netwerk-Watcher.
+Hallo volgende lijst bevat Hallo ondersteuning ziet u welke gateways en verbindingen worden ondersteund bij het oplossen van netwerk-Watcher.
 |  |  |
 |---------|---------|
 |**Gatewaytypen**   |         |
@@ -100,23 +100,23 @@ De volgende lijst bevat de ondersteuning ziet u welke gateways en verbindingen w
 
 ## <a name="log-files"></a>Logboekbestanden
 
-De resource voor probleemoplossing logboekbestanden worden opgeslagen in een opslagaccount nadat de resource probleemoplossing is voltooid. De volgende afbeelding toont een voorbeeld van de inhoud van een aanroep van dat heeft geresulteerd in een fout opgetreden.
+Hallo resource voor probleemoplossing logboekbestanden worden opgeslagen in een opslagaccount nadat de resource probleemoplossing is voltooid. Hallo toont volgende afbeelding Hallo voorbeeld van de inhoud van een aanroep van dat heeft geresulteerd in een fout opgetreden.
 
 ![ZIP-bestand][1]
 
 > [!NOTE]
-> In sommige gevallen wordt alleen een subset van de logboekbestanden geschreven naar de opslag.
+> In sommige gevallen wordt alleen een subset van de logboekbestanden Hallo toostorage geschreven.
 
-Zie voor instructies over het downloaden van bestanden van azure storage-accounts, [aan de slag met Azure Blob storage met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Een ander hulpprogramma dat kan worden gebruikt, is Storage Explorer. Meer informatie over Opslagverkenner vindt u hier op de volgende koppeling: [Opslagverkenner](http://storageexplorer.com/)
+Voor instructies over het downloaden van bestanden van azure storage-accounts, Raadpleeg te[aan de slag met Azure Blob storage met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Een ander hulpprogramma dat kan worden gebruikt, is Storage Explorer. Meer informatie over Opslagverkenner vindt u hier op Hallo koppeling: [Opslagverkenner](http://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 
-De **ConnectionStats.txt** bestand bevat de algemene statistieken van de verbinding, met inbegrip van inkomende en uitgaande bytes, de status van de verbinding en de tijd dat de verbinding tot stand is gebracht.
+Hallo **ConnectionStats.txt** bestand bevat de algemene statistieken Hallo-verbinding, met inbegrip van inkomende en uitgaande bytes, de status van de verbinding en Hallo tijd Hallo verbinding tot stand is gebracht.
 
 > [!NOTE]
-> Als de aanroep van de API voor probleemoplossing worden geretourneerd in orde, het enige wat geretourneerd in het zip-bestand is een **ConnectionStats.txt** bestand.
+> Als Hallo aanroep toohello probleemoplossing API in orde retourneert, Hallo geretourneerd in het zip-bestand Hallo heeft alleen een **ConnectionStats.txt** bestand.
 
-De inhoud van dit bestand zijn vergelijkbaar met het volgende voorbeeld:
+Hallo-inhoud van dit bestand zijn vergelijkbaar toohello voorbeeld te volgen:
 
 ```
 Connectivity State : Connected
@@ -128,7 +128,7 @@ Connected Since : 2/1/2017 8:22:06 PM
 
 ### <a name="cpustatstxt"></a>CPUStats.txt
 
-De **CPUStats.txt** -bestand bevat CPU-gebruik en geheugen beschikbaar op het moment van de testen.  De inhoud van dit bestand is vergelijkbaar met het volgende voorbeeld:
+Hallo **CPUStats.txt** -bestand bevat CPU-gebruik en geheugen beschikbaar op Hallo tijdstip van de testen.  Hallo-inhoud van dit bestand is vergelijkbaar toohello voorbeeld te volgen:
 
 ```
 Current CPU Usage : 0 % Current Memory Available : 641 MBs
@@ -136,9 +136,9 @@ Current CPU Usage : 0 % Current Memory Available : 641 MBs
 
 ### <a name="ikeerrorstxt"></a>IKEErrors.txt
 
-De **IKEErrors.txt** bestand bevat alle IKE-fouten die zijn gevonden tijdens de bewaking.
+Hallo **IKEErrors.txt** bestand bevat alle IKE-fouten die zijn gevonden tijdens de bewaking.
 
-Het volgende voorbeeld ziet de inhoud van een bestand IKEErrors.txt. Uw fouten kunnen afwijken, afhankelijk van het probleem.
+Hallo ziet volgende voorbeeld Hallo inhoud van een bestand IKEErrors.txt. Uw fouten kunnen afwijken, afhankelijk van Hallo probleem.
 
 ```
 Error: Authentication failed. Check shared key. Check crypto. Check lifetimes. 
@@ -149,13 +149,13 @@ Error: On-prem device sent invalid payload.
 
 ### <a name="scrubbed-wfpdiagtxt"></a>Verwijderd wfpdiag.txt
 
-De **Scrubbed wfpdiag.txt** logboekbestand bevat het WPF-logboek. Dit logboek bevat de logboekregistratie van het pakket verwijderen en IKE/AuthIP fouten.
+Hallo **Scrubbed wfpdiag.txt** logboekbestand Hallo wfp-logboek bevat. Dit logboek bevat de logboekregistratie van het pakket verwijderen en IKE/AuthIP fouten.
 
-Het volgende voorbeeld ziet de inhoud van het bestand Scrubbed wfpdiag.txt. In dit voorbeeld wordt is de gedeelde sleutel van een verbinding niet juist kan worden afgeleid uit de 3e regel van de onderkant. Het volgende voorbeeld is alleen een fragment van het hele logboek, omdat het logboek langdurige, afhankelijk van het probleem kan zijn.
+Hallo ziet volgende voorbeeld Hallo inhoud van Hallo Scrubbed wfpdiag.txt bestand. In dit voorbeeld is Hallo gedeelde sleutel van een verbinding niet juist kan worden afgeleid uit 3e regel Hallo van Hallo onder. Hallo volgende voorbeeld is alleen een fragment van de hele logboek Hallo, zoals Hallo logboek langdurige, afhankelijk van Hallo probleem kan worden.
 
 ```
 ...
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Deleted ICookie from the high priority thread pool list
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Deleted ICookie from hello high priority thread pool list
 [0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|IKE diagnostic event:
 [0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Event Header:
 [0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Timestamp: 1601-01-01T00:00:00.000Z
@@ -182,9 +182,9 @@ Het volgende voorbeeld ziet de inhoud van het bestand Scrubbed wfpdiag.txt. In d
 
 ### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.Sum
 
-De **wfpdiag.txt.sum** bestand is een logboek weergegeven met de buffers en gebeurtenissen verwerkt.
+Hallo **wfpdiag.txt.sum** bestand is een logboek met Hallo buffers en gebeurtenissen verwerkt.
 
-Het volgende voorbeeld wordt de inhoud van een bestand wfpdiag.txt.sum.
+Hallo is volgende voorbeeld Hallo inhoud van een bestand wfpdiag.txt.sum.
 ```
 Files Processed:
     C:\Resources\directory\924336c47dd045d5a246c349b8ae57f2.GatewayTenantWorker.DiagnosticsStorage\2017-02-02T17-34-23\wfpdiag.etl
@@ -212,7 +212,7 @@ Elapsed Time            330 sec
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het onderzoeken van VPN-Gateways en verbindingen via de portal in via [Gateway probleemoplossing - Azure-portal](network-watcher-troubleshoot-manage-portal.md).
+Meer informatie over hoe toodiagnose VPN-Gateways en verbindingen via portal Hallo in via [Gateway probleemoplossing - Azure-portal](network-watcher-troubleshoot-manage-portal.md).
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png

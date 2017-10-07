@@ -1,5 +1,5 @@
 ---
-title: Voorbeelden van algemene gebruikspatronen in Stream Analytics query | Microsoft Docs
+title: Voorbeelden van aaaQuery voor algemene gebruikspatronen in Stream Analytics | Microsoft Docs
 description: Algemene Azure Stream Analytics-querypatronen
 keywords: Query-voorbeelden
 services: stream-analytics
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
 ms.author: jenniehubbard
-ms.openlocfilehash: a00855c200b3fb365073bad4c5773b02c4c2c7fe
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c8f7a8ac661eaf0281f4140b02c42141b73040fe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Voorbeelden van algemene gebruikspatronen van de Stream Analytics query
 ## <a name="introduction"></a>Inleiding
-Query's in Azure Stream Analytics worden uitgedrukt in een SQL-achtige querytaal. Deze query's worden beschreven in de [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) handleiding. In dit artikel bevat een overzicht van oplossingen voor enkele veelvoorkomende querypatronen, op basis van praktijkscenario's. Het is een onderhanden werk en met nieuwe patronen voortdurend wordt bijgewerkt.
+Query's in Azure Stream Analytics worden uitgedrukt in een SQL-achtige querytaal. Deze query's zijn gedocumenteerd in Hallo [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) handleiding. Dit artikel overzichten oplossingen tooseveral veelvoorkomende querypatronen, op basis van praktijkscenario's. Het onderhanden werk en toobe bijgewerkt met nieuwe patronen voortdurend voort te zetten.
 
 ## <a name="query-example-convert-data-types"></a>Query-voorbeeld: gegevenstypen converteren
-**Beschrijving**: het definiëren van de typen eigenschappen voor de invoerstroom.
-Bijvoorbeeld: het gewicht auto is afkomstig uit de invoerstroom als tekenreeksen en moet worden geconverteerd naar **INT** om uit te voeren **som** het.
+**Beschrijving**: Hallo typen eigenschappen definiëren op Hallo-invoerstroom.
+Bijvoorbeeld Hallo auto gewicht afkomstig is van de invoerstroom Hallo als tekenreeksen en toobe te geconverteerd moet**INT** tooperform **som** het.
 
 **Invoer**:
 
@@ -53,11 +53,11 @@ Bijvoorbeeld: het gewicht auto is afkomstig uit de invoerstroom als tekenreeksen
         Make,
         TumblingWindow(second, 10)
 
-**Uitleg**: gebruik een **CAST** -instructie in de **gewicht** aan te geven van het gegevenstype. Zie de lijst met ondersteunde gegevenstypen in [gegevenstypen (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835065.aspx).
+**Uitleg**: gebruik een **CAST** -instructie in Hallo **gewicht** veld toospecify het gegevenstype. Hallo-overzicht van ondersteunde gegevenstypen in [gegevenstypen (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835065.aspx).
 
-## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Query-voorbeeld: gebruik achtige/niet wilt patroon die overeenkomt met
-**Beschrijving**: controleert of de waarde van een veld van de gebeurtenis overeenkomt met een bepaald patroon.
-Bijvoorbeeld, Controleer het resultaat overschrijven die beginnen met A en eindigen met 9.
+## <a name="query-example-use-likenot-like-toodo-pattern-matching"></a>Query-voorbeeld: gebruik achtige/niet zoals toodo jokertekens
+**Beschrijving**: controleert of de waarde van een veld op Hallo gebeurtenis overeenkomt met een bepaald patroon.
+Controleer bijvoorbeeld of Hallo resultaat overschrijven die beginnen met A en eindigen met 9.
 
 **Invoer**:
 
@@ -83,11 +83,11 @@ Bijvoorbeeld, Controleer het resultaat overschrijven die beginnen met A en eindi
     WHERE
         LicensePlate LIKE 'A%9'
 
-**Uitleg**: Gebruik de **zoals** instructie om te controleren de **LicensePlate** veld waarde. Deze moet beginnen met een A, en vervolgens hebt een willekeurige tekenreeks van nul of meer tekens en vervolgens eindigen met een 9. 
+**Uitleg**: gebruik Hallo **zoals** instructie toocheck hello **LicensePlate** veld waarde. Deze moet beginnen met een A, en vervolgens hebt een willekeurige tekenreeks van nul of meer tekens en vervolgens eindigen met een 9. 
 
 ## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Query-voorbeeld: Geef de logica voor andere gevallen en-waarden (CASE-instructies)
 **Beschrijving**: Geef een andere berekeningen voor het veld, op basis van een bepaald criterium.
-Geef bijvoorbeeld een beschrijving van de tekenreeks voor het maken van het aantal auto's van dezelfde doorgegeven met een speciaal geval voor 1.
+Bijvoorbeeld: Geef een beschrijving van de tekenreeks voor het aantal auto's Hallo dezelfde maken is voltooid met een speciaal geval voor 1.
 
 **Invoer**:
 
@@ -118,11 +118,11 @@ Geef bijvoorbeeld een beschrijving van de tekenreeks voor het maken van het aant
         Make,
         TumblingWindow(second, 10)
 
-**Uitleg**: de **geval** component kan wij verschillende berekeningen, op basis van bepaalde criteria (in ons geval de telling van de auto's in het venster cumulatieve).
+**Uitleg**: Hallo **geval** component, kunnen wij tooprovide een andere berekening op basis van bepaalde criteria (in ons geval Hallo aantal Hallo auto's in Hallo statistische vensterfunctie).
 
-## <a name="query-example-send-data-to-multiple-outputs"></a>Query-voorbeeld: gegevens verzenden naar meerdere uitgangen
-**Beschrijving**: gegevens verzenden naar meerdere doelen van de uitvoer van een enkele taak.
-Bijvoorbeeld, analyseren van gegevens voor een waarschuwing op basis van drempelwaarden en alle gebeurtenissen naar blob-opslag te archiveren.
+## <a name="query-example-send-data-toomultiple-outputs"></a>Query-voorbeeld: verzenden gegevens toomultiple levert
+**Beschrijving**: verzenden gegevens toomultiple uitvoer doelen van één taak.
+Bijvoorbeeld, analyseren van gegevens voor een waarschuwing op basis van drempelwaarden en alle gebeurtenissen tooblob opslag te archiveren.
 
 **Invoer**:
 
@@ -173,11 +173,11 @@ Bijvoorbeeld, analyseren van gegevens voor een waarschuwing op basis van drempel
     HAVING
         [Count] >= 3
 
-**Uitleg**: de **INTO** component Stream Analytics wordt uitgelegd welke van de uitvoer schrijven van de gegevens uit deze instructie.
-Is het doorgeven van de gegevens die we ontvangen op een uitvoer die we met de naam van de eerste query **ArchiveOutput**.
-De tweede query biedt een aantal eenvoudige aggregatie en filteren en deze stuurt de resultaten naar een downstream waarschuwingsmethoden systeem.
+**Uitleg**: Hallo **INTO** component vertelt Stream Analytics die Hallo toowrite Hallo gegevens toofrom levert deze instructie.
+is het doorgeven van Hallo gegevens ontvangen tooan uitvoer die we met de naam van eerste query Hallo **ArchiveOutput**.
+Hallo tweede query biedt een aantal eenvoudige aggregatie en filteren en het verzendt Hallo resultaten tooa downstream waarschuwingsmethoden systeem.
 
-Opmerking u kunt ook opnieuw gebruiken de resultaten van de algemene tabelexpressies (CTE's) (zoals **WITH** instructies) in meerdere uitvoer-instructies. Deze optie heeft het voordeel van het openen van de invoerbron minder lezers.
+Opmerking u kunt ook opnieuw gebruiken Hallo resultaten van algemene tabelexpressies hello (CTE's) (zoals **WITH** instructies) in meerdere uitvoer-instructies. Deze optie heeft Hallo voordeel minder lezers toohello invoerbron te openen.
 Bijvoorbeeld: 
 
     WITH AllRedCars AS (
@@ -192,8 +192,8 @@ Bijvoorbeeld:
     SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
 ## <a name="query-example-count-unique-values"></a>Voorbeeld van de query: de unieke waarden tellen
-**Beschrijving**: het aantal unieke waarden die worden weergegeven in de stroom binnen een tijdvenster tellen.
-Bijvoorbeeld hoeveel unieke wordt doorgegeven aan de stand tolstation in een venster 2 seconden auto's?
+**Beschrijving**: het getelde aantal unieke waarden die worden weergegeven in de stroom binnen een tijdvenster Hallo Hallo.
+Bijvoorbeeld hoeveel unieke wordt gemaakt van auto's doorgegeven Hallo tolstation stand in een venster 2 seconden?
 
 **Invoer**:
 
@@ -225,11 +225,11 @@ GROUP BY
 
 
 **Uitleg:**
-**COUNT (afzonderlijke zorg)** retourneert het aantal afzonderlijke waarden in de **zorg** kolom binnen een periode.
+**COUNT (afzonderlijke zorg)** retourneert het aantal afzonderlijke waarden in Hallo Hallo **zorg** kolom binnen een periode.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Query-voorbeeld: bepalen of een waarde is gewijzigd
-**Beschrijving**: kijken naar een vorige waarde om te bepalen of anders is dan de huidige waarde.
-Bijvoorbeeld, is de vorige auto tolstation onderweg de dezelfde maken als de huidige auto?
+**Beschrijving**: een vorige waarde toodetermine bekijken als deze verschilt van de huidige waarde Hallo.
+Is bijvoorbeeld Hallo vorige auto op Hallo tolstation weg Hallo is die dezelfde als de huidige auto Hallo maken?
 
 **Invoer**:
 
@@ -254,10 +254,10 @@ Bijvoorbeeld, is de vorige auto tolstation onderweg de dezelfde maken als de hui
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 
-**Uitleg**: Gebruik **LAG** als u wilt bekijken in de invoerstroom één gebeurtenis terug en de **zorg** waarde. Vergelijk deze naar de **zorg** -waarde op de huidige gebeurtenis en de uitvoer van de gebeurtenis als deze verschillen.
+**Uitleg**: Gebruik **LAG** toopeek in Hallo invoer weer in één gebeurtenis stroom en Hallo ophalen **zorg** waarde. Vergelijk deze toohello **zorg** waarde van de huidige gebeurtenis Hallo en uitvoer Hallo gebeurtenis als deze verschillen.
 
-## <a name="query-example-find-the-first-event-in-a-window"></a>Voorbeeld van de query: de eerste gebeurtenis niet vinden in een venster
-**Beschrijving**: de eerste auto niet vinden in het interval van elke 10 minuten.
+## <a name="query-example-find-hello-first-event-in-a-window"></a>Query-voorbeeld: zoek Hallo eerste gebeurtenis in een venster
+**Beschrijving**: zoeken Hallo eerste auto in een interval van elke 10 minuten.
 
 **Invoer**:
 
@@ -289,7 +289,7 @@ Bijvoorbeeld, is de vorige auto tolstation onderweg de dezelfde maken als de hui
     WHERE 
         IsFirst(minute, 10) = 1
 
-Nu gaan we het probleem wijzigen en de eerste auto van een bepaalde merk niet vinden in het interval van elke 10 minuten.
+Nu gaan we wijziging Hallo probleem en zoeken Hallo eerste auto's van een bepaald interval van elke 10 minuten.
 
 | LicensePlate | Maken | Time |
 | --- | --- | --- |
@@ -310,8 +310,8 @@ Nu gaan we het probleem wijzigen en de eerste auto van een bepaalde merk niet vi
     WHERE 
         IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
-## <a name="query-example-find-the-last-event-in-a-window"></a>Voorbeeld van de query: de laatste gebeurtenis niet vinden in een venster
-**Beschrijving**: de laatste auto niet vinden in het interval van elke 10 minuten.
+## <a name="query-example-find-hello-last-event-in-a-window"></a>Query-voorbeeld: zoek Hallo laatste gebeurtenis in een venster
+**Beschrijving**: zoeken Hallo laatste auto in een interval van elke 10 minuten.
 
 **Invoer**:
 
@@ -353,11 +353,11 @@ Nu gaan we het probleem wijzigen en de eerste auto van een bepaalde merk niet vi
         ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
         AND Input.Time = LastInWindow.LastEventTime
 
-**Uitleg**: Er zijn twee stappen in de query. Het eerste beheerpunt vindt de meest recente tijdstempel in windows 10 minuten. De tweede stap koppelt de resultaten van de eerste query met de oorspronkelijke stroom vinden van de gebeurtenissen die overeenkomen met de laatste tijdstempels in elk venster. 
+**Uitleg**: Er zijn twee stappen in Hallo-query. Hallo eerste één vindt Hallo nieuwste tijdstempel in windows 10 minuten. de tweede stap joins Hallo Hallo resultaten van de eerste query Hallo met Hallo oorspronkelijke stroom toofind Hallo gebeurtenissen die overeenkomen met de Hallo laatste tijdstempels in elk venster. 
 
-## <a name="query-example-detect-the-absence-of-events"></a>Voorbeeld van de query: de afwezigheid van gebeurtenissen detecteren
+## <a name="query-example-detect-hello-absence-of-events"></a>Query-voorbeeld: Hallo afwezigheid van gebeurtenissen detecteren
 **Beschrijving**: Controleer of er een stroom geen waarde die overeenkomt met een bepaald criterium.
-Bijvoorbeeld: hebt 2 opeenvolgende auto's uit hetzelfde merk onderweg tolstation ingevoerd gedurende de laatste 90 seconden
+Bijvoorbeeld 2 opeenvolgende auto's uit dezelfde maken Hallo ingevoerde Hallo tolstation weg op Hallo laatste 90 seconden?
 
 **Invoer**:
 
@@ -387,10 +387,10 @@ Bijvoorbeeld: hebt 2 opeenvolgende auto's uit hetzelfde merk onderweg tolstation
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 
-**Uitleg**: Gebruik **LAG** als u wilt bekijken in de invoerstroom één gebeurtenis terug en de **zorg** waarde. Vergelijk deze met de **zorg** waarde in de huidige gebeurtenis en de gebeurtenis vervolgens uitvoer als ze hetzelfde zijn. U kunt ook **LAG** ophalen van gegevens over de vorige auto.
+**Uitleg**: Gebruik **LAG** toopeek in Hallo invoer weer in één gebeurtenis stroom en Hallo ophalen **zorg** waarde. Vergelijk deze toohello **zorg** waarde in de huidige gebeurtenis Hallo en uitvoer Hallo gebeurtenis als ze zijn dezelfde Hallo. U kunt ook **LAG** tooget gegevens over Hallo vorige auto.
 
-## <a name="query-example-detect-the-duration-between-events"></a>Voorbeeld van de query: de tijd tussen gebeurtenissen detecteren
-**Beschrijving**: de duur van een bepaalde gebeurtenis vinden. Bijvoorbeeld: een web-clickstream gezien, bepalen de tijd die op een functie.
+## <a name="query-example-detect-hello-duration-between-events"></a>Query-voorbeeld: Hallo duur tussen gebeurtenissen detecteren
+**Beschrijving**: Hallo duur van een bepaalde gebeurtenis vinden. Bijvoorbeeld een web-clickstream gezien, bepalen Hallo tijd besteed aan een functie.
 
 **Invoer**:  
 
@@ -415,11 +415,11 @@ Bijvoorbeeld: hebt 2 opeenvolgende auto's uit hetzelfde merk onderweg tolstation
         Event = 'end'
 ````
 
-**Uitleg**: Gebruik de **laatste** functie voor het ophalen van de laatste **tijd** waarde wanneer het gebeurtenistype is **Start**. De **laatste** functie maakt gebruik van **PARTITION BY [gebruiker]** om aan te geven dat het resultaat wordt berekend per unieke gebruiker. De query heeft een 1 uur maximale drempelwaarde voor het tijdsverschil tussen **Start** en **stoppen** gebeurtenissen, maar is configureerbaar naar behoefte **(LIMIET DURATION(hour, 1)**.
+**Uitleg**: gebruik Hallo **laatste** tooretrieve Hallo laatste werken **tijd** waarde indien Hallo gebeurtenistype is **Start**. Hallo **laatste** functie maakt gebruik van **PARTITION BY [gebruiker]** tooindicate die Hallo resultaat wordt berekend per unieke gebruiker. Hallo-query heeft een maximale drempelwaarde 1 uur voor Hallo tijdverschil **Start** en **stoppen** gebeurtenissen, maar is configureerbaar naar behoefte **(LIMIET DURATION(hour, 1)**.
 
-## <a name="query-example-detect-the-duration-of-a-condition"></a>Voorbeeld van de query: de duur van een voorwaarde detecteren
+## <a name="query-example-detect-hello-duration-of-a-condition"></a>Query-voorbeeld: Hallo duur van een voorwaarde detecteren
 **Beschrijving**: vinden out hoe lang een voorwaarde is opgetreden.
-Stel dat een fout heeft geresulteerd in alle auto's met een onjuiste gewicht (meer dan 20.000 pond). We willen berekenen van de duur van de fout.
+Stel dat een fout heeft geresulteerd in alle auto's met een onjuiste gewicht (meer dan 20.000 pond). We willen toocompute Hallo duur van Hallo-oplossingen.
 
 **Invoer**:
 
@@ -461,11 +461,11 @@ Stel dat een fout heeft geresulteerd in alle auto's met een onjuiste gewicht (me
         AND previousWeight > 20000
 ````
 
-**Uitleg**: Gebruik **LAG** weergeven van de invoerstroom 24 uur en zoek naar waar u exemplaren **StartFault** en **StopFault** door het gewicht < 20000 zijn omspannen.
+**Uitleg**: Gebruik **LAG** tooview Hallo invoerstroom 24 uur en zoek exemplaren waar **StartFault** en **StopFault** zijn omspannen door Hallo < 20000 gewicht.
 
 ## <a name="query-example-fill-missing-values"></a>Query-voorbeeld: Vul ontbrekende waarden
-**Beschrijving**: voor de stroom van gebeurtenissen met ontbrekende waarden produceren van een stream van gebeurtenissen met regelmatige tussenpozen.
-Bijvoorbeeld, een gebeurtenis om de vijf seconden die het meest recent waargenomen gegevenspunt rapporten genereren.
+**Beschrijving**: produceren voor Hallo stroom van gebeurtenissen met ontbrekende waarden, een reeks gebeurtenissen met regelmatige tussenpozen.
+Bijvoorbeeld, een gebeurtenis om de vijf seconden Hallo laatst gezien gegevenspunt rapporten genereren.
 
 **Invoer**:
 
@@ -503,13 +503,13 @@ Bijvoorbeeld, een gebeurtenis om de vijf seconden die het meest recent waargenom
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 
 
-**Uitleg**: deze query gebeurtenissen genereert elke vijf seconden en levert de laatste gebeurtenis dat u eerder hebt ontvangen. De [Hopping venster](https://msdn.microsoft.com/library/dn835041.aspx "Hopping venster--Azure Stream Analytics") duur bepaalt hoe ver terug de query ziet er als u wilt zoeken naar de nieuwste gebeurtenis (300 seconden in dit voorbeeld).
+**Uitleg**: deze query gebeurtenissen worden gegenereerd om de vijf seconden en uitvoer Hallo laatste gebeurtenis dat u eerder hebt ontvangen. Hallo [Hopping venster](https://msdn.microsoft.com/library/dn835041.aspx "Hopping venster--Azure Stream Analytics") duur bepaalt hoe ver terug Hallo query eruitziet voor toofind Hallo laatste gebeurtenis (300 seconden in dit voorbeeld).
 
 ## <a name="get-help"></a>Help opvragen
 Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
+* [Inleiding tooAzure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
 * [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)

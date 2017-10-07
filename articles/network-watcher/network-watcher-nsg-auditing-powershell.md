@@ -1,6 +1,6 @@
 ---
-title: NSG controle met Azure-Watcher netwerkbeveiliging groepsweergave automatiseren | Microsoft Docs
-description: Deze pagina vindt u instructies voor het configureren van de controle van een Netwerkbeveiligingsgroep
+title: aaaAutomate NSG controle met Azure-Watcher netwerkbeveiliging groepsweergave | Microsoft Docs
+description: Deze pagina bevat instructies voor het tooconfigure controle van een Netwerkbeveiligingsgroep
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: a91da330e677c85f16f6f4e506613576b6507d7c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 24fc418c433fceaf55a74b7c3b0e354dc46c8729
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatiseren NSG controle met Azure-Watcher netwerkbeveiliging groep weergeven
 
-Klanten zijn vaak moeten de beveiligingsstatus van hun infrastructuur te controleren. Deze uitdaging gaat niet anders zijn voor hun virtuele machines in Azure. Het is belangrijk om een soortgelijke beveiligingsprofiel op basis van de Netwerkbeveiligingsgroep (NSG) regels toegepast. De weergave van de groep beveiliging gebruikt, krijgt u nu de lijst met regels voor een virtuele machine binnen een NSG wordt toegepast. U kunt definiëren van een gouden NSG-beveiligingsprofiel en beveiliging groepsweergave een wekelijkse uitgebracht initiëren en vergelijken van de uitvoer naar het gouden profiel en een rapport maken. Op deze manier kunt u identificeren met gemak alle virtuele machines die niet met het voorgeschreven beveiligingsprofiel overeen komen.
+Klanten moeten vaak Hallo uitdaging Hallo beveiligingsstatus van hun infrastructuur te controleren. Deze uitdaging gaat niet anders zijn voor hun virtuele machines in Azure. Het is belangrijk toohave een vergelijkbare beveiligingsprofiel op basis van regels die Hallo Netwerkbeveiligingsgroep (NSG) worden toegepast. U kunt nu een Hallo lijst met toegepaste regels tooa VM binnen een NSG krijgen met behulp van Hallo beveiliging groep weergeven. U kunt definiëren van een gouden NSG-beveiligingsprofiel en beveiliging groepsweergave een wekelijkse uitgebracht initiëren en vergelijken Hallo uitvoer toohello gouden profiel en een rapport maken. Op deze manier kunt u identificeren met gemak alle Hallo VM's die niet toohello beveiligingsprofiel voorgeschreven voldoen.
 
 Als u niet bekend met Netwerkbeveiligingsgroepen bent, gaat u naar [beveiligingsoverzicht van het netwerk](../virtual-network/virtual-networks-nsg.md)
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit scenario vergelijken u met een bekende goede basis voor de beveiliging groep weergaveresultaten geretourneerd voor een virtuele machine.
+In dit scenario u de beveiligingsgroep van een bekende goede basis toohello vergelijken resultaten geretourneerd voor een virtuele machine weergeven.
 
-Dit scenario wordt ervan uitgegaan dat u de stappen in al hebt gevolgd [maken van een netwerk-Watcher](network-watcher-create.md) voor het maken van een netwerk-Watcher. Het scenario wordt ervan uitgegaan dat er een resourcegroep met een geldige virtuele machine bestaat om te worden gebruikt.
+Dit scenario wordt ervan uitgegaan dat u hebt al Hallo stappen uitgevoerd in [maken van een netwerk-Watcher](network-watcher-create.md) toocreate een netwerk-Watcher. Hallo scenario wordt ervan uitgegaan dat een resourcegroep met een geldige virtuele machine toobe gebruikt bestaat.
 
 ## <a name="scenario"></a>Scenario
 
-Het scenario beschreven in dit artikel wordt de weergave van de groep beveiliging voor een virtuele machine.
+Hallo scenario beschreven in dit artikel Hallo beveiliging groep weergeven voor een virtuele machine opgehaald.
 
 U wordt in dit scenario:
 
@@ -45,7 +45,7 @@ U wordt in dit scenario:
 
 ## <a name="retrieve-rule-set"></a>Regelset ophalen
 
-De eerste stap in dit voorbeeld is voor gebruik met een bestaande basislijn. Het volgende voorbeeld is sommige json opgehaald uit een bestaande Netwerkbeveiligingsgroep met behulp van de `Get-AzureRmNetworkSecurityGroup` cmdlet die wordt gebruikt als de basislijn voor dit voorbeeld.
+Hallo eerste stap in dit voorbeeld is toowork met een bestaande basislijn. Hallo volgende voorbeeld is sommige json opgehaald uit een bestaande Netwerkbeveiligingsgroep met Hallo `Get-AzureRmNetworkSecurityGroup` cmdlet die wordt gebruikt als basislijn Hallo voor dit voorbeeld.
 
 ```json
 [
@@ -112,9 +112,9 @@ De eerste stap in dit voorbeeld is voor gebruik met een bestaande basislijn. Het
 ]
 ```
 
-## <a name="convert-rule-set-to-powershell-objects"></a>Regelset converteren naar objecten met PowerShell
+## <a name="convert-rule-set-toopowershell-objects"></a>Regel set tooPowerShell objecten converteren
 
-We zijn een json-bestand dat eerder is gemaakt met de regels die naar verwachting wordt op de Netwerkbeveiligingsgroep voor dit voorbeeld lezen in deze stap.
+We zijn een json-bestand dat eerder is gemaakt met de Hallo-regels die verwachte toobe op Hallo Netwerkbeveiligingsgroep voor dit voorbeeld zijn lezen in deze stap.
 
 ```powershell
 $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
@@ -122,7 +122,7 @@ $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 
 ## <a name="retrieve-network-watcher"></a>Ophalen van netwerk-Watcher
 
-De volgende stap is het exemplaar van de netwerk-Watcher ophalen. De `$networkWatcher` variabele wordt doorgegeven aan de `AzureRmNetworkWatcherSecurityGroupView` cmdlet.
+de volgende stap Hallo is tooretrieve Hallo netwerk-Watcher-exemplaar. Hallo `$networkWatcher` variabele is doorgegeven toohello `AzureRmNetworkWatcherSecurityGroupView` cmdlet.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
@@ -131,7 +131,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 
 ## <a name="get-a-vm"></a>Een virtuele machine ophalen
 
-Een virtuele machine is vereist om de `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet tegen. Het volgende voorbeeld wordt een VM-object.
+Een virtuele machine is vereist toorun hello `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet tegen. Hallo volgende voorbeeld wordt een VM-object.
 
 ```powershell
 $VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
@@ -139,17 +139,17 @@ $VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
 
 ## <a name="retrieve-security-group-view"></a>Groep beveiligingsweergave ophalen
 
-De volgende stap is het resultaat van beveiliging groep weergave ophalen. Dit resultaat wordt vergeleken met de 'basislijn' json die eerder is aangegeven.
+de volgende stap Hallo is tooretrieve Hallo beveiliging groep weergave resultaat. Dit resultaat wordt vergeleken toohello "baseline" json die eerder is aangegeven.
 
 ```powershell
 $secgroup = Get-AzureRmNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
 ```
 
-## <a name="analyzing-the-results"></a>De resultaten analyseren
+## <a name="analyzing-hello-results"></a>Hallo resultaten analyseren
 
-Het antwoord worden gegroepeerd per netwerkinterfaces. De verschillende typen regels geretourneerd geldig zijn en de standaardinstellingen van de beveiligingsregels voor verbindingen. Het resultaat is verder uitgesplitst hoe deze wordt toegepast, op een subnet of een virtuele NIC.
+antwoord Hallo worden gegroepeerd per netwerkinterfaces. Hallo verschillende typen regels die zijn geretourneerd geldig zijn en de standaardinstellingen van de beveiligingsregels voor verbindingen. Hallo resultaat wordt verder opgedeeld per hoe deze wordt toegepast, op een subnet of een virtuele NIC.
 
-De volgende PowerShell-script worden de resultaten van de weergave van de groep beveiliging aan een bestaande uitvoer van een NSG vergeleken. Het volgende voorbeeld wordt een eenvoudig voorbeeld van hoe de resultaten kunnen worden vergeleken met `Compare-Object` cmdlet.
+Hallo vergelijkt volgende PowerShell-script Hallo resultaten van Hallo beveiliging groepsweergave tooan bestaande uitvoer van een NSG. Hallo volgende voorbeeld wordt een eenvoudig voorbeeld van hoe Hallo resultaten kunnen worden vergeleken met `Compare-Object` cmdlet.
 
 ```powershell
 Compare-Object -ReferenceObject $nsgbaserules `
@@ -157,7 +157,7 @@ Compare-Object -ReferenceObject $nsgbaserules `
 -Property Name,Description,Protocol,SourcePortRange,DestinationPortRange,SourceAddressPrefix,DestinationAddressPrefix,Access,Priority,Direction
 ```
 
-Het volgende voorbeeld is het resultaat. U ziet twee van de regels die zijn in de eerste regel ingesteld zijn niet aanwezig in de vergelijking.
+Hallo volgende voorbeeld is Hallo resultaat. U ziet twee Hallo-regels die in de eerste regelset Hallo zijn zijn niet aanwezig in de Hallo vergelijking.
 
 ```
 Name                     : My2ndRuleDoNotDelete
@@ -187,7 +187,7 @@ SideIndicator            : <=
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als de instellingen zijn gewijzigd, Zie [Netwerkbeveiligingsgroepen beheren](../virtual-network/virtual-network-manage-nsg-arm-portal.md) voor het opsporen van de groep en beveiliging netwerkbeveiligingsregels die betrokken zijn.
+Als de instellingen zijn gewijzigd, Zie [Netwerkbeveiligingsgroepen beheren](../virtual-network/virtual-network-manage-nsg-arm-portal.md) tootrack omlaag Hallo groep en beveiliging netwerkbeveiligingsregels die betrokken zijn.
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Telemetrie van Azure Media Services configureren met REST | Microsoft Docs
-description: Dit artikel laat zien hoe u de REST-API met Azure Media Services-telemetrie...
+title: aaaConfiguring telemetrie van Azure Media Services met REST | Microsoft Docs
+description: Dit artikel laat zien hoe toouse telemetrie van Azure Media Services met REST-API Hallo...
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7d785c6eb9a9e16ae4853cded3c7c142080c7a09
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d0b6798c49be756fcebecf2e1e6ea497edd27cf0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Telemetrie van Azure Media Services configureren met REST
 
-Dit onderwerp beschrijft de algemene stappen die u bij het configureren van de Azure Media Services (AMS) telemetrie met REST-API kan duren. 
+Dit onderwerp beschrijft de algemene stappen die u bij het configureren van hello Azure Media Services (AMS) telemetrie met REST-API kan duren. 
 
 >[!NOTE]
->Voor de gedetailleerde uitleg van wat is AMS Telemetrie en hoe deze wordt gebruikt, Zie de [overzicht](media-services-telemetry-overview.md) onderwerp.
+>Voor hello gedetailleerde uitleg van wat AMS telemetrie is en hoe tooconsume, Zie Hallo [overzicht](media-services-telemetry-overview.md) onderwerp.
 
-De stappen in dit onderwerp beschreven zijn:
+Hallo stappen is beschreven in dit onderwerp zijn:
 
-- Het opslagaccount die is gekoppeld aan een Media Services-account ophalen
-- De Meldingseindpunten ophalen
+- Hallo storage-account is gekoppeld aan een Media Services-account ophalen
+- Ophalen van Meldingseindpunten Hallo
 - Maken van een Meldingseindpunt voor bewaking. 
 
-    Als u een Meldingseindpunt, stelt u de EndPointType AzureTable (2) en endPontAddress ingesteld op de opslag-tabel (bijvoorbeeld https://telemetryvalidationstore.table.core.windows.net/).
+    toocreate een Meldingseindpunt ingesteld Hallo EndPointType tooAzureTable (2) en endPontAddress set toohello opslag tabel (bijvoorbeeld https://telemetryvalidationstore.table.core.windows.net/).
   
-- Het bewaken van configuraties ophalen
+- Hallo bewaken van configuraties ophalen
 
-    Maak een controle configuratie-instellingen voor de services die u wilt bewaken. Niet meer dan één configuratie-instellingen voor bewaking is toegestaan. 
+    Een controleconfiguratie instellingen maken voor Hallo services u wilt dat toomonitor. Niet meer dan één configuratie-instellingen voor bewaking is toegestaan. 
 
 - Een controleconfiguratie toevoegen
 
 
  
-## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Het opslagaccount die is gekoppeld aan een Media Services-account ophalen
+## <a name="get-hello-storage-account-associated-with-a-media-services-account"></a>Hallo storage-account is gekoppeld aan een Media Services-account ophalen
 
 ###<a name="request"></a>Aanvraag
 
@@ -71,7 +71,7 @@ De stappen in dit onderwerp beschreven zijn:
     
     {"d":{"results":[{"__metadata":{"id":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts('telemetryvalidationstore')","uri":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts('telemetryvalidationstore')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.StorageAccount"},"Name":"telemetryvalidationstore","IsDefault":true,"BytesUsed":null}]}}
 
-## <a name="get-the-notification-endpoints"></a>De Meldingseindpunten ophalen
+## <a name="get-hello-notification-endpoints"></a>Ophalen van Meldingseindpunten Hallo
 
 ###<a name="request"></a>Aanvraag
 
@@ -125,7 +125,7 @@ De stappen in dit onderwerp beschreven zijn:
     }
 
 >[!NOTE]
->Vergeet niet de waarde 'https://telemetryvalidationstore.table.core.windows.net' wijzigen naar uw opslagaccount.
+>Vergeet niet toochange Hallo 'https://telemetryvalidationstore.table.core.windows.net' waarde tooyour storage-account.
 
 ###<a name="response"></a>Antwoord
 
@@ -146,7 +146,7 @@ De stappen in dit onderwerp beschreven zijn:
     
     {"d":{"__metadata":{"id":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints('nb%3Anepid%3AUUID%3A76bb4faf-ea29-4815-840a-9a8e20102fc4')","uri":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints('nb%3Anepid%3AUUID%3A76bb4faf-ea29-4815-840a-9a8e20102fc4')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.NotificationEndPoint"},"Id":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4","Name":"monitoring","Created":"\/Date(1449033042667)\/","EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/","EndPointType":2}}
  
-## <a name="get-the-monitoring-configurations"></a>Het bewaken van configuraties ophalen
+## <a name="get-hello-monitoring-configurations"></a>Hallo bewaken van configuraties ophalen
 
 ### <a name="request"></a>Aanvraag
 

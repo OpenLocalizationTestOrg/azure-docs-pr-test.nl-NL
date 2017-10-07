@@ -1,6 +1,6 @@
 ---
-title: HDInsight Spark-scenario's met PySpark en Scala in Azure | Microsoft Docs
-description: Voorbeelden van het Team gegevens wetenschap proces om op een Azure HDInsight Spark predictive analytics doen met behulp van de PySpark en Scala.
+title: aaaHDInsight Spark-scenario's met PySpark en Scala in Azure | Microsoft Docs
+description: Voorbeelden van Hallo Team gegevens wetenschappelijke processen die Hallo doorlopen, het gebruik van PySpark en Scala op een Azure HDInsight Spark toodo predictive analytics.
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: bradsev
-ms.openlocfilehash: 27065c3437c4617ed035623b48aa1a1a31a7094f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f8b41a8cae414586570761ba4b4eb4c239cbb981
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>HDInsight Spark gegevens wetenschappelijke scenario's met PySpark en Scala op Azure
 
-Deze scenario's gebruik PySpark en Scala in een Azure Spark-cluster voor predictive analytics. Ze stappen de die worden beschreven in de procedure voor wetenschappelijke gegevens Team. Zie voor een overzicht van het Team gegevens wetenschap proces [gegevens wetenschap proces](data-science-process-overview.md). Zie voor een overzicht van Spark in HDInsight [Inleiding tot Spark in HDInsight](../hdinsight/hdinsight-apache-spark-overview.md).
+Deze scenario's worden PySpark en Scala op een Azure Spark-cluster toodo predictive analytics gebruiken. Deze stappen Hallo die worden beschreven in Hallo Team gegevens wetenschappelijke processen. Zie voor een overzicht van Hallo Team gegevens wetenschap proces [gegevens wetenschap proces](data-science-process-overview.md). Zie voor een overzicht van Spark in HDInsight [tooSpark inleiding op HDInsight](../hdinsight/hdinsight-apache-spark-overview.md).
 
-Aanvullende gegevens wetenschap-scenario's die het Team gegevens wetenschap proces worden uitgevoerd zijn gegroepeerd op de **platform** die ze gebruiken: 
+Aanvullende gegevens wetenschap-scenario's die worden uitgevoerd Hallo Team gegevens wetenschappelijke processen zijn gegroepeerd op Hallo **platform** die ze gebruiken: 
 
 [!INCLUDE [tdsp-walkthroughs-by-platform](../../includes/tdsp-walkthroughs-by-platform.md)]
 
 ## <a name="predict-taxi-tips-using-pyspark-on-azure-spark"></a>Taxi tips PySpark met op Azure Spark voorspellen
 
-De [Spark op Azure HDInsight gebruiken](machine-learning-data-science-spark-overview.md) Stapsgewijze instructies wordt gebruikgemaakt van gegevens van de New York taxi's te voorspellen of een tip wordt betaald en het bereik van de bedragen te betalen verwacht. Dit maakt gebruik van de procedure van wetenschappelijke gegevens Team in een scenario met een [Azure HDInsight Spark-cluster](https://azure.microsoft.com/services/hdinsight/) om op te slaan, verkennen, en functie engineer van gegevens uit de openbaar NYC taxi reis en ritbedrag gegevensset. In dit onderwerp wordt ingesteld u up met een HDInsight Spark-cluster en de Jupyter PySpark notebooks in de rest van deze stapsgewijze Kennismaking gebruikt. Deze laptops ziet u hoe u uw gegevens verkennen en hoe u maken en gebruiken van modellen. De geavanceerde gegevens te verkennen en modellering notebook laat zien hoe naar kruisvalidatie, hyper-parameter verstrekkende, opnemen en model van de evaluatie.
+Hallo [Spark op Azure HDInsight gebruiken](machine-learning-data-science-spark-overview.md) scenario gebruikt gegevens uit de New York taxi's toopredict of een tip wordt betaald en Hallo diverse bedragen toobe betaald verwacht. Hierbij Hallo Team gegevens wetenschappelijke processen in een scenario met een [Azure HDInsight Spark-cluster](https://azure.microsoft.com/services/hdinsight/) toostore, verkennen, en gegevens van de engineer van Hallo openbaar NYC taxi zakenreis functie en ritbedrag gegevensset. In dit overzichtsonderwerp stelt u met een HDInsight Spark-cluster en het Hallo Jupyter PySpark notebooks in Hallo rest Hallo stapsgewijze Kennismaking gebruikt. Deze laptops laten zien hoe u tooexplore uw gegevens en vervolgens het toocreate en modellen in beslag nemen. Hallo geavanceerde gegevensverkenning en laptop toont hoe modelleren tooinclude kruisvalidatie, hyper-parameter sweeping en evaluatie van het model.
 
 ### <a name="data-exploration-and-modeling-with-spark"></a>Gegevensverkenning en modellering met Spark 
-De gegevensset te verkennen en maken, beoordelen en evalueren van de machine learning-modellen doorloopt de [binaire classificatie en regressie modellen voor gegevens maken met de toolkit Spark MLlib](machine-learning-data-science-spark-data-exploration-modeling.md) onderwerp.
+Hallo gegevensset verkennen en maken, beoordelen en evalueren Hallo machine learning-modellen doorloopt Hallo [binaire classificatie en regressie modellen voor gegevens maken met Hallo Spark MLlib toolkit](machine-learning-data-science-spark-data-exploration-modeling.md) onderwerp.
 
 ### <a name="model-consumption"></a>Model verbruik
-Zie voor meer informatie over de classificatie en regressie modellen gemaakt in dit onderwerp te beoordelen, [Score en evalueren van Spark is gebouwd machine learning-modellen](machine-learning-data-science-spark-model-consumption.md).
+toolearn hoe tooscore Hallo classificatie en regressie modellen gemaakt in dit onderwerp raadpleegt [Score en evalueren van Spark is gebouwd machine learning-modellen](machine-learning-data-science-spark-model-consumption.md).
 
 ### <a name="cross-validation-and-hyperparameter-sweeping"></a>Kruisvalidatie en hyperparameter sweeping
 Zie [geavanceerde gegevensverkenning en modellering met Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) over de manier waarop modellen kunnen getraind met sweeping kruisvalidatie en hyper-parameter.
@@ -44,12 +44,12 @@ Zie [geavanceerde gegevensverkenning en modellering met Spark](machine-learning-
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Taxi tips met behulp van Scala op Azure Spark voorspellen
 
-De [gebruik Scala met Spark op Azure](machine-learning-data-science-process-scala-walkthrough.md) Stapsgewijze instructies wordt gebruikgemaakt van gegevens van de New York taxi's te voorspellen of een tip wordt betaald en het bereik van de bedragen te betalen verwacht. Er wordt weergegeven hoe Scala gebruiken voor bewaakte machine learning-taken met de Spark-machine learning-bibliotheek (MLlib) en SparkML pakketten in een Azure HDInsight Spark-cluster. Dit leidt u door de taken die deel uitmaken van de [gegevens wetenschap proces](http://aka.ms/datascienceprocess): gegevensopname en verkennen, visualisatie, functie-engineering, modellering en model verbruik. De modellen gebouwd zijn logistic en lineaire regressie, willekeurige forests en kleurovergang gestimuleerd structuren.
+Hallo [gebruik Scala met Spark op Azure](machine-learning-data-science-process-scala-walkthrough.md) scenario gebruikt gegevens uit de New York taxi's toopredict of een tip wordt betaald en Hallo diverse bedragen toobe betaald verwacht. Er wordt weergegeven hoe toouse Scala voor bewaakte machine learning taken met Hallo Spark machine learning-bibliotheek (MLlib) en SparkML pakketten in een Azure HDInsight Spark-cluster. Het wordt u begeleid bij Hallo-taken die deel uitmaken van Hallo [gegevens wetenschap proces](http://aka.ms/datascienceprocess): gegevensopname en verkennen, visualisatie, functie-engineering, modellering en model verbruik. Hallo-modellen gebouwd bevatten logistic en lineaire regressie, willekeurige forests en kleurovergang gestimuleerd structuren.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor een bespreking van de belangrijke onderdelen waaruit het Team gegevens wetenschap proces [Team gegevens wetenschappelijke procesoverzicht](data-science-process-overview.md).
+Zie voor een beschrijving van de belangrijke onderdelen Hallo waaruit Hallo Team gegevens wetenschappelijke processen, [Team gegevens wetenschappelijke procesoverzicht](data-science-process-overview.md).
 
-Zie voor een bespreking van de levensduur van het Team gegevens wetenschappelijke processen die u gebruiken kunt voor de structuur van uw gegevens wetenschappelijke projecten [Team gegevens wetenschap proces lifecycle](data-science-process-lifecycle.md). De levenscyclus van bevat de stappen, van begin tot eind, projecten meestal volgen wanneer ze worden uitgevoerd. 
+Zie voor een beschrijving van de levenscyclus van Hallo Team gegevens wetenschappelijke processen waarmee u toostructure kunt gegevens wetenschappelijke projecten, [Team gegevens wetenschap proces lifecycle](data-science-process-lifecycle.md). Hallo lifecycle bevat een overzicht van Hallo stappen van de start-toofinish die projecten meestal volgt wanneer ze worden uitgevoerd. 
 

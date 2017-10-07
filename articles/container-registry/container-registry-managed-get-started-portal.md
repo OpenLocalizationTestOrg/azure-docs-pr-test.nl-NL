@@ -1,6 +1,6 @@
 ---
-title: "Privé-Docker-register maken - Azure Portal | Microsoft Docs"
-description: "Aan de slag met het maken en beheren van privé-Docker-containerregisters met Azure Portal"
+title: aaaCreate persoonlijke Docker-register - Azure-portal | Microsoft Docs
+description: Maken en beheren van persoonlijke Docker-container registers Hello Azure-portal aan de slag
 services: container-registry
 documentationcenter: 
 author: neilpeterson
@@ -17,57 +17,57 @@ ms.workload: na
 ms.date: 07/11/2017
 ms.author: nepeters
 ms.custom: na
-ms.openlocfilehash: 560aee42b0c5a61c37c594d7937f833ab7183d49
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: cf3ce0dcf3036d0e9cd1eaf01721deccb00248d2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-managed-container-registry-using-the-azure-portal"></a>Een beheerd containerregister maken met Azure Portal
+# <a name="create-a-managed-container-registry-using-hello-azure-portal"></a>Maken van een beheerde container register met hello Azure-portal
 
-Azure Container Registry is een beheerde service voor Docker-containerregisters die wordt gebruikt voor het opslaan van installatiekopieën van persoonlijke Docker-containers. In deze handleiding vindt u instructies voor het maken van een beheerd exemplaar van Azure Container Registry via Azure Portal.
+Azure Container Registry is een beheerde service voor Docker-containerregisters die wordt gebruikt voor het opslaan van installatiekopieën van persoonlijke Docker-containers. Deze handleiding-gegevens voor het maken van een beheerde Azure-Container register-exemplaar met gebruikmaking van hello Azure-portal.
 
 Beheerde Azure-containerregisters zijn nog in preview en zijn niet in alle regio's beschikbaar.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="log-in-tooazure"></a>Meld u bij tooAzure
 
-Meld u via http://portal.azure.com aan bij Azure Portal.
+Toohello aanmelden met Azure-portal op http://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
 
-1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1. Klik op Hallo **nieuw** knop gevonden op Hallo linkerbovenhoek Hallo Azure-portal.
 
-2. Zoek in Marketplace naar **Azure Container Registry** en selecteer het product.
+2. Zoeken Hallo marketplace voor **Azure container register** en selecteer deze.
 
-3. Klik op **Maken** om de blade ACR maken te openen.
+3. Klik op **maken** die blade Hallo ACR-maken wordt geopend.
 
     ![Container Registry-instellingen](./media/container-registry-get-started-portal/managed-container-registry-settings.png)
 
-4. Voer de volgende gegevens in op de blade **Azure Container Registry**. Klik op **Maken** wanneer u klaar bent.
+4. In Hallo **Azure Container register** blade Hallo volgende informatie invoeren. Klik op **Maken** wanneer u klaar bent.
 
-    a. **Registernaam**: een unieke domeinnaam op het hoogste niveau voor uw specifieke register. De registernaam in dit voorbeeld is *myAzureContainerRegistry1*, maar u moet deze naam vervangen door een eigen unieke naam. De naam mag alleen uit letters en cijfers bestaan.
+    a. **Registernaam**: een unieke domeinnaam op het hoogste niveau voor uw specifieke register. In dit voorbeeld is de naam van Hallo register *myAzureContainerRegistry1*, maar vervangen door een unieke naam van uw eigen. Hallo-naam mag alleen letters en cijfers zijn.
 
-    b. **Resourcegroep**: selecteer een bestaande [resourcegroep](../azure-resource-manager/resource-group-overview.md#resource-groups) of typ de gewenste naam voor een nieuwe resourcegroep.
+    b. **Resourcegroep**: Selecteer een bestaande [resourcegroep](../azure-resource-manager/resource-group-overview.md#resource-groups) of Hallo typenaam voor een nieuwe resourcegroep.
 
-    c. **Locatie**: selecteer een Azure Datacenter-locatie waar de service [beschikbaar](https://azure.microsoft.com/regions/services/) is, zoals **Zuid-centraal VS**.
+    c. **Locatie**: Selecteer een Azure-datacenter locatie van Hallo service [beschikbaar](https://azure.microsoft.com/regions/services/), zoals **Zuid-centraal VS**.
 
-    d. **Beheerder**: schakel eventueel toegang tot het register in voor een beheerder. U kunt deze instelling wijzigen nadat u het register hebt gemaakt.
+    d. **Gebruiker met beheerdersrechten**: als u wilt, schakelt u het register voor een beheerder de gebruiker tooaccess Hallo. U kunt deze instelling na het maken van Hallo register kunt wijzigen.
 
-    e. **Beheerd register gebruiken**: selecteer Ja als ACR automatisch de registeropslag moet beheren, webhooks moet gebruiken en AAD-verificatie moet toepassen.
+    e. **Gebruik beheerde register**: Selecteer Ja toohave ACR automatisch Hallo register opslag te beheren, gebruik webhooks en gebruik AAD-verificaties.
 
     f. **Prijscategorie**: selecteer een prijscategorie, zie ACR-prijzen voor meer informatie.
 
-## <a name="log-in-to-acr-instance"></a>Aanmelden bij ACR-exemplaar
+## <a name="log-in-tooacr-instance"></a>Meld u bij tooACR exemplaar
 
-Voordat u installatiekopieën van containers gaat pushen en pullen, moet u zich aanmelden bij het ACR-exemplaar. 
+Voordat u pushen en installatiekopieën van de container binnenhalen, moet u zich aanmeldt toohello ACR-exemplaar. 
 
-Gebruik hiervoor de Azure CLI 2.0. Meld u indien nodig eerst aan bij Azure, met behulp van de opdracht [az login](/cli/azure/#login). 
+toodo gebruik dus hello Azure CLI 2.0. Eerst, indien nodig, meld u aan bij Azure met behulp van Hallo [az aanmelding](/cli/azure/#login) opdracht. 
 
 ```azurecli
 az login
 ```
 
-Gebruik vervolgens de opdracht [az acr login](/cli/azure/acr#login) om u aan te melden bij Azure Container Registry.
+Gebruik vervolgens Hallo [az acr aanmelding](/cli/azure/acr#login) opdracht toolog in Azure Container register toohello.
 
 ```azurecli-interactive
 az acr login --name myAzureContainerRegistry1
@@ -77,14 +77,14 @@ az acr login --name myAzureContainerRegistry1
 
 ### <a name="list-container-images"></a>Containerinstallatiekopieën opvragen
 
-Gebruik de `az acr`-CLI-opdrachten om query's toe te passen op de installatiekopieën en tags in een opslagplaats.
+Gebruik Hallo `az acr` CLI-opdrachten tooquery Hallo installatiekopieën en labels in een opslagplaats.
 
 > [!NOTE]
-> Container Registry ondersteunt momenteel de opdracht `docker search` niet voor het toepassen van query's op installatiekopieën en tags.
+> Container register biedt momenteel geen ondersteuning voor Hallo `docker search` opdracht tooquery voor afbeeldingen en labels.
 
 ### <a name="list-repositories"></a>Opslagplaatsen weergeven
 
-In het volgende voorbeeld worden de opslagplaatsen in een register weergegeven in JSON-indeling (JavaScript Object Notation):
+Hallo volgende voorbeeld worden Hallo-opslagplaatsen in een register, in JSON (JavaScript Object Notation)-indeling:
 
 ```azurecli
 az acr repository list -n myContainerRegistry1 -o json
@@ -92,7 +92,7 @@ az acr repository list -n myContainerRegistry1 -o json
 
 ### <a name="list-tags"></a>Tags weergeven
 
-In het volgende voorbeeld worden de tags in de opslagplaats **samples/nginx** weergegeven in JSON-indeling:
+Hallo volgende voorbeeld wordt een lijst Hallo labels op Hallo **samples/nginx** -opslagplaats, in JSON-indeling:
 
 ```azurecli
 az acr repository show-tags -n myContainerRegistry1 --repository samples/nginx -o json
@@ -100,7 +100,7 @@ az acr repository show-tags -n myContainerRegistry1 --repository samples/nginx -
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u een beheerd exemplaar van Azure Container Registry gemaakt met behulp van Azure Portal.
+In deze snel starten, kunt u een beheerde Azure-Container register-exemplaar met gebruikmaking van hello Azure-portal hebt gemaakt.
 
 > [!div class="nextstepaction"]
-> [Uw eerste installatiekopie pushen met de Docker-CLI](container-registry-get-started-docker-cli.md)
+> [Uw eerste installatiekopie met behulp van Docker CLI Hallo push](container-registry-get-started-docker-cli.md)

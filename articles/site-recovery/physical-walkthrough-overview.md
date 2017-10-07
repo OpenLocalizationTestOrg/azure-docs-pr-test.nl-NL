@@ -1,6 +1,6 @@
 ---
-title: Fysieke repliceren lokale servers naar Azure met Azure Site Recovery | Microsoft Docs
-description: Biedt een overzicht van de stappen voor het repliceren van workloads die worden uitgevoerd op fysieke on-premises Windows of Linux-servers naar Azure met de Azure Site Recovery-service.
+title: fysieke aaaReplicate lokale servers tooAzure met Azure Site Recovery | Microsoft Docs
+description: Biedt een overzicht van Hallo stappen voor het repliceren van workloads die worden uitgevoerd op de lokale Windows-/ Linux fysieke servers tooAzure Hello Azure Site Recovery-service.
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,86 +14,86 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.openlocfilehash: 0a09b35e98dc0b2f5283c2a707a3a2b8ac9a39f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f801b9544072d4029ec06cc1abfd4ff370e852e9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="replicate-physical-servers-to-azure-with-site-recovery"></a>Fysieke servers repliceren naar Azure met Site Recovery
+# <a name="replicate-physical-servers-tooazure-with-site-recovery"></a>Replicatie van fysieke servers tooAzure met Site Recovery
 
-In dit artikel biedt een overzicht van de stappen die nodig zijn voor het repliceren van fysieke on-premises Windows of Linux-servers naar Azure, met behulp van de [Azure Site Recovery](site-recovery-overview.md) service in de Azure portal.
+In dit artikel biedt een overzicht van Hallo stappen vereist tooreplicate lokale Windows-/ Linux fysieke servers tooAzure, met behulp van Hallo [Azure Site Recovery](site-recovery-overview.md) service in hello Azure-portal.
 
 
 ## <a name="step-1-review-architecture-and-prerequisites"></a>Stap 1: Bekijk de architectuur en vereisten
 
-Voordat u de implementatie begint, Controleer de scenarioarchitectuur en zorg dat u begrijpt dat alle onderdelen die u nodig hebt voor het instellen van de implementatie.
+Voordat u de implementatie begint, Controleer Hallo scenario-architectuur en zorg ervoor dat u begrijpt dat alle benodigde tooset Hallo implementatie Hallo-onderdelen.
 
-Ga naar [stap 1: Bekijk de architectuur](physical-walkthrough-architecture.md)
+Ga te[stap 1: Bekijk Hallo-architectuur](physical-walkthrough-architecture.md)
 
 
 ## <a name="step-2-review-prerequisites"></a>Stap 2: Controleer vereisten
 
-Zorg ervoor dat u beschikken over de vereisten voor elk onderdeel van de implementatie:
+Zorg ervoor dat u beschikt over de Hallo vereisten voor elk onderdeel van de implementatie:
 
 - **Vereisten voor Azure**: U moet een Microsoft Azure-account Azure-netwerken en opslagaccounts.
 - **Site Recovery-onderdelen op lokale**: U moet een machine met on-premises Site Recovery-onderdelen.
-- **Gerepliceerde machines**: u wilt repliceren Servers moeten voldoen aan de on-premises en Azure-vereisten.
+- **Gerepliceerde machines**: Servers die u wilt dat tooreplicate moeten toocomply met on-premises en Azure-vereisten.
 
-Ga naar [stap 2: Controleer de vereisten en beperkingen](physical-walkthrough-prerequisites.md)
+Ga te[stap 2: Controleer de vereisten en beperkingen](physical-walkthrough-prerequisites.md)
 
 ## <a name="step-3-plan-capacity"></a>Stap 3: Plan capaciteit
 
-Als u een volledige implementatie uitvoert moet u achterhalen welke replicatie bronnen die u nodig. Als u een snelle instellen voor het testen van de omgeving doet, kunt u deze stap overslaan.
+Als u een volledige implementatie uitvoert moet u toofigure uit welke replicatie bronnen die u nodig. Als u een snelle tootest Hallo-omgeving instellen doet, kunt u deze stap overslaan.
 
-[Stap 3: Capaciteit plannen](physical-walkthrough-capacity.md)
+Ga te[stap 3: plannen van capaciteit](physical-walkthrough-capacity.md)
 
 ## <a name="step-4-plan-networking"></a>Stap 4: Netwerken plannen
 
-U moet uitvoeren van een netwerk om ervoor te zorgen dat virtuele Azure-machines zijn verbonden met netwerken nadat er failover wordt uitgevoerd en die dat ze het juiste IP hebben-adressen.
+U moet een netwerk tooensure dat de virtuele Azure-machines verbonden toonetworks zijn nadat de failover plaatsvindt en dat er Hallo juiste IP-adressen plannen toodo.
 
-Ga naar [stap 4: netwerken plannen](physical-walkthrough-network.md)
+Ga te[stap 4: netwerken plannen](physical-walkthrough-network.md)
 
 ##  <a name="step-5-prepare-azure-resources"></a>Stap 5: Azure-resources voorbereiden
 
 Instellen van Azure-netwerken en opslag voordat u begint. 
 
-Ga naar [stap 5: Azure voorbereiden](physical-walkthrough-prepare-azure.md)
+Ga te[stap 5: Azure voorbereiden](physical-walkthrough-prepare-azure.md)
 
 
 ## <a name="step-6-set-up-a-vault"></a>Stap 6: Een kluis instellen
 
-U instellen kunt een Recovery Services-kluis organiseren en beheren van replicatie. Wanneer u de kluis instelt, geeft u wat u wilt repliceren en waar u naar wilt repliceren naar.
+U een Recovery Services-kluis tooorchestrate instellen en beheren van replicatie. Wanneer u Hallo kluis instelt, geeft u op wat u tooreplicate, en waar u tooreplicate naar.
 
-Ga naar [stap 6: een kluis instellen](physical-walkthrough-create-vault.md)
+Ga te[stap 6: een kluis instellen](physical-walkthrough-create-vault.md)
 
 ## <a name="step-7-configure-source-and-target-settings"></a>Stap 7: De bron en doel-instellingen configureren
 
-Configureer instellingen voor de bron en doelsite (Azure). Instellingen van de bronserver omvat Unified installatieprogramma voor het installeren van de on-premises Site Recovery-onderdelen uit te voeren.
+Instellingen configureren voor Hallo bron en doel (Azure) site. Instellingen van de bronserver omvat Hallo on-premises Site Recovery-onderdelen voor Setup Unified tooinstall uitgevoerd.
 
-Ga naar [stap 7: de bron en doel instellen](physical-walkthrough-source-target.md)
+Ga te[stap 7: Hallo bron en doel instellen](physical-walkthrough-source-target.md)
 
 ## <a name="step-8-set-up-a-replication-policy"></a>Stap 8: Een replicatiebeleid instellen
 
-U moet een beleid om op te geven welke fysieke servers repliceren.
+Instellen van een beleid toospecify welke fysieke servers te repliceren.
 
-Ga naar [stap 8: een replicatiebeleid instellen](physical-walkthrough-replication.md)
+Ga te[stap 8: een replicatiebeleid instellen](physical-walkthrough-replication.md)
 
-## <a name="step-9-install-the-mobility-service"></a>Stap 9: Installeer de Mobility-service
+## <a name="step-9-install-hello-mobility-service"></a>Stap 9: Hallo Mobility-service installeren
 
-De Mobility-service moet worden geïnstalleerd op elke server die u wilt repliceren. Er zijn een aantal manieren voor het instellen van de service, push of pull-installatie.
+Hallo Mobility-service moet worden geïnstalleerd op elke server die u wilt tooreplicate. Er zijn enkele manieren tooset Hallo-service met push of pull-installatie.
 
-Ga naar [stap 9: de Mobility-service installeren](physical-walkthrough-install-mobility.md)
+Ga te[stap 9: Hallo Mobility-service installeren](physical-walkthrough-install-mobility.md)
 
 ## <a name="step-10-enable-replication"></a>Stap 10: De replicatie inschakelen
 
-Nadat de Mobility-service wordt uitgevoerd op een server, kunt u replicatie inschakelen. Na het inschakelen, treedt initiële replicatie van de virtuele machine op.
+Nadat het Hallo Mobility-service wordt uitgevoerd op een server, kunt u replicatie inschakelen. Na het inschakelen, initiële replicatie van Hallo VM zich voordoet.
 
-Ga naar [stap 10: replicatie inschakelen](physical-walkthrough-enable-replication.md)
+Ga te[stap 10: replicatie inschakelen](physical-walkthrough-enable-replication.md)
 
 ## <a name="step-11-run-a-test-failover"></a>Stap 11: Een testfailover uitvoeren
 
-Nadat de eerste replicatie is voltooid en de replicatie van verschillen wordt uitgevoerd, kunt u een testfailover om te controleren of dat alles werkt zoals verwacht uitvoeren.
+Nadat de eerste replicatie is voltooid en de replicatie van verschillen wordt uitgevoerd, kunt u een test failover toomake, controleren of dat alles werkt zoals verwacht uitvoeren.
 
-Ga naar [stap 11: een testfailover uitvoeren](physical-walkthrough-test-failover.md)
+Ga te[stap 11: een testfailover uitvoeren](physical-walkthrough-test-failover.md)
 

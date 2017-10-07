@@ -1,6 +1,6 @@
 ---
-title: Bestanden vanuit Azure StorSimple uploaden naar een Azure Media Services-account | Microsoft Docs
-description: Dit artikel geeft een kort overzicht van Azure StorSimple Data Manager. Het artikel bevat ook koppelingen naar zelfstudies die laten zien hoe u gegevens extraheert uit StorSimple en deze vervolgens als assets uploadt naar een Azure Media Services-account.
+title: aaaUpload bestanden naar een Azure Media Services-account van Azure StorSimple | Microsoft Docs
+description: Dit artikel geeft een kort overzicht van Azure StorSimple Data Manager. Hallo artikel bevat ook koppelingen tootutorials die laten hoe u zien gegevens van StorSimple tooextract en upload het als activa tooan Azure Media Services-account.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/27/2017
 ms.author: juliako
-ms.openlocfilehash: 636d55c15aa383208ffb39d5224123831af962c9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7e9712aa480106bbd5fcc63eaecf0418b24a8bef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Bestanden vanuit Azure StorSimple uploaden naar een Azure Media Services-account
 
-Dit artikel geeft een kort overzicht van Azure StorSimple Data Manager. Dit artikel bevat ook koppelingen naar zelfstudies die laten zien hoe u gegevens extraheert uit StorSimple en deze gegevens vervolgens als assets uploadt naar een AMS-account (Azure Media Services).
+Dit artikel geeft een kort overzicht van Azure StorSimple Data Manager. Hallo artikel bevat ook koppelingen tootutorials die laten hoe u zien tooextract gegevens van StorSimple en deze gegevens te uploaden als activa tooan Azure Media Services (AMS)-account.
 
 > 
 > [!NOTE]
@@ -31,22 +31,22 @@ Dit artikel geeft een kort overzicht van Azure StorSimple Data Manager. Dit arti
 
 ## <a name="overview"></a>Overzicht
 
-In Media Services uploadt u de digitale bestanden naar (of neemt u deze op in) een asset. De asset kan video, audio, afbeeldingen, verzamelingen van miniaturen, tekstsporen en ondertitelingsbestanden (en de metagegevens voor deze bestanden) bevatten. Zodra de bestanden zijn geüpload, wordt uw inhoud veilig opgeslagen in de cloud voor verdere verwerking en streaming.
+In Media Services uploadt u de digitale bestanden naar (of neemt u deze op in) een asset. Hallo Asset kan bevatten, video, audio, afbeeldingen, verzamelingen miniaturen, tekst tekstsporen en ondertitelingsbestanden bestanden (en Hallo metagegevens over deze bestanden.) Zodra het Hallo-bestanden zijn geüpload, wordt uw inhoud veilig opgeslagen in Hallo cloud voor verdere verwerking en streaming.
 
-[Azure StorSimple](https://docs.microsoft.com/azure/storsimple/) gebruikt cloudopslag als een uitbreiding van de on-premises oplossing en verdeelt gegevens automatisch over de on-premises opslag en de cloudopslag. Het StorSimple-apparaat ontdubbelt en comprimeert uw gegevens voordat deze naar de cloud worden verzonden, zodat grote bestanden zeer efficiënt in de cloud kunnen worden opgeslagen. De [StorSimple Data Manager](../storsimple/storsimple-data-manager-overview.md)-service biedt API's waarmee u gegevens kunt extraheren uit StorSimple om deze vervolgens als AMS-assets te presenteren.
+[Azure StorSimple](https://docs.microsoft.com/azure/storsimple/) cloudopslag gebruikt als een uitbreiding van Hallo on-premises-oplossing en automatisch gegevens over Hallo lokale opslag en cloud-opslag lagen. Hallo StorSimple-apparaat dedupes en uw gegevens te comprimeren voordat deze toohello cloud waardoor het zeer efficiënte voor het verzenden van grote bestanden toohello cloud worden verzonden. Hallo [StorSimple Data Manager](../storsimple/storsimple-data-manager-overview.md) service biedt API's die u tooextract gegevens van StorSimple inschakelen en op te geven als AMS activa.
 
 ## <a name="get-started"></a>Aan de slag
 
-1. [Maak een Media Services-account](media-services-portal-create-account.md) waarnaar u de assets wilt overbrengen.
-2. Geef u op voor de preview van Data Manager, zoals wordt beschreven in het artikel [StorSimple Data Manager](../storsimple/storsimple-data-manager-overview.md).
+1. [Een Media Services-account maken](media-services-portal-create-account.md) waarnaar tootransfer Hallo activa.
+2. Aanmelden voor de preview van Data Manager, zoals beschreven in Hallo [StorSimple Data Manager](../storsimple/storsimple-data-manager-overview.md) artikel.
 3. Maak een StorSimple Data Manager-account.
 4. Maak een taak voor gegevenstransformatie die bij uitvoering gegevens extraheert van een StorSimple-apparaat en deze als assets overbrengt naar een AMS-account. 
 
-    Op het moment dat de taak wordt gestart, wordt er een opslagwachtrij gemaakt. Deze wachtrij wordt gevuld met berichten over getransformeerde blobs wanneer deze gereed zijn. De naam van deze wachtrij is hetzelfde als de naam van de taakdefinitie. U kunt deze wachtrij gebruiken om te bepalen wanneer een asset gereed is en vervolgens de gewenste Media Services-bewerking aanroepen om een bewerking op de asset uit te voeren. U kunt deze wachtrij bijvoorbeeld om een Azure-functie te activeren waarin de benodigde Media Services-code is opgenomen.
+    Wanneer Hallo-taak gestart wordt, wordt een opslagwachtrij gemaakt. Deze wachtrij wordt gevuld met berichten over getransformeerde blobs wanneer deze gereed zijn. Hallo-naam van deze wachtrij is hetzelfde als de naam van de taakdefinitie Hallo HALLO hallo. U kunt deze wachtrij toodetermine wanneer asset is klaar te maken en de gewenste bewerking toorun voor Media Services voor het aanroepen. Bijvoorbeeld, kunt u deze wachtrij tootrigger een Azure-functie met Hallo benodigde Media Services-code.
 
 ## <a name="see-also"></a>Zie ook
 
-[Use the .Net SDK to initiate data transformation (Private Preview)](../storsimple/storsimple-data-manager-dotnet-jobs.md) (Gegevenstransformatie starten met de SDK voor .NET (Private Preview))
+[Gebruik de .net SDK Hallo tootrigger taken in Hallo Data Manager](../storsimple/storsimple-data-manager-dotnet-jobs.md)
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -1,6 +1,6 @@
 ---
-title: 'Intel Edison (knooppunt) verbinden met Azure IoT - les 4: de LED knipperen | Microsoft Docs'
-description: De berichten te wijzigen van de LED van in- en uitschakelen gedrag aanpassen.
+title: 'Verbinding maken met Intel Edison (knooppunt) tooAzure IoT - les 4: Hallo LED knipperen | Microsoft Docs'
+description: Hallo-berichten toochange Hallo LED van in- en uitschakelen gedrag aanpassen.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,30 +17,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: fa99050dad62534e2825e93f1170d2f3ecf5a3ba
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: caeabe311fd1698f298c6d2b4a203ecad80ef7df
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="change-the-on-and-off-behavior-of-the-led"></a>De on- en uitgeschakeld gedrag van de LED wijzigen
+# <a name="change-hello-on-and-off-behavior-of-hello-led"></a>Hallo in- en uitschakelen gedrag van Hallo LED wijzigen
 ## <a name="what-you-will-do"></a>Wat u doet
-De berichten te wijzigen van de LED van in- en uitschakelen gedrag aanpassen. Als u problemen hebt, moet u uitkijken voor oplossingen op de [probleemoplossing pagina][troubleshooting].
+Hallo-berichten toochange Hallo LED van in- en uitschakelen gedrag aanpassen. Als u problemen hebt, zoekt u naar oplossingen op Hallo [probleemoplossing pagina][troubleshooting].
 
 ## <a name="what-you-will-learn"></a>Wat u leert
-Aanvullende functies gebruiken om te wijzigen van de LED van in- en uitgeschakeld gedrag.
+Gebruik aanvullende functies toochange Hallo LED van in- en uitgeschakeld gedrag.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
-U moet hebt voltooid [een voorbeeldtoepassing uitvoeren op Intel Edison cloud naar apparaat-berichten ontvangen][receive-cloud-to-device-messages].
+U moet hebt voltooid [een voorbeeldtoepassing uitvoeren op Intel Edison tooreceive cloud toodevice berichten][receive-cloud-to-device-messages].
 
-## <a name="add-functions-to-appjs-and-gulpfilejs"></a>Functies toevoegen aan app.js en gulpfile.js
-1. De voorbeeldtoepassing openen in Visual Studio code met de volgende opdrachten:
+## <a name="add-functions-tooappjs-and-gulpfilejs"></a>Functies tooapp.js en gulpfile.js toevoegen
+1. Hallo-voorbeeldtoepassing openen in Visual Studio code door het uitvoeren van de volgende opdrachten Hallo:
 
    ```bash
    cd Lesson4
    code .
    ```
-2. Open de `app.js` bestand en voeg vervolgens de volgende functies na de blinkLED() functie:
+2. Open Hallo `app.js` bestand en voeg vervolgens Hallo functies volgen na de blinkLED() functie:
 
    ```javascript
    function turnOnLED() {
@@ -53,7 +53,7 @@ U moet hebt voltooid [een voorbeeldtoepassing uitvoeren op Intel Edison cloud na
    ```
 
    ![bestand App.js, waarbij toegevoegde functies](media/iot-hub-intel-edison-lessons/lesson4/updated_app_node.png)
-3. De volgende condities voordat de aanvraag 'knipperen' in het blok switch-aanvraag van de `receiveMessageCallback` functie:
+3. Hallo volgende voorwaarden voordat Hallo 'knipperen' case in Hallo switch case blok Hallo toevoegen `receiveMessageCallback` functie:
 
    ```javascript
    case 'on':
@@ -64,8 +64,8 @@ U moet hebt voltooid [een voorbeeldtoepassing uitvoeren op Intel Edison cloud na
      break;
    ```
 
-   Nu hebt u de voorbeeldtoepassing om te reageren op meer instructies via berichten geconfigureerd. De instructie 'op' Hiermee schakelt u de LED en schakelt u de instructie "off" uit de LED.
-4. Open het bestand gulpfile.js en voeg vervolgens een nieuwe functie voordat de functie `sendMessage`:
+   U hebt nu Hallo voorbeeld toepassing toorespond toomore instructies via berichten geconfigureerd. Hallo 'aan'-instructie Hiermee schakelt u Hallo LED en Hallo "off" instructie Hallo LED uitgeschakeld.
+4. Hallo gulpfile.js bestand openen en voeg vervolgens een nieuwe functie voordat de functie Hallo `sendMessage`:
 
    ```javascript
    var buildCustomMessage = function (messageId) {
@@ -80,28 +80,28 @@ U moet hebt voltooid [een voorbeeldtoepassing uitvoeren op Intel Edison cloud na
    ```
 
    ![Bestand met toegevoegde functie Gulpfile.js][gulpfile]
-5. In de `sendMessage` werken, worden vervangen door de regel `var message = buildMessage(sentMessageCount);` met de nieuwe regel wordt weergegeven in het volgende fragment:
+5. In Hallo `sendMessage` werkt, Hallo regel vervangen `var message = buildMessage(sentMessageCount);` met Hallo nieuwe regel wordt weergegeven in het volgende codefragment Hallo:
 
    ```javascript
    var message = buildCustomMessage(sentMessageCount);
    ```
-6. Sla de wijzigingen op.
+6. Alle Hallo wijzigingen worden opgeslagen.
 
-### <a name="deploy-and-run-the-sample-application"></a>Implementeren en uitvoeren van de voorbeeldtoepassing
-Implementeren en uitvoeren van de voorbeeldtoepassing op Edison met de volgende opdracht:
+### <a name="deploy-and-run-hello-sample-application"></a>Implementeren en uitvoeren van de voorbeeldtoepassing Hallo
+Implementeren en uitvoeren van de voorbeeldtoepassing Hallo op Edison door het uitvoeren van de volgende opdracht Hallo:
 
 ```bash
 gulp deploy && gulp run
 ```
 
-U ziet de LED inschakelen voor twee seconden en klik vervolgens uitschakelen voor een andere twee seconden. Het laatste bericht met 'stop' stopt de voorbeeldtoepassing wordt uitgevoerd.
+U ziet Hallo LED inschakelen voor twee seconden en klik vervolgens uitschakelen voor een andere twee seconden. Hallo laatste 'stop'-bericht stopt Hallo voorbeeldtoepassing wordt uitgevoerd.
 
 ![in- of uitschakelen][on-and-off]
 
-Gefeliciteerd. U hebt de berichten die worden verzonden naar Edison uit uw IoT-hub is aangepast.
+Gefeliciteerd. U hebt is aangepast Hallo-berichten die tooEdison uit uw IoT-hub worden verzonden.
 
 ### <a name="summary"></a>Samenvatting
-Deze optionele sectie laat zien hoe berichten aan te passen zodat de voorbeeldtoepassing op een andere manier de in- en uitgeschakeld gedrag van de LED kunt beheren.
+Deze optionele sectie laat zien hoe toocustomize berichten zodat de voorbeeldtoepassing Hallo Hallo in- en uitschakelen gedrag van Hallo LED op een andere manier kunt beheren.
 
 <!-- Images and links -->
 

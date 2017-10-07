@@ -1,7 +1,7 @@
 # StorSimple Virtual Array
 
 ## Overzicht
-### [Wat is de oplossing?](storsimple-ova-overview.md)
+### [Wat is Hallo-oplossing?](storsimple-ova-overview.md)
 
 ## Aan de slag
 ### Plannen
@@ -10,7 +10,7 @@
 #### [Best praktijken beoordelen](storsimple-ova-best-practices.md)
 
 ### Implementeren
-#### [Implementatie voorbereiden](storsimple-virtual-array-deploy1-portal-prep.md)
+#### [Toodeploy voorbereiden](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [StorSimple Manager-service implementeren](storsimple-virtual-array-manage-service.md)
 #### [Inrichten in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Inrichten in VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
@@ -53,7 +53,7 @@
 # StorSimple 8000-serie (Azure Portal)
 
 ## Overzicht
-### [Wat is de oplossing?](storsimple-overview.md)
+### [Wat is Hallo-oplossing?](storsimple-overview.md)
 ### [Leertraject voor StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Beveiligingsoverwegingen](storsimple-8000-security.md)
 
@@ -87,12 +87,12 @@
 #### [StorSimple Manager-service gebruiken](storsimple-8000-manager-service-administration.md)
 ##### [Herstellen vanaf back-up](storsimple-8000-restore-from-backup-set-u2.md)
 ##### [Een volume klonen](storsimple-8000-clone-volume-u2.md)
-##### [Extern verbinden met uw apparaat](storsimple-8000-remote-connect.md)
+##### [Tooyour apparaat op afstand verbinding te maken](storsimple-8000-remote-connect.md)
 ##### [Uw apparaat deactiveren en verwijderen](storsimple-8000-deactivate-and-delete-device.md)
 ##### [Failover van uw apparaat](storsimple-8000-device-failover-disaster-recovery.md)
-###### [Failover naar een fysiek apparaat](storsimple-8000-device-failover-physical-device.md)
-###### [Failover naar een cloudapparaat](storsimple-8000-device-failover-cloud-appliance.md)
-###### [Failover naar hetzelfde apparaat](storsimple-8000-device-failover-same-device.md)
+###### [Failover toophysical apparaat](storsimple-8000-device-failover-physical-device.md)
+###### [Toocloud toestel failover](storsimple-8000-device-failover-cloud-appliance.md)
+###### [Failover toosame apparaat](storsimple-8000-device-failover-same-device.md)
 ##### [Back-upcatalogus beheren](storsimple-8000-manage-backup-catalog.md)
 ##### [Back-upbeleid beheren](storsimple-8000-manage-backup-policies-u2.md)
 ##### [Opslagaccounts beheren](storsimple-8000-manage-storage-accounts.md)
@@ -132,7 +132,7 @@
 #### [StorSimple met Veeam](storsimple-configure-backup-target-veeam.md)
 #### [StorSimple met Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)
 #### [StorSimple met Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md)
-#### [Noodherstel bestandsserver voor Azure automatiseren](storsimple-disaster-recovery-using-azure-site-recovery.md)
+#### [Bestandsserver DR tooAzure automatiseren](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [StorSimple met Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [StorSimple met VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
 #### [StorSimple met Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
@@ -163,7 +163,7 @@
 
 ### Migreren
 #### [Van 5000-7000 serie](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
-#### [Vanaf andere opslagapparaten](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [Vanaf andere opslagapparaten](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data tooStorSimple Volumes_09-02-15.pdf)
 
 ### Update
 #### [Update 5 (actueel) installeren](storsimple-8000-install-update-5.md)
@@ -191,7 +191,7 @@
 # StorSimple 8000-serie (klassieke portal)
 
 ## Overzicht
-### [Wat is de oplossing?](storsimple-overview.md)
+### [Wat is Hallo-oplossing?](storsimple-overview.md)
 ### [Leertraject voor StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Beveiligingsoverwegingen](storsimple-8000-security.md)
 
@@ -230,7 +230,7 @@
 ###### [Herstellen vanaf back-up](storsimple-restore-from-backup-set.md)
 ##### [Een volume klonen](storsimple-clone-volume-u2.md)
 ###### [Een volume klonen](storsimple-clone-volume.md)
-##### [Extern verbinden met uw apparaat](storsimple-remote-connect.md)
+##### [Tooyour apparaat op afstand verbinding te maken](storsimple-remote-connect.md)
 ##### [Uw apparaat deactiveren en verwijderen](storsimple-deactivate-and-delete-device.md)
 ##### [Failover van uw apparaat](storsimple-device-failover-disaster-recovery.md)
 ##### [Back-upcatalogus beheren](storsimple-manage-backup-catalog.md)
@@ -273,7 +273,7 @@
 #### [StorSimple met Veeam](storsimple-configure-backup-target-veeam.md)
 #### [StorSimple met Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)
 #### [StorSimple met Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md)
-#### [Noodherstel bestandsserver voor Azure automatiseren](storsimple-disaster-recovery-using-azure-site-recovery.md)
+#### [Bestandsserver DR tooAzure automatiseren](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [StorSimple met Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [StorSimple met VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
 #### [StorSimple met Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
@@ -302,7 +302,7 @@
 
 ### Migreren
 #### [Van 5000-7000 serie](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
-#### [Vanaf andere opslagapparaten](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [Vanaf andere opslagapparaten](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data tooStorSimple Volumes_09-02-15.pdf)
 
 ### Update
 #### [Update 4 installeren](storsimple-install-update-4.md)
@@ -329,20 +329,20 @@
 # StorSimple Data Manager (Private Preview)
 
 ## Overzicht
-### [Wat is de oplossing?](storsimple-data-manager-overview.md)
+### [Wat is Hallo-oplossing?](storsimple-data-manager-overview.md)
 
 ## Aan de slag
 ### [StorSimple Data Manager gebruiken](storsimple-data-manager-ui.md)
 
 ## Procedures
-### [.NET gebruiken om taken te starten](storsimple-data-manager-dotnet-jobs.md)
-### [Automation gebruiken om taken te starten](storsimple-data-manager-job-using-automation.md)
+### [.NET toostart taken gebruiken](storsimple-data-manager-dotnet-jobs.md)
+### [Automation toostart taken gebruiken](storsimple-data-manager-job-using-automation.md)
 ### [Het standaardpad van een blob wijzigen](storsimple-data-manager-change-default-blob-path.md)
 
 # StorSimple voor partners
 
 ## Overzicht
-### [Wat is de oplossing?](storsimple-partner-csp-overview.md)
+### [Wat is Hallo-oplossing?](storsimple-partner-csp-overview.md)
 
 ## Aan de slag
 ### [Virtuele matrix voor CSP implementeren](storsimple-partner-csp-deploy.md)

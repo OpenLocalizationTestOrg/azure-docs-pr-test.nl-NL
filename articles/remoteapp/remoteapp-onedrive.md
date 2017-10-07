@@ -1,5 +1,5 @@
 ---
-title: OneDrive voor Bedrijven en Azure RemoteApp gebruiken | Microsoft Docs
+title: aaaUsing OneDrive voor bedrijven en Azure RemoteApp | Microsoft Docs
 description: OneDrive voor Bedrijven gebruiken met Azure RemoteApp.
 services: remoteapp
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: e718f1e5edb72f66eab2a531c5e2509ea584ac72
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1a7bc6e972a2a22350f61a0e9a04b4a1afb47ae9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="onedrive-for-business-and-azure-remoteapp"></a>OneDrive voor Bedrijven en Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees Hallo [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
 > 
 
-De synchronisatieagent van OneDrive voor Bedrijven wordt niet ondersteund met Azure RemoteApp.
+Hallo OneDrive voor bedrijven-sync-agent wordt niet ondersteund met Azure RemoteApp.
 
 U kunt OneDrive voor Bedrijven opnemen in een verzameling voor gebruik met Office 365. 
 

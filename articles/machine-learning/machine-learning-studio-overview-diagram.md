@@ -1,6 +1,6 @@
 ---
-title: Overzichtsdiagram van de mogelijkheden van Machine Learning Studio | Microsoft Docs
-description: Een afdrukbaar diagram van de mogelijkheden van Azure Machine Learning Studio dat laat zien hoe u met Studio een predictive analytics-experiment opzet en dit in de Azure-cloud implementeert.
+title: aaaOverview diagram van de mogelijkheden van Machine Learning Studio | Microsoft Docs
+description: Een afdrukbaar diagram van Hallo-mogelijkheden van Azure Machine Learning Studio te demonstreren hoe toouse Studio toodevelop een predictive analytics experimenteren en dit te implementeren in hello Azure-cloud.
 keywords: Machine Learning Studio, overzichtsdiagram, downloaden
 services: machine-learning
 documentationcenter: 
@@ -15,29 +15,29 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/04/2017
 ms.author: haining;garye
-ms.openlocfilehash: f19a224b747429cf413c332fc91ec588bdd1208a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6d89ba7a646a2bc8293d61544d36ca78c73b577c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio
-Het diagram **Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio** geeft u een overzicht van hoe u Machine Learning Studio kunt gebruiken om een predictive analytics-model op te zetten en dit te implementeren in de Azure-cloud.
+Hallo **overzicht van Microsoft Azure Machine Learning Studio mogelijkheden** diagram biedt u een overzicht van hoe u Machine Learning Studio toodevelop een predictive analytics-model gebruiken en dit te implementeren in Azure Hallo cloud.
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) beschikt over een groot aantal machine learning-algoritmen, plus modules die u helpen bij de invoer, uitvoer, voorbereiding en visualisatie. Met deze onderdelen kunt u een predictive analytics-experiment opzetten, herhalen en gebruiken om uw model te trainen.
-Vervolgens kunt u het model met één klik implementeren in de Azure-cloud, zodat het kan worden gebruikt voor de beoordeling van nieuwe gegevens.
+[Azure Machine Learning Studio](https://studio.azureml.net/) beschikt over een groot aantal machine learning-algoritmen, plus modules die u helpen bij de invoer, uitvoer, voorbereiding en visualisatie. Deze onderdelen ontwikkelen van een predictive analytics-experiment opzetten, herhalen en tootrain worden gebruikt met het model.
+Klik vervolgens met één klik u kunt operationeel maken het hello Azure-cloud-model zodat deze gebruikt tooscore nieuwe gegevens worden kan.
 
 In dit diagram ziet u hoe al deze onderdelen in elkaar passen.
 
 > [!NOTE]
-> Zie [Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md) (Cheatsheet voor machine learning-algoritmen voor Microsoft Azure Machine Learning Studio) voor aanvullende hulp bij het navigeren door en kiezen van de machine learning-algoritmen die in Machine Learning Studio beschikbaar zijn.
+> Zie [Machine learning algorithm cheat sheet voor Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md) voor aanvullende hulp bij het navigeren door en kiezen Hallo machine learning-algoritmen die beschikbaar zijn in Machine Learning Studio.
 > 
 > 
 
-## <a name="download-the-machine-learning-studio-overview-diagram"></a>Het overzichtsdiagram voor Machine Learning Studio downloaden
-Download het diagram **Microsoft Azure Machine Learning Studio Capabilities Overview** (Overzicht van de mogelijkheden van Azure Machine Learning Studio) voor een algemeen overzicht van de mogelijkheden van Machine Learning Studio. Als u het diagram altijd bij de hand wilt hebben, kunt u het in A3-formaat afdrukken.
+## <a name="download-hello-machine-learning-studio-overview-diagram"></a>Overzichtsdiagram voor Machine Learning Studio Hallo downloaden
+Hallo downloaden **overzicht van Microsoft Azure Machine Learning Studio mogelijkheden** diagram en krijgt u een weergave op hoog niveau van Hallo-mogelijkheden van Machine Learning Studio. tookeep in de buurt, u kunt afdrukken Hallo diagram in a3-grootte (11 x 17.).
 
-**U kunt het overzichtsdiagram hier downloaden: [Microsoft Azure Machine Learning Studio Capabilities Overview](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)** (Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio)
+**Hallo overzichtsdiagram hier downloaden: [mogelijkheden overzicht van Microsoft Azure Machine Learning Studio](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
 
 ![Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio][studio-overview]
 
@@ -45,9 +45,9 @@ Download het diagram **Microsoft Azure Machine Learning Studio Capabilities Over
 
 
 ## <a name="more-help-with-machine-learning-studio"></a>Meer hulp bij Machine Learning Studio
-* Voor een overzicht van Microsoft Azure Machine Learning raadpleegt u [Inleiding tot machine learning in Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* Zie voor een overzicht van Microsoft Azure Machine Learning [inleiding toomachine learning in Microsoft Azure](machine-learning-what-is-machine-learning.md)
 * Zie [Wat is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md) voor een overzicht van Machine Learning Studio.
-* Voor een gedetailleerde beschrijving van de machine learning-algoritmen die beschikbaar zijn in Machine Learning Studio, leest u [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) (Algoritmen kiezen voor Microsoft Azure Machine Learning).
+* Zie voor een gedetailleerde discussie over Hallo machine learning-algoritmen in Machine Learning Studio, [hoe toochoose algoritmen voor Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

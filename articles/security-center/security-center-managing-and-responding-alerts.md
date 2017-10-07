@@ -1,6 +1,6 @@
 ---
-title: Beveiligingswaarschuwingen beheren in Azure Security Center | Microsoft Docs
-description: Dit document bevat informatie over het gebruik van de mogelijkheden van Azure Security Center om beveiligingswaarschuwingen te beheren en hierop te reageren.
+title: aaaManage beveiligingswaarschuwingen in Azure Security Center | Microsoft Docs
+description: Dit document helpt u toouse Azure Security Center mogelijkheden toomanage en toosecurity waarschuwingen reageren.
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.openlocfilehash: 56fcfbfdbe15749132ba6a27861142fd564063c3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f1cb7e4770776827b75ed15893914678c1f44216
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center
-Dit document bevat informatie over het gebruik van Azure Security Center om beveiligingswaarschuwingen te beheren en hierop te reageren.
+# <a name="managing-and-responding-toosecurity-alerts-in-azure-security-center"></a>Beheren en erop reageren toosecurity waarschuwingen in Azure Security Center
+Dit document helpt u bij gebruik van Azure Security Center toomanage en toosecurity waarschuwingen reageren.
 
 > [!NOTE]
-> Als u geavanceerde detectie wilt inschakelen, voert u een upgrade uit naar Azure Security Center Standard. Er is een gratis proefversie voor 60 dagen beschikbaar. Als u een upgrade wilt uitvoeren, selecteert u de prijscategorie in het [beveiligingsbeleid](security-center-policies.md). Zie [Prijsinformatie over Azure Security Center](security-center-pricing.md) voor meer informatie.
+> Geavanceerde tooenable detecties, upgrade tooAzure Security Center Standard. Er is een gratis proefversie voor 60 dagen beschikbaar. tooupgrade, selecteer prijscategorie in Hallo [beveiligingsbeleid](security-center-policies.md). Zie [prijzen van Azure Security Center](security-center-pricing.md) toolearn meer.
 >
 >
 
 ## <a name="what-are-security-alerts"></a>Wat zijn beveiligingswaarschuwingen?
-Security Center verzamelt, analyseert en integreert automatisch logboekgegevens van uw Azure-resources, het netwerk en verbonden partneroplossingen, zoals firewall- en eindpuntbeveiligingsoplossingen om werkelijke dreigingen te detecteren en fout-positieven te reduceren. In Security Center wordt een lijst met beveiligingswaarschuwingen met prioriteiten weergegeven samen met de informatie die u nodig hebt om snel onderzoek te doen naar het probleem en aanbevelingen voor het herstellen van een aanval.
+Security Center automatisch verzamelt, analyseert, en integreert logboekgegevens van uw Azure-resources, Hallo netwerk, en verbonden partneroplossingen, zoals een firewall en endpoint protection-oplossingen, toodetect Werkelijke dreigingen en fout-positieven te reduceren. Een lijst met beveiligingswaarschuwingen in Security Center wordt weergegeven, samen met de Hallo informatie die u nodig tooquickly onderzoeken Hallo probleem en aanbevelingen voor hoe tooremediate een aanval.
 
 
 > [!NOTE]
@@ -38,56 +38,56 @@ Security Center verzamelt, analyseert en integreert automatisch logboekgegevens 
 >
 
 ## <a name="managing-security-alerts"></a>Beveiligingswaarschuwingen beheren
-U kunt uw huidige waarschuwingen controleren met de tegel **Beveiligingswaarschuwingen**. Open Azure Portal en voer de volgende stappen uit om meer informatie over elke waarschuwing weer te geven:
+U kunt uw huidige waarschuwingen controleren door te kijken Hallo **beveiligingswaarschuwingen** tegel. Azure Portal openen en volg Hallo stappen hieronder toosee meer informatie over elke waarschuwing:
 
-1. Op het Security Center-dashboard ziet u de tegel **Beveiligingswaarschuwingen**.
+1. Op Hallo Security Center-dashboard, ziet u Hallo **beveiligingswaarschuwingen** tegel.
 
     ![De tegel Beveiligingswaarschuwingen in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
 
-2. Klik op de tegel om de blade **Beveiligingswaarschuwingen** met meer informatie over de waarschuwingen te openen (zie hieronder).
+2. Klik op Hallo tegel tooopen hello **beveiligingswaarschuwingen** blade met meer informatie over Hallo waarschuwingen zoals hieronder wordt weergegeven.
 
-   ![De blade Beveiligingswaarschuwingen in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
+   ![Hallo blade beveiligingswaarschuwingen in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
-In het onderste gedeelte van deze blade vindt u de details voor elke waarschuwing. Als u wilt sorteren, klikt u op de kolom waarop u wilt sorteren. Hieronder volgt de definitie voor elke kolom:
+Hallo onder in deze blade zijn Hallo details voor elke waarschuwing. toosort, klikt u op Hallo-kolom die u wilt toosort door. Hallo-definitie voor elke kolom hieronder:
 
-* **Beschrijving**: een korte beschrijving van de waarschuwing.
+* **Beschrijving**: een korte uitleg van Hallo waarschuwing.
 * **Aantal**: een lijst met alle waarschuwingen van dit specifieke type die zijn gedetecteerd op een specifieke dag.
-* **Gedetecteerd door**: de service die verantwoordelijk is voor activering van de waarschuwing.
-* **Datum**: de datum waarop de gebeurtenis heeft plaatsgevonden.
-* **Status**: de huidige status voor deze waarschuwing. Er zijn twee soorten statussen:
-  * **Actief**: de beveiligingswaarschuwing is gedetecteerd.
-* **Ernst**: de ernst kan hoog, gemiddeld of laag zijn.
+* **Gedetecteerd door**: Hallo-service die verantwoordelijk is voor activering Hallo waarschuwing.
+* **Datum**: Hallo datum die Hallo-gebeurtenis is opgetreden.
+* **Status**: Hallo van de huidige status voor deze waarschuwing. Er zijn twee soorten statussen:
+  * **Actieve**: Hallo beveiligingswaarschuwing is gedetecteerd.
+* **Ernst**: Hallo ernst kan hoog, Gemiddeld of laag zijn.
 
 ### <a name="filtering-alerts"></a>Waarschuwingen filteren
-U kunt waarschuwingen filteren op basis van datum, status en ernst. Het filteren van waarschuwingen kan nuttig zijn wanneer u minder beveiligingswaarschuwingen wilt weergeven. U kunt u bijvoorbeeld concentreren op de beveiligingswaarschuwingen van de afgelopen 24 uur, omdat u een mogelijke inbreuk in het systeem onderzoekt.
+U kunt waarschuwingen filteren op basis van datum, status en ernst. Filteren van waarschuwingen kan nuttig zijn voor scenario's waarbij u toonarrow Hallo bereik van beveiliging waarschuwingen weergeven moet zijn. Bijvoorbeeld, u kunt u wilt dat tooaddress beveiligingswaarschuwingen in Hallo afgelopen 24 uur omdat u een mogelijke inbreuk in Hallo systeem onderzoekt.
 
-1. Klik op **Filter** op de blade **Beveiligingswaarschuwingen**. De blade **Filter** wordt geopend en u selecteert de gewenste waarden voor datum, status en ernst.
+1. Klik op **Filter** op Hallo **beveiligingswaarschuwingen** blade. Hallo **Filter** blade wordt geopend en u Hallo datum, status en ernst waarden u toosee wilt selecteren.
 
     ![Waarschuwingen filteren in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
-### <a name="respond-to-security-alerts"></a>Reageren op beveiligingswaarschuwingen
-Selecteer een beveiligingswaarschuwing voor meer informatie over de gebeurtenis(sen) waarmee de waarschuwing is geactiveerd en welke stappen u zo nodig moet uitvoeren om een aanval te verhelpen. Beveiligingswaarschuwingen zijn gegroepeerd op type en datum. Als u op een beveiligingswaarschuwing klikt, wordt een blade met een lijst gegroepeerde waarschuwingen geopend.
+### <a name="respond-toosecurity-alerts"></a>Reageren toosecurity waarschuwingen
+Selecteer een waarschuwing toolearn beveiliging meer informatie over Hallo gebeurtenis(sen) waarmee geactiveerd Hallo waarschuwing en wat, indien aanwezig, stappen u moet tootake tooremediate een aanval. Beveiligingswaarschuwingen zijn gegroepeerd op type en datum. Te klikken op een beveiligingswaarschuwing wordt een blade met een lijst met Hallo gegroepeerde waarschuwingen geopend.
 
-![Op beveiligingswaarschuwingen reageren in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-ga.png)
+![Reageren toosecurity waarschuwingen in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-ga.png)
 
-In dit geval verwijzen de geactiveerde waarschuwingen naar verdachte RDP-activiteiten (Remote Desktop Protocol). In de eerste kolom ziet u welke resources zijn aangevallen, de tweede kolom toont hoe vaak de resource is aangevallen, de derde kolom bevat de tijd waarop de aanval heeft gevonden; de vierde kolom bevat de status van de waarschuwing en in de vijfde kolom wordt de ernst van de aanval weergegeven. Bekijk deze informatie en klik op de resource die is aangevallen. Er wordt dan een nieuwe blade geopend.
+In dit geval verwijzen geactiveerde Hallo waarschuwingen toosuspicious Remote Desktop Protocol (RDP)-activiteit. Hallo eerste kolom ziet u welke resources zijn aangevallen; Hallo tweede wordt aangegeven hoe vaak Hallo resource is aangevallen; Hallo derde laat zien Hallo Hallo aanval; Hallo toont vierde status van waarschuwing Hallo; en Hallo vijfde Hallo ernst van de Hallo aanval worden weergegeven. Bekijk deze informatie en klikt u op Hallo resource die is aangevallen en wordt een nieuwe blade geopend.
 
-![Suggesties voor wat u kunt doen bij beveiligingswaarschuwingen in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
+![Suggesties voor welke toodo over beveiliging in Azure Security Center waarschuwingen](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
 
-U vindt in het veld **Omschrijving** van deze blade meer informatie over deze gebeurtenis. Deze aanvullende informatie biedt inzicht in wat de beveiligingswaarschuwing heeft geactiveerd, de doelresource, eventueel het bron-IP-adres en aanbevelingen voor het herstellen.  In sommige gevallen zal het bron-IP-adres leeg zijn (niet beschikbaar), omdat niet alle Windows-logboeken voor beveiligingsgebeurtenissen het IP-adres bevatten.
+In Hallo **beschrijving** veld van deze blade vindt u meer informatie over deze gebeurtenis. Deze aanvullende informatie biedt inzicht in welke triggered Hallo beveiliging waarschuwing, Hallo doelresource, wanneer van toepassing hello bron-IP-adres en aanbevelingen over het tooremediate.  In sommige gevallen kan leeg de IP-bronadres Hallo zijn (niet beschikbaar) omdat niet alle Windows-Logboeken voor beveiligingsgebeurtenissen Hallo IP-adres bevatten.
 
-Het herstel dat door Security Center wordt voorgesteld, is afhankelijk van de beveiligingswaarschuwing. In sommige gevallen moet u wellicht andere Azure-mogelijkheden gebruiken om het aanbevolen herstel te implementeren. Als herstel voor deze aanval moet bijvoorbeeld het IP-adres op een zwarte lijst worden gezet dat door de aanval is gegenereerd. Hiervoor is de regel van een [netwerk-ACL](../virtual-network/virtual-networks-acl.md) of een [netwerkbeveiligingsgroep](../virtual-network/virtual-networks-nsg.md) nodig.
+Hallo herstel voorgesteld door Security Center varieert volgens toohello beveiligingswaarschuwing. In sommige gevallen moet u wellicht toouse andere mogelijkheden van Azure tooimplement Hallo aanbevolen herstel. Bijvoorbeeld, Hallo herstel voor deze aanval tooblacklist Hallo IP-adres dat aanval is gegenereerd is met behulp van een [netwerk-ACL](../virtual-network/virtual-networks-acl.md) of een [netwerkbeveiligingsgroep](../virtual-network/virtual-networks-nsg.md) regel.
 
 > [!NOTE]
-> Lees voor meer informatie over de verschillende typen waarschuwingen [Beveiligingswaarschuwingen per type in Azure Security Center](security-center-alerts-type.md).
+> Lees voor meer informatie over verschillende soorten waarschuwingen Hallo [beveiligingswaarschuwingen op typen in Azure Security Center](security-center-alerts-type.md).
 >
 >
 
 ## <a name="see-also"></a>Zie ook
-In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid in Security Center configureert. Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
+In dit document, u leert hoe tooconfigure beveiligingsbeleid in Security Center. toolearn meer informatie over Security Center Hallo ziet:
 
 * [Beveiligingsincidenten afhandelen in Azure Security Center](security-center-incident.md)
 * [Detectiemogelijkheden van Azure Security Center](security-center-detection-capabilities.md)
 * [Plannings- en bedieningsgids voor Azure Security Center](security-center-planning-and-operations-guide.md)
-* [Azure Security Center FAQ](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
+* [Veelgestelde vragen over Azure Security Center](security-center-faq.md) : Raadpleeg Veelgestelde vragen over het gebruik van Hallo-service.
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure.

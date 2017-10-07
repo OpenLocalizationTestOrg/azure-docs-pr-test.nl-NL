@@ -1,6 +1,6 @@
 ---
-title: Openbare leestoegang voor containers en blobs in Azure Blob-opslag inschakelen | Microsoft Docs
-description: Informatie over hoe u containers en blobs beschikbaar voor anonieme toegang en hoe programmatisch toegang toe hebben.
+title: aaaEnable openbare leestoegang voor containers en blobs in Azure Blob storage | Microsoft Docs
+description: Meer informatie over hoe toomake containers en blobs beschikbaar voor anonieme toegang en hoe tooaccess ze via een programma.
 services: storage
 documentationcenter: 
 author: mmacy
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: marsma
-ms.openlocfilehash: c7b83667b58649c156a62fa68cebd854c13e2cba
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0675b5dc4d32a3a0a34376ae4c049542b07ba03a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Anonieme leestoegang tot containers en blobs beheren
-U kunt anonieme, openbare leestoegang tot een container en de blobs in Azure Blob storage inschakelen. Op deze manier kunt u alleen-lezen toegang tot deze bronnen verlenen zonder het delen van de accountsleutel en zonder een shared access signature (SAS).
+# <a name="manage-anonymous-read-access-toocontainers-and-blobs"></a>Anonieme leestoegang toocontainers en blobs beheren
+U kunt anonieme, openbare leestoegang tooa container en de blobs in Azure Blob-opslag inschakelen. Op deze manier kunt u alleen-lezentoegang toothese resources verlenen zonder het delen van de accountsleutel en zonder een shared access signature (SAS).
 
-Openbare leestoegang wordt aanbevolen voor scenario's waar u wilt dat bepaalde blobs altijd alleen beschikbaar voor anonieme toegang voor lezen. Voor nauwkeuriger beheer, kunt u een shared access signature maken. Handtekeningen voor gedeelde toegang kunnen u beperkte toegang met andere machtigingen voor een bepaalde periode. Voor meer informatie over het maken van gedeelde handtekeningen krijgen, Zie [Using shared access signatures (SAS) in Azure Storage](storage-dotnet-shared-access-signature-part-1.md).
+Openbare leestoegang wordt aanbevolen voor scenario's waar u wilt dat bepaalde blobs tooalways worden beschikbaar voor anonieme toegang voor lezen. Voor nauwkeuriger beheer, kunt u een shared access signature maken. Handtekeningen voor gedeelde toegang inschakelen tooprovide beperkt via toegang tot andere machtigingen voor een bepaalde periode. Voor meer informatie over het maken van gedeelde handtekeningen krijgen, Zie [Using shared access signatures (SAS) in Azure Storage](storage-dotnet-shared-access-signature-part-1.md).
 
-## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Anonieme gebruikers machtigen tot containers en blobs
-Standaard kunnen een container en alle bestaande blobs erin alleen worden geopend door de eigenaar van het opslagaccount. Als u anonieme gebruikers leesmachtigingen voor een container en de blobs geven, kunt u de container-machtigingen voor openbare toegang instellen. Anonieme gebruikers kunnen BLOB's binnen een container openbaar toegankelijk lezen zonder verificatie van de aanvraag.
+## <a name="grant-anonymous-users-permissions-toocontainers-and-blobs"></a>Anonieme gebruikers machtigingen toocontainers en blobs verlenen
+Standaard kunnen een container en alle bestaande blobs erin alleen worden geopend door Hallo eigenaar van Hallo storage-account. toogive anonieme gebruikers leesmachtigingen tooa container en de blobs, kunt u Hallo container machtigingen tooallow openbare toegang instellen. Anonieme gebruikers kunnen BLOB's binnen een container openbaar toegankelijk lezen zonder verificatie Hallo-aanvraag.
 
-U kunt een container configureren met de volgende machtigingen:
+U kunt een container met de volgende machtigingen Hallo configureren:
 
-* **Geen enkele openbare leestoegang:** de container en de blobs kunnen alleen worden geopend door de eigenaar van het opslagaccount. Dit is de standaardwaarde voor alle nieuwe containers.
-* **Openbare leestoegang voor blobs alleen:** Blobs in de container kunnen worden gelezen door anonieme aanvraag, maar de containergegevens is niet beschikbaar. Anonieme clients kunnen de blobs in de container niet opsommen.
-* **Volledige openbare leestoegang:** alle container en de blob-gegevens kunnen worden gelezen door anonieme aanvraag. Clients anonieme aanvraag kunnen opsommen blobs in de container, maar kunnen de containers in het opslagaccount niet inventariseren.
+* **Geen enkele openbare leestoegang:** Hallo-container en de blobs kunnen alleen worden geopend door Hallo eigenaar van het opslagaccount. Dit is de standaardinstelling Hallo voor alle nieuwe containers.
+* **Openbare leestoegang voor blobs alleen:** Blobs in de container Hallo kunnen worden gelezen door anonieme aanvraag, maar de containergegevens is niet beschikbaar. Anonieme clients kunnen blobs in de container Hallo Hallo niet opsommen.
+* **Volledige openbare leestoegang:** alle container en de blob-gegevens kunnen worden gelezen door anonieme aanvraag. Clients blobs in de container Hallo anonieme aanvraag kunnen opsommen, maar kunnen de containers in Hallo storage-account niet inventariseren.
 
-U kunt de volgende container machtigingen worden ingesteld:
+U kunt de volgende tooset container machtigingen hello gebruiken:
 
 * [Azure Portal](https://portal.azure.com)
 * [Azure PowerShell](storage-powershell-guide-full.md#how-to-manage-azure-blobs)
 * [Azure CLI 2.0](storage-azure-cli.md#create-and-manage-blobs)
-* Programmatisch met behulp van een van de opslag-clientbibliotheken of de REST-API
+* Programmatisch met behulp van een van de opslagclientbibliotheken Hallo of Hallo REST-API
 
-### <a name="set-container-permissions-in-the-azure-portal"></a>Container machtigingen instellen in de Azure portal
-Container machtigingen instellen de [Azure-portal](https://portal.azure.com), als volgt te werk:
+### <a name="set-container-permissions-in-hello-azure-portal"></a>Container machtigingen instellen in hello Azure-portal
+tooset container machtigingen in Hallo [Azure-portal](https://portal.azure.com), als volgt te werk:
 
-1. Open uw **opslagaccount** blade in de portal. U kunt uw storage-account vinden door te selecteren **opslagaccounts** in de portal hoofdmenu-blade.
-1. Onder **BLOB-SERVICE** Selecteer op de blade menu **Containers**.
-1. Met de rechtermuisknop op de rij container of Selecteer het weglatingsteken openen van de container **contextmenu**.
-1. Selecteer **toegangsbeleid** in het contextmenu.
-1. Selecteer een **toegangstype** in de vervolgkeuzelijst.
+1. Open uw **opslagaccount** blade in Hallo-portal. U kunt uw storage-account vinden door te selecteren **opslagaccounts** Hallo portal hoofdmenu blade.
+1. Onder **BLOB-SERVICE** selecteren op Hallo menu blade **Containers**.
+1. Met de rechtermuisknop op het Hallo-container rij of selecteer Hallo weglatingsteken tooopen Hallo van container **contextmenu**.
+1. Selecteer **toegangsbeleid** in het contextmenu Hallo.
+1. Selecteer een **toegangstype** van Hallo vervolgkeuzemenu.
 
     ![Dialoogvenster metagegevens bewerken](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### <a name="set-container-permissions-with-net"></a>Container machtigingen instellen met .NET
-Als machtigingen wilt instellen voor een container met C# en de Storage-clientbibliotheek voor .NET, eerst ophalen van de container bestaande machtigingen door het aanroepen van de **GetPermissions** methode. Stel de **PublicAccess** eigenschap voor de **BlobContainerPermissions** -object dat wordt geretourneerd door de **GetPermissions** methode. Tenslotte roept de **SetPermissions** methode met de bijgewerkte machtigingen.
+Hallo-container bestaande machtigingen tooset machtigingen voor een container met C# en Hallo Storage-clientbibliotheek voor .NET, eerst ophalen door de aanroepende Hallo **GetPermissions** methode. Vervolgens set Hallo **PublicAccess** eigenschap voor Hallo **BlobContainerPermissions** -object dat wordt geretourneerd door Hallo **GetPermissions** methode. Tenslotte roept Hallo **SetPermissions** methode Hello machtigingen bijgewerkt.
 
-Het volgende voorbeeld wordt de container machtigingen voor volledige openbare leestoegang. Om in te stellen van machtigingen voor openbare leestoegang voor blobs alleen de **PublicAccess** eigenschap **BlobContainerPublicAccessType.Blob**. De eigenschap voor het verwijderen van alle machtigingen voor anonieme gebruikers instellen op **BlobContainerPublicAccessType.Off**.
+Hallo volgt stelt Hallo-container machtigingen toofull openbare leestoegang. tooset machtigingen toopublic leestoegang voor blobs ingesteld alleen Hallo **PublicAccess** eigenschap te**BlobContainerPublicAccessType.Blob**. tooremove alle machtigingen voor anonieme gebruikers instellen eigenschap te Hallo**BlobContainerPublicAccessType.Off**.
 
 ```csharp
 public static void SetPublicContainerPermissions(CloudBlobContainer container)
@@ -67,21 +67,21 @@ public static void SetPublicContainerPermissions(CloudBlobContainer container)
 ```
 
 ## <a name="access-containers-and-blobs-anonymously"></a>Toegang tot containers en blobs anoniem
-Een client die toegang heeft tot containers en blobs anoniem kan constructors waarvoor geen referenties gebruiken. De volgende voorbeelden ziet diverse manieren om te verwijzen naar van Blob-serviceresources anoniem.
+Een client die toegang heeft tot containers en blobs anoniem kan constructors waarvoor geen referenties gebruiken. Hallo volgen voorbeelden weergeven resources die een aantal verschillende manieren tooreference Blob-service anoniem.
 
 ### <a name="create-an-anonymous-client-object"></a>Een clientobject anonieme maken
-U kunt een nieuw serviceobject voor een client voor anonieme toegang maken door het eindpunt van de Blob-service voor het account. U moet echter ook de naam van een container in het account dat beschikbaar is voor anonieme toegang kennen.
+Dankzij de Hallo eindpunt voor Blob-service voor Hallo account kunt u een nieuw serviceobject voor een client voor anonieme toegang. U moet echter ook Hallo-naam van een container in het account dat beschikbaar is voor anonieme toegang kennen.
 
 ```csharp
 public static void CreateAnonymousBlobClient()
 {
-    // Create the client object using the Blob service endpoint.
+    // Create hello client object using hello Blob service endpoint.
     CloudBlobClient blobClient = new CloudBlobClient(new Uri(@"https://storagesample.blob.core.windows.net"));
 
-    // Get a reference to a container that's available for anonymous access.
+    // Get a reference tooa container that's available for anonymous access.
     CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
 
-    // Read the container's properties. Note this is only possible when the container supports full public read access.
+    // Read hello container's properties. Note this is only possible when hello container supports full public read access.
     container.FetchAttributes();
     Console.WriteLine(container.Properties.LastModified);
     Console.WriteLine(container.Properties.ETag);
@@ -89,15 +89,15 @@ public static void CreateAnonymousBlobClient()
 ```
 
 ### <a name="reference-a-container-anonymously"></a>Een container anoniem verwijst naar
-Als u de URL naar een container die anoniem beschikbaar hebt, kunt u deze rechtstreeks verwijzen naar de container.
+Als er Hallo URL tooa container die anoniem beschikbaar is, kunt u deze tooreference Hallo container rechtstreeks.
 
 ```csharp
 public static void ListBlobsAnonymously()
 {
-    // Get a reference to a container that's available for anonymous access.
+    // Get a reference tooa container that's available for anonymous access.
     CloudBlobContainer container = new CloudBlobContainer(new Uri(@"https://storagesample.blob.core.windows.net/sample-container"));
 
-    // List blobs in the container.
+    // List blobs in hello container.
     foreach (IListBlobItem blobItem in container.ListBlobs())
     {
         Console.WriteLine(blobItem.Uri);
@@ -106,7 +106,7 @@ public static void ListBlobsAnonymously()
 ```
 
 ### <a name="reference-a-blob-anonymously"></a>Een blob anoniem verwijst naar
-Als u de URL naar een blob die beschikbaar is voor anonieme toegang hebt, kunt u verwijzen naar de blob die URL direct met:
+Als u Hallo URL tooa blob die beschikbaar is voor anonieme toegang hebt, kunt u verwijzen naar Hallo blob die URL direct met:
 
 ```csharp
 public static void DownloadBlobAnonymously()
@@ -116,8 +116,8 @@ public static void DownloadBlobAnonymously()
 }
 ```
 
-## <a name="features-available-to-anonymous-users"></a>Functies die beschikbaar voor anonieme gebruikers
-De volgende tabel ziet u welke bewerkingen door anonieme gebruikers kunnen worden aangeroepen wanneer een container-ACL is ingesteld op het toestaan van openbare toegang.
+## <a name="features-available-tooanonymous-users"></a>Functies beschikbaar tooanonymous gebruikers
+Hallo volgende tabel ziet u welke bewerkingen door anonieme gebruikers kunnen worden aangeroepen wanneer een container-ACL tooallow openbare toegang is ingesteld.
 
 | REST-bewerking | Machtiging met volledige openbare leestoegang | Machtiging met openbare leestoegang voor blobs alleen |
 | --- | --- | --- |
@@ -150,6 +150,6 @@ De volgende tabel ziet u welke bewerkingen door anonieme gebruikers kunnen worde
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Verificatie voor de Azure Storage-Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+* [Verificatie voor hello Azure Storage-Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [Met behulp van Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 * [Toegang delegeren met een Shared Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx)

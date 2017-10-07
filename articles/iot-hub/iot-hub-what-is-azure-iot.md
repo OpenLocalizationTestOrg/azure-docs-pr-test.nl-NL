@@ -1,6 +1,6 @@
 ---
-title: Azure-oplossingen voor het internet der dingen (IoT-suite) | Microsoft Docs
-description: "Overzicht van een voorbeeldoplossing met IoT-architectuur en hoe deze is gekoppeld aan apparaten, de Azure IoT Hub-service, Azure IoT-apparaat-SDK's, Azure IoT-service-SDK’s en andere Azure-services."
+title: aaaAzure oplossingen voor Internet der dingen (IoT Suite) | Microsoft Docs
+description: Overzicht van de architectuur van een steekproef IoT-oplossing en hoe deze zich verhoudt toodevices, Hallo service Azure IoT Hub, Azure IoT-apparaat-SDK's, Azure IoT service SDK's en andere Azure-services.
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.openlocfilehash: 1d54f090a0e07cd5102cb48cd70a1377845d6654
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2d934e3f988c530de6a242869c021712d2aa1576
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Azure IoT Hub is een Azure-service voor beveiligde en betrouwbare bidirectionele communicatie tussen de back-end van uw oplossing en miljoenen apparaten. U stelt de back-end van de oplossing ermee in staat om:
+Azure IoT Hub is een Azure-service voor beveiligde en betrouwbare bidirectionele communicatie tussen de back-end van uw oplossing en miljoenen apparaten. Hiermee kunt Hallo back-end oplossing voor:
 
 * telemetrie op schaal van uw apparaten te ontvangen;
-* gegevens van uw apparaten naar een processor voor streaming-gebeurtenissen te routeren;
+* Gegevens van uw apparaten tooa stream-gebeurtenisverwerking routeren.
 * uploads van bestanden vanaf apparaten te ontvangen;
-* cloud-naar-apparaatberichten naar specifieke apparaten te verzenden.
+* Cloud-naar-apparaat-berichten toospecific apparaten verzenden.
 
-Met IoT-Hub kunt u zelf de back-end van uw oplossing implementeren. IoT Hub bevat bovendien een id-register dat wordt gebruikt voor het inrichten van apparaten, hun beveiligingsreferenties en hun rechten om verbinding maken met de IoT-hub. Zie [Wat is IoT Hub?][lnk-iot-hub] voor meer informatie over IoT Hub.
+U kunt uw eigen back-end oplossing IoT Hub-tooimplement gebruiken. IoT-Hub bevat bovendien een identiteit register gebruikt tooprovision apparaten, hun beveiligingsreferenties en hun rechten tooconnect toohello IoT-hub. Zie toolearn meer informatie over IoT Hub [wat is IoT Hub?] [lnk-iot-hub].
 
-Zie [Overzicht van apparaatbeheer met IoT Hub][lnk-device-management] voor meer informatie over hoe Azure IoT Hub op standaarden gebaseerd IoT-apparaatbeheer voor u mogelijk maakt, om zo uw apparaten op afstand te beheren, te configureren en bij te werken.
+toolearn hoe Azure IoT Hub kunt standaarden gebaseerd Apparaatbeheer voor u tooremotely beheren, configureren en bijwerken van uw apparaten, Zie [overzicht van Apparaatbeheer met IoT Hub][lnk-device-management].
 
-U kunt de Azure IoT Device SDK's gebruiken voor het implementeren van clienttoepassingen op een groot aantal hardwareplatforms en besturingssystemen. De apparaat-SDK's bevatten bibliotheken die het eenvoudiger maken om telemetrie te verzenden naar een IoT Hub en om cloud-naar-apparaatberichten te ontvangen. Wanneer u de apparaat-SDK's gebruikt, kunt u kiezen uit verschillende netwerkprotocollen om te communiceren met IoT Hub. Raadpleeg ook de [informatie over apparaat-SDK's][lnk-device-sdks].
+tooimplement clienttoepassingen op een groot aantal hardwareplatforms en besturingssystemen, kunt u apparaat-hello Azure IoT SDK's. Hallo apparaat-SDK's bevatten bibliotheken die vergemakkelijken verzenden telemetrie tooan IoT hub en ontvangst cloud-naar-apparaat-berichten. Wanneer u Hallo apparaat-SDK's gebruikt, kunt u kiezen uit diverse netwerk protocollen toocommunicate met IoT Hub. meer, Zie Hallo toolearn [informatie over apparaat-SKD's][lnk-device-sdks].
 
-Raadpleeg de zelfstudie [Aan de slag met IoT Hub][lnk-getstarted] als u code wilt leren schrijven en een aantal voorbeelden wilt uitvoeren.
+schrijven van code en enkele voorbeelden uitvoeren gestart tooget Zie Hallo [aan de slag met IoT Hub] [ lnk-getstarted] zelfstudie.
 
-Wellicht bent u ook geïnteresseerd in [Azure IoT Suite][lnk-iot-suite]. Dit is een verzameling van vooraf geconfigureerde oplossingen. Met IoT-Suite kunt u snel aan de slag en IoT-projecten schalen om veelvoorkomende problemen met algemene IoT-scenario's op te lossen. Denk bijvoorbeeld aan externe controle, beheer van assets en voorspellend onderhoud.
+Wellicht bent u ook geïnteresseerd in [Azure IoT Suite][lnk-iot-suite]. Dit is een verzameling van vooraf geconfigureerde oplossingen. IoT Suite kunt u tooget snel aan de slag en IoT-projecten tooaddress algemene IoT-scenario's--zoals externe controle, beheer van bedrijfsmiddelen en voorspeld onderhoud worden geschaald.
 
 [lnk-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks

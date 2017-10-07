@@ -1,6 +1,6 @@
 ---
-title: StorSimple lokaal vastgemaakte volumes Veelgestelde vragen | Microsoft Docs
-description: Vindt u antwoorden op veelgestelde vragen over StorSimple lokaal vastgemaakte volumes.
+title: aaaStorSimple lokaal vastgemaakte volumes Veelgestelde vragen | Microsoft Docs
+description: Biedt antwoorden toofrequently gevraagd vragen over StorSimple lokaal vastgemaakte volumes.
 services: storsimple
 documentationcenter: NA
 author: manuaery
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
-ms.openlocfilehash: 857647e89b7ac5d9bc72bc4b2ace0ea7279353f9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a3a6557ca15e7e1947b45dcfd005640103c09591
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple lokaal vastgemaakte volumes: veelgestelde vragen (FAQ)
 ## <a name="overview"></a>Overzicht
-Hieronder vindt u vragen en antwoorden die u hebben wellicht wanneer u een StorSimple lokaal vastgemaakt volume maakt, converteren van een gelaagd volume naar een lokaal vastgemaakt volume (en omgekeerd), of back-up en herstellen van een lokaal vastgemaakt volume.
+Hallo volgen vragen en antwoorden er bij het maken van een lokaal vastgemaakt StorSimple-volume een gelaagd volume tooa lokaal vastgemaakt volume converteren (en omgekeerd) of back-up en herstellen van een lokaal vastgemaakt volume.
 
-Vragen en antwoorden worden gerangschikt in de volgende categorieën
+Vragen en antwoorden zijn gerangschikt in de volgende categorieën Hallo
 
 * Een lokaal vastgemaakt volume maken
 * Back-ups van een lokaal vastgemaakt
-* Een gelaagd volume converteren naar een lokaal vastgemaakt volume
+* Converteren van een gelaagd volume tooa lokaal vastgemaakt volume
 * Herstellen van een lokaal vastgemaakt volume
 * Mislukte via een lokaal vastgemaakt volume
 
 ## <a name="questions-about-creating-a-locally-pinned-volume"></a>Vragen over het maken van een lokaal vastgemaakt volume
-**V:** Wat is de maximale grootte van een lokaal vastgemaakt volume dat ik op de apparaten uit de 8000 serie maken kunt?
+**V:** Wat is de maximale grootte van een lokaal vastgemaakt volume dat ik op apparaten met 8000 serie Hallo maken kunt Hallo?
 
-**Een** op apparaten waarop StorSimple 8000 Series Update 3.0 wordt uitgevoerd, kunt u lokaal vastgemaakte volumes inrichten tot 8.5 TB en gelaagde volumes tot 200 TB op het 8100-apparaat. Op een groter 8600-apparaat kunt u lokaal vastgemaakte volumes inrichten tot 22,5 TB en gelaagde volumes tot maximaal 500 TB.
+**Een** op apparaten met StorSimple 8000 Series Update 3.0 kunt u lokaal vastgemaakte volumes tot too8.5 TB en gelaagde volumes van too200 TB op Hallo 8100-apparaat kunt inrichten. U kunt lokaal vastgemaakte volumes tot too22.5 TB en gelaagde volumes van too500 TB inrichten op Hallo groter 8600-apparaat.
 
-**V:** Ik mijn 8100-apparaat onlangs hebt bijgewerkt naar Update 3.0 en wanneer ik wil een lokaal vastgemaakt volume maakt, de maximale grootte van de beschikbare alleen 6 TB en niet 8.5 TB. Waarom niet kan ik een volume 8.5 TB maken?
+**V:** Ik mijn 8100-apparaat tooUpdate 3.0 kortgeleden is geüpgraded en wanneer ik probeer toocreate een lokaal vastgemaakt volume, Hallo maximumgrootte beschikbaar is alleen 6 TB en niet 8.5 TB. Waarom niet kan ik een volume 8.5 TB maken?
 
-**Een** als het apparaat kan update 3.0 wordt uitgevoerd, kunt u lokaal vastgemaakte volumes tot 8.5 inrichten TB en gelaagde volumes tot 200 TB op het 8100-apparaat. Als het apparaat reeds volumes, gelaagde wordt de beschikbare schijfruimte voor het maken van een lokaal vastgemaakt volume proportioneel lager is dan deze limiet. Bijvoorbeeld als 106 TB van gelaagde volumes al op uw 8100-apparaat (dit is de helft van de capaciteit voor gelaagde) zijn ingericht, wordt klikt u vervolgens de maximale grootte van een lokaal volume dat kan worden gemaakt op het 8100-apparaat navenant verkleind tot 4 TB (ongeveer helft van de lokaal vastgemaakt volumecapaciteit).
+**Een** als uw apparaat update 3.0 wordt uitgevoerd, kunt u lokaal vastgemaakte volumes tot too8.5 TB inrichten of gelaagde volumes van too200 TB op Hallo 8100-apparaat. Als het apparaat reeds volumes gelaagde, zullen Hallo beschikbare schijfruimte voor het maken van een lokaal vastgemaakt volume proportioneel lager is dan de maximale limiet zijn. Bijvoorbeeld, als 106 TB van gelaagde volumes al zijn ingericht op uw 8100-apparaat (dit is de helft van Hallo capaciteit gelaagd), wordt Hallo maximale grootte van een lokaal volume dat kan worden gemaakt op Hallo 8100-apparaat (TB) navenant verminderde too4 min of meer vastgemaakt helft Hallo maximum lokaal volumecapaciteit).
 
-Aangezien lokale ruimte op het apparaat wordt gebruikt voor het hosten van de werkset van gelaagde volumes, is de beschikbare ruimte voor het maken van een lokaal vastgemaakt volume als het apparaat volumes gelaagde verminderd. Als u daarentegen vermindert de beschikbare ruimte voor gelaagde volumes maken van een lokaal vastgemaakt volume proportioneel. De volgende tabellen geeft een overzicht van de beschikbare gelaagde capaciteit op het 8100 en 8600-apparaten wanneer lokaal vastgemaakte volumes worden gemaakt.
+Aangezien lokale ruimte op Hallo apparaat gebruikte toohost Hallo werkset van gelaagde volumes, is Hallo beschikbare ruimte voor het maken van een lokaal vastgemaakt volume als Hallo apparaat volumes gelaagde verminderd. Maken van een lokaal vastgemaakt volume proportioneel vermindert daarentegen Hallo beschikbare ruimte voor gelaagde volumes. Hallo na tabellen bevat een overzicht van Hallo beschikbare gelaagde capaciteit op Hallo 8100 en 8600 apparaten tijdens het maken van lokaal vastgemaakte volumes.
 
 #### <a name="update-30"></a>3.0 bijwerken 
-| Lokaal vastgemaakte volumes ingerichte capaciteit | Beschikbare capaciteit worden ingericht voor gelaagde volumes - 8100 | Beschikbare capaciteit worden ingericht voor gelaagde volumes - 8600 |
+| Lokaal vastgemaakte volumes ingerichte capaciteit | Beschikbare capaciteit toobe ingericht voor gelaagde volumes - 8100 | Beschikbare capaciteit toobe ingericht voor gelaagde volumes - 8600 |
 | --- | --- | --- |
 | 0 |200 TB |500 TB |
 | 1 TB |176,5 TB |477.8 TB |
@@ -56,148 +56,148 @@ Aangezien lokale ruimte op het apparaat wordt gebruikt voor het hosten van de we
 
 **V:** Waarom is een langdurige bewerking lokaal vastgemaakt volume maken?
 
-**A:** Lokaal vastgemaakte volumes compact ingericht. Om ruimte te maken op de lokale lagen van het apparaat, kunnen sommige gegevens van bestaande gelaagde volumes worden gepusht naar de cloud tijdens het inrichtingsproces. En omdat dit is afhankelijk van de grootte van het volume wordt ingericht, de bestaande gegevens op uw apparaat en de beschikbare bandbreedte voor de cloud, duurt het maken van een lokaal volume kan enkele uren.
+**A:** Lokaal vastgemaakte volumes compact ingericht. toocreate ruimte op de lokale lagen van apparaat Hallo Hallo, sommige gegevens van bestaande gelaagde volumes mogelijk toohello cloud worden gepusht tijdens het inrichtingsproces Hallo. En omdat dit is afhankelijk van de grootte van Hallo volume wordt ingericht, Hallo bestaande gegevens op uw apparaat en Hallo beschikbare bandbreedte toohello cloud, Hallo Hallo tijd toocreate die een lokaal volume mogelijk enkele uren.
 
-**V:** Hoe lang duurt het maken van een lokaal vastgemaakt volume?
+**V:** Hoe lang duurt toocreate een lokaal vastgemaakt volume?
 
-**A:** Omdat lokaal vastgemaakte volumes compact ingericht zijn, kunnen sommige bestaande gegevens van gelaagde volumes worden verplaatst naar de cloud tijdens het inrichtingsproces. De tijd voor het maken van een lokaal vastgemaakt volume is daarom afhankelijk van meerdere factoren, onder andere de grootte van het volume, de gegevens op uw apparaat en de beschikbare bandbreedte. Op een geheel nieuw geïnstalleerde apparaat dat geen volumes heeft, is de tijd voor het maken van een lokaal vastgemaakt volume ongeveer tien minuten per terabyte van gegevens. Maken van lokale volumes duurt echter enkele uren op basis van de factoren die hierboven worden uitgelegd op een apparaat dat wordt gebruikt.
+**A:** Omdat lokaal vastgemaakte volumes compact ingericht zijn, kan bepaalde bestaande gegevens van gelaagde volumes mogelijk toohello cloud tijdens het inrichtingsproces Hallo worden gepusht. Daarom Hallo tijd toocreate een lokaal vastgemaakt volume is afhankelijk van meerdere factoren, onder andere de grootte Hallo van Hallo volume, Hallo gegevens op uw apparaat en de beschikbare bandbreedte Hallo. Op een geheel nieuw geïnstalleerde apparaat dat geen volumes heeft, is Hallo tijd toocreate een lokaal vastgemaakt volume ongeveer tien minuten per terabyte van gegevens. Maken van lokale volumes duurt echter enkele uren gebaseerd op Hallo factoren die hierboven worden uitgelegd op een apparaat dat wordt gebruikt.
 
-**V:** Ik wil een lokaal vastgemaakt volume maakt. Zijn er aanbevolen procedures die ik moet rekening houden met?
+**V:** Ik wil toocreate een lokaal vastgemaakt volume. Zijn er aanbevolen procedures die ik toobe op de hoogte van nodig?
 
-**A:** Lokaal vastgemaakte volumes zijn geschikt voor werkbelastingen waarvoor lokale garanties van gegevens te allen tijde vereisen en in de cloud latentie gevoelig zijn. Tijdens het gebruik van lokale volumes voor een van de werkbelasting van uw overweegt, zorg rekening met het volgende:
+**A:** Lokaal vastgemaakte volumes zijn geschikt voor werkbelastingen waarvoor lokale garanties van gegevens te allen tijde vereisen en worden gevoelige toocloud latenties. Tijdens het gebruik van lokale volumes voor een van de werkbelasting van uw overweegt, moet je erop letten van Hallo volgende:
 
-* Lokaal vastgemaakte volumes zijn compact ingericht en maken van lokale volumes heeft impact op de beschikbare ruimte voor gelaagde volumes. We raden daarom u beginnen met kleiner volumes en omhoog schalen als uw opslag vereiste toeneemt.
-* Het inrichten van lokale volumes is een langdurige bewerking waarbij bestaande gegevens van gelaagde volumes pushen naar de cloud mogelijk. Als gevolg hiervan kunnen optreden verminderde prestaties op deze volumes.
-* Het inrichten van lokale volumes is een tijdrovende bewerking. De werkelijke tijd die zijn betrokken, is afhankelijk van meerdere factoren: de grootte van het volume wordt ingericht, de gegevens op het apparaat en de beschikbare bandbreedte. Als uw bestaande volumes niet naar de cloud ondersteund, zijn maken van volumes is langzamer. We raden dat u momentopnamen cloud van uw bestaande volumes voordat u een lokaal volume inricht.
-* U kunt bestaande gelaagde volumes converteren naar lokaal vastgemaakte volumes en deze conversie omvat het inrichten van ruimte op het apparaat voor het resulterende lokaal vastgemaakt volume (naast het meebrengen omlaag gelaagde gegevens, indien aanwezig, uit de cloud). Dit is ook een langdurige bewerking die is afhankelijk van factoren besproken hierboven hebt. Het is raadzaam om de back-up van uw bestaande volumes voordat conversie omdat het proces nog langer duren als er bestaande volumes zijn niet een back-up. Uw apparaat tegenkomen verminderde prestaties tijdens dit proces ook.
+* Lokaal vastgemaakte volumes zijn compact ingericht en maken van lokale volumes heeft impact op Hallo beschikbare ruimte voor gelaagde volumes. We raden daarom u beginnen met kleiner volumes en omhoog schalen als uw opslag vereiste toeneemt.
+* Het inrichten van lokale volumes is een langdurige bewerking waarbij bestaande gegevens worden gepusht van gelaagde volumes toohello cloud mogelijk. Als gevolg hiervan kunnen optreden verminderde prestaties op deze volumes.
+* Het inrichten van lokale volumes is een tijdrovende bewerking. Hallo werkelijke tijd die zijn betrokken, is afhankelijk van meerdere factoren: Hallo grootte van de Hallo volume wordt ingericht, gegevens op het apparaat en de beschikbare bandbreedte. Als u geen reservekopie uw bestaande volumes toohello cloud hebt gemaakt, zijn maken van volumes is langzamer. We raden dat u momentopnamen cloud van uw bestaande volumes voordat u een lokaal volume inricht.
+* U kunt bestaande gelaagde volumes toolocally vastgemaakt volumes converteren en deze conversie omvat het inrichten van de ruimte op het Hallo-apparaat voor Hallo resulterende lokaal vastgemaakt volume (in aanvulling toobringing omlaag gelaagde gegevens, indien aanwezig, uit Hallo cloud). Dit is ook een langdurige bewerking die is afhankelijk van factoren besproken hierboven hebt. Het is raadzaam om de back-up van uw bestaande volumes voorafgaande tooconversion als Hallo proces nog langer duren als er bestaande volumes zijn niet een back-up. Uw apparaat tegenkomen verminderde prestaties tijdens dit proces ook.
 
-Meer informatie over het [een lokaal vastgemaakt volume maken](storsimple-8000-manage-volumes-u2.md#add-a-volume)
+Meer informatie over het te[een lokaal vastgemaakt volume maken](storsimple-8000-manage-volumes-u2.md#add-a-volume)
 
-**V:** Kan ik meerdere lokaal vastgemaakte volumes tegelijkertijd maken?
+**V:** Kan ik meerdere lokaal vastgemaakte volumes maken op Hallo hetzelfde moment?
 
 **A:** Ja, maar geen lokaal vastgemaakt volume maken en uitbreiding van de taken worden opeenvolgend verwerkt.
 
-Lokaal vastgemaakte volumes zijn compact ingericht en hiervoor maken van lokale ruimte op het apparaat (dit kan leiden tot bestaande gegevens van gelaagde volumes moet tijdens het inrichtingsproces worden gepusht naar de cloud). Dus als een taak uitgevoerd wordt, andere taken voor het maken van lokaal volume wordt in de wachtrij gezet tot deze taak is voltooid.
+Lokaal vastgemaakte volumes zijn compact ingericht en hiervoor is het maken van lokale ruimte op Hallo-apparaat (dit kan leiden tot bestaande gegevens van gelaagde volumes toobe toohello cloud gepusht tijdens het inrichtingsproces Hallo) vereist. Dus als een taak uitgevoerd wordt, andere taken voor het maken van lokaal volume wordt in de wachtrij gezet tot deze taak is voltooid.
 
-Op dezelfde manier als een bestaand lokaal volume wordt uitgebreid of een gelaagd volume wordt omgezet naar een lokaal vastgemaakt volume, klikt u vervolgens het maken van een nieuw lokaal vastgemaakt volume is in de wachtrij totdat de vorige taak is voltooid. De grootte van een lokaal vastgemaakt volume uitbreiden, moet u de uitbreiding van de bestaande lokale ruimte die voor dat volume. Conversie van een gelaagde naar een lokaal vastgemaakt volume ook betrekking heeft op het maken van lokale ruimte voor de resulterende lokaal volume vastgemaakt. In beide deze bewerkingen, maken of uitbreiding van de lokale ruimte wordt een long uitgevoerd taak.
+Als een bestaand lokaal volume wordt uitgebreid of een gelaagd volume wordt omgezet tooa lokaal vastgemaakt volume vervolgens hello maken van een nieuw lokaal vastgemaakt volume zich in de wachtrij totdat de vorige taak Hallo is voltooid. Hallo-grootte van een lokaal vastgemaakt volume uitbreiden omvat het Hallo-uitbreiding van de bestaande lokale ruimte Hallo voor dat volume. Conversie van een gelaagde toolocally vastgemaakt volume omvat ook Hallo maken van lokale ruimte voor Hallo resulterende lokaal vastgemaakt volume. In beide deze bewerkingen, maken of uitbreiding van de lokale ruimte wordt een long uitgevoerd taak.
 
-U vindt deze taken in de **taken** blade van de service Manager voor StorSimple-apparaat. De taak die actief wordt verwerkt, wordt steeds bijgewerkt om de voortgang van de inrichting ruimte weer te geven. De resterende taken van lokaal vastgemaakt volume zijn gemarkeerd als actief, maar hun progressie tot stilstand is gekomen en ze worden opgenomen in de volgorde waarin dat ze zijn in de wachtrij.
+U kunt deze taken weergeven in Hallo **taken** blade Hallo StorSimple-apparaat Manager-service. Hallo taak die actief wordt verwerkt wordt voortdurend bijgewerkt tooreflect Hallo voortgang van de schijfruimte wordt ingericht. Hallo resterende lokaal vastgemaakt volume taken zijn gemarkeerd als actief, maar hun progressie tot stilstand is gekomen en ze worden opgenomen in Hallo volgorde waarin dat ze zijn in de wachtrij.
 
-**V:** Ik heb verwijderd een lokaal vastgemaakt volume. Waarom zie ik niet de geregenereerde ruimte in de beschikbare ruimte wordt weergegeven wanneer ik probeer om een nieuw volume te maken?
+**V:** Ik heb verwijderd een lokaal vastgemaakt volume. Waarom zie ik niet ruimte vrijgemaakt Hallo weerspiegeld in de beschikbare ruimte Hallo wanneer ik probeer toocreate een nieuw volume?
 
-**A:** Als u een lokaal vastgemaakt volume verwijdert, worden de beschikbare schijfruimte voor de nieuwe volumes mogelijk niet meteen bijgewerkt. De StorSimple-apparaat Manager-Service-updates de lokale ruimte beschikbaar ongeveer om het uur. We raden dat u wachten tot een uur voordat u probeert te maken van het nieuwe volume.
+**A:** Als u een lokaal vastgemaakt volume verwijdert, worden Hallo beschikbare schijfruimte voor het nieuwe volumes mogelijk niet meteen bijgewerkt. Hallo StorSimple-apparaat Manager-Service-updates Hallo lokale ruimte beschikbaar ongeveer om het uur. We raden dat u wachten tot een uur voordat u toocreate Hallo nieuw volume probeert.
 
-**V:** Ondersteunt het toestel cloud lokaal vastgemaakte volumes?
+**V:** Worden lokaal vastgemaakte volumes op Hallo cloud toestel ondersteund?
 
-**A:** Lokaal vastgemaakte volumes worden niet ondersteund op het cloud-toestel (8010 en 8020 apparaten voorheen bekend als het virtuele StorSimple-apparaat).
+**A:** Lokaal vastgemaakte volumes worden niet ondersteund op Hallo cloud toestel (8010 en 8020 apparaten voorheen waarnaar wordt verwezen tooas Hallo virtuele StorSimple-apparaat).
 
-**V:** Kan ik de Azure PowerShell-cmdlets gebruiken om te maken en beheren van lokaal vastgemaakte volumes?
+**V:** Kan ik hello Azure PowerShell-cmdlets toocreate gebruiken en beheren van lokaal vastgemaakte volumes?
 
-**A:** Nee, u lokaal vastgemaakte volumes via Azure PowerShell-cmdlets (alle volumes die u via Azure PowerShell maakt is gelaagd) niet maken. We raden ook gebruiken de Azure PowerShell-cmdlets niet alle eigenschappen van een lokaal vastgemaakt volume wijzigen omdat het het ongewenst effect van het wijzigen van het volumetype zal hebben tot gelaagde.
+**A:** Nee, u lokaal vastgemaakte volumes via Azure PowerShell-cmdlets (alle volumes die u via Azure PowerShell maakt is gelaagd) niet maken. Ook het is raadzaam dat u niet hello Azure PowerShell-cmdlets toomodify alle eigenschappen van een lokaal vastgemaakt volume gebruiken als deze hebben Hallo ongewenst effect Hallo volume type tootiered wijzigen.
 
 ## <a name="questions-about-backing-up-a-locally-pinned-volume"></a>Vragen over het back-ups van een lokaal vastgemaakt volume
 **V:** Zijn lokale momentopnamen van lokaal vastgemaakte volumes ondersteund?
 
-**A:** Ja, u kunt momentopnamen lokale van uw lokaal vastgemaakte volumes. Echter het beste regelmatig back-up van uw lokaal vastgemaakte volumes met cloudmomentopnamen om ervoor te zorgen dat uw gegevens in de deze van een noodgeval zijn beveiligd.
+**A:** Ja, u kunt momentopnamen lokale van uw lokaal vastgemaakte volumes. Echter ten zeerste het is raadzaam dat u regelmatig back-up van uw lokaal vastgemaakte volumes met cloud momentopnamen tooensure die wordt beveiligd in uw gegevens Hallo deze van een noodgeval.
 
-, Ziet u dat lokale momentopnamen van lokaal vastgemaakte volumes kunnen ook trapsgewijs uit naar de cloud en om te blijven in de lokale laag van het apparaat niet worden gegarandeerd.
+, Ziet u dat lokale momentopnamen van lokaal vastgemaakte volumes kunnen ook trapsgewijs uit toohello cloud en toostay in de lokale laag Hallo Hallo apparaat niet worden gegarandeerd.
 
 **V:** Zijn er richtlijnen voor het beheren van lokale momentopnamen voor lokaal vastgemaakte volumes?
 
-**A:** Veelvuldig lokale momentopnamen samen met een hoge frequentie van gegevensverloop in de lokaal vastgemaakt volume mogelijk lokale ruimte op het apparaat te snel worden verbruikt, en er gegevens van gelaagde volumes worden gepusht naar de cloud. We raden daarom minimaliseert u het nummer van lokale momentopnamen.
+**A:** Regelmatige lokale momentopnamen samen met een hoge frequentie van gegevensverloop in Hallo lokaal vastgemaakt volume mogelijk ertoe leiden dat lokale ruimte op Hallo apparaat toobe snel verbruikt en leiden tot gegevens van gelaagde volumes toohello cloud wordt gepusht. We raden daarom minimaliseert u Hallo aantal lokale momentopnamen.
 
 **V:** Ik krijg een waarschuwing met de mededeling dat mijn lokale momentopnamen van lokaal vastgemaakte volumes mogelijk ongeldig worden gemaakt. Wanneer kan dit gebeuren
 
-**A:** Veelvuldig lokale momentopnamen samen met een hoge frequentie van gegevensverloop in de lokaal vastgemaakt volume mogelijk lokale ruimte op het apparaat te snel worden verbruikt. Als de lokale lagen van het apparaat intensief gebruikt wordt, een uitgebreide cloud storing kan leiden tot het apparaat vol raken en binnenkomende schrijven naar het volume kunnen leiden tot ongeldig te maken van de momentopnamen (zoals geen ruimte beschikbaar is voor het bijwerken van de momentopnamen voor het verwijzen naar de oudere blokken met gegevens die zijn overschreven). In een dergelijke situatie blijven het schrijven naar het volume worden geleverd, maar de lokale momentopnamen is mogelijk ongeldig. Er zijn geen gevolgen voor uw bestaande cloudmomentopnamen.
+**A:** Regelmatige lokale momentopnamen samen met een hoge frequentie van gegevensverloop in Hallo lokaal vastgemaakt volume ertoe leiden lokale ruimte op Hallo apparaat toobe snel verbruikt dat kan. Als u lokale lagen Hallo Hallo apparaat intensief gebruikt, een uitgebreide cloud storing kan leiden tot Hallo apparaat vol raken en binnenkomende schrijfbewerkingen toohello volume kan leiden tot ongeldig te maken van momentopnamen hello (zoals geen ruimte tooupdate Hallo momentopnamen toorefer bestaat toohello oudere blokken met gegevens die zijn overschreven). In dergelijke een situatie Hallo blijft schrijfbewerkingen toohello volume toobe geleverd, maar Hallo lokale momentopnamen is mogelijk ongeldig. Er is geen impact tooyour bestaande cloudmomentopnamen.
 
-De waarschuwing waarschuwing is om u te waarschuwen dat een dergelijke situatie kan ontstaan en zorg ervoor dat u hetzelfde adres tijdig dat door uw lokale momentopnamen planningen om minder frequente lokale momentopnamen te bekijken of verwijderen van oudere lokale momentopnamen die niet langer vereist zijn.
+Hallo waarschuwing waarschuwing is toonotify kunt u dat een dergelijke situatie voordoen en zorg ervoor dat u Hallo dezelfde tijdig door ofwel het controleren van uw lokale momentopnamen plant u tootake minder frequente lokale momentopnamen of verwijderen oudere lokale momentopnamen die niet langer te houden Vereist.
 
-Als de lokale momentopnamen ongeldig worden gemaakt, ontvangt u een informatiemelding om u te informeren dat de lokale momentopnamen voor de specifieke back-upbeleid zijn ongeldig gemaakt naast de lijst met tijdstempels van de lokale momentopnamen die ongeldig zijn gemaakt. Deze momentopnamen worden automatisch verwijderd en u niet langer kunnen worden weer te geven in de **back-up catalogussen** blade in de Azure portal.
+Als de lokale momentopnamen Hallo ongeldig worden gemaakt, ontvangt u alarm informatie om u te informeren dat lokale momentopnamen voor de specifieke back-upbeleid Hallo Hallo zijn ongeldig gemaakt naast Hallo-lijst van tijdstempels van Hallo lokale momentopnamen die ongeldig zijn gemaakt. Deze momentopnamen worden automatisch verwijderd en kunt u niet meer kunnen tooview ze in Hallo **back-up catalogussen** blade in hello Azure-portal.
 
-## <a name="questions-about-converting-a-tiered-volume-to-a-locally-pinned-volume"></a>Vragen over het converteren van een gelaagd volume naar een lokaal vastgemaakt volume
-**V:** Ik ben sommige traagheid op het apparaat tijdens het converteren van een gelaagd volume naar een lokaal vastgemaakt volume observeren. Waarom is dit gebeurt?
+## <a name="questions-about-converting-a-tiered-volume-tooa-locally-pinned-volume"></a>Vragen over het converteren van een gelaagd volume tooa lokaal vastgemaakt volume
+**V:** Ik ben sommige traagheid op Hallo apparaat geobserveerd tijdens het converteren van een gelaagd volume tooa lokaal vastgemaakt volume. Waarom is dit gebeurt?
 
-**A:** Het conversieproces bestaat uit twee stappen:
+**A:** Hallo-conversieproces bestaat uit twee stappen:
 
-1. Het inrichten van ruimte op het apparaat voor het snel-naar-worden-geconverteerd lokaal vastgemaakt volume.
-2. Downloaden van een gelaagde gegevens vanuit de cloud om ervoor te zorgen lokale gegarandeerd.
+1. Het inrichten van ruimte op het Hallo-apparaat voor hello, snel-naar-worden-geconverteerd volume lokaal vastgemaakt.
+2. Gelaagde gegevens downloaden vanaf Hallo cloud tooensure lokale gegarandeerd.
 
-Beide stappen zijn lang met bewerkingen die afhankelijk van de grootte van het volume dat wordt geconverteerd zijn, gegevens op het apparaat en de beschikbare bandbreedte. Als sommige gegevens van bestaande gelaagde volumes mogelijk naar de cloud worden gelekt als onderdeel van het inrichtingsproces, kan uw apparaat verminderde prestaties tijdens deze periode optreden. Bovendien het conversieproces duurt mogelijk langer als:
+Beide stappen zijn lang met bewerkingen die afhankelijk van de grootte van de Hallo van Hallo-volume wordt geconverteerd zijn, gegevens op het Hallo-apparaat en de beschikbare bandbreedte. Als sommige gegevens van bestaande gelaagde volumes mogelijk toohello cloud worden gelekt als onderdeel van Hallo inrichtingsproces, kan uw apparaat verminderde prestaties tijdens deze periode optreden. Bovendien Hallo conversieproces duurt mogelijk als:
 
-* Bestaande volumes zijn geen back-ups naar de cloud; zodat het is raadzaam om de dat back-up van uw volumes voordat u een conversie te starten.
-* Bandbreedte, snelheidsbeperking beleidsregels zijn toegepast, die de beschikbare bandbreedte naar de cloud; kan beperken Daarom raden we aan dat u hebt een speciale 40 Mbps of meer verbinding naar de cloud.
-* Het conversieproces kan enkele uren vanwege het meerdere factoren uiteengezet; duren Daarom is het raadzaam dat u deze bewerking niet pieken op tijdstippen of op een weekend om te voorkomen dat de gevolgen voor consumenten end uitvoert.
+* Bestaande volumes zijn toohello cloud; geen back-ups zodat het is raadzaam om de dat back-up van uw eerdere tooinitiating een conversie van volumes.
+* Bandbreedte, snelheidsbeperking beleidsregels zijn toegepast, kan die Hallo beschikbare bandbreedte toohello cloud; beperken Daarom raden we aan dat u hebt een speciale 40 Mbps of meer verbinding toohello cloud.
+* Hallo kan conversie enkele uren duren vanwege toohello meerdere factoren uiteengezet; daarom het is raadzaam dat u deze bewerking niet pieken op tijdstippen of op een tooavoid weekend uitvoeren Hallo gevolgen voor de end-consumenten.
 
-Meer informatie over het [een gelaagd volume converteren naar een lokaal vastgemaakt volume](storsimple-8000-manage-volumes-u2.md#change-the-volume-type)
+Meer informatie over het te[een gelaagd volume tooa lokaal vastgemaakt volume converteren](storsimple-8000-manage-volumes-u2.md#change-the-volume-type)
 
-**V:** Kan ik de conversiebewerking volume annuleren?
+**V:** Kan ik Hallo volume conversiebewerking annuleren?
 
-**A:** Nee, u kunt niet de annuleren de conversiebewerking eenmaal is gestart. Zoals beschreven in de vorige vragen, u zich van de mogelijke prestatieproblemen die u mogelijk bij het proces stuit en volg de aanbevolen procedures die hierboven worden genoemd als u van plan uw conversie bent.
+**A:** Nee, kan niet u Hallo Hallo conversie annuleringsbewerking eenmaal is gestart. Zoals beschreven in de vorige vragen hello, zich van Hallo potentiële prestatieproblemen die u mogelijk bij het Hallo-proces stuit en volg de aanbevolen procedures Hallo die hierboven worden genoemd als u van plan uw conversie bent.
 
-**V:** Wat gebeurt er met mijn volume als de conversiebewerking mislukt?
+**V:** Wat gebeurt er toomy volume als Hallo conversiebewerking mislukt?
 
-**A:** Volumeconversie kan mislukken door problemen met de netwerkverbinding van de cloud. Het apparaat niet meer het conversieproces uiteindelijk na een bepaald aantal mislukte pogingen om de gelaagde gegevens vanuit de cloud. In een dergelijk scenario het volumetype blijft het brontype volume vóór-conversie en:
+**A:** Volumeconversie kan mislukken vanwege problemen met de netwerkverbinding toocloud. Hallo-apparaat niet meer Hallo conversieproces uiteindelijk na een bepaald aantal mislukte pogingen toobring omlaag gelaagde gegevens uit Hallo cloud. In een dergelijk scenario Hallo volumetype toobe Hallo bron volume type voorafgaande tooconversion, wordt voortgezet en:
 
-* Er verschijnt een kritieke waarschuwing voor zullen u informeren over de fout bij het converteren van het volume. Meer informatie over [waarschuwingen die zijn gerelateerd aan lokaal vastgemaakte volumes](storsimple-8000-manage-alerts.md#locally-pinned-volume-alerts)
-* Als u een gelaagde naar een lokaal vastgemaakt volume converteren wilt, blijft het volume eigenschappen van een gelaagd volume vertonen, zoals gegevens nog steeds zich in de cloud bevinden mogelijk. We raden u los de problemen met de netwerkverbinding en probeer het opnieuw conversie.
-* Op dezelfde manier als de conversie van een lokaal vastgemaakt naar een gelaagd volume uitvalt, hoewel het volume wordt gemarkeerd als een lokaal vastgemaakt volume, werkt als een gelaagd volume (omdat de gegevens kan terechtgekomen naar de cloud). Het blijft echter ruimte op de lokale lagen van het apparaat in beslag nemen. Deze ruimte worden niet beschikbaar voor andere lokaal vastgemaakte volumes. Het is raadzaam dat u het opnieuw om ervoor te zorgen dat de volumeconversie voltooid is en de lokale ruimte op het apparaat kan worden vrijgemaakt.
+* Kritieke waarschuwing worden verhoogd toonotify u Hallo fout bij het converteren van het volume. Meer informatie over [gerelateerde toolocally vastgemaakt volumes waarschuwingen](storsimple-8000-manage-alerts.md#locally-pinned-volume-alerts)
+* Als u een gelaagde tooa lokaal vastgemaakt volume converteert, blijven Hallo volume tooexhibit eigenschappen van een gelaagd volume als gegevens mogelijk nog steeds op Hallo cloud staan. Het is raadzaam dat u problemen met Hallo en probeer vervolgens Hallo conversie opnieuw.
+* Op dezelfde manier als de conversie van een lokaal vastgemaakt tooa gelaagd volume mislukt, hoewel Hallo volume wordt gemarkeerd als een lokaal vastgemaakt volume, werkt als een gelaagd volume (omdat de gegevens kan toohello cloud terechtgekomen). Deze blijven echter wel toooccupy ruimte op de lokale lagen Hallo Hallo-apparaat. Deze ruimte worden niet beschikbaar voor andere lokaal vastgemaakte volumes. Het is raadzaam dat u opnieuw proberen om deze bewerking tooensure dat Hallo volumeconversie voltooid is en Hallo lokale ruimte op Hallo apparaat kan worden vrijgemaakt.
 
 ## <a name="questions-about-restoring-a-locally-pinned-volume"></a>Vragen over het herstellen van een lokaal vastgemaakt volume
 **V:** Lokaal vastgemaakte volumes hersteld onmiddellijk?
 
-**A:** Ja, lokaal vastgemaakte volumes zijn direct hersteld. Zodra de informatie over de metagegevens voor het volume is opgehaald uit de cloud als onderdeel van de herstelbewerking, wordt het volume online is gebracht en toegankelijk zijn voor de host. Lokale garanties met betrekking tot het volume gegevens niet meer aanwezig totdat alle gegevens die is gedownload vanuit de cloud en treden verminderd echter op de prestaties van deze volumes voor de duur van het terugzetten.
+**A:** Ja, lokaal vastgemaakte volumes zijn direct hersteld. Hallo-metagegevens voor Hallo volume is uit Hallo cloud opgehaald als onderdeel van de herstelbewerking hello, Hallo volume online is gebracht en zodra toegankelijk zijn voor het Hallo-host. Echter verlaagd lokale garanties met betrekking tot Hallo volume gegevens niet meer aanwezig totdat alle Hallo gegevens uit de cloud Hallo is gedownload en kunnen zich op de prestaties van deze volumes voor de duur van Hallo terugzetten Hallo.
 
-**V:** Hoe lang duurt het herstellen van een lokaal vastgemaakt volume?
+**V:** Hoe lang duurt toorestore een lokaal vastgemaakt volume?
 
-**A:** Lokaal vastgemaakte volumes zijn onmiddellijk teruggezet en online wordt gebracht zodra de volumegegevens voor metagegevens worden opgehaald uit de cloud terwijl de volumegegevens wordt voortgezet op de achtergrond worden gedownload. Dit laatste deel van de herstelbewerking--om terug te zetten van de lokale garanties voor de volumegegevens--het is een langdurige bewerking en duurt enkele uren voor alle gegevens voor lokale opnieuw worden gemaakt. De tijd voltooien hetzelfde is afhankelijk van meerdere factoren, zoals de grootte van het volume wordt hersteld en de beschikbare bandbreedte. Als het oorspronkelijke volume dat wordt hersteld, is verwijderd, worden extra tijd gaat maken van de lokale ruimte op het apparaat als onderdeel van de herstelbewerking opnieuw.
+**A:** Lokaal vastgemaakte volumes zijn onmiddellijk teruggezet en online worden gebracht als u de informatie over de metagegevens van de Hallo volume wordt opgehaald uit Hallo cloud, terwijl de volumegegevens Hallo nog steeds toobe op Hallo achtergrond gedownload. Deze laatste gedeelte van het Hallo-herstelbewerking--om terug te zetten Hallo lokale garanties voor Hallo volumegegevens--is een langdurige bewerking en duurt enkele uren alle Hallo gegevens toobe lokale opnieuw gemaakt. Hallo tijd toocomplete hello dezelfde afhankelijk is van meerdere factoren, zoals het Hallo-grootte van het Hallo-volume wordt hersteld en Hallo beschikbare bandbreedte. Als u Hallo oorspronkelijke volume dat wordt hersteld, is verwijderd, extra tijd gaat toocreate Hallo lokale ruimte op Hallo-apparaat als onderdeel van Hallo restore-bewerking.
 
-**V:** Ik wil mijn bestaande lokaal vastgemaakt volume herstellen naar een momentopname van een oudere (uitgevoerd wanneer het volume is gelaagd). Het volume worden hersteld als lagen in dit geval?
+**V:** Moet ik mijn bestaande lokaal volume tooan oudere momentopname vastgemaakt (die is genomen wanneer Hallo volume is gelaagd) toorestore. Hallo volume worden hersteld als lagen in dit geval?
 
-**A:** Nee, wordt het volume worden hersteld als een lokaal vastgemaakt volume. Hoewel de datums van de momentopname aan de tijd wanneer het volume is gelaagd, tijdens het herstellen van bestaande volumes StorSimple altijd maakt gebruik van het type volume op de schijf omdat deze momenteel bestaat.
+**A:** Nee, Hallo volume worden hersteld als een lokaal vastgemaakt volume. Hoewel Hallo momentopname datums toohello wanneer Hallo volume is gelaagd tijdens het herstellen van bestaande volumes StorSimple gebruikt altijd Hallo type volume op schijf Hallo omdat deze momenteel bestaat.
 
-**V:** Ik mijn lokaal vastgemaakt volume onlangs hebt uitgebreid, maar ik wil nu de gegevens herstellen naar een tijd waarop het volume kleiner is. Wordt terugzetten van de grootte van het huidige volume en moet ik de grootte van het volume uitbreiden nadat het herstel is voltooid?
+**V:** Ik mijn lokaal vastgemaakt volume onlangs hebt uitgebreid, maar moet nu toorestore Hallo gegevens tooa tijdstip waarop Hallo volume kleiner is. Wordt terugzetten van de grootte van het huidige volume Hallo en moet ik tooextend Hallo grootte van Hallo volume nadat de Hallo terugzetten is voltooid?
 
-**A:** Ja, de herstelbewerking wordt de grootte van het volume en moet u de grootte van het volume uitbreiden nadat het herstel is voltooid.
+**A:** Ja, Hallo herstellen wordt de grootte van Hallo volume en moet u tooextend Hallo grootte van Hallo volume nadat Hallo terugzetten is voltooid.
 
-**V:** Kan ik tijdens het terugzetten van het type van een volume wijzigen?
+**V:** Kan ik Hallo-type van een volume wijzigen tijdens het terugzetten?
 
-**A.**Nee, u het volumetype niet wijzigen tijdens het terugzetten.
+**A.**Nee, u Hallo volumetype niet wijzigen tijdens het terugzetten.
 
-* Volumes die zijn verwijderd zijn als het type dat is opgeslagen in de momentopname hersteld.
-* Bestaande volumes zijn hersteld op basis van hun huidige type, ongeacht het type dat is opgeslagen in de momentopname (Zie de vorige twee vragen).
+* Volumes die zijn verwijderd zijn als Hallo type opgeslagen in momentopname Hallo hersteld.
+* Bestaande volumes zijn hersteld op basis van hun huidige type, ongeacht het Hallo-type die zijn opgeslagen in momentopname Hallo (Zie de vorige twee toohello vragen).
 
-**V:** Ik wil mijn lokaal vastgemaakt volume te herstellen, maar ik heb een onjuist punt in tijd momentopname. Kan ik de huidige herstelbewerking annuleren?
+**V:** Ik heb mijn lokaal vastgemaakt volume toorestore nodig, maar ik heb een onjuist punt in tijd momentopname. Kan ik Hallo huidige restore-bewerking annuleren?
 
-**A:** Ja, kunt u een herstelbewerking continu annuleren. De status van het volume wordt teruggedraaid naar de status aan het begin van het terugzetten. Er geen schrijfbewerkingen die zijn aangebracht aan het volume, terwijl de herstelbewerking werd uitgevoerd is verloren gegaan.
+**A:** Ja, kunt u een herstelbewerking continu annuleren. Hallo-status van Hallo volume wordt teruggedraaid toohello status aan begin Hallo van Hallo terugzetten. Er geen schrijfbewerkingen die zijn aangebracht toohello volume terwijl Hallo terugzetten werd uitgevoerd is verloren gegaan.
 
 **V:** Ik een restore-bewerking op een van mijn lokaal vastgemaakte volumes gestart en wordt nu een momentopname wordt weergegeven in de catalogus van mijn achterstand die ik niet nu maken. Wat wordt dit gebruikt?
 
-**A:** Dit is de tijdelijke momentopname die vóór de herstelbewerking is gemaakt en wordt gebruikt voor ongedaan maken als het herstel is geannuleerd of mislukt. Deze momentopname; niet verwijderen Deze worden automatisch verwijderd wanneer het herstel voltooid is. Dit kan gebeuren als de hersteltaak alleen lokaal volumes of een combinatie van lokaal vastgemaakte en gelaagde volumes vastgemaakte is. De hersteltaak bevat alleen gelaagde volumes, wordt vervolgens dit gedrag niet uitgevoerd als.
+**A:** Dit is Hallo tijdelijke momentopname die eerdere toohello restore-bewerking is gemaakt en wordt gebruikt voor terugdraaien als Hallo terugzetten is geannuleerd of mislukt. Deze momentopname; niet verwijderen Deze worden automatisch verwijderd als Hallo herstellen voltooid is. Dit kan gebeuren als de hersteltaak alleen lokaal volumes of een combinatie van lokaal vastgemaakte en gelaagde volumes vastgemaakte is. Hallo hersteltaak alleen gelaagde volumes bevat, wordt wordt vervolgens dit gedrag niet uitgevoerd als.
 
 **V:** Kan ik een lokaal vastgemaakt volume kloon?
 
-**A:** Ja, kunt u. Lokaal vastgemaakt volume wordt echter als een gelaagd volume standaard worden gekloond. Meer informatie over het [een lokaal vastgemaakt volume klonen](storsimple-8000-clone-volume-u2.md)
+**A:** Ja, kunt u. Hallo lokaal vastgemaakt volume wordt echter als een gelaagd volume standaard worden gekloond. Meer informatie over het te[een lokaal vastgemaakt volume klonen](storsimple-8000-clone-volume-u2.md)
 
 ## <a name="questions-about-failing-over-a-locally-pinned-volume"></a>Vragen over mislukte via een lokaal vastgemaakt volume
-**V:** Ik wil mijn apparaat aan een ander fysiek apparaat failover. Mijn lokaal vastgemaakte volumes mislukken dan lokaal vastgemaakt of gelaagde?
+**V:** Ik heb nodig toofail via mijn apparaat tooanother fysiek apparaat. Mijn lokaal vastgemaakte volumes mislukken dan lokaal vastgemaakt of gelaagde?
 
-**A:** Lokaal vastgemaakte volumes wordt een failover uitgevoerd als lokaal vastgemaakt als het doelapparaat StorSimple 8000 serie update 3 of hoger wordt uitgevoerd.
+**A:** Hallo lokaal vastgemaakte volumes wordt een failover uitgevoerd als lokaal vastgemaakt als Hallo doelapparaat StorSimple 8000 serie update wordt uitgevoerd, 3 of hoger.
 
 Meer informatie over [failover en DR van lokaal vastgemaakte volumes op versies van](storsimple-8000-device-failover-disaster-recovery.md#device-failover-across-software-versions)
 
 **V:** Lokaal vastgemaakte volumes direct herstellen tijdens herstel na noodgeval (DR)?
 
-**A:** Ja, lokaal vastgemaakte volumes zijn hersteld onmiddellijk tijdens failover. Zodra de informatie over de metagegevens voor het volume is opgehaald uit de cloud als onderdeel van de failoverbewerking, wordt het volume online brengen op het doelapparaat en toegankelijk zijn voor de host. Ondertussen blijft de volumegegevens downloaden op de achtergrond en verminderde prestaties op deze volumes voor de duur van de failover kunnen optreden.
+**A:** Ja, lokaal vastgemaakte volumes zijn hersteld onmiddellijk tijdens failover. Hallo-metagegevens voor Hallo volume is uit Hallo cloud opgehaald als onderdeel van de failoverbewerking hello, Hallo volume online brengen op het doelapparaat Hallo en zodra toegankelijk zijn voor het Hallo-host. Ondertussen Hallo volumegegevens toodownload wordt voortgezet op de achtergrond Hallo en verminderde prestaties op deze volumes voor de duur van Hallo failover Hallo kunnen optreden.
 
-**V:** Zie ik de failover-taak is voltooid, hoe kan ik de voortgang van een lokaal vastgemaakt volume dat wordt hersteld bijhouden op het doelapparaat?
+**V:** Zie ik Hallo failover-taak is voltooid, hoe kan ik bijhouden Hallo voortgang van lokaal vastgemaakt volume dat wordt hersteld op het doelapparaat Hallo?
 
-**A:** Tijdens een failoverbewerking worden de failover-taak is gemarkeerd als voltooid eenmaal alle volumes in de set met failover zijn onmiddellijk teruggezet en online brengen op het doelapparaat. Dit omvat alle lokaal vastgemaakte volumes die mogelijk zijn via; is mislukt echter, lokale garanties van de gegevens worden pas beschikbaar wanneer de gegevens voor het volume is gedownload. U kunt deze voortgang voor elk lokaal vastgemaakt volume dat is mislukt door de bewaking van de bijbehorende hersteltaken die zijn gemaakt als onderdeel van de failover volgen. Deze het herstellen van afzonderlijke taken wordt alleen gemaakt voor lokaal vastgemaakte volumes.
+**A:** Tijdens een failoverbewerking Hallo failover-taak wordt als voltooid gemarkeerd wanneer alle Hallo volumes in Hallo failover set zijn onmiddellijk teruggezet en online brengen op Hallo doelapparaat. Dit omvat alle lokaal vastgemaakte volumes die mogelijk zijn via; is mislukt echter worden lokale garanties Hallo gegevens pas beschikbaar wanneer alle Hallo-gegevens voor Hallo volume is gedownload. U kunt deze voortgang voor elk lokaal vastgemaakt volume dat is mislukt door bewaking Hallo bijbehorende hersteltaken die zijn gemaakt als onderdeel van Hallo failover volgen. Deze het herstellen van afzonderlijke taken wordt alleen gemaakt voor lokaal vastgemaakte volumes.
 
-**V:** Kan ik het type van een volume wijzigen tijdens de failover?
+**V:** Kan ik Hallo-type van een volume wijzigen tijdens de failover?
 
-**A:** Nee, kunt u het volumetype niet wijzigen tijdens een failover. Als u zich niet via een ander fysiek apparaat met StorSimple 8000 series update 3, de volumes wordt een failover uitgevoerd op basis van het volumetype dat is opgeslagen in de momentopname.
+**A:** U kunt de Hallo volumetype Nee, niet wijzigen tijdens een failover. Als u het vaakst via tooanother fysiek apparaat met StorSimple 8000 series update 3, Hallo volumes wordt een failover uitgevoerd op basis van Hallo volume dat is opgeslagen in momentopname Hallo.
 
-**V:** Kan ik een volumecontainer met lokaal vastgemaakte volumes op het toestel cloud failover?
+**V:** Kan ik een volumecontainer met lokaal vastgemaakte volumes toohello cloud toestel failover?
 
-**A:** Ja, kunt u. Lokaal vastgemaakte volumes wordt als gelaagde volumes failover worden uitgevoerd. Meer informatie over [failover en DR van lokaal vastgemaakte volumes op versies van](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
+**A:** Ja, kunt u. Hallo lokaal vastgemaakte volumes wordt als gelaagde volumes failover worden uitgevoerd. Meer informatie over [failover en DR van lokaal vastgemaakte volumes op versies van](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
 

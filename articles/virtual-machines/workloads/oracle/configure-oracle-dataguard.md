@@ -1,5 +1,5 @@
 ---
-title: Oracle Data Guard implementeren op een virtuele machine van Azure Linux | Microsoft Docs
+title: aaaImplement Oracle Data Guard op een virtuele machine van Azure Linux | Microsoft Docs
 description: Snel gebruiksklaar Oracle Data Guard omhoog in uw Azure-omgeving.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,31 +15,31 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: rclaus
-ms.openlocfilehash: 11492b85e95ddb39489e36c572af2a168b4c7af8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6bb530098737e3ca7dd8bab3f4306ecbb620f3f8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Oracle Data Guard implementeren op een virtuele machine van Azure Linux 
 
-Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. Dit artikel wordt beschreven hoe u Azure CLI gebruiken voor het implementeren van een database van de Oracle-Database 12c vanaf de Azure Marketplace-installatiekopie. In dit artikel ziet u stap voor stap, klikt u vervolgens het installeren en configureren van Data Guard op Azure een virtuele machine (VM).
+Azure CLI is gebruikte toocreate en Azure-resources te beheren vanaf de opdrachtregel hello, hetzij in scripts. Dit artikel wordt beschreven hoe toouse Azure CLI toodeploy een Oracle-Database 12c-database vanuit hello Azure Marketplace-installatiekopie. In dit artikel geeft vervolgens u stapsgewijs hoe tooinstall en Data Guard configureren op Azure een virtuele machine (VM).
 
-Voordat u begint, zorg ervoor dat de Azure CLI is geïnstalleerd. Zie voor meer informatie de [Azure CLI installatiehandleiding](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Voordat u begint, zorg ervoor dat de Azure CLI is geïnstalleerd. Zie voor meer informatie, Hallo [Azure CLI installatiehandleiding](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="prepare-the-environment"></a>De omgeving voorbereiden
+## <a name="prepare-hello-environment"></a>Hallo-omgeving voorbereiden
 ### <a name="assumptions"></a>Veronderstellingen
 
-Als u wilt installeren Oracle Data Guard, moet u twee virtuele Azure-machines op dezelfde beschikbaarheidsset maken:
+tooinstall Oracle Data Guard, moet u twee toocreate Azure VM's op Hallo dezelfde beschikbaarheidsset:
 
-- De primaire virtuele machine (myVM1) heeft een actief Oracle-exemplaar.
-- De stand-by VM (myVM2) heeft de Oracle-software alleen worden geïnstalleerd.
+- Hallo heeft primaire virtuele machine (myVM1) een actief Oracle-exemplaar.
+- Hallo die stand-by-virtuele machine (myVM2) Hallo Oracle-software alleen worden geïnstalleerd heeft.
 
-De Marketplace-installatiekopie die u gebruikt voor het maken van de virtuele machines is Oracle: Oracle-Database-Ee:12.1.0.2:latest.
+Hallo Marketplace-installatiekopie toocreate Hallo virtuele machines te gebruiken is Oracle: Oracle-Database-Ee:12.1.0.2:latest.
 
-### <a name="sign-in-to-azure"></a>Aanmelden bij Azure 
+### <a name="sign-in-tooazure"></a>Meld u aan tooAzure 
 
-Aanmelden bij uw Azure-abonnement met behulp van de [az aanmelding](/cli/azure/#login) opdracht in en volg de op het scherm richtingen.
+Azure-abonnement tooyour aanmelden via Hallo [az aanmelding](/cli/azure/#login) opdracht in en volg Hallo op het scherm instructies.
 
 ```azurecli
 az login
@@ -47,9 +47,9 @@ az login
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met behulp van de [az groep maken](/cli/azure/group#create) opdracht. Een Azure-resourcegroep is een logische container in welke Azure resources worden geïmplementeerd en beheerd. 
+Een resourcegroep maken met behulp van Hallo [az groep maken](/cli/azure/group#create) opdracht. Een Azure-resourcegroep is een logische container in welke Azure resources worden geïmplementeerd en beheerd. 
 
-Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` in de `westus` locatie:
+Hallo volgende voorbeeld maakt u een resourcegroep met de naam `myResourceGroup` in Hallo `westus` locatie:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -69,9 +69,9 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 
-Een virtuele machine maken met behulp van de [az vm maken](/cli/azure/vm#create) opdracht. 
+Een virtuele machine maken met behulp van Hallo [az vm maken](/cli/azure/vm#create) opdracht. 
 
-Het volgende voorbeeld maakt twee virtuele machines met de naam `myVM1` en `myVM2`. SSH-sleutels wordt ook gemaakt als deze niet al bestaan op de standaardlocatie van de sleutel. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
+Hallo volgende voorbeeld maakt twee virtuele machines met de naam `myVM1` en `myVM2`. SSH-sleutels wordt ook gemaakt als deze niet al bestaan op de standaardlocatie van de sleutel. toouse een specifieke verzameling van sleutels, gebruikt u Hallo `--ssh-key-value` optie.
 
 Maak myVM1 (primaire):
 ```azurecli
@@ -85,7 +85,7 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-Nadat u de virtuele machine hebt gemaakt, geeft Azure CLI informatie weer zoals in het volgende voorbeeld. Noteer de waarde van `publicIpAddress`. U kunt dit adres gebruiken voor toegang tot de virtuele machine.
+Nadat u Hallo VM gemaakt, ziet u Azure CLI informatie vergelijkbare toohello voorbeeld te volgen. Bekijkt hello waarde `publicIpAddress`. U gebruikt dit adres tooaccess Hallo VM.
 
 ```azurecli
 {
@@ -112,13 +112,13 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-Noteer de waarde van `publicIpAddress` nadat u myVM2 hebt gemaakt.
+Bekijkt hello waarde `publicIpAddress` nadat u myVM2 hebt gemaakt.
 
-### <a name="open-the-tcp-port-for-connectivity"></a>Open de TCP-poort voor connectiviteit
+### <a name="open-hello-tcp-port-for-connectivity"></a>Open TCP-poort Hallo voor connectiviteit
 
-Deze stap configureert u externe eindpunten die externe toegang tot de Oracle-database.
+Deze stap configureert u externe eindpunten waarmee RAS toohello Oracle-database.
 
-Open de poort voor myVM1:
+Hallo-poort voor myVM1 openen:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -128,7 +128,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-Het resultaat moet er ongeveer als het volgende antwoord:
+Hallo resultaat ziet vergelijkbare toohello antwoord te volgen:
 
 ```bash
 {
@@ -149,7 +149,7 @@ Het resultaat moet er ongeveer als het volgende antwoord:
 }
 ```
 
-Open de poort voor myVM2:
+Hallo-poort voor myVM2 openen:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -159,25 +159,25 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-### <a name="connect-to-the-virtual-machine"></a>Verbinding maken met de virtuele machine
+### <a name="connect-toohello-virtual-machine"></a>Verbinding maken met toohello virtuele machine
 
-Gebruik de volgende opdracht om een SSH-sessie te starten voor de virtuele machine. Vervang de IP-adres met de `publicIpAddress` waarde voor de virtuele machine.
+Gebruik Hallo volgende opdracht toocreate een SSH-sessie met Hallo virtuele machine. Hallo IP-adres vervangen door Hallo `publicIpAddress` waarde voor de virtuele machine.
 
 ```bash 
 $ ssh azureuser@<publicIpAddress>
 ```
 
-### <a name="create-the-database-on-myvm1-primary"></a>De database maken op myVM1 (primair)
+### <a name="create-hello-database-on-myvm1-primary"></a>Hallo-database maken op myVM1 (primair)
 
-De Oracle-software is al geïnstalleerd op de Marketplace-installatiekopie, zodat de volgende stap is het installeren van de database. 
+Hallo Oracle-software is al geïnstalleerd op Hallo Marketplace-installatiekopie, zodat de volgende stap Hallo tooinstall Hallo-database. 
 
-Overschakelen naar de Oracle-beheerder:
+Switch toohello Oracle supergebruiker:
 
 ```bash
 $ sudo su - oracle
 ```
 
-De database maken:
+Hallo-database maken:
 
 ```bash
 $ dbca -silent \
@@ -198,7 +198,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
-Uitvoer moeten er ongeveer als het volgende antwoord:
+Uitvoer ziet er vergelijkbare toohello antwoord te volgen:
 
 ```bash
 Copying database files
@@ -227,17 +227,17 @@ Completing Database Creation
 Creating Pluggable Databases
 78% complete
 100% complete
-Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
+Look at hello log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
 ```
 
-De variabelen ORACLE_SID en ORACLE_HOME instellen:
+Hallo ORACLE_SID en ORACLE_HOME variabelen worden ingesteld:
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 $ ORACLE_SID=cdb1; export ORACLE_SID
 ```
 
-Eventueel, kunt u toevoegen ORACLE_HOME en ORACLE_SID naar het bestand /home/oracle/.bashrc, zodat deze instellingen worden opgeslagen voor toekomstige aanmeldingen:
+Desgewenst kunt u ORACLE_HOME en ORACLE_SID toohello /home/oracle/.bashrc bestand, zodat deze instellingen worden opgeslagen voor toekomstige aanmeldingen toevoegen:
 
 ```bash
 # add oracle home
@@ -279,7 +279,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-Flashback (waardoor herstel veel eenvoudiger) inschakelen en stand-by ingesteld\_bestand\_MANAGEMENT automatisch. Afsluiten van SQL * Plus daarna.
+Flashback (waardoor herstel veel eenvoudiger) inschakelen en stand-by ingesteld\_bestand\_MANAGEMENT tooauto. Afsluiten van SQL * Plus daarna.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
@@ -289,9 +289,9 @@ SQL> EXIT;
 
 ### <a name="set-up-service-on-myvm1-primary"></a>Instellen van de service op myVM1 (primair)
 
-Bewerk of het bestand tnsnames.ora, dat zich in de map $ORACLE_HOME\network\admin bevindt maken.
+Bewerk of Hallo tnsnames.ora bestand maakt, dat zich in de map voor Hallo $ORACLE_HOME\network\admin bevindt.
 
-De volgende vermeldingen toevoegen:
+Hallo vermeldingen volgende toevoegen:
 
 ```bash
 cdb1 =
@@ -315,9 +315,9 @@ cdb1_stby =
   )
 ```
 
-Bewerk of het bestand listener.ora, dat zich in de map $ORACLE_HOME\network\admin bevindt maken.
+Bewerk of Hallo listener.ora bestand maakt, dat zich in de map voor Hallo $ORACLE_HOME\network\admin bevindt.
 
-De volgende vermeldingen toevoegen:
+Hallo vermeldingen volgende toevoegen:
 
 ```bash
 LISTENER =
@@ -346,7 +346,7 @@ $ sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
-De listener starten:
+Hallo-listener starten:
 
 ```bash
 $ lsnrctl stop
@@ -355,7 +355,7 @@ $ lsnrctl start
 
 ### <a name="set-up-service-on-myvm2-standby"></a>Instellen van de service op myVM2 (stand-by)
 
-SSH kunt uitvoeren naar myVM2:
+SSH-toomyVM2:
 
 ```bash 
 $ ssh azureuser@<publicIpAddress>
@@ -367,9 +367,9 @@ Meld u aan als Oracle:
 $ sudo su - oracle
 ```
 
-Bewerk of het bestand tnsnames.ora, dat zich in de map $ORACLE_HOME\network\admin bevindt maken.
+Bewerk of Hallo tnsnames.ora bestand maakt, dat zich in de map voor Hallo $ORACLE_HOME\network\admin bevindt.
 
-De volgende vermeldingen toevoegen:
+Hallo vermeldingen volgende toevoegen:
 
 ```bash
 cdb1 =
@@ -393,9 +393,9 @@ cdb1_stby =
   )
 ```
 
-Bewerk of het bestand listener.ora, dat zich in de map $ORACLE_HOME\network\admin bevindt maken.
+Bewerk of Hallo listener.ora bestand maakt, dat zich in de map voor Hallo $ORACLE_HOME\network\admin bevindt.
 
-De volgende vermeldingen toevoegen:
+Hallo vermeldingen volgende toevoegen:
 
 ```bash
 LISTENER =
@@ -418,7 +418,7 @@ SID_LIST_LISTENER =
 ADR_BASE_LISTENER = /u01/app/oracle
 ```
 
-De listener starten:
+Hallo-listener starten:
 
 ```bash
 $ lsnrctl stop
@@ -426,9 +426,9 @@ $ lsnrctl start
 ```
 
 
-### <a name="restore-the-database-to-myvm2-standby"></a>Herstel de database naar myVM2 (stand-by)
+### <a name="restore-hello-database-toomyvm2-standby"></a>Hallo database toomyVM2 herstellen (stand-by)
 
-De parameter bestand /tmp/initcdb1_stby.ora maken met de volgende inhoud:
+Maak Hallo parameter bestand /tmp/initcdb1_stby.ora met Hallo volgende inhoud:
 ```bash
 *.db_name='cdb1'
 ```
@@ -447,7 +447,7 @@ Maak een wachtwoord:
 ```bash
 $ orapwd file=/u01/app/oracle/product/12.1.0/dbhome_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
 ```
-Start de database op myVM2:
+Hallo-database op myVM2 starten:
 
 ```bash
 $ export ORACLE_SID=cdb1
@@ -457,13 +457,13 @@ SQL> STARTUP NOMOUNT PFILE='/tmp/initcdb1_stby.ora';
 SQL> EXIT;
 ```
 
-De database herstellen met het hulpprogramma RMAN:
+Hallo-database terugzetten met Hallo RMAN hulpprogramma:
 
 ```bash
 $ rman TARGET sys/OraPasswd1@cdb1 AUXILIARY sys/OraPasswd1@cdb1_stby
 ```
 
-Voer de volgende opdrachten in RMAN:
+Voer Hallo opdrachten in RMAN te volgen:
 ```bash
 DUPLICATE TARGET DATABASE
   FOR STANDBY
@@ -474,7 +474,7 @@ DUPLICATE TARGET DATABASE
   NOFILENAMECHECK;
 ```
 
-U ziet de volgende strekking weergegeven als de opdracht is voltooid. RMAN af te sluiten.
+U kunt berichten vergelijkbaar toohello volgende moeten zien als Hallo-opdracht is voltooid. RMAN af te sluiten.
 ```bash
 media recovery complete, elapsed time: 00:00:00
 Finished recover at 29-JUN-17
@@ -483,7 +483,7 @@ Finished Duplicate Db at 29-JUN-17
 RMAN> EXIT;
 ```
 
-Eventueel, kunt u toevoegen ORACLE_HOME en ORACLE_SID naar het bestand /home/oracle/.bashrc, zodat deze instellingen worden opgeslagen voor toekomstige aanmeldingen:
+Desgewenst kunt u ORACLE_HOME en ORACLE_SID toohello /home/oracle/.bashrc bestand, zodat deze instellingen worden opgeslagen voor toekomstige aanmeldingen toevoegen:
 
 ```bash
 # add oracle home
@@ -501,7 +501,7 @@ SQL> EXIT;
 
 ### <a name="configure-data-guard-broker-on-myvm1-primary"></a>Data Guard Broker configureren op myVM1 (primair)
 
-Data Guard Manager start en aanmelden met SYS en een wachtwoord. (Gebruik geen OS-verificatie.) Het volgende doen:
+Data Guard Manager start en aanmelden met SYS en een wachtwoord. (Gebruik geen OS-verificatie.) Voer de volgende Hallo:
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -509,7 +509,7 @@ DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
 
 Copyright (c) 2000, 2013, Oracle. All rights reserved.
 
-Welcome to DGMGRL, type "help" for information.
+Welcome tooDGMGRL, type "help" for information.
 Connected as SYSDBA.
 DGMGRL> CREATE CONFIGURATION my_dg_config AS PRIMARY DATABASE IS cdb1 CONNECT IDENTIFIER IS cdb1;
 Configuration "my_dg_config" created with primary database "cdb1"
@@ -519,7 +519,7 @@ DGMGRL> ENABLE CONFIGURATION;
 Enabled.
 ```
 
-Controleer de configuratie:
+Hallo-configuratie controleren:
 ```bash
 DGMGRL> SHOW CONFIGURATION;
 
@@ -536,13 +536,13 @@ Configuration Status:
 SUCCESS   (status updated 26 seconds ago)
 ```
 
-U kunt de installatie van de Oracle Data Guard hebt voltooid. De volgende sectie leest u hoe de connectiviteit testen en overschakelen via.
+U kunt Hallo Oracle Data Guard installatie hebt voltooid. de volgende sectie Hallo ziet u hoe tootest Hallo connectiviteit en overgeschakeld.
 
-### <a name="connect-the-database-from-the-client-machine"></a>Verbinding maken met de database van de clientcomputer
+### <a name="connect-hello-database-from-hello-client-machine"></a>Verbinding maken met Hallo database vanaf de clientcomputer Hallo
 
-Bijwerken of maken van het bestand tnsnames.ora op de clientcomputer. Dit bestand bevindt zich doorgaans in $ORACLE_HOME\network\admin.
+Bijwerken of maak Hallo tnsnames.ora bestand op de clientcomputer. Dit bestand bevindt zich doorgaans in $ORACLE_HOME\network\admin.
 
-Vervang de IP-adressen met uw `publicIpAddress` waarden voor myVM1 en myVM2:
+Vervang Hallo IP-adressen met uw `publicIpAddress` waarden voor myVM1 en myVM2:
 
 ```bash
 cdb1=
@@ -582,15 +582,15 @@ Copyright (c) 1982, 2016, Oracle.  All rights reserved.
 
 Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
-With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+With hello Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 
 SQL>
 ```
-## <a name="test-the-data-guard-configuration"></a>Test de configuratie van Data Guard
+## <a name="test-hello-data-guard-configuration"></a>Testconfiguratie Hallo Data Guard
 
-### <a name="switch-over-the-database-on-myvm1-primary"></a>Overschakelen op de database op myVM1 (primair)
+### <a name="switch-over-hello-database-on-myvm1-primary"></a>Schakel Hallo-database op myVM1 (primair)
 
-Overschakelen van primaire naar de stand-by (cdb1 naar cdb1_stby):
+tooswitch van primaire toostandby (cdb1 toocdb1_stby):
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -598,12 +598,12 @@ DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
 
 Copyright (c) 2000, 2013, Oracle. All rights reserved.
 
-Welcome to DGMGRL, type "help" for information.
+Welcome tooDGMGRL, type "help" for information.
 Connected as SYSDBA.
-DGMGRL> SWITCHOVER TO cdb1_stby;
+DGMGRL> SWITCHOVER toocdb1_stby;
 Performing switchover NOW, please wait...
-Operation requires a connection to instance "cdb1" on database "cdb1_stby"
-Connecting to instance "cdb1"...
+Operation requires a connection tooinstance "cdb1" on database "cdb1_stby"
+Connecting tooinstance "cdb1"...
 Connected as SYSDBA.
 New primary database "cdb1_stby" is opening...
 Operation requires start up of instance "cdb1" on database "cdb1"
@@ -614,7 +614,7 @@ Switchover succeeded, new primary is "cdb1_stby"
 DGMGRL>
 ```
 
-U kunt nu verbinding naar de stand-by-database.
+U kunt nu verbinding toohello stand-by-database.
 
 Start SQL * Plus:
 
@@ -627,26 +627,26 @@ Copyright (c) 1982, 2016, Oracle.  All rights reserved.
 
 Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
-With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+With hello Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 
 SQL>
 ```
 
-### <a name="switch-over-the-database-on-myvm2-standby"></a>Overschakelen op de database op myVM2 (stand-by)
+### <a name="switch-over-hello-database-on-myvm2-standby"></a>Hallo-database op myVM2 overschakelen (stand-by)
 
-Als u wilt overschakelen, voer het volgende op myVM2:
+Hallo volgende tooswitch via, uitvoeren op myVM2:
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1_stby
 DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
 
 Copyright (c) 2000, 2013, Oracle. All rights reserved.
 
-Welcome to DGMGRL, type "help" for information.
+Welcome tooDGMGRL, type "help" for information.
 Connected as SYSDBA.
-DGMGRL> SWITCHOVER TO cdb1;
+DGMGRL> SWITCHOVER toocdb1;
 Performing switchover NOW, please wait...
-Operation requires a connection to instance "cdb1" on database "cdb1"
-Connecting to instance "cdb1"...
+Operation requires a connection tooinstance "cdb1" on database "cdb1"
+Connecting tooinstance "cdb1"...
 Connected as SYSDBA.
 New primary database "cdb1" is opening...
 Operation requires start up of instance "cdb1" on database "cdb1_stby"
@@ -656,7 +656,7 @@ Database mounted.
 Switchover succeeded, new primary is "cdb1"
 ```
 
-Nogmaals: nu moet u verbinding maken met de primaire database.
+Nogmaals: u moet nu kunnen tooconnect toohello primaire database.
 
 Start SQL * Plus:
 
@@ -669,17 +669,17 @@ Copyright (c) 1982, 2016, Oracle.  All rights reserved.
 
 Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
-With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+With hello Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 
 SQL>
 ```
 
-U hebt de installatie en configuratie van Data Guard op Oracle Linux.
+U klaar bent met het Hallo-installatie en configuratie van Data Guard op Oracle Linux.
 
 
-## <a name="delete-the-virtual-machine"></a>Verwijder de virtuele machine
+## <a name="delete-hello-virtual-machine"></a>Hallo virtuele machine verwijderen
 
-Wanneer u de virtuele machine niet meer nodig hebt, kunt u de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen:
+Wanneer u virtuele machine niet meer nodig hello, kunt u na de opdracht tooremove Hallo-resourcegroep, VM en alle gerelateerde resources hello gebruiken:
 
 ```azurecli
 az group delete --name myResourceGroup

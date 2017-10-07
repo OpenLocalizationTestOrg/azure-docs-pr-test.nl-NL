@@ -1,6 +1,6 @@
 ---
-title: Controleer de verbinding met Azure-netwerk-Watcher - Azure-portal | Microsoft Docs
-description: Deze pagina wordt uitgelegd hoe u verbinding met de netwerk-Watcher met de Azure portal gebruiken
+title: aaaCheck connectiviteit met de Azure-netwerk-Watcher - Azure-portal | Microsoft Docs
+description: Deze pagina wordt uitgelegd hoe toouse connectiviteit contact op met de netwerk-Watcher met hello Azure-portal
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: gwallace
-ms.openlocfilehash: 84774d0f40e06a819ca6de6cf0be68e17ba474e4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ef6ecccd688f06f70003a5b59771c15bcbe8f3e2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Controleer de verbinding met de netwerk-Watcher van Azure met Azure portal
+# <a name="check-connectivity-with-azure-network-watcher-using-hello-azure-portal"></a>Controleer de verbinding met de netwerk-Watcher van Azure met behulp van hello Azure-portal
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -27,38 +27,38 @@ ms.lasthandoff: 08/29/2017
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST-API](network-watcher-connectivity-rest.md)
 
-Informatie over het gebruik van verbinding om te controleren als direct TCP-verbinding van een virtuele machine naar een opgegeven eindpunt kan worden gemaakt.
+Meer informatie over hoe toouse connectiviteit tooverify als een directe TCP-verbinding van een virtuele machine tooa opgegeven eindpunt kan worden vastgesteld.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u hebt de volgende bronnen:
+In dit artikel wordt ervan uitgegaan dat er Hallo resources te volgen:
 
-* Een exemplaar van netwerk-Watcher in de regio die u wilt controleren, connectiviteit.
+* Een exemplaar van netwerk-Watcher in Hallo regio die u wilt toocheck connectiviteit.
 
-* Virtuele machines connectiviteit met controleren.
+* Virtuele machines toocheck connectiviteit met.
 
 > [!IMPORTANT]
-> Controle van de verbinding zijn nodig voor de extensie van een virtuele machine `AzureNetworkWatcherExtension`. Voor het installeren van de extensie op een Windows-virtuele machine gaat u naar [extensie voor het virtuele machine voor Windows Azure-netwerk-Watcher Agent](../virtual-machines/windows/extensions-nwa.md) en voor Linux-VM naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md).
+> Controle van de verbinding zijn nodig voor de extensie van een virtuele machine `AzureNetworkWatcherExtension`. Ga voor het Hallo-uitbreiding installeren op een virtuele machine van Windows naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Windows](../virtual-machines/windows/extensions-nwa.md) en voor Linux-VM naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md).
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>Controleer de verbinding met een virtuele machine
+## <a name="check-connectivity-tooa-virtual-machine"></a>Controleer de connectiviteit tooa virtuele machine
 
-In dit voorbeeld controleert de verbinding met een doel-virtuele machine via poort 80.
+In dit voorbeeld controleert connectiviteit tooa bestemde virtuele machine via poort 80.
 
-Navigeer naar uw netwerk-Watcher en klikt u op **connectiviteit selectievakje (Preview)**. Selecteer de virtuele machine, Controleer de verbinding tussen. In de **bestemming** sectie kiezen **Selecteer een virtuele machine** en kies de juiste virtuele machine en poort om te testen.
+Navigeer tooyour netwerk-Watcher en klik op **connectiviteit selectievakje (Preview)**. Selecteer Hallo virtuele machine vanaf toocheck verbinding. In Hallo **bestemming** sectie kiezen **Selecteer een virtuele machine** en kies Hallo juiste virtuele machine en poort tootest.
 
-Nadat u op **controleren**, de verbinding tussen de virtuele machines op de opgegeven poort worden gecontroleerd. De doel-virtuele machine is niet bereikbaar, een overzicht van hops weergegeven in het voorbeeld.
+Nadat u op **controleren**, Hallo connectiviteit tussen Hallo virtuele machines op de opgegeven poort voor Hallo worden gecontroleerd. In voorbeeld Hallo Hallo bestemming VM is niet bereikbaar, een overzicht van hops worden weergegeven.
 
 ![Resultaten van de verbinding voor een virtuele machine][1]
 
 ## <a name="check-remote-endpoint-connectivity"></a>Controleer de verbindingen van het externe eindpunt
 
-Als u wilt controleren de connectiviteit en de latentie van een extern eindpunt, kies de **handmatig opgeven** keuzerondje in de **bestemming** sectie, voert u de url en de poort en klik op **controleren**.  Dit wordt gebruikt voor externe eindpunten zoals websites en -opslag-eindpunten.
+toocheck hello connectiviteit en latentie tooa externe eindpunt, kies Hallo **handmatig opgeven** keuzerondje in Hallo **bestemming** sectie, invoer Hallo-url en Hallo-poort en klik op **controleren** .  Dit wordt gebruikt voor externe eindpunten zoals websites en -opslag-eindpunten.
 
 ![Resultaten van de verbinding voor een website][2]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het automatiseren van pakket opnamen met waarschuwingen van de virtuele machine met weer te geven [maken van een waarschuwing geactiveerd pakketopname](network-watcher-alert-triggered-packet-capture.md)
+Meer informatie over hoe tooautomate pakket worden vastgelegd met waarschuwingen van de virtuele machine door [maken van een waarschuwing geactiveerd pakketopname](network-watcher-alert-triggered-packet-capture.md)
 
 Als bepaalde verkeer is toegestaan in of buiten uw virtuele machine in via vinden [controleren IP-stroom controleren](network-watcher-check-ip-flow-verify-portal.md)
 

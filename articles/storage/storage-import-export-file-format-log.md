@@ -1,6 +1,6 @@
 ---
-title: Azure Import/Export-logboekindeling | Microsoft Docs
-description: Meer informatie over de indeling van de logboekbestanden gemaakt wanneer de stappen worden uitgevoerd voor een taak van Import/Export-service.
+title: indeling van logboekbestand aaaAzure voor importeren/exporteren | Microsoft Docs
+description: Meer informatie over het Hallo-indeling van logboekbestanden Hallo gemaakt wanneer de stappen worden uitgevoerd voor een taak van Import/Export-service.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 16234ccaf13ce1d85cfd207ed4734e683070faa6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 15a652455aa947922af0aa39ccefe68811a3db19
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure Import/Export-service indeling van logboekbestand
-Wanneer een actie in de Microsoft Azure Import/Export-service op een station dat als onderdeel van een import-taak of een taak voor het exporteren wordt uitgevoerd, worden logboeken geschreven naar blok-blobs in de storage-account dat is gekoppeld met deze taak.  
+Wanneer een actie op een station Hallo Microsoft Azure Import/Export-service als onderdeel van een import-taak of een taak voor het exporteren uitvoert, worden logboeken tooblock blobs geschreven in Hallo storage-account dat is gekoppeld met deze taak.  
   
-Er zijn twee logboekbestanden die kunnen worden geschreven door de Import/Export-service:  
+Er zijn twee logboekbestanden die kunnen worden geschreven door Hallo Import/Export-service:  
   
--   Het foutenlogboek wordt altijd in het geval van een fout gegenereerd.  
+-   Hallo-foutenlogboek is altijd Hallo geval van een fout gegenereerd.  
   
--   Het uitgebreide logboek is standaard niet ingeschakeld, maar kan worden ingeschakeld door in te stellen de `EnableVerboseLog` -eigenschap op een [taak plaatsen](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) of [Update taakeigenschappen](/rest/api/storageimportexport/jobs#Jobs_Update) bewerking.  
+-   Hallo uitgebreide logboek is standaard niet ingeschakeld, maar kan worden ingeschakeld door de instelling Hallo `EnableVerboseLog` -eigenschap op een [taak plaatsen](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) of [Update taakeigenschappen](/rest/api/storageimportexport/jobs#Jobs_Update) bewerking.  
   
 ## <a name="log-file-location"></a>De locatie van logboekbestand  
-De logboeken worden geschreven naar het blok-blobs in de container of de virtuele map die is opgegeven door de `ImportExportStatesPath` instelling, die u kunt instellen op een `Put Job` bewerking. De locatie waarop de logboeken geschreven is afhankelijk van hoe de verificatie is opgegeven voor de taak, samen met de opgegeven waarde voor `ImportExportStatesPath`. Verificatie voor de taak kan worden opgegeven via de sleutel van een opslagaccount of een container SAS (shared access signature).  
+Hallo Logboeken geschreven tooblock blobs in Hallo-container of virtuele map die is opgegeven door Hallo `ImportExportStatesPath` instelling, die u kunt instellen op een `Put Job` bewerking. Hallo locatie toowhich Hallo Logboeken geschreven is afhankelijk van hoe verificatie is opgegeven voor de taak hello, samen met de Hallo-waarde opgegeven voor `ImportExportStatesPath`. Verificatie voor Hallo taak mag worden opgegeven via de sleutel van een opslagaccount of een container SAS (shared access signature).  
   
-De naam van de container of de virtuele map kan ofwel worden de standaardnaam van `waimportexport`, of een andere container of de naam van de virtuele map die u opgeeft.  
+Hallo-naam van het Hallo-container of virtuele map kan ofwel worden de standaardnaam Hallo van `waimportexport`, of een andere container of de naam van de virtuele map die u opgeeft.  
   
-De onderstaande tabel ziet u de mogelijke opties:  
+Hallo in de volgende tabel ziet u Hallo mogelijke opties:  
   
 |Verificatiemethode|Waarde van `ImportExportStatesPath`Element|Locatie van het logboek Blobs|  
 |---------------------------|----------------------------------------------|---------------------------|  
-|De sleutel van opslagaccount|Standaardwaarde|Een container met de naam `waimportexport`, dit is de standaard-container. Bijvoorbeeld:<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
-|De sleutel van opslagaccount|Gebruiker opgegeven waarde|Een container met de naam door de gebruiker. Bijvoorbeeld:<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
-|Container SAS|Standaardwaarde|Een virtuele map met de naam `waimportexport`, dit is de naam van de standaard onder de container die is opgegeven in de SAS.<br /><br /> Bijvoorbeeld, als de SA's worden opgegeven voor de taak is `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, en vervolgens de locatie van het logboek zijn`https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
-|Container SAS|Gebruiker opgegeven waarde|Een virtuele map met de naam door de gebruiker, onder de container die is opgegeven in de SAS.<br /><br /> Bijvoorbeeld, als de SA's worden opgegeven voor de taak is `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, en de naam van de opgegeven virtuele map `mylogblobs`, wordt de locatie van het logboekbestand zou `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
+|De sleutel van opslagaccount|Standaardwaarde|Een container met de naam `waimportexport`, die de standaardcontainer Hallo is. Bijvoorbeeld:<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
+|De sleutel van opslagaccount|Gebruiker opgegeven waarde|Een container met de naam door Hallo-gebruiker. Bijvoorbeeld:<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
+|Container SAS|Standaardwaarde|Een virtuele map met de naam `waimportexport`, dit is de standaardnaam Hallo onder Hallo-container die zijn opgegeven in Hallo SAS.<br /><br /> Bijvoorbeeld, als Hallo SAS voor het opgegeven Hallo-taak is `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, en vervolgens de locatie van het logboekbestand Hallo zou zijn`https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
+|Container SAS|Gebruiker opgegeven waarde|Een virtuele map met de naam van de gebruiker hello, onder Hallo-container die zijn opgegeven in Hallo SAS.<br /><br /> Bijvoorbeeld, als Hallo SAS voor het opgegeven Hallo-taak is `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, en Hallo opgegeven virtuele map heet `mylogblobs`, en vervolgens de locatie van het logboekbestand Hallo zou worden `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-U kunt de URL voor de fout en de uitgebreide logboeken ophalen door het aanroepen van de [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking. De logboeken zijn beschikbaar nadat de verwerking van het station is voltooid.  
+U kunt aanroepen Hallo Hallo-URL voor Hallo foutinformatie en de uitgebreide logboeken ophalen [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking. Hallo logboeken zijn beschikbaar nadat de verwerking van Hallo station is voltooid.  
   
 ## <a name="log-file-format"></a>Indeling van logboekbestand  
-De indeling voor beide logboeken is hetzelfde: een blob met XML-beschrijvingen van de gebeurtenissen die zijn opgetreden tijdens het kopiëren van BLOB's tussen de vaste schijf en het account van de klant.  
+Hallo-indeling voor beide logboeken is Hallo dezelfde: een blob met beschrijvingen van Hallo-gebeurtenissen die zijn opgetreden tijdens het kopiëren van BLOB's tussen Hallo harde schijf en Hallo klantaccount XML.  
   
-Het uitgebreide logboek bevat informatie over de status van de kopieerbewerking voor elke blob (voor een import-taak) of het bestand (voor een exporttaak) terwijl het foutenlogboek bevat alleen de informatie voor blobs of bestanden die fouten tijdens het importeren aangetroffen of taak voor het exporteren.  
+Hallo uitgebreide logboek bevat volledige informatie over Hallo status van de kopieerbewerking Hallo voor elke blob (voor een import-taak) of het bestand (voor een exporttaak) terwijl Hallo foutenlogboek bevat alleen informatie Hallo voor blobs of bestanden die fouten tijdens het Hallo aangetroffen importeren of exporteren van de taak.  
   
-De uitgebreide logboekindeling worden hieronder weergegeven. Het foutenlogboek van dezelfde structuur heeft, maar geslaagde bewerkingen, worden uitgefilterd.  
+Hallo uitgebreide logboekindeling worden hieronder weergegeven. Hallo-foutenlogboek heeft Hallo dezelfde structuur, maar geslaagde bewerkingen, worden uitgefilterd.  
 
 ```xml
 <DriveLog Version="2014-11-01">  
@@ -104,162 +104,162 @@ properties-status ::=
 </Properties>  
 ```
 
-De volgende tabel beschrijft de elementen van het logboekbestand.  
+Hallo beschrijft volgende tabel Hallo elementen van het logboekbestand Hallo.  
   
 |XML-Element|Type|Beschrijving|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|XML-Element|Hiermee geeft u een station voor logboekbestanden.|  
-|`Version`|Kenmerk, tekenreeks|De versie van de indeling voor logboekbestanden.|  
-|`DriveId`|Tekenreeks|Serienummer van het station hardware.|  
-|`Status`|Tekenreeks|Status van de verwerking van het station. Zie de `Drive Status Codes` tabel hieronder voor meer informatie.|  
+|`Version`|Kenmerk, tekenreeks|Hallo-versie van Hallo-logboekindeling.|  
+|`DriveId`|Tekenreeks|Hallo serienummer van het station-hardware.|  
+|`Status`|Tekenreeks|Status van Hallo station verwerking. Zie Hallo `Drive Status Codes` tabel hieronder voor meer informatie.|  
 |`Blob`|Geneste XML-element|Hiermee geeft u een blob.|  
-|`Blob/BlobPath`|Tekenreeks|De URI van de blob.|  
-|`Blob/FilePath`|Tekenreeks|Het relatieve pad naar het bestand op het station.|  
-|`Blob/Snapshot`|Datum/tijd|De versie van de momentopname van de blob, voor een exporttaak.|  
-|`Blob/Length`|Geheel getal|De totale lengte van de blob in bytes.|  
-|`Blob/LastModified`|Datum/tijd|De datum/tijd die de blob het laatst is gewijzigd voor een exporttaak.|  
-|`Blob/ImportDisposition`|Tekenreeks|De bestemming importeren van de blob, voor een import-taak alleen.|  
-|`Blob/ImportDisposition/@Status`|Kenmerk, tekenreeks|De status van de toestand importeren.|  
+|`Blob/BlobPath`|Tekenreeks|Hallo-URI van Hallo blob.|  
+|`Blob/FilePath`|Tekenreeks|Hallo relatief pad toohello bestand op Hallo-station.|  
+|`Blob/Snapshot`|Datum/tijd|Hallo momentopname versie van de blob hello, voor een exporttaak.|  
+|`Blob/Length`|Geheel getal|Hallo totale lengte van de blob Hallo in bytes.|  
+|`Blob/LastModified`|Datum/tijd|Hallo datum/tijd Hallo blob voor een exporttaak het laatst is gewijzigd.|  
+|`Blob/ImportDisposition`|Tekenreeks|Hallo disposition Hallo BLOB, voor een import-taak alleen importeren.|  
+|`Blob/ImportDisposition/@Status`|Kenmerk, tekenreeks|Hallo-status van Hallo importeren toestand.|  
 |`PageRangeList`|Geneste XML-element|Hiermee geeft u een lijst met paginabereiken voor een pagina-blob.|  
 |`PageRange`|XML-element|Hiermee geeft u een paginabereik.|  
-|`PageRange/@Offset`|Kenmerk, geheel getal|Verschuiving van het paginabereik in de blob wordt gestart.|  
-|`PageRange/@Length`|Kenmerk, geheel getal|De lengte in bytes van het paginabereik.|  
-|`PageRange/@Hash`|Kenmerk, tekenreeks|Base16 gecodeerd MD5-hash van het paginabereik.|  
-|`PageRange/@Status`|Kenmerk, tekenreeks|De status van de verwerking van het paginabereik.|  
+|`PageRange/@Offset`|Kenmerk, geheel getal|Hallo blob vanaf verschuiving van Hallo paginabereik.|  
+|`PageRange/@Length`|Kenmerk, geheel getal|De lengte in bytes van Hallo paginabereik.|  
+|`PageRange/@Hash`|Kenmerk, tekenreeks|Base16 gecodeerd MD5-hash van Hallo paginabereik.|  
+|`PageRange/@Status`|Kenmerk, tekenreeks|Status van de verwerking van Hallo paginabereik.|  
 |`BlockList`|Geneste XML-element|Hiermee geeft u een lijst met bouwstenen voor een blok-blob.|  
 |`Block`|XML-element|Hiermee geeft u een blok.|  
-|`Block/@Offset`|Kenmerk, geheel getal|Verschuiving van het blok in de blob wordt gestart.|  
-|`Block/@Length`|Kenmerk, geheel getal|De lengte in bytes van het blok.|  
-|`Block/@Id`|Kenmerk, tekenreeks|De blok-ID.|  
-|`Block/@Hash`|Kenmerk, tekenreeks|Base16 gecodeerd MD5-hash van het blok.|  
-|`Block/@Status`|Kenmerk, tekenreeks|De status van de verwerking van het blok.|  
-|`Metadata`|Geneste XML-element|Hiermee geeft u de metagegevens van de blob.|  
-|`Metadata/@Status`|Kenmerk, tekenreeks|De status van de verwerking van de blobmetagegevens.|  
-|`Metadata/GlobalPath`|Tekenreeks|Relatief pad naar het bestand algemene metagegevens.|  
-|`Metadata/GlobalPath/@Hash`|Kenmerk, tekenreeks|Base16 gecodeerd MD5-hash van het bestand algemene metagegevens.|  
-|`Metadata/Path`|Tekenreeks|Relatief pad naar het bestand met metagegevens.|  
-|`Metadata/Path/@Hash`|Kenmerk, tekenreeks|Base16 gecodeerd MD5-hash van het bestand met metagegevens.|  
-|`Properties`|Geneste XML-element|Geeft de blob-eigenschappen.|  
-|`Properties/@Status`|Kenmerk, tekenreeks|Status van de verwerking van de blob-eigenschappen, bijvoorbeeld bestand niet gevonden, voltooid.|  
-|`Properties/GlobalPath`|Tekenreeks|Relatief pad naar het bestand algemene eigenschappen.|  
-|`Properties/GlobalPath/@Hash`|Kenmerk, tekenreeks|Base16 gecodeerd MD5-hash van het bestand algemene eigenschappen.|  
-|`Properties/Path`|Tekenreeks|Relatief pad naar het eigenschappenbestand.|  
-|`Properties/Path/@Hash`|Kenmerk, tekenreeks|Base16 gecodeerd MD5-hash van het eigenschappenbestand.|  
-|`Blob/Status`|Tekenreeks|De status van de verwerking van de blob.|  
+|`Block/@Offset`|Kenmerk, geheel getal|Vanaf verschuiving van Hallo blok Hallo blob.|  
+|`Block/@Length`|Kenmerk, geheel getal|De lengte in bytes van Hallo blok.|  
+|`Block/@Id`|Kenmerk, tekenreeks|Hallo-blok-id.|  
+|`Block/@Hash`|Kenmerk, tekenreeks|Base16 gecodeerd MD5-hash van Hallo blok.|  
+|`Block/@Status`|Kenmerk, tekenreeks|Status van de verwerking van Hallo blok.|  
+|`Metadata`|Geneste XML-element|Hallo blobmetagegevens vertegenwoordigt.|  
+|`Metadata/@Status`|Kenmerk, tekenreeks|Status van de verwerking van Hallo blobmetagegevens.|  
+|`Metadata/GlobalPath`|Tekenreeks|Relatief pad toohello globale metagegevensbestand.|  
+|`Metadata/GlobalPath/@Hash`|Kenmerk, tekenreeks|Base16 gecodeerd MD5-hash van de globale metagegevensbestand Hallo.|  
+|`Metadata/Path`|Tekenreeks|Relatief pad toohello metagegevensbestand.|  
+|`Metadata/Path/@Hash`|Kenmerk, tekenreeks|Base16 gecodeerd MD5-hash van het metagegevensbestand Hallo.|  
+|`Properties`|Geneste XML-element|Hallo blob eigenschappen vertegenwoordigt.|  
+|`Properties/@Status`|Kenmerk, tekenreeks|Status van de verwerking van Hallo blob-eigenschappen, bijvoorbeeld bestand niet gevonden, voltooid.|  
+|`Properties/GlobalPath`|Tekenreeks|Relatief pad toohello algemene eigenschappenbestand.|  
+|`Properties/GlobalPath/@Hash`|Kenmerk, tekenreeks|Base16 gecodeerd MD5-hash van Hallo algemene eigenschappenbestand.|  
+|`Properties/Path`|Tekenreeks|Relatief pad toohello eigenschappenbestand.|  
+|`Properties/Path/@Hash`|Kenmerk, tekenreeks|Base16 gecodeerd MD5-hash van Hallo eigenschappenbestand.|  
+|`Blob/Status`|Tekenreeks|De status van de verwerking van Hallo blob.|  
   
 # <a name="drive-status-codes"></a>Statuscodes van station  
-De volgende tabel bevat de statuscodes voor het verwerken van een station.  
+Hallo bevat volgende tabel de statuscodes Hallo voor het verwerken van een station.  
   
 |Statuscode|Beschrijving|  
 |-----------------|-----------------|  
-|`Completed`|Het station is verwerking zonder fouten voltooid.|  
-|`CompletedWithWarnings`|Het station zijn met waarschuwingen in een of meer blobs per de import dispositions opgegeven voor de blobs verwerkt.|  
-|`CompletedWithErrors`|Het station is voltooid met fouten in een of meer blobs of segmenten.|  
-|`DiskNotFound`|Er is geen schijf gevonden op de schijf.|  
-|`VolumeNotNtfs`|De eerste gegevensvolume op de schijf is niet in een NTFS-indeling.|  
-|`DiskOperationFailed`|Er is een onbekende fout opgetreden bij het uitvoeren van bewerkingen op het station.|  
+|`Completed`|Hallo-station heeft verwerking zonder fouten voltooid.|  
+|`CompletedWithWarnings`|Hallo-station zijn verwerkt met waarschuwingen in een of meer blobs per Hallo importeren dispositions opgegeven voor Hallo blobs.|  
+|`CompletedWithErrors`|Hallo-station is voltooid met fouten in een of meer blobs of segmenten.|  
+|`DiskNotFound`|Er is geen schijf is gevonden op Hallo-station.|  
+|`VolumeNotNtfs`|Hallo eerste gegevensvolume op Hallo schijf is niet in de NTFS-indeling.|  
+|`DiskOperationFailed`|Een onbekende fout opgetreden bij het uitvoeren van bewerkingen op Hallo station.|  
 |`BitLockerVolumeNotFound`|Er is geen BitLocker encryptable volume gevonden.|  
-|`BitLockerNotActivated`|BitLocker is niet ingeschakeld op het volume.|  
-|`BitLockerProtectorNotFound`|De numerieke wachtwoordsleutelbeveiliging bestaat niet op het volume.|  
-|`BitLockerKeyInvalid`|Het opgegeven numerieke wachtwoord kan niet het volume ontgrendelen.|  
-|`BitLockerUnlockVolumeFailed`|Is een onbekende fout opgetreden bij het ontgrendelen van het volume.|  
+|`BitLockerNotActivated`|BitLocker is niet ingeschakeld op Hallo volume.|  
+|`BitLockerProtectorNotFound`|Hallo numerieke wachtwoordsleutelbeveiliging bestaat niet op Hallo volume.|  
+|`BitLockerKeyInvalid`|Hallo numerieke opgegeven wachtwoord ontgrendelen niet Hallo volume.|  
+|`BitLockerUnlockVolumeFailed`|Is een onbekende fout opgetreden bij het toounlock Hallo volume.|  
 |`BitLockerFailed`|Een onbekende fout opgetreden tijdens het uitvoeren van BitLocker-bewerkingen.|  
-|`ManifestNameInvalid`|De naam van het manifestbestand is ongeldig.|  
-|`ManifestNameTooLong`|De naam van het manifestbestand is te lang.|  
-|`ManifestNotFound`|Het manifestbestand is niet gevonden.|  
-|`ManifestAccessDenied`|Toegang tot het manifestbestand is geweigerd.|  
-|`ManifestCorrupted`|Het manifestbestand is beschadigd (de inhoud komt niet overeen met de hash).|  
-|`ManifestFormatInvalid`|Het manifest inhoud voldoet niet aan de vereiste indeling.|  
-|`ManifestDriveIdMismatch`|De schijf-ID in het manifestbestand komt niet overeen met het één lezen van het station.|  
-|`ReadManifestFailed`|Er is een schijf-i/o-fout opgetreden tijdens het lezen van het manifest.|  
-|`BlobListFormatInvalid`|De uitvoer-blob lijst blob voldoet niet aan de vereiste indeling.|  
-|`BlobRequestForbidden`|Toegang tot de blobs in de storage-account is niet toegestaan. Dit wordt mogelijk veroorzaakt door ongeldige opslagaccountsleutel of SAS-container.|  
-|`InternalError`|En er is een interne fout opgetreden tijdens het verwerken van het station.|  
+|`ManifestNameInvalid`|Hallo manifestbestand naam is ongeldig.|  
+|`ManifestNameTooLong`|Hallo manifestbestand naam is te lang.|  
+|`ManifestNotFound`|Hallo-manifestbestand is niet gevonden.|  
+|`ManifestAccessDenied`|Manifestbestand van de toohello toegang is geweigerd.|  
+|`ManifestCorrupted`|Hallo manifestbestand is beschadigd (Hallo inhoud komt niet overeen met de hash).|  
+|`ManifestFormatInvalid`|Hallo manifest inhoud komt niet overeen voor vereiste toohello-indeling.|  
+|`ManifestDriveIdMismatch`|Hallo-ID in het manifestbestand Hallo komt niet overeen met een van Hallo station lezen Hallo station.|  
+|`ReadManifestFailed`|Er is een schijf-i/o-fout opgetreden tijdens het lezen van Hallo manifest.|  
+|`BlobListFormatInvalid`|Hallo export blob lijst blob komt niet overeen voor vereiste toohello-indeling.|  
+|`BlobRequestForbidden`|Toegang tot toohello blobs in Hallo storage-account is niet toegestaan. Dit kan zijn vanwege de opslagaccountsleutel tooinvalid of SAS-container.|  
+|`InternalError`|En er is een interne fout opgetreden tijdens het verwerken van Hallo-station.|  
   
 ## <a name="blob-status-codes"></a>Statuscodes BLOB  
-De volgende tabel bevat de statuscodes voor het verwerken van een blob.  
+Hallo bevat volgende tabel de statuscodes Hallo voor het verwerken van een blob.  
   
 |Statuscode|Beschrijving|  
 |-----------------|-----------------|  
-|`Completed`|De blob is verwerking zonder fouten voltooid.|  
-|`CompletedWithErrors`|De blob zijn met fouten in een of meer paginabereiken of blokken, metagegevens of eigenschappen verwerkt.|  
-|`FileNameInvalid`|De bestandsnaam is ongeldig.|  
-|`FileNameTooLong`|De bestandsnaam is te lang.|  
-|`FileNotFound`|Het bestand is niet gevonden.|  
-|`FileAccessDenied`|Toegang tot het bestand is geweigerd.|  
-|`BlobRequestFailed`|De Blob-service-aanvraag voor toegang tot de blob is mislukt.|  
-|`BlobRequestForbidden`|De Blob-service-aanvraag voor toegang tot de blob is verboden. Dit wordt mogelijk veroorzaakt door ongeldige opslagaccountsleutel of SAS-container.|  
-|`RenameFailed`|Wijzigen van de blob (voor een import-taak) of het bestand (voor een taak voor het exporteren) is mislukt.|  
-|`BlobUnexpectedChange`|Onverwachte wijziging is opgetreden met de blob (voor een taak voor het exporteren).|  
-|`LeasePresent`|Er is een lease aanwezig is op de blob.|  
-|`IOFailed`|Er is een schijf of het netwerk-i/o-fout opgetreden tijdens het verwerken van de blob.|  
-|`Failed`|Er is een onbekende fout opgetreden tijdens het verwerken van de blob.|  
+|`Completed`|Hallo blob heeft verwerking zonder fouten voltooid.|  
+|`CompletedWithErrors`|Hallo blob zijn met fouten in een of meer paginabereiken of blokken, metagegevens of eigenschappen verwerkt.|  
+|`FileNameInvalid`|Hallo-bestandsnaam is ongeldig.|  
+|`FileNameTooLong`|Hallo-bestandsnaam is te lang.|  
+|`FileNotFound`|Hallo-bestand is niet gevonden.|  
+|`FileAccessDenied`|Toegang tot toohello bestand is geweigerd.|  
+|`BlobRequestFailed`|Hallo Blob-serviceaanvraag tooaccess Hallo blob is mislukt.|  
+|`BlobRequestForbidden`|Hallo Blob-serviceaanvraag tooaccess Hallo blob is verboden. Dit kan zijn vanwege de opslagaccountsleutel tooinvalid of SAS-container.|  
+|`RenameFailed`|Kan toorename Hallo-blob (voor een import-taak) of Hallo-bestand (voor een taak voor het exporteren).|  
+|`BlobUnexpectedChange`|Onverwachte wijziging is opgetreden met de blob hello (voor een taak voor het exporteren).|  
+|`LeasePresent`|Er is een lease aanwezig is op Hallo blob.|  
+|`IOFailed`|Een schijf of een netwerk-i/o-fout is opgetreden tijdens het verwerken van Hallo blob.|  
+|`Failed`|Een onbekende fout opgetreden tijdens het verwerken van Hallo blob.|  
   
 ## <a name="import-disposition-status-codes"></a>Statuscodes disposition importeren  
-De volgende tabel bevat de statuscodes voor het oplossen van een toestand importeren.  
+Hallo bevat volgende tabel Hallo statuscodes voor het oplossen van een toestand importeren.  
   
 |Statuscode|Beschrijving|  
 |-----------------|-----------------|  
-|`Created`|De blob is gemaakt.|  
-|`Renamed`|De blob heeft per rename importeren bestemming gekregen. De `Blob/BlobPath` element bevat de URI voor de nieuwe naam blob.|  
-|`Skipped`|De blob is overgeslagen `no-overwrite` toestand importeren.|  
-|`Overwritten`|De blob heeft een bestaande blob per overschreven `overwrite` toestand importeren.|  
-|`Cancelled`|Een eerdere fout is gestopt verdere verwerking van de toestand importeren.|  
+|`Created`|Hallo-blob is gemaakt.|  
+|`Renamed`|Hallo blob heeft per rename importeren bestemming gekregen. Hallo `Blob/BlobPath` element Hallo URI voor Hallo hernoemd blob bevat.|  
+|`Skipped`|Hallo-blob is overgeslagen `no-overwrite` toestand importeren.|  
+|`Overwritten`|Hallo blob heeft een bestaande blob per overschreven `overwrite` toestand importeren.|  
+|`Cancelled`|Een eerdere fout is gestopt verdere verwerking van Hallo importeren toestand.|  
   
 ## <a name="page-rangeblock-status-codes"></a>Statuscodes voor pagina-bereik/blok  
-De volgende tabel bevat de statuscodes voor het verwerken van een paginabereik of een blok.  
+Hallo bevat volgende tabel de statuscodes Hallo voor het verwerken van een paginabereik of een blok.  
   
 |Statuscode|Beschrijving|  
 |-----------------|-----------------|  
-|`Completed`|De paginabereik of blok is verwerking zonder fouten voltooid.|  
-|`Committed`|Het blok is doorgevoerd, maar niet in het volledige blok lijst omdat andere blokken is mislukt, of de volledige lijst met geblokkeerde websites zelf plaatsen is mislukt.|  
-|`Uncommitted`|Het blok is geüpload, maar niet zijn doorgevoerd.|  
-|`Corrupted`|De paginabereik of blok is beschadigd (de inhoud komt niet overeen met de hash).|  
+|`Completed`|Hallo paginabereik of blok is verwerking zonder fouten voltooid.|  
+|`Committed`|Hallo blok is doorgevoerd, maar niet in Hallo volledige blokkeringslijst omdat andere blokken is mislukt, of de volledige lijst met geblokkeerde websites zelf plaatsen is mislukt.|  
+|`Uncommitted`|Hallo blok is geüpload, maar niet zijn doorgevoerd.|  
+|`Corrupted`|Hallo paginabereik of blok is beschadigd (Hallo inhoud komt niet overeen met de hash).|  
 |`FileUnexpectedEnd`|Een onverwacht bestandseinde er is opgetreden.|  
 |`BlobUnexpectedEnd`|Een onverwacht einde van de blob is opgetreden.|  
-|`BlobRequestFailed`|De Blob-service-aanvraag voor toegang tot het bereik of blok is mislukt.|  
-|`IOFailed`|Er is een schijf of het netwerk-i/o-fout opgetreden tijdens het verwerken van de paginabereik of blok.|  
-|`Failed`|Een onbekende fout opgetreden tijdens het verwerken van de paginabereik of blok.|  
-|`Cancelled`|Er is een eerdere fout gestopt verdere verwerking van de paginabereik of blok.|  
+|`BlobRequestFailed`|Hallo Blob serviceaanvraag tooaccess Hallo paginabereik of blok is mislukt.|  
+|`IOFailed`|Een schijf of een netwerk-i/o-fout is opgetreden tijdens het verwerken van Hallo paginabereik of blok.|  
+|`Failed`|Een onbekende fout opgetreden tijdens het verwerken van Hallo paginabereik of blok.|  
+|`Cancelled`|Er is een eerdere fout gestopt verdere verwerking van het Hallo paginabereik of blok.|  
   
 ## <a name="metadata-status-codes"></a>Statuscodes van metagegevens  
-De volgende tabel bevat de statuscodes voor het verwerken van blobmetagegevens.  
+Hallo bevat volgende tabel Hallo statuscodes voor verwerking van blob-metagegevens.  
   
 |Statuscode|Beschrijving|  
 |-----------------|-----------------|  
-|`Completed`|De metagegevens is verwerking zonder fouten voltooid.|  
-|`FileNameInvalid`|De bestandsnaam van metagegevens is ongeldig.|  
-|`FileNameTooLong`|De metagegevens-bestandsnaam is te lang.|  
-|`FileNotFound`|Het bestand met metagegevens is niet gevonden.|  
-|`FileAccessDenied`|Toegang tot het bestand met metagegevens is geweigerd.|  
-|`Corrupted`|Het metagegevensbestand is beschadigd (de inhoud komt niet overeen met de hash).|  
-|`XmlReadFailed`|De metagegevens van inhoud voldoet niet aan de vereiste indeling.|  
-|`XmlWriteFailed`|Schrijven van de metagegevens van de is XML mislukt.|  
-|`BlobRequestFailed`|De Blob-service-aanvraag voor toegang tot de metagegevens is mislukt.|  
-|`IOFailed`|Een schijf of het netwerk-i/o-fout opgetreden tijdens het verwerken van de metagegevens.|  
-|`Failed`|Een onbekende fout opgetreden tijdens het verwerken van de metagegevens.|  
-|`Cancelled`|Een eerdere fout is gestopt verdere verwerking van de metagegevens.|  
+|`Completed`|Hallo-metagegevens heeft verwerking zonder fouten voltooid.|  
+|`FileNameInvalid`|Hallo metagegevens bestandsnaam is ongeldig.|  
+|`FileNameTooLong`|Hallo metagegevens bestandsnaam is te lang.|  
+|`FileNotFound`|Hallo-metagegevensbestand is niet gevonden.|  
+|`FileAccessDenied`|Bestand met metagegevens toohello toegang is geweigerd.|  
+|`Corrupted`|Hallo metagegevensbestand is beschadigd (Hallo inhoud komt niet overeen met de hash).|  
+|`XmlReadFailed`|Hallo metagegevens inhoud komt niet overeen voor vereiste toohello-indeling.|  
+|`XmlWriteFailed`|Schrijven van Hallo metagegevens die is mislukt.|  
+|`BlobRequestFailed`|Hallo Blob-serviceaanvraag tooaccess Hallo metagegevens is mislukt.|  
+|`IOFailed`|Een schijf of het netwerk-i/o-fout opgetreden tijdens het verwerken van Hallo metagegevens.|  
+|`Failed`|Een onbekende fout opgetreden tijdens het verwerken van Hallo metagegevens.|  
+|`Cancelled`|Een eerdere fout is gestopt verdere verwerking van Hallo metagegevens.|  
   
 ## <a name="properties-status-codes"></a>Statuscodes van eigenschappen  
-De volgende tabel bevat de statuscodes voor het verwerken van blob-eigenschappen.  
+Hallo bevat volgende tabel de statuscodes Hallo voor het verwerken van blob-eigenschappen.  
   
 |Statuscode|Beschrijving|  
 |-----------------|-----------------|  
-|`Completed`|De eigenschappen verwerken zonder fouten is voltooid.|  
-|`FileNameInvalid`|De bestandsnaam van de eigenschappen is ongeldig.|  
-|`FileNameTooLong`|De eigenschappen-bestandsnaam is te lang.|  
-|`FileNotFound`|Het eigenschappenbestand is niet gevonden.|  
-|`FileAccessDenied`|Toegang tot het eigenschappenbestand is geweigerd.|  
-|`Corrupted`|De eigenschappenbestand is beschadigd (de inhoud komt niet overeen met de hash).|  
-|`XmlReadFailed`|De eigenschappen van inhoud voldoet niet aan de vereiste indeling.|  
-|`XmlWriteFailed`|Schrijven van de eigenschappen is XML mislukt.|  
-|`BlobRequestFailed`|De aanvraag voor toegang tot de eigenschappen voor de Blob is mislukt.|  
-|`IOFailed`|Er is een schijf of het netwerk-i/o-fout opgetreden tijdens het verwerken van de eigenschappen.|  
-|`Failed`|Er is een onbekende fout opgetreden tijdens het verwerken van de eigenschappen.|  
-|`Cancelled`|Er is een eerdere fout gestopt verdere verwerking van de eigenschappen.|  
+|`Completed`|Hallo eigenschappen verwerken zonder fouten is voltooid.|  
+|`FileNameInvalid`|Hallo eigenschappen bestandsnaam is ongeldig.|  
+|`FileNameTooLong`|Hallo eigenschappen bestandsnaam is te lang.|  
+|`FileNotFound`|Hallo eigenschappenbestand is niet gevonden.|  
+|`FileAccessDenied`|Toegang tot toohello eigenschappenbestand is geweigerd.|  
+|`Corrupted`|Hallo eigenschappenbestand is beschadigd (Hallo inhoud komt niet overeen met de hash).|  
+|`XmlReadFailed`|Hallo eigenschappen inhoud komt niet overeen voor vereiste toohello-indeling.|  
+|`XmlWriteFailed`|Schrijven van Hallo-eigenschappen die is mislukt.|  
+|`BlobRequestFailed`|Hallo Blob-serviceaanvraag tooaccess Hallo eigenschappen is mislukt.|  
+|`IOFailed`|Een schijf of het netwerk-i/o-fout opgetreden tijdens het verwerken van Hallo-eigenschappen.|  
+|`Failed`|Een onbekende fout opgetreden tijdens het verwerken van Hallo-eigenschappen.|  
+|`Cancelled`|Een eerdere fout is gestopt verdere verwerking van Hallo-eigenschappen.|  
   
 ## <a name="sample-logs"></a>Voorbeeld-Logboeken  
-Hier volgt een voorbeeld van uitgebreide logboek.  
+Hallo Hieronder volgt een voorbeeld van uitgebreide logboek.  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -296,7 +296,7 @@ Hier volgt een voorbeeld van uitgebreide logboek.
 </DriveLog>  
 ```  
   
-Het foutenlogboek van het bijbehorende worden hieronder weergegeven.  
+de bijbehorende foutenlogboek Hallo worden hieronder weergegeven.  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -315,7 +315,7 @@ Het foutenlogboek van het bijbehorende worden hieronder weergegeven.
 </DriveLog>  
 ```
 
- Het foutenlogboek volgen voor een import-taak bevat een fout over een bestand niet gevonden op de schijf importeren. Denk eraan dat de status van de volgende onderdelen is `Cancelled`.  
+ Hallo Volg-foutenlogboek voor een import-taak bevat een fout over een bestand niet gevonden op Hallo importeren station. Houd er rekening mee dat Hallo status van de volgende onderdelen is `Cancelled`.  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -338,7 +338,7 @@ Het foutenlogboek van het bijbehorende worden hieronder weergegeven.
 </DriveLog>  
 ```
 
-Het volgende foutenlogboek voor een taak voor het exporteren geeft aan dat de blob-inhoud is geschreven naar de schijf, maar is een fout opgetreden tijdens het exporteren van de blob-eigenschappen.  
+Hallo volgende foutenlogboek voor een taak voor het exporteren geeft aan dat de blob-inhoud Hallo is geschreven toohello station, maar is een fout opgetreden tijdens het exporteren van de eigenschappen van het Hallo-blob.  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  

@@ -1,6 +1,6 @@
 ---
-title: Gebruik MapReduce en Curl met Hadoop in HDInsight - Azure | Microsoft Docs
-description: Informatie over het op afstand MapReduce-taken uitvoeren met Hadoop in HDInsight met Curl.
+title: aaaUse MapReduce en Curl met Hadoop in HDInsight - Azure | Microsoft Docs
+description: Meer informatie over hoe tooremotely uitvoeren MapReduce-taken met Hadoop op HDInsight met Curl.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.openlocfilehash: 8238bb829df95dcb8c99c0b7fff53c627a56f47c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 16920205bacf9699f88090568099e0508a172b3b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>MapReduce-taken uitvoeren met Hadoop op HDInsight met behulp van REST
 
-Informatie over het gebruik van de REST-API WebHCat MapReduce-taken uitvoeren op een Hadoop op HDInsight-cluster. CURL wordt gebruikt om u te laten zien hoe u kunt werken met HDInsight met behulp van onbewerkte HTTP-aanvragen voor MapReduce-taken uitvoeren.
+Meer informatie over hoe toouse hello WebHCat REST-API toorun MapReduce taken op een Hadoop op HDInsight-cluster. CURL is gebruikte toodemonstrate hoe u met HDInsight werken kunt met behulp van onbewerkte HTTP-aanvragen toorun MapReduce-taken.
 
 > [!NOTE]
-> Als u al bekend bent met Hadoop op basis van Linux-servers gebruiken, maar u niet bekend met HDInsight bent, raadpleegt u de [wat u moet weten over Hadoop op basis van Linux in HDInsight](hdinsight-hadoop-linux-information.md) document.
+> Als u al bekend bent met Hadoop op basis van Linux-servers gebruiken, maar u staat op het nieuwe tooHDInsight, Zie Hallo [wat u moet tooknow over Hadoop op basis van Linux in HDInsight](hdinsight-hadoop-linux-information.md) document.
 
 
 ## <a id="prereq"></a>Vereisten
@@ -39,64 +39,64 @@ Informatie over het gebruik van de REST-API WebHCat MapReduce-taken uitvoeren op
 ## <a id="curl"></a>MapReduce-taken met Curl uitvoeren
 
 > [!NOTE]
-> Wanneer u Curl of andere REST-communicatie met WebHCat gebruikt, moet u de aanvragen verifiëren door te geven van de gebruikersnaam van de beheerder voor HDInsight-cluster en het wachtwoord. U moet de clusternaam gebruiken als onderdeel van de URI die wordt gebruikt voor het versturen van aanvragen naar de server.
+> Wanneer u Curl of andere REST-communicatie met WebHCat gebruikt, moet u Hallo aanvragen verifiëren door te geven Hallo HDInsight-cluster administrator-gebruikersnaam en wachtwoord. Als onderdeel van Hallo URI die gebruikte toosend Hallo aanvragen toohello server, moet u de clusternaam hello gebruiken.
 >
-> Voor de opdrachten in deze sectie vervangt u **gebruikersnaam** met de gebruiker om het cluster te verifiëren en **wachtwoord** met het wachtwoord voor het gebruikersaccount. Vervang **CLUSTERNAME** door de naam van uw cluster.
+> Hallo-opdrachten in deze sectie, vervangt u **gebruikersnaam** met Hallo gebruiker tooauthenticate toohello cluster en **wachtwoord** met wachtwoord voor gebruikersaccount Hallo Hallo. Vervang **CLUSTERNAME** met Hallo-naam van het cluster.
 >
-> De REST-API is beveiligd met behulp van [basistoegang verificatie](http://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd maken met behulp van HTTPS om ervoor te zorgen dat uw referenties veilig worden verzonden naar de server.
+> Hallo REST API is beveiligd met behulp van [basistoegang verificatie](http://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd maken met behulp van HTTPS tooensure dat uw referenties veilig toohello server worden verzonden.
 
 
-1. Gebruik een opdrachtregel met de volgende opdracht om te controleren of u verbinding met uw HDInsight-cluster kunt maken:
+1. Gebruik vanaf een opdrachtregel Hallo opdracht tooverify dat u verbinding tooyour HDInsight-cluster maken kunt te volgen:
 
     ```bash
     curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
 
-    U ontvangt een reactie vergelijkbaar met de volgende JSON:
+    U ontvangt een reactie vergelijkbaar toohello JSON te volgen:
 
         {"status":"ok","version":"v1"}
 
-    In deze opdracht worden de volgende parameters gebruikt:
+    Hallo-parameters die worden gebruikt in deze opdracht zijn als volgt:
 
-   * **-u**: geeft aan dat de gebruikersnaam en wachtwoord voor het verifiëren van de aanvraag
+   * **-u**: Hiermee geeft u Hallo-gebruikersnaam en wachtwoord gebruikt tooauthenticate Hallo aanvraag
    * **-G**: geeft aan dat deze bewerking een GET-aanvraag
 
-     Het begin van de URI **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is hetzelfde voor alle aanvragen.
+     Hallo vanaf Hallo URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is dezelfde Hallo voor alle aanvragen.
 
-2. Als u een MapReduce-taak, moet u de volgende opdracht gebruiken:
+2. toosubmit MapReduce-taak Hallo volgende opdracht gebruiken:
 
     ```bash
     curl -u USERNAME:PASSWORD -d user.name=USERNAME -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
     ```
 
-    Het einde van de URI (mapreduce/jar) ziet WebHCat of er een MapReduce-taak op deze aanvraag wordt gestart van een klasse in een jar-bestand. In deze opdracht worden de volgende parameters gebruikt:
+    Hallo-einde van Hallo URI (mapreduce/jar) ziet WebHCat of er een MapReduce-taak op deze aanvraag wordt gestart van een klasse in een jar-bestand. Hallo-parameters die worden gebruikt in deze opdracht zijn als volgt:
 
-   * **-d**: `-G` niet wordt gebruikt, zodat de aanvraag wordt standaard ingesteld op de POST-methode. `-d`Hiermee geeft u de waarden die worden verzonden met de aanvraag.
-    * **User.name**: de gebruiker die de opdracht wordt uitgevoerd
-    * **JAR**: de locatie van de jar-bestand met de klasse om te worden uitgevoerd
-    * **klasse**: de klasse met de MapReduce-logica
-    * **arg**: de argumenten worden doorgegeven aan de MapReduce-taak. In dit geval, het bestand invoertekst en de map die worden gebruikt voor de uitvoer
+   * **-d**: `-G` niet wordt gebruikt, dus Hallo aanvraag standaard toohello POST-methode. `-d`Hiermee geeft u Hallo waarden die worden verzonden met Hallo-aanvraag.
+    * **User.name**: Hallo-gebruiker die het Hallo-opdracht wordt uitgevoerd
+    * **JAR**: Hallo-locatie van Hallo jar-bestand waarin de klasse toobe uitgevoerd
+    * **klasse**: klasse met Hallo MapReduce logica Hallo
+    * **arg**: Hallo argumenten toobe doorgegeven toohello MapReduce-taak. In dit geval invoer Hallo tekst bestands- en Hallo directory die worden gebruikt voor het Hallo-uitvoer
 
-     Met deze opdracht als resultaat moet een taak-ID die kan worden gebruikt om de status van de taak te controleren:
+     Met deze opdracht moet een taak-ID die gebruikt toocheck Hallo status van Hallo taak worden kan retourneren:
 
        {{'id': "job_1415651640909_0026"}
 
-3. Als u wilt de status van de taak controleren, moet u de volgende opdracht gebruiken:
+3. toocheck Hallo status van taak hello, gebruik Hallo volgende opdracht:
 
     ```bash
     curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
     ```
 
-    Vervang de **JOBID** met de waarde die wordt geretourneerd in de vorige stap. Bijvoorbeeld, als de retourwaarde is `{"id":"job_1415651640909_0026"}`, en vervolgens de JOBID is `job_1415651640909_0026`.
+    Vervang Hallo **JOBID** met Hallo-waarde geretourneerd in de vorige stap Hallo. Bijvoorbeeld, als hello retourneert de waarde is `{"id":"job_1415651640909_0026"}`, vervolgens Hallo JOBID zou worden `job_1415651640909_0026`.
 
-    Als de taak voltooid is, wordt de status geretourneerd is `SUCCEEDED`.
+    Als het Hallo-taak is voltooid, Hallo status geretourneerd is `SUCCEEDED`.
 
    > [!NOTE]
-   > Deze aanvraag Curl retourneert een JSON-document met informatie over de taak. Jq wordt gebruikt voor het ophalen van de waarde van de status.
+   > Deze aanvraag Curl retourneert een JSON-document met informatie over het Hallo-taak. Jq wordt gebruikt tooretrieve Hallo alleen statuswaarde.
 
-4. Wanneer de status van de taak is gewijzigd in `SUCCEEDED`, kunt u de resultaten van de taak ophalen uit Azure Blob-opslag. De `statusdir` parameter die wordt doorgegeven aan de query bevat de locatie van het uitvoerbestand. In dit voorbeeld is de locatie `/example/curl`. Dit adres slaat de uitvoer van de taak in de opslag van de standaard clusters op `/example/curl`.
+4. Wanneer de status van taak Hallo Hallo te is gewijzigd`SUCCEEDED`, kunt u resultaten van de taak Hallo Hallo ophalen uit Azure Blob-opslag. Hallo `statusdir` parameter die wordt doorgegeven met Hallo query Hallo locatie van het uitvoerbestand Hallo bevat. In dit voorbeeld is Hallo locatie `/example/curl`. Dit adres Hallo-uitvoer van Hallo taak opslaat in Hallo-clusters standaard opslag op `/example/curl`.
 
-U kunt de lijst en deze bestanden downloaden met behulp van de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Zie voor meer informatie over het werken met blobs met Azure CLI het [met behulp van de Azure CLI 2.0 met Azure Storage](../storage/common/storage-azure-cli.md#create-and-manage-blobs) document.
+U kunt de lijst en deze bestanden downloaden met behulp van Hallo [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Zie voor meer informatie over het werken met blobs uit hello Azure CLI Hallo [Using hello Azure CLI 2.0 met Azure Storage](../storage/common/storage-azure-cli.md#create-and-manage-blobs) document.
 
 ## <a id="nextsteps"></a>Volgende stappen
 
@@ -109,4 +109,4 @@ Voor informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 * [Hive gebruiken met Hadoop in HDInsight](hdinsight-use-hive.md)
 * [Pig gebruiken met Hadoop in HDInsight](hdinsight-use-pig.md)
 
-Zie voor meer informatie over de REST-interface die wordt gebruikt in dit artikel, de [WebHCat verwijzing](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
+Zie voor meer informatie over Hallo REST-interface die wordt gebruikt in dit artikel, Hallo [WebHCat verwijzing](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).

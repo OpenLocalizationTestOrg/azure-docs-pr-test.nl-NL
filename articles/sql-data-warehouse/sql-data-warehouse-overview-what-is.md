@@ -1,6 +1,6 @@
 ---
-title: Wat is Azure SQL Data Warehouse? | Microsoft Docs
-description: Gedistribueerde database op ondernemingsniveau die geschikt is voor het verwerken van petabytes aan relationele en niet-relationele gegevens. Het is het eerste geavanceerde clouddatawarehouse in de branche dat in enkele seconden kan worden vergroot, verkleind en onderbroken.
+title: aaaWhat is Azure SQL Data Warehouse? | Microsoft Docs
+description: Gedistribueerde database op ondernemingsniveau die geschikt is voor het verwerken van petabytes aan relationele en niet-relationele gegevens. Dit Hallo branche eerste cloud datawarehouse met vergroten, verkleinen, en onderbreken in seconden.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -15,28 +15,28 @@ ms.workload: data-services
 ms.custom: overview
 ms.date: 2/28/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: 575c49f83c8845edcea984459f3907490c62d269
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5fefe40879230f123c2e4a90b9c20a35779cf711
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Wat is Azure SQL Data Warehouse?
 Azure SQL Data Warehouse is een schaalbare, relationele MMP-clouddatabase (Massively Parallel Processing) die geschikt is voor het verwerken van grote hoeveelheden gegevens. 
 
 SQL Data Warehouse:
 
-* Combineert de relationele SQL Server-database met schaalbare Azure-cloudfuncties. 
+* Relationele SQL Server-database Hallo combineert met de mogelijkheden van Azure-cloud scale-out. 
 * Maakt het mogelijk opslag los te koppelen van rekenactiviteiten.
 * Maakt het uitbreiden, beperken, onderbreken of hervatten van rekenactiviteiten mogelijk. 
-* Is in het gehele Azure-platform te integreren.
+* Kan worden geïntegreerd via hello Azure-platform.
 * Maakt gebruik van SQL Server Transact-SQL (T-SQL) en hulpprogramma's.
 * Voldoet aan diverse juridische en zakelijke beveiligingsvereisten, zoals SOC en ISO.
 
-In dit artikel worden de belangrijkste functies van SQL Data Warehouse beschreven.
+Dit artikel wordt beschreven Hallo belangrijke functies van SQL Data Warehouse.
 
 ## <a name="massively-parallel-processing-architecture"></a>MPP-architectuur (Massively Parallel Processing)
-SQL Data Warehouse is een gedistribueerd MPP-databasesysteem (Massively Parallel Processing). Achter de schermen verspreidt SQL Data Warehouse uw gegevens over veel opslag- en verwerkingseenheden. De gegevens worden opgeslagen in een Premium laag voor lokaal redundante opslag. Hierbovenop voeren dynamisch gekoppelde rekenknooppunten query's uit. SQL Data Warehouse hanteert een verdeel-en-heersbenadering met betrekking tot laadtaken en complexe query's. Aanvragen worden ontvangen door een beheerknooppunt, geoptimaliseerd voor distributie, en vervolgens doorgegeven aan de rekenknooppunten, zodat ze hun werk parallel kunnen uitvoeren.
+SQL Data Warehouse is een gedistribueerd MPP-databasesysteem (Massively Parallel Processing). Achter de schermen Hallo worden verspreid SQL Data Warehouse uw gegevens over veel niets wordt gedeeld-opslag- en verwerkingseenheden. Hallo-gegevens worden opgeslagen in een Premium lokaal redundante opslaglaag bovenop die dynamisch gekoppelde rekenknooppunten query's uitvoeren. SQL Data Warehouse duurt die een benadering 'verdelen en heersprincipe' toorunning wordt geladen en complexe query's. Aanvragen worden ontvangen door een beheerknooppunt geoptimaliseerd voor distributie en vervolgens doorgegeven tooCompute knooppunten toodo hun werk parallel.
 
 Als u opslag en rekenactiviteiten loskoppelt van elkaar, kan SQL Data Warehouse:
 
@@ -45,57 +45,57 @@ Als u opslag en rekenactiviteiten loskoppelt van elkaar, kan SQL Data Warehouse:
 * De rekencapaciteit onderbreken terwijl gegevens intact blijven en u alleen betaalt voor opslag.
 * De rekencapaciteit hervatten tijdens werktijden.
 
-In het volgende diagram wordt de architectuur gedetailleerder weergegeven.
+Hallo volgende diagram toont de architectuur Hallo in meer detail.
 
 ![Architectuur van SQL Data Warehouse][1]
 
-**Beheerknooppunt:** het beheerknooppunt beheert en optimaliseert query's. Het is de front-end met interactie met alle toepassingen en verbindingen. In SQL Data Warehouse werkt het beheerknooppunt op basis van SQL Database en het maken van een verbinding gaat ongeveer hetzelfde. Op de achtergrond coördineert het beheerknooppunt alle benodigde verplaatsingen van gegevens en berekeningen voor het uitvoeren van parallelle query's op uw gedistribueerde gegevens. Wanneer u een TSQL-query naar SQL Data Warehouse verzendt, wordt deze door het beheerknooppunt getransformeerd tot afzonderlijke query's die parallel worden uitgevoerd op de afzonderlijke rekenknooppunten.
+**Door het beheerknooppunt:** Hallo beheerknooppunt beheert en query's worden geoptimaliseerd. Is het Hallo-front-end met interactie met alle toepassingen en verbindingen. In SQL Data Warehouse Hallo beheerknooppunt door SQL-Database, en verbinding maken met tooit lijkt en dezelfde werkt Hallo. Onder Hallo oppervlak coördineert Hallo beheerknooppunt alle Hallo gegevensverplaatsing en berekeningen vereist toorun parallelle query's op uw gedistribueerde gegevens. Wanneer u een T-SQL-query tooSQL Data Warehouse verzendt, wordt het in Hallo door het beheerknooppunt getransformeerd tot afzonderlijke query's die op elk rekenknooppunt parallel worden uitgevoerd.
 
-**Rekenknooppunten:** de rekenknooppunten vormen de kracht achter SQL Data Warehouse. Het zijn SQL Databases die uw gegevens opslaan en uw query verwerken. Wanneer u gegevens toevoegt, worden de rijen door SQL Data Warehouse gedistribueerd naar uw rekenknooppunten. De rekenknooppunten zijn de workers waarop de parallelle query's op uw gegevens worden uitgevoerd. Na de verwerking worden de resultaten teruggestuurd naar het beheerknooppunt. Om de query te voltooien, worden de resultaten door het beheerknooppunt geaggregeerd en het definitieve resultaat geretourneerd.
+**Rekenknooppunten:** hello rekenknooppunten vormen Hallo kracht achter SQL Data Warehouse. Het zijn SQL Databases die uw gegevens opslaan en uw query verwerken. Wanneer u gegevens toevoegt, wordt in SQL Data Warehouse Hallo rijen tooyour Compute nodes distribueert. Hallo Compute nodes zijn Hallo werknemers die Hallo parallelle query's op uw gegevens uitvoeren. Na de verwerking doorgeven ze Hallo resultaten back toohello beheerknooppunt. toofinish hello query, het beheerknooppunt Hallo aggregeert Hallo resultaten en retourneert Hallo eindresultaat.
 
-**Opslag:** uw gegevens worden opgeslagen in Azure-blobopslag. Bij interacties tussen de rekenknooppunten en uw gegevens worden de gegevens rechtstreeks vanuit de blob-opslag gelezen of ernaar weggeschreven. Omdat opslag in Azure transparant en enorm kan worden uitgebreid, kan dat ook in SQL Data Warehouse. Omdat reken- en opslagcapaciteit niet van elkaar afhankelijk zijn, kan de opslagcapaciteit in SQL Data Warehouse automatisch los van de rekencapaciteit worden geschaald en omgekeerd. Azure-blobopslag is ook volledig fouttolerant. Dit vergemakkelijkt het back-up- en herstelproces.
+**Opslag:** uw gegevens worden opgeslagen in Azure-blobopslag. Wanneer de rekenknooppunten communiceren met uw gegevens, deze schrijven en lezen rechtstreeks tooand van blob-opslag. Omdat Azure storage wordt uitgebreid transparant en aanzienlijk, SQL Data Warehouse kunt doen Hallo dezelfde. Omdat reken- en opslagcapaciteit niet van elkaar afhankelijk zijn, kan de opslagcapaciteit in SQL Data Warehouse automatisch los van de rekencapaciteit worden geschaald en omgekeerd. Azure Blob-opslag is ook volledig fouttolerant en zodat Hallo back-up en herstelproces.
 
-**Data Movement Service:** Data Movement Service (DMS) verplaatst gegevens van het ene naar het andere knooppunt. DMS geeft de rekenknooppunten toegang tot de benodigde gegevens voor samenvoegingen en aggregaties. DMS is geen Azure-service. Het is een Windows-service die naast SQL Database wordt uitgevoerd op alle knooppunten. DMS is een achtergrondproces waarmee u niet rechtstreeks aan de slag kunt. U kunt echter queryplannen bekijken om na te gaan wanneer er DMS-bewerkingen plaatsvinden. Het is namelijk nodig om gegevens te verplaatsen om query's parallel te kunnen uitvoeren.
+**Data Movement Service:** Data Movement Service (DMS) verplaatst gegevens tussen Hallo knooppunten. DMS geeft Hallo Compute-knooppunten toegang toodata ze nodig hebben voor samenvoegingen en aggregaties. DMS is geen Azure-service. Dit is een Windows-service die wordt uitgevoerd naast SQL Database op alle knooppunten van het Hallo. DMS is een achtergrondproces waarmee u niet rechtstreeks aan de slag kunt. Echter, u kunt raadplegen query plannen toosee wanneer DMS-bewerkingen plaatsvinden, aangezien gegevensverplaatsing nodig toorun elke query parallel.
 
 ## <a name="optimized-for-data-warehouse-workloads"></a>Geoptimaliseerd voor datawarehouse-workloads
-De MPP-methode wordt ondersteund door een aantal specifieke optimalisaties voor datawarehouseprestaties, waaronder:
+Hallo MPP-methode ondersteund door verschillende gegevensopslag specifieke optimalisaties, met inbegrip van:
 
-* een gedistribueerde queryoptimalisatie en een set complexe statistieken voor alle gegevens. Met behulp van informatie over de omvang en distributie van gegevens kunnen query's in de service worden geoptimaliseerd door de kosten van specifieke gedistribueerde querybewerkingen te berekenen.
-* In het gegevensverplaatsingsproces zijn geavanceerde algoritmen en technieken geïntegreerd om de gegevens efficiënt te verplaatsen tussen de computerbronnen die nodig zijn voor het uitvoeren van de query. Deze gegevensverplaatsingsbewerkingen zijn ingebouwd en alle optimalisaties voor Data Movement Service vinden automatisch plaats.
-* Er wordt standaard gebruikgemaakt van geclusterde **kolomopslag**indexen. Dankzij kolomopslag is de compressie in SQL Data Warehouse gemiddeld vijf keer beter dan bij traditionele rij-opslag en zijn de prestaties tot wel tien of meer keer beter. De prestaties van analysequery's waarbij een groot aantal rijen moeten worden gescand, zijn beter bij gebruik van kolomopslagindexen.
+* een gedistribueerde queryoptimalisatie en een set complexe statistieken voor alle gegevens. Voor meer informatie over het gebruik van informatie op de gegevensomvang en distributie is Hallo service kunnen toooptimize query's door Hallo kosten van specifieke gedistribueerde querybewerkingen vast te stellen.
+* Geavanceerde algoritmen en technieken geïntegreerd in Hallo data movement proces tooefficiently verplaatsen gegevens tussen de computerbronnen als nodig tooperform Hallo query. Deze gegevensverplaatsingsbewerkingen zijn ingebouwd in en alle optimalisaties toohello Data Movement Service gebeurt automatisch.
+* Er wordt standaard gebruikgemaakt van geclusterde **kolomopslag**indexen. SQL Data Warehouse opgehaald met behulp van opslag op basis van een kolom, gemiddeld 5 x betere compressie over traditionele rij-opslag en omhoog too10x of meer betere prestaties. Analysequery's waarbij tooscan moeten een groot aantal rijen beter werkt met columnstore-indexen.
 
 
 ## <a name="predictable-and-scalable-performance-with-data-warehouse-units"></a>Voorspelbare en schaalbare prestaties met Data Warehouse Units
-SQL Data Warehouse is opgebouwd op basis van vergelijkbare technologieën als die van SQL Database, wat betekent dat gebruikers consistente en voorspelbare prestaties kunnen verwachten voor analytische query's. Gebruikers kunnen verwachten dat de prestaties lineair worden geschaald wanneer er rekenknooppunten worden toegevoegd of verwijderd. Toewijzing van resources aan uw SQL Data Warehouse wordt gemeten in DWU's (Data Warehouse Units). DWU's zijn een maatstaf van de onderliggende resources, zoals CPU, geheugen en IOP's, die worden toegewezen aan de SQL Data Warehouse. Hoe meer DWU's, hoe meer resources en hoe beter de prestaties. DWU's zorgen met name voor het volgende:
+SQL Data Warehouse is opgebouwd op basis van vergelijkbare technologieën als die van SQL Database, wat betekent dat gebruikers consistente en voorspelbare prestaties kunnen verwachten voor analytische query's. Gebruikers verwachten toosee prestaties scale lineair als ze toevoegen aan of verwijderen van rekenknooppunten. Toewijzing van resources tooyour SQL Data Warehouse wordt gemeten in Data Warehouse Units (dwu's). Dwu's zijn metingen van het onderliggende bronnen zoals CPU, geheugen, IOP's tooyour SQL Data Warehouse worden toegewezen. Hallo aantal dwu's te verhogen, verhoogt resources en de prestaties. DWU's zorgen met name voor het volgende:
 
-* U kunt uw datawarehouse schalen zonder dat u zich zorgen hoeft te maken over de onderliggende hardware of software.
-* U kunt prestatieverbetering voor een DWU-niveau voorspellen voordat u de rekencapaciteit van het datawarehouse wijzigt.
-* De onderliggende hardware en software van uw exemplaar kunnen worden gewijzigd of verplaatst zonder negatieve gevolgen voor de workload.
-* Microsoft kan de onderliggende architectuur van de service verbeteren zonder de prestaties van uw workload te beïnvloeden.
-* Microsoft kan de prestaties van SQL Data Warehouse snel verbeteren op een manier waarop de workload schaalbaar is en evenredig wordt verdeeld over het systeem.
+* U zijn kunt tooscale uw datawarehouse zonder dat u over Hallo onderliggende hardware of software.
+* U kunt voorspellen prestatieverbeteringen voor DWU-niveau voordat Hallo compute van uw datawarehouse wijzigen.
+* Hallo kunnen onderliggende hardware en software van uw exemplaar wijzigen of verplaatsen zonder invloed op prestaties van uw workload.
+* Microsoft kan de onderliggende architectuur van Hallo service zonder dat de prestaties van uw workload Hallo Hallo te verbeteren.
+* Microsoft kan snel de prestaties verbeteren in SQL Data Warehouse, op een manier die schaalbaar is en evenredig effecten Hallo system.
 
-Data Warehouse Units (DWU's) bieden een maatstaf voor drie metrische gegevens die nauw verband houden met de prestaties van datawarehouses bij een bepaalde workload. De volgende belangrijke metrische gegevens over workloads worden lineair geschaald met de DWU's.
+Data Warehouse Units (DWU's) bieden een maatstaf voor drie metrische gegevens die nauw verband houden met de prestaties van datawarehouses bij een bepaalde workload. Hallo volgende key werkbelasting metrische gegevens schaal Lineair met Hallo dwu's.
 
 **Scan/aggregatie:** een standaarddatawarehousequery waarmee een groot aantal rijen wordt gescand waarop vervolgens een complexe aggregatie wordt uitgevoerd. Dit is een I/O-bewerking waarbij de CPU intensief wordt belast.
 
-**Belasting:** de capaciteit voor het opnemen van gegevens in de service. Laadacties worden het beste uitgevoerd met PolyBase van Azure Storage Blobs of Azure Data Lake. Deze metriek fungeert als stresstest voor de netwerk- en CPU-aspecten van de service.
+**Belasting:** mogelijkheid tooingest gegevens Hallo Hallo brengen. Laadacties worden het beste uitgevoerd met PolyBase van Azure Storage Blobs of Azure Data Lake. Deze waarde is ontworpen toostress netwerk en CPU-aspecten van Hallo-service.
 
-**Create Table As Select (CTAS):** met CTAS wordt de capaciteit voor het kopiëren van een tabel gemeten. Dit omvat het lezen van gegevens uit de opslag, het verdelen van de gegevens over de knooppunten van het systeem en het weer terugschrijven van de gegevens naar de opslag. Dit is een bewerking waarbij de CPU, de IO en het netwerk intensief worden belast.
+**Maak Table As Select (CTAS):** CTAS Hallo mogelijkheid toocopy wordt een tabel. Dit omvat het lezen van gegevens van opslag, verdelen over Hallo-knooppunten van het Hallo-apparaat en toostorage opnieuw te schrijven. Dit is een bewerking waarbij de CPU, de IO en het netwerk intensief worden belast.
 
 ## <a name="built-on-sql-server"></a>Gebouwd op SQL Server
-SQL Data Warehouse is gebaseerd op de relationele database-engine van de SQL Server en bevat veel functies die u van een datawarehouse voor ondernemingen verwacht. Als u al bekend bent met T-SQL, zult u weinig moeite hebben met de overgang naar SQL Data Warehouse. Of u nu een ervaren of beginnende gebruiker bent, met de voorbeelden in de documentatie kunt u snel aan de slag. Over het algemeen kunt u nadenken over de manier waarop de elementen van de taal van SQL Data Warehouse zijn opgebouwd:
+SQL Data Warehouse is gebaseerd op Hallo SQL Server relationele database-engine en bevat veel Hallo-functies die u van een datawarehouse voor ondernemingen verwacht. Als u al T-SQL weet, is het eenvoudig tootransfer uw kennis tooSQL Data Warehouse. Hiermee wordt aangegeven of u nu een ervaren of maar net begint, Hallo voorbeelden in Hallo documentatie kunt u. U nadenken over het algemeen over Hallo manier we de elementen van de taal van SQL Data Warehouse Hallo als volgt hebt gebouwd:
 
 * SQL Data Warehouse gebruikt T-SQL-syntaxis voor veel bewerkingen. Deze biedt ook ondersteuning voor diverse traditionele SQL-constructs, zoals opgeslagen procedures, door de gebruiker gedefinieerde functies, tabelpartities, indexen en sorteringen.
 * SQL Data Warehouse bevat ook een aantal nieuwere functies van SQL Server, zoals geclusterde **kolomopslag**indexen, PolyBase-integratie en gegevensauditing (inclusief beoordeling van bedreigingen).
-* Bepaalde T-SQL-taalelementen die minder vaak voorkomen in werkbelastingen voor datawarehouses, of die nieuwer zijn voor SQL Server, zijn mogelijk niet beschikbaar. Voor meer informatie raadpleegt u de [migratiedocumentatie][Migration documentation].
+* Bepaalde T-SQL-taal-elementen die minder gangbaar zijn voor workloads van gegevensopslag, of nieuwere tooSQL Server, zijn mogelijk niet beschikbaar. Zie voor meer informatie, Hallo [migratiedocumentatie][Migration documentation].
 
-Doordat SQL Server, SQL Data Warehouse, SQL Database en Analytics Platform System de Transact-SQL en diverse functies met elkaar gemeen hebben, kunt u een passende oplossing ontwikkelen voor uw gegevensbehoeften. U kunt besluiten waar u uw gegevens wilt bewaren, op basis van de gewenste prestaties, beveiliging en schaal, en uw gegevens vervolgens van het ene naar het andere systeem verplaatsen.
+U kunt een oplossing die past bij de gegevensbehoeften van uw kunt ontwikkelen met hello Transact-SQL- en functie overeenkomsten tussen de SQL Server, SQL Data Warehouse, SQL-Database en Analytics Platform System. U kunt ervoor kiezen waar tookeep uw gegevens, op basis van prestaties, beveiliging en schaal en overdracht van gegevens als nodig tussen verschillende systemen.
 
 ## <a name="data-protection"></a>Gegevensbeveiliging
-Alle SQL Data Warehouse-gegevens worden opgeslagen in Azure Premium-opslag met lokaal redundante opslag. In het lokale datacentrum worden meerdere synchrone kopieën van de gegevens bewaard voor gegarandeerd transparante gegevensbeveiliging tegen gelokaliseerde fouten. Bovendien maakt SQL Data Warehouse automatisch en regelmatig back-ups van uw actieve (niet-onderbroken) databases met Azure Storage-momentopnamen. Zie voor meer informatie over hoe Back-ups en herstellen werkt, het [Overzicht van Back-ups en herstellen][Backup and restore overview].
+Alle SQL Data Warehouse-gegevens worden opgeslagen in Azure Premium-opslag met lokaal redundante opslag. Meerdere synchrone kopieën van Hallo gegevens worden onderhouden in Hallo lokale gegevens center tooguarantee transparante gegevensbeveiliging tegen gelokaliseerde fouten. Bovendien maakt SQL Data Warehouse automatisch en regelmatig back-ups van uw actieve (niet-onderbroken) databases met Azure Storage-momentopnamen. toolearn informatie over het back-up en herstel werkt, Zie Hallo [overzicht van back-up en herstel][Backup and restore overview].
 
 ## <a name="integrated-with-microsoft-tools"></a>Geïntegreerd met Microsoft-hulpprogramma's
-SQL Data Warehouse integreert ook veel van de hulpmiddelen waar gebruikers van SQL Server mee bekend zijn. Tot deze hulpmiddelen behoren onder meer:
+SQL Data Warehouse ook worden geïntegreerd veel van Hallo-hulpprogramma's die gebruikers al bekend met wellicht SQL-Server. Tot deze hulpmiddelen behoren onder meer:
 
 **Traditionele SQL Server-hulpprogramma's:** SQL Data Warehouse is volledig geïntegreerd met SQL Server Analysis Services, Integration Services en Reporting Services.
 
@@ -104,17 +104,17 @@ SQL Data Warehouse integreert ook veel van de hulpmiddelen waar gebruikers van S
 **Hulpprogramma's van derden:** veel externe leveranciers hebben de integratie van hun hulpprogramma's met SQL Data Warehouse laten certificeren. Zie voor een volledige lijst [SQL Data Warehouse-oplossingspartners][SQL Data Warehouse solution partners].
 
 ## <a name="hybrid-data-sources-scenarios"></a>Hybride scenario's met gegevensbronnen
-PolyBase stelt u in staat gebruik te maken van verschillende gegevensbronnen met vertrouwde TSQL-opdrachten. Met PolyBase kunt u niet-relationele gegevens opvragen uit de Azure-blobopslag, net zoals u gegevens kunt opvragen uit gewone tabellen. Met PolyBase kunt u ook niet-relationele gegevens opvragen of niet-relationele gegevens importeren in SQL Data Warehouse.
+Polybase kunt u tooleverage uw gegevens uit verschillende bronnen met behulp van bekende T-SQL-opdrachten. Met Polybase kunt u de niet-relationele gegevens tooquery ondergebracht in Azure Blob-opslag, hoewel dit een gewone tabellen. Gebruik Polybase tooquery niet-relationele gegevens of niet-relationele gegevens tooimport in SQL Data Warehouse.
 
-* In PolyBase worden externe tabellen gebruikt voor toegang tot niet-relationele gegevens. De tabeldefinities worden opgeslagen in SQL Data Warehouse en zijn toegankelijk via SQL en hulpprogramma's, net als bij normale relationele gegevens.
-* Polybase is agnostisch qua integratie. De functies en functionaliteit ervan zijn hetzelfde voor alle bronnen die door Polybase worden ondersteund. In Polybase kunnen gegevens in diverse indelingen worden gelezen, waaronder bestanden met scheidingstekens en ORC-bestanden.
-* PolyBase kan worden gebruikt voor toegang tot Blob Storage die ook wordt gebruikt als opslag voor een HDInsight-cluster. Hierdoor hebt u toegang tot dezelfde gegevens met relationele en niet-relationele hulpprogramma's.
+* PolyBase gebruikt externe tabellen tooaccess niet-relationele gegevens. Hallo tabeldefinities worden opgeslagen in SQL Data Warehouse en u er toegang toe met behulp van SQL en hulpprogramma's zoals u zou toegang tot normale relationele gegevens.
+* Polybase is agnostisch qua integratie. Deze zichtbaar gemaakt Hallo dezelfde functies en functionaliteit tooall Hallo bronnen die wordt ondersteund. Hallo-gegevens gelezen door Polybase kunnen zich in verschillende indelingen, waaronder bestanden met scheidingstekens of ORC-bestanden.
+* PolyBase kan worden gebruikt tooaccess blob-opslag die ook wordt gebruikt als opslag voor een HDInsight-cluster. Dit biedt u toegang tot toohello dezelfde gegevens met relationele en niet-relationele hulpprogramma's.
 
 ## <a name="sla"></a>SLA
-SQL Data Warehouse biedt een SLA (Service Level Agreement, serviceovereenkomst) op productniveau als onderdeel van de Microsoft Online Services SLA. Ga voor meer informatie naar [SLA voor SQL Data Warehouse][SLA for SQL Data Warehouse]. Ga voor SLA-informatie over alle andere producten naar de Azure-pagina [Serviceovereenkomsten] download deze via de pagina [Volumelicenties][Volume Licensing]. 
+SQL Data Warehouse biedt een SLA (Service Level Agreement, serviceovereenkomst) op productniveau als onderdeel van de Microsoft Online Services SLA. Ga voor meer informatie naar [SLA voor SQL Data Warehouse][SLA for SQL Data Warehouse]. Voor informatie over alle andere producten SLA vindt u Hallo [Service Level Agreements] Azure pagina of deze downloaden op Hallo [Volume Licensing] [ Volume Licensing] pagina. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [een SQL Data Warehouse maakt][create a SQL Data Warehouse] en [voorbeeldgegevens laadt][load sample data]. Als u niet bekend bent met Azure, kan de [Azure-woordenlijst][Azure glossary] handig zijn bij het opzoeken van nieuwe terminologie. U kunt ook enkele andere SQL Data Warehouse-resources bekijken.  
+Nu u weet wat SQL Data Warehouse, kunt u nagaan hoe tooquickly [maken van een SQL Data Warehouse] [ create a SQL Data Warehouse] en [voorbeeldgegevens laden][load sample data]. Als u nieuwe tooAzure bent, vindt u Hallo [Azure verklarende woordenlijst] [ Azure glossary] handig als u nieuwe terminologie optreden. U kunt ook enkele andere SQL Data Warehouse-resources bekijken.  
 
 * [Succesverhalen van klanten]
 * [Blogs]
@@ -152,4 +152,4 @@ Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [een SQL
 [Video's]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
-[Serviceovereenkomsten]: https://azure.microsoft.com/en-us/support/legal/sla/
+[Service Level Agreements]: https://azure.microsoft.com/en-us/support/legal/sla/

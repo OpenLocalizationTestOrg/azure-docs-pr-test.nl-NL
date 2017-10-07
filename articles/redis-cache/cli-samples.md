@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Redis-cache-voorbeelden | Microsoft Docs
+title: Voorbeelden van aaaAzure CLI Redis-cache | Microsoft Docs
 description: Azure CLI-voorbeelden voor Azure Redis-Cache.
 services: redis-cache
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: sdanie
-ms.openlocfilehash: a3debf3380b57faa5b7b30f612698fe6de5b7067
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a2eb6f7267951faca599a43ff29b46beb05fea6d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cli-samples-for-azure-redis-cache"></a>Voorbeelden van Azure CLI voor Azure Redis-Cache
 
-De volgende tabel bevat koppelingen naar bash-scripts die zijn gebouwd met behulp van de Azure CLI.
+Hallo bevat volgende tabel koppelingen toobash scripts gebouwd met behulp van hello Azure CLI.
 
 | | |
 |---|---|
@@ -30,9 +30,9 @@ De volgende tabel bevat koppelingen naar bash-scripts die zijn gebouwd met behul
 | [Een cache maken](./scripts/create-cache.md) | Maakt een resourcegroep en een eenvoudige Azure Redis-Cache-laag. |
 | [Maken van een premium-cache met clustering](./scripts/create-premium-cache-cluster.md) | Maakt een resourcegroep en een cache van de laag premium met clusteren is ingeschakeld.|
 | [Cachedetails van de ophalen](./scripts/show-cache.md) | Details van een Azure Redis-Cache-exemplaar, inclusief Inrichtingsstatus opgehaald. |
-| [De hostnaam, poorten en sleutels ophalen](./scripts/cache-keys-ports.md) | Hiermee haalt u de hostnaam, poorten en sleutels voor een Azure Redis-Cache-exemplaar. |
+| [Hallo-hostnaam, poorten en sleutels ophalen](./scripts/cache-keys-ports.md) | Hiermee haalt u Hallo hostnaam, poorten en sleutels voor een Azure Redis-Cache-exemplaar. |
 |**Web-app plus cache**||
-| [Een WebApp verbinden met een redis-cache](./../app-service-web/scripts/app-service-cli-app-service-redis.md) | Hiermee maakt u een Azure-web-app en een redis-cache en vervolgens voegt u de details van de redis-verbinding toe aan de app-instellingen. |
+| [Verbinding maken met een web-app tooa redis-cache](./../app-service-web/scripts/app-service-cli-app-service-redis.md) | Hiermee maakt u een Azure-web-app en een redis-cache en vervolgens voegt Hallo redis details toohello app verbindingsinstellingen. |
 |**Cache verwijderen**||
 | [Een cache verwijderen](./scripts/delete-cache.md) | Hiermee verwijdert u een Azure Redis-Cache-exemplaar  |
 | | |

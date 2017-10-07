@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database back-ups opslaan voor maximaal tien jaar | Microsoft Docs
-description: Meer informatie over hoe Azure SQL Database opslaan back-ups ondersteunt maximaal tien jaar.
+title: aaaStore Azure SQL Database back-ups voor up too10 jaar | Microsoft Docs
+description: Meer informatie over hoe Azure SQL Database ondersteunt opslag back-ups voor up too10 jaar.
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -16,119 +16,119 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
-ms.openlocfilehash: 25e651203f804fbf32d632b5f83145a3f3f72a7f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5825ebd4e3bd66b59b13aea603d377ef814a1df3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL Database back-ups voor maximaal tien jaar opslaan
-Veel toepassingen hebben regelgeving, compatibiliteit of andere zakelijke doeleinden die vereisen dat u voor het bewaren van back-ups buiten de 7 35 dagen geleverd door de Azure SQL Database [automatische back-ups](sql-database-automated-backups.md). Met behulp van de lange termijn bewaren van back-functie kunt u uw back-ups van SQL database opslaan in een Azure Recovery Services-kluis voor maximaal tien jaar. U kunt maximaal 1000 databases per kluis opslaan. Vervolgens kunt u back-up selecteren in de kluis om het te herstellen als een nieuwe database.
+# <a name="store-azure-sql-database-backups-for-up-too10-years"></a>Azure SQL Database back-ups opslaan voor up too10 jaar
+Veel toepassingen hebben regelgeving, compatibiliteit of andere zakelijke doeleinden die vereisen dat u tooretain databaseback-ups buiten Hallo 7 35 dagen geleverd door de Azure SQL Database [automatische back-ups](sql-database-automated-backups.md). Hallo op lange termijn bewaren van back-functie gebruikt, kunt u uw back-ups van SQL database opslaan in een Azure Recovery Services-kluis voor up too10 jaar. U kunt opslaan van too1, 000 databases per kluis. Vervolgens kunt u back-up in Hallo kluis toorestore als een nieuwe database.
 
 > [!IMPORTANT]
-> Lange bewaartermijn van de back-up is momenteel in preview en beschikbaar zijn in de volgende gebieden: Australië-Oost, Australië-Zuidoost, Brazilië-Zuid, VS-midden, Oost-Azië, VS-Oost, VS-Oost 2, India centraal, India-Zuid, Japan-Oost, Japan-West, Noordelijk Centraal, VS, Noord Europa, Zuid-centraal VS, Zuidoost-Azië, West-Europa en VS-West.
+> Lange bewaartermijn van de back-up is momenteel in preview en beschikbaar zijn in de volgende regio's Hallo: Australië-Oost, Australië-Zuidoost, Brazilië-Zuid, VS-midden, Oost-Azië, VS-Oost, VS-Oost 2, India centraal, India-Zuid, Japan-Oost, Japan-West, Noordelijk Centraal, VS, Noord Europa, Zuid-centraal VS, Zuidoost-Azië, West-Europa en VS-West.
 >
 
 > [!NOTE]
-> U kunt maximaal 200 databases per kluis inschakelen tijdens een periode van 24 uur. Het is raadzaam dat u een afzonderlijke kluis voor elke server om te minimaliseren, de impact van deze limiet. 
+> U kunt inschakelen van de databases too200 per kluis gedurende een periode van 24 uur. Het is raadzaam dat u een afzonderlijke kluis voor elke server toominimize Hallo gevolgen van deze limiet gebruiken. 
 > 
 
 ## <a name="how-sql-database-long-term-backup-retention-works"></a>De werking van de back-up op lange termijn bewaren van SQL-Database
 
 Met bewaren van back-up op lange termijn, kunt u een SQL database-server koppelen aan een Azure Recovery Services-kluis. 
 
-* In de dezelfde Azure-abonnement dat de SQL-server gemaakt en in dezelfde geografische regio en resourcegroep, moet u de kluis maken. 
-* Configureert u een bewaarbeleid voor elke database. Het beleid zorgt ervoor dat de wekelijkse volledige back-ups moeten worden gekopieerd naar de Recovery Services-kluis en bewaard voor de opgegeven bewaarperiode (maximaal 10 jaar). 
-* Vervolgens kunt u de database uit een van deze back-ups herstellen naar een nieuwe database in een willekeurige server in het abonnement. Azure-opslag maakt een kopie van de bestaande back-ups en het exemplaar heeft geen invloed van de prestaties op de bestaande database.
+* U moet Hallo kluis maken in dezelfde Azure-abonnement dat Hallo SQL-server gemaakt Hallo en Hallo in dezelfde geografische regio en resource-groep. 
+* Configureert u een bewaarbeleid voor elke database. Hallo beleid oorzaken Hallo wekelijkse volledige databaseback-ups toobe gekopieerd toohello Recovery Services-kluis en bewaard voor de opgegeven bewaarperiode hello (omhoog too10 jaar). 
+* Vervolgens kunt u Hallo database terugzetten vanuit een van deze back-ups tooa nieuwe database in een willekeurige server in het Hallo-abonnement. Azure-opslag maakt een kopie van de bestaande back-ups en Hallo-exemplaar heeft geen invloed prestaties op Hallo bestaande database.
 
 > [!TIP]
-> Zie voor een uitleg handleiding [en herstel van back-up op lange termijn bewaren van Azure SQL Database configureren](sql-database-long-term-backup-retention-configure.md).
+> Zie voor een hoe tooguide [en herstel van back-up op lange termijn bewaren van Azure SQL Database configureren](sql-database-long-term-backup-retention-configure.md).
 
 ## <a name="enable-long-term-backup-retention"></a>Lange bewaartermijn van de back-up inschakelen
 
-Lange bewaartermijn van back-up voor een database configureren:
+tooconfigure lange Backup-bewaartermijn voor een database:
 
-1. Maak een Azure Recovery Services-kluis in dezelfde regio, abonnement en resourcegroep als uw SQL database-server. 
-2. De server naar de kluis registreren.
+1. Een Azure Recovery Services-kluis maken in Hallo dezelfde regio, abonnement en resource-groep als uw SQL database-server. 
+2. Hallo server toohello kluis registreren.
 3. Maak een beleid voor Azure Recovery Services-beveiliging.
-4. Het beveiligingsbeleid van toepassing op de databases die langdurig bewaren van back-up vereisen.
+4. Toepassing hello beveiliging beleid toohello databases waarvoor het langdurig bewaren van back-up.
 
-Als u wilt configureren, beheren en een database herstellen via langdurig bewaren van back-up van automatische back-ups in een Azure Recovery Services-kluis, voert u een van de volgende opties:
+tooconfigure, beheren, en een database herstellen via langdurig bewaren van back-up van automatische back-ups in een Azure Recovery Services-kluis en voer een van de volgende Hallo:
 
-* Met de Azure portal: klik op **lange bewaartermijn van de back-**, selecteert u een database en klik vervolgens op **configureren**. 
+* Azure-portal met behulp van Hallo: klik op **lange bewaartermijn van de back-**, selecteert u een database en klik vervolgens op **configureren**. 
 
    ![Selecteer een database voor lange bewaartermijn van de back-up](./media/sql-database-get-started-backup-recovery/select-database-for-long-term-backup-retention.png)
 
-* Met behulp van PowerShell: Ga naar [en herstel van back-up op lange termijn bewaren van Azure SQL Database configureren](sql-database-long-term-backup-retention-configure.md).
+* Met behulp van PowerShell: Ga te[en herstel van back-up op lange termijn bewaren van Azure SQL Database configureren](sql-database-long-term-backup-retention-configure.md).
 
-## <a name="restore-a-database-thats-stored-with-the-long-term-backup-retention-feature"></a>Een database die opgeslagen met de functie voor de lange termijn bewaren van back-up terugzetten
+## <a name="restore-a-database-thats-stored-with-hello-long-term-backup-retention-feature"></a>Herstellen van een database die opgeslagen met Hallo op lange termijn bewaren van back-functie
 
-Herstellen vanuit back-up op lange termijn bewaren van back-up:
+toorecover van back-up op lange termijn bewaren van back-up:
 
-1. Lijst van de kluis waarin de back-up is opgeslagen.
-2. Lijst van de container die is gekoppeld aan uw logische server.
-3. Lijst van de gegevensbron in de kluis die is gekoppeld aan uw database.
-4. Lijst van de herstelpunten die beschikbaar zijn voor het herstellen.
-5. Herstel de database van het herstelpunt dat naar de doelserver in uw abonnement.
+1. Lijst Hallo kluis waar Hallo back-up is opgeslagen.
+2. Lijst Hallo-container die is toegewezen tooyour logische server.
+3. Hallo lijstgegevensbron binnen Hallo kluis die is toegewezen tooyour-database.
+4. Lijst Hallo herstelpunten die toorestore beschikbaar zijn.
+5. Hallo-database terugzetten vanaf Hallo herstelpunt toohello doelserver binnen uw abonnement.
 
-Als u wilt configureren, beheren en een database herstellen via langdurig bewaren van back-up van automatische back-ups in een Azure Recovery Services-kluis, voert u een van de volgende opties:
+tooconfigure, beheren, en een database herstellen via langdurig bewaren van back-up van automatische back-ups in een Azure Recovery Services-kluis en voer een van de volgende Hallo:
 
-* Met de Azure portal: Ga naar [lange Backup-bewaartermijn met de Azure portal beheren](sql-database-long-term-backup-retention-configure.md). 
+* Azure-portal met behulp van Hallo: Ga te[beheren op lange termijn bewaren van back-up met behulp van Azure-portal Hallo](sql-database-long-term-backup-retention-configure.md). 
 
-* Met behulp van PowerShell: Ga naar [lange Backup-bewaartermijn met behulp van PowerShell beheren](sql-database-long-term-backup-retention-configure.md).
+* Met behulp van PowerShell: Ga te[lange Backup-bewaartermijn met behulp van PowerShell beheren](sql-database-long-term-backup-retention-configure.md).
 
 ## <a name="get-pricing-for-long-term-backup-retention"></a>Prijzen voor lange bewaartermijn van de back-ophalen
 
-Lange bewaartermijn van back-up van een SQL-database wordt in rekening gebracht volgens de [Azure Backup-services prijzen tarieven](https://azure.microsoft.com/pricing/details/backup/).
+Lange bewaartermijn van back-up van een SQL-database wordt in rekening gebracht volgens toohello [Azure Backup-services prijzen tarieven](https://azure.microsoft.com/pricing/details/backup/).
 
-Nadat de SQL database-server naar de kluis is geregistreerd, wordt u in rekening gebracht voor de totale opslag die wordt gebruikt door de wekelijkse back-ups zijn opgeslagen in de kluis.
+Nadat de Hallo SQL database-server is geregistreerd toohello kluis, worden in rekening gebracht voor Hallo totale opslag die wordt gebruikt door Hallo wekelijkse back-ups opgeslagen in de kluis Hallo.
 
 ## <a name="view-available-backups-that-are-stored-in-long-term-backup-retention"></a>Beschikbare back-ups weergeven die zijn opgeslagen in lange bewaartermijn van de back-up
 
-Als u wilt configureren, beheren en een database herstellen via langdurig bewaren van back-up van automatische back-ups in een Azure Recovery Services-kluis met behulp van de Azure-portal, voert u een van de volgende opties:
+tooconfigure, beheren, en een database herstellen via langdurig bewaren van back-up van automatische back-ups in een Azure Recovery Services-kluis via hello Azure-portal, een van de volgende Hallo:
 
-* Met de Azure portal: Ga naar [lange Backup-bewaartermijn met de Azure portal beheren](sql-database-long-term-backup-retention-configure.md). 
+* Azure-portal met behulp van Hallo: Ga te[beheren op lange termijn bewaren van back-up met behulp van Azure-portal Hallo](sql-database-long-term-backup-retention-configure.md). 
 
-* Met behulp van PowerShell: Ga naar [lange Backup-bewaartermijn met behulp van PowerShell beheren](sql-database-long-term-backup-retention-configure.md).
+* Met behulp van PowerShell: Ga te[lange Backup-bewaartermijn met behulp van PowerShell beheren](sql-database-long-term-backup-retention-configure.md).
 
 ## <a name="disable-long-term-retention"></a>Lange bewaartermijn uitschakelen
 
-De recovery-service wordt automatisch het opruimen van de back-ups op basis van het opgegeven bewaarbeleid verwerkt. 
+Hallo-recovery-service verwerkt automatisch opschonen van back-ups op basis van opgegeven bewaarbeleid Hallo Hallo. 
 
-Als u wilt stoppen met het verzenden van de back-ups voor een specifieke database naar de kluis, verwijder het bewaarbeleid voor die database.
+toostop verzenden Hallo-back-ups voor een specifieke database toohello-kluis verwijderen Hallo bewaarbeleid voor die database.
   
 ```
 Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName 'RG1' -ServerName 'Server1' -DatabaseName 'DB1' -State 'Disabled' -ResourceId $policy.Id
 ```
 
 > [!NOTE]
-> De back-ups die zich al in de kluis worden hierdoor niet beïnvloed. Ze worden automatisch verwijderd door de herstelservice wanneer de bewaartermijn is verstreken.
+> Hallo back-ups die zich al in de kluis Hallo worden hierdoor niet beïnvloed. Ze worden automatisch verwijderd door de herstelservice Hallo wanneer de bewaartermijn is verstreken.
 
 ## <a name="long-term-backup-retention-faq"></a>Lange bewaartermijn in back-Veelgestelde vragen
 
-**Kan ik handmatig specifieke back-ups in de kluis verwijderen?**
+**Kan ik specifieke back-ups in de kluis Hallo handmatig verwijderen?**
 
-Momenteel niet. Back-ups van ruimt de kluis automatisch wanneer de bewaartermijn is verlopen.
+Momenteel niet. back-ups ruimt Hallo kluis automatisch wanneer Hallo bewaarperiode is verlopen.
 
-**Kan ik mijn server voor het opslaan van back-ups naar meer dan één kluis registreren?**
+**Kan ik mijn server toostore back-ups toomore dan een kluis registreren?**
 
-Nee, kunt u back-ups naar slechts één kluis momenteel opslaan op een tijdstip.
+U kunt een kluis voor back-ups tooonly Nee, momenteel opslaan op een tijdstip.
 
 **Kan ik een kluis en de server hebben met verschillende abonnementen?**
 
-Nee, de kluis en de server moeten zich in hetzelfde abonnement en dezelfde resourcegroep.
+Nee, momenteel Hallo kluis en server moeten zich op Hallo hetzelfde abonnement en de resource-groep.
 
 **Kan ik een kluis die ik in een regio die verschilt van mijn server regio gemaakt gebruiken?**
 
-Nee, de kluis en de server, moet in dezelfde regio kopie tijd minimaliseren en verkeer kosten te voorkomen.
+Nee, Hallo kluis en server moeten zich in Hallo dezelfde regio toominimize tijd kopiëren en te voorkomen dat verkeer kosten.
 
 **Hoeveel databases kan ik opslaan in een kluis?**
 
-Op dit moment kunnen ondersteuning we voor maximaal 1000 databases per kluis. 
+Op dit moment ondersteunen we up too1, 000 databases per kluis. 
 
 **Het aantal kluizen kan ik maken per abonnement?**
 
-U kunt maximaal 25 kluizen per abonnement maken.
+U kunt maken van too25 kluizen per abonnement.
 
 **Hoeveel databases kan ik per dag per kluis configureren?**
 
@@ -136,33 +136,33 @@ U kunt 200 databases per dag per kluis instellen.
 
 **Werkt langdurig bewaren van back-up met elastische pools?**
 
-Ja. Elke database in de groep kan worden geconfigureerd met het bewaarbeleid.
+Ja. Elke database in de groep Hallo kan worden geconfigureerd met Hallo bewaarbeleid.
 
-**Kan ik een kiezen voor de tijd waarop de back-up is gemaakt?**
+**Kan ik kiezen Hallo tijdstip waarop Hallo back-up is gemaakt?**
 
-Nee, bepaalt de SQL-Database het back-upschema minimaliseren de invloed van de prestaties van uw databases.
+Nee, bepaalt de SQL-Database Hallo back-upschema toominimize Hallo invloed op de prestaties van uw databases.
 
-**Ik heb transparante gegevensversleuteling is ingeschakeld voor de database. Kan ik deze met de kluis gebruiken?** 
+**Ik heb transparante gegevensversleuteling is ingeschakeld voor de database. Kan ik deze met de kluis hello gebruiken?** 
 
-Ja, transparante gegevensversleuteling wordt ondersteund. U kunt de database herstellen uit de kluis, zelfs als de oorspronkelijke database niet meer bestaat.
+Ja, transparante gegevensversleuteling wordt ondersteund. Zelfs als de oorspronkelijke database Hallo niet meer bestaat, kunt u uit de kluis Hallo Hallo-database herstellen.
 
-**Wat gebeurt er met de back-ups in de kluis als mijn abonnement wordt onderbroken?** 
+**Wat gebeurt er met Hallo back-ups in de kluis Hallo als mijn abonnement wordt onderbroken?** 
 
-Als uw abonnement wordt onderbroken, wordt de bestaande databases en de back-ups behouden. Nieuwe back-ups worden niet gekopieerd naar de kluis. Nadat u het abonnement opnieuw activeert, hervat de service back-ups kopiëren naar de kluis. Uw kluis wordt toegankelijk is voor de bewerkingen voor het herstellen met behulp van de back-ups die zijn gekopieerd er voordat u het abonnement is onderbroken. 
+Als uw abonnement wordt onderbroken, behouden we Hallo bestaande databases en de back-ups. Nieuwe back-ups zijn niet gekopieerd toohello kluis. Nadat u Hallo abonnement opnieuw activeert, hervat Hallo service kluis voor back-ups toohello kopiëren. Uw kluis wordt toegankelijk toohello herstelbewerkingen met behulp van Hallo back-ups die zijn gekopieerd er voordat het Hallo-abonnement is onderbroken. 
 
-**Krijg ik toegang tot de back-upbestanden voor SQL-database zodat ik kan downloaden of deze naar de SQL-server terugzetten?**
+**Krijg ik toegang tot toohello SQL database back-upbestanden zodat ik kan downloaden of ze toohello SQL server herstellen?**
 
 Nee, momenteel niet.
 
-**Is het mogelijk om meerdere planningen (dagelijks, wekelijks, maandelijks, jaarlijks) binnen een bewaarbeleid SQL.**
+**Is het mogelijk toohave meerdere plant (dagelijks, wekelijks, maandelijks, jaarlijks) binnen een bewaarbeleid SQL.**
 
 Nee, meerdere schema's zijn momenteel alleen beschikbaar voor back-ups van virtuele machine.
 
 **Wat gebeurt er als we langdurig bewaren van back-up voor een database die is een secundaire actieve geo-replicatie-database hebt ingesteld?**
 
-Omdat er geen back-ups op replica's onderneemt, is er momenteel geen optie voor het bewaren van de lange termijn back-up op secundaire databases. Het is echter belangrijk dat gebruikers langdurig bewaren van back-up op een secundaire actieve geo-replicatie-database instellen voor de volgende redenen:
-* Wanneer een failover gebeurt en de database een primaire database wordt, duurt we een volledige back-up, die is geüpload naar de kluis.
-* Er is geen extra kosten verbonden aan de klant voor het instellen van langdurig bewaren van back-up op een secundaire database.
+Omdat er geen back-ups op replica's onderneemt, is er momenteel geen optie voor het bewaren van de lange termijn back-up op secundaire databases. Het is echter belangrijk voor gebruikers tooset up langdurig bewaren van back-up op een secundaire actieve geo-replicatie-database om deze redenen:
+* Wanneer een failover gebeurt en Hallo-database een primaire database wordt, duurt we een volledige back-up, namelijk geüploade toovault.
+* Er is geen extra kosten toohello klant voor het instellen van langdurig bewaren van back-up op een secundaire database.
 
 ## <a name="next-steps"></a>Volgende stappen
-Omdat de databaseback-ups voorkomen dat gegevens per ongeluk beschadigd of verwijderd, zijn ze een essentieel onderdeel van een zakelijke continuïteit en noodherstelplan. Zie voor meer informatie over de andere SQL-Database-oplossingen voor bedrijfscontinuïteit, [Business continuity overview](sql-database-business-continuity.md).
+Omdat de databaseback-ups voorkomen dat gegevens per ongeluk beschadigd of verwijderd, zijn ze een essentieel onderdeel van een zakelijke continuïteit en noodherstelplan. toolearn over andere SQL-Database-oplossingen voor bedrijfscontinuïteit hello, Zie [Business continuity overview](sql-database-business-continuity.md).
