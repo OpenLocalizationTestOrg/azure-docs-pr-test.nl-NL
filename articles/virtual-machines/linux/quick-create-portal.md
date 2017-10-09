@@ -1,5 +1,5 @@
 ---
-title: Azure Quick Start - Een VM-portal maken | Microsoft Docs
+title: aaaAzure Quick Start - VM-Portal maken | Microsoft Docs
 description: Azure Quick Start - Een VM-portal maken
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,62 +16,62 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d009020e86fdfed6a45b5b63b9664c623bcb1843
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 984a400c976e349a59f873210d6e04bcdea39e1c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Een virtuele Linux-machine maken met Azure Portal
+# <a name="create-a-linux-virtual-machine-with-hello-azure-portal"></a>Een virtuele Linux-machine maken met hello Azure-portal
 
-Virtuele Azure-machines kunnen worden gemaakt via Azure Portal. Deze methode biedt een gebruikersinterface op basis van een browser voor het maken en configureren van virtuele machines en alle verwante resources. In deze Quick Start gaat u een virtuele machine maken en een webserver installeren op de VM.
+Azure virtuele machines kunnen worden gemaakt via hello Azure-portal. Deze methode biedt een gebruikersinterface op basis van een browser voor het maken en configureren van virtuele machines en alle verwante resources. Met deze stappen Quick Start via een virtuele machine maken en de installatie van een webserver op Hallo VM.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="create-ssh-key-pair"></a>Een SSH-sleutelpaar maken
 
-U hebt een SSH-sleutelpaar nodig om deze Quick Start te volgen. Als u een bestaand SSH-sleutelpaar hebt, kunt u deze stap overslaan.
+U moet een SSH-sleutelpaar toocomplete deze snel starten. Als u een bestaand SSH-sleutelpaar hebt, kunt u deze stap overslaan.
 
-In een Bash-shell voert u deze opdracht uit en volgt u de aanwijzingen op het scherm. De uitvoer van de opdracht bevat de bestandsnaam van het bestand met de openbare sleutel. Kopieer de inhoud van het bestand met de openbare sleutel naar het klembord.
+Deze opdracht uitvoert vanaf een Bash-shell en volg Hallo op het scherm aanwijzingen. opdrachtuitvoer Hallo bevat Hallo-bestandsnaam van het openbare sleutelbestand Hallo. Hallo-inhoud van Hallo openbaar-sleutelbestand toohello Klembord kopiëren.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure. 
+## <a name="log-in-tooazure"></a>Meld u bij tooAzure 
 
-Meld u via http://portal.azure.com aan bij Azure Portal.
+Toohello aanmelden met Azure-portal op http://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 
-1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1. Klik op Hallo **nieuw** knop gevonden op Hallo linkerbovenhoek Hallo Azure-portal.
 
 2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**. 
 
-3. Geef de informatie van de virtuele machine op. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel**. Wanneer u uw openbare SSH-sleutel plakt, verwijdert u alle voorloop- en volgspaties. Na het voltooien klikt u op **OK**.
+3. Geef informatie op Hallo virtuele machine. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel**. Bij het plakken in uw openbare SSH-sleutel, behandelen tooremove witruimte voorloop- of volgspaties. Na het voltooien klikt u op **OK**.
 
-    ![Voer basisinformatie over uw virtuele machine in op de portalblade](./media/quick-create-portal/create-vm-portal-basic-blade.png)
+    ![Voer algemene informatie over uw virtuele machine Hallo-portalblade](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 
-4. Selecteer een grootte voor de VM. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. 
+4. Selecteer een grootte voor Hallo VM. toosee meer grootte en selecteer **weergeven van alle** of wijzig de Hallo **ondersteund schijftype** filter. 
 
     ![Schermopname van VM-grootten](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
+5. Op de blade beleidinstellingen Hallo Hallo standaardinstellingen behouden en klik op **OK**.
 
-6. Klik op de pagina Overzicht op **OK** om de implementatie van de virtuele machine te starten.
+6. Klik op de overzichtspagina Hallo **Ok** implementatie van de virtuele machine toostart Hallo.
 
-7. De VM wordt aan het dashboard van de Azure Portal vastgemaakt. Zodra de implementatie is voltooid, wordt de samenvattingsblade van de VM automatisch geopend.
+7. Hallo VM is vastgemaakt toohello Azure-portaldashboard. Zodra het Hallo-implementatie is voltooid, wordt automatisch Hallo VM samenvatting blade geopend.
 
 
-## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
+## <a name="connect-toovirtual-machine"></a>Verbinding maken met toovirtual machine
 
-Maak een SSH-verbinding met de virtuele machine.
+Een SSH-verbinding maken met Hallo virtuele machine.
 
-1. Klik op de knop **Verbinden** op de blade van de virtuele machine. Op de knop Verbinden wordt een SSH-verbindingsreeks weergegeven die u kunt gebruiken om verbinding te maken met de virtuele machine.
+1. Klik op Hallo **Connect** knop op Hallo virtuele machineblade. Hallo verbinding knop geeft een SSH-verbindingsreeks die kan worden gebruikt tooconnect toohello virtuele machine.
 
     ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png) 
 
-2. Voer de volgende opdracht uit om een SSH-sessie te starten. Vervang de verbindingsreeks door de reeks die u uit Azure Portal hebt gekopieerd.
+2. Voer Hallo volgende opdracht toocreate een SSH-sessie. Hallo-verbindingsreeks vervangen door Hallo die één u hebt gekopieerd uit hello Azure-portal.
 
 ```bash 
 ssh azureuser@40.112.21.50
@@ -79,7 +79,7 @@ ssh azureuser@40.112.21.50
 
 ## <a name="install-nginx"></a>NGINX installeren
 
-Gebruik het volgende bash-script om pakketbronnen bij te werken en het meest recente NGINX-pakket te installeren. 
+Gebruik Hallo volgende scriptbronnen tooupdate pakket bash en installeer de meest recente NGINX-pakket Hallo. 
 
 ```bash 
 #!/bin/bash
@@ -91,34 +91,34 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-Wanneer u klaar bent, sluit u de SSH-sessie af en geeft u de VM-eigenschappen op in de Azure Portal.
+Wanneer u klaar bent, sluit u Hallo SSH-sessie en retourneert Hallo VM-eigenschappen in hello Azure-portal.
 
 
 ## <a name="open-port-80-for-web-traffic"></a>Poort 80 openen voor webverkeer 
 
-Een netwerkbeveiligingsgroep (NSG) beveiligt binnenkomend en uitgaand verkeer. Wanneer een VM wordt gemaakt in de Azure Portal, wordt een inkomende regel gemaakt op poort 22 voor SSH-verbindingen. Omdat deze VM fungeert als host voor een webserver, moet een NSG-regel worden gemaakt voor poort 80.
+Een netwerkbeveiligingsgroep (NSG) beveiligt binnenkomend en uitgaand verkeer. Wanneer een virtuele machine vanuit hello Azure-portal wordt gemaakt, wordt een inkomende regel gemaakt op poort 22 voor SSH-verbindingen. Omdat deze virtuele machine fungeert als host voor een webserver, moet een regel voor het NSG toobe gemaakt voor poort 80.
 
-1. Klik op de virtuele machine op de naam van de **Resourcegroep**.
-2. Selecteer de **netwerkbeveiligingsgroep**. De NSG kan worden geïdentificeerd met behulp van de kolom **Type**. 
-3. Klik op het menu links bij instellingen op **Beveiligingsregels voor binnenkomend verkeer**.
+1. Klik op de naam van de Hallo HALLO hallo voor virtuele machines **resourcegroep**.
+2. Selecteer Hallo **netwerkbeveiligingsgroep**. Hallo NSG kan worden geïdentificeerd met Hallo **Type** kolom. 
+3. Klik op het Hallo links menu onder instellingen **inkomende beveiligingsregels**.
 4. Klik op **Toevoegen**.
-5. Typ bij **Naam** **http**. Zorg ervoor dat het **poortbereik** is ingesteld op 80 en **Actie** is ingesteld op **Toestaan**. 
+5. Typ bij **Naam** **http**. Zorg ervoor dat **poortbereik** too80 is ingesteld en **actie** te is ingesteld,**toestaan**. 
 6. Klik op **OK**.
 
 
-## <a name="view-the-nginx-welcome-page"></a>De welkomstpagina van NGINX weergeven
+## <a name="view-hello-nginx-welcome-page"></a>Hallo-NGINX welkomstpagina weergeven
 
-Als NGINX is geïnstalleerd en poort 80 is geopend voor de VM, is de webserver nu toegankelijk vanaf het internet. Open een webbrowser en voer het openbare IP-adres van de VM in. U vindt het openbare IP-adres op de blade Virtuele machines in Azure Portal.
+Met NGINX geïnstalleerd en poort 80 tooyour VM open, Hallo webserver nu toegankelijk zijn vanuit Hallo internet. Open een webbrowser en voer het openbare IP-adres Hallo Hallo VM. Hallo openbaar IP-adres, kunt u vinden op Hallo VM blade in hello Azure-portal.
 
 ![Standaardsite van NGINX](./media/quick-create-cli/nginx.png) 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u de virtuele machine niet meer nodig hebt, verwijdert u de resourcegroep, de machine zelf én alle gerelateerde resources. Hiervoor selecteert u de resourcegroep op de blade van de virtuele machine en klikt u op **Verwijderen**.
+Wanneer deze niet langer nodig is, resourcegroep hello, virtuele machine en alle gerelateerde resources verwijderd. toodo dus resourcegroep Hallo Hallo virtuele machine blade selecteren en op **verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Snel starten hebt u een eenvoudige virtuele machine geïmplementeerd, een netwerkbeveiligingsgroepregel gemaakt en een webserver geïnstalleerd. Voor meer informatie over virtuele machines in Azure, gaat u verder met de zelfstudie voor virtuele Linux-machines.
+In deze Snel starten hebt u een eenvoudige virtuele machine geïmplementeerd, een netwerkbeveiligingsgroepregel gemaakt en een webserver geïnstalleerd. toolearn meer informatie over virtuele machines in Azure, blijven toohello zelfstudie voor virtuele Linux-machines.
 
 > [!div class="nextstepaction"]
 > [Zelfstudies over virtuele Linux-machines](./tutorial-manage-vm.md)

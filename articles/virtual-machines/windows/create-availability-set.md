@@ -1,6 +1,6 @@
 ---
-title: Maak een VM-beschikbaarheid instellen in Azure | Microsoft Docs
-description: Informatie over het maken van een beschikbaarheidsset beheerde of onbeheerde beschikbaarheidsset voor uw virtuele machines met behulp van Azure PowerShell of de portal in het Resource Manager-implementatiemodel.
+title: aaaCreate de beschikbaarheid van een virtuele machine in Azure instellen | Microsoft Docs
+description: Informatie over hoe ingesteld toocreate een beschikbare beheerde of onbeheerde beschikbaarheid instellen voor uw virtuele machines met Azure PowerShell of Hallo portal Hallo Resource Manager-implementatiemodel.
 keywords: Beschikbaarheidsset
 services: virtual-machines-windows
 documentationcenter: 
@@ -17,56 +17,56 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e813ade8e105169f21138ed8a8eafda1ff39f42e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: eadcdfcd28bb2fa21a4647f207b390c33e022ef1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="increase-vm-availability-by-creating-an-azure-availability-set"></a>Toename VM beschikbaarheid door het maken van een Azure beschikbaarheidsset 
-Beschikbaarheidssets redundantie voor uw toepassing. Het is raadzaam dat u twee of meer virtuele machines in een beschikbaarheidsset te groeperen. Deze configuratie zorgt ervoor dat tijdens de gepland of ongepland onderhoud ten minste één virtuele machine beschikbaar is en voldoet aan de 99,95% Azure SLA. Zie de [SLA voor virtuele machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/) voor meer informatie.
+Beschikbaarheidssets bieden redundantie tooyour toepassing. Het is raadzaam dat u twee of meer virtuele machines in een beschikbaarheidsset te groeperen. Deze configuratie zorgt ervoor dat tijdens de gepland of ongepland onderhoud ten minste één virtuele machine zal beschikbaar zijn en voldoen aan Hallo 99,95% Azure SLA. Zie voor meer informatie, Hallo [SLA voor virtuele Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
-> Virtuele machines moeten worden gemaakt in dezelfde resourcegroep bevinden als de beschikbaarheidsset.
+> Virtuele machines moeten worden gemaakt in Hallo dezelfde resourcegroep als Hallo beschikbaarheidsset.
 > 
 
-Als u wilt dat uw virtuele machine deel uitmaken van een beschikbaarheidsset, moet u eerst de beschikbaarheidsset maken of bij het maken van uw eerste virtuele machine in de set. Als uw VM beheerd schijven gebruikt, kan de beschikbaarheidsset moet worden gemaakt als een beschikbaarheidsset beheerde.
+Als u wilt dat uw VM toobe een deel van een beschikbaarheidsset, moet u toocreate Hallo beschikbaarheid instellen eerste of terwijl u uw eerste virtuele machine in maakt Hallo set. Als uw VM beheerd schijven gebruikt, moet de beschikbaarheidsset Hallo worden gemaakt als een beschikbaarheidsset beheerde.
 
-Zie voor meer informatie over het maken en de hand van beschikbaarheidssets [de beschikbaarheid van virtuele machines beheren](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Zie voor meer informatie over het maken en de hand van beschikbaarheidssets [Hallo beschikbaarheid van virtuele machines beheren](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="use-the-portal-to-create-an-availability-set-before-creating-your-vms"></a>De portal gebruiken voor het maken van een beschikbaarheidsset voordat u uw virtuele machines
-1. Klik in het hub-menu op **Bladeren** en selecteer **beschikbaarheidssets**.
-2. Op de **beschikbaarheidssets blade**, klikt u op **toevoegen**.
+## <a name="use-hello-portal-toocreate-an-availability-set-before-creating-your-vms"></a>Hallo portal toocreate beschikbaarheidsset voordat u uw virtuele machines gebruiken
+1. Klik in het menu hub Hallo op **Bladeren** en selecteer **beschikbaarheidssets**.
+2. Op Hallo **beschikbaarheidssets blade**, klikt u op **toevoegen**.
    
-    ![Schermafbeelding van de knop toevoegen voor het maken van een nieuwe beschikbaarheid instellen.](./media/create-availability-set/add-availability-set.png)
-3. Op de **beschikbaarheidsset maken** blade Vul de gegevens voor de set.
+    ![Schermafbeelding van Hallo knop voor het maken van een nieuwe beschikbaarheidsset toevoegen.](./media/create-availability-set/add-availability-set.png)
+3. Op Hallo **beschikbaarheidsset maken** blade, volledige Hallo-informatie voor uw set.
    
-    ![Schermafbeelding van de informatie die u wilt opgeven voor het maken van de beschikbaarheidsset.](./media/create-availability-set/create-availability-set.png)
+    ![Schermopname die toont informatie die u nodig tooenter toocreate Hallo beschikbaarheid Hallo ingesteld.](./media/create-availability-set/create-availability-set.png)
    
-   * **Naam** -de naam moet 1-80 tekens bestaan uit getallen, letters, punten, onderstrepingstekens en streepjes bevatten. Het eerste teken moet een letter of cijfer. Het laatste teken moet een letter, cijfer of onderstrepingsteken zijn.
-   * **Fault-domeinen** -domeinen met fouten definiëren in de groep van virtuele machines die een gemeenschappelijk power-bron- en switch delen. Standaard worden de virtuele machines worden gescheiden over maximaal drie domeinen met fouten en kunnen worden gewijzigd in tussen 1 en 3.
-   * **Bijwerken van domeinen** - vijf update domeinen worden standaard toegewezen en dit kan worden ingesteld op tussen 1 en 20. Update domeinen duiden op groepen van virtuele machines en de onderliggende fysieke hardware die op hetzelfde moment kan worden opgestart. Bijvoorbeeld, als er vijf-domeinen bijwerken wanneer meer dan vijf virtuele machines worden geconfigureerd in een enkel Beschikbaarheidsset opgeeft, de zesde virtuele machine worden opgenomen in hetzelfde updatedomein als de eerste virtuele machine, de zevende in de dezelfde UD als de tweede virtuele machine, enzovoort. De volgorde van de opnieuw wordt opgestart niet mogelijk sequentiële, maar slechts één updatedomein tegelijk zal worden opgestart.
-   * **Abonnement** -de te gebruiken als u meer dan één abonnement selecteren.
-   * **Resourcegroep** -Selecteer een bestaande resourcegroep door te klikken op de pijl en te selecteren van een resourcegroep in de vervolgkeuzelijst omlaag. U kunt ook een nieuwe resourcegroep maken door een naam te typen. De naam mag geen van de volgende tekens bevatten: letters, cijfers, punten, streepjes, onderstrepingstekens en openen of sluithaakje. De naam mag niet eindigen op een punt. Alle van de virtuele machines in de beschikbaarheidsgroep moet worden gemaakt in dezelfde resourcegroep bevinden als de beschikbaarheidsset.
-   * **Locatie** -Selecteer een locatie in de vervolgkeuzelijst.
-   * **Beheerde** : Selecteer *Ja* voor het maken van een beheerde beschikbaarheid instellen voor gebruik met virtuele machines die gebruikmaken van beheerde schijven voor opslag. Selecteer **Nee** als de virtuele machines die weergegeven in de set worden met niet-beheerde schijven in een opslagaccount.
+   * **Naam** -Hallo-naam moet 1-80 tekens bestaan uit getallen, letters, punten, onderstrepingstekens en streepjes bevatten. Hallo eerste teken moet een letter of cijfer zijn. Hallo laatste teken moet een letter, cijfer of onderstrepingsteken zijn.
+   * **Fault-domeinen** -domeinen met fouten definiëren Hallo groep virtuele machines die een gemeenschappelijk power-bron- en switch delen. Standaard kunnen Hallo VMs gescheiden zijn in up toothree domeinen met fouten en gewijzigde toobetween 1 en 3.
+   * **Bijwerken van domeinen** - vijf update domeinen worden standaard toegewezen en deze toobetween 1 en 20 kan worden ingesteld. Update domeinen groepen van virtuele machines en de onderliggende fysieke hardware die kan worden opgestart op Hallo duiden op hetzelfde moment. Bijvoorbeeld, als er vijf update domeinen, wanneer meer dan vijf virtuele machines worden geconfigureerd in een enkel Beschikbaarheidsset, Hallo zesde virtuele machine worden opgenomen in Hallo hetzelfde updatedomein als eerste virtuele machine Hallo Hallo zevende opgeeft Hallo dezelfde UD als Hallo tweede virtuele machine, enzovoort. mogelijk sequentiële volgorde Hallo Hallo opnieuw te worden opgestart niet, maar slechts één updatedomein tegelijk zal worden opgestart.
+   * **Abonnement** -Selecteer Hallo abonnement toouse als er meer dan één.
+   * **Resourcegroep** -Selecteer een bestaande resourcegroep door te klikken op de pijl Hallo en een resourcegroep te selecteren Hallo vervolgkeuzelijst. U kunt ook een nieuwe resourcegroep maken door een naam te typen. Hallo naam mag geen van de volgende tekens Hallo: letters, cijfers, punten, streepjes, onderstrepingstekens en openen of sluithaakje. Hallo-naam mag niet eindigen op een punt. Alle Hallo virtuele machines in de beschikbaarheidsgroep Hallo toobe in Hallo hebt gemaakt, moeten dezelfde resourcegroep als Hallo beschikbaarheidsset.
+   * **Locatie** -Selecteer een locatie in de vervolgkeuzelijst Hallo.
+   * **Beheerde** : Selecteer *Ja* toocreate een beschikbare beheerde ingesteld toouse met virtuele machines die gebruikmaken van beheerde schijven voor opslag. Selecteer **Nee** als Hallo virtuele machines die weergegeven in het Hallo-set worden niet-beheerde schijven in een opslagaccount gebruikt.
    
-4. Wanneer u klaar bent u de gegevens invoert, klikt u op **maken**. 
+4. Wanneer u klaar bent met het invoeren van Hallo gegevens, klikt u op **maken**. 
 
-## <a name="use-the-portal-to-create-a-virtual-machine-and-an-availability-set-at-the-same-time"></a>De portal gebruiken om een virtuele machine en op hetzelfde moment beschikbaarheidsset maken
-Als u een nieuwe virtuele machine via de portal maakt, kunt u ook een nieuwe beschikbaarheidsset voor de virtuele machine bij het maken van de eerste virtuele machine in de set. Als u kiest moet worden beheerd schijven gebruikt voor uw virtuele machine, kunt u een beheerde beschikbaarheidsset wordt gemaakt.
+## <a name="use-hello-portal-toocreate-a-virtual-machine-and-an-availability-set-at-hello-same-time"></a>Gebruik Hallo portal toocreate een virtuele machine en een beschikbaarheid op Hallo dezelfde instellen tijd
+Als u een nieuwe virtuele machine met behulp van Hallo portal maakt, kunt u ook een nieuwe beschikbaarheidsset voor Hallo VM bij het maken van Hallo maken eerste VM in het Hallo-set. Als u toouse beheerd schijven voor uw virtuele machine kiest, kunt u een beheerde beschikbaarheidsset wordt gemaakt.
 
-![Schermafbeelding van het proces voor het maken van een nieuwe beschikbaarheidsset bij het maken van de virtuele machine.](./media/create-availability-set/new-vm-avail-set.png)
+![Schermafbeelding van Hallo-proces voor het maken van een nieuwe beschikbaarheidsset bij het maken van Hallo VM.](./media/create-availability-set/new-vm-avail-set.png)
 
-## <a name="add-a-new-vm-to-an-existing-availability-set-in-the-portal"></a>Een nieuwe virtuele machine toevoegen aan een bestaande beschikbaarheidsset in de portal
-Voor elke extra VM die u maakt die in de set moet behoren, zorg ervoor dat u dit hebt gemaakt in dezelfde **resourcegroep** en selecteer vervolgens de bestaande beschikbaarheidsset in stap 3. 
+## <a name="add-a-new-vm-tooan-existing-availability-set-in-hello-portal"></a>Voeg een nieuwe VM tooan bestaande beschikbaarheidsset Hallo-portal
+Hallo voor elke extra VM die u maakt moet deel uitmaken van Hallo set, zorg ervoor dat u maakt in dezelfde **resourcegroep** en vervolgens selecteert Hallo bestaande beschikbaarheidsset in stap 3. 
 
-![Schermopname die laat zien hoe u een bestaande beschikbaarheidsset gebruiken voor uw virtuele machine selecteert.](./media/create-availability-set/add-vm-to-set.png)
+![Schermopname die laat zien hoe de bestaande beschikbaarheidsset tooselect toouse ingesteld voor uw virtuele machine.](./media/create-availability-set/add-vm-to-set.png)
 
-## <a name="use-powershell-to-create-an-availability-set"></a>Gebruik PowerShell voor het maken van een beschikbaarheidsset
-In dit voorbeeld maakt u een beschikbaarheidsset benoemde **myAvailabilitySet** in de **myResourceGroup** resourcegroep in de **VS-West** locatie. Dit moet doen voordat u de eerste virtuele machine die zich in de set maakt.
+## <a name="use-powershell-toocreate-an-availability-set"></a>Gebruik PowerShell toocreate een beschikbaarheidsset instellen
+In dit voorbeeld maakt u een beschikbaarheidsset benoemde **myAvailabilitySet** in Hallo **myResourceGroup** resourcegroep in Hallo **VS-West** locatie. Dit moet doen voordat u Hallo maakt toobe eerste virtuele machine die zich in Hallo set.
 
-Voordat u begint, zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module hebt. Voer de volgende opdracht om deze te installeren.
+Voordat u begint, zorg ervoor dat u de meest recente versie Hallo Hallo AzureRM.Compute PowerShell-module hebt. Voer Hallo na de opdracht tooinstall deze.
 
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
@@ -91,8 +91,8 @@ Als u uw eigen storage-accounts voor uw virtuele machines gebruikt, typt u:
 Zie voor meer informatie [nieuw AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset).
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-* Bij het maken van een virtuele machine, als de gewenste beschikbaarheidsset niet in de vervolgkeuzelijst in de portal kunt u deze gemaakt in een andere resourcegroep. Als u niet weet de resourcegroep voor uw beschikbaarheid instellen, gaat u naar het hub-menu en klik op Bladeren > beschikbaarheidssets voor een overzicht van uw beschikbaarheidssets en welke resourcegroepen waartoe ze behoren.
+* Bij het maken van een virtuele machine als Hallo beschikbaarheid sets die u wilt zich niet in Hallo vervolgkeuzelijst in de portal Hallo u mogelijk hebt gemaakt in een andere resourcegroep. Als u niet weet Hallo resourcegroep voor uw beschikbaarheid instellen, gaat u toohello hub-menu en klik op Bladeren > beschikbaarheidssets toosee Hiermee stelt u een lijst van de beschikbaarheid en welke resourcegroepen waartoe ze behoren.
 
 ## <a name="next-steps"></a>Volgende stappen
-Extra opslagruimte toevoegen aan uw virtuele machine met het toevoegen van een extra [gegevensschijf](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Toevoegen van extra opslagruimte tooyour VM door toe te voegen een extra [gegevensschijf](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

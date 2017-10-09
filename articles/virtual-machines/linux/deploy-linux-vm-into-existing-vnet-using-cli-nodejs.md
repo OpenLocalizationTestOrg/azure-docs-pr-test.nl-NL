@@ -1,6 +1,6 @@
 ---
-title: Implementeren van virtuele Linux-machines in de bestaande netwerk met Azure CLI 1.0 | Microsoft Docs
-description: Het implementeren van een Linux-VM naar een bestaand virtueel netwerk met behulp van de Azure CLI 1.0
+title: aaaDeploy virtuele Linux-machines in bestaande netwerk met Azure CLI 1.0 | Microsoft Docs
+description: Hoe een Linux-VM naar een bestaand virtueel netwerk met behulp van toodeploy hello Azure CLI 1.0
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 767a3f7cadba6b1e71e5a8f5995a9db090e419dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e660f1563d386efc7788bd236f8b067145ea09bb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-deploy-a-linux-virtual-machine-into-an-existing-azure-virtual-network-with-the-azure-cli-10"></a>Het implementeren van een virtuele Linux-machine in Azure een bestaand virtueel netwerk met de Azure CLI 1.0
+# <a name="how-toodeploy-a-linux-virtual-machine-into-an-existing-azure-virtual-network-with-hello-azure-cli-10"></a>Hoe een virtuele Linux-machine in Azure een bestaand virtueel netwerk met Azure CLI 1.0 Hallo toodeploy
 
-In dit artikel laat zien hoe Azure CLI 1.0 gebruiken voor het implementeren van een virtuele machine (VM) in een bestaand virtueel netwerk (VNet). De vereisten zijn:
+Dit artikel ziet u hoe toouse Azure CLI 1.0 toodeploy een virtuele machine (VM) in een bestaand virtueel netwerk (VNet). Hallo-vereisten zijn:
 
 - [een Azure-account.](https://azure.microsoft.com/pricing/free-trial/)
 - [bestanden voor openbare en persoonlijke SSH-sleutels](mac-create-ssh-keys.md)
 
 
-## <a name="cli-versions-to-complete-the-task"></a>CLI-versies om de taak uit te voeren
-U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
+## <a name="cli-versions-toocomplete-hello-task"></a>CLI-versies toocomplete Hallo taak
+U kunt met een van de volgende versies van de CLI Hallo Hallo-taak uitvoeren:
 
-- [Azure CLI 1.0](#quick-commands) – onze CLI voor het klassieke en resource management-implementatiemodel (in dit artikel)
-- [Azure CLI 2.0](deploy-linux-vm-into-existing-vnet-using-cli.md): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel
+- [Azure CLI 1.0](#quick-commands) – onze CLI voor Hallo klassieke en resource management implementatiemodellen (in dit artikel)
+- [Azure CLI 2.0](deploy-linux-vm-into-existing-vnet-using-cli.md) -onze volgende generatie CLI voor Hallo resource management-implementatiemodel
 
 
 ## <a name="quick-commands"></a>Snelle opdrachten
 
-Als u de taak snel uitvoeren moet, wordt de volgende sectie de opdrachten die nodig zijn. Meer gedetailleerde informatie en context voor elke stap u de rest van het document vindt [vanaf hier](deploy-linux-vm-into-existing-vnet-using-cli.md#detailed-walkthrough).
+Als u moet tooquickly Hallo taak, Hallo sectie volgen details Hallo opdrachten die nodig zijn. Meer gedetailleerde informatie en context voor elke stap u rest Hallo van Hallo document vindt [vanaf hier](deploy-linux-vm-into-existing-vnet-using-cli.md#detailed-walkthrough).
 
 Randvoorwaarden voor: Resourcegroep, VNet, NSG met SSH inkomende Subnet. Geen voorbeelden vervangen door uw eigen instellingen.
 
-### <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Implementeer de virtuele machine in de infrastructuur van het virtuele netwerk
+### <a name="deploy-hello-vm-into-hello-virtual-network-infrastructure"></a>Hallo VM in Hallo virtuele netwerkinfrastructuur implementeren
 
 ```azurecli
 azure vm create myVM \
@@ -61,19 +61,19 @@ azure vm create myVM \
 
 ## <a name="detailed-walkthrough"></a>Gedetailleerd overzicht
 
-Azure activa, zoals de VNets en netwerkbeveiligingsgroepen moeten statisch zijn en resources die zelden zijn geïmplementeerd langer bewaard moeten blijven. Zodra een VNet is geïmplementeerd, kan dit opnieuw gebruikt door nieuwe implementaties zonder een ongewenst is van invloed op de infrastructuur. Denk na over een VNet dat een netwerkswitch traditionele hardware. U moet niet een geheel nieuwe hardwareswitch configureren met elke implementatie. U kunt blijven implementeren nieuwe servers in dit VNet steeds met enkele eventuele wijzigingen die zijn vereist tijdens de levensduur van het VNet met een juist geconfigureerde VNet.
+Azure activa zoals Hallo VNets en netwerkbeveiligingsgroepen moeten statisch zijn en resources die zelden zijn geïmplementeerd langer bewaard moeten blijven. Zodra een VNet is geïmplementeerd, kan opnieuw door nieuwe implementaties zonder een nadelige invloed toohello infrastructuur worden gebruikt. Denk na over een VNet dat een netwerkswitch traditionele hardware. U hoeft dan niet een geheel nieuwe hardware overschakelen met elke implementatie tooconfigure. Met een juist geconfigureerde VNet, kunt u blijven toodeploy nieuwe servers in dit VNet steeds met enkele eventuele wijzigingen gedurende de levensduur Hallo Hallo VNet vereist.
 
-## <a name="create-the-resource-group"></a>De resourcegroep maken
+## <a name="create-hello-resource-group"></a>Hallo resourcegroep maken
 
-Maak eerst een resourcegroep te organiseren alles wat die u in dit scenario maakt. Zie voor meer informatie over resourcegroepen [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+Maak eerst een groep resource tooorganize alles wat die u in dit scenario maakt. Zie voor meer informatie over resourcegroepen [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
 
 ```azurecli
 azure group create myResourceGroup --location eastus
 ```
 
-## <a name="create-the-vnet"></a>Het VNet maken
+## <a name="create-hello-vnet"></a>Hallo VNet maken
 
-De eerste stap is het bouwen van een VNet Start de virtuele machines in. Het VNet bevat één subnet voor dit scenario. Zie voor meer informatie over Azure VNets [een virtueel netwerk maken met behulp van de Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md)
+de eerste stap Hallo is toobuild een VNet-toolaunch Hallo VM's in. Hallo VNet bevat één subnet voor dit scenario. Zie voor meer informatie over Azure VNets [een virtueel netwerk maken met behulp van hello Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md)
 
 ```azurecli
 azure network vnet create myVNet \
@@ -82,9 +82,9 @@ azure network vnet create myVNet \
     --location eastus
 ```
 
-## <a name="create-the-network-security-group"></a>De netwerkbeveiligingsgroep maken
+## <a name="create-hello-network-security-group"></a>Hallo netwerkbeveiligingsgroep maken
 
-Het subnet is gebouwd achter een bestaand netwerk beveiligingsgroep maken zodat de netwerkbeveiligingsgroep voor het subnet. Beveiligingsgroepen voor Azure-netwerk zijn equivalent aan een firewall op de netwerklaag. Zie voor meer informatie over Azure netwerkbeveiligingsgroepen [netwerk beveiligingsgroepen maken in de Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md)
+Hallo-subnet is gebouwd achter een bestaande netwerkbeveiligingsgroep dus bouwen Hallo netwerkbeveiligingsgroep voordat Hallo subnet. Beveiligingsgroepen voor Azure-netwerk zijn equivalent tooa firewall op Hallo netwerklaag. Zie voor meer informatie over Azure netwerkbeveiligingsgroepen [hoe toocreate netwerk beveiligingsgroepen in hello Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md)
 
 ```azurecli
 azure network nsg create myNetworkSecurityGroup \
@@ -94,7 +94,7 @@ azure network nsg create myNetworkSecurityGroup \
 
 ## <a name="add-an-inbound-ssh-allow-rule"></a>Regel voor geven van een binnenkomende SSH toevoegen
 
-De virtuele machine moet toegang via het internet, zodat een regel binnenkomende poort 22-verkeer op de virtuele machine via het netwerk worden doorgegeven aan poort 22 nodig is.
+Hallo VM moet toegang vanaf Hallo internet zodat een regel voor het toestaan van binnenkomende poort 22 verkeer toobe Hallo netwerk tooport 22 op Hallo VM doorgegeven nodig is.
 
 ```azurecli
 azure network nsg rule create inboundSSH \
@@ -110,9 +110,9 @@ azure network nsg rule create inboundSSH \
     --destination-port-range 22
 ```
 
-## <a name="add-a-subnet-to-the-vnet"></a>Voeg een subnet toe aan het VNet
+## <a name="add-a-subnet-toohello-vnet"></a>Voeg een subnet toohello VNet
 
-Virtuele machines binnen het VNet moeten zich bevinden in een subnet. Elke VNet kan meerdere subnetten hebben. Het subnet te maken en koppelen aan de netwerkbeveiligingsgroep.
+Virtuele machines binnen Hallo VNet moeten zich bevinden in een subnet. Elke VNet kan meerdere subnetten hebben. Hallo subnet maken en koppelen aan de netwerkbeveiligingsgroep Hallo.
 
 ```azurecli
 azure network vnet subnet create mySubNet \
@@ -122,12 +122,12 @@ azure network vnet subnet create mySubNet \
     --network-security-group-name myNetworkSecurityGroup
 ```
 
-Het Subnet is nu toegevoegd in het VNet en die zijn gekoppeld aan de netwerkbeveiligingsgroep en de regelset.
+Hallo Subnet is nu toegevoegd in Hallo VNet en die zijn gekoppeld aan netwerkbeveiligingsgroep hello en regel.
 
 
-## <a name="add-a-vnic-to-the-subnet"></a>Een VNic toevoegen aan het subnet
+## <a name="add-a-vnic-toohello-subnet"></a>Een VNic toohello subnet toevoegen
 
-Virtueel-netwerkkaarten (VNics) zijn belangrijk omdat u ze hergebruiken kunt door deze te verbinden met andere virtuele machines. Deze aanpak houdt de VNic als statische resource terwijl de virtuele machines kunnen tijdelijk zijn. Een VNic maken en deze koppelen aan het subnet in de vorige stap hebt gemaakt.
+Virtueel-netwerkkaarten (VNics) zijn belangrijk omdat u ze hergebruiken kunt door deze toodifferent virtuele machines te verbinden. Deze aanpak houdt Hallo VNic als statische resource Hallo VMs tijdelijke kan zijn. Een VNic maken en deze koppelen aan Hallo subnet in de vorige stap Hallo gemaakt.
 
 ```azurecli
 azure network nic create myVNic \
@@ -137,11 +137,11 @@ azure network nic create myVNic \
     --subnet-name mySubNet
 ```
 
-## <a name="deploy-the-vm-into-the-vnet-and-nsg"></a>Implementeer de virtuele machine in het VNet en het NSG
+## <a name="deploy-hello-vm-into-hello-vnet-and-nsg"></a>Hallo VM in Hallo VNet en NSG implementeren
 
-U hebt nu een VNet en het subnet in dit VNet en een netwerkbeveiligingsgroep ter bescherming van het subnet blokkeert al het binnenkomende verkeer behalve poort 22 voor SSH fungeert. De virtuele machine kan nu worden geïmplementeerd in deze bestaande netwerkinfrastructuur.
+U hebt nu een VNet en het subnet in dit VNet en een netwerkbeveiligingsgroep tooprotect Hallo subnet blokkeert al het binnenkomende verkeer behalve poort 22 voor SSH fungeert. Hallo VM kan nu worden geïmplementeerd in deze bestaande netwerkinfrastructuur.
 
-Met de Azure CLI, en de `azure vm create` opdracht, de Linux-VM wordt geïmplementeerd op de bestaande Azure-resourcegroep, VNet, Subnet en VNic. Zie voor meer informatie over een volledige virtuele machine implementeren met behulp van de CLI [een volledige Linux-omgeving maken met behulp van de Azure CLI](create-cli-complete.md)
+Met behulp van Azure CLI Hallo en Hallo `azure vm create` opdracht Hallo Linux VM geïmplementeerde toohello bestaande Azure-resourcegroep, VNet Subnet en VNic is. Zie voor meer informatie over het gebruik van Hallo CLI toodeploy een volledige virtuele machine [een volledige Linux-omgeving maken met behulp van hello Azure CLI](create-cli-complete.md)
 
 ```azurecli
 azure vm create myVM \
@@ -157,10 +157,10 @@ azure vm create myVM \
     --nic-name myVNic
 ```
 
-Met behulp van de vlaggen CLI aan te roepen bestaande bronnen, vertelt u Azure voor het implementeren van de virtuele machine binnen de bestaande netwerk. Zodra een VNet en een subnet is geïmplementeerd, kunnen ze als statisch of permanente resources binnen uw Azure-regio worden gelaten.  
+Met behulp van Hallo vlaggen CLI toocall uit bestaande resources instrueren van Azure toodeploy Hallo VM binnen de bestaande netwerk Hallo. Zodra een VNet en een subnet is geïmplementeerd, kunnen ze als statisch of permanente resources binnen uw Azure-regio worden gelaten.  
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Een Azure Resource Manager-sjabloon gebruiken om een specifieke implementatie te maken](../windows/cli-deploy-templates.md)
+* [Een Azure Resource Manager-sjabloon toocreate een specifieke implementatie gebruiken](../windows/cli-deploy-templates.md)
 * [Rechtstreeks uw eigen aangepaste omgeving maken voor een virtuele Linux-machine met Azure CLI-opdrachten](create-cli-complete.md)
 * [Linux-VM in Azure met behulp van sjablonen maken](create-ssh-secured-vm-from-template.md)

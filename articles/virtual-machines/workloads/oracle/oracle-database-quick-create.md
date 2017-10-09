@@ -1,5 +1,5 @@
 ---
-title: Maken van een Oracle-database in een virtuele machine in Azure | Microsoft Docs
+title: een Oracle-database in een Azure VM aaaCreate | Microsoft Docs
 description: Snel gebruiksklaar een Oracle-Database 12c-database in uw Azure-omgeving.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,36 +15,36 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/17/2017
 ms.author: rclaus
-ms.openlocfilehash: 8683b016c4db2c66fb1dd994405b70c3d137a7fc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 83205154c3275d5f57b46c8acfb0cb4e5c68a412
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Maak een Oracle-Database in een Azure VM
 
-Deze handleiding details met de Azure CLI voor het implementeren van een Azure virtuele machine van de [Oracle marketplace afbeelding](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) om te kunnen maken van een 12-c Oracle-database. Zodra de server is geïmplementeerd, maakt u verbinding via SSH om te configureren van de Oracle-database. 
+Deze handleiding wilt weergeven hello Azure CLI toodeploy een virtuele machine van Azure van Hallo [Oracle marketplace afbeelding](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) in volgorde toocreate een 12-c Oracle-database. Zodra Hallo-server is geïmplementeerd, maakt u verbinding via SSH in volgorde tooconfigure Hallo Oracle-database. 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, is deze snelstartgids vereist dat u de versie van de Azure CLI Hallo 2.0.4 worden uitgevoerd of hoger. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
+Een resourcegroep maken met de Hallo [az groep maken](/cli/azure/group#create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
-In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
+Hallo volgende voorbeeld maakt u een resourcegroep met de naam *myResourceGroup* in Hallo *eastus* locatie.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 
-Gebruik voor het maken van een virtuele machine (VM) de [az vm maken](/cli/azure/vm#create) opdracht. 
+een virtuele machine (VM), toocreate gebruiken Hallo [az vm maken](/cli/azure/vm#create) opdracht. 
 
-In het volgende voorbeeld wordt een virtuele machine met de naam `myVM` gemaakt. SSH-sleutels wordt ook gemaakt als deze niet al bestaan op de standaardlocatie van de sleutel. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  
+Hallo volgende voorbeeld wordt een virtuele machine met de naam `myVM`. SSH-sleutels wordt ook gemaakt als deze niet al bestaan op de standaardlocatie van de sleutel. toouse een specifieke verzameling van sleutels, gebruikt u Hallo `--ssh-key-value` optie.  
 
 ```azurecli-interactive 
 az vm create \
@@ -56,7 +56,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Nadat u de virtuele machine hebt gemaakt, ziet Azure CLI er ongeveer als volgt uitzien. Noteer de waarde voor `publicIpAddress`. U kunt dit adres gebruiken voor toegang tot de virtuele machine.
+Nadat u Hallo VM maakt, geeft Azure CLI informatie vergelijkbare toohello voorbeeld te volgen. Houd er rekening mee Hallo-waarde voor `publicIpAddress`. U gebruikt dit adres tooaccess Hallo VM.
 
 ```azurecli
 {
@@ -71,26 +71,26 @@ Nadat u de virtuele machine hebt gemaakt, ziet Azure CLI er ongeveer als volgt u
 }
 ```
 
-## <a name="connect-to-the-vm"></a>Verbinding maken met de virtuele machine
+## <a name="connect-toohello-vm"></a>Verbinding maken met toohello VM
 
-Maakt een SSH-sessie met de virtuele machine, moet u de volgende opdracht gebruiken. Vervang de IP-adres met de `publicIpAddress` waarde voor uw virtuele machine.
+toocreate een SSH-sessie met de virtuele machine, Hallo Hallo volgende opdracht gebruiken. Hallo IP-adres vervangen door Hallo `publicIpAddress` waarde voor uw virtuele machine.
 
 ```bash 
 ssh <publicIpAddress>
 ```
 
-## <a name="create-the-database"></a>De database maken
+## <a name="create-hello-database"></a>Hallo-database maken
 
-De Oracle-software is al geïnstalleerd op de Marketplace-installatiekopie. Als volgt te werk om een voorbeelddatabase te maken. 
+Hallo Oracle-software is al geïnstalleerd op Hallo Marketplace-installatiekopie. Als volgt te werk om een voorbeelddatabase te maken. 
 
-1.  Overschakelen naar de *oracle* supergebruiker en vervolgens de initialisatie van de listener voor logboekregistratie:
+1.  Overschakelen van toohello *oracle* supergebruiker en vervolgens Hallo-listener initialiseren voor logboekregistratie:
 
     ```bash
     $ sudo su - oracle
     $ lsnrctl start
     ```
 
-    De uitvoer lijkt op het volgende:
+    Hallo-uitvoer is vergelijkbaar toohello volgende:
 
     ```bash
     Copyright (c) 1991, 2014, Oracle.  All rights reserved.
@@ -98,11 +98,11 @@ De Oracle-software is al geïnstalleerd op de Marketplace-installatiekopie. Als 
     Starting /u01/app/oracle/product/12.1.0/dbhome_1/bin/tnslsnr: please wait...
 
     TNSLSNR for Linux: Version 12.1.0.2.0 - Production
-    Log messages written to /u01/app/oracle/diag/tnslsnr/myVM/listener/alert/log.xml
+    Log messages written too/u01/app/oracle/diag/tnslsnr/myVM/listener/alert/log.xml
     Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=myVM.twltkue3xvsujaz1bvlrhfuiwf.dx.internal.cloudapp.net)(PORT=1521)))
 
-    Connecting to (ADDRESS=(PROTOCOL=tcp)(HOST=)(PORT=1521))
-    STATUS of the LISTENER
+    Connecting too(ADDRESS=(PROTOCOL=tcp)(HOST=)(PORT=1521))
+    STATUS of hello LISTENER
     ------------------------
     Alias                     LISTENER
     Version                   TNSLSNR for Linux: Version 12.1.0.2.0 - Production
@@ -114,11 +114,11 @@ De Oracle-software is al geïnstalleerd op de Marketplace-installatiekopie. Als 
     Listener Log File         /u01/app/oracle/diag/tnslsnr/myVM/listener/alert/log.xml
     Listening Endpoints Summary...
     (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=myVM.twltkue3xvsujaz1bvlrhfuiwf.dx.internal.cloudapp.net)(PORT=1521)))
-    The listener supports no services
-    The command completed successfully
+    hello listener supports no services
+    hello command completed successfully
     ```
 
-2.  De database maken:
+2.  Hallo-database maken:
 
     ```bash
     dbca -silent \
@@ -140,17 +140,17 @@ De Oracle-software is al geïnstalleerd op de Marketplace-installatiekopie. Als 
            -ignorePreReqs
     ```
 
-    Het duurt enkele minuten om de database te maken.
+    Het duurt enkele minuten toocreate Hallo-database.
 
 3. Oracle-variabelen instellen
 
-Voordat u verbinding maakt, moet u twee omgevingsvariabelen worden ingesteld: *ORACLE_HOME* en *ORACLE_SID*.
+Voordat u verbinding maakt, moet u twee tooset omgevingsvariabelen: *ORACLE_HOME* en *ORACLE_SID*.
 
 ```bash
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
-U kunt ook variabelen ORACLE_HOME en ORACLE_SID toevoegen aan het bestand .bashrc. Hierdoor zou de omgevingsvariabelen voor toekomstige aanmeldingen opgeslagen. Controleer de volgende instructies zijn toegevoegd aan de `~/.bashrc` bestand met behulp van de editor van uw keuze.
+U kunt ook ORACLE_HOME en ORACLE_SID variabelen toohello .bashrc bestand toevoegen. Hierdoor zou de omgevingsvariabelen Hallo voor toekomstige aanmeldingen opgeslagen. Hallo volgende bevestigen instructies hebt toegevoegd toohello `~/.bashrc` bestand met behulp van de editor van uw keuze.
 
 ```bash
 # Add ORACLE_HOME. 
@@ -161,27 +161,27 @@ export ORACLE_SID=cdb1
 
 ## <a name="oracle-em-express-connectivity"></a>Oracle EM snelle verbindingen
 
-Voor een GUI-beheerprogramma waarmee u kunt de database verkennen, Oracle EM Express instellen. Als u wilt verbinding maken met Oracle EM Express, moet u eerst de poort in Oracle instellen. 
+Voor een GUI-beheerprogramma waarmee u tooexplore Hallo database kunt, Oracle EM Express instellen. tooconnect tooOracle EM Express, moet u eerst instellen Hallo-poort in Oracle. 
 
-1. Verbinding maken met de database met de sqlplus:
+1. Verbinding maken met behulp van sqlplus tooyour-database:
 
     ```bash
     sqlplus / as sysdba
     ```
 
-2. Eenmaal zijn verbonden, de poort 5502 instellen voor snelle EM
+2. Eenmaal zijn verbonden, Hallo poort 5502 instellen voor snelle EM
 
     ```bash
     exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
     ```
 
-3. Open de container PDB1 als dat niet al is geopend, maar het eerste Controleer de status:
+3. Open Hallo container PDB1 als dat niet al is geopend, maar het eerste selectievakje Hallo status:
 
     ```bash
     select con_id, name, open_mode from v$pdbs;
     ```
 
-    De uitvoer lijkt op het volgende:
+    Hallo-uitvoer is vergelijkbaar toohello volgende:
 
     ```bash
       CON_ID NAME                           OPEN_MODE 
@@ -190,55 +190,55 @@ Voor een GUI-beheerprogramma waarmee u kunt de database verkennen, Oracle EM Exp
       3           PDB1                      MOUNT
     ```
 
-4. Als de OPEN_MODE voor `PDB1` is niet gelezen SCHRIJFT, voer de volgende opdrachten PDB1 openen:
+4. Als Hallo OPEN_MODE voor `PDB1` is niet gelezen SCHRIJFT, voer de volgende opdrachten tooopen PDB1 van Hallo:
 
    ```bash
     alter session set container=pdb1;
     alter database open;
    ```
 
-U moet zelf typen `quit` naar einde van de sessie sqlplus en het type `exit` af te melden van de oracle-gebruiker.
+U moet tootype `quit` tooend Hallo sqlplus sessie en het type `exit` toologout van Hallo oracle-gebruiker.
 
 ## <a name="automate-database-startup-and-shutdown"></a>Database opstarten en afsluiten automatiseren
 
-De Oracle-database standaard niet automatisch wordt gestart wanneer u de virtuele machine opnieuw opstart. Als u de Oracle-database instelt op automatisch starten, zich eerst aanmelden als hoofdmap. Vervolgens maken en bijwerken van sommige systeembestanden.
+Hallo Oracle-database standaard niet automatisch wordt gestart wanneer u Hallo VM opnieuw opstart. tooset up Hallo Oracle-database toostart automatisch eerst aanmelden als hoofdmap. Vervolgens maken en bijwerken van sommige systeembestanden.
 
 1. Aanmelden als hoofdmap
     ```bash
     sudo su -
     ```
 
-2.  Met behulp van uw favoriete editor Bewerk het bestand `/etc/oratab` en wijzigt u de standaard `N` naar `Y`:
+2.  Hallo-bestand met behulp van uw favoriete editor bewerken `/etc/oratab` en wijzig Hallo standaard `N` te`Y`:
 
     ```bash
     cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
     ```
 
-3.  Maak een bestand met de naam `/etc/init.d/dbora` en plak de volgende inhoud:
+3.  Maak een bestand met de naam `/etc/init.d/dbora` en inhoud te plakken Hallo volgen:
 
     ```
     #!/bin/sh
     # chkconfig: 345 99 10
     # Description: Oracle auto start-stop script.
     #
-    # Set ORA_HOME to be equivalent to $ORACLE_HOME.
+    # Set ORA_HOME toobe equivalent too$ORACLE_HOME.
     ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
     ORA_OWNER=oracle
 
     case "$1" in
     'start')
-        # Start the Oracle databases:
-        # The following command assumes that the Oracle sign-in
-        # will not prompt the user for any values.
+        # Start hello Oracle databases:
+        # hello following command assumes that hello Oracle sign-in
+        # will not prompt hello user for any values.
         # Remove "&" if you don't want startup as a background process.
         su - $ORA_OWNER -c "$ORA_HOME/bin/dbstart $ORA_HOME" &
         touch /var/lock/subsys/dbora
         ;;
 
     'stop')
-        # Stop the Oracle databases:
-        # The following command assumes that the Oracle sign-in
-        # will not prompt the user for any values.
+        # Stop hello Oracle databases:
+        # hello following command assumes that hello Oracle sign-in
+        # will not prompt hello user for any values.
         su - $ORA_OWNER -c "$ORA_HOME/bin/dbshut $ORA_HOME" &
         rm -f /var/lock/subsys/dbora
         ;;
@@ -260,7 +260,7 @@ De Oracle-database standaard niet automatisch wordt gestart wanneer u de virtuel
     ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
     ```
 
-6.  Start opnieuw op de virtuele machine voor het testen van de wijzigingen:
+6.  tootest uw wijzigingen Hallo VM opnieuw starten:
 
     ```bash
     reboot
@@ -268,9 +268,9 @@ De Oracle-database standaard niet automatisch wordt gestart wanneer u de virtuel
 
 ## <a name="open-ports-for-connectivity"></a>Open poorten voor connectiviteit
 
-De laatste taak is het aantal externe eindpunten configureren. Als u de Azure-netwerk-beveiligingsgroep die de virtuele machine beveiligt instelt, moet u eerst uw SSH-sessie in de virtuele machine (moet hebben is volledig buiten SSH wanneer opnieuw opstarten in de vorige stap) sluiten. 
+de laatste taak Hallo tooconfigure sommige externe eindpunten is. tooset up hello Azure Netwerkbeveiligingsgroep die Hallo VM beveiligt, sluit u eerst uw SSH-sessie in Hallo VM (moet hebben is volledig buiten SSH wanneer opnieuw opstarten in de vorige stap). 
 
-1.  Om te openen van het eindpunt waarmee u kunt extern toegang tot de Oracle-database, maakt u een regel Netwerkbeveiligingsgroep met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#create) als volgt: 
+1.  tooopen hello eindpunt dat u tooaccess Hallo Oracle-database op afstand, maakt u een regel Netwerkbeveiligingsgroep met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#create) als volgt: 
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -282,7 +282,7 @@ De laatste taak is het aantal externe eindpunten configureren. Als u de Azure-ne
         --destination-port-range 1521
     ```
 
-2.  Om te openen van het eindpunt dat u extern toegang tot Oracle EM Express gebruiken, maakt u een regel Netwerkbeveiligingsgroep met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#create) als volgt:
+2.  tooopen hello eindpunt dat u tooaccess Oracle EM Express op afstand, maakt u een regel Netwerkbeveiligingsgroep met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#create) als volgt:
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -294,7 +294,7 @@ De laatste taak is het aantal externe eindpunten configureren. Als u de Azure-ne
         --destination-port-range 5502
     ```
 
-3. Indien nodig, het openbare IP-adres van uw virtuele machine opnieuw met verkrijgen [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#show) als volgt:
+3. Indien nodig, verkrijgen Hallo openbare IP-adres van uw virtuele machine opnieuw met [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#show) als volgt:
 
     ```azurecli-interactive
     az network public-ip show \
@@ -310,13 +310,13 @@ De laatste taak is het aantal externe eindpunten configureren. Als u de Azure-ne
     https://<VM ip address or hostname>:5502/em
     ```
 
-U kunt aanmelden met behulp van de **SYS** account en controleer de **als sysdba** selectievakje. Het wachtwoord gebruiken **OraPasswd1** die u hebt ingesteld tijdens de installatie. 
+U kunt aanmelden met behulp van Hallo **SYS** account en controleer Hallo **als sysdba** selectievakje. Gebruik Hallo wachtwoord **OraPasswd1** die u hebt ingesteld tijdens de installatie. 
 
-![Schermafbeelding van de aanmeldingspagina Oracle OEM Express](./media/oracle-quick-start/oracle_oem_express_login.png)
+![Schermopname van Hallo Oracle OEM Express aanmeldingspagina](./media/oracle-quick-start/oracle_oem_express_login.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u klaar bent met het verkennen van uw eerste Oracle-database in Azure en de virtuele machine niet meer nodig is, kunt u de [az groep verwijderen](/cli/azure/group#delete) opdracht voor het verwijderen van de resourcegroep, VM, en alle bijbehorende resources.
+Zodra u klaar bent met het verkennen van uw eerste Oracle-database in Azure en hello VM niet langer nodig is, kunt u Hallo [az groep verwijderen](/cli/azure/group#delete) opdracht tooremove Hallo-resourcegroep, VM en alle gerelateerde resources.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
@@ -326,4 +326,4 @@ az group delete --name myResourceGroup
 
 Meer informatie over andere [Oracle-oplossingen in Azure](oracle-considerations.md). 
 
-Probeer de [installeren en configureren van Oracle geautomatiseerde Storage Management](configure-oracle-asm.md) zelfstudie.
+Probeer Hallo [installeren en configureren van Oracle geautomatiseerde Storage Management](configure-oracle-asm.md) zelfstudie.

@@ -1,6 +1,6 @@
 ---
-title: Routering in een Azure Virtual Network - PowerShell - klassiek beheren | Microsoft Docs
-description: Meer informatie over het beheren van routering in VNets met behulp van PowerShell | Klassieke
+title: aaaControl routering in een Azure Virtual Network - PowerShell - klassiek | Microsoft Docs
+description: Meer informatie over hoe toocontrol routering in VNets met behulp van PowerShell | Klassieke
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-ms.openlocfilehash: e9564d223cb85529f1fa97bc398d35c6debcedae
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 36edf263fb434d5fb13310d4324da20e57f016a9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Beheren van Routering en het gebruik van virtuele apparaten (klassiek) met behulp van PowerShell
 
@@ -33,26 +33,26 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> Voordat u met Azure-resources gaat werken, is het belangrijk om te weten dat Azure momenteel twee implementatiemodellen heeft: Azure Resource Manager en het klassieke model. Zorg ervoor dat u begrijpt wat [implementatiemodellen en hulpprogramma's](../azure-resource-manager/resource-manager-deployment-model.md) zijn voordat u met een Azure-resource gaat werken. U kunt de documentatie voor verschillende hulpprogramma's bekijken door een optie boven aan dit artikel te selecteren. Dit artikel is van toepassing op het klassieke implementatiemodel.
+> Voordat u met Azure-resources werkt, is het belangrijk toounderstand dat Azure momenteel twee implementatiemodellen heeft: Azure Resource Manager en het klassieke model. Zorg ervoor dat u begrijpt wat [implementatiemodellen en hulpprogramma's](../azure-resource-manager/resource-manager-deployment-model.md) zijn voordat u met een Azure-resource gaat werken. U kunt Hallo-documentatie voor verschillende hulpprogramma's bekijken door een optie Hallo boven aan dit artikel te selecteren. In dit artikel bevat informatie over Hallo klassieke implementatiemodel.
 > 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-Het voorbeeld Azure PowerShell onderstaande opdrachten een eenvoudige omgeving al gemaakt verwacht op basis van het bovenstaande scenario. Als u uitvoeren van de opdrachten wilt zoals ze worden weergegeven in dit document, maakt u de omgeving wordt weergegeven in [maken van een VNet (klassiek) met behulp van PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md).
+Hallo voorbeeld Azure PowerShell onderstaande opdrachten verwacht een eenvoudige omgeving al gemaakt dat is gebaseerd op Hallo bovenstaande scenario. Als u toorun Hallo opdrachten wilt zoals ze worden weergegeven in dit document, maakt u Hallo-omgeving wordt weergegeven in [maken van een VNet (klassiek) met behulp van PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-the-udr-for-the-front-end-subnet"></a>De UDR voor de front-end-subnet maken
-Volg de onderstaande stappen voor het maken van de routetabel en de route die nodig zijn voor de front-end-subnet op basis van de bovenstaande scenario.
+## <a name="create-hello-udr-for-hello-front-end-subnet"></a>Hallo UDR voor Hallo front-end-subnet maken
+toocreate hello routetabel en route die nodig zijn voor Hallo front-end-subnet op basis van Hallo scenario bovenstaande stappen Hallo hieronder.
 
-1. Voer de volgende opdracht voor het maken van een routetabel voor de front-end-subnet:
+1. Voer Hallo opdracht toocreate na een routetabel voor Hallo front-end-subnet:
 
     ```powershell
     New-AzureRouteTable -Name UDR-FrontEnd -Location uswest `
     -Label "Route table for front end subnet"
     ```
 
-2. Voer de volgende opdracht voor het maken van een route in de routetabel alle verkeer dat is bestemd voor het subnet voor back-end (192.168.2.0/24) te verzenden naar de **FW1** VM (192.168.0.4):
+2. Uitvoeren na de opdracht toocreate een route in Hallo route tabel toosend Hallo alle verkeer dat is bestemd toohello back-end-subnet (192.168.2.0/24) toohello **FW1** VM (192.168.0.4):
 
     ```powershell
     Get-AzureRouteTable UDR-FrontEnd `
@@ -61,7 +61,7 @@ Volg de onderstaande stappen voor het maken van de routetabel en de route die no
     -NextHopIpAddress 192.168.0.4
     ```
 
-3. Voer de volgende opdracht om te koppelen van de routetabel met de **FrontEnd** subnet:
+3. Voer hello na de opdracht tooassociate Hallo routetabel Hello **FrontEnd** subnet:
 
     ```powershell
     Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
@@ -69,10 +69,10 @@ Volg de onderstaande stappen voor het maken van de routetabel en de route die no
     -RouteTableName UDR-FrontEnd
     ```
 
-## <a name="create-the-udr-for-the-back-end-subnet"></a>De UDR voor de back-end-subnet maken
-Voor het maken van de routetabel en de route die nodig zijn voor de back-end-subnet op basis van het scenario, moet u de volgende stappen uitvoeren:
+## <a name="create-hello-udr-for-hello-back-end-subnet"></a>Hallo UDR voor Hallo back-end subnet maken
+toocreate hello routetabel en route die nodig zijn voor Hallo back subnet op basis van Hallo scenario beëindigen, voltooien Hallo stappen te volgen:
 
-1. Voer de volgende opdracht voor het maken van een routetabel voor de back-end-subnet:
+1. Voer Hallo opdracht toocreate na een routetabel voor Hallo back-end-subnet:
 
     ```powershell
     New-AzureRouteTable -Name UDR-BackEnd `
@@ -80,7 +80,7 @@ Voor het maken van de routetabel en de route die nodig zijn voor de back-end-sub
     -Label "Route table for back end subnet"
     ```
 
-2. Voer de volgende opdracht voor het maken van een route in de routetabel alle verkeer dat is bestemd voor het front-end-subnet (192.168.1.0/24) te verzenden naar de **FW1** VM (192.168.0.4):
+2. Uitvoeren na de opdracht toocreate een route in Hallo route tabel toosend Hallo alle verkeer dat is bestemd toohello front-end-subnet (192.168.1.0/24) toohello **FW1** VM (192.168.0.4):
 
     ```powershell
     Get-AzureRouteTable UDR-BackEnd
@@ -91,7 +91,7 @@ Voor het maken van de routetabel en de route die nodig zijn voor de back-end-sub
     -NextHopIpAddress 192.168.0.4
     ```
 
-3. Voer de volgende opdracht om te koppelen van de routetabel met de **back-end** subnet:
+3. Voer hello na de opdracht tooassociate Hallo routetabel Hello **back-end** subnet:
 
     ```powershell
     Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
@@ -99,18 +99,18 @@ Voor het maken van de routetabel en de route die nodig zijn voor de back-end-sub
     -RouteTableName UDR-BackEnd
     ```
 
-## <a name="enable-ip-forwarding-on-the-fw1-vm"></a>Doorsturen via IP op de VM FW1 inschakelen
+## <a name="enable-ip-forwarding-on-hello-fw1-vm"></a>Doorsturen via IP op Hallo FW1 VM inschakelen
 
-Om in te schakelen IP doorsturen in de VM FW1, moet u de volgende stappen uitvoeren:
+tooenable doorsturen via IP in Hallo FW1 VM, volledige Hallo stappen te volgen:
 
-1. Voer de volgende opdracht om de status van doorsturen via IP te controleren:
+1. Voer Hallo opdracht toocheck Hallo status van doorsturen via IP te volgen:
 
     ```powershell
     Get-AzureVM -Name FW1 -ServiceName TestRGFW `
     | Get-AzureIPForwarding
     ```
 
-2. Voer de volgende opdracht om in te schakelen doorsturen via IP voor de *FW1* VM:
+2. Voer Hallo volgende opdracht doorsturen via IP voor Hallo tooenable *FW1* VM:
 
     ```powershell
     Get-AzureVM -Name FW1 -ServiceName TestRGFW `

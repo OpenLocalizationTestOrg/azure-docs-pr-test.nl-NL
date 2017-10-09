@@ -1,6 +1,6 @@
 ---
-title: Een gegevensschijf loskoppelen van een virtuele machine van Windows - Azure | Microsoft Docs
-description: Meer informatie naar een gegevensschijf loskoppelen van een virtuele machine in Azure met behulp van het Resource Manager-implementatiemodel.
+title: een gegevensschijf van een VM van Windows - Azure aaaDetach | Microsoft Docs
+description: Meer informatie over toodetach een gegevensschijf van een virtuele machine in Azure met behulp van Hallo Resource Manager-implementatiemodel.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,41 +15,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: cynthn
-ms.openlocfilehash: 97aa69745d200ee76f9f859eb3a8b0ad2f202bad
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f3f581d3f33329db2ecb7d25a68bc59af7361aad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Hoe u een gegevensschijf loskoppelen van een virtuele Windows-computer
-Wanneer u een gegevensschijf die is gekoppeld aan een virtuele machine niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Hiermee verwijdert u de schijf van de virtuele machine, maar niet verwijderd uit de opslag.
+# <a name="how-toodetach-a-data-disk-from-a-windows-virtual-machine"></a>Hoe toodetach een schijf van een virtuele machine van Windows
+Wanneer u een gegevensschijf die is aangesloten tooa virtuele machine niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Deze taak verwijdert Hallo schijf uit de Hallo virtuele machine, maar niet verwijderd uit de opslag.
 
 > [!WARNING]
-> Als u een schijf die wordt niet automatisch verwijderd loskoppelen. Als u bent geabonneerd op Premium-opslag, moet u blijft kosten voor opslag voor de schijf. Raadpleeg voor meer informatie [prijzen en facturering wanneer u Premium-opslag](../../storage/common/storage-premium-storage.md#pricing-and-billing).
+> Als u een schijf die wordt niet automatisch verwijderd loskoppelen. Als u tooPremium opslag hebt geabonneerd, blijft u tooincur opslagkosten voor Hallo schijf. Voor meer informatie raadpleegt u te[prijzen en facturering wanneer u Premium-opslag](../../storage/common/storage-premium-storage.md#pricing-and-billing).
 >
 >
 
-Als u de bestaande gegevens op de schijf opnieuw wilt gebruiken, kunt u de schijf opnieuw koppelen aan dezelfde of een andere virtuele machine.
+Als u toouse Hallo bestaande gegevens op Hallo schijf opnieuw wilt, u kunt opnieuw het toohello dezelfde virtuele machine of een andere naam.
 
-## <a name="detach-a-data-disk-using-the-portal"></a>Een gegevensschijf ontkoppelen via de portal
-1. Selecteer in de portal hub **virtuele Machines**.
-2. Selecteer de virtuele machine met de gegevensschijf die u wilt loskoppelen en klik op **stoppen** toewijzing van de virtuele machine.
-3. Selecteer in de virtuele machineblade **schijven**.
-4. Aan de bovenkant van de **schijven** blade Selecteer **bewerken**.
-5. In de **schijven** blade, aan de rechterkant van de gegevensschijf die u wilt loskoppelen, klikt u op de ![Detach knopafbeelding](./media/detach-disk/detach.png) knop loskoppelen.
-5. Nadat de schijf is verwijderd, klikt u op opslaan boven aan de blade.
-6. Klik op de blade virtuele machine **overzicht** en klik vervolgens op de **Start** knop aan de bovenkant van de blade opnieuw opstarten van de virtuele machine.
+## <a name="detach-a-data-disk-using-hello-portal"></a>Een gegevensschijf met Hallo portal loskoppelen
+1. Selecteer in de portal hub hello, **virtuele Machines**.
+2. Selecteer Hallo virtuele machine met Hallo gegevensschijf toodetach en klik op **stoppen** toodeallocate Hallo VM.
+3. Selecteer in de blade van de virtuele machine hello, **schijven**.
+4. Hallo boven aan het Hallo **schijven** blade Selecteer **bewerken**.
+5. In Hallo **schijven** blade toohello uiterst rechts in Hallo gegevensschijf dat u toodetach wilt, klikt u op Hallo ![Detach knopafbeelding](./media/detach-disk/detach.png) knop loskoppelen.
+5. Nadat het Hallo-schijf is verwijderd, klikt u op opslaan op Hallo Hallo blade bovenaan.
+6. In de blade van de virtuele machine hello, klikt u op **overzicht** en klik vervolgens op Hallo **Start** knop bovenaan Hallo Hallo blade toorestart Hallo VM.
 
 
 
-De schijf blijft in de opslag, maar is niet meer gekoppeld aan een virtuele machine.
+Hallo schijf blijft in de opslag, maar is niet langer gekoppelde tooa virtuele machine.
 
 ## <a name="detach-a-data-disk-using-powershell"></a>Een gegevensschijf met behulp van PowerShell loskoppelen
-In dit voorbeeld wordt de eerste opdracht wordt de virtuele machine met de naam opgehaald **MyVM07** in de **RG11** resourcegroep met de cmdlet Get-AzureRmVM. De opdracht slaat de virtuele machine in de **$VirtualMachine** variabele.
+In dit voorbeeld Hallo eerste opdracht opgehaald Hallo virtuele machine met de naam **MyVM07** in Hallo **RG11** resourcegroep met de cmdlet Get-AzureRmVM Hallo. opdracht slaat virtuele machine in Hallo HALLO hallo **$VirtualMachine** variabele.
 
-De tweede opdracht verwijdert u de gegevensschijf DataDisk3 met de naam van de virtuele machine.
+de tweede opdracht Hallo verwijdert Hallo gegevensschijf DataDisk3 met de naam van de Hallo virtuele machine.
 
-De laatste opdracht werkt de status van de virtuele machine om het proces van het verwijderen van de gegevensschijf te voltooien.
+de laatste opdracht Hallo Hallo status van Hallo toocomplete Hallo proces voor virtuele machines van het verwijderen van de gegevensschijf Hallo-updates.
 
 ```powershell
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
@@ -60,5 +60,5 @@ Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
 Zie voor meer informatie [verwijderen AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk).
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u de gegevensschijf gebruiken wilt, kunt u zojuist hebt [koppelen aan een andere virtuele machine](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Als u tooreuse Hallo gegevensschijf wilt, kunt u zojuist hebt [tooanother VM koppelen](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

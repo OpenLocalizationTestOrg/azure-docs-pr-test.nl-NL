@@ -1,6 +1,6 @@
 ---
-title: Abonnement en de accounts voor Windows-machines in Azure | Microsoft Docs
-description: Meer informatie over de sleutel ontwerpen en implementeren van de richtlijnen voor abonnementen en accounts in Azure.
+title: aaaSubscription en accounts voor Windows-machines in Azure | Microsoft Docs
+description: Informatie over Hallo belangrijke ontwerp- en implementatiestappen richtlijnen voor abonnementen en accounts in Azure.
 documentationcenter: 
 services: virtual-machines-windows
 author: iainfoulds
@@ -16,50 +16,50 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b54e18ed6ecef26a059a6ce742bca03a6434183
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f9dc712af559b04490be1dc721a9b9f7fe9ed88f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-subscription-and-accounts-guidelines-for-windows-vms"></a>Azure-abonnement en accounts richtlijnen voor het Windows-VM 's
 
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
-Dit artikel is gericht op het inzicht benadering van beheer van abonnement en -account als uw omgeving en gebruikersgroep uitbreiden.
+Dit artikel is gericht op het inzicht in hoe tooapproach-abonnement en account beheer als uw omgeving en de gebruikersgroep groeit.
 
 ## <a name="implementation-guidelines-for-subscriptions-and-accounts"></a>Richtlijnen voor de implementatie voor abonnementen en accounts
 Beslissingen te nemen:
 
-* Welke set van abonnementen en accounts komen u moet voor het hosten van uw IT-werkbelasting of infrastructuur?
-* Hoe u omlaag in de hiërarchie aanpassen aan uw organisatie?
+* Welke set van abonnementen en accounts moet u toohost infrastructuur of uw IT-werkbelasting?
+* Hoe toobreak omlaag Hallo hiërarchie toofit uw organisatie?
 
 Taken:
 
-* Definieer uw organisatiehiërarchie logische als u wilt beheren van een abonnement.
-* Definiëren zodat deze overeenkomt met deze logische hiërarchie, de vereiste accounts en -abonnementen onder elke account.
-* Maak de set-abonnementen en accounts met behulp van de naamconventie.
+* Definieer uw organisatiehiërarchie logische als u graag toomanage op abonnementsniveau.
+* toomatch deze logische hiërarchie definiëren Hallo-accounts die zijn vereist en abonnementen onder elke account.
+* Hallo set abonnementen en accounts met behulp van de naamconventie maken.
 
 ## <a name="subscriptions-and-accounts"></a>Abonnementen en accounts
-Om te werken met Azure, moet u een of meer Azure-abonnementen. Resources, zoals virtuele machines (VM's) of virtuele netwerken bestaat in deze abonnementen.
+toowork met Azure, moet u een of meer Azure-abonnementen. Resources, zoals virtuele machines (VM's) of virtuele netwerken bestaat in deze abonnementen.
 
-* Enterprise-klanten hebben doorgaans een Enterprise-inschrijving, waardoor de bovenste-bron in de hiërarchie en is gekoppeld aan een of meer accounts.
-* De bovenste resource is voor consumenten en klanten zonder een Enterprise-inschrijving, het account.
-* Abonnementen worden gekoppeld aan accounts en kan er een of meer abonnementen per account. Azure records factureringsgegevens op het abonnementsniveau.
+* Enterprise-klanten hebben doorgaans een Enterprise-inschrijving die Hallo bovenste-bron in Hallo hiërarchie en is gekoppeld tooone of meer accounts.
+* Voor consumenten en klanten zonder een Enterprise-inschrijving is Hallo bovenste resource Hallo-account.
+* Abonnementen worden gekoppeld tooaccounts en kan er een of meer abonnementen per account. Azure records factureringsgegevens op Hallo abonnementsniveau.
 
-Vanwege de limiet van twee niveaus voor de relatie Account /-abonnement is het belangrijk dat de naamgevingsconventie van accounts en -abonnementen op de facturering behoeften uitlijnen. Bijvoorbeeld, als een globale bedrijf gebruikmaakt van Azure, kunnen ze ervoor kiezen om één account per regio en abonnementen beheerd hebben op het regioniveau:
+Vervaldatum toohello limiet van twee hiërarchieniveaus op Hallo Account /-abonnement relatie is het belangrijk tooalign Hallo naamgevingsconventie accounts en -abonnementen toohello die behoeften facturering. Bijvoorbeeld als een globale bedrijf gebruikmaakt van Azure, ze mogelijk toohave één account per regio kiezen en abonnementen hebt beheerd op Hallo van regioniveau:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)
 
-Gebruik bijvoorbeeld de volgende structuur:
+Gebruik bijvoorbeeld Hallo structuur te volgen:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)
 
-Als een regio wil hebben van meer dan één abonnement die is gekoppeld aan een bepaalde groep, moet een manier voor het coderen van de extra gegevens op het account of naam van het abonnement gebruikmaken van de naamconventie. Deze organisatie kan massaging factureringsgegevens om te genereren van de nieuwe niveaus van hiërarchie tijdens facturering rapporten:
+Als een regio toohave meer dan één abonnement gekoppeld tooa bepaalde groep beslist, een tooencode manier moet gebruikmaken van de naamconventie Hallo Hallo extra gegevens op Hallo-account of de naam van de Hallo-abonnement. Deze organisatie kunt facturering gegevens toogenerate Hallo nieuwe niveaus van hiërarchie massaging tijdens facturering rapporten:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
-De organisatie kan eruitzien als in het volgende voorbeeld:
+Hallo-organisatie kan eruitzien als Hallo voorbeeld te volgen:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 

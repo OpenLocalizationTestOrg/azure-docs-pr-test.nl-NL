@@ -1,6 +1,6 @@
 ---
-title: Maken van een gemiddelde stack op een Linux VM in Azure | Microsoft Docs
-description: Informatie over het maken van een stack MongoDB, snelle AngularJS en Node.js (gemiddelde) op een Linux VM in Azure.
+title: een gemiddelde aaaCreate stack op een Linux VM in Azure | Microsoft Docs
+description: Meer informatie over hoe toocreate een MongoDB, snelle AngularJS en Node.js (gemiddelde) stack is op een Linux VM in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: davidmu1
@@ -16,34 +16,34 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 892d3481b4ec70fb8434cb25013c5cfd8ab85051
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 82a8e34e60d2bb6e6670ee007faa1113ea78b716
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Maak een stack MongoDB, snelle AngularJS en Node.js (gemiddelde) op een Linux VM in Azure
 
-Deze zelfstudie laat zien hoe u een stack MongoDB, snelle AngularJS en Node.js (gemiddelde) implementeren op een Linux VM in Azure. De gemiddelde stack die u maakt kan toevoegen, verwijderen en het weergeven van rapporten in een database. Procedures voor:
+Deze zelfstudie leert u hoe tooimplement een MongoDB, snelle AngularJS en Node.js (gemiddelde) stack is op een Linux VM in Azure. GEMIDDELDE Hallo-stack die u maakt kan toevoegen, verwijderen en het weergeven van rapporten in een database. Procedures voor:
 
 > [!div class="checklist"]
 > * Een Linux-VM maken
 > * Node.js installeren
-> * MongoDB installeren en instellen van de server
-> * Express installeren en instellen van de routes naar de server
-> * Toegang tot de routes met AngularJS
-> * De toepassing uitvoeren
+> * MongoDB installeren en het Hallo-server instellen
+> * Express installeren en routes toohello server instellen
+> * Toegang Hallo routes met AngularJS
+> * Hallo-toepassing uitvoeren
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.4 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, deze zelfstudie vereist dat u de versie van de Azure CLI Hallo 2.0.4 worden uitgevoerd of hoger. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Een Linux-VM maken
 
-Maak een resourcegroep met de [az groep maken](https://docs.microsoft.com/cli/azure/group#create) opdracht en maak een Linux-VM met de [az vm maken](https://docs.microsoft.com/cli/azure/vm#create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Een resourcegroep maken met de Hallo [az groep maken](https://docs.microsoft.com/cli/azure/group#create) opdracht en maak een Linux-VM met Hallo [az vm maken](https://docs.microsoft.com/cli/azure/vm#create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
-Het volgende voorbeeld wordt de Azure CLI voor het maken van een resourcegroep met de naam *myResourceGroupMEAN* in de *eastus* locatie. Een virtuele machine gemaakt met de naam *myVM* met SSH-sleutels als deze niet al bestaan op de standaardlocatie van de sleutel. Als u een specifieke set van sleutels, gebruikt de--ssh-sleutel / waarde-optie.
+Hallo volgende voorbeeld wordt een resourcegroep met de naam van hello Azure CLI toocreate *myResourceGroupMEAN* in Hallo *eastus* locatie. Een virtuele machine gemaakt met de naam *myVM* met SSH-sleutels als deze niet al bestaan op de standaardlocatie van de sleutel. toouse een specifieke set sleutels, gebruik Hallo--ssh-sleutel / waarde-optie.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMEAN --location eastus
@@ -57,7 +57,7 @@ az vm create \
 az vm open-port --port 3300 --resource-group myResourceGroupMEAN --name myVM
 ```
 
-Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie vergelijkbaar met het volgende voorbeeld: 
+Wanneer Hallo VM is gemaakt, ziet u hello Azure CLI informatie vergelijkbare toohello voorbeeld te volgen: 
 
 ```azurecli-interactive
 {
@@ -71,9 +71,9 @@ Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie vergelijkb
   "resourceGroup": "myResourceGroupMEAN"
 }
 ```
-Noteer het `publicIpAddress`. Dit adres wordt gebruikt voor toegang tot de virtuele machine.
+Let op Hallo `publicIpAddress`. Dit adres is gebruikte tooaccess Hallo VM.
 
-Gebruik de volgende opdracht voor het maken van een SSH-sessie met de virtuele machine. Zorg ervoor dat de juiste openbare IP-adres gebruiken. In ons voorbeeld boven onze IP is adres 13.72.77.9.
+Gebruik Hallo volgende opdracht toocreate een SSH-sessie met de Hallo VM. Zorg ervoor dat toouse Hallo juiste openbare IP-adres. In ons voorbeeld boven onze IP is adres 13.72.77.9.
 
 ```bash
 ssh azureuser@13.72.77.9
@@ -81,25 +81,25 @@ ssh azureuser@13.72.77.9
 
 ## <a name="install-nodejs"></a>Node.js installeren
 
-[Node.js](https://nodejs.org/en/) is een JavaScript-runtime gebouwd op van de Chrome V8 JavaScript-engine. Node.js wordt gebruikt in deze zelfstudie voor het instellen van de Express-routes en de AngularJS-domeincontrollers.
+[Node.js](https://nodejs.org/en/) is een JavaScript-runtime gebouwd op van de Chrome V8 JavaScript-engine. Node.js wordt gebruikt in deze zelfstudie tooset Hallo die Express routes en AngularJS-controllers.
 
-Installeer op de virtuele machine met behulp van de bash-shell die u hebt geopend met SSH, Node.js.
+Installeer op Hallo VM, met Hallo bash-shell die u hebt geopend met SSH, Node.js.
 
 ```bash
 sudo apt-get install -y nodejs
 ```
 
-## <a name="install-mongodb-and-set-up-the-server"></a>MongoDB installeren en instellen van de server
-[MongoDB](http://www.mongodb.com) -gegevens opslaat in flexibele, zoals JSON-documenten. Velden in een database document naar kunnen variëren en gegevensstructuur na verloop van tijd kan worden gewijzigd. Voor onze voorbeeldtoepassing toevoegen we adresboekrecords aan MongoDB die rapportnaam, isbn nummer, auteur en het aantal pagina's bevatten. 
+## <a name="install-mongodb-and-set-up-hello-server"></a>MongoDB installeren en het Hallo-server instellen
+[MongoDB](http://www.mongodb.com) -gegevens opslaat in flexibele, zoals JSON-documenten. Velden in een database kunnen afwijken van het document toodocument en gegevensstructuur na verloop van tijd kan worden gewijzigd. Voor onze voorbeeldtoepassing toevoegen we adresboek records tooMongoDB die rapportnaam, isbn nummer, auteur en het aantal pagina's bevatten. 
 
-1. Stel op de virtuele machine met behulp van de bash-shell die u hebt geopend met SSH, de MongoDB-sleutel.
+1. Virtuele machine, met Hallo bash-shell die u hebt geopend met SSH, ingesteld op Hallo Hallo MongoDB-sleutel.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
     echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
     ```
 
-2. De package manager bijwerken met de sleutel.
+2. Hallo Pakketbeheer bijwerken met Hallo-sleutel.
   
     ```bash
     sudo apt-get update
@@ -111,27 +111,27 @@ sudo apt-get install -y nodejs
     sudo apt-get install -y mongodb
     ```
 
-4. Start de server.
+4. Hallo-server niet starten.
 
     ```bash
     sudo service mongodb start
     ```
 
-5. Er moet ook installeren de [hoofdtekst parser](https://www.npmjs.com/package/body-parser-json) pakket om ons verwerken van de JSON aanvragen doorgegeven aan de server te helpen.
+5. Ook moet tooinstall Hallo [hoofdtekst parser](https://www.npmjs.com/package/body-parser-json) pakket toohelp ons Hallo JSON toohello-server aanvragen doorgegeven verwerken.
 
-    Installeer de npm package manager.
+    Hallo npm Pakketbeheer installeren.
 
     ```bash
     sudo apt-get install npm
     ```
 
-    Installeer het pakket van de parser hoofdtekst.
+    Hallo hoofdtekst parser pakketten installeren.
     
     ```bash
     sudo npm install body-parser
     ```
 
-6. Maak een map met de naam *Books* en voeg een bestand toe met de naam *server.js* die de configuratie voor de webserver bevat.
+6. Maak een map met de naam *Books* en voeg de tooit van een bestand met de naam *server.js* die Hallo-configuratie voor de webserver Hallo bevat.
 
     ```node.js
     var express = require('express');
@@ -146,9 +146,9 @@ sudo apt-get install -y nodejs
     });
     ```
 
-## <a name="install-express-and-set-up-routes-to-the-server"></a>Express installeren en instellen van de routes naar de server
+## <a name="install-express-and-set-up-routes-toohello-server"></a>Express installeren en routes toohello server instellen
 
-[Express](https://expressjs.com) is een minimaal en flexibel Node.js web application framework met functies voor webtoepassingen en mobiele toepassingen. Snelle in deze zelfstudie wordt gebruikt om door te geven voor het adresboek van gegevens van en naar onze MongoDB-database. [Mongoose](http://mongoosejs.com) biedt een ongecompliceerde, schema's gebaseerde oplossing om te modelleren uw toepassingsgegevens. Mongoose wordt gebruikt in deze zelfstudie voor het bieden van een boek-schema voor de database.
+[Express](https://expressjs.com) is een minimaal en flexibel Node.js web application framework met functies voor webtoepassingen en mobiele toepassingen. Express wordt gebruikt in deze zelfstudie toopass adresboek informatie tooand uit onze MongoDB-database. [Mongoose](http://mongoosejs.com) biedt een ongecompliceerde, schema's gebaseerde oplossing toomodel uw toepassingsgegevens. Mongoose wordt gebruikt in deze zelfstudie tooprovide een boek schema voor Hallo-database.
 
 1. Snelle en Mongoose installeren.
 
@@ -156,7 +156,7 @@ sudo apt-get install -y nodejs
     sudo npm install express mongoose
     ```
 
-2. In de *Books* map, maak een map met de naam *apps* en toevoegen van een bestand met de naam *routes.js* van de expliciete routes gedefinieerd.
+2. In Hallo *Books* map, maak een map met de naam *apps* en toevoegen van een bestand met de naam *routes.js* Hello express routes die zijn gedefinieerd.
 
     ```node.js
     var Book = require('./models/book');
@@ -186,7 +186,7 @@ sudo apt-get install -y nodejs
         Book.findOneAndRemove(req.query, function(err, result) {
           if ( err ) throw err;
           res.json( {
-            message: "Successfully deleted the book",
+            message: "Successfully deleted hello book",
             book: result
           });
         });
@@ -198,7 +198,7 @@ sudo apt-get install -y nodejs
     };
     ```
 
-3. In de *apps* map, maak een map met de naam *modellen* en toevoegen van een bestand met de naam *book.js* met de adresboek Modelconfiguratie gedefinieerd.  
+3. In Hallo *apps* map, maak een map met de naam *modellen* en toevoegen van een bestand met de naam *book.js* met Hallo adresboek Modelconfiguratie is gedefinieerd.  
 
     ```node.js
     var mongoose = require('mongoose');
@@ -216,11 +216,11 @@ sudo apt-get install -y nodejs
     module.exports = mongoose.model('Book', bookSchema); 
     ```
 
-## <a name="access-the-routes-with-angularjs"></a>Toegang tot de routes met AngularJS
+## <a name="access-hello-routes-with-angularjs"></a>Toegang Hallo routes met AngularJS
 
-[AngularJS](https://angularjs.org) biedt een webframework voor het maken van weergaven in uw webtoepassingen. In deze zelfstudie gebruiken we AngularJS om verbinding te onze webpagina snelle en acties uitvoeren op onze adresboek-database.
+[AngularJS](https://angularjs.org) biedt een webframework voor het maken van weergaven in uw webtoepassingen. In deze zelfstudie we het gebruik van de AngularJS tooconnect onze webpagina snelle en acties uitvoeren op onze adresboek-database.
 
-1. Wijzig de map back-up naar *Books* (`cd ../..`), en maak vervolgens een map met de naam *openbare* en toevoegen van een bestand met de naam *script.js* met de configuratie van de domeincontroller gedefinieerd.
+1. Hallo directory ook een back-up wijzigen*Books* (`cd ../..`), en maak vervolgens een map met de naam *openbare* en toevoegen van een bestand met de naam *script.js* met Hallo-controller de configuratie is gedefinieerd.
 
     ```node.js
     var app = angular.module('myApp', []);
@@ -262,7 +262,7 @@ sudo apt-get install -y nodejs
     });
     ```
     
-2. In de *openbare* map, maakt u een bestand met de naam *index.html* met de webpagina die is gedefinieerd.
+2. In Hallo *openbare* map, maakt u een bestand met de naam *index.html* met Hallo webpagina gedefinieerd.
 
     ```html
     <!doctype html>
@@ -315,41 +315,41 @@ sudo apt-get install -y nodejs
     </html>
     ```
 
-##  <a name="run-the-application"></a>De toepassing uitvoeren
+##  <a name="run-hello-application"></a>Hallo-toepassing uitvoeren
 
-1. Wijzig de map back-up naar *Books* (`cd ..`) en start de server door het uitvoeren van deze opdracht:
+1. Hallo directory ook een back-up wijzigen*Books* (`cd ..`) en het Hallo-server starten met deze opdracht uit te voeren:
 
     ```bash
     nodejs server.js
     ```
 
-2. Open een webbrowser naar het adres dat u hebt vastgelegd voor de virtuele machine. Bijvoorbeeld: *http://13.72.77.9:3300*. U ziet dat lijkt op de volgende pagina:
+2. Open een browser toohello webadres op dat u hebt vastgelegd voor Hallo VM. Bijvoorbeeld: *http://13.72.77.9:3300*. U ziet er ongeveer zo Hallo na pagina:
 
     ![Book record](media/tutorial-mean/meanstack-init.png)
 
-3. Gegevens invoeren in de tekstvakken en klik op **toevoegen**. Bijvoorbeeld:
+3. Gegevens in de tekstvakken Hallo invoeren en op **toevoegen**. Bijvoorbeeld:
 
     ![Book record toevoegen](media/tutorial-mean/meanstack-add.png)
 
-4. Na de pagina te vernieuwen, ziet u dat lijkt op deze pagina:
+4. Na het Hallo-pagina te vernieuwen, ziet u dat lijkt op deze pagina:
 
     ![Lijst adresboekrecords](media/tutorial-mean/meanstack-list.png)
 
-5. U kunt klikken **verwijderen** en de book record verwijderen uit de database.
+5. U kunt klikken **verwijderen** en Hallo book record verwijderen uit Hallo-database.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt u een webtoepassing waarin wordt bijgehouden adresboek registreert met behulp van een gemiddelde gemaakt stack op een Linux-VM. U leert hoe naar:
+In deze zelfstudie maakt u een webtoepassing waarin wordt bijgehouden adresboek registreert met behulp van een gemiddelde gemaakt stack op een Linux-VM. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
 > * Een Linux-VM maken
 > * Node.js installeren
-> * MongoDB installeren en instellen van de server
-> * Express installeren en instellen van de routes naar de server
-> * Toegang tot de routes met AngularJS
-> * De toepassing uitvoeren
+> * MongoDB installeren en het Hallo-server instellen
+> * Express installeren en routes toohello server instellen
+> * Toegang Hallo routes met AngularJS
+> * Hallo-toepassing uitvoeren
 
-Ga naar de volgende zelfstudie voor meer informatie over het beveiligen van webservers met SSL-certificaten.
+Hoe gaan van de volgende zelfstudie toolearn toohello toosecure webservers met SSL-certificaten.
 
 > [!div class="nextstepaction"]
 > [Webserver met SSL beveiligde](tutorial-secure-web-server.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-Script voorbeeld - exemplaar (verplaatsen)-momentopname van een beheerde schijf naar hetzelfde of een ander abonnement | Microsoft Docs
-description: Azure PowerShell-Script voorbeeld - exemplaar (verplaatsen)-momentopname van een beheerde schijf naar hetzelfde of een ander abonnement
+title: "aaaAzure PowerShell-voorbeeldscript - momentopname van een beheerde schijf toosame of een ander abonnement kopiëren (verplaatsen) | Microsoft Docs"
+description: Azure PowerShell-Script voorbeeld - exemplaar (verplaatsen)-momentopname van een beheerde schijf toosame of een ander abonnement
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: f7b4869669a2c5e840f9bd384dcd6d6096ba58e2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d7b8a71cc09d1950271f472e89b95bb551323be5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Momentopname van een beheerde schijf kopiëren in hetzelfde abonnement of een ander abonnement met PowerShell
 
-Dit script maakt een kopie van een momentopname in de dezelfde hetzelfde abonnement of een ander abonnement. Dit script gebruiken voor het verplaatsen van een momentopname naar ander abonnement voor het bewaren van gegevens. Opslag-momentopnamen in een ander abonnement bescherming tegen onopzettelijk verwijderen van momentopnamen in uw belangrijkste abonnement. 
+Dit script maakt een kopie van een momentopname in Hallo dezelfde hetzelfde abonnement of een ander abonnement. Gebruik dit script toomove een momentopname toodifferent abonnement voor bewaren van gegevens. Opslag-momentopnamen in een ander abonnement bescherming tegen onopzettelijk verwijderen van momentopnamen in uw belangrijkste abonnement. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -31,16 +31,16 @@ Dit script maakt een kopie van een momentopname in de dezelfde hetzelfde abonnem
 
 ## <a name="sample-script"></a>Voorbeeld van een script
 
-[!code-powershell[belangrijkste](../../../powershell_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.ps1 "kopie momentopname")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.ps1 "Copy snapshot")]
 
 
 ## <a name="script-explanation"></a>Script uitleg
 
-Dit script gebruikt na de opdrachten voor het maken van een momentopname in het doelabonnement met de Id van de momentopname van de bron. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+Dit script maakt gebruik van opdrachten toocreate na een momentopname aan Hallo doel abonnement met Hallo Hallo bron momentopname-Id. Elke opdracht in Hallo tabel koppelingen toocommand specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [Nieuwe AzureRmSnapshotConfig](/powershell/module/azurerm.compute/New-AzureRmSnapshotConfig) | Maakt de configuratie van de momentopnamen die wordt gebruikt voor het maken van momentopnamen. Dit omvat de resource-Id van de momentopname van de bovenliggende en de locatie die is hetzelfde als de momentopname van de bovenliggende.  |
+| [Nieuwe AzureRmSnapshotConfig](/powershell/module/azurerm.compute/New-AzureRmSnapshotConfig) | Maakt de configuratie van de momentopnamen die wordt gebruikt voor het maken van momentopnamen. Het bevat Hallo-resource-Id van de momentopname van de bovenliggende Hallo en de locatie die is hetzelfde als Hallo bovenliggende momentopname.  |
 | [Nieuwe AzureRmSnapshot](/powershell/module/azurerm.compute/New-AzureRmDisk) | Maakt een momentopname met configuratie van de momentopnamen, naam van de momentopname en de Resourcegroepnaam als parameters doorgegeven. |
 
 
@@ -48,6 +48,6 @@ Dit script gebruikt na de opdrachten voor het maken van een momentopname in het 
 
 [Een virtuele machine maken vanuit een momentopname](./virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-Zie voor meer informatie over de Azure PowerShell-module [documentatie van Azure PowerShell](/powershell/azure/overview).
+Zie voor meer informatie over hello Azure PowerShell-module [documentatie van Azure PowerShell](/powershell/azure/overview).
 
-Voorbeelden van extra virtuele machine PowerShell-script kunnen worden gevonden in de [virtuele machine van Windows Azure-documentatie](../../app-service-web/app-service-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Voorbeelden van extra virtuele machine PowerShell-script kunnen u vinden in Hallo [virtuele machine van Windows Azure-documentatie](../../app-service-web/app-service-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

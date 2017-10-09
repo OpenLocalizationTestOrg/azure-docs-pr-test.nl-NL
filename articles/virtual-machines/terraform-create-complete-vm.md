@@ -1,6 +1,6 @@
 ---
-title: Maken van de basisinfrastructuur in Azure met behulp van Terraform | Microsoft Docs
-description: Informatie over het maken van Azure-resources met behulp van Terraform
+title: het basisinfrastructuur aaaCreate in Azure met behulp van Terraform | Microsoft Docs
+description: Meer informatie over hoe Azure toocreate resources met behulp van Terraform
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 9660a95b440c2e4311829979e270d9f10099f624
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 916a838c118f28b3fbd373188e0acb2afc655081
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-basic-infrastructure-in-azure-by-using-terraform"></a>Maken van de basisinfrastructuur in Azure met behulp van Terraform
-In dit artikel beschrijft de stappen die u nemen moet voor het inrichten van een virtuele machine, samen met de onderliggende infrastructuur in Azure. U leert hoe Terraform scripts schrijven en hoe de wijzigingen te visualiseren voordat u ze in uw cloudinfrastructuur. Ook leert u hoe infrastructuur in Azure maken met behulp van Terraform.
+Dit artikel wordt beschreven Hallo stappen die u nodig hebt tootake tooprovision een virtuele machine, samen met de onderliggende infrastructuur in Azure. U leert hoe toowrite Terraform scripts en hoe toovisualize Hallo verandert voordat u ze in uw cloudinfrastructuur zodat. Ook wordt uitgelegd hoe toocreate infrastructuur in Azure met behulp van Terraform.
 
-Maak een bestand met de naam van \terraform_azure101.tf in een teksteditor naar keuze (Visual Studio Code/Sublime/Vim/enz.) om te beginnen. De exacte naam van het bestand niet van belang omdat de naam van de map als parameter wordt geaccepteerd Terraform: alle scripts in de map worden uitgevoerd. Plak de volgende code in het nieuwe bestand:
+tooget gestart, maak een bestand \terraform_azure101.tf aangeroepen in een teksteditor naar keuze (Visual Studio Code/Sublime/Vim/enz.). de exacte naam Hallo van Hallo-bestand niet van belang omdat Terraform Hallo mapnaam als een parameter accepteert: alle scripts in de map Hallo worden uitgevoerd. Plak de volgende code in het nieuwe bestand Hallo Hallo:
 
 ~~~~
-# Configure the Microsoft Azure Provider
-# NOTE: if you defined these values as environment variables, you do not have to include this block
+# Configure hello Microsoft Azure Provider
+# NOTE: if you defined these values as environment variables, you do not have tooinclude this block
 provider "azurerm" {
   subscription_id = "your_subscription_id_from_script_execution"
   client_id       = "your_appId_from_script_execution"
@@ -42,46 +42,46 @@ resource "azurerm_resource_group" "helloterraform" {
     location = "West US"
 }
 ~~~~
-In de `provider` sectie van het script, geeft u aan Terraform gebruik van een Azure-provider tot inrichten bronnen in het script. Als u de waarden voor subscription_id, appId, wachtwoord en tenant_id, Zie de [installeren en configureren van Terraform](terraform-install-configure.md) handleiding. Als u omgevingsvariabelen voor de waarden in dit blok hebt gemaakt, moet u niet wilt opnemen. 
+In Hallo `provider` sectie Hallo script, geeft u aan Terraform toouse een Azure-provider tooprovision resources in Hallo-script. tooget waarden voor subscription_id, appId, wachtwoord en tenant_id, Zie Hallo [installeren en configureren van Terraform](terraform-install-configure.md) handleiding. Als u omgevingsvariabelen voor Hallo waarden in dit blok hebt gemaakt, hoeft u geen tooinclude deze. 
 
-De `azurerm_resource_group` resource Hiermee geeft u Terraform om een nieuwe resourcegroep te maken. U kunt meer brontypen die beschikbaar in Terraform verderop in dit artikel zijn kunt zien.
+Hallo `azurerm_resource_group` resource Hiermee geeft u Terraform toocreate een nieuwe resourcegroep. U kunt meer brontypen die beschikbaar in Terraform verderop in dit artikel zijn kunt zien.
 
-## <a name="execute-the-script"></a>Het script uitvoeren
-Nadat u het script opslaat, wordt de console/opdrachtregel sluiten en typ het volgende:
+## <a name="execute-hello-script"></a>Hallo-script uitvoeren
+Nadat u Hallo script opslaat, toohello console/vanaf de opdrachtregel sluiten en typ de volgende Hallo:
 ```
 terraform init
 ```
-initialiseren Terraform-provider voor Azure. Typ het volgende:
+tooinitialize Terraform provider voor Azure. Typ de volgende Hallo:
 ```
 terraform plan terraformscripts
 ```
-Er wordt ervan uitgegaan dat `terraformscripts` is de map waarin het script is opgeslagen. We gebruiken de `plan` Terraform-opdracht wordt gekeken naar de resources die zijn gedefinieerd in de scripts. Het vergelijkt ze met de informatie over de opgeslagen door Terraform en vervolgens voert u de geplande uitvoering _zonder_ resources daadwerkelijk maken in Azure. 
+Er wordt ervan uitgegaan dat `terraformscripts` Hallo map is waar Hallo-script is opgeslagen. We Hallo gebruikt `plan` Terraform-opdracht wordt gekeken naar Hallo-resources die zijn gedefinieerd in het Hallo-scripts. Het vergelijkt ze toohello informatie over de status door Terraform worden opgeslagen en vervolgens de uitvoer geplande uitvoering Hallo _zonder_ resources daadwerkelijk maken in Azure. 
 
-Nadat u de vorige opdracht uitvoert, ziet u ongeveer het volgende scherm:
+Nadat u de vorige opdracht Hallo uitvoert, ziet u dat lijkt op Hallo scherm te volgen:
 
 ![Terraform plannen](linux/media/terraform/tf_plan2.png)
 
-Als alles er goed uitziet, richt u deze nieuwe resourcegroep in Azure door het uitvoeren van de volgende: 
+Als alles er goed uitziet, richt u deze nieuwe resourcegroep in Azure door Hallo volgende uitvoeren: 
 ```
 terraform apply terraformscripts
 ```
-In de Azure portal, ziet u de nieuwe lege resourcegroep aangeroepen `terraformtest`. In de volgende sectie u een een virtuele machine en de ondersteunende infrastructuur voor die virtuele machine toevoegen aan de resourcegroep.
+In hello Azure-portal, ziet u Hallo leeg resourcegroep genaamd `terraformtest`. In Hallo volgende sectie, voegt u een virtuele machine en alle Hallo ondersteunende infrastructuur voor die virtuele machine toohello-resourcegroep.
 
 ## <a name="provision-an-ubuntu-vm-with-terraform"></a>Een virtuele Ubuntu-machine met Terraform inrichten
-Laten we het Terraform script dat we hebt gemaakt met de gegevens die nodig zijn voor het inrichten van een virtuele machine met Ubuntu uitbreiden. De bronnen die u in de volgende secties inricht zijn:
+Laten we uitbreiden een virtuele machine met Ubuntu Hallo Terraform script die we met Hallo-informatie die nodig zijn tooprovision hebt gemaakt. Hallo-resources die u in de volgende secties Hallo inrichten zijn:
 
 * Een netwerk met één subnet
 * Een netwerkinterfacekaart 
 * Een opslagaccount met storage-container
 * Een openbaar IP-adres
-* Een virtuele machine die gebruikmaakt van de eerdere bronnen 
+* Een virtuele machine die gebruikmaakt van alle Hallo eerdere bronnen 
 
-Zie voor uitgebreide documentatie voor elk van de resources Azure Terraform de [Terraform documentatie](https://www.terraform.io/docs/providers/azurerm/index.html).
+Zie voor uitgebreide documentatie voor elk hello Azure Terraform resources Hallo [Terraform documentatie](https://www.terraform.io/docs/providers/azurerm/index.html).
 
-De volledige versie van de [inrichting script](#complete-terraform-script) is ook voor uw gemak geleverd.
+Hallo volledige versie van Hallo [inrichting script](#complete-terraform-script) is ook voor uw gemak geleverd.
 
-### <a name="extend-the-terraform-script"></a>Het script Terraform uitbreiden
-Uitbreiden van het script dat is gemaakt met de volgende bronnen: 
+### <a name="extend-hello-terraform-script"></a>Hallo Terraform script uitbreiden
+Hallo-script dat is gemaakt met de Hallo resources na uitbreiden: 
 ~~~~
 # create a virtual network
 resource "azurerm_virtual_network" "helloterraformnetwork" {
@@ -99,7 +99,7 @@ resource "azurerm_subnet" "helloterraformsubnet" {
     address_prefix = "10.0.2.0/24"
 }
 ~~~~
-Het vorige script maakt een virtueel netwerk en een subnet binnen dit virtuele netwerk. Noteer de verwijzing naar de resourcegroep die u al hebt gemaakt via "${azurerm_resource_group.helloterraform.name}' in het virtuele netwerk en de subnetdefinitie van.
+Hallo vorige script maakt een virtueel netwerk en een subnet binnen dit virtuele netwerk. Houd er rekening mee Hallo verwijzing toohello resourcegroep die u al hebt gemaakt via "${azurerm_resource_group.helloterraform.name}" hello virtuele netwerk en de definitie van subnet Hallo.
 
 ~~~~
 # create public IP
@@ -129,7 +129,7 @@ resource "azurerm_network_interface" "helloterraformnic" {
     }
 }
 ~~~~
-De vorige script codefragmenten maken een openbaar IP-adres en een netwerkinterface die gebruik maakt van het openbare IP-adres gemaakt. Noteer de verwijzingen naar subnet_id en public_ip_address_id. Terraform beschikt over ingebouwde intelligentie om te begrijpen dat de netwerkinterface afhankelijk is van de resources die moeten worden gemaakt voordat het maken van de netwerkinterface.
+Hallo vorige script codefragmenten maken een openbare IP-adres en een netwerkinterface die gebruik maakt van Hallo openbare IP-adres gemaakt. Houd er rekening mee Hallo verwijzingen toosubnet_id en public_ip_address_id. Terraform heeft toounderstand ingebouwde intelligentie die Hallo netwerkinterface heeft een afhankelijkheid op Hallo bronnen die nodig toobe gemaakt voordat het maken van de netwerkinterface Hallo Hallo.
 
 ~~~~
 # create a random id
@@ -158,7 +158,7 @@ resource "azurerm_storage_container" "helloterraformstoragestoragecontainer" {
     depends_on = ["azurerm_storage_account.helloterraformstorage"]
 }
 ~~~~
-Hier kunt u een opslagaccount hebt gemaakt en een storage-container binnen dit opslagaccount wordt gedefinieerd. Dit opslagaccount is waar het opslaan van virtuele harde schijven (VHD's) voor de virtuele machine gemaakt.
+Hier kunt u een opslagaccount hebt gemaakt en een storage-container binnen dit opslagaccount wordt gedefinieerd. Dit opslagaccount is waar het opslaan van virtuele harde schijven (VHD's) voor de virtuele machine Hallo over toobe gemaakt.
 
 ~~~~
 # create virtual machine
@@ -198,25 +198,25 @@ resource "azurerm_virtual_machine" "helloterraformvm" {
     }
 }
 ~~~~
-Ten slotte maakt het vorige codefragment u een virtuele machine die gebruikmaakt van alle resources die al ingericht. Een opslagaccount en container voor een VHD, een netwerkinterface met openbare IP- en subnet opgegeven, zijn en de resourcegroep waarin u al hebt gemaakt. Let op de eigenschap vm_size, waarbij het script een Azure A0 SKU geeft.
+Ten slotte maakt Hallo vorige codefragment voor een virtuele machine die gebruikmaakt van alle Hallo resources al ingericht. Een opslagaccount en container voor een VHD, een netwerkinterface met openbare IP- en subnet opgegeven, zijn en resourcegroep Hallo u al hebt gemaakt. Houd er rekening mee Hallo vm_size eigenschap, waarbij Hallo script Hiermee geeft u een Azure A0 SKU.
 
-### <a name="execute-the-script"></a>Het script uitvoeren
-Terugkeren naar de console/opdrachtregel met het volledige script opgeslagen, en typ het volgende:
+### <a name="execute-hello-script"></a>Hallo-script uitvoeren
+Bij de volledige script Hallo opgeslagen, toohello console/vanaf de opdrachtregel sluiten en typ de volgende Hallo:
 ```
 terraform apply terraformscripts
 ```
-Na enige tijd de bronnen, met inbegrip van een virtuele machine, worden weergegeven in de `terraformtest` resourcegroep in de Azure portal.
+Na enige tijd Hallo bronnen, met inbegrip van een virtuele machine, worden weergegeven in Hallo `terraformtest` resourcegroep in hello Azure-portal.
 
 ## <a name="complete-terraform-script"></a>Volledige Terraform script
 
-Voor uw gemak ziet hieronder u het volledige Terraform-script dat voorziet in alle van de infrastructuur die wordt besproken in dit artikel.
+Is voor uw gemak hieronder Hallo volledige Terraform script die voorziet in alle Hallo infrastructuur besproken in dit artikel.
 
 ```
 variable "resourcesname" {
   default = "helloterraform"
 }
 
-# Configure the Microsoft Azure Provider
+# Configure hello Microsoft Azure Provider
 provider "azurerm" {
   subscription_id = "XXX"
   client_id       = "XXX"
@@ -339,4 +339,4 @@ resource "azurerm_virtual_machine" "helloterraformvm" {
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt de basisinfrastructuur in Azure hebt gemaakt met behulp van Terraform. Voor complexere scenario's, inclusief voorbeelden die gebruik load balancers en de virtuele machine worden geschaald sets, Zie talrijke [Terraform voorbeelden voor Azure](https://github.com/hashicorp/terraform/tree/master/examples). Zie voor een bijgewerkte lijst met ondersteunde providers voor Azure de [Terraform documentatie](https://www.terraform.io/docs/providers/azurerm/index.html).
+U kunt de basisinfrastructuur in Azure hebt gemaakt met behulp van Terraform. Voor complexere scenario's, inclusief voorbeelden die gebruik load balancers en de virtuele machine worden geschaald sets, Zie talrijke [Terraform voorbeelden voor Azure](https://github.com/hashicorp/terraform/tree/master/examples). Zie voor een bijgewerkte lijst met ondersteunde providers voor Azure Hallo [Terraform documentatie](https://www.terraform.io/docs/providers/azurerm/index.html).

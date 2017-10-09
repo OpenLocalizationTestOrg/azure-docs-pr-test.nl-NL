@@ -1,6 +1,6 @@
 ---
-title: Back-up en herstellen van een Oracle-Database 12c-database op een virtuele machine van Azure Linux | Microsoft Docs
-description: Informatie over het back-up en herstellen van een Oracle-Database 12c-database in uw Azure-omgeving.
+title: aaaBack up en herstel een Oracle-Database 12c database op een virtuele machine van Azure Linux | Microsoft Docs
+description: Meer informatie over hoe tooback up en herstel een Oracle-Database 12c-database in uw Azure-omgeving.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
@@ -15,40 +15,40 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 5/17/2017
 ms.author: rclaus
-ms.openlocfilehash: 9a2293f13b90e9a4cb11b4169fad969dd622a9a6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 68846f4efce5eabdb71cd71772e003838154e93b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Back-up en herstellen van een Oracle-Database 12c-database op een virtuele machine van Azure Linux
 
-U kunt Azure CLI gebruiken om te maken en beheren van Azure-resources bij een opdrachtprompt of -scripts gebruiken. In dit artikel gebruiken we Azure CLI-scripts voor het implementeren van een Oracle-Database 12c-database van de installatiekopie van een Azure Marketplace-galerie.
+U kunt Azure CLI toocreate gebruiken en beheren van Azure-resources bij een opdrachtprompt of -scripts gebruiken. In dit artikel gebruiken we Azure CLI scripts toodeploy een Oracle-Database 12c-database van de installatiekopie van een Azure Marketplace-galerie.
 
-Voordat u begint, zorg ervoor dat de Azure CLI is geïnstalleerd. Zie voor meer informatie de [Azure CLI installatiehandleiding](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Voordat u begint, zorg ervoor dat de Azure CLI is geïnstalleerd. Zie voor meer informatie, Hallo [Azure CLI installatiehandleiding](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="prepare-the-environment"></a>De omgeving voorbereiden
+## <a name="prepare-hello-environment"></a>Hallo-omgeving voorbereiden
 
 ### <a name="step-1-prerequisites"></a>Stap 1: vereisten
 
-*   Als u het proces van back-up en herstel, moet u eerst een Linux-VM met een geïnstalleerd exemplaar van de Oracle-Database 12c maken. De Marketplace-installatiekopie die u kunt de virtuele machine maken met de naam *Oracle: Oracle-Database-Ee:12.1.0.2:latest*.
+*   tooperform hello back-up en herstel, moet u eerst een Linux-VM met een geïnstalleerd exemplaar van de Oracle-Database 12c maken. Hallo Marketplace-installatiekopie u toocreate Hallo VM heet *Oracle: Oracle-Database-Ee:12.1.0.2:latest*.
 
-    Zie voor meer informatie over het maken van een Oracle-database, de [Oracle database Quick Start maken](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
+    toolearn hoe toocreate een Oracle-database Hallo zien [Oracle database Quick Start maken](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
 
 
-### <a name="step-2-connect-to-the-vm"></a>Stap 2: Verbinding maken met de virtuele machine
+### <a name="step-2-connect-toohello-vm"></a>Stap 2: Verbinding maken met toohello VM
 
-*   Maakt een Secure Shell (SSH)-sessie met de virtuele machine, moet u de volgende opdracht gebruiken. Vervang het IP-adres en de hostnaam met de `publicIpAddress` waarde voor uw virtuele machine.
+*   toocreate een Secure Shell (SSH)-sessie met de virtuele machine, Hallo Hallo volgende opdracht gebruiken. Hallo IP-adres en hostnaam Hallo vervangen door Hallo `publicIpAddress` waarde voor uw virtuele machine.
 
     ```bash 
     ssh <publicIpAddress>
     ```
 
-### <a name="step-3-prepare-the-database"></a>Stap 3: De database voorbereiden
+### <a name="step-3-prepare-hello-database"></a>Stap 3: Hallo database voorbereiden
 
 1.  Deze stap wordt ervan uitgegaan dat u hebt een Oracle-exemplaar (cdb1) dat wordt uitgevoerd op een virtuele machine met de naam *myVM*.
 
-    Voer de *oracle* supergebruiker hoofdmap en vervolgens initialisatie van de listener:
+    Voer Hallo *oracle* supergebruiker hoofdmap en Hallo-listener initialiseren:
 
     ```bash
     $ sudo su - oracle
@@ -58,11 +58,11 @@ Voordat u begint, zorg ervoor dat de Azure CLI is geïnstalleerd. Zie voor meer 
     Starting /u01/app/oracle/product/12.1.0/dbhome_1/bin/tnslsnr: please wait...
 
     TNSLSNR for Linux: Version 12.1.0.2.0 - Production
-    Log messages written to /u01/app/oracle/diag/tnslsnr/myVM/listener/alert/log.xml
+    Log messages written too/u01/app/oracle/diag/tnslsnr/myVM/listener/alert/log.xml
     Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=myVM.twltkue3xvsujaz1bvlrhfuiwf.dx.internal.cloudapp.net)(PORT=1521)))
 
-    Connecting to (ADDRESS=(PROTOCOL=tcp)(HOST=)(PORT=1521))
-    STATUS of the LISTENER
+    Connecting too(ADDRESS=(PROTOCOL=tcp)(HOST=)(PORT=1521))
+    STATUS of hello LISTENER
     ------------------------
     Alias                     LISTENER
     Version                   TNSLSNR for Linux: Version 12.1.0.2.0 - Production
@@ -74,11 +74,11 @@ Voordat u begint, zorg ervoor dat de Azure CLI is geïnstalleerd. Zie voor meer 
     Listener Log File         /u01/app/oracle/diag/tnslsnr/myVM/listener/alert/log.xml
     Listening Endpoints Summary...
     (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=myVM.twltkue3xvsujaz1bvlrhfuiwf.dx.internal.cloudapp.net)(PORT=1521)))
-    The listener supports no services
-    The command completed successfully
+    hello listener supports no services
+    hello command completed successfully
     ```
 
-2.  (Optioneel) Zorg ervoor dat de database zich in de modus voor archive logboek:
+2.  (Optioneel) Zorg ervoor dat Hallo-database wordt in archief logboek modus:
 
     ```bash
     $ sqlplus / as sysdba
@@ -94,16 +94,16 @@ Voordat u begint, zorg ervoor dat de Azure CLI is geïnstalleerd. Zie voor meer 
     SQL> ALTER DATABASE OPEN;
     SQL> ALTER SYSTEM SWITCH LOGFILE;
     ```
-3.  (Optioneel) Maak een tabel als u wilt testen van het doorvoeren:
+3.  (Optioneel) Maak een tabel tootest Hallo doorvoeren:
 
     ```bash
     SQL> alter session set "_ORACLE_SCRIPT"=true ;
     Session altered.
     SQL> create user scott identified by tiger;
     User created.
-    SQL> grant create session to scott;
+    SQL> grant create session tooscott;
     Grant succeeded.
-    SQL> grant create table to scott;
+    SQL> grant create table tooscott;
     Grant succeeded.
     SQL> alter user scott quota 100M on users;
     User altered.
@@ -115,7 +115,7 @@ Voordat u begint, zorg ervoor dat de Azure CLI is geïnstalleerd. Zie voor meer 
     SQL> commit;
     Commit complete.
     ```
-4.  Controleren of de back-upbestand locatie en grootte wijzigen:
+4.  Controleren of Hallo back-upbestand locatie en grootte wijzigen:
 
     ```bash
     $ sqlplus / as sysdba
@@ -125,7 +125,7 @@ Voordat u begint, zorg ervoor dat de Azure CLI is geïnstalleerd. Zie voor meer 
     db_recovery_file_dest                string      /u01/app/oracle/fast_recovery_area
     db_recovery_file_dest_size           big integer 4560M
     ```
-5. Gebruik Oracle Recovery Manager (RMAN) voor back-up van de database:
+5. Oracle Recovery Manager (RMAN) tooback updatabase hello gebruiken:
 
     ```bash
     $ rman target /
@@ -134,11 +134,11 @@ Voordat u begint, zorg ervoor dat de Azure CLI is geïnstalleerd. Zie voor meer 
 
 ### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Stap 4: Toepassingsconsistente back-up voor virtuele Linux-machines
 
-Toepassingsconsistente back-ups is een nieuwe functie in Azure Backup. U kunt maken en scripts uitvoeren voor en na de VM-momentopname (voorafgaat aan momentopnamen en volgt op momentopnamen) selecteren.
+Toepassingsconsistente back-ups is een nieuwe functie in Azure Backup. U kunt maken en scripts tooexecute selecteren voor en na Hallo VM-momentopname (voorafgaat aan momentopnamen en volgt op momentopnamen).
 
-1. Het JSON-bestand downloaden.
+1. Hallo JSON-bestand downloaden.
 
-    Download VMSnapshotScriptPluginConfig.json van https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. Inhoud van het bestand er ongeveer als volgt uit:
+    Download VMSnapshotScriptPluginConfig.json van https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. bestandsinhoud Hallo zoeken vergelijkbare toohello volgende:
 
     ```azurecli
     {
@@ -155,7 +155,7 @@ Toepassingsconsistente back-ups is een nieuwe functie in Azure Backup. U kunt ma
     }
     ```
 
-2. Maak de map /etc/azure op de virtuele machine:
+2. Hallo /etc/azure map maken op Hallo VM:
 
     ```bash
     $ sudo su -
@@ -163,13 +163,13 @@ Toepassingsconsistente back-ups is een nieuwe functie in Azure Backup. U kunt ma
     # cd /etc/azure
     ```
 
-3. Kopieer het JSON-bestand.
+3. Hallo JSON-bestand kopiëren.
 
-    Kopieer VMSnapshotScriptPluginConfig.json naar de map /etc/azure.
+    VMSnapshotScriptPluginConfig.json toohello /etc/azure map kopiëren.
 
-4. Bewerk het JSON-bestand.
+4. Hallo JSON-bestand bewerken.
 
-    Bewerk het bestand VMSnapshotScriptPluginConfig.json om op te nemen de `PreScriptLocation` en `PostScriptlocation` parameters. Bijvoorbeeld:
+    Hallo VMSnapshotScriptPluginConfig.json bestand tooinclude Hallo bewerken `PreScriptLocation` en `PostScriptlocation` parameters. Bijvoorbeeld:
 
     ```azurecli
     {
@@ -186,7 +186,7 @@ Toepassingsconsistente back-ups is een nieuwe functie in Azure Backup. U kunt ma
     }
     ```
 
-5. Maak de voorafgaat aan momentopnamen en volgt op momentopnamen scriptbestanden.
+5. Hallo voorafgaat aan momentopnamen en volgt op momentopnamen scriptbestanden maken.
 
     Hier volgt een voorbeeld van voorafgaat aan momentopnamen en volgt op momentopnamen scripts voor een 'koude back-up' (een offline back-up, met afsluiten en opnieuw opstarten):
 
@@ -226,7 +226,7 @@ Toepassingsconsistente back-ups is een nieuwe functie in Azure Backup. U kunt ma
     su - $ORA_OWNER -c "sqlplus / as sysdba @/etc/azure/post_script.sql" > /etc/azure/pre_script_$v_date.log
     ```
 
-    Voor /etc/azure/pre_script.sql, wijzigt u de inhoud van het bestand per uw vereisten:
+    Voor /etc/azure/pre_script.sql, wijzigt u Hallo inhoud van Hallo bestand per uw vereisten:
 
     ```bash
     alter tablespace SYSTEM begin backup;
@@ -236,7 +236,7 @@ Toepassingsconsistente back-ups is een nieuwe functie in Azure Backup. U kunt ma
     alter system archive log stop;
     ```
 
-    Voor /etc/azure/post_script.sql, wijzigt u de inhoud van het bestand per uw vereisten:
+    Voor /etc/azure/post_script.sql, wijzigt u Hallo inhoud van Hallo bestand per uw vereisten:
 
     ```bash
     alter tablespace SYSTEM end backup;
@@ -253,9 +253,9 @@ Toepassingsconsistente back-ups is een nieuwe functie in Azure Backup. U kunt ma
     # chmod 700 /etc/azure/post_script.sh
     ```
 
-7. Test de scripts.
+7. Hallo scripts testen.
 
-    Als u wilt testen de scripts, eerst aanmelden als hoofdmap. Vervolgens, zorg ervoor dat er geen fouten:
+    tootest hello scripts, eerst aanmelden als hoofdmap. Vervolgens, zorg ervoor dat er geen fouten:
 
     ```bash
     # /etc/azure/pre_script.sh
@@ -265,25 +265,25 @@ Toepassingsconsistente back-ups is een nieuwe functie in Azure Backup. U kunt ma
 Zie voor meer informatie [toepassingsconsistente back-up voor virtuele Linux-machines](https://azure.microsoft.com/en-us/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
 
 
-### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Stap 5: Gebruik Azure Recovery Services-kluizen back-ups van de virtuele machine maken
+### <a name="step-5-use-azure-recovery-services-vaults-tooback-up-hello-vm"></a>Stap 5: Gebruik Azure Recovery Services-kluizen tooback up Hallo VM
 
-1.  Zoek in de Azure-portal op **Recovery Services-kluizen**.
+1.  In Azure-portal Hallo, zoeken naar **Recovery Services-kluizen**.
 
     ![Pagina Recovery Services-kluizen](./media/oracle-backup-recovery/recovery_service_01.png)
 
-2.  Op de **Recovery Services-kluizen** blade toevoegen van een nieuwe kluis, klikt u op **toevoegen**.
+2.  Op Hallo **Recovery Services-kluizen** blade tooadd een nieuwe kluis, klikt u op **toevoegen**.
 
     ![Recovery Services-kluizen toevoegen pagina](./media/oracle-backup-recovery/recovery_service_02.png)
 
-3.  Als u wilt doorgaan, klikt u op **myVault**.
+3.  toocontinue, klikt u op **myVault**.
 
     ![Recovery Services-kluizen worden in detail beschreven pagina](./media/oracle-backup-recovery/recovery_service_03.png)
 
-4.  Op de **myVault** blade, klikt u op **back-up**.
+4.  Op Hallo **myVault** blade, klikt u op **back-up**.
 
     ![Recovery Services-kluizen back-up van de pagina](./media/oracle-backup-recovery/recovery_service_04.png)
 
-5.  Op de **back-updoel** blade, gebruikt u de standaardwaarden van **Azure** en **virtuele machine**. Klik op **OK**.
+5.  Op Hallo **back-updoel** blade standaardwaarden gebruiken Hallo van **Azure** en **virtuele machine**. Klik op **OK**.
 
     ![Recovery Services-kluizen worden in detail beschreven pagina](./media/oracle-backup-recovery/recovery_service_05.png)
 
@@ -291,37 +291,37 @@ Zie voor meer informatie [toepassingsconsistente back-up voor virtuele Linux-mac
 
     ![Recovery Services-kluizen back-up van de detailpagina beleid](./media/oracle-backup-recovery/recovery_service_06.png)
 
-7.  Op de **virtuele machines selecteren** blade, selecteer de **myVM1** selectievakje en klik vervolgens op **OK**. Klik op de **back-up** knop.
+7.  Op Hallo **virtuele machines selecteren** blade, selecteer Hallo **myVM1** selectievakje en klik vervolgens op **OK**. Klik op Hallo **back-up** knop.
 
-    ![Services-kluizen herstelitems naar de back-up detailpagina](./media/oracle-backup-recovery/recovery_service_07.png)
+    ![Recovery Services-kluizen items toohello back-up detailpagina](./media/oracle-backup-recovery/recovery_service_07.png)
 
     > [!IMPORTANT]
-    > Nadat u op **back-up**, het back-upproces start niet totdat het geplande tijdstip is verstreken. Voer de volgende stap in te stellen van een directe back-up.
+    > Nadat u op **back-up**, back-upproces Hallo start niet totdat hello geplande tijd is verstreken. tooset een direct-back-up, volledige Hallo volgende stap.
 
-8.  Op de **myVault - back-upitems** blade onder **back-ITEMTELLING**, selecteert u het aantal back-items.
+8.  Op Hallo **myVault - back-upitems** blade onder **back-ITEMTELLING**, aantal Hallo-back-items selecteren.
 
     ![Recovery Services-kluizen myVault de detailpagina](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  Op de **back-Upitems (Azure virtuele Machine)** blade aan de rechterkant van de pagina, klikt u op het weglatingsteken (**...** ) en klik vervolgens op **back-up nu**.
+9.  Op Hallo **back-Upitems (Azure virtuele Machine)** blade aan de rechterkant Hallo Hallo pagina, klikt u op Hallo weglatingsteken (**...** ) en klik vervolgens op **back-up nu**.
 
     ![Recovery Services-kluizen back-up nu opdracht](./media/oracle-backup-recovery/recovery_service_09.png)
 
-10. Klik op de **back-up** knop. Wacht tot de back-proces is voltooid. Ga vervolgens naar [stap 6: Verwijder de databasebestanden](#step-6-remove-the-database-files).
+10. Klik op Hallo **back-up** knop. Wachten op Hallo back-upproces toofinish. Ga vervolgens te[stap 6: verwijderen van de databasebestanden Hallo](#step-6-remove-the-database-files).
 
-    Als u wilt weergeven van de status van de back-uptaak **taken**.
+    tooview hello status van de back-uptaak hello, klikt u op **taken**.
 
     ![Recovery Services-kluizen taak pagina](./media/oracle-backup-recovery/recovery_service_10.png)
 
-    De status van de back-uptaak wordt weergegeven in de volgende afbeelding:
+    Hallo-status van back-uptaak Hallo weergegeven in Hallo installatiekopie te volgen:
 
     ![Recovery Services-kluizen pagina met de status van taken](./media/oracle-backup-recovery/recovery_service_11.png)
 
-11. Los eventuele fouten in het logboekbestand voor een toepassingsconsistente back-up. Het logboekbestand bevindt zich op /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/1.0.9114.0.
+11. Los eventuele fouten in het logboekbestand Hallo voor een toepassingsconsistente back-up. Hallo-logboekbestand bevindt zich op /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/1.0.9114.0.
 
-### <a name="step-6-remove-the-database-files"></a>Stap 6: Verwijder de databasebestanden 
-Verderop in dit artikel leert u hoe u kunt het herstelproces te testen. Voordat u het herstelproces testen kunt, moet u verwijderen van bestanden van de database.
+### <a name="step-6-remove-hello-database-files"></a>Stap 6: Hallo databasebestanden verwijderen 
+Verderop in dit artikel leert u hoe tootest Hallo herstelproces. Voordat u het herstelproces Hallo testen kunt, hebt u tooremove Hallo-databasebestanden.
 
-1.  Verwijder de bestanden tabelruimte en back-up:
+1.  Hallo tabelruimte en back-up bestanden verwijderen:
 
     ```bash
     $ sudo su - oracle
@@ -331,7 +331,7 @@ Verderop in dit artikel leert u hoe u kunt het herstelproces te testen. Voordat 
     $ rm -rf *
     ```
     
-2.  (Optioneel) Afsluiten van de Oracle-exemplaar:
+2.  (Optioneel) Afsluiten Hallo Oracle-exemplaar:
 
     ```bash
     $ sqlplus / as sysdba
@@ -339,38 +339,38 @@ Verderop in dit artikel leert u hoe u kunt het herstelproces te testen. Voordat 
     ORACLE instance shut down.
     ```
 
-## <a name="restore-the-deleted-files-from-the-recovery-services-vaults"></a>De verwijderde bestanden terugzetten vanaf de Recovery Services-kluizen
-Voor het herstellen van verwijderde bestanden, moet u de volgende stappen uitvoeren:
+## <a name="restore-hello-deleted-files-from-hello-recovery-services-vaults"></a>Hallo verwijderde bestanden terugzetten vanaf Hallo die Recovery Services-kluizen
+Hallo toorestore verwijderde bestanden, volledige Hallo stappen te volgen:
 
-1. Zoek in de Azure-portal op de *myVault* Recovery Services-kluizen item. Op de **overzicht** blade onder **back-up items**, selecteer het aantal items.
+1. Zoek in hello Azure-portal, op Hallo *myVault* Recovery Services-kluizen item. Op Hallo **overzicht** blade onder **back-up items**, selecteer het aantal items Hallo.
 
     ![Recovery Services-kluizen myVault back-items](./media/oracle-backup-recovery/recovery_service_12.png)
 
-2. Onder **back-up ITEMTELLING**, selecteer het aantal items.
+2. Onder **back-up ITEMTELLING**, selecteer het aantal items Hallo.
 
     ![Recovery Services-kluizen aantal voor virtuele Machine van Azure-back-items](./media/oracle-backup-recovery/recovery_service_13.png)
 
-3. Op de **myvm1** blade, klikt u op **Bestandsherstel (Preview)**.
+3. Op Hallo **myvm1** blade, klikt u op **Bestandsherstel (Preview)**.
 
-    ![Schermafbeelding van de Recovery Services-kluizen pagina voor herstel van bestand](./media/oracle-backup-recovery/recovery_service_14.png)
+    ![Schermopname van Hallo Recovery Services-kluizen pagina voor herstel van bestand](./media/oracle-backup-recovery/recovery_service_14.png)
 
-4. Op de **Bestandsherstel (Preview)** deelvenster, klikt u op **downloadscript**. Sla het downloadbestand (.sh) naar een map op de clientcomputer.
+4. Op Hallo **Bestandsherstel (Preview)** deelvenster, klikt u op **downloadscript**. Sla hello (.sh) bestand tooa downloadmap op Hallo-clientcomputer.
 
     ![Opties voor het opslaan van bestanden script downloaden](./media/oracle-backup-recovery/recovery_service_15.png)
 
-5. Kopieer het bestand .sh naar de virtuele machine.
+5. Kopieer Hallo .sh bestand toohello VM.
 
-    Het volgende voorbeeld ziet hoe u met een beveiligde kopie (scp) opdracht naar het bestand verplaatsen naar de virtuele machine. U kunt de inhoud ook kopiëren naar het Klembord en plak de inhoud in een nieuw bestand dat is ingesteld op de virtuele machine.
+    Hallo volgende voorbeeld ziet u hoe u een beveiligde kopie (scp) opdracht toomove toouse Hallo bestand toohello VM. U kunt ook Hallo inhoud toohello Klembord en plak Hallo inhoud in een nieuw bestand dat is ingesteld op Hallo VM kopiëren.
 
     > [!IMPORTANT]
-    > Zorg ervoor dat u de waarden voor de IP-adres en de map bijwerken in het volgende voorbeeld. De waarden moeten toewijzen aan de map waarin het bestand is opgeslagen.
+    > Zorg ervoor dat u het IP-adres en de map waarden Hallo bijwerken in Hallo voorbeeld te volgen. Hallo-waarden moeten toohello map Hallo-bestand wordt opgeslagen, worden toegewezen.
 
     ```bash
     $ scp Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh <publicIpAddress>:/<folder>
     ```
-6. Wijzig het bestand, zodat deze eigendom van de hoofdmap.
+6. Hallo-bestand wijzigen zodat deze eigendom van het Hallo-hoofdmap.
 
-    In het volgende voorbeeld wordt het bestand te wijzigen zodat deze eigendom van de hoofdmap. Wijzig machtigingen.
+    Wijzig in Hallo voorbeeld te volgen, Hallo-bestand zodat deze eigendom van het Hallo-hoofdmap. Wijzig machtigingen.
 
     ```bash 
     $ ssh <publicIpAddress>
@@ -379,24 +379,24 @@ Voor het herstellen van verwijderde bestanden, moet u de volgende stappen uitvoe
     # chmod 755 /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
     # /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
     ```
-    Het volgende voorbeeld ziet wat u ziet nadat u hebt dit script wordt uitgevoerd. Wanneer u wordt gevraagd om door te gaan, typt u **Y**.
+    Hallo volgende voorbeeld ziet u wat u ziet na het uitvoeren van script vóór Hallo. Wanneer u wordt gevraagd toocontinue, voer **Y**.
 
     ```bash
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
-    The script requires 'open-iscsi' and 'lshw' to run.
-    Do you want us to install 'open-iscsi' and 'lshw' on this machine?
-    Please press 'Y' to continue with installation, 'N' to abort the operation. : Y
+    hello script requires 'open-iscsi' and 'lshw' toorun.
+    Do you want us tooinstall 'open-iscsi' and 'lshw' on this machine?
+    Please press 'Y' toocontinue with installation, 'N' tooabort hello operation. : Y
     Installing 'open-iscsi'....
     Installing 'lshw'....
 
-    Connecting to recovery point using ISCSI service...
+    Connecting toorecovery point using ISCSI service...
 
     Connection succeeded!
 
-    Please wait while we attach volumes of the recovery point to this machine...
+    Please wait while we attach volumes of hello recovery point toothis machine...
 
-    ************ Volumes of the recovery point and their mount paths on this machine ************
+    ************ Volumes of hello recovery point and their mount paths on this machine ************
 
     Sr.No.  |  Disk  |  Volume  |  MountPath
 
@@ -404,20 +404,20 @@ Voor het herstellen van verwijderde bestanden, moet u de volgende stappen uitvoe
 
     2)  | /dev/sde  |  /dev/sde2  |  /root/myVM-20170517093913/Volume2
 
-    ************ Open File Explorer to browse for files. ************
+    ************ Open File Explorer toobrowse for files. ************
 
-    After recovery, to remove the disks and close the connection to the recovery point, please click 'Unmount Disks' in step 3 of the portal.
+    After recovery, tooremove hello disks and close hello connection toohello recovery point, please click 'Unmount Disks' in step 3 of hello portal.
 
-    Please enter 'q/Q' to exit...
+    Please enter 'q/Q' tooexit...
     ```
 
-7. Toegang tot de gekoppelde volumes is bevestigd.
+7. Toegang toohello gekoppelde volumes is bevestigd.
 
-    Als u wilt afsluiten, voer **q**, en zoek vervolgens naar de gekoppelde volumes. Voer voor het maken van een lijst van de toegevoegde volumes bij een opdrachtprompt, **df -k**.
+    tooexit, voer **q**, en zoek vervolgens naar Hallo gekoppelde volumes. een lijst met Hallo toegevoegd volumes, bij een opdrachtprompt, typ toocreate **df -k**.
 
-    ![De df -k-opdracht](./media/oracle-backup-recovery/recovery_service_16.png)
+    ![Hallo df -k opdracht](./media/oracle-backup-recovery/recovery_service_16.png)
 
-8. Gebruik het volgende script kopiëren van de ontbrekende bestanden terug naar de mappen:
+8. Gebruik Hallo script toocopy Hallo ontbreekt na bestanden back toohello mappen:
 
     ```bash
     # cd /root/myVM-2017XXXXXXX/Volume2/u01/app/oracle/fast_recovery_area/CDB1/backupset/2017_xx_xx
@@ -429,7 +429,7 @@ Voor het herstellen van verwijderde bestanden, moet u de volgende stappen uitvoe
     # cd /u01/app/oracle/oradata/cdb1
     # chown oracle:oinstall *.dbf
     ```
-9. Gebruik RMAN om de database te herstellen in het volgende script:
+9. In de Hallo script volgen, RMAN toorecover Hallo-database te gebruiken:
 
     ```bash
     # sudo su - oracle
@@ -441,93 +441,93 @@ Voor het herstellen van verwijderde bestanden, moet u de volgende stappen uitvoe
     RMAN> SELECT * FROM scott.scott_table;
     ```
     
-10. Ontkoppel de schijf.
+10. Hallo schijf ontkoppelen.
 
-    In de Azure-portal op de **Bestandsherstel (Preview)** blade, klikt u op **schijven ontkoppelen**.
+    In de Azure-portal op Hallo Hallo **Bestandsherstel (Preview)** blade, klikt u op **schijven ontkoppelen**.
 
     ![Ontkoppel de schijven opdracht](./media/oracle-backup-recovery/recovery_service_17.png)
 
-## <a name="restore-the-entire-vm"></a>De hele virtuele machine herstellen
+## <a name="restore-hello-entire-vm"></a>Herstellen Hallo hele virtuele machine
 
-In plaats van de verwijderde bestanden terugzetten van de Recovery Services-kluizen, kunt u de hele virtuele machine herstellen.
+In plaats van Hallo verwijderde bestanden terugzetten vanaf Hallo Recovery Services-kluizen, kunt u herstellen Hallo hele virtuele machine.
 
 ### <a name="step-1-delete-myvm"></a>Stap 1: Delete myVM
 
-*   In de Azure portal, gaat u naar de **myVM1** -kluis en selecteer vervolgens **verwijderen**.
+*   Ga in de Azure-portal hello, toohello **myVM1** -kluis en selecteer vervolgens **verwijderen**.
 
     ![Opdracht voor kluis verwijderen](./media/oracle-backup-recovery/recover_vm_01.png)
 
-### <a name="step-2-recover-the-vm"></a>Stap 2: De virtuele machine herstellen
+### <a name="step-2-recover-hello-vm"></a>Stap 2: Hallo VM herstellen
 
-1.  Ga naar **Recovery Services-kluizen**, en selecteer vervolgens **myVault**.
+1.  Ga te**Recovery Services-kluizen**, en selecteer vervolgens **myVault**.
 
     ![myVault vermelding](./media/oracle-backup-recovery/recover_vm_02.png)
 
-2.  Op de **overzicht** blade onder **back-up items**, selecteer het aantal items.
+2.  Op Hallo **overzicht** blade onder **back-up items**, selecteer het aantal items Hallo.
 
     ![myVault back-up van items](./media/oracle-backup-recovery/recover_vm_03.png)
 
-3.  Op de **back-Upitems (Azure virtuele Machine)** blade Selecteer **myvm1**.
+3.  Op Hallo **back-Upitems (Azure virtuele Machine)** blade Selecteer **myvm1**.
 
     ![VM-pagina voor wachtwoordherstel](./media/oracle-backup-recovery/recover_vm_04.png)
 
-4.  Op de **myvm1** blade, klik op het weglatingsteken (**...** ) en klik vervolgens op **herstellen VM**.
+4.  Op Hallo **myvm1** blade, klik op Hallo weglatingsteken (**...** ) en klik vervolgens op **herstellen VM**.
 
     ![VM-opdracht herstellen](./media/oracle-backup-recovery/recover_vm_05.png)
 
-5.  Op de **herstelpunt selecteren** blade, selecteer het item dat u wilt herstellen en klik vervolgens op **OK**.
+5.  Op Hallo **herstelpunt selecteren** blade, selecteer Hallo-item dat u toorestore wilt en klik vervolgens op **OK**.
 
-    ![Selecteer het herstelpunt](./media/oracle-backup-recovery/recover_vm_06.png)
+    ![Selecteer Hallo herstelpunt](./media/oracle-backup-recovery/recover_vm_06.png)
 
     Als u toepassingsconsistente back-up hebt ingeschakeld, wordt een verticale blauwe balk weergegeven.
 
-6.  Op de **configuratie terugzetten** blade, selecteert u de naam van de virtuele machine, selecteert u de resourcegroep en klik op **OK**.
+6.  Op Hallo **configuratie terugzetten** blade naam van de virtuele machine selecteert hello, selecteer Hallo resourcegroep en klik vervolgens op **OK**.
 
     ![Configuratiewaarden herstellen](./media/oracle-backup-recovery/recover_vm_07.png)
 
-7.  Als u de virtuele machine herstellen, klikt u op de **herstellen** knop.
+7.  toorestore hello VM, klikt u op Hallo **herstellen** knop.
 
-8.  Als u wilt weergeven van de status van het herstelproces **taken**, en klik vervolgens op **back-uptaken**.
+8.  tooview hello status van het herstelproces hello, klikt u op **taken**, en klik vervolgens op **back-uptaken**.
 
     ![Opdracht voor back-uptaken-status](./media/oracle-backup-recovery/recover_vm_08.png)
 
-    De volgende afbeelding toont de status van het herstelproces:
+    Hallo ziet volgende afbeelding Hallo status van het herstelproces Hallo:
 
-    ![Status van het herstelproces](./media/oracle-backup-recovery/recover_vm_09.png)
+    ![Status van het herstelproces Hallo](./media/oracle-backup-recovery/recover_vm_09.png)
 
-### <a name="step-3-set-the-public-ip-address"></a>Stap 3: Het openbare IP-adres instellen
-Nadat de virtuele machine is hersteld, instellen van het openbare IP-adres.
+### <a name="step-3-set-hello-public-ip-address"></a>Stap 3: Stel Hallo openbare IP-adres
+Nadat de Hallo die VM is hersteld, stelt u Hallo openbaar IP-adres.
 
-1.  Voer in het zoekvak **openbaar IP-adres**.
+1.  Voer in het zoekvak Hallo **openbaar IP-adres**.
 
     ![Lijst met openbare IP-adressen](./media/oracle-backup-recovery/create_ip_00.png)
 
-2.  Op de **openbare IP-adressen** blade, klikt u op **toevoegen**. Op de **openbare IP-adres maken** blade voor **naam**, selecteert u het openbare IP-naam. Voor **Resourcegroep** selecteert u **Bestaande gebruiken**. Klik vervolgens op **Maken**.
+2.  Op Hallo **openbare IP-adressen** blade, klikt u op **toevoegen**. Op Hallo **openbare IP-adres maken** blade voor **naam**, selecteer Hallo openbare IP-naam. Voor **Resourcegroep** selecteert u **Bestaande gebruiken**. Klik vervolgens op **Maken**.
 
     ![IP-adres maken](./media/oracle-backup-recovery/create_ip_01.png)
 
-3.  Als u wilt koppelen het openbare IP-adres aan de netwerkinterface van de virtuele machine, zoek en selecteer **myVMip**. Klik vervolgens op **koppelen**.
+3.  tooassociate hello openbaar IP-adres aan de netwerkinterface Hallo voor Hallo VM, zoeken voor en selecteer **myVMip**. Klik vervolgens op **koppelen**.
 
     ![IP-adres koppelen](./media/oracle-backup-recovery/create_ip_02.png)
 
-4.  Voor **brontype**, selecteer **netwerkinterface**. Selecteer de netwerkinterface die wordt gebruikt door de instantie myVM en klik vervolgens op **OK**.
+4.  Voor **brontype**, selecteer **netwerkinterface**. Hallo-netwerkinterface die wordt gebruikt door Hallo myVM exemplaar selecteren en klik vervolgens op **OK**.
 
     ![Selecteer het brontype en NIC-waarden](./media/oracle-backup-recovery/create_ip_03.png)
 
-5.  Zoek en open het exemplaar van myVM die wordt overgebracht vanuit de portal. Het IP-adres dat is gekoppeld aan de virtuele machine wordt weergegeven op de myVM **overzicht** blade.
+5.  Zoek en open Hallo exemplaar van myVM die wordt overgebracht van Hallo-portal. Hallo IP-adres dat is gekoppeld aan VM hello wordt weergegeven op Hallo myVM **overzicht** blade.
 
     ![IP-adreswaarde](./media/oracle-backup-recovery/create_ip_04.png)
 
-### <a name="step-4-connect-to-the-vm"></a>Stap 4: Verbinding maken met de virtuele machine
+### <a name="step-4-connect-toohello-vm"></a>Stap 4: Verbinding maken met toohello VM
 
-*   Voor verbinding met de virtuele machine, moet u het volgende script gebruiken:
+*   tooconnect toohello virtuele machine, gebruik Hallo script volgen:
 
     ```bash 
     ssh <publicIpAddress>
     ```
 
-### <a name="step-5-test-whether-the-database-is-accessible"></a>Stap 5: Controleren of de database toegankelijk is
-*   Als u wilt testen toegankelijkheid, gebruikt u het volgende script:
+### <a name="step-5-test-whether-hello-database-is-accessible"></a>Stap 5: Controleren of het Hallo-database toegankelijk is
+*   tootest toegankelijkheid, gebruik Hallo script volgen:
 
     ```bash 
     $ sudo su - oracle
@@ -536,10 +536,10 @@ Nadat de virtuele machine is hersteld, instellen van het openbare IP-adres.
     ```
 
     > [!IMPORTANT]
-    > Als de database **opstarten** opdracht wordt een fout gegenereerd, om de database wilt herstellen, Zie [stap 6: gebruik RMAN voor het herstellen van de database](#step-6-optional-use-rman-to-recover-the-database).
+    > Als hello database **opstarten** opdracht genereert een fout, toorecover Hallo database, raadpleegt u [stap 6: gebruik RMAN toorecover Hallo database](#step-6-optional-use-rman-to-recover-the-database).
 
-### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Stap 6: (Optioneel) gebruik RMAN de database herstellen
-*   Voor de database, gebruikt u het volgende script:
+### <a name="step-6-optional-use-rman-toorecover-hello-database"></a>Stap 6: (Optioneel) gebruik RMAN toorecover Hallo database
+*   toorecover hello database gebruik Hallo script volgen:
 
     ```bash
     # sudo su - oracle
@@ -551,11 +551,11 @@ Nadat de virtuele machine is hersteld, instellen van het openbare IP-adres.
     RMAN> SELECT * FROM scott.scott_table;
     ```
 
-De back-up en herstel van de Oracle-Database 12c-database op een Azure Linux VM is nu voltooid.
+Hallo back-up en herstel van Hallo Oracle-Database 12c-database op een Azure Linux VM is nu voltooid.
 
-## <a name="delete-the-vm"></a>De virtuele machine verwijderen
+## <a name="delete-hello-vm"></a>Hallo VM verwijderen
 
-Wanneer u de virtuele machine niet meer nodig hebt, kunt u de volgende opdracht om de resourcegroep, de virtuele machine en alle gerelateerde resources te verwijderen:
+Wanneer u virtuele machine niet meer nodig hello, kunt u na de opdracht tooremove Hallo-resourcegroep, Hallo VM en alle gerelateerde resources hello gebruiken:
 
 ```azurecli
 az group delete --name myResourceGroup

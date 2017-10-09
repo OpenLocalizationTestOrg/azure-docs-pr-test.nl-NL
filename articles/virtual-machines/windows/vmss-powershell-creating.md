@@ -1,5 +1,5 @@
 ---
-title: Maken van virtuele-machineschaalsets met PowerShell-cmdlets | Microsoft Docs
+title: Virtuele-machineschaalset aaaCreating wilt instellen met PowerShell-cmdlets | Microsoft Docs
 description: Aan de slag maken en beheren van uw eerste Azure virtuele-Machineschaalsets met Azure PowerShell-cmdlets
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: danielsollondon
-ms.openlocfilehash: a3a36028a75d6cb7eb36277f3e2b5ab833c96a96
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7979be367d04c904b60d78849c1b751a52cc8caf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="creating-virtual-machine-scale-sets-using-powershell-cmdlets"></a>Maken van virtuele-Machineschaalsets met PowerShell-cmdlets
-Dit artikel begeleidt bij een voorbeeld van het maken van een virtuele-machineschaalset (VMSS). Een set scale drie knooppunten wordt gemaakt met de gekoppelde netwerken en opslag.
+Dit artikel begeleidt bij een voorbeeld van hoe toocreate een virtuele-machineschaalset (VMSS). Een set scale drie knooppunten wordt gemaakt met de gekoppelde netwerken en opslag.
 
 ## <a name="first-steps"></a>Eerste stappen
-Zorg ervoor dat u hebt de nieuwste Azure PowerShell-module geïnstalleerd om te controleren of u hebt de PowerShell-commandlets die nodig zijn voor het onderhouden en schaalsets maken.
-Ga naar de opdrachtregel-hulpprogramma's [hier](http://aka.ms/webpi-azps) voor de meest recente beschikbare Azure Modules.
+Zorg ervoor dat u Hallo nieuwste Azure PowerShell-module geïnstalleerd hebt, hebt u Hallo PowerShell commandlets toomake toomaintain nodig en schaalsets maken.
+Ga toohello opdrachtregelprogramma's [hier](http://aka.ms/webpi-azps) Hallo voor de meest recente beschikbare Azure-Modules.
 
-Gerelateerde VMSS vinden commandlets, gebruikt u de zoekreeks \*VMSS\*. Bijvoorbeeld: _gcm *vmss*_
+toofind VMSS gerelateerde commandlets, gebruiken de zoekreeks Hallo \*VMSS\*. Bijvoorbeeld: _gcm *vmss*_
 
 ## <a name="creating-a-vmss"></a>Maken van een VMSS
 #### <a name="create-resource-group"></a>Een resourcegroep maken
@@ -50,12 +50,12 @@ $subnetName = 'websubnet'
 $vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -Subnet $subnet;
 $vnet = Get-AzureRmVirtualNetwork -Name ('vnet' + $rgname) -ResourceGroupName $rgname;
 
-# In this case assume the new subnet is the only one
+# In this case assume hello new subnet is hello only one
 $subnetId = $vnet.Subnets[0].Id;
 ```
 
-#### <a name="create-public-ip-resource-to-allow-external-access"></a>Openbare IP-Resource voor externe toegang maken
-Dit wordt gebonden aan de Load Balancer.
+#### <a name="create-public-ip-resource-tooallow-external-access"></a>Openbare IP-Resource tooAllow externe toegang maken
+Dit is gebonden toohello Load Balancer.
 
 ```
 $pubip = New-AzureRmPublicIpAddress -Force -Name ('pubip' + $rgname) -ResourceGroupName $rgname -Location $loc -AllocationMethod Dynamic -DomainNameLabel ('pubip' + $rgname);
@@ -71,24 +71,24 @@ $inboundNatPoolName = 'innatpool' + $rgname
 $lbruleName = 'lbrule' + $rgname
 $lbName = 'vmsslb' + $rgname
 
-# Bind Public IP to Load Balancer
+# Bind Public IP tooLoad Balancer
 $frontend = New-AzureRmLoadBalancerFrontendIpConfig -Name $frontendName -PublicIpAddress $pubip
 ```
 
 #### <a name="configure-load-balancer"></a>Load Balancer configureren
-Maken van back-end adresgroep Config, dit wordt gedeeld door de NIC's van de virtuele machines in de schaalset.
+Maken van back-end adresgroep Config, dit worden gedeeld door Hallo NIC's van Hallo virtuele machines in de schaalset Hallo.
 
 ```
 $backendAddressPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name $backendAddressPoolName
 ```
 
-Stel Load Balanced Testpoort, wijzig de instellingen die geschikt is voor uw toepassing.
+Stel Load Balanced Testpoort, Hallo instellingen geschikt is voor uw toepassing wijzigen.
 
 ```
 $probe = New-AzureRmLoadBalancerProbeConfig -Name $probeName -RequestPath healthcheck.aspx -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 ```
 
-Maak een binnenkomende NAT-adresgroep voor directe routering verbinding (geen taakverdeling) met de virtuele machines in de schaal instelt via de Load Balancer. Dit is om aan te tonen met RDP en kan niet in uw toepassing nodig zijn.
+Maken van een binnenkomende NAT-adresgroep voor directe routering verbinding (geen taakverdeling) toohello virtuele machines in Hallo scale ingesteld via Hallo Load Balancer. Dit is toodemonstrate met RDP en kan niet in uw toepassing nodig zijn.
 
 ```
 $frontendpoolrangestart = 3360
@@ -98,7 +98,7 @@ $inboundNatPool = New-AzureRmLoadBalancerInboundNatPoolConfig -Name $inboundNatP
 $frontend.Id -Protocol Tcp -FrontendPortRangeStart $frontendpoolrangestart -FrontendPortRangeEnd $frontendpoolrangeend -BackendPort $backendvmport;
 ```
 
-De Load Balanced regel maken, in dit voorbeeld toont laden taakverdeling poort 80 aanvragen, met behulp van de instellingen van de vorige stappen.
+Hallo met gelijke taakverdeling regel laden in het volgende voorbeeld toont load balancing poort 80 aanvragen, met de Hallo-instellingen van de vorige stappen maken.
 
 ```
 $protocol = 'Tcp'
@@ -119,14 +119,14 @@ $actualLb = New-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname -Lo
 -Probe $probe -LoadBalancingRule $lbrule -InboundNatPool $inboundNatPool -Verbose;
 ```
 
-Controleer de instellingen van de Load Balancer, controleert u taakverdeling poort configs, opmerking, ziet u inkomende NAT-regels totdat de virtuele machines in de schaalset zijn gemaakt.
+Controleer de instellingen van de Load Balancer, controleert u load balanced poort configs, houd er rekening mee, ziet u inkomende NAT-regels tot Hallo virtuele machines in de schaalset Hallo worden gemaakt.
 
 ```
 $expectedLb = Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname
 ```
 
-##### <a name="configure-and-create-the-scale-set"></a>Configureer en maak de schaalset
-Houd er rekening mee deze infrastructuur voorbeeld ziet u hoe om in te stellen, distribueren en scale-webverkeer in de schaalset, maar de installatiekopieën van virtuele machines die u hier opgeeft hoeft niet elke webservice geïnstalleerd.
+##### <a name="configure-and-create-hello-scale-set"></a>Configureren en maken Hallo schaalset
+Houd er rekening mee deze infrastructuur-voorbeeld laat zien hoe tooset up distribueren en scale-webverkeer over Hallo scale set echter Hallo installatiekopieën van virtuele machines die u hier opgeeft hoeft niet elke webservice geïnstalleerd.
 
 ```
 # specify scale set Name
@@ -149,7 +149,7 @@ $exttype = 'BGInfo';
 $extver = '2.1';
 ```
 
-NIC verbinden met Load Balancer en het Subnet
+BIND NIC tooLoad Balancer en het Subnet
 
 ```
 $ipCfg = New-AzureRmVmssIPConfig -Name 'nic' `
@@ -179,7 +179,7 @@ Configuratie van scale set bouwen
 New-AzureRmVmss -ResourceGroupName $rgname -Name $vmssName -VirtualMachineScaleSet $vmss -Verbose;
 ```
 
-U hebt nu de schaalset gemaakt. U kunt testen om verbinding te maken met de afzonderlijke virtuele machine met RDP in dit voorbeeld:
+U hebt nu Hallo schaalset gemaakt. U kunt testen verbindende toohello afzonderlijke virtuele machine met RDP in dit voorbeeld:
 
 ```
 VM0 : pubipmynewrgwu.westus.cloudapp.azure.com:3360

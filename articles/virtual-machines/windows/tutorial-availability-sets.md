@@ -1,6 +1,6 @@
 ---
-title: Beschikbaarheidssets zelfstudie voor Windows-machines in Azure | Microsoft Docs
-description: Meer informatie over de Beschikbaarheidssets voor Windows-machines in Azure.
+title: aaaAvailability zelfstudie ingesteld voor Windows-machines in Azure | Microsoft Docs
+description: Meer informatie over Hallo beschikbaarheid Sets voor Windows-machines in Azure.
 documentationcenter: 
 services: virtual-machines-windows
 author: cynthn
@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d918362106ef93cf47620e0018d363cd510884b0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 853775c5f126dd815c1933f9d71d2274a75ea661
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-availability-sets"></a>Het gebruik van beschikbaarheidssets
+# <a name="how-toouse-availability-sets"></a>Hoe toouse beschikbaarheidssets
 
-In deze zelfstudie leert u hoe u verhoogt de beschikbaarheid en betrouwbaarheid van uw virtuele Machine-oplossingen in Azure met een mogelijkheid Beschikbaarheidssets aangeroepen. Beschikbaarheidssets Zorg ervoor dat de virtuele machines die u implementeert in Azure worden gedistribueerd over meerdere geïsoleerde hardware-clusters. Dit zorgt ervoor dat als een storing hardware of software in Azure gebeurt, van invloed op een onderliggende reeks uw virtuele machines en die uw algehele oplossing blijft beschikbaar en operationele vanuit het perspectief van uw gebruik van klanten. 
+In deze zelfstudie leert u hoe tooincrease Hallo beschikbaarheid en betrouwbaarheid van uw virtuele Machine-oplossingen in Azure met een mogelijkheid Beschikbaarheidssets aangeroepen. Beschikbaarheidssets Zorg ervoor dat u implementeert op Azure VM's zijn verdeeld over meerdere geïsoleerde hardware clusters Hallo. Dit zorgt ervoor dat als een storing hardware of software in Azure gebeurt, van invloed op een onderliggende reeks uw virtuele machines die uw algehele oplossing blijft beschikbaar en operationele vanuit het oogpunt van uw klanten die gebruikmaken van het Hallo van. 
 
 In deze zelfstudie leert u het volgende:
 
@@ -33,19 +33,19 @@ In deze zelfstudie leert u het volgende:
 > * Een virtuele machine in een beschikbaarheidsset maken
 > * Controleer de beschikbare grootten voor virtuele machine
 
-Voor deze zelfstudie is moduleversie 3,6 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u upgraden wilt, Zie [Installeer Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
+Deze zelfstudie vereist hello Azure PowerShell-moduleversie 3,6 of hoger. Voer ` Get-Module -ListAvailable AzureRM` toofind Hallo versie. Als u tooupgrade moet, Zie [Installeer Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
 
 ## <a name="availability-set-overview"></a>Overzicht van de beschikbaarheidsset
 
-Een Beschikbaarheidsset is een logische groepering-functie die u in Azure gebruiken kunt om ervoor te zorgen dat de VM-resources die u in het plaatsen van elkaar geïsoleerd zijn wanneer ze zijn geïmplementeerd in een Azure-datacenter. Azure zorgt ervoor dat de virtuele machines die u binnen een Beschikbaarheidsset uitvoeren op meerdere fysieke servers plaatst, compute rekken eenheden voor opslag en netwerkswitches. Dit zorgt ervoor dat in het geval van een hardware- of Azure software fout slechts een subset van uw virtuele machines worden beïnvloed en uw algehele toepassing blijft en blijven beschikbaar voor uw klanten. Met behulp van Beschikbaarheidssets is een essentiële functie gebruiken als u wilt om betrouwbare cloudoplossingen te bouwen.
+Een Beschikbaarheidsset, is een logische groepering-functie die u kunt gebruiken in Azure tooensure dat Hallo VM resources die u in het plaatsen van elkaar geïsoleerd zijn wanneer ze zijn geïmplementeerd in een Azure-datacenter. Azure zorgt ervoor dat Hallo virtuele machines die u binnen een Beschikbaarheidsset uitvoeren op meerdere fysieke servers plaatst, compute rekken eenheden voor opslag en netwerkswitches. Dit zorgt ervoor dat in geval van een softwarestoring van de Azure-of hardware Hallo slechts een subset van uw virtuele machines worden beïnvloed en uw algehele toepassing blijft en doorgaan toobe beschikbaar tooyour klanten. Gebruik Beschikbaarheidssets is een tooleverage essentiële mogelijkheden als u wilt dat toobuild betrouwbare cloudoplossingen.
 
-Laten we eens een typische VM-oplossing op basis van waar u mogelijk 4 front-end-webservers en 2 back-end virtuele machines die een database te hosten. Met Azure twee beschikbaarheidssets definiëren voordat u uw virtuele machines implementeert u zou willen: één beschikbaarheidsset voor de laag 'web' en een beschikbaarheidsset voor de laag 'database'. Bij het maken van een nieuwe virtuele machine vervolgens u kunt de beschikbaarheidsset als een parameter voor de vm az opdracht maken en Azure automatisch zorgt u dat de virtuele machines die u in de set beschikbaar maakt zijn geïsoleerd over meerdere fysieke hardware-resources. Dit betekent dat als de fysieke hardware die een van uw webserver of VM's Database-Server wordt uitgevoerd op een probleem is, u kent dat de andere exemplaren van uw webserver en de Database virtuele machines actief probleemloos blijven wordt omdat ze op andere hardware.
+Laten we eens een typische VM-oplossing op basis van waar u mogelijk 4 front-end-webservers en 2 back-end virtuele machines die een database te hosten. Met Azure, kunt u twee beschikbaarheidssets toodefine voordat u uw virtuele machines implementeren: één beschikbaarheid instellen voor Hallo 'web' laag en een beschikbaarheidsset voor Hallo 'database' laag. Bij het maken van een nieuwe virtuele machine vervolgens u Hallo beschikbaarheid instellen opgeven kunt als een parameter toohello az vm-opdracht maken en Azure zorgt u dat Hallo virtuele machines die u binnen Hallo beschikbaar maken automatisch worden ingesteld op de resources van meerdere fysieke hardware geïsoleerd. Dit betekent dat als Hallo fysieke hardware die een van uw webserver of VM's Database-Server wordt uitgevoerd op een probleem, u dat Hallo weet andere exemplaren van uw webserver en de Database virtuele machines blijven actief probleemloos omdat ze op andere hardware.
 
-U moet altijd Beschikbaarheidssets gebruiken wanneer u wilt implementeren, betrouwbare op basis van VM-oplossingen in Azure.
+Als u wilt dat toodeploy betrouwbare VM op basis van oplossingen in Azure, moet u altijd Beschikbaarheidssets gebruiken.
 
 ## <a name="create-an-availability-set"></a>Een beschikbaarheidsset maken
 
-Kunt u een beschikbaarheidsset met [nieuw AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). In dit voorbeeld wordt zowel het aantal update en fouttolerantie domeinen op ingesteld *2* voor de beschikbaarheid van de set met de naam *myAvailabilitySet* in de *myResourceGroupAvailability* resourcegroep.
+Kunt u een beschikbaarheidsset met [nieuw AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). In dit voorbeeld we beide Hallo aantal update en fouttolerantie domeinen op instellen *2* voor Hallo beschikbaarheidsset benoemde *myAvailabilitySet* in Hallo *myResourceGroupAvailability*resourcegroep.
 
 Maak een resourcegroep.
 
@@ -66,20 +66,20 @@ New-AzureRmAvailabilitySet `
 
 ## <a name="create-vms-inside-an-availability-set"></a>Virtuele machines in een beschikbaarheidsset maken
 
-Virtuele machines moeten worden gemaakt binnen de beschikbaarheidsset om ervoor te zorgen dat ze correct zijn verdeeld over de hardware. U kunt een bestaande virtuele machine toevoegen aan een beschikbaarheidsset nadat deze is gemaakt. 
+Virtuele machines moeten toobe in Hallo beschikbaarheid set toomake zeker van te zijn dat ze correct zijn verdeeld over Hallo hardware hebt gemaakt. U kunt een bestaande VM tooan beschikbaarheidsset nadat deze is gemaakt niet toevoegen. 
 
-De hardware op een locatie is onderverdeeld meerdere domeinen van de update en domeinen met fouten. Een **updatedomein** is een groep VM's en de onderliggende fysieke hardware die op hetzelfde moment kan worden opgestart. Virtuele machines in dezelfde **foutdomein** algemene storage, evenals een gemeenschappelijk power-bron- en switch delen. 
+Hallo hardware op een locatie is onderverdeeld in toomultiple update domeinen en domeinen met fouten. Een **updatedomein** is een groep VM's en de onderliggende fysieke hardware die kan worden opgestart op Hallo hetzelfde moment. Virtuele machines in dezelfde Hallo **foutdomein** algemene storage, evenals een gemeenschappelijk power-bron- en switch delen. 
 
-Wanneer u een virtuele machine met behulp van de configuratie maakt [nieuw AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) opgeven van de beschikbaarheidsset met behulp van de `-AvailabilitySetId` parameter om de ID van de beschikbaarheidsset.
+Wanneer u een virtuele machine met behulp van de configuratie maakt [nieuw AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) u Hallo beschikbaarheid instellen met behulp van Hallo opgeven `-AvailabilitySetId` toospecify Hallo-ID van weergaveparameter van Hallo beschikbaarheidsset.
 
-Maken van 2 virtuele machines met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) in de beschikbaarheid instellen.
+Maken van 2 virtuele machines met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) in Hallo beschikbaarheid instellen.
 
 ```powershell
 $availabilitySet = Get-AzureRmAvailabilitySet `
     -ResourceGroupName myResourceGroupAvailability `
     -Name myAvailabilitySet
 
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+$cred = Get-Credential -Message "Enter a username and password for hello virtual machine."
 
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
     -Name mySubnet `
@@ -125,7 +125,7 @@ for ($i=1; $i -le 2; $i++)
         -PublicIpAddressId $pip.Id `
         -NetworkSecurityGroupId $nsg.Id
 
-   # Here is where we specify the availability set
+   # Here is where we specify hello availability set
    $vm = New-AzureRmVMConfig `
         -VMName myVM$i `
         -VMSize Standard_D1 `
@@ -158,11 +158,11 @@ for ($i=1; $i -le 2; $i++)
 
 ```
 
-Het duurt enkele minuten maken en configureren van beide virtuele machines. Wanneer u klaar bent, hebt u 2 virtuele machines die zijn verdeeld over de onderliggende hardware. 
+Het duurt enkele minuten toocreate en beide VM's configureren. Wanneer u klaar bent, hebt u 2 virtuele machines die zijn verdeeld over de onderliggende hardware Hallo. 
 
 ## <a name="check-for-available-vm-sizes"></a>Controleren op beschikbare VM-grootten 
 
-U kunt meer virtuele machines toevoegen aan de beschikbaarheid later instellen, maar u moet weten welke VM-grootten zijn beschikbaar op de hardware. Gebruik [Get-AzureRMVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) voor een lijst met alle van de beschikbare grootten van de hardware-cluster gebruikt voor de beschikbaarheidsset.
+U kunt meer virtuele machines toohello beschikbaarheidsset later toevoegen, maar u moet tooknow welke VM-grootten zijn beschikbaar op Hallo hardware. Gebruik [Get-AzureRMVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) toolist alle beschikbare grootten van Hallo op Hallo hardware-cluster voor Hallo beschikbaarheidsset.
 
 ```powershell
 Get-AzureRmVMSize `
@@ -179,7 +179,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Een virtuele machine in een beschikbaarheidsset maken
 > * Controleer de beschikbare grootten voor virtuele machine
 
-Ga naar de volgende zelfstudie voor meer informatie over virtuele-machineschaalsets.
+Toohello volgende zelfstudie toolearn over virtuele-machineschaalsets gaan.
 
 > [!div class="nextstepaction"]
 > [Een VM-schaalset maken](tutorial-create-vmss.md)

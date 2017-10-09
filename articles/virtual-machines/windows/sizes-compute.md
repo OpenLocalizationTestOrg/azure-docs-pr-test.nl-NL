@@ -1,6 +1,6 @@
 ---
-title: Azure grootten voor virtuele machine van Windows - geoptimaliseerde Compute | Microsoft Docs
-description: Hier worden de verschillende rekenscenario geoptimaliseerd grootten beschikbaar voor Windows virtuele machines in Azure.
+title: aaaAzure Windows VM-grootten - geoptimaliseerde Compute | Microsoft Docs
+description: Een lijst met grootten voor verschillende rekenscenario geoptimaliseerd Hallo beschikbaar voor Windows virtuele machines in Azure.
 services: virtual-machines-windows
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/28/2017
 ms.author: jonbeck
-ms.openlocfilehash: 873e9b257a1bcede5015f65fd4b2840e476f8c94
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8b7776e02c0fbd74305f48041ea3cb141f4d8a35
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="compute-optimized"></a>Geoptimaliseerde rekenkracht
 

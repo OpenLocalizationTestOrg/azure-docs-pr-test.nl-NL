@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM-groottes - GPU | Microsoft Docs
-description: Een lijst met de verschillende GPU geoptimaliseerd grootten beschikbaar voor virtuele Linux-machines in Azure.
+title: aaaAzure Linux VM-groottes - GPU | Microsoft Docs
+description: Geeft een lijst Hallo verschillende GPU geoptimaliseerd grootten beschikbaar voor virtuele Linux-machines in Azure.
 services: virtual-machines-linux
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/28/2017
 ms.author: jonbeck
-ms.openlocfilehash: 5c9bf89feba519147b07f2810fe4da882664e89e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e98f720499be37df4048aeb513aa4f6b187b7335
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="gpu-linux-vm-sizes"></a>GPU Linux VM-grootten
 
@@ -34,7 +34,7 @@ Zie voor stuurprogramma-installatie- en verificatiestappen stappen [N-reeks stuu
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
-* We adviseren niet te installeren X server of andere systemen die gebruikmaken van het stuurprogramma nouveau op Ubuntu NC-virtuele machines. Voordat u NVIDIA GPU-stuurprogramma's installeert, moet u het stuurprogramma nouveau uitschakelen.  
+* We adviseren niet te installeren X server of andere systemen die gebruikmaken van Hallo nouveau stuurprogramma op Ubuntu NC-virtuele machines. Voordat u NVIDIA GPU-stuurprogramma's installeert, moet u toodisable hello nouveau stuurprogramma.  
 
 ## <a name="other-sizes"></a>Andere grootten
 - [Algemeen doel](sizes-general.md)

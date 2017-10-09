@@ -1,6 +1,6 @@
 ---
-title: Verplaatsen van een virtuele machine van Windows-resource in Azure | Microsoft Docs
-description: Een Windows-VM verplaatsen naar een andere Azure-abonnement of de resource-groep in het Resource Manager-implementatiemodel.
+title: een virtuele machine van Windows-resource in Azure aaaMove | Microsoft Docs
+description: Een tooanother van de virtuele machine van Windows Azure-abonnement of resourcegroep verplaatsen Hallo Resource Manager-implementatiemodel.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 1db25a5d9ff5cb6aa2787a0cafa40cfb010e3b06
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 859e78dce9acf1168780d4ee8e9f6dac0e3c11cf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Een Windows VM verplaatsen naar een andere Azure-abonnement of resourcegroep groep
-Dit artikel begeleidt u bij het verplaatsen van een virtuele machine van Windows tussen resourcegroepen of abonnementen. Verplaatsen tussen abonnementen kan handig zijn als u een virtuele machine hebt gemaakt in een persoonlijke abonnement en wilt verplaatsen naar een abonnement van uw bedrijf om na te gaan met uw werk.
+# <a name="move-a-windows-vm-tooanother-azure-subscription-or-resource-group"></a>Een tooanother van de virtuele machine van Windows Azure-abonnement of resourcegroep verplaatsen
+In dit artikel leert u hoe u een Windows-VM tussen resourcegroepen of abonnementen toomove. Verplaatsen tussen abonnementen kan handig zijn als u een virtuele machine hebt gemaakt in een persoonlijke abonnement en nu wilt toomove deze van het bedrijf tooyour abonnement toocontinue uw werk.
 
 > [!IMPORTANT]
 >U kunt beheerde schijven op dit moment niet verplaatsen. 
 >
->Nieuwe resource-id's worden gemaakt als onderdeel van de verplaatsing. Nadat de virtuele machine is verplaatst, moet u de hulpprogramma's en scripts die de nieuwe resource-ID bijwerken. 
+>Nieuwe resource-id's worden gemaakt als onderdeel van Hallo verplaatsen. Als hello VM is verplaatst, moet u tooupdate de hulpprogramma's en scripts toouse Hallo nieuwe resource-id. 
 > 
 > 
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
-## <a name="use-powershell-to-move-a-vm"></a>Powershell gebruiken voor het verplaatsen van een virtuele machine
-Als een virtuele machine naar een andere resourcegroep verplaatsen, moet u ervoor zorgen dat u ook alle afhankelijke resources verplaatsen. Voor het gebruik van de cmdlet Move-AzureRMResource, moet u de naam van de bron en het type resource. U kunt beide van de cmdlet zoeken AzureRMResource ophalen.
+## <a name="use-powershell-toomove-a-vm"></a>Gebruik Powershell toomove een virtuele machine
+een resourcegroep van de virtuele machine tooanother toomove, moet u ervoor dat u ook Verplaats alle afhankelijke resources Hallo toomake. toouse hello verplaatsen AzureRMResource cmdlet, moet u Hallo resourcenaam en Hallo type resource. U kunt zowel vanuit Hallo zoeken AzureRMResource cmdlet ophalen.
 
     Find-AzureRMResource -ResourceGroupNameContains "<sourceResourceGroupName>"
 
 
-Voor het verplaatsen van een virtuele machine moet worden verplaatst van meerdere resources. We kunnen alleen afzonderlijke variabelen voor elke resource maken en deze vervolgens te vermelden. In dit voorbeeld bevat het merendeel van de algemene resources voor een virtuele machine, maar u kunt meer behoefte toevoegen.
+toomove een virtuele machine moet toomove meerdere resources. We kunnen alleen afzonderlijke variabelen voor elke resource maken en deze vervolgens te vermelden. In dit voorbeeld bevat de meest Hallo basic resources voor een virtuele machine, maar u kunt meer behoefte toevoegen.
 
     $sourceRG = "<sourceResourceGroupName>"
     $destinationRG = "<destinationResourceGroupName>"
@@ -54,14 +54,14 @@ Voor het verplaatsen van een virtuele machine moet worden verplaatst van meerder
 
     Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vm.ResourceId, $storageAccount.ResourceId, $diagStorageAccount.ResourceId, $vNet.ResourceId, $nic.ResourceId, $ip.ResourceId, $nsg.ResourceId
 
-De om resources te verplaatsen naar een ander abonnement, omvatten de **- DestinationSubscriptionId** parameter. 
+toomove Hallo resources toodifferent abonnement, omvatten Hallo **- DestinationSubscriptionId** parameter. 
 
     Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vm.ResourceId, $storageAccount.ResourceId, $diagStorageAccount.ResourceId, $vNet.ResourceId, $nic.ResourceId, $ip.ResourceId, $nsg.ResourceId
 
 
 
-U wordt gevraagd om te bevestigen dat u wilt verplaatsen van de opgegeven resources. Type **Y** om te bevestigen dat u wilt verplaatsen van de resources.
+U wordt gevraagd dat u wilt dat toomove hello tooconfirm opgegeven resources. Type **Y** tooconfirm dat u wilt dat toomove Hallo resources.
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt verschillende soorten resources verplaatsen tussen resourcegroepen en abonnementen. Zie voor meer informatie [Resources verplaatsen naar een nieuwe resourcegroep of een nieuw abonnement](../../resource-group-move-resources.md).    
+U kunt verschillende soorten resources verplaatsen tussen resourcegroepen en abonnementen. Zie voor meer informatie [verplaatsen van resources toonew resourcegroep of abonnement](../../resource-group-move-resources.md).    
 

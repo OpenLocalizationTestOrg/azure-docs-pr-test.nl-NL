@@ -1,5 +1,5 @@
 ---
-title: Maken van een virtuele-Machineschaalsets voor Linux in Azure | Microsoft Docs
+title: een virtuele Machine-Schaalsets Linux in Azure aaaCreate | Microsoft Docs
 description: Maken en implementeren van een maximaal beschikbare toepassing op virtuele Linux-machines met behulp van een virtuele-machineschaalset
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -15,41 +15,41 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 2b8d519e11f70eda164bd8f6e131a3989f242ab0
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 00dd81043f9be46ef2dc6dfe97eefdb20944ee13
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Een virtuele-Machineschaalset maken en implementeren van een maximaal beschikbare app op Linux
-Een virtuele-machineschaalset kunt u om te implementeren en beheren van een reeks identiek zijn, automatisch schalen virtuele machines. U kunt het aantal virtuele machines in de schaalset handmatig schalen of regels automatisch te schalen op basis van CPU-gebruik, geheugen-aanvraag of netwerkverkeer definiëren. In deze zelfstudie maakt implementeren u een virtuele-machineschaalset instellen in Azure. Procedures voor:
+Een virtuele-machineschaalset kunt u toodeploy en beheren van een reeks identiek zijn, automatisch schalen virtuele machines. U kunt Hallo aantal virtuele machines in de schaalset Hallo handmatig schalen of regels tooautoscale op basis van CPU-gebruik, geheugen-aanvraag of netwerkverkeer definiëren. In deze zelfstudie maakt implementeren u een virtuele-machineschaalset instellen in Azure. Procedures voor:
 
 > [!div class="checklist"]
-> * Cloud-init gebruiken voor het maken van een app schalen
+> * Cloud-init toocreate een tooscale app gebruiken
 > * Maken van een virtuele-machineschaalset
-> * Vergroten of verkleinen het aantal exemplaren in een schaalset
+> * Vergroten of verkleinen Hallo aantal exemplaren in een schaalset
 > * Verbindingsgegevens voor scale set exemplaren weergeven
 > * Gegevensschijven in een schaalset gebruiken
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.4 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, deze zelfstudie vereist dat u de versie van de Azure CLI Hallo 2.0.4 worden uitgevoerd of hoger. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="scale-set-overview"></a>Overzicht van Scale Set
-Een virtuele-machineschaalset kunt u om te implementeren en beheren van een reeks identiek zijn, automatisch schalen virtuele machines. Schaalsets dezelfde onderdelen gebruiken zoals u hebt geleerd over in de vorige zelfstudie naar [maximaal beschikbare virtuele machines maken](tutorial-availability-sets.md). Virtuele machines in een schaalset worden gemaakt in een beschikbaarheidsset ingesteld en verdeeld over logica probleem- en domeinen.
+Een virtuele-machineschaalset kunt u toodeploy en beheren van een reeks identiek zijn, automatisch schalen virtuele machines. Schaal wordt ingesteld gebruik Hallo dezelfde onderdelen die u kennisgemaakt in de vorige zelfstudie hello te[maximaal beschikbare virtuele machines maken](tutorial-availability-sets.md). Virtuele machines in een schaalset worden gemaakt in een beschikbaarheidsset ingesteld en verdeeld over logica probleem- en domeinen.
 
-Virtuele machines worden gemaakt als nodig in een schaalset. Definieert u de regels voor automatisch schalen om te bepalen hoe en wanneer virtuele machines worden toegevoegd of verwijderd uit de schaalaanpassingsset. Deze regels kunnen activeren op basis van metrische gegevens zoals CPU-belasting, geheugengebruik of netwerkverkeer.
+Virtuele machines worden gemaakt als nodig in een schaalset. U automatisch schalen regels toocontrol definiëren hoe en wanneer virtuele machines worden toegevoegd of verwijderd uit het Hallo-schaalset. Deze regels kunnen activeren op basis van metrische gegevens zoals CPU-belasting, geheugengebruik of netwerkverkeer.
 
-Schaal wordt ondersteuning voor maximaal 1000 VMs ingesteld wanneer u een installatiekopie van een Azure-platform. Voor productieworkloads, u kunt desgewenst [maken van een aangepaste VM-installatiekopie](tutorial-custom-images.md). U kunt maximaal 100 virtuele machines in een schaal instelt met behulp van een aangepaste installatiekopie maken.
+Schaal wordt ingesteld voor ondersteuning van too1, 000 VM's wanneer u een installatiekopie van een Azure-platform. Voor productieworkloads, kunt u desgewenst te[maken van een aangepaste VM-installatiekopie](tutorial-custom-images.md). U kunt maken van too100 virtuele machines in een schaal instelt met behulp van een aangepaste installatiekopie.
 
 
-## <a name="create-an-app-to-scale"></a>Maak een app schalen
-Voor gebruik in productieomgevingen, u kunt desgewenst [maken van een aangepaste VM-installatiekopie](tutorial-custom-images.md) waarin uw toepassing geïnstalleerd en geconfigureerd. Voor deze zelfstudie kunt aanpassen van de virtuele machines op de eerste keer wordt opgestart om snel een schaal instelt in actie zien.
+## <a name="create-an-app-tooscale"></a>Maken van een app-tooscale
+Voor gebruik in productieomgevingen, kunt u desgewenst te[maken van een aangepaste VM-installatiekopie](tutorial-custom-images.md) waarin uw toepassing geïnstalleerd en geconfigureerd. Voor deze zelfstudie kunt aanpassen Hallo die VM 's op de eerste opstarten tooquickly een schaal instelt in actie zien.
 
-In een vorige zelfstudie hebt u geleerd [het aanpassen van een virtuele Linux-machine op de eerste keer opstarten](tutorial-automate-vm-deployment.md) met cloud-init. U kunt het bestand met dezelfde configuratie cloud init NGINX installeren en uitvoeren van een eenvoudige 'Hallo wereld' Node.js-app. 
+In een vorige zelfstudie hebt u geleerd [hoe toocustomize virtuele Linux-machine op de eerste keer opstarten](tutorial-automate-vm-deployment.md) met cloud-init. U kunt dezelfde cloud init configuration file tooinstall NGINX Hallo en uitvoeren van een eenvoudige 'Hallo wereld' Node.js-app. 
 
-Maak een bestand met de naam in uw huidige shell *cloud init.txt* en plak de volgende configuratie. Maak bijvoorbeeld het bestand in de Cloud-Shell niet op uw lokale machine. Voer `sensible-editor cloud-init.txt` voor het maken van het bestand en een overzicht van beschikbare editors. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel:
+Maak een bestand met de naam in uw huidige shell *cloud init.txt* en plakken Hallo configuratie. Bijvoorbeeld, Hallo-bestand in Hallo Cloud-Shell op uw lokale machine niet maken. Voer `sensible-editor cloud-init.txt` toocreate Hallo bestand en een overzicht van beschikbare editors. Zorg ervoor dat Hallo hele cloud-init-bestand correct is gekopieerd, met name Hallo eerste regel:
 
 ```yaml
 #cloud-config
@@ -95,13 +95,13 @@ runcmd:
 
 
 ## <a name="create-a-scale-set"></a>Maken van een schaalset
-Voordat u een schaalset maken kunt, maakt u een resourcegroep met [az groep maken](/cli/azure/group#create). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupScaleSet* in de *eastus* locatie:
+Voordat u een schaalset maken kunt, maakt u een resourcegroep met [az groep maken](/cli/azure/group#create). Hallo volgende voorbeeld maakt u een resourcegroep met de naam *myResourceGroupScaleSet* in Hallo *eastus* locatie:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupScaleSet --location eastus
 ```
 
-Maak nu de schaal van een virtuele machine in te stellen [az vmss maken](/cli/azure/vmss#create). Het volgende voorbeeld wordt een set met de naam scale *myScaleSet*, gebruikt u het cloud-init-bestand voor het aanpassen van de virtuele machine en SSH-sleutels worden gegenereerd als deze nog niet bestaan:
+Maak nu de schaal van een virtuele machine in te stellen [az vmss maken](/cli/azure/vmss#create). Hallo volgende voorbeeld wordt een set met de naam scale *myScaleSet*Hallo cloud init bestand toocustomize Hallo VM gebruikt en SSH-sleutels worden gegenereerd als deze nog niet bestaan:
 
 ```azurecli-interactive 
 az vmss create \
@@ -114,13 +114,13 @@ az vmss create \
   --generate-ssh-keys      
 ```
 
-Het duurt enkele minuten voor het maken en configureren van de schaal set resources en virtuele machines. Er zijn achtergrondtaken die uitvoeren blijven nadat de Azure CLI keert u terug naar de prompt. Het is mogelijk een andere paar minuten voordat u toegang hebt tot de app.
+Het duurt enkele minuten toocreate en configureer alle Hallo scale set resources en virtuele machines. Er zijn achtergrondtaken die toorun verder gaat nadat hello Azure CLI keert u terug toohello prompt. Het is mogelijk een andere paar minuten voordat u toegang hebt tot Hallo-app.
 
 
 ## <a name="allow-web-traffic"></a>Webverkeer toestaan
-Een load balancer is automatisch als onderdeel van de virtuele-machineschaalset gemaakt. De load balancer wordt verkeer over een reeks gedefinieerde virtuele machines met regels voor load balancer. U kunt meer informatie over de load balancer concepten en configuratie in de volgende zelfstudie [het laden van virtuele machines in Azure](tutorial-load-balancer.md).
+Een load balancer is automatisch als onderdeel van Hallo virtuele-machineschaalset gemaakt. Hallo load balancer wordt verkeer over een reeks gedefinieerde virtuele machines met regels voor load balancer. U kunt meer informatie over de load balancer concepten en configuratie in de volgende zelfstudie Hallo, [hoe tooload balans vinden tussen virtuele machines in Azure](tutorial-load-balancer.md).
 
-Om verkeer te staan om te bereiken van de web-app, maakt u een regel met [az network Load Balancer-regel maken](/cli/azure/network/lb/rule#create). Het volgende voorbeeld wordt een regel met naam *myLoadBalancerRuleWeb*:
+tooallow verkeer tooreach Hallo web-app, maakt u een regel met [az network Load Balancer-regel maken](/cli/azure/network/lb/rule#create). Hallo volgende voorbeeld maakt u een regel met naam *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -135,7 +135,7 @@ az network lb rule create \
 ```
 
 ## <a name="test-your-app"></a>Uw app testen
-Uw Node.js-app op het web vindt verkrijgen van het openbare IP-adres van de load balancer met [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#show). Het volgende voorbeeld verkrijgt het IP-adres voor *myScaleSetLBPublicIP* gemaakt als onderdeel van de schaal is ingesteld:
+toosee uw Node.js-app op Hallo web verkrijgen Hallo openbare IP-adres van de load balancer met [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#show). Hallo volgende voorbeeld Hallo IP-adres krijgt voor *myScaleSetLBPublicIP* gemaakt als onderdeel van het Hallo-schaalset:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -145,18 +145,18 @@ az network public-ip show \
     --output tsv
 ```
 
-Geef het openbare IP-adres in naar een webbrowser. De app wordt weergegeven, inclusief de hostnaam van de virtuele machine die de load balancer verkeer naar gedistribueerde:
+Voer Hallo openbaar IP-adres in de webbrowser tooa. Hallo-app wordt weergegeven, inclusief Hallo hostnaam Hallo VM die Hallo load balancer gedistribueerde verkeer naar:
 
 ![Actieve Node.js-app](./media/tutorial-create-vmss/running-nodejs-app.png)
 
-Overzicht van de schaal instelt in actie, u kunt force vernieuwen uw webbrowser als u wilt zien van de load balancer verkeer verdelen over alle virtuele machines waarop uw app wordt uitgevoerd.
+toosee hello schaal instellen in actie, u kunt force vernieuwen uw web browser toosee Hallo load balancer verkeer verdelen over alle Hallo virtuele machines waarop uw app wordt uitgevoerd.
 
 
 ## <a name="management-tasks"></a>Beheertaken
-Gedurende de levenscyclus van de schaal is ingesteld, moet u wellicht een of meer beheertaken uitvoeren. Bovendien wilt u scripts maken die verschillende lifecycle-taken automatiseren. De Azure CLI 2.0 biedt een snelle manier om deze taken. Hier volgen enkele algemene taken.
+Gedurende de levenscyclus van de Hallo van Hallo scale is ingesteld, moet u mogelijk toorun een of meer beheertaken. U kunt bovendien toocreate scripts die verschillende lifecycle-taken automatiseren. Hello Azure CLI 2.0 biedt een snelle manier toodo deze taken. Hier volgen enkele algemene taken.
 
 ### <a name="view-vms-in-a-scale-set"></a>Weergave virtuele machines in een schaalset
-Een lijst van virtuele machines die worden uitgevoerd in de schaalset wilt weergeven, gebruikt u [az vmss lijstexemplaren](/cli/azure/vmss#list-instances) als volgt:
+tooview een lijst met virtuele machines die worden uitgevoerd in uw scale ingesteld, gebruikt u [az vmss lijstexemplaren](/cli/azure/vmss#list-instances) als volgt:
 
 ```azurecli-interactive 
 az vmss list-instances \
@@ -165,7 +165,7 @@ az vmss list-instances \
   --output table
 ```
 
-De uitvoer lijkt op die in het volgende voorbeeld:
+Hallo uitvoer is vergelijkbaar toohello volgende voorbeeld:
 
 ```azurecli-interactive 
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup            VmId
@@ -176,7 +176,7 @@ De uitvoer lijkt op die in het volgende voorbeeld:
 
 
 ### <a name="increase-or-decrease-vm-instances"></a>Vergroten of verkleinen van VM-exemplaren
-Als het aantal exemplaren dat u momenteel in een schaalset hebt wilt weergeven, gebruikt [az vmss weergeven](/cli/azure/vmss#show) en query's uitvoeren op *sku.capacity*:
+toosee hello aantal exemplaren van u momenteel hebt in een schaal ingesteld, gebruikt u [az vmss weergeven](/cli/azure/vmss#show) en query's uitvoeren op *sku.capacity*:
 
 ```azurecli-interactive 
 az vmss show \
@@ -186,7 +186,7 @@ az vmss show \
     --output table
 ```
 
-U kunt vervolgens handmatig vergroten of verkleinen het aantal virtuele machines in de schaal in te stellen [az vmss scale](/cli/azure/vmss#scale). Het volgende voorbeeld wordt het aantal VM's in uw ingesteld op schaal *5*:
+U kunt vervolgens handmatig vergroten of verkleinen Hallo aantal virtuele machines in Hallo schaal in te stellen [az vmss scale](/cli/azure/vmss#scale). Hallo volgende voorbeeld wordt Hallo aantal virtuele machines in te stellen schaal*5*:
 
 ```azurecli-interactive 
 az vmss scale \
@@ -195,10 +195,10 @@ az vmss scale \
     --new-capacity 5
 ```
 
-Regels voor automatisch schalen kunt u definiëren hoe schaal omhoog of omlaag het aantal VM's in uw scale instellen als reactie op de vraag zoals netwerkverkeer of CPU-gebruik. Deze regels kunnen op dit moment kunnen niet worden ingesteld in de Azure CLI 2.0. Gebruik de [Azure-portal](https://portal.azure.com) automatisch schalen configureren.
+Regels voor automatisch schalen kunt u definiëren hoe tooscale omhoog of omlaag Hallo aantal VM's in uw scale ingesteld in antwoord toodemand zoals netwerkverkeer of CPU-gebruik. Deze regels kunnen op dit moment kunnen niet worden ingesteld in de Azure CLI 2.0. Gebruik Hallo [Azure-portal](https://portal.azure.com) tooconfigure automatisch schalen.
 
 ### <a name="get-connection-info"></a>Verbindingsgegevens ophalen
-Gebruik om verbindingsinformatie over de VM's in uw schaalsets [az vmss lijst--verbinding-Instantiegegevens](/cli/azure/vmss#list-instance-connection-info). Met deze opdracht levert de openbare IP-adres en poort voor elke virtuele machine waarmee u verbinding maken met SSH:
+verbindingsgegevens tooobtain over VM's in uw schaalsets hello, gebruik [az vmss lijst--verbinding-Instantiegegevens](/cli/azure/vmss#list-instance-connection-info). Met deze opdracht levert Hallo openbaar IP-adres en poort voor elke virtuele machine waarmee u tooconnect met SSH:
 
 ```azurecli-interactive 
 az vmss list-instance-connection-info \
@@ -208,10 +208,10 @@ az vmss list-instance-connection-info \
 
 
 ## <a name="use-data-disks-with-scale-sets"></a>Gegevensschijven met schaalsets gebruiken
-U kunt maken en gebruiken van gegevensschijven met-schaalsets. In een vorige zelfstudie hebt u geleerd hoe u [Azure beheren schijven](tutorial-manage-disks.md) die licht de aanbevolen procedures en verbeterde prestaties voor het bouwen van apps op gegevensschijven in plaats van de besturingssysteemschijf.
+U kunt maken en gebruiken van gegevensschijven met-schaalsets. In een vorige zelfstudie hebt u geleerd hoe te[Azure beheren schijven](tutorial-manage-disks.md) dat overzichten Hallo best practices en verbeterde prestaties voor het bouwen van apps op gegevensschijven in plaats van Hallo OS-schijf.
 
 ### <a name="create-scale-set-with-data-disks"></a>Schaalset met gegevensschijven maken
-Voor het maken van een schaalset en gegevensschijven koppelen, voeg de `--data-disk-sizes-gb` -parameter voor de [az vmss maken](/cli/azure/vmss#create) opdracht. Het volgende voorbeeld wordt een instellen met schaal *50*Gb gegevensschijven gekoppeld aan elk exemplaar:
+toocreate een schaal instellen en gegevensschijven, koppel toevoegen Hallo `--data-disk-sizes-gb` parameter toohello [az vmss maken](/cli/azure/vmss#create) opdracht. Hallo volgende voorbeeld wordt een instellen met schaal *50*Gb gegevensschijven gekoppeld tooeach exemplaar:
 
 ```azurecli-interactive 
 az vmss create \
@@ -228,7 +228,7 @@ az vmss create \
 Wanneer instanties zijn verwijderd uit een schaalset, worden ook eventuele gekoppelde gegevensschijven verwijderd.
 
 ### <a name="add-data-disks"></a>Gegevensschijven toevoegen
-U kunt een gegevensschijf toevoegen aan exemplaren in de schaalset met [az vmss schijf koppelen](/cli/azure/vmss/disk#attach). Het volgende voorbeeld wordt een *50*Gb schijfruimte op elk exemplaar:
+tooadd een tooinstances gegevens schijf in uw scale instellen, gebruikt u [az vmss schijf koppelen](/cli/azure/vmss/disk#attach). Hallo volgende voorbeeld wordt een *50*Gb schijf tooeach exemplaar:
 
 ```azurecli-interactive 
 az vmss disk attach \
@@ -239,7 +239,7 @@ az vmss disk attach \
 ```
 
 ### <a name="detach-data-disks"></a>Loskoppelen van gegevensschijven
-U kunt een gegevensschijf aan exemplaren in de schaalset verwijderen [az vmss schijf loskoppelen](/cli/azure/vmss/disk#detach). Het volgende voorbeeld verwijdert u de gegevensschijf met LUN *2* van elk exemplaar:
+tooremove een tooinstances gegevens schijf in uw scale instellen, gebruikt u [az vmss schijf loskoppelen](/cli/azure/vmss/disk#detach). Hallo volgende voorbeeld wordt verwijderd Hallo gegevensschijf met LUN *2* van elk exemplaar:
 
 ```azurecli-interactive 
 az vmss disk detach \
@@ -250,16 +250,16 @@ az vmss disk detach \
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie maakt u een virtuele-machineschaalset gemaakt. U leert hoe naar:
+In deze zelfstudie maakt u een virtuele-machineschaalset gemaakt. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Cloud-init gebruiken voor het maken van een app schalen
+> * Cloud-init toocreate een tooscale app gebruiken
 > * Maken van een virtuele-machineschaalset
-> * Vergroten of verkleinen het aantal exemplaren in een schaalset
+> * Vergroten of verkleinen Hallo aantal exemplaren in een schaalset
 > * Verbindingsgegevens voor scale set exemplaren weergeven
 > * Gegevensschijven in een schaalset gebruiken
 
-Ga naar de volgende zelfstudie voor meer informatie over taakverdeling concepten voor virtuele machines.
+De volgende zelfstudie toolearn toohello voor vooraf informatie over taakverdeling concepten voor virtuele machines.
 
 > [!div class="nextstepaction"]
 > [Load balance virtuele machines](tutorial-load-balancer.md)

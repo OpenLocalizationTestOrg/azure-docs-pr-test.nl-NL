@@ -1,6 +1,6 @@
 ---
-title: Een virtuele machine maken in de Azure portal | Microsoft Docs
-description: Maak een virtuele Windows-machine in de Azure portal.
+title: een virtuele machine in Azure-portal Hallo aaaCreate | Microsoft Docs
+description: Een virtuele Windows-machine maken in hello Azure-portal.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 0981872ff819fdf49a9cc97afce3c212013ce76b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3848a3d06a7ce377633db78ea385826ed40f94fd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Maak een virtuele machine waarop Windows wordt uitgevoerd in de Azure portal
+# <a name="create-a-virtual-machine-running-windows-in-hello-azure-portal"></a>Maak een virtuele machine met Windows in hello Azure-portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](tutorial.md)
 > * [PowerShell: Klassieke implementatie](create-powershell.md)
@@ -31,20 +31,20 @@ ms.lasthandoff: 07/11/2017
 <br>
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Meer informatie over hoe [u deze stappen uitvoert met het implementatiemodel van Resource Manager](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) met behulp van de **Azure-portal**.
+> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van Hallo klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken. Meer informatie over hoe te[u deze stappen uitvoert met behulp van Resource Manager-implementatiemodel Hallo](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) met Hallo **Azure-portal**.
 
-Deze zelfstudie laat zien hoe u een Azure virtuele machine (VM) waarop Windows wordt uitgevoerd in de Azure portal maken. We een installatiekopie van Windows Server gebruiken als voorbeeld, maar dat is slechts een van de vele installatiekopieën die Azure biedt. Houd er rekening mee dat uw opties in de installatiekopie, afhankelijk van uw abonnement. Windows-bureaublad installatiekopieën kunnen bijvoorbeeld zijn beschikbaar voor MSDN-abonnees.
+Deze zelfstudie leert u hoe toocreate een Azure virtuele machine (VM) met Windows in hello Azure-portal. We een installatiekopie van Windows Server gebruiken als voorbeeld, maar dat is slechts een Hallo veel installatiekopieën van Azure biedt. Houd er rekening mee dat uw opties in de installatiekopie, afhankelijk van uw abonnement. Windows-bureaublad installatiekopieën is bijvoorbeeld mogelijk beschikbaar tooMSDN abonnees.
 
-In deze sectie leest u hoe u de **Dashboard** in de Azure portal om te selecteren en vervolgens de virtuele machine te maken.
+Deze sectie leest u hoe toouse hello **Dashboard** in Azure portal tooselect Hallo en maak vervolgens Hallo virtuele machine.
 
-U kunt ook maken met virtuele machines met [uw eigen installatiekopieën](createupload-vhd.md). Zie voor meer informatie over deze en andere methoden, [verschillende manieren voor het maken van een virtuele Windows-machine](../../virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+U kunt ook maken met virtuele machines met [uw eigen installatiekopieën](createupload-vhd.md). toolearn over deze en andere methoden, Zie [toocreate verschillende manieren een virtuele Windows-machine](../../virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!-- 02/27/2017 Video removed as it was based on the classic portal. -->
+<!-- 02/27/2017 Video removed as it was based on hello classic portal. -->
 
-## <a id="createvirtualmachine"></a>Maak de virtuele machine
+## <a id="createvirtualmachine"></a>Hello virtuele machine maken
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over hoe [een virtuele machine maken met het implementatiemodel van Resource Manager](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) in de Azure portal.
-* Meld u bij de virtuele machine. Zie voor instructies [Meld u aan bij een virtuele machine met Windows Server](connect-logon.md).
-* Koppel een schijf voor het opslaan van gegevens. U kunt zowel leeg schijven en schijven met gegevens koppelen. Voor instructies raadpleegt u de [een gegevensschijf koppelen aan een virtuele Windows-machine gemaakt met het klassieke implementatiemodel](attach-disk.md).
+* Meer informatie over hoe te[een virtuele machine maken met Resource Manager-implementatiemodel Hallo](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) in hello Azure-portal.
+* Meld u aan toohello virtuele machine. Zie voor instructies [tooa virtuele machine met Windows Server aanmelden](connect-logon.md).
+* Voeg een schijf toostore gegevens. U kunt zowel leeg schijven en schijven met gegevens koppelen. Zie voor instructies Hallo [koppelen van een data schijf tooa Windows virtuele machine gemaakt met het klassieke implementatiemodel Hallo](attach-disk.md).

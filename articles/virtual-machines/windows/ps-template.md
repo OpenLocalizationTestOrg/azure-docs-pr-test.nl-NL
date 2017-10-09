@@ -1,6 +1,6 @@
 ---
-title: Een virtuele Windows-machine maken van een sjabloon in Azure | Microsoft Docs
-description: Gebruik een Resource Manager-sjabloon en PowerShell eenvoudig een nieuwe Windows VM te maken.
+title: een Windows-VM met een sjabloon in Azure aaaCreate | Microsoft Docs
+description: Gebruik Resource Manager-sjabloon en PowerShell tooeasily Maak een nieuwe Windows VM.
 services: virtual-machines-windows
 documentationcenter: 
 author: davidmu1
@@ -16,23 +16,23 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddab80262fe27c1f5995858ec7de75d7c46df081
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 630111482c7dc046091632e2ed458ac143325d59
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Een virtuele Windows-machine maken van een Resource Manager-sjabloon
 
-In dit artikel laat zien hoe een Azure Resource Manager-sjabloon met behulp van PowerShell implementeren. De sjabloon die u maakt implementeert een enkele virtuele machine met Windows Server in een nieuw virtueel netwerk met één subnet.
+Dit artikel ziet u hoe toodeploy een Azure Resource Manager-sjabloon met gebruik van PowerShell. Hallo-sjabloon die u maakt implementeert een enkele virtuele machine met Windows Server in een nieuw virtueel netwerk met één subnet.
 
-Zie voor een gedetailleerde beschrijving van de bron van de virtuele machine, [virtuele machines in een Azure Resource Manager-sjabloon](template-description.md). Zie voor meer informatie over de resources in een sjabloon [overzicht van Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Zie voor een gedetailleerde beschrijving van de bron van de virtuele machine Hallo [virtuele machines in een Azure Resource Manager-sjabloon](template-description.md). Zie voor meer informatie over alle Hallo resources in een sjabloon [overzicht van Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-Het moet ongeveer vijf minuten duren voordat de stappen in dit artikel doen.
+Het duurt ongeveer 5 minuten toodo Hallo in dit artikel stappen.
 
 ## <a name="install-azure-powershell"></a>Azure PowerShell installeren
 
-Zie [Azure PowerShell installeren en configureren](../../powershell-install-configure.md) voor informatie over het installeren van de nieuwste versie van Azure PowerShell, het selecteren van het abonnement en het aanmelden bij uw account.
+Zie [hoe tooinstall en configureren van Azure PowerShell](../../powershell-install-configure.md) voor meer informatie over Hallo meest recente versie van Azure PowerShell installeren, uw abonnement te selecteren en tooyour account aanmelden.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -44,17 +44,17 @@ Alle bronnen moeten worden geïmplementeerd in een [resourcegroep](../../azure-r
     Get-AzureRmLocation | sort DisplayName | Select DisplayName
     ```
 
-2. De resourcegroep maken in de locatie die u selecteert. In dit voorbeeld toont het maken van een resourcegroep met de naam **myResourceGroup** in de **VS-West** locatie:
+2. Hallo-resourcegroep maken op Hallo locatie die u selecteert. Dit voorbeeld ziet u het maken van een resourcegroep met de naam van Hallo **myResourceGroup** in Hallo **VS-West** locatie:
 
     ```powershell   
     New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
     ```
 
-## <a name="create-the-files"></a>De bestanden maken
+## <a name="create-hello-files"></a>Hallo-bestanden maken
 
-In deze stap maakt u een sjabloonbestand dat de bronnen implementeert en een parameterbestand dat parameterwaarden voor de sjabloon. U wordt ook een bestand met autorisatieregels die wordt gebruikt voor het Azure Resource Manager-bewerkingen uitvoeren.
+In deze stap maakt u een sjabloonbestand die Hallo resources implementeert en een parameterbestand dat parameter waarden toohello sjabloon. U wordt ook een bestand met autorisatieregels die gebruikte tooperform Azure Resource Manager-bewerkingen.
 
-1. Maak een bestand met de naam *CreateVMTemplate.json* en voeg deze JSON-code toe:
+1. Maak een bestand met de naam *CreateVMTemplate.json* en voeg deze code JSON tooit:
 
     ```json
     {
@@ -159,7 +159,7 @@ In deze stap maakt u een sjabloonbestand dat de bronnen implementeert en een par
     }
     ```
 
-2. Maak een bestand met de naam *Parameters.json* en voeg deze JSON-code toe:
+2. Maak een bestand met de naam *Parameters.json* en voeg deze code JSON tooit:
 
     ```json
     {
@@ -182,18 +182,18 @@ In deze stap maakt u een sjabloonbestand dat de bronnen implementeert en een par
     New-AzureStorageContainer -Name "templates" -Context $context -Permission Container
     ```
 
-4. De bestanden uploaden naar het storage-account:
+4. Hallo bestanden toohello storage-account uploaden:
 
     ```powershell
     Set-AzureStorageBlobContent -File "C:\templates\CreateVMTemplate.json" -Context $context -Container "templates"
     Set-AzureStorageBlobContent -File "C:\templates\Parameters.json" -Context $context -Container templates
     ```
 
-    Wijzig de - paden naar de locatie waar u de bestanden opgeslagen.
+    Wijziging Hallo - paden toohello bestandslocatie waar u Hallo-bestanden opgeslagen.
 
-## <a name="create-the-resources"></a>De resources maken
+## <a name="create-hello-resources"></a>Hallo resources maken
 
-De sjabloon met de parameters implementeren:
+Hallo-sjabloon met gebruik van parameters Hallo implementeren:
 
 ```powershell
 $templatePath = "https://" + $storageName + ".blob.core.windows.net/templates/CreateVMTemplate.json"
@@ -202,10 +202,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "m
 ```
 
 > [!NOTE]
-> U kunt ook de parameters van lokale bestanden en sjablonen implementeren. Zie voor meer informatie, [Azure PowerShell gebruiken met Azure Storage](../../storage/common/storage-powershell-guide-full.md).
+> U kunt ook de parameters van lokale bestanden en sjablonen implementeren. toolearn meer, Zie [Azure PowerShell gebruiken met Azure Storage](../../storage/common/storage-powershell-guide-full.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als er problemen met de implementatie, kunt u eens kijken [oplossen van veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
-- Meer informatie over het maken en beheren van een virtuele machine in [maken en beheren van Windows-VM's met de Azure PowerShell-module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Als er problemen met de Hallo-implementatie, kunt u eens kijken [oplossen van veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+- Meer informatie over hoe toocreate en beheren van een virtuele machine in [maken en beheren van Windows-VM's met Azure PowerShell-module Hallo](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -4,9 +4,9 @@
 ## [Veelgestelde vragen](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # Aan de slag
-## [Een VM inrichten in Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)
+## [Inrichten van een virtuele machine in hello Azure-portal](virtual-machines-windows-portal-sql-server-provision.md)
 ## [Een VM inrichten met Azure PowerShell](virtual-machines-windows-ps-sql-create.md)
-## [Verbinding maken met een VM](virtual-machines-windows-sql-connect.md)
+## [Verbinding maken met tooa VM](virtual-machines-windows-sql-connect.md)
 ## [Een SQL Server-database migreren](virtual-machines-windows-migrate-sql.md)
 
 # Procedures
@@ -23,7 +23,7 @@
 #### [Configureren](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
 ## Beheren
-### [De SQL Server IaaS Agent-extensie gebruiken](virtual-machines-windows-sql-server-agent-extension.md)
+### [Hallo uitbreiding voor IaaS-Agent van SQL Server gebruiken](virtual-machines-windows-sql-server-agent-extension.md)
 ### [Automatisch patch toepassen](virtual-machines-windows-sql-automated-patching.md)
 ### [Azure Key Vault-integratie configureren](virtual-machines-windows-ps-sql-keyvault.md)
 ### [Beveiligingsoverwegingen](virtual-machines-windows-sql-security.md)

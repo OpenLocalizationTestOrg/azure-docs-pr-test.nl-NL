@@ -1,6 +1,6 @@
 ---
-title: Een virtueel netwerk maken met een netwerk-configuratiebestand | PowerShell | Klassieke | Microsoft Docs
-description: Informatie over het maken van een virtueel netwerk met een netwerk-configuratiebestand in de Azure-portal.
+title: een virtueel netwerk met een netwerk-configuratiebestand aaaCreate | PowerShell | Klassieke | Microsoft Docs
+description: Meer informatie over hoe toocreate een virtueel netwerk met een netwerkconfiguratie bestanden per hello Azure-portal.
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.openlocfilehash: a67c3f73d9e56ab0081836ba5db62f5a01c7b6bc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1e4005b06324ca61d63b03799ebbbc4373f14dbd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-virtual-network-classic-using-a-network-configuration-file-with-powershell"></a>Maak een virtueel netwerk (klassiek) met een netwerk configuratiebestand met PowerShell
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/11/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Dit document bevat informatie over het maken van een VNet met het klassieke implementatiemodel. U kunt ook [een virtueel netwerk maken in het Resource Manager-implementatiemodel](virtual-networks-create-vnet-arm-ps.md).
+Dit document bevat informatie over het maken van een VNet met het klassieke implementatiemodel Hallo. U kunt ook [een virtueel netwerk maken in de Resource Manager-implementatiemodel Hallo](virtual-networks-create-vnet-arm-ps.md).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Grootte van een Windows-VM in Azure met PowerShell | Microsoft Docs
-description: Het formaat van een virtuele Windows-computer in het Resource Manager-implementatiemodel, met Azure Powershell hebt gemaakt.
+title: aaaUse PowerShell tooresize een Windows-VM in Azure | Microsoft Docs
+description: Het formaat van een virtuele Windows-machine gemaakt in Hallo Resource Manager-implementatiemodel, met Azure Powershell.
 services: virtual-machines-windows
 documentationcenter: 
 author: Drewm3
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-ms.openlocfilehash: 742efd1496de9ce76b1e5636297ef30f546bd108
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a4a80f3bc99911e4f1a095f0ce63aca00fa50694
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="resize-a-windows-vm"></a>Een Windows VM vergroten of verkleinen
-In dit artikel leest u hoe het formaat van een virtuele machine van Windows, in het Resource Manager-implementatiemodel met Azure Powershell hebt gemaakt.
+Dit artikel laat zien hoe tooresize een Windows-VM gemaakt in Hallo Resource Manager-implementatiemodel met Azure Powershell.
 
-Nadat u een virtuele machine (VM) gemaakt, u kunt de virtuele machine omhoog of omlaag schalen door het wijzigen van de VM-grootte. In sommige gevallen moet u eerst de VM ongedaan. Dit kan gebeuren als de nieuwe grootte is niet beschikbaar op de hardware-cluster waarop de virtuele machine wordt gehost.
+Nadat u een virtuele machine (VM) gemaakt, kunt u Hallo VM schalen omhoog of omlaag door Hallo VM-grootte wijzigen. In sommige gevallen moet u eerst Hallo VM ongedaan. Dit kan gebeuren als de nieuwe grootte Hallo is niet beschikbaar op Hallo hardware cluster dat momenteel fungeert als Hallo VM host.
 
 ## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Een Windows-VM niet in een beschikbaarheidsset vergroten of verkleinen
-1. Lijst van de VM-grootten die beschikbaar zijn op de hardware-cluster waarop de virtuele machine wordt gehost. 
+1. Lijst met Hallo VM-grootten die beschikbaar zijn op Hallo hardware cluster waar Hallo VM wordt gehost. 
    
     ```powershell
     Get-AzureRmVMSize -ResourceGroupName <resourceGroupName> -VMName <vmName> 
     ```
-2. Als de gewenste grootte wordt weergegeven, voer de volgende opdrachten om het formaat van de virtuele machine aan. Als de gewenste grootte niet wordt weergegeven, gaat u naar stap 3.
+2. Als Hallo grootte wordt vermeld gewenst, voert u Hallo opdrachten tooresize Hallo VM te volgen. Desgewenst Hallo formaat niet wordt vermeld, gaat u toostep 3.
    
     ```powershell
     $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
     $vm.HardwareProfile.VmSize = "<newVMsize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
-3. Als de gewenste grootte niet wordt weergegeven, voer de volgende opdrachten toewijzing van de virtuele machine, het formaat en opnieuw opstarten van de virtuele machine.
+3. Als Hallo formaat niet wordt vermeld gewenst, voert u Hallo opdrachten toodeallocate Hallo VM, het formaat en Hallo VM starten na.
    
     ```powershell
     $rgname = "<resourceGroupName>"
@@ -52,27 +52,27 @@ Nadat u een virtuele machine (VM) gemaakt, u kunt de virtuele machine omhoog of 
     ```
 
 > [!WARNING]
-> Toewijzing van de virtuele machine versies dynamische IP-adressen toegewezen aan de virtuele machine. Het besturingssysteem en de gegevensschijven worden niet getroffen. 
+> Toewijzing Hallo VM versies dynamische IP-adressen toegewezen toohello VM. Hello OS- en gegevensschijven worden niet getroffen. 
 > 
 > 
 
 ## <a name="resize-a-windows-vm-in-an-availability-set"></a>Een virtuele machine van Windows in een beschikbaarheidsset vergroten of verkleinen
-Als de nieuwe grootte voor een virtuele machine in een beschikbaarheidsset niet beschikbaar is op de hardware-cluster momenteel de virtuele machine host is, moet alle VM's in de beschikbaarheidsset aan om de grootte van de virtuele machine te ongedaan. Ook is het mogelijk om bij te werken van de grootte van andere virtuele machines in de beschikbaarheidsset nadat er één virtuele machine is gewijzigd. Als u een virtuele machine in een beschikbaarheidsset, moet u de volgende stappen uitvoeren.
+Als hello nieuwe grootte voor een virtuele machine in een beschikbaarheidsset niet beschikbaar op Hallo hardware cluster is moet momenteel host Hallo VM en vervolgens alle VM's in de beschikbaarheidsset Hallo toobe tooresize Hallo VM ongedaan. U moet wellicht ook tooupdate Hallo grootte van andere virtuele machines in Hallo beschikbaarheid instellen nadat er één virtuele machine is gewijzigd. een virtuele machine in een beschikbaarheidsset tooresize uitvoeren Hallo stappen te volgen.
 
-1. Lijst van de VM-grootten die beschikbaar zijn op de hardware-cluster waarop de virtuele machine wordt gehost.
+1. Lijst met Hallo VM-grootten die beschikbaar zijn op Hallo hardware cluster waar Hallo VM wordt gehost.
    
     ```powershell
     Get-AzureRmVMSize -ResourceGroupName <resourceGroupName> -VMName <vmName>
     ```
-2. Als de gewenste grootte wordt weergegeven, voer de volgende opdrachten om het formaat van de virtuele machine aan. Als deze niet wordt weergegeven, gaat u naar stap 3.
+2. Als Hallo grootte wordt vermeld gewenst, voert u Hallo opdrachten tooresize Hallo VM te volgen. Als deze niet wordt weergegeven, gaat u toostep 3.
    
     ```powershell
     $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
     $vm.HardwareProfile.VmSize = "<newVmSize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
-3. Als de gewenste grootte niet wordt weergegeven, gaat u verder met de volgende stappen uit op alle VM's in de beschikbaarheidsset ongedaan vergroten of verkleinen van virtuele machines en het opnieuw.
-4. Stop alle VM's in de beschikbaarheidsset.
+3. Desgewenst Hallo formaat niet wordt vermeld, doorgaan met de Hallo toodeallocate stappen te volgen alle VM's in de beschikbaarheidsset hello, vergroten of verkleinen van virtuele machines en deze opnieuw opstarten.
+4. Alle virtuele machines in de beschikbaarheidsset Hallo stoppen.
    
    ```powershell
    $rg = "<resourceGroupName>"
@@ -84,7 +84,7 @@ Als de nieuwe grootte voor een virtuele machine in een beschikbaarheidsset niet 
      Stop-AzureRmVM -ResourceGroupName $rg -Name $vmName -Force
    } 
    ```
-5. De grootte wijzigen en opnieuw opstarten van de virtuele machines in de beschikbaarheidsset.
+5. Vergroten of verkleinen en Hallo virtuele machines in de beschikbaarheidsset Hallo opnieuw.
    
    ```powershell
    $rg = "<resourceGroupName>"

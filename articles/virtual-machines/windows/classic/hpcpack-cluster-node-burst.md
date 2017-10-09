@@ -1,6 +1,6 @@
 ---
-title: Burst knooppunten toevoegen aan een cluster HPC Pack | Microsoft Docs
-description: Meer informatie over het uitbreiden van een HPC Pack-cluster in Azure op aanvraag door toe te voegen worker rolinstanties uitgevoerd in een cloudservice
+title: aaaAdd burst knooppunten tooan HPC Pack cluster | Microsoft Docs
+description: Meer informatie over hoe een HPC Pack tooexpand-cluster in Azure op aanvraag door toe te voegen worker rolinstanties uitgevoerd in een cloudservice
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7ec40ffe76485742c9e458ec49e11805990974e9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>On-demand 'burst' knooppunten toevoegen aan een HPC Pack cluster in Azure
-Als u een [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure, kunt u een manier om snel de capaciteit van het cluster omhoog of omlaag schalen, zonder het onderhouden van een reeks vooraf geconfigureerde rekenknooppunt virtuele machines. In dit artikel leest u hoe on demand 'burst' knooppunten (worker rolinstanties uitgevoerd in een cloudservice) toevoegen als de rekenresources voor een hoofdknooppunt in Azure. 
+# <a name="add-on-demand-burst-nodes-tooan-hpc-pack-cluster-in-azure"></a>On-demand 'burst' knooppunten tooan HPC Pack-cluster toevoegen in Azure
+Als u een [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure, kunt u een manier tooquickly scale Hallo cluster capaciteit omhoog of omlaag, zonder het onderhouden van een reeks vooraf rekenknooppunt virtuele machines geconfigureerde. Dit artikel ziet u hoe tooadd on demand 'burst' knooppunten (worker-rolexemplaren in een cloudservice wordt uitgevoerd) als compute resources tooa hoofdknooppunt in Azure. 
 
 > [!IMPORTANT] 
-> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
+> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van Hallo klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken.
 
 ![Burst knooppunten][burst]
 
-De stappen in dit artikel kunt u snel Azure knooppunten toevoegen aan een cloud-gebaseerde HPC Pack hoofdknooppunt VM voor een test of bewijs van concept implementatie. De stappen op hoog niveau zijn hetzelfde als de stappen voor een 'burst naar Azure' om toe te voegen cloud rekencapaciteit is voor een on-premises HPC Pack-cluster. Zie voor een zelfstudie [instellen van een hybride rekencluster met Microsoft HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Zie voor gedetailleerde richtlijnen en overwegingen voor productie-implementaties, [Burst naar Azure met Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
+Hallo stappen in dit artikel kunt u snel Azure knooppunten toevoegen tooa cloud-gebaseerde HPC Pack hoofdknooppunt VM voor de implementatie van een test of bewijs van het concept. Hallo hoofdstappen Hallo zijn hetzelfde zijn als Hallo stappen te 'burst tooAzure' tooadd cloud compute capaciteit tooan on-premises HPC Pack-cluster. Zie voor een zelfstudie [instellen van een hybride rekencluster met Microsoft HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Zie voor gedetailleerde richtlijnen en overwegingen voor productie-implementaties, [tooAzure met Microsoft HPC Pack Burst](https://technet.microsoft.com/library/gg481749.aspx).
 
 ## <a name="prerequisites"></a>Vereisten
-* **HPC Pack hoofdknooppunt geïmplementeerd in een Azure VM** -kunt u een zelfstandige hoofdknooppunt VM of een die deel uitmaakt van een groter cluster. Zie het maken van een zelfstandige hoofdknooppunt [implementeren van een HPC Pack hoofdknooppunt in een Azure VM](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Zie voor geautomatiseerde HPC Pack cluster implementatieopties [opties voor het maken en beheren van een Windows HPC-cluster in Azure met Microsoft HPC Pack](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* **HPC Pack hoofdknooppunt geïmplementeerd in een Azure VM** -kunt u een zelfstandige hoofdknooppunt VM of een die deel uitmaakt van een groter cluster. een zelfstandige hoofdknooppunt toocreate Zie [implementeren van een HPC Pack hoofdknooppunt in een Azure VM](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Zie voor geautomatiseerde HPC Pack cluster implementatieopties [toocreate opties en beheren van een Windows HPC-cluster in Azure met Microsoft HPC Pack](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
   > [!TIP]
-  > Als u de [HPC Pack IaaS-implementatiescript](hpcpack-cluster-powershell-script.md) voor het maken van het cluster in Azure, kunt u Azure burst knooppunten opnemen in uw geautomatiseerde implementatie. Zie de voorbeelden in dit artikel.
+  > Als u Hallo [HPC Pack IaaS-implementatiescript](hpcpack-cluster-powershell-script.md) toocreate Hallo-cluster in Azure, kunt u Azure burst knooppunten in uw automatische implementatie. Zie Hallo voorbeelden in dit artikel.
   > 
   > 
-* **Azure-abonnement** - Azure knooppunten toevoegen kunt u hetzelfde abonnement gebruikt voor het implementeren van het hoofdknooppunt VM, of een ander abonnement (of abonnementen).
-* **Quotum voor kernen** -moet u mogelijk verhogen van het quotum van kernen, vooral als u kiest voor het implementeren van verschillende Azure knooppunten met multicore grootten. Een quotum te verhogen [opent u een ondersteuningsaanvraag online klant](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) zonder kosten.
+* **Azure-abonnement** -tooadd Azure knooppunten, kunt u Hallo hetzelfde abonnement dat u gebruikt toodeploy Hallo hoofdknooppunt VM, of een ander abonnement (of abonnementen).
+* **Quotum voor kernen** -moet u mogelijk tooincrease Hallo quotum van kernen, met name als u verschillende Azure knooppunten met multicore grootten toodeploy kiezen. een quotum tooincrease [opent u een ondersteuningsaanvraag online klant](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) zonder kosten.
 
-## <a name="step-1-create-a-cloud-service-and-a-storage-account-for-the-azure-nodes"></a>Stap 1: Een cloudservice en een opslagaccount voor de Azure knooppunten maken
-Gebruik de klassieke Azure-portal of vergelijkbare's voor het configureren van de volgende bronnen die nodig zijn voor het implementeren van uw Azure knooppunten:
+## <a name="step-1-create-a-cloud-service-and-a-storage-account-for-hello-azure-nodes"></a>Stap 1: Maak een cloudservice en een opslagaccount voor hello Azure knooppunten
+Hallo klassieke Azure-portal of vergelijkbare's tooconfigure Hallo resources die nodig toodeploy na uw Azure knooppunten gebruiken:
 
 * Een nieuwe Azure-cloud-service
 * Een nieuwe Azure storage-account
@@ -54,30 +54,30 @@ Gebruik de klassieke Azure-portal of vergelijkbare's voor het configureren van d
 
 **Overwegingen**
 
-* Configureer een afzonderlijke cloudservice voor elk Azure-knooppuntsjabloon die u wilt maken. U kunt echter hetzelfde opslagaccount gebruiken voor meerdere knooppunt sjablonen.
-* Het is raadzaam om de cloudservice en het opslagaccount voor de implementatie te in dezelfde Azure-regio vinden.
+* Een afzonderlijke cloudservice voor elke Azure knooppuntsjabloon dat u van plan toocreate bent configureren. U kunt echter hetzelfde opslagaccount voor meerdere knooppunt sjablonen Hallo.
+* Het is raadzaam dat u Hallo-cloudservice en storage-account voor de implementatie van Hallo Hallo in Hallo vinden dezelfde Azure-regio.
 
 ## <a name="step-2-configure-an-azure-management-certificate"></a>Stap 2: Een Azure-beheercertificaat configureren
-Als u Azure knooppunten toevoegen als rekenresources, moet u een beheercertificaat op het hoofdknooppunt en het uploaden van een overeenkomt met de Azure-abonnement gebruikt voor de implementatie van het certificaat.
+tooadd Azure knooppunten zoals bronnen berekenen, moet u een beheercertificaat op Hallo hoofdknooppunt en uploaden een overeenkomende toohello Azure-abonnement gebruikt voor Hallo implementatie van het certificaat.
 
-Voor dit scenario kunt u de **standaard HPC Azure-Beheercertificaat** die HPC Pack automatisch geïnstalleerd en geconfigureerd op het hoofdknooppunt. Dit certificaat is handig voor het testen van de toepassing en bewijs van concept implementaties. Upload het bestand C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer vanaf het hoofdknooppunt van VM aan het abonnement voor het gebruik van dit certificaat. Voor het uploaden van het certificaat in de [klassieke Azure-portal](https://manage.windowsazure.com), klikt u op **instellingen** > **Beheercertificaten**.
+Voor dit scenario kunt u Hallo **standaard HPC Azure-Beheercertificaat** die HPC Pack automatisch geïnstalleerd en geconfigureerd op het hoofdknooppunt. Dit certificaat is handig voor het testen van de toepassing en bewijs van concept implementaties. toouse van dit certificaat, upload het bestand C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer van hoofdknooppunt Hallo VM toothe abonnement. tooupload hello certificaat in Hallo [klassieke Azure-portal](https://manage.windowsazure.com), klikt u op **instellingen** > **Beheercertificaten**.
 
-Zie voor aanvullende opties voor het configureren van het beheercertificaat [scenario's voor het configureren van het Azure-Beheercertificaat voor Azure Burst implementaties](http://technet.microsoft.com/library/gg481759.aspx).
+Zie voor extra opties tooconfigure hello beheercertificaat [scenario's tooConfigure hello Azure-Beheercertificaat voor Azure Burst implementaties](http://technet.microsoft.com/library/gg481759.aspx).
 
-## <a name="step-3-deploy-azure-nodes-to-the-cluster"></a>Stap 3: Azure knooppunten aan het cluster implementeren
-De stappen toe te voegen en start Azure knooppunten in dit scenario zijn meestal hetzelfde zijn als de stappen met het hoofdknooppunt van een lokale. Zie voor meer informatie de volgende secties in [stappen voor het implementeren van Azure knooppunten met Microsoft HPC Pack](https://technet.microsoft.com/library/gg481758.aspx):
+## <a name="step-3-deploy-azure-nodes-toohello-cluster"></a>Stap 3: Azure knooppunten toohello cluster implementeren
+Hallo stappen tooadd en start Azure knooppunten in dit scenario zijn dezelfde doorgaans Hallo als Hallo stappen met het hoofdknooppunt van een lokale. Zie voor meer informatie, Hallo uit te voeren in [tooDeploy Azure knooppunten met Microsoft HPC Pack stappen](https://technet.microsoft.com/library/gg481758.aspx):
 
 * Een op Azure-knooppuntsjabloon maken
-* Azure knooppunten toevoegen aan de Windows HPC-cluster
-* Start (ingericht) de Azure-knooppunten
+* Azure knooppunten toohello Windows HPC-cluster toevoegen
+* Start (ingericht) hello Azure knooppunten
 
-Na het toevoegen en starten van de knooppunten kunnen zijn ze gereed voor u gebruiken voor het cluster taken uitvoeren.
+Nadat u toevoegen en knooppunten Hallo starten, zijn ze klaar voor je toouse toorun cluster taken.
 
 Als u problemen ondervindt bij het implementeren van Azure knooppunten, Zie [oplossen implementaties van Azure knooppunten met Microsoft HPC Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie de overwegingen in voor het gebruik van een van rekenintensieve exemplaargrootte voor de knooppunten burst, [hoge prestaties compute-VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Als u wilt automatisch vergroten of verkleinen van de Azure computerbronnen volgens de clusterwerkbelasting worden opgeslagen, Zie [automatisch vergroten of verkleinen van Azure-rekenresources in een cluster HPC Pack](hpcpack-cluster-node-autogrowshrink.md).
+* een van rekenintensieve exemplaargrootte voor Hallo toouse burst knooppunten, Zie Hallo overwegingen in [hoge prestaties compute-VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Als u wilt automatisch vergroten of verkleinen Hallo computerbronnen volgens clusterbelasting hello Azure, Zie [automatisch vergroten of verkleinen van Azure-rekenresources in een cluster HPC Pack](hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/hpcpack-cluster-node-burst/burst.png

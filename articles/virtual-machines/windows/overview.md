@@ -1,5 +1,5 @@
 ---
-title: Overzicht van virtuele Windows-machines | Microsoft Docs
+title: Overzicht van virtuele Machines aaaWindows | Microsoft Docs
 description: Meer informatie over het maken en beheren van virtuele Windows-machines in Azure.
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,136 +16,136 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 52113e1240b81299ae3338f35b2934891017adbf
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8015b1aa4bcdaac2e721f25d85a5bc995a22f0f2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Overzicht van virtuele Windows-machines in Azure
 
-Azure Virtual Machines (VM) vormen een van de diverse typen [schaalbare on-demand computerresources](../../app-service-web/choose-web-site-cloud-service-vm.md) die Azure biedt. Normaal gesproken kiest u voor een VM wanneer u meer controle nodig hebt over de computeromgeving dan andere opties bieden. In dit artikel vindt u informatie over wat u moet overwegen voordat u een VM maakt, hoe u deze maakt en hoe u deze beheert.
+Azure Virtual Machines (VM) vormen een van de diverse typen [schaalbare on-demand computerresources](../../app-service-web/choose-web-site-cloud-service-vm.md) die Azure biedt. Normaal gesproken u een virtuele machine als u meer controle over de computeromgeving Hallo dan hello andere opties bieden nodig. In dit artikel vindt u informatie over wat u moet overwegen voordat u een VM maakt, hoe u deze maakt en hoe u deze beheert.
 
-Een VM in Azure biedt u de flexibiliteit van virtualisatie zonder dat u de fysieke hardware hoeft te kopen en te beheren waarop de VM wordt uitgevoerd. U moet de VM echter wel onderhouden door taken uit te voeren, zoals het configureren, patchen en onderhouden van de software die erop wordt uitgevoerd.
+Een Azure VM-geeft u de flexibiliteit van virtualisatie zonder toobuy Hallo en onderhouden Hallo fysieke hardware waarop deze wordt uitgevoerd. U moet echter nog steeds toomaintain Hallo VM door het uitvoeren van taken, zoals het configureren, patchen en Hallo-software die wordt uitgevoerd op deze installeren.
 
 Virtuele machines in Azure kunnen op verschillende manieren worden gebruikt. Een aantal voorbeelden:
 
-* **Ontwikkeling en tests**: Azure-VM’s bieden een snelle en eenvoudige manier om een computer te maken met specifieke configuraties die nodig zijn voor de code van een toepassing en het testen ervan.
-* **Toepassingen in de cloud**: De vraag naar uw toepassing kan variëren, dus kan het financieel verstandig zijn om deze uit te voeren op een VM in Azure. U betaalt voor extra virtuele machines wanneer u ze nodig hebt en schakelt ze uit wanneer u ze niet meer nodig hebt.
-* **Uitgebreid datacenter**: Virtuele machines in een virtueel Azure-netwerk kunnen eenvoudig worden verbonden met het netwerk van uw organisatie.
+* **Ontwikkeling en tests** : Azure VM's bieden een snelle en eenvoudige manier toocreate een computer met specifieke configuraties vereist toocode en testen van een toepassing.
+* **Toepassingen in de cloud Hallo** – omdat de aanvraag voor uw toepassing kunt fluctueren, kan deze financieel aantrekkelijk toorun maken op een virtuele machine in Azure. U betaalt voor extra virtuele machines wanneer u ze nodig hebt en schakelt ze uit wanneer u ze niet meer nodig hebt.
+* **Uitgebreide datacenter** – virtuele machines in een Azure-netwerk kan eenvoudig worden verbonden tooyour bedrijfsnetwerk.
 
-Het aantal virtuele machines dat uw toepassing gebruikt, kan omhoog worden geschaald naar wat is vereist om te voldoen aan uw behoeften.
+aantal virtuele machines die gebruikmaakt van uw toepassing Hello kunt opschalen en uit toowhatever is vereist toomeet uw behoeften.
 
-## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Waar moet ik over nadenken voordat ik een VM maak?
-Er is altijd een groot aantal [overwegingen bij het ontwerpen](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) wanneer u de infrastructuur van een toepassing verder uitwerkt in Azure. Deze aspecten van een VM zijn belangrijk om over na te denken voordat u begint:
+## <a name="what-do-i-need-toothink-about-before-creating-a-vm"></a>Wat moet ik toothink over voordat u een virtuele machine maakt?
+Er is altijd een groot aantal [overwegingen bij het ontwerpen](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) wanneer u de infrastructuur van een toepassing verder uitwerkt in Azure. Deze aspecten van een virtuele machine zijn belangrijk toothink over voordat u begint:
 
-* De namen van uw toepassingsresources
-* De locatie waar de resources worden opgeslagen
-* De grootte van de VM
-* Het maximumaantal VM's dat kan worden gemaakt
-* Het besturingssysteem dat op de VM wordt uitgevoerd
-* De configuratie van de VM nadat deze is gestart
-* De gerelateerde resources die de VM nodig heeft
+* Hallo-namen van de toepassingsresources van uw
+* Hallo-locatie waar Hallo resources worden opgeslagen
+* Hallo-grootte van Hallo VM
+* Hallo kunt u het maximum aantal VM's die kunnen worden gemaakt
+* Hallo-besturingssysteem dat Hallo VM wordt uitgevoerd
+* Hallo-configuratie van Hallo VM nadat deze is gestart
+* Hallo verwante resources die Hallo die VM moet
 
 ### <a name="naming"></a>Naamgeving
-Een virtuele machine krijgt een [naam](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) toegewezen en er wordt een computernaam geconfigureerd als onderdeel van het besturingssysteem. De naam van een VM mag uit maximaal 15 tekens bestaan.
+Een virtuele machine heeft een [naam](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) toegewezen tooit en er is een computernaam die is geconfigureerd als onderdeel van het Hallo-besturingssysteem. Hallo-naam van een virtuele machine kan worden up too15 tekens.
 
-Als u Azure gebruikt voor het maken van de schijf van het besturingssysteem, zijn de computernaam en de naam van de virtuele machine hetzelfde. Als u [uw eigen installatiekopie uploadt en gebruikt](upload-generalized-managed.md), eentje die een eerder geconfigureerd besturingssysteem bevat, en deze gebruikt om een virtuele machine maakt, kunnen de namen anders zijn. We raden u aan tijdens het uploaden van uw eigen installatiekopiebestand de computer in het besturingssysteem en de virtuele machine hetzelfde te noemen.
+Als u Azure toocreate hello besturingssysteemschijf, Hallo computernaam en naam van de virtuele machine Hallo zijn Hallo dezelfde. Als u [uploaden en uw eigen installatiekopie gebruiken](upload-generalized-managed.md) die een eerder geconfigureerde besturingssysteem bevat en toocreate een virtuele machine worden gebruikt, Hallo namen kunnen afwijken. We raden aan dat wanneer u uw eigen installatiekopiebestand uploadt, u maakt de computernaam Hallo in Hallo-besturingssysteem en de naam van de virtuele machine Hallo Hallo dezelfde.
 
 ### <a name="locations"></a>Locaties
-Alle resources die in Azure zijn gemaakt, worden verdeeld over meerdere [geografische regio's](https://azure.microsoft.com/regions/) over de hele wereld. Normaal gesproken heet de regio **locatie** wanneer u een VM maakt. Voor een VM geeft de locatie aan waar de virtuele harde schijven zijn opgeslagen.
+Alle resources in Azure gemaakt worden gedistribueerd over meerdere [geografische regio's](https://azure.microsoft.com/regions/) Hallo wereld. Normaal gesproken Hallo regio heet **locatie** bij het maken van een virtuele machine. Voor een VM geeft Hallo locatie waar Hallo virtuele harde schijven zijn opgeslagen.
 
-In deze tabel staan enkele manieren om een lijst met beschikbare locaties te verkrijgen.
+Deze tabel bevat enkele Hallo manieren om een lijst met beschikbare locaties.
 
 | Methode | Beschrijving |
 | --- | --- |
-| Azure Portal |Selecteer een locatie in de lijst bij het maken van een VM. |
-| Azure PowerShell |Gebruik de opdracht [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
-| REST API |Gebruik de bewerking [Locaties vermelden](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
+| Azure Portal |Selecteer een locatie in de lijst Hallo bij het maken van een virtuele machine. |
+| Azure PowerShell |Gebruik Hallo [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) opdracht. |
+| REST API |Gebruik Hallo [locaties lijst](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations) bewerking. |
 
 ### <a name="vm-size"></a>VM-grootte
-De [grootte](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) van de VM die u gebruikt, wordt bepaald door de workload die u wilt uitvoeren. De grootte die u vervolgens kiest, bepaalt factoren als processorsnelheid, geheugen en opslagcapaciteit. Azure biedt een groot aantal verschillende grootten voor verschillende manieren van gebruik.
+Hallo [grootte](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Hallo VM die u gebruikt, wordt bepaald door Hallo werkbelasting die u toorun wilt. Hallo-grootte die u bepaalt vervolgens factoren zoals de verwerking van kracht, geheugen en opslagcapaciteit. Azure biedt een groot aantal verschillende grootten toosupport verschillende manieren van gebruik.
 
-Azure rekent een [uurprijs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) op basis van de grootte en het besturingssysteem van de VM. Voor niet-hele uren worden alleen de minuten van gebruik in rekening gebracht. De opslag wordt afzonderlijk berekend en in rekening gebracht.
+Azure kosten een [uurprijs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) op basis van de grootte en het besturingssysteem Hallo van de virtuele machine. Voor de hele uren Azure rekent alleen voor Hallo minuten gebruikt. De opslag wordt afzonderlijk berekend en in rekening gebracht.
 
 ### <a name="vm-limits"></a>VM-limieten
-Uw abonnement heeft een standaard [quotumlimiet](../../azure-subscription-service-limits.md) ingebouwd die de implementatie van veel VM’s voor uw project kan beïnvloeden. De huidige limiet per abonnement is 20 VM's per regio. Limieten kunnen worden verhoogd door een ondersteuningsticket in te dienen met een aanvraag voor een verhoging.
+Uw abonnement heeft standaard [quotalimieten](../../azure-subscription-service-limits.md) dat kan invloed hebben op Hallo-implementatie van veel VM's voor uw project. de huidige limiet Hallo op basis van per abonnement is 20 VM's per regio. Limieten kunnen worden verhoogd door een ondersteuningsticket in te dienen met een aanvraag voor een verhoging.
 
 ### <a name="operating-system-disks-and-images"></a>Schijven en installatiekopieën voor een besturingssysteem
-Virtuele machines maken gebruik van [virtuele harde schijven (VHD's)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor de opslag van het besturingssysteem (OS) en de gegevens. VHD's worden ook gebruikt voor de installatiekopieën waarmee u een besturingssysteem kunt installeren. 
+Virtuele machines gebruiken [virtuele harde schijven (VHD's)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) toostore hun besturingssysteem (OS) en gegevens. VHD's worden ook gebruikt voor afbeeldingen van Hallo die u uit tooinstall een besturingssysteem kiezen kunt. 
 
-Azure biedt veel [marketplace-installatiekopieën](https://azure.microsoft.com/marketplace/virtual-machines/) voor gebruik met verschillende versies en typen van de Windows Server-besturingssystemen. Marketplace-installatiekopieën worden aangeduid met uitgever, aanbieding, SKU en versie van de installatiekopie (de versie wordt meestal gespecificeerd als meest recente). 
+Azure biedt veel [marketplace-installatiekopieën](https://azure.microsoft.com/marketplace/virtual-machines/) toouse met verschillende versies en typen van Windows Server-besturingssystemen. Marketplace-installatiekopieën worden aangeduid met uitgever, aanbieding, SKU en versie van de installatiekopie (de versie wordt meestal gespecificeerd als meest recente). 
 
-In deze tabel ziet u een aantal manieren waarop u de gegevens voor een installatiekopie kunt vinden.
+Deze tabel ziet enkele manieren waarop u Hallo-informatie voor een afbeelding vindt.
 
 | Methode | Beschrijving |
 | --- | --- |
-| Azure Portal |De waarden worden automatisch opgegeven wanneer u een installatiekopie selecteert om te gebruiken. |
+| Azure Portal |Hallo-waarden worden automatisch opgegeven voor u wanneer u een installatiekopie toouse selecteert. |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher): locatie "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer): locatie "location", uitgever "publisherName"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku): locatie "location", uitgever "publisherName", aanbieding: "offerName" |
 | REST-API’s |[Uitgevers van installatiekopieën weergeven](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Aanbiedingen van installatiekopieën weergeven](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Installatiekopie-SKU's weergeven](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
-U kunt ervoor kiezen om [uw eigen installatiekopie te uploaden en te gebruiken](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account). Wanneer u dit doet, worden de uitgeversnaam, aanbieding en SKU niet gebruikt.
+U kunt ervoor kiezen te[uploaden en uw eigen installatiekopie gebruiken](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) en wanneer u dit doet, Hallo de naam van uitgever, aanbieding en sku worden niet gebruikt.
 
 ### <a name="extensions"></a>Extensies
 VM-[extensies](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) geven uw VM meer mogelijkheden via de post-implementatieconfiguratie en geautomatiseerde taken.
 
 Deze algemene taken kunnen worden uitgevoerd met extensies:
 
-* **Aangepaste scripts uitvoeren**: de [aangepaste scriptextensie](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) helpt u workloads op de VM te configureren door uw script uit te voeren wanneer de VM is ingericht.
-* **Configuraties implementeren en beheren**: de [PowerShell Desired State Configuration (DSC)-extensie](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) helpt bij het instellen van DSC op een VM voor het beheren van configuraties en omgevingen.
-* **Diagnostische gegevens verzamelen**: de [Azure Diagnostics-extensie](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) helpt u bij het configureren van de VM voor het verzamelen van diagnostische gegevens die kunnen worden gebruikt voor het bewaken van de status van uw toepassing.
+* **Aangepaste scripts uitvoeren** – hello [extensie voor aangepaste scripts](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) kunt u werkbelastingen op Hallo VM configureren door het uitvoeren van uw script wanneer hello VM is ingericht.
+* **Implementeren en beheren van configuraties** – hello [PowerShell Desired State Configuration (DSC)-extensie](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) kunt u DSC op een VM-toomanage instellen configuraties en omgevingen.
+* **Verzamelen van diagnostische gegevens** – hello [Azure-extensie voor diagnostische gegevens](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) helpt bij het configureren van Hallo VM toocollect diagnostics-gegevens die gebruikt toomonitor worden kunnen Hallo status van uw toepassing.
 
 ### <a name="related-resources"></a>Gerelateerde resources
-De resources in deze tabel worden gebruikt door de VM en moeten bestaan of worden gemaakt wanneer de VM wordt gemaakt.
+Hallo-resources in deze tabel worden gebruikt door VM Hallo en moeten tooexist of worden gemaakt wanneer Hallo VM is gemaakt.
 
 | Resource | Vereist | Beschrijving |
 | --- | --- | --- |
-| [Resourcegroep](../../azure-resource-manager/resource-group-overview.md) |Ja |De VM moet zijn opgenomen in een resourcegroep. |
-| [Opslagaccount](../../storage/common/storage-create-storage-account.md) |Ja |De VM heeft het opslagaccount nodig voor het opslaan van de virtuele harde schijven. |
-| [Virtueel netwerk](../../virtual-network/virtual-networks-overview.md) |Ja |De VM moet lid zijn van een virtueel netwerk. |
-| [Openbaar IP-adres](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Nee |Aan de VM kan een openbaar IP-adres worden toegewezen voor externe toegang. |
-| [Netwerkinterface](../../virtual-network/virtual-network-network-interface.md) |Ja |De netwerkinterface van de VM moet in het netwerk communiceren. |
-| [Gegevensschijven](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nee |De VM kan gegevensschijven bevatten om opslagmogelijkheden uit te breiden. |
+| [Resourcegroep](../../azure-resource-manager/resource-group-overview.md) |Ja |Hallo VM moet zijn opgenomen in een resourcegroep. |
+| [Opslagaccount](../../storage/common/storage-create-storage-account.md) |Ja |Hallo VM moet Hallo storage account toostore de virtuele harde schijven. |
+| [Virtueel netwerk](../../virtual-network/virtual-networks-overview.md) |Ja |Hallo VM moet lid zijn van een virtueel netwerk. |
+| [Openbaar IP-adres](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Nee |Hallo VM kan een openbare tooit tooremotely voor IP-adres toegewezen toegang tot hebben. |
+| [Netwerkinterface](../../virtual-network/virtual-network-network-interface.md) |Ja |Hallo VM moet Hallo network interface toocommunicate in Hallo-netwerk. |
+| [Gegevensschijven](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nee |Hallo VM kan gegevens schijven tooexpand opslagmogelijkheden bevatten. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Hoe kan ik mijn eerste VM maken?
-U hebt verschillende mogelijkheden voor het maken van uw VM. De keuze die u maakt, is afhankelijk van de omgeving waarin u zich bevindt. 
+U hebt verschillende mogelijkheden voor het maken van uw VM. Hallo keuze die u maakt, is afhankelijk van Hallo-omgeving in. 
 
-Deze tabel bevat informatie om u te helpen uw VM te maken.
+Deze tabel bevat informatie tooget die u beginnen met het opstellen van uw virtuele machine.
 
 | Methode | Artikel |
 | --- | --- |
-| Azure Portal |[Een virtuele machine maken waarop Windows wordt uitgevoerd, met behulp van de portal](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Azure Portal |[Maak een virtuele machine met Windows met behulp van Hallo-portal](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Sjablonen |[Een virtuele Windows-machine maken met een Resource Manager-sjabloon](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure PowerShell |[Een Windows-VM maken met behulp van PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Client-SDK 's |[Azure-bronnen implementeren met C#](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | REST-API’s |[Een VM maken of bijwerken](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 
-U hoopt natuurlijk dat alles goed gaat, maar soms gaat er iets fout. Als deze situatie u ooit overkomt, bekijkt u de informatie in [Problemen met Resource Manager-implementatie bij het maken van een virtuele Windows-machine in Azure oplossen](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+U hoopt natuurlijk dat alles goed gaat, maar soms gaat er iets fout. Als deze situatie zich tooyou voordoet, bekijkt hello informatie in [problemen bij de implementatie met het maken van een virtuele Windows-machine in Azure Resource Manager oplossen](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="how-do-i-manage-the-vm-that-i-created"></a>Hoe beheer ik de VM die ik heb gemaakt?
-VM's kunnen worden beheerd via een op een browser gebaseerde portal, opdrachtregelprogramma's met ondersteuning voor het uitvoeren van scripts of rechtstreeks via API's. Typische beheertaken die u uitvoert, zijn bijvoorbeeld: informatie over een VM ophalen, u aanmelden op een VM, de beschikbaarheid beheren en back-ups maken.
+## <a name="how-do-i-manage-hello-vm-that-i-created"></a>Hoe beheer ik Hallo VM die ik heb gemaakt?
+VM's kunnen worden beheerd via een op een browser gebaseerde portal, opdrachtregelprogramma's met ondersteuning voor het uitvoeren van scripts of rechtstreeks via API's. Sommige veelvoorkomende beheertaken die u kunt uitvoeren zijn informatie ophalen over een VM aanmelden tooa VM, het beheren van beschikbaarheid en back-ups maken.
 
 ### <a name="get-information-about-a-vm"></a>Informatie over een VM ophalen
-In deze tabel ziet u enkele van de manieren waarop u informatie over een VM kunt ophalen.
+Deze tabel ziet u een aantal manieren waarop Hallo die u informatie over een virtuele machine ophalen kunt.
 
 | Methode | Beschrijving |
 | --- | --- |
-| Azure Portal |Klik in het hub-menu op **Virtuele Machines** en selecteer vervolgens de VM uit de lijst. Op de blade voor de VM kunt u informatie inzien, waarden instellen en metrische gegevens controleren. |
-| Azure PowerShell |Zie [Create and Manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Virtuele Windows-machines maken en beheren met de Azure PowerShell-module) voor informatie over het gebruik van PowerShell voor het beheren van virtuele machines. |
-| REST API |Gebruik de bewerking [VM-informatie ophalen](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) voor het verkrijgen van informatie over een VM. |
-| Client-SDK 's |Zie voor meer informatie over het gebruik van C# voor het beheren van VM's [Virtuele machines van Azure beheren met behulp van Azure Resource Manager en C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
+| Azure Portal |Klik op het menu hub Hallo **virtuele Machines** en selecteer vervolgens Hallo VM op Hallo-lijst. Op Hallo blade voor Hallo VM hebt u toegang toooverview informatie, instellingswaarden en bewaking metrische gegevens. |
+| Azure PowerShell |Zie voor meer informatie over het gebruik van PowerShell toomanage VMs [maken en beheren van Windows-VM's met Azure PowerShell-module Hallo](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
+| REST API |Gebruik Hallo [informatie over het ophalen van VM](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) bewerking tooget informatie over een virtuele machine. |
+| Client-SDK 's |Zie voor meer informatie over het gebruik van C# toomanage VMs [beheren van virtuele Machines van Azure met Azure Resource Manager en C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 
-### <a name="log-on-to-the-vm"></a>Aanmelden bij de VM
-U gebruikt de knop [Verbinden](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) in de Azure Portal om een Extern bureaublad-sessie te starten. Soms kan er iets fout gaan wanneer u probeert om een externe verbinding te gebruiken. Als deze situatie u overkomt, raadpleegt u de help-informatie in [Problemen oplossen met Extern bureaublad-verbindingen met een virtuele Windows-machine in Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+### <a name="log-on-toohello-vm"></a>Meld u aan toohello VM
+U de knop verbinden hello te gebruiken in hello Azure-portal[een Remote Desktop (RDP)-sessie starten](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Dingen kunnen soms fout gaan wanneer u probeert een verbinding met extern toouse. Als deze situatie zich tooyou voordoet, bekijk Hallo help-informatie in [problemen met extern bureaublad-verbindingen tooan Azure virtuele machine met Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="manage-availability"></a>Beschikbaarheid beheren
-Het is belangrijk dat u begrijpt hoe u [hoge beschikbaarheid garandeert](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor uw toepassing. Deze configuratie bestaat onder meer uit het maken van meerdere VM’s om ervoor te zorgen dat er ten minste één wordt uitgevoerd.
+Het is belangrijk voor u toounderstand hoe te[hoge beschikbaarheid garanderen](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor uw toepassing. Deze configuratie omvat het maken van meerdere virtuele machines tooensure die ten minste één wordt uitgevoerd.
 
-Om uw implementatie te laten voldoen aan onze 99.95 VM Service Level Agreement, moet u twee of meer VM's waarop uw workload wordt uitgevoerd, implementeren binnen een [beschikbaarheidsset](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Deze configuratie zorgt ervoor dat uw virtuele machines worden verdeeld over meerdere foutdomeinen en worden geïmplementeerd op hosts met verschillende onderhoudsvensters. In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
+Voor uw implementatie tooqualify voor onze 99.95 VM Service Level Agreement, moet u toodeploy twee of meer virtuele machines die de werkbelasting binnen een [beschikbaarheidsset](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Deze configuratie zorgt ervoor dat uw virtuele machines worden verdeeld over meerdere foutdomeinen en worden geïmplementeerd op hosts met verschillende onderhoudsvensters. Hallo volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) wordt uitgelegd Hallo gegarandeerde beschikbaarheid van Azure als geheel.
 
-### <a name="back-up-the-vm"></a>Een back-up maken van de VM
-In zowel Azure Backup als Azure Site Recovery-services wordt een [Recovery Services-kluis](../../backup/backup-introduction-to-azure-backup.md) gebruikt voor het beveiligen van gegevens en assets. U kunt een Recovery Services-kluis gebruiken om [back-ups voor door Resource Manager geïmplementeerde virtuele machines te implementeren en te beheren met behulp van PowerShell](../../backup/backup-azure-vms-automation.md). 
+### <a name="back-up-hello-vm"></a>Back-up Hallo VM
+Een [Recovery Services-kluis](../../backup/backup-introduction-to-azure-backup.md) gebruikte tooprotect gegevens en activa in Azure Backup- en Azure Site Recovery services is. U kunt ook een Recovery Services-kluis gebruiken[implementeren en beheren van back-ups voor Resource Manager geïmplementeerde VM's met behulp van PowerShell](../../backup/backup-azure-vms-automation.md). 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Als u met Linux-VM's wilt werken, bekijkt u [Azure en Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Meer informatie over de richtlijnen voor het instellen van uw infrastructuur vindt u in het [Voorbeeldoverzicht van Azure-infrastructuur](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Als het uw bedoeling is toowork met Linux VM's, bekijkt u [Azure- en Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Meer informatie over richtlijnen over het instellen van uw infrastructuur in Hallo Hallo [voorbeeld Azure-infrastructuur scenario](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

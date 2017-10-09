@@ -1,6 +1,6 @@
 ---
-title: Aanpassen van een Linux-VM voor eerst wordt opgestart in Azure | Microsoft Docs
-description: Meer informatie over het cloud-init en Sleutelkluis te gebruiken customze Linux VM's de eerste keer dat ze worden opgestart in Azure
+title: aaaCustomize een Linux-VM voor eerst wordt opgestart in Azure | Microsoft Docs
+description: Meer informatie over hoe toouse cloud-init en Sleutelkluis toocustomze virtuele Linux-machines Hallo eerste keer dat ze worden opgestart in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,35 +16,35 @@ ms.workload: infrastructure
 ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6adf4e43aa80c28c6f5f8d8a071966323ba85723
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 280189723ac0205226f9c0068bd605da13249ace
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Het aanpassen van een virtuele Linux-machine op de eerste keer opstarten
-In een vorige zelfstudie hebt u geleerd hoe u voor SSH aan een virtuele machine (VM) en handmatig installeren NGINX. Voor het maken van virtuele machines op een snelle en consistente manier, is een vorm van automatisering doorgaans gewenst. Een gemeenschappelijke aanpak voor het aanpassen van een virtuele machine op de eerste keer opstarten is het gebruik [cloud init](https://cloudinit.readthedocs.io). In deze zelfstudie leert u het volgende:
+# <a name="how-toocustomize-a-linux-virtual-machine-on-first-boot"></a>Hoe toocustomize virtuele Linux-machine op de eerste keer opstarten
+In een vorige zelfstudie hebt u geleerd hoe tooSSH tooa virtuele machine (VM) en NGINX handmatig installeren. toocreate virtuele machines op een snelle en consistente manier, een vorm van automatisering is doorgaans gewenste. Een algemene methode toocustomize een VM op de eerste keer opstarten is toouse [cloud init](https://cloudinit.readthedocs.io). In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Maken van een cloud-init-configuratiebestand
 > * Een virtuele machine die gebruikmaakt van een cloud-init-bestand maken
-> * Een actieve Node.js-app weergeven nadat de virtuele machine is gemaakt
-> * Sleutelkluis gebruiken voor het veilig opslaan van certificaten
+> * Een actieve Node.js-app weergeven na Hallo die virtuele machine wordt gemaakt
+> * Sleutelkluis toosecurely store certificaten gebruiken
 > * Beveiligde implementaties van NGINX met cloud-init automatiseren
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.4 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).  
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, deze zelfstudie vereist dat u de versie van de Azure CLI Hallo 2.0.4 worden uitgevoerd of hoger. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli).  
 
 
 
 ## <a name="cloud-init-overview"></a>Cloud-init-overzicht
-[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud init gebruiken voor het installeren van pakketten en bestanden schrijven of om gebruikers en beveiliging te configureren. Als de initialisatie van de cloud wordt uitgevoerd tijdens het opstartproces, zijn er geen extra stappen of vereist agents naar uw configuratie toe te passen.
+[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte methode toocustomize zoals deze wordt opgestart voor Hallo eerst een Linux-VM. U kunt de cloud init tooinstall pakketten gebruiken en schrijven van bestanden, of tooconfigure gebruikers en beveiliging. Cloud-init wordt uitgevoerd tijdens het opstartproces hello, er zijn geen extra stappen of agents tooapply uw configuratie is vereist.
 
-Cloud-init werkt ook via distributies. Bijvoorbeeld, u niet gebruikt **apt get-installatie** of **yum installeren** om een pakket te installeren. In plaats daarvan kunt u een lijst met pakketten te installeren. Het hulpprogramma voor systeemeigen pakket cloud init automatisch gebruikt voor de distro die u selecteert.
+Cloud-init werkt ook via distributies. Bijvoorbeeld, u niet gebruikt **apt get-installatie** of **yum installeren** tooinstall een pakket. In plaats daarvan kunt u een lijst met pakketten tooinstall definiëren. Hallo systeemeigen pakket beheerprogramma cloud init automatisch gebruikt voor Hallo distro die u selecteert.
 
-We werken met onze partners ophalen van cloud-init opgenomen en in de afbeeldingen die ze naar Azure bieden werkt. De volgende tabel geeft een overzicht van de huidige beschikbaarheid van de cloud init op Azure-platform installatiekopieën:
+We kunnen werken met onze partners tooget cloud-init opgenomen en werken in dat ze tooAzure bieden Hallo-installatiekopieën. Hallo volgende tabel geeft een overzicht van de huidige cloud init-beschikbaarheid Hallo op Azure-platform installatiekopieën:
 
 | Alias | Uitgever | Aanbieding | SKU | Versie |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -54,9 +54,9 @@ We werken met onze partners ophalen van cloud-init opgenomen en in de afbeelding
 
 
 ## <a name="create-cloud-init-config-file"></a>Cloud-init-configuratiebestand maken
-Overzicht van cloud-init in actie, maak een VM die NGINX installeert en een eenvoudige 'Hallo wereld' Node.js-app wordt uitgevoerd. De volgende cloud init-configuratie installeert de vereiste pakketten, maakt u een Node.js-app en vervolgens initialiseren en start u de app.
+toosee cloud-init in actie, maak een VM die NGINX installeert en een eenvoudige 'Hallo wereld' Node.js-app wordt uitgevoerd. Hallo na configuratie voor cloud-init vereist hello-pakketten worden geïnstalleerd, maakt u een Node.js-app en vervolgens initialiseren en Hallo-app wordt gestart.
 
-Maak een bestand met de naam in uw huidige shell *cloud init.txt* en plak de volgende configuratie. Maak bijvoorbeeld het bestand in de Cloud-Shell niet op uw lokale machine. U kunt een editor die u wilt gebruiken. Voer `sensible-editor cloud-init.txt` voor het maken van het bestand en een overzicht van beschikbare editors. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel:
+Maak een bestand met de naam in uw huidige shell *cloud init.txt* en plakken Hallo configuratie. Bijvoorbeeld, Hallo-bestand in Hallo Cloud-Shell op uw lokale machine niet maken. U kunt een editor die u wilt gebruiken. Voer `sensible-editor cloud-init.txt` toocreate Hallo bestand en een overzicht van beschikbare editors. Zorg ervoor dat Hallo hele cloud-init-bestand correct is gekopieerd, met name Hallo eerste regel:
 
 ```yaml
 #cloud-config
@@ -103,13 +103,13 @@ runcmd:
 Zie voor meer informatie over configuratieopties voor cloud-init [cloud init config voorbeelden](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
-Voordat u een virtuele machine maken kunt, maakt u een resourcegroep met [az groep maken](/cli/azure/group#create). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupAutomate* in de *eastus* locatie:
+Voordat u een virtuele machine maken kunt, maakt u een resourcegroep met [az groep maken](/cli/azure/group#create). Hallo volgende voorbeeld maakt u een resourcegroep met de naam *myResourceGroupAutomate* in Hallo *eastus* locatie:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#create). Gebruik de `--custom-data` parameter om door te geven in uw cloud-init-configuratiebestand. Geef het volledige pad naar de *cloud init.txt* config als u het bestand buiten uw werkmap aanwezig opgeslagen. Het volgende voorbeeld wordt een virtuele machine met de naam *myAutomatedVM*:
+Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#create). Gebruik Hallo `--custom-data` parameter toopass in uw cloud-init-configuratiebestand. Hallo volledig pad toohello bieden *cloud init.txt* config als Hallo bestand buiten de huidige werkmap is opgeslagen. Hallo volgende voorbeeld wordt een virtuele machine met de naam *myAutomatedVM*:
 
 ```azurecli-interactive 
 az vm create \
@@ -121,34 +121,34 @@ az vm create \
     --custom-data cloud-init.txt
 ```
 
-Het duurt enkele minuten duren voordat de virtuele machine moet worden gemaakt, de pakketten te installeren en de app te starten. Er zijn achtergrondtaken die uitvoeren blijven nadat de Azure CLI keert u terug naar de prompt. Het is mogelijk een andere paar minuten voordat u toegang hebt tot de app. Wanneer de virtuele machine is gemaakt, dient u de `publicIpAddress` weergegeven door de Azure CLI. Dit adres wordt gebruikt voor toegang tot de Node.js-app via een webbrowser.
+Het duurt enkele minuten voordat Hallo VM toobe gemaakt, hello-pakketten tooinstall en Hallo app toostart. Er zijn achtergrondtaken die toorun verder gaat nadat hello Azure CLI keert u terug toohello prompt. Het is mogelijk een andere paar minuten voordat u toegang hebt tot Hallo-app. Wanneer Hallo VM is gemaakt, noteer Hallo `publicIpAddress` weergegeven door hello Azure CLI. Dit adres is gebruikte tooaccess hello Node.js-app via een webbrowser.
 
-Open poort 80 via Internet met zodat webverkeer bereiken van uw virtuele machine [az vm open poort](/cli/azure/vm#open-port):
+virtuele machine, open poort 80 van Hallo Internet met het web verkeer tooreach tooallow [az vm open poort](/cli/azure/vm#open-port):
 
 ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
 ## <a name="test-web-app"></a>Test-web-app
-Nu kunt u een webbrowser openen en voer *http://<publicIpAddress>*  in de adresbalk. Geef uw eigen openbare IP-adres van de virtuele machine proces maken. Uw Node.js-app wordt weergegeven zoals in het volgende voorbeeld:
+Nu kunt u een webbrowser openen en voer *http://<publicIpAddress>*  in de adresbalk Hallo. Geef uw eigen openbare IP-adres uit Hallo VM proces maken. Uw Node.js-app wordt weergegeven zoals in het volgende voorbeeld Hallo:
 
 ![Bekijk actieve NGINX-website](./media/tutorial-automate-vm-deployment/nginx.png)
 
 
 ## <a name="inject-certificates-from-key-vault"></a>Certificaten van de Sleutelkluis invoeren
-Deze optionele sectie wordt beschreven hoe u veilig opslaan van certificaten in Azure Sleutelkluis en ze tijdens de implementatie van de virtuele machine te injecteren. In plaats van met een aangepaste installatiekopie met de certificaten standaard uitbreidbaar, in dit proces zorgt ervoor dat de meest recente certificaten zijn ingevoegd op een virtuele machine op de eerste keer wordt opgestart. Tijdens het proces is het certificaat nooit verlaat de Azure-platform, of wordt weergegeven in een script, opdrachtregel geschiedenis of sjabloon.
+Deze optionele sectie wordt beschreven hoe u veilig opslaan van certificaten in Azure Sleutelkluis en ze tijdens het Hallo-VM-implementatie te injecteren. In plaats van met een aangepaste installatiekopie met de Hallo certificaten standaard uitbreidbaar, in dit proces zorgt ervoor dat de meest recente certificaten Hallo tooa VM op de eerste keer opstarten zijn ingevoegd. Tijdens Hallo Hallo certificaat nooit verlaat hello Azure-platform of in een script, opdrachtregel geschiedenis of sjabloon wordt blootgesteld.
 
-Azure Sleutelkluis beschermt cryptografische sleutels en geheimen, zoals certificaten of wachtwoorden. Sleutelkluis helpt te stroomlijnen van het sleutelbeheerproces en kunt u controle houdt over sleutels die toegang tot en uw gegevens te versleutelen. Dit scenario bevat enkele concepten die Sleutelkluis voor het maken en een certificaat te gebruiken, maar is niet een volledig overzicht over het gebruik van de Sleutelkluis.
+Azure Sleutelkluis beschermt cryptografische sleutels en geheimen, zoals certificaten of wachtwoorden. Sleutelkluis helpt Hallo Sleutelbeheer stroomlijnen en kunt u toomaintain beheer van sleutels die toegang tot en uw gegevens te versleutelen. Dit scenario maakt u kennis met enkele Sleutelkluis concepten toocreate en een certificaat gebruiken, maar is niet een volledig overzicht over het toouse Sleutelkluis.
 
-De volgende stappen laten zien hoe u kunt:
+Hallo stappen te volgen laten zien hoe u kunt:
 
 - Maken van een Azure Sleutelkluis
-- Genereren of een certificaat uploaden naar de Sleutelkluis
-- Een geheim van het certificaat invoeren voor een virtuele machine maken
-- Een virtuele machine maken en het certificaat invoeren
+- Upload een certificaat toohello Sleutelkluis of genereren
+- Een geheim van Hallo certificaat tooinject in tooa VM maken
+- Een virtuele machine maken en te ' injecteren ' hello certificaat
 
 ### <a name="create-an-azure-key-vault"></a>Maken van een Azure Sleutelkluis
-Maak eerst een Sleutelkluis met [az keyvault maken](/cli/azure/keyvault#create) en inschakelen voor gebruik wanneer u een virtuele machine implementeert. Elke Sleutelkluis moet een unieke naam hebben en moet alle kleine letters. Vervang *mykeyvault* in het volgende voorbeeld met de naam van uw eigen unieke Sleutelkluis:
+Maak eerst een Sleutelkluis met [az keyvault maken](/cli/azure/keyvault#create) en inschakelen voor gebruik wanneer u een virtuele machine implementeert. Elke Sleutelkluis moet een unieke naam hebben en moet alle kleine letters. Vervang *mykeyvault* in het volgende voorbeeld met de naam van uw eigen unieke Sleutelkluis Hallo:
 
 ```azurecli-interactive 
 keyvault_name=mykeyvault
@@ -159,7 +159,7 @@ az keyvault create \
 ```
 
 ### <a name="generate-certificate-and-store-in-key-vault"></a>Certificaat genereren en opslaan in de Sleutelkluis
-Voor gebruik in productieomgevingen, moet u een geldig certificaat dat is ondertekend door een vertrouwde provider met importeren [az keyvault certificaat importeren](/cli/azure/keyvault/certificate#import). Voor deze zelfstudie, het volgende voorbeeld toont hoe kunt u een zelfondertekend certificaat met genereren [az keyvault-certificaat maken](/cli/azure/keyvault/certificate#create) die gebruikmaakt van het standaardbeleid voor certificaat:
+Voor gebruik in productieomgevingen, moet u een geldig certificaat dat is ondertekend door een vertrouwde provider met importeren [az keyvault certificaat importeren](/cli/azure/keyvault/certificate#import). Voor deze zelfstudie hello volgende voorbeeld ziet u hoe u een zelfondertekend certificaat met genereren [az keyvault-certificaat maken](/cli/azure/keyvault/certificate#create) die gebruikmaakt van Hallo-standaardbeleid certificaat:
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -170,7 +170,7 @@ az keyvault certificate create \
 
 
 ### <a name="prepare-certificate-for-use-with-vm"></a>Certificaat voor gebruik met de virtuele machine voorbereiden
-Het certificaat te gebruiken tijdens de virtuele machine proces voor het maken, verkrijgen van de ID van het certificaat met [az keyvault lijst-versies van het clientgeheim](/cli/azure/keyvault/secret#list-versions). De virtuele machine moet het certificaat in een bepaalde indeling invoeren deze bij het opstarten, converteert u dus het certificaat met [az vm indeling-geheim](/cli/azure/vm#format-secret). Het volgende voorbeeld wordt de uitvoer van deze opdrachten naar variabelen voor eenvoudig te gebruiken in de volgende stappen:
+toouse hello certificaat tijdens Hallo VM proces voor het maken, verkrijgen Hallo-ID van uw certificaat met [az keyvault lijst-versies van het clientgeheim](/cli/azure/keyvault/secret#list-versions). Hallo VM Hallo certificaat moet in een bepaalde opmaak tooinject converteren deze opstart, dus Hallo-certificaat met [az vm indeling-geheim](/cli/azure/vm#format-secret). Hallo volgt toegewezen Hallo-uitvoer van deze opdrachten toovariables voor eenvoudig te gebruiken in Hallo volgende stappen:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -181,10 +181,10 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ```
 
 
-### <a name="create-cloud-init-config-to-secure-nginx"></a>Maken van cloud-init-config NGINX beveiligen
-Wanneer u maakt een virtuele machine, certificaten en sleutels worden opgeslagen in de beveiligde */var/lib/waagent/* directory. U kunt een bijgewerkte cloud-init-configuratie van het vorige voorbeeld gebruiken voor het automatiseren van het certificaat toevoegen aan de virtuele machine en NGINX configureren.
+### <a name="create-cloud-init-config-toosecure-nginx"></a>Cloud-init config toosecure NGINX maken
+Wanneer u maakt een virtuele machine, certificaten en sleutels worden opgeslagen in Hallo beveiligd */var/lib/waagent/* directory. tooautomate toe te voegen Hallo certificaat toohello VM en NGINX te configureren, kunt u een bijgewerkte cloud-init-configuratie van het vorige voorbeeld Hallo.
 
-Maak een bestand met de naam *cloud-init-secured.txt* en plak de volgende configuratie. Opnieuw als u de Shell Cloud gebruikt, maken het configuratiebestand van de cloud init er en niet op uw lokale computer. Gebruik `sensible-editor cloud-init-secured.txt` voor het maken van het bestand en een overzicht van beschikbare editors. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel:
+Maak een bestand met de naam *cloud-init-secured.txt* en plakken Hallo configuratie. Opnieuw als u Hallo Cloud-Shell, maakt Hallo cloud init-configuratiebestand er en niet op uw lokale computer. Gebruik `sensible-editor cloud-init-secured.txt` toocreate Hallo bestand en een overzicht van beschikbare editors. Zorg ervoor dat Hallo hele cloud-init-bestand correct is gekopieerd, met name Hallo eerste regel:
 
 ```yaml
 #cloud-config
@@ -236,7 +236,7 @@ runcmd:
 ```
 
 ### <a name="create-secure-vm"></a>Beveiligde virtuele machine maken
-Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#create). De gegevens van het certificaat wordt geïnjecteerd uit de Sleutelkluis met de `--secrets` parameter. Zoals in het vorige voorbeeld, geeft u ook in de cloud init-configuratie met de `--custom-data` parameter:
+Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#create). Hallo certificaatgegevens wordt geïnjecteerd uit Sleutelkluis Hello `--secrets` parameter. Zoals in het vorige voorbeeld hello, u ook doorgeven in de configuratie van cloud-init Hallo Hello `--custom-data` parameter:
 
 ```azurecli-interactive 
 az vm create \
@@ -249,9 +249,9 @@ az vm create \
     --secrets "$vm_secret"
 ```
 
-Het duurt enkele minuten duren voordat de virtuele machine moet worden gemaakt, de pakketten te installeren en de app te starten. Er zijn achtergrondtaken die uitvoeren blijven nadat de Azure CLI keert u terug naar de prompt. Het is mogelijk een andere paar minuten voordat u toegang hebt tot de app. Wanneer de virtuele machine is gemaakt, dient u de `publicIpAddress` weergegeven door de Azure CLI. Dit adres wordt gebruikt voor toegang tot de Node.js-app via een webbrowser.
+Het duurt enkele minuten voordat Hallo VM toobe gemaakt, hello-pakketten tooinstall en Hallo app toostart. Er zijn achtergrondtaken die toorun verder gaat nadat hello Azure CLI keert u terug toohello prompt. Het is mogelijk een andere paar minuten voordat u toegang hebt tot Hallo-app. Wanneer Hallo VM is gemaakt, noteer Hallo `publicIpAddress` weergegeven door hello Azure CLI. Dit adres is gebruikte tooaccess hello Node.js-app via een webbrowser.
 
-Zodat beveiligde webverkeer bereiken van uw virtuele machine poort 443 openen vanaf het Internet met [az vm open poort](/cli/azure/vm#open-port):
+virtuele machine, open poort 443 van Hallo Internet met voor secure web verkeer tooreach tooallow [az vm open poort](/cli/azure/vm#open-port):
 
 ```azurecli-interactive 
 az vm open-port \
@@ -261,26 +261,26 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Test beveiligde web-app
-Nu kunt u een webbrowser openen en voer *https://<publicIpAddress>*  in de adresbalk. Geef uw eigen openbare IP-adres van de virtuele machine proces maken. De beveiligingswaarschuwing accepteren als u een zelfondertekend certificaat gebruikt:
+Nu kunt u een webbrowser openen en voer *https://<publicIpAddress>*  in de adresbalk Hallo. Geef uw eigen openbare IP-adres uit Hallo VM proces maken. Beveiligingswaarschuwing Hallo accepteren als u een zelfondertekend certificaat gebruikt:
 
 ![Beveiligingswaarschuwing voor web browser accepteren](./media/tutorial-automate-vm-deployment/browser-warning.png)
 
-Uw beveiligde NGINX-site en Node.js app wordt vervolgens weergegeven zoals in het volgende voorbeeld:
+Uw beveiligde NGINX-site en Node.js app wordt vervolgens weergegeven zoals in het volgende voorbeeld Hallo:
 
 ![Actief beveiligde NGINX-site weergeven](./media/tutorial-automate-vm-deployment/secured-nginx.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie kunt u virtuele machines op de eerste keer opstarten met cloud-init geconfigureerd. U leert hoe naar:
+In deze zelfstudie kunt u virtuele machines op de eerste keer opstarten met cloud-init geconfigureerd. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
 > * Maken van een cloud-init-configuratiebestand
 > * Een virtuele machine die gebruikmaakt van een cloud-init-bestand maken
-> * Een actieve Node.js-app weergeven nadat de virtuele machine is gemaakt
-> * Sleutelkluis gebruiken voor het veilig opslaan van certificaten
+> * Een actieve Node.js-app weergeven na Hallo die virtuele machine wordt gemaakt
+> * Sleutelkluis toosecurely store certificaten gebruiken
 > * Beveiligde implementaties van NGINX met cloud-init automatiseren
 
-Ga naar de volgende zelfstudie voor informatie over het maken van aangepaste installatiekopieën van virtuele machine.
+Hoe gaan van de volgende zelfstudie toolearn toohello toocreate aangepaste VM-installatiekopieën.
 
 > [!div class="nextstepaction"]
 > [Aangepaste VM-installatiekopieën maken](./tutorial-custom-images.md)

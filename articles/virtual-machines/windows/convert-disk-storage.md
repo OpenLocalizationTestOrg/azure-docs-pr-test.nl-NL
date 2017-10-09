@@ -1,6 +1,6 @@
 ---
-title: Converteren van Azure storage van de schijven van standaard beheerd naar premium, en vice versa | Microsoft Docs
-description: Het converteren van Azure schijven die worden beheerd van standaard naar premium en omgekeerd, met behulp van Azure PowerShell.
+title: aaaConvert Azure beheerd schijven opslag van standaard toopremium, en vice versa | Microsoft Docs
+description: Hoe tooconvert Azure schijven die worden beheerd vanaf standaard toopremium en omgekeerd, met behulp van Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: 
 author: ramankum
@@ -15,55 +15,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: ramankum
-ms.openlocfilehash: 9e5c73ceb0ff7d9c18c9cf7128b69e40b9796874
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 11f35cde216e91c0599d3619682686e8eb162fad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converteren van Azure storage van de schijven van standaard beheerd naar premium, en omgekeerd
+# <a name="convert-azure-managed-disks-storage-from-standard-toopremium-and-vice-versa"></a>Converteren van Azure storage schijven beheerd van standaard toopremium, en vice versa
 
-Beheerde schijven biedt twee opties voor opslag: [Premium](../../storage/storage-premium-storage.md) (SSD-gebaseerde) en [standaard](../../storage/storage-standard-storage.md) (gebaseerd op harde schijf). Hiermee kunt u eenvoudig schakelen tussen de twee opties met minimale downtime op basis van uw prestatievereisten past. Deze mogelijkheid is niet beschikbaar voor niet-beheerde schijven. Maar u kunt eenvoudig [converteren naar beheerde schijven](convert-unmanaged-to-managed-disks.md) eenvoudig schakelen tussen de twee opties.
+Beheerde schijven biedt twee opties voor opslag: [Premium](../../storage/storage-premium-storage.md) (SSD-gebaseerde) en [standaard](../../storage/storage-standard-storage.md) (gebaseerd op harde schijf). Hiermee kunt u tooeasily schakelen tussen Hallo twee opties met minimale downtime op basis van uw prestatievereisten past. Deze mogelijkheid is niet beschikbaar voor niet-beheerde schijven. Maar u kunt eenvoudig [toomanaged schijven geconverteerd](convert-unmanaged-to-managed-disks.md) tooeasily schakelen tussen Hallo twee opties.
 
-In dit artikel leest u hoe beheerde schijven van standard converteren naar premium, en vice versa met behulp van Azure PowerShell. Als u wilt installeren of upgraden, Zie [Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps.md).
+Dit artikel laat zien hoe tooconvert schijven die worden beheerd vanaf standaard toopremium, en vice versa met behulp van Azure PowerShell. Als u tooinstall moet of een upgrade uitvoeren, Zie [installeren en configureren van Azure PowerShell](/powershell/azure/install-azurerm-ps.md).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-* De conversie vereist een herstart van de virtuele machine, zodat de migratie van de opslag van uw schijven tijdens een onderhoudsvenster vooraf bestaande plannen. 
-* Als u niet-beheerde schijven eerst [converteren naar beheerde schijven](convert-unmanaged-to-managed-disks.md) in dit artikel gebruiken om over te schakelen tussen de twee opties voor opslag. 
+* Hallo conversie vereist Hallo VM opnieuw wordt opgestart, dus plannen Hallo-migratie van de opslag van uw schijven tijdens een vooraf bestaande onderhoudsvenster. 
+* Als u niet-beheerde schijven eerst [toomanaged schijven geconverteerd](convert-unmanaged-to-managed-disks.md) toouse in dit artikel tooswitch tussen twee Hallo opslagopties. 
 
 
-## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>Standaard alle beheerde schijven van een virtuele machine converteren naar premium, en omgekeerd
+## <a name="convert-all-hello-managed-disks-of-a-vm-from-standard-toopremium-and-vice-versa"></a>Converteert alle Hallo beheerd schijven van een virtuele machine van de standaard toopremium, en vice versa
 
-In het volgende voorbeeld laten we zien hoe overschakelen van de schijven van een virtuele machine van standaard naar premium-opslag. U kunt beheerde premium-schijven, uw virtuele machine gebruiken een [VM-grootte](sizes.md) die ondersteuning biedt voor premium-opslag. In dit voorbeeld wordt ook verandert in een grootte die ondersteuning biedt voor premium-opslag.
+In de Hallo voorbeeld te volgen, laten we zien hoe tooswitch alle schijven van een virtuele machine uit de opslag van de standaard toopremium Hallo. premium toouse schijven die worden beheerd, uw virtuele machine moet gebruiken een [VM-grootte](sizes.md) die ondersteuning biedt voor premium-opslag. In dit voorbeeld wordt ook tooa grootte die ondersteuning biedt voor premium-opslag.
 
 ```powershell
-# Name of the resource group that contains the VM
+# Name of hello resource group that contains hello VM
 $rgName = 'yourResourceGroup'
 
-# Name of the your virtual machine
+# Name of hello your virtual machine
 $vmName = 'yourVM'
 
 # Choose between StandardLRS and PremiumLRS based on your scenario
 $storageType = 'PremiumLRS'
 
 # Premium capable size
-# Required only if converting storage from standard to premium
+# Required only if converting storage from standard toopremium
 $size = 'Standard_DS2_v2'
 $vm = Get-AzureRmVM -Name $vmName -resourceGroupName $rgName
 
-# Stop and deallocate the VM before changing the size
+# Stop and deallocate hello VM before changing hello size
 Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
 
-# Change the VM size to a size that supports premium storage
-# Skip this step if converting storage from premium to standard
+# Change hello VM size tooa size that supports premium storage
+# Skip this step if converting storage from premium toostandard
 $vm.HardwareProfile.VmSize = $size
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
-# Get all disks in the resource group of the VM
+# Get all disks in hello resource group of hello VM
 $vmDisks = Get-AzureRmDisk -ResourceGroupName $rgName 
 
-# For disks that belong to the selected VM, convert to premium storage
+# For disks that belong toohello selected VM, convert toopremium storage
 foreach ($disk in $vmDisks)
 {
     if ($disk.OwnerId -eq $vm.Id)
@@ -76,14 +76,14 @@ foreach ($disk in $vmDisks)
 
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
-## <a name="convert-a-managed-disk-from-standard-to-premium-and-vice-versa"></a>Een beheerde schijf van standard converteren naar premium, en omgekeerd
+## <a name="convert-a-managed-disk-from-standard-toopremium-and-vice-versa"></a>Een beheerde schijf converteren van standaard toopremium, en vice versa
 
-Voor uw workload ontwikkelen en testen, is het raadzaam combinatie van standard en premium-schijven voor uw kosten hebben. U kunt dit doen door te upgraden naar de premium-opslag alleen op de schijven die betere prestaties zijn vereist. In het volgende voorbeeld laten we zien hoe overschakelen van één schijf van een virtuele machine van standaard naar premium-opslag, en vice versa. U kunt beheerde premium-schijven, uw virtuele machine gebruiken een [VM-grootte](sizes.md) die ondersteuning biedt voor premium-opslag. In dit voorbeeld wordt ook verandert in een grootte die ondersteuning biedt voor premium-opslag.
+Voor uw workload ontwikkelen en testen kunt u toohave combinatie van standard en premium-schijven tooreduce uw kosten. U kunt dit doen door het upgraden van toopremium opslag, alleen Hallo-schijven die betere prestaties zijn vereist. In de Hallo voorbeeld te volgen, laten we zien hoe tooswitch één schijf van een virtuele machine uit de standaard toopremium opslag, en vice versa. premium toouse schijven die worden beheerd, uw virtuele machine moet gebruiken een [VM-grootte](sizes.md) die ondersteuning biedt voor premium-opslag. In dit voorbeeld wordt ook tooa grootte die ondersteuning biedt voor premium-opslag.
 
 ```powershell
 
 $diskName = 'yourDiskName'
-# resource group that contains the managed disk
+# resource group that contains hello managed disk
 $rgName = 'yourResourceGroupName'
 # Choose between StandardLRS and PremiumLRS based on your scenario
 $storageType = 'PremiumLRS'
@@ -92,19 +92,19 @@ $size = 'Standard_DS2_v2'
 
 $disk = Get-AzureRmDisk -DiskName $diskName -ResourceGroupName $rgName
 
-# Get the ARM resource to get name and resource group of the VM
+# Get hello ARM resource tooget name and resource group of hello VM
 $vmResource = Get-AzureRmResource -ResourceId $disk.OwnerId
 $vm = Get-AzureRmVM $vmResource.ResourceGroupName -Name $vmResource.ResourceName 
 
-# Stop and deallocate the VM before changing the storage type
+# Stop and deallocate hello VM before changing hello storage type
 Stop-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Force
 
-# Change the VM size to a size that supports premium storage
-# Skip this step if converting storage from premium to standard
+# Change hello VM size tooa size that supports premium storage
+# Skip this step if converting storage from premium toostandard
 $vm.HardwareProfile.VmSize = $size
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
-# Update the storage type
+# Update hello storage type
 $diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType $storageType
 Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 -DiskName $disk.Name

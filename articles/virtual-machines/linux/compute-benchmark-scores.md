@@ -1,5 +1,5 @@
 ---
-title: COMPUTE benchmark scores voor virtuele Linux-machines | Microsoft Docs
+title: aaaCompute benchmark scores voor virtuele Linux-machines | Microsoft Docs
 description: CoreMark compute benchmark scores vergelijken voor virtuele Azure-machines met Linux
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cynthn
-ms.openlocfilehash: 382c21343f1a41438277dc288dcdf136e4e1437e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b2c1ca5fbd80cea030ac2cc22156c4e9444c6726
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>COMPUTE benchmark scores voor virtuele Linux-machines
-De volgende CoreMark benchmark scores weergeven computerprestaties voor Azure krachtige VM selectie Ubuntu uitgevoerd. COMPUTE benchmark scores zijn ook beschikbaar voor [VM's van Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Hallo CoreMark benchmark scores weergeven na compute prestaties voor Azure krachtige VM selectie Ubuntu uitgevoerd. COMPUTE benchmark scores zijn ook beschikbaar voor [VM's van Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="a-series---compute-intensive"></a>A-serie-rekenintensieve
 | Grootte | vcpu 's | NUMA-knooppunten | CPU | Wordt uitgevoerd | Herhalingen per seconde | StdDev |
@@ -84,9 +84,9 @@ De volgende CoreMark benchmark scores weergeven computerprestaties voor Azure kr
 | Standard_H16mr |16 |2 |Intel Xeon E5 2667 v3 @ 3,2 GHz |28 |274,523 |5,698 |
 
 ## <a name="about-coremark"></a>Over CoreMark
-Linux-getallen worden berekend door het uitvoeren van [CoreMark](http://www.eembc.org/coremark/faq.php) op Ubuntu. CoreMark is geconfigureerd met het aantal threads dat is ingesteld op het aantal virtuele processors en gelijktijdigheid van taken die zijn ingesteld op PThreads. Het doelaantal herhalingen is aangepast op basis van de verwachte prestaties bieden een runtime van ten minste 20 seconden (meestal veel langer). De laatste score vertegenwoordigt het aantal iteraties voltooid die worden gedeeld door het aantal seconden geduurd de test wilt uitvoeren. Elke test is ten minste zeven keer uitgevoerd op elke virtuele machine. Test (behalve voor H series_ zijn in oktober 2015 op meerdere virtuele machines in elke openbare Azure-regio is de virtuele machine ondersteund in op de datum die wordt uitgevoerd.
+Linux-getallen worden berekend door het uitvoeren van [CoreMark](http://www.eembc.org/coremark/faq.php) op Ubuntu. CoreMark is geconfigureerd met het aantal threads set toohello aantal virtuele processors Hallo en gelijktijdigheid tooPThreads instellen. Hallo doelaantal herhalingen is aangepast op basis van de verwachte prestaties tooprovide een runtime van ten minste 20 seconden (meestal veel langer). laatste score Hallo vertegenwoordigt Hallo aantal iteraties voltooid gedeeld door het aantal seconden geduurd toorun Hallo test Hallo. Elke test is ten minste zeven keer uitgevoerd op elke virtuele machine. Tests (behalve voor H series_ zijn in oktober 2015 op meerdere virtuele machines in elke openbare Azure-regio Hallo VM werd ondersteund op Hallo datum uitvoert.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor opslagcapaciteit, details van de schijf en aanvullende overwegingen voor het kiezen van de VM-grootten, [grootten voor virtuele machines](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Als u wilt de CoreMark-scripts uitvoeren op virtuele Linux-machines, downloaden de [CoreMark script pack](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
+* toorun hello CoreMark scripts op Linux virtuele machines, downloaden Hallo [CoreMark script pack](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
 

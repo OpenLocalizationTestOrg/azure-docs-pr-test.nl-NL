@@ -1,6 +1,6 @@
 ---
-title: Maken van een StorSimple-ondersteuningspakket | Microsoft Docs
-description: Informatie over het maken, te ontsleutelen en te bewerken van een ondersteuningspakket voor uw StorSimple-apparaat.
+title: een StorSimple-ondersteuningspakket aaaCreate | Microsoft Docs
+description: Ontdek hoe toocreate, ontsleutelen en bewerken van een ondersteuningspakket voor uw StorSimple-apparaat.
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,134 +14,134 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.openlocfilehash: 32d20e7a8adcfc646c592213fe7395b87a93c985
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 209aeee50e823fd2ca96ababd1d0cf3ea9cdad53
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-manage-a-storsimple-support-package"></a>Maken en beheren van een pakket StorSimple-ondersteuning
 ## <a name="overview"></a>Overzicht
-Een StorSimple-ondersteuningspakket is een mechanisme voor eenvoudig te gebruiken dat alle relevante Logboeken om te helpen bij het oplossen van eventuele problemen StorSimple-apparaat met Microsoft Support verzamelt. De logboeken van de verzamelde zijn versleuteld en gecomprimeerd.
+Een StorSimple-ondersteuningspakket is een mechanisme voor eenvoudig te gebruiken dat alle relevante logboeken tooassist Microsoft Support verzamelt bij het oplossen van eventuele problemen StorSimple-apparaat. Hallo zijn verzamelde logboeken versleuteld en gecomprimeerd.
 
-Deze zelfstudie bevat stapsgewijze instructies voor het maken en beheren van het ondersteuningspakket.
+Deze zelfstudie bevat stapsgewijze instructies toocreate en Hallo ondersteuningspakket beheren.
 
-## <a name="create-and-upload-a-support-package-in-the-azure-classic-portal"></a>Maken en uploaden van een ondersteuningspakket in de klassieke Azure portal
-U kunt maken en een ondersteuningspakket uploaden naar de website van Microsoft Support via de **onderhoud** pagina van de service in de klassieke Azure portal.
+## <a name="create-and-upload-a-support-package-in-hello-azure-classic-portal"></a>Maken en uploaden van een ondersteuningspakket in Hallo klassieke Azure-portal
+U kunt maken en uploaden van een site ondersteuning pakket toohello Microsoft Support via Hallo **onderhoud** pagina van de service Hallo in Hallo klassieke Azure-portal.
 
 > [!NOTE]
-> Het uploaden is een sleutel ondersteuning vereist. De ondersteuningstechnicus dient dit voor u in een e-mailbericht.
+> Hallo uploaden vereist een sleutel voor ondersteuning. De ondersteuningstechnicus dient dit tooyou in een e-mailbericht.
 > 
 > 
 
-Een versleutelde en gecomprimeerde support-pakket (.cab-bestand) is gemaakt en geüpload naar de site ondersteuning. Vervolgens kan de ondersteuningstechnicus van dit pakket opgehaald van de site ondersteuning voor het oplossen van het probleem.
+Een versleutelde en gecomprimeerde support-pakket (.cab-bestand) is gemaakt en geüploade toohello ondersteuningssite. Hallo ondersteuningstechnicus kan vervolgens dit pakket ophalen van Hallo ondersteuningssite voor Hallo probleem op te lossen.
 
-Voer de volgende stappen uit in de klassieke portal een ondersteuningspakket maken.
+Hallo stappen te volgen in Hallo klassieke portal toocreate ondersteuningspakket uitvoeren.
 
-#### <a name="to-create-a-support-package-in-the-azure-classic-portal"></a>Een ondersteuningspakket maken in de klassieke Azure portal
+#### <a name="toocreate-a-support-package-in-hello-azure-classic-portal"></a>toocreate ondersteuningspakket in Hallo klassieke Azure-portal
 1. Selecteer **apparaten** > **onderhoud**.
-2. In de **ondersteuningspakket** sectie **ondersteuningspakket maken en uploaden**.
-3. In de **ondersteuningspakket maken en uploaden** dialoogvenster de volgende handelingen uit:
+2. In Hallo **ondersteuningspakket** sectie **ondersteuningspakket maken en uploaden**.
+3. In Hallo **ondersteuningspakket maken en uploaden** dialoogvenster vak, Hallo te volgen:
    
     ![Ondersteuningspakket maken](./media/storsimple-create-manage-support-package/IC740923.png)
    
-   * In de **ondersteuning sleutel** tekst en voer de sleutel. De ondersteuningstechnicus Microsoft moet deze sleutel naar u verzenden via e-mail.
-   * Schakel het selectievakje in als u toestemming geven om automatisch de support-pakket te uploaden naar de website van Microsoft Support.
-   * Klik op het vinkje ![Vinkje](./media/storsimple-create-manage-support-package/IC740895.png).
+   * In Hallo **ondersteuning sleutel** tekst Voer Hallo-sleutel. De ondersteuningstechnicus van Microsoft het beste deze sleutel tooyou in e-mailbericht verzenden.
+   * Selecteer Hallo selectievakje tooprovide toestemming tooautomatically uploaden Hallo ondersteuning pakket toohello Microsoft Support-site.
+   * Klik op het vinkje Hallo ![Vinkje](./media/storsimple-create-manage-support-package/IC740895.png).
 
 ## <a name="manually-create-a-support-package"></a>Handmatig een ondersteuningspakket maken
-In sommige gevallen moet u handmatig maken van het ondersteuningspakket via Windows PowerShell voor StorSimple. Bijvoorbeeld:
+In sommige gevallen moet u toomanually Hallo ondersteuningspakket via Windows PowerShell voor StorSimple maken. Bijvoorbeeld:
 
-* Als u wilt dat gevoelige gegevens verwijderen uit uw logboekbestanden vóór delen met Microsoft Support.
-* Als u problemen bij het uploaden van het pakket vanwege problemen met de netwerkverbinding ondervindt.
+* Als u tooremove gevoelige informatie van uw logboek bestanden voorafgaande toosharing met Microsoft Support.
+* Als u problemen bij het uploaden van Hallo pakket vanwege tooconnectivity problemen ondervindt.
 
-U kunt uw handmatig gegenereerde ondersteuningspakket delen met Microsoft Support via e-mail. Voer de volgende stappen uit om een ondersteuningspakket maken in Windows PowerShell voor StorSimple.
+U kunt uw handmatig gegenereerde ondersteuningspakket delen met Microsoft Support via e-mail. Volgende stappen toocreate ondersteuningspakket in Windows PowerShell voor StorSimple Hallo uitvoeren.
 
-#### <a name="to-create-a-support-package-in-windows-powershell-for-storsimple"></a>Een ondersteuningspakket maken in Windows PowerShell voor StorSimple
-1. Voor het starten van een Windows PowerShell-sessie als een beheerder op de externe computer die verbinding maken met uw StorSimple-apparaat wordt gebruikt, voer de volgende opdracht:
+#### <a name="toocreate-a-support-package-in-windows-powershell-for-storsimple"></a>toocreate ondersteuningspakket in Windows PowerShell voor StorSimple
+1. toostart een Windows PowerShell-sessie als administrator op Hallo externe computer die is gebruikt tooconnect tooyour StorSimple-apparaat, Voer Hallo volgende opdracht:
    
     `Start PowerShell`
-2. Verbinding maken met de SSAdmin Console van uw apparaat in de Windows PowerShell-sessie:
+2. In de Windows PowerShell-sessie Hallo verbinden toohello SSAdmin Console van uw apparaat:
    
-   * Voer het volgende achter de opdrachtprompt:
+   * Voer het volgende achter de opdrachtprompt Hallo:
      
        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
-   * Voer het beheerderswachtwoord van uw apparaat in het dialoogvenster. Het standaardwachtwoord is:
+   * Voer het beheerderswachtwoord van uw apparaat Hallo in het dialoogvenster dat wordt geopend. Hallo standaardwachtwoord is:
      
       `Password1`
      
       ![In het dialoogvenster van PowerShell-referentie](./media/storsimple-create-manage-support-package/IC740962.png)
    * Selecteer **OK**.
-   * Voer het volgende achter de opdrachtprompt:
+   * Voer het volgende achter de opdrachtprompt Hallo:
      
       `Enter-PSSession $MS`
-3. Voer de juiste opdracht in de sessie wordt geopend.
+3. Voer de juiste opdracht Hallo in Hallo-sessie die wordt geopend.
    
    * Voer voor netwerkshares die beveiligd met een wachtwoord zijn:
      
        `Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
      
-       U wordt gevraagd een wachtwoord, een pad naar de gedeelde netwerkmap en een wachtwoordzin voor versleuteling (omdat het ondersteuningspakket is versleuteld). Een ondersteuningspakket wordt vervolgens in de opgegeven map gemaakt.
-   * Voor shares die niet beveiligd met een wachtwoord zijn, hoeft u niet de `-Credential` parameter. Voer het volgende:
+       U wordt gevraagd om een wachtwoord, een pad toohello gedeelde netwerkmap en een wachtwoordzin voor versleuteling (omdat het ondersteuningspakket Hallo is versleuteld). Een ondersteuningspakket wordt vervolgens gemaakt in de opgegeven map Hallo.
+   * Voor shares die niet beveiligd met een wachtwoord zijn, hoeft u niet Hallo `-Credential` parameter. Voer de volgende Hallo:
      
        `Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
      
-       Het ondersteuningspakket wordt gemaakt voor beide domeincontrollers in de opgegeven gedeelde netwerkmap. Het is een versleutelde, gecomprimeerd bestand dat kan worden verzonden naar Microsoft Support voor het oplossen van problemen. Zie voor meer informatie [contact opnemen met Microsoft ondersteuning](storsimple-contact-microsoft-support.md).
+       Hallo ondersteuningspakket is gemaakt voor beide domeincontrollers in Hallo opgegeven gedeelde netwerkmap. Het is een versleutelde, gecomprimeerd bestand dat kan worden verzonden tooMicrosoft ondersteuning voor het oplossen van problemen. Zie voor meer informatie [contact opnemen met Microsoft ondersteuning](storsimple-contact-microsoft-support.md).
 
-### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>De parameters van de cmdlet Export-HcsSupportPackage
-Met de cmdlet Export-HcsSupportPackage kunt u de volgende parameters.
+### <a name="hello-export-hcssupportpackage-cmdlet-parameters"></a>Hallo Export HcsSupportPackage cmdlet-parameters
+U kunt Hallo na Hallo Export HcsSupportPackage cmdlet-parameters gebruiken.
 
 | Parameter | Vereiste/optionele | Beschrijving |
 | --- | --- | --- |
-| `-Path` |Vereist |Gebruiken voor de locatie van de gedeelde netwerkmap waarin het ondersteuningspakket wordt geplaatst. |
-| `-EncryptionPassphrase` |Vereist |Gebruiken voor een wachtwoordzin in om u te helpen bij het versleutelen van het ondersteuningspakket. |
-| `-Credential` |Optioneel |Gebruik te voorzien van referenties voor toegang voor de gedeelde netwerkmap. |
-| `-Force` |Optioneel |Gebruik voor de versleuteling wachtwoordzin bevestigingsstap overslaan. |
-| `-PackageTag` |Optioneel |Gebruiken om op te geven van een map onder *pad* in het ondersteuningspakket wordt geplaatst. De standaardwaarde is [apparaatnaam]-[huidige datum en time:yyyy-MM-dd-HH-mm-ss]. |
-| `-Scope` |Optioneel |Geef als **Cluster** (standaard) voor het maken van een ondersteuningspakket voor beide domeincontrollers. Als u maken van een pakket alleen voor de huidige controller wilt, geeft u **Controller**. |
+| `-Path` |Vereist |Gebruik tooprovide Hallo locatie van Hallo gedeelde netwerkmap in welke Hallo ondersteuningspakket wordt geplaatst. |
+| `-EncryptionPassphrase` |Vereist |Gebruik tooprovide een wachtwoordzin toohelp Hallo ondersteuningspakket versleutelen. |
+| `-Credential` |Optioneel |Gebruik toosupply toegangsreferenties voor Hallo gedeelde netwerkmap. |
+| `-Force` |Optioneel |Gebruik tooskip Hallo versleuteling wachtwoordzin bevestigen. |
+| `-PackageTag` |Optioneel |Gebruik toospecify een map onder *pad* in welke ondersteuning Hallo pakket wordt geplaatst. Hallo standaard is [apparaatnaam]-[huidige datum en time:yyyy-MM-dd-HH-mm-ss]. |
+| `-Scope` |Optioneel |Geef als **Cluster** (standaard) toocreate ondersteuningspakket voor beide domeincontrollers. Geef desgewenst kunt u een pakket toocreate alleen voor de huidige controller Hallo **Controller**. |
 
 ## <a name="edit-a-support-package"></a>Een ondersteuningspakket bewerken
-Nadat u een ondersteuningspakket hebt gegenereerd, moet u mogelijk om te bewerken van het pakket om gevoelige informatie te verwijderen. Dit kunnen bijvoorbeeld volumenamen apparaat IP-adressen en namen van back-up van de logboekbestanden.
+Nadat u een ondersteuningspakket hebt gegenereerd, moet u mogelijk tooedit Hallo pakket tooremove gevoelige informatie. Dit kunnen bijvoorbeeld volumenamen, IP-adressen van apparaten en back-namen uit Hallo-logboekbestanden.
 
 > [!IMPORTANT]
-> U kunt alleen een ondersteuningspakket die is gegenereerd via Windows PowerShell voor StorSimple bewerken. U kunt een pakket gemaakt in de klassieke Azure portal met de StorSimple Manager-service niet bewerken.
+> U kunt alleen een ondersteuningspakket die is gegenereerd via Windows PowerShell voor StorSimple bewerken. U kunt een pakket gemaakt in de klassieke Azure-portal met de StorSimple Manager-service Hallo niet bewerken.
 > 
 > 
 
-Ondersteuningspakket bewerken voordat u dit uploadt op de website Microsoft Support, het ondersteuningspakket met voor het eerst ontsleutelen, de bestanden bewerken en vervolgens opnieuw versleutelen. De volgende stappen uitvoeren.
+tooedit ondersteuningspakket voordat u dit uploadt op Hallo van Microsoft Support-site, eerst ontsleutelen ondersteuningspakket Hallo Hallo bestanden bewerken en vervolgens opnieuw versleutelen. Hallo stappen uitvoeren.
 
-#### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>Het bewerken van een ondersteuningspakket in Windows PowerShell voor StorSimple
-1. Genereren van een ondersteuningspakket zoals is beschreven, worden eerder in [een ondersteuningspakket maken in Windows PowerShell voor StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
-2. [Het script downloaden](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) lokaal op de client.
-3. Importeer de module Windows PowerShell. Geef het pad naar de lokale map waarin u het script hebt gedownload. Geef voor het importeren van de module:
+#### <a name="tooedit-a-support-package-in-windows-powershell-for-storsimple"></a>tooedit ondersteuningspakket in Windows PowerShell voor StorSimple
+1. Genereren van een ondersteuningspakket zoals is beschreven, worden eerder in [toocreate ondersteuningspakket in Windows PowerShell voor StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
+2. [Hallo script downloaden](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) lokaal op de client.
+3. Hallo Windows PowerShell-module importeren. Geef Hallo pad toohello lokale map waarin u Hallo script hebt gedownload. tooimport hello module invoeren:
    
-    `Import-module <Path to the folder that contains the Windows PowerShell script>`
-4. Alle bestanden zijn *.aes* bestanden die worden gecomprimeerd en versleuteld. Decomprimeren en bestanden ontsleutelen, geeft u op:
+    `Import-module <Path toohello folder that contains hello Windows PowerShell script>`
+4. Alle Hallo-bestanden zijn *.aes* bestanden die worden gecomprimeerd en versleuteld. Voer in toodecompress en ontsleutelen-bestanden:
    
-    `Open-HcsSupportPackage <Path to the folder that contains support package files>`
+    `Open-HcsSupportPackage <Path toohello folder that contains support package files>`
    
-    Houd er rekening mee dat de werkelijke bestandsextensies nu worden weergegeven voor alle bestanden.
+    Houd er rekening mee Hallo werkelijke bestandsextensies worden nu weergegeven voor alle Hallo-bestanden.
    
     ![Voor ondersteuningspakket bewerken](./media/storsimple-create-manage-support-package/IC750706.png)
-5. Wanneer u wordt gevraagd om de wachtwoordzin voor versleuteling, voert u de wachtwoordzin op die u hebt gebruikt toen u het ondersteuningspakket is gemaakt.
+5. Wanneer u wordt gevraagd om de wachtwoordzin voor versleuteling hello, voert u Hallo wachtwoordzin op die u hebt gebruikt toen Hallo ondersteuningspakket is gemaakt.
    
         cmdlet Open-HcsSupportPackage at command pipeline position 1
    
-        Supply values for the following parameters:EncryptionPassphrase: ****
-6. Blader naar de map waarin de logboekbestanden. Omdat de logboekbestanden worden nu gecomprimeerd en ontsleuteld, wordt deze oorspronkelijke bestandsextensies hebben. Deze bestanden wijzigt om klantspecifieke informatie, zoals volumenamen en IP-adressen van apparaten, verwijderen en de bestanden op te slaan.
-7. Sluit de bestanden om ze met gzip wordt gecomprimeerd en versleuteld met AES-256. Dit is van de snelheid en beveiliging bij het overbrengen van het ondersteuningspakket via een netwerk. Als u wilt comprimeren en bestanden te versleutelen, voert u het volgende:
+        Supply values for hello following parameters:EncryptionPassphrase: ****
+6. Blader toohello-map met logboekbestanden Hallo. Omdat het Hallo-logboekbestanden zijn nu gedecomprimeerd en ontsleuteld, wordt deze oorspronkelijke bestandsextensies hebben. Deze bestanden tooremove eventuele klantspecifieke informatie, zoals volumenamen en IP-adressen van apparaten, wijzigen en Hallo bestanden op te slaan.
+7. Sluit Hallo bestanden toocompress ze met gzip en versleuteld met AES-256. Dit is van de snelheid en beveiliging bij het overbrengen van Hallo ondersteuningspakket via een netwerk. toocompress en bestanden te versleutelen, voert u de volgende Hallo:
    
-    `Close-HcsSupportPackage <Path to the folder that contains support package files>`
+    `Close-HcsSupportPackage <Path toohello folder that contains support package files>`
    
     ![Voor ondersteuningspakket bewerken](./media/storsimple-create-manage-support-package/IC750707.png)
-8. Geef desgevraagd een wachtwoordzin voor versleuteling voor het ondersteuningspakket gewijzigde.
+8. Geef desgevraagd een wachtwoordzin voor versleuteling voor de gewijzigde ondersteuningspakket Hallo.
    
         cmdlet Close-HcsSupportPackage at command pipeline position 1
-        Supply values for the following parameters:EncryptionPassphrase: ****
-9. Noteer de nieuwe wachtwoordzin, zodat u het met Microsoft Support delen kunt wanneer dit wordt aangevraagd.
+        Supply values for hello following parameters:EncryptionPassphrase: ****
+9. Noteer de nieuwe wachtwoordzin hello, zodat u het met Microsoft Support delen kunt wanneer dit wordt aangevraagd.
 
 ### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Voorbeeld: Bestanden in een ondersteuningspakket op een wachtwoord beveiligde share bewerken
-Het volgende voorbeeld laat zien hoe ontsleutelen, bewerken en opnieuw versleutelen een ondersteuningspakket.
+Hallo volgende voorbeeld ziet u hoe toodecrypt, bewerken en opnieuw versleutelen een ondersteuningspakket.
 
         PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
 
@@ -149,7 +149,7 @@ Het volgende voorbeeld laat zien hoe ontsleutelen, bewerken en opnieuw versleute
 
         cmdlet Open-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+        Supply values for hello following parameters:
 
         EncryptionPassphrase: ****
 
@@ -157,13 +157,13 @@ Het volgende voorbeeld laat zien hoe ontsleutelen, bewerken en opnieuw versleute
 
         cmdlet Close-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+        Supply values for hello following parameters:
 
         EncryptionPassphrase: ****
 
         PS C:\WINDOWS\system32>
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over hoe [ondersteuningspakketten en apparaatlogboeken gebruiken om op te lossen de implementatie van uw apparaten](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
-* Meer informatie over hoe [de StorSimple Manager-service gebruiken voor het beheren van uw StorSimple-apparaat](storsimple-manager-service-administration.md).
+* Meer informatie over hoe te[gebruik ondersteuningspakketten en apparaat logboeken tootroubleshoot de implementatie van uw apparaten](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Meer informatie over hoe te[gebruik Hallo StorSimple Manager service tooadminister uw StorSimple-apparaat](storsimple-manager-service-administration.md).
 
