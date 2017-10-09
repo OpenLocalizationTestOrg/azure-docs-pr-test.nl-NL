@@ -1,6 +1,6 @@
 ---
-title: 'Een virtueel netwerk koppelen aan een ExpressRoute-circuit: CLI: Azure | Microsoft Docs'
-description: Dit document bevat een overzicht van hoe u virtuele netwerken (vnet's) koppelen aan ExpressRoute-circuits met behulp van het implementatiemodel van Resource Manager en de CLI.
+title: 'Koppelen van een virtueel netwerk tooan ExpressRoute-circuit: CLI: Azure | Microsoft Docs'
+description: Dit document bevat een overzicht van hoe virtuele toolink (vnet's) tooExpressRoute circuits netwerken met behulp van Hallo Resource Manager-implementatiemodel en CLI.
 services: expressroute
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: anzaman,cherylmc
-ms.openlocfilehash: 0ea696e796ec3a943bc028f56da417978b728b82
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 1251f016d9b94d3fee81de1df164cb085cbe9d78
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Een virtueel netwerk verbinden met een ExpressRoute-circuit met CLI
+# <a name="connect-a-virtual-network-tooan-expressroute-circuit-using-cli"></a>Verbinding maken met een virtueel netwerk tooan ExpressRoute-circuit met CLI
 
-In dit artikel helpt u bij virtuele netwerken (vnet's) koppelen aan Azure ExpressRoute-circuits met CLI. Als u wilt koppelen met Azure CLI, moeten de virtuele netwerken worden gemaakt met het implementatiemodel van Resource Manager. Ze kunnen zijn in het hetzelfde abonnement of deel uitmaken van een ander abonnement. Als u gebruiken van een andere methode wilt voor uw VNet verbinding met een ExpressRoute-circuit, kunt u een artikel uit de volgende lijst:
+In dit artikel helpt u bij virtuele netwerken (vnet's) tooAzure ExpressRoute-circuits met CLI koppelen. met Azure CLI toolink Hallo virtuele netwerken worden gemaakt met behulp van Hallo Resource Manager-implementatiemodel. Ze kunnen zijn in Hallo hetzelfde abonnement of een deel van een ander abonnement. Als u een andere methode tooconnect toouse uw VNet tooan ExpressRoute-circuit wilt, kunt u een artikel van Hallo volgende lijst:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
@@ -35,34 +35,34 @@ In dit artikel helpt u bij virtuele netwerken (vnet's) koppelen aan Azure Expres
 
 ## <a name="configuration-prerequisites"></a>Configuratievereisten
 
-* U moet de meest recente versie van de opdrachtregelinterface (CLI). Zie voor meer informatie [2.0 voor Azure CLI installeren](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
-* U moet controleren de [vereisten](expressroute-prerequisites.md), [routeringsvereisten](expressroute-routing.md), en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
+* U moet de meest recente versie Hallo van Hallo-opdrachtregelinterface (CLI). Zie voor meer informatie [2.0 voor Azure CLI installeren](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+* U moet tooreview hello [vereisten](expressroute-prerequisites.md), [routeringsvereisten](expressroute-routing.md), en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
 * U moet een actief ExpressRoute-circuit hebben. 
-  * Volg de instructies voor [maken van een ExpressRoute-circuit](howto-circuit-cli.md) en laat het circuit inschakelen door de connectiviteitsprovider. 
-  * Zorg ervoor dat u persoonlijke Azure-peering voor uw circuit is geconfigureerd. Zie de [routering configureren](howto-routing-cli.md) artikel voor routering instructies. 
-  * Zorg ervoor dat de persoonlijke Azure-peering is geconfigureerd. De BGP-peer tussen uw netwerk en Microsoft moet, zodat u kunt end-to-end-connectiviteit inschakelen.
-  * Zorg ervoor dat u hebt een virtueel netwerk en een virtuele netwerkgateway gemaakt en volledig is ingericht. Volg de instructies voor [configureren van een virtuele netwerkgateway voor ExpressRoute](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Zorg ervoor dat u `--gateway-type ExpressRoute`.
+  * Hallo-instructies te volgen[maken van een ExpressRoute-circuit](howto-circuit-cli.md) en laat Hallo-circuit inschakelen door de connectiviteitsprovider. 
+  * Zorg ervoor dat u persoonlijke Azure-peering voor uw circuit is geconfigureerd. Zie Hallo [routering configureren](howto-routing-cli.md) artikel voor routering instructies. 
+  * Zorg ervoor dat de persoonlijke Azure-peering is geconfigureerd. Hallo BGP-peering tussen uw netwerk en Microsoft moet zodat u kunt end-to-end-connectiviteit inschakelen.
+  * Zorg ervoor dat u hebt een virtueel netwerk en een virtuele netwerkgateway gemaakt en volledig is ingericht. Hallo-instructies te volgen[configureren van een virtuele netwerkgateway voor ExpressRoute](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Ervoor toouse worden `--gateway-type ExpressRoute`.
 
-* U kunt maximaal 10 virtuele netwerken koppelen aan een standaard ExpressRoute-circuit. Alle virtuele netwerken moet in dezelfde geopolitieke regio bij gebruik van een standaard ExpressRoute-circuit. 
+* U kunt een koppeling van too10 virtuele netwerken tooa standaard ExpressRoute-circuit. Alle virtuele netwerken moet Hallo dezelfde geopolitieke regio bij gebruik van een standaard ExpressRoute-circuit. 
 
-* Als u de invoegtoepassing ExpressRoute premium inschakelt, kunt u een virtueel netwerk buiten de geopolitieke regio van het ExpressRoute-circuit koppelen of verbinding maken met een groter aantal virtuele netwerken aan uw ExpressRoute-circuit. Zie voor meer informatie over de premium-invoegtoepassing, de [Veelgestelde vragen over](expressroute-faqs.md).
+* Als u premium-invoegtoepassing voor ExpressRoute Hallo inschakelt, kunt u een virtueel netwerk buiten de geopolitieke regio Hallo Hallo ExpressRoute-circuit koppelen of verbinding maken met een groter aantal virtuele netwerken tooyour ExpressRoute-circuit. Zie voor meer informatie over de premium-invoegtoepassing Hallo Hallo [Veelgestelde vragen over](expressroute-faqs.md).
 
-## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Een virtueel netwerk in hetzelfde abonnement verbinden met een circuit
+## <a name="connect-a-virtual-network-in-hello-same-subscription-tooa-circuit"></a>Verbinding maken met een virtueel netwerk in Hallo hetzelfde abonnement tooa circuit
 
-U kunt een virtuele netwerkgateway aan een ExpressRoute-circuit verbinding maken met behulp van het voorbeeld. Zorg ervoor dat de virtuele netwerkgateway wordt gemaakt en gereed is voor het koppelen voordat u de opdracht uitvoert.
+Met behulp van Hallo voorbeeld kunt u een virtueel netwerk gateway tooan ExpressRoute-circuit. Zorg ervoor dat Hallo virtuele netwerkgateway wordt gemaakt en is gereed voor het koppelen voordat u Hallo-opdracht uitvoert.
 
 ```azurecli
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
 ```
 
-## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Een virtueel netwerk in een ander abonnement verbinden met een circuit
+## <a name="connect-a-virtual-network-in-a-different-subscription-tooa-circuit"></a>Verbinding maken met een virtueel netwerk in een ander abonnement tooa circuit
 
-U kunt een ExpressRoute-circuit delen tussen meerdere abonnementen. De onderstaande afbeelding ziet u een eenvoudige schematische van hoe delen werkt voor ExpressRoute-circuits voor meerdere abonnementen.
+U kunt een ExpressRoute-circuit delen tussen meerdere abonnementen. Hallo afbeelding hieronder ziet een eenvoudige schematische van hoe delen werkt voor ExpressRoute-circuits voor meerdere abonnementen.
 
-Elk van de kleinere clouds binnen de grote cloud wordt gebruikt voor abonnementen die bij verschillende afdelingen binnen een organisatie horen te vertegenwoordigen. Elk van de afdelingen binnen de organisatie kan hun eigen abonnement gebruiken voor het implementeren van hun services--, maar één ExpressRoute-circuit terugverbinding maken met uw on-premises netwerk kunnen delen. Één afdeling (in dit voorbeeld: IT) kunt eigenaar van het ExpressRoute-circuit. Andere abonnementen binnen de organisatie kunnen het ExpressRoute-circuit gebruiken.
+Elk van de kleinere clouds binnen grote cloud Hallo Hallo is gebruikte toorepresent abonnementen die deel uitmaken van toodifferent afdelingen binnen een organisatie. Elk van de afdelingen binnen de organisatie Hallo Hallo hun eigen abonnement kunt gebruiken voor het implementeren van hun services--, maar een enkel ExpressRoute-circuit tooconnect back tooyour on-premises netwerk kunnen delen. Één afdeling (in dit voorbeeld: IT) eigenaar kunnen Hallo ExpressRoute-circuit. Andere abonnementen binnen de organisatie Hallo kunnen Hallo ExpressRoute-circuit gebruiken.
 
 > [!NOTE]
-> Verbindingen en bandbreedte kosten voor het specifieke circuit wordt toegepast op de eigenaar van het ExpressRoute-Circuit. Alle virtuele netwerken delen de dezelfde bandbreedte.
+> Verbindingen en bandbreedte kosten voor speciale Hallo circuit zijn toegepaste toohello ExpressRoute-Circuiteigenaar. Alle virtuele netwerken Hallo delen dezelfde bandbreedte.
 > 
 > 
 
@@ -70,23 +70,23 @@ Elk van de kleinere clouds binnen de grote cloud wordt gebruikt voor abonnemente
 
 ### <a name="administration---circuit-owners-and-circuit-users"></a>Beheer - Circuit eigenaars en Circuit gebruikers
 
-De eigenaar van het Circuit is een geautoriseerde gebruiker Power van de bron van ExpressRoute-circuit. De eigenaar van het Circuit kunt autorisaties die kunnen worden ingewisseld door 'Circuit gebruikers' maken. Circuit gebruikers kunnen eigenaren van virtuele netwerkgateways die zich niet binnen hetzelfde abonnement als het ExpressRoute-circuit. Circuit gebruikers kunnen inwisselen autorisaties (één autorisatie per virtueel netwerk).
+Hallo 'Circuiteigenaar' is een geautoriseerde gebruiker Power Hallo ExpressRoute-circuit resource. Hallo Circuiteigenaar kunt autorisaties die kunnen worden ingewisseld door 'Circuit gebruikers' maken. Circuit gebruikers kunnen eigenaren van het virtuele netwerk gateways die niet binnen hetzelfde abonnement Hallo zoals Hallo ExpressRoute-circuit. Circuit gebruikers kunnen inwisselen autorisaties (één autorisatie per virtueel netwerk).
 
-De eigenaar van het Circuit bevoegd is om te wijzigen en machtigingen intrekt op elk gewenst moment. Wanneer een vergunning wordt ingetrokken, worden alle koppeling verbindingen verwijderd uit het abonnement waarvoor de toegang is ingetrokken.
+Hallo Circuiteigenaar heeft Hallo power toomodify en trek autorisaties op elk gewenst moment. Wanneer een vergunning wordt ingetrokken, worden alle koppeling verbindingen verwijderd uit het Hallo-abonnement waarvoor de toegang is ingetrokken.
 
 ### <a name="circuit-owner-operations"></a>Circuit eigenaar bewerkingen
 
-**Maken van een autorisatieregels**
+**toocreate een autorisatie**
 
-De eigenaar van het Circuit maakt een autorisatie, die een autorisatiesleutel die kan worden gebruikt door een gebruiker Circuit hun virtuele netwerkgateways aan ExpressRoute-circuit verbinding maakt. Een vergunning is geldig voor slechts één verbinding.
+Hallo Circuiteigenaar maakt een autorisatie, die wordt gemaakt van een autorisatiesleutel die kan worden gebruikt door een tooconnect Circuitgebruikers hun virtuele netwerk gateways toohello ExpressRoute-circuit. Een vergunning is geldig voor slechts één verbinding.
 
-Het volgende voorbeeld ziet u het maken van een vergunning:
+Hallo volgende voorbeeld wordt getoond hoe toocreate een vergunning:
 
 ```azurecli
 az network express-route auth create --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization
 ```
 
-Het antwoord bevat de autorisatiesleutel en status:
+antwoord Hallo bevat Hallo autorisatiesleutel en de status:
 
 ```azurecli
 "authorizationKey": "0a7f3020-541f-4b4b-844a-5fb43472e3d7",
@@ -98,25 +98,25 @@ Het antwoord bevat de autorisatiesleutel en status:
 "resourceGroup": "ExpressRouteResourceGroup"
 ```
 
-**Machtigingen controleren**
+**tooreview autorisaties**
 
-De eigenaar van het Circuit Neem alle machtigingen die zijn uitgegeven voor een bepaalde circuit door te voeren in het volgende voorbeeld:
+Hallo Circuiteigenaar kunt bekijken alle autorisaties die op een bepaalde circuit zijn uitgegeven door Hallo volgt uitgevoerd:
 
 ```azurecli
 az network express-route auth list --circuit-name MyCircuit -g ExpressRouteResourceGroup
 ```
 
-**Autorisaties toevoegen**
+**tooadd autorisaties**
 
-De eigenaar van het Circuit kunt autorisaties toevoegen met behulp van het volgende voorbeeld:
+Hallo Circuiteigenaar kunt autorisaties toevoegen met behulp van Hallo voorbeeld te volgen:
 
 ```azurecli
 az network express-route auth create --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1
 ```
 
-**Autorisaties verwijderen**
+**toodelete autorisaties**
 
-De eigenaar van het Circuit kunt intrekken/delete autorisaties voor de gebruiker door te voeren in het volgende voorbeeld:
+Hallo Circuiteigenaar kunt intrekken/delete autorisaties toohello gebruiker door te voeren Hallo voorbeeld te volgen:
 
 ```azurecli
 az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1
@@ -124,24 +124,24 @@ az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteRes
 
 ### <a name="circuit-user-operations"></a>Bewerkingen voor circuit-gebruikers
 
-De Circuit-gebruiker moet de peer-ID en een autorisatiesleutel van de eigenaar van het Circuit. De autorisatiesleutel is een GUID.
+Hallo Circuitgebruikers nodig Hallo peer-ID en een autorisatiesleutel van Hallo Circuiteigenaar. Hallo autorisatiesleutel is een GUID.
 
 ```azurecli
 Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
-**Voor een verbindingsverificatie inwisselen**
+**een verbindingsverificatie tooredeem**
 
-De Circuit-gebruiker kan het volgende voorbeeld als u wilt gebruikmaken van een koppeling autorisatie uitvoeren:
+Hallo Circuitgebruikers kunt Hallo voorbeeld tooredeem na een koppeling autorisatie uitvoeren:
 
 ```azurecli
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit --authorization-key "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 ```
 
-**Een verbindingsverificatie vrijgeven**
+**een verbindingsverificatie toorelease**
 
-U kunt een vergunning vrijgeven door het verwijderen van de verbinding die is gekoppeld aan het virtuele netwerk in het ExpressRoute-circuit.
+U kunt een vergunning vrijgeven door Hallo-verbinding die is gekoppeld aan Hallo ExpressRoute-circuit toohello virtueel netwerk te verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over ExpressRoute raadpleegt u de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).
+Zie voor meer informatie over ExpressRoute hello [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).

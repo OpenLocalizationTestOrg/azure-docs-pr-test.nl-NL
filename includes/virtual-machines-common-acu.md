@@ -2,10 +2,10 @@
 
 
 
-We hebben het concept van de ACU (Azure Compute Unit) ontwikkeld om een manier te bieden waarop rekenprestaties (CPU) van Azure-SKU's met elkaar kunnen worden vergeleken. Op die manier kunt u eenvoudig bepalen welke SKU hoogstwaarschijnlijk aan uw prestatiebehoeften zal voldoen.  ACU is momenteel gestandaardiseerd op 100 voor een kleine virtuele machine (Standard_A1). Alle andere SKU's geven vervolgens weer hoeveel sneller die SKU een standaardbenchmark ongeveer kan uitvoeren. 
+Wij hebben Hallo concept van hello Azure Compute-eenheid (ACU) tooprovide een manier om computerprestaties (CPU) te vergelijken over Azure-SKU's gemaakt. Hierdoor kunt u eenvoudig welke SKU is hoogstwaarschijnlijk toosatisfy uw prestatievereisten past.  ACU is momenteel gestandaardiseerd op 100 voor een kleine virtuele machine (Standard_A1). Alle andere SKU's geven vervolgens weer hoeveel sneller die SKU een standaardbenchmark ongeveer kan uitvoeren. 
 
 > [!IMPORTANT]
-> De ACU is slechts een richtlijn.  De resultaten voor uw workload kunnen verschillen. 
+> Hallo ACU is alleen een richtlijn.  Hallo-resultaten voor uw workload kunnen variëren. 
 > 
 > 
 
@@ -35,6 +35,6 @@ We hebben het concept van de ACU (Azure Compute Unit) ontwikkeld om een manier t
 | [L4s-L32s](../articles/virtual-machines/windows/sizes-storage.md) |180 - 240* |
 | [M](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) | 160-180** |
 
-ACU's die met een * zijn gemarkeerd, maken gebruik van Intel® Turbo-technologie om de CPU-frequentie te verhogen en nóg betere prestaties te leveren.  Hoe groot die extra prestaties zijn, is afhankelijk van de VM-grootte, de workload en de andere workloads die op dezelfde host worden uitgevoerd.
+ACUs gemarkeerd met een * Intel® Turbo technologie tooincrease CPU frequentie gebruiken en een krachtige prestaties leveren.  Hallo hoeveelheid Hallo versterking kan variëren op basis van VM-grootte hello, werkbelasting en andere werkbelastingen die worden uitgevoerd op Hallo dezelfde host.
 
 **Hyper-threaded. 

@@ -1,6 +1,6 @@
 ---
-title: De Load Balancer op meerdere IP-configuraties met Azure CLI | Microsoft Docs
-description: Meer informatie over meerdere IP-adressen toewijzen aan een virtuele machine met Azure CLI | Resource Manager.
+title: aaaLoad balancing op meerdere IP-configuraties met Azure CLI | Microsoft Docs
+description: Meer informatie over hoe tooassign meerdere IP-adressen tooa virtuele machine met Azure CLI | Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: annahar
-ms.openlocfilehash: bd15713752ea01ad403d8e3dcfed0c9a7adcc7fa
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: df81e1b8193f274bad435d6b506c7be824117416
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-balancing-on-multiple-ip-configurations"></a>De Load Balancer op meerdere IP-configuraties
 
@@ -28,22 +28,22 @@ ms.lasthandoff: 08/03/2017
 > * [CLI](load-balancer-multiple-ip-cli.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
-Dit artikel wordt beschreven hoe u Azure Load Balancer met meerdere IP-adressen op een secundaire netwerkinterface (NIC). In dit scenario hebben we twee virtuele machines met Windows, elk met een primaire en een secundaire NIC. Elk van de secundaire NIC's twee IP-configuraties hebben. Elke virtuele machine fungeert als host van websites contoso.com en fabrikam.com. Elke website is gebonden aan een van de IP-configuraties voor de secundaire NIC. We Azure Load Balancer gebruiken om twee IP-adressen voor frontend, één voor elke website, voor het distribueren van het verkeer naar de respectieve IP-configuratie voor de website weer te geven. Dit scenario gebruikt hetzelfde poortnummer op zowel frontends, evenals het IP-adressen van zowel back-end-groep.
+Dit artikel wordt beschreven hoe toouse Azure Load Balancer met meerdere IP-adressen op een secundaire netwerkinterface (NIC). In dit scenario hebben we twee virtuele machines met Windows, elk met een primaire en een secundaire NIC. Elk van de secundaire Hallo NIC's, hebben twee IP-configuraties. Elke virtuele machine fungeert als host van websites contoso.com en fabrikam.com. Elke website is gebonden tooone Hallo IP-configuraties op Hallo secundaire NIC. We gebruiken Azure Load Balancer tooexpose twee frontend IP-adressen, één voor elke website, toodistribute verkeer toohello respectieve IP-configuratie voor Hallo-website. Dit scenario maakt gebruik van hetzelfde poortnummer Hallo over zowel frontends, evenals het IP-adressen van zowel back-end-groep.
 
 ![De installatiekopie van de Load Balancer-scenario](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
-## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Stappen om taken te verdelen over meerdere IP-configuraties
+## <a name="steps-tooload-balance-on-multiple-ip-configurations"></a>Stappen tooload verdelen over meerdere IP-configuraties
 
-Volg onderstaande stappen voor het bereiken van het scenario in dit artikel wordt beschreven:
+Hallo stappen hieronder tooachieve Hallo scenario in dit artikel wordt beschreven:
 
-1. [Installeren en configureren van de Azure CLI](../cli-install-nodejs.md) de Azure CLI volgens de stappen in het gekoppelde artikel en het logboek in uw Azure-account.
+1. [Installeren en configureren van Azure CLI Hallo](../cli-install-nodejs.md) hello Azure CLI aan de hand van Hallo stappen in de gekoppelde artikel Hallo en het logboek in uw Azure-account.
 2. [Een resourcegroep maken](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-group) aangeroepen *contosofabrikam* zoals hierboven is beschreven.
 
     ```azurecli
     azure group create contosofabrikam westcentralus
     ```
 
-3. [Maken van een beschikbaarheidsset](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-an-availability-set) aan voor de twee virtuele machines. In dit scenario moet u de volgende opdracht gebruiken:
+3. [Maken van een beschikbaarheidsset](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-an-availability-set) toofor Hallo twee virtuele machines. Gebruik voor dit scenario Hallo volgende opdracht:
 
     ```azurecli
     azure availset create --resource-group contosofabrikam --location westcentralus --name myAvailabilitySet
@@ -57,13 +57,13 @@ Volg onderstaande stappen voor het bereiken van het scenario in dit artikel word
     azure network vnet subnet create --resource-group contosofabrikam --vnet-name myVnet --name mySubnet --address-prefix 10.0.0.0/24
     ```
 
-5. [Maken van de load balancer](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) aangeroepen *mylb*:
+5. [Hallo load balancer maken](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) aangeroepen *mylb*:
 
     ```azurecli
     azure network lb create --resource-group contosofabrikam --location westcentralus --name mylb
     ```
 
-6. Maak twee dynamische openbare IP-adressen voor de frontend-IP-configuraties van de load balancer:
+6. Maak twee dynamische openbare IP-adressen voor Hallo frontend-IP-configuraties van de load balancer:
 
     ```azurecli
     azure network public-ip create --resource-group contosofabrikam --location westcentralus --name PublicIp1 --domain-name-label contoso --allocation-method Dynamic
@@ -71,7 +71,7 @@ Volg onderstaande stappen voor het bereiken van het scenario in dit artikel word
     azure network public-ip create --resource-group contosofabrikam --location westcentralus --name PublicIp2 --domain-name-label fabrikam --allocation-method Dynamic
     ```
 
-7. Maken van de twee frontend-IP-configuraties *contosofe* en *fabrikamfe* respectievelijk:
+7. Hallo twee frontend-IP-configuraties maken *contosofe* en *fabrikamfe* respectievelijk:
 
     ```azurecli
     azure network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp1 --name contosofe
@@ -90,7 +90,7 @@ Volg onderstaande stappen voor het bereiken van het scenario in dit artikel word
     azure network lb rule create --resource-group contosofabrikam --lb-name mylb --name HTTPf --protocol tcp --probe-name http --frontend-port 5000 --backend-port 5000 --frontend-ip-name fabrkamfe --backend-address-pool-name fabrikampool
     ```
 
-9. Voer de volgende opdracht hieronder en controleer vervolgens de uitvoer naar [Controleer of de load balancer](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) correct is gemaakt:
+9. Voer Hallo volgende opdracht hieronder en vervolgens te controleren Hallo uitvoer[Controleer of de load balancer](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) correct is gemaakt:
 
     ```azurecli
     azure network lb show --resource-group contosofabrikam --name mylb
@@ -104,7 +104,7 @@ Volg onderstaande stappen voor het bereiken van het scenario in dit artikel word
     azure storage account create --location westcentralus --resource-group contosofabrikam --kind Storage --sku-name GRS mystorageaccount1
     ```
 
-11. [Maken van de netwerkinterfaces](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-nic) voor VM1 en voeg een tweede IP-configuratie, *VM1 ipconfig2*, en [de virtuele machine maken](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-the-linux-vms) zoals hieronder wordt weergegeven:
+11. [Hallo netwerkinterfaces te maken](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-nic) voor VM1 en voeg een tweede IP-configuratie, *VM1 ipconfig2*, en [Hallo VM maken](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-the-linux-vms) zoals hieronder wordt weergegeven:
 
     ```azurecli
     azure network nic create --resource-group contosofabrikam --location westcentralus --subnet-vnet-name myVnet --subnet-name mySubnet --name VM1Nic1 --ip-config-name NIC1-ipconfig1
@@ -124,8 +124,8 @@ Volg onderstaande stappen voor het bereiken van het scenario in dit artikel word
     azure vm create --resource-group contosofabrikam --name VM2 --location westcentralus --os-type linux --nic-names VM2Nic1,VM2Nic2 --vnet-name VNet1 --vnet-subnet-name Subnet1 --availset-name myAvailabilitySet --vm-size Standard_DS3_v2 --storage-account-name mystorageaccount2 --image-urn canonical:UbuntuServer:16.04.0-LTS:latest --admin-username <your username>  --admin-password <your password>
     ```
 
-13. Tot slot moet u DNS-bronrecords om te verwijzen naar de respectieve frontend-IP-adres van de Load Balancer configureren. U kunt uw domeinen in Azure DNS hosten. Zie voor meer informatie over het gebruik van Azure DNS met Load Balancer [met behulp van Azure DNS met andere Azure-services](../dns/dns-for-azure-services.md).
+13. Tot slot moet u DNS-resource records toopoint toohello respectieve frontend IP-adres van de Load Balancer Hallo configureren. U kunt uw domeinen in Azure DNS hosten. Zie voor meer informatie over het gebruik van Azure DNS met Load Balancer [met behulp van Azure DNS met andere Azure-services](../dns/dns-for-azure-services.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over het combineren van de load balancer-services in Azure in [met gelijke taakverdeling van services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Meer informatie over hoe u verschillende typen logboeken kunt gebruiken in Azure te beheren en oplossen van de load balancer in [analytics aanmelden voor Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Meer informatie over hoe toocombine load balancing-services in Azure in [met gelijke taakverdeling van services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
+- Meer informatie over hoe u verschillende typen Logboeken gebruiken in Azure toomanage en oplossen van de load balancer in [analytics aanmelden voor Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

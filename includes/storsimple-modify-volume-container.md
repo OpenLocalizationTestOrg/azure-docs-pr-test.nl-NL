@@ -1,19 +1,19 @@
 <!--author=SharS last changed: 1/7/2016-->
 
-#### <a name="to-modify-a-volume-container"></a>Een volumecontainer wijzigen
-1. Op de **apparaten** pagina, selecteert u het apparaat, dubbelklikt u op en klik vervolgens op de **volumecontainers** tabblad.
-2. Selecteer in de lijst in tabelvorm van de volumecontainers, de instelling die u wilt wijzigen en klik op **wijzigen**.
-3. In de **wijzigen volumecontainer** dialoogvenster de volgende handelingen uit:
+#### <a name="toomodify-a-volume-container"></a>een volumecontainer toomodify
+1. Op Hallo **apparaten** pagina, Hallo apparaat selecteert, dubbelklikt u op en klik vervolgens op Hallo **volumecontainers** tabblad.
+2. Selecteer in Hallo in tabelvorm aanbieding van Hallo volumecontainers, Hallo instelling toomodify wilt en klikt u op **wijzigen**.
+3. In Hallo **wijzigen volumecontainer** dialoogvenster vak, Hallo te volgen:
    
-   1. Wijzig de naam van de volumecontainer en wijzig de instelling gekoppelde bandbreedte. 
+   1. Hallo-naam van de volumecontainer Hallo wijzigen en Hallo gekoppeld bandbreedte-instelling te wijzigen. 
       
        ![Volumecontainer met Bandbreedtesjabloon 1 wijzigen](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
-   2. De versleuteling sleutel- en storage-account kan niet worden gewijzigd nadat deze zijn opgegeven. Als u hebt opgegeven **bandbreedtesjabloon te selecteren**, klik op de pijl om door te gaan naar de volgende pagina.
-4. In de volgende pagina van de **Volumecontainer wijzigen** in het dialoogvenster:
+   2. Hallo versleuteling sleutel- en storage-account kan niet worden gewijzigd nadat deze zijn opgegeven. Als u hebt opgegeven **bandbreedtesjabloon te selecteren**, klikt u op Hallo pijl tooproceed toohello volgende pagina.
+4. In de volgende pagina Hallo Hallo **Volumecontainer wijzigen** in het dialoogvenster:
    
-   1. Kies een bestaande bandbreedtesjabloon in de vervolgkeuzelijst.
-   2. Controleer de planninginstellingen voor de opgegeven bandbreedte-sjabloon.
+   1. Kies in de vervolgkeuzelijst hello, een bestaande bandbreedtesjabloon.
+   2. Hallo schema-instellingen voor Hallo opgegeven bandbreedtesjabloon bekijken.
       
        ![Volumecontainer met Bandbreedtesjabloon 2 wijzigen](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
-   3. Klik op het vinkje ![vinkje](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) de bijgewerkte instellingen op te slaan. De **volumecontainers** pagina wordt bijgewerkt om de wijzigingen weer te geven.
+   3. Klik op het vinkje Hallo ![vinkje](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) toosave Hallo-instellingen bijgewerkt. Hallo **volumecontainers** pagina worden de bijgewerkte tooreflect Hallo wijzigingen.
 

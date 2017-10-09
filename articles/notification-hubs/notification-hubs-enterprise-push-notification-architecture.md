@@ -1,5 +1,5 @@
 ---
-title: Notification Hubs - Push ondernemingsstructuur
+title: aaaNotification Hubs - Push ondernemingsstructuur
 description: Richtlijnen over het gebruik van Azure Notification Hubs in een bedrijfsomgeving
 services: notification-hubs
 documentationcenter: 
@@ -14,26 +14,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: ae7c1c9644ecfe7fe4ad6e332cc0683a3b5df22f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c3afb83de1ba0882bf99e10f38cca40cb42d07a5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Hulp voor architectuur via pushmeldingen van het bedrijf
-Ondernemingen zijn tegenwoordig geleidelijk verplaatsen naar het maken van mobiele toepassingen voor hun eindgebruikers (extern) of voor de werknemers (intern). Ze hebben bestaande back-endsystemen mainframes of sommige LoB-toepassingen die moeten worden geïntegreerd in de architectuur van de mobiele toepassing. Deze handleiding wordt hebben over de beste manier om u te doen van deze integratie mogelijke oplossing aanbevelen voor het algemene scenario's.
+Ondernemingen zijn tegenwoordig geleidelijk verplaatsen naar het maken van mobiele toepassingen voor hun eindgebruikers (extern) of voor Hallo werknemers (intern). Ze hebben bestaande back-endsystemen worden deze mainframes of sommige LoB-toepassingen die moeten worden geïntegreerd in de architectuur van de mobiele toepassing hello. Deze handleiding wordt hebben over de beste manier toodo deze integratie mogelijke oplossing aanbevelen toocommon scenario's.
 
-Een frequente vereiste is voor het verzenden van pushmeldingen aan de gebruikers via hun mobiele toepassing als een gebeurtenis van belang zijn in de back endsystemen. Bijvoorbeeld een klant bank die de bank-app voor bankieren op haar iPhone wil worden gewaarschuwd wanneer er een incasso wordt gedaan boven een bepaald bedrag van haar account of een intranet-scenario waarin een medewerker van de afdeling Financiën die een budget goedkeuring app op zijn Windows Phone wil worden gewaarschuwd wanneer hij een goedkeuringsaanvraag opgehaald.
+Een frequente vereiste is voor het verzenden van push notification toohello gebruikers via hun mobiele toepassing bij een gebeurtenis van belang zijn in Hallo back-end-systemen. Bijvoorbeeld een klant bank die van de bank Hallo-app voor bankieren op haar iPhone wil toobe gewaarschuwd wanneer er een incasso boven een bepaald bedrag van haar account of een intranet-scenario waarin een medewerker van de afdeling Financiën die een budget goedkeuring app op zijn Windows Phone toobe wil wordt gedaan een melding wanneer hij een goedkeuringsaanvraag opgehaald.
 
-De bank- of goedkeuring verwerking is het waarschijnlijk worden uitgevoerd in sommige back endsysteem dat een push naar de gebruiker moet starten. Er zijn meerdere dergelijke back voor endsystemen die u moeten alle dezelfde soort logica voor het implementeren van push wanneer een gebeurtenis wordt geactiveerd een melding maken. De complexiteit hier ligt in het integreren van verschillende back endsystemen samen met een enkele push-systeem waar de eindgebruikers mogelijk andere meldingen bent geabonneerd en er kan zelfs meerdere mobiele toepassingen bijvoorbeeld in het geval van mobiele apps intranet waar een mobiele toepassing kan meldingen wilt ontvangen van meerdere dergelijke back endsystemen. De back endsystemen niet kent of moet weten van push-semantiek/technologie zodat een gangbare oplossing hier is normaal gesproken in te voeren van een onderdeel dat de back endsystemen voor gebeurtenissen die van belang worden opgevraagd en is verantwoordelijk voor de pushberichten verzenden naar de client.
-Er wordt hier hebben over een nog beter oplossing met behulp van Azure Service Bus - onderwerp/abonnement model waarmee de complexiteit tijdens het maken van de oplossing schaalbaar wordt beperkt.
+bank- of goedkeuring verwerking Hallo is waarschijnlijk toobe doet u in sommige back endsysteem dat een gebruiker van de toohello push moet starten. Mogelijk zijn er meerdere dergelijke back-end voor systemen die u moeten alle bouwen Hallo dezelfde soort logica tooimplement push wanneer een gebeurtenis wordt een melding geactiveerd. Hallo complexiteit hier ligt in verschillende back endsystemen samen met een één push-systeem waar Hallo eindgebruikers mogelijk toodifferent meldingen bent geabonneerd en er kan zelfs meerdere mobiele toepassingen bijvoorbeeld in geval van Hallo van mobiele apps intranet worden integratie een mobiele toepassing wil waar tooreceive meldingen van meerdere dergelijke back endsystemen. Hallo back-endsystemen niet kent of tooknow van push-semantiek/technologie moet dus een gangbare oplossing hier is normaal een onderdeel dat opgevraagd Hallo back-end-systemen voor gebeurtenissen die van belang en is verantwoordelijk gesproken voor het verzenden van pushberichten hello toointroduce toohello-client.
+Er wordt hier hebben over een nog beter oplossing met behulp van Azure Service Bus - onderwerp/abonnement model waarmee Hallo complexiteit tijdens het maken van Hallo oplossing schaalbaar wordt beperkt.
 
-Hier volgt de algemene architectuur van de oplossing (gegeneraliseerde met meerdere mobiele apps maar evenveel van toepassing wanneer er slechts één van de mobiele app)
+Hier volgt Hallo algemene architectuur van Hallo-oplossing (gegeneraliseerde met meerdere mobiele apps maar evenveel van toepassing wanneer er slechts één van de mobiele app)
 
 ## <a name="architecture"></a>Architectuur
 ![][1]
 
-De sleutel in deze Architectuurdiagram is Azure Service Bus waarmee een onderwerpen/de abonnementen programmeermodel (meer informatie over op het [Service Bus Pub subitems programmering]). De ontvanger, die in dit geval de mobiele back-end wordt (meestal [Azure Mobile Service], gang een push naar de mobiele apps) niet ontvangen berichten rechtstreeks vanuit de back endsystemen, maar in plaats daarvan hebben we een tussenliggende abstractielaag geleverd door [Azure Service Bus] waardoor mobiele back-end om berichten te ontvangen van een of meer back endsystemen. Een Service Bus-onderwerp moet worden gemaakt voor elk van de back-endsystemen bijvoorbeeld Account HR, financiële die eigenlijk 'onderwerpen' van belang dat berichten worden verzonden als de pushmelding wordt geïnitieerd. De back endsystemen zal berichten verzenden naar deze onderwerpen. Een back-end van Mobile kunnen zich abonneren op een of meer van deze onderwerpen door het maken van een Service Bus-abonnement. Dit recht geven de mobiele back-end een melding te ontvangen van de bijbehorende back endsysteem. Back-end voor mobiele blijft om te luisteren naar berichten op hun abonnementen en zodra er een bericht binnenkomt, schakelt terug en verzendt het als melding met de notification hub. Notification hubs uiteindelijk bezorgt het bericht vervolgens naar de mobiele app. Om samen te vatten de hoofdonderdelen, hebben we dus:
+Hallo belangrijk onderdeel in dit diagram architectuur is Azure Service Bus waarmee een onderwerpen/de abonnementen programmeermodel (meer informatie over op het [Service Bus Pub subitems programmering]). Hallo-ontvanger die in dit geval Hallo mobiele back-end (meestal [Azure Mobile Service], gang een mobiele apps voor push-toohello) niet ontvangen berichten rechtstreeks vanuit de back-endsystemen hello, maar in plaats daarvan hebben we een tussenliggende abstractielaag geleverd door [Azure Service Bus] waardoor mobiele back-end tooreceive berichten van een of meer back endsystemen. Een Service Bus-onderwerp moet toobe gemaakt voor elk Hallo back-endsystemen bijvoorbeeld Account HR, financiële die eigenlijk 'onderwerpen' van belang dat berichten toobe als push-bericht verzonden wordt geïnitieerd. Hallo back-endsystemen zal berichten verzenden toothese onderwerpen. Een back-end van Mobile kunnen zich abonneren tooone of meer van deze onderwerpen door het maken van een Service Bus-abonnement. Dit recht Hallo mobiele back-end tooreceive een melding van de bijbehorende back-end-systeem Hallo geven. Back-end voor mobiele blijft toolisten voor berichten die op hun abonnementen en zodra er een bericht binnenkomt, schakelt terug en verzendt het als melding tooits notification hub. Notification hubs biedt vervolgens uiteindelijk Hallo-bericht toohello mobiele app. Dus toosummarize Hallo hoofdonderdelen, hebben we:
 
 1. Back-end-systemen (LoB/oudere systemen)
    * Service Bus-onderwerp maakt
@@ -41,47 +41,47 @@ De sleutel in deze Architectuurdiagram is Azure Service Bus waarmee een onderwer
 2. Mobiele back-end
    * Service-abonnement wordt gemaakt
    * Ontvangen van bericht (van de back-end-systeem)
-   * Wordt een melding verzonden naar clients (via Azure Notification Hub)
+   * Verzendt melding tooclients (via Azure Notification Hub)
 3. Mobile Application
    * Ontvangt en meldingen weergeven
 
 ### <a name="benefits"></a>Voordelen:
-1. Het ontkoppelen tussen de ontvanger (mobiele app/service via Notification Hub) en de afzender (back endsystemen), kunt aanvullende back endsystemen worden geïntegreerd met minimale wijzigen.
-2. Hierdoor wordt het scenario met meerdere mobiele apps kunnen worden ontvangen van gebeurtenissen van een of meer back endsystemen.  
+1. Hallo ontkoppeling Hallo ontvanger (mobiele app/service via Notification Hub) en de afzender (back endsystemen), kunt aanvullende back endsystemen worden geïntegreerd met minimale wijzigen.
+2. Hierdoor wordt ook Hallo scenario met meerdere mobiele apps kunnen tooreceive gebeurtenissen van een of meer back endsystemen worden.  
 
 ## <a name="sample"></a>Voorbeeld:
 ### <a name="prerequisites"></a>Vereisten
-U moet de volgende zelfstudies om vertrouwd met de concepten, evenals het maken van algemene & configuratiestappen te voltooien:
+U moet voltooien Hallo zelfstudies toofamiliarize met Hallo concepten, evenals algemene stappen voor het maken van & configuratie te volgen:
 
-1. [Service Bus Pub subitems programmering] -Hier wordt uitgelegd hoe de details van het werken met Service Bus onderwerpen/abonnementen, het maken van een naamruimte onderwerpen/abonnementen bevatten, hoe u berichten ontvangen van deze & verzenden.
-2. [Notification Hubs - universele Windows-zelfstudie] -procedure voor het instellen van een Windows Store-app en Notification Hubs gebruiken om te registreren en vervolgens meldingen ontvangen.
+1. [Service Bus Pub subitems programmering] -Hier wordt uitgelegd hoe Hallo details van het werken met abonnementen/Service Bus onderwerpen, hoe toocreate een naamruimte toocontain onderwerpen/abonnementen, hoe toosend & berichten ontvangen van deze.
+2. [Notification Hubs - universele Windows-zelfstudie] -dit wordt uitgelegd hoe tooset-up maken van een Windows Store-app Notification Hubs tooregister en gebruik vervolgens meldingen ontvangen.
 
 ### <a name="sample-code"></a>Voorbeeldcode
-De code voor het volledige voorbeeld is beschikbaar op [Notification Hub voorbeelden]. Deze is opgesplitst in drie onderdelen:
+Hallo-code voor het volledige voorbeeld is beschikbaar op [Notification Hub voorbeelden]. Deze is opgesplitst in drie onderdelen:
 
 1. **EnterprisePushBackendSystem**
    
-    a. Dit project gebruikt de *WindowsAzure.ServiceBus* Nuget-pakket en is gebaseerd op [Service Bus Pub subitems programmering].
+    a. Dit project gebruikt Hallo *WindowsAzure.ServiceBus* Nuget-pakket en is gebaseerd op [Service Bus Pub subitems programmering].
    
-    b. Dit is een eenvoudige C#-consoletoepassing te simuleren van een LoB-systeem waarvan het bericht moet worden geleverd aan de mobiele app initieert.
+    b. Dit is een eenvoudige C#-console-app toosimulate een LoB-systeem waarmee wordt geïnitieerd Hallo-bericht toobe bezorgd toohello mobiele app.
    
         static void Main(string[] args)
         {
             string connectionString =
                 CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
    
-            // Create the topic where we will send notifications
+            // Create hello topic where we will send notifications
             CreateTopic(connectionString);
    
             // Send message
             SendMessage(connectionString);
         }
    
-    c. `CreateTopic`wordt gebruikt voor het maken van de Service Bus-onderwerp waarin berichten worden verzonden.
+    c. `CreateTopic`gebruikte toocreate Hallo Service Bus-onderwerp is waarin berichten worden verzonden.
    
         public static void CreateTopic(string connectionString)
         {
-            // Create the topic if it does not exist already
+            // Create hello topic if it does not exist already
    
             var namespaceManager =
                 NamespaceManager.CreateFromConnectionString(connectionString);
@@ -92,19 +92,19 @@ De code voor het volledige voorbeeld is beschikbaar op [Notification Hub voorbee
             }
         }
    
-    d. `SendMessage`wordt gebruikt om de berichten verzenden naar deze Service Bus-onderwerp. We zijn een reeks willekeurige berichten hier alleen het verzenden naar het onderwerp periodiek omwille van de steekproef. Normaal gesproken zal er een back endsysteem dat berichten verzenden zal wanneer een gebeurtenis plaatsvindt.
+    d. `SendMessage`gebruikte toosend Hallo berichten toothis Service Bus-onderwerp is. We zijn een set van willekeurige berichten toohello onderwerp periodiek voor Hallo doel van Hallo voorbeeld hier gewoon verzonden. Normaal gesproken zal er een back endsysteem dat berichten verzenden zal wanneer een gebeurtenis plaatsvindt.
    
         public static void SendMessage(string connectionString)
         {
             TopicClient client =
                 TopicClient.CreateFromConnectionString(connectionString, sampleTopic);
    
-            // Sends random messages every 10 seconds to the topic
+            // Sends random messages every 10 seconds toohello topic
             string[] messages =
             {
                 "Employee Id '{0}' has joined.",
                 "Employee Id '{0}' has left.",
-                "Employee Id '{0}' has switched to a different team."
+                "Employee Id '{0}' has switched tooa different team."
             };
    
             while (true)
@@ -124,27 +124,27 @@ De code voor het volledige voorbeeld is beschikbaar op [Notification Hub voorbee
         }
 2. **ReceiveAndSendNotification**
    
-    a. Dit project gebruikt de *WindowsAzure.ServiceBus* en *Microsoft.Web.WebJobs.Publish* Nuget-pakketten en is gebaseerd op [Service Bus Pub subitems programmering].
+    a. Dit project gebruikt Hallo *WindowsAzure.ServiceBus* en *Microsoft.Web.WebJobs.Publish* Nuget-pakketten en is gebaseerd op [Service Bus Pub subitems programmering].
    
-    b. Dit is een andere C#-consoletoepassing die wordt uitgevoerd als een [Azure webtaak] omdat er continu uitvoeren om te luisteren naar berichten van de LoB-/ back-end-systemen. Dit zal onderdeel zijn van uw mobiele back-end.
+    b. Dit is een andere C#-consoletoepassing die wordt uitgevoerd als een [Azure webtaak] omdat het toorun continu heeft toolisten voor berichten van Hallo LoB/back-end-systemen. Dit zal onderdeel zijn van uw mobiele back-end.
    
         static void Main(string[] args)
         {
             string connectionString =
                      CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
    
-            // Create the subscription which will receive messages
+            // Create hello subscription which will receive messages
             CreateSubscription(connectionString);
    
             // Receive message
             ReceiveMessageAndSendNotification(connectionString);
         }
    
-    c. `CreateSubscription`wordt gebruikt voor het maken van een Service Bus-abonnement voor het onderwerp waarin de back endsysteem verzenden. Dit onderdeel maakt, afhankelijk van het bedrijfsscenario een of meer abonnementen op de bijbehorende onderwerpen (bv. Sommige kan worden ontvangen van berichten van HR-systeem, sommige vanuit Financiën system, enzovoort)
+    c. `CreateSubscription`is gebruikte toocreate een Service Bus-abonnement voor Hallo onderwerp Hallo back-end-systeem zal waar berichten verzenden. Afhankelijk van het bedrijfsscenario hello maakt dit onderdeel u een of meer abonnementen toocorresponding onderwerpen (bv. Sommige kan worden ontvangen van berichten van HR-systeem, sommige vanuit Financiën system, enzovoort)
    
         static void CreateSubscription(string connectionString)
         {
-            // Create the subscription if it does not exist already
+            // Create hello subscription if it does not exist already
             var namespaceManager =
                 NamespaceManager.CreateFromConnectionString(connectionString);
    
@@ -154,11 +154,11 @@ De code voor het volledige voorbeeld is beschikbaar op [Notification Hub voorbee
             }
         }
    
-    d. ReceiveMessageAndSendNotification wordt gebruikt voor het lezen van het bericht van het onderwerp met behulp van het abonnement en als het lezen slaagt vervolgens een melding (in het voorbeeldscenario voor een Windows-systeemeigen pop-upmelding) stellen om te worden verzonden naar de mobiele toepassingen met Azure Notification Hubs.
+    d. ReceiveMessageAndSendNotification gebruikte tooread Hallo-bericht van Hallo onderwerp met behulp van het abonnement is en als Hallo lezen slaagt vervolgens stellen van een mobiele melding (in de voorbeeldscenario een systeemeigen pop-upmelding voor Windows hello) toobe verzonden toohello een toepassing met Azure Notification Hubs.
    
         static void ReceiveMessageAndSendNotification(string connectionString)
         {
-            // Initialize the Notification Hub
+            // Initialize hello Notification Hub
             string hubConnectionString = CloudConfigurationManager.GetSetting
                     ("Microsoft.NotificationHub.ConnectionString");
             hub = NotificationHubClient.CreateClientFromConnectionString
@@ -170,7 +170,7 @@ De code voor het volledige voorbeeld is beschikbaar op [Notification Hub voorbee
    
             Client.Receive();
    
-            // Continuously process messages received from the subscription
+            // Continuously process messages received from hello subscription
             while (true)
             {
                 BrokeredMessage message = Client.Receive();
@@ -204,24 +204,24 @@ De code voor het volledige voorbeeld is beschikbaar op [Notification Hub voorbee
             await hub.SendWindowsNativeNotificationAsync(message);
         }
    
-    e. Voor het publiceren van dit als een **webtaak**, klik met de rechtermuisknop op de oplossing in Visual Studio en selecteer **publiceren als webtaak**
+    e. Voor het publiceren van dit als een **webtaak**, klik met de rechtermuisknop op het Hallo-oplossing in Visual Studio en selecteer **publiceren als webtaak**
    
     ![][2]
    
-    f. Selecteer uw publicatieprofiel en als deze niet al host die deze webtaak en zodra u de WebSite klikt u vervolgens een nieuwe Azure-WebSite maken **publiceren**.
+    f. Uw publicatieprofiel selecteren en maken van een nieuwe Azure-WebSite als deze niet al host die deze webtaak en zodra er Hallo WebSite vervolgens **publiceren**.
    
     ![][3]
    
-    g. Configureren van de taak voor het 'Continu uitvoeren' zo dat wanneer u zich aanmelden bij de [klassieke Azure-Portal] ziet er ongeveer als volgt:
+    g. Taak toobe 'Continu uitvoeren' hello zodanig configureren dat wanneer u zich toohello aanmeldt [klassieke Azure-Portal] u ziet er ongeveer zo Hallo volgende:
    
     ![][4]
 3. **EnterprisePushMobileApp**
    
-    a. Dit is een Windows Store-toepassing die wordt ontvangen pop-upmeldingen uit de webtaak uitgevoerd als onderdeel van uw mobiele back-end en weer te geven. Dit is gebaseerd op [Notification Hubs - universele Windows-zelfstudie].  
+    a. Dit is een Windows Store-toepassing die wordt ontvangen pop-upmeldingen uit Hallo webtaak wordt uitgevoerd als onderdeel van uw mobiele back-end en weer te geven. Dit is gebaseerd op [Notification Hubs - universele Windows-zelfstudie].  
    
-    b. Zorg ervoor dat uw toepassing is ingeschakeld voor het pop-upmeldingen te ontvangen.
+    b. Zorg ervoor dat uw toepassing ingeschakelde tooreceive pop-upmeldingen.
    
-    c. Zorg ervoor dat de volgende Notification Hubs registratiecode wordt aangeroepen op de App gestart (na het vervangen van de *HubName* en *DefaultListenSharedAccessSignature*:
+    c. Zorg ervoor dat Hallo registratiecode Notification Hubs te volgen op Hallo starten van de App wordt aangeroepen (na het vervangen van Hallo *HubName* en *DefaultListenSharedAccessSignature*:
    
         private async void InitNotificationsAsync()
         {
@@ -230,7 +230,7 @@ De code voor het volledige voorbeeld is beschikbaar op [Notification Hub voorbee
             var hub = new NotificationHub("[HubName]", "[DefaultListenSharedAccessSignature]");
             var result = await hub.RegisterNativeAsync(channel.Uri);
    
-            // Displays the registration ID so you know it was successful
+            // Displays hello registration ID so you know it was successful
             if (result.RegistrationId != null)
             {
                 var dialog = new MessageDialog("Registration successful: " + result.RegistrationId);
@@ -240,12 +240,12 @@ De code voor het volledige voorbeeld is beschikbaar op [Notification Hub voorbee
         }
 
 ### <a name="running-sample"></a>Voorbeeld uitgevoerd:
-1. Zorg ervoor dat uw webtaak correct wordt uitgevoerd en wordt 'Continu uitvoeren'.
-2. Voer de **EnterprisePushMobileApp** die de Windows Store-app wordt gestart.
-3. Voer de **EnterprisePushBackendSystem** consoletoepassing die de LoB-back-end simuleert en wordt gestart met het verzenden van berichten en ziet u pop-upmeldingen verschijnen als volgt:
+1. Zorg dat uw webtaak correct wordt uitgevoerd en gepland te 'uitvoeren continu'.
+2. Voer Hallo **EnterprisePushMobileApp** die Hallo Windows Store-app wordt gestart.
+3. Voer Hallo **EnterprisePushBackendSystem** consoletoepassing die simuleert Hallo LoB back-end en wordt gestart met het verzenden van berichten en ziet u pop-upmeldingen Hallo volgende weergegeven:
    
     ![][5]
-4. De berichten werden oorspronkelijk is verzonden naar Service Bus-onderwerpen die werd bewaakt door Service Bus-abonnementen in uw Web-taak. Wanneer een bericht is ontvangen, is een melding gemaakt en verzonden naar de mobiele app. U kunt zoeken via de webtaak Logboeken om te bevestigen dat de verwerking wanneer u gaat de koppeling om de logboeken in [klassieke Azure-Portal] voor uw Web-taak:
+4. Hallo-berichten zijn tooService Bus-onderwerpen die werd bewaakt door Service Bus-abonnementen in uw Web-taak oorspronkelijk is verzonden. Wanneer een bericht is ontvangen, wordt een melding is gemaakt, en toohello mobiele app verzonden. U kunt zoeken via Hallo webtaak tooconfirm Hallo verwerken Logboeken wanneer u toohello logboeken koppelen gaat in [klassieke Azure-Portal] voor uw Web-taak:
    
     ![][6]
 

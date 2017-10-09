@@ -1,5 +1,5 @@
 ---
-title: Een Azure DevTest Labs aangepaste installatiekopie maken van een VHD-bestand met behulp van PowerShell | Microsoft Docs
+title: de aangepaste installatiekopie van een Azure DevTest Labs vanaf een VHD-bestand met behulp van PowerShell aaaCreate | Microsoft Docs
 description: Het maken van een aangepaste installatiekopie in Azure DevTest Labs van een VHD-bestand met behulp van PowerShell automatiseren
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.openlocfilehash: a4729f70aae80a13233fbe96a5d8a56c0c9d01d3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 39b4005fa46cdf86cf0800ca376128134bcfb650
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Een aangepaste installatiekopie maken van een VHD-bestand met behulp van PowerShell
 
@@ -30,22 +30,22 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="step-by-step-instructions"></a>Stapsgewijze instructies
 
-De volgende stappen maakt u een aangepaste installatiekopie van een VHD-bestand met behulp van PowerShell maken:
+Hallo volgende stappen maakt u een aangepaste installatiekopie van een VHD-bestand met behulp van PowerShell maken:
 
-1. Bij een PowerShell-prompt, meld u aan bij uw Azure-account met de volgende aanroep naar de **Login-AzureRmAccount** cmdlet.  
+1. Bij een PowerShell-prompt aanmelden tooyour Azure-account met de volgende aanroep toohello Hallo **Login-AzureRmAccount** cmdlet.  
     
     ```PowerShell
     Login-AzureRmAccount
     ```
 
-1.  Selecteer de gewenste Azure-abonnement door het aanroepen van de **Select-AzureRmSubscription** cmdlet. Vervang de volgende tijdelijke aanduiding voor de **$subscriptionId** variabele met een geldige Azure-abonnement-ID. 
+1.  Selecteer hello Azure-abonnement door de aanroepende Hallo gewenst **Select-AzureRmSubscription** cmdlet. Vervangen van de volgende tijdelijke aanduiding voor Hallo Hallo **$subscriptionId** variabele met een geldige Azure-abonnement-ID. 
 
     ```PowerShell
     $subscriptionId = '<Specify your subscription ID here>'
     Select-AzureRmSubscription -SubscriptionId $subscriptionId
     ```
 
-1.  Het lab-object ophalen door het aanroepen van de **Get-AzureRmResource** cmdlet. Vervang de volgende tijdelijke aanduidingen voor de **$labRg** en **$labName** variabelen met de juiste waarden voor uw omgeving. 
+1.  Hallo lab object ophalen door de aanroepende Hallo **Get-AzureRmResource** cmdlet. Vervangen van de volgende tijdelijke aanduidingen voor Hallo Hallo **$labRg** en **$labName** variabelen met Hallo waarden voor uw omgeving nodig. 
 
     ```PowerShell
     $labRg = '<Specify your lab resource group name here>'
@@ -53,62 +53,62 @@ De volgende stappen maakt u een aangepaste installatiekopie van een VHD-bestand 
     $lab = Get-AzureRmResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
     ```
  
-1.  De testomgeving storage-account en lab storage account sleutelwaarden van het lab-object ophalen. 
+1.  Ophalen Hallo lab-opslagaccount en lab-opslagaccount sleutelwaarden van Hallo lab-object. 
 
     ```PowerShell
     $labStorageAccount = Get-AzureRmResource -ResourceId $lab.Properties.defaultStorageAccount 
     $labStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
     ```
 
-1.  Vervang de volgende tijdelijke aanduiding voor de **$vhdUri** variabele met de URI moet het geüploade VHD-bestand. URI van het VHD-bestand kunt u krijgen via de blade van blob storage-account in de Azure portal.
+1.  Vervangen van de volgende tijdelijke aanduiding voor Hallo Hallo **$vhdUri** variabele Hello URI tooyour geüpload VHD-bestand. Hallo VHD-bestand van URI kunt u krijgen via Hallo storage-account van blob-blade in hello Azure-portal.
 
     ```PowerShell
-    $vhdUri = '<Specify the VHD URI here>'
+    $vhdUri = '<Specify hello VHD URI here>'
     ```
 
-1.  Maak de aangepaste installatiekopie met de **New-AzureRmResourceGroupDeployment** cmdlet. Vervang de volgende tijdelijke aanduidingen voor de **$customImageName** en **$customImageDescription** variabelen betekenisvolle namen voor uw omgeving.
+1.  Hallo aangepaste installatiekopie met behulp van Hallo maken **New-AzureRmResourceGroupDeployment** cmdlet. Vervangen van de volgende tijdelijke aanduidingen voor Hallo Hallo **$customImageName** en **$customImageDescription** variabelen toomeaningful namen voor uw omgeving.
 
     ```PowerShell
-    $customImageName = '<Specify the custom image name>'
-    $customImageDescription = '<Specify the custom image description>'
+    $customImageName = '<Specify hello custom image name>'
+    $customImageDescription = '<Specify hello custom image description>'
 
     $parameters = @{existingLabName="$($lab.Name)"; existingVhdUri=$vhdUri; imageOsType='windows'; isVhdSysPrepped=$false; imageName=$customImageName; imageDescription=$customImageDescription}
 
     New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/Samples/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
     ```
 
-## <a name="powershell-script-to-create-a-custom-image-from-a-vhd-file"></a>PowerShell-script voor het maken van een aangepaste installatiekopie van een VHD-bestand
+## <a name="powershell-script-toocreate-a-custom-image-from-a-vhd-file"></a>PowerShell-script toocreate een aangepaste installatiekopie van een VHD-bestand
 
-De volgende PowerShell-script kan worden gebruikt voor het maken van een aangepaste installatiekopie van een VHD-bestand. Vervang de tijdelijke aanduidingen (vanaf en eindigend met punthaken) met de juiste waarden voor uw behoeften. 
+Hallo volgende PowerShell-script kan worden gebruikt toocreate een aangepaste installatiekopie van een VHD-bestand. Hallo tijdelijke aanduidingen (vanaf en eindigend met punthaken) vervangen door de juiste waarden Hallo voor uw behoeften. 
 
 ```PowerShell
-# Log in to your Azure account.  
+# Log in tooyour Azure account.  
 Login-AzureRmAccount
 
-# Select the desired Azure subscription. 
+# Select hello desired Azure subscription. 
 $subscriptionId = '<Specify your subscription ID here>'
 Select-AzureRmSubscription -SubscriptionId $subscriptionId
 
-# Get the lab object.
+# Get hello lab object.
 $labRg = '<Specify your lab resource group name here>'
 $labName = '<Specify your lab name here>'
 $lab = Get-AzureRmResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
 
-# Get the lab storage account and lab storage account key values.
+# Get hello lab storage account and lab storage account key values.
 $labStorageAccount = Get-AzureRmResource -ResourceId $lab.Properties.defaultStorageAccount 
 $labStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
 
-# Set the URI of the VHD file.  
-$vhdUri = '<Specify the VHD URI here>'
+# Set hello URI of hello VHD file.  
+$vhdUri = '<Specify hello VHD URI here>'
 
-# Set the custom image name and description values.
-$customImageName = '<Specify the custom image name>'
-$customImageDescription = '<Specify the custom image description>'
+# Set hello custom image name and description values.
+$customImageName = '<Specify hello custom image name>'
+$customImageDescription = '<Specify hello custom image description>'
 
-# Set up the parameters object.
+# Set up hello parameters object.
 $parameters = @{existingLabName="$($lab.Name)"; existingVhdUri=$vhdUri; imageOsType='windows'; isVhdSysPrepped=$false; imageName=$customImageName; imageDescription=$customImageDescription}
 
-# Create the custom image. 
+# Create hello custom image. 
 New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/Samples/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
 ```
 
@@ -119,4 +119,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Na
 
 ##<a name="next-steps"></a>Volgende stappen
 
-- [Een virtuele machine toevoegen aan uw testomgeving](./devtest-lab-add-vm-with-artifacts.md)
+- [Een VM tooyour lab toevoegen](./devtest-lab-add-vm-with-artifacts.md)

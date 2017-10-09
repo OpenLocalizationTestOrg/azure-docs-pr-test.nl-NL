@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met vooraf geconfigureerde oplossingen | Microsoft Docs
-description: Volg deze zelfstudie voor meer informatie over het implementeren van een vooraf geconfigureerde Azure IoT Suite-oplossing.
+title: aaaGet de slag met vooraf geconfigureerde oplossingen | Microsoft Docs
+description: Volg deze zelfstudie toolearn hoe toodeploy een Azure IoT Suite vooraf geconfigureerde oplossing.
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: 466825ab78a5ac9773d8beff69cca90ff9db6c01
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a7f46023d26b08de2e8ed48c34c5066a43e3fa38
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-preconfigured-solutions"></a>Aan de slag met vooraf geconfigureerde oplossingen
+# <a name="get-started-with-hello-preconfigured-solutions"></a>Aan de slag met Hallo vooraf geconfigureerde oplossingen
 
-[Vooraf geconfigureerde oplossingen][lnk-preconfigured-solutions] voor Azure IoT Suite zijn voorzien van meerdere Azure IoT-services om totaaloplossingen te leveren voor het implementeren van algemene IoT-bedrijfsscenario's. De vooraf geconfigureerde oplossing *externe controle* maakt verbinding met en controleert uw apparaten. U kunt deze oplossing gebruiken om de datastroom van uw apparaten te analyseren en de bedrijfsresultaten te verbeteren door processen automatisch te laten reageren op die datastroom.
+Azure IoT Suite [vooraf geconfigureerde oplossingen] [ lnk-preconfigured-solutions] combineren meerdere Azure IoT services toodeliver end-to-end-oplossingen die algemene IoT-bedrijfsscenario's implementeren. Hallo *externe controle* vooraf geconfigureerde oplossing voor uw apparaten tooand monitors verbonden. Hallo oplossing tooanalyze Hallo stroom van gegevens van uw apparaten en tooimprove bedrijfsresultaten kunt u door het maken van processen automatisch toothat gegevensstroom reageren.
 
-In deze zelfstudie leert u hoe de vooraf geconfigureerde oplossing voor externe controle inricht. Hierbij maakt u ook kennis met de basisfuncties van de vooraf geconfigureerde oplossing. U hebt toegang tot veel van deze functies via het *oplossingsdashboard* dat als onderdeel van de vooraf geconfigureerde oplossing wordt geïmplementeerd:
+Deze zelfstudie leert u hoe tooprovision Hallo externe controle vooraf geconfigureerde oplossing. Ook wordt u begeleid Hallo basisfuncties van Hallo vooraf geconfigureerde oplossing. U veel van deze functies kunt openen vanaf Hallo oplossing *dashboard* die als onderdeel van Hallo vooraf geconfigureerde oplossing implementeert:
 
 ![Vooraf geconfigureerd oplossingsdashboard voor externe controle][img-dashboard]
 
-U hebt een actief Azure-abonnement nodig om deze zelfstudie te voltooien.
+toocomplete in deze zelfstudie, moet u een actief Azure-abonnement.
 
 > [!NOTE]
 > Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure][lnk_free_trial] voor meer informatie.
@@ -38,144 +38,144 @@ U hebt een actief Azure-abonnement nodig om deze zelfstudie te voltooien.
 
 ## <a name="scenario-overview"></a>Overzicht van scenario's
 
-Wanneer u de vooraf geconfigureerde oplossing voor externe bewaking implementeert, wordt deze vooraf ingevuld met de resources waarmee u een algemeen scenario voor externe controle kunt doorlopen. In dit scenario melden verschillende apparaten die met de oplossing zijn verbonden, onverwachte temperatuurwaarden. De volgende gedeelten laten u zien hoe u:
+Wanneer u Hallo vooraf geconfigureerde oplossing voor externe controle implementeert, is deze vooraf ingevuld met resources waarmee u toostep via een algemeen scenario voor externe controle. In dit scenario zijn verschillende apparaten verbonden toohello oplossing onverwachte temperatuur waarden rapportage. Hallo volgende secties ziet u hoe aan:
 
-* De apparaten die de onverwachte temperatuurwaarden melden, kunt identificeren.
-* Deze apparaten kunt configureren, zodat ze gedetailleerdere telemetrie verzenden.
-* Het probleem kunt oplossen door de firmware op deze apparaten bij te werken.
-* Kunt controleren of uw actie het probleem heeft opgelost.
+* Onverwachte temperatuur waarden verzenden Hallo-apparaten kan identificeren.
+* Configureren van deze apparaten toosend meer gedetailleerde telemetrie.
+* Hallo probleem oplossen door het bijwerken van de firmware Hallo op deze apparaten.
+* Controleer of dat uw actie Hallo probleem is opgelost.
 
-Een belangrijke functie van dit scenario is dat u al deze acties extern kunt uitvoeren vanuit het dashboard van de oplossing. U hebt geen fysieke toegang tot de apparaten nodig.
+Een belangrijke functie van dit scenario is dat u al deze acties extern vanuit Hallo oplossing dashboard uitvoeren kunt. U hoeft geen fysieke toegang toohello apparaten.
 
-## <a name="view-the-solution-dashboard"></a>Het oplossingsdashboard bekijken
+## <a name="view-hello-solution-dashboard"></a>Dashboard van oplossing Hallo weergeven
 
-Vanaf het dashboard van de oplossing kunt u de geïmplementeerde oplossing beheren. U kunt er bijvoorbeeld telemetrie weergeven, apparaten toevoegen en regels configureren.
+Hallo oplossing dashboard kunt u toomanage Hallo geïmplementeerd oplossing. U kunt er bijvoorbeeld telemetrie weergeven, apparaten toevoegen en regels configureren.
 
-1. Wanneer het inrichten is voltooid en voor de tegel voor uw vooraf geconfigureerde oplossing de status **Gereed** wordt weergegeven, kiest u **Starten** om uw oplossingsportal voor externe controle te openen op een nieuw tabblad.
+1. Wanneer Hallo inrichten is voltooid en Hallo tegel voor uw vooraf geconfigureerde oplossing geeft **gereed**, kies **starten** tooopen uw externe controle portal van de oplossing in een nieuw tabblad.
 
-    ![De vooraf geconfigureerde oplossing starten][img-launch-solution]
+    ![Hallo vooraf geconfigureerde oplossing starten][img-launch-solution]
 
-1. Standaard ziet u in de oplossingsportal het *dashboard*. U kunt navigeren naar andere gebieden van de portal van de oplossing met het menu aan de linkerkant van de pagina.
+1. Standaard ziet u de oplossingsportal Hallo Hallo *dashboard*. U kunt tooother gebieden van de portal van de oplossing Hallo Hallo menu aan de linkerkant Hallo van Hallo pagina met navigeren.
 
     ![Vooraf geconfigureerd oplossingsdashboard voor externe controle][img-menu]
 
-Het dashboard bevat de volgende informatie:
+Hallo dashboard toont de Hallo volgende informatie:
 
-* Een kaart die de locatie aangeeft van elk apparaat dat met de oplossing is verbonden. Wanneer u de oplossing voor het eerst uitvoert, zijn er 25 gesimuleerde apparaten. De gesimuleerde apparaten worden geïmplementeerd als Azure WebJobs en de oplossing gebruikt de API van Bing Kaarten om informatie op de kaart te tekenen. Zie de [Veelgestelde vragen][lnk-faq] voor meer informatie over hoe u de kaart dynamisch kunt maken.
+* Een kaart die wordt weergegeven Hallo-locatie van elk apparaat verbonden toohello oplossing. Wanneer u Hallo oplossing voor het eerst uitvoert, moet u er 25 gesimuleerde apparaten zijn. Hallo gesimuleerde apparaten worden geïmplementeerd als Azure WebJobs en Hallo oplossing gebruikt Hallo Bing kaarten-API tooplot informatie op Hallo-kaart. Zie Hallo [Veelgestelde vragen over] [ lnk-faq] toolearn hoe toomake kaart dynamische Hallo.
 * Een deelvenster **Telemetriegeschiedenis** dat de vochtigheids- en temperatuurtelemetrie van een geselecteerd apparaat in bijna realtime tekent en statistische gegevens weergeeft, zoals de maximale, minimale en gemiddelde vochtigheid.
-* Een deelvenster **Geschiedenis van waarschuwingen** dat recente waarschuwingsgebeurtenissen toont wanneer voor een telemetriewaarde een drempelwaarde wordt overschreden. Naast de voorbeelden die met de vooraf geconfigureerde oplossing zijn gemaakt, kunt u ook uw eigen alarmen definiëren.
+* Een deelvenster **Geschiedenis van waarschuwingen** dat recente waarschuwingsgebeurtenissen toont wanneer voor een telemetriewaarde een drempelwaarde wordt overschreden. U kunt uw eigen alarmen definiëren in toevoeging toohello voorbeelden is gemaakt door Hallo vooraf geconfigureerde oplossing.
 * Een deelvenster **Taken** dat informatie weergeeft over geplande taken. U kunt uw eigen taken plannen op de pagina **Beheertaken**.
 
 ## <a name="view-alarms"></a>Waarschuwingen weergeven
 
-Het deelvenster Waarschuwingsgeschiedenis laat u zien dat vijf apparaten telemetriewaarden melden die hoger zijn dan verwacht.
+Hallo alarm geschiedenis deelvenster ziet u dat de melden van vijf apparaten hoger dan de verwachte telemetrie waarden.
 
-![Waarschuwingsgeschiedenistaken op het dashboard van de oplossing][img-alarms]
+![Geschiedenis van TODO-waarschuwingen op Hallo oplossing dashboard][img-alarms]
 
 > [!NOTE]
-> Deze waarschuwingen worden gegenereerd door een regel die is opgenomen in de vooraf geconfigureerde oplossing. Deze regel genereert een waarschuwing als de temperatuurwaarde die door een apparaat is verzonden, groter is dan 60. U kunt uw eigen regels en acties definiëren door [Regels](#add-a-rule) en [Acties](#add-an-action) te kiezen in het menu aan de linkerzijde.
+> Deze waarschuwingen worden gegenereerd door een regel die is opgenomen in Hallo vooraf geconfigureerde oplossing. Deze regel genereert een waarschuwing wanneer Hallo temperatuur waarde die is verzonden door een apparaat hoger is dan 60. U kunt uw eigen regels en acties definiëren door te kiezen [regels](#add-a-rule) en [acties](#add-an-action) in het menu links van Hallo.
 
 ## <a name="view-devices"></a>Apparaten weergeven
 
-De *Apparatenlijst* bevat alle geregistreerde apparaten in de oplossing. Uit de apparatenlijst kunt u metagegevens voor apparaten weergeven en bewerken, apparaten toevoegen of verwijderen en methoden aanroepen op apparaten. U kunt de apparatenlijst filteren en sorteren. U kunt ook de weergave van de kolommen in de apparatenlijst aanpassen.
+Hallo *apparaten* lijst bevat alle Hallo geregistreerde apparaten in Hallo-oplossing. Vanaf Hallo lijst met apparaten kunt u bekijken en bewerken van metagegevens van apparaten, toevoegen of verwijderen van apparaten en methoden niet aanroepen voor apparaten. U kunt filteren en sorteren Hallo lijst met apparaten in de lijst met Hallo-apparaten. U kunt ook weergegeven in de lijst met apparaten Hallo Hallo-kolommen aanpassen.
 
-1. Kies **Apparaten** om de apparatenlijst voor deze oplossing weer te geven.
+1. Kies **apparaten** tooshow Hallo lijst met apparaten voor deze oplossing.
 
-   ![De apparatenlijst weergeven in de portal van de oplossing][img-devicelist]
+   ![Lijst met apparaten van weergave-Hallo in de oplossingsportal Hallo][img-devicelist]
 
-1. De apparatenlijst geeft eerst aan dat bij het inrichtingsproces 25 gesimuleerde apparaten zijn gemaakt. U kunt extra gesimuleerde en fysieke apparaten aan de oplossing toevoegen.
+1. lijst met apparaten Hallo toont in eerste instantie 25 gesimuleerde apparaten die zijn gemaakt door Hallo inrichtingsproces. U kunt extra gesimuleerde en fysieke apparaten toohello oplossing toevoegen.
 
-1. Kies in de lijst een apparaat om de details ervan weer te geven.
+1. tooview hello details van een apparaat, kies een apparaat in de lijst met Hallo-apparaten.
 
-   ![De details van een apparaat weergeven in de portal van de oplossing][img-devicedetails]
+   ![Hallo Apparaatdetails in de oplossingsportal Hallo weergeven][img-devicedetails]
 
-Het deelvenster **Apparaatdetails** bevat zes gedeeltes:
+Hallo **Apparaatdetails** deelvenster bevat zes secties:
 
-* Een verzameling van koppelingen waarmee u het apparaatpictogram kunt aanpassen, het apparaat kunt uitschakelen, een regel kunt toevoegen, een methode kunt aanroepen of een opdracht kunt verzenden. Zie [Cloud-to-device communications guidance][lnk-c2d-guidance] (Richtlijnen voor communicatie tussen cloud en apparaat) voor een vergelijking van opdrachten (berichten van apparaat naar cloud) en methoden (directe methoden).
-* In het gedeelte **Apparaatdubbel - Tags** kunt u tagwaarden voor het apparaat bewerken. U kunt tagwaarden in de apparatenlijst weergeven en tagwaarden gebruiken om de apparatenlijst te filteren.
-* In het gedeelte **Apparaatdubbel - Gewenste eigenschappen** kunt u eigenschapswaarden instellen die moeten worden verzonden naar het apparaat.
-* Het gedeelte **Apparaatdubbel - Gerapporteerde eigenschappen** geeft eigenschapswaarden weer die vanaf het apparaat worden verzonden.
-* Het gedeelte **Apparaateigenschappen** geeft informatie weer vanuit het identiteitsregister, zoals het apparaat-id en de verificatiesleutels.
-* Het gedeelte **Recente taken** geeft informatie weer over taken die onlangs op dit apparaat zijn gericht.
+* Een verzameling van koppelingen die u toocustomize Hallo pictogram van het apparaat inschakelen, Hallo apparaat uitschakelt, een regel kunt toevoegen, een methode aangeroepen of een opdracht verzenden. Zie [Cloud-to-device communications guidance][lnk-c2d-guidance] (Richtlijnen voor communicatie tussen cloud en apparaat) voor een vergelijking van opdrachten (berichten van apparaat naar cloud) en methoden (directe methoden).
+* Hallo **apparaat Twin - Tags** sectie kunt u tooedit labelwaarden voor Hallo-apparaat. U kunt tagwaarden worden weergegeven in de lijst met apparaten Hallo en tag waarden toofilter Hallo apparatenlijst gebruiken.
+* Hallo **apparaat Twin - eigenschappen gewenst** sectie kunt u tooset eigenschap waarden toobe verzonden toohello apparaat.
+* Hallo **apparaat Twin - eigenschappen gerapporteerd** sectie toont de waarden van Hallo apparaat verzonden.
+* Hallo **apparaateigenschappen** sectie wordt informatie weergegeven uit Hallo identiteitsregister zoals Hallo apparaat-id- en verificatiesleutels.
+* Hallo **recente taken** sectie bevat informatie over alle taken die dit apparaat onlangs zijn gericht.
 
-## <a name="filter-the-device-list"></a>De apparatenlijst filteren
+## <a name="filter-hello-device-list"></a>Lijst met apparaten Hallo filteren
 
-U kunt een filter gebruiken om alleen de apparaten weer te geven die onverwachte temperatuurwaarden verzenden. De vooraf geconfigureerde oplossing voor externe bewaking bevat het filter **Beschadigde apparaten** om apparaten weer te geven met een gemiddelde temperatuurwaarde die groter is dan 60. U kunt ook [uw eigen filters maken](#add-a-filter).
+Alleen de apparaten die onverwachte temperatuur waarden verzendt, kunt u een filter toodisplay gebruiken. Hallo vooraf geconfigureerde oplossing voor externe controle omvat Hallo **slecht apparaten** tooshow apparaten met een gemiddelde temperatuur-waarde die groter zijn dan 60 filteren. U kunt ook [uw eigen filters maken](#add-a-filter).
 
-1. Kies **Opgeslagen filter openen** om een lijst met beschikbare filters weer te geven. Kies vervolgens **Beschadigde apparaten** om het filter toe te passen:
+1. Kies **opgeslagen filter openen** toodisplay een lijst met beschikbare filters. Kies vervolgens **slecht apparaten** tooapply Hallo filter:
 
-    ![De lijst met filters weergeven][img-unhealthy-filter]
+    ![Hallo-lijst met filters weergeven][img-unhealthy-filter]
 
-1. De apparatenlijst geeft nu alleen apparaten weer met een gemiddelde temperatuurwaarde die groter is dan 60.
+1. lijst met apparaten Hallo wordt nu alleen apparaten met een gemiddelde temperatuur-waarde groter dan 60.
 
-    ![De gefilterde apparatenlijst met beschadigde apparaten weergeven][img-filtered-unhealthy-list]
+    ![Weergave Hallo gefilterde lijst met apparaten niet in orde apparaten weergegeven][img-filtered-unhealthy-list]
 
 ## <a name="update-desired-properties"></a>Gewenste eigenschappen bijwerken
 
-U hebt nu een set apparaten geïdentificeerd die mogelijk moeten worden hersteld. U besluit echter dat de gegevensfrequentie van 15 seconden niet voldoende is voor een duidelijke diagnose van het probleem. Als u de telemetrische frequentie wijzigt in vijf seconden, hebt u meer gegevenspunten waarmee u het probleem beter kunt vaststellen. U kunt deze configuratiewijziging pushen naar uw externe apparaten vanuit de portal van de oplossing. U kunt de wijziging eenmaal doorvoeren, de impact controleren en vervolgens actie ondernemen op de resultaten.
+U hebt nu een set apparaten geïdentificeerd die mogelijk moeten worden hersteld. Echter, u besluit Hallo gegevensfrequentie van 15 seconden is niet voldoende voor een duidelijke diagnose van Hallo probleem. Het wijzigen van Hallo telemetrie frequentie toofive seconden tooprovide diagnosticeren u met meer gegevenspunten toobetter Hallo probleem. U kunt deze configuratie wijzigen tooyour externe apparaten uit de oplossingsportal Hallo push. U kunt slechts één keer evalueren Hallo impact, en vervolgens reageren op resultaten Hallo Hallo wijzigen.
 
-Volg deze stappen voor het uitvoeren van een taak die de gewenste eigenschap **TelemetryInterval** voor de betreffende apparaten wijzigt. Wanneer de apparaten de nieuwe eigenschapswaarde **TelemetryInterval** ontvangen, wijzigen ze hun configuratie dusdanig dat er elke vijf seconden telemetrie wordt verzonden, in plaats van elke 15 seconden:
+Volg deze stappen toorun een taak die wijzigingen Hallo **TelemetryInterval** gewenst eigenschap voor Hallo van invloed op apparaten. Wanneer apparaten Hallo Hallo nieuwe ontvangt **TelemetryInterval** eigenschapswaarde, dat ze hun configuratie toosend telemetrie om de vijf seconden in plaats van elke 15 seconden wijzigen:
 
-1. Wanneer de lijst met beschadigde apparaten wordt weergegeven in de lijst met apparaten, kiest u **Taakplanner** en vervolgens **Apparaatdubbel bewerken**.
+1. Terwijl u Hallo lijst met apparaten die niet in orde worden weergegeven in de lijst met apparaten hello, kies **Taakplanner**, klikt u vervolgens **bewerken apparaat Twin**.
 
-1. Roep de taak **Telemetrie-interval wijzigen** aan.
+1. Hallo taak aanroepen **interval voor wijzigen van telemetrie**.
 
-1. Wijzig de waarde van de **Gewenste eigenschap** met de naam **desired.Config.TelemetryInterval** in vijf seconden.
+1. Wijzig de waarde Hallo Hallo **gewenste eigenschap** naam **gewenste. Config.TelemetryInterval** toofive seconden.
 
 1. Kies **Planning**.
 
-    ![De eigenschap TelemetryInterval in vijf seconden wijzigen][img-change-interval]
+    ![Hallo TelemetryInterval eigenschap toofive seconden wijzigen][img-change-interval]
 
-1. U kunt de voortgang bewaken van de taken op de pagina **Beheertaken** in de portal.
+1. U kunt Hallo voortgang van de taak Hallo op Hallo **Management taken** pagina in Hallo-portal.
 
 > [!NOTE]
-> Als u een gewenste eigenschapswaarde voor een afzonderlijk apparaat wilt wijzigen, gebruikt u het gedeelte **Gewenste eigenschappen** in het deelvenster **Apparaatdetails** in plaats van een taak.
+> Als u toochange een gewenste eigenschapwaarde voor een afzonderlijk apparaat wilt, gebruikt u Hallo **gewenste eigenschappen** sectie in Hallo **Apparaatdetails** deelvenster in plaats van een taak wordt uitgevoerd.
 
-Deze taak stelt de waarde in van de gewenste eigenschap **TelemetryInterval** in het dubbele apparaat voor alle apparaten die door het filter zijn geselecteerd. De apparaten halen deze waarde op van de dubbele apparaten en werken hun gedrag bij. Wanneer een apparaat een gewenste eigenschap ophaalt uit een dubbel apparaat, wordt de bijbehorende gerapporteerde eigenschapswaarde ingesteld.
+Deze taak wordt Hallo-waarde van Hallo **TelemetryInterval** eigenschap in Hallo apparaat twin gewenst voor alle apparaten die zijn geselecteerd door Hallo filter Hallo. Hallo apparaten deze waarde wordt opgehaald uit Hallo apparaat twin en hun gedrag bij te werken. Als u een apparaat worden opgehaald en verwerkt een gewenste eigenschap van een apparaat-twin, wordt Hallo overeenkomende gemelde waarde eigenschap.
 
 ## <a name="invoke-methods"></a>Aanroepmethodes
 
-Terwijl de taak wordt uitgevoerd, ziet u in de lijst met beschadigde apparaten dat al deze apparaten oude firmwareversies hebben (ouder dan versie 1.6).
+Tijdens het Hallo-taak wordt uitgevoerd, ziet u in de lijst Hallo met slechte apparaten dat al deze apparaten oude (minder dan versie 1.6) firmware hebben versies.
 
-![De gemelde firmwareversie voor beschadigde apparaten weergeven][img-old-firmware]
+![Weergave Hallo firmwareversie voor Hallo slecht apparaten gerapporteerd][img-old-firmware]
 
-Deze firmwareversie is mogelijk de basisoorzaak voor de onverwachte temperatuurwaarden als u weet dat andere apparaten die wel goed functioneren, onlangs zijn bijgewerkt naar versie 2.0. U kunt het ingebouwde filter **Apparaten met oude firmware** gebruiken om apparaten met oude firmwareversies te identificeren. Via de portal kunt u vervolgens alle apparaten die nog een oude firmwareversie hebben, extern bijwerken:
+Deze firmwareversie is mogelijk de hoofdoorzaak Hallo Hallo onverwachte temperatuur waarden omdat u weet dat andere apparaten in orde onlangs bijgewerkt tooversion 2.0 zijn. U kunt ingebouwde Hallo **oude firmware apparaten** filteren tooidentify alle apparaten met oude firmware-versies. Vanuit de portal Hallo kunt u alle Hallo apparaten nog steeds met oude firmwareversies vervolgens extern bijwerken:
 
-1. Kies **Opgeslagen filter openen** om een lijst met beschikbare filters weer te geven. Kies vervolgens **Apparaten met oude firmwareversies** om het filter toe te passen:
+1. Kies **opgeslagen filter openen** toodisplay een lijst met beschikbare filters. Kies vervolgens **oude firmware apparaten** tooapply Hallo filter:
 
-    ![De lijst met filters weergeven][img-old-filter]
+    ![Hallo-lijst met filters weergeven][img-old-filter]
 
-1. In de lijst met apparaten worden nu alleen apparaten met oude firmwareversies weergegeven. Deze lijst bevat de vijf apparaten die zijn geïdentificeerd door het filter **Beschadigde apparaten** en drie extra apparaten:
+1. lijst met apparaten Hello wordt nu alleen apparaten met oude firmware-versies. Deze lijst bevat Hallo vijf apparaten die worden geïdentificeerd door Hallo **slecht apparaten** filteren en drie extra apparaten:
 
-    ![De gefilterde apparatenlijst met oude apparaten weergeven][img-filtered-old-list]
+    ![Weergave Hallo gefilterde lijst met apparaten oude apparaten weergegeven][img-filtered-old-list]
 
 1. Kies **Job Scheduler** en vervolgens **Aanroepmethode**.
 
-1. Stel **Taaknaam** in op **Firmware bijwerken naar versie 2.0**.
+1. Stel **taaknaam** te**Firmware-update tooversion 2.0**.
 
-1. Kies **InitiateFirmwareUpdate** als de **Methode**.
+1. Kies **InitiateFirmwareUpdate** als Hallo **methode**.
 
-1. Stel de parameter **FwPackageUri** in op **https://iotrmassets.blob.core.windows.net/firmwares/FW20.bin**.
+1. Set Hallo **FwPackageUri** parameter te**https://iotrmassets.blob.core.windows.net/firmwares/FW20.bin**.
 
-1. Kies **Planning**. De standaardwaarde voor de taak is nu uitvoeren.
+1. Kies **Planning**. Hallo standaard is nu voor Hallo taak toorun.
 
-    ![Taak voor het bijwerken van de firmware van de geselecteerde apparaten maken][img-method-update]
-
-> [!NOTE]
-> Als u een aanroepmethode voor een bepaald apparaat wilt gebruiken, kiest u **Methoden** in het deelvenster **Apparaatdetails** in plaats van dat u de taak uitvoert.
-
-Deze taak roept de directe methode **InitiateFirmwareUpdate** aan op alle apparaten die door het filter zijn geselecteerd. Apparaten reageren onmiddellijk op IoT Hub en starten het updateproces voor de firmware asynchroon. De apparaten bieden statusinformatie over het updateproces voor de firmware via gemelde eigenschapswaarden, zoals wordt weergegeven in de volgende schermafbeeldingen. Kies het pictogram **Vernieuwen** om de informatie in de apparaat- en takenlijsten bij te werken:
-
-![Taaklijst waarin de lijst met firmware die wordt bijgewerkt, wordt weergegeven][img-update-1]
-![Apparatenlijst met de status van de firmware-update][img-update-2]
-![Takenlijst met voltooide firmware-updates][img-update-3]
+    ![Taak tooupdate Hallo firmware van apparaten Hallo geselecteerd maken][img-method-update]
 
 > [!NOTE]
-> U kunt taken volgens planning laten uitvoeren tijdens aangewezen onderhoudsperioden in een productieomgeving.
+> Als u tooinvoke een methode op een bepaald apparaat wilt, kies **methoden** in Hallo **Apparaatdetails** deelvenster in plaats van een taak wordt uitgevoerd.
+
+Deze taak wordt aangeroepen Hallo **InitiateFirmwareUpdate** directe methode op alle Hallo apparaten ingeschakeld door het Hallo-filter. Apparaten onmiddellijk tooIoT Hub reageren en start vervolgens asynchroon Hallo firmware updateproces. Hallo-apparaten bieden statusinformatie over Hallo firmware updateproces via gemelde eigenschapswaarden, zoals wordt weergegeven in de volgende schermafbeeldingen Hallo. Kies Hallo **vernieuwen** pictogram tooupdate Hallo informatie in de apparaat- en lijsten Hallo:
+
+![Takenlijst Hallo lijst firmware-update wordt uitgevoerd met][img-update-1]
+![lijst met apparaten weer met de status van de firmware-update][img-update-2]
+![taak lijst met Hallo firmware-update een lijst voltooid][img-update-3]
+
+> [!NOTE]
+> U kunt taken toorun plannen tijdens een onderhoudsvenster aangewezen in een productieomgeving.
 
 ## <a name="scenario-review"></a>Samenvatting van scenario
 
-In dit scenario hebt u een mogelijk probleem met enkele van uw externe apparaten geïdentificeerd met behulp van de waarschuwingsgeschiedenis op het dashboard en een filter. Vervolgens hebt u het filter en een taak gebruikt om de apparaten extern te configureren om meer informatie te geven teneinde u te helpen bij het vaststellen van het probleem. Ten slotte hebt u een filter en een taak gebruikt om onderhoud op de beschadigde apparaten te plannen. Als u naar het dashboard terugkeert, kunt u zien dat er geen waarschuwingen meer worden weergegeven voor apparaten in uw oplossing. U kunt een filter gebruiken om te controleren of de firmware op alle apparaten in uw oplossing up-to-date is en er geen beschadigde apparaten meer zijn:
+In dit scenario kunt u een mogelijk probleem met enkele van uw externe apparaten met behulp van de geschiedenis van waarschuwingen Hallo op Hallo dashboard en een filter geïdentificeerd. U vervolgens gebruikte Hallo-filter en een taak tooremotely configureren Hallo apparaten tooprovide toohelp voor meer informatie Hallo probleem opsporen. Ten slotte, gebruikt u een filter en een taak tooschedule onderhoud op Hallo van invloed op apparaten. Als u toohello dashboard terugkeert, kunt u controleren dat er niet langer zijn alle alarmen afkomstig zijn van apparaten in uw oplossing. U kunt een filter tooverify die Hallo firmware op alle Hallo-apparaten in uw oplossing up-to-date is en of er niet meer slecht apparaten:
 
 ![Filter dat laat zien dat alle apparaten bijgewerkte firmware hebben][img-updated]
 
@@ -183,48 +183,48 @@ In dit scenario hebt u een mogelijk probleem met enkele van uw externe apparaten
 
 ## <a name="other-features"></a>Andere functies
 
-De volgende gedeelten beschrijven een aantal extra functies van de vooraf geconfigureerde oplossing voor externe controle die niet zijn beschreven als onderdeel van het voorgaande scenario.
+Hallo volgende secties worden enkele aanvullende functies van Hallo vooraf geconfigureerde oplossing voor externe controle die niet als onderdeel van het vorige scenario Hallo zijn beschreven.
 
 ### <a name="customize-columns"></a>Kolommen aanpassen
 
-U kunt de informatie die in de apparatenlijst wordt weergegeven, aanpassen door **Kolomeditor** te kiezen. U kunt kolommen die gerapporteerde eigenschaps- en tagwaarden weergeven, toevoegen en verwijderen. U kunt ook de volgorde en namen van de kolommen wijzigen:
+U kunt aanpassen Hallo informatie wordt weergegeven in de lijst met apparaten Hallo door te kiezen **kolom editor**. U kunt kolommen die gerapporteerde eigenschaps- en tagwaarden weergeven, toevoegen en verwijderen. U kunt ook de volgorde en namen van de kolommen wijzigen:
 
-   ![Kolomeditor in de apparatenlijst][img-columneditor]
+   ![Lijst met kolommen editor bewaartermijn Hallo apparaat][img-columneditor]
 
-### <a name="customize-the-device-icon"></a>Het apparaatpictogram aanpassen
+### <a name="customize-hello-device-icon"></a>Pictogram Hallo aanpassen
 
-U kunt als volgt vanuit het deelvenster **Apparaatdetails** het apparaatpictogram aanpassen dat wordt weergegeven in de apparatenlijst:
+U kunt aanpassen Hallo apparaat pictogram weergegeven in de lijst met apparaten op Hallo van Hallo **Apparaatdetails** paneel als volgt:
 
-1. Kies het potloodpictogram om het deelvenster **Installatiekopie bewerken** voor een apparaat te openen:
+1. Kies Hallo pen pictogram tooopen hello **bewerken installatiekopie** Configuratiescherm voor een apparaat:
 
    ![De afbeeldingseditor van het apparaat openen][img-startimageedit]
 
-1. Upload een nieuwe installatiekopie of gebruik een van de bestaande installatiekopieën en klik vervolgens op **Opslaan**:
+1. Een nieuwe installatiekopie uploaden of gebruik een van de bestaande installatiekopieën Hallo en kies vervolgens **opslaan**:
 
    ![De afbeelding van het apparaat bewerken in de afbeeldingseditor][img-imageedit]
 
-1. De geselecteerde afbeelding wordt nu weergegeven in de kolom **Pictogram** voor het apparaat.
+1. Hallo nu geselecteerde afbeelding wordt weergegeven in Hallo **pictogram** kolom voor Hallo-apparaat.
 
 > [!NOTE]
-> De afbeelding wordt opgeslagen in Blob Storage. Een tag in de apparaatdubbel bevat een koppeling naar de afbeelding in Blob Storage.
+> Hallo-installatiekopie is opgeslagen in blob storage. Een tag op in Hallo apparaat twin bevat een koppeling toohello installatiekopie in de blob-opslag.
 
 ### <a name="add-a-device"></a>Een apparaat toevoegen
 
-Wanneer u de vooraf geconfigureerde oplossing implementeert, richt u automatisch de 25 proefapparaten in die u in de apparatenlijst ziet. Deze apparaten zijn *gesimuleerde apparaten* uitgevoerd in een Azure WebJob. Gesimuleerde apparaten maken het voor u gemakkelijk om te experimenteren met een vooraf geconfigureerde oplossing zonder echte, fysieke apparaten te moeten implementeren. Raadpleeg de zelfstudie [Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe bewaking][lnk-connect-rm] als u een echt apparaat op de oplossing wilt aansluiten.
+Wanneer u Hallo vooraf geconfigureerde oplossing implementeert, worden automatisch 25 voorbeeld-apparaten die u in de lijst met Hallo apparaten zien kunt inrichten. Deze apparaten zijn *gesimuleerde apparaten* uitgevoerd in een Azure WebJob. Gesimuleerde apparaten eenvoudiger voor u tooexperiment met Hallo vooraf geconfigureerde oplossing zonder Hallo nodig toodeploy echte apparaten. Als u dat een echte toohello oplossing tooconnect wilt, raadpleegt u Hallo [verbinding maken met uw vooraf geconfigureerde oplossing voor externe controle apparaat toohello] [ lnk-connect-rm] zelfstudie.
 
-De volgende stappen laten zien hoe u een gesimuleerd apparaat toevoegt aan de oplossing:
+Hallo volgende stappen ziet u hoe tooadd een gesimuleerd apparaat toohello-oplossing:
 
-1. Ga terug naar de lijst met apparaten.
+1. Navigeer terug toohello lijst met apparaten.
 
-1. Kies linksonder **+ Een apparaat toevoegen** om een nieuw apparaat toe te voegen.
+1. tooadd een apparaat, kies **+ een apparaat toevoegen** in Hallo linkerbenedenhoek.
 
-   ![Een apparaat toevoegen aan de vooraf geconfigureerde oplossing][img-adddevice]
+   ![Een apparaat toohello vooraf geconfigureerde oplossing toevoegen][img-adddevice]
 
-1. Kies **Nieuwe toevoegen** op de tegel **Gesimuleerd apparaat**.
+1. Kies **nieuwe toevoegen** op Hallo **gesimuleerd apparaat** tegel.
 
    ![Nieuwe apparaatgegevens in het dashboard instellen][img-addnew]
 
-   U kunt niet alleen een nieuw gesimuleerd apparaat maken, maar ook een fysiek apparaat toevoegen als u ervoor kiest om een **aangepast apparaat** te maken. Zie [Uw apparaat aansluiten op de vooraf geconfigureerde IoT Suite-oplossing voor externe bewaking][lnk-connect-rm] voor meer informatie over het koppelen van fysieke apparaten aan de oplossing.
+   In aanvulling toocreating een nieuw gesimuleerd apparaat, kunt u ook toevoegen een fysiek apparaat als u ervoor toocreate kiest een **aangepast apparaat**. toolearn meer informatie over het verbinden van fysieke apparaten toohello-oplossing, Zie [verbinding maken met uw apparaat toohello IoT Suite vooraf geconfigureerde oplossing voor externe controle][lnk-connect-rm].
 
 1. Selecteer **Laat mij mijn eigen apparaat-id definiëren** en voer de unieke id van een apparaatnaam in, zoals **mijnapparaat_01**.
 
@@ -232,13 +232,13 @@ De volgende stappen laten zien hoe u een gesimuleerd apparaat toevoegt aan de op
 
    ![Een nieuw apparaat opslaan][img-definedevice]
 
-1. Kies in stap 3 van **Een gesimuleerd apparaat toevoegen** de optie **Gereed** om terug te keren naar de apparatenlijst.
+1. In stap 3 van **een gesimuleerd apparaat toevoegen**, kies **gedaan** tooreturn toohello lijst met apparaten.
 
-1. In de lijst met apparaten kunt u zien dat uw apparaat **wordt uitgevoerd**.
+1. U kunt uw apparaat weergeven **uitgevoerd** in de lijst met Hallo-apparaten.
 
     ![Nieuw apparaat weergeven in de apparatenlijst][img-runningnew]
 
-1. U kunt op het dashboard ook de gesimuleerde telemetrie van het nieuwe apparaat bekijken:
+1. U kunt ook weergeven Hallo gesimuleerde telemetrie van het nieuwe apparaat op Hallo dashboard:
 
     ![Telemetrie voor nieuw apparaat weergeven][img-runningnew-2]
 
@@ -250,114 +250,114 @@ U kunt een apparaat uitschakelen en nadat het is uitgeschakeld kunt u het verwij
 
 ### <a name="add-a-rule"></a>Een regel toevoegen
 
-Er zijn geen regels voor het nieuwe apparaat dat u zojuist hebt toegevoegd. In deze sectie voegt u een regel toe die een waarschuwing activeert wanneer de door het nieuwe apparaat gemelde temperatuur 47 graden overschrijdt. Voordat u begint, kunt u al zien dat de telemetriegeschiedenis voor het nieuwe apparaat op het dashboard aantoont dat de temperatuur van het apparaat nooit meer dan 45 graden bedraagt.
+Er zijn geen regels voor het nieuwe apparaat Hallo die u zojuist hebt toegevoegd. In deze sectie voegt u een regel die een waarschuwing activeert wanneer de temperatuur Hallo gemeld door Hallo nieuwe apparaat 47 graden overschrijdt. Voordat u begint, zoals u ziet dat Hallo telemetriegeschiedenis voor nieuwe apparaat Hallo op Hallo dashboard toont Hallo apparaat temperatuur nooit meer dan 45 graden.
 
-1. Ga terug naar de lijst met apparaten.
+1. Navigeer terug toohello lijst met apparaten.
 
-1. Selecteer het nieuwe apparaat in de **apparatenlijst** en kies daarna **Regel toevoegen** om een regel voor het apparaat toe te voegen.
+1. tooadd een regel voor Hallo-apparaat, selecteert u het nieuwe apparaat in Hallo **lijst met apparaten**, en kies vervolgens **regel toevoegen**.
 
-1. Maak een regel die **Temperatuur** als gegevensveld gebruikt en **AlarmTemp** gebruikt als de uitvoer wanneer de temperatuur 47 graden overschrijdt:
+1. Een regel maken die gebruikmaakt van **temperatuur** als Hallo gegevensveld gebruikt en **AlarmTemp** zoals Hallo uitvoer wanneer Hallo temperatuur 47 graden overschrijdt:
 
     ![Een apparaatregel toevoegen][img-adddevicerule]
 
-1. Kies **Regels opslaan en weergeven** om uw wijzigingen op te slaan.
+1. kiest u uw wijzigingen toosave **regels opslaan en weergeven**.
 
-1. Kies **Opdrachten** in het deelvenster Apparaatdetails voor het nieuwe apparaat.
+1. Kies **opdrachten** in Hallo deelvenster Apparaatdetails voor het nieuwe apparaat Hallo.
 
     ![Een apparaatregel toevoegen][img-adddevicerule2]
 
-1. Selecteer **ChangeSetPointTemp** in de opdrachtlijst en stel **SetPointTemp** in op 45. Kies vervolgens **Opdracht verzenden**:
+1. Selecteer **ChangeSetPointTemp** van Hallo Opdrachtlijst en stel **SetPointTemp** too45. Kies vervolgens **Opdracht verzenden**:
 
     ![Een apparaatregel toevoegen][img-adddevicerule3]
 
-1. Ga terug naar het dashboard. Na korte tijd verschijnt in het deelvenster **Geschiedenis van waarschuwingen** een nieuwe vermelding wanneer de door het nieuwe apparaat gemelde temperatuur 47 graden overschrijdt:
+1. Navigeer terug toohello dashboard. Na korte tijd, ziet u een nieuwe vermelding in Hallo **geschiedenis van waarschuwingen** deelvenster wanneer Hallo temperatuur gemeld door het nieuwe apparaat Hallo-47 graden overschrijdt:
 
     ![Een apparaatregel toevoegen][img-adddevicerule4]
 
-1. Op de pagina **Regels** van het dashboard kunt u al uw regels bekijken en bewerken:
+1. U kunt bekijken en bewerken van alle regels op Hallo **regels** pagina van Hallo dashboard:
 
     ![Lijst met apparaatregels][img-rules]
 
-1. Op de pagina **Acties** van het dashboard kunt u alle acties die worden uitgevoerd in reactie op een regel bekijken en bewerken:
+1. U kunt bekijken en bewerken van alle Hallo-acties die kunnen worden uitgevoerd in reactie tooa regel op Hallo **acties** pagina van Hallo dashboard:
 
     ![Lijst met apparaatacties][img-actions]
 
 > [!NOTE]
-> Het is mogelijk om acties te definiëren die een e-mailbericht of sms kunnen verzenden in antwoord op een regel of die met een Line-Of-Business-systeem kunnen worden geïntegreerd via een [logische app][lnk-logic-apps]. Zie [De logische app koppelen aan uw vooraf geconfigureerde oplossing Azure IoT Suite Remote Monitoring ][lnk-logicapptutorial].
+> Het is mogelijk toodefine acties die een e-mailbericht kunnen verzenden of SMS in antwoord tooa regel of integreren met een line-of-business-systeem via een [logische App][lnk-logic-apps]. Zie voor meer informatie, Hallo [tooyour van logische App verbinding maken met Azure IoT Suite Remote Monitoring vooraf geconfigureerde oplossing][lnk-logicapptutorial].
 
 ### <a name="manage-filters"></a>Filters beheren
 
-In de apparatenlijst kunt u filters maken, opslaan en opnieuw laden om een aangepaste lijst met apparaten die zijn verbonden met uw hub weer te geven. Een filter maken:
+In de lijst met apparaten van hello, kunt u maken, opslaan en laden van filters toodisplay een aangepaste lijst met apparaten verbonden tooyour hub. een filter toocreate:
 
-1. Kies het pictogram Filter bewerken boven de apparatenlijst:
+1. Kies Hallo bewerken filterpictogram boven Hallo-lijst van apparaten:
 
-    ![Open de filtereditor][img-editfiltericon]
+    ![Open Hallo filter-editor][img-editfiltericon]
 
-1. Voeg in de **Filtereditor** de velden, operators en waarden toe om de apparatenlijst te filteren. U kunt meerdere clausules toevoegen om uw filter te verfijnen. Kies **Filteren** om het filter toe te passen:
+1. In Hallo **Filter editor**, Hallo velden, operators en waarden toofilter Hallo apparatenlijst toevoegen. U kunt meerdere componenten toorefine uw filter toevoegen. Kies **Filter** tooapply Hallo filter:
 
     ![Een filter maken][img-filtereditor]
 
-1. In dit voorbeeld wordt de lijst gefilterd op fabrikant en modelnummer:
+1. In dit voorbeeld wordt Hallo lijst gefilterd op fabrikant en het modelnummer:
 
     ![Gefilterde lijst][img-filterelist]
 
-1. Als u uw filter met een aangepaste naam wilt opslaan, kiest u het pictogram **Opslaan als**:
+1. toosave uw filter met de naam van een aangepaste kiezen Hallo **opslaan als** pictogram:
 
     ![Een filter opslaan][img-savefilter]
 
-1. Als u een eerder opgeslagen filter opnieuw wilt toepassen, kiest u het pictogram **Opgeslagen filter openen**:
+1. tooreapply een filter dat u eerder hebt opgeslagen, kies Hallo **opgeslagen filter openen** pictogram:
 
     ![Een filter openen][img-openfilter]
 
-U kunt filters maken op basis van apparaat-id, apparaatstatus gewenste eigenschappen, gerapporteerde eigenschappen en tags. U kunt uw eigen aangepaste tags toevoegen aan een apparaat in het gedeelte **Tags** van het deelvenster **Apparaatdetails** of een taak voor het bijwerken van tags op meerdere apparaten uitvoeren.
+U kunt filters maken op basis van apparaat-id, apparaatstatus gewenste eigenschappen, gerapporteerde eigenschappen en tags. U uw eigen aangepaste labels tooa apparaat toevoegen in Hallo **labels** sectie Hallo **Apparaatdetails** deelvenster of een taak tooupdate labels worden uitgevoerd op meerdere apparaten.
 
 > [!NOTE]
-> U kunt de **weergave Geavanceerd** in de **Filtereditor** gebruiken om de querytekst rechtstreeks te bewerken.
+> In Hallo **Filter editor**, kunt u Hallo **weergave Geavanceerd** tooedit Hallo querytekst rechtstreeks.
 
 ### <a name="commands"></a>Opdrachten
 
-Vanuit het deelvenster **Apparaatdetails** kunt u opdrachten naar het apparaat verzenden. Wanneer een apparaat voor het eerst wordt gestart, stuurt het naar de oplossing informatie over de opdrachten die het apparaat ondersteunt. Zie [Opties van Azure IoT-Hub cloud-naar-apparaat][lnk-c2d-guidance] voor een beschrijving van de verschillen tussen opdrachten en methoden.
+Van Hallo **Apparaatdetails** Configuratiescherm kunt u opdrachten toohello apparaat verzenden. Wanneer een apparaat eerst wordt gestart, stuurt informatie over het Hallo-opdrachten dat het toohello-oplossing ondersteunt. Zie voor een beschrijving van Hallo verschillen tussen opdrachten en -methoden [Azure IoT Hub cloud-naar-apparaat opties][lnk-c2d-guidance].
 
-1. Kies in het deelvenster **Apparaatdetails** de optie **Opdrachten** voor het geselecteerde apparaat:
+1. Kies **opdrachten** in Hallo **Apparaatdetails** Configuratiescherm voor het geselecteerde apparaat Hallo:
 
    ![Apparaatopdrachten in het dashboard][img-devicecommands]
 
-1. Selecteer **PingDevice** in de lijst met opdrachten.
+1. Selecteer **PingDevice** uit Hallo Opdrachtlijst.
 
 1. Kies **Opdracht verzenden**.
 
-1. U ziet de status van de opdracht in de opdrachtgeschiedenis.
+1. U kunt de status van de Hallo Hallo-opdracht in de opdrachtgeschiedenis Hallo kunt zien.
 
    ![Opdrachtstatus in het dashboard][img-pingcommand]
 
-De oplossing houdt de status van elke opdracht bij die met de oplossing wordt verzonden. In eerste instantie is het resultaat **In behandeling**. Wanneer het apparaat meldt dat het de opdracht heeft uitgevoerd, wordt het resultaat ingesteld op **Geslaagd**.
+Hallo oplossing houdt Hallo status van elke opdracht die worden verzonden. In eerste instantie Hallo resultaat is **in behandeling**. Wanneer Hallo apparaat meldt dat het Hallo-opdracht heeft uitgevoerd, Hallo resultaat te ingesteld**geslaagd**.
 
-## <a name="behind-the-scenes"></a>Achter de schermen
+## <a name="behind-hello-scenes"></a>Achter de schermen Hallo
 
-Wanneer u een vooraf geconfigureerde oplossing implementeert, maakt het implementatieproces meerdere resources in het door u geselecteerde Azure-abonnement. U kunt deze resources weergeven in Azure [Portal][lnk-portal]. Het implementatieproces maakt een **resourcegroep** met een naam die is gebaseerd op de naam die u voor uw vooraf geconfigureerde oplossing hebt gekozen:
+Wanneer u een vooraf geconfigureerde oplossing implementeert, maakt Hallo implementatieproces meerdere resources in hello Azure-abonnement u hebt geselecteerd. U kunt deze resources weergeven in hello Azure [portal][lnk-portal]. Hallo-implementatieproces maakt een **resourcegroep** met een naam op basis van Hallo-naam die u voor uw vooraf geconfigureerde oplossing kiest:
 
-![Vooraf geconfigureerde oplossing in Azure Portal][img-portal]
+![Vooraf geconfigureerde oplossing in hello Azure-portal][img-portal]
 
-U kunt de instellingen van elke resource weergeven door deze te selecteren in de lijst met resources in de resourcegroep.
+U kunt instellingen Hallo van elke resource weergeven door deze te selecteren in lijst van resources in de resourcegroep Hallo Hallo.
 
-U kunt ook de broncode voor de vooraf geconfigureerde oplossing weergeven. De broncode van de vooraf geconfigureerde oplossing voor externe bewaking bevindt zich in de GitHub-opslagplaats [azure-iot-remote-monitoring][lnk-rmgithub]:
+U kunt ook de broncode Hallo voor Hallo vooraf geconfigureerde oplossing weergeven. Hallo voor externe controle van de broncode van de vooraf geconfigureerde oplossing is in Hallo [azure-iot-remote-monitoring] [ lnk-rmgithub] GitHub-opslagplaats:
 
-* De map **DeviceAdministration** bevat de broncode voor het dashboard.
-* De map **Simulator** bevat de broncode voor het gesimuleerde apparaat.
-* De map **EventProcessor** bevat de broncode voor het back-endproces dat de binnenkomende telemetrie verwerkt.
+* Hallo **DeviceAdministration** map bevat de broncode Hallo voor Hallo-dashboard.
+* Hallo **Simulator** map bevat de broncode Hallo voor Hallo gesimuleerde apparaat.
+* Hallo **EventProcessor** map bevat de broncode Hallo voor Hallo back-endproces dat Hallo binnenkomende telemetrie verwerkt.
 
-Wanneer u klaar bent, kunt u de vooraf geconfigureerde oplossing verwijderen uit uw Azure-abonnement op de site [azureiotsuite.com][lnk-azureiotsuite]. Met de site kunt u gemakkelijk resources verwijderen die werden aangevoerd toen u de vooraf geconfigureerde oplossing hebt gemaakt.
+Wanneer u klaar bent, kunt u Hallo vooraf geconfigureerde oplossing verwijderen uit uw Azure-abonnement op Hallo [azureiotsuite.com] [ lnk-azureiotsuite] site. Deze site kunt u alle resources die zijn ingericht toen u Hallo vooraf geconfigureerde oplossing maakte Hallo tooeasily-verwijderen.
 
 > [!NOTE]
-> Verwijder de resourcegroep niet uit de portal, maar verwijder de oplossing op de site [azureiotsuite.com][lnk-azureiotsuite]. Zo zorgt u ervoor dat alles met betrekking tot de vooraf geconfigureerde oplossing wordt verwijderd.
+> tooensure u Alles verwijderen gerelateerde toohello vooraf geconfigureerde oplossing, te verwijderen op Hallo [azureiotsuite.com] [ lnk-azureiotsuite] site en het Hallo-resourcegroep in Hallo portal niet verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u een werkende vooraf geconfigureerde oplossing hebt geïmplementeerd, kunt u doorgaan met IoT Suite door de volgende artikels te lezen:
+Nu dat u een werkende vooraf geconfigureerde oplossing hebt geïmplementeerd, kunt u blijven aan de slag met IoT Suite door te lezen Hallo artikelen te volgen:
 
 * [Walkthrough over de vooraf geconfigureerde oplossing voor externe bewaking][lnk-rm-walkthrough]
-* [Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe bewaking][lnk-connect-rm]
-* [Machtigingen op de site azureiotsuite.com][lnk-permissions]
+* [Verbinding maken met uw apparaat toohello vooraf geconfigureerde oplossing voor externe controle][lnk-connect-rm]
+* [Machtigingen op Hallo azureiotsuite.com site][lnk-permissions]
 
 [img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
 [img-dashboard]: media/iot-suite-getstarted-preconfigured-solutions/dashboard.png

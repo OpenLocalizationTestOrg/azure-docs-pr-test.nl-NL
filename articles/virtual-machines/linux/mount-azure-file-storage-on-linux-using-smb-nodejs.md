@@ -1,6 +1,6 @@
 ---
-title: Koppelpunt Azure File storage in Linux VM's met behulp van SMB met Azure CLI 1.0 | Microsoft Docs
-description: Het koppelen van Azure File storage op Linux VM's via SMB
+title: Azure File storage in Linux VM's met behulp van SMB met Azure CLI 1.0 aaaMount | Microsoft Docs
+description: Hoe toomount Azure File storage in Linux VM's via SMB
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/07/2016
 ms.author: v-livech
-ms.openlocfilehash: 4951860630f0aad107d0846d52ebe4423ee0b91c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 14a4224228cadb0ae2f05e8e5c8022ee84f138a4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-by-using-smb-with-azure-cli-10"></a>Koppelpunt Azure File storage in Linux VM's met behulp van SMB met Azure CLI 1.0
 
-In dit artikel laat zien hoe Azure File storage koppelen aan een Linux-VM met behulp van het protocol Server Message Block (SMB). File storage biedt bestandsshares in de cloud via het standaard SMB-protocol. De vereisten zijn:
+Dit artikel laat zien hoe toomount Azure File storage in een Linux-VM met behulp van Server Message Block (SMB)-protocol Hallo. File storage biedt bestandsshares in de cloud Hallo via Hallo standaard SMB-protocol. Hallo-vereisten zijn:
 
 * Een [Azure-account](https://azure.microsoft.com/pricing/free-trial/)
 * [Secure Shell (SSH) openbare en persoonlijke sleutelbestanden](mac-create-ssh-keys.md)
 
-## <a name="cli-versions-to-use"></a>CLI-versies gebruiken
-U kunt de taak uitvoeren met behulp van een van de volgende versies van de opdrachtregelinterface (CLI):
+## <a name="cli-versions-toouse"></a>CLI-versies toouse
+U kunt Hallo taak uitvoeren met behulp van een van de volgende versies van de opdrachtregelinterface (CLI) Hallo:
 
-- [Azure CLI 1.0](#quick-commands) – onze CLI voor het klassieke en resource management-implementatiemodel (in dit artikel)
-- [Azure CLI 2.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)-onze volgende generatie CLI voor de resource management-implementatiemodel
+- [Azure CLI 1.0](#quick-commands) – onze CLI voor Hallo klassieke en resource management implementatiemodellen (in dit artikel)
+- [Azure CLI 2.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)-onze volgende generatie CLI voor Hallo resource management-implementatiemodel
 
 
 ## <a name="quick-commands"></a>Snelle opdrachten
-U kunt de taak snel doen, de stappen in deze sectie uit te voeren. Voor meer informatie en context gedetailleerde, beginnen bij de ['Gedetailleerd overzicht'](mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough) sectie.
+tooaccomplish hello taak snel stappen Hallo in deze sectie. Voor meer informatie en context gedetailleerde, beginnen op Hallo ['Gedetailleerd overzicht'](mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough) sectie.
 
 ### <a name="prerequisites"></a>Vereisten
 * Een resourcegroep
@@ -49,20 +49,20 @@ U kunt de taak snel doen, de stappen in deze sectie uit te voeren. Voor meer inf
 
 Geen voorbeelden vervangen door uw eigen instellingen.
 
-### <a name="create-a-directory-for-the-local-mount"></a>Maak een map voor de lokale koppeling
+### <a name="create-a-directory-for-hello-local-mount"></a>Maak een map voor lokale koppeling Hallo
 
 ```bash
 mkdir -p /mnt/mymountpoint
 ```
 
-### <a name="mount-the-file-storage-smb-share-to-the-mount-point"></a>De opslag van bestanden naar het koppelpunt de SMB-share koppelen
+### <a name="mount-hello-file-storage-smb-share-toohello-mount-point"></a>Hallo bestand opslag toohello koppelpunt wordt gehost SMB-share koppelen
 
 ```bash
 sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
-### <a name="persist-the-mount-after-a-reboot"></a>De koppeling behouden na opnieuw opstarten
-De volgende regel toe te voegen `/etc/fstab`:
+### <a name="persist-hello-mount-after-a-reboot"></a>Hallo koppelpunt behouden na opnieuw opstarten
+Hallo volgt regel te toevoegen`/etc/fstab`:
 
 ```bash
 //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
@@ -70,13 +70,13 @@ De volgende regel toe te voegen `/etc/fstab`:
 
 ## <a name="detailed-walkthrough"></a>Gedetailleerd overzicht
 
-File storage biedt bestandsshares in de cloud die het standaard SMB-protocol gebruiken. Met de meest recente versie van File storage, kunt u een bestandsshare ook koppelen vanuit elk besturingssysteem dat ondersteuning biedt voor SMB 3.0. Als u een SMB-koppelen op Linux gebruikt, krijgt u eenvoudig back-ups naar een robuuste, permanente archiveren opslaglocatie die wordt ondersteund door een SLA.
+File storage biedt bestandsshares in de cloud Hallo Hallo standaard SMB-protocol gebruiken. Met de meest recente release van File storage Hallo kunt u ook een bestandsshare koppelen vanuit elk besturingssysteem dat ondersteuning biedt voor SMB 3.0. Als u een SMB-koppelen op Linux gebruikt, krijgt u eenvoudig back-ups tooa robuuste, permanente archiveren locatie voor de opslag die wordt ondersteund door een SLA.
 
-Verplaatsen van bestanden van een virtuele machine naar een SMB-koppelpunt die wordt gehost op File storage is een uitstekende manier om de logboeken voor foutopsporing. Dat komt doordat de dezelfde SMB-share op de lokaal naar uw werkstation Mac, Linux of Windows worden gekoppeld. SMB is de beste oplossing voor het streamen van Linux of toepassingslogboeken in real-time, omdat het SMB-protocol niet is gebouwd voor het afhandelen van deze rechten zware logboekregistratie. Een speciale, uniforme logboekregistratie laag hulpprogramma zoals Fluentd zou een betere keuze dan SMB zijn voor het verzamelen van Linux- en uitvoer logboekregistratie toepassing.
+Verplaatsen van bestanden in een VM tooan SMB koppelpunt wordt gehost op File storage is dat een uitstekende manier toodebug registreert. Dat komt doordat Hallo dezelfde SMB-share worden gekoppeld, lokaal tooyour Mac, Linux of Windows-werkstation. SMB niet Hallo beste oplossing voor het streamen van Linux of toepassingslogboeken in real-time, omdat Hallo SMB-protocol niet is ingebouwd toohandle deze rechten zware logboekregistratie. Een speciale, uniforme logboekregistratie laag hulpprogramma zoals Fluentd zou een betere keuze dan SMB zijn voor het verzamelen van Linux- en uitvoer logboekregistratie toepassing.
 
-Voor deze gedetailleerde procedure we maken van de vereisten die nodig zijn voor het eerst de bestandsshare voor opslag maken en vervolgens via SMB koppelen op een Linux-VM.
+Voor deze gedetailleerde procedure maken we Hallo vereisten nodig toofirst Hallo File storage-share maken en klik vervolgens op een Linux-VM via SMB koppelen.
 
-1. Een Azure storage-account maken met behulp van de volgende code:
+1. Een Azure storage-account maken met behulp van de volgende code Hallo:
 
     ```azurecli
     azure storage account create myStorageAccount \
@@ -86,17 +86,17 @@ Voor deze gedetailleerde procedure we maken van de vereisten die nodig zijn voor
     -g myResourceGroup
     ```
 
-2. De opslagaccountsleutels weergeven.
+2. Hallo-toegangscodes voor opslag weergeven.
 
-    Wanneer u een opslagaccount maakt, worden de sleutels in paren worden gemaakt zodat ze kunnen worden gedraaid zonder onderbreking van de service. Wanneer u naar de tweede sleutel in het paar overschakelt, maakt u een nieuw sleutelpaar. Nieuwe toegangscodes voor opslag worden altijd gemaakt in paren, hebt u altijd ten minste één niet-gebruikte opslagsleutel gereed om te activeren. Als u wilt de toegangscodes voor opslag weergeven, moet u de volgende code gebruiken:
+    Wanneer u een opslagaccount maakt, worden de Hallo toegangscodes zodat ze kunnen worden gedraaid zonder onderbreking van de service in paren worden gemaakt. Wanneer u de tweede sleutel toohello Hallo paar overschakelt, maakt u een nieuw sleutelpaar. Nieuwe toegangscodes voor opslag worden altijd paarsgewijs ervoor te zorgen dat u altijd ten minste één niet-gebruikte opslag sleutel gereed tooswitch te hebben gemaakt. tooshow-opslagaccountsleutels voor Hallo Hallo volgende code gebruiken:
 
     ```azurecli
     azure storage account keys list myStorageAccount \
     --resource-group myResourceGroup
     ```
-3. De bestandsshare voor opslag maken.
+3. Hallo File storage-share maken.
 
-    De File storage-share bevat de SMB-share. Het quotum wordt altijd weergegeven in GB (Gigabyte). Voor het maken van de bestandsshare voor opslag, moet u de volgende code gebruiken:
+    Hallo File storage-share bevat Hallo SMB-share. Hallo quotum wordt altijd uitgedrukt in gigabytes (GB). toocreate Hallo File storage-share, Hallo volgende code gebruiken:
 
     ```azurecli
     azure storage share create mystorageshare \
@@ -105,23 +105,23 @@ Voor deze gedetailleerde procedure we maken van de vereisten die nodig zijn voor
     --account-key nPOgPR<--snip-->4Q==
     ```
 
-4. Maak de map koppelpunt.
+4. Hallo koppelpunt map maken.
 
-    U moet een lokale map maken in het Linux-bestandssysteem naar de SMB-share te koppelen. Geschreven of gelezen uit de lokale Koppelmap wordt doorgestuurd naar de SMB-share die wordt gehost op de opslag van bestanden. Als u wilt maken van de map de volgende code gebruiken:
+    U moet een lokale map maken in Hallo Linux bestand system toomount Hallo naar de SMB-share. Geschreven of gelezen uit de lokale Koppelmap Hallo wordt toohello SMB-share die wordt gehost op de opslag van bestanden doorgestuurd. toocreate hello directory gebruik Hallo code te volgen:
 
     ```bash
     sudo mkdir -p /mnt/mymountdirectory
     ```
 
-5. Koppel de SMB-share met behulp van de volgende code:
+5. SMB-share met behulp van de volgende code Hallo Hallo koppelen:
 
     ```azurecli
     sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountdirectory -o vers=3.0,username=myStorageAccount,password=myStorageAccountkey,dir_mode=0777,file_mode=0777
     ```
 
-6. Behouden van de SMB-koppelpunt via opnieuw wordt opgestart.
+6. Bewaren Hallo SMB koppelen via opnieuw wordt opgestart.
 
-    Wanneer u de Linux-VM opnieuw opstart, wordt tijdens het afsluiten van de gekoppelde SMB-share ontkoppeld. Als u wilt opnieuw koppelen van de SMB-share op opstarten, moet u een regel toevoegen aan de /etc/fstab Linux. Linux gebruikt het fstab-bestand voor een lijst met de bestandssystemen die nodig is om te koppelen tijdens het opstarten. Het toevoegen van de SMB-share zorgt ervoor dat de File storage-share een permanent gekoppelde bestandssysteem voor de Linux-VM. De File storage SMB-share toe te voegen aan een nieuwe virtuele machine is mogelijk wanneer u cloud-init gebruiken.
+    Wanneer u de computer opnieuw Hallo Linux VM opstart, is hello gekoppelde SMB-share ontkoppeld tijdens het afsluiten. tooremount hello SMB-share op opstarten, moet u een regel toohello Linux /etc/fstab toevoegen. Hallo fstab-bestand toolist Hallo bestandssystemen toomount moet tijdens het opstartproces Hallo maakt gebruik van Linux. Toe te voegen Hallo SMB-share zorgt ervoor dat Hallo File storage-share is een permanent gekoppelde bestandssysteem voor Hallo Linux VM. Hallo bestand opslag SMB-share tooa toe te voegen is nieuwe virtuele machine mogelijk wanneer u cloud-init gebruiken.
 
     ```bash
     //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
@@ -129,6 +129,6 @@ Voor deze gedetailleerde procedure we maken van de vereisten die nodig zijn voor
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Gebruik van cloud-init voor het aanpassen van een Linux-VM tijdens het maken van](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Een schijf toevoegen aan een virtuele Linux-machine](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Versleutelen van schijven op een Linux-VM met behulp van de Azure CLI](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Met behulp van cloud-init toocustomize een Linux-VM tijdens het maken van](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Voeg een schijf tooa Linux VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Versleutelen van schijven op een Linux-VM met behulp van hello Azure CLI](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

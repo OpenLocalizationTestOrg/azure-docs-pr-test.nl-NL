@@ -1,6 +1,6 @@
 ---
-title: 'Arduino verbinden met Azure IoT - les 1: app implementeren | Microsoft Docs'
-description: Klonen van de voorbeeldtoepassing Arduino vanuit GitHub, en voer gulp voor het implementeren van deze toepassing naar uw Adafruit Doezelaar M0 Wi-Fi. Deze voorbeeldtoepassing knippert de GPIO
+title: 'Verbinding maken met Arduino tooAzure IoT - les 1: app implementeren | Microsoft Docs'
+description: Hallo voorbeeldtoepassing Arduino vanuit GitHub klonen en voer gulp toodeploy deze toepassing tooyour Adafruit Doezelaar M0 Wi-Fi. Deze voorbeeldtoepassing knippert Hallo GPIO
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,36 +17,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 4431808ac6182d194e841c087c8f89f1a12b1911
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5bf8e4ae88e070aeacf34bfc43b8d2daeeb1a2fa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-and-deploy-the-blink-application"></a>De Blink-toepassing maken en implementeren
+# <a name="create-and-deploy-hello-blink-application"></a>Hallo knipperen toepassing maken en implementeren
 ## <a name="what-you-will-do"></a>Wat u doet
-Klonen van de voorbeeldtoepassing Arduino vanuit GitHub en het hulpprogramma gulp gebruiken voor het implementeren van de voorbeeldtoepassing op het mededelingenbord Adafruit Doezelaar M0 Wi-Fi Arduino. De voorbeeld-toepassing knipperen de GPIO #13 op barod geleid om twee seconden.
+Hallo voorbeeldtoepassing Arduino vanuit GitHub klonen en Hallo gulp hulpprogramma toodeploy Hallo voorbeeld toepassing tooyour Adafruit Doezelaar M0 Wi-Fi Arduino mededelingenbord gebruiken. Hallo voorbeeld toepassing knipperen Hallo GPIO #13 op barod geleid om twee seconden.
 
-Als u problemen hebt, moet u uitkijken voor oplossingen op de [probleemoplossing pagina][troubleshooting-page].
+Als u problemen hebt, zoekt u naar oplossingen op Hallo [probleemoplossing pagina][troubleshooting-page].
 
 ## <a name="what-you-will-learn"></a>Wat u leert
-* Informatie over het implementeren en uitvoeren van de voorbeeldtoepassing op het mededelingenbord Arduino.
+* Hoe toodeploy en Voer Hallo voorbeeldtoepassing op het mededelingenbord Arduino.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
-U moet hebt voltooid de volgende bewerkingen:
+U moet hebben voltooid Hallo volgende bewerkingen:
 
 * [Uw apparaat configureren][configure-your-device]
-* [Download de hulpprogramma 's][get-the-tools]
+* [Hallo-hulpprogramma's ophalen][get-the-tools]
 
-## <a name="open-the-sample-application"></a>Open de voorbeeldtoepassing
-U opent de voorbeeldtoepassing door de volgende stappen uit:
+## <a name="open-hello-sample-application"></a>Open Hallo-voorbeeldtoepassing
+tooopen hello voorbeeldtoepassing, als volgt te werk:
 
-1. Kloon de opslagplaats voorbeeld vanuit GitHub met de volgende opdracht:
+1. Hallo voorbeeld opslagplaats vanuit GitHub door het uitvoeren van de volgende opdracht Hallo klonen:
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-c-feather-m0-getting-started.git
    ```
-2. De voorbeeldtoepassing openen in Visual Studio Code met de volgende opdrachten:
+2. Hallo-voorbeeldtoepassing openen in Visual Studio Code door het uitvoeren van de volgende opdrachten Hallo:
 
    ```bash
    cd iot-hub-c-feather-m0-getting-started
@@ -56,27 +56,27 @@ U opent de voorbeeldtoepassing door de volgende stappen uit:
 
    ![Structuur van de opslagplaats][repo-structure]
 
-De `app.ino` bestand de `app` submap is het belangrijkste bronbestand dat de code voor het besturingselement de LED bevat.
+Hallo `app.ino` bestand in Hallo `app` submap is Hallo sleutel bronbestand die Hallo code toocontrol Hallo LED bevat.
 
 ### <a name="install-application-dependencies"></a>Afhankelijkheden voor toepassingen installeren
-Installeer de bibliotheken en andere modules die u nodig hebt voor de voorbeeldtoepassing met de volgende opdracht uit te voeren:
+Hallo-bibliotheken en andere modules die u nodig hebt voor de voorbeeldtoepassing Hallo door het uitvoeren van de volgende opdracht Hallo installeren:
 
 ```bash
 npm install
 ```
 
-## <a name="configure-the-device-connection"></a>De apparaatverbinding configureren
-Volg deze stappen voor het configureren van de apparaatverbinding:
+## <a name="configure-hello-device-connection"></a>Hallo apparaatverbinding configureren
+tooconfigure Hallo apparaatverbinding, als volgt te werk:
 
-1. De seriële poort van het apparaat met de apparaat-detectie cli verkrijgen:
+1. Seriële poort Hallo Hallo-apparaat met Hallo apparaat detectie cli verkrijgen:
 
    ```bash
    devdisco list --usb
    ```
 
-   U moet een uitvoer die vergelijkbaar is met het volgende weergegeven en de usb-COM-poort vinden voor uw kaart Arduino: ![detectie van netwerkapparaten][device-discovery]
+   U moet een uitvoer die vergelijkbaar toohello volgende wordt weergegeven en het vinden van de Hallo usb COM-poort voor deze kaart Arduino: ![detectie van netwerkapparaten][device-discovery]
 
-2. Open het bestand `config.json` in de map les en voeg de waarde van de COM-poortnummer gevonden:
+2. Open Hallo bestand `config.json` in les map Hallo en toe te voegen waarde Hallo Hallo COM-poortnummer gevonden:
 
    ```json
    {
@@ -85,45 +85,45 @@ Volg deze stappen voor het configureren van de apparaatverbinding:
    ```
    ![Config.JSON][config-json]
    > [!NOTE]
-   > Voor de COM-poort op Windows-platform, heeft de indeling van `COM1, COM2, ...`. Op Mac OS of Ubuntu en deze begint met `/dev/`.
+   > Voor Hallo COM-poort op Windows-platform, heeft het Hallo-indeling van `COM1, COM2, ...`. Op Mac OS of Ubuntu en deze begint met `/dev/`.
 
-## <a name="deploy-and-run-the-sample-application"></a>Implementeren en uitvoeren van de voorbeeldtoepassing
-### <a name="install-the-required-tools-for-your-arduino-board"></a>De vereiste hulpprogramma's voor uw kaart Arduino installeren
+## <a name="deploy-and-run-hello-sample-application"></a>Implementeren en uitvoeren van de voorbeeldtoepassing Hallo
+### <a name="install-hello-required-tools-for-your-arduino-board"></a>Hallo vereist hulpprogramma's voor uw kaart Arduino installeren
 
-Installeer de Azure IoT Hub SDK voor uw kaart Arduino met de volgende opdracht:
+Installeer hello Azure IoT Hub SDK voor uw kaart Arduino Hallo na de opdracht uitgevoerd:
 
 ```bash
 gulp install-tools
 ```
 
-Deze taak kan lang duren om uit te voeren, afhankelijk van uw netwerkverbinding.
+Deze taak kan duren voordat een toocomplete lange tijd, afhankelijk van uw netwerkverbinding.
 
 > [!NOTE]
-> Sluit de Arduino IDE exemplaar dat wordt uitgevoerd bij het uitvoeren van taken gulp: `install-tools`, `run`.
+> Sluit Hallo Arduino IDE-exemplaar wordt uitgevoerd bij het uitvoeren van taken gulp: `install-tools`, `run`.
 
-### <a name="deploy-and-run-the-sample-app"></a>Implementeren en uitvoeren van de voorbeeld-app
-Implementeren en uitvoeren van de voorbeeldtoepassing met de volgende opdracht:
+### <a name="deploy-and-run-hello-sample-app"></a>Implementeren en Hallo voorbeeld-app uitvoeren
+Implementeren en uitvoeren van de voorbeeldtoepassing Hallo door het uitvoeren van de volgende opdracht Hallo:
 
 ```bash
 gulp run
 
-# You can monitor the serial port by running listen task:
+# You can monitor hello serial port by running listen task:
 gulp listen
 
 # Or you can combine above two gulp tasks into one:
 gulp run --listen
 ```
 
-### <a name="verify-the-app-works"></a>Controleer of de app werkt
-Als u niet de LED knippert ziet, raadpleegt u de [probleemoplossingsgids] [ troubleshooting-page] voor oplossingen voor bekende problemen.
+### <a name="verify-hello-app-works"></a>Controleer of de app werkt het Hallo
+Als er geen Hallo LED knippert, raadpleegt u Hallo [probleemoplossingsgids] [ troubleshooting-page] voor toocommon oplossingen voor problemen.
 
 ![LED knippert][led-blinking]
 
 ## <a name="summary"></a>Samenvatting
-U hebt geïnstalleerd, de vereiste hulpmiddelen voor het werken met het mededelingenbord Arduino en een voorbeeld van toepassing op het mededelingenbord Arduino knipperen de LED geïmplementeerd. U kunt nu maken, implementeren en uitvoeren van een ander voorbeeld van een toepassing die het mededelingenbord Arduino verbindt met Azure IoT Hub berichten te verzenden en ontvangen.
+U hebt geïnstalleerd Hallo vereist extra toowork met het mededelingenbord Arduino en een voorbeeld toepassing tooyour Arduino mededelingenbord tooblink Hallo LED geïmplementeerd. U kunt nu maken, implementeren, en voer een ander voorbeeld van een toepassing die uw Arduino mededelingenbord tooAzure IoT Hub toosend verbinding maakt en berichten ontvangen.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Download de Azure-hulpprogramma 's][get-the-azure-tools]
+[Hello Azure-hulpprogramma's ophalen][get-the-azure-tools]
 
 <!-- Images and links -->
 

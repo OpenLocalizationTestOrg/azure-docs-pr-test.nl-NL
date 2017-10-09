@@ -1,5 +1,5 @@
 ---
-title: Ontvangen van gebeurtenissen van Azure Event Hubs met behulp van Apache Storm | Microsoft Docs
+title: gebeurtenissen van Azure Event Hubs met behulp van Apache Storm aaaReceive | Microsoft Docs
 description: Aan de slag van Event Hubs met behulp van Apache Storm ontvangen
 services: event-hubs
 documentationcenter: 
@@ -14,25 +14,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3e15370c7602276ef323708632b324fe05497f41
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a0ab860ee8d504a28aac380c504c928f0d6dbc1e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Gebeurtenissen van Event Hubs met behulp van Apache Storm ontvangen
 
-[Apache Storm](https://storm.incubator.apache.org) is een gedistribueerde realtime berekeningssysteem die betrouwbare verwerking van unbounded gegevensstromen vereenvoudigt. Deze sectie wordt beschreven hoe u met een Azure Event Hubs Storm spout ontvangen van gebeurtenissen van Event Hubs. Apache Storm kunt u gebeurtenissen splitsen in meerdere processen die worden gehost in verschillende knooppunten. De integratie van Event Hubs met Storm vereenvoudigt de gebeurtenis verbruik door transparant plaatsen van controlepunten de voortgang van Storm Zookeeper-installatie, het beheren van permanente controlepunten en parallelle ontvangst van Event Hubs.
+[Apache Storm](https://storm.incubator.apache.org) is een gedistribueerde realtime berekeningssysteem die betrouwbare verwerking van unbounded gegevensstromen vereenvoudigt. Deze sectie wordt beschreven hoe een Azure Event Hubs Storm toouse spout tooreceive gebeurtenissen van Event Hubs. Apache Storm kunt u gebeurtenissen splitsen in meerdere processen die worden gehost in verschillende knooppunten. Hallo Event Hubs-integratie met Storm vereenvoudigt de gebeurtenis verbruik door transparant plaatsen van controlepunten de voortgang van Storm Zookeeper-installatie, het beheren van permanente controlepunten en parallelle ontvangst van Event Hubs.
 
-Voor meer informatie over Event Hubs ontvangen patronen, Zie de [overzicht van Event Hubs][Event Hubs overview].
+Voor meer informatie over Event Hubs ontvangen patronen, Zie Hallo [overzicht van Event Hubs][Event Hubs overview].
 
 ## <a name="create-project-and-add-code"></a>Project maken en voeg code toe
 
-In deze zelfstudie wordt een [HDInsight Storm] [ HDInsight Storm] installatie, die wordt geleverd met het Event Hubs spout al beschikbaar.
+In deze zelfstudie wordt een [HDInsight Storm] [ HDInsight Storm] installatie, die wordt geleverd met Event Hubs spout Hallo al beschikbaar.
 
-1. Ga als volgt de [HDInsight Storm - aan de slag](../hdinsight/hdinsight-storm-overview.md) procedure voor het maken van een nieuwe HDInsight-cluster en er verbinding mee maken via Extern bureaublad.
-2. Kopieer de `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` bestand op uw lokale ontwikkelomgeving. Deze bevat gebeurtenissen-storm-spout.
-3. Gebruik de volgende opdracht voor het installeren van het pakket in het lokale archief van Maven. Hiermee kunt u het toe te voegen als een verwijzing in de Storm-project in een latere stap.
+1. Ga als volgt Hallo [HDInsight Storm - aan de slag](../hdinsight/hdinsight-storm-overview.md) toocreate procedure een nieuwe HDInsight-cluster en tooit via Extern bureaublad verbinding.
+2. Kopiëren Hallo `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` bestand tooyour lokale ontwikkelingsomgeving. Dit document bevat Hallo gebeurtenissen-storm-spout.
+3. Gebruik Hallo volgende opdracht tooinstall Hallo pakket aan Hallo lokale Maven-archief. Hiermee kunt u tooadd als een verwijzing in Hallo Storm-project in een later stadium.
 
     ```shell
     mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
@@ -41,9 +41,9 @@ In deze zelfstudie wordt een [HDInsight Storm] [ HDInsight Storm] installatie, d
    
     ![][12]
 5. Selecteer **standaard werkruimte gebruiken**, klikt u vervolgens op **volgende**
-6. Selecteer de **maven-archetype-Quick Start** archetype, klikt u vervolgens op **volgende**
+6. Selecteer Hallo **maven-archetype-Quick Start** archetype, klikt u vervolgens op **volgende**
 7. Voeg een **GroupId** en **artefact-id**, klikt u vervolgens op **voltooien**
-8. In **pom.xml**, voeg de volgende afhankelijkheden in de `<dependency>` knooppunt.
+8. In **pom.xml**, toevoegen van de volgende afhankelijkheden in Hallo Hallo `<dependency>` knooppunt.
 
     ```xml  
     <dependency>
@@ -75,7 +75,7 @@ In deze zelfstudie wordt een [HDInsight Storm] [ HDInsight Storm] installatie, d
     </dependency>
     ```
 
-9. In de **src** map maken van een bestand met de naam **Config.properties** en kopieer de volgende inhoud, vervangen door de `receive rule key` en `event hub name` waarden:
+9. In Hallo **src** map maken van een bestand met de naam **Config.properties** en kopiëren Hallo inhoud te volgen, vervangen door Hallo `receive rule key` en `event hub name` waarden:
 
     ```java
     eventhubspout.username = ReceiveRule
@@ -90,8 +90,8 @@ In deze zelfstudie wordt een [HDInsight Storm] [ HDInsight Storm] installatie, d
     eventhubspout.checkpoint.interval = 10
     eventhub.receiver.credits = 10
     ```
-    De waarde voor **eventhub.receiver.credits** bepaalt het aantal gebeurtenissen in batch worden opgenomen voordat ze vrijgeven aan de Storm-pijplijn. In dit voorbeeld wordt omwille van de eenvoud deze waarde ingesteld op 10. In productie, moet deze meestal worden ingesteld op hogere waarden; bijvoorbeeld 1024.
-10. Maak een nieuwe klasse aangeroepen **LoggerBolt** met de volgende code:
+    waarde voor Hallo **eventhub.receiver.credits** bepaalt hoeveel gebeurtenissen voordat toohello Storm pijplijn in batch worden opgenomen. Dit voorbeeld wordt voor Hallo mogelijk te houden van eenvoud, deze too10 waarde. In productie, meestal ingesteld toohigher waarden; bijvoorbeeld 1024.
+10. Maak een nieuwe klasse aangeroepen **LoggerBolt** Hello code te volgen:
     
     ```java
     import java.util.Map;
@@ -130,8 +130,8 @@ In deze zelfstudie wordt een [HDInsight Storm] [ HDInsight Storm] installatie, d
     }
     ```
     
-    Deze bolt Storm Hiermee wordt de inhoud van de ontvangen gebeurtenissen. Dit kan eenvoudig worden uitgebreid voor het opslaan van tuples in een storage-service. De [HDInsight sensor analysis zelfstudie] gebruikt deze dezelfde benadering voor het opslaan van gegevens in HBase.
-11. Maak een klasse aangeroepen **LogTopology** met de volgende code:
+    Deze bolt Storm Hiermee Hallo inhoud van Hallo ontvangen gebeurtenissen. Dit kan eenvoudig worden uitgebreid toostore tuples in een storage-service. Hallo [HDInsight sensor analysis zelfstudie] maakt gebruik van deze dezelfde benadering toostore gegevens in HBase.
+11. Maak een klasse aangeroepen **LogTopology** Hello code te volgen:
     
     ```java
     import java.io.FileReader;
@@ -182,9 +182,9 @@ In deze zelfstudie wordt een [HDInsight Storm] [ HDInsight Storm] installatie, d
                     namespaceName, entityPath, partitionCount, zkEndpointAddress,
                     checkpointIntervalInSeconds, receiverCredits);
         
-            // set the number of workers to be the same as partition number.
-            // the idea is to have a spout and a logger bolt co-exist in one
-            // worker to avoid shuffling messages across workers in storm cluster.
+            // set hello number of workers toobe hello same as partition number.
+            // hello idea is toohave a spout and a logger bolt co-exist in one
+            // worker tooavoid shuffling messages across workers in storm cluster.
             numWorkers = spoutConfig.getPartitionCount();
         
             if (args.length > 0) {
@@ -235,10 +235,10 @@ In deze zelfstudie wordt een [HDInsight Storm] [ HDInsight Storm] installatie, d
     }
     ```
 
-    Deze klasse wordt gemaakt van een nieuwe Event Hubs-spout met behulp van de eigenschappen in het configuratiebestand om deze te instantiëren. Het is belangrijk te weten dat in dit voorbeeld zoveel spouts taken als het aantal partities in de event hub, maakt om te kunnen gebruiken van de maximale parallelle uitvoering toegestaan door de event hub.
+    Deze klasse wordt gemaakt van een nieuwe Event Hubs-spout met Hallo eigenschappen in Hallo configuration file tooinstantiate deze. Het is belangrijk toonote die in dit voorbeeld zo veel mogelijk maakt spouts taken als Hallo aantal partities in Hallo event hub, in volgorde toouse Hallo maximale parallelle uitvoering toegestaan door de event hub.
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
+U meer informatie over Event Hubs via Hallo koppelingen te volgen:
 
 * [Event Hubs-overzicht][Event Hubs overview]
 * [Een Event Hub maken](event-hubs-create.md)

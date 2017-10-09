@@ -1,6 +1,6 @@
 ---
-title: Azure Mobile Engagement - back-end-integratie
-description: Verbinding maken met Azure Mobile Engagement met een SharePoint-back-end campagnes maken van SharePoint
+title: aaaAzure Mobile Engagement - back-end-integratie
+description: Verbinding maken met Azure Mobile Engagement met een SharePoint-campagnes back-end toocreate van SharePoint
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,32 +14,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d49f1094f4c3f170f3618f3e19e42266f9ae8858
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 89e1ef57db607d63c326a760b20260ad439f08b2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-mobile-engagement---api-integration"></a>Azure Mobile Engagement - API-integratie
-In een geautomatiseerde marketing-systeem, maken en activeren van de marketingcampagnes ook automatisch uitgevoerd. Voor dit doel - Azure Mobile Engagement kunt maken van dergelijke geautomatiseerde marketingcampagnes ook met behulp van API's. 
+In een geautomatiseerde marketing-systeem, maken en activeren Hallo marketingcampagnes ook automatisch uitgevoerd. Voor dit doel - Azure Mobile Engagement kunt maken van dergelijke geautomatiseerde marketingcampagnes ook met behulp van API's. 
 
-Klanten gebruiken doorgaans de Mobile Engagement-front-end interface aankondigingen/polls enzovoort als onderdeel van hun marketingcampagnes maken. Maar zodra de marketingcampagnes volwassen, hoeft een gebruikmaken van de gegevens in de back endsystemen (zoals een CRM-systeem of CMS-systeem zoals SharePoint) moet worden vergrendeld zodat een volledig geautomatiseerde pijplijn kan worden gemaakt die campagnes maakt in Mobile Engagement dynamisch op basis van de gegevens die van de back endsystemen. 
+Klanten wordt doorgaans Hallo Mobile Engagement-front-end interface toocreate aankondigingen/polls enzovoort gebruiken als onderdeel van hun marketingcampagnes. Maar als Hallo marketingcampagnes volwassen geworden, u een hoeft tooleverage Hallo gegevens vergrendeld in Hallo back-end-systemen (zoals een CRM-systeem of CMS-systeem zoals SharePoint) zodat een volledig geautomatiseerde pijplijn kan worden gemaakt die campagnes maakt in Mobile Engagement dynamisch op basis van Hallo-gegevens die vanuit Hallo back-end-systemen. 
 
 ![][5]
 
-Deze zelfstudie doorloopt van een scenario waarbij een SharePoint-bedrijven gebruiker vult een SharePoint-lijst met marketing gegevens en een geautomatiseerd proces items uit de lijst wordt opgehaald en verbinding maakt met de Mobile Engagement-systeem met de beschikbare REST-API's voor het maken van een campagne van de SharePoint-gegevens. 
+Deze zelfstudie gaan via een scenario waarbij een SharePoint-business-gebruiker een SharePoint-lijst met marketinggegevens gevuld en een geautomatiseerd proces items uit de lijst hello wordt opgehaald en verbinding maakt met het gebruik van Hallo Mobile Engagement system Hallo beschikbare REST-API 's toocreate een campagne Hallo SharePoint-gegevens. 
 
 > [!IMPORTANT]
-> In het algemeen kunt u dit voorbeeld als uitgangspunt voor informatie over het aanroepen van Mobile Engagement REST API, zoals het details van de twee belangrijke aspecten van het aanroepen van de API - verificatie en doorgegeven parameters. 
+> In het algemeen kunt u dit voorbeeld gebruiken als uitgangspunt om te begrijpen hoe toocall Mobile Engagement REST API's zoals deze details Hallo twee belangrijke aspecten van het aanroepen van Hallo-API's - verificatie en doorgegeven parameters. 
 > 
 > 
 
 ## <a name="sharepoint-integration"></a>Integratie met SharePoint
-1. Hier ziet u hoe de SharePoint-voorbeeldlijst eruit ziet. **Titel**, **categorie**, **NotificationTitle**, **bericht** en **URL** worden gebruikt voor het maken van de aankondiging. Er is een kolom met de naam **IsProcessed** die wordt gebruikt door het proces van het automation voorbeeld in de vorm van een consoleprogramma. U kunt deze console programma als een webtaak Azure zodat u kunt plannen dat het uitvoeren of u kunt de SharePoint-werkstroom programma maken en de aankondiging activeren wanneer een item wordt ingevoegd in de SharePoint-lijst rechtstreeks gebruiken. In dit voorbeeld gebruiken we de consoleprogramma gaat door de items in de SharePoint-lijst en de aankondiging te maken in Azure Mobile Engagement voor elk van deze en ten slotte markeert vervolgens de **IsProcessed** vlag waar op geslaagde aankondiging maken.
+1. Hier volgt welke Hallo voorbeeld SharePoint-lijst ziet. **Titel**, **categorie**, **NotificationTitle**, **bericht** en **URL** worden gebruikt voor het maken van Hallo-aankondiging. Er is een kolom met de naam **IsProcessed** die wordt gebruikt door Hallo voorbeeld automatiseringsproces Hallo vorm van een consoleprogramma. U kunt dit consoleprogramma ofwel uitvoeren als een webtaak Azure zodat u deze plannen kunt of u rechtstreeks kunt Hallo SharePoint werkstroom tooprogram maken en activeren Hallo aankondiging wanneer een item in de SharePoint-lijst hello wordt ingevoerd. In dit voorbeeld gebruiken we Hallo consoleprogramma gaat door Hallo items in Hallo SharePoint-lijst en de aankondiging te maken in Azure Mobile Engagement voor elk van deze en ten slotte markeert vervolgens Hallo **IsProcessed** vlag toobe ' True ' op geslaagde aankondiging maken.
    
     ![][1]
-2. We gebruiken de code van de steekproef *externe verificatie in SharePoint Online met behulp van de Client-objectmodel* [hier](https://code.msdn.microsoft.com/Remote-Authentication-in-b7b6f43c) voor verificatie met de SharePoint-lijst.
-3. Eenmaal is geverifieerd, wordt de items in de lijst om erachter te komen de zojuist gemaakte items doorlopen (die zullen hebben **IsProcessed** = false). 
+2. We gebruiken Hallo-code van Hallo voorbeeld *externe verificatie in SharePoint Online met behulp van Hallo van Client-objectmodel* [hier](https://code.msdn.microsoft.com/Remote-Authentication-in-b7b6f43c) tooauthenticate met Hallo SharePoint-lijst.
+3. Eenmaal is geverifieerd, we doorlopen Hallo lijst items toofind alle gemaakte items (die zullen hebben **IsProcessed** = false). 
    
          static async void CreateCampaignFromSharepoint()
         {
@@ -52,12 +52,12 @@ Deze zelfstudie doorloopt van een scenario waarbij een SharePoint-bedrijven gebr
                 query.ViewXml = "<View/>";
                 ListItemCollection items = list.GetItems(query);
    
-                // Load the SharePoint list
+                // Load hello SharePoint list
                 clientContext.Load(list);
                 clientContext.Load(items);
                 clientContext.ExecuteQuery();
    
-                // Loop through the list to go through all the items which are newly added
+                // Loop through hello list toogo through all hello items which are newly added
                 foreach (ListItem item in items)
                     if (item["IsProcessed"].ToString() != "Yes")
                     {
@@ -67,16 +67,16 @@ Deze zelfstudie doorloopt van een scenario waarbij een SharePoint-bedrijven gebr
                         string category = item["Category"].ToString();
                         string actionURL = ((FieldUrlValue)item["URL"]).Url;
    
-                        // Send an HTTP request to create AzME campaign
+                        // Send an HTTP request toocreate AzME campaign
                         int campaignId = CreateAzMECampaign
                             (name, notificationTitle, notificationMessage, category, actionURL).Result;
    
                         if (campaignId != -1)
                         {
-                            // If creating campaign is successful then set this to true
+                            // If creating campaign is successful then set this tootrue
                             item["IsProcessed"] = "Yes";
    
-                            // Now try to activate the campaign also
+                            // Now try tooactivate hello campaign also
                             await ActivateAzMECampaign(campaignId);
                         }
                         else
@@ -90,8 +90,8 @@ Deze zelfstudie doorloopt van een scenario waarbij een SharePoint-bedrijven gebr
         }
 
 ## <a name="mobile-engagement-integration"></a>Mobile Engagement-integratie
-1. Zodra er een item dat worden verwerkt moet - gevonden we gegevens nodig voor het maken van een aankondiging van het item in de lijst en de aanroep ophalen `CreateAzMECampaign` om deze te maken en vervolgens `ActivateAzMECampaign` om deze te activeren. Dit zijn in wezen REST-API aanroepen aanroepen van de back-end van Mobile Engagement. 
-2. De Mobile Engagement REST-API's vereisen een **Basic auth schema autorisatie HTTP-header** die bestaat uit de `ApplicationId` en de `ApiKey` die u krijgen via de Azure-portal. Zorg ervoor dat u van de sleutel van gebruikmaakt de **api-sleutels** sectie en *niet* van de **sdk sleutels** sectie. 
+1. Zodra er een item dat worden verwerkt moet vinden: we vereiste informatie op Hallo extraheren toocreate een aankondiging van Hallo lijstitem en roep `CreateAzMECampaign` toocreate deze en vervolgens `ActivateAzMECampaign` tooactivate deze. Dit zijn in wezen REST-API aanroepen voor het aanroepen van back-end van toohello Mobile Engagement. 
+2. Hallo Mobile Engagement REST-API's vereisen een **Basic auth schema autorisatie HTTP-header** die bestaat uit Hallo `ApplicationId` en Hallo `ApiKey` die u krijgt van hello Azure-portal. Zorg ervoor dat u van Hallo sleutel uit Hallo gebruikmaakt **api-sleutels** sectie en *niet* van Hallo **sdk sleutels** sectie. 
    
    ![][2]
    
@@ -107,7 +107,7 @@ Deze zelfstudie doorloopt van een scenario waarbij een SharePoint-bedrijven gebr
            string returnValue = System.Convert.ToBase64String(toEncodeAsBytes);
            return returnValue;
        }  
-3. Voor het maken van de aankondiging type campagne - verwijzen naar de [documentatie](https://msdn.microsoft.com/library/azure/mt683750.aspx). U moet ervoor zorgen dat u de campagne opgeeft `kind` als *aankondiging* en de [nettolading](https://msdn.microsoft.com/library/azure/mt683751.aspx) en door te geven als FormUrlEncodedContent. 
+3. Voor het maken van Hallo aankondiging type campagne - Raadpleeg toohello [documentatie](https://msdn.microsoft.com/library/azure/mt683750.aspx). Moet u ervoor dat u Hallo campagne opgeeft toomake `kind` als *aankondiging* en Hallo [nettolading](https://msdn.microsoft.com/library/azure/mt683751.aspx) en door te geven als FormUrlEncodedContent. 
    
         static async Task<int> CreateAzMECampaign(string campaignName, string notificationTitle, 
             string notificationMessage, string notificationCategory, string actionURL)
@@ -119,7 +119,7 @@ Deze zelfstudie doorloopt van een scenario waarbij een SharePoint-bedrijven gebr
                 // Add Authorization Header
                 client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", CreateAuthZHeader());
    
-                // Create the payload to send the content
+                // Create hello payload toosend hello content
                 // Reference -> https://msdn.microsoft.com/library/dn913749.aspx
                 string data =
                     @"{""name"":""" + campaignName + @"""," + 
@@ -135,13 +135,13 @@ Deze zelfstudie doorloopt van een scenario waarbij een SharePoint-bedrijven gebr
                     new KeyValuePair<string, string>("data", data),
                 });
    
-                // Send the POST request
+                // Send hello POST request
                 var response = await client.PostAsync(url + createURIFragment, content);
                 var responseString = response.Content.ReadAsStringAsync().Result;
                 int campaignId = -1;
                 if (response.StatusCode.ToString() == "OK")
                 {
-                    // This is the campaign id
+                    // This is hello campaign id
                     campaignId = Convert.ToInt32(responseString);
                     Console.WriteLine("Campaign successfully created with id {0}", campaignId);
                 }
@@ -152,10 +152,10 @@ Deze zelfstudie doorloopt van een scenario waarbij een SharePoint-bedrijven gebr
                 return campaignId;
             }
         }
-4. Nadat u de aankondiging gemaakt hebt, ziet u ongeveer als volgt op de Mobile Engagement-portal (Houd er rekening mee dat de status concept en geactiveerd = = N.V.T.)
+4. Nadat u gemaakt Hallo-aankondiging hebt, ziet u dat lijkt op Hallo op Hallo Mobile Engagement-portal (Houd er rekening mee dat Hallo status = concept en geactiveerd = N.V.T.)
    
     ![][3]
-5. `CreateAzMECampaign`maakt een campagne aankondiging en retourneert de Id naar de aanroeper. `ActivateAzMECampaign`deze Id is vereist als de parameter om de campagne te activeren. 
+5. `CreateAzMECampaign`maakt een campagne aankondiging en retourneert de Id toohello aanroeper. `ActivateAzMECampaign`deze Id is vereist als Hallo parameter tooactivate Hallo campagne. 
    
         static async Task<bool> ActivateAzMECampaign(int campaignId)
         {
@@ -171,7 +171,7 @@ Deze zelfstudie doorloopt van een scenario waarbij een SharePoint-bedrijven gebr
                     new KeyValuePair<string, string>("id", campaignId.ToString()),
                 });
    
-                // Send the POST request
+                // Send hello POST request
                 var response = await client.PostAsync(url + activateUriFragment, content);
                 var responseString = response.Content.ReadAsStringAsync().Result;
                 if (response.StatusCode.ToString() == "OK")
@@ -186,13 +186,13 @@ Deze zelfstudie doorloopt van een scenario waarbij een SharePoint-bedrijven gebr
                 }
             }
         }
-6. Zodra u de aankondiging geactiveerd hebt, worden er ongeveer als volgt op de Mobile Engagement-portal:
+6. Zodra u Hallo aankondiging geactiveerd hebt, ziet u dat lijkt op de volgende Hallo op Hallo Mobile Engagement-portal:
    
     ![][4]
-7. Zodra de campagne wordt geactiveerd, gaat alle apparaten die voldoen aan de criteria voor de campagne meldingen te zien. 
-8. U ziet ook dat het item in de lijst gemarkeerd met IsProcessed = false is ingesteld op waar zodra de aankondiging campagne is gemaakt.  
+7. Zodra de campagne Hallo wordt geactiveerd, gaat alle apparaten die voldoen aan Hallo criterium op Hallo campagne meldingen te zien. 
+8. U ziet ook dat lijstitem Hallo gemarkeerd met IsProcessed = false is ingesteld tooTrue zodra Hallo aankondiging campagne is gemaakt.  
 
-Dit voorbeeld gemaakt een eenvoudige aankondiging campagne voornamelijk de vereiste eigenschappen opgegeven. U kunt dit aanpassen als u vanuit de portal kunt met behulp van de informatie [hier](https://msdn.microsoft.com/library/azure/mt683751.aspx). 
+Dit voorbeeld gemaakt een eenvoudige aankondiging campagne voornamelijk Hallo vereist eigenschappen opgeven. U kunt dit aanpassen zoveel u vanuit de portal Hallo kunt met behulp van Hallo informatie [hier](https://msdn.microsoft.com/library/azure/mt683751.aspx). 
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-sample-backend-integration-sharepoint/sharepointlist.png

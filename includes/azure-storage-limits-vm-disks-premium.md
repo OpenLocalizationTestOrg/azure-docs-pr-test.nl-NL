@@ -6,7 +6,7 @@
 | Totale momentopnamecapaciteit per account |10 TB |
 | Maximale bandbreedte per account (inkomend en uitgaand<sup>1</sup>) |<=50 Gbps |
 
-<sup>1</sup>*Inkomend* verwijst naar alle gegevens (aanvragen) die worden verzonden naar een opslagaccount. *Uitgaand* verwijst naar alle gegevens (reacties) die worden ontvangen van een opslagaccount.
+<sup>1</sup>*inkomend* verwijst tooall (aanvragen) verzonden gegevens tooa storage-account. *Uitgaande* verwijst tooall gegevens (antwoorden) ontvangen van een opslagaccount.
 
 **Premium niet-beheerde schijven van virtuele machines: limieten per schijf**
 
@@ -24,5 +24,5 @@
 | Max. aantal IOP's per VM |80.000 IOP's met GS5 VM<sup>1</sup> |
 | Max. doorvoer per VM |2000 MB/s met GS5 VM<sup>1</sup> |
 
-<sup>1</sup>Zie [VM-grootte](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor de limieten die gelden bij andere VM-grootten. 
+<sup>1</sup>te verwijzen[VM-grootte](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor limieten op de andere VM-grootte. 
 

@@ -1,5 +1,5 @@
 ---
-title: Aangepaste functies voor toegangsbeheer op basis van rollen maken en toewijzen aan de interne en externe gebruikers in Azure | Microsoft Docs
+title: aaaCreate aangepaste op rollen gebaseerde toegangsbeheer rollen en toe te wijzen toointernal en externe gebruikers in Azure | Microsoft Docs
 description: Aangepaste RBAC-rollen gemaakt met behulp van PowerShell en CLI voor interne en externe gebruikers toewijzen
 services: active-directory
 documentationcenter: 
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/10/2017
 ms.author: a-crradu
-ms.openlocfilehash: d687f94bebfd0b6c1ec0690da798be5409640954
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 26793a66d6ca2f771338eed87d10ce2b3b431841
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 ## <a name="intro-on-role-based-access-control"></a>Inleiding op rollen gebaseerd toegangsbeheer
 
-Toegangsbeheer op basis van rollen is een Azure portal alleen functie waardoor de eigenaren van een abonnement gedetailleerde rollen toewijzen aan andere gebruikers die een specifieke bron scopes in hun omgeving kunnen beheren.
+Toegangsbeheer op basis van rollen is een Azure portal alleen functie zodat Hallo eigenaren van een abonnement tooassign gedetailleerde rollen tooother gebruikers die een specifieke bron scopes in hun omgeving kunnen beheren.
 
-RBAC kunt beter beveiligingsbeheer voor grote organisaties en voor midden-en kleinbedrijf werkt met externe deelnemers, leveranciers of freelancers die toegang tot specifieke bronnen in uw omgeving, maar niet per se aan de gehele infrastructuur of alle scopes facturering-gerelateerde nodig. RBAC kunt de flexibiliteit van die eigenaar is van één Azure-abonnement beheerd door de administrator-account (service-beheerdersrol op abonnementsniveau) en hebben meerdere gebruikers uitgenodigd onder hetzelfde abonnement, maar zonder Administrator-rechten voor het werken. Vanuit een management en facturering perspectief wordt de functie RBAC blijkt te zijn van een tijd- en efficiënte optie voor het gebruik van Azure in verschillende scenario's.
+RBAC kan beter beveiligingsbeheer voor grote organisaties en voor midden-en kleinbedrijf werkt met externe deelnemers, leveranciers of freelancers die moeten toegang hebben tot bronnen in uw omgeving, maar niet noodzakelijkerwijs toohello gehele infrastructuur of een willekeurige toospecific Facturering-gerelateerde scopes. RBAC kan Hallo flexibiliteit van die eigenaar is van een Azure-abonnement beheerd door Hallo administrator-account (service-beheerdersrol op abonnementsniveau) en hebben meerdere gebruikers uitgenodigd toowork onder Hallo hetzelfde abonnement maar zonder een administratieve rechten voor. Hallo RBAC functie bewijst toobe een tijd- en efficiënte optie voor het gebruik van Azure in verschillende scenario's van een management en facturering perspectief.
 
 ## <a name="prerequisites"></a>Vereisten
-Het gebruik van RBAC in de Azure-omgeving vereist:
+Het gebruik van RBAC in hello Azure-omgeving vereist:
 
-* Een zelfstandige met Azure-abonnement aan de gebruiker toegewezen als eigenaar (abonnement rol)
-* De rol van eigenaar van het Azure-abonnement hebt
-* Toegang tot de [Azure-portal](https://portal.azure.com)
-* Zorg ervoor dat u hebt de volgende Resource Providers geregistreerd voor het abonnement van de gebruiker: **Microsoft.Authorization**. Zie voor meer informatie over het registreren van de resourceproviders [Resource Manager-providers, regio's, API-versies en schema's](/azure-resource-manager/resource-manager-supported-services.md).
+* Een zelfstandige met Azure-abonnement toohello gebruiker toegewezen als eigenaar (abonnement rol)
+* Rol van eigenaar Hallo Hallo Azure-abonnement hebt
+* Hebt u toegang toohello [Azure-portal](https://portal.azure.com)
+* Zorg ervoor dat toohave hello Resourceproviders te volgen die zijn geregistreerd voor Hallo gebruikerabonnement: **Microsoft.Authorization**. Zie voor meer informatie over hoe tooregister resourceproviders hello, [Resource Manager-providers, regio's, API-versies en schema's](/azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Abonnementen voor Office 365 of Azure Active Directory-licenties (bijvoorbeeld: toegang tot Azure Active Directory) vanaf de portal niet kwaliteit voor met RBAC O365 wordt ingericht.
+> Abonnementen voor Office 365 of Azure Active Directory-licenties (bijvoorbeeld: toegang tot Active Directory tooAzure) vanaf Hallo O365 portal niet kwaliteit voor met RBAC wordt ingericht.
 
 ## <a name="how-can-rbac-be-used"></a>Hoe RBAC kan worden gebruikt
-RBAC kan worden toegepast op drie verschillende bereiken in Azure. Van het hoogste bereik met de laagste zijn ze als volgt:
+RBAC kan worden toegepast op drie verschillende bereiken in Azure. Van Hallo hoogste bereik toohello laagste één zijn ze als volgt:
 
 * Abonnement (hoogste)
 * Resourcegroep
-* Resource-bereik (het laagste toegangsniveau aanbieding gerichte machtigingen voor het bereik van een afzonderlijke Azure-resource)
+* Resource-bereik (Hallo laagste toegangsniveau gerichte machtigingen tooan afzonderlijke Azure-resource bereik aanbieden)
 
-## <a name="assign-rbac-roles-at-the-subscription-scope"></a>RBAC-rollen op de scope abonnement toewijzen
+## <a name="assign-rbac-roles-at-hello-subscription-scope"></a>RBAC-rollen op Hallo abonnementsbereik toewijzen
 Er zijn twee algemene voorbeelden wanneer RBAC is gebruikt (maar niet tot beperkt):
 
-* Externe gebruikers van de organisaties hebben (die geen deel uit van de gebruiker admin Azure Active Directory-tenant) uitgenodigd om bepaalde bronnen of het hele abonnement te beheren
-* Werken met gebruikers binnen de organisatie (ze zijn onderdeel van de gebruiker Azure Active Directory-tenant), maar deel uitmaken van verschillende teams of groepen die gedetailleerde toegang tot het hele abonnement of bepaalde resourcegroepen of resource-scopes in de omgeving nodig
+* Externe gebruikers van Hallo organisaties (die geen deel uit van Azure Active Directory-tenant Hallo beheerder van de gebruiker) met uitgenodigd toomanage bepaalde resources of de hele abonnement Hallo
+* Werken met gebruikers binnen het Hallo-organisatie (ze zijn onderdeel van een van de gebruiker hello Azure Active Directory-tenant), maar deel uitmaken van verschillende teams of groepen die gedetailleerde toegang moeten beide toohello hele abonnement of toocertain resourcegroepen of de resource-bereiken in Hallo omgeving
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Toegang verlenen op het abonnementsniveau van een voor een gebruiker buiten Azure Active Directory
-RBAC-rollen kunnen alleen worden toegekend **eigenaars** van het abonnement daarom de gebruiker met beheerdersrechten moet zijn aangemeld met een gebruikersnaam die heeft deze een vooraf toegewezen rol of het Azure-abonnement is gemaakt.
+RBAC-rollen kunnen alleen worden toegekend **eigenaars** van Hallo abonnement daarom Hallo beheerder moet zijn aangemeld met een gebruikersnaam die deze rol is een vooraf toegewezen of hello Azure-abonnement is gemaakt.
 
-Nadat u aanmelden als beheerder, selecteert u vanuit de Azure-portal 'Abonnementen' in en kies de gewenste versie.
-![abonnementsblade in Azure-portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) standaard als het Azure-abonnement heeft aangeschaft door de gebruiker met beheerdersrechten de gebruiker wordt weergegeven als **accountbeheerder**, dit wordt de rol van het abonnement. Zie voor meer informatie over de functies van Azure-abonnement, [toevoegen of wijzigen Azure-beheerdersrollen die het abonnement of de services beheren](/billing/billing-add-change-azure-subscription-administrator.md).
+Van hello Azure-portal, na het aanmelden als beheerder, selecteer 'Abonnementen' en gekozen Hallo gewenste een.
+![abonnementsblade in Azure-portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) standaard als gebruiker met beheerdersrechten Hallo hello Azure-abonnement heeft aangeschaft Hallo gebruiker wordt weergegeven als **accountbeheerder**, deze wordt Hallo abonnement rol. Zie voor meer informatie over hello Azure-abonnement rollen [toevoegen of wijzigen Azure-beheerdersrollen die Hallo abonnement of services beheren](/billing/billing-add-change-azure-subscription-administrator.md).
 
-In dit voorbeeld wordt de gebruiker "alflanigan@outlook.com' is de **eigenaar** van de 'gratis proefversie' abonnement in het AAD-tenant 'tenant Azure Default'. Omdat deze gebruiker de maker van het Azure-abonnement met de eerste 'Outlook' van de Microsoft-Account (Microsoft-Account = Outlook, etc. Live) naam van het standaarddomein voor andere gebruikers die zijn toegevoegd aan deze tenant zijn **'@alflaniganuoutlook.onmicrosoft.com'**. Door het ontwerp van de syntaxis van het nieuwe domein wordt gevormd door het samenstellen van de naam van de gebruikersnaam en het domein van de gebruiker die de tenant wordt gemaakt en het toevoegen van de extensie **'. onmicrosoft.com '**.
-Bovendien gebruikers kunnen aanmelden met een aangepaste domeinnaam in de tenant na het toevoegen van en controle van de voor de nieuwe tenant. Zie voor meer informatie over het controleren van een aangepaste domeinnaam in een Azure Active Directory-tenant [een aangepaste domeinnaam toevoegen aan uw directory](/active-directory/active-directory-add-domain).
+In dit voorbeeld Hallo gebruiker "alflanigan@outlook.com' hello is **eigenaar** Hallo 'Gratis' abonnement in Hallo AAD-tenant 'tenant Azure Default'. Omdat deze gebruiker Hallo maker van hello Azure-abonnement met Hallo initiële Microsoft-Account 'Outlook' (Microsoft-Account = Outlook, etc. Live) Hallo standaarddomeinnaam voor andere gebruikers die zijn toegevoegd aan deze tenant zijn **'@alflaniganuoutlook.onmicrosoft.com'**. Standaard Hallo syntaxis van het nieuwe domein hello wordt gevormd door het samenstellen van Hallo gebruikersnaam en domein op naam van Hallo-gebruiker die Hallo-tenant en toe te voegen Hallo extensie gemaakt **'. onmicrosoft.com '**.
+Bovendien gebruikers kunnen aanmelden met een aangepaste domeinnaam in Hallo tenant na het toevoegen en verifiëren van deze voor de nieuwe tenant Hallo. Voor meer informatie over hoe tooverify een aangepaste domeinnaam in Azure Active Directory-tenant, Zie [toevoegen van een aangepast domein naam tooyour map](/active-directory/active-directory-add-domain).
 
-In dit voorbeeld bevat de "standaard Azure ' tenantmap alleen gebruikers met de naam van het domein '@alflanigan.onmicrosoft.com'.
+In dit voorbeeld bevat Hallo ' standaard Azure ' tenantmap alleen gebruikers met de domeinnaam Hallo '@alflanigan.onmicrosoft.com'.
 
-Na het selecteren van het abonnement, de gebruiker met beheerdersrechten moet op **Access Control (IAM)** en vervolgens **een nieuwe rol toevoegen**.
+Na het selecteren van abonnement Hallo Hallo beheerder gebruiker klikt op **Access Control (IAM)** en vervolgens **een nieuwe rol toevoegen**.
 
 
 
@@ -75,15 +75,15 @@ Na het selecteren van het abonnement, de gebruiker met beheerdersrechten moet op
 
 ![nieuwe gebruiker toevoegen in het onderdeel voor toegangsbeheer IAM-functie in Azure-portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
-De volgende stap is het selecteren van de functie moet worden toegewezen en de gebruiker waaraan de RBAC-rol wordt toegewezen aan. In de **rol** het vervolgmenu van de gebruiker met beheerdersrechten ziet alleen de ingebouwde rollen RBAC die beschikbaar in Azure zijn. Zie voor meer uitleg van elke rol en hun toewijsbare bereiken gedetailleerde, [ingebouwde functies voor op rollen gebaseerd toegangsbeheer](/active-directory/role-based-access-built-in-roles.md).
+de volgende stap Hallo is tooselect Hallo rol toobe toegewezen en Hallo gebruiker wie Hallo RBAC-rol wordt toegewezen aan. In Hallo **rol** dropdown menu Hallo beheerder gebruiker ziet alleen Hallo ingebouwde RBAC functies die beschikbaar in Azure zijn. Zie voor meer uitleg van elke rol en hun toewijsbare bereiken gedetailleerde, [ingebouwde functies voor op rollen gebaseerd toegangsbeheer](/active-directory/role-based-access-built-in-roles.md).
 
-De gebruiker met beheerdersrechten moet de e-mailadres van de externe gebruiker toevoegen. Het verwachte gedrag is voor de externe gebruiker worden niet weergegeven in de bestaande tenant. Nadat de externe gebruiker heeft uitgenodigd, hij zijn zichtbaar onder **abonnementen > Access Control (IAM)** met de huidige gebruikers dat momenteel een RBAC-rol op het bereik van het abonnement zijn toegewezen.
-
-
+Hallo beheerder gebruiker moet vervolgens tooadd Hallo e-mailadres van de externe gebruiker Hallo. Hallo verwacht gedrag is voor Hallo externe gebruiker toonot worden weergegeven in Hallo bestaande tenant. Nadat de externe gebruiker Hallo heeft uitgenodigd, hij zijn zichtbaar onder **abonnementen > Access Control (IAM)** met alle Hallo actieve gebruikers dat momenteel een RBAC-rol op Hallo abonnementsbereik zijn toegewezen.
 
 
 
-![Voeg machtigingen toe aan het nieuwe RBAC-rol](./media/role-based-access-control-create-custom-roles-for-internal-external-users/3.png)
+
+
+![machtigingen toonew RBAC-rol toevoegen](./media/role-based-access-control-create-custom-roles-for-internal-external-users/3.png)
 
 
 
@@ -91,10 +91,10 @@ De gebruiker met beheerdersrechten moet de e-mailadres van de externe gebruiker 
 
 ![lijst met RBAC-rollen op abonnementsniveau](./media/role-based-access-control-create-custom-roles-for-internal-external-users/4.png)
 
-De gebruiker "chessercarlton@gmail.com' heeft uitgenodigd om deel te worden een **eigenaar** voor het abonnement 'Gratis'. De externe gebruiker ontvangt een e-mailbevestiging met een activeringskoppeling, na het verzenden van de uitnodiging.
+Hallo-gebruiker 'chessercarlton@gmail.com' uitgenodigde toobe is een **eigenaar** voor Hallo ' gratis ' proefabonnement. Na het verzenden van een uitnodiging voor Hallo ontvangen Hallo externe gebruiker een e-mailbevestiging met een activeringskoppeling.
 ![e-uitnodiging voor RBAC-rol](./media/role-based-access-control-create-custom-roles-for-internal-external-users/5.png)
 
-Alleen buiten de organisatie, heeft de nieuwe gebruiker geen bestaande kenmerken in de tenantmap 'Standaard Azure'. Ze worden gemaakt nadat de externe gebruiker toestemming heeft gegeven moeten worden vastgelegd in de map die is gekoppeld aan het abonnement dat hij een rol is toegewezen.
+Alleen externe toohello organisatie, heeft Hallo nieuwe gebruiker geen bestaande kenmerken in Hallo 'tenant Azure Default' directory. Ze worden gemaakt nadat de externe gebruiker Hallo heeft toestemming toobe vastgelegd in Hallo directory, die is gekoppeld aan Hallo-abonnement dat hij een rol is toegewezen.
 
 
 
@@ -102,7 +102,7 @@ Alleen buiten de organisatie, heeft de nieuwe gebruiker geen bestaande kenmerken
 
 ![e-mailbericht uitnodiging voor RBAC-rol](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-De externe gebruiker wordt weergegeven in de Azure Active Directory-tenant op als de externe gebruiker en deze kunnen worden weergegeven in de Azure-portal en in de klassieke portal.
+ziet u de externe gebruiker Hallo in hello Azure Active Directory-tenant op als de externe gebruiker en deze kan worden bekeken in hello Azure-portal en in de klassieke portal Hallo.
 
 
 
@@ -116,47 +116,47 @@ De externe gebruiker wordt weergegeven in de Azure Active Directory-tenant op al
 
 ![gebruikers blade azure active directory klassieke Azure-portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/8.png)
 
-In de **gebruikers** weergave in beide portals de externe gebruikers kunnen worden herkend door:
+In Hallo **gebruikers** weergave in beide portals Hallo externe gebruikers kan worden herkend door:
 
-* Het type ander pictogram in de Azure portal
-* Het andere sourcing punt in de klassieke portal
+* Hallo ander Pictogramtype in hello Azure-portal
+* Hallo verschillende punt in de klassieke portal Hallo bron
 
-Echter verlenen **eigenaar** of **Inzender** toegang tot een externe gebruiker op de **abonnement** bereik, staat niet toe dat de toegang tot de admin gebruikerslijst, tenzij de **globale beheerder** is toegestaan. In de eigenschappen van de gebruiker, de **gebruikerstype** die heeft twee algemene parameters, **lid** en **Gast** kunnen worden geïdentificeerd. Een lid is van een gebruiker die is geregistreerd in de map terwijl een gast een gebruiker uitgenodigd voor de map van een externe bron is. Zie voor meer informatie [hoe Azure Active Directory-beheerders Voeg B2B-samenwerking gebruikers](/active-directory/active-directory-b2b-admin-add-users).
+Echter, verlenen **eigenaar** of **Inzender** toegang tooan externe gebruiker op Hallo **abonnement** bereik, staat niet toe dat Hallo toegang toohello-beheerder de map van gebruiker, tenzij Hallo **globale beheerder** is toegestaan. In de eigenschappen van de gebruiker hello, Hallo **gebruikerstype** die heeft twee algemene parameters, **lid** en **Gast** kunnen worden geïdentificeerd. Een lid is van een gebruiker die is geregistreerd in de map Hallo terwijl een gast een map van de gebruiker verzocht toohello van een externe bron is. Zie voor meer informatie [hoe Azure Active Directory-beheerders Voeg B2B-samenwerking gebruikers](/active-directory/active-directory-b2b-admin-add-users).
 
 > [!NOTE]
-> Zorg ervoor dat na het invoeren van de referenties in de portal, de externe gebruiker de juiste map aan te melden om te worden geselecteerd. Dezelfde gebruiker kan toegang hebben tot meerdere directory's en selecteer een van deze door te klikken op de gebruikersnaam in de rechterbovenhoek in de Azure portal en kies vervolgens de juiste map in de vervolgkeuzelijst.
+> Zorg ervoor dat de externe gebruiker Hallo na het invoeren van Hallo-referenties in portal Hallo, de juiste map Hallo toosign bij selecteert. Hallo kan dezelfde gebruiker toegang toomultiple mappen hebt en kunt selecteert u een van deze door te klikken op Hallo gebruikersnaam in Hallo rechterbovenhoek in hello Azure-portal en kies vervolgens de overeenkomstige map Hallo uit de vervolgkeuzelijst Hallo.
 
-Terwijl een gast in de directory, de externe gebruiker alle resources voor het Azure-abonnement kunt beheren, maar heeft geen toegang tot de map.
-
-
+Terwijl een gast in Hallo directory, Hallo externe gebruiker alle resources voor hello Azure-abonnement kunt beheren, maar geen toegang tot Hallo-directory.
 
 
 
-![toegang beperkt tot azure active directory-Azure-portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/9.png)
 
-Azure Active Directory en een Azure-abonnement niet hebben een relatie van de onderliggende structuur met bovenliggende net als andere Azure-resources (bijvoorbeeld: virtuele machines, virtuele netwerken, web-apps, opslag, enzovoort) met een Azure-abonnement hebt. Alle deze is gemaakt, beheerd en onder een Azure-abonnement in rekening gebracht terwijl een Azure-abonnement wordt gebruikt voor het beheren van de toegang tot een Azure-map. Zie voor meer informatie [hoe een Azure-abonnement is gerelateerd aan Azure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
 
-Van alle ingebouwde RBAC rollen, **eigenaar** en **Inzender** bieden volledige beheertoegang tot alle bronnen in de omgeving, het verschil is dat een medewerker kan geen maken en nieuwe RBAC-rollen te verwijderen. De ingebouwde rollen, zoals **Virtual Machine Contributor** bieden volledige management alleen toegang tot de resources die zijn aangegeven door de naam, ongeacht de **resourcegroep** ze worden gemaakt in.
+![toegang tot Azure active directory-portal beperkte tooazure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/9.png)
 
-Toewijzen van de ingebouwde RBAC-rol van **Virtual Machine Contributor** op abonnementsniveau, betekent dit dat de gebruiker de rol toegewezen:
+Azure Active Directory en een Azure-abonnement niet hebben een relatie van de onderliggende structuur met bovenliggende net als andere Azure-resources (bijvoorbeeld: virtuele machines, virtuele netwerken, web-apps, opslag, enzovoort) met een Azure-abonnement hebt. Alle Hallo laatstgenoemde is gemaakt, beheerd en onder een Azure-abonnement in rekening gebracht terwijl een Azure-abonnement gebruikte toomanage Hallo toegang tooan Azure-map is. Zie voor meer informatie [hoe een Azure-abonnement is gerelateerd tooAzure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
 
-* Kan alle virtuele machines ongeacht hun datum van de implementatie en weergeven ze deel van uitmaken resourcegroepen
-* Volledig beheertoegang heeft tot de virtuele machines in het abonnement
-* Andere brontypen weergeven in het abonnement niet
+Uit alle Hallo ingebouwde RBAC rollen, **eigenaar** en **Inzender** bieden volledige beheertoegang tooall bronnen Hallo-omgeving, Hallo verschil wordt die een medewerker kan niet worden gemaakt en nieuwe verwijderen RBAC-rollen. Hallo andere ingebouwde rollen, zoals **Virtual Machine Contributor** bieden volledige beheertoegang alleen toohello resources aangegeven door de naam hello, ongeacht Hallo **resourcegroep** ze worden gemaakt in.
+
+Toewijzen Hallo ingebouwde RBAC-rol van **Virtual Machine Contributor** op abonnementsniveau, betekent dat Hallo toegewezen Hallo gebruikersrol:
+
+* Alle virtuele machines ongeacht hun implementatie van de datum en het Hallo resource-groepen kunt weergeven die ze deel van uitmaken
+* Heeft volledige toegang toohello virtuele beheermachines in Hallo-abonnement
+* Andere brontypen weergeven in Hallo abonnement niet
 * Kan niet worden uitgevoerd vanuit het oogpunt van facturering van wijzigingen
 
 > [!NOTE]
-> RBAC wordt een enige functie van Azure portal, verlenen geen toegang tot de klassieke portal.
+> RBAC wordt een enige functie van Azure portal, verlenen geen toegang toohello klassieke portal.
 
-## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>Een ingebouwde RBAC-rol toewijzen aan een externe gebruiker
-Voor een ander scenario in deze test de externe gebruiker "alflanigan@gmail.com' wordt toegevoegd als een **Virtual Machine Contributor**.
+## <a name="assign-a-built-in-rbac-role-tooan-external-user"></a>Een ingebouwde RBAC-rol tooan externe gebruiker toewijzen
+Hallo externe gebruiker voor een ander scenario in deze test 'alflanigan@gmail.com' wordt toegevoegd als een **Virtual Machine Contributor**.
 
 
 
 
 ![virtuele machine ingebouwde rol van Inzender](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-Het normale gedrag voor deze externe gebruiker met deze ingebouwde functie is om te zien en beheren van alleen virtuele machines en hun aangrenzende Resource Manager alleen bronnen nodig zijn tijdens de implementatie. Standaard bieden deze rollen beperkt alleen toegang tot hun bijbehorende resources in de Azure-portal hebt gemaakt, ongeacht sommige kunnen nog steeds worden geïmplementeerd in de klassieke portal ook (bijvoorbeeld: virtuele machines).
+Hallo normaal gedrag voor deze externe gebruiker met deze ingebouwde functie toosee is en alleen virtuele machines en hun aangrenzende Resource Manager alleen bronnen nodig zijn tijdens de implementatie beheren. Door het ontwerp van deze rollen beperkt bieden toegang alleen tootheir corresponderende resources in hello Azure-portal hebt gemaakt, ongeacht sommige kan nog steeds worden geïmplementeerd in Hallo klassieke portal ook (bijvoorbeeld: virtuele machines).
 
 
 
@@ -164,16 +164,16 @@ Het normale gedrag voor deze externe gebruiker met deze ingebouwde functie is om
 
 ![overzicht van virtuele machines Inzender rol in azure-portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
 
-## <a name="grant-access-at-a-subscription-level-for-a-user-in-the-same-directory"></a>Toegang verlenen op het abonnementsniveau van een voor een gebruiker in dezelfde map
-De processtroom identiek is aan een externe gebruiker toe te voegen, zowel vanuit het perspectief beheerder is de RBAC-rol, evenals de gebruiker verlenen hun toegang wordt verleend aan de rol. Het verschil is hier is dat uitgenodigde de gebruiker niet alle e-uitnodigingen ontvangt als de resource-scopes in het abonnement beschikbaar in het dashboard zijn na het aanmelden.
+## <a name="grant-access-at-a-subscription-level-for-a-user-in-hello-same-directory"></a>Ken toegang tot op het abonnementsniveau van een voor een gebruiker in Hallo dezelfde directory
+Processtroom Hallo is identiek tooadding een externe gebruiker zowel in Hallo beheerder perspectief verlenen Hallo RBAC-rol, evenals Hallo gebruiker toohello-toegangsfunctie wordt verleend. Hallo verschil is hier is dat die Hallo uitgenodigd gebruiker ontvangt geen uitnodigingen voor een e-mailadres als alle Hallo resource scopes binnen Hallo abonnement beschikbaar in Hallo dashboard zijn na het aanmelden.
 
-## <a name="assign-rbac-roles-at-the-resource-group-scope"></a>RBAC-rollen op het groepsbereik resource toewijzen
-Toewijzen van een RBAC-rol op een **resourcegroep** scope heeft een identieke proces voor het toewijzen van de rol op het abonnementsniveau voor beide typen gebruikers - externe of interne (onderdeel van dezelfde directory). De gebruikers die zijn toegewezen de RBAC-rol is om te zien in hun omgeving alleen de resourcegroep waarin ze zijn toegewezen toegang vanaf de **resourcegroepen** pictogram in de Azure-portal.
+## <a name="assign-rbac-roles-at-hello-resource-group-scope"></a>RBAC-rollen op Hallo resource groepsbereik toewijzen
+Toewijzen van een RBAC-rol op een **resourcegroep** scope heeft een identieke proces voor het toewijzen van Hallo-rol op Hallo abonnementsniveau, voor beide typen gebruikers - externe of interne (onderdeel van Hallo dezelfde directory). Hallo gebruikers die zijn toegewezen Hallo RBAC-rol is toosee in hun omgeving alleen Hallo resourcegroep ze zijn toegewezen toegang van Hallo **resourcegroepen** pictogram in hello Azure-portal.
 
-## <a name="assign-rbac-roles-at-the-resource-scope"></a>RBAC-rollen op het bereik van de resource toe te wijzen
-Toewijzen van een RBAC-rol op een scope resource in Azure heeft een identieke proces voor het toewijzen van de rol op het abonnementsniveau of op het niveau van de resourcegroep, dezelfde werkstroom voor beide scenario's te volgen. De gebruikers die de RBAC-rol is toegewezen Zie opnieuw kunnen alleen de items die ze toegang zijn toegewezen aan in de **alle Resources** tabblad of rechtstreeks in het dashboard.
+## <a name="assign-rbac-roles-at-hello-resource-scope"></a>RBAC-rollen op Hallo resource bereik toewijzen
+Toewijzen van een RBAC-rol op een scope resource in Azure heeft een identieke proces voor het toewijzen van Hallo-rol op Hallo abonnementsniveau of op niveau van de resourcegroep hello, volgende Hallo dezelfde werkstroom voor beide scenario's. Hallo-gebruikers die zijn toegewezen Hallo RBAC-rol Zie opnieuw kunnen alleen Hallo items dat ze zijn toegewezen toegang op beide in hello **alle Resources** tabblad of rechtstreeks in het dashboard.
 
-Er is een belangrijk aspect voor RBAC zowel op resource groepsbereik of resource-bereik voor de gebruikers om ervoor te zorgen voor aanmelden bij de juiste map.
+Een belangrijk aspect voor RBAC zowel op resource groepsbereik of bereik van de resource is voor Hallo gebruikers toomake zeker toosign in toohello correcte directory.
 
 
 
@@ -182,9 +182,9 @@ Er is een belangrijk aspect voor RBAC zowel op resource groepsbereik of resource
 ![Directory-aanmelding in Azure-portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/13.png)
 
 ## <a name="assign-rbac-roles-for-an-azure-active-directory-group"></a>RBAC-rollen voor een Azure Active Directory-groep toewijzen
-Alle scenario's die gebruikmaken van RBAC op de drie verschillende bereiken in Azure bieden de bevoegdheid beheren, implementeren en beheren van verschillende bronnen als een toegewezen gebruiker zonder de noodzaak om een persoonlijke abonnement te beheren. Ongeacht is de RBAC-rol toegewezen voor een abonnement, resourcegroep of resource-bereik, alle zijn onder de één Azure-abonnement waar gebruikers toegang tot hebben de resources verder gemaakt door de toegewezen gebruikers kosten in rekening gebracht. Op deze manier de gebruikers die beschikken over beheerdersrechten voor die volledige Azure-abonnement facturering heeft een volledig overzicht over het verbruik ongeacht wie de resources wordt beheerd.
+Alle Hallo-scenario's met RBAC op drie verschillende bereiken Hallo in Azure-aanbieding Hallo bevoegdheid beheren, implementeren en beheren van verschillende bronnen als een toegewezen gebruiker zonder Hallo moeten van het beheer van een persoonlijke abonnement. Ongeacht Hallo RBAC-rol is toegewezen voor een abonnement, resourcegroep of resource-scope, zijn onder Hallo één Azure-abonnement waarbij Hallo gebruikers toegang tot hebben alle Hallo resources verder gemaakt door Hallo toegewezen gebruikers kosten in rekening gebracht. Op deze manier hello gebruikers die beschikken over beheerdersrechten voor die volledige Azure-abonnement facturering heeft een volledig overzicht van Hallo verbruik, ongeacht wie Hallo resources wordt beheerd.
 
-Voor grotere organisaties, kunnen de RBAC-rollen worden toegepast op dezelfde manier voor het perspectief dat de gebruiker met beheerdersrechten toegang wil verlenen de gedetailleerde voor teams of volledige afdelingen, niet afzonderlijk voor elke gebruiker, overweegt het dus als een zeer tijd- en efficiënte optie overweegt Azure Active Directory-groepen. Ter illustratie van dit voorbeeld wordt de **Inzender** rol is toegevoegd aan een van de groepen in de tenant op het abonnementsniveau.
+Voor grotere organisaties RBAC-rollen kunnen worden toegepast in Hallo dezelfde manier voor Azure Active Directory-groepen overweegt Hallo perspectief die Hallo beheerder gebruiker toogrant Hallo gedetailleerde toegang wil voor teams of volledige afdelingen, niet afzonderlijk voor elke gebruiker, dus kijken we naar deze als een zeer tijd- en efficiënte optie. tooillustrate in dit voorbeeld, Hallo **Inzender** rol is toegevoegd tooone van Hallo groepen in op abonnementsniveau Hallo Hallo-tenant.
 
 
 
@@ -194,16 +194,16 @@ Voor grotere organisaties, kunnen de RBAC-rollen worden toegepast op dezelfde ma
 
 Deze groepen zijn beveiligingsgroepen die zijn ingericht en beheerd alleen binnen Azure Active Directory.
 
-## <a name="create-a-custom-rbac-role-to-open-support-requests-using-powershell"></a>Maakt een aangepaste RBAC-rol om te openen met behulp van PowerShell ondersteuningsaanvragen
-De ingebouwde RBAC-rollen die beschikbaar in Azure zijn ervoor zorgen dat bepaalde machtigingsniveaus op basis van de beschikbare bronnen in de omgeving. Als geen van deze rollen behoeften van de gebruiker admin, is er echter de optie voor het beperken van toegang nog meer door aangepaste RBAC-rollen te maken.
+## <a name="create-a-custom-rbac-role-tooopen-support-requests-using-powershell"></a>Maak een aangepaste RBAC-rol tooopen ondersteuning aanvragen met behulp van PowerShell
+Hallo ingebouwde RBAC-rollen die beschikbaar in Azure zijn ervoor zorgen dat bepaalde machtigingsniveaus op basis van beschikbare resources in de omgeving Hallo Hallo. Als geen van deze rollen Hallo beheerder gebruiker behoeften, is er echter Hallo optie toolimit toegang nog meer door aangepaste RBAC-rollen te maken.
 
-Maken van aangepaste RBAC-rollen moet een ingebouwde functie, bewerken en vervolgens importeren in de omgeving. Het downloaden en het uploaden van de rol worden beheerd met PowerShell of CLI.
+Voor het maken van aangepaste RBAC-rollen moet een ingebouwde rol tootake, bewerken en vervolgens importeren in Hallo-omgeving. Hallo downloaden en het uploaden van Hallo rol worden beheerd met PowerShell of CLI.
 
-Het is belangrijk om te begrijpen van de vereisten voor het maken van een aangepaste rol die u kunnen gedetailleerde toegang verlenen op het abonnementsniveau en kan de uitgenodigde gebruiker de flexibiliteit ondersteuningsaanvragen te openen.
+Het is belangrijk toounderstand Hallo vereisten voor het maken van een aangepaste rol die u kunnen gedetailleerde toegang verlenen op abonnementsniveau Hallo en ook de mogelijkheid Hallo uitgenodigd gebruiker Hallo flexibiliteit ondersteuningsaanvragen te openen.
 
-In dit voorbeeld de ingebouwde functie **lezer** waarmee gebruikers toegang om alle scopes van de resource weer te geven, maar niet te bewerken of maakt u nieuwe is aangepast om de gebruiker de optie ondersteuningsaanvragen te openen.
+Voor dit voorbeeld Hallo ingebouwde rol **lezer** waarmee gebruikers toegang tooview Hallo-resource alle scopes maar niet tooedit ze of nieuwe maken is aangepast tooallow Hallo Hallo optie ondersteuningsaanvragen te openen.
 
-De eerste actie van het exporteren van de **lezer** rol moet worden uitgevoerd in PowerShell met verhoogde machtigingen worden uitgevoerd als administrator.
+eerste actie van het exporteren van Hallo Hallo **lezer** rol behoeften toobe voltooid in PowerShell met verhoogde machtigingen worden uitgevoerd als administrator.
 
 ```
 Login-AzureRMAccount
@@ -220,7 +220,7 @@ Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole
 
 ![Schermopname van PowerShell voor de rol Lezer RBAC](./media/role-based-access-control-create-custom-roles-for-internal-external-users/15.png)
 
-Vervolgens moet u het JSON-sjabloon van de rol extraheren.
+Vervolgens moet u tooextract Hallo JSON-sjabloon van Hallo-rol.
 
 
 
@@ -230,44 +230,44 @@ Vervolgens moet u het JSON-sjabloon van de rol extraheren.
 
 Een typische RBAC-rol bestaat uit drie gedeelten **acties**, **NotActions** en **AssignableScopes**.
 
-In de **actie** sectie worden de toegestane bewerkingen voor deze rol wordt vermeld. Het is belangrijk te weten dat elke actie van een resourceprovider is toegewezen. In dit geval voor het maken van ondersteuningstickets voor van de **Microsoft.Support** resourceprovider moet worden weergegeven.
+In Hallo **actie** sectie staan alle Hallo toegestane bewerkingen voor deze rol. Het is belangrijk toounderstand dat elke actie van een resourceprovider is toegewezen. In dit geval voor het maken van ondersteuning tickets Hallo **Microsoft.Support** resourceprovider moet worden weergegeven.
 
-Om te kunnen zien alle resourceproviders beschikbaar is en geregistreerd in uw abonnement, kunt u PowerShell gebruiken.
+toobe kunnen toosee alle Hallo resourceproviders beschikbaar is en geregistreerd in uw abonnement, kunt u PowerShell.
 ```
 Get-AzureRMResourceProvider
 
 ```
-Bovendien kunt u de alle de beschikbare PowerShell-cmdlets voor het beheren van de resourceproviders controleren.
+Bovendien kunt u controleren voor Hallo alle Hallo beschikbaar PowerShell-cmdlets toomanage hello resourceproviders.
     ![Schermopname van PowerShell voor provider bronbeheer](./media/role-based-access-control-create-custom-roles-for-internal-external-users/17.png)
 
-Als u wilt beperken welke acties voor een bepaalde RBAC-rol, resourceproviders worden vermeld in de sectie **NotActions**.
-Laatste, het verplicht is dat de RBAC-rol bevat de expliciete abonnement-id's waar het wordt gebruikt. De abonnement-id's worden vermeld in de **AssignableScopes**, anders u niet mag worden importeren van de rol in uw abonnement.
+alle acties voor een bepaalde RBAC-rol, resource providers worden vermeld in de sectie Hallo Hallo toorestrict **NotActions**.
+Laatste, is het verplichte dat die Hallo RBAC-rol bevat Hallo expliciete abonnement-id's waar het wordt gebruikt. Hallo abonnement-id's vermeld onder Hallo **AssignableScopes**, anders u pas weer toegestaan tooimport Hallo rol in uw abonnement.
 
-Na het maken en aanpassen van de RBAC-rol, moet deze worden geïmporteerd back de omgeving.
+Na het maken en aanpassen van Hallo RBAC-rol, moet deze toobe geïmporteerde back Hallo-omgeving.
 
 ```
 New-AzureRMRoleDefinition -InputFile "C:\rbacrole2.json"
 
 ```
 
-In dit voorbeeld is de aangepaste naam voor deze rol RBAC 'Lezer ondersteuning tickets toegangsniveau' zodat de gebruiker kan alles in het abonnement weergeven en openen van aanvragen voor ondersteuning.
+In dit voorbeeld is aangepaste naam voor deze rol RBAC Hallo 'Lezer ondersteuning tickets toegangsniveau' hello gebruiker tooview alles zodat in Hallo-abonnement en ook tooopen ondersteuningsaanvragen.
 
 > [!NOTE]
-> De slechts twee ingebouwde RBAC-rollen waardoor de actie van het openen van ondersteuningsaanvragen zijn **eigenaar** en **Inzender**. Voor een gebruiker om te kunnen openen ondersteuningsaanvragen moet hij worden toegewezen een RBAC-rol alleen op het abonnementsbereik, omdat alle ondersteuningsaanvragen zijn gemaakt op basis van een Azure-abonnement.
+> Hallo slechts twee ingebouwde RBAC-rollen zodat Hallo actie van het openen van ondersteuningsaanvragen zijn **eigenaar** en **Inzender**. Voor een gebruiker toobe kunnen tooopen ondersteuningsaanvragen, moet hij worden toegewezen een RBAC-rol alleen op Hallo abonnementsbereik, omdat alle ondersteuningsaanvragen zijn gemaakt op basis van een Azure-abonnement.
 
-Deze nieuwe aangepaste rol is toegewezen aan een gebruiker uit dezelfde map.
-
-
-
-
-
-![schermopname van aangepaste RBAC-rol geïmporteerd in de Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
+Deze nieuwe aangepaste rol is toegewezen tooan gebruiker Hallo dezelfde directory.
 
 
 
 
 
-![schermopname van het aangepaste geïmporteerde RBAC-rol toewijzen aan gebruiker in dezelfde map](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
+![schermopname van aangepaste RBAC-rol in Hallo geïmporteerd met Azure-portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
+
+
+
+
+
+![schermopname van het toewijzen van aangepaste geïmporteerde RBAC-rol toouser in Hallo dezelfde directory](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
 
 
 
@@ -275,7 +275,7 @@ Deze nieuwe aangepaste rol is toegewezen aan een gebruiker uit dezelfde map.
 
 ![schermopname van machtigingen voor aangepaste geïmporteerde RBAC-rol](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
 
-In het voorbeeld zijn meer gedetailleerd overzicht te benadrukken de grenzen van deze aangepaste RBAC-rol als volgt:
+Hallo-voorbeeld is meer gedetailleerde tooemphasize Hallo limieten van deze aangepaste RBAC-rol als volgt:
 * Nieuwe ondersteuningsaanvragen kunt maken
 * Nieuwe scopes van de resource kan niet worden gemaakt (bijvoorbeeld: virtuele machine)
 * Kan de nieuwe resourcegroepen niet maken.
@@ -290,20 +290,20 @@ In het voorbeeld zijn meer gedetailleerd overzicht te benadrukken de grenzen van
 
 
 
-![schermopname van aangepaste RBAC-rol kan niet worden gemaakt van virtuele machines](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
+![schermopname van aangepaste RBAC-rol kan niet toocreate virtuele machines](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
 
 
 
 
 
-![schermopname van aangepaste RBAC-rol kan niet worden gemaakt van nieuwe RGs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
+![schermopname van aangepaste RBAC-rol kan niet toocreate nieuwe RGs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
 
-## <a name="create-a-custom-rbac-role-to-open-support-requests-using-azure-cli"></a>Maakt een aangepaste RBAC-rol om te openen met behulp van Azure CLI ondersteuningsaanvragen
-Azure CLI is uitgevoerd op een Mac en zonder dat toegang tot PowerShell, is de manier om te gaan.
+## <a name="create-a-custom-rbac-role-tooopen-support-requests-using-azure-cli"></a>Maak een aangepaste RBAC-rol tooopen ondersteuning-aanvragen via de Azure CLI
+Uitgevoerd op een Mac en zonder toegang tooPowerShell, is Azure CLI Hallo manier toogo.
 
-De stappen voor het maken van een aangepaste beveiligingsrol zijn hetzelfde, met de enige uitzondering die met behulp van de rol CLI in een JSON-sjabloon kan niet worden gedownload, maar deze kan worden weergegeven in de CLI.
+Hallo stappen toocreate een aangepaste beveiligingsrol zijn Hallo dezelfde zijn, met de enige uitzondering Hallo dat met CLI Hallo-rol kan niet worden gedownload in een JSON-sjabloon, maar kan worden bekeken in Hallo CLI.
 
-Ik heb de ingebouwde rol van de gekozen voor dit voorbeeld **back-up lezer**.
+Voor dit voorbeeld ik hebt gekozen, is een ingebouwde rol Hallo van **back-up lezer**.
 
 ```
 
@@ -317,7 +317,7 @@ azure role show "backup reader" --json
 
 ![Schermafbeelding van de rol van back-lezer CLI weergeven](./media/role-based-access-control-create-custom-roles-for-internal-external-users/24.png)
 
-De rol in Visual Studio bewerken na het kopiëren van de eigenschappen in een JSON-sjabloon, het **Microsoft.Support** resourceprovider is toegevoegd aan de **acties** secties zodat deze gebruiker ondersteuningsaanvragen openen kunt terwijl u moet een lezer voor de back-upkluizen. Opnieuw is het nodig zijn om toe te voegen van de abonnements-ID waarop u deze rol wordt gebruikt in de **AssignableScopes** sectie.
+Hallo-rol in Visual Studio na het kopiëren van Hallo eigenschappen in een JSON-sjabloon bewerkt, Hallo **Microsoft.Support** resourceprovider is toegevoegd aan Hallo **acties** secties zodat deze gebruiker kunt openen ondersteuningsaanvragen terwijl u een lezer voor de back-upkluizen hello toobe. Opnieuw verdient het benodigde tooadd Hallo abonnements-ID waar deze rol wordt gebruikt in Hallo **AssignableScopes** sectie.
 
 ```
 
@@ -331,7 +331,7 @@ azure role create --inputfile <path>
 
 ![CLI-schermopname van het importeren van aangepaste RBAC-rol](./media/role-based-access-control-create-custom-roles-for-internal-external-users/25.png)
 
-De nieuwe functie is nu beschikbaar in de Azure-portal en de toewijzing-proces is hetzelfde als in de eerdere voorbeelden.
+de nieuwe rol Hallo is nu beschikbaar in hello Azure-portal en Hallo toewijzing proces is dezelfde als in de eerdere voorbeelden Hallo Hallo.
 
 
 
@@ -339,7 +339,7 @@ De nieuwe functie is nu beschikbaar in de Azure-portal en de toewijzing-proces i
 
 ![Azure portal schermafbeelding van aangepaste RBAC-rol gemaakt met behulp van de CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)
 
-De Azure-Cloud-Shell is vanaf de meest recente Build-2017 algemeen beschikbaar. Azure Cloud-Shell vormt een aanvulling op de IDE- en de Azure-Portal. Met deze service krijgt u een browser gebaseerde shell die is geverifieerd en wordt gehost in Azure en u kunt deze gebruiken in plaats van de CLI op uw computer geïnstalleerd.
+Op Hallo is de meest recente Build 2017 hello Azure Cloud Shell algemeen beschikbaar. Azure Cloud-Shell is een aanvulling tooIDE en hello Azure-Portal. Met deze service krijgt u een browser gebaseerde shell die is geverifieerd en wordt gehost in Azure en u kunt deze gebruiken in plaats van de CLI op uw computer geïnstalleerd.
 
 
 

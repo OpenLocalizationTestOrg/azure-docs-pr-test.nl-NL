@@ -1,7 +1,7 @@
 ---
-title: Wat is Apache Hive en HiveQL - Azure HDInsight | Microsoft Docs
-description: Apache Hive is een systeem voor het datawarehouse van gegevens voor Hadoop. U kunt de gegevens die zijn opgeslagen in met behulp van HiveQL, Hive query die vergelijkbaar is met Transact-SQL. In dit document wordt beschreven hoe Hive en HiveQL gebruiken met Azure HDInsight.
-keywords: hiveql, wat hive, hadoop hiveql, is het gebruik van hive, informatie over hive, wat is er hive
+title: aaaWhat is Apache Hive en HiveQL - Azure HDInsight | Microsoft Docs
+description: Apache Hive is een systeem voor het datawarehouse van gegevens voor Hadoop. U kunt de gegevens die zijn opgeslagen in HiveQL, welke vergelijkbaar tooTransact-SQL met Hive query. In dit document leest u hoe toouse Hive en HiveQL met Azure HDInsight.
+keywords: hiveql, wat is er hive, hadoop hiveql, hoe toouse hive, informatie over hive, wat is er hive
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -17,31 +17,31 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/03/2017
 ms.author: larryfr
-ms.openlocfilehash: 6b3ee17141f773bec07cf40e0b6d63363e9b5164
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a2772312263895ff99b499898264c2e6d5e816e9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Wat is Apache Hive en HiveQL in Azure HDInsight?
 
-[Apache Hive](http://hive.apache.org/) is een systeem voor het datawarehouse van gegevens voor Hadoop. Hive kunt gegevenssamenvatting, query's en analyse van gegevens. Hive-query's zijn geschreven in HiveQL, namelijk een querytaal die vergelijkbaar is met SQL.
+[Apache Hive](http://hive.apache.org/) is een systeem voor het datawarehouse van gegevens voor Hadoop. Hive kunt gegevenssamenvatting, query's en analyse van gegevens. Hive-query's zijn geschreven in HiveQL die een vergelijkbare tooSQL voor query-taal.
 
-Hive kunt u de projectstructuur van het op grotendeels ongestructureerde gegevens. Nadat u de structuur gedefinieerd, kunt u HiveQL query uitvoeren op de gegevens zonder kennis van Java of MapReduce.
+Hive kunt u tooproject structuur op grotendeels ongestructureerde gegevens. Nadat u de structuur Hallo gedefinieerd, kunt u HiveQL tooquery Hallo gegevens zonder kennis van Java of MapReduce.
 
-HDInsight biedt verschillende clustertypen die zijn afgestemd op specifieke werkbelasting in gedachten. De volgende clustertypen worden meestal gebruikt voor Hive-query's:
+HDInsight biedt verschillende clustertypen die zijn afgestemd op specifieke werkbelasting in gedachten. Hallo na clustertypen worden meestal gebruikt voor Hive-query's:
 
-* __Interactieve Hive__: een Hadoop-cluster waarmee [lage latentie analytische verwerking (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) functionaliteit voor de reactietijd voor interactieve query's verbeteren. Zie voor meer informatie de [beginnen met een interactieve Hive in HDInsight](hdinsight-hadoop-use-interactive-hive.md) document.
+* __Interactieve Hive__: een Hadoop-cluster waarmee [lage latentie analytische verwerking (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) functionaliteit tooimprove responstijden voor interactieve query's. Zie voor meer informatie, Hallo [beginnen met een interactieve Hive in HDInsight](hdinsight-hadoop-use-interactive-hive.md) document.
 
-* __Hadoop__: een Hadoop-cluster dat is afgestemd op batchverwerking werkbelastingen. Zie voor meer informatie de [starten met Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) document.
+* __Hadoop__: een Hadoop-cluster dat is afgestemd op batchverwerking werkbelastingen. Zie voor meer informatie, Hallo [starten met Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) document.
 
-* __Spark__: Apache Spark zijn ingebouwde functionaliteit voor het werken met Hive. Zie voor meer informatie de [beginnen met Spark in HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) document.
+* __Spark__: Apache Spark zijn ingebouwde functionaliteit voor het werken met Hive. Zie voor meer informatie, Hallo [beginnen met Spark in HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) document.
 
-* __HBase__: HiveQL kan worden gebruikt voor opgeslagen querygegevens in HBase. Zie voor meer informatie de [beginnen met HBase in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md) document.
+* __HBase__: HiveQL gebruikte tooquery opgeslagen gegevens in HBase kan worden. Zie voor meer informatie, Hallo [beginnen met HBase in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md) document.
 
-## <a name="how-to-use-hive"></a>Het gebruik van Hive
+## <a name="how-toouse-hive"></a>Hoe toouse Hive
 
-Gebruik de volgende tabel voor het detecteren van het gebruik van Hive met HDInsight:
+Gebruik Hallo tabel toodiscover hoe toouse Hive met HDInsight te volgen:
 
 | **Gebruik deze methode** als u wilt dat... | .. .an **interactieve** shell | ... **batch** verwerken | .. .door dit **cluster-besturingssysteem** | .. .from dit **clientbesturingssysteem** |
 |:--- |:---:|:---:|:--- |:--- |
@@ -52,17 +52,17 @@ Gebruik de volgende tabel voor het detecteren van het gebruik van Hive met HDIns
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux- of Windows * |Windows |
 
 > [!IMPORTANT]
-> \*Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+> \*Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 >
-> Als u een cluster met HDInsight op basis van Windows gebruikt, kunt u de [Query console](hdinsight-hadoop-use-hive-query-console.md) vanuit de browser of [extern bureaublad](hdinsight-hadoop-use-hive-remote-desktop.md) Hive-query's uitvoeren.
+> Als u een cluster met HDInsight op basis van Windows gebruikt, kunt u Hallo [Query console](hdinsight-hadoop-use-hive-query-console.md) vanuit de browser of [extern bureaublad](hdinsight-hadoop-use-hive-remote-desktop.md) toorun Hive-query's.
 
 ## <a name="hiveql-language-reference"></a>HiveQL-taalreferentie
 
-Taalreferentie HiveQL is beschikbaar in de [taal handmatig (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+Taalreferentie HiveQL is beschikbaar in Hallo [taal handmatig (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
 
 ## <a name="hive-and-data-structure"></a>Structuur van hive en gegevens
 
-Hive begrijpt het werken met gestructureerde en semi-gestructureerde gegevens. Bijvoorbeeld: tekstbestanden waarin de velden worden gescheiden door specifieke tekens. De volgende instructie van HiveQL maakt een tabel door spaties gescheiden gegevens:
+Hive begrijpt hoe toowork met gestructureerd en semi-gestructureerde gegevens. Bijvoorbeeld: tekstbestanden waar Hallo velden worden gescheiden door specifieke tekens. Hallo volgende HiveQL-instructie maakt een tabel door spaties gescheiden gegevens:
 
 ```hiveql
 CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -70,35 +70,35 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
 
-Hive biedt ook ondersteuning voor aangepaste **serialisatiefunctie/deserializers (serde-schrijfbewerking)** voor complexe of onregelmatig gestructureerde gegevens. Zie voor meer informatie de [een aangepaste JSON serde-schrijfbewerking gebruiken met HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) document.
+Hive biedt ook ondersteuning voor aangepaste **serialisatiefunctie/deserializers (serde-schrijfbewerking)** voor complexe of onregelmatig gestructureerde gegevens. Zie voor meer informatie, Hallo [hoe een aangepaste JSON serde-schrijfbewerking met HDInsight toouse](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) document.
 
-Zie voor meer informatie over ondersteunde bestandsindelingen in Hive, de [taal handmatig (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
+Zie voor meer informatie over ondersteunde bestandsindelingen in Hive Hallo [taal handmatig (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
 ## <a name="hive-internal-tables-vs-external-tables"></a>Interne tabellen tegenover externe tabellen hive
 
 Er zijn twee soorten tabellen die u met Hive maken kunt:
 
-* __Interne__: gegevens worden opgeslagen in het datawarehouse Hive. Het datawarehouse bevindt zich op `/hive/warehouse/` op de standaard-opslag voor het cluster.
+* __Interne__: gegevens worden opgeslagen in Hallo Hive-datawarehouse. Hallo datawarehouse bevindt zich op `/hive/warehouse/` op Hallo standaard opslag voor Hallo-cluster.
 
     Gebruik interne tabellen wanneer:
 
     * Gegevens is tijdelijk.
-    * Wilt u Hive voor het beheren van de levenscyclus van de tabel en de gegevens.
+    * Wilt u Hive toomanage Hallo levenscyclus van Hallo tabel en gegevens.
 
-* __Externe__: gegevens worden opgeslagen buiten het datawarehouse. De gegevens kunnen worden opgeslagen op opslag die toegankelijk is door het cluster.
+* __Externe__: gegevens worden opgeslagen buiten het Hallo-datawarehouse. Hallo-gegevens kunnen worden opgeslagen op opslag die toegankelijk is door Hallo-cluster.
 
     Gebruik externe tabellen wanneer:
 
-    * De gegevens worden ook gebruikt buiten Hive. Bijvoorbeeld, worden de gegevensbestanden bijgewerkt door een ander proces (die wordt niet vergrendeld de bestanden.)
-    * Gegevens moeten blijven in de onderliggende locatie, zelfs na het verwijderen van de tabel.
+    * Hallo-gegevens worden ook gebruikt buiten Hive. Bijvoorbeeld zijn Hallo-gegevensbestanden bijgewerkt door een ander proces (die wordt niet vergrendeld Hallo-bestanden.)
+    * Gegevens moeten tooremain in Hallo onderliggende locatie, zelfs na het Hallo-tabel verwijderen.
     * U moet een aangepaste locatie, zoals een niet-standaard opslagaccount.
-    * Een ander programma dan hive beheert de indeling van gegevens, locatie, enzovoort.
+    * Een ander programma dan hive beheert gegevensindeling hello, locatie, enzovoort.
 
-Zie voor meer informatie de [Hive interne en externe tabellen Intro] [ cindygross-hive-tables] blogbericht.
+Zie voor meer informatie, Hallo [Hive interne en externe tabellen Intro] [ cindygross-hive-tables] blogbericht.
 
 ## <a name="user-defined-functions-udf"></a>Gebruiker gedefinieerde functies (UDF)
 
-Hive kan verder worden uitgebreid via **gebruiker gedefinieerde functies (UDF)**. Een UDF, kunt u functionaliteit of logica die eenvoudig niet is gemodelleerd in HiveQL implementeren. Zie de volgende documenten voor een voorbeeld van het gebruik van UDF's met Hive:
+Hive kan verder worden uitgebreid via **gebruiker gedefinieerde functies (UDF)**. Een UDF kunt u de functionaliteit van tooimplement of logica die eenvoudig niet is gemodelleerd in HiveQL. Zie voor een voorbeeld van het gebruik van UDF's met Hive Hallo documenten te volgen:
 
 * [Een Java door de gebruiker gedefinieerde functie gebruiken met Hive](hdinsight-hadoop-hive-java-udf.md)
 
@@ -106,17 +106,17 @@ Hive kan verder worden uitgebreid via **gebruiker gedefinieerde functies (UDF)**
 
 * [Een C# gebruiker gedefinieerde functie gebruiken met Hive en Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Het toevoegen van een aangepaste Hive gebruiker gedefinieerde functie aan HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Hoe de gebruiker gedefinieerde aangepaste component tooadd tooHDInsight functioneren](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
-* [Een voorbeeld van de gebruiker gedefinieerde functie datum/tijd-indeling converteren naar Hive tijdstempel Hive](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
+* [Een voorbeeld Hive gebruiker gedefinieerde functie tooconvert datum-/ tijdnotaties tooHive tijdstempel](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
 ## <a id="data"></a>Voorbeeldgegevens
 
-Hive in HDInsight wordt vooraf geladen geleverd met een interne tabel met de naam `hivesampletable`. HDInsight biedt ook een voorbeeld van gegevenssets die kunnen worden gebruikt met Hive. Deze gegevenssets worden opgeslagen in de `/example/data` en `/HdiSamples` mappen. Deze mappen aanwezig zijn in de standaard-opslag voor uw cluster.
+Hive in HDInsight wordt vooraf geladen geleverd met een interne tabel met de naam `hivesampletable`. HDInsight biedt ook een voorbeeld van gegevenssets die kunnen worden gebruikt met Hive. Deze gegevenssets worden opgeslagen in Hallo `/example/data` en `/HdiSamples` mappen. Deze mappen aanwezig zijn in Hallo standaard opslagruimte voor uw cluster.
 
 ## <a id="job"></a>Voorbeeld van de Hive-query
 
-De volgende HiveQL-instructies project kolommen naar de `/example/data/sample.log` bestand:
+Hallo volgende HiveQL-instructies projectkolommen op Hallo `/example/data/sample.log` bestand:
 
     set hive.execution.engine=tez;
     DROP TABLE log4jLogs;
@@ -125,31 +125,31 @@ De volgende HiveQL-instructies project kolommen naar de `/example/data/sample.lo
     STORED AS TEXTFILE LOCATION '/example/data/';
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-In het vorige voorbeeld uitvoeren de HiveQL-instructies de volgende acties:
+In het vorige voorbeeld hello Voer Hallo HiveQL-instructies Hallo van de volgende activiteiten:
 
-* `set hive.execution.engine=tez;`: Hiermee stelt u de engine voor het uitvoeren Tez gebruiken. Tez gebruik in plaats van MapReduce krijgt u een toename van de prestaties van query's. Zie voor meer informatie over Tez de [Apache Tez gebruiken voor betere prestaties](#usetez) sectie.
+* `set hive.execution.engine=tez;`: Sets Hallo uitvoering engine toouse Tez. Tez gebruik in plaats van MapReduce krijgt u een toename van de prestaties van query's. Zie voor meer informatie over Tez hello [Apache Tez gebruiken voor betere prestaties](#usetez) sectie.
 
     > [!NOTE]
-    > Deze instructie is alleen vereist wanneer u een HDInsight op basis van Windows-cluster. Tez is de engine voor het uitvoeren van standaard voor HDInsight op basis van Linux.
+    > Deze instructie is alleen vereist wanneer u een HDInsight op basis van Windows-cluster. Tez is Hallo standaard engine voor het uitvoeren voor HDInsight op basis van Linux.
 
-* `DROP TABLE`: Als de tabel al bestaat, verwijderen.
+* `DROP TABLE`: Als Hallo tabel al bestaat, verwijderen.
 
-* `CREATE EXTERNAL TABLE`: Hiermee maakt u een nieuw **externe** tabel in Hive. De tabeldefinitie opslaan externe tabellen alleen in Hive. De gegevens blijft in de oorspronkelijke locatie en in de oorspronkelijke indeling.
+* `CREATE EXTERNAL TABLE`: Hiermee maakt u een nieuw **externe** tabel in Hive. De tabeldefinitie Hallo opslaan externe tabellen alleen in Hive. in de oorspronkelijke locatie hello en in de oorspronkelijke indeling Hallo Hallo gegevens blijft.
 
-* `ROW FORMAT`: Hiermee geeft u Hive hoe de gegevens wordt opgemaakt. In dit geval worden de velden in elk logboek gescheiden door een spatie.
+* `ROW FORMAT`: Hiermee geeft u Hive hoe Hallo gegevens wordt opgemaakt. In dit geval worden Hallo velden in elk logboek gescheiden door een spatie.
 
-* `STORED AS TEXTFILE LOCATION`: Vertelt Hive waar de gegevens worden opgeslagen (de `example/data` directory) en dat deze is opgeslagen als tekst. De gegevens worden in één bestand of worden verdeeld over meerdere bestanden in de map.
+* `STORED AS TEXTFILE LOCATION`: Vertelt Hive waar hello gegevens worden opgeslagen (Hallo `example/data` directory) en dat deze is opgeslagen als tekst. Hallo-gegevens worden in één bestand of verdeeld over meerdere bestanden binnen Hallo-directory.
 
-* `SELECT`: Hiermee selecteert u een telling van alle rijen waarin de kolom **t4** bevat de waarde **[fout]**. Deze instructie retourneert een waarde van **3** omdat er drie rijen met deze waarde.
+* `SELECT`: Hiermee selecteert u een telling van alle rijen waarin hello kolom **t4** Hallo waarde bevat **[fout]**. Deze instructie retourneert een waarde van **3** omdat er drie rijen met deze waarde.
 
-* `INPUT__FILE__NAME LIKE '%.log'`-Hive probeert het schema toepassen op alle bestanden in de map. In dit geval wordt bevat de map bestanden die niet overeenkomen met het schema. Om te voorkomen dat een garbagecollection-gegevens in de resultaten, deze instructie vertelt Hive dat we alleen gegevens uit bestanden eindigt op moet retourneren. log.
+* `INPUT__FILE__NAME LIKE '%.log'`-Hive probeert tooapply hello tooall schemabestanden in Hallo-directory. In dit geval bevat Hallo map bestanden die niet overeenkomen met de Hallo schema. tooprevent garbagecollection gegevens in de resultaten van de hello, deze instructie Hive vertelt dat we alleen gegevens uit bestanden eindigt op moet retourneren. log.
 
 > [!NOTE]
-> Externe tabellen moeten worden gebruikt wanneer u de onderliggende gegevens wordt bijgewerkt door een externe bron verwacht. Bijvoorbeeld, een geautomatiseerd proces of MapReduce-bewerking uploaden.
+> Externe tabellen moeten worden gebruikt wanneer u van plan Hallo onderliggende gegevens toobe bijgewerkt door een externe bron bent. Bijvoorbeeld, een geautomatiseerd proces of MapReduce-bewerking uploaden.
 >
-> Verwijderen van een externe tabel komt **niet** gegevens verwijderd, wordt de definitie van de tabel alleen verwijderd.
+> Verwijderen van een externe tabel komt **niet** Hallo-gegevens verwijderen Hallo tabeldefinitie alleen worden verwijderd.
 
-Maken van een **interne** in plaats van de externe tabel, gebruikt u de volgende HiveQL:
+toocreate een **interne** in plaats van de externe tabel, gebruikt u Hallo HiveQL te volgen:
 
     set hive.execution.engine=tez;
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -157,59 +157,59 @@ Maken van een **interne** in plaats van de externe tabel, gebruikt u de volgende
     INSERT OVERWRITE TABLE errorLogs
     SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
-Deze instructies uitvoeren de volgende acties:
+Deze instructies uitvoeren Hallo volgende acties:
 
-* `CREATE TABLE IF NOT EXISTS`: Als de tabel niet bestaat, maakt u dit. Omdat de **externe** trefwoord wordt niet gebruikt, wordt deze instructie maakt u een interne tabel. De tabel wordt opgeslagen in het datawarehouse Hive en volledig wordt beheerd door Hive.
+* `CREATE TABLE IF NOT EXISTS`: Als Hallo tabel niet bestaat, maken. Omdat Hallo **externe** trefwoord wordt niet gebruikt, wordt deze instructie maakt u een interne tabel. Hallo-tabel is opgeslagen in Hallo Hive-datawarehouse en volledig wordt beheerd door Hive.
 
-* `STORED AS ORC`: De gegevens opslaat in geoptimaliseerd rij kolommen (ORC)-indeling. ORC is een maximaal geoptimaliseerd en efficiënte indeling voor het opslaan van gegevens met Hive.
+* `STORED AS ORC`: Het Hallo-gegevens opslaat in geoptimaliseerd rij kolommen (ORC)-indeling. ORC is een maximaal geoptimaliseerd en efficiënte indeling voor het opslaan van gegevens met Hive.
 
-* `INSERT OVERWRITE ... SELECT`: Selecteert rijen uit de **log4jLogs** tabel met **[fout]**, en vervolgens voegt u de gegevens in de **foutenlogboeken** tabel.
+* `INSERT OVERWRITE ... SELECT`: Rijen uit Hallo geselecteerd **log4jLogs** tabel met **[fout]**, en vervolgens voegt de gegevens in Hallo Hallo **foutenlogboeken** tabel.
 
 > [!NOTE]
-> In tegenstelling tot externe tabellen verwijdert voor het verwijderen van een interne tabel tevens de onderliggende gegevens.
+> In tegenstelling tot externe tabellen verwijderd voor het verwijderen van een interne tabel ook Hallo onderliggende gegevens.
 
 ## <a name="improve-hive-query-performance"></a>Hive-query's sneller
 
 ### <a id="usetez"></a>Apache Tez
 
-[Apache Tez](http://tez.apache.org) ligt een framework dat kunt van gegevensintensieve toepassingen, zoals Hive, om u te veel efficiënter op schaal worden uitgevoerd. Tez is standaard ingeschakeld voor Linux gebaseerde HDInsight-clusters.
+[Apache Tez](http://tez.apache.org) ligt een framework dat kunt van gegevensintensieve toepassingen, zoals Hive, toorun veel efficiënter op schaal. Tez is standaard ingeschakeld voor Linux gebaseerde HDInsight-clusters.
 
 > [!NOTE]
-> Tez is momenteel uitgeschakeld voor Windows gebaseerde HDInsight-clusters standaard en moet zijn ingeschakeld. Om te profiteren van Tez, moet de volgende waarde worden ingesteld voor een Hive-query:
+> Tez is momenteel uitgeschakeld voor Windows gebaseerde HDInsight-clusters standaard en moet zijn ingeschakeld. tootake profiteren van Tez, Hallo na de waarde moet worden ingesteld voor een Hive-query:
 >
 > `set hive.execution.engine=tez;`
 >
-> Tez is de standaard-engine voor Linux gebaseerde HDInsight-clusters.
+> Tez is Hallo standaard engine voor Linux gebaseerde HDInsight-clusters.
 
-De [Hive op Tez-Ontwerpdocumenten](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) bevat details over de implementatie keuzen en afstemmen configuraties.
+Hallo [Hive op Tez-Ontwerpdocumenten](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) bevat details over Hallo implementatie keuzen en afstemmen configuraties.
 
-Om u te helpen bij foutopsporing taken uitgevoerd met Tez, HDInsight biedt de volgende web UI's waarmee u details wilt weergeven van Tez-taken:
+tooaid bij foutopsporing taken uitgevoerd met Tez, HDInsight biedt Hallo web UI's waarmee u tooview details van Tez-taken te volgen:
 
-* [De weergave Ambari Tez op Linux gebaseerde HDInsight gebruiken](hdinsight-debug-ambari-tez-view.md)
+* [Hallo Ambari Tez weergave op Linux gebaseerde HDInsight gebruiken](hdinsight-debug-ambari-tez-view.md)
 
-* [De Tez-gebruikersinterface op HDInsight op basis van Windows gebruiken](hdinsight-debug-tez-ui.md)
+* [Hallo Tez UI op HDInsight op basis van Windows gebruiken](hdinsight-debug-tez-ui.md)
 
 ### <a name="low-latency-analytical-processing-llap"></a>Lage latentie Analytical Processing (LLAP)
 
-[LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) (soms ook wel lange Live en proces) is een nieuwe functie in Hive 2.0 waarmee de caching van query's in het geheugen. LLAP maakt Hive-query's sneller tot [26 x sneller dan Hive 1.x in sommige gevallen](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
+[LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) (soms ook wel lange Live en proces) is een nieuwe functie in Hive 2.0 waarmee de caching van query's in het geheugen. LLAP maakt Hive-query's sneller up te[26 x sneller dan Hive 1.x in sommige gevallen](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 
-HDInsight biedt LLAP in het cluster interactieve Hive-type. Zie voor meer informatie de [beginnen met een interactieve Hive](hdinsight-hadoop-use-interactive-hive.md) document.
+HDInsight biedt LLAP Hallo clustertype interactieve Hive. Zie voor meer informatie, Hallo [beginnen met een interactieve Hive](hdinsight-hadoop-use-interactive-hive.md) document.
 
 ## <a name="hive-jobs-and-sql-server-integration-services"></a>Hive-taken en SQL Server Integration Services
 
-SQL Server Integration Services (SSIS) kunt u een Hive-taak uitvoert. Het Azure-functiepakket voor SSIS biedt de volgende onderdelen die met Hive-taken in HDInsight werken.
+U kunt SQL Server Integration Services (SSIS) toorun een Hive-taak. Hello Azure Feature Pack voor SSIS biedt Hallo onderdelen die met Hive-taken in HDInsight werken te volgen.
 
 * [Azure HDInsight Hive-taak][hivetask]
 
 * [Azure abonnement Verbindingsbeheer][connectionmanager]
 
-Meer informatie over het Azure Feature Pack voor SSIS [hier][ssispack].
+Meer informatie over Azure Feature Pack Hallo voor SSIS [hier][ssispack].
 
 ## <a id="nextsteps"></a>Volgende stappen
 
-Nu u weet wat Hive is en het gebruik ervan met Hadoop in HDInsight, gebruiken de volgende koppelingen om te verkennen andere manieren om te werken met Azure HDInsight.
+Nu dat u hebt geleerd wat Hive is en hoe toouse met Hadoop in HDInsight, gebruik Hallo volgen koppelingen tooexplore andere manieren toowork met Azure HDInsight.
 
-* [Gegevens uploaden naar HDInsight][hdinsight-upload-data]
+* [Uploaden van gegevens tooHDInsight][hdinsight-upload-data]
 * [Pig gebruiken met HDInsight][hdinsight-use-pig]
 * [MapReduce-taken gebruiken met HDInsight][hdinsight-use-mapreduce]
 

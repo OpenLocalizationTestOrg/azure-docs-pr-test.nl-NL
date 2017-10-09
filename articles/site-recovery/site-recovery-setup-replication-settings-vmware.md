@@ -1,6 +1,6 @@
 ---
-title: Replicatie-instellingen voor Azure Site Recovery instellen | Microsoft Docs
-description: Dit artikel beschrijft hoe u Site Recovery implementeert om replicatie, failovers en herstel van virtuele Hyper-V-machines in VMM-clouds naar Azure te beheren.
+title: aaaSet van replicatie-instellingen voor Azure Site Recovery | Microsoft Docs
+description: Hierin wordt beschreven hoe clouds tooAzure toodeploy siteherstel tooorchestrate replicatie, failovers en herstel van Hyper-V-machines in VMM.
 services: site-recovery
 documentationcenter: 
 author: sujayt
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2017
 ms.author: sutalasi
-ms.openlocfilehash: 73a1f19177f23441f5f7165cf2bc92ba85e62aa5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 618e92e42411732a2a1bb75c5e5ea8a433cd7d58
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-replication-policy-for-vmware-to-azure"></a>Replicatiebeleid voor VMware naar Azure beheren
+# <a name="manage-replication-policy-for-vmware-tooazure"></a>Replicatiebeleid voor voor VMware tooAzure beheren
 
 
 ## <a name="create-a-replication-policy"></a>Een replicatiebeleid maken
@@ -31,58 +31,58 @@ ms.lasthandoff: 07/11/2017
 
     ![Replicatiebeleid maken](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
 
-4. Voer de naam van het beleid in.
+4. Voer de beleidsnaam Hallo.
 
-5. Geef de limiet voor de RPO op bij **RPO-drempelwaarde**. Wanneer de continue replicatie deze limiet overschrijdt, worden er waarschuwingen gegenereerd.
-6. Geef in **Bewaarperiode van het herstelpunt** de duur (in uren) op dat elk herstelpunt moet worden bewaard. Beveiligde machines kunnen binnen een bepaald tijdsvenster te allen tijde worden hersteld naar een willekeurig punt.
+5. In **RPO drempelwaarde**, Hallo RPO grootte opgeven. Wanneer de continue replicatie deze limiet overschrijdt, worden er waarschuwingen gegenereerd.
+6. In **herstel bewaarperiode**, geef (in uren) Hallo duur van de bewaarperiode Hallo voor elk herstelpunt. Beveiligde machines kunnen worden hersteld tooany punt binnen een bewaarperiode.
 
     > [!NOTE]
-    > Een bewaarperiode van maximaal 24 uur wordt ondersteund voor computers die worden gerepliceerd naar Premium Storage. Een bewaarperiode van maximaal 72 uur wordt ondersteund voor computers die worden gerepliceerd naar Standard Storage.
+    > Too24 uur retentieperiode wordt ondersteund voor de opslag van de gerepliceerde toopremium machines. Too72 uur retentieperiode wordt ondersteund voor de opslag van de gerepliceerde toostandard machines.
 
     > [!NOTE]
     > Er wordt automatisch een replicatiebeleid voor failback gemaakt.
 
 7. Geef in **Frequentie van de app-consistente momentopname** op hoe vaak (in minuten) er herstelpunten moeten worden gemaakt met toepassingsconsistente momentopnamen.
 
-8. Klik op **OK**. Het beleid wordt binnen 30 seconden tot 60 minuut gemaakt.
+8. Klik op **OK**. Hallo-beleid moet worden gemaakt in 30 too60 seconden.
 
 ![Replicatiebeleid genereren](./media/site-recovery-setup-replication-settings-vmware/Creating-Policy.png)
 
 ## <a name="associate-a-configuration-server-with-a-replication-policy"></a>Een configuratieserver koppelen aan het replicatiebeleid
-1. Kies het replicatiebeleid waaraan u de configuratieserver wilt koppelen.
+1. Kies Hallo replicatie beleid toowhich gewenste tooassociate Hallo configuratieserver.
 2. Klik op **Koppelen**.
 ![Configuratieserver koppelen](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
 
-3. Selecteer de configuratieserver in de lijst met servers.
-4. Klik op **OK**. De configuratieserver wordt binnen één tot twee minuten gekoppeld.
+3. Selecteer Hallo configuratieserver uit Hallo lijst met servers.
+4. Klik op **OK**. Hallo configuratieserver moet worden gekoppeld in één tootwo minuten.
 
 ![Configuratieserver koppelen](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
 
 ## <a name="edit-a-replication-policy"></a>Een replicatiebeleid bewerken
-1. Kies het replicatiebeleid waarvan u de replicatie-instellingen wilt bewerken.
+1. Hallo replicatiebeleid waarvoor u tooedit replicatie-instellingen wilt kiezen.
 ![Replicatiebeleid bewerken](./media/site-recovery-setup-replication-settings-vmware/Select-Policy.png)
 
 2. Klik op **Instellingen bewerken**.
 ![Instellingen van replicatiebeleid bewerken](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
 
-3. Wijzig de instellingen op basis van uw behoeften.
-4. Klik op **Opslaan**. Het beleid wordt binnen twee tot vijf minuten opgeslagen. Dit is afhankelijk van hoeveel virtuele machines gebruikmaken van dit replicatiebeleid.
+3. Hallo wijzigen op basis van uw behoeften.
+4. Klik op **Opslaan**. Hallo-beleid moet worden opgeslagen in twee toofive minuten, afhankelijk van hoeveel virtuele machines die replicatiebeleid gebruikt.
 
 ![Replicatiebeleid opslaan](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
 
 ## <a name="dissociate-a-configuration-server-from-a-replication-policy"></a>Een configuratieserver loskoppelen van een replicatiebeleid
-1. Kies het replicatiebeleid waaraan u de configuratieserver wilt koppelen.
+1. Kies Hallo replicatie beleid toowhich gewenste tooassociate Hallo configuratieserver.
 2. Klik op **Ontkoppelen**.
-3. Selecteer de configuratieserver in de lijst met servers.
-4. Klik op **OK**. De configuratieserver wordt binnen één tot twee minuten ontkoppeld.
+3. Selecteer Hallo configuratieserver uit Hallo lijst met servers.
+4. Klik op **OK**. Hallo configuratieserver moet worden ontkoppeld in één tootwo minuten.
 
     > [!NOTE]
-    > U kunt een configuratieserver niet ontkoppelen als het beleid door een of meer gerepliceerde items wordt gebruikt. Voordat u de configuratieserver ontkoppelt, moet u ervoor zorgen dat het beleid niet door gerepliceerde items wordt gebruikt.
+    > U kunt een configuratieserver kan niet ontkoppelen als er ten minste één gerepliceerde item met behulp van Hallo-beleid. Zorg ervoor dat er zijn geen gerepliceerde items met behulp van Hallo beleid voordat u de configuratieserver Hallo ontkoppelen.
 
 ## <a name="delete-a-replication-policy"></a>Een replicatiebeleid verwijderen
 
-1. Kies het replicatiebeleid dat u wilt verwijderen.
-2. Klik op **Verwijderen**. Het beleid wordt binnen 30 seconden tot 60 minuut verwijderd.
+1. Hallo replicatiebeleid kiezen dat u wilt dat toodelete.
+2. Klik op **Verwijderen**. Hallo-beleid moet worden verwijderd in 30 too60 seconden.
 
     > [!NOTE]
-    > U kunt een replicatiebeleid niet verwijderen als er een of meer configuratieservers aan zijn gekoppeld. Zorg ervoor dat het beleid niet door gerepliceerde items wordt gebruikt en verwijder alle gekoppelde configuratieservers voordat u het beleid verwijdert.
+    > U kunt een beleid voor wachtwoordreplicatie niet verwijderen als er ten minste één tooit voor configuratie-server die is gekoppeld. Controleer of er zijn geen gerepliceerde items met behulp van beleid Hallo en verwijder die alle Hallo configuratieservers gekoppeld voordat u Hallo beleid verwijderen.

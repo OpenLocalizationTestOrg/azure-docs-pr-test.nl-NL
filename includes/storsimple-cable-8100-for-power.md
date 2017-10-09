@@ -1,12 +1,12 @@
 <!--author=alkohli last changed: 9/16/15-->
 
-#### <a name="to-cable-for-power"></a>Op de kabel voor energiebeheer
-1. Zorg ervoor dat de macht op elk van de stroom verandert en koeling Modules (PCMs) zich in de positie OFF.
-2. Verbinding maken met de stroomkabels aan elk van de PCMs in de primaire behuizing.
-3. De stroomkabels koppelen aan de rack power distribution eenheden (PDU's), zoals wordt weergegeven in de volgende afbeelding. Zorg ervoor dat de twee PCMs gebruik stroomvoorziening scheiden.
+#### <a name="toocable-for-power"></a>toocable voor energiebeheer
+1. Zorg ervoor dat Hallo power switches op alle Hallo stroom en koeling Modules (PCMs) op Hallo OFF positie zijn.
+2. Verbinding maken met Hallo power kabels tooeach Hallo PCMs in Hallo primaire behuizing.
+3. Koppel Hallo power kabels toohello rack power distribution units (PDU's) zoals in Hallo installatiekopie te volgen. Zorg ervoor dat PCMs Hallo twee afzonderlijke stroomvoorziening gebruikt.
    
    > [!IMPORTANT]
-   > Om ervoor te zorgen hoge beschikbaarheid voor uw systeem, is het raadzaam dat u strikt voldoen aan de kracht bekabeling schema in het volgende diagram wordt weergegeven. 
+   > tooensure hoge beschikbaarheid voor uw systeem, wordt aangeraden dat u strikt toohello power bekabeling schema wordt weergegeven in het volgende diagram Hallo voldoen. 
    > 
    > 
    
@@ -21,5 +21,5 @@
    | 3 |Controller 0 |
    | 4 |PCM 1 |
    | 5 |PDU 's |
-4. Als u wilt inschakelen op het systeem, de energie-switches op beide PCMs naar de positie op te spiegelen.
+4. tooturn op Hallo systeem spiegelen Hallo power switches op beide PCMs toohello op positie.
 

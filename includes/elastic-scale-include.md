@@ -1,0 +1,2 @@
+## <a name="additional-resources"></a>Aanvullende bronnen
+Geen gebruik van hulpprogramma's voor elastische database nog? Bekijk onze [Getting Started Guide](../articles/sql-database/sql-database-elastic-scale-get-started.md).  Voor vragen kunt contact toous op Hallo [SQL Database-forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) en voor functieaanvragen, deze toe te voegen toohello [forum met feedback van SQL-Database](https://feedback.azure.com/forums/217321-sql-database/).

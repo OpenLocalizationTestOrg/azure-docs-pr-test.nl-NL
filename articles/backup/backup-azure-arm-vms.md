@@ -1,6 +1,6 @@
 ---
-title: Maak een back-up van Azure Virtual machines | Microsoft Docs
-description: Detecteren, registreren en back-up van virtuele machines van Azure naar een recovery services-kluis.
+title: aaaBack van Azure Virtual machines | Microsoft Docs
+description: Back-up van virtuele machines in Azure recovery services-kluis tooa detecteren en registreren.
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -16,92 +16,92 @@ ms.topic: article
 ms.date: 8/15/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40983a3de104238d09b976b5fcf2419da42c1bba
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a204a42726450a7fd89b5563a786b5070578b113
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Back-ups maken van virtuele Azure-machines naar een Recovery Services-kluis
+# <a name="back-up-azure-virtual-machines-tooa-recovery-services-vault"></a>Maak een back-up van virtuele machines in Azure tooa Recovery Services-kluis
 > [!div class="op_single_selector"]
-> * [Back-up van virtuele machines naar een Recovery Services-kluis](backup-azure-arm-vms.md)
-> * [Back-up van virtuele machines naar Backup-kluis](backup-azure-vms.md)
+> * [Back-up van virtuele machines tooRecovery Services-kluis](backup-azure-arm-vms.md)
+> * [Back-up van virtuele machines tooBackup kluis](backup-azure-vms.md)
 >
 >
 
-Dit artikel wordt uitgelegd hoe u back-up van Azure Virtual machines (geïmplementeerd met Resource Manager en Classic geïmplementeerd) naar een Recovery Services-kluis. Het merendeel van het werk voor een back-ups van virtuele machines is de voorbereiding. Voordat u kunt back-up of een virtuele machine te beveiligen, moet u de [vereisten](backup-azure-arm-vms-prepare.md) voorbereiden van uw omgeving voor het beveiligen van uw virtuele machines. Nadat u de vereisten hebt voltooid, kunt u de back-upbewerking om momentopnamen van uw virtuele machine te starten.
+Dit artikel wordt uitgelegd hoe tooback van Azure Virtual machines (geïmplementeerd met Resource Manager en Classic geïmplementeerd) tooa Recovery Services-kluis. De meeste Hallo werk voor back-ups van virtuele machines is Hallo voorbereiding. Voordat u kunt back-up of een virtuele machine te beveiligen, moet u Hallo [vereisten](backup-azure-arm-vms-prepare.md) tooprepare uw omgeving voor het beveiligen van uw virtuele machines. Nadat u Hallo vereisten hebt voltooid, kunt u Hallo back-upbewerking tootake momentopnamen van uw virtuele machine starten.
 
 
 [!INCLUDE [learn about backup deployment models](../../includes/backup-deployment-models.md)]
 
-Zie voor meer informatie de artikelen op [plannen van uw back-upinfrastructuur VM in Azure](backup-azure-vms-introduction.md) en [virtuele Azure-machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Zie voor meer informatie Hallo artikelen op [plannen van uw back-upinfrastructuur VM in Azure](backup-azure-vms-introduction.md) en [virtuele Azure-machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-## <a name="triggering-the-backup-job"></a>Activering van de back-uptaak
-Het back-upbeleid gekoppeld aan de Recovery Services-kluis wordt gedefinieerd hoe vaak en wanneer de back-upbewerking wordt uitgevoerd. De eerste geplande back-up is standaard de eerste back-up. Totdat de eerste back-up plaatsvindt, wordt voor de status van de laatste back-up op de blade **Back-uptaken** de tekst **Waarschuwing (eerste back-up in behandeling)** weergegeven.
+## <a name="triggering-hello-backup-job"></a>Activering van de back-uptaak Hallo
+Hallo back-upbeleid gekoppeld Hallo die Recovery Services-kluis wordt gedefinieerd hoe vaak en wanneer Hallo back-upbewerking wordt uitgevoerd. Hallo eerste geplande back-up is standaard Hallo eerste back-up. Totdat de eerste back-up Hallo optreedt, Hallo Status van de laatste back-up op Hallo **back-uptaken** blade wordt weergegeven als **waarschuwing (eerste back-up in behandeling)**.
 
 ![Back-up in behandeling](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
-Tenzij de eerste back-up binnenkort wordt gemaakt, wordt aanbevolen dat u **Nu een back-up maken** uitvoert. De volgende procedure wordt gestart vanuit het kluisdashboard. Deze procedure fungeert voor de eerste back-uptaak wordt uitgevoerd nadat u alle vereisten hebt voltooid. Deze procedure is niet beschikbaar als de eerste back-uptaak al is uitgevoerd. De gekoppelde back-upbeleid bepaalt de volgende back-uptaak.  
+Tenzij u uw eerste back-up toobegin binnenkort is het raadzaam dat u uitvoert **Back-up nu**. Hallo begint volgende procedure bij Hallo kluisdashboard. Deze procedure fungeert voor het uitvoeren van de eerste back-uptaak Hallo nadat u alle vereisten hebt voltooid. Deze procedure is niet beschikbaar als de eerste back-uptaak Hallo al is uitgevoerd. Hallo bepaalt gekoppeld back-upbeleid Hallo volgende back-uptaak.  
 
-De eerste back-uptaak uitvoeren:
+toorun hello eerste back-uptaak:
 
-1. Klik op het kluisdashboard op het getal onder **Back-upitems** of klik op de tegel **Back-upitems**. <br/>
+1. Op het kluisdashboard hello, klikt u op Hallo onder **back-Upitems**, of klik op Hallo **back-Upitems** tegel. <br/>
   ![Pictogram Instellingen](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
-  De blade **Back-upitems** wordt geopend.
+  Hallo **back-Upitems** blade wordt geopend.
 
   ![Back-upitems](./media/backup-azure-vms-first-look-arm/back-up-items-list.png)
 
-2. Selecteer het item op de blade **Back-upitems**.
+2. Op Hallo **back-Upitems** blade, selecteer Hallo artikel.
 
   ![Het pictogram Instellingen](./media/backup-azure-vms-first-look-arm/back-up-items-list-selected.png)
 
-  De lijst **Back-upitems** wordt geopend. <br/>
+  Hallo **back-Upitems** lijst wordt geopend. <br/>
 
   ![Geactiveerde back-uptaak](./media/backup-azure-vms-first-look-arm/backup-items-not-run.png)
 
-3. Klik in de lijst **Back-upitems** op het weglatingsteken **...**  om het contextmenu te openen.
+3. Op Hallo **back-Upitems** lijst, klikt u op de weglatingstekens Hallo **...**  tooopen Hallo contextmenu.
 
   ![Contextmenu](./media/backup-azure-vms-first-look-arm/context-menu.png)
 
-  Het contextmenu wordt weergegeven.
+  Hallo contextmenu wordt weergegeven.
 
   ![Contextmenu](./media/backup-azure-vms-first-look-arm/context-menu-small.png)
 
-4. Klik in het contextmenu op **Nu back-up maken**.
+4. Klik in het contextmenu hello, **back-up nu**.
 
   ![Contextmenu](./media/backup-azure-vms-first-look-arm/context-menu-small-backup-now.png)
 
-  De blade Nu back-up maken wordt geopend.
+  back-up nu Hallo-blade wordt geopend.
 
-  ![toont de blade Nu back-up maken](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+  ![ziet u nu back-up Hallo-blade](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
-5. Klik op de blade Nu back-up maken op het kalenderpictogram en selecteer in de kalender de laatste dag dat dit herstelpunt wordt bewaard. Klik vervolgens op **Back-up**.
+5. Klik op Hallo nu back-up blade op Hallo kalenderpictogram, gebruikt u Hallo kalender besturingselement tooselect Hallo laatste dag van dit herstelpunt wordt bewaard, en klik op **back-up**.
 
-  ![de laatste dag instellen dat het herstelpunt van Nu back-up maken wordt bewaard](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
+  ![set Hallo laatste dag Hallo nu back-up een herstelpunt wordt bewaard](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
-  Implementatiemeldingen laten u weten dat de back-uptaak is geactiveerd en dat u de voortgang van de taak op de pagina Back-uptaken kunt controleren. Afhankelijk van de grootte van de virtuele machine kan het maken van de eerste back-up even duren.
+  Meldingen van de implementatie kunnen u weten Hallo back-uptaak is geactiveerd en dat u kunt voortgang Hallo van Hallo-taak op de pagina Hallo back-up-taken. Afhankelijk van de grootte van de Hallo van uw virtuele machine, kan Hallo eerste back-up maken duren.
 
-6. Als u de status van de eerste back-up wilt bekijken of volgen, klikt u op de tegel **Back-uptaken** van het kluisdashboard op **Bezig**.
+6. tooview of bijhouden Hallo-status van Hallo eerste back-up, op Hallo kluisdashboard op Hallo **back-uptaken** Klik op de tegel **Bezig**.
 
   ![Tegel Back-uptaken](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
 
-  De blade Back-uptaken wordt geopend.
+  de blade back-uptaken Hello wordt geopend.
 
   ![Tegel Back-uptaken](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view-1.png)
 
-  Op de blade **Back-uptaken** kunt u de status van alle taken bekijken. Controleer of de back-uptaak voor de virtuele machine nog steeds bezig is of is voltooid. Wanneer de back-uptaak is voltooid, verandert de status in *Voltooid*.
+  In Hallo **back-uptaken** blade ziet u Hallo status van alle taken. Controleer als Hallo back-uptaak voor uw virtuele machine wordt nog uitgevoerd of als het is voltooid. Wanneer een back-uptaak is voltooid, is het Hallo-status *voltooid*.
 
   > [!NOTE]
-  > Als onderdeel van de back-upbewerking wordt met de Azure Backup-service aan de back-upextensie in elke VM opdracht gegeven om alle schrijfbewerkingen leeg te maken en een consistente momentopname te maken.
+  > Als onderdeel van de back-upbewerking Hallo verstrekt hello Azure Backup-service een toohello opdracht Backup-extensie in elke VM tooflush alle schrijft en een consistente momentopname.
   >
   >
 
 ## <a name="troubleshooting-errors"></a>Het oplossen van problemen
-Als u problemen tijdens het back-ups maken van uw virtuele machine, Zie de [VM probleemoplossingsartikel](backup-azure-vms-troubleshoot.md) voor hulp.
+Als u problemen tijdens het back-ups maken van uw virtuele machine, Zie Hallo [VM probleemoplossingsartikel](backup-azure-vms-troubleshoot.md) voor hulp.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u uw virtuele machine hebt beveiligd, gaat u naar de volgende artikelen voor meer informatie over de VM-beheertaken en het herstellen van virtuele machines.
+Nu u uw virtuele machine hebt beveiligd, gaat u naar Hallo na toolearn artikelen over VM beheertaken, en hoe toorestore virtuele machines.
 
 * [Uw virtuele machines beheren en controleren](backup-azure-manage-vms.md)
 * [Virtuele machines herstellen](backup-azure-arm-restore-vms.md)

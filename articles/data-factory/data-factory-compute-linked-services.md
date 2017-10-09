@@ -1,6 +1,6 @@
 ---
-title: COMPUTE omgevingen wordt ondersteund door Azure Data Factory | Microsoft Docs
-description: Meer informatie over de compute-omgevingen die u in Azure Data Factory-pijplijnen (zoals Azure HDInsight) voor het transformeren of proces gebruiken kunt.
+title: aaaCompute omgevingen wordt ondersteund door Azure Data Factory | Microsoft Docs
+description: Meer informatie over de compute-omgevingen die u in Azure Data Factory-pijplijnen (zoals Azure HDInsight) tootransform of proces-gegevens gebruiken kunt.
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: shlo
-ms.openlocfilehash: da7110614e684656da3ef9830780606e1576684d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: aba7d7de695bc1c7d475f1e741ee3b3e884151c0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE omgevingen wordt ondersteund door Azure Data Factory
-Dit artikel wordt uitgelegd verschillende berekeningsomgevingen waarmee u kunt gegevens verwerken of transformatie. Het bevat ook informatie over verschillende configuraties (op aanvraag versus bring uw eigen) die door Data Factory worden ondersteund bij het configureren van de gekoppelde services koppelt deze compute-omgevingen aan een Azure data factory.
+Dit artikel wordt uitgelegd verschillende berekeningsomgevingen tooprocess gebruiken of gegevens transformeren. Het bevat ook informatie over verschillende configuraties (op aanvraag versus bring uw eigen) die door Data Factory worden ondersteund bij het configureren van de gekoppelde services koppelt deze compute omgevingen tooan Azure-gegevensfactory.
 
-De volgende tabel bevat een lijst van compute-omgevingen wordt ondersteund door de Data Factory en de activiteiten die kunnen worden uitgevoerd op deze. 
+Hallo bevat volgende tabel een overzicht van compute-omgevingen wordt ondersteund door de Data Factory en Hallo activiteiten die kunnen worden uitgevoerd op deze. 
 
-| Compute-omgeving | activiteiten |
+| Compute-omgeving | activities |
 | --- | --- |
 | [HDInsight-cluster op aanvraag](#azure-hdinsight-on-demand-linked-service) of [uw eigen HDInsight-cluster](#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop-Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
@@ -33,56 +33,56 @@ De volgende tabel bevat een lijst van compute-omgevingen wordt ondersteund door 
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL datawarehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) |[Opgeslagen procedure](data-factory-stored-proc-activity.md) |
 
 ## <a name="supported-hdinsight-versions-in-azure-data-factory"></a>Ondersteunde versies van HDInsight in Azure Data Factory
-Azure HDInsight biedt ondersteuning voor meerdere versies van Hadoop-cluster die op elk gewenst moment kunnen worden geïmplementeerd. Elke versie keuze maakt een specifieke versie van de distributie Hortonworks Data Platform HDP () en een reeks onderdelen die deel uitmaken van dit distributiepunt. Microsoft houdt bijwerken van de lijst met ondersteunde versies van HDInsight nieuwste onderdelen voor Hadoop-ecosysteem en oplossingen te geven. De HDInsight-3.2 is op 1 April 2017 afgeschaft. Zie voor gedetailleerde informatie [ondersteunde versies van HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
+Azure HDInsight biedt ondersteuning voor meerdere versies van Hadoop-cluster die op elk gewenst moment kunnen worden geïmplementeerd. Elke versie keuze maakt een specifieke versie van de distributie van Hallo Hortonworks Data Platform HDP () en een reeks onderdelen die deel uitmaken van dit distributiepunt. Microsoft houdt Hallo lijst met ondersteunde versies van HDInsight tooprovide nieuwste Hadoop-ecosysteem onderdelen en correcties bijgewerkt. Hallo HDInsight 3.2 is op 1 April 2017 afgeschaft. Zie voor gedetailleerde informatie [ondersteunde versies van HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-Dit heeft gevolgen voor bestaande Azure Data Factory activiteiten uitgevoerd tegen 3.2 HDInsight-clusters. Het wordt aangeraden de gebruikers dat u de richtlijnen in de volgende sectie om bij te werken van de betrokken Data Factory:
+Dit heeft gevolgen voor bestaande Azure Data Factory activiteiten uitgevoerd tegen 3.2 HDInsight-clusters. We raden u aan gebruikers toofollow Hallo richtlijnen in de volgende sectie tooupdate Hallo Hallo betrokken Data Factory:
 
-### <a name="for-linked-services-pointing-to-your-own-hdinsight-clusters"></a>Voor de gekoppelde Services die verwijst naar uw eigen HDInsight-clusters
-* **HDInsight gekoppelde Services aan te wijzen aan uw eigen HDInsight 3.2 of hieronder clusters:**
+### <a name="for-linked-services-pointing-tooyour-own-hdinsight-clusters"></a>Voor de gekoppelde Services aan te wijzen tooyour eigen HDInsight-clusters
+* **Gekoppelde Services van HDInsight tooyour wijzen eigenaar HDInsight 3.2 of hieronder clusters:**
 
-  Azure Data Factory ondersteunt het verzenden van taken aan uw eigen HDInsight-clusters van HDI 3.1 [de meest recente versie van het HDInsight ondersteund](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions). U kunt echter niet langer maken 3.2 HDInsight-cluster na 1 April 2017 op basis van het beleid voor buitengebruikstelling gedocumenteerd in [ondersteunde versies van HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).  
+  Azure Data Factory ondersteunt verzenden taken tooyour eigen HDInsight-clusters van HDI 3.1 te[Hallo laatste ondersteund HDInsight versie](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions). U kunt echter niet langer maken 3.2 HDInsight-cluster na 1 April 2017 op basis van Hallo afschaffing beleid gedocumenteerd in [ondersteunde versies van HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).  
 
   **Aanbevelingen:** 
-  * Uitvoeren van tests om te controleren of de compatibiliteit van de activiteiten die verwijzen naar deze gekoppelde Services naar [de meest recente versie van het HDInsight ondersteund](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) met gegevens die worden beschreven in [Hadoop-onderdelen met verschillende Versies van HDInsight](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) en [Hortonworks release-opmerkingen die zijn gekoppeld aan de versies van HDInsight](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).
-  * Upgrade van uw cluster 3.2 HDInsight [de meest recente versie van het HDInsight ondersteund](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) ophalen van de nieuwste onderdelen voor Hadoop-ecosysteem en oplossingen. 
+  * Uitvoeren van tests tooensure Hallo compatibiliteit Hallo activiteiten die deze gekoppelde Services te verwijzen naar[Hallo laatste ondersteund HDInsight versie](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) met gegevens die worden beschreven in [beschikbaar met Hadoop-onderdelen verschillende versies van HDInsight](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) en [Hortonworks release-opmerkingen die zijn gekoppeld aan de versies van HDInsight](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).
+  * Uw HDInsight-3.2-cluster te upgraden[Hallo laatste ondersteund HDInsight versie](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) tooget Hallo nieuwste onderdelen voor Hadoop-ecosysteem en oplossingen. 
 
-* **HDInsight gekoppelde Services aan te wijzen aan uw eigen HDInsight 3.3 of hierboven clusters:**
+* **Gekoppelde Services van HDInsight tooyour wijzen eigenaar HDInsight 3.3 of hoger clusters:**
 
-  Azure Data Factory ondersteunt het verzenden van taken aan uw eigen HDInsight-clusters van HDI 3.1 [de meest recente versie van het HDInsight ondersteund](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions). 
+  Azure Data Factory ondersteunt verzenden taken tooyour eigen HDInsight-clusters van HDI 3.1 te[Hallo laatste ondersteund HDInsight versie](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions). 
   
   **Aanbevelingen:** 
-  * Er is geen actie vereist vanuit het perspectief van de Data Factory. We raden echter als u zich op een lagere versie van HDInsight, nog steeds aan een upgrade naar [de meest recente versie van het HDInsight ondersteund](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) ophalen van de nieuwste onderdelen voor Hadoop-ecosysteem en oplossingen.
+  * Er is geen actie vereist vanuit het perspectief van de Data Factory. Echter, als u zich op een lagere versie van HDInsight, nog steeds aangeraden te[Hallo laatste ondersteund HDInsight versie](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) tooget Hallo nieuwste onderdelen voor Hadoop-ecosysteem en oplossingen.
 
 ### <a name="for-hdinsight-on-demand-linked-services"></a>Voor HDInsight On-Demand gekoppelde Services
 * **Versie 3.2 of hieronder is opgegeven in HDInsight On Demand gekoppelde Services JSON-definitie:**
   
-  Azure Data Factory wordt ondersteuning voor het maken van On-Demand HDInsight-clusters van versie 3.3 of meer objecten uit **15-05/2017** en hoger. En het einde van ondersteuning voor bestaande op aanvraag HDInsight 3.2 gekoppelde services wordt uitgebreid naar **15-07/2017**.  
+  Azure Data Factory wordt ondersteuning voor het maken van On-Demand HDInsight-clusters van versie 3.3 of meer objecten uit **15-05/2017** en hoger. En Hallo einde van ondersteuning voor bestaande op aanvraag HDInsight 3.2 gekoppelde services te wordt uitgebreid**15-07/2017**.  
 
   **Aanbevelingen:** 
-  * Uitvoeren van tests om te controleren of de compatibiliteit van de activiteiten die verwijzen naar deze gekoppelde Services naar [de meest recente versie van het HDInsight ondersteund](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) met gegevens die worden beschreven in [Hadoop-onderdelen met verschillende Versies van HDInsight](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) en [Hortonworks release-opmerkingen die zijn gekoppeld aan de versies van HDInsight](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).
-  * Voordat u **15-07/2017**, werk de versie-eigenschap in op aanvraag HDI gekoppelde Service JSON-definitie [de meest recente versie van het HDInsight ondersteund](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) ophalen van de nieuwste onderdelen voor Hadoop-ecosysteem en oplossingen. Raadpleeg voor gedetailleerde JSON-definitie de [Azure HDInsight On Demand Linked Service voorbeeld](#azure-hdinsight-on-demand-linked-service). 
+  * Uitvoeren van tests tooensure Hallo compatibiliteit Hallo activiteiten die deze gekoppelde Services te verwijzen naar [Hallo laatste ondersteund HDInsight versie](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) met gegevens die worden beschreven in [beschikbaar met Hadoop-onderdelen verschillende versies van HDInsight](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) en [Hortonworks release-opmerkingen die zijn gekoppeld aan de versies van HDInsight](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).
+  * Voordat u **15-07/2017**, Hallo versie eigenschap in op aanvraag HDI gekoppelde Service JSON-definitie bijwerken[Hallo laatste ondersteund HDInsight versie](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) tooget Hallo nieuwste Hadoop-ecosysteem onderdelen en corrigeert. Raadpleeg voor gedetailleerde JSON-definitie toohello [Azure HDInsight On Demand Linked Service voorbeeld](#azure-hdinsight-on-demand-linked-service). 
 
 * **De versie niet is opgegeven in de On-Demand HDInsight gekoppelde Services:**
   
-  Azure Data Factory wordt ondersteuning voor het maken van HDInsight-clusters op aanvraag van versie 3.3 of meer objecten uit **15-05/2017** en hoger. En het einde van de ondersteuning van bestaande op aanvraag HDInsight 3.2 gekoppelde services wordt uitgebreid naar **15-07/2017**. 
+  Azure Data Factory wordt ondersteuning voor het maken van HDInsight-clusters op aanvraag van versie 3.3 of meer objecten uit **15-05/2017** en hoger. En het Hallo-einde van ondersteuning tooexisting op aanvraag HDInsight 3.2 gekoppelde services te uitgebreid**15-07/2017**. 
 
-  Voordat u **15-07/2017**, als dit leeg laat, de standaardwaarden voor versie en eigenschappen voor het besturingssysteemtype zijn: 
+  Voordat u **15-07/2017**, als dit leeg laat, Hallo standaardwaarden voor versie en eigenschappen voor het besturingssysteemtype zijn: 
 
   | Eigenschap | Standaardwaarde | Vereist |
   | --- | --- | --- |
   Versie   | HDI 3.1 voor Windows-cluster en HDI 3.2 voor Linux-cluster.| Nee
-  besturingssysteemtype | De standaardwaarde is Windows | Nee
+  besturingssysteemtype | Hallo standaardwaarde is Windows | Nee
 
-  Na **15-07/2017**, als dit leeg laat, de standaardwaarden voor versie en eigenschappen voor het besturingssysteemtype zijn:
+  Na **15-07/2017**, als dit leeg laat, Hallo standaardwaarden voor versie en eigenschappen voor het besturingssysteemtype zijn:
 
   | Eigenschap | Standaardwaarde | Vereist |
   | --- | --- | --- |
   Versie   | 3.3 HDI voor Windows-cluster en 3.5 voor Linux-cluster.    | Nee
-  besturingssysteemtype | De standaardwaarde is Linux | Nee
+  besturingssysteemtype | Hallo standaardwaarde is Linux   | Nee
 
   **Aanbevelingen:** 
-  * Voordat u **15-07/2017**, voert tests uit om te controleren of de compatibiliteit van de activiteiten die verwijzen naar deze gekoppelde Services naar [de meest recente versie van het HDInsight ondersteund](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) met gegevens die worden beschreven in [ Hadoop-onderdelen met verschillende versies van HDInsight](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) en [Hortonworks release-opmerkingen die zijn gekoppeld aan de versies van HDInsight](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).  
-  * Na **15-07/2017**, zorg ervoor dat u expliciet besturingssysteemtype en versie waarden opgeven als u wilt overschrijven de standaardinstellingen. 
+  * Voordat u **15-07/2017**, uitvoeren van tests tooensure Hallo compatibiliteit Hallo activiteiten die deze gekoppelde Services te verwijzen naar[Hallo laatste ondersteund HDInsight versie](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) met informatie beschreven in [Hadoop-onderdelen met verschillende versies van HDInsight](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) en [Hortonworks release-opmerkingen die zijn gekoppeld aan de versies van HDInsight](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).  
+  * Na **15-07/2017**, zorg ervoor dat u expliciet besturingssysteemtype en versie waarden opgeven als u toooverride Hallo standaardinstellingen wilt. 
 
 >[!Note]
 >Azure Data Factory biedt momenteel geen ondersteuning voor HDInsight-clusters met behulp van Azure Data Lake Store als primaire archief. Azure Storage gebruiken als primaire winkel voor HDInsight-clusters. 
@@ -90,29 +90,29 @@ Dit heeft gevolgen voor bestaande Azure Data Factory activiteiten uitgevoerd teg
 >  
 
 ## <a name="on-demand-compute-environment"></a>Op aanvraag compute-omgeving
-In dit type configuratie, wordt de computeromgeving volledig beheerd door de Azure Data Factory-service. Deze is automatisch gemaakt door de Data Factory-service voordat een taak wordt verzonden om gegevens te verwerken en verwijderd wanneer de taak is voltooid. U kunt een gekoppelde service voor de omgeving compute op aanvraag maken, configureren en gedetailleerde instellingen voor het uitvoeren van taak Clusterbeheer en acties uitvoeren van de bootstrap.
+In dit type configuratie, wordt de computeromgeving Hallo volledig beheerd door hello Azure Data Factory-service. Het is automatisch gemaakt door Hallo Data Factory-service voordat u een taak wordt verzonden tooprocess gegevens en verwijderd wanneer het Hallo-taak is voltooid. U kunt een gekoppelde service voor Hallo op aanvraag compute-omgeving maken, configureren en gedetailleerde instellingen voor het uitvoeren van taak Clusterbeheer en acties uitvoeren van de bootstrap beheren.
 
 > [!NOTE]
-> De configuratie op aanvraag wordt momenteel alleen ondersteund voor Azure HDInsight-clusters.
+> Hallo-op-verzoek-configuratie wordt momenteel alleen ondersteund voor Azure HDInsight-clusters.
 > 
 > 
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Azure HDInsight On-Demand gekoppelde Service
-De Azure Data Factory-service kan automatisch maken van een Windows, Linux-gebaseerde bellen op HDInsight-cluster om gegevens te verwerken. Het cluster wordt gemaakt in dezelfde regio bevinden als het storage-account (de eigenschap linkedServiceName in de JSON) die zijn gekoppeld aan het cluster. Het opslagaccount moet een algemeen standaard Azure-opslagaccount. 
+Hello Azure Data Factory-service kan een Windows, Linux-gebaseerde bellen op HDInsight-cluster tooprocess gegevens automatisch worden gemaakt. Hallo-cluster wordt gemaakt in dezelfde regio bevinden als Hallo storage-account (de eigenschap linkedServiceName in Hallo JSON) die zijn gekoppeld aan cluster Hallo Hallo. Hallo storage-account moet een algemeen standaard Azure-opslagaccount. 
 
-Let op het volgende **belangrijke** punten met betrekking tot HDInsight op aanvraag gekoppelde service:
+Let op de volgende Hallo **belangrijke** punten met betrekking tot HDInsight op aanvraag gekoppelde service:
 
-* Er geen het HDInsight-cluster op aanvraag gemaakt in uw Azure-abonnement. de Azure Data Factory-service beheert het HDInsight-cluster op aanvraag namens jou.
-* De logboeken voor taken die worden uitgevoerd op een HDInsight-cluster op aanvraag worden gekopieerd naar het opslagaccount die is gekoppeld aan het HDInsight-cluster. U kunt deze logboeken openen vanaf de Azure-portal in de **Details uitvoering van activiteit** blade. Zie [pijplijnen bewaken en beheren](data-factory-monitor-manage-pipelines.md) artikel voor meer informatie.
-* Worden in rekening gebracht alleen voor de tijd wanneer het HDInsight-cluster actief is en de taken die worden uitgevoerd.
+* U ziet geen Hallo op aanvraag HDInsight-cluster gemaakt in uw Azure-abonnement. Hello Azure Data Factory-service beheert Hallo op demand HDInsight-cluster namens jou.
+* Hallo logboeken voor taken die worden uitgevoerd op een op aanvraag HDInsight cluster zijn gekopieerd toohello storage-account gekoppeld Hallo HDInsight-cluster. U kunt deze logboeken openen vanaf hello Azure-portal op Hallo **Details uitvoering van activiteit** blade. Zie [pijplijnen bewaken en beheren](data-factory-monitor-manage-pipelines.md) artikel voor meer informatie.
+* Worden in rekening gebracht voor Hallo tijd wanneer Hallo HDInsight-cluster is en taken die worden uitgevoerd.
 
 > [!IMPORTANT]
-> Het duurt meestal **20 minuten** of meer voor het inrichten van een Azure HDInsight-cluster op aanvraag.
+> Het duurt meestal **20 minuten** of meer tooprovision een Azure HDInsight-cluster op aanvraag.
 > 
 > 
 
 ### <a name="example"></a>Voorbeeld
-De volgende JSON definieert een service op aanvraag een gekoppelde HDInsight op basis van Linux. De Data Factory-service maakt automatisch een **op basis van Linux** HDInsight-cluster bij het verwerken van een gegevenssegment. 
+Hallo volgende JSON definieert een service op aanvraag een gekoppelde HDInsight op basis van Linux. Hallo Data Factory-service maakt automatisch een **op basis van Linux** HDInsight-cluster bij het verwerken van een gegevenssegment. 
 
 ```json
 {
@@ -130,26 +130,26 @@ De volgende JSON definieert een service op aanvraag een gekoppelde HDInsight op 
 }
 ```
 
-Voor het gebruik van een HDInsight op basis van Windows-cluster instellen **besturingssysteemtype** naar **windows** of de eigenschap niet gebruiken als de standaardwaarde is: windows.  
+toouse HDInsight op basis van Windows-cluster instellen **besturingssysteemtype** te**windows** of gebruik geen Hallo eigenschap als standaardwaarde Hallo is: windows.  
 
 > [!IMPORTANT]
-> Het HDInsight-cluster maakt een **standaardcontainer** in de blobopslag die u hebt opgegeven in de JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit gedrag is standaard. Met een gekoppelde on-demand HDInsight-service wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment moet worden verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Het cluster wordt verwijderd wanneer het verwerken is voltooid. 
+> Hallo HDInsight-cluster maakt een **standaardcontainer** in Hallo-blobopslag die u hebt opgegeven in Hallo JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer Hallo-cluster is verwijderd. Dit gedrag is standaard. Met de gekoppelde HDInsight-service op aanvraag een HDInsight-cluster wordt gemaakt telkens wanneer een segment toobe verwerkt moet, tenzij er een bestaand livecluster is (**timeToLive**) en wordt verwijderd als het Hallo-verwerking is voltooid. 
 > 
-> Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers volgen een patroon: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
+> Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u niet ze hoeft voor het oplossen van problemen met taken hello, kunt u toodelete ze tooreduce Hallo opslag kosten. Hallo-namen van deze containers een patroon volgen: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) toodelete containers in uw Azure-blobopslag.
 > 
 > 
 
 ### <a name="properties"></a>Eigenschappen
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| type |De eigenschap type moet worden ingesteld op **HDInsightOnDemand**. |Ja |
-| De clustergrootte |Het aantal worker/gegevens knooppunten in het cluster. Het HDInsight-cluster wordt gemaakt met 2 hoofdknooppunten samen met het aantal worker-knooppunten die u voor deze eigenschap opgeeft. De knooppunten zijn met een grootte van Standard_D3 met 4 kernen, zodat een cluster met 4 worker-knooppunten 24 kernen duurt (4\*4 = 16 cores voor worker-knooppunten plus 2\*4 = 8 cores voor hoofdknooppunten). Zie [maken Linux gebaseerde Hadoop-clusters in HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) voor meer informatie over de Standard_D3-laag. |Ja |
-| TimeToLive |De toegestane niet-actieve tijd voor het HDInsight-cluster op aanvraag. Hiermee geeft u op hoelang het HDInsight-cluster op aanvraag na voltooiing van een activiteit die wordt uitgevoerd als er geen actieve taken in het cluster actief blijft.<br/><br/>Bijvoorbeeld, als het uitvoeren van een activiteit 6 minuten duurt en timetolive is ingesteld op 5 minuten, blijft het cluster actief gedurende vijf minuten nadat de 6 minuten van de verwerking van de activiteit is uitgevoerd. Als een andere activiteit die wordt uitgevoerd met het venster 6 minuten wordt uitgevoerd, wordt het verwerkt door hetzelfde cluster.<br/><br/>Maken van een HDInsight-cluster op aanvraag is een dure bewerking (kan even duren) in dat geval gebruik deze instelling als die nodig zijn voor de prestaties van een gegevensfactory verbeteren door een HDInsight-cluster op aanvraag opnieuw te gebruiken.<br/><br/>Als u timetolive-waarde op 0 instelt, wordt het cluster wordt verwijderd zodra de uitvoering van de activiteit is voltooid. Dat, als u een hoge waarde instelt, kan het cluster niet-actieve onnodig wat resulteert in hoge kosten blijven. Het is daarom belangrijk dat u de juiste waarde op basis van uw behoeften.<br/><br/>Als de waarde van de eigenschap timetolive op de juiste wijze is ingesteld, kunnen meerdere pijplijnen het exemplaar van het HDInsight-cluster op aanvraag delen.  |Ja |
-| Versie |Versie van het HDInsight-cluster. De standaardwaarde is 3.1 voor Windows-cluster en 3.2 voor Linux-cluster. |Nee |
-| linkedServiceName | Gekoppelde Azure Storage-service moet worden gebruikt door het cluster op aanvraag voor het opslaan en verwerken van gegevens. Het HDInsight-cluster wordt gemaakt in dezelfde regio bevinden als dit Azure Storage-account.<p>Op dit moment kunt maken u een HDInsight-cluster op aanvraag die gebruikmaakt van een Azure Data Lake Store als de opslag niet. Als u wilt voor het opslaan van de resultaatgegevens van HDInsight worden verwerkt in een Azure Data Lake Store, gebruikt u een Kopieeractiviteit in de gegevens uit de Azure Blob Storage kopiëren naar Azure Data Lake Store. </p>  | Ja |
-| additionalLinkedServiceNames |Hiermee geeft u extra opslagaccounts voor het HDInsight gekoppelde service, zodat de Data Factory-service namens jou registreren kunt. Deze opslagaccounts moeten zich in dezelfde regio bevinden als het HDInsight-cluster wordt gemaakt in dezelfde regio als het opslagaccount dat is opgegeven door linkedServiceName. |Nee |
+| type |de eigenschap type Hello te moet worden ingesteld**HDInsightOnDemand**. |Ja |
+| De clustergrootte |Aantal knooppunten in cluster Hallo worker/gegevens. Hallo HDInsight-cluster wordt gemaakt met 2 hoofdknooppunten samen met het aantal worker-knooppunten die u voor deze eigenschap opgeeft Hallo. Hallo-knooppunten zijn met een grootte van Standard_D3 met 4 kernen, zodat een cluster met 4 worker-knooppunten 24 kernen duurt (4\*4 = 16 cores voor worker-knooppunten plus 2\*4 = 8 cores voor hoofdknooppunten). Zie [maken Linux gebaseerde Hadoop-clusters in HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) voor meer informatie over Hallo Standard_D3 laag. |Ja |
+| TimeToLive |Hallo toegestane niet-actieve tijd voor Hallo bellen op HDInsight-cluster. Hiermee geeft u op hoe lang Hallo bellen op HDInsight-cluster na voltooiing van een activiteit die wordt uitgevoerd als er geen actieve taken in het cluster Hallo actief blijft.<br/><br/>Bijvoorbeeld, als een activiteit die wordt uitgevoerd, 6 minuten en timetolive duurt is ingesteld too5 minuten, Hallo cluster blijft actief gedurende vijf minuten na Hallo 6 minuten van de verwerking van Hallo activiteit die wordt uitgevoerd. Als een andere activiteit die wordt uitgevoerd met Hallo 6 minuten venster wordt uitgevoerd, wordt verwerkt door Hallo hetzelfde cluster.<br/><br/>Maken van een HDInsight-cluster op aanvraag is een dure bewerking (kan even duren), dus gebruik deze instelling als de prestaties van een gegevensfactory nodig tooimprove door een HDInsight-cluster op aanvraag opnieuw te gebruiken.<br/><br/>Als u timetolive waarde too0 instelt, wordt Hallo cluster wordt verwijderd zodra Hallo activiteit die wordt uitgevoerd is voltooid. Dat, als u een hoge waarde instelt, kan Hallo cluster niet-actieve onnodig wat resulteert in hoge kosten blijven. Het is daarom belangrijk dat u Hallo geschikte waarde op basis van uw behoeften.<br/><br/>Als de waarde van de eigenschap timetolive Hallo op de juiste wijze is ingesteld, kunnen meerdere pijplijnen Hallo exemplaar van Hallo bellen op HDInsight-cluster te delen.  |Ja |
+| Versie |De versie van Hallo HDInsight-cluster. de standaardwaarde Hallo is 3.1 voor Windows-cluster en 3.2 voor Linux-cluster. |Nee |
+| linkedServiceName | Een gekoppelde Azure Storage-service toobe door Hallo op aanvraag cluster gebruikt voor het opslaan en verwerken van gegevens. Hallo HDInsight-cluster wordt gemaakt in Hallo dezelfde regio bevinden als dit Azure Storage-account.<p>Op dit moment kunt maken u een HDInsight-cluster op aanvraag die gebruikmaakt van een Azure Data Lake Store als Hallo opslag niet. Als u toostore Hallo resultaatgegevens uit HDInsight worden verwerkt in een Azure Data Lake Store wilt, gebruikt u een Kopieeractiviteit toocopy Hallo gegevens van hello Azure Blob Storage toohello Azure Data Lake Store. </p>  | Ja |
+| additionalLinkedServiceNames |Hiermee geeft u extra opslagaccounts voor Hallo HDInsight gekoppelde service zodat Hallo Data Factory-service namens jou registreren kunt. Deze opslagaccounts moet Hallo dezelfde regio bevinden als de HDInsight-cluster hello, die wordt gemaakt in Hallo dezelfde regio bevinden als Hallo storage-account is opgegeven door linkedServiceName. |Nee |
 | besturingssysteemtype |Type besturingssysteem. Toegestane waarden zijn: (standaard) voor Windows en Linux |Nee |
-| hcatalogLinkedServiceName |De naam van de Azure SQL gekoppelde service die verwijzen naar de HCatalog-database. Het HDInsight-cluster op aanvraag wordt gemaakt met behulp van de Azure SQL database als de metastore. |Nee |
+| hcatalogLinkedServiceName |Hallo-naam van de Azure SQL gekoppelde service die punt toohello HCatalog-database. Hallo bellen op HDInsight-cluster is gemaakt met behulp van hello Azure SQL-database als Hallo metastore. |Nee |
 
 #### <a name="additionallinkedservicenames-json-example"></a>additionalLinkedServiceNames JSON-voorbeeld
 
@@ -161,18 +161,18 @@ Voor het gebruik van een HDInsight op basis van Windows-cluster instellen **best
 ```
 
 ### <a name="advanced-properties"></a>Geavanceerde eigenschappen
-U kunt ook de volgende eigenschappen voor de gedetailleerde configuratie van het HDInsight-cluster op aanvraag opgeven.
+U kunt ook de volgende eigenschappen voor de gedetailleerde configuratie van Hallo bellen op HDInsight-cluster Hallo Hallo opgeven.
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| coreConfiguration |Hiermee geeft u de configuratieparameters core (zoals in core site.xml) voor het HDInsight-cluster moet worden gemaakt. |Nee |
-| hBaseConfiguration |Hiermee geeft u de HBase-configuratieparameters (hbase-site.xml) voor het HDInsight-cluster. |Nee |
-| hdfsConfiguration |Hiermee geeft u de HDFS-configuratieparameters (hdfs-site.xml) voor het HDInsight-cluster. |Nee |
-| hiveConfiguration |Hiermee geeft u de hive-configuratieparameters (hive-site.xml) voor het HDInsight-cluster. |Nee |
-| mapReduceConfiguration |Hiermee geeft u de configuratieparameters van MapReduce (mapred-site.xml) voor het HDInsight-cluster. |Nee |
-| oozieConfiguration |Hiermee geeft u de Oozie-configuratieparameters (oozie-site.xml) voor het HDInsight-cluster. |Nee |
-| stormConfiguration |Hiermee geeft u de Storm-configuratieparameters (storm-site.xml) voor het HDInsight-cluster. |Nee |
-| yarnConfiguration |Hiermee geeft u de Yarn-configuratieparameters (yarn-site.xml) voor het HDInsight-cluster. |Nee |
+| coreConfiguration |Hiermee geeft u Hallo core configuratieparameters (zoals in core site.xml) voor Hallo HDInsight-cluster toobe gemaakt. |Nee |
+| hBaseConfiguration |Hiermee geeft u Hallo HBase configuratieparameters (hbase-site.xml) voor Hallo HDInsight-cluster. |Nee |
+| hdfsConfiguration |Hiermee geeft u Hallo HDFS configuratieparameters (hdfs-site.xml) voor Hallo HDInsight-cluster. |Nee |
+| hiveConfiguration |Hiermee geeft u Hallo hive configuratieparameters (hive-site.xml) voor Hallo HDInsight-cluster. |Nee |
+| mapReduceConfiguration |Hiermee geeft u Hallo MapReduce configuratieparameters (mapred-site.xml) voor Hallo HDInsight-cluster. |Nee |
+| oozieConfiguration |Hiermee geeft u Hallo Oozie configuratieparameters (oozie-site.xml) voor Hallo HDInsight-cluster. |Nee |
+| stormConfiguration |Hiermee geeft u Hallo Storm configuratieparameters (storm-site.xml) voor Hallo HDInsight-cluster. |Nee |
+| yarnConfiguration |Hiermee geeft u Hallo Yarn configuratieparameters (yarn-site.xml) voor Hallo HDInsight-cluster. |Nee |
 
 #### <a name="example--on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Voorbeeld: configuratie van de On-demand HDInsight-cluster met geavanceerde eigenschappen
 
@@ -212,30 +212,30 @@ U kunt ook de volgende eigenschappen voor de gedetailleerde configuratie van het
 ```
 
 ### <a name="node-sizes"></a>Knooppuntgrootten
-U kunt de grootte van de kop, gegevens en zookeeper-knooppunten met de volgende eigenschappen opgeven: 
+U kunt Hallo grootten van head, gegevens en zookeeper-knooppunten met behulp van de volgende eigenschappen Hallo opgeven: 
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| headNodeSize |Hiermee geeft u de grootte van het hoofdknooppunt. De standaardwaarde is: Standard_D3. Zie de **knooppuntgrootten geven** sectie voor meer informatie. |Nee |
-| dataNodeSize |Geeft de grootte van het gegevensknooppunt. De standaardwaarde is: Standard_D3. |Nee |
-| zookeeperNodeSize |Geeft de grootte van het knooppunt dierenverzorger. De standaardwaarde is: Standard_D3. |Nee |
+| headNodeSize |Hiermee wordt de grootte Hallo van Hallo hoofdknooppunt. de standaardwaarde Hallo is: Standard_D3. Zie Hallo **knooppuntgrootten geven** sectie voor meer informatie. |Nee |
+| dataNodeSize |Geeft de grootte Hallo van Hallo gegevensknooppunt. de standaardwaarde Hallo is: Standard_D3. |Nee |
+| zookeeperNodeSize |Hiermee wordt de grootte Hallo van Hallo dierenverzorger knooppunt. de standaardwaarde Hallo is: Standard_D3. |Nee |
 
 #### <a name="specifying-node-sizes"></a>Knooppuntgrootten opgeven
-Zie de [grootten van virtuele Machines](../virtual-machines/linux/sizes.md) artikel voor string-waarden die u wilt opgeven voor de eigenschappen die worden vermeld in de vorige sectie. De waarden moeten voldoen aan de **CMDLETs & API's** waarnaar wordt verwezen in het artikel. Zoals u in het artikel ziet, op het gegevensknooppunt met een grootte van de grote (standaard) 7 GB geheugen heeft, wat mogelijk niet goed voor uw scenario. 
+Zie Hallo [grootten van virtuele Machines](../virtual-machines/linux/sizes.md) artikel voor tekenreekswaarden u toospecify voor vermeld in de vorige sectie Hallo Hallo-eigenschappen moet. Hallo-waarden moeten tooconform toohello **CMDLETs & API's** waarnaar wordt verwezen in Hallo artikel. Zoals u in Hallo artikel ziet, heeft Hallo gegevensknooppunt met een grootte van de grote (standaard) 7 GB geheugen, wat mogelijk niet goed voor uw scenario. 
 
-Als u maken van de hoofdknooppunten D4 grootte en worker-knooppunten wilt, geeft u **Standard_D4** als de waarde voor headNodeSize en dataNodeSize-eigenschappen. 
+Als u toocreate D4 grootte hoofdknooppunten en worker-knooppunten wilt, geef **Standard_D4** als Hallo-waarde voor headNodeSize en dataNodeSize-eigenschappen. 
 
 ```json
 "headNodeSize": "Standard_D4",    
 "dataNodeSize": "Standard_D4",
 ```
 
-Als u een onjuiste waarde voor deze eigenschappen opgeeft, wordt het volgende **fout:** cluster maken is mislukt. Uitzondering: Kan het cluster niet maken. Bewerking is mislukt met code 400. Cluster heeft status: 'Fout'. Bericht: 'PreClusterCreationValidationFailure'. Wanneer u deze fout ontvangt, controleert u of u de **CMDLET & API's** naam uit de tabel in de [grootten van virtuele Machines](../virtual-machines/linux/sizes.md) artikel.  
+Als u een onjuiste waarde voor deze eigenschappen opgeeft, krijgt u de volgende Hallo **fout:** toocreate-cluster is mislukt. Uitzondering: Kan geen toocomplete Hallo cluster Maakbewerking. Bewerking is mislukt met code 400. Cluster heeft status: 'Fout'. Bericht: 'PreClusterCreationValidationFailure'. Wanneer u deze fout ontvangt, controleert u of u Hallo **CMDLET & API's** naam uit de tabel Hallo in Hallo [grootten van virtuele Machines](../virtual-machines/linux/sizes.md) artikel.  
 
 ## <a name="bring-your-own-compute-environment"></a>Breng uw eigen compute-omgeving
-Gebruikers kunnen met dit type configuratie, een al bestaande computeromgeving registreren als een gekoppelde service in de Data Factory. Door de gebruiker de computeromgeving wordt beheerd en de Data Factory-service gebruikt deze om de activiteiten worden uitgevoerd.
+Gebruikers kunnen met dit type configuratie, een al bestaande computeromgeving registreren als een gekoppelde service in de Data Factory. Hallo computeromgeving wordt beheerd door de gebruiker Hallo en Hallo Data Factory-service gebruikt deze tooexecute Hallo activiteiten.
 
-Dit type configuratie wordt ondersteund voor de volgende compute-omgevingen:
+Dit type configuratie wordt ondersteund voor Hallo volgende omgevingen COMPUTE:
 
 * Azure HDInsight
 * Azure Batch
@@ -244,7 +244,7 @@ Dit type configuratie wordt ondersteund voor de volgende compute-omgevingen:
 * Azure SQL DB, Azure SQL DW, SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Azure HDInsight gekoppelde Service
-U kunt een gekoppelde HDInsight-service voor het registreren van uw eigen HDInsight-cluster met Data Factory maken.
+U kunt een gekoppelde HDInsight-service tooregister uw eigen HDInsight-cluster maken met Data Factory.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -266,20 +266,20 @@ U kunt een gekoppelde HDInsight-service voor het registreren van uw eigen HDInsi
 ### <a name="properties"></a>Eigenschappen
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| type |De eigenschap type moet worden ingesteld op **HDInsight**. |Ja |
-| clusterUri |De URI van het HDInsight-cluster. |Ja |
-| gebruikersnaam |Geef de naam van de gebruiker moet worden gebruikt voor het verbinding maken met een bestaand HDInsight-cluster. |Ja |
-| wachtwoord |Wachtwoord voor het gebruikersaccount opgeven. |Ja |
-| linkedServiceName | Naam van de gekoppelde Azure Storage-service die naar de Azure blob storage gebruikt door het HDInsight-cluster verwijst. <p>Op dit moment kunt opgeven u niet dat een Azure Data Lake Store gekoppelde service voor deze eigenschap. Als het HDInsight-cluster toegang tot de Data Lake Store heeft, kunt u toegang tot gegevens in Azure Data Lake Store van Hive/Pig-scripts. </p>  |Ja |
+| type |de eigenschap type Hello te moet worden ingesteld**HDInsight**. |Ja |
+| clusterUri |Hallo-URI van Hallo HDInsight-cluster. |Ja |
+| gebruikersnaam |Geef het Hallo-naam van Hallo gebruiker toobe tooconnect tooan bestaand HDInsight-cluster gebruikt. |Ja |
+| wachtwoord |Wachtwoord voor gebruikersaccount Hallo opgeven. |Ja |
+| linkedServiceName | Naam van Hallo gekoppelde Azure Storage-service die toohello Azure blob-opslag verwijst gebruikt door Hallo HDInsight-cluster. <p>Op dit moment kunt opgeven u niet dat een Azure Data Lake Store gekoppelde service voor deze eigenschap. Als Hallo HDInsight-cluster toegang tot toohello Data Lake Store heeft, kan u toegang tot gegevens in Azure Data Lake Store Hallo van Hive/Pig-scripts. </p>  |Ja |
 
 ## <a name="azure-batch-linked-service"></a>Gekoppelde Service van Azure Batch
-U kunt een gekoppelde Azure-Batch-service voor het registreren van een Batch-pool van virtuele machines (VM's) maken met een data factory. U kunt aangepaste .NET-activiteiten met behulp van Azure Batch of Azure HDInsight kunt uitvoeren.
+U kunt een Azure Batch gekoppelde service tooregister een Batch-pool van virtuele machines (VM's) tooa gegevensfactory maken. U kunt aangepaste .NET-activiteiten met behulp van Azure Batch of Azure HDInsight kunt uitvoeren.
 
-Zie de volgende onderwerpen als u niet bekend met Azure Batch-service bent:
+Zie de volgende onderwerpen als u nieuwe tooAzure Batch-service:
 
-* [Basisbeginselen van Azure Batch](../batch/batch-technical-overview.md) voor een overzicht van de Azure Batch-service.
-* [Nieuwe AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet voor het maken van een Azure Batch-account (of) [Azure-portal](../batch/batch-account-create-portal.md) naar de Azure Batch-account maken met Azure-portal. Zie [met behulp van PowerShell voor het beheren van Azure Batch-Account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) onderwerp voor gedetailleerde instructies over het gebruik van de cmdlet.
-* [Nieuwe-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet om een Azure Batch-pool te maken.
+* [Basisbeginselen van Azure Batch](../batch/batch-technical-overview.md) voor een overzicht van hello Azure Batch-service.
+* [Nieuwe AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet toocreate Azure Batch-account (of) [Azure-portal](../batch/batch-account-create-portal.md) toocreate hello Azure Batch-account met Azure portal. Zie [met behulp van PowerShell toomanage Azure Batch-Account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) onderwerp voor gedetailleerde instructies over het gebruik van Hallo-cmdlet.
+* [Nieuwe-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet toocreate een Azure Batch-pool.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -298,13 +298,13 @@ Zie de volgende onderwerpen als u niet bekend met Azure Batch-service bent:
 }
 ```
 
-Append '**.\< regionaam\>**' op de naam van uw batch-account voor de **accountName** eigenschap. Voorbeeld:
+Append '**.\< regionaam\>**' toohello-naam van uw batch-account voor Hallo **accountName** eigenschap. Voorbeeld:
 
 ```json
 "accountName": "mybatchaccount.eastus"
 ```
 
-Er is een andere optie voor het eindpunt batchUri zoals weergegeven in het volgende voorbeeld:
+Een andere optie is tooprovide hello batchUri eindpunt zoals weergegeven in Hallo voorbeeld te volgen:
 
 ```json
 "accountName": "adfteam",
@@ -314,14 +314,14 @@ Er is een andere optie voor het eindpunt batchUri zoals weergegeven in het volge
 ### <a name="properties"></a>Eigenschappen
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| type |De eigenschap type moet worden ingesteld op **AzureBatch**. |Ja |
-| Accountnaam |Naam van de Azure Batch-account. |Ja |
-| accessKey |De toegangssleutel voor de Azure Batch-account. |Ja |
-| Groepsnaam |Naam van de groep van virtuele machines. |Ja |
-| linkedServiceName |Naam van de Azure Storage gekoppelde service die is gekoppeld aan deze gekoppelde Azure-Batch-service. Deze gekoppelde service wordt gebruikt voor tijdelijke bestanden die zijn vereist voor het uitvoeren van de activiteit en opslaan van logboekbestanden voor het uitvoeren van de activiteit. |Ja |
+| type |de eigenschap type Hello te moet worden ingesteld**AzureBatch**. |Ja |
+| Accountnaam |Naam van hello Azure Batch-account. |Ja |
+| accessKey |De toegangssleutel voor hello Azure Batch-account. |Ja |
+| Groepsnaam |Naam van het Hallo-pool van virtuele machines. |Ja |
+| linkedServiceName |Naam van Hallo gekoppelde Azure Storage-service die is gekoppeld aan deze gekoppelde Azure-Batch-service. Deze gekoppelde service wordt gebruikt voor tijdelijke bestanden toorun Hallo activiteit en opslaan van logboekbestanden voor het uitvoeren van activiteit Hallo vereist. |Ja |
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning gekoppelde Service
-U maakt een Azure Machine Learning gekoppelde service voor het registreren van een Machine Learning-batch score-eindpunt met een data factory.
+Hebt u een Azure Machine Learning gekoppelde service tooregister een Machine Learning score-eindpunt tooa data factory.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -341,36 +341,36 @@ U maakt een Azure Machine Learning gekoppelde service voor het registreren van e
 ### <a name="properties"></a>Eigenschappen
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| Type |De eigenschap type moet worden ingesteld op: **AzureML**. |Ja |
-| mlEndpoint |De URL voor batchscores. |Ja |
-| apiKey |Het gepubliceerde werkruimtemodel API. |Ja |
+| Type |Hallo type eigenschap moet worden ingesteld op: **AzureML**. |Ja |
+| mlEndpoint |Hallo URL voor batchscores. |Ja |
+| apiKey |Hallo gepubliceerde werkruimtemodel op de API. |Ja |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics gekoppelde Service
-U maakt een **Azure Data Lake Analytics** gekoppelde service om te koppelen van een Azure Data Lake Analytics compute een Azure data factory-service. De Data Lake Analytics U-SQL-activiteit in de pijplijn verwijst naar deze gekoppelde service. 
+U maakt een **Azure Data Lake Analytics** gekoppelde service toolink een Azure Data Lake Analytics compute-service tooan Azure data factory. Hallo Data Lake Analytics U-SQL-activiteit in de pijplijn Hallo verwijst toothis gekoppelde service. 
 
-De volgende tabel bevat beschrijvingen van de algemene eigenschappen die in de JSON-definitie. U kunt verder tussen service-principal en verificatie van gebruikersreferenties.
+Hallo bevat volgende tabel beschrijvingen van Hallo generieke eigenschappen die worden gebruikt in Hallo JSON-definitie. U kunt verder tussen service-principal en verificatie van gebruikersreferenties.
 
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| **type** |De eigenschap type moet worden ingesteld op: **AzureDataLakeAnalytics**. |Ja |
+| **type** |Hallo type eigenschap moet worden ingesteld op: **AzureDataLakeAnalytics**. |Ja |
 | **Accountnaam** |Azure Data Lake Analytics-accountnaam. |Ja |
 | **dataLakeAnalyticsUri** |Azure Data Lake Analytics-URI. |Nee |
-| **abonnements-id** |Azure-abonnement-id |Nee (als niet wordt opgegeven, abonnement van de gegevensfactory wordt gebruikt). |
-| **resourceGroupName** |Naam van een Azure-resourcegroep |Nee (als niet wordt opgegeven, brongroep van de gegevensfactory wordt gebruikt). |
+| **abonnements-id** |Azure-abonnement-id |Nee (als dit niet is opgegeven, abonnement van Hallo data factory wordt gebruikt). |
+| **resourceGroupName** |Naam van een Azure-resourcegroep |Nee (als dit niet is opgegeven, brongroep van Hallo data factory wordt gebruikt). |
 
 ### <a name="service-principal-authentication-recommended"></a>Verificatie van de service principal (aanbevolen)
-Registreren van een Toepassingsentiteit in Azure Active Directory (Azure AD) voor het gebruik van verificatie van de service-principal en wordt de toegang verlenen tot Data Lake Store. Zie voor gedetailleerde stappen [authentication Service-naar-serviceconnector](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Noteer de volgende waarden die u gebruikt voor het definiëren van de gekoppelde service:
+toouse service principal verificatie, de registratie een Toepassingsentiteit in Azure Active Directory (Azure AD) en verleen het Hallo toegang krijgen tot de tooData Lake Store. Zie voor gedetailleerde stappen [authentication Service-naar-serviceconnector](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Noteer Hallo waarden, waarin u volgende toodefine Hallo gekoppelde service:
 * Toepassings-id
 * Sleutel van toepassing 
 * Tenant-id
 
-Verificatie van de service-principal gebruiken door te geven van de volgende eigenschappen:
+Verificatie van de service-principal door te geven van de volgende eigenschappen hello gebruiken:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Geef de toepassing client-ID. | Ja |
-| **servicePrincipalKey** | De sleutel van de toepassing opgeven. | Ja |
-| **tenant** | De tenant-gegevens (domain name of tenant-ID) opgeven onder uw toepassing zich bevindt. U kunt deze ophalen door de muis in de rechterbovenhoek van de Azure portal. | Ja |
+| **servicePrincipalId** | Geef Hallo van client-id op. | Ja |
+| **servicePrincipalKey** | De sleutel van de toepassing hello opgeven. | Ja |
+| **tenant** | Geef informatie op Hallo tenant (domain name of tenant-ID) in uw toepassing zich bevindt. U kunt deze ophalen door zwevende Hallo muis in Hallo rechterbovenhoek Hallo Azure-portal. | Ja |
 
 **Voorbeeld: Service-principal-verificatie**
 ```json
@@ -392,12 +392,12 @@ Verificatie van de service-principal gebruiken door te geven van de volgende eig
 ```
 
 ### <a name="user-credential-authentication"></a>Verificatie van gebruikersreferenties
-U kunt ook referentie gebruikersverificatie voor Data Lake Analytics gebruiken door te geven van de volgende eigenschappen:
+Ook kunt u verificatie van gebruikersreferenties voor Data Lake Analytics door te geven Hallo volgende eigenschappen:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| **autorisatie** | Klik op de **autoriseren** in de Data Factory-Editor en voer uw referenties op waarmee de automatisch gegenereerde autorisatie-URL worden toegewezen aan deze eigenschap. | Ja |
-| **sessie-id** | OAuth-sessie-ID van de OAuth-autorisatie-sessie. Elke sessie-ID is uniek en kan slechts één keer worden gebruikt. Deze instelling wordt automatisch gegenereerd wanneer u de Data Factory-Editor. | Ja |
+| **autorisatie** | Klik op Hallo **autoriseren** knop op Hallo Data Factory-Editor en voer uw referenties die Hallo automatisch gegenereerde autorisatie-URL toothis eigenschap toewijst. | Ja |
+| **sessie-id** | OAuth-sessie-ID van Hallo OAuth-autorisatie-sessie. Elke sessie-ID is uniek en kan slechts één keer worden gebruikt. Deze instelling wordt automatisch gegenereerd wanneer u Hallo Data Factory-Editor. | Ja |
 
 **Voorbeeld: Verificatie van gebruikersreferenties**
 ```json
@@ -418,14 +418,14 @@ U kunt ook referentie gebruikersverificatie voor Data Lake Analytics gebruiken d
 ```
 
 #### <a name="token-expiration"></a>Verlopen van het token
-De autorisatiecode die u hebt gegenereerd met de **autoriseren** knop verloopt na enige tijd opnieuw. Zie de volgende tabel voor de vervaldatum tijdstippen voor verschillende soorten gebruikersaccounts. Mogelijk ziet u de volgende fout weergegeven wanneer de verificatie **-token verloopt**: referentie-bewerkingsfout: invalid_grant - AADSTS70002: fout bij het valideren van referenties. AADSTS70008: De toegewezen toegangsmachtiging is verlopen of ingetrokken. Traceer-ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 correlatie-ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 tijdstempel: 2015-12-15 21:09:31Z
+Hallo autorisatiecode die u hebt gegenereerd met Hallo **autoriseren** knop verloopt na enige tijd opnieuw. Zie de volgende tabel voor Hallo verlopen tijden voor verschillende soorten gebruikersaccounts Hallo. Mogelijk ziet u Hallo volgende foutbericht weergegeven wanneer Hallo verificatie **-token verloopt**: referentie-bewerkingsfout: invalid_grant - AADSTS70002: fout bij het valideren van referenties. AADSTS70008: Hallo opgegeven toegangsmachtiging is verlopen of ingetrokken. Traceer-ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 correlatie-ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 tijdstempel: 2015-12-15 21:09:31Z
 
 | Gebruikerstype | Verloopt na |
 |:--- |:--- |
 | Gebruikersaccounts die niet worden beheerd door Azure Active Directory (@hotmail.com, @live.com, enz.) |12 uur |
-| Gebruikersaccounts die worden beheerd door Azure Active Directory (AAD) |het is 14 dagen na het laatste segment worden uitgevoerd. <br/><br/>negentig dagen weergegeven, als een segment op basis van de gekoppelde service op basis van OAuth ten minste eenmaal in de 14 dagen wordt uitgevoerd. |
+| Gebruikersaccounts die worden beheerd door Azure Active Directory (AAD) |het is 14 dagen na de laatste segment Hallo worden uitgevoerd. <br/><br/>negentig dagen weergegeven, als een segment op basis van de gekoppelde service op basis van OAuth ten minste eenmaal in de 14 dagen wordt uitgevoerd. |
 
-Autoriseren om deze fout voorkomen/oplossen, met behulp van de **autoriseren** knop wanneer de **-token verloopt** en de gekoppelde service implementeren. U kunt ook de waarden voor genereren **sessionId** en **autorisatie** eigenschappen programmatisch met code als volgt:
+tooavoid/los deze fout, opnieuw autoriseren hello met **autoriseren** wanneer hello **-token verloopt** en implementeer gekoppelde Hallo-service opnieuw. U kunt ook de waarden voor genereren **sessionId** en **autorisatie** eigenschappen programmatisch met code als volgt:
 
 ```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
@@ -452,14 +452,14 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 
-Zie [AzureDataLakeStoreLinkedService klasse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService klasse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), en [AuthorizationSessionGetResponse klasse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) onderwerpen voor meer informatie over de Data Factory-klassen die in de code wordt gebruikt. Voeg een verwijzing naar: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll voor de klasse WindowsFormsWebAuthenticationDialog. 
+Zie [AzureDataLakeStoreLinkedService klasse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService klasse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), en [AuthorizationSessionGetResponse klasse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) onderwerpen voor meer informatie informatie over Hallo Data Factory-klassen in Hallo code gebruikt. Voeg een verwijzing naar: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll voor Hallo WindowsFormsWebAuthenticationDialog klasse. 
 
 ## <a name="azure-sql-linked-service"></a>Azure SQL gekoppelde Service
-Een Azure SQL gekoppelde service maakt en gebruikt u deze met de [activiteit opgeslagen Procedure](data-factory-stored-proc-activity.md) aan te roepen, een opgeslagen procedure uit een Data Factory-pijplijn. Zie [Azure SQL-Connector](data-factory-azure-sql-connector.md#linked-service-properties) voor meer informatie over deze gekoppelde service.
+U een Azure SQL gekoppelde service maken en deze gebruiken met Hallo [activiteit opgeslagen Procedure](data-factory-stored-proc-activity.md) tooinvoke een opgeslagen procedure uit een Data Factory-pijplijn. Zie [Azure SQL-Connector](data-factory-azure-sql-connector.md#linked-service-properties) voor meer informatie over deze gekoppelde service.
 
 ## <a name="azure-sql-data-warehouse-linked-service"></a>Azure SQL gekoppelde Service van datawarehouse
-Een Azure SQL Data Warehouse gekoppelde service maakt en gebruikt u deze met de [activiteit opgeslagen Procedure](data-factory-stored-proc-activity.md) aan te roepen, een opgeslagen procedure uit een Data Factory-pijplijn. Zie [Azure SQL Data Warehouse Connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) voor meer informatie over deze gekoppelde service.
+U een Azure SQL Data Warehouse gekoppelde service maken en deze gebruiken met Hallo [activiteit opgeslagen Procedure](data-factory-stored-proc-activity.md) tooinvoke een opgeslagen procedure uit een Data Factory-pijplijn. Zie [Azure SQL Data Warehouse Connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) voor meer informatie over deze gekoppelde service.
 
 ## <a name="sql-server-linked-service"></a>Gekoppelde Service van SQL Server
-U maakt een gekoppelde SQL-Server-service en deze gebruikt met de [activiteit opgeslagen Procedure](data-factory-stored-proc-activity.md) aan te roepen, een opgeslagen procedure uit een Data Factory-pijplijn. Zie [SQL Server-connector](data-factory-sqlserver-connector.md#linked-service-properties) voor meer informatie over deze gekoppelde service.
+U een SQL Server gekoppelde service maken en deze gebruiken met Hallo [activiteit opgeslagen Procedure](data-factory-stored-proc-activity.md) tooinvoke een opgeslagen procedure uit een Data Factory-pijplijn. Zie [SQL Server-connector](data-factory-sqlserver-connector.md#linked-service-properties) voor meer informatie over deze gekoppelde service.
 

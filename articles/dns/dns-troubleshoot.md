@@ -1,6 +1,6 @@
 ---
-title: Azure DNS-probleemoplossingsgids | Microsoft Docs
-description: Het oplossen van veelvoorkomende problemen met Azure DNS
+title: aaaAzure DNS-probleemoplossingsgids | Microsoft Docs
+description: Hoe tootroubleshoot algemene problemen met een Azure DNS
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: jonatul
-ms.openlocfilehash: 1d9bb681a864bdc3e5a2f9c9a531d9566b16ada4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 944aa1811c980063f739268cd2c79b647b2754a4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS-probleemoplossingsgids
 
@@ -29,12 +29,12 @@ Als deze stappen uw probleem niet verhelpen, kunt u ook zoeken naar of uw proble
 
 ## <a name="i-cant-create-a-dns-zone"></a>Ik kan een DNS-zone niet maken.
 
-Probeer een of meer van de volgende stappen om veelvoorkomende problemen op te lossen:
+algemene problemen tooresolve, probeer een of meer Hallo stappen te volgen:
 
-1.  Controleer de auditlogboeken van Azure DNS om de reden van de fout vast te stellen.
-2.  Elke DNS-zonenaam moet uniek zijn binnen de resourcegroep. Een resourcegroep kan dus niet twee DNS-zones met dezelfde naam bevatten. Gebruik een andere zonenaam of een andere resourcegroep.
-3.  U ziet mogelijk de foutmelding 'Het maximumaantal zones in abonnement {abonnements-id} is bereikt of overschreden'. Gebruik een ander Azure-abonnement, verwijder enkele zones of neem contact op met de ondersteuning van Azure om uw abonnementslimiet te verhogen.
-4.  U ziet mogelijk de foutmelding 'De zone {zonenaam} is niet beschikbaar'. Dit betekent dat Azure DNS geen naamservers kan toewijzen voor deze DNS-zone. Gebruik dan een andere zonenaam. Als u de eigenaar van de domeinnaam bent, kunt u ook de ondersteuning van Azure vragen naamservers voor u toe te wijzen.
+1.  Bekijk hello die Azure DNS audit logboeken toodetermine Hallo foutreden.
+2.  Elke DNS-zonenaam moet uniek zijn binnen de resourcegroep. Dat wil zeggen, twee DNS-zones Hello dezelfde naam van een resourcegroep niet delen. Gebruik een andere zonenaam of een andere resourcegroep.
+3.  Er wordt een fout "Bereikt of overschreden Hallo maximumaantal zones in abonnement {abonnements-id}." Gebruik een ander Azure-abonnement, verwijder een aantal zones, of neem contact op met ondersteuning van Azure tooraise limiet voor uw abonnement.
+4.  Mogelijk ziet u een fout 'hello zone '{zone-name}' is niet beschikbaar'. Deze fout betekent dat Azure DNS naamservers niet kan tooallocate voor deze DNS-zone. Gebruik dan een andere zonenaam. U kunt ook als u de domeineigenaar naam hello, contact op met ondersteuning van Azure, die de naamservers voor u kunt toewijzen.
 
 
 ### <a name="recommended-documents"></a>**Aanbevolen documenten**
@@ -45,13 +45,13 @@ Probeer een of meer van de volgende stappen om veelvoorkomende problemen op te l
 
 ## <a name="i-cant-create-a-dns-record"></a>Ik kan geen DNS-record maken
 
-Probeer een of meer van de volgende stappen om veelvoorkomende problemen op te lossen:
+algemene problemen tooresolve, probeer een of meer Hallo stappen te volgen:
 
-1.  Controleer de auditlogboeken van Azure DNS om de reden van de fout vast te stellen.
-2.  Bestaat de recordset al?  Azure DNS beheert records als *recordsets*. Hierin zijn records met dezelfde naam en van hetzelfde type opgenomen. Als er al een record met dezelfde naam en van hetzelfde type bestaat, kunt u nog een dergelijke record toevoegen door de bestaande recordset te bewerken.
-3.  Probeert u een record te maken in de apex (het hoofdniveau) van de DNS-zone? Dan is het de DNS-conventie om het @-teken te gebruiken als recordnaam. De DNS-standaarden staan CNAME-records in de apex van de zone niet toe.
-4.  Is er sprake van een CNAME-conflict?  De DNS-standaarden staan niet toe dat een CNAME-record dezelfde naam heeft als een record van een ander type. Als u een bestaande CNAME hebt, kunt u geen record maken met dezelfde naam maar van een ander type.  Op dezelfde manier kunt u ook geen CNAME maken als de naam overeenkomt met een bestaande record van een ander type. Verhelp het conflict door de andere record te verwijderen of een andere recordnaam te kiezen.
-5.  Hebt u de limiet voor het aantal toegestane recordsets in een DNS-zone bereikt? Het huidige aantal recordsets en het maximumaantal recordsets worden weergegeven in Azure Portal onder de eigenschappen van de zone. Als u deze limiet hebt bereikt, verwijdert u een aantal recordsets of neemt u contact op met de ondersteuning van Azure om de limiet voor recordsets voor deze zone te laten verhogen. Probeer het vervolgens opnieuw. 
+1.  Bekijk hello die Azure DNS audit logboeken toodetermine Hallo foutreden.
+2.  Hallo-Recordset bestaat er al?  Azure DNS beheert records met behulp van de record *ingesteld*, die zijn Hallo verzameling records Hallo dezelfde naam en hetzelfde Hallo type. Als een record met Hallo dezelfde naam en typ het al bestaat, wordt tooadd een andere deze record moet u bestaande record Hallo bewerken ingesteld.
+3.  Probeert u toocreate een record op Hallo DNS-zone apex (Hallo 'root' hello zone)? Als dus Hallo DNS-conventie toouse Hallo ' @' teken als Hallo recordnaam. Let ook op dat Hallo DNS-standaarden staan niet toe dat CNAME-records in het toppunt Hallo zone.
+4.  Is er sprake van een CNAME-conflict?  Hallo DNS-standaarden toegestaan een CNAME-record met dezelfde naam als een record van een ander type Hallo niet. Als u een bestaande CNAME, het maken van een record met dezelfde naam van een ander type mislukt Hallo hebt.  Maken van een CNAME mislukt op dezelfde manier als Hallo naam overeenkomt met een bestaande record van een ander type. Hallo conflict verwijderen door het verwijderen van Hallo andere record of een andere recordnaam kiezen.
+5.  Hallo maximale aantal recordsets zijn toegestaan in een DNS-zone Hallo bereikt? huidige aantal recordsets Hallo en hello zijn maximum aantal recordsets weergegeven in hello Azure-portal onder Hallo eigenschappen voor Hallo zone. Als u deze limiet is bereikt, klikt u vervolgens een aantal recordsets verwijderen of neem contact op met ondersteuning van Azure tooraise de limiet van uw recordset voor deze zone, en probeer het opnieuw. 
 
 
 ### <a name="recommended-documents"></a>**Aanbevolen documenten**
@@ -64,37 +64,37 @@ Probeer een of meer van de volgende stappen om veelvoorkomende problemen op te l
 
 ## <a name="i-cant-resolve-my-dns-record"></a>Ik kan mijn DNS-record niet omzetten
 
-De DNS-naamomzetting vereist meerdere stappen en kan om verschillende redenen mislukken. Aan de hand van de volgende stappen kunt u onderzoeken waarom de DNS-omzetting mislukt voor een DNS-record in een zone in Azure DNS.
+De DNS-naamomzetting vereist meerdere stappen en kan om verschillende redenen mislukken. Hallo volgende stappen kunt u onderzoeken waarom de DNS-omzetting is mislukt voor een DNS-record in een zone die wordt gehost in Azure DNS.
 
-1.  Controleer of de DNS-records correct zijn geconfigureerd in Azure DNS. Controleer of de zonenaam, de naam en het type van de DNS-records in Azure Portal correct zijn.
-2.  Controleer of de DNS-records correct zijn omgezet in de Azure DNS-naamservers.
-    - Als u DNS-query's maakt op uw lokale pc, tonen de resultaten in de cache mogelijk niet de huidige status van de naamservers.  Daarnaast maken bedrijfsnetwerken vaak gebruik van DNS-proxyservers, waardoor DNS-query's niet worden doorgestuurd naar specifieke naamservers.  U kunt deze problemen voorkomen door een webservice voor naamomzetting te gebruiken, zoals [digwebinterface](http://digwebinterface.com).
-    - Zorg er wel voor dat u de juiste naamservers voor uw DNS-zone opgeeft, zoals weergegeven in Azure Portal.
-    - Controleer of de DNS-naam (dit is de volledig gekwalificeerde naam, inclusief de zonenaam) en het recordtype kloppen.
-3.  Controleer of de DNS-domeinnaam juist is [gedelegeerd naar de Azure DNS-naamservers](dns-domain-delegation.md). Er zijn [veel websites van derden die de DNS-delegering kunnen valideren](https://www.bing.com/search?q=dns+check+tool). Dit is een delegeringstest voor de *zone*. Geef dus alleen de naam van de DNS-zone op en niet de volledig gekwalificeerde recordnaam.
-4.  Nadat u het bovenstaande hebt voltooid, zou uw DNS-record correct moeten worden omgezet. U kunt dit controleren door opnieuw [digwebinterface](http://digwebinterface.com) te gebruiken, maar nu met de standaardinstellingen van de naamserver.
+1.  Bevestig dat Hallo DNS-records correct zijn geconfigureerd in Azure DNS. Bekijk Hallo DNS-records in hello Azure-portal controleren Hallo zonenaam en recordnaam recordtype juist zijn.
+2.  Bevestig dat Hallo DNS-records correct op Hallo Azure DNS-naamservers omzetten.
+    - Als u DNS-query's van uw lokale PC, ziet u mogelijk resultaten in het cachegeheugen die niet met huidige status van de naamservers Hallo Hallo overeenkomen.  Bedrijfsnetwerken gebruiken ook vaak proxyservers DNS-naamservers toospecific die verhinderen dat DNS-query's worden omgeleid.  tooavoid deze problemen gebruiken op basis van web service voor naamomzetting zoals [digwebinterface](http://digwebinterface.com).
+    - Worden ervoor toospecify Hallo juist naamservers voor uw DNS-zone, zoals wordt weergegeven in hello Azure-portal.
+    - Controleer of Hallo DNS-naam klopt (u toospecify Hallo volledig gekwalificeerde naam hebben, inclusief de naam van de zone Hallo) en Hallo recordtype juist is
+3.  Bevestig dat Hallo DNS-domeinnaam juist is [toohello Azure DNS-naamservers overgedragen](dns-domain-delegation.md). Er zijn [veel websites van derden die de DNS-delegering kunnen valideren](https://www.bing.com/search?q=dns+check+tool). Deze test is een *zone* delegering test, zodat u alleen Hallo DNS-zone en niet Hallo volledig gekwalificeerde naam van de record moet invoeren.
+4.  Hallo bovenstaande nadat is voltooid, uw DNS-record moet nu worden omgezet correct. tooverify, die u opnieuw kunt gebruiken [digwebinterface](http://digwebinterface.com), nu met de naam Hallo-server standaardinstellingen.
 
 
 ### <a name="recommended-documents"></a>**Aanbevolen documenten**
 
-[Een domein delegeren naar Azure DNS](dns-domain-delegation.md)
+[Een domein tooAzure DNS overdragen](dns-domain-delegation.md)
 
 
 
-## <a name="how-do-i-specify-the-service-and-protocol-for-an-srv-record"></a>Hoe geef ik de 'service' en het 'protocol' voor een SRV-record op?
+## <a name="how-do-i-specify-hello-service-and-protocol-for-an-srv-record"></a>Hoe geef ik Hallo 'service' en 'protocol' voor een SRV-record
 
-Azure DNS beheert DNS-records als recordsets. Hierin zijn records met dezelfde naam en van hetzelfde type opgenomen. Voor een SRV-recordset moeten de 'service' en het 'protocol' worden opgegeven als onderdeel van de recordsetnaam. De andere SRV-parameters ('prioriteit', 'gewicht', 'poort' en 'doel') worden afzonderlijk opgegeven voor elke record in de recordset.
+Azure DNS beheert DNS-records als recordsets-verzameling van records met Hallo dezelfde naam en hetzelfde Hallo Hallo type. Hallo 'service' en 'protocol' moeten een SRV-Recordset toobe opgegeven als deel van naam van de recordset Hallo. Hallo worden andere parameters SRV ('prioriteit', 'gewicht', 'poort' en 'target') afzonderlijk opgegeven voor elke record in de recordset Hallo.
 
 Voorbeeld van SRV-recordnamen (servicenaam 'sip', protocol 'tcp'):
 
-- \_sip.\_tcp (er wordt een record gemaakt in de apex van de zone)
+- \_SIP. \_tcp (maakt een record in het toppunt zone Hallo)
 - \_sip.\_tcp.sipservice (er wordt een recordset gemaakt met de naam 'sipservice')
 
 ### <a name="recommended-documents"></a>**Aanbevolen documenten**
 
 [DNS-zones en -records](dns-zones-records.md)
 <br>
-[DNS-recordsets en -records maken met Azure Portal](dns-getstarted-create-recordset-portal.md)
+[DNS-recordsets en records maken met behulp van hello Azure-portal](dns-getstarted-create-recordset-portal.md)
 <br>
 [SRV-recordtype (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
 
@@ -102,6 +102,6 @@ Voorbeeld van SRV-recordnamen (servicenaam 'sip', protocol 'tcp'):
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over [Azure DNS-zones en records](dns-zones-records.md)
-* Om te starten met behulp van Azure DNS, informatie over hoe [maken van een DNS-zone](dns-getstarted-create-dnszone-portal.md) en [DNS-records maken](dns-getstarted-create-recordset-portal.md).
-* Voor het migreren van een bestaande DNS-zone meer informatie over hoe [importeren en exporteren van een DNS-zonebestand](dns-import-export.md).
+* met behulp van Azure DNS toostart meer informatie over hoe te[maken van een DNS-zone](dns-getstarted-create-dnszone-portal.md) en [DNS-records maken](dns-getstarted-create-recordset-portal.md).
+* een bestaande DNS-zone toomigrate meer informatie over hoe te[importeren en exporteren van een DNS-zonebestand](dns-import-export.md).
 

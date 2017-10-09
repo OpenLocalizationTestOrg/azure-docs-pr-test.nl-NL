@@ -1,5 +1,5 @@
 ---
-title: Een betrouwbare Azure Service Fabric-service maken met C#
+title: aaaCreate een betrouwbare Azure Service Fabric-service met C#
 description: Een betrouwbare Service-toepassing die is gebouwd op Azure Service Fabric met Visual Studio maken, implementeren en er foutopsporing op toepassen.
 services: service-fabric
 documentationcenter: .net
@@ -14,120 +14,120 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/28/2017
 ms.author: ryanwi
-ms.openlocfilehash: f93298e6483fd8c9dfda835964aeebd1a430af69
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 740c866da6e639219b529fe92ed63cbeaa702a35
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Uw eerste stateful betrouwbare Service Fabric-servicetoepassing maken met C#
 
-Lees hoe u uw eerste Service Fabric-toepassing voor .NET in Windows in slechts een paar minuten kunt implementeren. Wanneer u klaar bent, hebt u een lokaal cluster uitgevoerd met een betrouwbare servicetoepassing.
+Meer informatie over hoe toodeploy uw eerste Service Fabric-toepassing voor .NET in Windows over een paar minuten. Wanneer u klaar bent, hebt u een lokaal cluster uitgevoerd met een betrouwbare servicetoepassing.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u begint, zorgt u ervoor dat u [uw ontwikkelingsomgeving hebt ingesteld](service-fabric-get-started.md). Dit omvat het installeren van de Service Fabric SDK en Visual Studio 2017 of 2015.
+Voordat u begint, zorgt u ervoor dat u [uw ontwikkelingsomgeving hebt ingesteld](service-fabric-get-started.md). Dit omvat het installeren van Service Fabric SDK Hallo en Visual Studio 2017 of 2015.
 
-## <a name="create-the-application"></a>De toepassing maken
+## <a name="create-hello-application"></a>Hallo-toepassing maken
 
 Start Visual Studio als **beheerder**.
 
 Maak een project met `CTRL`+`SHIFT`+`N`
 
-Kies in het dialoogvenster **Nieuw Project** de optie **Cloud > Service Fabric-toepassing**.
+In Hallo **nieuw Project** dialoogvenster kiezen **Cloud > Service Fabric-toepassing**.
 
-Noem de toepassing **MyApplication** en druk op **OK**.
+Naam van de toepassing hello **Mijntoepassing** en druk op **OK**.
 
    
 ![Dialoogvenster voor nieuw project in Visual Studio][1]
 
-In het volgende dialoogvenster kunt u elk type Service Fabric-toepassing maken. Kies voor deze snelstartgids **Stateful service**.
+U kunt elk type Service Fabric-toepassing uit het volgende dialoogvenster Hallo maken. Kies voor deze snelstartgids **Stateful service**.
 
-Noem de service **MyStatefulService** en druk op **OK**.
+Service voor Hallo **MyStatefulService** en druk op **OK**.
 
 ![Dialoogvenster voor nieuwe service in Visual Studio][2]
 
 
-Visual Studio maakt het toepassingsproject en het stateful service-project en geeft deze weer in Solution Explorer.
+Visual Studio maakt het toepassingsproject Hallo en Hallo stateful service-project en geeft deze weer in Solution Explorer.
 
 ![Solution Explorer na het maken van de stateful service-toepassing][3]
 
-Het toepassingsproject (**MyApplication**) bevat geen directe code. Het verwijst naar een reeks serviceprojecten. Daarnaast bevat het project drie andere typen inhoud:
+Hallo-toepassingsproject (**Mijntoepassing**) bevat geen code rechtstreeks. Het verwijst naar een reeks serviceprojecten. Daarnaast bevat het project drie andere typen inhoud:
 
 * **Profielen publiceren**  
-Profielen voor het implementeren van verschillende omgevingen.
+Profielen voor het implementeren van toodifferent omgevingen.
 
 * **Scripts**  
 PowerShell-script voor het implementeren/bijwerken van uw toepassing.
 
 * **Toepassingsdefinitie**  
-Bevat het bestand ApplicationManifest.xml onder *ApplicationPackageRoot* waarin de samenstelling van uw toepassing wordt beschreven. Bijbehorende toepassingsparameterbestanden bevinden zich onder *ApplicationParameters*, dat kan worden gebruikt om omgevingsspecifieke parameters op te geven. Visual Studio selecteert een toepassingsparameterbestand dat is opgegeven in het bijbehorende publicatieprofiel tijdens de implementatie in een specifieke omgeving.
+Hallo ApplicationManifest.xml bestand onder omvat *ApplicationPackageRoot* waarin wordt beschreven samenstelling van uw toepassing. Bijbehorende parameter voor toepassingsbestanden onder zijn *ApplicationParameters*, welke gebruikte toospecify omgeving-specifieke parameters kan worden. Visual Studio selecteert een parameterbestand toepassing die opgegeven in Hallo gekoppeld publicatieprofiel tijdens de implementatie tooa-specifieke omgeving.
     
-Zie [Aan de slag met Reliable Services](service-fabric-reliable-services-quick-start.md) voor een overzicht van de inhoud van het serviceproject.
+Zie voor een overzicht van Hallo inhoud van het serviceproject Hallo [aan de slag met Reliable Services](service-fabric-reliable-services-quick-start.md).
 
-## <a name="deploy-and-debug-the-application"></a>De toepassing implementeren en fouten opsporen in de toepassing
+## <a name="deploy-and-debug-hello-application"></a>Implementeren en fouten opsporen in de toepassing hello
 
 Nu u een toepassing hebt, kunt u deze uitvoeren.
 
-Druk op `F5` in Visual Studio om de toepassing voor foutopsporing te implementeren.
+Druk in Visual Studio op `F5` toodeploy Hallo-toepassing voor foutopsporing.
 
 >[!NOTE]
->De eerste keer dat u de toepassing lokaal uitvoert en implementeert, wordt door Visual Studio een lokaal cluster voor foutopsporing gemaakt. Dit kan enige tijd duren. De status van het maken van het cluster wordt weergegeven in het Visual Studio-uitvoervenster.
+>Hallo maakt eerst u uitvoeren en implementeren van Hallo toepassing lokaal door Visual Studio een lokaal cluster voor foutopsporing. Dit kan enige tijd duren. status van het Hallo-cluster maken wordt weergegeven in Visual Studio-uitvoervenster Hallo.
 
-Als het cluster gereed is, ontvangt u een melding van de lokale toepassing die het systeemvak voor het cluster beheert en die in de SDK is opgenomen.
+Wanneer Hallo cluster klaar is, kunt u een melding krijgt van Hallo lokale cluster system lade manager-toepassing Hello SDK is opgenomen.
    
 ![Melding van het systeemvak van het lokale cluster][4]
 
-Als de toepassing wordt gestart, geeft Visual Studio automatisch de **diagnostische logboeken met gebeurtenissen** weer, waarin u de traceringsuitvoer van uw services kunt bekijken.
+Eenmaal Hallo toepassing wordt gestart, Visual Studio automatisch wordt Hallo **diagnostische logboeken**, waar u de trace-uitvoer van uw services kunt zien.
    
 ![Diagnostische logboeken][5]
 
-De stateful servicesjabloon die wij hebben gebruikt, toont alleen de itemwaarde die wordt verhoogd in de methode `RunAsync` van **MyStatefulService.cs**.
+Hallo stateful servicesjabloon we gebruikt gewoon toont een teller waarde en oplopend in stappen in Hallo `RunAsync` methode van **MyStatefulService.cs**.
 
-Vouw een van de gebeurtenissen uit voor meer informatie, zoals het knooppunt waarop de code wordt uitgevoerd. In dit geval is het \_Node\_2. Dit kan anders zijn op uw machine.
+Vouw een van de Hallo gebeurtenissen toosee meer informatie, zoals Hallo knooppunt waarop Hallo code wordt uitgevoerd. In dit geval is het \_Node\_2. Dit kan anders zijn op uw machine.
    
 ![Details van de gebeurtenissenviewer][6]
 
-Het lokale cluster bevat vijf knooppunten die worden gehost op een enkele computer. In een productieomgeving wordt elk knooppunt gehost op een afzonderlijke fysieke of virtuele machine. We bekijken een van de knooppunten op het lokale cluster om het verlies van gegevens van een machine te simuleren en tegelijkertijd te oefenen met de foutopsporingsfunctie.
+Hallo lokale cluster bevat vijf knooppunten die worden gehost op een enkele computer. In een productieomgeving wordt elk knooppunt gehost op een afzonderlijke fysieke of virtuele machine. foutopsporing toosimulate Hallo verlies van een machine tijdens het Hallo Visual Studio uitoefenen op Hallo dezelfde tijd, laten we bekijken een van de knooppunten op het lokale cluster Hallo Hallo.
 
-Open in de **Solution Explorer** **MyStatefulService.cs**. 
+In Hallo **Solution Explorer** venster open **MyStatefulService.cs**. 
 
-Zoek de `RunAsync`-methode op en stel een onderbrekingspunt in op de eerste regel van de methode.
+Hallo zoeken `RunAsync` methode en stel een onderbrekingspunt in op de eerste regel Hallo van Hallo-methode.
 
 ![Onderbrekingspunt in de stateful service RunAsync-methode][7]
 
-Start **Service Fabric Explorer** door met de rechtermuisknop op het systeemvak **Lokaal clusterbeheer** te klikken en kies **Lokaal cluster beheren**.
+Hallo starten **Service Fabric Explorer** hulpprogramma door met de rechtermuisknop op Hallo **lokaal Clusterbeheer** lade systeemtoepassing en kies **lokaal Cluster beheren**.
 
-![Start Service Fabric Explorer vanuit Lokaal clusterbeheer][systray-launch-sfx]
+![Start Service Fabric Explorer vanuit lokaal Clusterbeheer Hallo][systray-launch-sfx]
 
-[**Service Fabric Explorer** ](service-fabric-visualizing-your-cluster.md) biedt een visuele weergave van een cluster. Deze bevat de set toepassingen die erin zijn geïmplementeerd en de set van fysieke knooppunten waaruit het cluster bestaat.
+[**Service Fabric Explorer** ](service-fabric-visualizing-your-cluster.md) biedt een visuele weergave van een cluster. Dit omvat Hallo set toepassingen die zijn geïmplementeerd tooit en Hallo set van fysieke knooppunten waaruit het bestaat.
 
-Vouw in het linkerdeelvenster **Cluster > Knooppunten** uit en zoek het knooppunt waarop uw code wordt uitgevoerd.
+Vouw in het linkerdeelvenster hello, **Cluster > knooppunten** en zoeken Hallo knooppunt waarop uw code wordt uitgevoerd.
 
-Klik op **Acties > uitschakelen (opnieuw opstarten)** simuleren een machine opnieuw te starten.
+Klik op **Acties > uitschakelen (opnieuw opstarten)** toosimulate een machine opnieuw te starten.
 
 ![Een knooppunt in Service Fabric Explorer stoppen][sfx-stop-node]
 
-U ziet uw onderbrekingspunt in Visual Studio, terwijl de berekening die u uitvoerde op één knooppunt naadloos wordt overgenomen door een ander.
+Tijdelijk worden, ziet u uw onderbrekingspunt in Visual Studio bereikt, zoals Hallo berekening u op één knooppunt naadloos uitvoerde overgenomen tooanother wordt.
 
 
-Ga nu terug naar de details van de gebeurtenisviewer en bekijk de berichten. De teller blijft oplopen in stappen, zelfs als de gebeurtenissen daadwerkelijk afkomstig zijn uit een ander knooppunt.
+Vervolgens retourneert toohello diagnostische logboeken en Hallo-berichten te zien. Hallo item is voortgezet en oplopend in stappen, zelfs als Hallo gebeurtenissen daadwerkelijk afkomstig zijn uit een ander knooppunt.
 
 ![Details van de gebeurtenissenviewer na een failover][diagnostic-events-viewer-detail-post-failover]
 
-## <a name="cleaning-up-the-local-cluster-optional"></a>Het lokale cluster opschonen (optioneel)
+## <a name="cleaning-up-hello-local-cluster-optional"></a>Opruimen van de lokale cluster hello (optioneel)
 
-Vergeet niet dat dit lokale cluster echt bestaat. Als u het foutopsporingsprogramma stopt, worden uw toepassingsexemplaar en de registratie van het toepassingstype verwijderd. Het op de achtergrond uitvoeren van het cluster gaat echter gewoon door. Wanneer u klaar bent om het lokale cluster te stoppen, is er een aantal opties.
+Vergeet niet dat dit lokale cluster echt bestaat. Hallo debugger wordt gestopt, verwijdert het toepassingsexemplaar van uw en heft de registratie van toepassingstype Hallo. Hallo cluster blijft echter toorun op Hallo achtergrond. Wanneer u klaar toostop Hallo lokale cluster bent, zijn er een aantal opties.
 
 ### <a name="keep-application-and-trace-data"></a>Toepassing behouden en gegevens traceren
 
-Sluit het cluster af door met de rechtermuisknop op het systeemvak **Lokaal clusterbeheer** te klikken en kies vervolgens **Lokaal cluster stoppen**.
+Hallo cluster afgesloten door met de rechtermuisknop op Hallo **lokaal Clusterbeheer** lade systeemtoepassing en kies vervolgens **lokaal Cluster stoppen**.
 
-### <a name="delete-the-cluster-and-all-data"></a>Het cluster en alle gegevens verwijderen
+### <a name="delete-hello-cluster-and-all-data"></a>Hallo-cluster en alle gegevens verwijderen
 
-Verwijder het cluster door met de rechtermuisknop op het systeemvak **Lokaal clusterbeheer** te klikken en kies vervolgens **Lokaal cluster verwijderen**. 
+Hallo-cluster verwijderen door met de rechtermuisknop op Hallo **lokaal Clusterbeheer** lade systeemtoepassing en kies vervolgens **lokaal Cluster verwijderen**. 
 
-Als u deze optie kiest, implementeert Visual Studio het cluster de volgende keer dat u de toepassing uitvoert opnieuw. Kies deze optie als u het lokale cluster een tijdje niet gaat gebruiken of als u resources moet vrijmaken.
+Als u deze optie kiest, Visual Studio wordt opnieuw implementeren Hallo cluster Hallo zodra uw uitvoeren Hallo toepassing. Selecteer deze optie als u niet van plan toouse Hallo lokale cluster gedurende een bepaalde periode bent of als u tooreclaim bronnen nodig.
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over [betrouwbare services](service-fabric-reliable-services-introduction.md).

@@ -4,7 +4,7 @@
 ## [Gegevensbeveiliging](security-center-data-security.md)
 ## Scenario's
 ### [Reageren op incidenten](security-center-incident-response.md)
-### [Aanbevelingen gebruiken om de beveiliging te verbeteren](security-center-using-recommendations.md)
+### [Aanbevelingen tooenhance beveiliging gebruiken](security-center-using-recommendations.md)
 ## [Platformmigratie](security-center-platform-migration.md)
 ### [Veelgestelde vragen over platformmigratie](security-center-platform-migration-faq.md)
 

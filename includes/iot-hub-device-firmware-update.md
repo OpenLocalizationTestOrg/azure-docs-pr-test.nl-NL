@@ -1,25 +1,25 @@
 ## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
 In deze sectie doet u het volgende:
 
-* U maakt een Node.js-console-app die reageert op een directe methode die door de cloud wordt aangeroepen.
+* Een Node.js-consoletoepassing die tooa directe methode aangeroepen door Hallo cloud reageert maken
 * U activeert een gesimuleerde firmware-update.
-* U gebruikt de gerapporteerde eigenschappen om apparaatdubbelquery's in te schakelen die de apparaten identificeren en vaststellen wanneer er voor het laatst een firmware-update op deze apparaten is uitgevoerd.
+* Gebruik Hallo gerapporteerd eigenschappen tooenable apparaat twin query's tooidentify apparaten en wanneer ze een firmware-update voor het laatst hebt voltooid
 
-Stap 1: Maak een lege map genaamd **manageddevice**.  Maak in de map **simulateddevice** een bestand met de naam package.json door achter de opdrachtprompt de volgende opdracht op te geven. Accepteer alle standaardwaarden:
+Stap 1: Maak een lege map genaamd **manageddevice**.  In Hallo **manageddevice** map, een package.json-bestand met behulp van de volgende opdracht achter de opdrachtprompt Hallo maken. Accepteer alle Hallo standaardwaarden:
    
     ```
     npm init
     ```
 
-Stap 2: bij de opdrachtprompt in de **manageddevice** map, voer de volgende opdracht voor het installeren van de **azure-iot-device** en **azure-iot-device-mqtt** apparaat-SDK pakketten:
+Stap 2: bij de opdrachtprompt in Hallo **manageddevice** map na de opdracht tooinstall Hallo Hallo **azure-iot-device** en **azure-iot-device-mqtt** apparaat SDK-pakketten:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-Stap 3: Gebruik een teksteditor, maak een **dmpatterns_fwupdate_device.js** bestand de **manageddevice** map.
+Stap 3: Gebruik een teksteditor, maak een **dmpatterns_fwupdate_device.js** bestand in Hallo **manageddevice** map.
 
-Stap 4: Voeg de volgende 'vereist' instructies aan het begin van de **dmpatterns_fwupdate_device.js** bestand:
+Stap 4: Toevoegen Hallo volgende 'vereist' instructies toe aan Hallo begin Hallo **dmpatterns_fwupdate_device.js** bestand:
    
     ```
     'use strict';
@@ -27,14 +27,14 @@ Stap 4: Voeg de volgende 'vereist' instructies aan het begin van de **dmpatterns
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-Stap 5: Voeg een **connectionString** variabele en deze gebruiken voor het maken een **Client** exemplaar. Vervang de tijdelijke aanduiding `{yourdeviceconnectionstring}` door de verbindingsreeks die u eerder hebt genoteerd in de sectie Een apparaat-id maken:
+Stap 5: Voeg een **connectionString** variabele en gebruik deze toocreate een **Client** exemplaar. Vervang Hallo `{yourdeviceconnectionstring}` tijdelijke aanduiding met Hallo-verbindingsreeks die u eerder hebt genoteerd in het gedeelte voor Hallo 'Een apparaat-id maken' eerder:
    
     ```
     var connectionString = '{yourdeviceconnectionstring}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
-Stap 6: Voeg de volgende functie die wordt gebruikt voor het bijwerken van de gerapporteerde eigenschappen toe:
+Stap 6: Voeg Hallo volgende functie die is gebruikt tooupdate gerapporteerd eigenschappen:
    
     ```
     var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
@@ -51,7 +51,7 @@ Stap 6: Voeg de volgende functie die wordt gebruikt voor het bijwerken van de ge
     };
     ```
 
-Stap 7: Voeg de volgende functies die simuleren downloaden en de firmware-installatiekopie toe te passen:
+Stap 7: Toevoegen Hallo na functies die simuleren downloaden en Hallo firmware-installatiekopie toe te passen:
    
     ```
     var simulateDownloadImage = function(imageUrl, callback) {
@@ -74,7 +74,7 @@ Stap 7: Voeg de volgende functies die simuleren downloaden en de firmware-instal
     }
     ```
 
-Stap 8: Voeg de volgende functie die de status van de firmware bijwerken via de gerapporteerde eigenschappen naar wordt **wachten**. Normaal gesproken worden apparaten op de hoogte gesteld van een beschikbare update, waarna een door de beheerder gedefinieerd beleid ervoor zorgt dat het apparaat de update downloadt en toepast. In deze functie moet de logica voor het inschakelen van dat beleid worden uitgevoerd. Voor het gemak wacht de steekproef vier seconden voordat u de firmware-installatiekopie te downloaden:
+Stap 8: Hallo volgen dat updates Hallo firmware-updatestatus via Hallo eigenschappen te gerapporteerd functie toevoegen**wachten**. Normaal gesproken apparaten op de hoogte zijn van een update beschikbaar en een beheerder gedefinieerd beleid zorgt ervoor dat Hallo apparaat toostart downloaden en toepassen van de Hallo-update. Deze functie is waar Hallo logica tooenable die beleid moet worden uitgevoerd. Voor het gemak wacht Hallo voorbeeld tot vier seconden voordat u doorgaat toodownload Hallo firmware-image:
    
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
@@ -90,7 +90,7 @@ Stap 8: Voeg de volgende functie die de status van de firmware bijwerken via de 
     };
     ```
 
-Stap 9: Voeg de volgende functie die de status van de firmware bijwerken via de gerapporteerde eigenschappen naar wordt **downloaden**. De functie simuleert vervolgens het downloaden van de firmware, waarna de updatestatus van de firmware wordt gewijzigd in **downloadFailed** of **downloadComplete**:
+Stap 9: Toevoegen Hallo volgen functie dat updates Hallo firmware-updatestatus via Hallo eigenschappen te gerapporteerd**downloaden**. Hallo functie vervolgens simuleert een download van de firmware en ten slotte updates firmware-update status tooeither Hallo **downloadFailed** of **downloadComplete**:
    
     ```
     var downloadImage = function(twin, fwPackageUriVal, callback) {
@@ -128,7 +128,7 @@ Stap 9: Voeg de volgende functie die de status van de firmware bijwerken via de 
     }
     ```
 
-Stap 10: Voeg de volgende functie die de status van de firmware bijwerken via de gerapporteerde eigenschappen naar wordt **toepassen**. De functie simuleert vervolgens het toepassen van de firmware, waarna de updatestatus van de firmware wordt gewijzigd in **applyFailed** of **applyComplete**:
+Stap 10: Hallo volgen dat updates Hallo firmware-updatestatus via Hallo eigenschappen te gerapporteerd functie toevoegen**toepassen**. Hallo functie vervolgens simuleert toepassen Hallo firmware-image en ten slotte updates firmware-update status tooeither Hallo **applyFailed** of **applyComplete**:
     
     ```
     var applyImage = function(twin, imageData, callback) {
@@ -166,31 +166,31 @@ Stap 10: Voeg de volgende functie die de status van de firmware bijwerken via de
     }
     ```
 
-Stap 11: Voeg de volgende functie die verantwoordelijk is voor de **firmwareUpdate** directe methode en initieert de fasen firmware-update-proces:
+Stap 11: Toevoegen Hallo volgende werken dat Hallo ingangen **firmwareUpdate** directe methode en initieert Hallo fasen firmware proces niet bijwerken:
     
     ```
     var onFirmwareUpdate = function(request, response) {
     
-      // Respond the cloud app for the direct method
+      // Respond hello cloud app for hello direct method
       response.send(200, 'FirmwareUpdate started', function(err) {
         if (!err) {
           console.error('An error occured when sending a method response:\n' + err.toString());
         } else {
-          console.log('Response to method \'' + request.methodName + '\' sent successfully.');
+          console.log('Response toomethod \'' + request.methodName + '\' sent successfully.');
         }
       });
     
-      // Get the parameter from the body of the method request
+      // Get hello parameter from hello body of hello method request
       var fwPackageUri = request.payload.fwPackageUri;
     
-      // Obtain the device twin
+      // Obtain hello device twin
       client.getTwin(function(err, twin) {
         if (err) {
           console.error('Could not get device twin.');
         } else {
           console.log('Device twin acquired.');
     
-          // Start the multi-stage firmware update
+          // Start hello multi-stage firmware update
           waitToDownload(twin, fwPackageUri, function() {
             downloadImage(twin, fwPackageUri, function(imageData) {
               applyImage(twin, imageData, function() {});    
@@ -202,14 +202,14 @@ Stap 11: Voeg de volgende functie die verantwoordelijk is voor de **firmwareUpda
     }
     ```
 
-Stap 12: Voeg de volgende code die is verbonden met uw IoT-hub:
+Stap 12: Voeg Hallo code die verbinding tooyour IoT-hub maakt te volgen:
     
     ```
     client.open(function(err) {
       if (err) {
-        console.error('Could not connect to IotHub client');
+        console.error('Could not connect tooIotHub client');
       }  else {
-        console.log('Client connected to IoT Hub.  Waiting for firmwareUpdate direct method.');
+        console.log('Client connected tooIoT Hub.  Waiting for firmwareUpdate direct method.');
       }
     
       client.onDeviceMethod('firmwareUpdate', onFirmwareUpdate);
@@ -217,6 +217,6 @@ Stap 12: Voeg de volgende code die is verbonden met uw IoT-hub:
     ```
 
 > [!NOTE]
-> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. In productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals voorgesteld in het MSDN-artikel implementeren [afhandeling van tijdelijke fout](https://msdn.microsoft.com/library/hh675232.aspx).
+> tookeep dingen eenvoudige, deze zelfstudie wordt niet geïmplementeerd voor een beleid voor opnieuw proberen. In productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals voorgesteld in de MSDN-artikel Hallo implementeren [afhandeling van tijdelijke fout](https://msdn.microsoft.com/library/hh675232.aspx).
 > 
 > 

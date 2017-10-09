@@ -1,6 +1,6 @@
 ---
-title: Referentieassets in Azure Automation | Microsoft Docs
-description: Referentieassets in Azure Automation bevatten beveiligingsreferenties op die kunnen worden gebruikt voor verificatie aan resources die toegankelijk is voor het runbook of de DSC-configuratie. In dit artikel wordt beschreven hoe referentieassets maken en gebruiken in een runbook of de DSC-configuratie.
+title: aaaCredential activa in Azure Automation | Microsoft Docs
+description: Referentieassets in Azure Automation bevatten beveiligingsreferenties op die gebruikt tooauthenticate tooresources toegankelijk is voor het Hallo-runbook of de DSC-configuratie worden kunnen. Dit artikel wordt beschreven hoe toocreate referentieassets en deze gebruiken in een runbook of de DSC-configuratie.
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,68 +14,68 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.openlocfilehash: e2857515f3842a875ef7b5a9327392818931168f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 46f23a8f79d5863265af9cf84f6003e30f8e7d39
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="credential-assets-in-azure-automation"></a>Referentieassets in Azure Automation
-Een Automation-referentieasset bevat een [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) object met beveiligingsgegevens zoals een gebruikersnaam en wachtwoord. Runbooks en DSC-configuraties kunt cmdlets die een PSCredential-object voor verificatie accepteren of ze kunnen extraheren gebruikersnaam en wachtwoord van de PSCredential-object om te bieden tot een bepaalde toepassing of service-verificatie vereist. De eigenschappen van een referentie worden veilig opgeslagen in Azure Automation en kunnen worden geopend in het runbook of de DSC-configuratie met de [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) activiteit.
+Een Automation-referentieasset bevat een [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) object met beveiligingsgegevens zoals een gebruikersnaam en wachtwoord. Runbooks en DSC-configuraties kunt cmdlets die een PSCredential-object voor verificatie accepteren of ze kunnen extraheren Hallo gebruikersnaam en wachtwoord Hallo PSCredential-object tooprovide toosome toepassing of service-verificatie vereist. Hallo-eigenschappen van een referentie worden veilig opgeslagen in Azure Automation en kunnen worden geopend in Hallo runbook of de DSC-configuratie met Hallo [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) activiteit.
 
 > [!NOTE]
-> Beveiligde activa in Azure Automation zijn referenties, certificaten, verbindingen en gecodeerde variabelen. Deze activa zijn versleuteld en opgeslagen in de Azure Automation met een unieke sleutel die wordt gegenereerd voor elk automation-account. Deze sleutel is versleuteld met een basiscertificaat en opgeslagen in Azure Automation. Voordat u een beveiligd bedrijfsmiddel op te slaan, wordt de sleutel voor het automation-account worden ontsleuteld met het basiscertificaat en vervolgens worden gebruikt voor het versleutelen van de asset.  
+> Beveiligde activa in Azure Automation zijn referenties, certificaten, verbindingen en gecodeerde variabelen. Deze activa zijn versleuteld en opgeslagen in hello Azure Automation, met een unieke sleutel die wordt gegenereerd voor elk automation-account. Deze sleutel is versleuteld met een basiscertificaat en opgeslagen in Azure Automation. Voordat u een beveiligd bedrijfsmiddel op te slaan, Hallo-sleutel voor Hallo automation-account wordt ontsleuteld met behulp van het basiscertificaat Hallo en vervolgens gebruikt tooencrypt Hallo asset.  
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell-cmdlets
-De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van automation referentieassets met Windows PowerShell.  Ze worden verzonden als onderdeel van de [Azure PowerShell-module](/powershell/azure/overview) die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuraties.
+Hallo-cmdlets in de volgende tabel Hallo gebruikte toocreate zijn en beheren van automation referentieassets met Windows PowerShell.  Ze worden verzonden als onderdeel van Hallo [Azure PowerShell-module](/powershell/azure/overview) die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuraties.
 
 | Cmdlets | Beschrijving |
 |:--- |:--- |
-| [Get-AzureAutomationCredential](/powershell/module/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Informatie over een referentieasset opgehaald. U kunt alleen de referentie zelf ophalen uit **Get-AutomationPSCredential** activiteit. |
+| [Get-AzureAutomationCredential](/powershell/module/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Informatie over een referentieasset opgehaald. U kunt alleen Hallo referentie zelf ophalen uit **Get-AutomationPSCredential** activiteit. |
 | [Nieuwe AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Hiermee maakt u een nieuw Automation-referentie. |
 | [Remove - AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Hiermee verwijdert u een Automation-referentie. |
-| [Set - AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Hiermee stelt u de eigenschappen voor een bestaand Automation-referentie. |
+| [Set - AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Sets Hallo eigenschappen voor een bestaand Automation-referentie. |
 
 ## <a name="runbook-activities"></a>Runbookactiviteiten
-De activiteiten in de volgende tabel worden gebruikt voor toegang tot de referenties in een runbook en DSC-configuraties.
+Hallo activiteiten in de volgende tabel Hallo zijn gebruikte tooaccess referenties in een runbook en DSC-configuraties.
 
 | Activiteiten | Beschrijving |
 |:--- |:--- |
-| Get-AutomationPSCredential |Hiermee haalt u een referentie gebruiken in een runbook of de DSC-configuratie. Retourneert een [System.Management.Automation.PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) object. |
+| Get-AutomationPSCredential |Hiermee haalt u een referentie toouse in een runbook of de DSC-configuratie. Retourneert een [System.Management.Automation.PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) object. |
 
 > [!NOTE]
-> Vermijd het gebruik van variabelen in de parameter-Name van Get-AutomationPSCredential omdat dit kan detecteren van afhankelijkheden tussen runbooks of DSC-configuraties bemoeilijken en referentieassets in de ontwerpfase.
+> Vermijd het gebruik van variabelen in Hallo – parameter Name van Get-AutomationPSCredential omdat dit kan detecteren van afhankelijkheden tussen runbooks of DSC-configuraties bemoeilijken en referentieassets in de ontwerpfase.
 > 
 > 
 
 ## <a name="creating-a-new-credential-asset"></a>Een nieuwe referentieasset maken
 
-### <a name="to-create-a-new-credential-asset-with-the-azure-portal"></a>Een nieuwe referentieasset maken met de Azure-portal
-1. Van uw automation-account, klikt u op de **activa** onderdeel openen de **activa** blade.
-2. Klik op de **referenties** onderdeel openen de **referenties** blade.
-3. Klik op **toevoegen van een referentie** boven aan de blade.
-4. Vul het formulier en klik op **maken** om op te slaan van de nieuwe referentie.
+### <a name="toocreate-a-new-credential-asset-with-hello-azure-portal"></a>toocreate een nieuwe referentieasset Hello Azure-portal
+1. Klik op Hallo van uw automation-account **activa** onderdeel tooopen hello **activa** blade.
+2. Klik op Hallo **referenties** onderdeel tooopen hello **referenties** blade.
+3. Klik op **toevoegen van een referentie** Hallo boven aan het Hallo-blade.
+4. Vul Hallo formulier in en klik op **maken** toosave Hallo nieuwe referentie.
 
-### <a name="to-create-a-new-credential-asset-with-windows-powershell"></a>Een nieuwe referentieasset maken met Windows PowerShell
-De volgende voorbeeldopdrachten laten zien hoe een nieuwe automation-referentie maken. Een PSCredential-object is gemaakt met de naam en het wachtwoord en vervolgens worden gebruikt voor het maken van de referentie-element. U kunt ook de **Get-Credential** cmdlet gevraagd een naam en wachtwoord typen.
+### <a name="toocreate-a-new-credential-asset-with-windows-powershell"></a>toocreate een nieuwe referentieasset met Windows PowerShell
+Hallo volgende voorbeeldopdrachten laten zien hoe een nieuwe automation toocreate referenties. Een PSCredential-object wordt gemaakt met het Hallo-naam en het wachtwoord en vervolgens gebruikt toocreate Hallo referentie-element. U kunt ook kunt u Hallo **Get-Credential** cmdlet toobe tootype in een naam en wachtwoord gevraagd.
 
     $user = "MyDomain\MyUser"
     $pw = ConvertTo-SecureString "PassWord!" -AsPlainText -Force
     $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $user, $pw
     New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
 
-### <a name="to-create-a-new-credential-asset-with-the-azure-classic-portal"></a>Een nieuwe referentieasset maken met de klassieke Azure portal
-1. Van uw automation-account, klikt u op **activa** aan de bovenkant van het venster.
-2. Klik onderaan in het venster **instelling toevoegen**.
+### <a name="toocreate-a-new-credential-asset-with-hello-azure-classic-portal"></a>toocreate een nieuwe referentieasset Hello klassieke Azure-portal
+1. Van uw automation-account, klikt u op **activa** Hallo boven aan het Hallo-venster.
+2. Aan de onderkant van de Hallo van Hallo-venster, klikt u op **instelling toevoegen**.
 3. Klik op **gebruikersreferentie toevoegen**.
-4. In de **referentietype** vervolgkeuzelijst **PowerShell-referentie**.
-5. Voltooi de wizard en klik op het selectievakje voor het opslaan van de nieuwe referentie.
+4. In Hallo **referentietype** vervolgkeuzelijst **PowerShell-referentie**.
+5. Hallo-wizard hebt voltooid en klik op Hallo selectievakje toosave Hallo nieuwe referentie.
 
 ## <a name="using-a-powershell-credential"></a>Met behulp van een PowerShell-referentie
-Ophalen van een referentie-element in een runbook of de DSC-configuratie met de **Get-AutomationPSCredential** activiteit. Hiermee wordt een [PSCredential-object](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) die u kunt gebruiken met een activiteit of cmdlet waarvoor een PSCredential-parameter. U kunt ook de eigenschappen van het referentieobject afzonderlijk gebruiken ophalen. Het object heeft een eigenschap voor de gebruikersnaam en het beveiligd wachtwoord of kunt u de **GetNetworkCredential** methode om te retourneren een [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) object waarmee u een niet-beveiligde versie van het wachtwoord.
+Ophalen van een referentie-element in een runbook of de DSC-configuratie met Hallo **Get-AutomationPSCredential** activiteit. Hiermee wordt een [PSCredential-object](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) die u kunt gebruiken met een activiteit of cmdlet waarvoor een PSCredential-parameter. U kunt ook afzonderlijk Hallo eigenschappen van Hallo referentie object toouse ophalen. Hallo-object heeft een eigenschap voor het Hallo-gebruikersnaam en het Hallo beveiligd wachtwoord of kunt u Hallo **GetNetworkCredential** methode tooreturn een [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) -object dat een niet-beveiligde bieden versie van het Hallo-wachtwoord.
 
 ### <a name="textual-runbook-sample"></a>Voorbeeld van tekstueel runbook
-De volgende voorbeeldopdrachten laten zien hoe een PowerShell-referentie gebruiken in een runbook. In dit voorbeeld wordt de referentie wordt opgehaald en de gebruikersnaam en wachtwoord die zijn toegewezen aan variabelen.
+Hallo volgende voorbeeldopdrachten laten zien hoe een PowerShell toouse referentie in een runbook. In dit voorbeeld Hallo referentie wordt opgehaald en de gebruikersnaam en wachtwoord toovariables toegewezen.
 
     $myCredential = Get-AutomationPSCredential -Name 'MyCredential'
     $userName = $myCredential.UserName
@@ -84,20 +84,20 @@ De volgende voorbeeldopdrachten laten zien hoe een PowerShell-referentie gebruik
 
 
 ### <a name="graphical-runbook-sample"></a>Grafisch runbook-voorbeeld
-U toevoegen een **Get-AutomationPSCredential** activiteit aan een grafisch runbook door met de rechtermuisknop op de referentie in het deelvenster bibliotheek van de grafische editor en **toevoegen aan papier**.
+U toevoegen een **Get-AutomationPSCredential** activiteit tooa grafisch runbook door met de rechtermuisknop op het Hallo-referentie in Hallo bibliotheek deelvenster van de grafische editor Hallo en het selecteren van **toocanvas toevoegen**.
 
-![Referentie voor de canvas toevoegen](media/automation-credentials/credential-add-canvas.png)
+![Referentie toocanvas toevoegen](media/automation-credentials/credential-add-canvas.png)
 
-De volgende afbeelding toont een voorbeeld van een referentie gebruiken in een grafisch runbook.  In dit geval wordt deze wordt gebruikt voor verificatie voor een runbook voor Azure-resources zoals beschreven in [Runbooks verifiëren met Azure AD-gebruikersaccount](automation-create-aduser-account.md).  De eerste activiteit haalt de referenties die toegang tot de Azure-abonnement heeft.  De **Add-AzureAccount** activiteit vervolgens deze referentie gebruikt voor verificatie voor alle activiteiten die na deze komen.  Een [pijplijnkoppeling](automation-graphical-authoring-intro.md#links-and-workflow) is hier sinds **Get-AutomationPSCredential** een enkel object verwacht.  
+Hallo toont volgende afbeelding een voorbeeld van het gebruik van een referentie in een grafisch runbook.  In dit geval wordt gebruikte tooprovide-verificatie voor een runbook tooAzure-bronnen zoals beschreven in [Runbooks verifiëren met Azure AD-gebruikersaccount](automation-create-aduser-account.md).  de eerste activiteit Hallo haalt Hallo referentie toegang toohello Azure-abonnement.  Hallo **Add-AzureAccount** activiteit gebruikt deze referentie tooprovide verificatie voor alle activiteiten die na deze komen.  Een [pijplijnkoppeling](automation-graphical-authoring-intro.md#links-and-workflow) is hier sinds **Get-AutomationPSCredential** een enkel object verwacht.  
 
-![Referentie voor de canvas toevoegen](media/automation-credentials/get-credential.png)
+![Referentie toocanvas toevoegen](media/automation-credentials/get-credential.png)
 
 ## <a name="using-a-powershell-credential-in-dsc"></a>Met behulp van een PowerShell-referentie in DSC
 Terwijl in Azure Automation DSC-configuraties kunnen verwijzen naar referentieassets met **Get-AutomationPSCredential**, referentieassets kunnen ook worden doorgegeven via parameters, indien gewenst. Zie voor meer informatie [compileren van configuraties in Azure Automation DSC](automation-dsc-compile.md#credential-assets).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over koppelingen in het grafisch ontwerpen, [koppelingen in het grafisch ontwerpen](automation-graphical-authoring-intro.md#links-and-workflow)
-* Zie voor informatie over de verschillende verificatiemethoden met Automation, [Azure Automation-beveiliging](automation-security-overview.md)
-* Zie [Mijn eerste grafische runbook](automation-first-runbook-graphical.md) om aan de slag te gaan met grafische runbooks
-* Zie [Mijn eerste PowerShell Workflow-runbook](automation-first-runbook-textual.md) om aan de slag te gaan met PowerShell Workflow-runbooks 
+* Zie toolearn meer informatie over de koppelingen in het grafisch ontwerpen [koppelingen in het grafisch ontwerpen](automation-graphical-authoring-intro.md#links-and-workflow)
+* toounderstand hello verschillende verificatiemethoden met Automation, Zie [Azure Automation-beveiliging](automation-security-overview.md)
+* Zie tooget gestart met grafische runbooks [Mijn eerste grafische runbook](automation-first-runbook-graphical.md)
+* tooget gestart met PowerShell workflow-runbooks, Zie [Mijn eerste PowerShell workflow-runbook](automation-first-runbook-textual.md) 
 

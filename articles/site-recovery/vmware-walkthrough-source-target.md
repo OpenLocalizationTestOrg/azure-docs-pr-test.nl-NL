@@ -1,6 +1,6 @@
 ---
-title: Instellen van de bron en doel voor VMware-replicatie naar Azure met Azure Site Recovery | Microsoft Docs
-description: Geeft een overzicht van de stappen voor het instellen van de bron en doel-instellingen voor de replicatie van virtuele VMware-machines naar Azure storage met Azure Site Recovery
+title: aaaSet up Hallo bron en doel voor VMware replicatie tooAzure met Azure Site Recovery | Microsoft Docs
+description: Geeft een overzicht van Hallo stappen tooset bron en doel-instellingen opgeven voor de replicatie van virtuele VMware-machines tooAzure opslag met Azure Site Recovery
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,88 +14,88 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.openlocfilehash: 94b629a62c3a54eee69ee397b2f27e3f20b753d5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ef33a44bc5da17afb0442be63f576925f5b9a8b2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-8-set-up-the-source-and-target-for-vmware-replication-to-azure"></a>Stap 8: Instellen van de bron en doel voor VMware-replicatie naar Azure
+# <a name="step-8-set-up-hello-source-and-target-for-vmware-replication-tooazure"></a>Stap 8: Instellen Hallo bron en doel voor VMware replicatie tooAzure
 
-Dit artikel wordt beschreven hoe u de bron en doel-instellingen configureren wanneer de lokale virtuele VMware-machines repliceren naar Azure, met behulp van de [Azure Site Recovery](site-recovery-overview.md) service in de Azure portal.
+Dit artikel wordt beschreven hoe tooconfigure bron en doel-instellingen bij het repliceren van on-premises tooAzure van VMware-virtuele machines, met Hallo [Azure Site Recovery](site-recovery-overview.md) service in hello Azure-portal.
 
-Opmerkingen en vragen plaatsen onder aan dit artikel of op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Opmerkingen en vragen plaatsen Hallo onder aan dit artikel of op Hallo [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="set-up-the-source-environment"></a>De bronomgeving instellen
+## <a name="set-up-hello-source-environment"></a>Hallo bronomgeving instellen
 
-Instellen van de configuratieserver, registreert u dit in de kluis en VM's detecteren.
+Hallo configuratieserver instellen, registreert u dit in de kluis Hallo en VM's detecteren.
 
 1. Klik op **Site Recovery** > **stap 1: infrastructuur voorbereiden** > **bron**.
 2. Als u een configuratieserver geen hebt, klikt u op **+ configuratieserver**.
 3. In **Server toevoegen**, controleert u of **configuratieserver** wordt weergegeven in **servertype**.
-4. Download het installatiebestand van de Site Recovery Unified Setup.
-5. Download de kluisregistratiesleutel. U moet dit wanneer u Unified Setup uitvoert. De sleutel blijft vijf dagen na het genereren ervan geldig.
+4. Download het installatiebestand van de installatie van Site Recovery-Unified Hallo.
+5. Hallo kluisregistratiesleutel downloaden. U moet dit wanneer u Unified Setup uitvoert. Hallo-sleutel is vijf dagen na het genereren ervan geldig.
 
    ![Bron instellen](./media/vmware-walkthrough-source-target/set-source2.png)
 
 
-## <a name="register-the-configuration-server-in-the-vault"></a>De configuratieserver in de kluis registreren
+## <a name="register-hello-configuration-server-in-hello-vault"></a>Hallo configuratieserver in Hallo kluis registreren
 
-Het volgende doen voordat u start vervolgens Setup Unified om te installeren van de configuratieserver, de processerver en de hoofddoelserver.
+Hallo volgende voordat u start en voer vervolgens Setup Unified tooinstall Hallo configuratieserver processerver Hallo en Hallo hoofddoelserver.
     - Een video-overzicht
 
         > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video1-Source-Infrastructure-Setup/player]
 
-    - Op de configuratieserver VM Zorg ervoor dat de systeemklok is gesynchroniseerd met een [tijdserver](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Deze moet overeenkomen. Als het op de voorgrond 15 minuten of achter de installatie mislukken.
-    - Voer setup uit als lokale beheerder op de configuratieserver VM.
-    - Zorg ervoor dat TLS 1.0 op de virtuele machine is ingeschakeld.
+    - Op de configuratieserver VM hello, zorg ervoor dat systeemklok Hallo is gesynchroniseerd met een [tijdserver](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Deze moet overeenkomen. Als het op de voorgrond 15 minuten of achter de installatie mislukken.
+    - Voer de installatie als een lokale beheerder op de configuratieserver Hallo VM.
+    - Zorg ervoor dat TLS 1.0 op Hallo VM is ingeschakeld.
 
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> De configuratieserver kan ook worden geïnstalleerd [vanaf de opdrachtregel](http://aka.ms/installconfigsrv).
+> Hallo configuratieserver kan ook worden geïnstalleerd [vanaf de opdrachtregel Hallo](http://aka.ms/installconfigsrv).
 
 
 
-## <a name="connect-to-vmware-servers"></a>Verbinding maken met VMware-servers
+## <a name="connect-toovmware-servers"></a>TooVMware servers verbinden
 
-U moet verbinding maken met de VMware vCenter-Server of vSphere ESXi-hosts met Site Recovery zodat Azure Site Recovery voor het detecteren van virtuele machines die worden uitgevoerd in uw on-premises omgeving. Let op het volgende voordat u begint:
+tooallow Azure Site Recovery toodiscover virtuele machines die worden uitgevoerd in uw on-premises-omgeving, moet u tooconnect uw VMware vCenter-Server of vSphere ESXi-hosts met Site Recovery. Houd rekening met de volgende Hallo voordat u begint:
 
-- Als u de vCenter-server of vSphere hosts Site Recovery met een account zonder beheerdersrechten op de server toevoegt, moet het account deze bevoegdheden ingeschakeld:
+- Als u Hallo vCenter-server of vSphere hosts tooSite herstel met een account zonder beheerdersrechten op Hallo-server toevoegt, moet Hallo account deze bevoegdheden ingeschakeld:
     - Datacenter, gegevensopslag, map, Host, netwerk, Resource, virtuele machine, vSphere gedistribueerde Switch.
-    - De vCenter-server moet opslag weergaven machtigingen.
-- Wanneer u VMware-servers aan de Site Recovery toevoegen, duurt het kan 15 minuten of langer voordat ze worden weergegeven in de portal.
+    - Hallo vCenter-server moet opslag weergaven machtigingen.
+- Wanneer u een VMware-servers tooSite herstel toevoegt, kan het 15 minuten duren of langer ze tooappear in Hallo-portal.
 
-### <a name="add-the-account-for-automatic-discovery"></a>Voeg het account voor automatische detectie
+### <a name="add-hello-account-for-automatic-discovery"></a>Hallo-account voor automatische detectie toevoegen
 
 [!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
 
 ### <a name="set-up-a-connection"></a>Een verbinding instellen
 
-Verbinding met servers als volgt:
+Verbinding maken met tooservers als volgt:
 
-1. Selecteer **+ vCenter** starten gebruikmaken van een VMware vCenter-server of een VMware vSphere ESXi-host.
-2. Geef in **vCenter toevoegen** een beschrijvende naam op voor de vSphere-host of vCenter-server, en geef vervolgens het IP-adres of de FQDN op voor de server.
-3. Behoud poort 443 tenzij de VMware-servers zijn geconfigureerd om te luisteren naar aanvragen van een andere poort. Selecteer het account dat is verbonden met de VMware vCenter-of vSphere ESXi-server. Klik op **OK**.
-4. Site Recovery maakt verbinding met de VMware-servers met de opgegeven instellingen en virtuele machines worden gedetecteerd.
+1. Selecteer **+ vCenter** toostart gebruikmaken van een VMware vCenter-server of een VMware vSphere ESXi-host.
+2. In **vCenter toevoegen**, Geef een beschrijvende naam voor Hallo vSphere-host of het vCenter-server en geef vervolgens Hallo IP-adres of FQDN-naam van het Hallo-server.
+3. Behoud Hallo poort 443 tenzij uw VMware-servers geconfigureerd toolisten voor aanvragen op een andere poort zijn. Selecteer Hallo-account dat is tooconnect toohello VMware vCenter of vSphere ESXi-server. Klik op **OK**.
+4. Site Recovery verbindt tooVMware servers Hallo instellingen opgegeven gebruikt en detecteert van virtuele machines.
 
 > [!NOTE]
-> Als u een server of de host met een account dat geen administrator-bevoegdheden op de server met vCenter of host toevoegt, ervoor zorgen dat het account deze ingeschakeld heeft: Datacenter, gegevensopslag, map, Host, netwerk, Resource, virtuele machine en vSphere gedistribueerde overschakelen. De VMware vCenter-server moet bovendien de bevoegdheid opslag weergaven is ingeschakeld.
+> Als u een server of de host met een account dat geen administrator-bevoegdheden op Hallo vCenter of host-server toevoegt, ervoor zorgen dat Hallo account deze ingeschakeld heeft: Datacenter, gegevensopslag, map, Host, netwerk, Resource, virtuele machine en vSphere gedistribueerde Switch. Hallo VMware vCenter-server moet bovendien Hallo opslag weergaven bevoegdheid ingeschakeld.
 
 
-## <a name="set-up-the-target-environment"></a>De doelomgeving instellen
+## <a name="set-up-hello-target-environment"></a>Hallo doelomgeving instellen
 
-Voordat u de doelomgeving instellen, zorg er dan voor dat u hebt een Azure-opslagaccount en een virtueel netwerk instellen.
+Zorg voordat u de doelomgeving Hallo hebt ingesteld, hebt u een Azure-opslagaccount en een virtueel netwerk instellen.
 
-1. Klik op **Infrastructuur voorbereiden** > **Doel** en selecteer het Azure-abonnement dat u wilt gebruiken.
+1. Klik op **infrastructuur voorbereiden** > **doel**, en selecteer hello Azure-abonnement u wilt dat toouse.
 2. Opgeven of de doel-implementatiemodel is Resource Manager gebaseerde of klassieke.
 3. Site Recovery controleert of u een of meer compatibele Azure-opslagaccounts en -netwerken hebt.
 
    ![doel](./media/vmware-walkthrough-source-target/gs-target.png)
-4. Als u een opslagaccount of een netwerk dat nog niet hebt gemaakt, klikt u op **+ opslagaccount** of **+ netwerk**, voor het maken van een Resource Manager-account of inline-netwerk.
+4. Als u een opslagaccount of een netwerk dat nog niet hebt gemaakt, klikt u op **+ opslagaccount** of **+ netwerk**, een Resource Manager-account of netwerk inline toocreate.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar [stap 9: een replicatiebeleid instellen](vmware-walkthrough-replication.md)
+Ga te[stap 9: een replicatiebeleid instellen](vmware-walkthrough-replication.md)

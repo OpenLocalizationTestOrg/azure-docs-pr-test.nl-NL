@@ -1,6 +1,6 @@
 ---
-title: SSH gebruiken met Hadoop - Azure HDInsight | Microsoft Docs
-description: U kunt HDInsight openen met Secure Shell (SSH). Dit document bevat informatie over het verbinding maken met HDInsight met behulp van de opdrachten ssh en scp vanuit Windows-, Linux-, Unix- of macOS-clients.
+title: aaaUse SSH met Hadoop - Azure HDInsight | Microsoft Docs
+description: U kunt HDInsight openen met Secure Shell (SSH). Dit document bevat informatie over verbinding maken met tooHDInsight met Hallo ssh en scp opdrachten van Windows, Linux, Unix- of Mac OS-clients.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -17,17 +17,17 @@ ms.workload: big-data
 ms.date: 08/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: df0feb51469333bac42c779d860192d46f24ac62
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: ac9e70ce3c70693c1b81c9514ba4fd47686070ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Verbinding maken met HDInsight (Hadoop) via SSH
+# <a name="connect-toohdinsight-hadoop-using-ssh"></a>TooHDInsight (Hadoop) via SSH verbinding
 
-Lees hier hoe u met [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) veilig verbinding kunt maken met Hadoop in Azure HDInsight. 
+Meer informatie over hoe toouse [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) toosecurely tooHadoop in Azure HDInsight verbinden. 
 
-HDInsight kan Linux (Ubuntu) als het besturingssysteem gebruiken voor knooppunten in het Hadoop-cluster. De volgende tabel bevat de adres- en poortgegevens die nodig zijn bij het verbinden met HDInsight in Linux via een SSH-client:
+HDInsight kunt Linux (Ubuntu) gebruiken als besturingssysteem Hallo voor knooppunten binnen Hallo Hadoop-cluster. Hallo bevat volgende tabel Hallo-adres en poort informatie die nodig zijn om verbinding te maken op basis van tooLinux HDInsight met behulp van een SSH-client:
 
 | Adres | Poort | Maakt verbinding met... |
 | ----- | ----- | ----- |
@@ -37,205 +37,205 @@ HDInsight kan Linux (Ubuntu) als het besturingssysteem gebruiken voor knooppunte
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Secundaire hoofdknooppunt |
 
 > [!NOTE]
-> Vervang `<edgenodename>` door de naam van het Edge-knooppunt.
+> Vervang `<edgenodename>` met de naam Hallo van Hallo edge-knooppunt.
 >
-> Vervang `<clustername>` door de naam van uw cluster.
+> Vervang `<clustername>` met Hallo-naam van het cluster.
 >
-> Als uw cluster een edge-knooppunt bevat, raden we aan om __altijd verbinding te maken met het edge-knooppunt__ via SSH. De hoofdknooppunten hosten services die essentieel zijn voor de status van Hadoop. Het Edge-knooppunt voert alleen uit wat u op het knooppunt plaatst.
+> Als uw cluster een edge-knooppunt bevat, raden we u __altijd verbinding maken met het edge-knooppunt toohello__ via SSH. de hoofdknooppunten Hallo hosten services die de status kritiek toohello van Hadoop. Hallo edge-knooppunt kan worden uitgevoerd alleen wat put erop.
 >
 > Zie [Edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node) voor meer informatie over het gebruik van Edge-knooppunten.
 
 ## <a name="ssh-clients"></a>SSH-clients
 
-Linux-, Unix-en macOS-systemen bieden de opdrachten `ssh` en `scp`. De `ssh`-client wordt meestal gebruikt om vanaf de opdrachtregel een externe sessie op te zetten met een Linux- of Unix-systeem. De `scp`-client wordt gebruikt om veilig bestanden te kopiëren tussen de client en het externe systeem.
+Linux-, Unix-en Mac OS bieden Hallo `ssh` en `scp` opdrachten. Hallo `ssh` -client is vaak gebruikte toocreate een externe opdrachtregelprogramma sessie met een Linux of Unix-systeem. Hallo `scp` client bestanden van de gebruikte toosecurely kopiëren tussen de client en Hallo externe systeem is.
 
-Microsoft Windows beschikt standaard niet over een SSH-client. De `ssh`- en `scp`-clients zijn beschikbaar voor Windows via de volgende pakketten:
+Microsoft Windows beschikt standaard niet over een SSH-client. Hallo `ssh` en `scp` clients zijn beschikbaar voor Windows via hello-pakketten te volgen:
 
-* [Azure Cloud Shell](../cloud-shell/quickstart.md): de Cloud Shell biedt een Bash-omgeving in uw browser en stelt de opdrachten `ssh`, `scp`, en andere algemene Linux-opdrachten beschikbaar.
+* [Azure Cloud-Shell](../cloud-shell/quickstart.md): Hallo Cloud Shell biedt een Bash-omgeving in uw browser en biedt Hallo `ssh`, `scp`, en andere algemene Linux-opdrachten.
 
-* [Bash in Ubuntu in Windows 10](https://msdn.microsoft.com/commandline/wsl/about): de opdrachten `ssh` en `scp` zijn beschikbaar via de Bash-opdrachtregel in Windows.
+* [Bash op Ubuntu op Windows 10](https://msdn.microsoft.com/commandline/wsl/about): Hallo `ssh` en `scp` opdrachten zijn beschikbaar via Hallo Bash op Windows-opdrachtregel.
 
-* [Git (https://git-scm.com/)](https://git-scm.com/): de opdrachten `ssh` en `scp` zijn beschikbaar via de GitBash-opdrachtregel.
+* [GIT (https://git-scm.com/)](https://git-scm.com/): Hallo `ssh` en `scp` opdrachten zijn beschikbaar via Hallo GitBash vanaf de opdrachtregel.
 
-* [GitHub Desktop (https://desktop.github.com/)](https://desktop.github.com/): de opdrachten `ssh` en `scp` zijn beschikbaar via de GitHub Shell-opdrachtregel. GitHub Desktop kan worden geconfigureerd voor het gebruik van Bash, de Windows-opdrachtprompt of PowerShell als de opdrachtregel voor de Git Shell.
+* [GitHub bureaublad (https://desktop.github.com/)](https://desktop.github.com/) hello `ssh` en `scp` opdrachten zijn beschikbaar via Hallo GitHub Shell-opdrachtregel. GitHub bureaublad kan geconfigureerde toouse Bash, Hallo Windows-opdrachtprompt of PowerShell zijn als de opdrachtregel Hallo voor Hallo Git-Shell.
 
-* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): het PowerShell-team draagt OpenSSH over naar Windows en biedt testversies.
+* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): Hallo PowerShell team is overdragen OpenSSH tooWindows en biedt test releases.
 
     > [!WARNING]
-    > Het OpenSSH-pakket bevat het SSH-serveronderdeel `sshd`. Met dit onderdeel wordt een SSH-server gestart op uw systeem, zodat anderen er verbinding mee kunnen maken. Configureer dit onderdeel alleen en open poort 22 alleen als u een SSH-server wilt hosten op uw systeem. Dit is niet vereist om te communiceren met HDInsight.
+    > Hallo OpenSSH-pakket bevat Hallo SSH-serveronderdeel `sshd`. Dit onderdeel wordt gestart van een SSH-server op uw systeem, zodat anderen tooconnect tooit. Dit onderdeel configureren of open poort 22, tenzij u een SSH-server toohost op uw systeem wilt geen. Het is niet vereist toocommunicate met HDInsight.
 
-Er zijn ook verschillende grafische SSH-clients, zoals [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) en [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). Met deze clients kunt u verbinding maken met HDInsight, maar het proces om verbinding, verschilt ten opzichte van het proces in het hulpprogramma `ssh`. Zie voor meer informatie de documentatie van de grafische client die u gebruikt.
+Er zijn ook verschillende grafische SSH-clients, zoals [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) en [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). Deze clients kunnen gebruikte tooconnect tooHDInsight zijn, Hallo proces van het verbinden van is anders dan met behulp van Hallo `ssh` hulpprogramma. Zie de documentatie van de Hallo van Hallo grafische client die u gebruikt voor meer informatie.
 
 ## <a id="sshkey"></a>Verificatie: SSH-sleutels
 
-SSH-sleutels gebruiken [openbare-sleutelcryptografie](https://en.wikipedia.org/wiki/Public-key_cryptography) voor het beveiligen van SSH-sessies. SSH-sleutels zijn veiliger dan wachtwoorden en bieden een eenvoudige manier om de toegang tot uw Hadoop-cluster te beveiligen.
+SSH sleutels gebruiken [cryptografie met openbare sleutels](https://en.wikipedia.org/wiki/Public-key_cryptography) tooauthenticate SSH-sessies. SSH-sleutels zijn veiliger dan wachtwoorden, en bieden een eenvoudige manier toosecure toegang tooyour Hadoop-cluster.
 
-Als uw SSH-account wordt beveiligd met een sleutel, moet de client tijdens het verbinden de bijbehorende privésleutel opgeven:
+Als uw SSH-account is beveiligd met een sleutel, moet Hallo client Hallo overeenkomende persoonlijke sleutel wanneer u verbinding maakt opgeven:
 
-* De meeste clients kunnen worden geconfigureerd voor het gebruik van een __standaardsleutel__. De `ssh`-client zoekt bijvoorbeeld via `~/.ssh/id_rsa` naar een privésleutel in Linux- en Unix-omgevingen.
+* De meeste clients kunnen worden geconfigureerd toouse een __standaardsleutel__. Bijvoorbeeld, Hallo `ssh` client zoekt naar een persoonlijke sleutel op `~/.ssh/id_rsa` op Linux en Unix-omgevingen.
 
-* U kunt het __pad naar een privésleutel__ opgeven. Met de `ssh`-client wordt de parameter `-i` gebruikt om het pad naar de privésleutel op te geven. Bijvoorbeeld `ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.net`.
+* U kunt opgeven dat Hallo __pad tooa persoonlijke sleutel__. Hello `ssh` client, Hallo `-i` parameter gebruikte toospecify Hallo pad tooprivate sleutel is. Bijvoorbeeld `ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.net`.
 
-* Als u __meerdere privésleutels__ gebruikt voor verschillende servers, kunt u overwegen om een hulpprogramma zoals [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent) te gebruiken. Het hulpprogramma `ssh-agent` kan worden gebruikt voor het automatisch selecteren van de sleutel die moet worden gebruikt bij het tot stand brengen van een SSH-sessie.
+* Als u __meerdere privésleutels__ gebruikt voor verschillende servers, kunt u overwegen om een hulpprogramma zoals [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent) te gebruiken. Hallo `ssh-agent` hulpprogramma gebruikte tooautomatically Selecteer Hallo sleutel toouse kan zijn bij het maken van een SSH-sessie.
 
 > [!IMPORTANT]
 >
-> Als u uw privésleutel beveiligt met een wachtwoordzin, moet u de wachtwoordzin invoeren bij gebruik van de sleutel. Hulpprogramma's zoals `ssh-agent` kunnen het wachtwoord voor extra gebruiksgemak in de cache opslaan.
+> Als u uw persoonlijke sleutel met een wachtwoordzin beveiligt, moet u Hallo wachtwoordzin opgeven als u Hallo-sleutel. Hulpprogramma's zoals `ssh-agent` Hallo wachtwoord voor uw gemak in cache.
 
 ### <a name="create-an-ssh-key-pair"></a>Een SSH-sleutelpaar maken
 
-Gebruik de opdracht `ssh-keygen` om openbare- en privésleutelbestanden te maken. Met de volgende opdracht maakt u een 2048-bits RSA-sleutelpaar dat kan worden gebruikt met HDInsight:
+Gebruik Hallo `ssh-keygen` toocreate openbare en persoonlijke sleutelbestanden opdracht. Hallo volgende opdracht genereert een 2048-bits RSA-sleutelpaar die kan worden gebruikt met HDInsight:
 
     ssh-keygen -t rsa -b 2048
 
-U wordt tijdens het maken van de sleutel gevraagd om informatie. U moet bijvoorbeeld opgeven waar de sleutels worden opgeslagen en er wordt gevraagd of u een wachtwoordzin wilt gebruiken. Wanneer het proces is voltooid, worden er twee bestanden gemaakt: een openbare sleutel en een privésleutel.
+U wordt gevraagd naar informatie tijdens het Hallo sleutel maken. Bijvoorbeeld, waarbij Hallo sleutels worden opgeslagen of toouse een wachtwoordzin. Nadat het Hallo-proces is voltooid, worden twee bestanden gemaakt. een openbare sleutel en een persoonlijke sleutel.
 
-* De __openbare sleutel__ wordt gebruikt om een HDInsight-cluster te maken. De openbare sleutel heeft de extensie `.pub`.
+* Hallo __openbare sleutel__ gebruikte toocreate is een HDInsight-cluster. Hallo openbare sleutel heeft een extensie van `.pub`.
 
-* De __privésleutel__ wordt gebruikt om uw client te verifiëren bij het HDInsight-cluster.
+* Hallo __privésleutel__ gebruikte tooauthenticate uw client toohello HDInsight-cluster is.
 
 > [!IMPORTANT]
-> U kunt uw sleutels beveiligen met een wachtwoordzin. Dit is in feite een wachtwoord voor uw privésleutel. Wanneer iemand uw privésleutel in handen krijgt, heeft deze óók de wachtwoordzin nodig om de sleutel te kunnen gebruiken.
+> U kunt uw sleutels beveiligen met een wachtwoordzin. Dit is in feite een wachtwoord voor uw privésleutel. Zelfs als iemand anders uw persoonlijke sleutel krijgt, moeten ze Hallo wachtwoordzin toouse Hallo sleutel hebben.
 
-### <a name="create-hdinsight-using-the-public-key"></a>HDInsight maken met de openbare sleutel
+### <a name="create-hdinsight-using-hello-public-key"></a>HDInsight met behulp van de openbare sleutel Hallo maken
 
-| Methode voor het maken | De openbare sleutel gebruiken |
+| Methode voor het maken | Hoe toouse Hallo openbare sleutel |
 | ------- | ------- |
-| **Azure Portal** | Schakel het selectievakje bij __Hetzelfde wachtwoord als voor aanmelding bij cluster gebruiken__ uit en selecteer __Openbare sleutel__ als SSH-verificatietype. Tot slot selecteert u het openbare-sleutelbestand of plakt u de tekstinhoud van het bestand in het veld __Openbare SSH-sleutel__.</br>![Dialoogvenster voor de openbare SSH-sleutel tijdens het maken van een HDInsight-cluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
-| **Azure PowerShell** | Gebruik de parameter `-SshPublicKey` van de cmdlet `New-AzureRmHdinsightCluster` en plak de inhoud van de openbare sleutel als tekenreeks.|
-| **Azure CLI 1.0** | Gebruik de parameter `--sshPublicKey` van de opdracht `azure hdinsight cluster create` en plak de inhoud van de openbare sleutel als tekenreeks. |
-| **Resource Manager-sjabloon** | Zie [HDInsight op Linux implementeren met een SSH-sleutel](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/) voor een voorbeeld van het gebruik van SSH-sleutels met een sjabloon. Het `publicKeys`-element in het bestand [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) wordt gebruikt om sleutels door te geven aan Azure bij het maken van het cluster. |
+| **Azure Portal** | Schakel het selectievakje __gebruik hetzelfde wachtwoord als cluster aanmelding__, en selecteer vervolgens __openbare sleutel__ zoals Hallo type van de SSH-verificatie. Ten slotte Hallo-bestand met openbare sleutel selecteren of de tekstinhoud Hallo van Hallo bestand plak in Hallo __openbare SSH-sleutel__ veld.</br>![Dialoogvenster voor de openbare SSH-sleutel tijdens het maken van een HDInsight-cluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| **Azure PowerShell** | Gebruik Hallo `-SshPublicKey` parameter Hallo `New-AzureRmHdinsightCluster` cmdlet en pass Hallo-inhoud van de openbare sleutel als tekenreeks Hallo.|
+| **Azure CLI 1.0** | Gebruik Hallo `--sshPublicKey` parameter Hallo `azure hdinsight cluster create` opdracht en de inhoud van de openbare sleutel Hallo Hallo doorgeven als een tekenreeks. |
+| **Resource Manager-sjabloon** | Zie [HDInsight op Linux implementeren met een SSH-sleutel](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/) voor een voorbeeld van het gebruik van SSH-sleutels met een sjabloon. Hallo `publicKeys` -element in Hallo [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) bestand gebruikte toopass Hallo sleutels tooAzure is bij het maken van Hallo-cluster. |
 
 ## <a id="sshpassword"></a>Verificatie: wachtwoord
 
-SSH-accounts kunnen worden beveiligd met een wachtwoord. Als u met SSH verbinding maakt met HDInsight, wordt u gevraagd om het wachtwoord in te voeren.
+SSH-accounts kunnen worden beveiligd met een wachtwoord. Wanneer u verbinding met behulp van SSH tooHDInsight maakt, bent u vraag tooenter Hallo wachtwoord.
 
 > [!WARNING]
-> Het wordt niet aangeraden om wachtwoordverificatie te gebruiken voor SSH. Wachtwoorden kunnen worden geraden en zijn gevoelig voor ernstige aanvallen. In plaats daarvan wordt aangeraden om [SSH-sleutels te gebruiken voor verificatie](#sshkey).
+> Het wordt niet aangeraden om wachtwoordverificatie te gebruiken voor SSH. Wachtwoorden kunnen worden geraden en zijn kwetsbaar toobrute force-aanvallen. In plaats daarvan wordt aangeraden om [SSH-sleutels te gebruiken voor verificatie](#sshkey).
 
 ### <a name="create-hdinsight-using-a-password"></a>HDInsight maken met een wachtwoord
 
-| Methode voor het maken | Het wachtwoord specificeren |
+| Methode voor het maken | Hoe toospecify Hallo wachtwoord |
 | --------------- | ---------------- |
-| **Azure Portal** | Het SSH-gebruikersaccount heeft standaard hetzelfde wachtwoord als het aanmeldingsaccount van het cluster. Als u een ander wachtwoord wilt gebruiken, schakelt u het selectievakje bij __Hetzelfde wachtwoord als bij aanmelding voor cluster__ uit en voert u het wachtwoord in in het veld __SSH-wachtwoord__.</br>![Dialoogvenster voor het SSH-wachtwoord tijdens het maken van een HDInsight-cluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
-| **Azure PowerShell** | Gebruik de parameter `--SshCredential` van de cmdlet `New-AzureRmHdinsightCluster` en geef een `PSCredential`-object op dat de SSH-gebruikersaccountnaam en het wachtwoord bevat. |
-| **Azure CLI 1.0** | Gebruik de parameter `--sshPassword` van de opdracht `azure hdinsight cluster create` en geef de wachtwoordwaarde op. |
-| **Resource Manager-sjabloon** | Zie [HDInsight op Linux implementeren met een SSH-wachtwoord](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/) voor een voorbeeld van het gebruik met een wachtwoord met een sjabloon. Het `linuxOperatingSystemProfile`-element in het bestand [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) wordt gebruikt om de SSH-accountnaam en het wachtwoord door te geven aan Azure bij het maken van het cluster.|
+| **Azure Portal** | Hallo SSH gebruikersaccount heeft standaard Hallo hetzelfde wachtwoord als aanmeldingsaccount Hallo-cluster. Schakel het selectievakje toouse een ander wachtwoord __gebruik hetzelfde wachtwoord als cluster aanmelding__, en Voer Hallo wachtwoord in Hallo __SSH-wachtwoord__ veld.</br>![Dialoogvenster voor het SSH-wachtwoord tijdens het maken van een HDInsight-cluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
+| **Azure PowerShell** | Gebruik Hallo `--SshCredential` parameter Hallo `New-AzureRmHdinsightCluster` cmdlet en geef een `PSCredential` object met Hallo SSH-gebruikersnaam voor account en wachtwoord. |
+| **Azure CLI 1.0** | Gebruik Hallo `--sshPassword` parameter Hallo `azure hdinsight cluster create` opdracht in en geef Hallo wachtwoordwaarde. |
+| **Resource Manager-sjabloon** | Zie [HDInsight op Linux implementeren met een SSH-wachtwoord](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/) voor een voorbeeld van het gebruik met een wachtwoord met een sjabloon. Hallo `linuxOperatingSystemProfile` -element in Hallo [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) bestand gebruikte toopass Hallo SSH-account en wachtwoord tooAzure is bij het maken van Hallo-cluster.|
 
-### <a name="change-the-ssh-password"></a>Het SSH-wachtwoord wijzigen
+### <a name="change-hello-ssh-password"></a>Hallo SSH-wachtwoord wijzigen
 
-Zie het gedeelte __Wachtwoorden wijzigen__ van het document [HDInsight beheren](hdinsight-administer-use-portal-linux.md#change-passwords) voor meer informatie over het wijzigen van het wachtwoord van het SSH-gebruikersaccount.
+Zie voor informatie over het wijzigen van wachtwoord voor gebruikersaccount Hallo SSH Hallo __wachtwoorden wijzigen__ sectie Hallo [HDInsight beheren](hdinsight-administer-use-portal-linux.md#change-passwords) document.
 
 ## <a id="domainjoined"></a>Verificatie: HDInsight, gekoppeld aan een domein
 
-Als u een __HDInsight-cluster gebruikt dat is gekoppeld aan een domein__, moet u de opdracht `kinit` gebruiken na het verbinden met SSH. Met deze opdracht wordt u om een domeingebruiker en een wachtwoord gevraagd. Uw sessie wordt geverifieerd bij het Azure Active Directory-domein dat is gekoppeld aan het cluster.
+Als u een __HDInsight-cluster domein__, moet u Hallo `kinit` opdracht nadat u verbinding met SSH hebt. Deze opdracht wordt u gevraagd een domeingebruiker en het wachtwoord en verifieert de sessie met hello Azure Active Directory-domein is gekoppeld aan het Hallo-cluster.
 
 Zie [Aan een domein gekoppelde HDInsight-clusters configureren](hdinsight-domain-joined-configure.md) voor meer informatie.
 
-## <a name="connect-to-nodes"></a>Verbinding maken met knooppunten
+## <a name="connect-toonodes"></a>Verbinding maken met toonodes
 
-De hoofdknooppunten en het edge-knooppunt (indien aanwezig) zijn toegankelijk via het internet op poort 22 en 23.
+Hallo hoofdknooppunten en edge-knooppunt (indien aanwezig) toegankelijk is via Hallo internet op poort 22 en 23.
 
-* Bij het verbinden met de __hoofdknooppunten__, gebruikt u poort __22__ om verbinding te maken met het primaire hoofdknooppunt en poort __23__ om verbinding te maken met het secundaire hoofdknooppunt. De FQDN (Fully Qualified Domain Name) die u moet gebruiken is `clustername-ssh.azurehdinsight.net`, waarbij `clustername` de naam van uw cluster is.
+* Wanneer u verbinding maakt toohello __hoofdknooppunten__, gebruik van poort __22__ tooconnect toohello primaire head knooppunt en poort __23__ tooconnect toohello secundair hoofdknooppunt. Hallo FQDN-naam toouse is `clustername-ssh.azurehdinsight.net`, waarbij `clustername` Hallo-naam van uw cluster.
 
     ```bash
-    # Connect to primary head node
-    # port not specified since 22 is the default
+    # Connect tooprimary head node
+    # port not specified since 22 is hello default
     ssh sshuser@clustername-ssh.azurehdinsight.net
 
-    # Connect to secondary head node
+    # Connect toosecondary head node
     ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
     ```
     
-* Gebruik poort 22 als u verbinding wilt maken met het __edge-knooppunt__. De FQDN (Fully Qualified Domain Name) is `edgenodename.clustername-ssh.azurehdinsight.net`, waarbij `edgenodename` een naam is die u hebt opgegeven bij maken van het edge-knooppunt. `clustername`is de naam van het cluster.
+* Wanneer connectiung toohello __edge-knooppunt__, poort 22 gebruikt. Hallo volledig gekwalificeerde domeinnaam is `edgenodename.clustername-ssh.azurehdinsight.net`, waarbij `edgenodename` maakt een naam die u hebt opgegeven als Hallo edge-knooppunt. `clustername`Hallo-naam van Hallo-cluster is.
 
     ```bash
-    # Connect to edge node
+    # Connect tooedge node
     ssh sshuser@edgnodename.clustername-ssh.azurehdinsight.net
     ```
 
 > [!IMPORTANT]
-> In de vorige voorbeelden wordt ervan uitgegaan dat u wachtwoordverificatie gebruikt of dat certificaatverificatie automatisch wordt uitgevoerd. Als u een SSH-sleutelpaar voor verificatie gebruikt en het certificaat niet automatisch wordt toegepast, moet u de parameter `-i` gebruiken om de persoonlijke sleutel op te geven. Bijvoorbeeld `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
+> Hallo eerdere voorbeelden wordt ervan uitgegaan dat u wachtwoordverificatie gebruikt of dat certificaatverificatie automatisch die zich kunnen voordoen wordt. Als u een SSH-sleutelpaar voor verificatie gebruiken en Hallo certificaat niet automatisch gebruikt, gebruikt u Hallo `-i` parameter toospecify Hallo persoonlijke sleutel. Bijvoorbeeld `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
 
-Wanneer u verbinding hebt gemaakt, verandert de prompt en geeft deze de SSH-gebruikersnaam en het knooppunt waarmee u bent verbonden weer. Wanneer u bijvoorbeeld verbonden bent met het primaire hoofdknooppunt als `sshuser`, is de prompt `sshuser@hn0-clustername:~$`.
+Eenmaal zijn verbonden, verandert Hallo prompt tooindicate Hallo SSH gebruiker naam Hallo knooppunt en die u met verbonden bent. Bijvoorbeeld, wanneer verbonden toohello primaire hoofdknooppunt als `sshuser`, Hallo prompt is `sshuser@hn0-clustername:~$`.
 
-### <a name="connect-to-worker-and-zookeeper-nodes"></a>Verbinding maken met werkrol- en Zookeeper-knooppunten
+### <a name="connect-tooworker-and-zookeeper-nodes"></a>Verbinding maken met tooworker en Zookeeper-knooppunten
 
-De werkrol-knooppunten en Zookeeper-knooppunten zijn niet rechtstreeks toegankelijk vanaf internet. Ze zijn toegankelijk vanuit de hoofdknooppunten of edge-knooppunten van het cluster. Hier volgen de algemene stappen om verbinding te maken met andere knooppunten:
+Hallo worker-knooppunten en Zookeeper-knooppunten zijn niet rechtstreeks toegankelijk zijn vanaf internet Hallo. Ze toegankelijk zijn vanuit head clusterknooppunten Hallo of edge-knooppunten. Hallo volgen Hallo algemene stappen tooconnect tooother knooppunten:
 
-1. SSH gebruiken om verbinding te maken met een hoofd- of Edge-knooppunt:
+1. Gebruik SSH tooconnect tooa head of edge-knooppunt:
 
         ssh sshuser@myedge.mycluster-ssh.azurehdinsight.net
 
-2. Gebruik van de SSH-verbinding naar het hoofd- of Edge-knooppunt de opdracht `ssh` om verbinding te maken met een werkrolknooppunt in het cluster:
+2. Gebruik van SSH-verbinding toohello head Hallo of edge-knooppunt, Hallo `ssh` opdracht tooconnect tooa werkrolknooppunt in Hallo-cluster:
 
         ssh sshuser@wn0-myhdi
 
-    Raadpleeg het document [HDInsight beheren met behulp van de Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) voor informatie over het ophalen van een lijst van de domeinnamen van de knooppunten in het cluster.
+    een lijst van domeinnamen op Hallo van Hallo-knooppunten in cluster Hallo tooretrieve Zie Hallo [HDInsight beheren met behulp van de Ambari REST-API Hallo](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
 
-Als het SSH-account is beveiligd met een __wachtwoord__, voert u het wachtwoord in om verbinding te maken.
+Als Hallo SSH-account is beveiligd met een __wachtwoord__, Hallo wachtwoord invoeren om verbinding te maken.
 
-Als het SSH-account is beveiligd met __SSH-sleutels__, moet SSH-forwarding zijn ingeschakeld op de client.
+Als Hallo SSH-account is beveiligd met __SSH-sleutels__, zorg ervoor dat de SSH-doorsturen is ingeschakeld op Hallo-client.
 
 > [!NOTE]
-> U kunt ook HDInsight installeren op een virtueel Azure-netwerk om rechtstreeks toegang te verkrijgen tot alle knooppunten in het cluster. U kunt dan uw externe machine koppelen aan datzelfde virtuele netwerk en rechtstreeks toegang verkrijgen tot alle knooppunten in het cluster.
+> Een andere manier toodirectly toegang tot alle knooppunten in cluster Hallo is tooinstall HDInsight in een virtueel netwerk van Azure. Vervolgens kunt u deelnemen aan de externe computer toohello hetzelfde virtuele netwerk en rechtstreeks toegang tot alle knooppunten in cluster Hallo.
 >
 > Zie [Een virtueel netwerk gebruiken met HDInsight](hdinsight-extend-hadoop-virtual-network.md) voor meer informatie.
 
 ### <a name="configure-ssh-agent-forwarding"></a>Het doorsturen van SSH-agents configureren
 
 > [!IMPORTANT]
-> Bij de volgende stappen wordt ervan uitgegaan dat u een op Linux of UNIX gebaseerd systeem gebruikt en dat u werkt met Bash in Windows 10. Als deze stappen niet werken voor uw systeem, moet u mogelijk de documentatie van uw SSH-client raadplegen.
+> Hallo volgende stappen wordt ervan uitgegaan dat een Linux- of UNIX-systeem en werken met Bash op Windows 10. Als u deze stappen voor uw systeem niet werkt, moet u mogelijk tooconsult Hallo-documentatie voor de SSH-client.
 
 1. Start een teksteditor en open `~/.ssh/config`. Als dit bestand niet bestaat, kunt u dit maken door `touch ~/.ssh/config` in te voeren op een opdrachtregel.
 
-2. Voeg de volgende tekst toe aan het bestand `config`.
+2. Hallo na tekst toohello toevoegen `config` bestand.
 
         Host <edgenodename>.<clustername>-ssh.azurehdinsight.net
           ForwardAgent yes
 
-    Vervang de __host__informatie door het adres van het knooppunt waar u verbinding mee maakt via SSH. In het vorige voorbeeld werd gebruikgemaakt van het Edge-knooppunt. Hiermee configureert u het doorsturen van de SSH-agent naar het opgegeven knooppunt.
+    Vervang Hallo __Host__ informatie met Hallo-adres van Hallo knooppunt u toousing SSH verbinding maken. het vorige voorbeeld Hallo gebruikt Hallo edge-knooppunt. Deze vermelding configureert voor het opgegeven knooppunt Hallo doorsturen van SSH-agent.
 
-3. Test het doorsturen van de SSH-agent met de volgende opdracht vanaf de terminal:
+3. Test doorsturen met behulp van de volgende opdracht uit Hallo terminal Hallo SSH-agent:
 
         echo "$SSH_AUTH_SOCK"
 
-    Met deze opdracht wordt informatie geretourneerd die lijkt op de volgende tekst:
+    Met deze opdracht retourneert informatie vergelijkbare toohello volgende tekst:
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    Als er niets wordt geretourneerd, wordt `ssh-agent` niet uitgevoerd. Raadpleeg voor meer informatie de opstartscriptinformatie voor agents op [ssh-agent gebruiken met ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) of raadpleeg de documentatie bij de SSH-client.
+    Als er niets wordt geretourneerd, wordt `ssh-agent` niet uitgevoerd. Zie voor meer informatie, Hallo agent scripts opstartgegevens op [met behulp van ssh-agent met ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) of Raadpleeg de documentatie bij de SSH-client.
 
-4. Zodra u hebt gecontroleerd of **ssh-agent** wordt uitgevoerd, gebruikt u de volgende opdracht om uw persoonlijke SSH-sleutel toe te voegen aan de agent:
+4. Zodra u hebt gecontroleerd of **ssh-agent** is uitgevoerd, gebruik Hallo tooadd na uw persoonlijke sleutel toohello de SSH-agent:
 
         ssh-add ~/.ssh/id_rsa
 
-    Als uw persoonlijke sleutel wordt opgeslagen in een ander bestand, vervangt u `~/.ssh/id_rsa` door het pad naar het bestand.
+    Als uw persoonlijke sleutel wordt opgeslagen in een ander bestand, vervangt `~/.ssh/id_rsa` met Hallo pad toohello bestand.
 
-5. Maak met SSH verbinding met het Edge-knooppunt of de hoofdknooppunten van het cluster. Gebruik vervolgens de SSH-opdracht om verbinding te maken met een werkrol- of Zookeeper-knooppunt. De verbinding wordt gemaakt met de doorgestuurde sleutel.
+5. Verbinding maken met toohello cluster edge-knooppunt of hoofdknooppunten via SSH. Gebruik vervolgens Hallo SSH-opdracht tooconnect tooa worker of zookeeper-knooppunt. Hallo-verbinding is gemaakt met behulp van de sleutel Hallo doorgestuurd.
 
 ## <a name="copy-files"></a>Bestanden kopiëren
 
-Het hulpprogramma `scp` kan worden gebruikt om bestanden te kopiëren naar en van afzonderlijke knooppunten in het cluster. De volgende opdracht kopieert bijvoorbeeld de map `test.txt` uit het lokale systeem naar het primaire hoofdknooppunt:
+Hallo `scp` hulpprogramma kan worden gebruikt toocopy bestanden tooand uit afzonderlijke knooppunten in het Hallo-cluster. Bijvoorbeeld, Hallo opdracht kopieën Hallo na `test.txt` map uit Hallo lokaal systeem toohello primaire hoofdknooppunt:
 
 ```bash
 scp test.txt sshuser@clustername-ssh.azurehdinsight.net:
 ```
 
-Omdat er geen pad is opgegeven na de `:`, wordt het bestand geplaatst in de basismap `sshuser`.
+Omdat u geen pad wordt opgegeven na Hallo `:`, Hallo-bestand wordt geplaatst in Hallo `sshuser` basismap.
 
-In het volgende voorbeeld wordt het bestand `test.txt` uit de basismap `sshuser` op het primaire hoofdknooppunt gekopieerd naar het lokale systeem:
+Hallo na voorbeeld kopieën Hallo `test.txt` bestand van Hallo `sshuser` basismap op Hallo primaire hoofdknooppunt toohello lokaal systeem:
 
 ```bash
 scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 ```
 
 > [!IMPORTANT]
-> `scp` heeft alleen toegang tot het bestandssysteem van afzonderlijke knooppunten in het cluster. Het kan niet worden gebruikt voor toegang tot gegevens in de Hadoop Distributed File System-compatibele opslag voor het cluster.
+> `scp`alleen toegang tot bestandssysteem Hallo van afzonderlijke knooppunten binnen Hallo-cluster. Deze kan niet worden gebruikt tooaccess in Hallo HDFS-compatibele opslag voor Hallo-cluster.
 >
-> Gebruik `scp` wanneer u een resource moet uploaden voor gebruik in een SSH-sessie. Upload bijvoorbeeld van een Python-script en voer het script uit in een SSH-sessie.
+> Gebruik `scp` wanneer u een resource tooupload moet voor gebruik van een SSH-sessie. Bijvoorbeeld, een pythonscript uploaden en vervolgens Hallo-script uitvoeren van een SSH-sessie.
 >
-> Zie de volgende documenten voor informatie over het rechtstreeks laden van gegevens in de Hadoop Distributed File System-compatibele opslag:
+> Zie voor informatie over de gegevens rechtstreeks in Hallo HDFS-compatibele opslag laden, Hallo documenten te volgen:
 >
 > * [HDInsight op basis van Azure Storage](hdinsight-hadoop-use-blob-storage.md).
 >

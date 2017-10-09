@@ -1,33 +1,33 @@
 <!--author=SharS last changed: 9/17/15-->
 
-### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Upgrade van SharePoint 2010 naar SharePoint 2013 en vervolgens de StorSomple-Adapter installeren voor SharePoint
+### <a name="upgrade-sharepoint-2010-toosharepoint-2013-and-then-install-hello-storsomple-adapter-for-sharepoint"></a>Upgrade van SharePoint 2010 tooSharePoint 2013 en installeer vervolgens Hallo StorSomple Adapter voor SharePoint
 > [!IMPORTANT]
-> Bestanden die eerder zijn verplaatst naar een externe opslag via de Resourcestructuur zijn is niet beschikbaar totdat de upgrade is voltooid en de functie Resourcestructuur weer is ingeschakeld. Uitvoeren als u wilt beperken impact van de gebruiker, een upgrade of herinstallatie tijdens een geplande onderhoudsvenster.
+> Alle bestanden die eerder zijn verplaatst tooexternal opslag via de Resourcestructuur worden pas beschikbaar Hallo-upgrade is voltooid en Hallo Resourcestructuur functie is weer ingeschakeld. toolimit gebruiker invloed, voert u een upgrade of herinstallatie tijdens een geplande onderhoudsvenster.
 > 
 > 
 
-#### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>SharePoint 2010 upgraden naar SharePoint 2013 en installeer vervolgens de adapter
-1. Noteer het pad van de store BLOB voor de externalized BLOBs en de inhoudsdatabases waarvoor Resourcestructuur is ingeschakeld in de farm SharePoint 2010. 
-2. Installeer en configureer het nieuwe SharePoint 2013-farm. 
-3. Databases, toepassingen en siteverzamelingen verplaatsen van de SharePoint 2010-farm aan de nieuwe SharePoint 2013-farm. Voor instructies, gaat u naar [overzicht van het upgradeproces voor SharePoint 2013](https://technet.microsoft.com/library/cc262483.aspx).
-4. De StorSimple-Adapter installeren voor SharePoint op de nieuwe farm. Ga naar [de StorSimple-Adapter installeren voor SharePoint](#install-the-storsimple-adapter-for-sharepoint) voor procedures.
-5. Gebruik de informatie die u in stap 1 hebt genoteerd en Resourcestructuur inschakelen voor dezelfde reeks inhoudsdatabases en geef dezelfde BLOB store pad dat is gebruikt in de SharePoint 2010-installatie. Ga naar [Resourcestructuur configureren](#configure-rbs) voor procedures. Nadat u deze stap hebt voltooid, is eerder externalized bestanden moet toegankelijk is vanaf de nieuwe farm. 
+#### <a name="tooupgrade-sharepoint-2010-toosharepoint-2013-and-then-install-hello-adapter"></a>SharePoint 2010 tooupgrade tooSharePoint 2013 en vervolgens het Hallo-adapter installeren
+1. Opmerking Hallo BLOB pad voor Hallo opslaan externalized in Hallo SharePoint 2010-farm, BLOBs en het Hallo-inhoudsdatabases waarvoor Resourcestructuur is ingeschakeld. 
+2. Installeer en configureer Hallo nieuwe SharePoint 2013-farm. 
+3. Het verplaatsen van databases, toepassingen en siteverzamelingen van SharePoint 2010 Hallo farm toohello nieuwe SharePoint 2013-farm. Voor instructies gaat te[overzicht van Hallo upgradeproces tooSharePoint 2013](https://technet.microsoft.com/library/cc262483.aspx).
+4. Hallo StorSimple-Adapter installeren voor SharePoint op Hallo nieuwe farm. Ga te[installeren Hallo StorSimple-Adapter voor SharePoint](#install-the-storsimple-adapter-for-sharepoint) voor procedures.
+5. Met Hallo-informatie die u in stap 1 hebt genoteerd, Resourcestructuur inschakelen voor Hallo dezelfde set inhoudsdatabases en geef Hallo pad dat is gebruikt dezelfde BLOB opslaan in Hallo SharePoint 2010-installatie. Ga te[Resourcestructuur configureren](#configure-rbs) voor procedures. Nadat u deze stap hebt voltooid, moeten eerder externalized bestanden via Hallo nieuwe farm toegankelijk zijn. 
 
-### <a name="upgrade-the-storsimple-adapter-for-sharepoint"></a>Upgrade de StorSimple-Adapter voor SharePoint
+### <a name="upgrade-hello-storsimple-adapter-for-sharepoint"></a>Hallo StorSimple Adapter voor SharePoint bijwerken
 > [!IMPORTANT]
-> U moet plannen dat deze upgrade voordoen tijdens een geplande onderhoudsvenster voor de volgende redenen:
+> U moet deze upgrade toooccur plannen tijdens een geplande onderhoudsvenster voor Hallo volgende redenen:
 > 
-> * Eerder zich externalized inhoud niet beschikbaar totdat de adapter wordt opnieuw geïnstalleerd.
-> * Alle inhoud die is geüpload naar de site wanneer u de vorige versie van de StorSimple-Adapter voor SharePoint hebt verwijderd, maar voordat u de nieuwe versie installeert worden opgeslagen in de inhoudsdatabase. U moet deze inhoud verplaatsen naar het StorSimple-apparaat nadat u de nieuwe adapter. U kunt de Microsoft` RBS Migrate()` PowerShell-cmdlet die deel uitmaakt van SharePoint voor het migreren van de inhoud. Zie voor meer informatie [inhoud migreert van of naar Resourcestructuur](https://technet.microsoft.com/library/ff628255.aspx). 
+> * Eerder worden externalized inhoud pas beschikbaar Hallo-adapter wordt opnieuw geïnstalleerd.
+> * Alle inhoud geüpload toohello site nadat u eerdere versie van de Hallo Hallo StorSimple Adapter voor SharePoint verwijderen, maar voordat u de nieuwe versie hello, installeert in de inhoudsdatabase Hallo worden opgeslagen. U moet toomove dat inhoud toohello StorSimple-apparaat na de installatie van nieuwe Hallo-adapter. U kunt Microsoft hello` RBS Migrate()` PowerShell-cmdlet die deel uitmaakt van SharePoint toomigrate Hallo-inhoud. Zie voor meer informatie [inhoud migreert van of naar Resourcestructuur](https://technet.microsoft.com/library/ff628255.aspx). 
 > 
 > 
 
-#### <a name="to-upgrade-the-storsimple-adapter-for-sharepoint"></a>De StorSimple-Adapter voor SharePoint bijwerken
-1. Verwijder de vorige versie van StorSimple-Adapter voor SharePoint.
+#### <a name="tooupgrade-hello-storsimple-adapter-for-sharepoint"></a>tooupgrade hello StorSimple-Adapter voor SharePoint
+1. Hallo eerdere versie van StorSimple-Adapter verwijderen voor SharePoint.
    
    > [!NOTE]
-   > Hiermee worden automatisch Resourcestructuur uitgeschakeld op de inhoudsdatabases. Bestaande BLOBs blijft echter op het StorSimple-apparaat. Omdat Resourcestructuur is uitgeschakeld en de BLOBs niet zijn gemigreerd naar de inhoudsdatabases, mislukken alle aanvragen voor deze BLOBs. 
+   > Hiermee worden automatisch Resourcestructuur op Hallo inhoudsdatabases uitgeschakeld. Bestaande BLOBs blijven echter op Hallo StorSimple-apparaat. Omdat Resourcestructuur is uitgeschakeld en Hallo BLOBs niet gemigreerde back toohello inhoudsdatabases zijn, mislukken alle aanvragen voor deze BLOBs. 
    > 
    > 
-2. De nieuwe StorSimple-Adapter installeren voor SharePoint. De nieuwe adapter automatisch de inhoudsdatabases die eerder zijn ingeschakeld of uitgeschakeld voor Resourcestructuur herkent en gebruikt de eerdere instellingen.
+2. Nieuwe StorSimple-Adapter installeren Hallo voor SharePoint. Hallo nieuwe adapter Hallo-inhoudsdatabases die eerder zijn ingeschakeld of uitgeschakeld voor Resourcestructuur automatisch herkent en de bestaande instellingen hello worden gebruikt.
 

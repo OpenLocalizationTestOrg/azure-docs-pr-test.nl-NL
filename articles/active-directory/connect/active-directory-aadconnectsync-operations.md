@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect-synchronisatie: operationele taken en overwegingen | Microsoft Docs'
-description: Dit onderwerp beschrijft operationele taken voor Azure AD Connect-synchronisatie en voorbereiden voor de werking van dit onderdeel.
+description: Dit onderwerp beschrijft operationele taken voor Azure AD Connect-synchronisatie en hoe tooprepare voor de werking van dit onderdeel.
 services: active-directory
 documentationcenter: 
 author: AndKjell
@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b7583a1556bb1113f349a78890768451e39c6878
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e6b21262e0924785808888d66f08a04a56581edc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect-synchronisatie: operationele taken en afweging
-Het doel van dit onderwerp is om operationele taken voor Azure AD Connect-synchronisatie te beschrijven.
+Hallo-doel van dit onderwerp is toodescribe operationele taken voor Azure AD Connect-synchronisatie.
 
 ## <a name="staging-mode"></a>Faseringsmodus
 De faseringsmodus kan worden gebruikt voor verschillende scenario's, waaronder:
 
 * Hoge beschikbaarheid.
 * Testen en implementeren van nieuwe wijzigingen in de configuratie.
-* Introduceert een nieuwe server en de oude uit bedrijf nemen.
+* Introduceert een nieuwe server en uit bedrijf nemen Hallo oude.
 
-U kunt wijzigingen aanbrengen in de configuratie en de wijzigingen bekijken voordat u de server actief maken met een server in de faseringsmodus. Ook kunt u volledige import en een volledige synchronisatie om te verifiëren dat alle wijzigingen worden verwacht, voordat u deze wijzigingen in uw productieomgeving aanbrengt uitvoeren.
+Met een server in de faseringsmodus kunt u wijzigingen toohello configuratie en preview Hallo wijzigingen voordat u Hallo-server actief maken. U kunt er ook toorun volledige import en een volledige synchronisatie tooverify dat alle wijzigingen worden verwacht, voordat u deze wijzigingen naar uw productieomgeving.
 
-Tijdens de installatie, kunt u de server zich in **faseringsmodus**. Hiermee wordt de server actief is voor de import en synchronisatie, maar eventuele uitvoer kan niet worden uitgevoerd. Een server in de faseringsmodus is Wachtwoordsynchronisatie of wachtwoord terugschrijven niet actief, zelfs als u deze functies ingeschakeld tijdens de installatie. Wanneer u de faseringsmodus uitschakelt, de server is, wordt het exporteren wordt gestart, schakelt Wachtwoordsynchronisatie en wachtwoord terugschrijven maakt.
+Tijdens de installatie, selecteert u Hallo server toobe in **faseringsmodus**. Deze actie wordt Hallo-server actief is voor de import en synchronisatie, maar eventuele uitvoer kan niet worden uitgevoerd. Een server in de faseringsmodus is Wachtwoordsynchronisatie of wachtwoord terugschrijven niet actief, zelfs als u deze functies ingeschakeld tijdens de installatie. Wanneer u de faseringsmodus uitschakelt, Hallo-server is, wordt het exporteren wordt gestart, schakelt Wachtwoordsynchronisatie en wachtwoord terugschrijven maakt.
 
-U kunt nog steeds exporteren van een afdwingen met behulp van synchronization servicemanager.
+U kunt nog steeds exporteren van een afdwingen met behulp van Hallo synchronisatie servicemanager.
 
-Een server in de faseringsmodus blijft ontvangen van wijzigingen van Active Directory en Azure AD. Heeft altijd een kopie van de meest recente wijzigingen en kunnen zeer snel uitvoeren via de verantwoordelijkheden van een andere server. Als u configuratiewijzigingen in de primaire server aanbrengt, is uw verantwoordelijkheid om dezelfde wijzigingen aanbrengen op de server in de faseringsmodus.
+Een server in de faseringsmodus blijft tooreceive wijzigingen van Active Directory en Azure AD. Heeft altijd een kopie van de meest recente wijzigingen Hallo en kunnen zeer snel nemen via Hallo verantwoordelijkheden van een andere server. Als u wijzigingen tooyour primaire configuratieserver maakt, is uw verantwoordelijkheid toomake Hallo dezelfde wijzigingen toohello server in de faseringsmodus.
 
-De faseringsmodus is voor mensen met kennis van de oudere synchronisatie-technologieën, anders omdat de server een eigen SQL-database heeft. Deze architectuur kan de modus server met tijdelijke bestanden zich bevinden in een ander datacenter.
+Voor mensen met kennis van de oudere synchronisatie-technologieën verschilt Hallo faseringsmodus omdat Hallo server een eigen SQL-database heeft. Deze architectuur kunnen Hallo staging-modus server toobe zich in een ander datacenter.
 
-### <a name="verify-the-configuration-of-a-server"></a>Controleer de configuratie van een server
-Als u wilt toepassen op deze methode, de volgende stappen uit:
+### <a name="verify-hello-configuration-of-a-server"></a>Hallo-configuratie van een server controleren
+tooapply deze methode als volgt te werk:
 
 1. [Voorbereiden](#prepare)
 2. [Configuratie](#configuration)
@@ -50,70 +50,70 @@ Als u wilt toepassen op deze methode, de volgende stappen uit:
 5. [Actieve switchserver](#switch-active-server)
 
 #### <a name="prepare"></a>Voorbereiden
-1. Azure AD Connect installeert, selecteert u **faseringsmodus**, en deselecteren **synchronisatie starten** op de laatste pagina van de installatiewizard. Deze modus kunt u de synchronisatie-engine handmatig uitvoeren.
+1. Azure AD Connect installeert, selecteert u **faseringsmodus**, en deselecteren **synchronisatie starten** op Hallo laatste pagina van de installatiewizard Hallo. Deze modus kunt u toorun Hallo synchronisatie-engine handmatig.
    ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/readytoconfigure.png)
-2. Meld u af/aanmelding in en selecteer menu start in **synchronisatieservice**.
+2. Meld u af/aanmeldingsnaam en op Hallo start menu selecteren **synchronisatieservice**.
 
 #### <a name="configuration"></a>Configuratie
-Als u aangepaste wijzigingen hebt aangebracht in de primaire server en u wilt vergelijken van de configuratie met de staging-server, gebruikt u [documentatie voor Azure AD Connect-configuratie](https://github.com/Microsoft/AADConnectConfigDocumenter).
+Als u aangebrachte wijzigingen toohello primaire server en gewenste toocompare Hallo configuratie Hello staging-server, gebruikt u [documentatie voor Azure AD Connect-configuratie](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
 #### <a name="import-and-synchronize"></a>Importeren en synchroniseren
-1. Selecteer **Connectors**, en selecteer de eerste Connector met het type **Active Directory Domain Services**. Klik op **uitvoeren**, selecteer **volledige import**, en **OK**. Voer deze stappen uit voor alle Connectors van dit type.
-2. Selecteer de Connector met het type **Azure Active Directory (Microsoft)**. Klik op **uitvoeren**, selecteer **volledige import**, en **OK**.
-3. Zorg ervoor dat het tabblad Connectors nog steeds is geselecteerd. Voor elke Connector met het type **Active Directory Domain Services**, klikt u op **uitvoeren**, selecteer **Deltasynchronisatie**, en **OK**.
-4. Selecteer de Connector met het type **Azure Active Directory (Microsoft)**. Klik op **uitvoeren**, selecteer **Deltasynchronisatie**, en **OK**.
+1. Selecteer **Connectors**, en selecteer eerste Connector is met type Hallo Hallo **Active Directory Domain Services**. Klik op **uitvoeren**, selecteer **volledige import**, en **OK**. Voer deze stappen uit voor alle Connectors van dit type.
+2. Selecteer Hallo Connector met het type **Azure Active Directory (Microsoft)**. Klik op **uitvoeren**, selecteer **volledige import**, en **OK**.
+3. Zorg ervoor dat Hallo tabblad Connectors nog steeds is geselecteerd. Voor elke Connector met het type **Active Directory Domain Services**, klikt u op **uitvoeren**, selecteer **Deltasynchronisatie**, en **OK**.
+4. Selecteer Hallo Connector met het type **Azure Active Directory (Microsoft)**. Klik op **uitvoeren**, selecteer **Deltasynchronisatie**, en **OK**.
 
-U hebt nu gefaseerde export wijzigingen naar Azure AD en on-premises AD (als u hybride implementatie voor Exchange). De volgende stappen kunnen u controleren wat bijna wordt gewijzigd voordat u de uitvoer naar de mappen daadwerkelijk wordt gestart.
+U hebt nu gefaseerde export tooAzure AD wijzigingen en on-premises AD (als u hybride implementatie voor Exchange). de volgende stappen Hallo kunnen u tooinspect wat over toochange is voordat u daadwerkelijk Hallo toohello exportmappen.
 
 #### <a name="verify"></a>Verifiëren
-1. Start een opdrachtprompt en Ga naar`%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Voer: `csexport "Name of Connector" %temp%\export.xml /f:x` de naam van de Connector vindt u in de synchronisatieservice. Een naam die vergelijkbaar is met 'contoso.com – AAD' voor Azure AD.
-3. Kopieer het PowerShell-script uit de sectie [CSAnalyzer](#appendix-csanalyzer) naar een bestand met de naam `csanalyzer.ps1`.
-4. Open een PowerShell-venster en blader naar de map waar u het PowerShell-script hebt gemaakt.
+1. Start een opdrachtprompt en te gaan`%ProgramFiles%\Microsoft Azure AD Sync\bin`
+2. Voer: `csexport "Name of Connector" %temp%\export.xml /f:x` Hallo-naam van Connector Hallo vindt u in de synchronisatieservice. Heeft een naam vergelijkbare too"contoso.com – AAD' voor Azure AD.
+3. Hallo PowerShell-script kopiëren van Hallo sectie [CSAnalyzer](#appendix-csanalyzer) tooa-bestand met de naam `csanalyzer.ps1`.
+4. Open een PowerShell-venster en blader toohello map waar u de PowerShell-script Hallo hebt gemaakt.
 5. Voer: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
-6. U hebt nu een bestand met de naam **processedusers1.csv** die kan worden onderzocht in Microsoft Excel. Alle wijzigingen die zijn voorbereid om te worden geëxporteerd naar Azure AD zijn gevonden in dit bestand.
-7. Noodzakelijke wijzigingen aanbrengen in de gegevens of configuratie en voer deze stappen opnieuw (importeren en synchroniseren en controleer of) totdat de wijzigingen die zijn geëxporteerd worden verwacht.
+6. U hebt nu een bestand met de naam **processedusers1.csv** die kan worden onderzocht in Microsoft Excel. Alle wijzigingen gefaseerde toobe geëxporteerd tooAzure AD vindt u in dit bestand.
+7. Breng wijzigingen toohello gegevens of configuratie en voer deze stappen opnieuw (importeren en synchroniseren en controleer of) pas Hallo wijzigingen die over toobe geëxporteerd zijn worden verwacht.
 
 #### <a name="switch-active-server"></a>Actieve switchserver
-1. Op de momenteel actieve server uitschakelen (FIM-DirSync/Azure AD Sync) van de server zodat deze niet worden geëxporteerd naar Azure AD of stel deze in de faseringsmodus (Azure AD Connect).
-2. De installatiewizard uitvoeren op de server in **faseringsmodus** en uitschakelen **faseringsmodus**.
+1. Op de huidige actieve server Hallo Hallo-server (FIM-DirSync/Azure AD Sync) uitschakelen zodat deze niet tooAzure AD exporteert of stel deze in de faseringsmodus (Azure AD Connect).
+2. Hallo-installatiewizard uitgevoerd op Hallo-server in **faseringsmodus** en uitschakelen **faseringsmodus**.
    ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/additionaltasks.png)
 
 ## <a name="disaster-recovery"></a>Herstel na noodgevallen
-Onderdeel van het implementatieontwerp is het plannen voor wat te doen als er een ramp optreedt waarbij u de synchronisatieserver verliezen. Er zijn verschillende modellen moet gebruiken en welke een om te gebruiken is afhankelijk van verschillende factoren, waaronder:
+Deel van Hallo implementatieontwerp is tooplan voor welke toodo als er een ramp optreedt waarbij u Hallo synchronisatieserver verliezen. Er zijn verschillende modellen toouse en welke één toouse is afhankelijk van verschillende factoren, waaronder:
 
-* Wat is uw tolerantie voor niet dat deze wijzigingen kunnen aanbrengen op objecten in Azure AD tijdens de uitvaltijd?
-* Als u synchronisatie van wachtwoorden, de gebruikers accepteert dat ze hebben het oude wachtwoord in Azure AD gebruiken als ze deze lokale wijzigen?
+* Wat is de tolerantie voor tooobjects niet wordt kunnen Zorg in Azure AD tijdens Hallo uitvaltijd wijzigt?
+* Als u synchronisatie van wachtwoorden, Hallo gebruikers accepteert dat ze toouse Hallo oud wachtwoord in Azure AD hebben als ze deze lokale wijzigen?
 * Hebt u een afhankelijkheid op realtime bewerkingen, zoals wachtwoord terugschrijven?
 
-Afhankelijk van de antwoorden op deze vragen en beleid van uw organisatie, kan een van de volgende strategieën worden geïmplementeerd:
+Afhankelijk van Hallo antwoorden toothese vragen en beleid van uw organisatie, kan een van de volgende strategieën Hallo worden geïmplementeerd:
 
 * Opnieuw opbouwen wanneer deze nodig is.
 * Een ongebruikte stand-by-server, ook wel **faseringsmodus**.
 * Gebruik virtuele machines.
 
-Als u niet de ingebouwde SQL Express-database gebruikt, wordt ook rekening met de [SQL maximale beschikbaarheid](#sql-high-availability) sectie.
+Als u geen Hallo ingebouwde SQL Express-database gebruikt, wordt ook rekening met het Hallo [SQL maximale beschikbaarheid](#sql-high-availability) sectie.
 
 ### <a name="rebuild-when-needed"></a>Opnieuw opbouwen wanneer deze nodig is
-Een strategie voor een praktische is voor het plannen van de server opnieuw opbouwen wanneer deze nodig is. Normaal gesproken installeert het synchronisatie-engine en voert u die de initiële importeren en de synchronisatie kunnen worden uitgevoerd binnen een paar uur. Als er niet een vervangende server beschikbaar is, is het mogelijk om tijdelijk met een domeincontroller voor het hosten van de synchronisatie-engine.
+Een strategie voor een praktische is tooplan voor de server opnieuw opbouwen wanneer deze nodig. Normaal gesproken installeren Hallo synchronisatie-engine en importeren in eerste instantie Hallo en synchronisatie kan worden uitgevoerd binnen een paar uur. Als er niet een vervangende server beschikbaar is, is het mogelijk tootemporarily gebruik een domain controller toohost Hallo synchronisatie-engine.
 
-De synchronisatie-engine-server worden niet opgeslagen voor elke status over de objecten zodat de database kan worden gemaakt van de gegevens in Active Directory en Azure AD. De **sourceAnchor** kenmerk wordt gebruikt om lid van de objecten uit de on-premises en de cloud. Als u de server met bestaande objecten on-premises en de cloud opnieuw maken, klikt u vervolgens de synchronisatie-engine komt overeen met die objecten samen opnieuw op opnieuw installeren. De zaken die u wilt vastleggen en opslaan zijn de configuratiewijzigingen van de server, zoals filteren en synchronisatieregels. Deze aangepaste configuraties moeten opnieuw worden toegepast voordat u begint te synchroniseren.
+Hallo synchronisatie-engine-server slaat geen geen status over Hallo objecten zodat Hallo-database kan worden gemaakt van Hallo-gegevens in Active Directory en Azure AD. Hallo **sourceAnchor** kenmerk is gebruikte toojoin Hallo objecten van on-premises en Hallo cloud. Als u opnieuw opbouwen Hallo van server met bestaande objecten on-premises en Hallo cloud, en vervolgens Hallo synchronisatie-engine overeenkomt met deze objecten samen nogmaals op opnieuw installeren. Hallo zaken die u nodig hebt toodocument en opslaan zijn Hallo wijzigingen in configuratie toohello-server, zoals filteren en synchronisatieregels. Deze aangepaste configuraties moeten opnieuw worden toegepast voordat u begint te synchroniseren.
 
 ### <a name="have-a-spare-standby-server---staging-mode"></a>Een ongebruikte stand-by-server - faseringsmodus
-Als u een meer complexe omgeving hebt, wordt klikt u vervolgens met een of meer stand-by-servers aanbevolen. Tijdens de installatie, kunt u een server in **faseringsmodus**.
+Als u een meer complexe omgeving hebt, wordt klikt u vervolgens met een of meer stand-by-servers aanbevolen. Tijdens de installatie, kunt u een server toobe in **faseringsmodus**.
 
 Zie voor meer informatie [faseringsmodus](#staging-mode).
 
 ### <a name="use-virtual-machines"></a>Gebruik virtuele machines
-Een veelvoorkomende en ondersteunde methode is het uitvoeren van de synchronisatie-engine in een virtuele machine. Als de host een probleem heeft, kan de installatiekopie met de synchronisatie-engine-server kan worden gemigreerd naar een andere server.
+Een veelvoorkomende en ondersteunde methode is toorun Hallo synchronisatie-engine in een virtuele machine. Als Hallo host een probleem heeft, kan Hallo installatiekopie met de synchronisatieserver engine Hallo gemigreerde tooanother server zijn.
 
 ### <a name="sql-high-availability"></a>Hoge beschikbaarheid van SQL
-Als u niet de SQL Server Express die wordt geleverd met Azure AD Connect, moet vervolgens hoge beschikbaarheid voor SQL Server ook worden overwogen. De hoge beschikbaarheid-oplossingen die ondersteund zijn SQL-clustering en AOA (AlwaysOn-beschikbaarheidsgroepen). Niet-ondersteunde oplossingen bevatten mirroring.
+Als u SQL Server Express die wordt geleverd met Azure AD Connect Hallo niet gebruikt, moet vervolgens hoge beschikbaarheid voor SQL Server ook worden overwogen. Hallo hoge beschikbaarheidsoplossingen ondersteund omvatten SQL-clustering en AOA (AlwaysOn-beschikbaarheidsgroepen). Niet-ondersteunde oplossingen bevatten mirroring.
 
-Ondersteuning voor SQL AOA is toegevoegd aan Azure AD Connect in versie 1.1.524.0. Voordat u Azure AD Connect installeert, moet u SQL AOA inschakelen. Tijdens de installatie van detecteert Azure AD Connect of de opgegeven SQL-exemplaar is ingeschakeld voor SQL AOA. Als SQL AOA is ingeschakeld, wordt Azure AD Connect meer cijfers uit als SQL AOA is geconfigureerd voor gebruik van replicatie van synchrone of asynchrone replicatie. Bij het instellen van de beschikbaarheidsgroep-Listener, is het raadzaam dat u de eigenschap RegisterAllProvidersIP ingesteld op 0. Dit is omdat Azure AD Connect momenteel SQL Native Client verbinding maakt met SQL en SQL Native Client biedt geen ondersteuning voor het gebruik van de MultiSubNetFailover-eigenschap.
+Ondersteuning voor SQL AOA is toegevoegd tooAzure AD verbinden in versie 1.1.524.0. Voordat u Azure AD Connect installeert, moet u SQL AOA inschakelen. Tijdens de installatie van detecteert Azure AD Connect of Hallo opgegeven SQL-exemplaar is ingeschakeld voor SQL AOA. Als SQL AOA is ingeschakeld, wordt Azure AD Connect meer cijfers uit als SQL AOA geconfigureerde toouse synchrone replicatie of asynchrone replicatie is. Bij het instellen van Hallo beschikbaarheidsgroep-Listener, verdient het aanbeveling Hallo RegisterAllProvidersIP eigenschap too0 in te stellen. Dit is omdat Azure AD Connect momenteel SQL Native Client tooconnect tooSQL gebruikt en SQL Native Client biedt geen ondersteuning voor Hallo gebruik van de MultiSubNetFailover-eigenschap.
 
 ## <a name="appendix-csanalyzer"></a>Bijlage CSAnalyzer
-Zie de sectie [controleren](#verify) over het gebruik van dit script.
+Zie de sectie Hallo [controleren](#verify) over het toouse dit script.
 
 ```
 Param(
@@ -133,16 +133,16 @@ Param(
 #XML must be generated using "csexport "Name of Connector" export.xml /f:x"
 write-host "Importing XML" -ForegroundColor Yellow
 
-#XmlReader.Create won't properly resolve the file location,
+#XmlReader.Create won't properly resolve hello file location,
 #so expand and then resolve it
 $resolvedXMLtoimport=Resolve-Path -Path ([Environment]::ExpandEnvironmentVariables($xmltoimport))
 
-#use an XmlReader to deal with even large files
+#use an XmlReader toodeal with even large files
 $result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
 $result=$reader.ReadToDescendant('cs-object')
 do 
 {
-    #create the object placeholder
+    #create hello object placeholder
     #adding them up here means we can enforce consistency
     $objOutputUser=New-Object psobject
     Add-Member -InputObject $objOutputUser -MemberType NoteProperty -Name ID -Value ""
@@ -180,7 +180,7 @@ do
     if ($showOutput) {Write-Host Operation: $outOperation}
     $objOutputUser.operation=$outOperation
 
-    #now that we have the basics, go get the details
+    #now that we have hello basics, go get hello details
 
     foreach ($attr in $user.Element('unapplied-export-hologram').Element('entry').Elements("attr"))
     {
@@ -221,26 +221,26 @@ do
 
     Write-Progress -activity "Processing ${xmltoimport} in batches of ${batchsize}" -status "Batch ${outputfilecount}: " -percentComplete (($objOutputUsers.Count / $batchsize) * 100)
 
-    #every so often, dump the processed users in case we blow up somewhere
+    #every so often, dump hello processed users in case we blow up somewhere
     if ($count % $batchsize -eq 0)
     {
-        Write-Host Hit the maximum users processed without completion... -ForegroundColor Yellow
+        Write-Host Hit hello maximum users processed without completion... -ForegroundColor Yellow
 
-        #export the collection of users as as CSV
+        #export hello collection of users as as CSV
         Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
         $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 
-        #increment the output file counter
+        #increment hello output file counter
         $outputfilecount+=1
 
-        #reset the collection and the user counter
+        #reset hello collection and hello user counter
         $objOutputUsers = $null
         $count=0
     }
 
     $count+=1
 
-    #need to bail out of the loop if no more users to process
+    #need toobail out of hello loop if no more users tooprocess
     if ($reader.NodeType -eq [System.Xml.XmlNodeType]::EndElement)
     {
         break
@@ -248,8 +248,8 @@ do
 
 } while ($reader.Read)
 
-#need to write out any users that didn't get picked up in a batch of 1000
-#export the collection of users as as CSV
+#need toowrite out any users that didn't get picked up in a batch of 1000
+#export hello collection of users as as CSV
 Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
 $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 ```

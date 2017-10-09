@@ -1,6 +1,6 @@
 ---
-title: Wat is er gebeurd met mijn 5 ASP.NET-project (Visual Studio verbonden services) | Microsoft Docs
-description: Hierin wordt beschreven wat er gebeurt nadat verbinding te maken met een Azure storage-account in een Visual Studio-5 voor ASP.NET-project met Visual Studio services verbonden
+title: aaaWhat is er gebeurd toomy 5 ASP.NET-project (Visual Studio verbonden services) | Microsoft Docs
+description: Hierin wordt beschreven wat er gebeurt nadat verbinding maken met Azure storage-account in een Visual Studio-5 voor ASP.NET-project met Visual Studio tooan services verbonden
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
-ms.openlocfilehash: 4390993772eaf35516e48ad7adcdcec5f1df8d71
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9323bc5317fa2ba0cd42aecd01982f8c2b23d20a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="what-happened-to-my-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>Wat is er gebeurd met mijn 5 ASP.NET-project (Visual Studio Azure Storage verbonden services)?
+# <a name="what-happened-toomy-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>Wat is er gebeurd toomy 5 ASP.NET-project (Visual Studio Azure Storage verbonden services)?
 ## <a name="references-added"></a>Verwijzingen die zijn toegevoegd
-Het Azure Storage NuGet-pakket is toegevoegd aan uw Visual Studio-project.  
-Dit pakket voegt de volgende .NET verwijzingen toe:
+Hello Azure Storage NuGet-pakket is toegevoegd, tooyour Visual Studio-project.  
+Dit pakket wordt toegevoegd Hallo .NET verwijzingen te volgen:
 
 * **Microsoft.Data.Edm**
 * **Microsoft.Data.OData**
@@ -34,10 +34,10 @@ Dit pakket voegt de volgende .NET verwijzingen toe:
 * **Systeem.gegevens**
 * **System.Spatial**
 
-Ook het NuGet-pakket **Microsoft.Framework.Configuration.Json** is toegevoegd.
+Bovendien Hallo NuGet-pakket **Microsoft.Framework.Configuration.Json** is toegevoegd.
 
 ## <a name="connection-string-for-azure-storage-added"></a>Verbindingsreeks voor Azure Storage toegevoegd
-In het bestand config.json van uw project, is een element gemaakt met de verbindingsreeks en de sleutel van het geselecteerde opslagaccount.
+Hallo config.json-bestand van uw project, is een element gemaakt met de verbindingsreeks en de sleutel Hallo geselecteerd van het opslagaccount.
 
 Zie voor meer informatie [ASP.NET 5](http://www.asp.net/vnext).
 

@@ -1,5 +1,5 @@
 >[!NOTE]
->Als resources niet vast zijn, kunt u een ondersteuningsticket openen om te vragen of de quota kunnen worden verhoogd. Maak **geen** extra Azure Media Services-accounts in een poging om de limieten te verhogen.
+>Voor bronnen die niet worden opgelost, kan u vragen voor Hallo quota toobe gegenereerd, door een ondersteuningsticket openen. Voer **niet** extra Azure Media Services-accounts maken in een poging tooobtain hogere limieten.
 
 | Resource | Standaardlimiet | 
 | --- | --- | 
@@ -18,28 +18,28 @@
 | Streaming-eenheden per streaming-eindpunt |10 |
 | Opslagaccounts | 1.000<sup>(5)</sup> (vast) |
 | Beleidsregels | 1,000,000<sup>(6)</sup> |
-| Bestandsgrootte| In sommige scenario's is er een limiet voor de maximale bestandsgrootte die wordt ondersteund voor verwerking in Media Services. <sup>7</sup> |
+| Bestandsgrootte| In sommige scenario's geldt er een limiet voor maximale bestandsgrootte Hallo ondersteund voor de verwerking van Media Services. <sup>7</sup> |
   
-<sup>1</sup> S3-RU's zijn niet beschikbaar in India - west. De maximale RU limieten opnieuw worden ingesteld als de klant het type (bijvoorbeeld van S2 kan S1 wordt). 
+<sup>1</sup> S3-RU's zijn niet beschikbaar in India - west. Hallo max RU limieten opnieuw worden ingesteld als klant Hallo Hallo type (bijvoorbeeld van S2 tooS1) wordt gewijzigd. 
 
-<sup>2</sup> Deze waarde omvat taken in de wachtrij, voltooide taken, actieve taken en geannuleerde taken. Deze bevat geen verwijderde taken. U kunt de oude taken verwijderen met **IJob.Delete** of de HTTP-aanvraag **DELETE**.
+<sup>2</sup> Deze waarde omvat taken in de wachtrij, voltooide taken, actieve taken en geannuleerde taken. Deze bevat geen verwijderde taken. U kunt verwijderen Hallo oude taken met behulp van **IJob.Delete** of Hallo **verwijderen** HTTP-aanvraag.
 
-Vanaf 1 april 2017 wordt elke taakrecord in uw account die ouder is dan 90 dagen, automatisch verwijderd, samen met de bijbehorende onderliggende taakrecords, zelfs als het totale aantal records lager is dan het maximale quotum. Als u de gegevens van de taak wilt archiveren, kunt u de code gebruiken die [hier](../articles/media-services/media-services-dotnet-manage-entities.md) wordt beschreven.
+Vanaf 1 April 2017 worden elke record taak in uw account ouder is dan 90 dagen, automatisch verwijderd, samen met de bijbehorende records van de taak zelfs als Hallo kunt u het totale aantal records lager dan de maximumquotum Hallo is. Als u tooarchive Hallo projecttaak/informatie nodig hebt, kunt u Hallo code beschreven [hier](../articles/media-services/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup> Bij het maken van een aanvraag om taakentiteiten weer te geven, worden maximaal 1000 entiteiten per aanvraag geretourneerd. Als u alle ingediende taken moet bijhouden, kunt u Populaire/Overslaan gebruiken zoals wordt beschreven in [Queryopties van het OData-systeem](http://msdn.microsoft.com/library/gg309461.aspx).
+<sup>3</sup> wanneer een aanvraag toolist taak entiteiten, maximaal 1000 per aanvraag worden geretourneerd. Als u moet tookeep bijhouden van alle taken verzonden, kunt u boven/skip zoals beschreven in [OData-query systeemopties](http://msdn.microsoft.com/library/gg309461.aspx).
 
-<sup>4</sup> Locators zijn niet ontworpen om toegangsbeheer per gebruiker te regelen. Gebruik DRM-oplossingen (Digital Rights Management) als u afzonderlijke gebruikers verschillende toegangsrechten wilt geven. Zie [deze](../articles/media-services/media-services-content-protection-overview.md) sectie voor meer informatie.
+<sup>4</sup> Locators zijn niet ontworpen om toegangsbeheer per gebruiker te regelen. gebruikers voor toogive verschillende toegangsrechten rechten tooindividual beheer van digitale rechten (DRM) oplossingen gebruiken. Zie [deze](../articles/media-services/media-services-content-protection-overview.md) sectie voor meer informatie.
 
-<sup>5</sup> De opslagaccounts moeten deel uitmaken van hetzelfde Azure-abonnement.
+<sup>5</sup> Hallo Hallo storage-accounts zijn hetzelfde Azure-abonnement.
 
 <sup>6</sup> Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). 
 
 >[!NOTE]
-> Gebruik dezelfde beleids-id als u altijd dezelfde dagen/toegangsmachtigingen/enzovoort gebruikt. Zie [dit](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) gedeelte voor informatie en een voorbeeld.
+> Hallo moet u dezelfde beleids-ID als u altijd dezelfde Hallo dagen / toegangsmachtigingen / enz. Zie [dit](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) gedeelte voor informatie en een voorbeeld.
 
-<sup>7</sup>als u inhoud uploadt naar een activum in Azure Media Services met de bedoeling deze met een van de processors media in onze service niet verwerken (dat wil zeggen coderingsprogramma's zoals Media Encoder Standard en Premium werkstroom van Media Encoder of analyse engines zoals Face Detectie), en u rekening houden met de beperking voor de maximale grootte moet. 
+<sup>7</sup>als u wilt uploaden inhoud tooan actief in Azure Media Services met opzet tooprocess Hallo deze met een Hallo media processors in onze service (dat wil zeggen coderingsprogramma's zoals Media Encoder Standard en Premium werkstroom van Media Encoder of analyse engines zoals Face detectie), vervolgens moet u rekening houden met het Hallo-beperking voor de maximale grootte Hallo. 
 
-Vanaf 15 mei 2017 de maximumgrootte die wordt ondersteund voor één blob 195 TB - met bestand largers dan deze limiet is, de taak mislukt. We proberen een oplossing voor het oplossen van deze limiet. Bovendien is de beperking voor de maximale grootte van de Asset als volgt.
+Vanaf 15 mei 2017 Hallo maximumgrootte ondersteund voor één blob 195 TB - met bestand largers dan deze limiet is, de taak mislukt. We werken een fix tooaddress deze limiet. Bovendien Hallo-beperking voor de maximale grootte Hallo Hallo Asset is als volgt.
 
 | Type gereserveerde media-eenheid | Invoer maximumgrootte (GB)| 
 | --- | --- | 

@@ -1,6 +1,6 @@
 ---
-title: Azure DB Cosmos algemene distributie-zelfstudie voor Graph API | Microsoft Docs
-description: Informatie over het instellen van Azure DB die Cosmos globale distributie op basis van de Graph API.
+title: aaaAzure Cosmos DB algemene distributie-zelfstudie voor Graph API | Microsoft Docs
+description: Meer informatie over hoe toosetup Azure Cosmos DB globale distributie op basis Hallo Graph API.
 services: cosmos-db
 keywords: globale distributie, grafiek, gremlin
 documentationcenter: 
@@ -15,44 +15,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: denlee
-ms.openlocfilehash: 3c8794fe33c2ff5aa79559ea2c323cf8d92b426a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1629a31e12a18079f63e07c4909862b36b5f4c0e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Het instellen van Azure DB die Cosmos globale distributie op basis van de Graph API
+# <a name="how-toosetup-azure-cosmos-db-global-distribution-using-hello-graph-api"></a>Hoe toosetup Azure Cosmos DB globale distributie op basis Hallo Graph API
 
-In dit artikel, laten we zien hoe de Azure portal gebruiken om setup Azure Cosmos DB globale distributie en maak verbinding met de Graph-API (preview).
+In dit artikel, laten we zien hoe toouse hello Azure portal toosetup Azure Cosmos DB globale distributie en vervolgens verbinding maken via Hallo Graph API (preview).
 
-In dit artikel bevat informatie over de volgende taken: 
+Dit artikel behandelt Hallo taken te volgen: 
 
 > [!div class="checklist"]
-> * Globale distributie op basis van de Azure-portal configureren
-> * Configureren globale distributie met behulp van de [Graph API's](graph-introduction.md) (preview)
+> * Globale distributie op basis van hello Azure-portal configureren
+> * Configureren van de algemene distributie op basis van Hallo [Graph API's](graph-introduction.md) (preview)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>Verbinding maken met een voorkeursregio met behulp van de API van de grafiek met de .NET SDK
+## <a name="connecting-tooa-preferred-region-using-hello-graph-api-using-hello-net-sdk"></a>Verbinding maken met Hallo Graph API Hallo .NET SDK met de voorkeursregio tooa
 
-De Graph API wordt weergegeven als een extensiebibliotheek boven op de DocumentDB SDK.
+Hallo Graph API wordt weergegeven als een extensiebibliotheek boven op Hallo DocumentDB SDK.
 
-Om te profiteren van [globale distributie](distribute-data-globally.md), clienttoepassingen de voorkeur geordende lijst met regio's moeten worden gebruikt voor het document bewerkingen uitvoeren kunnen opgeven. Dit kan worden gedaan door het instellen van het verbindingsbeleid voor de. Op basis van de Azure DB die Cosmos-accountconfiguratie, huidige regionale beschikbaarheid en de voorkeur lijst is opgegeven, wordt het meest optimale eindpunt door de SDK schrijven uitvoeren en leesbewerkingen gekozen.
+In de volgorde tootake profiteren van [globale distributie](distribute-data-globally.md), clienttoepassingen Hallo besteld voorkeur lijst met regio's toobe gebruikte tooperform document bewerkingen kunnen opgeven. Dit kan worden gedaan door in te stellen Hallo verbindingsbeleid. Op basis van hello Azure DB die Cosmos-accountconfiguratie, huidige regionale beschikbaarheid en Hallo voorkeur lijst opgegeven, Hallo meeste optimale eindpunt wordt gekozen door Hallo SDK tooperform schrijven en lees-en schrijfopdrachten.
 
-Deze lijst voorkeur is opgegeven bij het initialiseren van een verbinding met de SDK's. De SDK's accepteren een optionele parameter 'PreferredLocations' is een geordende lijst met Azure-regio's.
+Deze lijst voorkeur is opgegeven bij het initialiseren van een verbinding met de Hallo SDK's. Hallo SDK's accepteren een optionele parameter 'PreferredLocations' is een geordende lijst met Azure-regio's.
 
-* **Schrijft**: de SDK wordt automatisch verzonden naar alle schrijfbewerkingen naar de huidige regio schrijven.
-* **Leest**: alle leesbewerkingen wordt verzonden naar de eerste beschikbare regio in de lijst PreferredLocations. Als de aanvraag is mislukt, zal de client mislukken omlaag in de lijst voor de volgende regio, enzovoort. De SDK's wordt alleen poging tot lezen van de gebieden die zijn opgegeven in PreferredLocations. Dus bijvoorbeeld kunnen als de Cosmos-DB-account beschikbaar in drie gebieden is, maar de client alleen twee van de niet-schrijven regio's voor PreferredLocations bevat, klikt u vervolgens geen leesbewerkingen worden geleverd buiten de regio schrijven, zelfs in het geval van failover.
+* **Schrijft**: Hallo SDK automatisch naar alle verzonden wordt schrijft toohello huidige schrijven regio.
+* **Leest**: alle leesbewerkingen worden de eerste beschikbare regio toohello in Hallo PreferredLocations lijst verzonden. Als Hallo-aanvraag is mislukt, zal Hallo client mislukken omlaag Hallo lijst toohello volgende regio, enzovoort. Hallo SDK's proberen enkel tooread uit Hallo regio's die zijn opgegeven in PreferredLocations. Dus bijvoorbeeld kunnen als Hallo Cosmos-DB-account beschikbaar in drie gebieden is, maar het Hallo-client alleen twee Hallo niet schrijven regio's voor PreferredLocations bevat, klikt u vervolgens geen leesbewerkingen worden geleverd buiten Hallo schrijven regio, zelfs in geval van Hallo van failover.
 
-De toepassing kunt controleren of de huidige schrijven endpoint en lezen eindpunt gekozen door de SDK door het controleren van de twee eigenschappen, WriteEndpoint en ReadEndpoint beschikbaar in de SDK-versie 1.8 en hoger. Als de eigenschap PreferredLocations niet is ingesteld, worden alle aanvragen van de huidige schrijven regio worden geleverd.
+Hallo-toepassing kunt Hallo huidige schrijven endpoint controleren en lezen eindpunt gekozen door Hallo SDK door te controleren of twee eigenschappen WriteEndpoint en ReadEndpoint beschikbaar in de SDK-versie 1.8 en hoger. Als Hallo PreferredLocations-eigenschap niet is ingesteld, worden alle aanvragen worden aangeboden via Hallo huidige schrijven regio.
 
-### <a name="using-the-sdk"></a>Met behulp van de SDK
+### <a name="using-hello-sdk"></a>Met behulp van Hallo SDK
 
-In de .NET SDK, bijvoorbeeld de `ConnectionPolicy` parameter voor de `DocumentClient` constructor heeft een eigenschap genaamd `PreferredLocations`. Deze eigenschap kan worden ingesteld op een lijst met regionamen. De namen van de weergave voor [Azure-gebieden] [ regions] kan worden opgegeven als onderdeel van `PreferredLocations`.
+Bijvoorbeeld in Hallo .NET SDK, Hallo `ConnectionPolicy` parameter voor Hallo `DocumentClient` constructor heeft een eigenschap genaamd `PreferredLocations`. Deze eigenschap kan worden ingesteld als tooa lijst met regionamen. Hallo weergeven voor de namen van [Azure-gebieden] [ regions] kan worden opgegeven als onderdeel van `PreferredLocations`.
 
 > [!NOTE]
-> De URL's voor de eindpunten niet beschouwd als lange levensduur constanten. De service kan deze op elk gewenst moment bijwerken. De SDK verwerkt deze wijziging automatisch.
+> Hallo-URL's voor eindpunten Hallo moeten niet worden beschouwd als lange levensduur constanten. Hallo-service kan deze op elk gewenst moment bijwerken. Hallo SDK verwerkt deze wijziging automatisch.
 >
 >
 
@@ -74,24 +74,24 @@ DocumentClient docClient = new DocumentClient(
     accountKey,
     connectionPolicy);
 
-// connect to Azure Cosmos DB
+// connect tooAzure Cosmos DB
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-Dat is, die in deze zelfstudie is voltooid. U kunt informatie over het beheren van de consistentie van uw account globaal gerepliceerde door te lezen [consistentieniveaus in Azure Cosmos DB](consistency-levels.md). En Zie voor meer informatie over hoe globale databasereplicatie in Azure Cosmos DB werkt, [gegevens globaal met Azure Cosmos DB distribueren](distribute-data-globally.md).
+Dat is, die in deze zelfstudie is voltooid. U leert hoe toomanage consistentie van uw account globaal gerepliceerde Hallo door te lezen [consistentieniveaus in Azure Cosmos DB](consistency-levels.md). En Zie voor meer informatie over hoe globale databasereplicatie in Azure Cosmos DB werkt, [gegevens globaal met Azure Cosmos DB distribueren](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u het volgende gedaan:
+In deze zelfstudie hebt u Hallo volgende gedaan:
 
 > [!div class="checklist"]
-> * Globale distributie op basis van de Azure-portal configureren
-> * Globale distributie op basis van de DocumentDB APIs configureren
+> * Globale distributie op basis van hello Azure-portal configureren
+> * Globale distributie op basis van Hallo DocumentDB APIs configureren
 
-U kunt nu doorgaan met de volgende zelfstudie voor meer informatie over het ontwikkelen van lokaal via de lokale Azure DB die Cosmos-emulator.
+U kunt nu doorgaan met de volgende zelfstudie toolearn toohello hoe toodevelop lokaal via Azure Cosmos DB lokale emulator Hallo.
 
 > [!div class="nextstepaction"]
-> [Lokaal ontwikkelen met de emulator](local-emulator.md)
+> [Lokaal ontwikkelen met Hallo emulator](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
 

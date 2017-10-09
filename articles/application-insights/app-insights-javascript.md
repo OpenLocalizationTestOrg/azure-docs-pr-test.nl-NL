@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights voor JavaScript-web-apps | Microsoft Docs
+title: aaaAzure Application Insights voor JavaScript web-apps | Microsoft Docs
 description: Verzamel tellingen van het aantal paginaweergaven en sessies, webclientgegevens en gebruikspatronen. Detecteer uitzonderingen en prestatieproblemen in JavaScript-webpagina's.
 services: application-insights
 documentationcenter: 
@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.openlocfilehash: 4e8a77e3644bb726d1b8e2050dab61893ccfa3c9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 986db3c3776471f9f8556f4e09f2d02aad022549
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights voor webpagina’s
-Krijg inzicht in de prestaties en het gebruik van uw webpagina's of app. Wanneer u [Application Insights](app-insights-overview.md) toevoegt aan uw paginascript, krijgt u de beschikking over allerlei gegevens, zoals de tijden voor het laden van pagina’s en AJAX-aanroepen, tellingen en details van browseruitzonderingen en AJAX-fouten, evenals de aantallen gebruikers en sessies. Al deze gegevens kunnen worden gesegmenteerd op pagina, clientbesturingssysteem en browserversie, geografische locatie en andere dimensies. U kunt waarschuwingen instellen voor foutaantallen of het langzaam laden van de pagina. En door het invoegen van trace-aanroepen in JavaScript-code, kunt u bijhouden hoe de verschillende functies van uw webpaginatoepassing worden gebruikt.
+Lees over Hallo prestaties en het gebruik van uw webpagina's of app. Als u [Application Insights](app-insights-overview.md) tooyour pagina script, krijgt u de tijdsinstellingen van pagina's en AJAX-aanroepen, tellingen en details van browseruitzonderingen en AJAX-fouten, evenals gebruikers en aantallen sessie. Al deze gegevens kunnen worden gesegmenteerd op pagina, clientbesturingssysteem en browserversie, geografische locatie en andere dimensies. U kunt waarschuwingen instellen voor foutaantallen of het langzaam laden van de pagina. En door het invoegen van traceringsaanroepen in uw JavaScript-code, kunt u bijhouden hoe verschillende functies van uw webpagina-toepassing hello worden gebruikt.
 
 Application Insights kan met elke webpagina worden gebruikt. Het enige wat u hiervoor hoeft te doen, is een klein stukje JavaScript toevoegen. Als de webservice [Java](app-insights-java-get-started.md) of [ASP.NET](app-insights-asp-net.md) is, kunt u telemetrie van uw server en clients integreren.
 
 ![Open de resource van uw app in portal.azure.com en klik op Browser](./media/app-insights-javascript/03.png)
 
-U hebt een abonnement op [Microsoft Azure](https://azure.com) nodig. Als uw team een organisatie-abonnement heeft, vraagt u de eigenaar om uw Microsoft-account hieraan toe te voegen. Ontwikkeling en kleinschalig gebruik kosten u niets.
+U hebt een abonnement te[Microsoft Azure](https://azure.com). Als uw team een organisatie-abonnement heeft, vraagt u Hallo eigenaar tooadd uw tooit Microsoft-Account. Ontwikkeling en kleinschalig gebruik kosten u niets.
 
 ## <a name="set-up-application-insights-for-your-web-page"></a>Application Insights instellen voor uw webpagina
-Voeg als volgt het codefragment van de loader toe aan uw webpagina's.
+Hallo loader code codefragment tooyour webpagina's, als volgt toevoegen.
 
 ### <a name="open-or-create-application-insights-resource"></a>Een Application Insights-resource openen of maken
-In de Application Insights-resource worden gegevens over de prestaties en het gebruik van uw pagina weergegeven. 
+Hallo Application Insights-resource worden gegevens over de prestaties en het gebruik van uw pagina wordt weergegeven. 
 
 Meld u aan bij de [Azure Portal](https://portal.azure.com).
 
-Als u bewaking voor de serverkant van uw app al hebt ingesteld, hebt u al een resource:
+Als u al een controle voor de serverzijde Hallo van uw app ingesteld, hebt u al een resource:
 
 ![Kies Bladeren, Ontwikkelaarsservices, Application Insights.](./media/app-insights-javascript/01-find.png)
 
@@ -46,36 +46,36 @@ Als u nog geen resource hebt, maakt u er een:
 
 *Heb u op dit moment vragen?* [Meer over het maken van een resource](app-insights-create-new-resource.md).
 
-### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Het SDK-script toevoegen aan uw app of webpagina's
-Haal het script voor webpagina's op in Snel starten:
+### <a name="add-hello-sdk-script-tooyour-app-or-web-pages"></a>Hallo SDK script tooyour app of webpagina toevoegen
+Haal Hallo script voor webpagina's in Snel starten:
 
-![Kies op de overzichtsblade van uw app de optie Snel starten, Code ophalen voor het bewaken van mijn webpagina’s. Kopieer het script.](./media/app-insights-javascript/02-monitor-web-page.png)
+![Op de overzichtsblade van uw app, kiest u snel starten, kunt u code toomonitor mijn webpagina's. Hallo script kopiëren.](./media/app-insights-javascript/02-monitor-web-page.png)
 
-Voeg het script in vlak vóór de `</head>`-tag op elke pagina die u wilt volgen. Als uw website een basispagina heeft, kunt u daar het script plaatsen. Bijvoorbeeld:
+Voeg Hallo script net vóór Hallo `</head>` tag van elke pagina die u wilt tootrack. Als uw website een basispagina heeft, kunt u er Hallo script plaatsen. Bijvoorbeeld:
 
 * In een ASP.NET-MVC-project plaatst u het in `View\Shared\_Layout.cshtml`
-* Op een SharePoint-site opent u in het Configuratiescherm [Site-instellingen / basispagina](app-insights-sharepoint.md).
+* Open in een SharePoint-site op Hallo van het Configuratiescherm, [Site-instellingen / basispagina](app-insights-sharepoint.md).
 
-Het script bevat de instrumentatiesleutel die de gegevens naar uw Application Insights-resource stuurt. 
+Hallo-script bevat de instrumentatiesleutel Hallo waarin wordt verwezen Hallo gegevens tooyour Application Insights-resource. 
 
-([Nadere uitleg over het script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
+([Nadere uitleg van Hallo-script. ](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
 
 *(Als u een bekend webpaginaframework gebruikt, is het een goed idee om op zoek te gaan naar een geschikte Application Insights-adapter. Er is bijvoorbeeld een [AngularJS-module](http://ngmodules.org/modules/angular-appinsights).)*
 
 ## <a name="detailed-configuration"></a>Gedetailleerde configuratie
-U kunt diverse [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) instellen. In de meeste gevallen is dat echter niet nodig. U kunt bijvoorbeeld het aantal Ajax-aanroepen dat per paginaweergave wordt gerapporteerd beperken of deze rapportering uitschakelen (om verkeer te beperken). Of u kunt de foutopsporingsmodus zo instellen dat telemetrie snel via de pijplijn wordt verzameld zonder deze telemetrie in een batch op te nemen.
+U kunt diverse [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) instellen. In de meeste gevallen is dat echter niet nodig. U kunt bijvoorbeeld uitschakelen of beperken Hallo aantal Ajax-aanroepen per paginaweergave (tooreduce verkeer) gerapporteerd. Of u kunt de foutopsporing modus toohave telemetrie verplaatsen snel via Hallo pipeline instellen zonder in batch worden opgenomen.
 
-Voor het instellen van deze parameters zoekt u deze regel in het codefragment en voegt u hierna meer items toe, gescheiden door komma's:
+tooset deze parameters zoekt u deze regel in het codefragment Hallo en meer door komma's gescheiden items toevoegen nadat deze:
 
     })({
       instrumentationKey: "..."
       // Insert here
     });
 
-De [beschikbare parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) zijn:
+Hallo [beschikbare parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) omvatten:
 
     // Send telemetry immediately without batching.
-    // Remember to remove this when no longer required, as it
+    // Remember tooremove this when no longer required, as it
     // can affect browser performance.
     enableDebug: boolean,
 
@@ -85,10 +85,10 @@ De [beschikbare parameters](https://github.com/Microsoft/ApplicationInsights-JS/
     // Don't log ajax calls.
     disableAjaxTracking: boolean,
 
-    // Limit number of Ajax calls logged, to reduce traffic.
+    // Limit number of Ajax calls logged, tooreduce traffic.
     maxAjaxCallsPerView: 10, // default is 500
 
-    // Time page load up to execution of first trackPageView().
+    // Time page load up tooexecution of first trackPageView().
     overridePageViewDuration: boolean,
 
     // Set these dynamically for an authenticated user.
@@ -98,57 +98,57 @@ De [beschikbare parameters](https://github.com/Microsoft/ApplicationInsights-JS/
 
 
 ## <a name="run"></a>Uw app uitvoeren
-Voer uw web-app uit, gebruik deze een tijdje om telemetrie te genereren en wacht een paar seconden. U kunt de app zelf op uw ontwikkelcomputer uitvoeren met behulp van de **F5**-toets, maar u kunt de app ook publiceren en door gebruikers laten uitproberen.
+Uw web-app uitvoeren, gebruiken een tijdens toogenerate Telemetrie en wacht een paar seconden. U kunt uitvoeren met behulp van Hallo **F5** sleutel op uw ontwikkelcomputer of publiceren en door gebruikers laten uitproberen aan.
 
-Als u de telemetrie wilt controleren die door een web-app naar Application Insights wordt verzonden, gebruikt u de foutopsporingsprogramma's van de browser (in veel browsers opent u deze met **F12**). Gegevens worden verzonden naar dc.services.visualstudio.com.
+Als u toocheck Hallo telemetrie wilt dat een web-app tooApplication Insights verzendt, gebruikt u de foutopsporingsprogramma's van de browser (**F12** in veel browsers). Gegevens worden toodc.services.visualstudio.com verzonden.
 
 ## <a name="explore-your-browser-performance-data"></a>Gegevens over uw browserprestaties verkennen
-Open de blade Browsers om cumulatieve prestatiegegevens weer te geven van de browsers van uw gebruikers.
+Open Hallo Browser blade tooshow geaggregeerd prestatiegegevens van de browsers van uw gebruikers.
 
 ![Open de resource van uw app in portal.azure.com en klik op Instellingen, Browser](./media/app-insights-javascript/03.png)
 
-*Zijn er nog geen gegevens? Klik boven aan de pagina op **Vernieuwen**. Ziet u nog steeds niets? Raadpleeg [Probleemoplossing](app-insights-troubleshoot-faq.md).*
+*Zijn er nog geen gegevens? Klik op **vernieuwen** bovenaan Hallo Hallo pagina. Ziet u nog steeds niets? Raadpleeg [Probleemoplossing](app-insights-troubleshoot-faq.md).*
 
-De blade Browser is een [Metrics Explorer-blade](app-insights-metrics-explorer.md) met vooraf ingestelde filters en grafiekselecties. U kunt het tijdbereik, de filters en configuratie van de grafiek bewerken, en desgewenst het resultaat als favoriet opslaan. Klik op **Standaardwaarden herstellen** om de oorspronkelijke bladeconfiguratie terug te zetten.
+Hallo Browser blade is een [Metrics Explorer-blade](app-insights-metrics-explorer.md) met vooraf ingestelde filters en grafiekselecties. U kunt het tijdsbereik hello, filters en configuratie van de grafiek bewerken als u wilt en Hallo resultaat als favoriet opslaan. Klik op **standaardwaarden herstellen** tooget back toohello oorspronkelijke bladeconfiguratie.
 
 ## <a name="page-load-performance"></a>Laadprestaties van de pagina
-Bovenaan staat een grafieksegment met laadtijden van pagina’s. De totale hoogte van de grafiek geeft de gemiddelde tijd aan die nodig is voor het laden en weergeven van pagina's van uw app in de browsers van uw gebruikers. De tijd wordt gemeten vanaf het moment dat de browser de eerste HTTP-aanvraag verzendt tot het moment dat alle synchrone gebeurtenissen tijdens het laden zijn verwerkt, met inbegrip van indeling en uitgevoerde scripts. Asynchrone taken, zoals het laden van de webonderdelen van AJAX-aanroepen, zijn niet opgenomen.
+Hallo is top een grafieksegment met laadtijden van pagina's. totale hoogte van de grafiek Hallo Hallo vertegenwoordigt Hallo gemiddelde tijd tooload en weergave van pagina's van uw app in browsers van uw gebruikers. Hallo tijd wordt gemeten vanaf wanneer Hallo browser Hallo eerste HTTP-aanvraag tot alle synchrone load gebeurtenissen zijn verwerkt verzendt, met inbegrip van indeling en de scripts uitgevoerd. Asynchrone taken, zoals het laden van de webonderdelen van AJAX-aanroepen, zijn niet opgenomen.
 
-De grafiek segmenteert de totale laadtijd van de pagina in de [standaardtijdsinstellingen gedefinieerd door W3C](http://www.w3.org/TR/navigation-timing/#processing-model). 
+Hallo grafiek segmenteert Hallo totale paginalaadtijd in Hallo [standaardtijdsinstellingen gedefinieerd door W3C](http://www.w3.org/TR/navigation-timing/#processing-model). 
 
 ![](./media/app-insights-javascript/08-client-split.png)
 
-De *netwerkverbindingstijd* is vaak lager dan u verwacht, omdat het een gemiddelde betreft op basis van alle aanvragen van de browser aan de server. Veel afzonderlijke aanvragen hebben een verbindingstijd van 0, omdat er al een actieve verbinding met de server bestaat.
+Houd er rekening mee dat Hallo *netwerk verbinden* is vaak lager dan u verwacht, omdat het is een gemiddelde over alle aanvragen van Hallo browser toohello-server. Veel afzonderlijke aanvragen hebben een verbindingstijd van 0, omdat er al een actieve verbinding toohello-server.
 
 ### <a name="slow-loading"></a>Worden pagina’s traag geladen?
-Het traag laden van pagina is voor uw gebruikers een belangrijke bron van ergernis. Als de grafiek aangeeft dat pagina’s traag worden geladen, is het eenvoudig om wat diagnostisch onderzoek uit te voeren.
+Het traag laden van pagina is voor uw gebruikers een belangrijke bron van ergernis. Als het Hallo-grafiek aangeeft dat pagina traag worden geladen, is het eenvoudig toodo wat diagnostisch onderzoek.
 
-De grafiek toont de gemiddelde paginalaadtijd in uw app. Als u wilt weten of het probleem zich beperkt tot bepaalde pagina's, kijkt u een stukje lager op de blade. Daar ziet u een raster dat gesegmenteerd is op pagina-URL:
+Hallo diagram toont Hallo gemiddelde paginalaadtijd in uw app. toosee als Hallo probleem zich beperkt tooparticular pagina's, uiterlijk verder omlaag Hallo blade, waarbij er een raster gesegmenteerd op pagina-URL:
 
 ![](./media/app-insights-javascript/09-page-perf.png)
 
-Let op het aantal paginaweergaven en de standaarddeviatie. Als het aantal pagina's zeer laag is, hebben gebruikers er niet veel last van. Een hoge standaarddeviatie (vergelijkbaar met het gemiddelde) geeft aan dat er grote verschillen bestaan tussen de afzonderlijke metingen.
+U ziet Hallo aantal paginaweergaven en de standaarddeviatie. Als het Hallo-aantal pagina's zeer laag is, klikt u vervolgens Hallo probleem is niet dat gebruikers ondervonden veel. Een hoge standaarddeviatie (vergelijkbaar toohello gemiddelde) geeft aan dat er grote verschillen bestaan tussen de afzonderlijke metingen.
 
-**Zoom in op een URL en een paginaweergave.** Klik op een paginanaam om een blade weer te geven met browsergrafieken die zijn gefilterd op die ene URL. Klik vervolgens op een exemplaar van een paginaweergave.
+**Zoom in op een URL en een paginaweergave.** Klik op elke pagina naam toosee een blade van de browser grafieken gefilterde alleen toothat URL; en vervolgens op een exemplaar van een paginaweergave.
 
 ![](./media/app-insights-javascript/35.png)
 
-Klik op `...` voor een volledige lijst met eigenschappen voor de betreffende gebeurtenis of controleer de AJAX-aanroepen en gerelateerde gebeurtenissen. Trage AJAX-aanroepen zijn van invloed op de algemene laadtijd van pagina’s als beide synchroon gebeuren. Gerelateerde gebeurtenissen omvatten serveraanvragen voor dezelfde URL (als u op uw webserver Application Insights hebt ingesteld).
+Klik op `...` voor een volledige lijst met eigenschappen voor die gebeurtenis of Controleer Hallo Ajax-aanroepen en gerelateerde gebeurtenissen. Trage Ajax-aanroepen Hallo van invloed zijn op de algemene laadtijd van pagina als beide synchroon gebeuren. Gerelateerde gebeurtenissen omvatten serveraanvragen voor Hallo dezelfde URL (als u Application Insights hebt ingesteld op uw webserver).
 
-**Paginaprestaties over langere tijd.** Wijzig op de blade Browsers het raster met paginalaadtijden in een lijndiagram om na te gaan of er op bepaalde tijden pieken waren:
+**Paginaprestaties over langere tijd.** Wijzigen terug op de blade Browsers Hallo Hallo laadtijd voor paginaweergave raster in een grafiek regel toosee als er pieken op bepaalde tijden:
 
-![Op de kop van het raster klikken en een nieuw grafiektype selecteren](./media/app-insights-javascript/10-page-perf-area.png)
+![Klik op Hallo-head van Hallo raster en een nieuw grafiektype selecteren](./media/app-insights-javascript/10-page-perf-area.png)
 
-**Segmenteer op andere dimensies.** Mogelijk laden uw pagina's trager in een bepaalde browser, in een bepaald clientbesturingssysteem of op bepaalde gebruikerslocaties. Voeg een nieuwe grafiek toe en experimenteer met de dimensie **Groeperen op**.
+**Segmenteer op andere dimensies.** Uw pagina's mogelijk langzamer tooload op een bepaalde browser, clientbesturingssysteem of gebruiker plaats? Voeg een nieuwe grafiek toe en Experimenteer met Hallo **Group by** dimensie.
 
 ![](./media/app-insights-javascript/21.png)
 
 ## <a name="ajax-performance"></a>AJAX-prestaties
-Zorg ervoor dat eventuele AJAX-aanroepen op uw webpagina's goed worden uitgevoerd. Ze worden vaak gebruikt voor het asynchroon vullen van onderdelen van uw pagina. Hoewel de algemene pagina waarschijnlijk onmiddellijk laadt, kunnen uw gebruikers zich gaan ergeren doordat ze steeds moeten wachten op ladende paginaonderdelen.
+Zorg ervoor dat eventuele AJAX-aanroepen op uw webpagina's goed worden uitgevoerd. Ze zijn vaak gebruikte toofill onderdelen van uw pagina asynchroon. Hoewel hello algemene pagina onmiddellijk laadt waarschijnlijk, uw gebruikers zich gaan ergeren doordat ze steeds op lege webonderdelen, wachten op gegevens tooappear bevat.
 
-AJAX-oproepen vanuit uw webpagina worden op de blade Browsers weergegeven als afhankelijkheden.
+AJAX-aanroepen vanuit uw webpagina worden weergegeven op de blade Browsers Hallo als afhankelijkheden.
 
-In het bovenste gedeelte van de blade ziet u samenvattingsgrafieken:
+Samenvattingsgrafieken in Hallo bovenste gedeelte van de blade Hallo:
 
 ![](./media/app-insights-javascript/31.png)
 
@@ -159,62 +159,62 @@ en verder naar beneden gedetailleerde rasters:
 Klik op een rij voor specifieke informatie.
 
 > [!NOTE]
-> Als u het filter Browsers op de blade verwijdert, worden zowel de server als de AJAX-afhankelijkheden opgenomen in deze grafieken. Klik op Standaardwaarden herstellen om het filter opnieuw te configureren.
+> Als u een filter voor Hallo-Browsers op Hallo blade verwijdert, worden zowel de server als de AJAX-afhankelijkheden opgenomen in deze grafieken. Klik op standaardinstellingen herstellen tooreconfigure Hallo filter.
 > 
 > 
 
-**Als u wilt inzoomen op mislukte AJAX-aanroepen**, bladert u omlaag naar het raster met afhankelijkheidsfouten en klikt u vervolgens op een rij om specifieke exemplaren weer te geven.
+**toodrill in mislukte Ajax-aanroepen** Schuif naar beneden toohello met afhankelijkheidsfouten en klik vervolgens op een specifieke rij toosee-exemplaren.
 
 ![](./media/app-insights-javascript/37.png)
 
 
-Klik op `...` voor de volledige telemetrie voor een AJAX-aanroep.
+Klik op `...` voor Hallo volledige telemetrie voor een Ajax-aanroep.
 
 ### <a name="no-ajax-calls-reported"></a>Zijn er geen AJAX-aanroepen gemeld?
-AJAX-aanroepen zijn HTTP-/HTTPS-aanroepen vanuit het script van de webpagina. Als u constateert dat deze niet worden gerapporteerd, gaat u na of het codefragment niet de [parameter](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` of `maxAjaxCallsPerView` instelt.
+AJAX-aanroepen zijn HTTP/HTTPS-aanroepen vanuit Hallo-script van de webpagina. Als u ze gerapporteerd niet ziet, controleert u dat codefragment Hallo Hallo niet ingesteld `disableAjaxTracking` of `maxAjaxCallsPerView` [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
 ## <a name="browser-exceptions"></a>Browseruitzonderingen
-Op de blade Browsers ziet u een grafiek met samenvattingen van uitzonderingen en lager op de blade een raster met typen uitzonderingen.
+Op de blade Browsers hello wordt een grafiek met samenvattingen uitzonderingen en een raster met typen uitzonderingen lager Hallo-blade.
 
 ![](./media/app-insights-javascript/39.png)
 
-Als u constateert dat er geen browseruitzonderingen worden gerapporteerd, gaat u na of het codefragment niet de [parameter](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableExceptionTracking` instelt.
+Als er geen browseruitzonderingen gerapporteerd, controleert die codefragment Hallo Hallo niet ingesteld `disableExceptionTracking` [parameter](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
 ## <a name="inspect-individual-page-view-events"></a>De afzonderlijke paginaweergavegebeurtenissen inspecteren
 
 Meestal wordt telemetrie van paginaweergaven geanalyseerd door Application Insights en ziet u alleen cumulatieve rapporten, het gemiddelde van alle gebruikers. Maar voor foutopsporing kunt u ook zoeken op afzonderlijke paginaweergavegebeurtenissen.
 
-Stel op de blade Diagnostische gegevens doorzoeken de optie Filters in op Paginaweergave.
+Hallo diagnostische gegevens doorzoeken blade ingesteld Filters tooPage weergeven.
 
 ![](./media/app-insights-javascript/12-search-pages.png)
 
-Selecteer een gebeurtenis om deze gedetailleerder te bekijken. Klik op de pagina met details op '...' om nog meer details weer te geven.
+Selecteer een gebeurtenis toosee meer details. Klik in Hallo pagina met details op '...' toosee nog meer details.
 
 > [!NOTE]
-> Als u [Zoeken](app-insights-diagnostic-search.md) gebruikt, zorg er dan voor dat u zoekt op volledige woorden. 'About' vindt u bijvoorbeeld niet met 'Abou' of met 'bout'.
+> Als u [Search](app-insights-diagnostic-search.md), aankondiging dat u volledige woorden toomatch hebt: 'Abou' of 'bout' komen niet overeen met 'About'.
 > 
 > 
 
-U kunt ook de krachtige [querytaal van Log Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) gebruiken om paginaweergaven te doorzoeken.
+U kunt ook Hallo krachtige [querytaal van logboekanalyse](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) toosearch paginaweergaven.
 
 ### <a name="page-view-properties"></a>Eigenschappen van paginaweergaven
 * **Duur van paginaweergave** 
   
-  * Standaard is dit de tijd voor het laden van de pagina, van clientverzoek tot het moment dat de pagina volledig is laden (inclusief hulpbestanden, maar uitgezonderd asynchrone taken zoals AJAX-aanroepen). 
-  * Als u `overridePageViewDuration` instelt in de [paginaconfiguratie](#detailed-configuration), is de duur van de paginaweergave het interval tussen de clientaanvraag en het uitvoeren van de eerste `trackPageView`. Als u trackPageView na de initialisatie van het script hebt verplaatst vanaf de normale positie, wordt er een andere waarde weergegeven.
-  * Als `overridePageViewDuration` is ingesteld en er een duurargument is opgegeven in de `trackPageView()`-aanroep, wordt in plaats daarvan de waarde van het argument gebruikt. 
+  * Standaard Hallo keer dat er vergt tooload Hallo pagina, van de client aanvraag toofull laden (inclusief hulpbestanden, maar uitgezonderd asynchrone taken zoals Ajax-aanroepen). 
+  * Als u instelt `overridePageViewDuration` in Hallo [paginaconfiguratie](#detailed-configuration), eerst interval tussen client aanvraag tooexecution Hallo Hallo `trackPageView`. Als u trackPageView vanaf de normale positie na de initialisatie van Hallo script hello verplaatst, wordt een andere waarde weer.
+  * Als `overridePageViewDuration` is ingesteld en een duurargument is opgegeven in Hallo `trackPageView()` aanroep, Hallo argumentwaarde in plaats daarvan wordt gebruikt. 
 
 ## <a name="custom-page-counts"></a>Aangepast telling van het aantal paginaweergaven
-Standaard wordt er een paginaweergave geteld telkens wanneer er in de clientbrowser een nieuwe pagina wordt geladen.  Maar desgewenst kunt u ook aanvullende paginaweergaven tellen. Op een pagina kan bijvoorbeeld de inhoud worden weergegeven in tabbladen en u wilt een paginaweergave tellen wanneer de gebruiker naar een ander tabblad gaat. Of JavaScript-code op de pagina laadt nieuwe inhoud zonder de browser-URL te wijzigen.
+Het aantal pagina's wordt standaard elke keer dat een nieuwe pagina wordt geladen in de browser Hallo van client.  Maar u kunt de aanvullende paginaweergaven toocount. Bijvoorbeeld, een pagina kan de inhoud worden weergegeven in tabbladen en u wilt toocount een pagina wanneer de gebruiker Hallo tabbladen overschakelt. Of JavaScript-code in Hallo pagina laadt nieuwe inhoud zonder Hallo browser URL.
 
-Ga als volgt te werk om op het betreffende punt in uw clientcode een JavaScript-aanroep in te voegen:
+Invoegen Hallo betreffende punt in uw clientcode een JavaScript-aanroep als volgt:
 
     appInsights.trackPageView(myPageName);
 
-De naam van de pagina mag dezelfde tekens als een URL bevatten, maar alles na '#' of '?' wordt genegeerd.
+naam van de pagina Hallo mag dezelfde tekens als een URL, maar alles na '#' hello of '? ' wordt genegeerd.
 
 ## <a name="usage-tracking"></a>Gebruik bijhouden
-Wilt u weten wat gebruikers met uw app doen?
+Wilt u toofind uit wat gebruikers met uw app doen?
 
 * [Meer informatie over het bijhouden van gebruik](app-insights-web-track-usage.md)
 * [Meer informatie over de API voor aangepaste gebeurtenissen en metrische gegevens](app-insights-api-custom-events-metrics.md).

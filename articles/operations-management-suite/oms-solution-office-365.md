@@ -1,6 +1,6 @@
 ---
-title: Office 365-oplossing in de Operations Management Suite (OMS) | Microsoft Docs
-description: Dit artikel bevat informatie over configuratie en gebruik van de Office 365-oplossing in OMS.  Het bevat een gedetailleerde beschrijving van de Office 365-records gemaakt in logboekanalyse.
+title: aaaOffice 365 oplossing in de Operations Management Suite (OMS) | Microsoft Docs
+description: Dit artikel bevat informatie over configuratie en gebruik van Hallo Office 365-oplossing in OMS.  Het bevat een gedetailleerde beschrijving van Hallo Office 365-records gemaakt in logboekanalyse.
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
-ms.openlocfilehash: dcc44986acbb76eafc3cfacb79acf237802de021
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: a1507745251ff015abb785bae8352fea7cea0734
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="office-365-solution-in-operations-management-suite-oms"></a>Office 365-oplossing in de Operations Management Suite (OMS)
 
 ![Office 365-logo](media/oms-solution-office-365/icon.png)
 
-De Office 365-oplossing voor Operations Management Suite (OMS) kunt u uw Office 365-omgeving in logboekanalyse bewaken.  
+Hallo Office 365-oplossing voor Operations Management Suite (OMS) kunt u toomonitor uw Office 365-omgeving in logboekanalyse.  
 
-- Controleren van gebruikersactiviteiten op uw Office 365-accounts te analyseren gebruikspatronen en trends voor gebruikersgedrag. U kunt bijvoorbeeld specifieke gebruiksscenario's, zoals bestanden die worden gedeeld buiten uw organisatie of de meest populaire SharePoint-sites ophalen.
-- Activiteiten bijhouden van wijzigingen in de configuratie of hoge bevoegdheid bewerkingen beheerder bewaken.
+- Controleren van gebruikersactiviteiten op uw gebruikspatronen van Office 365-accounts tooanalyze evenals trends voor gebruikersgedrag. U kunt bijvoorbeeld specifieke gebruiksscenario's, zoals bestanden die worden gedeeld buiten uw organisatie of de meest populaire SharePoint-sites Hallo uitpakken.
+- Monitor configuratiewijzigingen van beheerder activiteiten tootrack of hoge bevoegdheid bewerkingen.
 - Detecteren en onderzoeken van ongewenste gebruikersgedrag die behoeften van uw organisatie kan worden aangepast.
-- Controle en naleving demonstreren. U kunt bijvoorbeeld toegang bestandsbewerkingen op vertrouwelijke bestanden, wat u bij de controle en naleving waarborgen helpen kunnen bewaken.
+- Controle en naleving demonstreren. U kunt bijvoorbeeld toegang bestandsbewerkingen op vertrouwelijke bestanden, waarmee u kunnen met het Hallo-controle en naleving proces bewaken.
 - Uitvoeren van operationele problemen oplossen met behulp van OMS zoeken boven op Office 365-activiteitsgegevens van uw organisatie.
 
 ## <a name="prerequisites"></a>Vereisten
-Het volgende is vereist voordat u deze oplossing wordt geïnstalleerd en geconfigureerd.
+Hallo volgende is vereist voorafgaande toothis oplossing wordt geïnstalleerd en geconfigureerd.
 
 - Organisatie Office 365-abonnement.
 - Referenties voor een gebruikersaccount dat een globale beheerder.
-- Audit om gegevens te ontvangen, moet u [controle configureren](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) in uw Office 365-abonnement.  Houd er rekening mee dat [Postvakcontrole](https://technet.microsoft.com/library/dn879651.aspx) wordt afzonderlijk geconfigureerd.  U kunt nog steeds installeren van de oplossing en andere gegevens verzamelen als controle is niet geconfigureerd.
+- controlegegevens tooreceive, moet u [controle configureren](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) in uw Office 365-abonnement.  Houd er rekening mee dat [Postvakcontrole](https://technet.microsoft.com/library/dn879651.aspx) wordt afzonderlijk geconfigureerd.  U kunt nog steeds Hallo oplossing installeren en andere gegevens verzamelen als controle is niet geconfigureerd.
  
 
 
@@ -45,103 +45,103 @@ Deze oplossing wordt niet geïnstalleerd voor alle management packs in de verbon
   
 
 ## <a name="configuration"></a>Configuratie
-Eenmaal u [de Office 365-oplossing aan uw abonnement toevoegt](../log-analytics/log-analytics-add-solutions.md), u verbinding maakt met uw Office 365-abonnement hebt.
+Eenmaal u [Hallo Office 365-oplossing tooyour abonnement toevoegen](../log-analytics/log-analytics-add-solutions.md), hebt u tooconnect het tooyour Office 365-abonnement.
 
-1. De oplossing voor beheer van waarschuwingen toevoegen aan uw OMS-werkruimte met behulp van de procedure beschreven in [oplossingen toevoegen](../log-analytics/log-analytics-add-solutions.md).
-2. Ga naar **instellingen** in de OMS-portal.
+1. Hallo waarschuwingenbeheer oplossing tooyour OMS-werkruimte met behulp van Hallo proces dat wordt beschreven in toevoegen [oplossingen toevoegen](../log-analytics/log-analytics-add-solutions.md).
+2. Ga te**instellingen** in Hallo OMS-portal.
 3. Onder **verbonden bronnen**, selecteer **Office 365**.
 4. Klik op **verbinding maken met Office 365**.<br>![Processtappen verbinden Office 365](media/oms-solution-office-365/configure.png)
-5. Meld u aan bij Office 365 met een account dat een globale beheerder voor uw abonnement. 
-6. Het abonnement wordt vermeld met de werklasten die de oplossing zal worden gecontroleerd.<br>![Processtappen verbinden Office 365](media/oms-solution-office-365/connected.png) 
+5. Meld u aan tooOffice 365 met een account dat een globale beheerder voor uw abonnement. 
+6. Hallo-abonnement wordt vermeld met de Hallo werkbelastingen die Hallo oplossing bewaakt.<br>![Processtappen verbinden Office 365](media/oms-solution-office-365/connected.png) 
 
 
 ## <a name="data-collection"></a>Gegevensverzameling
 ### <a name="supported-agents"></a>Ondersteunde agents
-De Office 365-oplossing niet ophalen van gegevens uit een van de [OMS agents](../log-analytics/log-analytics-data-sources.md).  Het ophalen van gegevens rechtstreeks vanuit Office 365.
+Hallo Office 365-oplossing niet ophalen van gegevens uit een van de Hallo [OMS agents](../log-analytics/log-analytics-data-sources.md).  Het ophalen van gegevens rechtstreeks vanuit Office 365.
 
 ### <a name="collection-frequency"></a>Verzamelingsfrequentie
-Office 365 verzendt een [webhook melding](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) met gedetailleerde gegevens met logboekanalyse telkens wanneer een record wordt gemaakt.
+Office 365 verzendt een [webhook melding](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) met gedetailleerde gegevens tooLog Analytics telkens wanneer een record wordt gemaakt.
 
-## <a name="using-the-solution"></a>De oplossing gebruiken
-Wanneer u de Office 365-oplossing aan de OMS-werkruimte toevoegt, de **Office 365** tegel wordt toegevoegd aan uw dashboard OMS. Deze tegel toont het aantal computers in uw omgeving, evenals een grafische voorstelling hiervan, en de bijbehorende updatenaleving.<br><br>
+## <a name="using-hello-solution"></a>Met behulp van Hallo-oplossing
+Wanneer u Hallo Office 365-oplossing tooyour OMS-werkruimte toevoegt, Hallo **Office 365** tegel tooyour OMS dashboard worden toegevoegd. Deze tegel wordt een aantal en de grafische weergave van Hallo aantal computers in uw omgeving en de updatenaleving ervan weergegeven.<br><br>
 ![Tegel samenvatting van Office 365](media/oms-solution-office-365/tile.png)  
 
-Klik op de **Office 365** tegel openen de **Office 365** dashboard.
+Klik op Hallo **Office 365** tegel tooopen hello **Office 365** dashboard.
 
 ![Office 365-Dashboard](media/oms-solution-office-365/dashboard.png)  
 
-Het dashboard bevat de kolommen in de volgende tabel. Elke kolom bevat de top tien waarschuwingen op het aantal die overeenkomt met de criteria die kolom voor het opgegeven bereik en tijdsbereik. U kunt een zoekopdracht logboek waarmee de volledige lijst door te klikken op Zie alle aan de onderkant van de kolom of door te klikken op de kolomkop uitvoeren.
+Hallo dashboard bevat Hallo kolommen in de volgende tabel Hallo. Elke kolom bevat Hallo top tien waarschuwingen per aantal die overeenkomt met dat van de kolom criteria voor Hallo bereik en tijdbereik opgegeven. U kunt een zoekopdracht logboek waarmee de volledige lijst Hallo door te klikken op Zie alle onderaan Hallo Hallo kolom of door te klikken op de kolomkop Hallo uitvoeren.
 
 | Kolom | Beschrijving |
 |:--|:--|
-| Bewerkingen | Bevat informatie over de actieve gebruikers van uw abonnementen op alle gecontroleerde Office 365. Ook is mogelijk om te zien van het aantal activiteiten die ontstaan gedurende een bepaalde periode.
-| Exchange | U kunt de uitsplitsing van Exchange Server-activiteiten zoals de machtiging voor toevoegen of Set-postvak. |
-| SharePoint | Toont de belangrijkste activiteiten dat gebruikers op de SharePoint-documenten uitvoeren. Wanneer u inzoomen op deze tegel de zoekpagina geeft de details van deze activiteiten, zoals het doeldocument en de locatie van deze activiteit. Bijvoorbeeld: voor een gebeurtenis bestand geopend, kunt u zich kunt zien van het document dat wordt geopend, de bijbehorende accountnaam en het IP-adres. |
-| Azure Active Directory | Bovenste gebruikersactiviteiten, zoals gebruiker-wachtwoord opnieuw instellen en aanmeldingspogingen bevat. Wanneer u inzoomen, zich u kunt u de details van deze activiteiten zoals de resultaatstatus. Dit is vooral handig als u wilt bewaken van verdachte activiteiten op uw Azure Active Directory. |
+| Bewerkingen | Bevat informatie over Hallo actieve gebruikers van uw abonnementen op alle gecontroleerde Office 365. U zult ook kunnen toosee Hallo aantal activiteiten dat gedurende een bepaalde periode gebeuren.
+| Exchange | U kunt Hallo uitsplitsing van Exchange Server-activiteiten zoals de machtiging voor toevoegen of Set-postvak. |
+| SharePoint | Toont de belangrijkste activiteiten Hallo dat gebruikers op de SharePoint-documenten uitvoeren. Wanneer u inzoomen op deze tegel zoekpagina Hallo Hallo worden details weergegeven van deze activiteiten, zoals Hallo doeldocument en Hallo-locatie van deze activiteit. Bijvoorbeeld, voor een gebeurtenis bestand geopend, kunt u zich kunt toosee Hallo document dat wordt geopend, de bijbehorende accountnaam en het IP-adres. |
+| Azure Active Directory | Bovenste gebruikersactiviteiten, zoals gebruiker-wachtwoord opnieuw instellen en aanmeldingspogingen bevat. Wanneer u inzoomen, kunt u zich kunt toosee Hallo details van deze activiteiten zoals Hallo resultaatstatus. Dit is vooral handig als u wilt dat toomonitor verdachte activiteiten op uw Azure Active Directory. |
 
 
 
 
 ## <a name="log-analytics-records"></a>Log Analytics-records
 
-Alle records in de werkruimte voor logboekanalyse is gemaakt door de Office 365-oplossing een **Type** van **OfficeActivity**.  De **OfficeWorkload** eigenschap bepaalt welke Office 365-service de record naar - Exchange, AzureActiveDirectory, SharePoint of OneDrive verwijst.  De **RecordType** eigenschap geeft u het type bewerking.  De eigenschappen voor elk bewerkingstype varieert en worden weergegeven in de onderstaande tabellen.
+Alle records die zijn gemaakt in de werkruimte voor logboekanalyse Hallo door Hallo Office 365-oplossing een **Type** van **OfficeActivity**.  Hallo **OfficeWorkload** eigenschap bepaalt welke Office 365-servicerecord Hallo verwijst te Exchange, AzureActiveDirectory, SharePoint of OneDrive.  Hallo **RecordType** -eigenschap geeft op Hallo type bewerking.  Hallo eigenschappen varieert voor elk bewerkingstype en worden weergegeven in onderstaande Hallo tabellen.
 
 ### <a name="common-properties"></a>Algemene eigenschappen
-De volgende eigenschappen gelden voor alle Office 365-records.
+Hallo volgende eigenschappen zijn algemene tooall Office 365-records.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | Type | *OfficeActivity* |
-| client-IP | Het IP-adres van het apparaat dat werd gebruikt toen de activiteit is geregistreerd. Het IP-adres wordt weergegeven in de notatie voor een IPv4- of IPv6-adres. |
-| OfficeWorkload | Office 365-service die de record verwijst.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
-| Bewerking | De naam van de activiteit van de gebruiker of beheerder.  |
-| OrganizationId | De GUID voor Office 365-tenant van uw organisatie. Deze waarde is altijd hetzelfde zijn voor uw organisatie, ongeacht de Office 365-service waarin dit zich voordoet. |
+| client-IP | Hallo IP-adres van Hallo-apparaat dat is gebruikt bij het Hallo-activiteit is geregistreerd. Hallo IP-adres wordt weergegeven in de notatie voor een IPv4- of IPv6-adres. |
+| OfficeWorkload | Office 365-service die Hallo record verwijst.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
+| Bewerking | Hallo-naam van de gebruiker of beheerder activiteit Hallo.  |
+| OrganizationId | Hallo GUID voor Office 365-tenant van uw organisatie. Deze waarde wordt altijd worden Hallo dezelfde voor uw organisatie, ongeacht Hallo Office 365-service waarin het optreedt. |
 | recordType | Type van een bewerking uitgevoerd. |
-| ResultStatus | Hiermee wordt aangegeven of de actie (opgegeven in de eigenschap Operation) gelukt is. Mogelijke waarden zijn geslaagd, PartiallySucceded of mislukt. Voor Exchange-admin-activiteit is de waarde True of False. |
-| Gebruikers-id | De UPN (User Principal Name) van de gebruiker die de actie dat heeft geresulteerd in de record aan te melden; is uitgevoerd bijvoorbeeld: my_name@my_domain_name. Houd er rekening mee dat records voor de activiteit uitgevoerd door systeemaccounts (zoals SHAREPOINT\system of NTAUTHORITY\SYSTEM) ook opgenomen worden. | 
-| UserKey | Een alternatieve ID voor de gebruiker in de eigenschap UserId geïdentificeerd.  Deze eigenschap wordt bijvoorbeeld gevuld met de passport unieke ID (PUID) voor gebeurtenissen die worden uitgevoerd door gebruikers in SharePoint, OneDrive voor bedrijven en Exchange. Deze eigenschap kan ook Geef dezelfde waarde als de eigenschap UserID voor gebeurtenissen in andere services en de gebeurtenissen die worden uitgevoerd door systeemaccounts|
-| UserType | Het type van de gebruiker die de bewerking uitgevoerd.<br><br>Beheerder<br>Toepassing<br>DcAdmin<br>Reguliere<br>Gereserveerd<br>ServicePrincipal<br>Systeem |
+| ResultStatus | Hiermee wordt aangegeven of Hallo actie (opgegeven in hello eigenschap Operation) gelukt is. Mogelijke waarden zijn geslaagd, PartiallySucceded of mislukt. Exchange-admin-activiteit Hallo-waarde is True of False. |
+| Gebruikers-id | Hallo UPN (User Principal Name) van Hallo-gebruiker die Hallo actie dat heeft geresulteerd in Hallo record aan te melden; heeft uitgevoerd bijvoorbeeld: my_name@my_domain_name. Houd er rekening mee dat records voor de activiteit uitgevoerd door systeemaccounts (zoals SHAREPOINT\system of NTAUTHORITY\SYSTEM) ook opgenomen worden. | 
+| UserKey | Een alternatieve ID voor de gebruiker Hallo aangegeven in Hallo eigenschap UserId.  Deze eigenschap wordt bijvoorbeeld gevuld met de Hallo passport unieke ID (PUID) voor gebeurtenissen die worden uitgevoerd door gebruikers in SharePoint, OneDrive voor bedrijven en Exchange. Deze eigenschap kan ook dezelfde waarde als Hallo eigenschap UserID voor gebeurtenissen in andere services en evenementen uitgevoerd door systeemaccounts Hallo opgeven|
+| UserType | Hallo-type van de gebruiker die het Hallo-bewerking uitgevoerd.<br><br>Beheerder<br>Toepassing<br>DcAdmin<br>Reguliere<br>Gereserveerd<br>ServicePrincipal<br>Systeem |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory-basis
-De volgende eigenschappen gelden voor alle Azure Active Directory-records.
+Hallo volgende eigenschappen zijn algemene tooall Azure Active Directory-records.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | recordType     | AzureActiveDirectory |
-| AzureActiveDirectory_EventType | Het type van Azure AD-gebeurtenis. |
-| extendedProperties | De uitgebreide eigenschappen van de Azure AD-gebeurtenis. |
+| AzureActiveDirectory_EventType | Hallo-type van Azure AD-gebeurtenis. |
+| extendedProperties | Hallo uitgebreide eigenschappen van gebeurtenis hello Azure AD. |
 
 
 ### <a name="azure-active-directory-account-logon"></a>Aanmelding bij Azure Active Directory-Account
-Deze records worden gemaakt wanneer u een Active Directory-gebruiker zich probeert aan te melden.
+Deze records worden gemaakt wanneer een gebruiker in Active Directory probeert toolog op.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | recordType     | AzureActiveDirectoryAccountLogon |
-| Toepassing | De toepassing die de gebeurtenis account aanmelden, zoals Office 15. |
-| Client | Meer informatie over de client apparaat, een besturingssysteem van het apparaat en browser van een apparaat dat is gebruikt voor de van de account aanmelding-gebeurtenis. |
-| loginStatus | Deze eigenschap is rechtstreeks uit OrgIdLogon.LoginStatus. De toewijzing van verschillende interessante aanmeldingsfouten kan worden uitgevoerd door waarschuwingen algoritmen. |
-| UserDomain | De Tenant identiteitsgegevens (TII). | 
+| Toepassing | Hallo-toepassing die gebeurtenis Hallo account aanmelden, zoals Office 15. |
+| Client | Meer informatie over client hello apparaat, een besturingssysteem van het apparaat en browser van een apparaat dat is gebruikt voor Hallo van Hallo account aanmelding gebeurtenis. |
+| loginStatus | Deze eigenschap is rechtstreeks uit OrgIdLogon.LoginStatus. Hallo-toewijzing van verschillende interessante aanmeldingsfouten kan worden uitgevoerd door waarschuwingen algoritmen. |
+| UserDomain | Hello Tenant identiteit informatie (TII). | 
 
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
-Deze records worden gemaakt wanneer een wijziging of toevoegingen worden aangebracht in Azure Active Directory-objecten.
+Deze records worden gemaakt wanneer een wijziging of toevoegingen tooAzure Active Directory-objecten worden gemaakt.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | recordType     | AzureActiveDirectory |
-| AADTarget | De gebruiker die de actie (aangeduid met de eigenschap Operation) is uitgevoerd op. |
-| Actor | De gebruiker of service-principal die de actie heeft uitgevoerd. |
-| ActorContextId | De GUID van de organisatie die de actor behoort. |
-| ActorIpAddress | De actor IP-adres in IPV4 of IPV6-adres-indeling. |
-| InterSystemsId | De GUID die de acties voor onderdelen in de Office 365-service controleren. |
-| IntraSystemId |   De GUID die wordt gegenereerd door Azure Active Directory voor het bijhouden van de actie. |
-| SupportTicketId | De klant ondersteunt ticket-ID voor de actie in situaties 'act-op-andere gebruikers-of'. |
-| TargetContextId | De GUID van de organisatie die de betreffende gebruiker behoort. |
+| AADTarget | Hallo-gebruiker die Hallo actie (aangeduid door Hallo eigenschap Operation) is uitgevoerd op. |
+| Actor | Hallo-gebruiker of service-principal die Hallo actie is uitgevoerd. |
+| ActorContextId | GUID van Hallo organisatie die actor Hallo Hallo behoort. |
+| ActorIpAddress | Hallo actor van IP-adres in de notatie voor IPV4 of IPV6-adres. |
+| InterSystemsId | Hallo GUID die Hallo acties houden over onderdelen in Hallo Office 365-service. |
+| IntraSystemId |   Hallo GUID die wordt gegenereerd door de Azure Active Directory tootrack Hallo actie. |
+| SupportTicketId | Hallo klantondersteuning ticket-ID voor de actie in situaties "act-op-andere gebruikers-of" Hallo. |
+| TargetContextId | GUID van het Hallo-organisatie die de gebruiker in de doelgroep Hallo Hallo behoort. |
 
 
 ### <a name="data-center-security"></a>Data Center-beveiliging
@@ -149,50 +149,50 @@ Deze records worden gemaakt van controlegegevens Center gegevensbeveiliging.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| EffectiveOrganization | De naam van de tenant die de uitbreiding van bevoegdheden/cmdlet is gericht op. |
-| ElevationApprovedTime | Het tijdstempel voor wanneer de uitbreiding is goedgekeurd. |
-| ElevationApprover | De naam van een Microsoft-manager. |
-| ElevationDuration | De duur waarvoor de uitbreiding van bevoegdheden actief was. |
-| ElevationRequestId |  Een unieke id voor de uitbreiding van bevoegdheden-aanvraag. |
-| ElevationRole | De rol van de uitbreiding is aangevraagd voor. |
-| ElevationTime | De begintijd van de uitbreiding van bevoegdheden. |
-| Start_Time | De begintijd van de uitvoering van cmdlets. |
+| EffectiveOrganization | Hallo-naam van het Hallo-tenant die uitbreiding van bevoegdheden/cmdlet Hallo is gericht op. |
+| ElevationApprovedTime | Hallo tijdstempel voor wanneer Hallo verhoging is goedgekeurd. |
+| ElevationApprover | Hallo-naam van een Microsoft-manager. |
+| ElevationDuration | Hallo duur voor welke Hallo uitbreiding van bevoegdheden actief was. |
+| ElevationRequestId |  Een unieke id voor Hallo uitbreiding van bevoegdheden aanvraag. |
+| ElevationRole | Hallo rol Hallo verhoging is aangevraagd voor. |
+| ElevationTime | Hallo begintijd van Hallo uitbreiding van bevoegdheden. |
+| Start_Time | Hallo begintijd van de uitvoering van Hallo-cmdlets. |
 
 
 ### <a name="exchange-admin"></a>Exchange-beheerder
-Deze records worden gemaakt wanneer er wijzigingen zijn aangebracht in de configuratie van Exchange.
+Deze records worden gemaakt wanneer er wijzigingen zijn aangebracht tooExchange configuratie.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | recordType     | ExchangeAdmin |
-| ExternalAccess |  Hiermee geeft u op of de cmdlet is uitgevoerd door een gebruiker in uw organisatie, door medewerkers van Microsoft-datacenter of in een datacenter-serviceaccount of door een gedelegeerde beheerder. De waarde False geeft aan dat de cmdlet is uitgevoerd door iemand die in uw organisatie. De waarde True geeft aan dat de cmdlet is uitgevoerd door datacenter personeel, een datacenter-serviceaccount of een gedelegeerde beheerder. |
-| ModifiedObjectResolvedName |  Dit is de beschrijvende naam van het object dat door de cmdlet is gewijzigd. Dit is alleen geregistreerd als de cmdlet het object wijzigt. |
-| Organisatienaam | De naam van de tenant. |
-| OriginatingServer | De naam van de server van waaruit u de cmdlet is uitgevoerd. |
-| Parameters | De naam en waarde voor alle parameters die zijn gebruikt met de cmdlet die wordt geïdentificeerd in de Operations-eigenschap. |
+| ExternalAccess |  Hiermee geeft u op of Hallo cmdlet is uitgevoerd door een gebruiker in uw organisatie, door medewerkers van Microsoft-datacenter of in een datacenter-serviceaccount of door een gedelegeerde beheerder. Hallo waarde False wordt aangegeven dat die Hallo-cmdlet is uitgevoerd door iemand die in uw organisatie. Hallo waarde True geeft aan dat Hallo-cmdlet is uitgevoerd door datacenter personeel, een datacenter-serviceaccount of een gedelegeerde beheerder. |
+| ModifiedObjectResolvedName |  Dit is Hallo gebruiker beschrijvende naam van Hallo-object dat door de cmdlet Hallo is gewijzigd. Dit is alleen geregistreerd als Hallo cmdlet Hallo-object wijzigt. |
+| Organisatienaam | de naam van de Hallo van Hallo-tenant. |
+| OriginatingServer | Hallo-naam van Hallo-server uit welke Hallo cmdlet is uitgevoerd. |
+| Parameters | Hallo-naam en waarde voor alle parameters die zijn gebruikt met Hallo cmdlet die wordt geïdentificeerd in Hallo Operations-eigenschap. |
 
 
 ### <a name="exchange-mailbox"></a>Exchange-postvak
-Deze records worden gemaakt wanneer wijzigingen of toevoegingen worden aangebracht in de Exchange-postvakken.
+Deze records worden gemaakt wanneer wijzigingen of toevoegingen tooExchange postvakken worden gemaakt.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | recordType     | ExchangeItem |
-| ClientInfoString | Informatie over de e-mailclient die is gebruikt om de bewerking, zoals een browserversie, de Outlook-versie en de informatie van mobiele apparaten. |
-| Client_IPAddress | Het IP-adres van het apparaat dat is gebruikt bij de bewerking werd geregistreerd. Het IP-adres wordt weergegeven in de notatie voor een IPv4- of IPv6-adres. |
-| ClientMachineName | De naam van de machine die als host fungeert voor de Outlook-client. |
-| ClientProcessName | De e-mailclient die is gebruikt voor toegang tot het postvak. |
-| ClientVersion | De versie van de e-mailclient. |
+| ClientInfoString | Informatie over Hallo e-mailclient die gebruikt tooperform Hallo bewerking, zoals een browserversie, de Outlook-versie en de informatie van mobiele apparaten is. |
+| Client_IPAddress | Hallo IP-adres van Hallo-apparaat dat is gebruikt bij het Hallo-bewerking is vastgelegd. Hallo IP-adres wordt weergegeven in de notatie voor een IPv4- of IPv6-adres. |
+| ClientMachineName | de computernaam die als host fungeert voor de Outlook-client Hallo Hallo. |
+| ClientProcessName | Hallo e-mailclient die gebruikte tooaccess Hallo postvak is. |
+| ClientVersion | Hallo-versie van het e-mailclient Hallo. |
 | InternalLogonType | Gereserveerd voor intern gebruik. |
-| Logon_Type | Geeft het type van de gebruiker die toegang tot het postvak en de bewerking die is vastgelegd uitgevoerd. |
-| LogonUserDisplayName |    De beschrijvende naam van de gebruiker die de bewerking uitgevoerd. |
-| LogonUserSid | De SID van de gebruiker die de bewerking uitgevoerd. |
-| MailboxGuid | De Exchange-GUID van het postvak dat is geopend. |
+| Logon_Type | Geeft Hallo type gebruiker die Hallo Postvak geopend en uitgevoerd Hallo-bewerking die is vastgelegd. |
+| LogonUserDisplayName |    Hallo gebruiksvriendelijke naam van gebruiker Hallo Hallo bewerking uitgevoerd. |
+| LogonUserSid | Hallo-SID van gebruiker Hallo die Hallo bewerking uitgevoerd. |
+| MailboxGuid | Hallo Exchange-GUID van Hallo postvak dat is geopend. |
 | MailboxOwnerMasterAccountSid | Postvak eigenaarsaccount hoofdaccount SID. |
-| MailboxOwnerSid | De SID van de eigenaar van het postvak. |
-| MailboxOwnerUPN | Het e-mailadres van degene die eigenaar is van het postvak dat is geopend. |
+| MailboxOwnerSid | SID van de eigenaar van het Postvak Hallo Hallo. |
+| MailboxOwnerUPN | Hallo e-mailadres van Hallo eigenaar Hallo postvak dat is geopend. |
 
 
 ### <a name="exchange-mailbox-audit"></a>Exchange-postvak Audit
@@ -202,49 +202,49 @@ Deze records worden gemaakt wanneer u een vermelding postvak wordt gemaakt.
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | recordType     | ExchangeItem |
-| Item | Hiermee geeft u het item waarop de bewerking is uitgevoerd | 
-| SendAsUserMailboxGuid | De Exchange-GUID van het postvak dat is geopend voor het verzenden van e-mailadres als. |
-| SendAsUserSmtp | SMTP-adres van de gebruiker die wordt geïmiteerd. |
-| SendonBehalfOfUserMailboxGuid | De Exchange-GUID van het postvak dat is geopend voor het verzenden van e-mail namens. |
-| SendOnBehalfOfUserSmtp | SMTP-adres van de gebruiker namens wie het e-mailbericht wordt verzonden. |
+| Item | Hiermee geeft u Hallo item bij welke Hallo bewerking is uitgevoerd | 
+| SendAsUserMailboxGuid | Hallo Exchange-GUID van Hallo postvak dat is geopend toosend e-mail als. |
+| SendAsUserSmtp | SMTP-adres van Hallo gebruiker wordt geïmiteerd. |
+| SendonBehalfOfUserMailboxGuid | Hallo Exchange-GUID van Hallo postvak dat is geopend toosend mail namens. |
+| SendOnBehalfOfUserSmtp | SMTP-adres van de gebruiker Hallo op namens wie Hallo e-mailbericht wordt verzonden. |
 
 
 ### <a name="exchange-mailbox-audit-group"></a>Exchange-postvak Audit-groep
-Deze records worden gemaakt wanneer wijzigingen of toevoegingen worden aangebracht in de Exchange-groepen.
+Deze records worden gemaakt wanneer wijzigingen of toevoegingen tooExchange groepen worden gemaakt.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
-| AffectedItems | Informatie over elk item in de groep. |
-| CrossMailboxOperations | Hiermee wordt aangegeven als de bewerking meer dan één postvak betrokken. |
-| DestMailboxId | Alleen ingesteld als de parameter CrossMailboxOperations ingesteld op True is. Hiermee geeft u het doelpostvak GUID. |
-| DestMailboxOwnerMasterAccountSid | Alleen ingesteld als de parameter CrossMailboxOperations ingesteld op True is. Hiermee geeft u de SID voor het hoofdaccount SID van de eigenaar van de doel-postvak. |
-| DestMailboxOwnerSid | Alleen ingesteld als de parameter CrossMailboxOperations ingesteld op True is. Hiermee geeft u de SID van het doelpostvak. |
-| DestMailboxOwnerUPN | Alleen ingesteld als de parameter CrossMailboxOperations ingesteld op True is. Hiermee geeft u de UPN van de eigenaar van het doelpostvak. |
-| DestFolder | De doelmap voor bewerkingen, zoals verplaatsen. |
-| Map | De map waarin een groep items zich bevindt. |
-| Mappen |     Informatie over de bronmappen die zijn betrokken bij een bewerking. Als bijvoorbeeld mappen zijn geselecteerd en vervolgens verwijderd. |
+| AffectedItems | Informatie over elk item in het Hallo-groep. |
+| CrossMailboxOperations | Hiermee wordt aangegeven als Hallo bewerking meer dan één postvak betrokken. |
+| DestMailboxId | Alleen ingesteld als Hallo CrossMailboxOperations parameter ingesteld op True is. Hiermee geeft u Hallo doelpostvak GUID. |
+| DestMailboxOwnerMasterAccountSid | Alleen ingesteld als Hallo CrossMailboxOperations parameter ingesteld op True is. Hiermee geeft u Hallo SID voor Hallo hoofdaccount SID van de eigenaar van het Postvak Hallo doel. |
+| DestMailboxOwnerSid | Alleen ingesteld als Hallo CrossMailboxOperations parameter ingesteld op True is. Hiermee geeft u Hallo SID van Hallo doelpostvak. |
+| DestMailboxOwnerUPN | Alleen ingesteld als Hallo CrossMailboxOperations parameter ingesteld op True is. Hiermee geeft u Hallo UPN van de eigenaar Hallo van Hallo doelpostvak. |
+| DestFolder | Hallo doelmap voor bewerkingen, zoals verplaatsen. |
+| Map | Hallo-map is waarin een groep items zich bevindt. |
+| Mappen |     Informatie over Hallo bronmappen die zijn betrokken bij een bewerking. Als bijvoorbeeld mappen zijn geselecteerd en vervolgens verwijderd. |
 
 
 ### <a name="sharepoint-base"></a>SharePoint-basis
-Deze eigenschappen gelden voor alle SharePoint-records.
+Deze eigenschappen zijn algemene tooall SharePoint records.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
 | EventSource | Geeft aan dat een gebeurtenis is opgetreden in SharePoint. Mogelijke waarden zijn SharePoint of ObjectModel. |
-| itemType | Het type object dat is geopend of gewijzigd. Zie de tabel ItemType voor meer informatie over de verschillende typen objecten. |
-| MachineDomainInfo | Informatie over apparaat synchronisatiebewerkingen. Deze informatie wordt gerapporteerd als het aanwezig is in de aanvraag. |
-| MachineId |   Informatie over apparaat synchronisatiebewerkingen. Deze informatie wordt gerapporteerd als het aanwezig is in de aanvraag. |
-| Site_ | De GUID van de site waar het bestand of map gebruikt door de gebruiker zich bevindt. |
-| Source_Name | De entiteit die de controlebewerking geactiveerd. Mogelijke waarden zijn SharePoint of ObjectModel. |
-| UserAgent | Informatie over de client of de browser van de gebruiker. Deze informatie wordt verstrekt door de client of de browser. |
+| itemType | Hallo type object dat is geopend of gewijzigd. Zie Hallo ItemType tabel voor meer informatie over Hallo soorten objecten. |
+| MachineDomainInfo | Informatie over apparaat synchronisatiebewerkingen. Deze informatie wordt gerapporteerd als het aanwezig is in het Hallo-aanvraag. |
+| MachineId |   Informatie over apparaat synchronisatiebewerkingen. Deze informatie wordt gerapporteerd als het aanwezig is in het Hallo-aanvraag. |
+| Site_ | Hallo GUID van Hallo site waar Hallo-bestand of map toegankelijk is voor Hallo gebruiker zich bevindt. |
+| Source_Name | Hallo-entiteit die geactiveerd Hallo gecontroleerd bewerking. Mogelijke waarden zijn SharePoint of ObjectModel. |
+| UserAgent | Informatie over de client of de browser van Hallo gebruiker. Deze informatie wordt verstrekt door Hallo-client of de browser. |
 
 
 ### <a name="sharepoint-schema"></a>SharePoint-Schema
-Deze records worden gemaakt wanneer configuratiewijzigingen worden aangebracht in SharePoint.
+Deze records worden gemaakt wanneer u configuratiewijzigingen worden aangebracht tooSharePoint.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
@@ -252,35 +252,35 @@ Deze records worden gemaakt wanneer configuratiewijzigingen worden aangebracht i
 | OfficeWorkload | SharePoint |
 | CustomEvent | Optionele tekenreeks voor aangepaste gebeurtenissen. |
 | Event_Data |  De nettolading voor aangepaste gebeurtenissen is optioneel. |
-| ModifiedProperties | De eigenschap is opgenomen voor admin-gebeurtenissen, zoals een gebruiker toe te voegen als lid van een site of een groep siteverzamelingen-beheerder. De eigenschap bevat de naam van de eigenschap die is aangepast (bijvoorbeeld de groep sitebeheerder), de nieuwe waarde van de aangepaste eigenschap (die de gebruiker die als een beheerder van de site is toegevoegd) en de vorige waarde van het gewijzigde object. |
+| ModifiedProperties | Hallo-eigenschap is opgenomen voor admin-gebeurtenissen, zoals een gebruiker toe te voegen als lid van een site of een groep siteverzamelingen-beheerder. Hallo-eigenschap bevat de naam van de Hallo van Hallo-eigenschap die is aangepast (bijvoorbeeld Hallo beheerder van de Site-groep), nieuwe waarde van Hallo gewijzigd eigenschap (dergelijke Hallo-gebruiker die als een beheerder van de site is toegevoegd) en de vorige waarde Hallo Hallo gewijzigd object Hallo. |
 
 
 ### <a name="sharepoint-file-operations"></a>SharePoint-bestandsbewerkingen
-Deze records worden gemaakt in reactie op bestandsbewerkingen in SharePoint.
+Deze records worden gemaakt in het antwoord toofile bewerkingen in SharePoint.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
-| DestinationFileExtension | De bestandsextensie van een bestand dat wordt verplaatst of gekopieerd. Deze eigenschap wordt alleen weergegeven voor FileCopied en FileMoved gebeurtenissen. |
-| DestinationFileName | De naam van het bestand wordt gekopieerd of verplaatst. Deze eigenschap wordt alleen weergegeven voor FileCopied en FileMoved gebeurtenissen. |
-| DestinationRelativeUrl | De URL van de doelmap waar een bestand wordt gekopieerd of verplaatst. De combinatie van de waarden voor parameters SiteURL, DestinationRelativeURL en DestinationFileName is hetzelfde als de waarde voor de object-id-eigenschap, die de volledige padnaam voor het bestand dat is gekopieerd. Deze eigenschap wordt alleen weergegeven voor FileCopied en FileMoved gebeurtenissen. |
-| SharingType | Het type van de machtigingen die zijn toegewezen aan de gebruiker die de resource is gedeeld met delen. Deze gebruiker wordt geïdentificeerd door de parameter UserSharedWith. |
-| Site_Url | De URL van de site waar het bestand of map gebruikt door de gebruiker zich bevindt. |
-| SourceFileExtension | De bestandsextensie van het bestand dat door de gebruiker is geopend. Deze eigenschap is leeg als het object dat is geopend, een map is. |
-| Bronbestandsnaam |  De naam van het bestand of map gebruikt door de gebruiker. |
-| SourceRelativeUrl | De URL van de map waarin het bestand gebruikt door de gebruiker. De combinatie van de waarden voor de parameters SiteURL SourceRelativeURL en bronbestandsnaam is hetzelfde als de waarde voor de object-id-eigenschap, die de volledige padnaam voor het bestand gebruikt door de gebruiker. |
-| UserSharedWith |  De gebruiker die met een bron is gedeeld. |
+| DestinationFileExtension | bestandsextensie Hallo van een bestand dat wordt verplaatst of gekopieerd. Deze eigenschap wordt alleen weergegeven voor FileCopied en FileMoved gebeurtenissen. |
+| DestinationFileName | Hallo-naam van Hallo-bestand wordt gekopieerd of verplaatst. Deze eigenschap wordt alleen weergegeven voor FileCopied en FileMoved gebeurtenissen. |
+| DestinationRelativeUrl | Hallo-URL van de doelmap Hallo waar een bestand wordt gekopieerd of verplaatst. Hallo combinatie van waarden voor parameters SiteURL, DestinationRelativeURL en DestinationFileName Hallo is Hallo dezelfde is als Hallo-waarde voor de eigenschap ObjectID hello, die Hallo volledige padnaam voor Hallo-bestand dat is gekopieerd. Deze eigenschap wordt alleen weergegeven voor FileCopied en FileMoved gebeurtenissen. |
+| SharingType | Hallo-type van de machtigingen die zijn toegewezen gebruiker toohello die Hallo resource is gedeeld met delen. Deze gebruiker wordt geïdentificeerd door Hallo UserSharedWith parameter. |
+| Site_Url | Hallo-URL van Hallo site waar Hallo-bestand of map toegankelijk is voor Hallo gebruiker zich bevindt. |
+| SourceFileExtension | bestandsextensie Hallo van Hallo-bestand dat door de gebruiker Hallo is geopend. Deze eigenschap is leeg als Hallo-object dat is geopend, een map is. |
+| Bronbestandsnaam |  Hallo-naam van het Hallo-bestand of map door de gebruiker Hallo geopend. |
+| SourceRelativeUrl | Hallo-URL van Hallo-map die toegankelijk is voor de gebruiker Hallo Hallo-bestand bevat. Hallo combinatie van waarden voor de parameters SiteURL, SourceRelativeURL en bronbestandsnaam Hallo Hallo is hetzelfde als het Hallo-waarde voor Hallo ObjectID eigenschap, die de volledige padnaam Hallo voor Hallo-bestand gebruikt door de gebruiker Hallo Hallo. |
+| UserSharedWith |  Hallo-gebruiker die met een bron is gedeeld. |
 
 
 
 
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
-De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords die worden verzameld door deze oplossing.
+Hallo volgende tabel biedt een voorbeeld-logboek zoekt bijwerkrecords die door deze oplossing worden verzameld.
 
 | Query’s uitvoeren | Beschrijving |
 | --- | --- |
-|Telling van alle bewerkingen voor uw Office 365-abonnement |"Type = OfficeActivity | meten count() voor bewerking ' |
+|Telling van alle Hallo-bewerkingen voor uw Office 365-abonnement |"Type = OfficeActivity | meten count() voor bewerking ' |
 |Informatie over het gebruik van SharePoint-sites|"Type = OfficeActivity OfficeWorkload = sharepoint | meting count() als SiteUrl tellen | Aantal asc sorteren '|
 |Toegang bestandsbewerkingen door gebruikerstype|"Type = OfficeActivity OfficeWorkload sharepoint bewerking = FileAccessed = | meten count() door UserType'|
 |Zoeken met specifieke trefwoorden|`Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"`|
@@ -290,17 +290,17 @@ De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords 
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Als uw Office 365-oplossing is geen gegevens worden verzameld zoals verwacht, controleert de status ervan in de OMS-portal op **instellingen** -> **verbonden bronnen** -> **Office 365**. De volgende tabel beschrijft elke status.
+Als uw Office 365-oplossing is geen gegevens verzameld zoals verwacht, Controleer de status op Hallo OMS-portal op **instellingen** -> **verbonden bronnen** -> **Office 365** . Hallo volgende tabel beschrijft elke status.
 
 | Status | Beschrijving |
 |:--|:--|
-| Actief | Het Office 365-abonnement actief is en de werkbelasting is verbonden met de OMS-werkruimte. |
-| In behandeling | Het Office 365-abonnement actief is, maar de werkbelasting is nog niet verbonden met de OMS-werkruimte is. De eerste keer dat u verbinding maken met de Office 365-abonnement zijn alle werkbelastingen op deze status totdat ze zijn verbonden. Wacht 24 uur voor alle werkbelastingen overschakelen naar de actieve. |
-| Inactieve | Het Office 365-abonnement is in een inactieve status heeft. Controleer op de pagina van uw Office 365-beheerder voor meer informatie. Nadat u uw Office 365-abonnement hebt geactiveerd, wordt het ontkoppelen van OMS-werkruimte en koppel deze opnieuw uit om te beginnen met het ontvangen van gegevens. |
+| Actief | Hallo Office 365-abonnement actief is en Hallo werkbelasting is met succes verbonden tooyour OMS-werkruimte. |
+| In behandeling | Hallo Office 365-abonnement actief is, maar Hallo werkbelasting is nog niet tooyour OMS-werkruimte is verbonden. Hallo zijn eerste keer dat u verbinding maakt met Hallo Office 365-abonnement, met alle Hallo werkbelastingen op deze status totdat ze zijn verbonden. Wacht 24 uur totdat alle Hallo werkbelastingen tooswitch tooActive. |
+| Inactieve | Hallo Office 365-abonnement is in een inactieve status heeft. Controleer op de pagina van uw Office 365-beheerder voor meer informatie. Nadat u uw Office 365-abonnement hebt geactiveerd, wordt het ontkoppelen van OMS-werkruimte en koppelt u deze opnieuw toostart ontvangen van gegevens. |
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik Logboekzoekopdrachten in [Log Analytics](../log-analytics/log-analytics-log-searches.md) om gedetailleerde updategegevens weer te geven.
-* [Maak uw eigen dashboards](../log-analytics/log-analytics-dashboards.md) om uw favoriete Office 365 zoekquery's weer te geven.
-* [Waarschuwingen maken](../log-analytics/log-analytics-alerts.md) proactief informeren van belangrijke Office 365-activiteiten.  
+* Logboek van zoekopdrachten in gebruiken [logboekanalyse](../log-analytics/log-analytics-log-searches.md) tooview gedetailleerde gegevens bijwerken.
+* [Maak uw eigen dashboards](../log-analytics/log-analytics-dashboards.md) toodisplay uw favoriete zoekopdrachten voor Office 365.
+* [Waarschuwingen maken](../log-analytics/log-analytics-alerts.md) toobe proactief een melding van belangrijke Office 365-activiteiten.  

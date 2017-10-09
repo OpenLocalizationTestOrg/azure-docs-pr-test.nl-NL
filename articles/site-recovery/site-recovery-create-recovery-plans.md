@@ -1,6 +1,6 @@
 ---
-title: Plannen voor herstel voor failover en herstel maken in Azure Site Recovery | Microsoft Docs
-description: Hierin wordt beschreven hoe u maken en aanpassen van herstelplannen in Azure Site Recovery, failover en virtuele machines en fysieke servers herstellen
+title: aaaCreate voor failover en herstel in de Azure Site Recovery-herstelplannen | Microsoft Docs
+description: Hierin wordt beschreven hoe toocreate en plannen voor herstel in Azure Site Recovery toofail via aanpassen en virtuele machines en fysieke servers herstellen
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,92 +14,92 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.openlocfilehash: 1b0d64cd592c4738311797b826e490639340f92a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 09ca7719e92460b283947fdbe752e8654e5b9cab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-recovery-plans"></a>Herstelplannen maken
 
 
 Dit artikel bevat informatie over het maken en aanpassen in de herstelplannen [Azure Site Recovery](site-recovery-overview.md).
 
-U kunt onder aan dit artikel of op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) opmerkingen of vragen plaatsen.
+Eventuele opmerkingen of vragen plaatsen onderin Hallo van dit artikel of op Hallo [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
- Maak herstelplannen het volgende doen:
+ Herstel plannen toodo Hallo volgende maken:
 
 * Groepen van de machines die samen een failover en start vervolgens samen definiëren.
-* Model afhankelijkheden tussen machines, door ze te groeperen samen in een recovery plan groep. Bijvoorbeeld, failover en online zetten van een bepaalde toepassing is, groeperen u alle van de virtuele machines voor de toepassing naar dezelfde recovery plan groep.
+* Model afhankelijkheden tussen machines, door ze te groeperen samen in een recovery plan groep. Bijvoorbeeld, toofail via en online zetten van een specifieke toepassing, dat u alle Hallo VMs voor die toepassing in Hallo groeperen dezelfde groep voor gegevensherstel plannen.
 * Een failover uitvoert. U kunt een test, gepland of niet-geplande failover uitvoeren op een herstelplan.
 
 
 ## <a name="create-a-recovery-plan"></a>Een herstelplan maken
 
 1. Klik op **herstelplannen** > **herstelplan maken**.
-   Geef een naam voor het herstelplan en een bron en doel. De bronlocatie moet virtuele machines hebt die zijn ingeschakeld voor failover en herstel.
+   Geef een naam voor het herstelplan hello, en een bron en doel. Hallo bronlocatie moet virtuele machines hebt die zijn ingeschakeld voor failover en herstel.
 
-    - Selecteer voor VMM naar VMM replicatie **brontype** > **VMM**, en de bron en doel-VMM-servers. Klik op **Hyper-V** om te zien van clouds die zijn beveiligd.
-    - Selecteer voor VMM naar Azure **brontype** > **VMM**.  Selecteer de bron-VMM-beheerserver, en **Azure** als doel.
-    - Voor Hyper-V-replicatie naar Azure (zonder VMM), selecteer **brontype** > **Hyper-V-site**. Selecteer de site als de bron en **Azure** als doel.
-    - Voor een VMware-VM of een fysieke on-premises server maken in Azure, selecteert u een configuratieserver als de bron en **Azure** als doel.
-    - Selecteer een Azure-regio als de bron- en een secundair Azure-regio als het doel voor een herstelplan van Azure naar Azure. Secundaire Azure-regio's zijn alleen degenen die virtuele machines worden beveiligd.
-2. In **virtuele machines selecteren**, selecteer de virtuele machines (of replicatiegroep) die u wilt toevoegen aan de standaardgroep (groep 1) in het herstelplan.
+    - Selecteer voor VMM tooVMM replicatie, **brontype** > **VMM**, en Hallo bron en doel van de VMM-servers. Klik op **Hyper-V** toosee clouds die zijn beveiligd.
+    - Selecteer voor de VMM-tooAzure **brontype** > **VMM**.  Selecteer Hallo bron VMM-server en **Azure** als Hallo doel.
+    - Voor Hyper-V-replicatie tooAzure (zonder VMM), selecteert u **brontype** > **Hyper-V-site**. Selecteer Hallo site als bron-hello, en **Azure** als Hallo doel.
+    - Voor een VMware-VM of een fysieke on-premises server tooAzure, selecteert u een configuratieserver als Hallo-bron en **Azure** als Hallo doel.
+    - Selecteer een Azure-regio als Hallo bron en een secundair Azure-regio als Hallo doel voor een herstelplan Azure tooAzure. Hallo secundaire Azure-regio's zijn dat alleen de toowhich virtuele machines worden beveiligd.
+2. In **virtuele machines selecteren**, selecteer Hallo virtuele machines (of replicatiegroep) dat u in het herstelplan Hallo tooadd toohello standaardgroep (groep 1) wilt.
 
 ## <a name="customize-and-extend-recovery-plans"></a>Aanpassen en uitbreiden herstelplannen
 
 U kunt aanpassen en uitbreiden herstelplannen:
 
-- **Nieuwe groepen toevoegen**: aanvullende herstelpunten planningsgroepen (maximaal zeven) toevoegen aan de standaardgroep en voeg vervolgens meer machines of replicatiegroepen aan deze herstelgroepen-plan. Groepen worden genummerd in de volgorde waarin u ze toevoegt. Een virtuele machine of de replicatiegroep, kan alleen worden opgenomen in één herstelpunt plan groep.
-- **Toevoegen van een handmatige actie**— u handmatige acties die worden uitgevoerd vóór of na een groep voor gegevensherstel abonnement kunt toevoegen. Wanneer het herstelplan wordt uitgevoerd, stopt hij op het punt waar u de handmatige actie ingevoegd. Een dialoogvenster vraagt u om op te geven dat de handmatige actie is voltooid.
-- **Een script toevoegen**— u kunt scripts toevoegen die worden uitgevoerd vóór of na een groep voor gegevensherstel plannen. Wanneer u een script toevoegt, wordt een nieuwe reeks handelingen voor de groep toegevoegd. Bijvoorbeeld, een reeks vooraf stappen voor het groep 1 wordt gemaakt met de naam: groep 1: vooraf stappen. Stappen voor alle vooraf wordt vermeld in deze set. U kunt alleen een script toevoegen op de primaire site hebt u een VMM-server geïmplementeerd.
-- **Toevoegen van Azure-runbooks**— u kunt herstelplannen met Azure runbooks uitbreiden. Bijvoorbeeld, om taken te automatiseren, of één stap herstel maken. [Meer informatie](site-recovery-runbook-automation.md).
+- **Nieuwe groepen toevoegen**: aanvullende herstelpunten plan groepen (omhoog tooseven) toohello standaardgroep toevoegen en voeg vervolgens meer machines of replicatie groepen toothose recovery planningsgroepen. Groepen worden genummerd in Hallo-volgorde op waarin u ze toevoegt. Een virtuele machine of de replicatiegroep, kan alleen worden opgenomen in één herstelpunt plan groep.
+- **Toevoegen van een handmatige actie**— u handmatige acties die worden uitgevoerd vóór of na een groep voor gegevensherstel abonnement kunt toevoegen. Wanneer Hallo herstelplan wordt uitgevoerd, wordt gestopt op Hallo punt waar u de handmatige actie Hallo ingevoegd. Een dialoogvenster wordt u gevraagd toospecify dat Hallo handmatige actie is voltooid.
+- **Een script toevoegen**— u kunt scripts toevoegen die worden uitgevoerd vóór of na een groep voor gegevensherstel plannen. Wanneer u een script toevoegt, wordt een nieuwe set acties voor Hallo groep toegevoegd. Bijvoorbeeld, een reeks vooraf stappen voor het groep 1 wordt gemaakt met de naam van de Hallo: groep 1: vooraf stappen. Stappen voor alle vooraf wordt vermeld in deze set. U kunt alleen een script op de primaire site Hallo toevoegen als u een VMM-server geïmplementeerd.
+- **Toevoegen van Azure-runbooks**— u kunt herstelplannen met Azure runbooks uitbreiden. Bijvoorbeeld: tooautomate taken of toocreate één stap herstel. [Meer informatie](site-recovery-runbook-automation.md).
 
 ## <a name="add-scripts"></a>Voeg scripts toe
 
 U kunt de PowerShell-scripts gebruiken in uw plannen voor herstel.
 
- - Zorg ervoor dat de scripts trycatch-blokken gebruiken zodat de uitzonderingen probleemloos worden afgehandeld.
-    - Er is een uitzondering opgetreden in het script, niet meer wordt uitgevoerd als de taak wordt weergegeven als mislukt.
-    - Als een fout optreedt, worden eventuele resterende deel van het script niet uitgevoerd.
-    - Als er een fout optreedt wanneer u een niet-geplande failover uitvoert, blijft het herstelplan.
-    - Als een fout optreedt wanneer u een geplande failover uitvoert, wordt het herstelplan gestopt. U moet oplossen van het script, Controleer of deze wordt uitgevoerd zoals verwacht en het herstelplan opnieuw uit te voeren.
-- De Write-Host-opdracht werkt niet in een herstelplanscript en het script mislukken. Maak een proxyscript dat op zijn beurt uw belangrijkste script wordt uitgevoerd voor het maken van de uitvoer. Zorg ervoor dat alle uitvoer wordt doorgegeven om via de >> opdracht.
-  * Het script wordt geblokkeerd als er binnen 600 seconden wordt niet geretourneerd.
-  * Als is geschreven in STDERR, wordt het script wordt geclassificeerd als is mislukt. Deze informatie wordt weergegeven in de details van de uitvoering van script.
+ - Zorg dat de scripts trycatch-blokken gebruikt zodat Hallo uitzonderingen probleemloos worden afgehandeld.
+    - Als er een uitzondering in Hallo script, niet meer wordt uitgevoerd en Hallo-taak wordt weergegeven als mislukt.
+    - Als een fout optreedt, worden eventuele resterende deel van het Hallo-script niet uitgevoerd.
+    - Als er een fout optreedt wanneer u een niet-geplande failover uitvoert, blijft Hallo herstelplan.
+    - Als er een fout optreedt wanneer u een geplande failover uitvoert, stopt Hallo herstelplan. U moet toofix Hallo script, Controleer of deze wordt uitgevoerd zoals verwacht en voer vervolgens Hallo herstelplan opnieuw.
+- Hallo Write-Host opdracht werkt niet in een herstelplanscript en Hallo script werkt niet. toocreate uitvoert, maak een proxyscript dat op zijn beurt uw belangrijkste script wordt uitgevoerd. Zorg ervoor dat alle uitvoer wordt doorgegeven om via Hallo >> opdracht.
+  * Hallo-script wordt geblokkeerd als er binnen 600 seconden wordt niet geretourneerd.
+  * Als tooSTDERR wordt uitgeschreven, ingedeeld Hallo script als mislukt. Deze informatie wordt weergegeven in Hallo scriptdetails op worden uitgevoerd.
 
 Als u VMM in uw implementatie:
 
-* Scripts in een herstelplan worden uitgevoerd in de context van de VMM-serviceaccount. Zorg ervoor dat dit account heeft leesrechten nodig voor de externe share waarop het script zich bevindt. Het script wilt uitvoeren op de VMM-service-account machtigingsniveau testen.
-* VMM-cmdlets worden in Windows PowerShell-module geleverd. De module wordt geïnstalleerd wanneer u de VMM-console installeren. Het kan in uw script met de volgende opdracht in het script worden geladen:
+* Scripts in een herstelplan worden uitgevoerd in context Hallo Hallo VMM-serviceaccount. Zorg ervoor dat dit account heeft leesrechten nodig voor de externe share Hallo welke Hallo script zich bevindt. Test Hallo script toorun op Hallo machtigingsniveau van VMM-service-account.
+* VMM-cmdlets worden in Windows PowerShell-module geleverd. Hallo-module is geïnstalleerd wanneer u Hallo VMM-console installeert. Worden kan geladen in uw script, met behulp van de volgende opdracht in de script Hallo Hallo:
    - Import-Module-naam beheer voor virtuele machines. [Meer informatie](https://technet.microsoft.com/library/hh875013.aspx).
-* Zorg ervoor dat er ten minste één bibliotheekserver in uw VMM-implementatie. Standaard het bibliotheeksharepad voor een VMM-server zich lokaal op de VMM-server met de naam van de map MSCVMMLibrary.
-    * Als uw bibliotheeksharepad externe (of lokale maar niet gedeeld met MSCVMMLibrary), de share als volgt configureren (met behulp van \\libserver2.contoso.com\share\ als voorbeeld):
-      * Open de Register-Editor en navigeer naar **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
-      * Bewerk de waarde **ScriptLibraryPath** en plaats deze als \\libserver2.contoso.com\share\. Geef de volledige FQDN. Machtigingen opgeven voor de bestandsshare-locatie.
-      * Zorg ervoor dat u een gebruikersaccount met dezelfde machtigingen als de VMM-serviceaccount voor het script test. Controleert dit of zelfstandige scripts uitvoeren op dezelfde manier uit als op de herstelplannen getest. Op de VMM-beheerserver, stel het uitvoerbeleid om over te slaan als volgt:
-        * Open de 64-bits Windows PowerShell-console met verhoogde bevoegdheden.
+* Zorg ervoor dat er ten minste één bibliotheekserver in uw VMM-implementatie. Hallo-bibliotheeksharepad voor een VMM-server is standaard zich lokaal op de VMM-server met de naam van de map Hallo MSCVMMLibrary Hallo.
+    * Als uw bibliotheeksharepad externe (of lokale maar niet gedeeld met MSCVMMLibrary), Hallo bestandsshare als volgt configureren (met behulp van \\libserver2.contoso.com\share\ als voorbeeld):
+      * Hallo Register-Editor te openen en te navigeren**HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
+      * Hallo-waarde bewerken **ScriptLibraryPath** en plaats deze als \\libserver2.contoso.com\share\. Geef Hallo volledige FQDN-naam. Machtigingen verlenen toohello bestandsshare-locatie.
+      * Hallo-script met een gebruikersaccount dat is dezelfde Hallo test zeker de machtigingen zoals Hallo VMM-serviceaccount. Controleert dit of zelfstandige geteste scripts uitvoeren in Hallo dezelfde manier uit als op de herstelplannen. Als volgt instellen Hallo uitvoering beleid toobypass op Hallo VMM-server:
+        * Open Hallo 64-bits Windows PowerShell-console met verhoogde bevoegdheden.
         * Type: **Set-executionpolicy bypass**. [Meer informatie](https://technet.microsoft.com/library/ee176961.aspx).
 
-## <a name="add-a-script-or-manual-action-to-a-plan"></a>Een script of handmatige actie toevoegen aan een plan
+## <a name="add-a-script-or-manual-action-tooa-plan"></a>Een script of een handmatige actie tooa abonnement toevoegen
 
-Nadat u hebt toegevoegd virtuele machines of replicatiegroepen en het plan gemaakt, kunt u een script toevoegen aan de standaardgroep voor het plannen van herstel.
+U kunt een script toohello recovery plan standaardgroep toevoegen nadat u hebt toegevoegd, virtuele machines of replicatie groepen tooit en Hallo abonnement gemaakt.
 
-1. Open het herstelplan.
-2. Klik op een item in de **stap** lijst en klik vervolgens op **Script** of **handmatige actie**.
-3. Geef op of het script of actie vóór of na het geselecteerde item wilt toevoegen. Gebruik de **omhoog** en **omlaag** knoppen op de positie van het script omhoog of omlaag verplaatsen.
-4. Als u een VMM-script toevoegen, selecteert u **Failover naar VMM script**. In **scriptpad**, typ het relatieve pad naar de share. In het onderstaande voorbeeld VMM geeft u het pad: **\RPScripts\RPScript.PS1**.
-5. Als u een Azure automation-boek uitvoeren toevoegt, geef de Azure Automation-account waarin het runbook zich bevindt en het juiste Azure runbookscript te selecteren.
-6. Voer een failover van het herstelplan om ervoor te zorgen dat het script werkt zoals verwacht.
+1. Open Hallo herstelplan.
+2. Klik op een item in Hallo **stap** lijst en klik vervolgens op **Script** of **handmatige actie**.
+3. Geef aan of toowant tooadd Hallo script of actie vóór of na Hallo item geselecteerd. Gebruik Hallo **omhoog** en **omlaag** knoppen toomove Hallo positie van Hallo script omhoog of omlaag.
+4. Als u een VMM-script toevoegen, selecteert u **Failover tooVMM script**. In **scriptpad**, type Hallo relatief pad toohello share. In Hallo VMM onderstaand voorbeeld u Hallo-pad: **\RPScripts\RPScript.PS1**.
+5. Als u een Azure automation-boek uitvoeren toevoegt, geeft u hello Azure Automation-account in welke Hallo runbook bevindt en selecteer hello Azure runbookscript geschikt is.
+6. Voer een failover van herstelplan hello, toomake ervoor Hallo script werkt zoals verwacht.
 
 
 ### <a name="add-a-vmm-script"></a>Een VMM-script toevoegen
 
-Hebt u een VMM-bronsite, kunt u een script op de VMM-beheerserver maken en deze opnemen in uw plan voor herstel.
+Hebt u een VMM-bronsite, kunt u een script op Hallo VMM-server maken en deze opnemen in uw plan voor herstel.
 
-1. Maak een nieuwe map in de bibliotheekshare. Bijvoorbeeld: \<VMMServerName > \MSSCVMMLibrary\RPScripts. Plaats het op de bron en doel van de VMM-servers.
-2. Het script (bijvoorbeeld RPScript) maken en controleren van de dat test werkt zoals verwacht.
-3. Het script op de locatie plaatsen \<VMMServerName > \MSSCVMMLibrary op de bron en doel-VMM-servers.
+1. Maak een nieuwe map in Hallo-bibliotheekshare. Bijvoorbeeld: \<VMMServerName > \MSSCVMMLibrary\RPScripts. Plaats het op Hallo bron en doel van de VMM-servers.
+2. Hallo-script (bijvoorbeeld RPScript) maken en controleren van de dat test werkt zoals verwacht.
+3. Hallo-script op Hallo locatie plaatsen \<VMMServerName > \MSSCVMMLibrary op Hallo bron en doel-VMM-servers.
 
 
 ## <a name="next-steps"></a>Volgende stappen

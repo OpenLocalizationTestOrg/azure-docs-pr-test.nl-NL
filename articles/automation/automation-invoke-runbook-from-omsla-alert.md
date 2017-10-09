@@ -1,6 +1,6 @@
 ---
-title: Een Azure Automation-runbook aanroepen vanuit een Log Analytics-waarschuwing | Microsoft Docs
-description: Dit artikel bevat een overzicht van hoe u een Automation-runbook aanroept vanuit een Microsoft OMS Log Analytics-waarschuwing.
+title: een Azure Automation-Runbook uit een Log Analytics waarschuwing aaaCalling | Microsoft Docs
+description: In dit artikel biedt een overzicht van hoe tooinvoke een Automation-runbook uit een Microsoft OMS Log Analytics-waarschuwing.
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 81cf490eae7f283c0180875cb3a2ed2ffe6333c8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8b745d6e6c2b0294d676e010f52855cd51741cf9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="calling-an-azure-automation-runbook-from-an-oms-log-analytics-alert"></a>Een Azure Automation-runbook aanroepen vanuit een Log Analytics-waarschuwing
 
-Wanneer er in Log Analytics een waarschuwing is geconfigureerd om een waarschuwingsrecord te maken als resultaten overeenkomen met bepaalde criteria (zoals een langdurige piek in CPU-gebruik of als een bepaald toepassingsproces dat essentieel is voor de functionaliteit van een bedrijfstoepassing, mislukt en een overeenkomende gebeurtenis naar het Windows-gebeurtenislogboek schrijft), kan deze waarschuwing automatisch een Automation-runbook uitvoeren in een poging om het probleem automatisch op te lossen.  
+Wanneer een waarschuwing is geconfigureerd in logboekanalyse toocreate mislukt record voor een waarschuwing als resultaten overeenkomt met een bepaald criterium, zoals een langdurige piek in de processorgebruik of een bepaalde toepassing proces kritieke toohello functionaliteit van een zakelijke toepassing en een overeenkomende gebeurtenis in het gebeurtenislogboek van Windows hello, schrijft deze waarschuwing kan automatisch een Automation-runbook wordt uitgevoerd in een poging tooauto-Hallo-probleem opgelost.  
 
-Tijdens het configureren van de waarschuwing hebt u twee opties voor het aanroepen van een runbook.  Met name:
+Er zijn twee opties toocall een runbook bij het Hallo-waarschuwing configureren.  Met name:
 
 1. Een webhook gebruiken.
-   * Dit is de enige beschikbare optie als uw OMS-werkruimte niet is gekoppeld aan een Automation-account.
-   * Als u al een Automation-account hebt gekoppeld aan een OMS-werkruimte, is deze optie ook nog steeds beschikbaar.  
+   * Dit is Hallo enige beschikbare optie als de OMS-werkruimte geen gekoppelde tooan Automation-account is.
+   * Als u al een Automation-account gekoppeld tooan OMS-werkruimte, wordt deze optie nog steeds beschikbaar is.  
 
 2. Een runbook direct selecteren.
-   * Deze optie is alleen beschikbaar wanneer de OMS-werkruimte is gekoppeld aan een Automation-account.  
+   * Deze optie is alleen beschikbaar als Hallo OMS-werkruimte gekoppelde tooan Automation-account.  
 
 ## <a name="calling-a-runbook-using-a-webhook"></a>Een runbook aanroepen met behulp van een webhook
 
-Met een webhook kunt u een bepaald runbook in Azure Automation starten via een afzonderlijke HTTP-aanvraag.  Voordat u de [Log Analytics-waarschuwing](../log-analytics/log-analytics-alerts.md#alert-rules) configureert om het runbook aan te roepen met behulp van een webhook als waarschuwingsactie, moet u een webhook voor het runbook maken dat met deze methode wordt aangeroepen.  Bekijk en volg de stappen in het artikel [Create a webhook](automation-webhooks.md#creating-a-webhook) (Een webhook maken) en vergeet niet om de webhook-URL te registreren, zodat u ernaar kunt verwijzen tijdens het configureren van de waarschuwingsregel.   
+Een webhook kunt u een bepaald runbook toostart in Azure Automation via één HTTP-aanvraag.  Voordat u configureert Hallo [logboekanalyse waarschuwing](../log-analytics/log-analytics-alerts.md#alert-rules) toocall hello runbook met behulp van een webhook als een waarschuwing actie moet u toofirst maken van een webhook voor Hallo runbook dat moet worden aangeroepen met deze methode.  Lees en volg de stappen in Hallo Hallo [maken van een webhook](automation-webhooks.md#creating-a-webhook) artikel en onthouden toorecord hello webhook-URL, zodat u ernaar verwijzen kunt tijdens het configureren van de waarschuwingsregel Hallo.   
 
 ## <a name="calling-a-runbook-directly"></a>Een runbook direct aanroepen
 
-Als u Automation & Control in uw OMS-werkruimte hebt geïnstalleerd en geconfigureerd, kunt u tijdens de configuratie van de opties voor runbookacties alle runbooks in de vervolgkeuzelijst **Een runbook selecteren** bekijken en het runbook selecteren dat u wilt uitvoeren als reactie op de waarschuwing.  Het geselecteerde runbook kan worden uitgevoerd in een werkruimte in de Azure-cloud of op een Hybrid Runbook Worker.  Wanneer de waarschuwing is gemaakt met de runbookoptie, wordt er een webhook voor het runbook gemaakt.  U kunt de webhook zien als u naar het Automation-account gaat en naar de blade Webhook van het geselecteerde runbook navigeert.  Als u de waarschuwing verwijdert, wordt de webhook niet verwijderd. De gebruiker kan de webhook wel handmatig verwijderen.  Het is geen probleem als de webhook niet wordt verwijderd. Het is alleen een zwevend item dat uiteindelijk moet worden verwijderd om een georganiseerd Automation-account te behouden.  
+Als er Hallo Automation & besturingselement aanbieding geïnstalleerd en geconfigureerd in de OMS-werkruimte bij het configureren van Hallo runbookoptie acties voor Hallo waarschuwing, kunt u alle runbooks van Hallo bekijken **selecteert u een runbook** vervolgkeuzelijst en selecteer Hallo specifiek runbook gewenste toorun in antwoord toohello waarschuwing.  Hallo geselecteerd runbook kan worden uitgevoerd in een werkruimte hello Azure-cloud op of in een hybride runbook worker.  Wanneer Hallo waarschuwing is gemaakt met behulp van de runbookoptie hello, wordt een webhook gemaakt voor runbook Hallo.  U kunt Hallo webhook zien als u toohello Automation-account gaat en navigeer toohello webhook blade van Hallo geselecteerde runbook.  Als u de waarschuwing Hallo verwijdert, Hallo webhook wordt niet verwijderd, maar Hallo-gebruiker kunt Hallo webhook handmatig verwijderen.  Er is geen probleem als Hallo webhook niet worden verwijderd, is alleen een zwevende item die uiteindelijk toobe moet verwijderd in volgorde toomaintain een geordende Automation-account.  
 
 ## <a name="characteristics-of-a-runbook-for-both-options"></a>Kenmerken van een runbook (voor beide opties)
 
-Beide methoden voor het aanroepen van het runbook vanuit de Log Analytics-waarschuwing hebben eigen gedragskenmerken. Het is belangrijk dat u deze begrijpt voordat u de waarschuwingsregels gaat configureren.  
+Beide methoden voor het aanroepen van Hallo runbook vanuit Hallo logboekanalyse waarschuwing hebben verschillende gedragskenmerken waarvoor toobe begrijpt voordat u uw regels voor waarschuwingen configureren.  
 
-* U moet een runbook-invoerparameter hebben met de naam **WebhookData** en van het type **Object**.  Deze kan verplicht of optioneel zijn.  Met deze invoerparameter geeft de waarschuwing de zoekresultaten door aan het runbook.
+* U moet een runbook-invoerparameter hebben met de naam **WebhookData** en van het type **Object**.  Deze kan verplicht of optioneel zijn.  Hallo-waarschuwing wordt doorgegeven Hallo zoeken resultaten toohello runbook met behulp van deze invoerparameter.
 
         param  
          (  
@@ -53,40 +53,40 @@ Beide methoden voor het aanroepen van het runbook vanuit de Log Analytics-waarsc
           [object] $WebhookData  
          )
 
-*  U moet code hebben om de WebhookData te converteren naar een PowerShell-object.
+*  U moet de code tooconvert hello WebhookData tooa PowerShell-object hebben.
 
     `$SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value`
 
-    *$SearchResults* is een matrix met objecten; elk object bevat de velden met waarden uit één zoekresultaat
+    *$SearchResults* is een matrix met objecten; elk object Hallo velden met waarden van een zoekresultaat bevat
 
-### <a name="webhookdata-inconsistencies-between-the-webhook-option-and-runbook-option"></a>WebhookData-inconsistenties tussen de webhook-optie en runbook-optie
+### <a name="webhookdata-inconsistencies-between-hello-webhook-option-and-runbook-option"></a>WebhookData inconsistenties tussen Hallo webhook optie en runbookoptie
 
-* Wanneer u een waarschuwing configureert om een webhook aan te roepen, voert u een webhook-URL in die u voor een runbook hebt gemaakt en klikt u op de knop **Webhook testen**.  De resulterende WebhookData die naar het runbook worden verzonden, bevat geen *.SearchResult* of *.SearchResults*.
+* Bij het configureren van een waarschuwing toocall een Webhook invoeren van een webhook-URL die u voor een runbook hebt gemaakt en klikt u op Hallo **Test Webhook** knop.  Hallo resulterende WebhookData verzonden toohello runbook bevat geen ofwel *. SearchResult* of *. Zoekresultaten*.
 
-*  Als u deze waarschuwing opslaat, bevat de WebhookData die naar het runbook wordt verzonden, *.SearchResult* wanneer de waarschuwing de webhook activeert en aanroept.
-* Als u een waarschuwing maakt en configureert om een runbook aan te roepen (waardoor ook een webhook wordt gemaakt), wordt WebhookData met *.SearchResults* naar het runbook verzonden wanneer de waarschuwing wordt geactiveerd.
+*  Als u deze waarschuwing opslaat wanneer Hallo waarschuwing wordt geactiveerd en Hallo webhook aanroepen, Hallo WebhookData toohello runbook verzonden bevat *. SearchResult*.
+* Als u een waarschuwing genereren en toocall een runbook (die u maakt ook een webhook) configureert, waarschuwing triggers WebhookData toohello runbook met worden verzonden wanneer Hallo *. Zoekresultaten*.
 
-In bovenstaand codevoorbeeld moet u dus *.SearchResult* ophalen als de waarschuwing een webhook aanroept en *.SearchResults* als de waarschuwing een runbook rechtstreeks aanroept.
+Dus in Hallo-codevoorbeeld hierboven, moet u tooget *. SearchResult* als Hallo waarschuwing een webhook aanroepen en tooget moet *. Zoekresultaten* als Hallo waarschuwing een runbook rechtstreeks aanroept.
 
 ## <a name="example-walkthrough"></a>Voorbeeldscenario
 
-U ziet hoe dit werkt in het volgende grafische voorbeeldrunbook waarmee een Windows-service wordt gestart.<br><br> ![Grafisch runbook dat Windows-service start](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)<br>
+Wordt gedemonstreerd hoe dit werkt met behulp van Hallo na voorbeeld grafisch runbook, een Windows-service te starten.<br><br> ![Grafisch runbook dat Windows-service start](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)<br>
 
-Het runbook heeft één invoerparameter van het type **Object**. De parameter heet **WebhookData** en bevat de webhookgegevens die zijn doorgegeven door de waarschuwing die *.SearchResults* bevat.<br><br> ![Invoerparameters voor runbook](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice-inputparameter.png)<br>
+Hallo runbook heeft één invoerparameter van het type **Object** die wordt aangeroepen **WebhookData** en bevat Hallo webhook gegevens van de waarschuwing die Hallo doorgegeven *. Zoekresultaten*.<br><br> ![Invoerparameters voor runbook](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice-inputparameter.png)<br>
 
-Voor dit voorbeeld zijn in Log Analytics twee aangepaste velden gemaakt: *SvcDisplayName_CF* en *SvcState_CF*. Deze dienen om de weergavenaam en de status van de service (Wordt uitgevoerd of Gestopt) op te halen uit de gebeurtenis die naar het logboek voor systeemgebeurtenissen is geschreven.  Vervolgens is een waarschuwingsregel met de volgende query gemaakt: `Type=Event SvcDisplayName_CF="Print Spooler" SvcState_CF="stopped"` zodat kan worden gedetecteerd wanneer de afdrukspoolerservice op het Windows-systeem is gestopt.  Dit kan ook een andere service zijn, maar voor dit voorbeeld is gebruikgemaakt van een bestaande service die deel uitmaakt van het Windows-besturingssysteem.  De actie bij waarschuwing is geconfigureerd om het runbook uit dit voorbeeld uit te voeren en om te worden uitgevoerd op Hybrid Runbook Worker, dat is ingeschakeld op de doelsystemen.   
+In dit voorbeeld in logboekanalyse er gemaakt met twee aangepaste velden, *SvcDisplayName_CF* en *SvcState_CF*, tooextract Hallo service naam en het Hallo weergavestatus van Hallo-service (dat wil zeggen uitgevoerd of gestopt) geschreven logboek met systeemgebeurtenissen toohello van Hallo-gebeurtenis.  Vervolgens maken we een waarschuwingsregel Hello zoekopdracht te volgen: `Type=Event SvcDisplayName_CF="Print Spooler" SvcState_CF="stopped"` zodat we kan waarnemen Hallo afdrukspoolerservice op Hallo Windows-systeem wordt gestopt.  Alle services die van belang kan zijn, maar in dit voorbeeld verwijzen we een van de bestaande Hallo-services die opgenomen in het Windows-besturingssysteem Hallo zijn.  Hallo meldingsactie is geconfigureerde tooexecute ons runbook in dit voorbeeld gebruikt en uitgevoerd op Hallo Hybrid Runbook Worker die zijn ingeschakeld op Hallo doelsystemen.   
 
-De activiteit **Get Service Name from LA** in de runbookcode converteert de tekenreeks in JSON-indeling naar een objecttype en filtert op het item *SvcDisplayName_CF* om de weergavenaam van de Windows-service te verkrijgen. Deze wordt doorgegeven aan de volgende activiteit, die controleert of de service is gestopt voordat wordt geprobeerd de service opnieuw te starten.  *SvcDisplayName_CF* is een [aangepast](../log-analytics/log-analytics-custom-fields.md) veld dat in Log Analytics is gemaakt voor dit voorbeeld.
+Hallo code runbookactiviteit **servicenaam ophalen van LA** wordt Hallo JSON-indeling van tekenreeks geconverteerd naar een type en object-filter op Hallo item *SvcDisplayName_CF* tooextract Hallo weergavenaam Hallo Windows-service en dit doorgeven naar de volgende Hallo-activiteit die wordt geverifieerd Hallo-service wordt gestopt voordat u probeert toorestart deze.  *SvcDisplayName_CF* is een [aangepast veld](../log-analytics/log-analytics-custom-fields.md) gemaakt in logboekanalyse toodemonstrate in dit voorbeeld.
 
     $SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value
     $SearchResults.SvcDisplayName_CF  
 
-Wanneer de service stopt, wordt er door de waarschuwingsregel in Log Analytics een overeenkomst gedetecteerd en het runbook geactiveerd. Daarbij wordt de context van de waarschuwing naar het runbook verzonden. Het runbook onderneemt actie om te controleren of de service daadwerkelijk is gestopt. Als dat het geval is, wordt geprobeerd de service opnieuw te starten, wordt gecontroleerd of de service is gestart en worden de resultaten uitgevoerd.     
+Wanneer het Hallo-service stopt, Hallo waarschuwingsregel in logboekanalyse detecteert een overeenkomst en om Hallo runbook te activeren en Hallo waarschuwingscontext toohello runbook verzenden. Hallo runbook zal actie ondernemen tooverify Hallo-service wordt gestopt, en als zodanig poging toorestart Hallo service en controleer of deze juist gestart en uitvoer Hallo resultaten.     
 
-Als u uw Automation-account niet hebt gekoppeld aan uw OMS-werkruimte, configureert u de waarschuwingsregel met een webhookactie die het runbook activeert, en configureert u het runbook om de tekenreeks in JSON-indeling te converteren en om te filteren op *.SearchResult* volgens de eerder vermelde richtlijnen.    
+U kunt ook als u uw Automation-account gekoppeld tooyour OMS-werkruimte niet hebt, u Hallo waarschuwingsregel configureren met een webhook actie tootrigger hello runbook en Hallo runbook tooconvert Hallo JSON-indeling tekenreeks en filter op configureren*. SearchResult* eerder genoemde Hallo-richtlijnen te volgen.    
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Voor meer informatie over waarschuwingen in Log Analytics en het maken van een waarschuwing raadpleegt u [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md) (Waarschuwingen in Log Analytics).
+* meer informatie over waarschuwingen in logboekanalyse toolearn en hoe toocreate, Zie [waarschuwingen in logboekanalyse](../log-analytics/log-analytics-alerts.md).
 
-* Als u wilt weten hoe u runbooks activeert met een webhook, raadpleegt u [Azure Automation-webhooks](automation-webhooks.md).
+* hoe tootrigger runbooks met behulp van een webhook zien toounderstand [Azure Automation webhooks](automation-webhooks.md).

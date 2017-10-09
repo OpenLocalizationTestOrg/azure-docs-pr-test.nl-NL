@@ -1,6 +1,6 @@
 ---
-title: Azure App Service hybride verbindingen | Microsoft Docs
-description: Het maken en hybride verbindingen gebruiken voor toegang tot bronnen in verschillende netwerken
+title: aaa "-Azure App Service hybride verbindingen | Microsoft Docs'
+description: Hoe toocreate en gebruik hybride verbindingen tooaccess resources in verschillende netwerken
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2017
 ms.author: ccompy
-ms.openlocfilehash: fef9e7b280387934cb093f51b4c8aa134a3b87e7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 61d58068ab0a7c803019e3f0e92bde4273d1a053
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service hybride verbindingen #
 
 ## <a name="overview"></a>Overzicht ##
 
-Hybride verbindingen is zowel een service in Azure als een functie in de Azure App Service.  Als een service heeft het gebruik en mogelijkheden die worden gebruikt in de Azure App Service.  Voor meer informatie over hybride verbindingen en hun gebruik buiten de Azure App Service kunt u hier starten [Azure Relay hybride verbindingen][HCService]
+Hybride verbindingen is zowel een service in Azure als een functie in hello Azure App Service.  Als een service heeft het gebruik en mogelijkheden die worden gebruikt in hello Azure App Service.  meer informatie over hybride verbindingen en hun gebruik buiten hello Azure App Service kunt u hier starten toolearn [Azure Relay hybride verbindingen][HCService]
 
-In de Azure App Service kunnen hybride verbindingen worden gebruikt voor toegang tot toepassingsbronnen in andere netwerken. Deze kunt openen vanuit uw app naar een toepassingseindpunt.  Het is niet ingeschakeld op een alternatieve mogelijkheden voor toegang tot uw toepassing.  Als in de App-Service gebruikt, wordt elke hybride verbinding heeft betrekking op een enkele TCP-host en poort combinatie.  Dit betekent dat het eindpunt van hybride verbinding kan op elk besturingssysteem en alle toepassingen die u kunt u een TCP-luisterpoort zijn door. Hybride verbindingen niet weet of het belangrijkst wat het toepassingsprotocol is of als u opent.  Het levert gewoon toegang tot het netwerk.  
+Hybride verbindingen mag binnen hello Azure App Service, gebruikte tooaccess application-resources in andere netwerken. Deze kunt openen vanuit uw app tooan toepassingseindpunt.  Deze kunnen een alternatieve mogelijkheid tooaccess niet uw toepassing.  Zoals in het Hallo-App Service gebruikt, correleert elke hybride verbinding tooa één TCP-host en poort combinatie.  Dit betekent dat eindpunt Hallo hybride verbinding kan worden op elk besturingssysteem en elke toepassing opgegeven u zijn kunt u door een TCP-luisterpoort. Hybride verbindingen niet weet of gelet op welke toepassingsprotocol Hallo is of als u opent.  Het levert gewoon toegang tot het netwerk.  
 
 
 ## <a name="how-it-works"></a>Hoe werkt het? ##
-De functie voor hybride verbindingen bestaat uit twee uitgaande aanroepen naar Service Bus Relay.  Er is een verbinding van een bibliotheek op de host waarop uw app in app service wordt uitgevoerd en wordt er een verbinding tussen de hybride verbinding Manager(HCM) en Service Bus relay.  De HCM is een relayservice die u in het netwerk die als host fungeert implementeert 
+Hallo hybride verbindingen functie bestaat uit twee uitgaande aanroepen tooService Bus Relay.  Er is een verbinding van een bibliotheek op Hallo host waar uw app wordt uitgevoerd in Hallo-app service en vervolgens is er een verbinding tussen Hallo hybride verbinding Manager(HCM) tooService Bus relay.  Hallo HCM is een relayservice die u binnen het hosten van Hallo-netwerk implementeert 
 
-Met behulp van de twee gekoppelde verbindingen heeft uw app in een TCP-tunnel naar een combinatie van vaste hostnaam: poort op de andere kant van de HCM.  De verbinding maakt gebruik van TLS 1.2 op beveiligings- en SAS-sleutels voor verificatie/autorisatie.    
+Twee gekoppelde verbindingen met uw app heeft een TCP-tunnel tooa vaste combinatie van hostnaam: poort op Hallo andere kant van Hallo HCM via Hallo.  Hallo verbinding maakt gebruik van TLS 1.2 op beveiligings- en SAS-sleutels voor verificatie/autorisatie.    
 
 ![][1]
 
-Wanneer uw app een DNS-aanvraag die overeenkomt met een eindpunt van de hybride verbinding configureren maakt, wordt het uitgaande TCP-verkeer worden omgeleid naar beneden de hybride verbinding.  
+Wanneer uw app een DNS-aanvraag maakt die overeenkomt met een eindpunt van de hybride verbinding configureren en vervolgens Hallo uitgaande TCP-verkeer wordt omgeleid naar beneden Hallo hybride verbinding.  
 
 > [!NOTE]
-> Dit betekent dat u proberen moet te gebruiken altijd een DNS-naam voor uw hybride-verbinding.  Sommige clientsoftware doet een DNS-zoekopdracht als het eindpunt gebruikmaakt van een IP-adres in plaats daarvan.
+> Dit betekent dat u tooalways gebruik een DNS-naam voor uw hybride-verbinding proberen moet.  Sommige clientsoftware doet een DNS-zoekopdracht als Hallo eindpunt maakt gebruik van een IP-adres in plaats daarvan.
 >
 >
 
-Er zijn twee soorten hybride verbindingen, de nieuwe hybride verbindingen die worden aangeboden als een Azure-Relay-service en de oudere BizTalk hybride verbindingen.  De oudere BizTalk hybride verbindingen worden aangeduid als klassieke hybride verbindingen in de portal.  Er is meer informatie verderop in dit document informatie hierover.
+Er zijn twee soorten hybride verbindingen, het nieuwe hybride verbindingen hello, die worden aangeboden als een Azure-Relay-service en Hallo oudere BizTalk hybride verbindingen.  Hallo zijn oudere BizTalk hybride verbindingen waarnaar wordt verwezen tooas klassieke hybride verbindingen in Hallo-portal.  Er is meer informatie verderop in dit document informatie hierover.
 
 ### <a name="app-service-hybrid-connection-benefits"></a>Voordelen van App Service hybride verbinding ###
 
-Er zijn een aantal voordelen voor het hybride verbindingen mogelijkheden, zoals
+Er zijn een aantal voordelen toohello hybride verbindingen mogelijkheid inclusief
 
 - Apps veilig toegang tot op premises systemen en services veilig
-- de functie vereist niet dat een internet toegankelijk eindpunt
-- het is snel en eenvoudig te installeren  
-- elke hybride verbinding met een combinatie van één hostnaam: poort die een uitstekende beveiliging aspect is komt overeen met
-- Normaal gesproken hoeft niet firewall gaten als de verbindingen alle uitgaande via standaard webpoorten zijn
-- omdat de functie netwerkniveau die ook dat betekent is agnostisch ten opzichte van de taal die wordt gebruikt door uw app en de technologie die wordt gebruikt door het eindpunt
-- Dit kan worden gebruikt voor toegang in meerdere netwerken uit een enkele app 
+- Hallo functie vereist niet dat een internet toegankelijk eindpunt
+- het is snel en eenvoudig tooset up  
+- elke hybride verbinding overeenkomt met tooa één hostnaam: poort combinatie waarmee een uitstekende beveiliging aspect is
+- Normaal gesproken hoeft niet firewall gaten zoals Hallo verbindingen alle uitgaande via standaard webpoorten zijn
+- omdat de functie Hallo netwerkniveau die ook betekent dat deze agnostisch toohello taal wordt gebruikt door uw app en het Hallo-technologie gebruikt door Hallo-eindpunt
+- kan tooprovide toegang in meerdere netwerken in een enkele app gebruikt 
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Wat u niet kunt doen met hybride verbindingen ###
 
@@ -69,113 +69,113 @@ Er zijn enkele dingen die u niet kunt met hybride verbindingen doen en ze omvatt
 
 ## <a name="adding-and-creating-a-hybrid-connection-in-your-app"></a>Toe te voegen en een hybride verbinding te maken in uw App ##
 
-Hybride verbindingen kunnen worden gemaakt via de portal van de app of via de serviceportal voor hybride verbinding.  Het is raadzaam dat u de app-portal gebruiken voor het maken van de hybride verbindingen die u wilt gebruiken met uw app.  Maken van een hybride verbinding gaat u naar de [Azure-portal] [ portal] en Ga in de gebruikersinterface voor uw app.  Selecteer **Networking > uw hybride-verbindingseindpunten configureren**.  Hier ziet u de hybride verbindingen die zijn geconfigureerd met uw app  
+Hybride verbindingen kunnen worden gemaakt via Hallo app portal of via Hallo hybride verbinding serviceportal.  Het is raadzaam dat u Hallo app portal toocreate Hallo hybride verbindingen die u wenst dat toouse met uw app.  een hybride verbinding toocreate gaat toohello [Azure-portal] [ portal] en Ga naar Hallo UI voor uw app.  Selecteer **Networking > uw hybride-verbindingseindpunten configureren**.  Hier ziet u Hallo hybride verbindingen die zijn geconfigureerd met uw app  
 
 ![][2]
 
-Klik op de hybride verbinding toevoegen als u een nieuwe hybride verbinding.  De gebruikersinterface die wordt geopend, worden de hybride verbindingen die u al hebt gemaakt.  Om een of meer van deze toevoegen aan uw app, klik op de computer die u wilt gebruiken en klik op **toevoegen geselecteerd hybride verbinding**.  
+tooadd een nieuwe hybride verbinding, klikt u op de hybride verbinding toevoegen.  Hallo gebruikersinterface die wordt geopend bevat Hallo hybride verbindingen die u al hebt gemaakt.  tooadd een of meer van deze tooyour app, klik op Hallo die u wilt gebruiken en klik op **toevoegen geselecteerd hybride verbinding**.  
 
 ![][3]
 
-Als u een nieuwe hybride verbinding maken wilt, klikt u op **nieuwe hybride verbinding maken**.  Vanaf hier geeft u de: 
+Als u een nieuwe hybride verbinding toocreate wilt, klikt u op **nieuwe hybride verbinding maken**.  Vanaf hier geeft u de: 
 
 - naam van het eindpunt
 - hostnaam van het eindpunt
 - Eindpuntpoort
-- Service Bus-naamruimte die u wilt gebruiken
+- Service Bus-naamruimte gewenst toouse
 
 ![][4]
 
-Elke hybride verbinding is gekoppeld aan een service bus-naamruimte en elke service bus-naamruimte is in een Azure-regio.  Het is belangrijk om te gebruiken van een service bus-naamruimte in dezelfde regio als uw app om te voorkomen dat wordt veroorzaakt netwerklatentie.
+Elke hybride verbinding is gebonden tooa service bus-naamruimte en elke service bus-naamruimte is in een Azure-regio.  Het is belangrijk tootry en gebruikt een service bus-naamruimte in Hallo dezelfde regio bevinden als uw app zodat tooavoid netwerk veroorzaakte latentie.
 
-Als u wilt uw hybride-verbinding verwijderen uit uw app, klik hierop en selecteer **Disconnect**.  
+Als u uw hybride verbinding tooremove van uw app wilt, klik hierop en selecteer **Disconnect**.  
 
-Nadat een hybride verbinding is toegevoegd aan uw web-app, ziet u details op dit door gewoon erop te klikken.  
+Wanneer een hybride verbinding is tooyour web-app toegevoegd, ziet u details op het door erop te klikken.  
 
 ![][5]
 
 ## <a name="hybrid-connections-and-app-service-plans"></a>Hybride verbindingen en App Service-abonnementen ##
 
-De enige hybride verbindingen die u kunt nu zijn de nieuwe hybride verbindingen.  Ze zijn alleen beschikbaar in Basic, Standard, Premium en geïsoleerd prijzen SKU's.  Er gelden beperkingen die zijn gekoppeld aan de prijsstelling.  
+Hallo alleen hybride verbindingen die kunt u nu wel zijn Hallo nieuwe hybride verbindingen.  Ze zijn alleen beschikbaar in Basic, Standard, Premium en geïsoleerd prijzen SKU's.  Er zijn limieten gebonden toohello plan prijzen.  
 
-| Plan prijzen | Aantal hybride verbindingen kan worden gebruikt in het plan |
+| Plan prijzen | Aantal hybride verbindingen kan worden gebruikt in Hallo plannen |
 |----|----|
 | Basic | 5 |
 | Standard | 25 |
 | Premium | 200 |
 | Isolated | 200 |
 
-Omdat er beperkingen App Service-Plan is er ook gebruikersinterface in de App Service-Plan dat toont hoe veel hybride verbindingen worden gebruikt en door welke apps.  
+Omdat er beperkingen App Service-Plan is er ook gebruikersinterface in Hallo App Service-Plan dat toont hoe veel hybride verbindingen worden gebruikt en door welke apps.  
 
 ![][6]
 
-Net als met de app-weergave ziet u details op uw hybride-verbinding door erop te klikken.  In de eigenschappen die hier worden weergegeven u vindt alle informatie in de weergave van de app maar ziet ook hoe veel apps in de dezelfde App Service-Plan dat hybride verbinding gebruikt.
+Net zoals met Hallo app weergave ziet u details op uw hybride-verbinding door erop te klikken.  Dezelfde App Service-Plan gebruikt die hybride verbinding in de hier weergegeven, u kunt alle Hallo-gegevens in Hallo app weergave bekijken maar ziet ook hoe veel apps in Hallo Hallo-eigenschappen.
 
 ![][7]
 
-Er is een limiet van het aantal hybride-verbindingseindpunten die kunnen worden gebruikt in een App Service-Plan, kan elke hybride verbinding die wordt gebruikt over een aantal apps in deze App Service-Plan worden gebruikt.  Dat wil zeggen dat als ik had 1 hybride verbinding die ik in 5 afzonderlijke apps in mijn App Service-Plan gebruikt, die is zich nog steeds 1 hybride verbinding is.
+Terwijl er een limiet van het aantal hybride-verbindingseindpunten die kunnen worden gebruikt in een App Service-Plan hello geldt, kan elke hybride verbinding die wordt gebruikt in een willekeurig aantal apps in deze App Service-Plan worden gebruikt.  Dat toosay dat als ik had 1 hybride verbinding die ik in 5 afzonderlijke apps in mijn App Service-Plan gebruikt, die is zich nog steeds 1 hybride verbinding is.
 
-Er is een extra kosten voor hybride verbindingen, dan wordt alleen gebruikt in een Basic, Standard, Premium of geïsoleerde SKU.  Voor meer informatie over prijzen voor hybride verbinding hier gaat: [Service Bus prijzen][sbpricing].
+Er is een extra kosten toohybrid verbindingen wordt alleen gebruikt in een Basic, Standard, Premium of geïsoleerde SKU.  Voor meer informatie over prijzen voor hybride verbinding hier gaat: [Service Bus prijzen][sbpricing].
 
 ## <a name="hybrid-connection-manager"></a>Hybride Verbindingsbeheer ##
 
-Om hybride verbindingen werken, moet u een relay-agent in het netwerk die als host fungeert voor uw eindpunt van hybride verbinding.  De hybride verbinding Manager (HCM), die relay-agent wordt genoemd.  Dit hulpprogramma kan worden gedownload vanaf de **Networking > uw hybride-verbindingseindpunten configureren** gebruikersinterface die beschikbaar zijn vanuit uw app in de [Azure-portal][portal].  
+Voor hybride verbindingen toowork moet u een relay-agent in Hallo netwerk die als host fungeert voor uw eindpunt van hybride verbinding.  Hallo hybride Connection Manager (HCM), die relay-agent wordt genoemd.  Dit hulpprogramma kan worden gedownload vanaf Hallo **Networking > uw hybride-verbindingseindpunten configureren** gebruikersinterface die beschikbaar zijn vanuit uw app in Hallo [Azure-portal][portal].  
 
-Dit hulpprogramma wordt uitgevoerd op WindowsServer 2008 R2 en latere versies van Windows.  De HCM wordt uitgevoerd nadat deze is geïnstalleerd als een service.  Deze service verbindt met Azure Service Bus relay op basis van de geconfigureerde eindpunten.  De verbindingen van de HCM zijn uitgaand naar poorten 80 en 443.    
+Dit hulpprogramma wordt uitgevoerd op WindowsServer 2008 R2 en latere versies van Windows.  Eenmaal geïnstalleerd Hallo HCM als een service wordt uitgevoerd.  Deze service verbindt tooAzure service bus relay op basis van eindpunten Hallo geconfigureerd.  Hallo-verbindingen van Hallo HCM zijn uitgaande tooports 80 en 443.    
 
-De HCM heeft een gebruikersinterface te configureren.  Nadat de HCM is geïnstalleerd kunt u door het uitvoeren van de HybridConnectionManagerUi.exe die zich in de installatiemap hybride Verbindingsbeheer online zetten van de gebruikersinterface.  Deze ook eenvoudig op Windows 10 wordt bereikt door op te geven *hybride Verbindingsbeheer UI* in het zoekvak.  
+Hallo HCM heeft een UI-tooconfigure deze.  Na Hallo die HCM is geïnstalleerd kunt u Hallo UI dan door het uitvoeren van Hallo HybridConnectionManagerUi.exe die zich in de installatiemap van Hallo hybride Verbindingsbeheer.  Deze ook eenvoudig op Windows 10 wordt bereikt door op te geven *hybride Verbindingsbeheer UI* in het zoekvak.  
 
-Wanneer de HCM UI wordt gestart, is het eerste wat dat u ziet een tabel met een lijst met alle hybride verbindingen die zijn geconfigureerd met dit exemplaar van de HCM.  Als u aanbrengen van wijzigingen die u moet verifiëren met Azure wilt. 
+Wanneer Hallo HCM UI wordt gestart, Hallo eerst te beginnen u is Zie een tabel waarin alle Hallo hybride verbindingen die zijn geconfigureerd met dit exemplaar van Hallo HCM.  U kunt eventueel toomake wijzigingen moet u tooauthenticate met Azure. 
 
-Een of meer hybride verbindingen toevoegen aan uw HCM:
+tooadd een of meer hybride verbindingen tooyour HCM:
 
-1. Start de gebruikersinterface HCM
+1. Hallo HCM UI starten
 1. Klik op een andere hybride verbinding configureren![][8]
 
 1. Meld u aan met uw Azure-account
 1. Een abonnement kiezen
-1. Klik op de hybride verbindingen die u wilt dat deze HCM om door te sturen![][9]
+1. Klik op Hallo hybride verbindingen die u wilt deze toorelay HCM![][9]
 
 1. Op Opslaan klikken
 
-U ziet nu de hybride verbindingen die u hebt toegevoegd.  U kunt ook klikt u op de geconfigureerde hybride verbinding en informatie over de verbinding.
+U ziet nu de Hallo hybride verbindingen die u hebt toegevoegd.  U kunt ook op Hallo geconfigureerd hybride verbinding en Zie voor meer informatie over Hallo verbinding.
 
 ![][10]
 
-Het moet voor uw HCM kunnen ter ondersteuning van de hybride verbindingen die wordt deze geconfigureerd met:
+Voor uw HCM toobe kunnen toosupport Hallo hybride verbindingen die hiervoor is geconfigureerd, moet:
 
-- TCP-toegang tot Azure poorten 80 en 443
-- TCP-toegang tot het eindpunt van hybride verbinding
-- kan doen DNS uiterlijk-ups op de host eindpunt en de azure service bus-naamruimte
+- TCP-toegang tooAzure poorten 80 en 443
+- TCP-toegang toohello hybride verbindingseindpunt
+- mogelijkheid toodo DNS-uiterlijk-ups op Hallo eindpunt host en hello azure service bus-naamruimte
 
-De HCM ondersteunt zowel nieuwe hybride verbindingen als de oudere BizTalk hybride verbindingen.
+Hallo HCM ondersteunt zowel nieuwe hybride verbindingen als Hallo oudere BizTalk hybride verbindingen.
 
 ### <a name="redundancy"></a>Redundantie ###
 
-Elke HCM kan meerdere hybride verbindingen ondersteunen.  Opgegeven hybride verbindingen kan ook worden ondersteund door meerdere HCMs.  Het standaardgedrag is round robin-verkeer via de geconfigureerde HCMs voor een willekeurig eindpunt opgegeven.  Desgewenst kunt u hoge beschikbaarheid voor uw hybride verbindingen vanaf het netwerk eenvoudig exemplaar maken van meerdere HCMs op afzonderlijke computers. 
+Elke HCM kan meerdere hybride verbindingen ondersteunen.  Opgegeven hybride verbindingen kan ook worden ondersteund door meerdere HCMs.  Hallo standaardgedrag is tooround robin verkeer via Hallo HCMs geconfigureerd voor een willekeurig eindpunt opgegeven.  Desgewenst kunt u hoge beschikbaarheid voor uw hybride verbindingen vanaf het netwerk eenvoudig exemplaar maken van meerdere HCMs op afzonderlijke computers. 
 
 ### <a name="manually-adding-a-hybrid-connection"></a>Handmatig toevoegen van een hybride verbinding ###
 
-Als u iemand buiten uw abonnement voor het hosten van een HCM-exemplaar voor een bepaalde hybride verbinding wenst, kunt u delen met hen de gateway-verbindingsreeks voor de hybride verbinding.  U kunt dit zien in de eigenschappen voor een hybride verbinding in de [Azure-portal][portal]. Met deze reeks, klikt u op de **handmatig configureren** knop in de HCM en plak in de verbindingsreeks voor de gateway.
+Als u wilt dat iemand buiten uw abonnement toohost een HCM-exemplaar voor een bepaalde hybride verbinding, kunt u delen met deze verbindingsreeks voor de gateway voor hybride verbinding voor Hallo Hallo.  U kunt dit zien in de eigenschappen voor een hybride verbinding in Hallo Hallo [Azure-portal][portal]. toouse die tekenreeks, klikt u op Hallo **handmatig configureren** knop op Hallo HCM en plak in verbindingsreeks Hallo-gateway.
 
 
 ## <a name="troubleshooting"></a>Problemen oplossen ##
 
-Wanneer uw hybride verbinding is ingesteld met een actieve toepassing en er ten minste één HCM die hybride verbinding geconfigureerd heeft, wordt de status dicteert **verbonden** in de portal.  Als u niet de tekst **verbonden** betekent dat dat uw app niet actief is of uw HCM out kan geen verbinding met Azure op poort 80 of 443 maken.  
+Wanneer uw hybride verbinding is ingesteld met een actieve toepassing en er ten minste één HCM die hybride verbinding geconfigureerd heeft, wordt Hallo status dicteert **verbonden** in Hallo-portal.  Als u niet de tekst **verbonden** betekent dat dat uw app niet actief is of uw HCM kan geen verbinding uit tooAzure op poort 80 of 443 maken.  
 
-De primaire reden dat clients geen verbinding met hun eindpunt maken is omdat het eindpunt met een IP-adres in plaats van een DNS-naam is opgegeven.  Als uw app het gewenste eindpunt niet bereiken kan en u een IP-adres gebruikt, overschakelen op een DNS-naam die geldig is op de host waarop de HCM wordt uitgevoerd.  Andere wat u moet controleren zijn dat de DNS-naam correct wordt omgezet door op de host waarop de HCM wordt uitgevoerd en dat er verbinding van de host waarop de HCM wordt uitgevoerd met het eindpunt van hybride verbinding is.  
+Hallo van de belangrijkste reden dat clients geen verbinding tootheir-eindpunt maken is omdat het Hallo-eindpunt is opgegeven met een IP-adres in plaats van een DNS-naam.  Als uw app Hallo gewenst eindpunt niet bereiken en u een IP-adres gebruikt, schakelt u toousing een DNS-naam die is ongeldig op Hallo host waarop hello HCM wordt uitgevoerd.  Andere toocheck dingen zijn die Hallo DNS-naam wordt omgezet naar behoren op Hallo host waar hello HCM wordt uitgevoerd en dat er een verbinding van Hallo host waarop hello HCM wordt uitgevoerd toohello hybride verbindingseindpunt is.  
 
-Er is een hulpprogramma in de App-Service kan worden aangeroepen vanuit de console tcpping genaamd.  Dit hulpprogramma kunt u zien als u toegang tot een TCP-eindpunt hebt maar geeft niet aan als u toegang tot een hybride verbinding-eindpunt hebt.  Bij gebruik in de console voor een eindpunt van hybride verbinding is een geslaagde ping alleen laat u weten dat er een hybride verbinding geconfigureerd voor uw app die gebruikmaakt van deze combinatie van hostnaam: poort.  
+Er is een hulpprogramma in Hallo App-Service waarmee kan worden aangeroepen vanuit Hallo console tcpping aangeroepen.  Dit hulpprogramma kunt u zien als u toegang tooa TCP-eindpunt hebt, maar geeft niet aan als u toegang tooa hybride verbindingseindpunt hebben.  Wanneer gebruikt in de console voor een hybride verbindingseindpunt hello, de opdracht ping slaagt alleen laat u weten dat er een hybride verbinding geconfigureerd voor uw app die gebruikmaakt van deze combinatie van hostnaam: poort.  
 
 ## <a name="biztalk-hybrid-connections"></a>Hybrid Connections van BizTalk ##
 
-De oudere BizTalk hybride verbindingen mogelijkheid is gesloten uitschakelen voor verdere BizTalk hybride verbinding maken.  U kunt doorgaan met het gebruik van uw bestaande BizTalk hybride verbindingen met uw apps, maar moet migreren naar de nieuwe service.  Een van de voordelen in de nieuwe service via de BizTalk-versie zijn:
+Hallo oudere BizTalk hybride verbindingen mogelijkheid is gesloten uit toofurther BizTalk hybride verbinding maken.  U kunt blijven gebruiken van uw bestaande BizTalk hybride verbindingen met uw apps, maar u moet de nieuwe service toohello migreren.  Voordelen van de nieuwe service Hallo via Hallo BizTalk-versie zijn onder andere Hallo:
 
 - Er is geen aanvullende BizTalk-account is vereist
 - TLS is 1.2 in plaats van 1.0 zoals in BizTalk hybride verbindingen
-- Er is een communicatie via poorten 80 en 443 met behulp van een DNS-naam te bereiken Azure in plaats van IP-adressen en een aantal extra andere poorten.  
+- Er is een communicatie via poorten 80 en 443 met behulp van een DNS-naam tooreach Azure in plaats van IP-adressen en een aantal extra andere poorten.  
 
-Als u wilt een hybride BizTalk-verbinding toevoegen aan uw app, gaat u naar uw app in de [Azure-portal] [ portal] en klik op **Networking > uw hybride-verbindingseindpunten configureren**.  Klik in de klassieke hybride verbindingen tabel **klassieke hybride verbinding toevoegen**.  Hier ziet u een lijst met uw BizTalk hybride verbindingen.  
+tooadd een app BizTalk hybride verbinding tooyour Ga tooyour-app in Hallo [Azure-portal] [ portal] en klik op **Networking > uw hybride-verbindingseindpunten configureren**.  In de Hallo klassieke hybride verbindingen tabel op **klassieke hybride verbinding toevoegen**.  Hier ziet u een lijst met uw BizTalk hybride verbindingen.  
 
 
 <!--Image references-->

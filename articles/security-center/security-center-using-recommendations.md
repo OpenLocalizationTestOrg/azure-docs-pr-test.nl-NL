@@ -1,6 +1,6 @@
 ---
-title: Gebruik Azure Security Center aanbevelingen om beveiliging te verbeteren | Microsoft Docs
-description: " Informatie over het gebruiken van beveiligingsbeleid en aanbevelingen in Azure Security Center om te beperken van een aanval op de beveiliging. "
+title: Azure Security Center aanbevelingen tooenhance beveiliging aaaUse | Microsoft Docs
+description: " Meer informatie over hoe toouse beveiligingsbeleid en aanbevelingen in Azure Security Center toohelp een aanval op de beveiliging verhelpen. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,93 +14,93 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2017
 ms.author: terrylan
-ms.openlocfilehash: cb4a7db5666242576bf83abbf10682cc6f53ba69
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: bd314350a5abfceea3e171f2e1b55afe4549c1b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Gebruik Azure Security Center aanbevelingen om beveiliging te verbeteren
-U kunt de kans op een beveiligingsgebeurtenis aanzienlijke verminderen door een beveiligingsbeleid configureren en vervolgens implementeren van de aanbevelingen die door Azure Security Center. Dit artikel laat zien hoe u beveiligingsbeleid en aanbevelingen in Security Center om te beperken van een aanval op de beveiliging.
+# <a name="use-azure-security-center-recommendations-tooenhance-security"></a>Gebruik Azure Security Center aanbevelingen tooenhance beveiliging
+Door een beveiligingsbeleid configureren en vervolgens implementeren Hallo aanbevelingen in Azure Security Center kunt u de kans op Hallo van een beveiligingsgebeurtenis aanzienlijke verkleinen. Dit artikel laat zien hoe toouse beveiligingsbeleid en aanbevelingen in Security Center toohelp een aanval op de beveiliging verhelpen.
 
 > [!NOTE]
-> In dit artikel is gebaseerd op de rollen en -concepten in de Security Center [plannen en de operations guide](security-center-planning-and-operations-guide.md). Er is een goed idee om te controleren van de planning guide voordat u doorgaat.
+> In dit artikel is gebaseerd op Hallo rollen en concepten in Security Center Hallo [plannen en de operations guide](security-center-planning-and-operations-guide.md). Dit is een goed idee tooreview Hallo-handleiding voor planning voordat u doorgaat.
 >
 >
 
 ## <a name="managing-security-recommendations"></a>Aanbevelingen voor beveiliging beheren
-Een beveiligingsbeleid bepaalt welke set besturingselementen die worden aanbevolen voor resources binnen het opgegeven abonnement of resourcegroep. In Security Center definieert u beleid volgens de vereisten van de beveiliging van uw bedrijf. Zie voor meer informatie, [instellen van beveiligingsbeleid in Security Center](security-center-policies.md).
+Een beveiligingsbeleid bepaalt Hallo set besturingselementen die worden aanbevolen voor resources binnen de opgegeven abonnement of resourcegroep groep Hallo. In Security Center definieert u de beveiligingsvereisten van het bedrijf tooyour op basis van beleid. toolearn meer, Zie [instellen van beveiligingsbeleid in Security Center](security-center-policies.md).
 
-Beveiligingsbeleid voor resourcegroepen worden overgenomen van het abonnementsniveau.
+Beveiligingsbeleid voor resourcegroepen worden overgenomen van het Hallo-abonnement.
 
 ![Beveiliging overname][1]
 
-Als u aangepaste beleidsregels in bepaalde resourcegroepen nodig hebt, kunt u overname in de resourcegroep uitschakelen. Als u wilt uitschakelen, overname ingesteld op unieke op de blade beveiligingsbeleid en de besturingselementen die Security Center bevat aanbevelingen voor aanpassen.
+Als u aangepaste beleidsregels in bepaalde resourcegroepen nodig hebt, kunt u overname in de resourcegroep Hallo uitschakelen. toodisable, overname tooUnique ingesteld op de blade beveiligingsbeleid Hallo en Hallo-besturingselementen die Security Center aanbevelingen voor het bevat aanpassen.
 
-Als u werkbelastingen waarvoor het beleid voor SQL Database Transparent Data Encryption (TDE) geen hebt, bijvoorbeeld het beleid op abonnementsniveau uitschakelen en alleen in de resourcegroepen waar SQL TDE vereist is het inschakelen.
+Hebt u werkbelastingen waarvoor geen Hallo SQL Database Transparent Data Encryption (TDE)-beleid, bijvoorbeeld Hallo-beleid op abonnementsniveau Hallo uitschakelen en inschakelen alleen in Hallo resourcegroepen waar SQL TDE vereist is.
 
 > [!NOTE]
-> Als er een conflict tussen het beleid op abonnementsniveau en het beleid op het niveau van de resourcegroep is, heeft het beleid op het niveau van de resourcegroep voorrang.
+> Als er een conflict tussen het beleid op abonnementsniveau en beleid op het niveau, voorrang Hallo beleid op het niveau.
 >
 >
 
-De beveiligingsstatus van uw Azure-resources wordt gecontroleerd met Security Center. Wanneer het Beveiligingscentrum identificeert mogelijke beveiligingsproblemen, maakt deze aanbevelingen op basis van de besturingselementen die zijn ingesteld in het beveiligingsbeleid. De aanbevelingen leiden u door het configuratieproces van de benodigde beveiligingsmechanismen.
+Security Center analyseert de beveiligingsstatus Hallo van uw Azure-resources. Wanneer Beveiligingscentrum mogelijke beveiligingsproblemen identificeert, maakt deze aanbevelingen op basis van het Hallo-besturingselementen die zijn ingesteld in het Hallo-beveiligingsbeleid. Hallo aanbevelingen helpen u bij Hallo configuratieproces beveiligingsmechanismen Hallo nodig.
 
-Huidige beleid aanbevelingen in Security Center focus op het, systeemupdates, configuratie van het besturingssysteem, netwerk-beveiligingsgroepen op subnetten en virtuele machines (VM's), SQL Database Auditing, SQL Database TDE en web application firewalls. Zie voor de meest recente dekking met Security Center aanbevelingen [aanbevelingen voor beveiliging in Security Center beheren](security-center-recommendations.md).
+Huidige beleid aanbevelingen in Security Center focus op het, systeemupdates, configuratie van het besturingssysteem, netwerk-beveiligingsgroepen op subnetten en virtuele machines (VM's), SQL Database Auditing, SQL Database TDE en web application firewalls. Zie voor de meest recente dekking Hallo met Security Center aanbevelingen, [aanbevelingen voor beveiliging in Security Center beheren](security-center-recommendations.md).
 
 ## <a name="scenario"></a>Scenario
-Dit scenario wordt beschreven hoe u met Security Center te verminderen de kans op een aanzienlijke beveiligingsincident voordoet door Security Center aanbevelingen bewaken en actie ondernemen. Het scenario wordt het fictieve bedrijf, Contoso en rollen die zijn gepresenteerd in het Beveiligingscentrum [plannen en de operations guide](security-center-planning-and-operations-guide.md#security-roles-and-access-controls). De rollen vertegenwoordigen individuen en teams die van Security Center gebruikmaken mogelijk verschillende taken die betrekking hebben op beveiliging uit te voeren. De rollen zijn:
+Dit scenario wordt beschreven hoe toouse Security Center toohelp Hallo kans op een aanzienlijke veiligheidsincident verminderen door Security Center aanbevelingen bewaken en actie ondernemen. Hallo scenario gebruikt Hallo fictieve bedrijf Contoso, en functies die zijn gepresenteerd in Security Center Hallo [plannen en de operations guide](security-center-planning-and-operations-guide.md#security-roles-and-access-controls). Hallo rollen vertegenwoordigen individuen en teams die van Security Center tooperform verschillende beveiligingstaken gebruikmaken mogelijk. Hallo-rollen zijn:
 
 ![Scenario-functies][2]
 
-Contoso onlangs gemigreerd enkele van hun lokale bronnen in Azure. Contoso wil implementeren en onderhouden van beveiliging die Verminder de kwetsbaarheid voor een aanval op de beveiliging van hun bronnen in de cloud.
+Contoso onlangs gemigreerd enkele van hun tooAzure van lokale resources. Contoso wil tooimplement en beheren van beveiliging die hun beveiligingslek tooa aanval op de beveiliging van hun bronnen in de cloud Hallo verminderen.
 
 ## <a name="recommended-solution"></a>Aanbevolen oplossing
-Er is een oplossing Security Center gebruiken om te voorkomen en beveiligingsproblemen detecteren. Contoso heeft toegang tot Security Center via het Azure-abonnement. De [gratis laag](security-center-pricing.md) van Security Center wordt automatisch ingeschakeld op alle Azure-abonnementen en verzamelen van gegevens is ingeschakeld op alle VM's in het abonnement.
+Een oplossing is toouse Security Center tooprevent en beveiligingsproblemen detecteren. Contoso heeft tooSecurity Center openen via hun Azure-abonnement. Hallo [gratis laag](security-center-pricing.md) van Security Center wordt automatisch ingeschakeld op alle Azure-abonnementen en verzamelen van gegevens is ingeschakeld op alle VM's in het abonnement.
 
-David in de Contoso IT-beveiliging, configureert u een **beveiligingsbeleid** met Security Center. Security Center analyseert de beveiligingsstatus van de Contoso Azure-resources. Wanneer het Beveiligingscentrum identificeert mogelijke beveiligingsproblemen, maakt deze **aanbevelingen** op basis van de besturingselementen die zijn ingesteld in het beveiligingsbeleid.
+David in de Contoso IT-beveiliging, configureert u een **beveiligingsbeleid** met Security Center. Security Center analyseert de beveiligingsstatus Hallo van Contoso Azure-resources. Wanneer het Beveiligingscentrum identificeert mogelijke beveiligingsproblemen, maakt deze **aanbevelingen** op basis van het Hallo-besturingselementen die zijn ingesteld in het Hallo-beveiligingsbeleid.
 
-Jeff, de eigenaar van een cloud-werkbelasting is verantwoordelijk voor het implementeren en onderhouden van bescherming in overeenstemming met het beveiligingsbeleid van Contoso. Jeff kunt bewaken de aanbevelingen die is gemaakt door Security Center beveiliging toepassen. De aanbevelingen leiden Jeff door het configuratieproces van de benodigde beveiligingsmechanismen.
+Jeff, de eigenaar van een cloud-werkbelasting is verantwoordelijk voor het implementeren en onderhouden van bescherming in overeenstemming met het beveiligingsbeleid van Contoso. Jeff kunt Hallo aanbevelingen die zijn gemaakt door Security Center tooapply beveiligingen bewaken. Hallo aanbevelingen leiden Jeff door Hallo configuratieproces beveiligingsmechanismen Hallo nodig.
 
-In de volgorde voor Jeff implementeren en onderhouden van beveiliging en beveiligingsproblemen elimineren, moet hij:
+In volgorde voor Jeff tooimplement en zorgen voor beveiliging en beveiligingsproblemen, moet hij elimineren:
 
 - Beveiligingsaanbevelingen voor de monitor geleverd door Security Center
 - Aanbevelingen voor beveiliging evalueren en te bepalen of hij moet toepassen of verwijderen
 - Aanbevelingen voor beveiliging toepassen
 
-Laten we stappen van Jeff om te zien hoe gebruikt hij Security Center aanbevelingen om hem te helpen bij het configuratieproces van besturingselementen om te voorkomen beveiligingsproblemen.
+Laten we volgen van Jeff stappen toosee hoe gebruikt hij Security Center aanbevelingen tooguide hem door Hallo configuratieproces besturingselementen tooeliminate beveiligingsproblemen.
 
-## <a name="how-to-implement-this-solution"></a>Deze oplossing implementeren
-Jeff zich aanmeldt bij [Azure-portal](https://azure.microsoft.com/features/azure-portal/) en opent u de console Security Center. Als onderdeel van de dagelijkse bewakingsactiviteiten controleert hij of er aanbevelingen voor beveiliging zijn door de volgende stappen uit te voeren:
+## <a name="how-tooimplement-this-solution"></a>Hoe tooimplement deze oplossing
+Jeff meldt zich aan te[Azure-portal](https://azure.microsoft.com/features/azure-portal/) en wordt geopend Hallo Security Center-console. Als onderdeel van zijn dagelijks bewakingsactiviteiten controleert hij toosee u of er aanbevelingen voor beveiliging zijn door Hallo volgende stappen uit te voeren:
 
-1. Jeroen selecteert de **aanbevelingen** tegel openen de **aanbevelingen** blade.
-   ![Selecteer de tegel aanbevelingen][3]
-2. Jeroen controleert de lijst met aanbevelingen. Hij ziet dat de lijst met aanbevelingen in volgorde van prioriteit, van de hoogste prioriteit naar de laagste prioriteit is opgegeven door Security Center. Hij besluit om een aanbeveling hoge prioriteit in de lijst. Hij selecteert **Endpoint Protection installeren** op de **aanbevelingen** blade.
-3. De **Endpoint Protection installeren** blade wordt geopend met een lijst van virtuele machines zonder antimalware is ingeschakeld. Jeff controleert de lijst met virtuele machines, selecteert u alle virtuele machines en vervolgens selecteert **installeren op 3 VM's**.
+1. Jeroen selecteert Hallo **aanbevelingen** tegel tooopen hello **aanbevelingen** blade.
+   ![Selecteer Hallo aanbevelingen tegel][3]
+2. Jeff bekijkt hello lijst met aanbevelingen. Hij ziet dat Security Center Hallo lijst met aanbevelingen in volgorde van prioriteit van de hoogste prioriteit toolowest prioriteit is opgegeven. Hij besluit tooaddress een hoge prioriteit aanbeveling op Hallo-lijst. Hij selecteert **Endpoint Protection installeren** op Hallo **aanbevelingen** blade.
+3. Hallo **Endpoint Protection installeren** blade wordt geopend met een lijst van virtuele machines zonder antimalware is ingeschakeld. Jeff bekijkt hello lijst met VM's, selecteert u alle virtuele machines en vervolgens selecteert **installeren op 3 VM's**.
    ![Eindpuntbeveiliging installeren][4]
-4. De **Selecteer Endpoint Protection** blade geopend met Jeff met twee antimalware-oplossingen. Jeroen selecteert de **Microsoft Antimalware** oplossing.
-5. Meer informatie over de antimalwareoplossing wordt weergegeven. Jeroen selecteert **maken**.
+4. Hallo **Selecteer Endpoint Protection** blade geopend met Jeff met twee antimalware-oplossingen. Jeroen selecteert Hallo **Microsoft Antimalware** oplossing.
+5. Meer informatie over de anti-malwareoplossing hello wordt weergegeven. Jeroen selecteert **maken**.
    ![Microsoft antimalware][5]
-6. Ties voert de vereiste configuratie-instellingen op de **installeren** blade en selecteert **OK**.
+6. Jeff Hallo vereiste configuratie-instellingen op Hallo ingevoerd **installeren** blade en selecteert **OK**.
 
-[Microsoft Antimalware](../security/azure-security-antimalware.md) is nu actief zijn op de geselecteerde virtuele machines.
+[Microsoft Antimalware](../security/azure-security-antimalware.md) is nu actief op Hallo VMs geselecteerd.
 
-Jeff blijft doorlopen van de hoge prioriteit en de gemiddelde prioriteit aanbevelingen, met het nemen van besluiten over de uitvoering. Jeff verwijst naar de [aanbevelingen voor beveiliging beheren](security-center-recommendations.md) artikel leert de aanbevelingen en elk biedt als hij van toepassing is.
+Jeff blijft toomove via Hallo hoge prioriteit en gemiddelde prioriteit aanbevelingen voor het nemen van beslissingen over de uitvoering. Jeff verwijst naar Hallo [aanbevelingen voor beveiliging beheren](security-center-recommendations.md) artikel toounderstand Hallo aanbevelingen en elk biedt als hij van toepassing is.
 
-Jeff leert die [Microsoft Security Response Center (MSRC)](../security/azure-security-response-center.md) voert selecteert u beveiligingsbewaking van de Azure-netwerk en de infrastructuur en threat intelligence en misbruik klachten ontvangt van een derde partij. Als Jeff biedt informatie over contact op met de beveiliging voor Contoso Azure-abonnement, contactpersonen van Microsoft Contoso als het MSRC klantgegevens die Contoso detecteert is geopend door een onrechtmatig of niet-geautoriseerde partij. Laten we volgen Jeff hij de van toepassing is de **contact op met informatie over de beveiliging bieden** aanbeveling (een aanbeveling met de ernst van de media die in de lijst met de bovenstaande aanbevelingen).
+Jeff leert die [Microsoft Security Response Center (MSRC)](../security/azure-security-response-center.md) voert selecteert u beveiliging hello Azure-netwerk en infrastructuur bewaken en threat intelligence en misbruik klachten ontvangt van een derde partij. Als Jeff biedt informatie over contact op met de beveiliging voor Contoso Azure-abonnement, contactpersonen van Microsoft Contoso als Hallo MSRC klantgegevens die Contoso detecteert is geopend door een onrechtmatig of niet-geautoriseerde partij. Laten we volgt Jeff als hij is van toepassing hello **contact op met informatie over de beveiliging bieden** aanbeveling (een aanbeveling met de ernst van gemiddeld in Hallo lijst met de bovenstaande aanbevelingen).
 
-1. Jeroen selecteert **contact op met informatie over de beveiliging bieden** op de **aanbevelingen** blade die wordt geopend de **contact op met informatie over de beveiliging bieden** blade.
-2. Jeroen selecteert contact op met informatie te verstrekken over het Azure-abonnement. Een tweede **contact op met informatie over de beveiliging bieden** blade wordt geopend.
+1. Jeff selecteert **contact op met informatie over de beveiliging bieden** op Hallo **aanbevelingen** blade die wordt geopend Hallo **contact op met informatie over de beveiliging bieden** blade.
+2. Jeroen selecteert hello Azure-abonnement tooprovide contactgegevens op. Een tweede **contact op met informatie over de beveiliging bieden** blade wordt geopend.
    ![Neem contact op met informatie over de beveiliging][6]
-3. Op de tweede **contact op met informatie over de beveiliging bieden** blade Jeff invoert:
+3. Op Hallo tweede **contact op met informatie over de beveiliging bieden** blade Jeff invoert:
 
-  - de beveiliging contact op met e-mailadressen gescheiden door komma's (Er is niet een limiet aan het aantal e-mailadressen die hij kunt invoeren)
+  - Hallo beveiliging e-mailadres adressen gescheiden door komma's (Er is geen limiet toohello getal met e-mailadressen die hij kunt invoeren)
   - een beveiliging Neem contact op met telefoonnummer
 
-4. Jeff ook Hiermee schakelt u de optie **Stuur mij e-mails over waarschuwingen** voor het ontvangen van e-mailberichten over waarschuwingen met hoog dreigingsniveau.
-5. Jeroen selecteert **OK** de contactgegevens van de beveiliging toepassen op Contoso abonnement.
+4. Jeff ook Hiermee schakelt u de optie Hallo **Stuur mij e-mails over waarschuwingen** tooreceive e-mailberichten over waarschuwingen met hoog dreigingsniveau.
+5. Jeroen selecteert **OK** tooapply Hallo beveiliging Neem contact op met de informatie tooContoso abonnement.
 
-Tot slot Jeff bekijkt de aanbeveling met lage prioriteit **herstellen OS beveiligingslekken** en bepaalt deze aanbeveling is niet van toepassing. Hij wil de aanbeveling negeren. Jeroen selecteert de drie punten die worden weergegeven aan de rechterkant, en selecteert vervolgens **sluiten**.
+Tot slot Jeff bekijkt hello met lage prioriteit aanbeveling **herstellen OS beveiligingslekken** en bepaalt deze aanbeveling is niet van toepassing. Hij toodismiss Hallo aanbeveling. Jeroen selecteert Hallo drie punten die worden weergegeven toohello rechts en selecteert **sluiten**.
    ![Aanbeveling negeren][7]
 
 ## <a name="conclusion"></a>Conclusie

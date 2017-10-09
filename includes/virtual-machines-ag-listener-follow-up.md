@@ -1,0 +1,2 @@
+Nadat u Hallo beschikbaarheidsgroep-listener gemaakt, is het mogelijk nodig tooadjust hello RegisterAllProvidersIP en HostRecordTTL clusterparameters op voor het Hallo-listener resource. Deze parameters kunnen opnieuw verbinden tijd na een failover, waardoor time-outs voor verbindingen beperken. Zie voor meer informatie over deze parameters, evenals voorbeeldcode [maken of configureren van een beschikbaarheidsgroep-listener](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover).
+

@@ -1,5 +1,5 @@
 ---
-title: (afgeschaft) Survival-analyse met Azure Machine Learning | Microsoft Docs
+title: AAA(deprecated) Survival analyse met Azure Machine Learning | Microsoft Docs
 description: (afgeschaft) Survival Analysis gebeurtenis exemplaar kans
 services: machine-learning
 documentationcenter: 
@@ -16,47 +16,47 @@ ms.date: 01/06/2017
 ms.author: zhangya
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 7d4066d5f15a39c428d8035257c4841f9b3cc775
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: af946d8df5ba650a9d74fbabbe3b15d3a07dd508
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-survival-analysis"></a>(afgeschaft) Survival analyse
 
 > [!NOTE]
-> De Microsoft-DataMarket wordt buiten gebruik gesteld en deze API is afgeschaft. 
+> Hallo Microsoft DataMarket wordt buiten gebruik gesteld en deze API is afgeschaft. 
 > 
-> U kunt zoeken veel nuttige voorbeeld experimenten en API's in de [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Zie voor meer informatie over de Gallery [Share en het detecteren van bronnen in de Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+> U vindt veel nuttige voorbeeld experimenten en API's in Hallo [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Zie voor meer informatie over Hallo galerie [Share en het detecteren van bronnen in Hallo Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-In veel scenario's is de belangrijkste uitkomst onder assessment de tijd op een gebeurtenis van belang. Met andere woorden, de vraag "wanneer deze gebeurtenis wordt uitgevoerd?' wordt gevraagd. Voorbeelden, kunt u beter situaties waarbij de gegevens de verstreken tijd (dagen, jaar, kilometers, enzovoort beschrijft) tot en met de gebeurtenis van belang (ziekte relapse, PhD mate ontvangen, fout bedient pad) plaatsvindt. Elk exemplaar in de gegevens vertegenwoordigt een specifiek object (een geduld, een student, een auto, enzovoort).
+Onder veel scenario's is de belangrijkste uitkomst Hallo onder assessment Hallo tijd tooan gebeurtenis van belang. Met andere woorden, Hallo vraag 'wanneer deze gebeurtenis wordt uitgevoerd?' wordt gevraagd. Voorbeelden, kunt u beter situaties waarbij gegevens Hallo Hallo verstreken tijd (dagen, jaar, kilometers, enzovoort) beschrijft tot Hallo gebeurtenis van belang (ziekte relapse, PhD mate ontvangen, bedient pad fout). Elk exemplaar in Hallo gegevens vertegenwoordigt een specifiek object (een geduld, een student, een auto, enzovoort).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Dit [webservice](https://datamarket.azure.com/dataset/aml_labs/survivalanalysis) antwoord op de vraag 'Wat is de kans dat de gebeurtenis van belang wordt uitgevoerd door tijd n voor object x?' Dankzij een voortdurende Analytics-model, kan deze webservice gebruikers op te geven gegevens voor het model trainen en te testen. Het onderwerp van het experiment is als model voor de lengte van de verstreken tijd totdat de gebeurtenis die van belang. 
+Dit [webservice](https://datamarket.azure.com/dataset/aml_labs/survivalanalysis) beantwoordt Hallo vraag 'Wat is er Hallo-kans dat Hallo gebeurtenis van belang optreden bij tijd n voor object x?' Dankzij een voortdurende Analytics-model, deze webservice kunt gebruikers toosupply tootrain Hallo gegevensmodel en testen. Hallo belangrijkste thema van Hallo experiment is toomodel Hallo Hallo verstreken tijd totdat Hallo van belang gebeurtenis. 
 
-> Deze webservice kan bijvoorbeeld worden gebruikt door gebruikers – mogelijk via een mobiele app via een website of zelfs op een lokale computer. Maar het doel van de webservice is ook als een voorbeeld van hoe Azure Machine Learning-webservices boven op R code maken kan worden gebruikt. Met een paar regels code R en klikt op een knop in Azure Machine Learning Studio, worden een experiment gemaakt met R code en gepubliceerd als een webservice. De webservice kan vervolgens worden gepubliceerd naar Azure Marketplace en verbruikt door gebruikers en apparaten over de hele wereld zonder instellingen infrastructuur door de auteur van de webservice.  
+> Deze webservice kan bijvoorbeeld worden gebruikt door gebruikers – mogelijk via een mobiele app via een website of zelfs op een lokale computer. Maar Hallo doel van de webservice Hallo is ook tooserve als een voorbeeld van hoe Azure Machine Learning-webservices gebruikte toocreate boven op R-code kan zijn. Met een paar regels code R en klikt op een knop in Azure Machine Learning Studio, worden een experiment gemaakt met R code en gepubliceerd als een webservice. Hallo-webservice vervolgens gepubliceerde toohello Azure Marketplace kan worden en verbruikt door gebruikers en apparaten via Hallo wereld zonder instellingen infrastructuur door de auteur Hallo van Hallo-webservice.  
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Gebruik van web-service
-Het schema voor invoergegevens van de webservice wordt weergegeven in de volgende tabel. Zes stukjes informatie nodig zijn als de invoer: training gegevens, gegevens testen, tijd van belang, de index van 'keer' dimensie, de index van de dimensie 'gebeurtenis' en de variabele typen (doorlopende of factor). De trainingsgegevens wordt vertegenwoordigd door een tekenreeks, waarbij de rijen worden gescheiden door komma's en de kolommen worden gescheiden door puntkomma's. Het aantal functies van de gegevens is flexibel. Alle elementen in de invoerreeks moet numeriek zijn. In de trainingsgegevens geeft ' tijddimensie ' het aantal eenheden voor de tijd (dagen, jaar, kilometers, enzovoort) die zijn verstreken sinds het beginpunt van het onderzoek (een geduld medicijn behandeling programma's, ontvangen een student starten PhD onderzoek, een auto begint met het worden bestuurd, enz.) tot de gebeurtenis van belang zijn (de patiënt wordt teruggezonden naar de medicijn gebruik van de studenten verkrijgen van de mate PhD, de auto met bedient pad fout, enzovoort) plaatsvindt. De dimensie 'gebeurtenis' geeft aan of de gebeurtenis van belang aan het einde van het onderzoek plaatsvindt. De waarde ' gebeurtenis = 1 "betekent dat de gebeurtenis interessant vindt plaats op het tijdstip aangegeven in de dimensie 'keer'; "gebeurtenis = 0 ' betekent dat de gebeurtenis van belang is uitgevoerd door het tijdstip aangegeven in de dimensie 'keer'.
+Hallo invoergegevens schema van Hallo-webservice wordt weergegeven in de volgende tabel Hallo. Zes stukjes informatie nodig zijn als Hallo invoer: trainingsgegevens, testgegevens, tijd van belang, de index van de dimensie 'time' hello, Hallo index van de dimensie 'gebeurtenis' en Hallo variabele typen (doorlopende of factor). Hallo trainingsgegevens wordt vertegenwoordigd door een tekenreeks, waarbij Hallo rijen worden gescheiden door een komma en Hallo kolommen worden gescheiden door puntkomma's. Hallo aantal kenmerken van Hallo gegevens is flexibel. Alle Hallo-elementen in de invoerreeks Hallo moet numeriek zijn. Hallo trainingsgegevens wijst dimensie Hallo 'time' Hallo aantal tijdseenheden (dagen, jaar, kilometers, enz.) is verstreken sinds beginpunt Hallo Hallo bestuderen (een geduld ontvangen medicijn behandeling-programma's, een student begin PhD onderzoek, een auto toobe starten aangedreven, enz.) totdat hello van belang (Hallo geduld retourneren toodrug gebruik, Hallo studenten verkrijgen Hallo PhD mate, Hallo auto met bedient pad fout, enzovoort) gebeurtenis. Hallo 'gebeurtenis' dimensie geeft aan of Hallo-gebeurtenis van belang achter Hallo Hallo onderzoek plaatsvindt. De waarde ' gebeurtenis = 1 "betekent dat de gebeurtenis van belang Hallo deze gebeurtenis treedt op tijdens het Hallo aangegeven door de dimensie 'time' hello; "gebeurtenis = 0 ' betekent dat Hallo gebeurtenis van belang is niet door Hallo tijd aangegeven door de dimensie 'time' hello opgetreden.
 
 * trainingdata - tekenreeks. Rijen worden gescheiden door een komma en kolommen worden gescheiden door puntkomma's. Elke rij bevat ' tijddimensie ' en 'gebeurtenis' dimensie manier variabelen.
 * testingdata - één rij met gegevens op die manier variabelen voor een bepaald object bevat.
-* time_of_interest - de verstreken tijd van belang n.
-* index_time - de kolomindex van de dimensie 'time' (vanaf 1).
-* index_event - de kolomindex van de 'gebeurtenis' dimensie (vanaf 1).
+* time_of_interest - Hallo verstreken tijd van belang n.
+* index_time - Hallo kolomindex van de dimensie 'time' hello (vanaf 1).
+* index_event - Hallo kolomindex van Hallo 'gebeurtenis' dimensie (vanaf 1).
 * variable_types - tekenreeks met puntkomma's als scheidingstekens in deze. 0 geeft aan dat continue variabelen en 1 factor variabelen vertegenwoordigt.
 
-De uitvoer is de kans op een gebeurtenis plaatsvindt op een bepaald moment. 
+Hallo-uitvoer is de kans op Hallo van een gebeurtenis optreedt op een bepaald moment. 
 
-> Deze service wordt gehost op Azure Marketplace, een OData-service Deze kunnen worden aangeroepen via POST of GET-methoden. 
+> Deze service is gehost op Azure Marketplace Hallo een OData-service Deze kunnen worden aangeroepen via POST of GET-methoden. 
 > 
 > 
 
-Er zijn meerdere manieren van de consumptie van de service op automatische wijze (een voorbeeld-app is [hier](http://microsoftazuremachinelearning.azurewebsites.net/SurvivalAnalysis.aspx)). 
+Er zijn meerdere manieren Hallo-service op automatische wijze verbruikt (een voorbeeld-app is [hier](http://microsoftazuremachinelearning.azurewebsites.net/SurvivalAnalysis.aspx)). 
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>C#-code voor het web service starten:
     public class Input
@@ -93,14 +93,14 @@ Er zijn meerdere manieren van de consumptie van de service op automatische wijze
 
 
 
-De interpretatie van deze test is als volgt. Ervan uitgaande dat het doel van de gegevens is om de verstreken tijd totdat het rendement op medicijn gebruik voor de patiënt heeft ontvangen van een van de twee behandeling programma's. De uitvoer van de web service leesbewerkingen: patiënten wordt 35 jaar oude, met vorige productie medicijn behandeling 2 maal duurt het programma lang huis behandeling en met gebruik van zowel heroïne als cocaïne de waarschijnlijkheid geretourneerd met het gebruik van medicijn 95.64% van het dag 500.
+Hallo interpretatie van deze test is als volgt. Ervan uitgaande dat Hallo Hallo gegevens is bedoeld toomodel Hallo verstreken tijd tot Hallo toodrug gebruik retourneren voor Hallo patiënten heeft ontvangen van een van twee Hallo behandeling programma's. Hallo uitvoer Hallo web service leesbewerkingen: voor patiënten wordt 35 jaar oude, met vorige productie medicijn behandeling 2 maal duurt Hallo lang huis behandeling programma, en met gebruik van zowel heroïne als cocaïne Hallo kans retourneren toohello medicijn gebruik 95.64% door is dag 500.
 
 ## <a name="creation-of-web-service"></a>Maken van de webservice
-> Deze webservice is gemaakt met behulp van Azure Machine Learning. Voor een gratis proefversie, evenals de inleidende video's over het maken van experimenten en [web publicatieservices](machine-learning-publish-a-machine-learning-web-service.md), Zie [azure.com/ml](http://azure.com/ml). Hieronder vindt u een schermopname van het experiment dat de web-service en een voorbeeld van code voor elk van de modules in het experiment gemaakt.
+> Deze webservice is gemaakt met behulp van Azure Machine Learning. Voor een gratis proefversie, evenals de inleidende video's over het maken van experimenten en [web publicatieservices](machine-learning-publish-a-machine-learning-web-service.md), Zie [azure.com/ml](http://azure.com/ml). Hieronder staat een screenshot van Hallo experiment die Hallo web service en voorbeeld-code hebt gemaakt voor elk Hallo-modules in Hallo experiment.
 > 
 > 
 
-In Azure Machine Learning, een nieuw, leeg experiment is gemaakt en twee [R-Script uitvoeren] [ execute-r-script] modules naar de werkruimte zijn opgehaald. Het schema van de is gemaakt met een eenvoudige [R-Script uitvoeren][execute-r-script], definieert de invoergegevens schema voor de webservice. Deze module wordt vervolgens gekoppeld aan de tweede [R-Script uitvoeren] [ execute-r-script] module waarmee werk grote. Deze module biedt voorverwerking van gegevens, model bouwen en voorspellingen. In de voorverwerking stap van de gegevens de invoergegevens vertegenwoordigd door een lange tekenreeks getransformeerd en geconverteerd naar een gegevensframe. Een externe R-pakket 'survival_2.37 7.zip' is in de stap van het gebouw model eerst geïnstalleerd voor de uitvoering van survival analyse. Vervolgens wordt de functie 'coxph' uitgevoerd na een reeks gegevensverwerkingstaken. De details van de functie 'coxph' voor analyse van survival kunnen worden gelezen uit de R-documentatie. Een test-exemplaar is opgegeven in het getrainde model met de functie 'surfit' in de stap voorspelling en survival curve voor dit exemplaar van de test wordt gegenereerd als de variabele 'curve'. Ten slotte wordt wordt de waarschijnlijkheid van de tijd van belang verkregen. 
+In Azure Machine Learning, een nieuw, leeg experiment is gemaakt en twee [R-Script uitvoeren] [ execute-r-script] modules op Hallo werkruimte zijn opgehaald. Hallo gegevensschema is gemaakt met een eenvoudige [R-Script uitvoeren][execute-r-script], definieert een Hallo invoergegevens schema voor Hallo-webservice. Deze module wordt vervolgens gekoppeld toohello tweede [R-Script uitvoeren] [ execute-r-script] module waarmee werk grote. Deze module biedt voorverwerking van gegevens, model bouwen en voorspellingen. In Hallo gegevens voorverwerking stap Hallo invoergegevens vertegenwoordigd door een lange tekenreeks getransformeerd en geconverteerd naar een gegevensframe. Een externe R-pakket 'survival_2.37 7.zip' is in Hallo model bouwen stap eerst geïnstalleerd voor de uitvoering van survival analyse. De functie 'coxph' hello wordt vervolgens uitgevoerd na een reeks gegevensverwerkingstaken. Hallo details van de functie 'coxph' Hallo voor survival analyse kunnen worden gelezen uit Hallo R-documentatie. Een test-exemplaar is opgegeven in het getrainde model met de functie 'surfit' Hallo Hallo in Hallo voorspelling stap en Hallo survival curve voor dit exemplaar van de test wordt gegenereerd als de variabele 'curve'. Ten slotte de kans op Hallo van Hallo-tijd van belang wordt verkregen. 
 
 ### <a name="experiment-flow"></a>Stroom experiment:
 ![Experiment stroom][1]
@@ -118,7 +118,7 @@ In Azure Machine Learning, een nieuw, leeg experiment is gemaakt en twee [R-Scri
 
     sampleInput=data.frame(trainingdata,testingdata,time_of_interest,index_time,index_event,variable_types)
 
-    maml.mapOutputPort("sampleInput"); #send data to output port
+    maml.mapOutputPort("sampleInput"); #send data toooutput port
 
 #### <a name="module-2"></a>2-module:
     #Read data from input port
@@ -148,7 +148,7 @@ In Azure Machine Learning, een nieuw, leeg experiment is gemaakt en twee [R-Scri
     install.packages("src/packages_survival/survival_2.37-7.zip",lib=".",repos=NULL,verbose=TRUE)
     library(survival)
 
-    # Prepare to build model
+    # Prepare toobuild model
     attach(mydata)
 
     for (i in 1:n_col){ mydata[,i]=as.numeric(mydata[,i])} 
@@ -160,7 +160,7 @@ In Azure Machine Learning, een nieuw, leeg experiment is gemaakt en twee [R-Scri
     variable_types = unlist(strsplit(as.character(variable_types),";"))
 
     len = length(v_predictors)
-    c="" # Construct the execution string
+    c="" # Construct hello execution string
     for (i in 1:len){
     if(i==len){
     if(variable_types[i]!=0){ c=paste(c, "factor(",v_predictors[i],")",sep="")}
@@ -174,7 +174,7 @@ In Azure Machine Learning, een nieuw, leeg experiment is gemaakt en twee [R-Scri
     f=paste(f,c)
     f=paste(f,", data=mydata )")
 
-    # Fit a Cox proportional hazards model and get the predicted survival curve for a testing instance 
+    # Fit a Cox proportional hazards model and get hello predicted survival curve for a testing instance 
     fit=eval(parse(text=f))
 
     testingdata = as.data.frame(matrix(testingdata, ncol=len,byrow = TRUE),stringsAsFactors=FALSE)
@@ -183,7 +183,7 @@ In Azure Machine Learning, een nieuw, leeg experiment is gemaakt en twee [R-Scri
 
     curve=survfit(fit,testingdata)
 
-    # Based on user input, find the event occurrence probability
+    # Based on user input, find hello event occurrence probability
     position_closest=which.min(abs(prob_event$time - time_of_interest))
 
     if(prob_event[position_closest,"time"]==time_of_interest){# exact match
@@ -196,7 +196,7 @@ In Azure Machine Learning, een nieuw, leeg experiment is gemaakt en twee [R-Scri
     }else{output=(prob_event[position_closest,"prob"]+prob_event[position_closest+1,"prob"])/2}
     }
 
-    #Pull out results to send to web service
+    #Pull out results toosend tooweb service
     output=paste(round(100*output, 2), "%") 
     maml.mapOutputPort("output"); #output port
 
@@ -204,10 +204,10 @@ In Azure Machine Learning, een nieuw, leeg experiment is gemaakt en twee [R-Scri
 
 
 ## <a name="limitations"></a>Beperkingen
-Deze webservice kan alleen numerieke waarden duren als functie variabelen (kolommen). De kolom 'gebeurtenis' kunnen alleen de waarde 0 of 1. De kolom 'tijd' moet een positief geheel getal.
+Deze webservice kan alleen numerieke waarden duren als functie variabelen (kolommen). de kolom 'event' Hello kan duren voordat de waarde 0 of 1. Hallo 'time'-kolom moet een positief geheel getal toobe.
 
 ## <a name="faq"></a>Veelgestelde vragen
-Zie voor veelgestelde vragen over het verbruik van de webservice of publiceren naar Azure Marketplace [hier](machine-learning-marketplace-faq.md).
+Zie voor veelgestelde vragen over het verbruik van de webservice Hallo of publishing toohello Azure Marketplace [hier](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-survival-analysis/survive_img2.png
 

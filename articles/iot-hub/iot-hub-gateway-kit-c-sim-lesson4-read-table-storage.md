@@ -1,6 +1,6 @@
 ---
 title: 'Gesimuleerde apparaat & Azure IoT Gateway - les 4: Table storage | Microsoft Docs'
-description: Intel NUC berichten opslaan op uw IoT-hub, geschreven naar Azure Table storage en ze vervolgens vanuit de cloud te lezen.
+description: Berichten uit iothub van Intel NUC tooyour opslaan, tooAzure Table storage geschreven en ze vervolgens vanuit de cloud hello te lezen.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,36 +17,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: de5fae794c195132e2a487c0095845c756aa28e3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 43e299d63bbbe10d4d867af25e700c3a7cc07c53
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="read-messages-persisted-in-azure-table-storage"></a>Alleen berichten permanent in Azure Table storage
 
 ## <a name="what-you-will-do"></a>Wat u doet
 
-- De voorbeeldtoepassing gateway uitvoeren op uw gateway dat berichten naar uw IoT-hub verzendt.
-- Voorbeeldcode uitvoeren op de hostcomputer lezen van berichten in uw Azure Table-opslag.
+- Hallo gateway voorbeeldtoepassing uitvoeren op uw gateway waarmee berichten tooyour iothub worden verzonden.
+- Voorbeeldcode uitvoeren op uw host computer tooread berichten in uw Azure Table-opslag.
 
-Als u problemen hebt, moet u uitkijken voor oplossingen op de [probleemoplossing pagina](iot-hub-gateway-kit-c-sim-troubleshooting.md).
+Als u problemen hebt, zoekt u naar oplossingen op Hallo [probleemoplossing pagina](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Wat u leert
 
-Het gebruik van het hulpprogramma gulp de voorbeeldcode om te lezen van berichten in uw Azure-tabelopslag uitvoeren.
+Hoe gulp toouse Hallo hulpprogramma toorun Hallo voorbeeld code tooread berichten in uw Azure Table-opslag.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
 
-U hebt met succes uitgevoerd de volgende taken:
+U hebt met succes Hallo volgende taken:
 
-- [De functie Azure-app en de Azure storage-account gemaakt](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md).
-- [Uitvoeren van de voorbeeldtoepassing gateway](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md).
+- [Hello Azure functie-app en hello Azure storage-account gemaakt](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md).
+- [Hallo gateway voorbeeldtoepassing uitvoeren](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md).
 - [Lezen van berichten uit uw IoT-hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md).
 
 ## <a name="get-your-azure-storage-connection-strings"></a>Uw Azure storage-verbindingsreeksen ophalen
 
-In deze les vroeg u een Azure storage-account gemaakt. Als u de verbindingsreeks van de Azure storage-account, voer de volgende opdrachten:
+In deze les vroeg u een Azure storage-account gemaakt. Hallo verbindingsreeks tooget van hello Azure storage-account, Hallo volgende opdrachten uitvoeren:
 
 * Lijst van alle opslagaccounts.
 
@@ -60,13 +60,13 @@ az storage account list -g iot-gateway --query [].name
 az storage account show-connection-string -g iot-gateway -n {storage name}
 ```
 
-Gebruik `iot-gateway` als de waarde van `{resource group name}` als u de waarde in les 2 is niet gewijzigd.
+Gebruik `iot-gateway` als Hallo-waarde van `{resource group name}` als u Hallo-waarde in les 2 niet wijzigen.
 
-## <a name="configure-the-device-connection"></a>De apparaatverbinding configureren
+## <a name="configure-hello-device-connection"></a>Hallo apparaatverbinding configureren
 
-Update de `config-azure.json` bestand zodat de voorbeeldcode die wordt uitgevoerd op de computer in uw Azure-tabelopslag bericht kan lezen. Volg deze stappen voor het configureren van de apparaatverbinding:
+Update Hallo `config-azure.json` bestand zodat Hallo voorbeeldcode die wordt uitgevoerd op de hostcomputer Hallo bericht in uw Azure Table storage kan lezen. tooconfigure Hallo apparaatverbinding, als volgt te werk:
 
-1. Open het configuratiebestand van het apparaat `config-azure.json` met de volgende opdrachten:
+1. Open Hallo apparaat configuratiebestand `config-azure.json` door het uitvoeren van de volgende opdrachten Hallo:
 
    ```bash
    # For Windows command prompt
@@ -77,26 +77,26 @@ Update de `config-azure.json` bestand zodat de voorbeeldcode die wordt uitgevoer
 
    ![configuratie](media/iot-hub-gateway-kit-lessons/lesson4/config_azure.png)
 
-2. Vervang `[Azure storage connection string]` met de verbindingsreeks voor Azure-opslag die u hebt verkregen.
+2. Vervang `[Azure storage connection string]` Hello Azure storage-verbindingsreeks die u hebt verkregen.
 
    `[IoT hub connection string]`al in de sectie moet worden vervangen [berichten lezen uit Azure IoT Hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md) in Lesson3.
 
 ## <a name="read-messages-in-your-azure-table-storage"></a>Lezen van berichten in uw Azure-tabelopslag
 
-Voer de voorbeeldtoepassing gateway en Azure Table storage berichten gelezen door de volgende opdracht:
+Voer voorbeeldtoepassing Hallo-gateway en Azure Table storage berichten lezen door de volgende opdracht Hallo:
 
 ```bash
 gulp run --table-storage
 ```
 
-Uw IoT-hub wordt geactiveerd voor uw toepassing Azure-functie in het bericht in uw Azure-tabelopslag op te slaan wanneer nieuw bericht binnenkomt.
-De `gulp run` opdracht wordt uitgevoerd voor gateway-voorbeeldtoepassing die berichten naar uw IoT-hub verzendt. Met `table-storage` parameter, dit kan een onderliggend proces voor het ontvangen van het bericht opgeslagen in uw Azure-tabelopslag ook gestart.
+Uw IoT-hub geactiveerd toosave toepassingsbericht van uw Azure-functie in uw Azure-tabelopslag wanneer nieuw bericht binnenkomt.
+Hallo `gulp run` opdracht wordt uitgevoerd voor gateway-voorbeeldtoepassing die berichten tooyour iothub verzendt. Met `table-storage` parameter, dit kan een onderliggend proces tooreceive Hallo-bericht opgeslagen in uw Azure-tabelopslag ook gestart.
 
-De berichten die worden verzonden en ontvangen, worden alle weergegeven onmiddellijk op de dezelfde consolevenster in de hostmachine. Het exemplaar van de steekproef wordt beëindigd automatisch op 40 seconden.
+Hallo-berichten die worden verzonden en ontvangen, worden alle weergegeven onmiddellijk op Hallo dezelfde consolevenster in Hallo hostmachine. Hallo voorbeeld toepassingsexemplaar wordt in 40 seconden automatisch beëindigd.
 
    ![gulp lezen](media/iot-hub-gateway-kit-lessons/lesson4/gulp_run_read_table_simudev.png)
 
 
 ## <a name="summary"></a>Samenvatting
 
-U kunt de voorbeeldcode om te lezen van de berichten in uw Azure-tabelopslag opgeslagen door de toepassing van uw Azure-functie hebt uitgevoerd.
+U hebt hello voorbeeld code tooread Hallo-berichten in uw Azure-tabelopslag opgeslagen door de toepassing van uw Azure-functie uitvoert.

@@ -1,5 +1,5 @@
 ---
-title: Uw eerste Azure-microservices-app in Linux maken met behulp van C# | Microsoft Docs
+title: aaaCreate uw eerste app in Azure microservices op Linux met C# | Microsoft Docs
 description: Een Service Fabric-toepassing maken en implementeren met behulp van C#
 services: service-fabric
 documentationcenter: csharp
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/21/2017
 ms.author: subramar
-ms.openlocfilehash: adcafaa5522fcddc0a01eb1dc8deba04ebfc38f2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 68d685e130be338ebcdb2f1af24b66d1e14f580a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Uw eerste Azure Service Fabric-toepassing maken
 > [!div class="op_single_selector"]
@@ -28,15 +28,15 @@ ms.lasthandoff: 08/29/2017
 >
 >
 
-Service Fabric biedt SDK's voor het bouwen van services in Linux in zowel .NET Core als Java. In deze zelfstudie wordt behandeld hoe u een toepassing maakt voor Linux en een service bouwt met behulp van C# (.NET Core).
+Service Fabric biedt SDK's voor het bouwen van services in Linux in zowel .NET Core als Java. In deze zelfstudie kijken we hoe toocreate een toepassing voor Linux en build een service met C# (.NET Core).
 
 ## <a name="prerequisites"></a>Vereisten
 Zorg voordat u begint ervoor dat u [uw Linux-ontwikkelingsomgeving hebt ingesteld](service-fabric-get-started-linux.md). Als u Mac OS X gebruikt, kunt u [een Linux one-box omgeving instellen op een virtuele machine met behulp van Vagrant](service-fabric-get-started-mac.md).
 
-Het is dan ook een goed idee om de [Service Fabric-CLI](service-fabric-cli.md) te installeren.
+Wilt u ook tooinstall hello [Service Fabric CLI](service-fabric-cli.md)
 
-### <a name="install-and-set-up-the-generators-for-csharp"></a>Generatoren voor CSharp installeren en instellen
-Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fabric CSharp-toepassing kunt maken met behulp van de Yeoman-sjabloongenerator. Volg de stappen hieronder om te controleren of de Yeoman-sjabloongenerator voor CSharp werkt op uw computer.
+### <a name="install-and-set-up-hello-generators-for-csharp"></a>Installeren en Hallo genereren voor CSharp instellen
+Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fabric CSharp-toepassing kunt maken met behulp van de Yeoman-sjabloongenerator. Volg de stappen Hallo hieronder tooensure er Hallo Service Fabric yeoman sjabloon generator voor CSharp werkt op uw computer.
 1. nodejs en NPM installeren op uw computer
 
   ```bash
@@ -48,85 +48,85 @@ Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fa
   ```bash
   sudo npm install -g yo
   ```
-3. Generator voor Service Fabric Yeoman Java-toepassingen installeren vanuit NPM
+3. Hallo Service Fabric Yeo Java-toepassing generator installeren via NPM
 
   ```bash
   sudo npm install -g generator-azuresfcsharp
   ```
 
-## <a name="create-the-application"></a>De toepassing maken
-Een Service Fabric-toepassing kan een of meer services bevatten, elk met een specifieke functie met betrekking tot het leveren van de functionaliteit van de toepassing. De Service Fabric [Yeoman](http://yeoman.io/)-generator voor CSharp, die u in de laatste stap hebt geïnstalleerd, zorgt ervoor dat u gemakkelijk uw eerste service kunt maken en er later meer kunt toevoegen. We gebruiken Yeoman om een toepassing te maken met één service.
+## <a name="create-hello-application"></a>Hallo-toepassing maken
+Een Service Fabric-toepassing kan een of meer services, elk met een specifieke functie in het leveren van de functionaliteit van de toepassing hello bevatten. Hallo Service Fabric [Yeoman](http://yeoman.io/) generator voor CSharp die u in de laatste stap hebt geïnstalleerd, maakt het eenvoudig toocreate uw eerste service en later tooadd. Laten we Yeoman toocreate een toepassing met een enkele service gebruiken.
 
-1. Typ in een terminal de volgende opdracht om te beginnen met de opbouw van de sjabloon: `yo azuresfcsharp`
+1. Typ in een terminal Hallo opdracht toostart bouwen Hallo steigers te volgen:`yo azuresfcsharp`
 2. Geef uw toepassing een naam.
-3. Kies het type van uw eerste service en geef de service een naam. In deze zelfstudie kiezen we voor een Reliable Actor Service.
+3. Hallo-type van uw eerste service kiezen en noem deze. Voor Hallo doel van deze zelfstudie kiest u een betrouwbare Actor-Service.
 
    ![Service Fabric Yeoman-generator voor C#][sf-yeoman]
 
 > [!NOTE]
-> Zie [Service Fabric programming model overview](service-fabric-choose-framework.md) (Overzicht van het Service Fabric-programmeermodel) voor meer informatie over de opties.
+> Zie voor meer informatie over opties voor Hallo [Service Fabric programming model overzicht](service-fabric-choose-framework.md).
 >
 >
 
-## <a name="build-the-application"></a>De toepassing bouwen
-De Service Fabric Yeoman-sjablonen bevatten een bouwscript dat u kunt gebruiken om de app via de terminal te maken (na het navigeren naar de toepassingsmap).
+## <a name="build-hello-application"></a>Hallo-toepassing bouwen
+Hallo Service Fabric Yeoman sjablonen bevatten een build-script dat u toobuild Hallo-app uit Hallo terminal gebruiken kunt (na de toepassingsmap toohello navigeren).
 
   ```sh
  cd myapp
  ./build.sh
   ```
 
-## <a name="deploy-the-application"></a>De toepassing implementeren
+## <a name="deploy-hello-application"></a>Hallo-toepassing implementeren
 
-Nadat de toepassing is gemaakt, kunt u deze implementeren in het lokale cluster.
+Als de toepassing hello is gebouwd, kunt u het lokale cluster toohello implementeren.
 
-1. Maak verbinding met het lokale cluster van Service Fabric.
+1. Verbinding maken met toohello lokale Service Fabric-cluster.
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
     ```
 
-2. Voer het installatiescript uit dat is opgegeven in de sjabloon om het toepassingspakket te kopiëren naar de installatiekopieopslag van het cluster, het toepassingstype te registreren en een exemplaar van de toepassing te maken.
+2. Voer Hallo installatiescript geleverd in Hallo sjabloon toocopy toepassing hello archief van de installatiekopie van het cluster toohello van het pakket, registratie van toepassingstype hello, en maken van een exemplaar van de toepassing hello.
 
     ```bash
     ./install.sh
     ```
 
-De implementatie van de gemaakte toepassing werkt hetzelfde als van andere Service Fabric-toepassingen. Zie de documentatie over het [beheren van een Service Fabric-toepassing met de Service Fabric-CLI](service-fabric-application-lifecycle-sfctl.md) voor gedetailleerde instructies.
+Implementatie Hallo gebouwd toepassing is dezelfde als een andere Service Fabric-toepassing hello. Raadpleeg de documentatie Hallo op [het beheren van een Service Fabric-toepassing Hello Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md) voor gedetailleerde instructies.
 
-Parameters voor deze opdrachten vindt u in de gegenereerde manifesten binnen het toepassingspakket.
+Parameters toothese opdrachten vindt u in de manifesten in programmapakket Hallo Hallo gegenereerd.
 
-Nadat de toepassing is geïmplementeerd, opent u een browser en gaat u naar [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) op [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Vouw vervolgens het knooppunt **Toepassingen** uit. U ziet dat er nu een vermelding is voor uw toepassingstype en nog een voor het eerste exemplaar van dat type.
+Zodra het Hallo-toepassing is geïmplementeerd, open een browser en Ga naar [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) op [http://localhost: 19080/Explorer](http://localhost:19080/Explorer). Vouw vervolgens Hallo **toepassingen** knooppunt en er is nu een vermelding voor het toepassingstype van uw en een andere voor Hallo eerste exemplaar van dat type opmerking.
 
-## <a name="start-the-test-client-and-perform-a-failover"></a>De testclient starten en een failover uitvoeren
-Actorprojecten doen niets uit zichzelf. Ze hebben een andere service of client nodig die hen berichten stuurt. De actorsjabloon bevat een eenvoudig testscript dat u kunt gebruiken om te communiceren met de actorservice.
+## <a name="start-hello-test-client-and-perform-a-failover"></a>Hallo testclient Start en een failover uitvoeren
+Actorprojecten doen niets uit zichzelf. Vereist een andere service of client toosend ze berichten. Hallo actor-sjabloon bevat een eenvoudige test-script dat u toointeract met Hallo actor-service gebruiken kunt.
 
-1. Voer het script uit met behulp van het controleprogramma om de uitvoer van de actorservice te bekijken.
+1. Met behulp van Hallo controle hulpprogramma toosee Hallo uitvoer van Hallo actor service Hallo-script uitvoeren.
 
     ```bash
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh
     ```
-2. Zoek in Service Fabric Explorer het knooppunt op dat als host fungeert voor de primaire replica voor de actorservice. In de onderstaande schermafbeelding is dit knooppunt 3.
+2. Zoek knooppunt Hallo primaire replica voor Hallo actor service gehost in Service Fabric Explorer. In onderstaande Hallo schermafbeelding is het knooppunt 3.
 
-    ![Zoeken naar de primaire replica in Service Fabric Explorer][sfx-primary]
-3. Klik op het knooppunt dat u hebt gevonden in de vorige stap en selecteer vervolgens **Deactiveren (opnieuw starten)** in het menu Acties. Deze actie start één knooppunt in het lokale cluster opnieuw op om een failover af te dwingen naar een secundaire replica die wordt uitgevoerd op een ander knooppunt. Let terwijl u deze actie uitvoert op de uitvoer van de testclient en houd er rekening mee dat de teller blijft toenemen ondanks de failover.
+    ![Zoeken naar de primaire replica Hallo in Service Fabric Explorer][sfx-primary]
+3. Klik op Hallo knooppunt u gevonden in de vorige stap Hallo en selecteer vervolgens **uitschakelen (opnieuw opstarten)** van menu Hallo-acties. Deze actie wordt één knooppunt in het lokale cluster een failover-tooa secundaire replica uitgevoerd op een ander knooppunt geforceerd opnieuw opgestart. Als u deze actie uitvoert, betaalt u aandacht toohello uitvoer van Hallo testclient en opmerking dat Hallo item blijft tooincrement ondanks Hallo failover.
 
-## <a name="adding-more-services-to-an-existing-application"></a>Meer services toevoegen aan een bestaande toepassing
+## <a name="adding-more-services-tooan-existing-application"></a>Meer services tooan bestaande toepassing toe te voegen
 
-Voer de volgende stappen uit als u nog een service wilt toevoegen aan een toepassing die al is gemaakt met `yo`:
-1. Stel de directory in op de hoofdmap van de bestaande toepassing.  Bijvoorbeeld `cd ~/YeomanSamples/MyApplication` als `MyApplication` de toepassing is die is gemaakt door Yeoman.
+tooadd een andere service tooan toepassing al gemaakt met behulp van `yo`, Hallo volgende stappen uit te voeren:
+1. Toohello hoofdmap van de bestaande toepassing hello wijzigen.  Bijvoorbeeld: `cd ~/YeomanSamples/MyApplication`als `MyApplication` is gemaakt door Yeoman Hallo-toepassing.
 2. Voer `yo azuresfcsharp:AddService` uit.
 
-## <a name="migrating-from-projectjson-to-csproj"></a>Migreren van project.json naar .csproj
-1. Als u dotnet migrate uitvoert in de hoofdmap van het project, worden alle project.json gemigreerd naar de indeling csproj.
-2. Werk de projectverwijzingen in de projectbestanden op basis hiervan bij naar csproj-bestanden.
-3. Werk de projectbestandsnamen bij naar csproj-bestanden in build.sh.
+## <a name="migrating-from-projectjson-toocsproj"></a>Migreren van project.json too.csproj
+1. Uitgevoerd 'dotnet migreren' in de hoofdmap project worden alle Hallo project.json toocsproj indeling worden gemigreerd.
+2. Update Hallo project verwijst naar dienovereenkomstig toocsproj bestanden in de project-bestanden.
+3. Hallo bestand namen toocsproj projectbestanden in build.sh bijwerken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Meer informatie over Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Werken met Service Fabric-clusters via de Service Fabric-CLI](service-fabric-cli.md)
+* [Interactie met Service Fabric-clusters met Hallo Service Fabric CLI](service-fabric-cli.md)
 * Meer informatie over [ondersteuningsopties voor Service Fabric](service-fabric-support.md)
 * [Aan de slag met de Service Fabric-CLI](service-fabric-cli.md)
 

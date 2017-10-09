@@ -1,6 +1,6 @@
 ---
-title: Inleiding tot registratie van de stroom voor Netwerkbeveiligingsgroepen met Azure-netwerk-Watcher | Microsoft Docs
-description: Deze pagina wordt uitgelegd hoe u NSG stroom Logboeken gebruiken een functie van Azure-netwerk-Watcher
+title: aaaIntroduction tooflow logboekregistratie voor Netwerkbeveiligingsgroepen met Azure-netwerk-Watcher | Microsoft Docs
+description: Deze pagina wordt uitgelegd hoe toouse NSG stroom registreert voor een functie van Azure-netwerk-Watcher
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,56 +14,56 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: b7a9162d6c6219b6b1c51a49cd34b9616e9d3e8f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: da85e946147b14717144cb47d1c742057c6dfa24
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Inleiding tot registratie van de stroom voor Netwerkbeveiligingsgroepen
+# <a name="introduction-tooflow-logging-for-network-security-groups"></a>Inleiding tooflow logboekregistratie voor Netwerkbeveiligingsgroepen
 
-Netwerkbeveiligingsgroep stroom logboeken zijn een functie van netwerk-Watcher waarmee u informatie bekijken over inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep. Deze stroom logboeken zijn geschreven in json-indeling en binnenkomende en uitgaande stromen weergeven op basis van een per regel, de NIC die de stroom van toepassing, 5-tuple informatie over de stroom (bron/het doel-IP, bron/het doel-poort, het Protocol) en als het verkeer is toegestaan of geweigerd.
+Netwerkbeveiligingsgroep stroom logboeken zijn een functie van netwerk-Watcher waarmee u tooview informatie over inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep. Deze stroom logboeken zijn geschreven in json-indeling en weergeven van uitgaande en inkomende stromen per regel op basis van een Hallo NIC Hallo stroom is van toepassing op 5-tuple informatie over het Hallo-stroom (bron/het doel-IP, bron/het doel-poort, het Protocol) en als hello verkeer is toegestaan of geweigerd.
 
 ![Overzicht van de stroom-Logboeken][1]
 
-Stroom registreert Netwerkbeveiligingsgroepen doel, zijn ze niet dezelfde als de andere logboeken worden weergegeven. Stroom logboeken worden alleen binnen een opslagaccount en het pad van de logboekregistratie opgeslagen, zoals wordt weergegeven in het volgende voorbeeld:
+Terwijl de stroom registreert Netwerkbeveiligingsgroepen doel, worden ze niet weergegeven Hallo dezelfde als Hallo andere logboeken. Stroom logboeken worden opgeslagen alleen binnen een opslagaccount en een pad naar de volgende Hallo logboekregistratie, zoals wordt weergegeven in het volgende voorbeeld Hallo:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json
 ```
 
-Het bewaarbeleid dezelfde Denk op andere logboeken van toepassing op de logboeken van de stroom. Logboeken hebben een bewaarbeleid die kan worden ingesteld van 1 dag en 365 dagen. Als geen bewaarbeleid is ingesteld, worden de logboeken voor altijd bewaard.
+Hallo dezelfde bewaarbeleidsregels weergegeven op andere logboeken tooflow logboeken toegepast. Logboeken hebben een bewaarbeleid van 1 dag too365 dagen kan worden ingesteld. Als een bewaarbeleid niet is ingesteld, worden altijd Hallo logboeken gehandhaafd.
 
 ## <a name="log-file"></a>Logboekbestand
 
-Stroom logboeken hebben meerdere eigenschappen. De volgende lijst bevat een overzicht van de eigenschappen die worden geretourneerd binnen het NSG stroom logboek:
+Stroom logboeken hebben meerdere eigenschappen. Hallo bevat volgende lijst een overzicht van Hallo-eigenschappen die worden geretourneerd in Hallo NSG stroom logboek in:
 
-* **tijd** - tijd wanneer de gebeurtenis is vastgelegd
+* **tijd** - bij het Hallo-gebeurtenis is vastgelegd
 * **systeem-id** -Netwerkbeveiligingsgroep resource-id.
-* **categorie** -de categorie van de gebeurtenis is dit altijd NetworkSecurityGroupFlowEvent zijn
-* **ResourceID** -de resource-Id van de NSG
+* **categorie** -Hallo categorie van de gebeurtenis hello, is dit altijd NetworkSecurityGroupFlowEvent zijn
+* **ResourceID** -resource-Id van het NSG Hallo Hallo
 * **operationName** -altijd NetworkSecurityGroupFlowEvents
-* **eigenschappen** -een verzameling eigenschappen van de stroom
-    * **Versie** -versienummer van het schema van de event Log stromen
+* **eigenschappen** -een verzameling eigenschappen van Hallo stroom
+    * **Versie** -versienummer van Hallo stromen logboek gebeurtenis schema
     * **stromen** -een verzameling van stromen. Deze eigenschap heeft meerdere vermeldingen voor verschillende regels
-        * **regel** -regel voor de stromen worden weergegeven
+        * **regel** -regel voor welke Hallo stromen worden weergegeven
             * **stromen** -een verzameling van stromen
-                * **Mac** -het MAC-adres van de NIC voor de virtuele machine waar de stroom is verzameld
-                * **flowTuples** -een tekenreeks waarin meerdere eigenschappen voor de stroom-tuple in CSV-indeling
-                    * **Tijdstempel** -deze waarde is de tijdstempel van wanneer de stroom is opgetreden in de indeling van de UNIX-EPOCHE
-                    * **Bron-IP** -de bron-IP
-                    * **Bestemming IP** -de doel-IP
-                    * **Bronpoort** -de bronpoort
-                    * **Doelpoort** -poort van de bestemming
-                    * **Protocol** -het protocol van de stroom. Geldige waarden zijn **T** voor TCP- en **U** voor UDP
-                    * **Verkeer van de stroom** -de richting van het netwerkverkeer. Geldige waarden zijn **ik** voor binnenkomend en **O** voor uitgaand.
+                * **Mac** -MAC-adres van Hallo NIC voor VM waar Hallo-stroom werd verzameld Hallo Hallo
+                * **flowTuples** -een tekenreeks waarin meerdere eigenschappen voor Hallo stroom tuple in CSV-indeling
+                    * **Tijdstempel** -deze waarde is Hallo tijdstempel wanneer het Hallo-stroom is opgetreden in de indeling van de UNIX-EPOCHE
+                    * **Bron-IP** - hello bron-IP
+                    * **Bestemming IP** -Hallo doel-IP
+                    * **Bronpoort** - hello bronpoort
+                    * **Doelpoort** -Hallo doelpoort
+                    * **Protocol** -protocol van de stroom Hallo Hallo. Geldige waarden zijn **T** voor TCP- en **U** voor UDP
+                    * **Verkeer van de stroom** -Hallo richting van het Hallo-netwerkverkeer. Geldige waarden zijn **ik** voor binnenkomend en **O** voor uitgaand.
                     * **Verkeer** - of verkeer is toegestaan of geweigerd. Geldige waarden zijn **A** voor toegestaan en **D** voor geweigerd.
 
 
-Hier volgt een voorbeeld van een stroom voor logboekbestanden. Zoals u er zijn meerdere records die de lijst met eigenschappen die worden beschreven in de vorige sectie volgen ziet. 
+Hallo Hieronder volgt een voorbeeld van een stroom-logboek. Zoals u er zijn meerdere records die Hallo eigenschappenlijst beschreven in voorgaande sectie Hallo volgen ziet. 
 
 > [!NOTE]
-> Waarden in de eigenschap flowTuples zijn een door komma's gescheiden lijst.
+> Waarden in de eigenschap flowTuples Hallo zijn een door komma's gescheiden lijst.
  
 ```json
 {
@@ -102,7 +102,7 @@ Hier volgt een voorbeeld van een stroom voor logboekbestanden. Zoals u er zijn m
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Informatie over het inschakelen van stroom Logboeken in via [logboekregistratie inschakelen stromen](network-watcher-nsg-flow-logging-portal.md).
+Meer informatie over hoe tooenable stroom registreert in via [logboekregistratie inschakelen stromen](network-watcher-nsg-flow-logging-portal.md).
 
 Meer informatie over NSG logboekregistratie in via [Meld analytics voor netwerkbeveiligingsgroepen (nsg's)](../virtual-network/virtual-network-nsg-manage-log.md).
 

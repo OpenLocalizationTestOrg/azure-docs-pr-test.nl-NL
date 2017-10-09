@@ -1,6 +1,6 @@
 ---
-title: Met behulp van U-SQL cognitieve mogelijkheden in Azure Data Lake Analytics | Microsoft Docs
-description: Informatie over het gebruik van de intelligence cognitieve mogelijkheden in U-SQL
+title: U-SQL cognitieve mogelijkheden aaaUsing in Azure Data Lake Analytics | Microsoft Docs
+description: Meer informatie over hoe toouse Hallo intelligence van cognitieve mogelijkheden in U-SQL
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: f77329f9838d6e824afa7234de90f62257a004de
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c9ac71f490e929070fa0e72b93c3ffdb1ab243b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>Zelfstudie: Aan de slag met de cognitieve mogelijkheden van U-SQL
+# <a name="tutorial-get-started-with-hello-cognitive-capabilities-of-u-sql"></a>Zelfstudie: Aan de slag met Hallo cognitieve mogelijkheden van U-SQL
 
-Cognitieve mogelijkheden voor de U-SQL kunnen ontwikkelaars put intelligence gebruiken in hun big data-programma's. Het algehele proces in eenvoudig:
+Cognitieve mogelijkheden voor de U-SQL inschakelen ontwikkelaars toouse intelligence plaatsen in hun big data-programma's. algemene proces in eenvoudig Hello:
 
-* De referentie-ASSEMBLY-instructie voor het inschakelen van de cognitieve functies voor de U-SQL-Script gebruiken
-* De bewerking van het proces voor het gebruik van de mogelijkheden voor cognitieve aanroepen 
+* Hallo referentie-ASSEMBLY-instructie tooenable Hallo cognitieve functies voor Hallo U-SQL-Script gebruiken
+* Hallo proces bewerking aanroepen toouse Hallo cognitieve mogelijkheden 
 
 ## <a name="imaging-scenarios"></a>Scenario's voor Imaging
 
 ### <a name="example-image-tagging"></a>Voorbeeld: Installatiekopie tagging
 
-Het volgende voorbeeld ziet een end-to-end-gebruik van de installatiekopieën mogelijkheden voor het detecteren van objecten in de afbeeldingen.
+Hallo volgende voorbeeld ziet u een end-to-end-gebruik van Hallo imaging mogelijkheden toodetect objecten in de afbeeldingen.
 
     REFERENCE ASSEMBLY ImageCommon;
     REFERENCE ASSEMBLY FaceSdk;
@@ -44,7 +44,7 @@ Het volgende voorbeeld ziet een end-to-end-gebruik van de installatiekopieën mo
         FROM @"/images/{FileName:*}.jpg"
         USING new Cognition.Vision.ImageExtractor();
 
-    // Extract the number of objects on each image and tag them 
+    // Extract hello number of objects on each image and tag them 
     @objects =
         PROCESS @imgs 
         PRODUCE FileName,
@@ -120,7 +120,7 @@ Wordt ervan uitgegaan dat we door Leo Tolstoy invoer die uit 'War zekerheid best
                 Text
         USING new Cognition.Text.KeyPhraseExtractor();
 
-    // Tokenize the key phrases.
+    // Tokenize hello key phrases.
     @kpsplits =
         SELECT No,
             Year,

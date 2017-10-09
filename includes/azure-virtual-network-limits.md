@@ -1,4 +1,4 @@
-<a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement.
+<a name="virtual-networking-limits-classic"></a>Hallo volgende limieten gelden alleen voor netwerkresources die worden beheerd via de klassieke implementatiemodel Hallo per abonnement.
 
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
@@ -18,7 +18,7 @@
 | Toegangsbeheerlijsten voor eindpunt (ACL's) |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>Netwerklimieten - Azure Resource Manager
-De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via Azure Resource Manager. De beperkingen gelden per regio en per abonnement.
+Hallo volgende beperkingen gelden alleen voor resources die worden beheerd via Azure Resource Manager per regio per abonnement netwerken.
 
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
@@ -44,5 +44,5 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Punt-naar-site-basiscertificaten per VPN Gateway |20 |20 |
 | Secundaire IP-configuraties per virtueel netwerk |1000 |contact met ondersteuning |
 
-[Neem contact op met de ondersteuning](../articles/azure-supportability/resource-manager-core-quotas-request.md ) als u de standaardlimieten wilt verhogen.
+[Neem contact op met ondersteuning](../articles/azure-supportability/resource-manager-core-quotas-request.md ) geval u tooincrease limieten van standaardwaarde moet.
 

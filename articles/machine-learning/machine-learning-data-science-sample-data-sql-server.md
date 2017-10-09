@@ -1,5 +1,5 @@
 ---
-title: Voorbeeldgegevens in SQL Server op Azure | Microsoft Docs
+title: Gegevens in SQL Server op Azure aaaSample | Microsoft Docs
 description: Voorbeeldgegevens in SQL Server op Azure
 services: machine-learning
 documentationcenter: 
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: 1bdcc7175dac325de1144d805e977264524b3fbc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dc7f9529c771f6deb633775557e64a04b774f5b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="heading"></a>Voorbeeldgegevens in SQL Server op Azure
-Dit document wordt beschreven hoe voorbeeldgegevens die zijn opgeslagen in SQL Server op Azure met SQL of de programmeertaal Python. Ook ziet u hoe steekproefgegevens verplaatsen naar Azure Machine Learning door op een bestand op te slaan, uploaden naar een Azure-blob en vervolgens te lezen in Azure Machine Learning Studio.
+Dit document ziet u hoe toosample gegevens opgeslagen in SQL Server op Azure met SQL of Hallo Python programmeertaal. U ziet ook hoe toomove voorbeeldgegevens in Azure Machine Learning te slaan in tooa-bestand uploaden tooan Azure blob en vervolgens te lezen in Azure Machine Learning Studio.
 
-De steekproeven van Python gebruikt de [pyodbc](https://code.google.com/p/pyodbc/) ODBC-bibliotheek verbinding maken met SQL Server op Azure en de [Pandas](http://pandas.pydata.org/) bibliotheek te doen de steekproeven.
+Hallo Python steekproeven gebruikt Hallo [pyodbc](https://code.google.com/p/pyodbc/) ODBC-bibliotheek tooconnect tooSQL Server op Azure en Hallo [Pandas](http://pandas.pydata.org/) bibliotheek toodo Hallo steekproeven.
 
 > [!NOTE]
-> De SQL-voorbeeldcode in dit document wordt ervan uitgegaan dat de gegevens zich in een SQL-Server op Azure. Als dit niet het geval is, raadpleegt u [gegevens verplaatsen naar SQL Server op Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) onderwerp voor instructies over het verplaatsen van uw gegevens naar SQL Server op Azure.
+> Hallo voorbeeldcode SQL in dit document wordt ervan uitgegaan dat Hallo gegevens zich in een SQL-Server op Azure. Als dit niet het geval is, raadpleegt u te[verplaatsen van gegevens tooSQL Server op Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) onderwerp voor instructies over het toomove uw gegevens tooSQL Server op Azure.
 > 
 > 
 
-De volgende **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u voorbeeldgegevens uit verschillende omgevingen voor opslag. 
+Hallo volgende **menu** koppelingen tootopics waarin wordt beschreven hoe toosample gegevens uit verschillende omgevingen voor opslag. 
 
 [!INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 **Waarom een steekproef nemen uit uw gegevens?**
-Als de gegevensset die u wilt analyseren groot is, is het meestal een goed idee om de gegevens om deze aan de grootte van een kleinere maar representatief en gemakkelijker down-voorbeeld. Dit vereenvoudigt het begrip van de gegevens, exploratie en functie-engineering. De rol in de [Team gegevens wetenschap proces (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) is het inschakelen van snel maken van een prototype van de functies voor het verwerken van gegevens en machine learning-modellen.
+Als u van plan bent tooanalyze Hallo-gegevensset te groot is, is het meestal een goed idee Hallo toodown-sample data tooreduce het tooa kleiner, maar representatief en gemakkelijker grootte. Dit vereenvoudigt het begrip van de gegevens, exploratie en functie-engineering. De rol in Hallo [Team gegevens wetenschap proces (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) is tooenable snel maken van een prototype van Hallo gegevensverwerking functies en machine learning-modellen.
 
-Deze taak steekproeven is een stap in de [Team gegevens wetenschap proces (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Deze taak steekproeven is een stap in Hallo [Team gegevens wetenschap proces (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## <a name="SQL"></a>Met behulp van SQL
-Deze sectie beschrijft de verschillende methoden met SQL voor het uitvoeren van eenvoudige willekeurige steekproef op basis van de gegevens in de database. Kies een methode op basis van de gegevensgrootte van uw en de distributie.
+Deze sectie beschrijft de verschillende methoden met behulp van SQL tooperform eenvoudige steekproeven op Hallo gegevens in Hallo-database. Kies een methode op basis van de gegevensgrootte van uw en de distributie.
 
-De volgende twee items laten zien hoe newid in SQL Server gebruikt de steekproeven uitvoeren. Welke methode u kiest is afhankelijk van hoe willekeurige u wilt dat de steekproef worden (pk_id in de volgende voorbeeldcode wordt ervan uitgegaan dat een automatisch gegenereerde primaire sleutel).
+Hallo twee items hieronder laten zien hoe toouse newid in SQL Server-tooperform steekproeven Hallo. Hallo methode u kiest is afhankelijk van hoe willekeurige Hallo voorbeeld toobe gewenste (pk_id in Hallo voorbeeldcode hieronder wordt aangenomen dat een automatisch gegenereerde primaire sleutel toobe).
 
 1. Minder strikte steekproef
    
@@ -53,7 +53,7 @@ De volgende twee items laten zien hoe newid in SQL Server gebruikt de steekproev
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-Component TABLESAMPLE kan worden gebruikt voor steekproeven evenals gedemonstreerd hieronder. Dit kan een betere benadering zijn als de gegevensgrootte van uw groot is (ervan uitgaande dat de gegevens op verschillende pagina's worden niet gecorreleerd) en voor de query uit te voeren in een redelijke tijd.
+Component TABLESAMPLE kan worden gebruikt voor steekproeven evenals gedemonstreerd hieronder. Dit kan een betere benadering zijn als de gegevensgrootte van uw groot is (ervan uitgaande dat de gegevens op verschillende pagina's worden niet gecorreleerd) en voor Hallo query toocomplete binnen een redelijke tijd.
 
     SELECT *
     FROM <table_name> 
@@ -64,34 +64,34 @@ Component TABLESAMPLE kan worden gebruikt voor steekproeven evenals gedemonstree
 > 
 > 
 
-### <a name="sql-aml"></a>Verbinding maken met Azure Machine Learning
-U kunt rechtstreeks de voorbeeldquery's boven in de Azure Machine Learning [importgegevens] [ import-data] module die u wilt de gegevens onderweg down-voorbeeld en brengt u het in een Azure Machine Learning-experiment. Een schermafbeelding van de module reader gebruikt om te lezen van de steekproefgegevens wordt hieronder weergegeven:
+### <a name="sql-aml"></a>Verbinding maken met tooAzure Machine Learning
+U kunt rechtstreeks Hallo voorbeeldquery's boven in hello Azure Machine Learning [importgegevens] [ import-data] module toodown voorbeeld Hallo gegevens op Hallo vliegen en brengt u het in een Azure Machine Learning-experiment. Een schermopname van het gebruik van Hallo lezer module tooread Hallo door actieve gegevens wordt hieronder weergegeven:
 
 ![lezer sql][1]
 
-## <a name="python"></a>Met behulp van de programmeertaal Python
-Deze sectie wordt gedemonstreerd met behulp van de [pyodbc bibliotheek](https://code.google.com/p/pyodbc/) tot stand brengen van een ODBC verbinding maken met een SQL server-database in Python. De tekenreeks voor databaseverbinding is als volgt: (vervangen servername, dbname, username en password door uw configuratie):
+## <a name="python"></a>Gebruik Hallo Python programmeertaal
+Deze sectie wordt gedemonstreerd met behulp van Hallo [pyodbc bibliotheek](https://code.google.com/p/pyodbc/) tooestablish ODBC verbinding tooa SQL server-database in Python. Hallo databaseverbindingsreeks is als volgt: (vervangen servername, dbname, username en password door uw configuratie):
 
-    #Set up the SQL Azure connection
+    #Set up hello SQL Azure connection
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-De [Pandas](http://pandas.pydata.org/) in Python-bibliotheek biedt een uitgebreide set gegevensstructuren en hulpprogramma's voor gegevensanalyse voor gegevensmanipulatie voor het programmeren van Python. De onderstaande code leest een steekproef 0,1% van de gegevens uit een tabel in Azure SQL-database in een Pandas-gegevens:
+Hallo [Pandas](http://pandas.pydata.org/) in Python-bibliotheek biedt een uitgebreide set gegevensstructuren en hulpprogramma's voor gegevensanalyse voor gegevensmanipulatie voor het programmeren van Python. Hallo-code hieronder leest een steekproef 0,1% Hallo gegevens uit een tabel in Azure SQL-database in een Pandas-gegevens:
 
     import pandas as pd
 
-    # Query database and load the returned results in pandas data frame
+    # Query database and load hello returned results in pandas data frame
     data_frame = pd.read_sql('''select column1, cloumn2... from <table_name> tablesample (0.1 percent)''', conn)
 
-Nu kunt u werken met de steekproefgegevens in het kader van de gegevens Pandas. 
+Nu kunt u werken met Hallo door actieve gegevens in Hallo Pandas gegevensframe. 
 
-### <a name="python-aml"></a>Verbinding maken met Azure Machine Learning
-U kunt de volgende voorbeeldcode omlaag actieve gegevens naar een bestand opslaan en upload dit naar een Azure-blob. De gegevens in de blob rechtstreeks kunnen worden gelezen in een Azure Machine Learning-Experiment met behulp van de [importgegevens] [ import-data] module. De stappen zijn als volgt: 
+### <a name="python-aml"></a>Verbinding maken met tooAzure Machine Learning
+U kunt na de code toosave Hallo omlaag actieve tooa voorbeeldgegevensbestand hello gebruiken en tooan Azure-blob te uploaden. Hallo-gegevens in blob Hallo kan worden rechtstreeks gelezen in een Azure Machine Learning-Experiment met Hallo [importgegevens] [ import-data] module. Hallo stappen zijn als volgt: 
 
-1. Het frame pandas-gegevens schrijven naar een lokaal bestand
+1. Hallo pandas frame tooa lokale gegevensbestand schrijven
    
         dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
-2. Lokaal bestand uploaden naar Azure blob
+2. Lokaal bestand tooAzure blob uploaden
    
         from azure.storage import BlobService
         import tables
@@ -112,12 +112,12 @@ U kunt de volgende voorbeeldcode omlaag actieve gegevens naar een bestand opslaa
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Gegevens lezen uit Azure blob met Azure Machine Learning [importgegevens] [ import-data] module, zoals wordt weergegeven in het scherm schermafbeelding hieronder:
+3. Gegevens lezen uit Azure blob met Azure Machine Learning [importgegevens] [ import-data] module, zoals wordt weergegeven in Hallo scherm schermafbeelding hieronder:
 
 ![lezer blob][2]
 
-## <a name="the-team-data-science-process-in-action-example"></a>De procedure van wetenschappelijke gegevens Team in actie voorbeeld
-Zie voor een overzicht van de end-to-end voorbeeld van het Team gegevens wetenschap proces een met een openbare gegevensset [Team gegevens wetenschappelijke processen in actie: SQL-Server](machine-learning-data-science-process-sql-walkthrough.md).
+## <a name="hello-team-data-science-process-in-action-example"></a>Hallo Team gegevens wetenschappelijke processen in actie voorbeeld
+Zie voor een overzicht van de end-to-end voorbeeld Hallo Team gegevens wetenschappelijke processen een met een openbare gegevensset [Team gegevens wetenschappelijke processen in actie: SQL-Server](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png

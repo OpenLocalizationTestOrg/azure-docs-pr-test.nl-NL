@@ -25,15 +25,15 @@
 # Procedures
 
 ## [Gebruikersgegevens migreren vanuit Azure RemoteApp](remoteapp-migrate.md)
-## [Migreren naar MyCloudIT](remoteapp-migrate-mycloudit.md)
-## [Migreren naar Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
+## [TooMyCloudIT migreren](remoteapp-migrate-mycloudit.md)
+## [TooCitrix XenApp Essentials migreren](remoteapp-migrate-citrix.md)
 ## Een RemoteApp-verzameling maken
 ### [Welke verzameling hebt u nodig?](remoteapp-collections.md)
 ### [Een cloudverzameling maken](remoteapp-create-cloud-deployment.md)
 ### [Een hybride verzameling maken](remoteapp-create-hybrid-deployment.md)
 ### [Uw verzameling bijwerken](remoteapp-update.md)
 ### [Een RemoteApp-installatiekopie maken](remoteapp-imageoptions.md)
-### [Wat is opgenomen in de sjablooninstallatiekopie?](remoteapp-images.md)
+### [Wat is er in het Hallo-sjablooninstallatiekopie?](remoteapp-images.md)
 ### [Vereisten voor installatiekopieën](remoteapp-imagereqs.md)
 ### [Een installatiekopie uploaden](remoteapp-uploadimage.md)
 ### [Een installatiekopie maken van een Azure VM](remoteapp-image-on-azurevm.md)
@@ -41,13 +41,13 @@
 ### [Uw VNET plannen](remoteapp-planvnet.md)
 ### [Poort- en URL-gegevens](remoteapp-ports.md)
 ### [Uw VNET valideren](remoteapp-vnet.md)
-### [Migreren naar een Azure VNET](remoteapp-migratevnet.md)
+### [Migreren van tooan Azure VNET](remoteapp-migratevnet.md)
 ## Toepassingen publiceren
-### [Een app publiceren](remoteapp-publish.md)
+### [Hoe toopublish een app](remoteapp-publish.md)
 ## Gebruikers beheren
-### [Gebruikers toevoegen](remoteapp-user.md)
+### [Hoe gebruikers tooadd](remoteapp-user.md)
 ### [Active Directory configureren](remoteapp-ad.md)
-### [De Azure AD-tenant wijzigen](remoteapp-changetenant.md)
+### [Hello Azure AD-tenant wijzigen](remoteapp-changetenant.md)
 ### [Office 365-gebruikersaccounts](remoteapp-o365user.md)
 ### [Beveiligde gegevens](remoteapp-secureaccess.md)
 ### [Gebruikersgegevens](remoteapp-upd.md)

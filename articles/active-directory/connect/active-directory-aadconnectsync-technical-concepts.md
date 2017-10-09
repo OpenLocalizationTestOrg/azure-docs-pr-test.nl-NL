@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect-synchronisatie: technische concepten | Microsoft Docs'
-description: Legt uit de technische concepten van Azure AD Connect-synchronisatie.
+description: Legt uit Hallo technische concepten van Azure AD Connect-synchronisatie.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: 6cf8debc6443bb60fc5f601ea4aa392eb2f13a8f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c6309bb9be462fb3d49c5b6ab302d4327ce4b7be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect-synchronisatie: technische concepten
-In dit artikel is een overzicht van het onderwerp [Understanding architectuur](active-directory-aadconnectsync-technical-concepts.md).
+In dit artikel wordt een samenvatting van Hallo onderwerp [Understanding architectuur](active-directory-aadconnectsync-technical-concepts.md).
 
 Azure AD Connect-synchronisatie is gebaseerd op een effen metadirectory synchronisatie-platform.
-De volgende secties vindt de concepten voor metadirectory synchronisatie.
-Bouwt voort op MIIS, ILM en FIM, biedt Azure Active Directory Sync Services de volgende platform voor verbinding maken met gegevensbronnen, synchroniseren van gegevens tussen gegevensbronnen, evenals de inrichting en het opheffen van inrichting van identiteiten.
+Hallo uit te voeren introduceren Hallo concepten voor metadirectory synchronisatie.
+Bouwt voort op MIIS, ILM en FIM, biedt hello Azure Active Directory Sync Services Hallo volgende platform voor verbindende toodata bronnen, synchroniseren van gegevens tussen gegevensbronnen, evenals Hallo inrichting en het opheffen van inrichting van identiteiten.
 
 ![Technische concepten](./media/active-directory-aadconnectsync-technical-concepts/scenario.png)
 
-De volgende secties bevatten meer informatie over de volgende aspecten van de FIM-synchronisatieservice:
+Hallo volgende secties vindt u meer informatie over de volgende aspecten van FIM-synchronisatieservice Hallo Hallo:
 
 * Connector
 * Kenmerkstroom
@@ -38,51 +38,50 @@ De volgende secties bevatten meer informatie over de volgende aspecten van de FI
 * Inrichten
 
 ## <a name="connector"></a>Connector
-De codemodules die worden gebruikt om te communiceren met een gekoppelde adreslijst worden connectors (voorheen bekend als beheeragents (MAs)) genoemd.
+Hallo codemodules die u gebruikte toocommunicate met een gekoppelde adreslijst worden connectors (voorheen bekend als beheeragents (MAs)) genoemd.
 
-Deze wordt geïnstalleerd op de computer met Azure AD Connect-synchronisatie.
-De connectors bieden zonder agent kunnen manier converseren door extern systeem te gebruiken in plaats van te vertrouwen op de implementatie van gespecialiseerde agents. Dit betekent dat minder risico en implementatietijden, vooral wanneer omgaan met bedrijfskritieke toepassingen en systemen.
+Deze wordt geïnstalleerd op het Hallo-computer waarop Azure AD Connect-synchronisatie wordt uitgevoerd. Hallo-connectors bieden Hallo zonder agent mogelijkheid tooconverse door extern systeem te gebruiken in plaats van te vertrouwen op Hallo-implementatie van gespecialiseerde agents. Dit betekent dat minder risico en implementatietijden, vooral wanneer omgaan met bedrijfskritieke toepassingen en systemen.
 
-In de bovenstaande afbeelding is de connector is gelijk aan het connectorgebied overgebracht, maar omvat alle communicatie met het externe systeem.
+In Hallo afbeelding hierboven Hallo-connector is synoniem met Hallo connectorgebied overgebracht maar omvat alle communicatie met het externe systeem Hallo.
 
-De connector is verantwoordelijk voor alle importeren en exporteren functionaliteit aan het systeem en ontwikkelaars van hoeft te begrijpen hoe u verbinding maken met elk systeem systeemeigen gegevenstransformaties aanpassen met declaratieve inrichting maakt.
+Hallo-connector is verantwoordelijk voor alle importeren en exporteren van functionaliteit toohello system en ontwikkelaars van toounderstand hoe hoeven maakt tooconnect tooeach system systeemeigen bij gebruik van declaratieve inrichting toocustomize gegevenstransformaties.
 
-Invoer en uitvoer alleen worden uitgevoerd als gepland, waardoor verdere isolatie van veranderingen in het systeem omdat wijzigingen niet automatisch naar de gekoppelde gegevensbron doorgegeven kunnen. Ontwikkelaars kunnen bovendien ook hun eigen connectors voor het verbinden met vrijwel elke gegevensbron maken.
+Invoer en uitvoer alleen worden uitgevoerd als gepland, waardoor meer isolatie van veranderingen in Hallo-systeem, omdat wijzigingen niet automatisch de gekoppelde gegevensbron toohello doorgeven. Ontwikkelaars kunnen bovendien ook hun eigen connectors voor het verbinden van toovirtually een gegevensbron maken.
 
 ## <a name="attribute-flow"></a>Kenmerkstroom
-De metaverse is de geconsolideerde weergave van alle gekoppelde identiteiten van de aangrenzende connectorspaces. Kenmerkstroom wordt in de figuur hierboven is beschreven door regels met pijlpunten voor stroom inkomende en uitgaande. Kenmerkstroom is het proces van het kopiëren of omzetten van gegevens van het ene systeem naar een andere en alle kenmerk stromen (inkomend of uitgaand).
+Hallo metaverse is Hallo geconsolideerde weergave van alle gekoppelde identiteiten van de aangrenzende connectorspaces. Kenmerkstroom wordt in Hallo figuur hierboven is beschreven door regels met pijlpunten voor stroom inkomende en uitgaande. Kenmerkstroom is Hallo proces kopiëren of omzetten van gegevens uit één systeem tooanother en alle kenmerk stromen (inkomend of uitgaand).
 
-Kenmerkstroom vindt plaats tussen het connectorgebied overgebracht en de metaverse twee richtingen als synchronisatiebewerkingen (volledige of delta) zijn gepland.
+Kenmerkstroom vindt plaats tussen Hallo connectorruimte en metaverse Hallo twee richtingen als synchronisatiebewerkingen (volledige of delta) geplande toorun zijn.
 
-Kenmerkstroom treedt alleen op wanneer deze synchronisaties worden uitgevoerd. Kenmerkstromen zijn in synchronisatieregels gedefinieerd. Deze kunnen zich inkomende ISR (in de bovenstaande afbeelding) of uitgaande (OSR in de bovenstaande afbeelding).
+Kenmerkstroom treedt alleen op wanneer deze synchronisaties worden uitgevoerd. Kenmerkstromen zijn in synchronisatieregels gedefinieerd. Deze kunnen binnenkomende (ISR in hierboven Hallo afbeelding) of uitgaande (OSR in Hallo figuur hierboven) zijn.
 
 ## <a name="connected-system"></a>Verbonden systeem
-Verbonden systeem (aka verbonden directory) verwijst naar het externe systeem Azure AD Connect sync is verbonden met en leest en schrijft van identiteitsgegevens naar en van.
+Verbonden systeem (aka verbonden directory) verwijst toohello extern systeem Azure AD Connect-synchronisatie is verbonden tooand lezen en schrijven van identiteit gegevens tooand uit.
 
 ## <a name="connector-space"></a>Connectorgebied
-Elke verbonden gegevensbron wordt weergegeven als een gefilterde subset van de objecten en kenmerken in het connectorgebied overgebracht.
-Hiermee kan de synchronisatieservice lokaal werken zonder de noodzaak contact opnemen met het externe systeem bij het synchroniseren van de objecten en beperkt-interactie voor invoer en uitvoer alleen.
+Elke verbonden gegevensbron wordt weergegeven als een gefilterde subset van het Hallo-objecten en kenmerken in Hallo connectorgebied overgebracht.
+Hiermee kan Hallo sync-service toooperate lokaal zonder Hallo nodig toocontact Hallo extern systeem bij het synchroniseren van Hallo-objecten en interactie tooimports beperkt en alleen exporteert.
 
-Wanneer de gegevensbron en de connector hebt de mogelijkheid om te voorzien in een lijst met wijzigingen (een delta-import), klikt u vervolgens stijgt de operationele efficiëntie aanzienlijk als alleen wijzigingen sinds de laatste polling-cyclus worden uitgewisseld. Het connectorgebied overgebracht schermt de gekoppelde gegevensbron uit wijzigingen doorgeven automatisch door te vereisen dat de planning van de connector importeert en exporteert. Deze extra verzekering verleent u gemoedsrust tijdens het testen, bekijken of bevestiging van de volgende update.
+Wanneer Hallo-gegevensbron en Hallo connector Hallo mogelijkheid tooprovide een lijst met wijzigingen (een delta-import), worden vervolgens Hallo operationele efficiëntie toeneemt aanzienlijk zoals enkel wijzigingen sinds de laatste polling Hallo cyclus uitgewisseld. Hallo connectorgebied overgebracht schermt Hallo verbonden gegevensbron uit wijzigingen doorgeven automatisch door te vereisen van dat die connector Hallo planning invoer en uitvoer. Deze extra verzekering verleent u gemoedsrust tijdens het testen, bekijken of de volgende update Hallo bevestigen.
 
 ## <a name="metaverse"></a>Metaverse
-De metaverse is de geconsolideerde weergave van alle gekoppelde identiteiten van de aangrenzende connectorspaces.
+Hallo metaverse is Hallo geconsolideerde weergave van alle gekoppelde identiteiten van de aangrenzende connectorspaces.
 
-Als identiteiten aan elkaar zijn gekoppeld en instantie is toegewezen voor verschillende kenmerken via stroomtoewijzingen importeren, wordt de status van de centrale metaverse-object begint met het verzamelde gegevens uit meerdere systemen. Toewijzingen uitvoeren van deze overdracht van het kenmerk object informatie naar uitgaande systemen.
+Als identiteiten aan elkaar zijn gekoppeld en instantie is toegewezen voor verschillende kenmerken via stroomtoewijzingen importeren, begint Hallo centrale metaverse-object tooaggregate gegevens uit meerdere systemen. Toewijzingen uitvoeren van deze overdracht van het kenmerk object toooutbound informatiesystemen.
 
-Objecten worden gemaakt wanneer een bindende systeem ze naar de metaverse-projecten. Zodra alle verbindingen zijn verwijderd, wordt het metaverse-object verwijderd.
+Objecten worden gemaakt wanneer een bindende systeem ze naar Hallo metaverse-projecten. Zodra alle verbindingen zijn verwijderd, is Hallo metaverse-object verwijderd.
 
-Objecten in de metaverse kunnen niet rechtstreeks worden bewerkt. Alle gegevens in het object moet worden bijgedragen via kenmerkstroom. De metaverse onderhoudt permanente connectors met elke connectorgebied overgebracht. Deze connectors hoeven niet opnieuw evalueren voor elke synchronisatie uitvoeren. Dit betekent dat dat Azure AD Connect-synchronisatie geen telkens wanneer voor de overeenkomende externe object vinden. Dit voorkomt dat de behoefte aan dure agents om te voorkomen dat wijzigingen in kenmerken die normaal gesproken verantwoordelijk is voor het correleren van de objecten.
+Objecten in de metaverse Hallo kunnen niet rechtstreeks worden bewerkt. Alle gegevens in het Hallo-object moet worden bijgedragen via kenmerkstroom. Hallo metaverse onderhoudt permanente connectors met elke connectorgebied overgebracht. Deze connectors hoeven niet opnieuw evalueren voor elke synchronisatie uitvoeren. Dit betekent dat dat Azure AD Connect-synchronisatie geen toolocate Hallo overeenkomende externe object telkens. Zo voorkomt u Hallo behoefte aan dure agents tooprevent wijzigingen tooattributes die normaal gesproken verantwoordelijk is voor het correleren Hallo-objecten.
 
-Bij het detecteren van nieuwe gegevensbronnen die wellicht al bestaande objecten die moeten worden beheerd, Azure AD Connect-synchronisatie maakt gebruik van een proces genaamd een join-regel om te evalueren mogelijke kandidaten waarmee een koppeling tot stand brengen.
-Wanneer de koppeling is gemaakt, wordt deze evaluatie niet meer optreedt en normale kenmerkstroom kan optreden tussen de verbonden externe gegevensbron en de metaverse.
+Wanneer het detecteren van nieuwe gegevensbronnen die al bestaande objecten dat wordt beheerd wellicht, toobe maakt gebruik van Azure AD Connect-synchronisatie moet een proces een join regel tooevaluate mogelijke kandidaten met welke tooestablish koppeling genoemd.
+Zodra Hallo koppeling tot stand is gebracht, wordt deze evaluatie niet meer optreedt en normale kenmerkstroom kan plaatsvinden tussen Hallo externe verbonden gegevensbron en Hallo metaverse.
 
 ## <a name="provisioning"></a>Inrichten
-Wanneer een gezaghebbende bronprojecten kan een nieuw object naar de metaverse een nieuw object van de connector-ruimte in een andere Connector voor een downstream verbonden gegevensbron worden gemaakt.
+Wanneer een gezaghebbende bronprojecten kan een nieuw object naar Hallo metaverse een nieuw object van de connector-ruimte in een andere Connector voor een downstream verbonden gegevensbron worden gemaakt.
 
 Dit inherent legt een koppeling vast en kenmerkstroom twee richtingen kunt doorgaan.
 
-Wanneer een regel bepaalt dat er een nieuw object van de connector-ruimte moet worden gemaakt, wordt het genoemd inrichten. Echter, omdat deze bewerking alleen uitgevoerd binnen het connectorgebied overgebracht wordt, deze komt niet meegenomen in de gekoppelde gegevensbron totdat het exporteren van een wordt uitgevoerd.
+Wanneer een regel bepaalt dat er een nieuw object van de connector-ruimte toobe gemaakt moet, wordt het genoemd inrichten. Echter omdat deze bewerking alleen uitgevoerd binnen Hallo connectorgebied overgebracht wordt, wordt deze niet meegenomen in de gekoppelde gegevensbron Hallo totdat het exporteren van een wordt uitgevoerd.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 * [Azure AD Connect-synchronisatie: Synchronisatie-opties voor aanpassen](active-directory-aadconnectsync-whatis.md)

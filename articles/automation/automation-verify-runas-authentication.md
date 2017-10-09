@@ -1,6 +1,6 @@
 ---
-title: Een Azure Automation-account valideren | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u kunt controleren of uw Automation-account juist is geconfigureerd.
+title: configuratie van aaaValidate Azure Automation-account | Microsoft Docs
+description: Dit artikel wordt beschreven hoe tooconfirm Hallo configuratie van uw Automation-account juist is geconfigureerd.
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 804e05f596e1d6d5f650e4c94a18eff6b7c3ba4e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 3a990dcc6661cf67c4b62592ce03d55a3791053a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>De verificatie van een Azure Automation Uitvoeren als-account testen
-Nadat een Automation-account is gemaakt, kunt u een eenvoudige test uitvoeren om te controleren of u zich met het zojuist gemaakte of bijgewerkte Automation Uitvoeren als-account kunt verifiëren in Azure Resource Manager of de klassieke Azure-implementatie.    
+Nadat een Automation-account is gemaakt, kunt u een eenvoudige test tooconfirm kunt uitvoeren toosuccessfully zich verifiëren bij Azure Resource Manager of Azure-klassieke implementatie met behulp van uw nieuwe of bijgewerkte Automation Run As-account.    
 
 ## <a name="automation-run-as-authentication"></a>Automation Uitvoeren als-verificatie
-Gebruik de voorbeeldcode hieronder om [een PowerShell-runbook te maken](automation-creating-importing-runbook.md) om verificatie met behulp van het Uitvoeren als-account te controleren. Gebruik deze voorbeeldcode ook in de aangepaste runbooks om Resource Manager-resources te beheren met behulp van het Automation-account.   
+Hallo voorbeeldcode hieronder ook gebruiken[maken van een PowerShell-runbook](automation-creating-importing-runbook.md) tooverify-verificatie met behulp van Hallo uitvoeren als-account en uw aangepaste runbooks tooauthenticate en Resource Manager-resources beheren met uw Automation-account.   
 
     $connectionName = "AzureRunAsConnection"
     try
     {
-        # Get the connection "AzureRunAsConnection "
+        # Get hello connection "AzureRunAsConnection "
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
-        "Logging in to Azure..."
+        "Logging in tooAzure..."
         Add-AzureRmAccount `
            -ServicePrincipal `
            -TenantId $servicePrincipalConnection.TenantId `
@@ -64,50 +64,50 @@ Gebruik de voorbeeldcode hieronder om [een PowerShell-runbook te maken](automati
        Write-Output ("")
     } 
 
-De cmdlet die wordt gebruikt voor verificatie in het runbook - **Add-AzureRmAccount**, gebruikt de parameterset *ServicePrincipalCertificate*.  In plaats van referenties wordt voor verificatie het certificaat van de service-principal gebruikt.  
+Let op Hallo van cmdlet gebruikt voor de verificatie in Hallo runbook - **Add-AzureRmAccount**, gebruikt Hallo *ServicePrincipalCertificate* parameterset.  In plaats van referenties wordt voor verificatie het certificaat van de service-principal gebruikt.  
 
-Wanneer u [het runbook uitvoert](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) om het Uitvoeren als-account te valideren, wordt een [runbooktaak](automation-runbook-execution.md) gemaakt, de blade Taak weergegeven en de taakstatus weergegeven in de tegel **Taaksamenvatting**. In eerste instantie is de taakstatus *In de wachtrij geplaatst*. Hiermee wordt aangegeven dat er wordt gewacht tot in de cloud een runbook-werkrol beschikbaar is. De taakstatus verandert daarna in *Starten* wanneer een werkrol de taak claimt en daarna in *Wordt uitgevoerd* wanneer het runbook daadwerkelijk wordt uitgevoerd.  Wanneer de runbooktaak is voltooid, is de status **Voltooid**.
+Wanneer u [hello runbook uitvoeren](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) toovalidate uw Run As-account een [runbooktaak](automation-runbook-execution.md) is gemaakt, Hallo taakblade wordt weergegeven en Hallo taakstatus wordt weergegeven in Hallo **taakoverzicht**tegel. Hallo taakstatus wordt gestart als *in de wachtrij geplaatst* die aangeeft dat er wordt gewacht tot een runbook worker in Hallo cloud toobecome beschikbaar. Verandert daarna te*starten* wanneer een werknemer claims Hallo taak, en vervolgens *met* wanneer Hallo runbook daadwerkelijk wordt uitgevoerd.  Wanneer de runbooktaak Hallo is voltooid, zien we de status van **voltooid**.
 
-Klik op de tegel **Uitvoer** als u de gedetailleerde resultaten van het runbook wilt bekijken.  Op de blade **Uitvoer** ziet u dat de verificatie is geslaagd. Er wordt ook een lijst met alle resources in alle resourcegroepen weergegeven.  
+toosee Hallo gedetailleerde resultaten van Hallo runbook, klikt u op Hallo **uitvoer** tegel.  Op Hallo **uitvoer** blade ziet u het is geverifieerd en retourneert een lijst van alle resources in alle resourcegroepen in uw abonnement.  
 
-Vergeet niet om het codeblok dat begint met de opmerking `#Get all ARM resources from all resource groups`, te verwijderen wanneer u de code voor de runbooks hergebruikt.
+Let erop dat tooremove Hallo codeblok beginnen met Hallo Opmerking `#Get all ARM resources from all resource groups` wanneer u code opnieuw gebruiken Hallo voor uw runbooks.
 
 ## <a name="classic-run-as-authentication"></a>Klassieke Uitvoeren als-verificatie
-Gebruik de voorbeeldcode hieronder om [een PowerShell-runbook te maken](automation-creating-importing-runbook.md) om verificatie met behulp van het klassieke Uitvoeren als-account te controleren. Gebruik deze voorbeeldcode ook in de aangepaste runbooks om resources in het klassieke implementatiemodel te verifiëren en te beheren.  
+Hallo voorbeeldcode hieronder ook gebruiken[een PowerShell-runbook maken](automation-creating-importing-runbook.md) tooverify verificatie met behulp van klassieke Hallo uitvoeren als-account en uw aangepaste runbooks tooauthenticate en resources in het klassieke implementatiemodel Hallo beheren.  
 
     $ConnectionAssetName = "AzureClassicRunAsConnection"
-    # Get the connection
+    # Get hello connection
     $connection = Get-AutomationConnection -Name $connectionAssetName        
 
-    # Authenticate to Azure with certificate
+    # Authenticate tooAzure with certificate
     Write-Verbose "Get connection asset: $ConnectionAssetName" -Verbose
     $Conn = Get-AutomationConnection -Name $ConnectionAssetName
     if ($Conn -eq $null)
     {
-       throw "Could not retrieve connection asset: $ConnectionAssetName. Assure that this asset exists in the Automation account."
+       throw "Could not retrieve connection asset: $ConnectionAssetName. Assure that this asset exists in hello Automation account."
     }
 
     $CertificateAssetName = $Conn.CertificateAssetName
-    Write-Verbose "Getting the certificate: $CertificateAssetName" -Verbose
+    Write-Verbose "Getting hello certificate: $CertificateAssetName" -Verbose
     $AzureCert = Get-AutomationCertificate -Name $CertificateAssetName
     if ($AzureCert -eq $null)
     {
-       throw "Could not retrieve certificate asset: $CertificateAssetName. Assure that this asset exists in the Automation account."
+       throw "Could not retrieve certificate asset: $CertificateAssetName. Assure that this asset exists in hello Automation account."
     }
 
-    Write-Verbose "Authenticating to Azure with certificate." -Verbose
+    Write-Verbose "Authenticating tooAzure with certificate." -Verbose
     Set-AzureSubscription -SubscriptionName $Conn.SubscriptionName -SubscriptionId $Conn.SubscriptionID -Certificate $AzureCert
     Select-AzureSubscription -SubscriptionId $Conn.SubscriptionID
     
-    #Get all VMs in the subscription and return list with name of each
+    #Get all VMs in hello subscription and return list with name of each
     Get-AzureVM | ft Name
 
-Wanneer u [het runbook uitvoert](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) om het Uitvoeren als-account te valideren, wordt een [runbooktaak](automation-runbook-execution.md) gemaakt, de blade Taak weergegeven en de taakstatus weergegeven in de tegel **Taaksamenvatting**. In eerste instantie is de taakstatus *In de wachtrij geplaatst*. Hiermee wordt aangegeven dat er wordt gewacht tot in de cloud een runbook-werkrol beschikbaar is. De taakstatus verandert daarna in *Starten* wanneer een werkrol de taak claimt en daarna in *Wordt uitgevoerd* wanneer het runbook daadwerkelijk wordt uitgevoerd.  Wanneer de runbooktaak is voltooid, is de status **Voltooid**.
+Wanneer u [hello runbook uitvoeren](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) toovalidate uw Run As-account een [runbooktaak](automation-runbook-execution.md) is gemaakt, Hallo taakblade wordt weergegeven en Hallo taakstatus wordt weergegeven in Hallo **taakoverzicht**tegel. Hallo taakstatus wordt gestart als *in de wachtrij geplaatst* die aangeeft dat er wordt gewacht tot een runbook worker in Hallo cloud toobecome beschikbaar. Verandert daarna te*starten* wanneer een werknemer claims Hallo taak, en vervolgens *met* wanneer Hallo runbook daadwerkelijk wordt uitgevoerd.  Wanneer de runbooktaak Hallo is voltooid, zien we de status van **voltooid**.
 
-Klik op de tegel **Uitvoer** als u de gedetailleerde resultaten van het runbook wilt bekijken.  Op de blade **Uitvoer** ziet u dat de verificatie is geslaagd. Er wordt ook een lijst met alle virtuele Azure-machines die zijn geïmplementeerd in het abonnement, weergegeven op VM-naam.  
+toosee Hallo gedetailleerde resultaten van Hallo runbook, klikt u op Hallo **uitvoer** tegel.  Op Hallo **uitvoer** blade ziet u het is geverifieerd en retourneert een lijst van alle virtuele machines van Azure door VMName die zijn geïmplementeerd in uw abonnement.  
 
-Vergeet niet om de cmdlet **Get-AzureVM** te verwijderen wanneer u de code voor de runbooks hergebruikt.
+Let erop dat tooremove Hallo cmdlet **Get-AzureVM** wanneer u code opnieuw gebruiken Hallo voor uw runbooks.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Mijn eerste PowerShell-runbook](automation-first-runbook-textual-powershell.md) om aan de slag te gaan met PowerShell-runbooks.
-* Zie voor meer informatie over grafisch ontwerpen [Grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md).
+* Zie tooget gestart met PowerShell-runbooks [Mijn eerste PowerShell-runbook](automation-first-runbook-textual-powershell.md).
+* Zie toolearn meer informatie over grafisch ontwerpen [grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md).

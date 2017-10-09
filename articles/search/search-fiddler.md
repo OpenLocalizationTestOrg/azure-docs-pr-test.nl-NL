@@ -1,6 +1,6 @@
 ---
-title: Fiddler gebruiken om Azure Search REST API's te evalueren en te testen | Microsoft Docs
-description: "Gebruik Fiddler om zonder code de beschikbaarheid van Azure Search te verifiëren en de REST API's uit te proberen."
+title: aaaHow toouse Fiddler tooevaluate en Azure Search REST-API's testen | Microsoft Docs
+description: Gebruik Fiddler om de beschikbaarheid van een benadering code gratis tooverifying Azure Search en uitprobeert Hallo REST-API's.
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: heidist
-ms.openlocfilehash: c38b73fa69bee34ce2434c6274cb017c99ef3c35
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2912e1180717d7b40a1e4f7f7f00daf2cc254f0b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Gebruik Fiddler om Azure Search REST API's te evalueren en te testen
+# <a name="use-fiddler-tooevaluate-and-test-azure-search-rest-apis"></a>Gebruik Fiddler tooevaluate en testen van Azure Search REST-API 's
 > [!div class="op_single_selector"]
 >
 > * [Overzicht](search-query-overview.md)
@@ -31,34 +31,34 @@ ms.lasthandoff: 07/11/2017
 >
 >
 
-In dit artikel wordt uitgelegd hoe u Fiddler, beschikbaar als [gratis download via Telerik](http://www.telerik.com/fiddler), gebruikt om HTTP-aanvragen te verzenden en antwoorden weer te geven met de Azure Search REST API, zonder dat u code hoeft te schrijven. Azure Search is een volledig beheerde, gehoste Microsoft Azure-service voor zoeken in de cloud. De service is eenvoudig programmeerbaar via .NET en REST API's. Documentatie over de REST API's voor de Azure Search-service vindt u op [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Dit artikel wordt uitgelegd hoe toouse Fiddler, beschikbaar als een [gratis download via Telerik](http://www.telerik.com/fiddler), tooissue HTTP-aanvragen tooand antwoorden weergeven met behulp van hello Azure Search REST API, zonder toowrite code. Azure Search is een volledig beheerde, gehoste Microsoft Azure-service voor zoeken in de cloud. De service is eenvoudig programmeerbaar via .NET en REST API's. Hello Azure Search service REST-API's zijn beschreven op [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-In de volgende stappen maakt u een index, uploadt u documenten, voert u een query uit op de index en voert u vervolgens een query uit op het systeem om servicegegevens te zoeken.
+In de Hallo stappen te volgen, hebt u een index maken, uploaden van documenten, query Hallo index en query Hallo systeem om servicegegevens te zoeken.
 
-U hebt een Azure Search-service en `api-key` nodig om deze stappen te kunnen voltooien. Zie [Een Azure Search-service in de portal maken](search-create-service-portal.md) voor instructies om aan de slag gaan.
+toocomplete deze stappen, moet u een Azure Search-service en `api-key`. Zie [maken van een Azure Search-service in Hallo portal](search-create-service-portal.md) voor instructies over hoe tooget gestart.
 
 ## <a name="create-an-index"></a>Een index maken
-1. Start Fiddler. Schakel in het menu **File** (Bestand) de optie **Capture Traffic** (Verkeer vastleggen) uit om de HTTP-activiteit te verbergen die niet van belang is voor de huidige taak.
-2. Op het tabblad **Composer** (Opstellen) formuleert u een aanvraag die vergelijkbaar is met de volgende schermopname.
+1. Start Fiddler. Op Hallo **bestand** menu uitschakelen **verkeer vastleggen** toohide HTTP-activiteit die geen verband toohello huidige taak.
+2. Op Hallo **Composer** tabblad formuleert u een aanvraag dat lijkt op Hallo volgende schermopname.
 
       ![][1]
 3. Selecteer **PUT**.
-4. Geef een URL op waarin de service-URL, aanvraagkenmerken en de API-versie worden gespecificeerd. Enkele punten om rekening mee te houden:
+4. Voer een URL waarmee Hallo service-URL, Aanvraagkenmerken en Hallo api-versie. Enkele aanwijzers tookeep rekening:
 
-   * Gebruik HTTPS als voorvoegsel.
-   * Het aanvraagkenmerk is '/indexes/hotels'. Zodoende weet Search dat de index met de naam 'hotels' moet worden gemaakt.
-   * De API-versie moet worden opgegeven in kleine letters, als '?api-version=2016-09-01'. API-versies zijn belangrijk omdat Azure Search regelmatig updates implementeert. In uitzonderlijk gevallen introduceert een service-update een belangrijke wijziging in de API. Daarom vereist Azure Search bij elke aanvraag een API-versie, zodat u de volledige controle hebt over de API-versie die wordt gebruikt.
+   * Gebruik HTTPS als voorvoegsel Hallo.
+   * Het aanvraagkenmerk is '/indexes/hotels'. Zo weet Search toocreate index met de naam 'hotels'.
+   * De API-versie moet worden opgegeven in kleine letters, als '?api-version=2016-09-01'. API-versies zijn belangrijk omdat Azure Search regelmatig updates implementeert. In zeldzame gevallen kan een service-update kan leiden tot een recente wijziging toohello API. Daarom vereist Azure Search bij elke aanvraag een API-versie, zodat u de volledige controle hebt over de API-versie die wordt gebruikt.
 
-     De volledige URL moet er ongeveer uitzien als de URL in het volgende voorbeeld.
+     Hallo volledige URL moet eruitzien vergelijkbare toohello voorbeeld te volgen.
 
              https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01
-5. Geef de aanvraagheader de host en de API-sleutel hebt vervangen door de geldige waarden voor uw service.
+5. Geef de aanvraagheader hello, Hallo host en api-sleutel vervangen door waarden die geldig voor uw service zijn.
 
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
-6. Plak de velden waaruit de indexdefinitie bestaat in de aanvraagtekst.
+6. Plak in Hallo velden waaruit de indexdefinitie Hallo aanvraagtekst.
 
           {
          "name": "hotels",  
@@ -76,28 +76,28 @@ U hebt een Azure Search-service en `api-key` nodig om deze stappen te kunnen vol
            {"name": "location", "type": "Edm.GeographyPoint"}
           ]
          }
-7. Klik op **Execute** (Uitvoeren).
+7. Klik op **Uitvoeren**.
 
-Over een paar seconden wordt er een 201 HTTP-respons in de sessielijst weergegeven dat de index is gemaakt.
+In enkele seconden, ziet u een 201 HTTP-antwoord in de sessielijst hello, hetgeen betekent dat Hallo index is gemaakt.
 
-Als u een HTTP 504-respons ontvangt, controleert u of de URL HTTPS bevat. Als de HTTP-fout 400 of 404 wordt weergegeven ziet, controleert u of de aanvraagtekst op fouten die mogelijk zijn opgetreden tijden kopiëren en plakken. Een HTTP 403 duidt doorgaans op een probleem met de API-sleutel (een ongeldige sleutel of een syntaxisfout in de opgegeven API-sleutel).
+Als u HTTP 504-respons ontvangt, controleert u of dat Hallo URL HTTPS bevat. Als u HTTP-fout 400 of 404 wordt weergegeven, controleert u Hallo aanvraag hoofdtekst tooverify er geen fouten zijn opgetreden kopiëren en plakken. Een HTTP 403 duidt doorgaans op een probleem met Hallo api-sleutel (een ongeldige sleutel of een probleem syntaxis met hoe Hallo api-sleutel is opgegeven).
 
 ## <a name="load-documents"></a>Documenten laden
-Uw aanvraag op het tabblad **Composer** (Opstellen) om documenten te plaatsen, ziet er als volgt uit. De hoofdtekst van de aanvraag bevat de zoekgegevens voor vier hotels.
+Op Hallo **Composer** tabblad uw aanvraag toopost documenten eruit Hallo volgende. Hallo-hoofdtekst van Hallo-aanvraag bevat Hallo zoekgegevens voor 4 hotels.
 
    ![][2]
 
 1. Selecteer **POST**.
-2. Geef een URL op die begint met HTTPS, gevolgd door uw service-URL, gevolgd door '/indexes/<indexnaam>/docs/index?api-version=2016-09-01'. De volledige URL moet er ongeveer uitzien als de URL in het volgende voorbeeld.
+2. Geef een URL op die begint met HTTPS, gevolgd door uw service-URL, gevolgd door '/indexes/<indexnaam>/docs/index?api-version=2016-09-01'. Hallo volledige URL moet eruitzien vergelijkbare toohello voorbeeld te volgen.
 
          https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
-3. De aanvraagheader blijft ongewijzigd. Vergeet niet dat u de host en de API-sleutel hebt vervangen door waarden die geldig voor uw service zijn.
+3. Aanvraag-Header moet worden Hallo hetzelfde als voorheen. Houd er rekening mee dat u Hallo host en api-sleutel vervangen door waarden die geldig voor uw service zijn.
 
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
-4. De aanvraagtekst bevat vier documenten die moeten worden toegevoegd aan de index hotels.
+4. Hallo aanvraagtekst bevat vier documenten toobe toegevoegde toohello hotels index.
 
          {
          "value": [
@@ -147,7 +147,7 @@ Uw aanvraag op het tabblad **Composer** (Opstellen) om documenten te plaatsen, z
              "@search.action": "upload",
              "hotelId": "4",
              "baseRate": 220.00,
-             "description": "This could be the one",
+             "description": "This could be hello one",
              "hotelName": "A Hotel for Everyone",
              "category": "Basic hotel",
              "tags": ["pool", "wifi"],
@@ -159,33 +159,33 @@ Uw aanvraag op het tabblad **Composer** (Opstellen) om documenten te plaatsen, z
            }
           ]
          }
-5. Klik op **Execute** (Uitvoeren).
+5. Klik op **Uitvoeren**.
 
-Over enkele seconden verschijnt er een HTTP 200-respons in de sessielijst. Dit geeft aan dat de documenten zijn gemaakt. Als u een 207-respons ontvang, is minimaal één document niet geüpload. Als u een 404-respons ontvangt, bevat de header of de hoofdtekst van de aanvraag een syntaxisfout.
+In enkele seconden ziet u een HTTP 200-respons in de sessielijst Hallo. Hiermee wordt aangegeven Hallo documenten zijn gemaakt. Als u een 207 krijgt, wordt er door ten minste één document tooupload niet. Als u een 404 krijgt, hebt u Hallo koptekst of hoofdtekst van Hallo aanvraag een syntaxisfout.
 
-## <a name="query-the-index"></a>Een query op de index uitvoeren
-Nu er een index en documenten zijn geladen, kunt u hier query's op uitvoeren.  Een **GET**-opdracht op het tabblad**Composer** (Opstellen), waarmee een query op uw service wordt uitgevoerd, is vergelijkbaar met de volgende schermopname.
+## <a name="query-hello-index"></a>Query Hallo index
+Nu er een index en documenten zijn geladen, kunt u hier query's op uitvoeren.  Op Hallo **Composer** tabblad een **ophalen** opdracht waarmee een query op uw service ziet er vergelijkbare toohello volgende schermopname.
 
    ![][3]
 
 1. Selecteer **GET**.
-2. Geef een URL op die begint met HTTPS, gevolgd door uw service-URL, gevolgd door '/indexes/<indexnaam>/docs/index?', gevolgd door queryparameters. Gebruik als bijvoorbeeld de volgende URL en vervang de naam van de voorbeeldhost door een geldige naam voor uw service.
+2. Geef een URL op die begint met HTTPS, gevolgd door uw service-URL, gevolgd door '/indexes/<indexnaam>/docs/index?', gevolgd door queryparameters. Gebruik als bijvoorbeeld Hallo URL te volgen en vervangt Hallo Voorbeeldnaam van een host met een geldige voor uw service.
 
          https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2016-09-01
 
-   Met deze query wordt naar de term 'motel' en worden er facetcategorieën voor beoordelingen opgehaald.
-3. De aanvraagheader blijft ongewijzigd. Vergeet niet dat u de host en de API-sleutel hebt vervangen door waarden die geldig voor uw service zijn.
+   Deze query zoekt op Hallo term 'motel' en facetcategorieën voor beoordelingen opgehaald.
+3. Aanvraag-Header moet worden Hallo hetzelfde als voorheen. Houd er rekening mee dat u Hallo host en api-sleutel vervangen door waarden die geldig voor uw service zijn.
 
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
 
-De responscode moet 200 zijn en de responsuitvoer moet er ongeveer hetzelfde uitzien als in de volgende schermopname.
+Hallo responscode moet 200 en Hallo antwoorduitvoer moet eruitzien vergelijkbare toohello volgende schermopname.
 
    ![][4]
 
-De volgende voorbeeldquery is afkomstig uit de [Search Index-bewerking (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) op MSDN. Veel van de voorbeeldquery's in dit onderwerp bevatten spaties. Deze zijn niet toegestaan in Fiddler. Vervang elke spatie door een plusteken (+) voordat u de queryreeks in Fiddler plakt en uitvoert.
+Hallo volgende voorbeeldquery is afkomstig uit Hallo [Search Index-bewerking (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) op MSDN. Veel van Hallo voorbeelden van query's in dit onderwerp bevatten spaties, deze zijn niet toegestaan in Fiddler. Vervang elke spatie door een + teken voordat plakken Hallo querytekenreeks voordat u probeert Hallo-query in Fiddler.
 
 **Voordat de spaties zijn vervangen:**
 
@@ -195,8 +195,8 @@ De volgende voorbeeldquery is afkomstig uit de [Search Index-bewerking (Azure Se
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2016-09-01
 
-## <a name="query-the-system"></a>Een query uitvoeren op het systeem
-U kunt ook een query op het systeem uitvoeren om het aantal documenten en opslagverbruik op te vragen. Uw aanvraag op het tabblad **Composer** (Opstellen) ziet er ongeveer als volgt uit en de respons retourneert een getal voor het aantal documenten en de gebruikte ruimte.
+## <a name="query-hello-system"></a>query Hallo systeem
+U kunt ook Hallo system tooget tellingen en opslag documentverbruik opvragen. Op Hallo **Composer** tabblad vergelijkbare toohello volgende eruit ziet uw aanvraag en Hallo respons retourneert een getal voor Hallo aantal documenten en de gebruikte ruimte.
 
  ![][5]
 
@@ -204,18 +204,18 @@ U kunt ook een query op het systeem uitvoeren om het aantal documenten en opslag
 2. Geef een URL op die uw service-URL bevat, gevolgd door '/indexes/hotels/stats?api-version=2016-09-01':
 
          https://my-app.search.windows.net/indexes/hotels/stats?api-version=2016-09-01
-3. Geef de aanvraagheader de host en de API-sleutel hebt vervangen door de geldige waarden voor uw service.
+3. Geef de aanvraagheader hello, Hallo host en api-sleutel vervangen door waarden die geldig voor uw service zijn.
 
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
-4. Laat de aanvraagtekst leeg.
-5. Klik op **Execute** (Uitvoeren). Er wordt een HTTP 200-statuscode weergegeven in de sessielijst. Selecteer de vermelding van uw opdracht.
-6. Klik op het tabblad **Inspectors** (Inspecteurs), klik op het tabblad **Headers** en selecteer vervolgens de JSON-indeling. Als het goed is wordt het aantal documenten en de opslaggrootte (in kB) weergegeven.
+4. Hallo aanvraagtekst leeg laten.
+5. Klik op **Uitvoeren**. Hier ziet u een HTTP 200-statuscode in de sessielijst Hallo. Selecteer Hallo-vermelding voor de opdracht.
+6. Klik op Hallo **Inspectors** en klik op Hallo **Headers** tabblad en selecteer vervolgens Hallo JSON-indeling. U ziet Hallo document count en opslaggrootte (in KB).
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [Uw Search-service op Azure beheren](search-manage.md) om te zien hoe u Azure Search zonder code kunt beheren en gebruiken.
+Zie [uw Search-service op Azure beheren](search-manage.md) voor een toomanaging zonder code benadering en het gebruik van Azure Search.
 
 <!--Image References-->
 [1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png

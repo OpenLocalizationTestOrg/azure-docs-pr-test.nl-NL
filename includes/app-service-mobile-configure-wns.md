@@ -1,7 +1,7 @@
 
-1. In de [Azure-portal](https://portal.azure.com/), klikt u op **door alles bladeren** > **App Services**, en klikt u op uw back-end van Mobile Apps. Onder **instellingen**, klikt u op **App Service-Push**, en klik vervolgens op de naam van uw notification hub.
-2. Ga naar **Windows (WNS)**, voer de **beveiligingssleutel** (clientgeheim) en **pakket-SID** die u hebt verkregen via de Live Services site en klik vervolgens op **opslaan** .
+1. In Hallo [Azure-portal](https://portal.azure.com/), klikt u op **door alles bladeren** > **App Services**, en klikt u op uw back-end van Mobile Apps. Onder **instellingen**, klikt u op **App Service-Push**, en klik vervolgens op de naam van uw notification hub.
+2. Ga te**Windows (WNS)**, Voer Hallo **beveiligingssleutel** (clientgeheim) en **pakket-SID** die u hebt verkregen via Hallo Live Services site en klik vervolgens op  **Sla**.
 
-    ![Stel de WNS-sleutel in de portal](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
+    ![Hallo WNS sleutel instellen in Hallo-portal](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
 
-Uw back-end is nu geconfigureerd voor het gebruik van WNS om pushmeldingen te verzenden.
+Uw back-end is nu geconfigureerd toouse WNS-pushmeldingen met toosend.

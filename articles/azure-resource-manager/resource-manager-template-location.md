@@ -1,6 +1,6 @@
 ---
-title: Locatie van de Azure-resource in de sjabloon | Microsoft Docs
-description: Laat zien hoe u een locatie voor een resource in een Azure Resource Manager-sjabloon is ingesteld
+title: aaaAzure Resourcelocatie in sjabloon | Microsoft Docs
+description: Toont hoe tooset een locatie voor een resource in een Azure Resource Manager-sjabloon
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: tomfitz
-ms.openlocfilehash: 73e50a593c41e841dcaf184abb895406ff5001e9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f2ad6ca6ac5f34484a2e5e57dd8d67c77dacc41a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="set-resource-location-in-azure-resource-manager-templates"></a>Locatie van de bron instellen in Azure Resource Manager-sjablonen
-Bij het implementeren van een sjabloon, moet u een locatie voor elke resource opgeven. Dit onderwerp leest hoe u bepaalt de locaties die beschikbaar voor uw abonnement voor elk resourcetype zijn.
+Bij het implementeren van een sjabloon, moet u een locatie voor elke resource opgeven. Dit onderwerp leest hoe toodetermine Hallo locaties beschikbaar tooyour abonnement voor elke resource typt.
 
 ## <a name="determine-supported-locations"></a>Ondersteunde locaties bepalen
 
-Zie voor een volledige lijst van ondersteunde locaties voor elk resourcetype [producten die beschikbaar zijn in elke regio](https://azure.microsoft.com/regions/services/). Echter, uw abonnement mogelijk geen toegang tot alle locaties in de lijst. Als een aangepaste lijst met locaties die beschikbaar voor uw abonnement zijn wilt weergeven, gebruikt u Azure PowerShell of Azure CLI. 
+Zie voor een volledige lijst van ondersteunde locaties voor elk resourcetype [producten die beschikbaar zijn in elke regio](https://azure.microsoft.com/regions/services/). Uw abonnement mogelijk echter geen locaties voor toegang tot tooall Hallo in de lijst. toosee een aangepaste lijst met locaties beschikbaar tooyour abonnement, Azure PowerShell of Azure CLI gebruiken. 
 
-Het volgende voorbeeld maakt gebruik van PowerShell om op te halen van de locaties voor de `Microsoft.Web\sites` brontype:
+Hallo volgende voorbeeld wordt met PowerShell tooget Hallo locaties voor Hallo `Microsoft.Web\sites` brontype:
 
 ```powershell
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
-Het volgende voorbeeld maakt gebruik van Azure CLI 2.0 ophalen van de locaties voor de `Microsoft.Web\sites` brontype:
+Hallo volgende voorbeeld maakt gebruik van Azure CLI 2.0 tooget Hallo locaties voor Hallo `Microsoft.Web\sites` brontype:
 
 ```azurecli
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
@@ -41,9 +41,9 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 ## <a name="set-location-in-template"></a>Locatie instellen in sjabloon
 
-Na het vaststellen van de ondersteunde locaties voor uw resources, moet u die locatie in uw sjabloon is ingesteld. De eenvoudigste manier om in te stellen van deze waarde is een resourcegroep maken op een locatie die ondersteuning biedt voor de volgende resourcetypen en elke locatie op instellen `[resourceGroup().location]`. U kunt de sjabloon aan resourcegroepen op verschillende locaties opnieuw implementeert en alle waarden in de sjabloon of parameters niet te wijzigen. 
+Na het vaststellen van Hallo ondersteunde locaties voor uw resources, moet u tooset die locatie in de sjabloon. Hallo gemakkelijkste manier tooset deze waarde is een resourcegroep in een locatie die ondersteuning biedt voor resourcetypen Hallo toocreate en elke locatie te ingesteld`[resourceGroup().location]`. U kunt implementeren Hallo sjabloon tooresource groepen op verschillende locaties en waarden in de sjabloon Hallo of parameters niet wijzigt. 
 
-Het volgende voorbeeld ziet u een opslagaccount dat is geïmplementeerd op dezelfde locatie als de resourcegroep:
+Hallo volgende voorbeeld ziet u een opslagaccount dat is geïmplementeerd toohello dezelfde locatie als Hallo resourcegroep:
 
 ```json
 {
@@ -72,7 +72,7 @@ Het volgende voorbeeld ziet u een opslagaccount dat is geïmplementeerd op dezel
 }
 ```
 
-Als u hardcode voor de locatie in de sjabloon wilt, geef de naam van een van de ondersteunde regio's. Het volgende voorbeeld ziet u een opslagaccount die altijd wordt geïmplementeerd op Noordelijk Centraal, VS:
+Als u toohardcode Hallo locatie in de sjabloon moet, Hallo naam opgeven van een van de Hallo ondersteunde regio's. Hallo volgende voorbeeld ziet u een opslagaccount die altijd is geïmplementeerd in VS-midden tooNorth:
 
 ```json
 {
@@ -99,5 +99,5 @@ Als u hardcode voor de locatie in de sjabloon wilt, geef de naam van een van de 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor aanbevelingen over het maken van sjablonen [aanbevolen procedures voor het maken van Azure Resource Manager-sjablonen](resource-manager-template-best-practices.md).
+* Voor aanbevelingen over het toocreate sjablonen, Zie [aanbevolen procedures voor het maken van Azure Resource Manager-sjablonen](resource-manager-template-best-practices.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Search met behulp van Powershell-scripts beheren | Microsoft Docs
+title: aaaManage Azure Search met behulp van Powershell-scripts | Microsoft Docs
 description: Uw Azure Search-service met de PowerShell-scripts beheren. Maken of bijwerken van een Azure Search-service en Azure Search administratorsleutels beheren
 services: search
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
-ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fc7fb4b025340c77717601e0aaee938be3e9230f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Uw Azure Search-service met PowerShell beheren
 > [!div class="op_single_selector"]
@@ -28,30 +28,30 @@ ms.lasthandoff: 08/29/2017
 > 
 > 
 
-Dit onderwerp beschrijft de PowerShell-opdrachten uit te voeren veel van de beheertaken voor Azure Search-services. U kunt zien bij het maken van een service voor zoeken, schalen en het beheren van de API-sleutels.
-Deze opdrachten parallel de beheeropties beschikbaar in de [Azure Search Management REST API](http://msdn.microsoft.com/library/dn832684.aspx).
+Dit onderwerp beschrijft Hallo PowerShell-opdrachten tooperform veel Hallo beheertaken voor Azure Search-services. U kunt zien bij het maken van een service voor zoeken, schalen en het beheren van de API-sleutels.
+Deze opdrachten parallel Hallo management beschikbare opties in Hallo [Azure Search Management REST API](http://msdn.microsoft.com/library/dn832684.aspx).
 
 ## <a name="prerequisites"></a>Vereisten
 * U moet Azure PowerShell 1.0 of hoger hebben. Zie voor instructies [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
-* U moet zijn aangemeld met uw Azure-abonnement in PowerShell zoals hieronder wordt beschreven.
+* U moet zijn aangemeld tooyour Azure-abonnement in PowerShell zoals hieronder wordt beschreven.
 
-Eerst moet u aanmelden bij Azure met deze opdracht:
+Eerst moet u aanmelding tooAzure met deze opdracht:
 
     Login-AzureRmAccount
 
-Geef het e-mailadres van uw Azure-account en het bijbehorende wachtwoord in het dialoogvenster voor Microsoft Azure-aanmelding.
+Geef Hallo e-mailadres van uw Azure-account en het bijbehorende wachtwoord in Hallo Microsoft Azure-aanmeldingsdialoogvenster.
 
 U kunt ook [Meld u aan niet-interactief met een service-principal](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
-Als u meerdere Azure-abonnementen hebt, moet u uw Azure-abonnement instellen. Een lijst van uw huidige abonnementen wilt bekijken, moet u deze opdracht uitvoeren.
+Als u meerdere Azure-abonnementen hebt, moet u tooset uw Azure-abonnement. een lijst met uw huidige abonnementen toosee deze opdracht uitvoeren.
 
     Get-AzureRmSubscription | sort SubscriptionName | Select SubscriptionName
 
-Geef het abonnement door de volgende opdracht uitvoeren. In het volgende voorbeeld wordt de naam van het abonnement is `ContosoSubscription`.
+toospecify hello abonnement, Hallo volgende opdracht uitvoeren. In de Hallo voorbeeld te volgen, is de naam van Hallo abonnement `ContosoSubscription`.
 
     Select-AzureRmSubscription -SubscriptionName ContosoSubscription
 
-## <a name="commands-to-help-you-get-started"></a>Opdrachten om u te helpen aan de slag
+## <a name="commands-toohelp-you-get-started"></a>Opdrachten toohelp die u aan de slag
     $serviceName = "your-service-name-lowercase-with-dashes"
     $sku = "free" # or "basic" or "standard" for paid services
     $location = "West US"
@@ -61,11 +61,11 @@ Geef het abonnement door de volgende opdracht uitvoeren. In het volgende voorbee
     # If you don't already have this resource group, you can create it with 
     # New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
-    # Register the ARM provider idempotently. This must be done once per subscription
+    # Register hello ARM provider idempotently. This must be done once per subscription
     Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Search"
 
     # Create a new search service
-    # This command will return once the service is fully created
+    # This command will return once hello service is fully created
     New-AzureRmResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateUri "https://gallery.azure.com/artifact/20151001/Microsoft.Search.1.0.9/DeploymentTemplates/searchServiceDefaultTemplate.json" `
@@ -85,13 +85,13 @@ Geef het abonnement door de volgende opdracht uitvoeren. In het volgende voorbee
     # View your resource
     $resource
 
-    # Get the primary admin API key
+    # Get hello primary admin API key
     $primaryKey = (Invoke-AzureRmResourceAction `
         -Action listAdminKeys `
         -ResourceId $resource.ResourceId `
         -ApiVersion 2015-08-19).PrimaryKey
 
-    # Regenerate the secondary admin API Key
+    # Regenerate hello secondary admin API Key
     $secondaryKey = (Invoke-AzureRmResourceAction `
         -ResourceType "Microsoft.Search/searchServices/regenerateAdminKey" `
         -ResourceGroupName $resourceGroupName `
@@ -99,7 +99,7 @@ Geef het abonnement door de volgende opdracht uitvoeren. In het volgende voorbee
         -ApiVersion 2015-08-19 `
         -Action secondary).SecondaryKey
 
-    # Create a query key for read only access to your indexes
+    # Create a query key for read only access tooyour indexes
     $queryKeyDescription = "query-key-created-from-powershell"
     $queryKey = (Invoke-AzureRmResourceAction `
         -ResourceType "Microsoft.Search/searchServices/createQueryKey" `
@@ -120,21 +120,21 @@ Geef het abonnement door de volgende opdracht uitvoeren. In het volgende voorbee
 
     # Scale your service up
     # Note that this will only work if you made a non "free" service
-    # This command will not return until the operation is finished
-    # It can take 15 minutes or more to provision the additional resources
+    # This command will not return until hello operation is finished
+    # It can take 15 minutes or more tooprovision hello additional resources
     $resource.Properties.ReplicaCount = 2
     $resource | Set-AzureRmResource
 
     # Delete your service
-    # Deleting your service will delete all indexes and data in the service
+    # Deleting your service will delete all indexes and data in hello service
     $resource | Remove-AzureRmResource
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat uw service hebt gemaakt, kunt u de volgende stappen uitvoeren: bouwen een [index](search-what-is-an-index.md), [query uitvoeren in een index](search-query-overview.md), en ten slotte maken en beheren van uw eigen-zoektoepassing die gebruikmaakt van Azure Search.
+Nu dat uw service hebt gemaakt, kunt u de volgende stappen Hallo ondernemen: bouwen een [index](search-what-is-an-index.md), [query uitvoeren in een index](search-query-overview.md), en ten slotte maken en beheren van uw eigen-zoektoepassing die gebruikmaakt van Azure Search.
 
-* [Een Azure Search-index maken in de Azure portal](search-create-index-portal.md)
-* [Query uitvoeren op een Azure Search-index met behulp van de Search Explorer in de Azure portal](search-explorer.md)
-* [Stel een indexeerfunctie om gegevens te laden van andere services](search-indexer-overview.md)
-* [Het gebruik van Azure Search in .NET](search-howto-dotnet-sdk.md)
+* [Een Azure Search-index in hello Azure-portal maken](search-create-index-portal.md)
+* [Query uitvoeren op een Azure Search-index met behulp van de Search Explorer in hello Azure-portal](search-explorer.md)
+* [Een indexeerfunctie tooload gegevens van andere services instellen](search-indexer-overview.md)
+* [Hoe toouse Azure zoeken in .NET](search-howto-dotnet-sdk.md)
 * [Analyseer het verkeer van uw Azure Search](search-traffic-analytics.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Excel-invoegtoepassing voor Machine Learning-webservices | Microsoft Docs
-description: Het gebruik van Azure Machine Learning-webservices rechtstreeks in Excel zonder een code te schrijven.
+title: aaaExcel-invoegtoepassing voor Machine Learning-webservices | Microsoft Docs
+description: Hoe toouse Azure Machine Learning Web services rechtstreeks in Excel zonder een code te schrijven.
 services: machine-learning
 documentationcenter: 
 author: tedway
@@ -15,74 +15,74 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/14/2017
 ms.author: tedway;garye
-ms.openlocfilehash: 0d60dd87bbdd4d3eafac0f8876cc9e41412a53ea
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c52f40d33c9907f284e4750afe47181dc3365fe5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Excel-invoegtoepassing voor Azure Machine Learning-webservices
-Excel kunt u gemakkelijk om aan te roepen webservices rechtstreeks zonder code te schrijven.
+Excel kunt u eenvoudig toocall webservices rechtstreeks zonder Hallo moet toowrite code.
 
-## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Stappen voor het gebruik van een bestaande webservice in de werkmap
+## <a name="steps-toouse-an-existing-web-service-in-hello-workbook"></a>Stappen tooUse een bestaande webservice in Hallo werkmap
 
-1. Open de [voorbeeld-Excel-bestand](http://aka.ms/amlexcel-sample-2), die de Excel-invoegtoepassing en de gegevens over passagiers op de Titanic bevat.
-2. De webservice kiezen door erop te klikken-' Titanic nagelaten manier (Excel-invoegtoepassing voorbeeld) [Score] ' in dit voorbeeld.
+1. Open Hallo [voorbeeld-Excel-bestand](http://aka.ms/amlexcel-sample-2), die bevat Hallo Excel-invoegtoepassing en gegevens over passagiers op Hallo Titanic.
+2. Hallo-webservice kiezen door erop te klikken-' Titanic nagelaten manier (Excel-invoegtoepassing voorbeeld) [Score] ' in dit voorbeeld.
    
     ![-Webservice selecteren][01]
-3. Hiermee gaat u naar de **Predict** sectie.  Deze werkmap bevat al de voorbeeldgegevens, maar voor een lege werkmap kunt u Selecteer een cel in Excel en klik op **voorbeeldgegevens**.
-4. Selecteer de gegevens met kopteksten en klik op het pictogram van invoergegevens bereik.  Zorg ervoor dat het selectievakje 'Mijn gegevens heeft headers' is ingeschakeld.
-5. Onder **uitvoer**, voer het celnummer waar u de uitvoer te zijn, bijvoorbeeld 'H1' hier.
+3. Hiermee gaat u toohello **Predict** sectie.  Deze werkmap bevat al de voorbeeldgegevens, maar voor een lege werkmap kunt u Selecteer een cel in Excel en klik op **voorbeeldgegevens**.
+4. Hallo-gegevens met kopteksten selecteren en klik op Hallo invoergegevens bereik pictogram.  Zorg ervoor dat Hallo 'Mijn gegevens heeft headers' selectievakje is ingeschakeld.
+5. Onder **uitvoer**, Voer Hallo cel getal waar u hier uitvoer toobe, bijvoorbeeld 'H1' Hallo.
 6. Klik op **voorspellen**.
    
     ![Sectie voorspellen][02]
 
-Implementeer een webservice of een bestaande webservice gebruiken. Zie voor meer informatie over het implementeren van een webservice [scenario stap 5: de Azure Machine Learning-webservice implementeren](machine-learning-walkthrough-5-publish-web-service.md).
+Implementeer een webservice of een bestaande webservice gebruiken. Zie voor meer informatie over het implementeren van een webservice [scenario stap 5: hello Azure Machine Learning-webservice implementeren](machine-learning-walkthrough-5-publish-web-service.md).
 
-De API-sleutel voor uw webservice ophalen. Wanneer u uitvoeren met deze actie is afhankelijk van of u een klassieke Machine Learning-webservice van een nieuwe Machine-Learning-webservice gepubliceerd.
+Hallo-API-sleutel voor uw webservice ophalen. Wanneer u uitvoeren met deze actie is afhankelijk van of u een klassieke Machine Learning-webservice van een nieuwe Machine-Learning-webservice gepubliceerd.
 
 **Een klassieke webservice gebruiken** 
 
-1. In Machine Learning Studio, klikt u op de **WEBSERVICES** sectie in het linkerdeelvenster en selecteer vervolgens de webservice.
+1. Klik op Hallo in Machine Learning Studio **WEBSERVICES** sectie in het linkerdeelvenster Hallo en selecteer vervolgens Hallo-webservice.
    
     ![Studio, selecteer een webservice][04]
-2. Kopieer de API-sleutel voor de webservice.
+2. Kopieer Hallo API-sleutel voor Hallo-webservice.
    
     ![Studio-API-sleutel][05]
-3. Op de **DASHBOARD** voor de webservice en klik op de **aanvragen/reacties** koppeling.
-4. Zoek naar de **aanvraag-URI** sectie.  Kopieer en sla de URL.
+3. Op Hallo **DASHBOARD** voor Hallo-webservice en klik op Hallo **aanvragen/reacties** koppeling.
+4. Zoek naar Hallo **aanvraag-URI** sectie.  Kopieer en sla Hallo-URL.
 
 > [!NOTE]
-> Het is nu mogelijk om aan te melden bij de [Azure Machine Learning-webservices](https://services.azureml.net) portal om op te halen van de API-sleutel voor een klassieke Machine Learning-webservice.
+> Het is nu mogelijk toosign in Hallo [Azure Machine Learning-webservices](https://services.azureml.net) portal tooobtain Hallo API-sleutel voor een klassieke Machine Learning-webservice.
 > 
 > 
 
 **Een nieuwe webservice gebruiken**
 
-1. In de [Azure Machine Learning-webservices](https://services.azureml.net) en klik op **webservices**, selecteer vervolgens uw webservice. 
+1. In Hallo [Azure Machine Learning-webservices](https://services.azureml.net) en klik op **webservices**, selecteer vervolgens uw webservice. 
 2. Klik op **verbruiken**.
-3. Zoek naar de **Basic verbruik info** sectie. Kopieer en sla de **primaire sleutel** en de **aanvragen en antwoorden** URL.
+3. Zoek naar Hallo **Basic verbruik info** sectie. Kopiëren en opslaan van Hallo **primaire sleutel** en Hallo **aanvragen en antwoorden** URL.
 
-## <a name="steps-to-add-a-new-web-service"></a>Stappen voor een nieuwe webservice toevoegen
+## <a name="steps-tooadd-a-new-web-service"></a>TooAdd stappen een nieuwe webservice
 
-1. Implementeer een webservice of een bestaande webservice gebruiken. Zie voor meer informatie over het implementeren van een webservice [scenario stap 5: de Azure Machine Learning-webservice implementeren](machine-learning-walkthrough-5-publish-web-service.md).
+1. Implementeer een webservice of een bestaande webservice gebruiken. Zie voor meer informatie over het implementeren van een webservice [scenario stap 5: hello Azure Machine Learning-webservice implementeren](machine-learning-walkthrough-5-publish-web-service.md).
 2. Klik op **verbruiken**.
-3. Zoek naar de **Basic verbruik info** sectie. Kopieer en sla de **primaire sleutel** en de **aanvragen en antwoorden** URL.
-4. In Excel, gaat u naar de **webservices** sectie (als u zich in de **Predict** sectie, klikt u op de pijl naar links naar de lijst met web-services).
+3. Zoek naar Hallo **Basic verbruik info** sectie. Kopiëren en opslaan van Hallo **primaire sleutel** en Hallo **aanvragen en antwoorden** URL.
+4. Ga in Excel, toohello **webservices** sectie (als u in Hallo **Predict** sectie, klikt u op Hallo pijl naar links toogo toohello lijst met web-services).
    
-    ![Ga naar de Web service selecteren][03]
+    ![Ga tooWeb service selecteren][03]
 5. Klik op **-webservice toevoegen**.
-6. Plak de URL in de Excel-invoegtoepassing tekstvak met het label **URL**.
-7. Plak de API/primaire sleutel in het tekstvak met het label **API-sleutel**.
+6. Plak Hallo-URL in Excel-invoegtoepassing tekstvak met het label Hallo **URL**.
+7. Plakken Hallo API/primaire sleutel in Hallo tekstvak met het label **API-sleutel**.
 8. Klik op **Add**.
    
     ![URL en API-sleutel voor een klassieke webservice.][06]
-9. Volg voor het gebruik van de webservice, de voorgaande instructies, 'Stappen voor het gebruik van een bestaande web Service'.
+9. toouse hello webservice Hallo voorafgaand aan de instructies volgen, "Stappen voor het tooUse een bestaande web Service."
 
 ## <a name="sharing-your-workbook"></a>Delen van uw werkmap
-Als u de werkmap opslaan, klikt u vervolgens de API/primaire sleutel voor de webservices die u hebt toegevoegd ook opgeslagen. Dit betekent dat u moet de werkmap alleen delen met personen die u vertrouwt.
+Als u de werkmap opslaan, wordt ook Hallo API/primaire sleutel voor het Hallo-webservices die u hebt toegevoegd opgeslagen. Dit betekent dat u moet Hallo werkmap alleen delen met personen die u vertrouwt.
 
-Vragen te stellen in de volgende sectie Opmerking of op onze [forum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Vragen te stellen in Hallo volgende sectie Opmerking of op onze [forum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 
 [01]: ./media/machine-learning-excel-add-in-for-web-services/image1.png
 [02]: ./media/machine-learning-excel-add-in-for-web-services/image2.png

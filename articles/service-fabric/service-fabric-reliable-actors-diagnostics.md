@@ -1,6 +1,6 @@
 ---
-title: Actoren diagnostische gegevens en bewaking | Microsoft Docs
-description: In dit artikel beschrijft de diagnostische gegevens en functies in de runtime voor Service Fabric Reliable Actors, met inbegrip van de gebeurtenissen en prestatiemeteritems die door het bewaken van de prestaties.
+title: aaaActors diagnostische gegevens en controle | Microsoft Docs
+description: Dit artikel wordt beschreven Hallo diagnostische gegevens en functies in Hallo Service Fabric Reliable Actors runtime, met inbegrip van Hallo gebeurtenissen en prestatiemeteritems die zijn verzonden door het bewaken van de prestaties.
 services: service-fabric
 documentationcenter: .net
 author: abhishekram
@@ -14,161 +14,161 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: abhisram
-ms.openlocfilehash: 1c53a6bbe0152f6f2b9666e6059af7c6d02e481f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5b266d67875722feef5c5be8861bda6d8132a7d8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnose- en prestatiecontrole voor betrouwbare actoren
-De runtime Reliable Actors verzendt [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) gebeurtenissen en [prestatiemeteritems](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Deze biedt mogelijk inzicht in hoe de runtime functioneert en helpt bij het oplossen van problemen en de bewaking van toepassingsprestaties.
+Hallo Reliable Actors runtime verzendt [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) gebeurtenissen en [prestatiemeteritems](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Deze biedt mogelijk inzicht in hoe Hallo runtime functioneert en helpt bij het oplossen van problemen en de bewaking van toepassingsprestaties.
 
 ## <a name="eventsource-events"></a>EventSource gebeurtenissen
-De providernaam EventSource voor Reliable Actors runtime is 'Microsoft-ServiceFabric-Actors'. Gebeurtenissen van de bron van deze gebeurtenissen worden weergegeven in de [diagnostische gebeurtenissen](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) venster wanneer de toepassing actor wordt [fouten worden opgespoord in Visual Studio](service-fabric-debugging-your-application.md).
+Hallo EventSource providernaam voor Hallo Reliable Actors runtime is 'Microsoft-ServiceFabric-Actors'. Gebeurtenissen van de bron van deze gebeurtenissen worden weergegeven in Hallo [diagnostische gebeurtenissen](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) venster wanneer Hallo actor-toepassing wordt [fouten worden opgespoord in Visual Studio](service-fabric-debugging-your-application.md).
 
-Voorbeelden van hulpprogramma's en -technologieën die helpen bij het verzamelen en/of het bekijken van EventSource gebeurtenissen zijn [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), [semantische logboekregistratie](https://msdn.microsoft.com/library/dn774980.aspx), en de [ Bibliotheek van Microsoft TraceEvent](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Voorbeelden van hulpprogramma's en -technologieën die helpen bij het verzamelen en/of het bekijken van EventSource gebeurtenissen zijn [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), [semantische logboekregistratie](https://msdn.microsoft.com/library/dn774980.aspx), en Hallo [ Bibliotheek van Microsoft TraceEvent](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### <a name="keywords"></a>Trefwoorden
-Alle gebeurtenissen die deel uitmaken van het betrouwbare actoren EventSource zijn gekoppeld aan een of meer trefwoorden. Hierdoor kunnen voor het filteren van gebeurtenissen die worden verzameld. De volgende sleutelwoord bits worden gedefinieerd.
+Alle gebeurtenissen die deel uitmaken van toohello betrouwbare actoren EventSource zijn gekoppeld aan een of meer trefwoorden. Hierdoor kunnen voor het filteren van gebeurtenissen die worden verzameld. Hallo na sleutelwoord bits worden gedefinieerd.
 
 | bits | Beschrijving |
 | --- | --- |
-| 0x1 |Instellen van belangrijke gebeurtenissen die de werking van de runtime Fabric actoren samenvatten. |
-| 0x2 |Verzameling van gebeurtenissen die actor methodeaanroepen beschrijven. Zie voor meer informatie de [inleidende informatie over actoren](service-fabric-reliable-actors-introduction.md). |
-| 0x4 |Verzameling van gebeurtenissen met betrekking tot actorstatus. Zie voor meer informatie het onderwerp op [actor statusbeheer](service-fabric-reliable-actors-state-management.md). |
-| 0x8 |Verzameling van gebeurtenissen met betrekking tot Schakel gebaseerde gelijktijdigheid van taken in de actor. Zie voor meer informatie het onderwerp op [gelijktijdigheid](service-fabric-reliable-actors-introduction.md#concurrency). |
+| 0x1 |Instellen van belangrijke gebeurtenissen om samen te vatten Hallo-bewerking van Hallo actoren Fabric-runtime. |
+| 0x2 |Verzameling van gebeurtenissen die actor methodeaanroepen beschrijven. Zie voor meer informatie, Hallo [inleidende informatie over actoren](service-fabric-reliable-actors-introduction.md). |
+| 0x4 |Verzameling van gebeurtenissen gerelateerde tooactor staat. Zie voor meer informatie Hallo onderwerp op [actor statusbeheer](service-fabric-reliable-actors-state-management.md). |
+| 0x8 |Het aantal gebeurtenissen gerelateerde tooturn gebaseerde gelijktijdigheid in Hallo actor. Zie voor meer informatie Hallo onderwerp op [gelijktijdigheid](service-fabric-reliable-actors-introduction.md#concurrency). |
 
 ## <a name="performance-counters"></a>Prestatiemeteritems
-De runtime Reliable Actors definieert de volgende categorieën voor prestatiemeteritems.
+Hallo Reliable Actors runtime definieert Hallo categorieën voor prestatiemeteritems te volgen.
 
 | Category | Beschrijving |
 | --- | --- |
-| Service Fabric Actor |Items die specifiek bij Azure Service Fabric actoren, bijvoorbeeld de tijd die nodig is voor het opslaan van de actorstatus |
-| Service Fabric-Actormethode |Prestatiemeteritems specifiek zijn voor methoden die worden geïmplementeerd door het Service Fabric actoren, bijvoorbeeld hoe vaak een actormethode wordt aangeroepen |
+| Service Fabric Actor |Prestatiemeteritems van specifieke tooAzure Service Fabric actoren, bijvoorbeeld tijd toosave actorstatus |
+| Service Fabric-Actormethode |Prestatiemeteritems van de specifieke toomethods geïmplementeerd door de Service Fabric actoren, bijvoorbeeld hoe vaak een actormethode wordt aangeroepen |
 
-Elk van deze categorieën heeft een of meer items.
+Elk Hallo boven de categorieën heeft een of meer items.
 
-De [Windows Prestatiemeter](https://technet.microsoft.com/library/cc749249.aspx) toepassing die standaard beschikbaar in de Windows-besturingssysteem kan worden gebruikt voor het verzamelen en weergeven van gegevens van prestatiemeteritems. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) is een andere optie voor het verzamelen van gegevens van prestatiemeteritems en uploaden naar Azure-tabellen.
+Hallo [Windows Prestatiemeter](https://technet.microsoft.com/library/cc749249.aspx) toepassing die beschikbaar zijn in de Windows-besturingssysteem Hallo standaard gebruikte toocollect en bekijk prestatiemeteritemgegevens kan zijn. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) is een andere optie voor het verzamelen van gegevens van prestatiemeteritems en uploaden tooAzure tabellen.
 
 ### <a name="performance-counter-instance-names"></a>Namen van prestatiemeteritems exemplaar
-Een cluster met een groot aantal actorservices of actor-partities heeft een groot aantal actor prestaties teller exemplaren. De namen van prestatiemeteritems exemplaar kunnen helpen bij het identificeren van de specifieke [partitie](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) en actormethode (indien van toepassing) die het exemplaar van prestatiemeteritem is gekoppeld.
+Een cluster met een groot aantal actorservices of actor-partities heeft een groot aantal actor prestaties teller exemplaren. Hallo exemplaarnamen van prestatiemeteritems helpen bij het identificeren van specifieke Hallo [partitie](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) en actormethode (indien van toepassing) die Hallo exemplaar van prestatiemeteritem is gekoppeld.
 
 #### <a name="service-fabric-actor-category"></a>Service Fabric Actor-categorie
-Voor de categorie `Service Fabric Actor`, de teller exemplaarnamen worden in de volgende indeling:
+Voor Hallo categorie `Service Fabric Actor`, Hallo teller exemplaarnamen worden in de volgende indeling Hallo:
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* de tekenreeksweergave van de Service Fabric-partitie-ID die het exemplaar van prestatiemeteritem is gekoppeld. De partitie-ID is een GUID en de tekenreeksvoorstelling wordt gegenereerd door de [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) methode met indelingsopgave "D".
+*ServiceFabricPartitionID* Hallo tekenreeksweergave van Hallo Service Fabric-partitie-ID die Hallo exemplaar van prestatiemeteritem gekoppeld is. Hallo partitie-ID is een GUID en de tekenreeksvoorstelling wordt gegenereerd via Hallo [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) methode met indelingsopgave "D".
 
-*ActorRuntimeInternalID* de tekenreeksweergave van een 64-bits geheel getal dat wordt gegenereerd door de actoren Fabric-runtime voor intern gebruik. Dit is opgenomen in de naam van het exemplaar om te controleren van de uniekheid en veroorzaken een conflict met andere namen van prestatiemeteritems exemplaar voorkomen. Gebruikers moeten niet proberen te interpreteren dit gedeelte van de naam van het exemplaar.
+*ActorRuntimeInternalID* Hallo tekenreeksweergave van een 64-bits geheel getal dat wordt gegenereerd door Hallo actoren Fabric-runtime voor intern gebruik. Dit is opgenomen in het exemplaar van prestatiemeteritem Hallo tooensure Uniekheid van de naam en te voorkomen dat veroorzaken een conflict met andere exemplaarnamen van prestatiemeteritems. Gebruikers moeten toointerpret niet proberen deze deel van naam exemplaar Prestatiemeter Hallo.
 
-Hieronder volgt een voorbeeld van een naam van het exemplaar voor een item die hoort bij de `Service Fabric Actor` categorie:
+Hallo Hieronder volgt een voorbeeld van een naam van het exemplaar voor een item die deel uitmaakt van toohello `Service Fabric Actor` categorie:
 
 `2740af29-78aa-44bc-a20b-7e60fb783264_635650083799324046`
 
-In het bovenstaande voorbeeld `2740af29-78aa-44bc-a20b-7e60fb783264` de tekenreeksweergave van de Service Fabric partitie-ID en `635650083799324046` is de 64-bits-ID die is gegenereerd voor de runtime interne's gebruiken.
+In vorige Hallo voorbeeld `2740af29-78aa-44bc-a20b-7e60fb783264` Hallo tekenreeksweergave van Hallo Service Fabric partitie-ID en `635650083799324046` Hallo 64-bits-ID die is gegenereerd voor Hallo runtime interne's gebruiken.
 
 #### <a name="service-fabric-actor-method-category"></a>Service Fabric-Actormethode categorie
-Voor de categorie `Service Fabric Actor Method`, de teller exemplaarnamen worden in de volgende indeling:
+Voor Hallo categorie `Service Fabric Actor Method`, Hallo teller exemplaarnamen worden in de volgende indeling Hallo:
 
 `MethodName_ActorsRuntimeMethodId_ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*MethodName* is de naam van de actormethode die het exemplaar van prestatiemeteritem is gekoppeld. De indeling van de naam van de methode wordt bepaald op basis van bepaalde logica in de Fabric actoren runtime compromis de leesbaarheid van de naam met beperkingen voor de maximale lengte van de namen van prestatiemeteritems exemplaar in Windows tussen.
+*MethodName* is Hallo-naam van Hallo actor-methode die een exemplaar van prestatiemeteritem Hallo is gekoppeld. Hallo-indeling van de naam van de methode hello wordt bepaald op basis van bepaalde logica in Hallo actoren Fabric-runtime die een compromis tussen de leesbaarheid van Hallo-naam met beperkingen op Hallo maximale lengte van namen exemplaar Hallo van prestatiemeteritems voor Windows hello.
 
-*ActorsRuntimeMethodId* de tekenreeksweergave van een 32-bits geheel getal dat wordt gegenereerd door de actoren Fabric-runtime voor intern gebruik. Dit is opgenomen in de naam van het exemplaar om te controleren van de uniekheid en veroorzaken een conflict met andere namen van prestatiemeteritems exemplaar voorkomen. Gebruikers moeten niet proberen te interpreteren dit gedeelte van de naam van het exemplaar.
+*ActorsRuntimeMethodId* Hallo tekenreeksweergave van een 32-bits geheel getal dat wordt gegenereerd door Hallo actoren Fabric-runtime voor intern gebruik. Dit is opgenomen in het exemplaar van prestatiemeteritem Hallo tooensure Uniekheid van de naam en te voorkomen dat veroorzaken een conflict met andere exemplaarnamen van prestatiemeteritems. Gebruikers moeten toointerpret niet proberen deze deel van naam exemplaar Prestatiemeter Hallo.
 
-*ServiceFabricPartitionID* de tekenreeksweergave van de Service Fabric-partitie-ID die het exemplaar van prestatiemeteritem is gekoppeld. De partitie-ID is een GUID en de tekenreeksvoorstelling wordt gegenereerd door de [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) methode met indelingsopgave "D".
+*ServiceFabricPartitionID* Hallo tekenreeksweergave van Hallo Service Fabric-partitie-ID die Hallo exemplaar van prestatiemeteritem gekoppeld is. Hallo partitie-ID is een GUID en de tekenreeksvoorstelling wordt gegenereerd via Hallo [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) methode met indelingsopgave "D".
 
-*ActorRuntimeInternalID* de tekenreeksweergave van een 64-bits geheel getal dat wordt gegenereerd door de actoren Fabric-runtime voor intern gebruik. Dit is opgenomen in de naam van het exemplaar om te controleren van de uniekheid en veroorzaken een conflict met andere namen van prestatiemeteritems exemplaar voorkomen. Gebruikers moeten niet proberen te interpreteren dit gedeelte van de naam van het exemplaar.
+*ActorRuntimeInternalID* Hallo tekenreeksweergave van een 64-bits geheel getal dat wordt gegenereerd door Hallo actoren Fabric-runtime voor intern gebruik. Dit is opgenomen in het exemplaar van prestatiemeteritem Hallo tooensure Uniekheid van de naam en te voorkomen dat veroorzaken een conflict met andere exemplaarnamen van prestatiemeteritems. Gebruikers moeten toointerpret niet proberen deze deel van naam exemplaar Prestatiemeter Hallo.
 
-Hieronder volgt een voorbeeld van een naam van het exemplaar voor een item die hoort bij de `Service Fabric Actor Method` categorie:
+Hallo Hieronder volgt een voorbeeld van een naam van het exemplaar voor een item die deel uitmaakt van toohello `Service Fabric Actor Method` categorie:
 
 `ivoicemailboxactor.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486`
 
-In het bovenstaande voorbeeld `ivoicemailboxactor.leavemessageasync` is de naam van de methode `2` is de 32-bits-ID gegenereerd voor intern gebruik door de runtime, `89383d32-e57e-4a9b-a6ad-57c6792aa521` de tekenreeksweergave van de Service Fabric partitie-ID en `635650083804480486` is de 64-bits-ID gegenereerd voor de de runtime intern gebruik.
+In vorige Hallo voorbeeld `ivoicemailboxactor.leavemessageasync` Hallo methodenaam is `2` Hallo 32-bits-ID die is gegenereerd voor Hallo runtime interne's gebruikt, is `89383d32-e57e-4a9b-a6ad-57c6792aa521` Hallo tekenreeksweergave van Hallo Service Fabric partitie-ID en `635650083804480486` Hallo 64-bits-id gegenereerd voor intern gebruik Hallo-runtime.
 
 ## <a name="list-of-events-and-performance-counters"></a>Lijst met gebeurtenissen en prestatiemeters
 ### <a name="actor-method-events-and-performance-counters"></a>Acteur methode gebeurtenissen en prestatiemeteritems
-De runtime Reliable Actors verzendt de volgende gebeurtenissen met betrekking tot [actor methoden](service-fabric-reliable-actors-introduction.md).
+Hallo Reliable Actors runtime verzendt Hallo-gebeurtenissen te volgen[actor methoden](service-fabric-reliable-actors-introduction.md).
 
 | De naam van gebeurtenis | Gebeurtenis-ID | Niveau | Sleutelwoord | Beschrijving |
 | --- | --- | --- | --- | --- |
-| ActorMethodStart |7 |Uitgebreide |0x2 |Actoren runtime is een actormethode worden aangeroepen. |
-| ActorMethodStop |8 |Uitgebreide |0x2 |Uitvoering van een actormethode is voltooid. Dat wil zeggen, de runtime asynchrone aanroep van de actormethode heeft geretourneerd en de taak die is geretourneerd door de actormethode is voltooid. |
-| ActorMethodThrewException |9 |Waarschuwing |0x3 |Er is een uitzondering opgetreden tijdens het uitvoeren van een actormethode van tijdens asynchrone aanroep van de runtime voor de actormethode of tijdens het uitvoeren van de taak geretourneerd door de actormethode. Deze gebeurtenis geeft aan dat sommige sorteren van de fout in de actor-code die onderzoek behoeften. |
+| ActorMethodStart |7 |Uitgebreide |0x2 |Er is een actoren runtime over tooinvoke een actormethode. |
+| ActorMethodStop |8 |Uitgebreide |0x2 |Uitvoering van een actormethode is voltooid. Dat wil zeggen, Hallo-runtime asynchrone aanroep toohello actormethode heeft geretourneerd en geretourneerd door actormethode Hallo Hallo-taak is voltooid. |
+| ActorMethodThrewException |9 |Waarschuwing |0x3 |Er is een uitzondering opgetreden tijdens het uitvoeren van een actormethode Hallo van tijdens het Hallo-runtime asynchrone aanroep toohello actormethode of tijdens het uitvoeren van taak Hallo Hallo geretourneerd door Hallo actor-methode. Deze gebeurtenis geeft aan dat sommige sorteren van de fout in Hallo actor-code die onderzoek behoeften. |
 
-De runtime Reliable Actors publiceert de volgende prestatiemeteritems die betrekking hebben op de uitvoering van actor-methoden.
+Hallo Reliable Actors runtime publiceert Hallo prestaties tellers gerelateerde toohello uitvoering van actor methoden te volgen.
 
 | Categorienaam | Naam van het meteritem | Beschrijving |
 | --- | --- | --- |
-| Service Fabric-Actormethode |Aanroepen per seconde |Aantal keren dat de actorservicemethode wordt aangeroepen per seconde |
-| Service Fabric-Actormethode |Gemiddeld aantal milliseconden per aanroep |Gebruikte tijd in milliseconden voor het uitvoeren van de actorservicemethode |
-| Service Fabric-Actormethode |Opgetreden uitzonderingen per seconde |Aantal keren dat de actorservicemethode uitzondering een gegenereerd per seconde |
+| Service Fabric-Actormethode |Aanroepen per seconde |Aantal keren dat Hallo actorservicemethode wordt aangeroepen per seconde |
+| Service Fabric-Actormethode |Gemiddeld aantal milliseconden per aanroep |Gebruikte tijd tooexecute hello actorservicemethode in milliseconden |
+| Service Fabric-Actormethode |Opgetreden uitzonderingen per seconde |Aantal keren dat Hallo actorservicemethode uitzondering een gegenereerd per seconde |
 
 ### <a name="concurrency-events-and-performance-counters"></a>Gelijktijdigheid van gebeurtenissen en prestatiemeteritems
-De runtime Reliable Actors verzendt de volgende gebeurtenissen met betrekking tot [gelijktijdigheid](service-fabric-reliable-actors-introduction.md#concurrency).
+Hallo Reliable Actors runtime verzendt Hallo-gebeurtenissen te volgen[gelijktijdigheid](service-fabric-reliable-actors-introduction.md#concurrency).
 
 | De naam van gebeurtenis | Gebeurtenis-ID | Niveau | Sleutelwoord | Beschrijving |
 | --- | --- | --- | --- | --- |
-| ActorMethodCallsWaitingForLock |12 |Uitgebreide |0x8 |Deze gebeurtenis wordt aan het begin van elke nieuwe inschakelen in een actor geschreven. Het bevat het aantal in behandeling actoraanroepen die wachten op de afzonderlijke actorvergrendeling die wordt afgedwongen op basis van Schakel gelijktijdigheid verkrijgen. |
+| ActorMethodCallsWaitingForLock |12 |Uitgebreide |0x8 |Deze gebeurtenis wordt geschreven aan Hallo begin van elke nieuwe inschakelen in een actor. Het bevat aantal in behandeling zijnde actoraanroepen die wachten tooacquire Hallo afzonderlijke actorvergrendeling die wordt afgedwongen op basis van Schakel gelijktijdigheid Hallo. |
 
-De runtime Reliable Actors publiceert de volgende prestatiemeteritems die betrekking hebben op gelijktijdigheid van taken.
+Hallo Reliable Actors runtime publiceert Hallo prestaties tellers gerelateerde tooconcurrency te volgen.
 
 | Categorienaam | Naam van het meteritem | Beschrijving |
 | --- | --- | --- |
-| Service Fabric Actor |Aantal actoraanroepen die wachten op een actorvergrendeling |Aantal in behandeling zijnde actoraanroepen die wachten op het verkrijgen van de afzonderlijke actorvergrendeling die wordt afgedwongen op basis van Schakel gelijktijdigheid van taken |
-| Service Fabric Actor |Gemiddeld aantal milliseconden wachttijd per vergrendeling |Gebruikte tijd (in milliseconden) te verkrijgen van de afzonderlijke actorvergrendeling die wordt afgedwongen op basis van Schakel gelijktijdigheid van taken |
-| Service Fabric Actor |Gemiddeld aantal milliseconden actorvergrendeling vastgehouden |Tijd (in milliseconden) waarvan de afzonderlijke actorvergrendeling wordt vastgehouden |
+| Service Fabric Actor |Aantal actoraanroepen die wachten op een actorvergrendeling |Aantal in behandeling zijnde actoraanroepen die wachten op tooacquire Hallo afzonderlijke actorvergrendeling die wordt afgedwongen op basis van Schakel gelijktijdigheid van taken |
+| Service Fabric Actor |Gemiddeld aantal milliseconden wachttijd per vergrendeling |Tijd (in milliseconden) genomen tooacquire Hallo afzonderlijke actorvergrendeling die wordt afgedwongen op basis van Schakel gelijktijdigheid van taken |
+| Service Fabric Actor |Gemiddeld aantal milliseconden actorvergrendeling vastgehouden |Tijd (in milliseconden) voor welke Hallo afzonderlijke actorvergrendeling wordt vastgehouden |
 
 ### <a name="actor-state-management-events-and-performance-counters"></a>Acteur status management gebeurtenissen en prestatiemeteritems
-De runtime Reliable Actors verzendt de volgende gebeurtenissen met betrekking tot [actor statusbeheer](service-fabric-reliable-actors-state-management.md).
+Hallo Reliable Actors runtime verzendt Hallo-gebeurtenissen te volgen[actor statusbeheer](service-fabric-reliable-actors-state-management.md).
 
 | De naam van gebeurtenis | Gebeurtenis-ID | Niveau | Sleutelwoord | Beschrijving |
 | --- | --- | --- | --- | --- |
-| ActorSaveStateStart |10 |Uitgebreide |0x4 |Actoren runtime is de actorstatus opslaan. |
-| ActorSaveStateStop |11 |Uitgebreide |0x4 |Actoren runtime is klaar met het opslaan van de actorstatus. |
+| ActorSaveStateStart |10 |Uitgebreide |0x4 |Actoren runtime is over toosave hello actorstatus. |
+| ActorSaveStateStop |11 |Uitgebreide |0x4 |Actoren runtime is klaar met het opslaan van de actorstatus Hallo. |
 
-De runtime Reliable Actors publiceert de volgende prestatiemeteritems die betrekking hebben op actor statusbeheer.
+Hallo Reliable Actors runtime publiceert Hallo prestatiebeheer tellers gerelateerde tooactor status te volgen.
 
 | Categorienaam | Naam van het meteritem | Beschrijving |
 | --- | --- | --- |
-| Service Fabric Actor |Gemiddeld aantal milliseconden per bewerking voor het opslaan van de status |Gebruikte tijd in milliseconden voor het opslaan van de actorstatus |
-| Service Fabric Actor |Gemiddeld aantal milliseconden per bewerking voor het laden van de status |Gebruikte tijd in milliseconden voor het laden van de actorstatus |
+| Service Fabric Actor |Gemiddeld aantal milliseconden per bewerking voor het opslaan van de status |Tijd van de actorstatus toosave in milliseconden |
+| Service Fabric Actor |Gemiddeld aantal milliseconden per bewerking voor het laden van de status |Tijd van de actorstatus tooload in milliseconden |
 
-### <a name="events-related-to-actor-replicas"></a>Gebeurtenissen met betrekking tot actor replica 's
-De runtime Reliable Actors verzendt de volgende gebeurtenissen met betrekking tot [actor replica's](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
+### <a name="events-related-tooactor-replicas"></a>Gebeurtenissen gerelateerde tooactor replica 's
+Hallo Reliable Actors runtime verzendt Hallo-gebeurtenissen te volgen[actor replica's](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
 | De naam van gebeurtenis | Gebeurtenis-ID | Niveau | Sleutelwoord | Beschrijving |
 | --- | --- | --- | --- | --- |
-| ReplicaChangeRoleToPrimary |1 |Informatief |0x1 |Rol actor replica gewijzigd naar primaire. Dit betekent dat de actoren voor deze partitie binnen deze replica wordt gemaakt. |
-| ReplicaChangeRoleFromPrimary |2 |Informatief |0x1 |Acteur replica gewijzigd in niet-primaire rol. Dit betekent dat de actoren voor deze partitie niet meer worden gemaakt binnen deze replica. Er geen nieuwe aanvragen worden geleverd aan actoren al in deze replica is gemaakt. De actoren wordt verwijderd nadat alle aanvragen in uitvoering zijn voltooid. |
+| ReplicaChangeRoleToPrimary |1 |Informatief |0x1 |Acteur replica rol tooPrimary gewijzigd. Dit betekent dat Hallo actoren voor deze partitie binnen deze replica wordt gemaakt. |
+| ReplicaChangeRoleFromPrimary |2 |Informatief |0x1 |Acteur replica gewijzigd toonon primaire rol. Dit betekent dat Hallo actoren voor deze partitie niet meer worden gemaakt binnen deze replica. Er zijn geen nieuwe aanvragen worden geleverd tooactors al in deze replica is gemaakt. Hallo actoren wordt verwijderd nadat alle aanvragen in uitvoering zijn voltooid. |
 
 ### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Acteur activering en deactivering van gebeurtenissen en prestatiemeteritems
-De runtime Reliable Actors verzendt de volgende gebeurtenissen met betrekking tot [actor activering en deactivering](service-fabric-reliable-actors-lifecycle.md).
+Hallo Reliable Actors runtime verzendt Hallo-gebeurtenissen te volgen[actor activering en deactivering](service-fabric-reliable-actors-lifecycle.md).
 
 | De naam van gebeurtenis | Gebeurtenis-ID | Niveau | Sleutelwoord | Beschrijving |
 | --- | --- | --- | --- | --- |
 | ActorActivated |5 |Informatief |0x1 |Een actor is geactiveerd. |
 | ActorDeactivated |6 |Informatief |0x1 |Een actor is gedeactiveerd. |
 
-De runtime Reliable Actors publiceert de volgende prestatiemeteritems die betrekking hebben op actor activering en deactivering.
+Hallo Reliable Actors runtime publiceert Hallo prestatiemeteritems te volgen verwante tooactor activering en deactivering.
 
 | Categorienaam | Naam van het meteritem | Beschrijving |
 | --- | --- | --- |
-| Service Fabric Actor |Gemiddeld aantal milliseconden op OnActivateAsync |Gebruikte tijd in milliseconden voor het uitvoeren van de methode OnActivateAsync |
+| Service Fabric Actor |Gemiddeld aantal milliseconden op OnActivateAsync |De methode OnActivateAsync tooexecute voor tijd in milliseconden |
 
 ### <a name="actor-request-processing-performance-counters"></a>Aanvraagverwerking actor-prestatiemeteritems
-Wanneer een client een methode via een proxy actor object aanroept, leidt dit tot een aanvraagbericht via het netwerk worden verzonden naar de actor-service. De service verwerkt het request-bericht en stuurt een antwoord terug naar de client. De runtime Reliable Actors publiceert de volgende prestatiemeteritems die betrekking hebben op actor-aanvraagverwerking.
+Wanneer een client een methode via een proxy actor object aanroept, resulteert dit in een bericht wordt verzonden via toohello Hallo-actor netwerkservice. Hallo-service verwerkt aanvraag het Hallo-bericht en stuurt een reactie terug toohello-client. Hallo Reliable Actors runtime publiceert Hallo prestaties tellers gerelateerde tooactor aanvraagverwerking te volgen.
 
 | Categorienaam | Naam van het meteritem | Beschrijving |
 | --- | --- | --- |
-| Service Fabric Actor |Aantal openstaande aanvragen |Het aantal aanvragen dat in de service wordt verwerkt |
-| Service Fabric Actor |Gemiddeld aantal milliseconden per aanvraag |Gebruikte tijd (in milliseconden) door de service een aanvraag te verwerken |
-| Service Fabric Actor |Gemiddeld aantal milliseconden voor de deserialisatie van aanvragen |Gebruikte tijd (in milliseconden) voor het deserialiseren van aanvraagbericht actor wanneer het is ontvangen door de service |
-| Service Fabric Actor |Gemiddeld aantal milliseconden voor de serialisatie van reacties |Gebruikte tijd (in milliseconden) voor het serialiseren van het antwoordbericht actor op de service voordat het antwoord wordt verzonden naar de client |
+| Service Fabric Actor |Aantal openstaande aanvragen |Het aantal aanvragen in Hallo-service wordt verwerkt |
+| Service Fabric Actor |Gemiddeld aantal milliseconden per aanvraag |Gebruikte tijd (in milliseconden) door Hallo service tooprocess een aanvraag |
+| Service Fabric Actor |Gemiddeld aantal milliseconden voor de deserialisatie van aanvragen |Tijd (in milliseconden) genomen toodeserialize actor aanvraagbericht wanneer het is ontvangen door het Hallo-service |
+| Service Fabric Actor |Gemiddeld aantal milliseconden voor de serialisatie van reacties |Tijd (in milliseconden) genomen tooserialize Hallo actor-antwoordbericht op Hallo service voordat antwoord Hallo toohello client wordt verzonden |
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Hoe Reliable Actors gebruiken voor het Service Fabric-platform](service-fabric-reliable-actors-platform.md)
+* [Hoe Reliable Actors Hallo Service Fabric-platform gebruiken](service-fabric-reliable-actors-platform.md)
 * [Acteur API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Voorbeeldcode](https://github.com/Azure/servicefabric-samples)
 * [EventSource providers op PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

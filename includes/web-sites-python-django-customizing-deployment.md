@@ -1,34 +1,34 @@
 Azure bepaalt dat uw toepassing Python gebruikt **als beide volgende voorwaarden waar zijn**:
 
-* bestand requirements.txt in de hoofdmap
-* elk bestand .py in de hoofdmap OF een runtime.txt die Python specificeert
+* bestand Requirements.txt in de hoofdmap Hallo
+* elk bestand .py in de hoofdmap hello of een runtime.txt die python specificeert
 
-Wanneer dit het geval is, wordt een implementatiescript gebruikt dat specifiek is voor Python en waarmee de standaard synchronisatie van bestanden wordt uitgevoerd, evenals extra Python-bewerkingen zoals:
+Wanneer die Hallo geval is, wordt een specifieke implementatie pythonscript, waarmee Hallo standaard synchronisatie van bestanden, evenals extra Python-bewerkingen zoals gebruikt:
 
 * Automatisch beheer van virtuele omgeving
 * Installatie van pakketten die zijn vermeld in requirements.txt met behulp van pip
-* Maken van de juiste web.config op basis van de geselecteerde Python-versie
+* Maken van de juiste web.config Hallo op basis van Hallo geselecteerde Python-versie.
 * Verzamelen van statische bestanden voor Django-toepassingen
 
-U kunt bepaalde aspecten van de standaard implementatiestappen beheren zonder dat u het script hoeft aan te passen.
+U kunt bepaalde aspecten van Hallo standaard implementatiestappen beheren zonder toocustomize Hallo script.
 
-Als u alle stappen die specifiek zijn voor de implementatie van Python wilt overslaan, kunt u dit lege bestand maken:
+Als u wilt dat tooskip alle stappen voor Python-specifieke implementatie, kunt u dit lege bestand maken:
 
     \.skipPythonDeployment
 
-Als u het verzamelen van statische bestanden voor uw Django-toepassing wilt overslaan:
+Als u wilt dat tooskip verzamelen van statische bestanden voor uw Django-toepassing:
 
     \.skipDjango 
 
-Voor meer controle over de implementatie kunt u het standaard implementatiescript overschrijven door de volgende bestanden te maken:
+Voor meer controle over de implementatie kunt u Hallo standaard implementatiescript overschrijven door het maken van de volgende bestanden Hallo:
 
     \.deployment
     \deploy.cmd
 
-U kunt de [Azure-opdrachtregelinterface] [ Azure command-line interface] om de bestanden te maken.  Gebruik deze opdracht uit vanuit de projectmap:
+U kunt Hallo [Azure-opdrachtregelinterface] [ Azure command-line interface] toocreate Hallo-bestanden.  Gebruik deze opdracht uit vanuit de projectmap:
 
     azure site deploymentscript --python
 
-Als deze bestanden niet bestaan, maakt Azure een tijdelijk implementatiescript en voert dit script uit.  Het is identiek aan het script dat u met de bovenstaande opdracht maakt.
+Als deze bestanden niet bestaan, maakt Azure een tijdelijk implementatiescript en voert dit script uit.  Het is identiek toohello één u maken met de bovenstaande Hallo-opdracht.
 
 [Azure command-line interface]: http://azure.microsoft.com/downloads/

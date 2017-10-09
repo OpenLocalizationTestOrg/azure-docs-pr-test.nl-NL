@@ -1,6 +1,6 @@
 ---
-title: Netwerken modi voor services van Azure Service Fabric-container configureren | Microsoft Docs
-description: Informatie over het instellen van de verschillende netwerken modi die ondersteuning biedt voor Azure Service Fabric.
+title: modi voor services van Azure Service Fabric-container networking aaaConfigure | Microsoft Docs
+description: Meer informatie over hoe toosetup Hallo verschillende netwerken modi die Azure Service Fabric ondersteunt.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f792f9604a5d6e62551ed92c1049d6e2b4216417
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 5c5dd4c590c7698a947503cbe8ef66ff7d6b503a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Netwerken modi voor service Fabric-container
 
-De standaardwaarde netwerken modus in de Service Fabric-cluster voor containerservices aangeboden is de `nat` netwerken modus. Met de `nat` netwerken met meer dan één containers service luistert naar de dezelfde poort leidt tot implementatiefouten modus. Voor verschillende uitgevoerd services die luisteren op dezelfde poort-, Service Fabric ondersteunt de `open` netwerken modus (versie 5.7 of hoger). Met de `open` modus netwerken elke containerservice een dynamisch toegewezen IP-adres intern zodat meerdere services om te luisteren op dezelfde poort opgehaald.   
+Hallo netwerken standaardmodus wordt aangeboden op Hallo Service Fabric-cluster voor containerservices is Hallo `nat` netwerken modus. Hello `nat` networking-modus met meer dan één containers service luisterende toohello resulteert in een implementatiefouten dezelfde poort. Voor het uitvoeren van verschillende services die luisteren op dezelfde poort, Service Fabric ondersteunt Hallo Hallo `open` netwerken modus (versie 5.7 of hoger). Hello `open` modus netwerken elke containerservice een dynamisch toegewezen IP-adres intern dezelfde poort zodat meerdere services toolisten toohello opgehaald.   
 
-Dus met een type één service met een statische eindpunt gedefinieerd in het servicemanifest, nieuwe services kunnen worden gemaakt en verwijderd zonder implementatiefouten met behulp van de `open` netwerken modus. Op deze manier kunnen worden gebruikt dezelfde `docker-compose.yml` bestand met toewijzingen van statische poort voor het maken van meerdere services.
+Dus met een enkele servicetype met een statische eindpunt gedefinieerd in Hallo servicemanifest nieuwe services kunnen worden gemaakt en verwijderd zonder implementatiefouten bij het gebruik van Hallo `open` netwerken modus. Op deze manier kunnen worden gebruikt dezelfde Hallo `docker-compose.yml` bestand met toewijzingen van statische poort voor het maken van meerdere services.
 
-Met behulp van het dynamisch toegewezen IP-adres voor het detecteren van de services wordt niet aangeraden sinds de IP-adreswijzigingen wanneer de service opnieuw wordt gestart of verplaatst naar een ander knooppunt. Gebruik alleen de **Service Fabric Naming Service** of de **DNS-Service** voor servicedetectie. 
+Met behulp van Hallo dynamisch toegewezen IP-toodiscover services wordt niet aangeraden sinds Hallo IP-adreswijzigingen als Hallo-service opnieuw wordt opgestart of tooanother knooppunt wordt bewogen. Gebruik alleen Hallo **Service Fabric Naming Service** of Hallo **DNS-Service** voor servicedetectie. 
 
 
 > [!WARNING]
-> Alleen een totaal van 4096 IP-adressen per vNET in Azure zijn toegestaan. Dus de som van het aantal knooppunten en het aantal container service-exemplaren (met `open` netwerken) mag niet meer dan 4096 binnen een vNET. Voor dergelijke high-density scenario's, de `nat` netwerken modus wordt aanbevolen.
+> Alleen een totaal van 4096 IP-adressen per vNET in Azure zijn toegestaan. Dus Hallo som van het aantal knooppunten Hallo en Hallo aantal container service-exemplaren (met `open` netwerken) mag niet meer dan 4096 binnen een vNET. Voor zulke gevallen high-density Hallo `nat` netwerken modus wordt aanbevolen.
 >
 
 ## <a name="setting-up-open-networking-mode"></a>Open netwerken modus instellen
 
-1. Instellen van de Azure Resource Manager-sjabloon te maken met DNS-Service en de IP-Provider onder `fabricSettings`. 
+1. Hello Azure Resource Manager-sjabloon instellen door in te schakelen van DNS-Service en IP-Provider onder Hallo `fabricSettings`. 
 
     ```json
     "fabricSettings": [
@@ -78,7 +78,7 @@ Met behulp van het dynamisch toegewezen IP-adres voor het detecteren van de serv
             ],
     ```
 
-2. De sectie network profiel instellen voor het toestaan van meerdere IP-adressen worden geconfigureerd op elk knooppunt van het cluster. Het volgende voorbeeld wordt een vijf IP-adressen per knooppunt (dus kunt u vijf service-exemplaren die luisteren naar de poort op elk knooppunt hebt) voor een Windows-Service Fabric-cluster.
+2. Hallo netwerk profiel sectie tooallow meerdere IP-geconfigureerd op elk knooppunt van Hallo toobe adressen instellen. Hallo volgende voorbeeld wordt een vijf IP-adressen per knooppunt (dus kunt u vijf exemplaren van de service toohello luisterpoort op elk knooppunt hebt) voor een Windows-Service Fabric-cluster.
 
     ```json
     "variables": {
@@ -175,7 +175,7 @@ Met behulp van het dynamisch toegewezen IP-adres voor het detecteren van de serv
               }
     ```
 
-    Voor Linux-clusters, wordt een extra openbare IP-configuratie toegevoegd aan het toestaan van uitgaande verbinding. Het volgende fragment stelt u vijf IP-adressen per knooppunt voor een Linux-cluster:
+    Voor Linux-clusters, wordt een extra openbare IP-configuratie tooallow uitgaande verbinding toegevoegd. Hallo stelt volgende fragment vijf IP-adressen per knooppunt voor een Linux-cluster:
 
     ```json
     "networkProfile": {
@@ -292,14 +292,14 @@ Met behulp van het dynamisch toegewezen IP-adres voor het detecteren van de serv
               }
     ```
 
-3. Voor Windows clusters, stelt u een NSG regel openen van UDP/53-poort voor het vNET met de volgende waarden:
+3. Voor Windows-clusters, van een NSG instellen regel openen van poort UDP/53 Hallo vNET Hello volgende waarden:
 
    | Prioriteit |    Naam    |    Bron      |  Doel   |   Service    | Actie |
    |:--------:|:----------:|:--------------:|:--------------:|:------------:|:------:|
    |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | Toestaan  |
 
 
-4. Geef de modus voor netwerken in het app-manifest voor elke service `<NetworkConfig NetworkType="open">`.  De modus `open` resulteert in de service een toegewijde IP-adres ophalen. Als een modus niet is opgegeven, wordt het basic standaard `nat` modus. Dus in het volgende voorbeeld manifest `NodeContainerServicePackage1` en `NodeContainerServicePackage2` kan elke luisteren op dezelfde poort (beide services luisteren `Endpoint1`).
+4. Hallo netwerken modus opgeven in de app-manifest Hallo voor elke service `<NetworkConfig NetworkType="open">`.  Hallo modus `open` resulteert in het Hallo-service ophalen van een vast IP-adres. Als u een modus niet is opgegeven, wordt standaard toohello basic `nat` modus. Dus in Hallo manifest bijvoorbeeld na `NodeContainerServicePackage1` en `NodeContainerServicePackage2` kan elke toohello luisteren naar dezelfde poort (beide services luisteren `Endpoint1`).
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -329,7 +329,7 @@ Met behulp van het dynamisch toegewezen IP-adres voor het detecteren van de serv
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-U kunt combineren en overeenkomen met verschillende netwerken modi alle services in een toepassing voor een Windows-cluster. U kunt dus sommige services hebben op `open` modus en sommige op `nat` netwerken modus. Als een service is geconfigureerd met `nat`, de poort die wordt geluisterd naar moet uniek zijn. De combinatie van netwerken modi voor verschillende services wordt niet ondersteund op Linux-clusters. 
+U kunt combineren en overeenkomen met verschillende netwerken modi alle services in een toepassing voor een Windows-cluster. U kunt dus sommige services hebben op `open` modus en sommige op `nat` netwerken modus. Als een service is geconfigureerd met `nat`, Hallo-poort luistert toomust is uniek zijn. De combinatie van netwerken modi voor verschillende services wordt niet ondersteund op Linux-clusters. 
 
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -337,5 +337,5 @@ In dit artikel hebt u geleerd over netwerken modi die worden aangeboden door de 
 
 * [Service Fabric-toepassingsmodel](service-fabric-application-model.md)
 * [Service Fabric-service manifest resources](service-fabric-application-model.md)
-* [Een Windows-container implementeren op Service Fabric op Windows Server 2016](service-fabric-get-started-containers.md)
-* [Implementeert een Docker-container op Service Fabric op Linux](service-fabric-get-started-containers-linux.md)
+* [Een Windows-container tooService Fabric op Windows Server 2016 implementeren](service-fabric-get-started-containers.md)
+* [Implementeert een Docker-container tooService Fabric op Linux](service-fabric-get-started-containers-linux.md)

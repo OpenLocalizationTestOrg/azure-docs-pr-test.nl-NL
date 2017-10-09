@@ -1,6 +1,6 @@
 ---
-title: Inleiding tot Azure Storage | Microsoft Docs
-description: Een overzicht van Azure Storage, online gegevensopslag van Microsoft in de cloud. Informatie over het gebruik van de beste oplossing voor cloudopslag in uw toepassingen.
+title: aaaIntroduction tooAzure Storage | Microsoft Docs
+description: Een overzicht van Azure Storage, online gegevensopslag van Microsoft in Hallo cloud. Meer informatie over hoe toouse Hallo aanbevolen oplossing voor cloudopslag in uw toepassingen.
 services: storage
 documentationcenter: 
 author: mmacy
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/26/2017
 ms.author: marsma
-ms.openlocfilehash: 98670b60daca7091e09ce2ab03cf2eaff015070e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: dec8280c77f4b23df4c2a471e1d755e365c14e58
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-microsoft-azure-storage"></a>Inleiding tot Microsoft Azure Storage
+# <a name="introduction-toomicrosoft-azure-storage"></a>Inleiding tooMicrosoft Azure Storage
 
 ## <a name="overview"></a>Overzicht
-Azure Storage is de oplossing voor opslag in de cloud voor moderne toepassingen die afhankelijk zijn van duurzaamheid, beschikbaarheid en schaalbaarheid om te voldoen aan de behoeften van klanten. In dit artikel lezen ontwikkelaars, IT-professionals en zakelijke besluitvormers meer over het volgende:
+Azure-opslag is Hallo cloud opslagoplossing voor moderne toepassingen die afhankelijk van duurzaamheid, beschikbaarheid en schaalbaarheid toomeet Hallo behoeften van klanten zijn. In dit artikel lezen ontwikkelaars, IT-professionals en zakelijke besluitvormers meer over het volgende:
 
 * Wat is Azure Storage en hoe gebruikt u dit in uw cloud en met uw mobiele, server- en bureaubladtoepassingen?
-* Welke typen gegevens kunt u opslaan met de Azure Storage-services: blobgegevens (object), NoSQL-tabelgegevens, wachtrijberichten en bestandsshares.
-* Hoe wordt de toegang tot uw gegevens in Azure Storage beheerd?
+* Welke typen gegevens kunt u opslaan met hello Azure Storage-services: blob-gegevens (object), NoSQL-tabelgegevens, Wachtrijberichten en bestandsshares.
+* Hoe toegang tooyour gegevens in Azure Storage wordt beheerd
 * Hoe worden uw Azure Storage-gegevens duurzaam gemaakt aan de hand van redundantie en replicatie?
-* Waar bouwt u uw eerste Azure Storage-toepassing?
+* Wanneer de volgende toobuild toogo uw eerste Azure Storage-toepassing
 
-<!-- after our quick starts are available, replace this link with a link to one of those. 
-Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
-<!-- To get up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md). -->
+<!-- after our quick starts are available, replace this link with a link tooone of those. 
+Had tooremove this article, it refers toohello VS quickstarts, and they've stopped publishing them. Robin --> 
+<!-- tooget up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md). -->
 
 Zie [Volgende stappen](#next-steps) hieronder voor meer informatie over de hulpprogramma's, bibliotheken en andere bronnen voor het gebruik van Azure Storage.
 
 ## <a name="what-is-azure-storage"></a>Wat is Azure Storage?
-Cloud computing maakt nieuwe scenario's mogelijk voor toepassingen die schaalbare, duurzame en maximaal beschikbare opslag voor hun gegevens vereisen. En dit is precies waarom Microsoft Azure Storage heeft ontwikkeld. Azure Storage maakt het ontwikkelaars mogelijk om grootschalige toepassingen te bouwen die nieuwe scenario's ondersteunen. Daarnaast levert Azure Storage de opslagbasis voor Azure Virtual Machines, waardoor de robuustheid van het systeem nog eens wordt onderstreept.
+Cloud computing maakt nieuwe scenario's mogelijk voor toepassingen die schaalbare, duurzame en maximaal beschikbare opslag voor hun gegevens vereisen. En dit is precies waarom Microsoft Azure Storage heeft ontwikkeld. In aanvulling toomaking het mogelijk dat ontwikkelaars toobuild grootschalige toepassingen toosupport nieuwe scenario's, Azure Storage biedt ook Hallo opslagbasis voor Azure Virtual Machines, een verdere testament tooits robuustheid.
 
-Azure Storage is zeer schaalbaar. U kunt honderden terabytes aan gegevens opslaan en verwerken ter ondersteuning van de big data-scenario's die u nodig hebt voor toepassingen die u gebruikt voor wetenschap, financiële analyse en media. Ook de kleine hoeveelheden gegevens die u nodig hebt voor een kleine zakelijke website kunt u opslaan. Wat u ook nodig hebt, u betaalt alleen voor de gegevens die u opslaat. Momenteel zijn er tientallen biljoenen unieke klantobjecten opgeslagen in Azure Storage. Daarnaast worden er gemiddeld miljoenen aanvragen per seconde verwerkt.
+Azure Storage is zeer schaalbaar, zodat u kunt opslaan en verwerken van honderden terabytes aan gegevens toosupport Hallo big data scenario's vereist zijn voor wetenschap, financiële analyse en mediatoepassingen. Of u Hallo kleine hoeveelheden gegevens die nodig zijn voor een klein bedrijf website kunt opslaan. Wat u ook nodig, betaalt u alleen voor Hallo gegevens die u opslaat. Momenteel zijn er tientallen biljoenen unieke klantobjecten opgeslagen in Azure Storage. Daarnaast worden er gemiddeld miljoenen aanvragen per seconde verwerkt.
 
-Azure Storage is elastisch. U kunt toepassingen ontwerpen voor een grote wereldwijde doelgroep en deze toepassingen naar behoefte schalen, zowel wat betreft de hoeveelheid opgeslagen gegevens als het aantal aanvragen dat wordt verwerkt. U betaalt alleen voor wat u gebruikt, wanneer u het gebruikt.
+Azure Storage is elastisch, zodat u kunt toepassingen voor een grote wereldwijde doelgroep ontwerpen en schalen van deze toepassingen naar behoefte - beide in termen van de hoeveelheid opgeslagen gegevens Hallo en Hallo aantal aanvragen dat wordt verwerkt. U betaalt alleen voor wat u gebruikt, wanneer u het gebruikt.
 
-Azure Storage maakt gebruik van automatische partitionering, waardoor automatisch taakverdelingen van uw gegevens worden uitgevoerd op basis van het verkeer. Dit betekent dat naarmate er steeds meer gebruik van uw toepassing wordt gemaakt, Azure Storage automatisch de juiste resources toewijst om aan de vraag te voldoen.
+Azure Storage maakt gebruik van automatische partitionering, waardoor automatisch taakverdelingen van uw gegevens worden uitgevoerd op basis van het verkeer. Dit betekent dat als Hallo behoefte aan uw toepassing wordt gemaakt, Azure Storage automatisch Hallo juiste resources toomeet toegewezen ze.
 
-Azure Storage is overal ter wereld toegankelijk vanuit elk type toepassing, of het nu wordt uitgevoerd in de cloud, op het bureaublad, op een on-premises server of op een mobiele telefoon of tablet. U kunt Azure Storage gebruiken in mobiele scenario's waarin de toepassing een subset van de gegevens op het apparaat opslaat en synchroniseert met een volledige set gegevens die is opgeslagen in de cloud.
+Azure-opslag is toegankelijk vanaf een willekeurige plaats in Hallo wereld van elk type toepassing, of deze wordt uitgevoerd in Hallo cloud, op Hallo bureaublad, op een on-premises server of op een mobiele telefoon of Tablet. U kunt Azure Storage gebruiken in mobiele scenario's waarbij Hallo toepassing een subset van gegevens op Hallo apparaat opslaat en synchroniseert met een volledige set gegevens die zijn opgeslagen in de cloud Hallo.
 
-Voor extra gemak bij de ontwikkeling biedt Azure Storage ondersteuning voor clients die gebruikmaken van verschillende besturingssystemen (waaronder Windows en Linux) en programmeertalen (waaronder .NET, Java, Node.js, Python, Ruby, PHP en C++ en mobiele programmeertalen). Azure Storage biedt ook gegevensresources via eenvoudige REST-API's, die beschikbaar zijn voor elke client die gegevens kan verzenden en ontvangen via HTTP/HTTPS.
+Voor extra gemak bij de ontwikkeling biedt Azure Storage ondersteuning voor clients die gebruikmaken van verschillende besturingssystemen (waaronder Windows en Linux) en programmeertalen (waaronder .NET, Java, Node.js, Python, Ruby, PHP en C++ en mobiele programmeertalen). Azure Storage ook gegevensresources via eenvoudige REST-API's, die beschikbaar tooany client kan verzenden en ontvangen van gegevens via HTTP/HTTPS zijn.
 
-Azure Premium Storage levert schijfondersteuning met hoge prestaties en lage latentie voor I/O-intensieve werkbelastingen op Azure Virtual Machines. Met Azure Premium Storage kunt u meerdere permanente gegevensschijven koppelen aan een virtuele machine en deze configureren om ervoor te zorgen dat deze aan uw prestatievereisten voldoen. Voor maximale I/O-prestaties wordt elke gegevensschijf ondersteund door een SSD-schijf in Azure Premium Storage. Zie [Premium Storage: krachtige opslag voor Azure Virtual Machine-werkbelasting](storage-premium-storage.md) voor meer informatie.
+Azure Premium Storage levert schijfondersteuning met hoge prestaties en lage latentie voor I/O-intensieve werkbelastingen op Azure Virtual Machines. Met Azure Premium-opslag, kunt u meerdere permanente gegevens schijven tooa virtuele machine te koppelen en configureren toomeet uw prestatievereisten voldoen. Voor maximale I/O-prestaties wordt elke gegevensschijf ondersteund door een SSD-schijf in Azure Premium Storage. Zie [Premium Storage: krachtige opslag voor Azure Virtual Machine-werkbelasting](storage-premium-storage.md) voor meer informatie.
 
-## <a name="introducing-the-azure-storage-services"></a>Introductie van de Azure Storage-services
-Azure Storage biedt de volgende vier services: Blob Storage, Table Storage, Queue Storage en File Storage.
+## <a name="introducing-hello-azure-storage-services"></a>Inleiding tot hello Azure Storage-services
+Azure storage biedt Hallo volgende vier services: Blob storage, Table storage, Queue storage en File storage.
 
-* Met Blob Storage worden ongestructureerde objectgegevens opgeslagen. Een blob kan elk type tekst of binaire gegevens zijn, zoals een document, mediabestand of toepassingsinstallatieprogramma. U kunt Blob Storage zien als een vorm van objectopslag.
-* Met Table Storage worden gestructureerde gegevenssets opgeslagen. Table Storage is een gegevensarchief met NoSQL-sleutelkenmerk, waarmee snelle ontwikkeling en snelle toegang tot grote hoeveelheden gegevens mogelijk is.
+* Met Blob Storage worden ongestructureerde objectgegevens opgeslagen. Een blob kan elk type tekst of binaire gegevens zijn, zoals een document, mediabestand of toepassingsinstallatieprogramma. BLOB-opslag is ook bedoeld tooas opslag van objecten.
+* Met Table Storage worden gestructureerde gegevenssets opgeslagen. Table storage is een NoSQL-sleutelkenmerk gegevensarchief, waarmee snelle ontwikkeling en snelle toegang toolarge hoeveelheden gegevens.
 * Queue Storage biedt betrouwbare berichten voor de verwerking van de werkstroom en voor communicatie tussen onderdelen van Cloud Services.
-* File Storage biedt gedeelde opslag voor oudere toepassingen met behulp van het standaard SMB-protocol. Azure Virtual Machines en Cloud Services kunnen bestandsgegevens via gekoppelde shares delen tussen toepassingsonderdelen en on-premises toepassingen hebben toegang tot bestandsgegevens in een share via de bestandsservice REST-API.
+* File Storage biedt gedeelde opslag voor oudere toepassingen met behulp van Hallo standaard SMB-protocol. Azure virtuele machines en cloudservices kunnen bestandsgegevens delen tussen toepassingsonderdelen via gekoppelde shares en on-premises toepassingen hebben toegang tot bestandsgegevens in een share via Hallo bestandsservice REST-API.
 
-Een Azure Storage-account is een veilig account dat u toegang biedt tot services in Azure Storage. Uw opslagaccount biedt een unieke naamruimte voor uw opslagresources. In onderstaande afbeelding ziet u de relaties tussen de Azure Storage-resources in een opslagaccount:
+Een Azure storage-account is een veilig account waarmee u toegang tot tooservices in Azure Storage. Uw opslagaccount biedt Hallo unieke naamruimte voor uw opslagresources. Hallo in onderstaande afbeelding ziet u Hallo relaties tussen hello Azure storage-resources in een opslagaccount:
 
 ![Azure Storage-resources](./media/storage-introduction/storage-concepts.png)
 
@@ -69,7 +69,7 @@ Een Azure Storage-account is een veilig account dat u toegang biedt tot services
 [!INCLUDE [storage-versions-include](../../includes/storage-versions-include.md)]
 
 ## <a name="blob-storage"></a>Blob Storage
-Blob Storage vormt een rendabele en schaalbare oplossing voor gebruikers met grote hoeveelheden ongestructureerde objectgegevens die in de cloud worden opgeslagen. U kunt Blob Storage gebruiken voor het opslaan van inhoud zoals:
+Voor gebruikers met grote hoeveelheden ongestructureerde object gegevens toostore in de cloud Hallo vormt Blob storage een rendabele en schaalbare oplossing. U kunt Blob storage toostore inhoud zoals:
 
 * Documenten
 * Sociale gegevens, zoals foto's, video's, muziek en blogs
@@ -78,92 +78,92 @@ Blob Storage vormt een rendabele en schaalbare oplossing voor gebruikers met gro
 * Configuratiegegevens voor cloudtoepassingen
 * Big data, zoals logboeken en andere grote gegevenssets
 
-Elke blob is georganiseerd in een container. Containers bieden ook een handige manier om beveiligingsbeleid toe te wijzen aan groepen objecten. Een opslagaccount kan een onbeperkt aantal containers bevatten en een container kan een onbeperkt aantal blobs bevatten, tot de capaciteitslimiet van 500 TB van het opslagaccount is bereikt.
+Elke blob is georganiseerd in een container. Containers bieden ook een handige manier tooassign security-beleid toogroups van objecten. Een opslagaccount kan een onbeperkt aantal containers bevatten en een container kan een onbeperkt aantal blobs up toohello capaciteitslimiet van 500 TB van Hallo opslagaccount bevatten.
 
 Blob Storage biedt drie typen blobs: blok-blobs, toevoeg-blobs en pagina-blobs (schijven).
 
 * Blok-blobs zijn geoptimaliseerd voor streaming en opslag van cloudobjecten en zijn een goede keuze voor het opslaan van documenten, mediabestanden, back-ups enzovoort.
-* Toevoeg-blobs zijn vergelijkbaar met blok-blobs, maar deze zijn geoptimaliseerd voor toevoegbewerkingen. Een toevoeg-blob kan alleen worden bijgewerkt door een nieuw blok aan het eind toe te voegen. Toevoeg-blobs zijn een goede keuze voor scenario's zoals logboekregistratie, waarbij alleen aan het eind van de blob nieuwe gegevens moeten worden geschreven.
-* Pagina-blobs zijn geoptimaliseerd voor de vertegenwoordiging van IaaS-schijven en de ondersteuning van willekeurige schrijfbewerkingen. Deze kunnen maximaal 1 TB groot zijn. Een op een Azure Virtual Machine-netwerk aangesloten IaaS-schijf is een VHD die is opgeslagen als pagina-blob.
+* Toevoeg-blobs zijn vergelijkbaar tooblock blobs, maar zijn geoptimaliseerd voor toevoegbewerkingen. Een toevoeg-blob kan alleen door het toevoegen van een nieuw blok toohello end worden bijgewerkt. Toevoeg-blobs zijn een goede keuze voor scenario's zoals logboekregistratie, waarbij nieuwe gegevens moeten toobe alleen toohello einde van Hallo blob geschreven.
+* Pagina-blobs zijn geoptimaliseerd voor de vertegenwoordiging van IaaS-schijven en ondersteuning van willekeurige schrijfbewerkingen en mogelijk up too1 TB groot. Een op een Azure Virtual Machine-netwerk aangesloten IaaS-schijf is een VHD die is opgeslagen als pagina-blob.
 
-Voor zeer grote gegevenssets waarbij netwerkbeperkingen het downloaden of uploaden van gegevens van of naar Blob Storage via de kabel onrealistisch maken, kunt u een vaste schijf naar Microsoft verzenden om gegevens rechtstreeks via het datacentrum te importeren en exporteren. Zie [De Microsoft Azure Import/Export-service gebruiken om gegevens over te brengen naar Blob Storage](storage-import-export-service.md).
+Voor zeer grote gegevenssets waarbij netwerkbeperkingen uploaden of tooBlob gegevensopslag downloaden via Hallo kabel onrealistisch maken, kunt u een harde schijf tooMicrosoft tooimport verzenden of gegevens rechtstreeks vanuit het datacenter Hallo exporteren. Zie [Hallo Microsoft Azure Import/Export-Service tooTransfer gegevens tooBlob opslag gebruiken](storage-import-export-service.md).
 
 ## <a name="table-storage"></a>Table Storage
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-Moderne toepassingen vereisen vaak gegevensopslag met meer schaalbaarheid en flexibiliteit dan vorige softwaregeneraties vereisten. Table Storage biedt maximaal beschikbare, sterk schaalbare opslag, zodat uw toepassing automatisch kan schalen om aan de behoeften van de gebruiker te voldoen. Table Storage is de NoSQL-sleutelkenmerkopslag van Microsoft. Deze service heeft een ontwerp zonder schema, wat deze opslag onderscheidt van traditionele relationele databases. Met een schemaloze gegevensopslag kunt u uw gegevens eenvoudig aanpassen als de behoeften van uw toepassing veranderen. Table Storage is eenvoudig te gebruiken, zodat ontwikkelaars snel toepassingen kunnen maken. De toegang tot gegevens verloopt snel en kostenefficiënt voor alle soorten toepassingen.  Table Storage is doorgaans aanzienlijk goedkoper dan traditionele SQL voor vergelijkbare gegevensvolumes.
+Moderne toepassingen vereisen vaak gegevensopslag met meer schaalbaarheid en flexibiliteit dan vorige softwaregeneraties vereisten. Table storage biedt maximaal beschikbare, sterk schaalbare opslag, zodat uw toepassing kunt toomeet gebruikersvraag automatisch schalen. Table Storage is de NoSQL-sleutelkenmerkopslag van Microsoft. Deze service heeft een ontwerp zonder schema, wat deze opslag onderscheidt van traditionele relationele databases. Met een schemaloze gegevensopslag is het eenvoudig tooadapt uw gegevens als Hallo van uw toepassing veranderen behoeften. Table storage is eenvoudig toouse ontwikkelaars snel toepassingen kunnen maken. Toegang toodata is snel en kostenefficiënt voor alle soorten toepassingen.  Table Storage is doorgaans aanzienlijk goedkoper dan traditionele SQL voor vergelijkbare gegevensvolumes.
 
-Table Storage is een sleutelkenmerkopslag, wat betekent dat elke waarde in een tabel wordt opgeslagen met een getypeerde eigenschapsnaam. De naam van de eigenschap kan worden gebruikt om te filteren en selectiecriteria op te geven. Een verzameling eigenschappen en hun waarden vormen samen een entiteit. Omdat Table Storage schemaloos is, kunnen twee entiteiten in dezelfde tabel verschillende verzamelingen eigenschappen hebben. Dit kunnen verschillende typen eigenschappen zijn.
+Table Storage is een sleutelkenmerkopslag, wat betekent dat elke waarde in een tabel wordt opgeslagen met een getypeerde eigenschapsnaam. naam van de eigenschap Hallo kan worden gebruikt voor filteren en selectiecriteria op te geven. Een verzameling eigenschappen en hun waarden vormen samen een entiteit. Omdat Table storage schemaloos is, Hallo twee entiteiten in dezelfde tabel verschillende verzamelingen eigenschappen kan bevatten en deze eigenschappen van verschillende typen kunnen zijn.
 
-U kunt Table Storage gebruiken voor het opslaan van flexibele gegevenssets, zoals gebruikersgegevens voor webtoepassingen, adresboeken, apparaatgegevens en alle overige typen metagegevens die uw service nodig heeft.  In elke tabel kunt u een willekeurig aantal entiteiten opslaan. Een opslagaccount kan een onbeperkt aantal tabellen bevatten, tot de maximale capaciteit van het opslagaccount.
+U kunt Table storage toostore flexibele gegevenssets, zoals gebruikersgegevens voor webtoepassingen, adresboeken, apparaatgegevens en alle overige typen metagegevens die uw service nodig.  U kunt een willekeurig aantal entiteiten opslaan in een tabel en een opslagaccount kan een onbeperkt aantal tabellen up toohello capaciteitslimiet van Hallo opslagaccount bevatten.
 
-Zoals ook het geval is bij Blob Storage en Queue Storage, kunnen ontwikkelaars Table Storage beheren en openen met standaard REST-protocollen. Table Storage biedt echter ook ondersteuning voor een subset van het OData-protocol, waardoor geavanceerde querymogelijkheden worden vereenvoudigd en JSON- en AtomPub-indelingen (op basis van XML) mogelijk worden gemaakt.
+Zoals Blobs en wachtrijen kunnen ontwikkelaars beheren en toegang tot Table storage met standaard REST-protocollen, maar tabel opslag ook ondersteunt een subset van de OData-protocol hello, vereenvoudigen geavanceerde querymogelijkheden en JSON-en AtomPub (op basis van XML) indelingen.
 
-Voor de huidige internetgebaseerde toepassingen bieden NoSQL-databases zoals Table Storage een populaire alternatief voor traditionele relationele databases.
+Voor de huidige internetgebaseerde toepassingen bieden NoSQL-databases zoals Table storage een populaire alternatief tootraditional relationele databases.
 
 ## <a name="queue-storage"></a>Queue Storage
-Bij het ontwerpen van schaalbare toepassingen worden toepassingsonderdelen vaak ontkoppeld, zodat ze onafhankelijk van elkaar kunnen worden geschaald. Queue Storage biedt een betrouwbare berichtenoplossing voor asynchrone communicatie tussen toepassingsonderdelen, of deze nu worden uitgevoerd in de cloud, op een desktopcomputer, op een on-premises server of op een mobiel apparaat. Queue Storage biedt ook ondersteuning voor het beheren van asynchrone taken en het samenstellen van proceswerkstromen.
+Bij het ontwerpen van schaalbare toepassingen worden toepassingsonderdelen vaak ontkoppeld, zodat ze onafhankelijk van elkaar kunnen worden geschaald. Queue storage biedt een betrouwbare berichtenoplossing voor asynchrone communicatie tussen toepassingsonderdelen, of ze worden uitgevoerd in Hallo cloud, op Hallo bureaublad, op een on-premises server of op een mobiel apparaat. Queue Storage biedt ook ondersteuning voor het beheren van asynchrone taken en het samenstellen van proceswerkstromen.
 
-Een opslagaccount kan een onbeperkt aantal wachtrijen bevatten. Een wachtrij kan een onbeperkt aantal berichten bevatten, tot de capaciteitslimiet van het opslagaccount is bereikt. Afzonderlijke berichten kunnen maximaal 64 kB groot zijn.
+Een opslagaccount kan een onbeperkt aantal wachtrijen bevatten. Een wachtrij kan een onbeperkt aantal berichten van toohello capaciteitslimiet van Hallo opslagaccount bevatten. Afzonderlijke berichten mogelijk up too64 KB groot zijn.
 
 ## <a name="file-storage"></a>File Storage
-De Azure Files-service stelt u in staat om zeer beschikbare netwerkbestandsshares in te stellen die toegankelijk zijn via het standaard SMB-protocol (Server Message Block). Dit betekent dat meerdere VM's dezelfde bestanden kunnen delen met zowel lees- als schrijftoegang. U kunt de bestanden ook lezen met behulp van de REST-interface of de opslagclientbibliotheken.
+Hello Azure Files service kunt u tooset van maximaal beschikbare netwerkbestandsshares die toegankelijk zijn via Hallo standaard Server Message Block (SMB)-protocol. Dat betekent dat meerdere virtuele machines kunnen delen dezelfde Hallo bestanden met lees- en schrijftoegang. U kunt ook Hallo bestanden lezen met Hallo REST-interface of Hallo-opslag-clientbibliotheken.
 
-Eén ding dat Azure File Storage onderscheidt van bestanden in een zakelijke bestandsshare is het feit dat u overal ter wereld toegang hebt tot de bestanden via een URL die verwijst naar het bestand, en een SAS-token (Shared Access Signature) bevat. U kunt SAS-tokens genereren. Met deze tokens hebt u gedurende een opgegeven tijdperiode toegang tot een specifiek privéasset.
+Één ding dat Azure File storage van bestanden op een zakelijke bestandsshare onderscheidt is dat u toegang hebt tot Hallo bestanden vanaf elke locatie in Hallo wereld met een URL die verwijst toohello-bestand en bevat een shared access signature (SAS)-token. U kunt genereren van SAS-tokens; ze toestaan specifieke toegang tooa persoonlijke asset voor een specifieke hoeveelheid tijd.
 
 Bestandsshares kunnen worden gebruikt voor veelvoorkomende scenario's:
 
-* Veel on-premises toepassingen maken gebruik van bestandsshares. Met deze functie kunt u gemakkelijker toepassingen die gegevens delen, migreren naar Azure. Als u de bestandsshare koppelt aan dezelfde stationsletter die wordt gebruikt voor de on-premises toepassing, werkt het gedeelte van de toepassing dat toegang heeft tot de bestandsshare, (vrijwel) ongewijzigd.
+* Veel on-premises toepassingen maken gebruik van bestandsshares. Deze functie kunt u gemakkelijker toomigrate die toepassingen die gegevens tooAzure delen. Als u koppelen hello file share toohello dezelfde stationsletter die Hallo lokale toepassing gebruikt, Hallo-onderdeel van uw toepassing die toegang heeft tot de bestandsshare Hallo moet samenwerken met minimale eventuele wijzigingen worden aangebracht.
 
-* Configuratiebestanden kunnen worden opgeslagen in een bestandsshare en zijn toegankelijk vanaf meerdere VM's. Hulpprogramma's en hulpmiddelen die worden gebruikt door meerdere ontwikkelaars in een groep, kunnen worden opgeslagen in een bestandsshare. Hierdoor kan iedereen ze vinden en maakt iedereen ook gebruik van dezelfde versie.
+* Configuratiebestanden kunnen worden opgeslagen in een bestandsshare en zijn toegankelijk vanaf meerdere VM's. Hulpprogramma's en hulpmiddelen die worden gebruikt door meerdere ontwikkelaars in een groep kunnen worden opgeslagen op een bestandsshare ervoor te zorgen dat iedereen deze vindt, en dat ze gebruiken Hallo dezelfde versie.
 
-* Diagnostische logboeken, metrische gegevens en crashdumps zijn slechts drie voorbeelden van gegevens die naar een bestandsshare kunnen worden geschreven, en later verwerkt of geanalyseerd.
+* Diagnostische logboeken, meetgegevens en crashdumps zijn slechts drie voorbeelden van gegevens die kunnen worden geschreven tooa bestandsshare en verwerkt of geanalyseerd later.
 
-Op dit moment worden verificatie op basis van Active Directory en toegangsbeheerlijsten (ACL's) niet ondersteund, maar ondersteuning hiervan wordt in de toekomst beschikbaar. De opslagaccountreferenties worden gebruikt voor verificatie voor toegang tot de bestandsshare. Dit betekent dat iedereen met de gekoppelde share volledige lees-/schrijftoegang tot de share heeft.
+Op dit moment, verificatie op basis van Active Directory en de toegang niet toegangsbeheerlijsten (ACL's) worden ondersteund, maar ze zich op een bepaald moment in toekomstige Hallo. Hallo opslagaccountreferenties zijn gebruikte tooprovide verificatie voor toegang tot toohello bestandsshare. Dit betekent dat iedereen met Hallo share gekoppeld volledige lezen/schrijven toegang toohello share.
 
-## <a name="access-to-blob-table-queue-and-file-resources"></a>Toegang tot Blob-, Table-, Queue- en File-resources
-Standaard heeft alleen de eigenaar van het opslagaccount toegang tot resources in het opslagaccount. Voor de beveiliging van uw gegevens moet elke aanvraag die bij resources in uw account wordt gedaan, worden geverifieerd. De verificatie is afhankelijk van een gedeelde-sleutelmodel. Blobs kunnen ook worden geconfigureerd om anonieme verificatie te ondersteunen.
+## <a name="access-tooblob-table-queue-and-file-resources"></a>Toegang tooBlob, tabel, wachtrijen en bestand bronnen
+Standaard kan alleen Hallo eigenaar van het opslagaccount toegang tot bronnen in Hallo storage-account. Voor beveiliging van uw gegevens Hallo moet elk verzoek op basis van bronnen in uw account worden geverifieerd. De verificatie is afhankelijk van een gedeelde-sleutelmodel. BLOBs kunnen ook worden geconfigureerd toosupport anonieme verificatie.
 
-Wanneer uw opslagaccount wordt gemaakt, worden er twee sleutels voor persoonlijke toegang aan toegewezen die worden gebruikt voor verificatie. Doordat u twee sleutels hebt, blijft de toepassing beschikbaar wanneer u de sleutels uit veiligheidsoverwegingen regelmatig opnieuw genereert.
+Wanneer uw opslagaccount wordt gemaakt, worden er twee sleutels voor persoonlijke toegang aan toegewezen die worden gebruikt voor verificatie. Met twee sleutels, zorgt u ervoor dat uw toepassing beschikbaar blijft wanneer u regelmatig Hallo sleutels uit veiligheidsoverwegingen algemene Sleutelbeheer opnieuw genereert.
 
-Als u beheerde toegang tot uw opslagresources moet toestaan voor uw gebruikers, kunt u een Shared Access Signature maken. Een Shared Access Signature (SAS) is een token die kan worden toegevoegd aan een URL waarmee gedelegeerde toegang tot een opslagresource mogelijk wordt gemaakt. Iedereen die de token in zijn bezit heeft, heeft gedurende de geldigheidsperiode toegang tot de resource waarnaar de token verwijst met de voor de token opgegeven machtigingen. Vanaf versie 2015-04-05 ondersteunt Azure Storage twee soorten gedeelde handtekeningen voor toegang: service-SAS en account-SAS.
+Als u tooallow beheerd gebruikers toegang tooyour storage-resources hoeft, kunt u een shared access signature maken. Een shared access signature (SAS) is een token dat zijn kan dat hiermee toegang tooa opslagresource gedelegeerde toegevoegde tooa-URL. Iedereen die in Hallo token bezit Hallo resource verwijst opgegeven toowith Hallo machtigingen kunt krijgen, Hallo periode dat deze geldig is. Vanaf versie 2015-04-05 ondersteunt Azure Storage twee soorten gedeelde handtekeningen voor toegang: service-SAS en account-SAS.
 
-De service-SAS biedt toegang tot een resource in slechts een van de opslagservices: de Blob-, Queue-, Tabel- of File-service.
+Hallo-service-SAS gemachtigden toegang tot tooa resource in slechts één van de opslagservices Hallo: Hallo Blob, Queue, Table of bestand service.
 
-Een account-SAS delegeert toegang tot resources in een of meer van de opslagservices. U kunt toegang tot serviceniveaubewerkingen die niet beschikbaar zijn bij een service-SAS delegeren. U kunt ook toegang tot het lezen, schrijven en verwijderen van bewerkingen delegeren voor blobcontainers, tabellen, wachtrijen en bestandsshares die niet zijn toegestaan bij een service-SAS.
+Een account-SAS delegeert toegang tooresources in een of meer van de opslagservices Hallo. U kunt toegang tooservice-serviceniveaubewerkingen die niet beschikbaar met een service-SAS delegeren. U kunt ook toegang tooread-, schrijf- en delete-bewerkingen op de blob-containers, tabellen, wachtrijen en bestandsshares die niet zijn toegestaan als een service-SAS delegeren.
 
-Tot slot kunt u opgeven dat een container en de bijbehorende blobs of een specifieke blob beschikbaar zijn voor openbare toegang. Wanneer u opgeeft dat een container of blob openbaar is, kan iedereen deze anoniem lezen. Er is dan geen verificatie vereist.  Openbare containers en blobs zijn nuttig voor de weergave van resources, zoals media en documenten die worden gehost op websites.  Om de netwerklatentie voor een globale doelgroep te reduceren, kunt u de blobgegevens die worden gebruikt door websites met Azure CDN in de cache opslaan.
+Tot slot kunt u opgeven dat een container en de bijbehorende blobs of een specifieke blob beschikbaar zijn voor openbare toegang. Wanneer u opgeeft dat een container of blob openbaar is, kan iedereen deze anoniem lezen. Er is dan geen verificatie vereist.  Openbare containers en blobs zijn nuttig voor de weergave van resources, zoals media en documenten die worden gehost op websites.  toodecrease netwerklatentie voor een globale doelgroep, u kunt blob-gegevens die door websites Hello Azure CDN cache.
 
-Zie [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Shared Access Signatures (SAS) gebruiken) voor meer informatie over handtekeningen voor gedeelde toegang. Zie [Anonieme leestoegang tot containers en blobs beheren](storage-manage-access-to-resources.md) en [Verificatie voor de Azure Storage-services](https://msdn.microsoft.com/library/azure/dd179428.aspx) voor meer informatie over veilige toegang tot uw Storage-account.
+Zie [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Shared Access Signatures (SAS) gebruiken) voor meer informatie over handtekeningen voor gedeelde toegang. Zie [anonieme leestoegang toocontainers en blobs beheren](storage-manage-access-to-resources.md) en [verificatie voor hello Azure Storage-Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) voor meer informatie over veilige toegang tooyour storage-account.
 
 ## <a name="replication-for-durability-and-high-availability"></a>Replicatie voor duurzaamheid en maximale beschikbaarheid
-De gegevens in uw Microsoft Azure Storage-account worden altijd gerepliceerd om duurzaamheid en hoge beschikbaarheid te garanderen. Met replicatie worden al uw gegevens gekopieerd, in hetzelfde datacentrum of naar een tweede datacentrum, afhankelijk van welke replicatieoptie u kiest. Replicatie beschermt uw gegevens en handhaaft de beschikbaarheid van uw toepassing in het geval van een tijdelijke hardwarefout. Als uw gegevens naar een tweede datacentrum worden gerepliceerd, zijn uw gegevens ook beschermd tegen een catastrofale fout op de primaire locatie.
+Hallo-gegevens in uw Microsoft Azure storage-account altijd is gerepliceerd tooensure duurzaamheid en maximale beschikbaarheid. Replicatie wordt gekopieerd uw gegevens zich binnen de Hallo hetzelfde Datacenter of tooa tweede Datacenter, afhankelijk van welke replicatieoptie u kiest. Replicatie beschermt u uw gegevens en behoudt uw toepassing beschikbaarheid in Hallo-gebeurtenis van tijdelijke hardwarefouten. Als uw gegevens worden gerepliceerd tweede datacentrum tooa, die ook beschermt u uw gegevens tegen een onherstelbare fout op Hallo primaire locatie.
 
-Replicatie zorgt ervoor dat uw opslagaccount voldoet aan de [Service-Level Agreement (SLA) voor opslag](https://azure.microsoft.com/support/legal/sla/storage/), zelfs wanneer er fouten optreden. Raadpleeg de SLA voor informatie over de garanties van Azure Storage voor duurzaamheid en beschikbaarheid.
+Replicatie zorgt ervoor dat uw storage-account voldoet aan Hallo [Service Level Agreement (SLA) voor opslag](https://azure.microsoft.com/support/legal/sla/storage/) zelfs in Hallo face van fouten. Zie Hallo SLA voor informatie over Azure Storage wordt gegarandeerd dat voor duurzaamheid en beschikbaarheid.
 
-Wanneer u een opslagaccount maakt, kunt u een van de volgende replicatieopties selecteren:
+Wanneer u een opslagaccount maakt, kunt u een Hallo volgende replicatieopties selecteren:
 
-* **Lokaal redundante opslag (LRS).** Lokaal redundante opslag onderhoudt drie kopieën van uw gegevens. LRS wordt binnen één datacentrum in één regio driemaal gerepliceerd. LRS beschermt uw gegevens tegen normale hardwarefouten, maar niet tegen het uitvallen van één datacentrum.
+* **Lokaal redundante opslag (LRS).** Lokaal redundante opslag onderhoudt drie kopieën van uw gegevens. LRS wordt binnen één datacentrum in één regio driemaal gerepliceerd. LRS beschermt u uw gegevens tegen normale hardwarefouten, maar niet tegen Hallo uitvallen van één datacenter.
 
     LRS wordt aangeboden met korting. Voor maximale duurzaamheid wordt aanbevolen dat u geografisch redundante opslag gebruikt, zoals hieronder wordt beschreven.
-* **Zone-redundante opslag (ZRS).** Zone-redundante opslag onderhoudt drie kopieën van uw gegevens. ZRS wordt binnen twee of drie faciliteiten in één regio of tussen twee regio's driemaal gerepliceerd en biedt een hogere duurzaamheid dan LRS. ZRS houdt uw gegevens duurzaam binnen één regio.
+* **Zone-redundante opslag (ZRS).** Zone-redundante opslag onderhoudt drie kopieën van uw gegevens. ZRS wordt gerepliceerd driemaal tussen twee toothree faciliteiten in één regio of tussen twee regio's, biedt een hogere duurzaamheid dan LRS. ZRS houdt uw gegevens duurzaam binnen één regio.
 
     ZRS biedt een hoger duurzaamheidsniveau dan LRS. Voor maximale duurzaamheid wordt echter het gebruik van geografisch redundante opslag aanbevolen. Deze vorm wordt hieronder beschreven.
 
   > [!NOTE]
   > ZRS is momenteel alleen beschikbaar voor blok-blobs en wordt alleen ondersteund voor versie 2014-02-14 en hoger.
   >
-  > Nadat u uw opslagaccount hebt gemaakt en ZRS hebt geselecteerd, kunt u het niet omzetten naar ander type replicatie. Ook kunt u niet meer overstappen naar ZRS als u al een ander type hebt geselecteerd.
+  > Zodra u hebt uw storage-account gemaakt en ZRS hebt geselecteerd, u niet met de conversie toouse tooany andere typen van replicatie, en vice versa.
   >
   >
-* **Geografisch redundante opslag (GRS)**. GRS onderhoudt zes kopieën van uw gegevens. Met GRS worden uw gegevens driemaal gerepliceerd binnen de primaire regio en driemaal in een secundaire regio op honderden kilometers afstand van de primaire regio. Zo biedt deze service het hoogste duurzaamheidsniveau. Als er een storing optreedt in de primaire regio, wordt er door Azure Storage een failover naar de secundaire regio uitgevoerd. GRS houdt uw gegevens duurzaam binnen twee afzonderlijke regio's.
+* **Geografisch redundante opslag (GRS)**. GRS onderhoudt zes kopieën van uw gegevens. Met GRS worden uw gegevens driemaal gerepliceerd binnen de primaire regio Hallo en is ook driemaal gerepliceerd in een secundaire regio op honderden mijl weg Hallo primaire regio, Hallo hoogste niveau van duurzaamheid bieden. In geval van een storing optreedt in de primaire regio Hallo Hallo wordt Azure Storage failover toohello secundaire regio. GRS houdt uw gegevens duurzaam binnen twee afzonderlijke regio's.
 
     Zie [Azure-regio’s](https://azure.microsoft.com/regions/) voor meer informatie over de primaire en secundaire koppelingen per regio.
-* **Geografisch redundante opslag met leestoegang (RA-GRS)**. Met geografisch redundante opslag met leestoegang worden uw gegevens gerepliceerd naar een secundaire geografische locatie en hebt u leestoegang tot uw gegevens op de secundaire locatie. Met geografisch redundante opslag met leestoegang hebt u toegang tot uw gegevens vanaf de primaire of de secundaire locatie als er één locatie niet beschikbaar is. Wanneer u een opslagaccount maakt, wordt geografisch redundante opslag met leestoegang standaard ingeschakeld.
+* **Geografisch redundante opslag met leestoegang (RA-GRS)**. Geografisch redundante opslag met leestoegang worden gerepliceerd van uw gegevens tooa secundaire geografische locatie en biedt ook leestoegang tooyour gegevens op de secundaire locatie Hallo. Geografisch redundante opslag met leestoegang kunt u tooaccess uw gegevens van Hallo primaire of secundaire locatie hello, in één locatie uitvalt Hallo-gebeurtenis. Geografisch redundante opslag met leestoegang is de standaardoptie Hallo voor uw opslagaccount standaard wanneer u dit hebt gemaakt.
 
   > [!IMPORTANT]
-  > U kunt wijzigen hoe uw gegevens worden gerepliceerd nadat uw opslagaccount is gemaakt, tenzij u ZRS hebt opgegeven tijdens het maken van het account. Er worden mogelijk eenmalig extra kosten in rekening gebracht voor de overdracht van gegevens als u overschakelt van LRS naar GRS of RA-GRS.
+  > U kunt wijzigen hoe uw gegevens worden gerepliceerd nadat uw storage-account is gemaakt, tenzij u ZRS hebt opgegeven toen u Hallo-account hebt gemaakt. Houd er echter rekening mee dat u een extra eenmalige gegevensoverdracht kosten als u van LRS tooGRS of RA-GRS overschakelt mogelijk kosten.
   >
   >
 
@@ -173,18 +173,18 @@ Zie [Prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/sto
 
 Zie [SOSP-document - Azure Storage: een maximaal beschikbare cloudopslagservice met sterke consistentie](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Engelstalig) voor architecturale informatie over duurzaamheid met Azure Storage.
 
-## <a name="transferring-data-to-and-from-azure-storage"></a>Gegevens overbrengen van en naar Azure Storage
-U kunt het opdrachtregelhulpprogramma AzCopy gebruiken om blob-, bestands- en tabelgegevens binnen uw opslagaccount of tussen opslagaccounts te kopiëren. Zie [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md) voor meer informatie.
+## <a name="transferring-data-tooand-from-azure-storage"></a>Overdracht van gegevens tooand van Azure Storage
+U kunt Hallo AzCopy-opdrachtregelprogramma toocopy blob-, bestands- en tabelgegevens binnen uw opslagaccount of tussen opslagaccounts. Zie [gegevensoverdracht met het AzCopy-opdrachtregelprogramma Hallo](storage-use-azcopy.md) voor meer informatie.
 
-AzCopy is gebouwd boven op de [Azure-bibliotheek voor gegevensverplaatsing](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), die momenteel beschikbaar is als voorbeeld.
+AzCopy is gebouwd boven op Hallo [Azure-bibliotheek voor gegevensverplaatsing](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), die momenteel beschikbaar is in preview.
 
-De service Azure Import/Export biedt een manier voor het importeren of exporteren van blobgegevens van/naar uw storage-account via een harde schijf, verzonden naar het Azure Datacenter. Zie [De Microsoft Azure Import/Export-service gebruiken om gegevens over te brengen naar Blob Storage](storage-import-export-service.md) voor meer informatie over de Import/Export-service.
+Hello Azure Import/Export-service biedt een manier tooimport blob-gegevens in of exporteren van blobgegevens van uw storage-account via een harde schijf, verzonden toohello Azure-Datacenter. Zie voor meer informatie over Hallo Import/Export-service, [Hallo Microsoft Azure Import/Export-Service tooTransfer gegevens tooBlob opslag gebruiken](storage-import-export-service.md).
 
 ## <a name="pricing"></a>Prijzen
 [!INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
 ## <a name="storage-apis-libraries-and-tools"></a>Storage-API's, -bibliotheken en -hulpprogramma's
-Azure Storage-resources zijn toegankelijk voor elke taal waarvoor HTTP/HTTPS-aanvragen mogelijk zijn. Daarnaast biedt Azure Storage programmeringsbibliotheken voor verschillende veelgebruikte talen. Deze bibliotheken vereenvoudigen veel aspecten van het werken met Azure Storage door details zoals synchrone en asynchrone aanroepafhandeling, batchverwerking van bewerkingen, uitzonderingsbeheer, automatische nieuwe pogingen, werking enzovoort. Bibliotheken zijn momenteel beschikbaar voor de volgende talen en platformen (deze lijst wordt in de toekomst uitgebreid):
+Azure Storage-resources zijn toegankelijk voor elke taal waarvoor HTTP/HTTPS-aanvragen mogelijk zijn. Daarnaast biedt Azure Storage programmeringsbibliotheken voor verschillende veelgebruikte talen. Deze bibliotheken vereenvoudigen veel aspecten van het werken met Azure Storage door details zoals synchrone en asynchrone aanroepafhandeling, batchverwerking van bewerkingen, uitzonderingsbeheer, automatische nieuwe pogingen, werking enzovoort. Bibliotheken zijn momenteel beschikbaar voor Hallo volgende talen en platforms met anderen in Hallo pijplijn:
 
 ### <a name="azure-storage-data-services"></a>Azure Storage-gegevensservices
 * [REST-API voor Storage-services](http://msdn.microsoft.com/library/azure/dd179355.aspx)
@@ -208,7 +208,7 @@ Azure Storage-resources zijn toegankelijk voor elke taal waarvoor HTTP/HTTPS-aan
 * [Clientbibliotheek van opslaggegevensverplaatsing voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### <a name="tools-and-utilities"></a>Hulpprogramma's
-* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken in Windows, macOS en Linux.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is een gratis, zelfstandige app van Microsoft waarmee u toowork visueel met Azure Storage-gegevens op Windows-, Mac OS- en Linux.
 * [Azure Storage-clienthulpprogramma’s](storage-explorers.md)
 * [Azure-SDK's en -hulpprogramma's](https://azure.microsoft.com/tools/)
 * [Azure-opslagemulator](http://www.microsoft.com/download/details.aspx?id=43709)
@@ -216,14 +216,14 @@ Azure Storage-resources zijn toegankelijk voor elke taal waarvoor HTTP/HTTPS-aan
 * [AzCopy-opdrachtregelprogramma](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende bronnen voor meer informatie over Azure Storage:
+toolearn meer informatie over Azure Storage, bekijk deze resources:
 
 ### <a name="documentation"></a>Documentatie
 * [Documentatie bij Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Een opslagaccount maken](storage-create-storage-account.md)
 
-<!-- after our quick starts are available, replace this link with a link to one of those. 
-Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!-- after our quick starts are available, replace this link with a link tooone of those. 
+Had tooremove this article, it refers toohello VS quickstarts, and they've stopped publishing them. Robin --> 
 <!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 -->
 
@@ -238,28 +238,28 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 * [Aan de slag met Azure File Storage in Windows](storage-dotnet-how-to-use-files.md)
 
 ### <a name="for-javaandroid-developers"></a>Voor Java/Android-ontwikkelaars
-* [Blob Storage gebruiken met Java](storage-java-how-to-use-blob-storage.md)
-* [Table Storage gebruiken met Java](storage-java-how-to-use-table-storage.md)
-* [Queue Storage gebruiken met Java](storage-java-how-to-use-queue-storage.md)
-* [File Storage gebruiken met Java](storage-java-how-to-use-file-storage.md)
+* [Hoe toouse Blob-opslag met Java](storage-java-how-to-use-blob-storage.md)
+* [Hoe toouse Table storage met Java](storage-java-how-to-use-table-storage.md)
+* [Hoe toouse Queue storage met Java](storage-java-how-to-use-queue-storage.md)
+* [Hoe toouse File storage met Java](storage-java-how-to-use-file-storage.md)
 
 ### <a name="for-nodejs-developers"></a>Voor Node.js-ontwikkelaars
-* [Blob Storage gebruiken met Node.js](storage-nodejs-how-to-use-blob-storage.md)
-* [Table Storage gebruiken met Node.js](storage-nodejs-how-to-use-table-storage.md)
-* [Queue Storage gebruiken met Node.js](storage-nodejs-how-to-use-queues.md)
+* [Hoe toouse Blob-opslag met Node.js](storage-nodejs-how-to-use-blob-storage.md)
+* [Hoe toouse Table storage met Node.js](storage-nodejs-how-to-use-table-storage.md)
+* [Hoe toouse Queue storage met Node.js](storage-nodejs-how-to-use-queues.md)
 
 ### <a name="for-php-developers"></a>Voor PHP-ontwikkelaars
-* [Blob Storage gebruiken met PHP](storage-php-how-to-use-blobs.md)
-* [Table Storage gebruiken met PHP](storage-php-how-to-use-table-storage.md)
-* [Queue Storage gebruiken met PHP](storage-php-how-to-use-queues.md)
+* [Hoe toouse Blob-opslag met PHP](storage-php-how-to-use-blobs.md)
+* [Hoe toouse Table storage met PHP](storage-php-how-to-use-table-storage.md)
+* [Hoe toouse Queue storage met PHP](storage-php-how-to-use-queues.md)
 
 ### <a name="for-ruby-developers"></a>Voor Ruby-ontwikkelaars
-* [Blob Storage gebruiken met Ruby](storage-ruby-how-to-use-blob-storage.md)
-* [Table Storage gebruiken met Ruby](storage-ruby-how-to-use-table-storage.md)
-* [Queue Storage gebruiken met Ruby](storage-ruby-how-to-use-queue-storage.md)
+* [Hoe toouse Blob-opslag met Ruby](storage-ruby-how-to-use-blob-storage.md)
+* [Hoe toouse Table storage met Ruby](storage-ruby-how-to-use-table-storage.md)
+* [Hoe toouse Queue storage met Ruby](storage-ruby-how-to-use-queue-storage.md)
 
 ### <a name="for-python-developers"></a>Voor Python-ontwikkelaars
-* [Blob Storage gebruiken met Python](storage-python-how-to-use-blob-storage.md)
-* [Table Storage gebruiken met Python](storage-python-how-to-use-table-storage.md)
-* [Queue Storage gebruiken met Python](storage-python-how-to-use-queue-storage.md)
-* [File Storage gebruiken met Python](storage-python-how-to-use-file-storage.md)
+* [Hoe toouse Blob-opslag met Python](storage-python-how-to-use-blob-storage.md)
+* [Hoe toouse Table storage met Python](storage-python-how-to-use-table-storage.md)
+* [Hoe toouse Queue storage met Python](storage-python-how-to-use-queue-storage.md)
+* [Hoe toouse File storage met Python](storage-python-how-to-use-file-storage.md)

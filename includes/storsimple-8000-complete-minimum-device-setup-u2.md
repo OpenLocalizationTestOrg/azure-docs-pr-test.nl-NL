@@ -1,31 +1,31 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>De minimale StorSimple-apparaatinstelling voltooien
+#### <a name="toocomplete-hello-minimum-storsimple-device-setup"></a>toocomplete hello minimale StorSimple-Apparaatinstelling
 
    > [!NOTE]
-   > U kunt de naam van het apparaat niet wijzigen nadat de minimale apparaatinstelling is voltooid.
+   > U kunt Hallo apparaatnaam niet wijzigen zodra de minimale Apparaatinstelling Hallo is voltooid.
    
-1. Selecteer en klik op uw apparaat in de lijst in tabelvorm met apparaten op de blade **Apparaten**. Het apparaat heeft de status **Gereed voor configuratie**. De blade **Apparaat configureren** wordt geopend.
+1. Uit Hallo in tabelvorm aanbieding van apparaten in Hallo **apparaten** blade selecteren en op uw apparaat. Hallo-apparaat bevindt zich in een **tooset gereed** status. Hallo **apparaat configureren** blade wordt geopend.
 
      ![Netwerkinterfaces voor de minimale StorSimple-apparaatinstelling](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
 
-2. Doe het volgende op de blade **Apparaat** configureren:
+2. In Hallo **apparaat configureren** blade:
    
-   1. Geef een **beschrijvende naam** voor het apparaat op. De standaardapparaatnaam bevat informatie zoals het model en serienummer van het apparaat. U kunt een beschrijvende naam van maximaal 64 tekens toewijzen om uw apparaat te beheren.
-   2. Stel de **tijdzone** in op basis van de geografische regio waarin het apparaat wordt geïmplementeerd. Het apparaat gebruikt deze tijdzone gebruiken voor alle geplande bewerkingen.
-   3. Onder de **DATA 0-INSTELLINGEN**:
+   1. Geef een **beschrijvende naam** voor het apparaat op. Hallo standaardapparaatnaam informatie zoals Hallo Apparaatmodel en serienummer. Uw apparaat, kunt u een beschrijvende naam van up too64 tekens toomanage toewijzen.
+   2. Set Hallo **tijdzone** op basis van de geografische locatie Hallo in welke Hallo apparaat wordt geïmplementeerd. Het apparaat gebruikt deze tijdzone gebruiken voor alle geplande bewerkingen.
+   3. Onder Hallo **DATA 0 instellingen**:
 
-       1. Uw DATA 0-netwerkinterface wordt weergegeven als ingeschakeld met de netwerkinstellingen (IP, subnet, gateway) geconfigureerd via de installatiewizard. DATA 0 wordt ook automatisch ingeschakeld voor de cloud, evenals voor iSCSI.
+       1. Uw DATA 0-netwerkinterface bevat ingeschakeld met Hallo-instellingen (IP-subnet, gateway) die zijn geconfigureerd via de wizard setup Hallo netwerk. DATA 0 wordt ook automatisch ingeschakeld voor de cloud, evenals voor iSCSI.
 
-       2. Geef de vaste IP-adressen voor Controller 0 en Controller 1 op. **De vaste IP-adressen voor de controllers moeten beschikbare IP-adressen binnen het subnet zijn die toegankelijk zijn voor het IP-adres van het apparaat.** Als de DATA 0-interface is geconfigureerd voor IPv4, moeten de vaste IP-adressen worden opgegeven in de IPv4-indeling. Als u een voorvoegsel voor IPv6-configuratie hebt opgegeven, worden de vaste IP-adressen automatisch in deze velden ingevuld.
+       2. Bevatten Hallo van vaste IP-adressen voor Controller 0 en Controller 1. **Hallo-controller vaste IP-adressen moet toobe gratis IP-adressen binnen Hallo subnet toegankelijk door Hallo apparaat IP-adres.** Als hello DATA 0 interface is geconfigureerd voor IPv4, hello de vaste IP-adressen moeten toobe is opgegeven in Hallo IPv4-indeling. Als u een voorvoegsel voor IPv6-configuratie hebt opgegeven, worden Hallo vaste IP-adressen automatisch in deze velden ingevuld.
 
             ![Netwerkinterfaces voor de minimale StorSimple-apparaatinstelling](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
 
-            De vaste IP-adressen voor de controller worden gebruikt voor het uitvoeren van de updates op het apparaat. Daarom moeten de vaste IP-adressen routeerbaar zijn en verbinding kunnen maken met internet. U kunt controleren of uw vaste IP-adressen voor de controller routeerbaar zijn met de cmdlet [Test-HcsmConnection][Test]. In het volgende voorbeeld is te zien dat de vaste IP-adressen voor de controller worden doorgestuurd naar internet en dat deze toegang hebben tot de Microsoft Update-servers.
+            Hallo vaste IP-adressen voor controller hello worden gebruikt voor het onderhoud Hallo updates toohello apparaat. Daarom moet Hallo vaste IP-adressen routeerbaar en kunnen tooconnect toohello Internet. U kunt controleren of uw vaste IP-adressen voor de controller routeerbaar zijn met Hallo [Test-HcsmConnection] [ Test] cmdlet. Hallo volgende voorbeeld toont vaste IP-adressen voor controller gerouteerde toohello Internet zijn en toegang tot Hallo Microsoft Update-servers.
 
             ![Test-HcsmConnection met routeerbare IP-adressen](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig3.png)
 
-1. Klik op **OK**. De apparaatconfiguratie wordt gestart. Wanneer de configuratie is voltooid, krijgt u een melding. De status van het apparaat verandert in **Online** op de blade **Apparaten**.
+1. Klik op **OK**. Hallo apparaatconfiguratie wordt gestart. Wanneer de apparaatconfiguratie Hallo voltooid is, wordt u gewaarschuwd. apparaat-statuswijzigingen te Hallo**Online** in Hallo **apparaten** blade.
 
     ![Netwerkinterfaces voor de minimale StorSimple-apparaatinstelling](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
 

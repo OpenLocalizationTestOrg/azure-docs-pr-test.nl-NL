@@ -1,6 +1,6 @@
 
-### <a name="update-manifest-file-to-enable-notifications"></a>Manifestbestand bijwerken om meldingen in te schakelen
-Kopieer de onderstaande resources voor in-app-meldingen naar uw Manifest.xml tussen de labels `<application>` en `</application>`.
+### <a name="update-manifest-file-tooenable-notifications"></a>Manifestbestand tooenable meldingen bijwerken
+Hallo-app messaging bronnen hieronder kopiëren naar uw Manifest.xml tussen Hallo `<application>` en `</application>` labels.
 
         <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
               <intent-filter>
@@ -45,32 +45,32 @@ Kopieer de onderstaande resources voor in-app-meldingen naar uw Manifest.xml tus
         </receiver>
 
 ### <a name="specify-an-icon-for-notifications"></a>Een pictogram voor meldingen opgeven
-Plak het volgende XML-fragment in het bestand Manifest.xml tussen de labels `<application>` en `</application>`.
+Plakken Hallo na XML-fragment in het bestand Manifest.xml tussen Hallo `<application>` en `</application>` labels.
 
         <meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
 
-Zo definieert u welk pictogram er bij systeemmeldingen en in in-app-meldingen wordt weergegeven. Het is optioneel voor in-app-meldingen maar verplicht voor systeemmeldingen. In Android worden systeemmeldingen met ongeldige pictogrammen geweigerd.
+Hiermee definieert u Hallo-pictogram dat wordt weergegeven bij systeemmeldingen en in-app-meldingen. Het is optioneel voor in-app-meldingen maar verplicht voor systeemmeldingen. In Android worden systeemmeldingen met ongeldige pictogrammen geweigerd.
 
-Controleer of u een pictogram gebruikt dat in een van de **drawable**-mappen (zoals ``engagement_close.png``) voorkomt. **mipmap**-map wordt niet ondersteund.
+Zorg ervoor dat u een pictogram dat bestaat in een Hallo **drawable** mappen (zoals ``engagement_close.png``). **mipmap**-map wordt niet ondersteund.
 
 > [!NOTE]
-> Gebruik niet het pictogram van het **startprogramma voor toepassingen**. Dit heeft een andere resolutie en bevindt zich doorgaans in de mipmap-mappen, die niet worden ondersteund.
+> Gebruik geen Hallo **launcher** pictogram. Heeft een andere resolutie en bevindt zich doorgaans in de mipmap-mappen hello, die niet worden ondersteund.
 > 
 > 
 
 Voor echte apps kunt u een pictogram gebruiken dat geschikt is voor meldingen volgens de [Android-ontwerprichtlijnen](http://developer.android.com/design/patterns/notifications.html).
 
 > [!TIP]
-> Om er zeker van te zijn dat de juiste resoluties voor pictogrammen worden gebruikt, kunt u [deze voorbeelden](https://www.google.com/design/icons) bekijken.
-> Schuif omlaag naar de sectie **Melding**, klik op een pictogram en klik vervolgens op `PNGS` om de drawable-set voor het pictogram te downloaden. U kunt zien welke drawable-mappen met welke resolutie moeten worden gebruikt voor elke versie van het pictogram.
+> toobe ervoor toouse juiste resoluties voor pictogrammen, kunt u bekijken [deze voorbeelden](https://www.google.com/design/icons).
+> Schuif omlaag toohello **melding** sectie, klik op een pictogram en klik vervolgens op `PNGS` toodownload Hallo pictogram drawable-set. U kunt zien welke drawable-mappen met welke resolutie toouse voor elke versie van het Hallo-pictogram.
 > 
 > 
 
-### <a name="enable-your-app-to-receive-gcm-push-notifications"></a>Ontvangen van GCM-pushmeldingen inschakelen voor de app
-1. Plak het volgende in uw Manifest.xml tussen de labels `<application>` en `</application>` nadat u de **Afzender-id** hebt vervangen dat u hebt opgehaald uit de Firebase-projectconsole. De \n is opzettelijk dus zorg ervoor dat het projectnummer hiermee eindigt.
+### <a name="enable-your-app-tooreceive-gcm-push-notifications"></a>Uw app tooreceive GCM-pushmeldingen inschakelen
+1. Plak Hallo volgende in het bestand Manifest.xml tussen Hallo `<application>` en `</application>` labels na het vervangen van Hallo **afzender-ID** ontleend aan uw project Firebase console. Hallo \n is opzettelijk dus zorg ervoor dat Hallo projectnummer Hiermee eindigt.
    
         <meta-data android:name="engagement:gcm:sender" android:value="************\n" />
-2. Plak de onderstaande code in het bestand Manifest.xml tussen de labels `<application>` en `</application>`. Vervang de pakketnaam <Your package name>.
+2. Plak Hallo onderstaande code in uw Manifest.xml tussen Hallo `<application>` en `</application>` labels. Vervang de pakketnaam Hallo <Your package name>.
    
         <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
         android:exported="false">
@@ -86,7 +86,7 @@ Voor echte apps kunt u een pictogram gebruiken dat geschikt is voor meldingen vo
                 <category android:name="<Your package name>" />
             </intent-filter>
         </receiver>
-3. Voeg de laatste reeks machtigingen die zijn gemarkeerd vóór het label `<application>` toe. Vervang `<Your package name>` door de werkelijke pakketnaam van uw toepassing.
+3. Toevoegen van de laatste reeks machtigingen die zijn gemarkeerd vóór Hallo Hallo `<application>` label. Vervang `<Your package name>` door de werkelijke pakketnaam Hallo van uw toepassing.
    
         <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
         <uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />

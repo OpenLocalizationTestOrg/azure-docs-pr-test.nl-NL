@@ -1,6 +1,6 @@
 ---
-title: Uw ontwikkelomgeving instellen in Linux | Microsoft Docs
-description: Installeer de runtime en SDK en maak een lokaal ontwikkelcluster in Linux. Zodra u dit hebt gedaan, kunt u toepassingen bouwen.
+title: aaaSet van uw ontwikkelomgeving op Linux | Microsoft Docs
+description: Hallo-runtime en -SDK installeren en maak een lokaal ontwikkelcluster op Linux. Na het voltooien van deze installatie, kunt u zich gereed toobuild toepassingen.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/23/2017
 ms.author: subramar
-ms.openlocfilehash: 58c6bbbb16d7008e6b573cf8dbc8cf62da9789f5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9d82c2015f9e2c6fb55f2052c7cdb1e906c5deeb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Uw ontwikkelomgeving voorbereiden in Linux
 > [!div class="op_single_selector"]
@@ -28,101 +28,101 @@ ms.lasthandoff: 08/29/2017
 >
 >  
 
-Als u [Azure Service Fabric-toepassingen](service-fabric-application-model.md) op uw Linux-ontwikkelmachine wilt implementeren en uitvoeren, moet u de runtime en algemene SDK installeren. U kunt ook optionele SDK's voor Java en .NET Core installeren.
+toodeploy en voer [Azure Service Fabric-toepassingen](service-fabric-application-model.md) op uw ontwikkelcomputer Linux Hallo runtime en algemene SDK installeren. U kunt ook optionele SDK's voor Java en .NET Core installeren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-De volgende versies van besturingssystemen worden ondersteund voor de ontwikkeling:
+Hallo volgende versies van besturingssystemen worden ondersteund voor ontwikkeling:
 
 * Ubuntu 16.04 (`Xenial Xerus`)
 
 ## <a name="update-your-apt-sources"></a>Uw APT-bronnen bijwerken
-Voor het installeren van de SDK en het bijbehorende runtimepakket via het apt-get-opdrachtregelprogramma, moet u eerst uw APT-bronnen (Advanced Packaging Tool) bijwerken.
+tooinstall hello SDK en Hallo gekoppeld runtime-pakket via Hallo apt get-opdrachtregelprogramma, moet u eerst uw bronnen geavanceerde verpakking hulpprogramma (APT) bijwerken.
 
 1. Open een terminal.
-2. Voeg de Service Fabric-opslagplaats toe aan uw lijst met bronnen.
+2. Hallo Service Fabric-repo-tooyour bronnen lijst toevoegen.
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
 
-3. Voeg de `dotnet`-opslagplaats toe aan uw lijst met bronnen.
+3. Hallo toevoegen `dotnet` opslagplaats tooyour lijst met bronnen.
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
-4. Voeg de nieuwe Gnu Privacy Guard-code (GnuPG of GPG) toe aan uw APT-sleutelring.
+4. Hallo toevoegen Privacy Guard (gnupg installeert of GPG) een nieuwe Gnu tooyour APT sleutelhanger sleutel.
 
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
     ```
 
-5. Voeg de officiële GPG-sleutel van Docker toe aan uw APT-sleutelring.
+5. Hallo officiële Docker GPG key tooyour APT sleutelhanger toevoegen.
 
     ```bash
     sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-6. Stel de Docker-opslagplaats in.
+6. Hallo Docker-opslagplaats instellen.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Vernieuw uw pakketlijsten op basis van de net toegevoegde opslagplaatsen.
+7. Vernieuwen van het pakket op basis van het Hallo zojuist toegevoegd opslagplaatsen.
 
     ```bash
     sudo apt-get update
     ```
 
-## <a name="install-and-set-up-the-sdk-for-local-cluster-setup"></a>De SDK installeren en instellen voor gebruik van een lokaal cluster
+## <a name="install-and-set-up-hello-sdk-for-local-cluster-setup"></a>Installeren en instellen Hallo SDK voor de installatie van de lokale cluster
 
-Wanneer u uw bronnen hebt bijgewerkt, kunt u de SDK installeren. Installeer het Service Fabric SDK-pakket, bevestig de installatie en ga akkoord met de gebruiksrechtovereenkomst.
+Nadat u uw gegevensbronnen hebt bijgewerkt, kunt u Hallo SDK installeren. Hallo Service Fabric SDK-pakket installeert, Hallo installatie bevestigen en ik ga hiermee akkoord toohello gebruiksrechtovereenkomst.
 
 ```bash
 sudo apt-get install servicefabricsdkcommon
 ```
 
 >   [!TIP]
->   Met de volgende opdrachten kunt u het accepteren van de licentie voor Service Fabric-pakketten automatiseren:
+>   Hallo automatiseren volgende opdrachten overnemende Hallo-licentie voor Service Fabric-pakketten:
 >   ```bash
 >   echo "servicefabric servicefabric/accepted-eula-v1 select true" | sudo debconf-set-selections
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | sudo debconf-set-selections
 >   ```
 
 ## <a name="set-up-a-local-cluster"></a>Een lokaal cluster instellen
-  Als de installatie is voltooid, moet u een lokaal cluster kunnen starten.
+  Als het Hallo-installatie is voltooid, moet u kunnen toostart een lokaal cluster.
 
-  1. Voer het installatiescript van het cluster uit.
+  1. Hallo cluster setup-script uitvoeren.
 
       ```bash
       sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
       ```
 
-  2. Open een webbrowser en ga naar [Service Fabric Explorer](http://localhost:19080/Explorer). Als het cluster is gestart, ziet u het Service Fabric Explorer-dashboard.
+  2. Open een webbrowser en ga te[Service Fabric Explorer](http://localhost:19080/Explorer). Als het Hallo-cluster is gestart, ziet u Hallo Service Fabric Explorer dashboard.
 
       ![Service Fabric Explorer in Linux][sfx-linux]
 
-  Op dit punt kunt u vooraf samengestelde Service Fabric-toepassingspakketten of nieuwe implementeren op basis van gastcontainers of uitvoerbare gastbestanden. Als u nieuwe services wilt maken met behulp van de Java of .NET Core SDK's, voert u de optionele installatiestappen uit die in de volgende secties worden uitgelegd.
+  Op dit punt kunt u vooraf samengestelde Service Fabric-toepassingspakketten of nieuwe implementeren op basis van gastcontainers of uitvoerbare gastbestanden. nieuwe services met behulp van Hallo Java of .NET Core SDK's, toobuild stappen Hallo optionele instellingen die beschikbaar zijn in de volgende secties.
 
 
   > [!NOTE]
-  > Zelfstandige clusters worden niet ondersteund in Linux. De preview ondersteunt slechts één selectievakje en meerdere Azure Linux-machineclusters.
+  > Zelfstandige clusters worden niet ondersteund in Linux. Hallo preview ondersteunt slechts één selectievakje en meerdere machines Azure Linux-clusters.
   >
 
-## <a name="set-up-the-service-fabric-cli"></a>De Service Fabric-CLI instellen
+## <a name="set-up-hello-service-fabric-cli"></a>Hallo Service Fabric CLI instellen
 
-De [Service Fabric-CLI](service-fabric-cli.md) bevat opdrachten voor interactie met Service Fabric-entiteiten, inclusief clusters en toepassingen. De CLI is gebaseerd op python, dus is het belangrijk dat python en pip zijn geïnstalleerd voordat u verdergaat met de volgende opdracht:
+Hallo [Service Fabric CLI](service-fabric-cli.md) bevat opdrachten voor interactie met Service Fabric-entiteiten, inclusief clusters en toepassingen. Deze is gebaseerd op python, dus wees zeker toohave python en via pip geïnstalleerd voordat u verdergaat met de volgende opdracht Hallo:
 
 ```bash
 pip install sfctl
 ```
 
-## <a name="install-and-set-up-the-generators-for-containers-and-guest-executables"></a>De generatoren voor containers en uitvoerbare gastbestanden installeren en instellen
-Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fabric-toepassing kunt maken met behulp van de Yeoman-sjabloongenerator. Volg de stappen hieronder om te controleren of de Yeoman-sjabloongenerator van Service Fabric werkt op uw computer.
+## <a name="install-and-set-up-hello-generators-for-containers-and-guest-executables"></a>Installeren en instellen Hallo genereren voor containers en Gast-uitvoerbare bestanden
+Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fabric-toepassing kunt maken met behulp van de Yeoman-sjabloongenerator. Volg de stappen Hallo hieronder tooensure die u Hallo Service Fabric yeoman sjabloon generator voor het werken op uw computer hebt.
 
 1. nodejs en NPM installeren op uw computer
 
@@ -135,66 +135,66 @@ Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fa
   ```bash
   sudo npm install -g yo
   ```
-3. Yeo-containergenerator voor Service Fabric en de generator voor uitvoerbare gastbestanden installeren vanuit NPM
+3. Hallo Service Fabric Yeo container generator en Gast execuatble generator installeren via NPM
 
   ```bash
   sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
   sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
   ```
 
-Nadat u de bovenstaande generatoren hebt geïnstalleerd, moet u apps kunnen maken met uitvoerbare gastbestanden of containerservices door respectievelijk `yo azuresfguest` of `yo azuresfcontainer` uit te voeren.
+Nadat u Hallo hierboven genereren hebt geïnstalleerd, moet u de apps kunnen toocreate met gastservices uitvoerbaar bestand of de container door te voeren `yo azuresfguest` of `yo azuresfcontainer` respectievelijk.
 
-## <a name="install-the-necessary-java-artifacts-optional-if-you-want-to-use-the-java-programming-models"></a>De benodigde Java-artefacten installeren (alleen als u de Java-programmeermodellen wilt gebruiken)
+## <a name="install-hello-necessary-java-artifacts-optional-if-you-want-toouse-hello-java-programming-models"></a>Hallo nodig Java artefacten (optioneel, indien gewenst toouse Hallo Java modellen programming) installeren
 
-Als u Service Fabric-services wilt bouwen met behulp van Java, moet JDK 1.8 zijn samen zijn geïnstalleerd met Gradle, dat wordt gebruikt voor het uitvoeren van build-taken. Met het volgende fragment wordt Open JDK 1.8 samen geïnstalleerd met Gradle. De Service Fabric-Java-bibliotheken worden opgehaald uit Maven.
+toobuild Service Fabric-services met behulp van Java, zorg ervoor dat er JDK 1.8 geïnstalleerd samen met Gradle die wordt gebruikt voor het uitvoeren van build-taken. Hallo volgende codefragment installeert Open JDK 1.8 samen met Gradle. Hallo Service Fabric-Java-bibliotheken worden opgehaald uit Maven.
 
   ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
   ```
 
-## <a name="install-the-eclipse-neon-plug-in-optional"></a>De Eclipse Neon-invoegtoepassing installeren (optioneel)
+## <a name="install-hello-eclipse-neon-plug-in-optional"></a>Hallo Eclipse Neon invoegtoepassing installeren (optioneel)
 
-U kunt de Eclipse-invoegtoepassing voor Service Fabric installeren vanuit de **Eclipse IDE voor Java-ontwikkelaars**. Met Eclipse kunt u behalve Service Fabric Java-toepassingen ook uitvoerbare Fabric Service-gasttoepassingen en containertoepassingen maken.
+U kunt Hallo Eclipse-invoegtoepassing installeren voor Service Fabric uit binnen Hallo **Eclipse IDE voor Java-ontwikkelaars**. U kunt Eclipse toocreate Service Fabric Gast uitvoerbare toepassingen en containertoepassingen in toevoeging tooService Fabric Java-toepassingen.
 
-1. Zorg er in Eclipse voor dat u de meest recente Eclipse Neon en de meest recente Buildship-versie (1.0.17 of hoger) hebt geïnstalleerd. U kunt de versies van geïnstalleerde onderdelen controleren door **Help** > **Installation Details** te selecteren. U kunt Buildship bijwerken met behulp van de instructies in [Eclipse Buildship: Eclipse-invoegtoepassingen voor Gradle][buildship-update].
+1. In Eclipse of de meest recente Eclipse Neon en meest recente versie van de Buildship Hallo (1.0.17 of nieuwer) geïnstalleerd. U kunt Hallo versies van geïnstalleerde onderdelen controleren door het selecteren van **Help** > **installatiegegevens**. U kunt Buildship bijwerken met behulp van instructies op Hallo [Eclipse Buildship: Eclipse-invoegtoepassingen voor Gradle][buildship-update].
 
-2. Als u de Service Fabric-invoegtoepassing wilt installeren, selecteert u **Help** > **Install New Software**.
+2. tooinstall Hallo Service Fabric-invoegtoepassing, selecteer **Help** > **nieuwe Software installeren**.
 
-3. Geef in het vak **Work with** **http://dl.microsoft.com/eclipse** op.
+3. In Hallo **werken met** in het vak **http://dl.microsoft.com/eclipse**.
 
 4. Klik op **Add**.
 
-    ![De pagina met beschikbare software][sf-eclipse-plugin]
+    ![Hallo beschikbare Software pagina][sf-eclipse-plugin]
 
-5. Selecteer de **Fabric Service**-invoegtoepassing en klik op **Next**.
+5. Selecteer Hallo **ServiceFabric** invoegtoepassing, en klik vervolgens op **volgende**.
 
-6. Voer de installatiestappen uit en accepteer de gebruiksrechtovereenkomst.
+6. Hallo installatiestappen voltooien en accepteer de gebruiksrechtovereenkomst Hallo.
 
-Als u de Eclipse-invoegtoepassing voor Service Fabric al hebt geïnstalleerd, controleert u of u de meest recente versie gebruikt. U kunt dit controleren door **Help** > **Installation Details** te selecteren en in de lijst met geïnstalleerde invoegtoepassingen naar Service Fabric te zoeken. Selecteer **Update** als er een nieuwere versie beschikbaar is.
+Als u al Hallo Service Fabric Eclipse-invoegtoepassing is geïnstalleerd, zorg ervoor dat hebt u Hallo meest recente versie. U kunt controleren door het selecteren van **Help** > **installatiegegevens** en vervolgens te zoeken naar Service Fabric in Hallo lijst met geïnstalleerde modules. Selecteer **Update** als er een nieuwere versie beschikbaar is.
 
 Zie [Service Fabric-invoegtoepassing voor de ontwikkeling van Eclipse Java-toepassingen](service-fabric-get-started-eclipse.md) voor meer informatie.
 
 
-## <a name="install-the-net-core-sdk-optional-if-you-want-to-use-the-net-core-programming-models"></a>De .NET Core-SDK installeren (alleen als u de .NET Core-programmeermodellen wilt gebruiken)
-De .NET Core-SDK bevat de bibliotheken en sjablonen die vereist zijn voor het maken van Service Fabric-services met .NET Core. Installeer het .NET Core SDK-pakket door het volgende uit te voeren:
+## <a name="install-hello-net-core-sdk-optional-if-you-want-toouse-hello-net-core-programming-models"></a>Hallo .NET Core SDK (optioneel, indien toouse Hallo .NET Core programmeermodellen gewenst) installeren
+Hallo .NET Core SDK biedt Hallo-bibliotheken en sjablonen die vereist toobuild Service Fabric-services met .NET Core zijn. Hallo .NET Core SDK-pakket aan de hand van de actieve Hallo - installeren
 
    ```bash
    sudo apt-get install servicefabricsdkcsharp
    ```
 
-## <a name="update-the-sdk-and-runtime"></a>De SDK en runtime bijwerken
+## <a name="update-hello-sdk-and-runtime"></a>Update Hallo SDK en runtime
 
-Als u wilt bijwerken naar de nieuwste versie van de SDK en runtime, voert u de volgende opdrachten uit (hef de selectie op van ongewenste SDK's):
+tooupdate toohello meest recente versie van Hallo SDK en runtime, Hallo volgende opdrachten uitvoeren (deselecteren Hallo-SDK's die u niet wilt):
 
 ```bash
 sudo apt-get update
 sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp
 ```
-Als u de binaire bestanden uit de Java SDK wilt bijwerken vanaf Maven, moet u de versiegegevens van het bijbehorende binaire bestand in het bestand ``build.gradle`` aanpassen, zodat deze verwijzen naar de nieuwste versie. Als u precies wilt weten waar u de versie moet bijwerken, kunt u kijken naar een bestand ``build.gradle`` in de [voorbeelden](https://github.com/Azure-Samples/service-fabric-java-getting-started) om snel aan de slag te gaan met Service Fabric.
+tooupdate hello Java SDK binaire bestanden van Maven, moet u tooupdate Hallo versie details van de bijbehorende binaire Hallo in Hallo ``build.gradle`` toopoint toohello meest recente versie. tooknow exact hier moet u tooupdate Hallo versie, raadpleegt u tooany ``build.gradle`` bestand in de voorbeelden van Service Fabric aan de slag [hier](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 > [!NOTE]
-> Als de pakketten worden bijgewerkt, kan dit ertoe leiden dat uw lokale ontwikkelcluster wordt stopgezet. Start uw lokale cluster opnieuw op na een upgrade door de instructies op deze pagina te volgen.
+> Hello-pakketten bijwerken kan ertoe leiden dat uw lokale ontwikkeling cluster toostop uitgevoerd. Start opnieuw op uw lokale cluster na een upgrade door Hallo instructies te volgen op deze pagina.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -202,7 +202,7 @@ Als u de binaire bestanden uit de Java SDK wilt bijwerken vanaf Maven, moet u de
 * [Uw eerste Service Fabric Java-toepassing in Linux maken en implementeren met behulp van de Service Fabric-invoegtoepassing voor Eclipse](service-fabric-get-started-eclipse.md)
 * [Uw eerste CSharp-toepassing in Linux maken](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Uw ontwikkelomgeving voorbereiden in OSX](service-fabric-get-started-mac.md)
-* [De Service Fabric-CLI gebruiken voor het beheren van uw toepassingen](service-fabric-application-lifecycle-sfctl.md)
+* [Hallo Service Fabric CLI toomanage uw toepassingen gebruiken](service-fabric-application-lifecycle-sfctl.md)
 * [Verschillen tussen Service Fabric in Windows en Linux](service-fabric-linux-windows-differences.md)
 * [Aan de slag met Service Fabric-CLI](service-fabric-cli.md)
 

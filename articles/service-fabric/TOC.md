@@ -8,7 +8,7 @@
 # Zelfstudies
 ## Een .NET-toepassing implementeren
 ### [1 - Een .NET-toepassing maken](service-fabric-tutorial-create-dotnet-app.md)
-### [2 - De toepassing implementeren](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+### [2 - Hallo-toepassing implementeren](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3 - CI/CD configureren](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 ## Een toepassing migreren via lift-and-shift
@@ -79,7 +79,7 @@
 
 ## Toepassingen beheren
 ### [Overzicht](service-fabric-application-lifecycle.md)
-### [De instelling ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
+### [Hallo ImageStoreConnectionString instelling](service-fabric-image-store-connection-string.md)
 ### Toepassingsupgrade
 #### [Overzicht](service-fabric-application-upgrade.md)
 #### [Configuratie](service-fabric-visualstudio-configure-upgrade.md)
@@ -121,7 +121,7 @@
 ### [Diagnose in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnose in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 
-# Handleidingen
+# Hoe tooGuides
 ## De ontwikkelomgeving instellen
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
@@ -185,7 +185,7 @@
 #### [Communicatie-instellingen configureren](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [ReliableDictionaryActorStateProvider configureren](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
-### [Oude Java-toepassing migreren voor ondersteuning van Maven](service-fabric-migrate-old-javaapp-to-use-maven.md)
+### [Oude Java-toepassing toosupport Maven migreren](service-fabric-migrate-old-javaapp-to-use-maven.md)
 
 ### [Omgekeerde proxy voor veilige communicatie configureren](service-fabric-reverseproxy-configure-secure-communication.md)
 
@@ -214,7 +214,7 @@
 
 ## Migreren uit Cloud Services
 ### [Cloud Services vergelijken met Service Fabric](service-fabric-cloud-services-migration-differences.md)
-### [Migreren naar Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+### [TooService Fabric migreren](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
 ### [Aanbevolen procedures](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## Toepassingslevenscyclus beheren
@@ -239,7 +239,7 @@
 ##### [Testacties gebruiken](service-fabric-testability-actions.md)
 ##### [Tijdens workloads](service-fabric-testability-workload-tests.md)
 ##### [Testscenario's gebruiken](service-fabric-testability-scenarios.md)
-##### [De API's voor knooppuntovergang gebruiken](service-fabric-node-transition-apis.md)
+##### [Hallo knooppunt overgang API's gebruiken](service-fabric-node-transition-apis.md)
 #### [Uw testtoepassing laden](service-fabric-vso-load-test.md)
 
 ### Continue integratie instellen
@@ -258,7 +258,7 @@
 #### [Upgraden](service-fabric-cluster-upgrade.md)
 #### [Toegangsbeheer instellen](service-fabric-cluster-security-roles.md)
 #### [Configureren](service-fabric-cluster-fabric-settings.md)
-#### [Een poort in de load balancer openen](create-load-balancer-rule.md)
+#### [Poorten openen in Hallo load balancer](create-load-balancer-rule.md)
 #### [Clustercertificaten beheren](service-fabric-cluster-security-update-certs-azure.md)
 #### [Verwijderen](service-fabric-cluster-delete.md)
 
@@ -269,14 +269,14 @@
 ##### [On-premises maken](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Beveiligen met behulp van certificaten](service-fabric-windows-cluster-x509-security.md)  
 ##### [Beveiligen met behulp van Windows-beveiliging](service-fabric-windows-cluster-windows-security.md)
-##### [Inhoud van het zelfstandige pakket](service-fabric-cluster-standalone-package-contents.md)
+##### [Inhoud van Hallo zelfstandige pakket](service-fabric-cluster-standalone-package-contents.md)
 #### [Schalen](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Toegangsbeheer instellen](service-fabric-cluster-security-roles.md)
 #### [Configureren](service-fabric-cluster-manifest.md)
 #### [Upgraden](service-fabric-cluster-upgrade-windows-server.md)
 
 ### [Een cluster visualiseren](service-fabric-visualizing-your-cluster.md)
-### [Verbinding maken met een beveiligde cluster](service-fabric-connect-to-secure-cluster.md)
+### [Verbinding maken met de beveiligde cluster tooa](service-fabric-connect-to-secure-cluster.md)
 
 ### [Een cluster beheren met behulp van de Service Fabric-CLI](service-fabric-cli.md)
 ### [Patch uitvoeren voor clusterknooppunten](service-fabric-patch-orchestration-application.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Storage-codevoorbeelden | Microsoft Docs
-description: Weergeven, downloaden en uitvoeren van toepassingen voor Azure Storage en voorbeeldcode. Ontdek aan de slag voorbeelden voor blobs, wachtrijen, tabellen en bestanden, met behulp van de opslagclientbibliotheken .NET, Java, Node.js en C++.
+title: aaaAzure opslag codevoorbeelden | Microsoft Docs
+description: Weergeven, downloaden en uitvoeren van toepassingen voor Azure Storage en voorbeeldcode. Ontdek aan de slag voorbeelden voor blobs, wachtrijen, tabellen en bestanden, met behulp van Hallo .NET, Java, Node.js en C++ clientbibliotheken storage.
 services: storage
 documentationcenter: na
 author: mmacy
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/03/2017
 ms.author: marsma
-ms.openlocfilehash: aa2b53c514890aa980bc89626e8c7c7336b77a0b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b5af9ac57606545f85da6392595632938997e2a4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-samples"></a>Voorbeelden van Azure Storage
 
-Gebruik de onderstaande koppelingen om te bekijken en downloaden van Azure Storage-voorbeeldcode en toepassingen.
+Gebruik onderstaande tooview Hallo koppelingen en downloaden van Azure Storage-voorbeeldcode en toepassingen.
 
 ## <a name="azure-code-samples-library"></a>Azure-codevoorbeelden-bibliotheek
-De [Azure codevoorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage) bibliotheek bevat voorbeelden voor Azure-opslag die u kunt downloaden en lokaal uitvoeren. De bibliotheek met voorbeeld wordt een voorbeeldcode in het ZIP-indeling. U kunt ook bladeren en kloon de GitHub-opslagplaats voor elk voorbeeld.
+Hallo [Azure codevoorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage) bibliotheek bevat voorbeelden voor Azure-opslag die u kunt downloaden en lokaal uitvoeren. Hallo Code voorbeeld van een bibliotheek bevat voorbeeldcode in het ZIP-indeling. U kunt ook bladeren en Hallo GitHub-opslagplaats voor elk voorbeeld klonen.
 
 <!--## Getting started samples-->
-<!-- after our quick starts are available, replace this link with a link to one of those. 
-Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!-- after our quick starts are available, replace this link with a link tooone of those. 
+Had tooremove this article, it refers toohello VS quickstarts, and they've stopped publishing them. Robin --> 
 <!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 * [Visual Studio Quick Starts for Azure Storage](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts)
 -->
 
 ## <a name="net-samples"></a>.NET-voorbeelden
-Als u wilt verkennen voorbeelden .NET, downloaden de [Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) vanuit NuGet. De storage-clientbibliotheek voor .NET is ook beschikbaar in de [Azure SDK voor .NET](https://azure.microsoft.com/downloads/).
+tooexplore hello .NET voorbeelden downloaden Hallo [Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) vanuit NuGet. Hallo .NET storage-clientbibliotheek is ook beschikbaar in Hallo [Azure SDK voor .NET](https://azure.microsoft.com/downloads/).
 
 * [Voorbeelden van Azure Storage met .NET](storage-samples-dotnet.md)
 
 ## <a name="java-samples"></a>Java-voorbeelden
-Als u wilt de Java-voorbeelden verkennen, downloaden de [Opslagclientbibliotheek voor Java](https://github.com/azure/azure-storage-java).
+tooexplore hello Java-voorbeelden downloaden Hallo [Opslagclientbibliotheek voor Java](https://github.com/azure/azure-storage-java).
 
 * [Azure Storage-voorbeelden u Java gebruikt](storage-samples-java.md)
 
 ## <a name="nodejs-samples"></a>Node.js-voorbeelden
-Als u wilt de Node.js-voorbeelden verkennen, downloaden de [Opslagclientbibliotheek voor Node.js](https://github.com/Azure/azure-storage-node).
+tooexplore hello Node.js voorbeelden downloaden Hallo [Opslagclientbibliotheek voor Node.js](https://github.com/Azure/azure-storage-node).
 
 * [BLOB uploader](https://github.com/Azure/azure-storage-node/tree/master/examples/blobuploader)
 * [Uploaden en downloaden van de blob](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/blobuploaddownloadsample.js)
@@ -56,7 +56,7 @@ Als u wilt de Node.js-voorbeelden verkennen, downloaden de [Opslagclientbiblioth
 * [Tabelquery](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/tablequerysample.js)
 
 ## <a name="c-samples"></a>Voorbeelden van C++
-Als u wilt de voorbeelden C++ verkennen, downloaden de [Opslagclientbibliotheek voor C++](https://www.nuget.org/packages/wastorage/) vanuit NuGet.
+Voorbeelden van tooexplore Hallo C++, downloaden Hallo [Opslagclientbibliotheek voor C++](https://www.nuget.org/packages/wastorage/) vanuit NuGet.
 
 * [Aan de slag met blobs](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted)
 * [Aan de slag met tabellen](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
@@ -66,14 +66,14 @@ Als u wilt de voorbeelden C++ verkennen, downloaden de [Opslagclientbibliotheek 
 
 | Taal | API-verwijzing | Broncode |
 |----------|---------------|-------------|
-| .NET | [Verwijzing naar de bibliotheek van de .NET-client](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [Broncode voor de storage-clientbibliotheek voor .NET](https://github.com/Azure/azure-storage-net) |
-| Java | [Naslaginformatie over Java-Client-bibliotheek](https://docs.microsoft.com/java/api/overview/azure/storage) | [Broncode voor de opslagclientbibliotheek voor Java](https://github.com/azure/azure-storage-java) |
-| Node.js | [Verwijzing naar de bibliotheek van node.js-Client](http://azure.github.io/azure-storage-node) | [Broncode voor de opslagclientbibliotheek voor Node.js](https://github.com/Azure/azure-storage-node) |
-| C++ | [Verwijzing naar de Client C++-bibliotheek](http://azure.github.io/azure-storage-cpp/) | [Broncode voor de opslagclientbibliotheek voor C++](https://github.com/Azure/azure-storage-cpp)|
+| .NET | [Verwijzing naar de bibliotheek van de .NET-client](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [Broncode voor Hallo .NET storage-clientbibliotheek](https://github.com/Azure/azure-storage-net) |
+| Java | [Naslaginformatie over Java-Client-bibliotheek](https://docs.microsoft.com/java/api/overview/azure/storage) | [Broncode voor Hallo Java storage-clientbibliotheek](https://github.com/azure/azure-storage-java) |
+| Node.js | [Verwijzing naar de bibliotheek van node.js-Client](http://azure.github.io/azure-storage-node) | [Broncode voor het Hallo-opslagclientbibliotheek voor Node.js](https://github.com/Azure/azure-storage-node) |
+| C++ | [Verwijzing naar de Client C++-bibliotheek](http://azure.github.io/azure-storage-cpp/) | [Broncode voor de storage-clientbibliotheek Hallo C++](https://github.com/Azure/azure-storage-cpp)|
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De volgende artikelen indexering elk van de voorbeelden van service (blob, bestand, queue, table).
+Hallo index volgende artikelen elk Hallo voorbeelden door service (blob, bestand, queue, table).
 
 * [Voorbeelden van Azure Storage met .NET](storage-samples-dotnet.md)
 * [Azure Storage-voorbeelden u Java gebruikt](storage-samples-java.md)

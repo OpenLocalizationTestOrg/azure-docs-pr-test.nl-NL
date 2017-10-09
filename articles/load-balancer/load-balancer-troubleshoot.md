@@ -1,5 +1,5 @@
 ---
-title: Azure Load Balancer oplossen | Microsoft Docs
+title: Azure Load Balancer aaaTroubleshoot | Microsoft Docs
 description: Bekende problemen oplossen met Azure Load Balancer
 services: load-balancer
 documentationcenter: na
@@ -14,122 +14,122 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/10/2017
 ms.author: kumud
-ms.openlocfilehash: df5c836abbf09889f4859170359c0ee6c1b03378
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 56b73fcbf0bbf18cedfd113a280cfafa2a3dc9f3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer oplossen
 
-Deze pagina bevat informatie over probleemoplossing voor veelgestelde vragen voor Azure Load Balancer. Wanneer de connectiviteit taakverdeler niet beschikbaar is, zijn de meest voorkomende problemen als volgt: 
-- Virtuele machines achter de Load Balancer reageert niet op statuscontroles 
-- Virtuele machines achter de Load Balancer reageert niet op het verkeer op de geconfigureerde poort
+Deze pagina bevat informatie over probleemoplossing voor veelgestelde vragen voor Azure Load Balancer. Wanneer het Hallo-connectiviteit taakverdeler niet beschikbaar is, zijn de meest voorkomende problemen Hallo als volgt: 
+- Virtuele machines achter de Load Balancer niet reageren toohealth tests Hallo 
+- Virtuele machines achter Hallo Load Balancer reageert niet toohello verkeer op poort Hallo geconfigureerd
 
-## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Symptoom: VM's achter de Load Balancer reageert niet op statuscontroles
-Voor de back-endservers om deel te nemen in de load balancer-set moeten ze de controle van de test doorgeven. Zie voor meer informatie over statuscontroles [Understanding Load Balancer-tests](load-balancer-custom-probe-overview.md). 
+## <a name="symptom-vms-behind-hello-load-balancer-are-not-responding-toohealth-probes"></a>Symptoom: VM's achter de Load Balancer niet reageren toohealth tests Hallo
+Hallo back-end servers tooparticipate in Hallo load balancer-set, moeten ze Hallo test selectievakje doorgeeft. Zie voor meer informatie over statuscontroles [Understanding Load Balancer-tests](load-balancer-custom-probe-overview.md). 
 
-De Load Balancer-back-endpool virtuele machines reageert niet op de testpakketten vanwege een van de volgende redenen: 
+Hallo Load Balancer back-endpool virtuele machines reageert mogelijk niet toohello tests vanwege tooany Hallo volgende redenen: 
 - Back-endpool VM voor Load Balancer is slecht 
-- Load Balancer back-endpool die VM wordt niet geluisterd op de testpoort 
-- Firewall of een netwerkbeveiligingsgroep is de poort op de Load Balancer-back-endpool VM's blokkeren 
+- Load Balancer back-endpool die VM wordt niet geluisterd op Hallo testpoort 
+- Firewall of een netwerkbeveiligingsgroep blokkeert Hallo-poort op Hallo back-endpool van de Load Balancer virtuele machines 
 - Overige configuratiefouten in de Load Balancer
 
 ### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>1 oorzaak: De back-endpool van de Load Balancer VM is slecht 
 
 **Validatie en oplossing**
 
-U lost dit probleem, zich aanmelden bij de deelnemende virtuele machines, en controleer of de VM-status in orde is en kan reageren op **psping om** of **TCPing** uit een andere virtuele machine in de groep. Als de virtuele machine beschadigd is of niet reageren op de test, moet u het probleem corrigeren en de virtuele machine terug in een gezonde toestand verkrijgen voordat deze taakverdeling deelnemen kan.
+tooresolve dit probleem aanmelden toohello deel van de virtuele machines en controleer of de Hallo VM-status in orde, en te kunnen reageren**psping om** of **TCPing** uit een andere virtuele machine in Hallo van toepassingen. Als Hallo VM beschadigd is of kan geen toorespond toohello test, moet u Hallo probleem corrigeren en Hallo VM back-status in orde tooa voordat deze kan deelnemen aan de load balancer ophalen.
 
-### <a name="cause-2-load-balancer-backend-pool-vm-is-not-listening-on-the-probe-port"></a>Oorzaak 2: Back-endpool van de Load Balancer VM niet geluisterd op de testpoort
-Als de virtuele machine in orde is, maar niet op de test reageert, is een mogelijke reden zijn kan dat de testpoort niet geopend zijn is op de deelnemen aan de virtuele machine, of de virtuele machine niet beschikbaar op deze poort.
+### <a name="cause-2-load-balancer-backend-pool-vm-is-not-listening-on-hello-probe-port"></a>Oorzaak 2: Back-endpool van de Load Balancer VM wordt niet geluisterd op Hallo testpoort
+Als Hallo VM in orde is, maar toohello test niet reageert, kan vervolgens een mogelijke reden zijn dat Hallo testpoort is niet geopend op Hallo deelnemende VM of Hallo VM niet geluisterd op poort.
 
 **Validatie en oplossing**
 
-1. Aanmelden bij de back-end VM. 
-2. Open een opdrachtprompt en voer de volgende opdracht om te valideren, er is een toepassing die luistert op de testpoort:   
+1. Meld u bij de back-end voor toohello VM. 
+2. Open een opdrachtprompt en Voer Hallo opdracht toovalidate er is een toepassing die luistert op Hallo testpoort te volgen:   
             netstat - an
-3. Als de poortstatus van de niet is vermeld als **LISTENING**, de juiste poort configureren. 
+3. Als de poortstatus Hallo wordt niet vermeld als **LISTENING**, de juiste poort Hallo configureren. 
 4. Selecteer een andere poort, die wordt vermeld als **LISTENING**, en bij te werken load balancer-configuratie dienovereenkomstig.              
 
-###<a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>3 oorzaak: Firewall of een netwerkbeveiligingsgroep wordt geblokkeerd door de poort op de load balancer back-endpool virtuele machines  
-Als de testpoort wordt geblokkeerd door de firewall op de virtuele machine of een of meer beveiligingsgroepen die zijn geconfigureerd op het subnet of op de VM-netwerk, de test te bereiken, de poort niet toestaat, is de virtuele machine niet reageren op de health-test.          
+###<a name="cause-3-firewall-or-a-network-security-group-is-blocking-hello-port-on-hello-load-balancer-backend-pool-vms"></a>3 oorzaak: Firewall of een netwerkbeveiligingsgroep blokkeert Hallo-poort op de back-endpool voor load balancer Hallo virtuele machines  
+Als Hallo-firewall op Hallo die VM blokkeert Hallo testpoort of een of meer netwerkbeveiligingsgroepen geconfigureerd op Hallo subnet of op Hallo VM, niet Hallo test tooreach Hallo poort toestaat is, is het Hallo VM niet kan toorespond toohello health test.          
 
 **Validatie en oplossing**
 
-* Als de firewall is ingeschakeld, controleert u of deze is geconfigureerd voor het toestaan van de testpoort. Als dat niet het geval is, moet u de firewall configureren voor verkeer op de testpoort en test opnieuw. 
-* Controleer of de binnenkomende of uitgaande verkeer op de testpoort storing is in de lijst van netwerkbeveiligingsgroepen. 
-* Controleer ook als een **weigeren alle** netwerkbeveiligingsgroepen-regel op de NIC van de virtuele machine of het subnet dat een hogere prioriteit dan de standaardregel waarmee LB tests & verkeer (netwerkbeveiligingsgroepen moeten toestaan Load Balancer IP-adres van 168.63.129.16). 
-* Als een van deze regels de test-verkeer blokkeert zijn, verwijderen en opnieuw configureren van de regels voor de test-verkeer.  
-* Test de virtuele machine is nu gestart op de statuscontroles reageert. 
+* Als Hallo-firewall is ingeschakeld, controleert u of dit is geconfigureerd tooallow Hallo testpoort. Als dit niet het geval is, Hallo firewall tooallow verkeer op Hallo testpoort configureren en test opnieuw. 
+* In de lijst Hallo van netwerkbeveiligingsgroepen, Controleer of de Hallo binnenkomende of uitgaande verkeer op Hallo testpoort storing. 
+* Controleer ook als een **weigeren alle** netwerkbeveiligingsgroepen-regel op Hallo NIC Hallo VM of subnet op dat een hogere prioriteit dan Hallo standaardregel waarmee LB tests & verkeer Hallo (netwerkbeveiligingsgroepen moeten toestaan Load Balancer IP-adres van 168.63.129.16). 
+* Als een van deze regels Hallo test-verkeer blokkeert zijn, verwijderen en opnieuw configureren Hallo regels tooallow Hallo test verkeer.  
+* Test Hallo VM is nu gestart toohello statuscontroles reageert. 
 
 ### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>4 oorzaak: Andere configuratiefouten in de Load Balancer
-Als de voorgaande oorzaken lijken te worden gevalideerd en de juiste manier omgezet en de back-end VM nog steeds niet naar de health test vervolgens handmatig reageert test voor connectiviteit en sommige traceringen voor informatie over de connectiviteit verzamelen.
+Als alle Hallo lijken voorgaande oorzaken toobe gevalideerd en de juiste manier omgezet en Hallo backend VM nog steeds niet reageren toohello health test, en vervolgens handmatig test de verbinding, en sommige traceringen toounderstand Hallo connectiviteit verzamelen.
 
 **Validatie en oplossing**
 
-* Gebruik **psping om** uit een van de andere virtuele machines binnen het VNet voor het testen van het antwoord van de poort test (voorbeeld:.\psping.exe -t 10.0.0.4:3389) en noteer de resultaten. 
-* Gebruik **TCPing** van een van de andere virtuele machines binnen het VNet voor het testen van het antwoord van de poort test (voorbeeld:.\tcping.exe 10.0.0.4 3389) en noteer de resultaten. 
+* Gebruik **psping om** uit een Hallo Hallo andere virtuele machines binnen VNet tootest Hallo test poort antwoord (voorbeeld:.\psping.exe -t 10.0.0.4:3389) en noteer de resultaten. 
+* Gebruik **TCPing** uit een Hallo Hallo andere virtuele machines binnen VNet tootest Hallo test poort antwoord (voorbeeld:.\tcping.exe 10.0.0.4 3389) en noteer de resultaten. 
 * Als er geen reactie wordt ontvangen in de deze ping-tests vervolgens
-    - Een gelijktijdige Netsh-trace op de doel-back-endpool VM en een andere test VM uitvoeren vanuit het hetzelfde VNet. Nu, voert u een test psping om enige tijd, sommige netwerktracering verzamelen en vervolgens de test stoppen. 
-    - Analyseer het vastleggen van het netwerk en zien of er inkomende en uitgaande pakketten die betrekking hebben op de ping-query. 
-        - Als er geen inkomende pakketten zijn waargenomen op de back-endpool VM, is er mogelijk een netwerkbeveiligingsgroepen of UDR onjuiste configuratie van het verkeer blokkeert. 
-        - Als er geen uitgaande pakketten worden waargenomen op de back-endpool VM, moet de virtuele machine worden gecontroleerd op niet-verwante problemen (voor eample, toepassing blokkeren van de testpoort). 
-    - Controleer of als de testpakketten worden gedwongen naar een andere bestemming (mogelijk via instellingen UDR) voordat de load balancer is bereikt. Hierdoor kan het verkeer naar de back-end VM nooit bereikt. 
-* De test-type (bijvoorbeeld HTTP naar TCP) wijzigen en de bijbehorende poort configureren voor netwerkbeveiligingsgroepen ACL's en firewall valideren als het probleem met de configuratie van de test-antwoord is. Zie voor meer informatie over de configuratie van health test [configuratie van health test eindpunt Load Balancing](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
+    - Voer een gelijktijdige Netsh trace op Hallo doel back-endpool VM en een andere virtuele testmachine van Hallo dezelfde VNet. Nu, voert u een test psping om enige tijd, sommige netwerktracering verzamelen en vervolgens stoppen van de Hallo test. 
+    - Hallo netwerkopname analyseren en zien of er zowel binnenkomende en uitgaande pakketten gerelateerde toohello ping-query zijn. 
+        - Als geen inkomende pakketten worden waargenomen op Hallo back-endpool VM, is er mogelijk een netwerkbeveiligingsgroepen of UDR onjuiste configuratie blokkerende Hallo-verkeer. 
+        - Als er geen uitgaande pakketten worden waargenomen op Hallo back-endpool VM, moet Hallo VM toobe gecontroleerd op niet-verwante problemen (voor eample, toepassing blokkerende Hallo testpoort). 
+    - Controleer of als Hallo testpakketten geforceerde tooanother bestemming (mogelijk via instellingen UDR) worden alvorens Hallo load balancer. Dit kan Hallo verkeer toonever reach Hallo backend VM veroorzaken. 
+* Hallo test type (bijvoorbeeld HTTP tooTCP) wijzigen en het configureren van de bijbehorende poort Hallo in netwerkbeveiligingsgroepen ACL's en firewall toovalidate als Hallo probleem met de Hallo configuratie van de test-antwoord is. Zie voor meer informatie over de configuratie van health test [configuratie van health test eindpunt Load Balancing](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
 
-## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Symptoom: VM's achter de Load Balancer reageert niet op verkeer op de geconfigureerde poort
+## <a name="symptom-vms-behind-load-balancer-are-not-responding-tootraffic-on-hello-configured-data-port"></a>Symptoom: VM's achter de Load Balancer niet reageren tootraffic op Hallo geconfigureerd gegevenspoort
 
-Als u een back-endpool VM wordt vermeld als goed en reageert op de statuscontroles, maar nog steeds niet deelneemt aan de taakverdeling of reageert niet op het gegevensverkeer van, mogelijk vanwege een van de volgende redenen: 
-* Load Balancer-back-endpool die VM niet geluisterd op de poort 
-* Netwerkbeveiligingsgroep wordt geblokkeerd door de poort op de Load Balancer-back-endpool VM  
-* Toegang tot de Load Balancer van hetzelfde VM en NIC 
-* Toegang tot het Internet Load Balancer-VIP van de deelnemende Load Balancer back-endpool VM 
+Als een back-endpool VM wordt vermeld als goed en toohello statuscontroles reageert, maar is nog steeds geen deelnemer in Hallo Load Balancing of toohello gegevensverkeer niet reageert, kan dit worden veroorzaakt door tooany Hallo volgende redenen: 
+* Load Balancer-back-endpool die VM niet geluisterd op poort Hallo 
+* Netwerkbeveiligingsgroep blokkeert Hallo-poort op Hallo back-endpool van de Load Balancer VM  
+* Toegang tot Hallo Hallo Load Balancer van hetzelfde VM- en NIC 
+* Toegang tot Internet Load Balancer-VIP Hallo vanaf Hallo deel van de back-endpool van de Load Balancer VM 
 
-### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>1 oorzaak: Back-endpool van de Load Balancer VM niet geluisterd op de poort 
-Als een virtuele machine niet op het gegevensverkeer van reageert, kan zijn omdat de doelpoort niet geopend op de deelnemende VM is of de virtuele machine niet geluisterd op poort. 
+### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-hello-data-port"></a>1 oorzaak: Back-endpool van de Load Balancer VM niet geluisterd op poort Hallo 
+Als een virtuele machine toohello gegevensverkeer niet reageert, mogelijk het omdat Hallo doelpoort is niet geopend op Hallo deel van de virtuele machine, of, Hallo VM niet geluisterd op poort. 
 
 **Validatie en oplossing**
 
-1. Aanmelden bij de back-end VM. 
-2. Open een opdrachtprompt en voer de volgende opdracht om te valideren, er is een toepassing die luistert op de poort:  
+1. Meld u bij de back-end voor toohello VM. 
+2. Open een opdrachtprompt en voer de volgende opdracht toovalidate er is een toepassing die luistert op poort Hallo Hallo uit:  
             netstat - an 
-3. Als de poort niet wordt vermeld met status 'Luistert', de juiste listener-poort configureren 
-4. Als de poort is gemarkeerd als Listening, controleert u de doeltoepassing bij die poort voor mogelijke problemen. 
+3. Als Hallo poort niet wordt vermeld met status 'Luistert', de juiste luisterpoort Hallo configureren 
+4. Als Hallo-poort is gemarkeerd als Listening, controleert u de doeltoepassing Hallo bij die poort voor mogelijke problemen. 
 
-### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>2 oorzaak: De netwerkbeveiligingsgroep wordt geblokkeerd door de poort op de Load Balancer-back-endpool VM  
+### <a name="cause-2-network-security-group-is-blocking-hello-port-on-hello-load-balancer-backend-pool-vm"></a>2 oorzaak: De netwerkbeveiligingsgroep blokkeert Hallo-poort op Hallo back-endpool van de Load Balancer VM  
 
-Als een of meer netwerkbeveiligingsgroepen geconfigureerd op het subnet of op de virtuele machine, blokkeert de bron-IP- of -poort, dan is de virtuele machine niet kunnen reageren.
+Als een of meer beveiligingsgroepen die zijn geconfigureerd op Hallo subnet of op Hallo VM-netwerk wordt blokkeert Hallo bron-IP- of -poort, dan is hello VM niet kan toorespond.
 
-* Lijst van de netwerkbeveiligingsgroepen die zijn geconfigureerd op de back-end VM. Zie voor meer informatie:
-    -  [Netwerkbeveiligingsgroepen via de Portal beheren](../virtual-network/virtual-network-manage-nsg-arm-portal.md)
+* Lijst Hallo netwerkbeveiligingsgroepen op Hallo back-end VM geconfigureerd. Zie voor meer informatie:
+    -  [Netwerkbeveiligingsgroepen met Hallo Portal beheren](../virtual-network/virtual-network-manage-nsg-arm-portal.md)
     -  [Netwerkbeveiligingsgroepen beheren met behulp van PowerShell](../virtual-network/virtual-network-manage-nsg-arm-ps.md)
-* Controleer of in de lijst van netwerkbeveiligingsgroepen:
-    - het binnenkomende of uitgaande verkeer op de poort heeft een storing. 
-    - een **weigeren alle** netwerk beveiligingsregel-groep op de NIC van de virtuele machine of het subnet dat een hogere prioriteit die de standaardregel waarmee de Load Balancer-tests heeft en er verkeer (netwerkbeveiligingsgroepen moeten toestaan Load Balancer IP-adres van 168.63.129.16, is dit testpoort) 
-* Als een van de regels voor het verkeer wordt geblokkeerd, verwijderen en opnieuw configureren van deze regels voor het gegevensverkeer.  
-* Als de virtuele machine nu gestart is om te reageren op de statuscontroles testen.
+* Controleer of in lijst Hallo van netwerkbeveiligingsgroepen:
+    - Hallo binnenkomende of uitgaande verkeer op poort Hallo heeft een storing. 
+    - een **weigeren alle** groep netwerkbeveiligingsregel op Hallo NIC uit Hallo VM of Hallo subnet dat een hogere prioriteit heeft die Hallo standaardregel waarmee Load Balancer-tests en verkeer (netwerkbeveiligingsgroepen moeten toestaan Load Balancer IP-adres van 168.63.129.16 die testpoort) 
+* Als regels Hallo Hallo verkeer blokkeren, verwijderen en opnieuw configureren van deze regels tooallow Hallo-gegevensverkeer.  
+* Test Hallo VM is nu toorespond toohello statuscontroles gestart.
 
-### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>3 oorzaak: Toegang tot de Load Balancer van dezelfde virtuele machine en netwerk-interface 
+### <a name="cause-3-accessing-hello-load-balancer-from-hello-same-vm-and-network-interface"></a>3 oorzaak: Toegang tot Load Balancer Hallo van Hallo dezelfde virtuele machine en een netwerkinterface 
 
-Als uw toepassing die wordt gehost in de back-end VM van een Load Balancer probeert te krijgen tot een andere toepassing die wordt gehost in de dezelfde back-end virtuele machine via de Interface met hetzelfde netwerk, is een niet-ondersteunde scenario en mislukt. 
+Als uw toepassing die wordt gehost in Hallo back-end VM van een Load Balancer probeert tooaccess een andere toepassing die wordt gehost hello dezelfde back-end VM via Hallo hetzelfde netwerk Interface, maar is een niet-ondersteunde scenario mislukken. 
 
-**Resolutie** kunt u dit probleem op via een van de volgende manieren oplossen:
+**Resolutie** kunt u dit probleem op via een van de volgende methoden Hallo oplossen:
 * Configureer afzonderlijke back-endpool VM's per toepassing. 
-* De toepassing in twee NIC-VM's configureren, zodat elke toepassing een eigen netwerkinterface en de IP-adres is gebruikt. 
+* Hallo-toepassing in dual NIC VM's configureren zodat elke toepassing een eigen netwerkinterface en de IP-adres is gebruikt. 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>4 oorzaak: Toegang tot de interne Load Balancer-VIP van de deelnemende Load Balancer back-endpool VM
+### <a name="cause-4-accessing-hello-internal-load-balancer-vip-from-hello-participating-load-balancer-backend-pool-vm"></a>4 oorzaak: Toegang tot Hallo interne Load Balancer-VIP van Hallo deel van de back-endpool van de Load Balancer VM
 
-Als een ILB VIP is geconfigureerd in een VNet en een van de deelnemer back-end virtuele machines probeert te openen van de interne Load Balancer-VIP, waardoor de fout. Dit scenario wordt niet ondersteund.
-**Resolutie** toepassingsgateway evalueren of andere proxy's (bijvoorbeeld nginx of haproxy) voor de ondersteuning van dit soort scenario. Zie voor meer informatie over Application Gateway [overzicht van Application Gateway](../application-gateway/application-gateway-introduction.md)
+Als een ILB VIP is geconfigureerd in een VNet en een Hallo deelnemer backend VMs probeert Hallo tooaccess interne Load Balancer-VIP, waardoor de fout. Dit scenario wordt niet ondersteund.
+**Resolutie** toepassingsgateway evalueren of andere toosupport proxy's (bijvoorbeeld nginx of haproxy) dat kind van het scenario. Zie voor meer informatie over Application Gateway [overzicht van Application Gateway](../application-gateway/application-gateway-introduction.md)
 
 ## <a name="additional-network-captures"></a>Aanvullende netwerkopnamen
-Als u besluit een ondersteuningsaanvraag te openen, verzamelt u de volgende informatie voor een snellere oplossing. Kies een eenmalige back-end VM om uit te voeren van de volgende tests:
-- Gebruik psping om een van de back-end virtuele machines binnen het VNet te testen van het antwoord van de poort test (voorbeeld: psping om 10.0.0.4:3389) en noteer de resultaten. 
-- TCPing van een van de back-end virtuele machines binnen het VNet gebruiken voor het testen van het antwoord van de poort test (voorbeeld: psping om 10.0.0.4:3389) en noteer de resultaten.
-- Als er geen reactie wordt ontvangen in de deze pingtests, moet u een gelijktijdige Netsh-trace op de back-end virtuele machine en de VNet-test VM uitvoeren terwijl u psping om Voer vervolgens de Netsh-tracering stoppen. 
+Als u een ondersteuningsaanvraag tooopen, verzamelen Hallo-informatie voor een snellere oplossing te volgen. Kies een back-end van één VM tooperform Hallo tests te volgen:
+- Gebruik psping om een van de Hallo back-end virtuele machines binnen Hallo VNet tootest Hallo test poort antwoord (voorbeeld: psping om 10.0.0.4:3389) en noteer de resultaten. 
+- Gebruik TCPing uit een Hallo back-end virtuele machines binnen Hallo VNet tootest Hallo test poort antwoord (voorbeeld: psping om 10.0.0.4:3389) en noteer de resultaten.
+- Als er geen reactie wordt ontvangen in de deze pingtests, een gelijktijdige Netsh-trace uitvoeren op Hallo back-end VM en VNet virtuele testmachine Hallo terwijl u psping om Voer vervolgens de Netsh-trace Hallo stoppen. 
   
 ## <a name="next-steps"></a>Volgende stappen
 
-Als de voorgaande stappen het probleem niet verhelpen, opent u een [ondersteunen ticket](https://azure.microsoft.com/support/options/).
+Als hello voorgaande stappen probleem niet hello verhelpen, opent u een [ondersteunen ticket](https://azure.microsoft.com/support/options/).
 

@@ -1,6 +1,6 @@
 ---
-title: Implementeer de mobiliteit van Site Recovery-service met Azure Automation DSC | Microsoft Docs
-description: Hierin wordt beschreven hoe u automatisch de Azure Site Recovery Mobility-service en de Azure-agent implementeren voor VM VMware en fysieke server-replicatie naar Azure met Azure Automation DSC
+title: aaaDeploy hello Site Recovery Mobility-service met Azure Automation DSC | Microsoft Docs
+description: Beschrijft hoe toouse Azure Automation DSC tooautomatically hello Azure Site Recovery Mobility-service en Azure-agent implementeren voor VM VMware en fysieke server replicatie tooAzure
 services: site-recovery
 documentationcenter: 
 author: krnese
@@ -14,57 +14,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: krnese
-ms.openlocfilehash: bcc5f11afbecac8fe63935f3401dd3e2d767e8aa
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 52cdd13ceb61718a21137180c55db86919af5929
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>De Mobility-service met Azure Automation DSC voor replicatie van de virtuele machine implementeren
+# <a name="deploy-hello-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Hallo Mobility-service met Azure Automation DSC voor replicatie van de virtuele machine implementeren
 In de Operations Management Suite bieden wij u met een uitgebreide back-up en noodherstel die u als onderdeel van uw bedrijfscontinuïteitsplan kunt gebruiken.
 
-We deze reis samen met Hyper-V gestart met behulp van Hyper-V Replica. Maar we zijn uitgebreid ter ondersteuning van een heterogene setup omdat klanten hebben van meerdere hypervisors en platforms in hun clouds.
+We deze reis samen met Hyper-V gestart met behulp van Hyper-V Replica. Maar er is uitgevouwen toosupport een heterogene setup omdat klanten hebben van meerdere hypervisors en platforms in hun clouds.
 
-Als u VMware werkbelastingen en/of fysieke servers vandaag, een beheerserver alle Azure Site Recovery-onderdelen wordt uitgevoerd in uw omgeving voor het afhandelen van de communicatie- en replicatie met Azure, wanneer Azure de bestemming is.
+Als u VMware werkbelastingen en/of fysieke servers vandaag, een beheerserver wordt uitgevoerd alle hello Azure Site Recovery-onderdelen in uw omgeving toohandle Hallo communicatie- en replicatie met Azure, als Azure de bestemming is.
 
-## <a name="deploy-the-site-recovery-mobility-service-by-using-automation-dsc"></a>De Site Recovery Mobility-service implementeren met behulp van Automation DSC
+## <a name="deploy-hello-site-recovery-mobility-service-by-using-automation-dsc"></a>Hallo Site Recovery Mobility-service implementeren met behulp van Automation DSC
 Laten we beginnen als volgt een snel overzicht van de werking van deze beheerserver.
 
-De beheerserver wordt uitgevoerd voor verschillende serverfuncties. Een van deze functies is *configuratie*, die coördineert de communicatie en processen voor replicatie en herstel van gegevens beheert.
+Hallo-beheerserver wordt uitgevoerd voor verschillende serverfuncties. Een van deze functies is *configuratie*, die coördineert de communicatie en processen voor replicatie en herstel van gegevens beheert.
 
-Bovendien de *proces* rol fungeert als replicatiegateway. Deze rol ontvangt replicatiegegevens van beveiligde bronmachines, optimaliseert met caching, compressie en codering en stuurt deze naar Azure storage-account. Een van de functies voor de Procesrol is ook voor push-installatie van de Mobility-service naar beveiligde computers en het uitvoeren van automatische detectie van virtuele VMware-machines.
+Bovendien Hallo *proces* rol fungeert als replicatiegateway. Deze rol ontvangt replicatiegegevens van beveiligde bronmachines, optimaliseert met caching, compressie en codering en stuurt vervolgens tooan Azure storage-account. Een van de functies voor Hallo Procesrol Hallo is ook toopush installatie van de machines tooprotected Hallo Mobility-service en uitvoeren van automatische detectie van virtuele VMware-machines.
 
-Als er een failback vanuit Azure, de *hoofddoel* rol de replicatiegegevens als onderdeel van deze bewerking wordt afgehandeld.
+Als er een failback vanuit Azure, Hallo *hoofddoel* rol Hallo replicatiegegevens als onderdeel van deze bewerking wordt afgehandeld.
 
-Voor de beveiligde machines we zijn afhankelijk van de *Mobility-service*. Dit onderdeel wordt geïmplementeerd op elke machine (VM VMware of fysieke server) die u wilt repliceren naar Azure. Deze gegevens schrijfbewerkingen op de machine vastgelegd en stuurt deze door naar de beheerserver (Procesrol).
+Voor Hallo beveiligde machines moeten we afhankelijk zijn van Hallo *Mobility-service*. Dit onderdeel is geïmplementeerde tooevery machine (VM VMware of fysieke server) die u wilt dat tooreplicate tooAzure. Deze gegevens schrijfbewerkingen op Hallo machine vastgelegd en stuurt ze toohello managementserver (Procesrol).
 
-U bent betreft de bedrijfscontinuïteit, is het belangrijk om te begrijpen uw werkbelastingen, uw infrastructuur en de betrokken onderdelen. U kunt vervolgens voldoet aan de vereisten voor de beoogde hersteltijd (RTO) als het beoogde herstelpunt (RPO). De Mobility-service is in deze context sleutel om ervoor te zorgen dat uw werkbelastingen zijn beveiligd, zoals u zou verwachten.
+Wanneer u de bedrijfscontinuïteit betreft bent, is het belangrijk toounderstand uw werkbelastingen, uw infrastructuur en Hallo onderdelen betrokken. U kunt vervolgens voldoen aan Hallo-vereisten voor uw beoogde hersteltijd (RTO) en een beoogd herstelpunt (RPO). In deze context Hallo Mobility-service is sleutel tooensuring die uw workloads worden beveiligd, zoals u zou verwachten.
 
 Hoe kunt u, op een geoptimaliseerde manier ervoor zorgen dat u een betrouwbare beveiligde ingesteld met behulp van een aantal onderdelen van Operations Management Suite hebt?
 
-In dit artikel bevat een voorbeeld van hoe u Azure Automation Desired State Configuration (DSC), samen met Site Recovery gebruiken kunt om ervoor te zorgen dat:
+In dit artikel bevat een voorbeeld van hoe u Azure Automation Desired State Configuration (DSC), samen met de Site is hersteld, tooensure kunt die:
 
-* De Mobility-service en de Azure VM-agent zijn geïmplementeerd met de Windows-machines die u wilt beveiligen.
-* De Mobility-service en de Azure VM-agent worden altijd uitgevoerd wanneer Azure het replicatiedoel is.
+* Hallo Mobility-service en Azure VM-agent zijn geïmplementeerde toohello Windows-machines dat u wilt dat tooprotect.
+* Hallo Mobility-service en Azure VM-agent worden altijd uitgevoerd als Azure Hallo replicatiedoel.
 
 ## <a name="prerequisites"></a>Vereisten
-* Een opslagplaats voor het opslaan van de vereiste instellingen
-* Een opslagplaats voor het opslaan van de vereiste wachtwoordzin te registreren met de beheerserver
+* Een opslagplaats toostore Hallo vereiste installatie
+* Een opslagplaats toostore Hallo vereist wachtwoordzin tooregister met Hallo managementserver
 
   > [!NOTE]
-  > Een unieke wachtwoordzin wordt gegenereerd voor elke beheerserver. Als u implementeren meerdere beheerservers wilt, hebt u om ervoor te zorgen dat de juiste wachtwoordzin is opgeslagen in het bestand passphrase.txt.
+  > Een unieke wachtwoordzin wordt gegenereerd voor elke beheerserver. Als u toodeploy meerdere beheerservers gaat, hebt u tooensure die Hallo juist wachtwoordzin in Hallo passphrase.txt bestand is opgeslagen.
   >
   >
-* Windows Management Framework (WMF) 5.0 geïnstalleerd op de computers die u wilt inschakelen voor beveiliging (een vereiste voor Automation DSC)
+* Windows Management Framework (WMF) 5.0 is geïnstalleerd op Hallo-machines wilt u tooenable voor beveiliging (een vereiste voor Automation DSC)
 
   > [!NOTE]
-  > Als u gebruiken DSC voor Windows-machines waarvoor WMF 4.0 is geïnstalleerd wilt, Zie de sectie [DSC gebruiken in niet-verbonden omgevingen](## Use DSC in disconnected environments).
+  > Als u wilt dat toouse DSC voor Windows-machines waarvoor WMF 4.0 is geïnstalleerd, raadpleegt u Hallo sectie [gebruik DSC in niet-verbonden omgevingen](## Use DSC in disconnected environments).
   
 
-De Mobility-service kan worden geïnstalleerd via de opdrachtregel en verschillende argumenten. Daarom moet u de binaire bestanden (nadat ze het uitpakken van uw instellingen) hebben en deze opslaan op een locatie waar u ze ophalen kunt met behulp van een DSC-configuratie.
+Hallo Mobility-service kan worden geïnstalleerd via de opdrachtregel Hallo en verschillende argumenten. Daarom wordt u toohave Hallo binaire bestanden (nadat ze het uitpakken van uw instellingen) nodig hebt en deze opslaan op een locatie waar u ze met behulp van een DSC-configuratie kunt terugvinden.
 
 ## <a name="step-1-extract-binaries"></a>Stap 1: De binaire bestanden uitpakken
-1. De bestanden die u nodig hebt om deze installatie wilt uitpakken, blader naar de volgende map op de beheerserver:
+1. tooextract hello bestanden die u nodig hebt om deze installatie bladeren toohello directory op de beheerserver te volgen:
 
     **\Microsoft azure Site Recovery\home\svsystems\pushinstallsvc\repository**
 
@@ -72,28 +72,28 @@ De Mobility-service kan worden geïnstalleerd via de opdrachtregel en verschille
 
     **Microsoft ASR_UA_version_Windows_GA_date_Release.exe**
 
-    Gebruik de volgende opdracht om op te halen van het installatieprogramma:
+    Hallo opdracht tooextract Hallo installatieprogramma volgende gebruiken:
 
     **.\Microsoft-ASR_UA_9.1.0.0_Windows_GA_02May2016_release.exe /q /x:C:\Users\Administrator\Desktop\Mobility_Service\Extract**
-2. Selecteer alle bestanden en ze verzenden naar een gecomprimeerde map (ingepakte).
+2. Selecteer alle bestanden en verzend deze tooa gecomprimeerde map.
 
-U hebt nu de binaire bestanden die u de installatie van de Mobility-service automatiseren moet met behulp van Automation DSC.
+U hebt nu Hallo binaire bestanden moet u tooautomate Hallo setup Hallo Mobility-service met behulp van Automation DSC.
 
 ### <a name="passphrase"></a>Wachtwoordzin
-Vervolgens moet u bepalen waar u deze gecomprimeerde map geplaatst. U kunt een Azure storage-account gebruiken zoals later, voor het opslaan van de wachtwoordzin op die u nodig hebt voor de installatie. De agent wordt vervolgens geregistreerd met de beheerserver als onderdeel van het proces.
+Vervolgens moet u toodetermine waar u tooplace deze gecomprimeerde map. U kunt een Azure storage-account gebruiken als weergegeven hoger toostore Hallo wachtwoordzin die u nodig hebt voor Hallo setup. Hallo-agent wordt vervolgens registreren met Hallo managementserver als onderdeel van het Hallo-proces.
 
-De wachtwoordzin op die u hebt verkregen tijdens de implementatie van de beheerserver kan als passphrase.txt naar een tekstbestand worden opgeslagen.
+Hallo wachtwoordzin die u hebt verkregen tijdens de implementatie van de beheerserver Hallo kan tooa tekstbestand als passphrase.txt worden opgeslagen.
 
-Plaats de gecomprimeerde map en de wachtwoordzin in een specifieke container in Azure storage-account.
+Zowel de gecomprimeerde map Hallo en Hallo wachtwoordzin plaatsen in een specifieke container in hello Azure storage-account.
 
 ![Locatie van de map](./media/site-recovery-automate-mobilitysevice-install/folder-and-passphrase-location.png)
 
-Als u liever om deze bestanden op een share op uw netwerk te houden, kunt u dit doet. Alleen moet u ervoor zorgen dat de DSC-resource die u later gaat gebruiken toegang heeft en de installatie en wachtwoordzin kunt downloaden.
+Als u liever tookeep deze bestanden op een share op uw netwerk, kunt u dit doet. U hoeft alleen maar tooensure dat Hallo DSC-resource die u later gaat gebruiken toegang heeft en Hallo setup en wachtwoordzin krijgt.
 
-## <a name="step-2-create-the-dsc-configuration"></a>Stap 2: De DSC-configuratie maken
-De installatie, is afhankelijk van WMF 5.0. WMF 5.0 moet aanwezig zijn voor de machine niet toepassen op de configuratie via Automation DSC.
+## <a name="step-2-create-hello-dsc-configuration"></a>Stap 2: Maak Hallo DSC-configuratie
+Hallo-installatie, is afhankelijk van WMF 5.0. Hallo machine toosuccessfully toepassing hello configuratie via Automation DSC, WMF 5.0 moet toobe aanwezig.
 
-De omgeving de volgende voorbeeld DSC-configuratie gebruikt:
+Hallo-omgeving maakt gebruik van Hallo voorbeeld DSC-configuratie te volgen:
 
 ```powershell
 configuration ASRMobilityService {
@@ -190,42 +190,42 @@ configuration ASRMobilityService {
     }
 }
 ```
-De configuratie wordt het volgende doen:
+Hallo configuratie doet Hallo volgende:
 
-* De variabelen vertelt de configuratie waar u de binaire bestanden voor de Mobility-service en de Azure VM-agent, waar u de wachtwoordzin en waar de uitvoer wordt opgeslagen.
-* De configuratie importeert de xPSDesiredStateConfiguration DSC-resource, zodat u kunt `xRemoteFile` de bestanden te downloaden uit de opslagplaats.
-* De configuratie maakt een map waar u wilt opslaan van de binaire bestanden.
-* De resource archief wordt Pak de bestanden van de gecomprimeerde map.
-* De bron van de installatie van het pakket installeert de Mobility-service van de UNIFIEDAGENT. EXE-installatieprogramma met de specifieke argumenten. (De variabelen die samenstellen van de argumenten moeten worden gewijzigd naar aanleiding van uw omgeving.)
-* Het pakket AzureAgent resource installeert de Azure VM-agent, die wordt aanbevolen voor elke virtuele machine die wordt uitgevoerd in Azure. De Azure VM-agent maakt het ook mogelijk extensies toevoegen aan de virtuele machine na een failover.
-* De service of meer resources zorgt ervoor dat de bijbehorende Mobility-services en de Azure-services altijd worden uitgevoerd.
+* Hallo variabelen vertelt Hallo-configuratie waarbij tooget Hallo binaire bestanden voor Hallo Mobility-service en hello Azure VM-agent, waarbij tooget Hallo wachtwoordzin en toostore Hallo uitvoer.
+* Hallo configuratie importeert Hallo xPSDesiredStateConfiguration DSC-resource, zodat u kunt `xRemoteFile` toodownload Hallo bestanden uit de opslagplaats Hallo.
+* Hallo configuratie maakt een map waar u toostore Hallo binaire bestanden.
+* Hallo archief resource wordt Hallo-bestanden in Hallo gecomprimeerde map uitpakken.
+* Hallo-pakket installeren resource installeren uit Hallo UNIFIEDAGENT Hallo Mobility-service. EXE-installatieprogramma met specifieke Hallo-argumenten. (Hallo variabelen die Hallo argumenten samenstellen moeten toobe gewijzigd tooreflect uw omgeving.)
+* Hallo pakket AzureAgent resource installeert hello Azure VM-agent, die wordt aanbevolen voor elke virtuele machine die wordt uitgevoerd in Azure. Hello Azure VM-agent maakt het ook mogelijk tooadd extensies toohello VM na een failover.
+* Hallo zorgt service of meer resources ervoor dat Hallo Mobility-services gerelateerde en hello Azure-services worden altijd uitgevoerd.
 
-De configuratie opslaan als **ASRMobilityService**.
+Hallo configuratie opslaan als **ASRMobilityService**.
 
 > [!NOTE]
-> Vergeet niet ter vervanging van de CSIP in uw configuratie zodat de werkelijke-beheerserver, zodat de agent goed zijn verbonden en de juiste wachtwoordzin die wordt gebruikt.
+> Houd er rekening mee tooreplace hello CSIP in uw configuratie tooreflect Hallo werkelijke-beheerserver, zodat hello agent goed zijn verbonden en het gebruik van de juiste wachtwoordzin Hallo.
 >
 >
 
-## <a name="step-3-upload-to-automation-dsc"></a>Stap 3: Upload naar Automation DSC
-Omdat de DSC-configuratie die u hebt aangebracht, een vereiste resource DSC-module (xPSDesiredStateConfiguration) importeren wordt, moet u die module in Automation importeren voordat u de DSC-configuratie uploadt.
+## <a name="step-3-upload-tooautomation-dsc"></a>Stap 3: TooAutomation DSC uploaden
+Omdat Hallo DSC-configuratie die u hebt aangebracht, een vereiste resource DSC-module (xPSDesiredStateConfiguration) importeren wordt, moet u tooimport die module in Automation voordat u Hallo DSC-configuratie uploadt.
 
-Aanmelden bij uw Automation-account, blader naar **activa** > **Modules**, en klik op **bladeren galerie**.
+Meld u aan tooyour Automation-account te bladeren**activa** > **Modules**, en klik op **bladeren galerie**.
 
-Hier kunt u zoeken naar de module en importeer ze in uw account.
+Hier kunt u zoeken naar Hallo-module en importeer het tooyour-account.
 
 ![Module importeren](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)
 
-Wanneer u klaar bent, gaat u naar de computer waar u de Azure Resource Manager-modules geïnstalleerd hebt en gaat u verder met het importeren van de zojuist gemaakte DSC-configuratie.
+Wanneer u klaar bent, gaat u tooyour machine waar u hello Azure Resource Manager-modules geïnstalleerd hebt en doorgaan tooimport Hallo nieuw gemaakte DSC-configuratie.
 
 ### <a name="import-cmdlets"></a>Cmdlets voor importeren
-In PowerShell, moet u zich aanmelden bij uw Azure-abonnement. Wijzig de cmdlets voor overeenstemming met uw omgeving en uw Automation-accountgegevens in een variabele vastleggen:
+Aanmelden in PowerShell tooyour Azure-abonnement. Wijzig Hallo cmdlets tooreflect uw omgeving en uw Automation-accountgegevens in een variabele vastleggen:
 
 ```powershell
 $AAAccount = Get-AzureRmAutomationAccount -ResourceGroupName 'KNOMS' -Name 'KNOMSAA'
 ```
 
-Uploaden van de configuratie van Automation DSC met behulp van de volgende cmdlet:
+Hallo configuratie tooAutomation DSC met behulp van de volgende cmdlet Hallo uploaden:
 
 ```powershell
 $ImportArgs = @{
@@ -236,44 +236,44 @@ $ImportArgs = @{
 $AAAccount | Import-AzureRmAutomationDscConfiguration @ImportArgs
 ```
 
-### <a name="compile-the-configuration-in-automation-dsc"></a>De Automation DSC-configuratie compileren
-Vervolgens moet u de Automation DSC-configuratie compileren zodat u beginnen kunt met knooppunten te registreren. U bereiken die door de volgende cmdlet:
+### <a name="compile-hello-configuration-in-automation-dsc"></a>Hallo-configuratie in Automation DSC compileren
+Vervolgens moet u toocompile Hallo configuratie in Automation DSC, zodat u tooregister knooppunten tooit kunt starten. U bereiken die door het uitvoeren van de volgende cmdlet Hallo:
 
 ```powershell
 $AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobilityService
 ```
 
-Dit kan enkele minuten duren, omdat u de configuratie in feite naar de gehoste service voor DSC-pull implementeert.
+Dit kan enkele minuten duren, omdat u in feite Hallo configuration toohello gehost DSC-pull service implementeert.
 
-Nadat u de configuratie compileren, kunt u de informatie over de taak ophalen met behulp van PowerShell (Get-AzureRmAutomationDscCompilationJob) of met behulp van de [Azure-portal](https://portal.azure.com/).
+Nadat u Hallo configuratie compileren, kunt u Hallo taakinformatie ophalen met behulp van PowerShell (Get-AzureRmAutomationDscCompilationJob) of met behulp van Hallo [Azure-portal](https://portal.azure.com/).
 
 ![Taak ophalen](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)
 
-U hebt nu gepubliceerd en DSC-configuratie geüpload naar Automation DSC.
+U hebt nu gepubliceerd en uw DSC-configuratie tooAutomation DSC geüpload.
 
-## <a name="step-4-onboard-machines-to-automation-dsc"></a>Stap 4: Vrijgeven machines Automation DSC
+## <a name="step-4-onboard-machines-tooautomation-dsc"></a>Stap 4: Vrijgeven machines tooAutomation DSC
 > [!NOTE]
-> Een van de vereisten voor het voltooien van dit scenario is dat uw Windows-machines worden bijgewerkt met de nieuwste versie van WMF. U kunt downloaden en installeren van de juiste versie voor uw platform van de [Downloadcentrum](https://www.microsoft.com/download/details.aspx?id=50395).
+> Een van de Hallo-vereisten voor het voltooien van dit scenario is dat uw Windows-machines worden bijgewerkt met de meest recente versie van WMF Hallo. U kunt downloaden en installeer de juiste versie van Hallo voor uw platform van Hallo [Downloadcentrum](https://www.microsoft.com/download/details.aspx?id=50395).
 >
 >
 
-U maakt nu een metaconfig voor DSC die u op de knooppunten worden toegepast. Als u wilt dit is gelukt, moet u voor het ophalen van de eindpunt-URL en de primaire sleutel voor uw geselecteerde Automation-account in Azure. U vindt deze waarden onder **sleutels** op de **alle instellingen** blade voor het Automation-account.
+U maakt nu een metaconfig voor DSC dat u tooyour knooppunten toepast. toosucceed hierbij moet u tooretrieve Hallo eindpunt-URL en Hallo primaire sleutel voor uw geselecteerde Automation-account in Azure. U vindt deze waarden onder **sleutels** op Hallo **alle instellingen** blade voor Hallo Automation-account.
 
 ![Sleutelwaarden](./media/site-recovery-automate-mobilitysevice-install/key-values.png)
 
-In dit voorbeeld hebt u een fysieke Windows Server 2012 R2-server die u beveiligen wilt met behulp van Site Recovery.
+In dit voorbeeld hebt u een fysieke server van Windows Server 2012 R2 waarop tooprotect met behulp van Site Recovery.
 
-### <a name="check-for-any-pending-file-rename-operations-in-the-registry"></a>Controleren of er bestandsbewerkingen wijzigen in het register
-Voordat u begint met de server aan de Automation DSC-eindpunt kunt koppelen, wordt u aangeraden te controleren of in behandeling zijnde bewerkingen voor een bestandsserver wijzigen in het register. Ze mogelijk de installatie verbieden vanwege een opnieuw opstarten in behandeling is voltooid.
+### <a name="check-for-any-pending-file-rename-operations-in-hello-registry"></a>Controleren of er bestandsbewerkingen rename in Hallo register
+Voordat u tooassociate Hallo server met Hallo Automation DSC-eindpunt, wordt u aangeraden te controleren of in behandeling zijnde rename bestandsbewerkingen in Hallo-register. Ze mogelijk verbieden Hallo setup is voltooid vanwege tooa opnieuw opstarten.
 
-Voer de volgende cmdlet om te controleren of er geen opnieuw opstarten in behandeling op de server:
+Voer Hallo cmdlet tooverify er is geen opnieuw opstarten in behandeling op Hallo-server te volgen:
 
 ```powershell
 Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\' | Select-Object -Property PendingFileRenameOperations
 ```
-Als u dit leeg ziet, bent u OK om door te gaan. Als dat niet het geval is, moet u dit oplossen door de server opnieuw opstarten tijdens een onderhoudsvenster.
+Als u dit leeg ziet, bent u OK tooproceed. Als dat niet het geval is, moet u dit oplossen door het Hallo-server opnieuw opstarten tijdens een onderhoudsvenster.
 
-De configuratie toepassen op de server, start PowerShell Integrated Scripting Environment (ISE) en voer het volgende script. Dit is in wezen een DSC lokale configuratie waarmee de lokale Configuration Manager-engine registreren bij de Automation DSC-service en de specifieke configuratie (ASRMobilityService.localhost) op te halen.
+tooapply Hallo-configuratie op Hallo van server, start Hallo PowerShell Integrated Scripting Environment (ISE) en Voer Hallo script volgen. Dit is in wezen een DSC lokale configuratie die Hallo Local Configuration Manager-engine tooregister Hello Automation DSC-service zoekt en Hallo specifieke configuratie (ASRMobilityService.localhost) ophalen.
 
 ```powershell
 [DSCLocalConfigurationManager()]
@@ -314,63 +314,63 @@ metaconfig -URL 'https://we-agentservice-prod-1.azure-automation.net/accounts/<Y
 Set-DscLocalConfigurationManager .\metaconfig -Force -Verbose
 ```
 
-Deze configuratie zorgt ervoor dat de lokale Configuration Manager-engine zelf registreren bij Automation DSC. Dit wordt ook bepalen hoe de engine moet worden toegepast, wat dit moet doen als er een configuratie-afwijking (ApplyAndAutoCorrect) en hoe dit moet doorgaan met de configuratie als een herstart vereist is.
+Deze configuratie wordt Hallo Local Configuration Manager engine tooregister zelf met Automation DSC. Ook wordt vastgesteld hoe Hallo engine moet worden toegepast, wat dit moet doen als er een configuratie-afwijking (ApplyAndAutoCorrect) en hoe dit moet doorgaan met Hallo configuratie als een herstart vereist is.
 
-Nadat u hebt dit script uitvoert, moet het knooppunt eerst registreren bij Automation DSC.
+Nadat u dit script uitvoert, mag Hallo knooppunt tooregister beginnen met Automation DSC.
 
 ![Knooppunt-registratie in voortgang](./media/site-recovery-automate-mobilitysevice-install/register-node.png)
 
-Als u terug naar de Azure-portal gaat, ziet u dat het nieuw ingeschreven knooppunt nu is gepubliceerd in de portal.
+Als u terug toohello Azure-portal gaat, ziet u dat zojuist geregistreerde Hallo-knooppunt is nu verschenen in Hallo-portal.
 
-![Geregistreerde knooppunt in de portal](./media/site-recovery-automate-mobilitysevice-install/registered-node.png)
+![Geregistreerde knooppunt in het Hallo-portal](./media/site-recovery-automate-mobilitysevice-install/registered-node.png)
 
-U kunt de volgende PowerShell-cmdlet om te controleren of het knooppunt juist is geregistreerd kunt uitvoeren op de server:
+Op Hallo van server, kunt u de volgende PowerShell-cmdlet tooverify die Hallo knooppunt is correct geregistreerd Hallo uitvoeren:
 
 ```powershell
 Get-DscLocalConfigurationManager
 ```
 
-Nadat de configuratie is opgehaald en toegepast op de server, kunt u dit controleren door de volgende cmdlet:
+Nadat het Hallo-configuratie is opgehaalde en toegepaste toohello server, kunt u dit controleren door het uitvoeren van de volgende cmdlet Hallo:
 
 ```powershell
 Get-DscConfigurationStatus
 ```
 
-De uitvoer ziet u dat de server heeft de configuratie is opgehaald:
+Hallo-uitvoer ziet dat die Hallo-server heeft de configuratie is opgehaald:
 
 ![Uitvoer](./media/site-recovery-automate-mobilitysevice-install/successful-config.png)
 
-Bovendien de installatie van de Mobility-service heeft een eigen logboekbestanden die kan worden gevonden op *SystemDrive*\ProgramData\ASRSetupLogs.
+Bovendien setup Hallo Mobility-service heeft een eigen logboekbestanden die kan worden gevonden op *SystemDrive*\ProgramData\ASRSetupLogs.
 
-Dat is alles. U hebt nu geïmplementeerd en geregistreerd van de Mobility-service op de computer die u beveiligen wilt met behulp van Site Recovery. DSC ervoor dat de vereiste services altijd worden uitgevoerd.
+Dat is alles. U hebt nu geïmplementeerd en geregistreerd Hallo Mobility-service op de gewenste tooprotect met behulp van Site Recovery Hallo-machine. DSC ervoor dat er altijd Hallo vereist-services worden uitgevoerd.
 
 ![Geslaagde implementatie](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)
 
-Nadat de beheerserver de geslaagde implementatie detecteert, kunt u beveiliging configureren en inschakelen van replicatie op de machine met behulp van Site Recovery.
+Nadat het Hallo-beheerserver detecteert Hallo geslaagde implementatie, kunt u beveiliging configureren en replicatie op Hallo machine inschakelen met behulp van Site Recovery.
 
 ## <a name="use-dsc-in-disconnected-environments"></a>Gebruik van DSC in niet-verbonden omgevingen
-Als uw machines zijn niet met Internet verbonden, kunt u nog steeds zijn afhankelijk van de DSC implementeren en configureren van de Mobility-service op de werkbelastingen die u wilt beveiligen.
+Als uw machines niet verbonden toohello Internet, kunt u nog steeds zijn afhankelijk van de DSC-toodeploy en Hallo Mobility-service configureren op Hallo werkbelastingen die u tooprotect wilt.
 
-U kunt uw eigen DSC-pull-server in uw omgeving te bieden in wezen dezelfde mogelijkheden die u via Automation DSC instantiëren. Dat wil zeggen, wordt de clients klikt, de configuratie het eindpunt van de DSC (nadat deze geregistreerd). Een andere optie is echter handmatig pushen van de DSC-configuratie op uw computers, lokaal of extern.
+U kunt uw eigen DSC-pull-server in uw omgeving instantiëren tooessentially Hallo bieden dezelfde mogelijkheden die u via Automation DSC. Dat wil zeggen, Hallo clients haalt binnen Hallo-configuratie (nadat deze geregistreerd) toohello DSC-eindpunt. Een andere optie is echter toomanually push Hallo DSC configuration tooyour machines, lokaal of extern.
 
-Houd er rekening mee dat in dit voorbeeld, wordt er een extra parameter voor de computernaam. De externe bestanden zich nu op een externe share die toegankelijk moet zijn door de machines die u wilt beveiligen. Het einde van het script enacts van de configuratie en start vervolgens de DSC-configuratie toepassen op de doelcomputer.
+Houd er rekening mee dat in dit voorbeeld, wordt er een extra parameter voor Hallo-computernaam. Hallo externe bestanden zich nu op een externe share die toegankelijk moet zijn door Hallo-machines dat u wilt dat tooprotect. Hallo-einde van het Hallo-script enacts Hallo-configuratie en start vervolgens tooapply Hallo DSC configuration toohello target-computer.
 
 ### <a name="prerequisites"></a>Vereisten
-Zorg ervoor dat de xPSDesiredStateConfiguration PowerShell-module is geïnstalleerd. Voor Windows-computers waarop WMF 5.0 wordt geïnstalleerd, kunt u de module xPSDesiredStateConfiguration door de volgende cmdlet wordt uitgevoerd op de doelcomputers te installeren:
+Zorg ervoor dat Hallo xPSDesiredStateConfiguration PowerShell-module is geïnstalleerd. Voor Windows-computers waarop WMF 5.0 wordt geïnstalleerd, kunt u Hallo xPSDesiredStateConfiguration module installeren door het uitvoeren van de volgende cmdlet op de doelmachines Hallo Hallo:
 
 ```powershell
 Find-Module -Name xPSDesiredStateConfiguration | Install-Module
 ```
 
-U kunt ook downloaden en opslaan van de module als u wilt distribueren naar de Windows-machines waarvoor WMF 4.0. Deze cmdlet uitvoeren op een machine waarin PowerShellGet (WMF 5.0) aanwezig is:
+U kunt ook downloaden en opslaan Hallo-module voor het geval u toodistribute moet het tooWindows machines waarvoor WMF 4.0. Deze cmdlet uitvoeren op een machine waarin PowerShellGet (WMF 5.0) aanwezig is:
 
 ```powershell
 Save-Module -Name xPSDesiredStateConfiguration -Path <location>
 ```
 
-Voor WMF 4.0, zorg er ook voor dat de [update voor Windows 8.1 KB2883200](https://www.microsoft.com/download/details.aspx?id=40749) op de computers is geïnstalleerd.
+Zorg er ook voor WMF 4.0 die Hallo [update voor Windows 8.1 KB2883200](https://www.microsoft.com/download/details.aspx?id=40749) op Hallo computers is geïnstalleerd.
 
-De volgende configuratie kan worden geactiveerd met Windows-machines waarvoor WMF 5.0 en WMF 4.0:
+Hallo kan volgende configuratie worden geactiveerd tooWindows machines waarvoor WMF 5.0 en WMF 4.0:
 
 ```powershell
 configuration ASRMobilityService {
@@ -471,28 +471,28 @@ ASRMobilityService -ComputerName 'MyTargetComputerName'
 Start-DscConfiguration .\ASRMobilityService -Wait -Force -Verbose
 ```
 
-Als u wilt het instantiëren van uw eigen DSC-pull-server in uw bedrijfsnetwerk om na te bootsen van de mogelijkheden die u kunt via Automation DSC, Zie [instellen van een DSC-webserver pull](https://msdn.microsoft.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396).
+Als u uw eigen DSC-pull-server tooinstantiate op uw bedrijfsnetwerk toomimic Hallo mogelijkheden u krijgen via Automation DSC wilt kunt, Zie [instellen van een DSC-webserver pull](https://msdn.microsoft.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396).
 
 ## <a name="optional-deploy-a-dsc-configuration-by-using-an-azure-resource-manager-template"></a>Optioneel: Een DSC-configuratie met behulp van een Azure Resource Manager-sjabloon implementeren
-In dit artikel is gericht op hoe kunt u uw eigen DSC-configuratie om automatisch te implementeren van de Mobility-service en de Azure VM-Agent-- en ervoor te zorgen dat ze worden uitgevoerd op de machines die u wilt beveiligen. We hebben ook een Azure Resource Manager-sjabloon die u deze DSC-configuratie naar een nieuwe of bestaande Azure Automation-account implementeert. De sjabloon wordt invoerparameters gebruiken om Automation activa waarin u de variabelen voor uw omgeving te maken.
+In dit artikel is gericht op hoe u uw eigen tooautomatically DSC-configuratie kunt maken implementeren Hallo Mobility-service en hello Azure VM-Agent-- en ervoor te zorgen dat ze worden uitgevoerd op Hallo machines dat u wilt dat tooprotect. We hebben ook een Azure Resource Manager-sjabloon die u deze DSC-configuratie tooa nieuwe of bestaande Azure Automation-account implementeert. Hallo-sjabloon gebruikt invoerparameters toocreate Automation activa met Hallo variabelen voor uw omgeving.
 
-Nadat u de sjabloon implementeert, kunt u gewoon verwijzen naar stap 4 in deze handleiding om vrij te geven uw machines.
+Nadat u de sjabloon Hallo implementeert, kunt u gewoon verwijzen toostep 4 in deze handleiding tooonboard uw machines.
 
-De sjabloon wordt het volgende doen:
+Hallo-sjabloon wordt gedaan Hallo volgende:
 
 1. Gebruik een bestaand automatiseringsaccount of een nieuwe maken
 2. Invoerparameters voor nemen:
-   * ASRRemoteFile--de locatie waar u de Mobility-service-instellingen hebt opgeslagen
-   * ASRPassphrase--de locatie waar u het bestand passphrase.txt hebt opgeslagen
-   * ASRCSEndpoint--het IP-adres van de beheerserver
-3. Importeer de PowerShell-module xPSDesiredStateConfiguration
-4. Maken en de DSC-configuratie compileren
+   * ASRRemoteFile--Hallo-locatie waar u Hallo Mobility-service-instellingen hebt opgeslagen
+   * ASRPassphrase--Hallo-locatie waar u Hallo passphrase.txt bestand hebt opgeslagen
+   * ASRCSEndpoint--Hallo IP-adres van de beheerserver
+3. Hallo xPSDesiredStateConfiguration PowerShell-module importeren
+4. Maken en Hallo DSC-configuratie compileren
 
-De voorgaande stappen vindt plaats in de juiste volgorde, zodat u uw computers voor beveiliging voor onboarding starten kunt.
+Alle Hallo vorige stappen vindt plaats in de juiste volgorde hello, zodat u uw computers voor beveiliging voor onboarding starten kunt.
 
-De sjabloon met instructies voor implementatie bevindt zich op [GitHub](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/DSC).
+Hallo-sjabloon met instructies voor implementatie bevindt zich op [GitHub](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/DSC).
 
-De sjabloon implementeren met behulp van PowerShell:
+Hallo-sjabloon implementeren met behulp van PowerShell:
 
 ```powershell
 $RGDeployArgs = @{
@@ -509,4 +509,4 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u de Mobility-service-agents te implementeren, kunt u [replicatie inschakelen](site-recovery-vmware-to-azure.md) voor de virtuele machines.
+Nadat u Hallo Mobility service agents implementeert, kunt u [replicatie inschakelen](site-recovery-vmware-to-azure.md) voor Hallo virtuele machines.

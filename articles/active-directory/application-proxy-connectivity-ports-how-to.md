@@ -1,6 +1,6 @@
 ---
-title: Het openen van de firewall-poorten die vereist zijn voor een toepassing toepassingsproxy | Microsoft Docs
-description: Uitzoeken wat poorten te openen voor de Azure AD-toepassingsproxy correct te laten werken
+title: aaaHow tooopen Hallo firewallpoorten die nodig zijn voor een toepassing toepassingsproxy | Microsoft Docs
+description: Ontdek welke poorten tooopen voor hello Azure AD-toepassingsproxy toowork correct
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 8ecd6d7e666d362194126a4abba7a65f2c7b8b6b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: cdc7badb7c15591689a3bfd6bb26da182b00fb3b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>Het openen van de firewall-poorten die vereist zijn voor een toepassing toepassingsproxy
+# <a name="how-tooopen-hello-firewall-ports-required-for-an-application-proxy-application"></a>Hoe tooopen firewallpoorten die nodig zijn voor een toepassing toepassingsproxy Hallo
 
-Een volledige lijst met de vereiste poorten en de functie van elke poort, Zie de sectie vereisten van de [toepassingsproxy documentatie](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable). Houd er rekening mee dat toepassingsproxy alleen uitgaande poorten gebruikt.
+een volledige lijst met poorten Hallo vereist en de Hallo-functie van elke poort toosee Zie Hallo vereisten sectie Hallo [toepassingsproxy documentatie](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable). Houd er rekening mee dat toepassingsproxy alleen uitgaande poorten gebruikt.
 
-U kunt ook controleren of u beschikt over alle vereiste poorten via openen de [Connectorhulpprogramma poorten Test](https://aadap-portcheck.connectorporttest.msappproxy.net/) vanuit uw on-premises netwerk. Meer een groen vinkje betekent groter tolerantie. 
+U kunt ook controleren of u beschikt over alle vereiste Hallo poorten openen door Hallo openen [Connectorhulpprogramma poorten Test](https://aadap-portcheck.connectorporttest.msappproxy.net/) vanuit uw on-premises netwerk. Meer een groen vinkje betekent groter tolerantie. 
 
 ## <a name="app-proxy-regions"></a>Toepassingsproxy van regio 's
 
-We werken op een manier om te laten u weten welke van deze gebieden moet groen voor u. Zorg dat ze allemaal zijn op dit moment. VS-midden is ook vereist, ongeacht welke regio in.
+We werken op een manier die u weet welke van deze gebieden toolet toobe groen voor u moet. Zorg dat ze allemaal zijn op dit moment. VS-midden is ook vereist, ongeacht welke regio in.
 
-Om te zorgen dat het hulpprogramma kunt u de juiste resultaten, moet u:
+toomake ervoor Hallo hulpprogramma biedt u de juiste resultaten Hallo moet:
 
--   Open het hulpprogramma op een browser van de server waar u de Connector hebt geïnstalleerd.
+-   Hallo-hulpprogramma op een browser openen vanuit Hallo server waar u Hallo Connector hebt geïnstalleerd.
 
--   Zorg ervoor dat alle proxy's of de van toepassing op uw Connector firewalls ook worden toegepast op deze pagina. Dit kan worden gedaan in Internet Explorer door te gaan naar **instellingen**  - &gt; **Internetopties**  - &gt; **verbindingen**  - &gt; **Lan-instellingen**. Op deze pagina ziet u het veld 'Gebruik een Proxy-Server voor uw LAN'. Schakel dit in en adres voor de proxyserver in het veld 'Adres' geplaatst.
+-   Zorg ervoor dat alle proxy's en firewalls toepasselijk tooyour Connector zijn ook toothis pagina toegepast. Dit kan worden gedaan in Internet Explorer door te gaan**instellingen**  - &gt; **Internetopties**  - &gt; **verbindingen**  - &gt; **Lan-instellingen**. Op deze pagina ziet u Hallo veld 'Gebruik een Proxy-Server voor uw LAN'. Schakel dit selectievakje in en Hallo proxyadres in Hallo 'Adres' veld geplaatst.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Azure AD-toepassingsproxy connectors begrijpen](application-proxy-understand-connectors.md)

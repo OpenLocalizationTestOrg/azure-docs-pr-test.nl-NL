@@ -1,14 +1,14 @@
 ### <a name="prerequisites"></a>Vereisten
 * Een [RSS](https://wikipedia.org/wiki/RSS) account  
 
-Voordat u uw RSS-account in een logische app gebruiken kunt, moet u de logische app verbinding maken met uw RSS-account toestaan. U kunt dit eenvoudig vanuit gelukkig doen in uw logische app in de Azure Portal.  
+Voordat u uw RSS-account in een logische app gebruiken kunt, geeft u toestemming Hallo Logic app tooconnect tooyour RSS-account. U kunt dit eenvoudig vanuit gelukkig doen in uw logische app op Hallo Azure-Portal.  
 
-Hier volgen de stappen voor het autoriseren van uw logische app verbinding maken met uw RSS-account:  
+Hier volgen Hallo stappen tooauthorize uw logische app tooconnect tooyour RSS-account:  
 
-1. Voor het maken van een verbinding met RSS, in de ontwerpfunctie voor Logic app selecteert **beheerde API's van Microsoft weergeven** Voer in de vervolgkeuzelijst *RSS* in het zoekvak. Selecteer de trigger of je actie moet worden gebruikt:  
+1. selecteert u een verbinding tooRSS, in Hallo Logic app-ontwerper toocreate **beheerde API's van Microsoft weergeven** in Hallo vervolgkeuzelijst Geef vervolgens *RSS* in het zoekvak Hallo. Hallo trigger of actie je toouse selecteren:  
    ![Stap voor RSS verbinding maken](./media/connectors-create-api-rss/rss-1.png)  
 2. Selecteer **verbinding maken** :  
    ![Stap voor RSS verbinding maken](./media/connectors-create-api-rss/rss-2.png)  
-3. U ziet de verbinding is gemaakt en u bent nu vrij om door te gaan met de overige stappen in uw logische app:  
+3. U ziet het Hallo-verbinding is gemaakt en u bent nu gratis tooproceed Hello, andere in uw logische app stappen:  
    ![Stap voor RSS verbinding maken](./media/connectors-create-api-rss/rss-3.png)  
 

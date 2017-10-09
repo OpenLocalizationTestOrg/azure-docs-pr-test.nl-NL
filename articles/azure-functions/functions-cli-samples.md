@@ -1,5 +1,5 @@
 ---
-title: Voorbeelden van Azure CLI - Azure Functions | Microsoft Docs
+title: aaaAzure steekproeven CLI - Azure Functions | Microsoft Docs
 description: Voorbeelden van Azure CLI - Azure Functions
 services: functions
 documentationcenter: functions
@@ -16,15 +16,15 @@ ms.workload: functions
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 6830ab9ada50da99871592e2c0911ac9cb8f5797
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 2041e710560a41f230a0ffc20dc89756c6b5c854
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cli-samples"></a>Voorbeelden van Azure CLI
 
-De volgende tabel bevat koppelingen naar bash scripts voor Azure-functies die gebruikmaken van de Azure CLI.
+Hallo bevat volgende tabel koppelingen toobash scripts voor Azure-functies die hello Azure CLI gebruiken.
 
 | | |
 |-|-|
@@ -33,15 +33,15 @@ De volgende tabel bevat koppelingen naar bash scripts voor Azure-functies die ge
 | [Een functie-app maken in App Service-abonnement](scripts/functions-cli-create-app-service-plan.md) | Een functie-app maken in een specifieke App Service-abonnement. |
 | | |
 |**Integreren**||
-| [Een functie-app maken en verbinding maken met een opslagaccount](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Een functie-app maken en verbinden met een opslagaccount. |
-| [Een functie-app maken en maak verbinding met een Azure-Cosmos-database](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Een functie-app maken en te verbinden met een Cosmos Azure DB |
+| [Een functie-app maken en koppelen van tooa storage-account](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Een functie-app maken en sluit het tooa storage-account. |
+| [Een functie-app maken en koppelen van tooan Azure Cosmos-DB](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Een functie-app maken en verbindt u deze tooan Azure Cosmos-DB |
 | | |
 |**App configureren**||
-| [Een aangepast domein toewijzen aan een functie-app](scripts/functions-cli-configure-custom-domain.md) | Definieer een aangepast domein voor uw functies.  |
-| [Een SSL-certificaat binden aan een functie-app](scripts/functions-cli-configure-ssl-certificate.md)  |  SSL-certificaten voor functies in een aangepast domein uploaden. |
+| [Toewijzen van een aangepast domein tooa functie-app](scripts/functions-cli-configure-custom-domain.md) | Definieer een aangepast domein voor uw functies.  |
+| [Binden van een SSL-certificaat tooa functie-app](scripts/functions-cli-configure-ssl-certificate.md)  |  SSL-certificaten voor functies in een aangepast domein uploaden. |
 <!--
 
 |**Scale app**||
 
-|**Connect app to resources**||
+|**Connect app tooresources**||
 -->

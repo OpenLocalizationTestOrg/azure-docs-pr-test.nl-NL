@@ -1,5 +1,5 @@
 ---
-title: Met behulp van Ruby in Azure App Service-Web-App op Linux | Microsoft Docs
+title: aaaUsing Ruby in Azure App Service Web-App op Linux | Microsoft Docs
 description: Met behulp van Ruby in Azure App Service-Web-App op Linux.
 keywords: Azure app service, web-app, veelgestelde vragen over, linux, besturingssystemen, ruby
 services: app-service
@@ -15,38 +15,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 56105d1bc153e552e12c0c408c8f6075e4eff9d0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 45692cb3bf1da9ff65b9466055029bfaef8b7d8f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-ruby-in-web-app-on-linux"></a>Met behulp van Ruby in Web-App op Linux #
 
-Er is ondersteuning voor Ruby v.2.3 geïntroduceerd met de meest recente update naar de back-end. De configuratie van uw Linux-web-app instelt, kunt u de toepassing-stack.
+Met Hallo meest recente update tooour back-end, is er ondersteuning voor Ruby v.2.3 geïntroduceerd. Instelling Hallo configuratie van uw Linux-web-app, kunt u Hallo toepassing stack wijzigen.
 
-## <a name="using-the-azure-portal"></a>Azure Portal gebruiken ##
+## <a name="using-hello-azure-portal"></a>Met behulp van hello Azure-portal ##
 
-In het nieuwe menu in de [Azure-portal](https://portal.azure.com), kunt u een Web-App maken in Linux van Web + mobiel optie, zoals wordt weergegeven in de volgende afbeelding:
+In de nieuwe menu Hallo in Hallo [Azure-portal](https://portal.azure.com), kunt u toocreate een Web-App op Linux Hallo Web + mobiel option zoals weergegeven in Hallo installatiekopie te volgen:
 
-![Beginnen met het maken van een web-app in de Azure portal][1]
+![Beginnen met het maken van een web-app op Hallo Azure-portal][1]
 
-Vervolgens moet de **blade maken** opent, zoals wordt weergegeven in de volgende afbeelding:
+Vervolgens Hallo **blade maken** wordt geopend zoals weergegeven in Hallo installatiekopie te volgen:
 
-![De blade maken][2]
+![blade Hallo-maken][2]
 
 1. Uw web-app een naam geven.
-2. Kies een bestaande resourcegroep of maak een nieuwe. (Zie beschikbare regio's in de [sectie beperkingen](app-service-linux-intro.md).)
-3. Kies een bestaand Azure App Service-abonnement of een nieuwe maken. (Zie de opmerkingen bij de App Service-plan in de [sectie beperkingen](app-service-linux-intro.md).)
-4. Kies de Ruby in de stacks ingebouwde Runtime.
+2. Kies een bestaande resourcegroep of maak een nieuwe. (Zie beschikbare regio's in Hallo [sectie beperkingen](app-service-linux-intro.md).)
+3. Kies een bestaand Azure App Service-abonnement of een nieuwe maken. (Zie de opmerkingen bij de App Service-plan in Hallo [sectie beperkingen](app-service-linux-intro.md).)
+4. Hallo Ruby kiezen uit Hallo ingebouwde Runtime stacks.
 
-Nadat uw Ruby web-app wordt gemaakt, kunt u met de Git- of FTP-implementeren.
+Nadat uw Ruby web-app wordt gemaakt, kunt u met Git- of FTP-tooit kunt implementeren.
 
-Voor meer informatie over het maken van een app Ruby, Controleer de [get-handleiding](app-service-linux-ruby-get-started.md)
+toolearn informatie over het maken van een Ruby app Hallo controleren [get-handleiding](app-service-linux-ruby-get-started.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Wat is een op Linux-Web-App?](app-service-linux-intro.md)
-* [Lokale Git-implementatie op de Azure App Service](app-service-deploy-local-git.md)
+* [Lokale Git-implementatie tooAzure App Service](app-service-deploy-local-git.md)
 * [Web-App op Linux Veelgestelde vragen over Azure App Service](app-service-linux-faq.md)
 * [Een Ruby App maken met Azure-Web-App op Linux](app-service-linux-ruby-get-started.md)
 

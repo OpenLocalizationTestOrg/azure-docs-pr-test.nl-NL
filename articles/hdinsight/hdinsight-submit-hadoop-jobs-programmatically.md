@@ -1,6 +1,6 @@
 ---
-title: Verzenden van Hadoop-taken in HDInsight | Microsoft Docs
-description: Informatie over het verzenden van Hadoop-taken naar Azure HDInsight Hadoop.
+title: aaaSubmit Hadoop-taken in HDInsight | Microsoft Docs
+description: Meer informatie over hoe toosubmit Hadoop tooAzure HDInsight Hadoop taken.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
-ms.openlocfilehash: 6829ff82afc7fcea9e027ad14ec7ed0c8015a5fe
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6c3acde744e8e384088a6cd56e4273c001c0c9fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>Geef Hadoop-taken op in HDInsight
 
@@ -30,7 +30,7 @@ U kunt verzenden met .NET SDK, Curl en Azure PowerShell Hadoop-taken:
 
   - [Niet-interactieve verificatie .NET-toepassingen maken](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
   - [Uitvoeren van Hive-query's met HDInsight .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md)
-  - [Pig-taken met de .NET SDK voor Hadoop in HDInsight uitvoeren](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+  - [Hallo .NET SDK gebruiken voor Hadoop in HDInsight Pig-taken uitvoeren](hdinsight-hadoop-use-pig-dotnet-sdk.md)
   - [Met .NET SDK voor Hadoop in HDInsight Sqoop-taken uitvoeren](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
   - [Met HDInsight .NET SDK MapReduce-taken uitvoeren](hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
 

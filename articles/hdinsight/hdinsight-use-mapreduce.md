@@ -1,6 +1,6 @@
 ---
-title: MapReduce met Hadoop op HDInsight | Microsoft Docs
-description: Informatie over het uitvoeren van MapReduce-taken op Hadoop in HDInsight-clusters.
+title: aaaMapReduce met Hadoop op HDInsight | Microsoft Docs
+description: Meer informatie over hoe toorun MapReduce taken op Hadoop in HDInsight-clusters.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,56 +16,56 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/26/2017
 ms.author: larryfr
-ms.openlocfilehash: df8ac578a56de72df667b1fa7f90f981c79d9999
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0cf7ad0e6769e678be64f9e4ec8ed7a214ab7af2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>MapReduce in Hadoop in HDInsight gebruiken
 
-Informatie over het uitvoeren van MapReduce-taken op HDInsight-clusters. Gebruik de volgende tabel voor het detecteren van de verschillende manieren waarop MapReduce kan worden gebruikt met HDInsight:
+Meer informatie over hoe toorun MapReduce taken op HDInsight-clusters. Gebruik Hallo tabel toodiscover Hallo verschillende manieren waarop MapReduce kan worden gebruikt met HDInsight te volgen:
 
-| **Gebruik deze**... | **.. .om hiervoor** | .. .door dit **cluster-besturingssysteem** | .. .from dit **clientbesturingssysteem** |
+| **Gebruik deze**... | **.. .toodo dit** | .. .door dit **cluster-besturingssysteem** | .. .from dit **clientbesturingssysteem** |
 |:--- |:--- |:--- |:--- |
-| [SSH](hdinsight-hadoop-use-mapreduce-ssh.md) |Gebruik de opdracht Hadoop via **SSH** |Linux |Linux, Unix, Mac OS X of Windows |
-| [REST](hdinsight-hadoop-use-mapreduce-curl.md) |Verzenden van de taak op afstand via **REST** (voorbeelden gebruiken cURL) |Linux- of Windows |Linux, Unix, Mac OS X of Windows |
-| [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) |Verzenden van de taak op afstand via **Windows PowerShell** |Linux- of Windows |Windows |
-| [Extern bureaublad](hdinsight-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 en 3.3) |Gebruik de opdracht Hadoop via **extern bureaublad** |Windows |Windows |
+| [SSH](hdinsight-hadoop-use-mapreduce-ssh.md) |Gebruik Hallo Hadoop opdracht via **SSH** |Linux |Linux, Unix, Mac OS X of Windows |
+| [REST](hdinsight-hadoop-use-mapreduce-curl.md) |Hallo-taak op afstand verzenden met behulp van **REST** (voorbeelden gebruiken cURL) |Linux- of Windows |Linux, Unix, Mac OS X of Windows |
+| [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) |Hallo-taak op afstand verzenden met behulp van **Windows PowerShell** |Linux- of Windows |Windows |
+| [Extern bureaublad](hdinsight-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 en 3.3) |Gebruik Hallo Hadoop opdracht via **extern bureaublad** |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+> Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a id="whatis"></a>Wat is MapReduce
 
-Hadoop-MapReduce is een softwareframework voor het schrijven van taken die enorme hoeveelheden gegevens verwerken. Invoergegevens opgesplitst onafhankelijke segmenten, die vervolgens parallel worden verwerkt op de knooppunten in het cluster. Een MapReduce-taak bestaat uit twee functies:
+Hadoop-MapReduce is een softwareframework voor het schrijven van taken die enorme hoeveelheden gegevens verwerken. Invoergegevens opgesplitst onafhankelijke chunks op Hallo knooppunten in het cluster vervolgens parallel worden verwerkt. Een MapReduce-taak bestaat uit twee functies:
 
 * **Toewijzer**: invoergegevens verbruikt, analyseert ze (meestal met filteren en sorteren operations) en verzendt tuples (sleutel / waarde-paren)
 
-* **Reducer**: tuples die door de Mapper verbruikt en wordt een samenvatting uitgevoerd waarmee een kleinere, gecombineerde resultaat van de gegevens toewijzen maakt
+* **Reducer**: tuples die door Hallo Mapper verbruikt en wordt een samenvatting uitgevoerd waarmee een kleinere, gecombineerde resultaat van Hallo Mapper-gegevens maakt
 
-Een voorbeeld van een eenvoudige word aantal MapReduce-taak wordt weergegeven in het volgende diagram:
+Een voorbeeld van een eenvoudige word aantal MapReduce-taak wordt weergegeven in het volgende diagram Hallo:
 
 ![HDI. WordCountDiagram][image-hdi-wordcountdiagram]
 
-De uitvoer van deze taak is een telling van het aantal keren dat elk woord is opgetreden in de tekst die is geanalyseerd.
+Hallo-uitvoer van deze taak is een telling van het aantal keren dat elk woord is opgetreden in de tekst hello die is geanalyseerd.
 
-* De toewijzing wordt elke regel van de ingevoerde tekst als invoer en splitst deze in woorden. Het verzendt een sleutelwaarde paar telkens wanneer een woord van het woord plaatsvindt wordt gevolgd door een 1. De uitvoer is gesorteerd voordat deze naar reducer verzonden.
-* De reducer deze afzonderlijke tellingen voor elk woord elkaar worden opgeteld en verzendt een één sleutel/waarde-paar die het woord gevolgd door de som van de instanties bevat.
+* Hallo mapper wordt elke regel van de ingevoerde tekst hello als invoer en splitst deze in woorden. Het verzendt een sleutelwaarde paar telkens wanneer een woord van Hallo woord plaatsvindt wordt gevolgd door een 1. Hallo-uitvoer is gesorteerd voordat het tooreducer wordt verzonden.
+* Hallo reducer de som van de afzonderlijke aantallen voor elk woord en verzendt een één sleutel/waarde-paar die Hallo woord, gevolgd door Hallo som van de instanties bevat.
 
-MapReduce kan worden geïmplementeerd in diverse talen. Java is de meest voorkomende implementatie en wordt gebruikt voor demonstratiedoeleinden in dit document.
+MapReduce kan worden geïmplementeerd in diverse talen. Java is de meest voorkomende implementatie Hallo en wordt gebruikt voor demonstratiedoeleinden in dit document.
 
 ## <a name="development-languages"></a>Ontwikkelingstalen
 
-Talen of frameworks die zijn gebaseerd op Java en de virtuele Java-Machine kan rechtstreeks als een MapReduce-taak worden uitgevoerd. Het voorbeeld gebruikt in dit document is een MapReduce Java-toepassing. Niet-Java-talen, zoals C#, Python of zelfstandige uitvoerbare bestanden, moeten het Hadoop-streaming gebruiken.
+Talen of frameworks die zijn gebaseerd op Java en de virtuele Java-Machine Hallo kan rechtstreeks als een MapReduce-taak worden uitgevoerd. Hallo-voorbeeld gebruikt in dit document is een MapReduce Java-toepassing. Niet-Java-talen, zoals C#, Python of zelfstandige uitvoerbare bestanden, moeten het Hadoop-streaming gebruiken.
 
-Hadoop-streaming communiceert met de toewijzen en reducer via STDIN en STDOUT. De toewijzen en reducer gegevens van een regel op een tijdstip van STDIN lezen en schrijven van de uitvoer naar STDOUT. Elke regel lezen of verzonden door de toewijzen en reducer moet de indeling van een sleutel-waardepaar, gescheiden door een tab-teken zijn:
+Hadoop-streaming communiceert met Hallo toewijzen en reducer via STDIN en STDOUT. Hallo mapper reducer gegevens van een regel op een tijdstip van STDIN lezen en schrijven Hallo uitvoer tooSTDOUT. Elke regel lezen of verzonden door Hallo toewijzen en reducer moet Hallo-indeling van een sleutel-waardepaar, gescheiden door een tab-teken zijn:
 
     [key]/t[value]
 
 Zie voor meer informatie [Hadoop-Streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
-Zie de volgende documenten voor voorbeelden van het gebruik van Hadoop-streaming met HDInsight:
+Zie voor voorbeelden van het gebruik van Hadoop-streaming met HDInsight Hallo documenten te volgen:
 
 * [C# MapReduce-taken ontwikkelen](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
@@ -73,13 +73,13 @@ Zie de volgende documenten voor voorbeelden van het gebruik van Hadoop-streaming
 
 ## <a id="data"></a>Voorbeeldgegevens
 
-HDInsight biedt verschillende voorbeeld gegevenssets die zijn opgeslagen in de `/example/data` en `/HdiSamples` directory. Deze mappen zich in de standaard-opslag voor uw cluster. In dit document, gebruiken we de `/example/data/gutenberg/davinci.txt` bestand. Dit bestand bevat de laptops van Leonardo Da Vinci.
+HDInsight biedt verschillende voorbeeld gegevenssets die zijn opgeslagen in Hallo `/example/data` en `/HdiSamples` directory. Deze mappen zich in Hallo standaard opslagruimte voor uw cluster. In dit document, gebruiken we Hallo `/example/data/gutenberg/davinci.txt` bestand. Dit bestand bevat Hallo notitieblokken van Leonardo Da Vinci.
 
 ## <a id="job"></a>Voorbeeld MapReduce
 
-Een voorbeeld MapReduce word-count-toepassing is opgenomen in uw HDInsight-cluster. In dit voorbeeld bevindt zich op `/example/jars/hadoop-mapreduce-examples.jar` op de standaard-opslag voor uw cluster.
+Een voorbeeld MapReduce word-count-toepassing is opgenomen in uw HDInsight-cluster. In dit voorbeeld bevindt zich op `/example/jars/hadoop-mapreduce-examples.jar` op Hallo standaard opslag voor uw cluster.
 
-De volgende Java-code is de bron van de MapReduce-toepassing die is opgenomen in de `hadoop-mapreduce-examples.jar` bestand:
+Hallo volgende Java-code is Hallo bron van Hallo MapReduce-toepassing die zijn opgenomen in Hallo `hadoop-mapreduce-examples.jar` bestand:
 
 ```java
 package org.apache.hadoop.examples;
@@ -153,29 +153,29 @@ public class WordCount {
 }
 ```
 
-Zie de volgende documenten voor instructies om uw eigen MapReduce-toepassingen te schrijven:
+Uw eigen toepassingen MapReduce, Zie voor instructies toowrite Hallo documenten te volgen:
 
 * [Ontwikkelen van Java-MapReduce-toepassingen voor HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
 
 * [Python-MapReduce-toepassingen voor HDInsight ontwikkelen](hdinsight-hadoop-streaming-python.md)
 
-## <a id="run"></a>De MapReduce uitvoeren
+## <a id="run"></a>Hallo MapReduce uitvoeren
 
-HDInsight kunt HiveQL taken uitvoeren met behulp van verschillende methoden. Gebruik de volgende tabel om te bepalen welke methode is geschikt voor u en volg de koppeling voor een overzicht.
+HDInsight kunt HiveQL taken uitvoeren met behulp van verschillende methoden. Gebruik Hallo tabel toodecide methode die geschikt voor u is te volgen en Hallo-koppeling voor de procedure volgen.
 
-| **Gebruik deze**... | **.. .om hiervoor** | .. .door dit **cluster-besturingssysteem** | .. .from dit **clientbesturingssysteem** |
+| **Gebruik deze**... | **.. .toodo dit** | .. .door dit **cluster-besturingssysteem** | .. .from dit **clientbesturingssysteem** |
 |:--- |:--- |:--- |:--- |
-| [SSH](hdinsight-hadoop-use-mapreduce-ssh.md) |Gebruik de opdracht Hadoop via **SSH** |Linux |Linux, Unix, Mac OS X of Windows |
-| [CURL](hdinsight-hadoop-use-mapreduce-curl.md) |Verzenden van de taak op afstand via **REST** |Linux- of Windows |Linux, Unix, Mac OS X of Windows |
-| [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) |Verzenden van de taak op afstand via **Windows PowerShell** |Linux- of Windows |Windows |
-| [Extern bureaublad](hdinsight-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 en 3.3) |Gebruik de opdracht Hadoop via **extern bureaublad** |Windows |Windows |
+| [SSH](hdinsight-hadoop-use-mapreduce-ssh.md) |Gebruik Hallo Hadoop opdracht via **SSH** |Linux |Linux, Unix, Mac OS X of Windows |
+| [CURL](hdinsight-hadoop-use-mapreduce-curl.md) |Hallo-taak op afstand verzenden met behulp van **REST** |Linux- of Windows |Linux, Unix, Mac OS X of Windows |
+| [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) |Hallo-taak op afstand verzenden met behulp van **Windows PowerShell** |Linux- of Windows |Windows |
+| [Extern bureaublad](hdinsight-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 en 3.3) |Gebruik Hallo Hadoop opdracht via **extern bureaublad** |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+> Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a id="nextsteps"></a>Volgende stappen
 
-Zie de volgende documenten voor meer informatie over het werken met gegevens in HDInsight:
+toolearn meer informatie over het werken met gegevens in HDInsight, Zie Hallo documenten te volgen:
 
 * [Het ontwikkelen van Java-MapReduce-programma's voor HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
 

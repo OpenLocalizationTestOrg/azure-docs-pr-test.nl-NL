@@ -1,15 +1,15 @@
 ## <a name="load-balancer"></a>Load balancer
-Een load balancer wordt gebruikt wanneer u wilt schalen van uw toepassingen. Typische implementatiescenario's hebben betrekking op toepassingen die worden uitgevoerd op meerdere VM-exemplaren. VM-exemplaren zijn fronted door een load balancer die voor de distributie van netwerkverkeer naar de verschillende exemplaren. 
+Een load balancer wordt gebruikt wanneer u tooscale wilt dat uw toepassingen. Typische implementatiescenario's hebben betrekking op toepassingen die worden uitgevoerd op meerdere VM-exemplaren. Hallo VM-exemplaren zijn fronted door een load balancer die toodistribute netwerkverkeer toohello verschillende exemplaren helpt. 
 
 ![NIC's op een enkele virtuele machine](./media/resource-groups-networking/figure8.png)
 
 | Eigenschap | Beschrijving |
 | --- | --- |
-| *frontendIPConfigurations* |een Load balancer kan een of meer front-end IP-adressen, ook bekend als een virtueel IP-adressen (VIP's) bevatten. Deze IP-adressen kunnen fungeren als inkomend voor het verkeer en openbare IP-adres of privé-IP |
-| *backendAddressPools* |Dit zijn IP-adressen die zijn gekoppeld aan de VM-NIC's die load worden gedistribueerd |
-| *loadBalancingRules* |de regeleigenschap van een wijst een opgegeven front-end-IP-poort aan een set van back-end-IP-adressen en poort. Met één definitie van een load balancer-bron, kunt u meerdere regels voor taakverdeling, elke regel als gevolg van een combinatie van een front end IP-adres en poort en back-end-IP- en de poort die is gekoppeld aan virtuele machines. De regel is één poort in de front end-pool te veel virtuele machines in de groep back-end |
-| *Tests* |tests kunnen u om de status van de VM-exemplaren bij te houden. Als u een health test mislukt, de instantie van de virtuele machine gaat buiten rotatie automatisch |
-| *inboundNatRules* |NAT-regels definiëren van het binnenkomende verkeer via de voorgrond IP beëindigen en gedistribueerd naar de back-end-IP op een specifieke virtuele machine-instantie. NAT-regel is een poort in de front-end-pool aan een virtuele machine in de groep back-end |
+| *frontendIPConfigurations* |een Load balancer kan een of meer front-end IP-adressen, ook bekend als een virtueel IP-adressen (VIP's) bevatten. Deze IP-adressen kunnen fungeren als inkomend verkeer Hallo en openbare IP-adres of privé-IP |
+| *backendAddressPools* |Dit zijn IP-adressen die zijn gekoppeld aan Hallo VM NIC's toowhich load worden gedistribueerd |
+| *loadBalancingRules* |de regeleigenschap van een toegewezen een front-end opgegeven IP-adres en poort combinatie tooa set back-end-IP-adressen en combinatie van poort. Met één definitie van een load balancer-bron, kunt u meerdere regels voor taakverdeling, elke regel als gevolg van een combinatie van een front end IP-adres en poort en back-end-IP- en de poort die is gekoppeld aan virtuele machines. Hallo-regel is één poort in Hallo front-end groep toomany virtuele machines in Hallo back-end-adresgroep |
+| *Tests* |tests inschakelen tookeep bijhouden van Hallo status van de VM-exemplaren. Als u een health test mislukt, exemplaar van de virtuele machine Hallo gaat buiten rotatie automatisch |
+| *inboundNatRules* |NAT-regels definiëren Hallo inkomend verkeer via Hallo-front-end-IP en toohello back-end-IP-tooa specifieke virtuele machine exemplaar gedistribueerd. NAT-regel is een poort in Hallo front-end groep tooone virtuele machine in Hallo back-end-adresgroep |
 
 Voorbeeld van de load balancer-sjabloon in Json-indeling:
 
@@ -33,7 +33,7 @@ Voorbeeld van de load balancer-sjabloon in Json-indeling:
             "Southeast Asia"
           ],
           "metadata": {
-            "description": "Location to deploy"
+            "description": "Location toodeploy"
           }
         },
         "addressPrefix": {

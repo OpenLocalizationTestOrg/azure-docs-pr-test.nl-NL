@@ -1,6 +1,6 @@
 ---
-title: Schalen van Azure Redis-Cache | Microsoft Docs
-description: Meer informatie over het schalen van uw Azure Redis-Cache-exemplaren
+title: aaaHow tooScale Azure Redis-Cache | Microsoft Docs
+description: Meer informatie over hoe tooscale uw Azure Redis-Cache-exemplaren
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -14,77 +14,77 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: sdanie
-ms.openlocfilehash: 91b3580491a1e3504a3891b66606a9bd18c0638f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8d7c015a539f872913056392aa080bf3f445bd03
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-scale-azure-redis-cache"></a>Schalen van Azure Redis-Cache
-Azure Redis-Cache heeft verschillende cache aanbiedingen die flexibiliteit bij de keuze van de cachegrootte en -functies bieden. Nadat een cache is gemaakt, kunt u de grootte en de prijscategorie van de cache schalen als de vereisten van uw toepassing veranderen. In dit artikel leest u hoe schalen van uw cache in de Azure portal en gebruik van hulpprogramma's zoals Azure PowerShell en Azure CLI.
+# <a name="how-tooscale-azure-redis-cache"></a>Hoe tooScale Azure Redis-Cache
+Azure Redis-Cache heeft verschillende cache aanbiedingen die flexibiliteit bij het Hallo-keuze van de cachegrootte en -functies bieden. Nadat een cache is gemaakt, kunt u Hallo grootte en de prijscategorie van Hallo cache als Hallo vereisten van uw toepassing veranderen Hallo schalen. Dit artikel laat zien hoe tooscale uw cache in hello Azure-portal en met behulp van hulpprogramma's zoals Azure PowerShell en Azure CLI.
 
-## <a name="when-to-scale"></a>Wanneer schalen
-U kunt de [bewaking](cache-how-to-monitor.md) functies van Azure Redis-Cache om te controleren van de status en prestaties van de cache en te bepalen wanneer schalen van de cache. 
+## <a name="when-tooscale"></a>Wanneer tooscale
+U kunt Hallo [bewaking](cache-how-to-monitor.md) functies van Azure Redis-Cache toomonitor Hallo status en prestaties van uw cache en te bepalen wanneer tooscale Hallo cache. 
 
-U kunt de volgende metrische gegevens om te bepalen wat als u wilt schalen bewaken.
+U kunt bewaken Hallo volgende metrische gegevens toohelp bepalen of u moet tooscale.
 
 * Redis belasting van de Server
 * Geheugengebruik
 * Netwerkbandbreedte
 * CPU-gebruik
 
-Als u vaststelt dat uw cache niet meer van uw toepassing vereisten voldoet, kunt u naar een grotere of kleinere cache prijscategorie die geschikt is voor uw toepassing schalen. Zie voor meer informatie over het bepalen van welke prijscategorie gebruiken cache [welke aanbieding Redis-Cache en de grootte moet ik gebruiken](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
+Als u vaststelt dat uw cache niet meer van uw toepassing vereisten voldoet, kunt u tooa groter of kleiner cache prijscategorie die geschikt is voor uw toepassing schalen. Zie voor meer informatie over het bepalen van die in de cache prijscategorie laag toouse [welke aanbieding Redis-Cache en de grootte moet ik gebruiken](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## <a name="scale-a-cache"></a>Een cache schalen
-Schalen van uw cache [Blader naar de cache](cache-configure.md#configure-redis-cache-settings) in de [Azure-portal](https://portal.azure.com) en klik op **Scale** van de **Resource menu**.
+tooscale uw cache [toohello cache Bladeren](cache-configure.md#configure-redis-cache-settings) in Hallo [Azure-portal](https://portal.azure.com) en klik op **Scale** van Hallo **Resource menu**.
 
 ![Schalen](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
-Selecteer de gewenste prijscategorie van de **Selecteer prijscategorie** blade en klik op **Selecteer**.
+Selecteer Hallo gewenste prijscategorie uit Hallo **Selecteer prijscategorie** blade en klik op **Selecteer**.
 
 ![Prijscategorie][redis-cache-pricing-tier-blade]
 
 
-U kunt schalen naar een andere prijscategorie met de volgende beperkingen:
+U kunt andere prijscategorie Hello volgen beperkingen tooa schalen:
 
-* U kan niet uit een hogere prijscategorie schalen naar een lagere prijscategorie.
-  * U kunt geen schalen van een **Premium** omlaag naar de cache een **standaard** of een **Basic** cache.
-  * U kunt geen schalen van een **standaard** omlaag naar de cache een **Basic** cache.
-* U kunt opschalen van een **Basic** in de cache op een **standaard** cache, maar de grootte niet wijzigen op hetzelfde moment. Als u een ander formaat nodig hebt, kunt u de volgende vergroten/verkleinen bewerking naar de gewenste grootte kunt doen.
-* U kunt geen schalen van een **Basic** rechtstreeks naar de cache een **Premium** cache. Moet u de schaal van **Basic** naar **standaard** in één bewerking van de schaal en vervolgens van **standaard** naar **Premium** in een latere bewerking voor vergroten/verkleinen.
-* Kan niet worden geschaald uit een groter formaat omlaag naar de **C0 (250 MB)** grootte.
+* U kan niet uit een hogere prijscategorie laag tooa lagere prijscategorie schalen.
+  * U kunt geen schalen van een **Premium** cache omlaag tooa **standaard** of een **Basic** cache.
+  * U kunt geen schalen van een **standaard** cache omlaag tooa **Basic** cache.
+* U kunt opschalen van een **Basic** cache tooa **standaard** cache, maar niet wijzigen Hallo grootte op Hallo hetzelfde moment. Als u een ander formaat nodig hebt, kunt u een daaropvolgende vergroten/verkleinen bewerking toohello gewenst grootte kunt doen.
+* U kunt geen schalen van een **Basic** cache rechtstreeks tooa **Premium** cache. U moet de schaal van **Basic** te**standaard** in één bewerking van de schaal en vervolgens van **standaard** te**Premium** bij een volgende schaal de bewerking.
+* Kan niet worden geschaald uit een groter formaat omlaag toohello **C0 (250 MB)** grootte.
  
-Terwijl de cache wordt geschaald naar de nieuwe prijscategorie een **schaal** status wordt weergegeven in de **Redis-Cache** blade.
+Tijdens het Hallo-cache wordt geschaald toohello nieuwe prijscategorie, een **schaal** status wordt weergegeven op Hallo **Redis-Cache** blade.
 
 ![Schalen][redis-cache-scaling]
 
-Wanneer schalen voltooid is, wordt de status verandert van **schaal** naar **met**.
+Wanneer schalen voltooid is, Hallo status verandert van **schaal** te**met**.
 
-## <a name="how-to-automate-a-scaling-operation"></a>Een bewerking voor vergroten/verkleinen automatiseren
-Naast het schalen van uw cache-exemplaren in de Azure portal, kunt u de schaal met behulp van PowerShell-cmdlets, Azure CLI en met behulp van de Microsoft Azure Management-bibliotheken (MAML). 
+## <a name="how-tooautomate-a-scaling-operation"></a>Hoe tooautomate een bewerking voor vergroten/verkleinen
+In toevoeging tooscaling Hallo uw cache-exemplaren in Azure-portal, kunt u met behulp van PowerShell-cmdlets, Azure CLI schalen en Hallo met behulp van Microsoft Azure Management-bibliotheken (MAML). 
 
 * [Schaal met behulp van PowerShell](#scale-using-powershell)
 * [Schaal met Azure CLI](#scale-using-azure-cli)
 * [Met behulp van MAML schaal](#scale-using-maml)
 
 ### <a name="scale-using-powershell"></a>Schaal met behulp van PowerShell
-U kunt uw Azure Redis-Cache-exemplaren met PowerShell schalen met behulp van de [Set AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) cmdlet wanneer de `Size`, `Sku`, of `ShardCount` eigenschappen zijn gewijzigd. Het volgende voorbeeld laat zien hoe een cache met de naam schalen `myCache` naar een cache 2,5 GB. 
+U kunt uw Azure Redis-Cache-exemplaren met PowerShell schalen met behulp van Hallo [Set AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) cmdlet wanneer hello `Size`, `Sku`, of `ShardCount` eigenschappen zijn gewijzigd. Hallo volgende voorbeeld laat zien hoe tooscale een cache met de naam `myCache` tooa 2,5 GB cache. 
 
     Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
-Zie voor meer informatie over het schalen met PowerShell [schalen van een Redis-cache met behulp van Powershell](cache-howto-manage-redis-cache-powershell.md#scale).
+Zie voor meer informatie over het schalen met PowerShell [tooscale een Redis-cache met behulp van Powershell](cache-howto-manage-redis-cache-powershell.md#scale).
 
 ### <a name="scale-using-azure-cli"></a>Schaal met Azure CLI
-Als u wilt schalen van uw Azure Redis-Cache-exemplaren die gebruikmaken van Azure CLI, roepen de `azure rediscache set` opdracht en in de gewenste configuratiewijzigingen die een nieuwe grootte, sku of clustergrootte, afhankelijk van de gewenste schaal bewerking bevatten.
+tooscale uw Azure Redis-Cache-exemplaren die gebruikmaken van Azure CLI aanroepen Hallo `azure rediscache set` opdracht en geeft u Hallo gewenst configuratiewijzigingen die een nieuwe grootte, sku of clustergrootte, afhankelijk van Hallo gewenst vergroten/verkleinen bewerking.
 
 Zie voor meer informatie over het schalen met Azure CLI [instellingen van een bestaande Redis-Cache wijzigen](cache-manage-cli.md#scale).
 
 ### <a name="scale-using-maml"></a>Met behulp van MAML schaal
-Schalen van uw Azure Redis-Cache-exemplaren met de [Microsoft Azure Management-bibliotheken (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), Roep de `IRedisOperations.CreateOrUpdate` methode en geeft u de nieuwe grootte voor de `RedisProperties.SKU.Capacity`.
+tooscale uw Azure Redis-Cache-exemplaren die gebruikmaken van Hallo [Microsoft Azure Management-bibliotheken (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), aanroep Hallo `IRedisOperations.CreateOrUpdate` methode en geeft u nieuwe grootte voor Hallo Hallo `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
-        // For instructions on getting the access token, see
+        // For instructions on getting hello access token, see
         // https://azure.microsoft.com/documentation/articles/cache-configure/#access-keys
         string token = GetAuthorizationHeader();
 
@@ -93,20 +93,20 @@ Schalen van uw Azure Redis-Cache-exemplaren met de [Microsoft Azure Management-b
         RedisManagementClient client = new RedisManagementClient(creds);
         var redisProperties = new RedisProperties();
 
-        // To scale, set a new size for the redisSKUCapacity parameter.
+        // tooscale, set a new size for hello redisSKUCapacity parameter.
         redisProperties.Sku = new Sku(redisSKUName,redisSKUFamily,redisSKUCapacity);
         redisProperties.RedisVersion = redisVersion;
         var redisParams = new RedisCreateOrUpdateParameters(redisProperties, redisCacheRegion);
         client.Redis.CreateOrUpdate(resourceGroupName,cacheName, redisParams);
     }
 
-Zie voor meer informatie de [Redis-Cache beheren met behulp van MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) voorbeeld.
+Zie voor meer informatie, Hallo [Redis-Cache beheren met behulp van MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) voorbeeld.
 
 ## <a name="scaling-faq"></a>Veelgestelde vragen over het schalen
-De volgende lijst bevat antwoorden op veelgestelde vragen over het schalen van Azure Redis-Cache.
+Hallo bevat volgende lijst toocommonly van antwoorden op veelgestelde vragen over het schalen van Azure Redis-Cache.
 
 * [Kan ik worden geschaald naar, uit of binnen een Premium-cache?](#can-i-scale-to-from-or-within-a-premium-cache)
-* [Na de schaal heb ik mijn cache naam of toegang tot de sleutels wijzigen?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
+* [Na de schaal heb ik toochange mijn cache naam of toegang tot de sleutels?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
 * [Hoe schalen werkt?](#how-does-scaling-work)
 * [Ik verliest gegevens uit de cache tijdens schalen?](#will-i-lose-data-from-my-cache-during-scaling)
 * [Mijn aangepaste databases configureert betrokken tijdens schalen?](#is-my-custom-databases-setting-affected-during-scaling)
@@ -116,56 +116,56 @@ De volgende lijst bevat antwoorden op veelgestelde vragen over het schalen van A
 * [Hoe weet ik wanneer de schaal is voltooid?](#how-can-i-tell-when-scaling-is-complete)
 
 ### <a name="can-i-scale-to-from-or-within-a-premium-cache"></a>Kan ik worden geschaald naar, uit of binnen een Premium-cache?
-* U kunt geen schalen van een **Premium** omlaag naar de cache een **Basic** of **standaard** prijscategorie.
-* U kunt opschalen van een **Premium** cache prijscategorie naar een andere.
-* U kunt geen schalen van een **Basic** rechtstreeks naar de cache een **Premium** cache. U moet eerst de schaal van **Basic** naar **standaard** in één bewerking van de schaal en vervolgens van **standaard** naar **Premium** in een toekomstige de bewerking is vergroten/verkleinen.
-* Als u de clustering ingeschakeld tijdens het maken van uw **Premium** cache, kunt u [wijzigen van de clustergrootte](cache-how-to-premium-clustering.md#cluster-size). Als uw cache is gemaakt zonder clustering is ingeschakeld, kunt u op een later tijdstip clustering niet configureren.
+* U kunt geen schalen van een **Premium** cache omlaag tooa **Basic** of **standaard** prijscategorie.
+* U kunt opschalen van een **Premium** cache laag tooanother prijzen.
+* U kunt geen schalen van een **Basic** cache rechtstreeks tooa **Premium** cache. U moet eerst de schaal van **Basic** te**standaard** in één bewerking van de schaal en vervolgens van **standaard** te**Premium** in een toekomstige de bewerking is vergroten/verkleinen.
+* Als u de clustering ingeschakeld tijdens het maken van uw **Premium** cache, kunt u [Hallo clustergrootte wijzigen](cache-how-to-premium-clustering.md#cluster-size). Als uw cache is gemaakt zonder clustering is ingeschakeld, kunt u op een later tijdstip clustering niet configureren.
   
-  Zie [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md) (Clustering voor een Premium Azure Redis Cache configureren) voor meer informatie.
+  Zie voor meer informatie [hoe tooconfigure clustering voor een Premium Azure Redis-Cache](cache-how-to-premium-clustering.md).
 
-### <a name="after-scaling-do-i-have-to-change-my-cache-name-or-access-keys"></a>Na de schaal heb ik mijn cache naam of toegang tot de sleutels wijzigen?
+### <a name="after-scaling-do-i-have-toochange-my-cache-name-or-access-keys"></a>Na de schaal heb ik toochange mijn cache naam of toegang tot de sleutels?
 Nee, uw Cachenaam en sleutels zijn niet gewijzigd tijdens een bewerking voor vergroten/verkleinen.
 
 ### <a name="how-does-scaling-work"></a>Hoe schalen werkt?
-* Wanneer een **Basic** cache is geschaald naar een andere grootte, deze wordt afgesloten en een nieuwe cache is ingericht met behulp van de nieuwe grootte. Gedurende deze tijd de cache is niet beschikbaar en de gegevens in de cache worden verwijderd.
-* Wanneer een **Basic** cache is geschaald naar een **standaard** cache, een replica-cache is ingericht en de gegevens uit de primaire cache wordt gekopieerd naar de replica-cache. De cache blijft beschikbaar tijdens het vergroten/verkleinen.
-* Wanneer een **standaard** cache wordt aangepast aan een andere grootte of aan een **Premium** cache, op een van de replica's wordt afgesloten en opnieuw wordt ingericht voor de nieuwe grootte en de overgedragen gegevens en de andere replica voert een failover voordat deze opnieuw worden ingericht, vergelijkbaar met het proces dat bij uitval van een van de cache-knooppunten plaatsvindt.
+* Wanneer een **Basic** cache wordt geschaald tooa verschillende grootte, deze wordt afgesloten en een nieuwe cache met behulp van de nieuwe grootte Hallo is ingericht. Gedurende deze tijd Hallo-cache is niet beschikbaar en alle gegevens in cache Hallo verloren.
+* Wanneer een **Basic** -cache is geschaald tooa **standaard** cache, een replica-cache is ingericht en Hallo gegevens van Hallo primaire cache toohello replica cache is gekopieerd. Hallo-cache blijft tijdens Hallo proces schalen beschikbaar.
+* Wanneer een **standaard** -cache is geschaald tooa andere grootte of tooa **Premium** cache, op een van de Hallo replica's wordt afgesloten en opnieuw ingericht toohello nieuwe grootte en Hallo gegevens overgedragen en andere Hallo replica voert een failover voordat deze opnieuw wordt ingericht, een soortgelijk proces uit toohello vindt wel plaats tijdens een storing van een cache-knooppunten Hallo.
 
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>Ik verliest gegevens uit de cache tijdens schalen?
-* Wanneer een **Basic** cache is geschaald naar een nieuwe grootte, alle gegevens verloren en wordt de cache is niet beschikbaar tijdens de bewerking uit te schalen.
-* Wanneer een **Basic** cache is geschaald naar een **standaard** cache, de gegevens in de cache wordt doorgaans behouden.
-* Wanneer een **standaard** cache is geschaald naar een grotere grootte of laag, of een **Premium** cache is geschaald naar een groter, blijven doorgaans alle gegevens behouden. Wanneer een **standaard** of **Premium** cache naar beneden op een kleinere, gegevens zijn mogelijk verloren gegaan, afhankelijk van hoeveel gegevens zich in de cache die betrekking hebben op de nieuwe grootte wanneer deze wordt geschaald. Als gegevens verloren gaan tijdens het omlaag schalen, sleutels zijn verwijderd met behulp van de [allkeys lru](http://redis.io/topics/lru-cache) taakverwijdering beleid. 
+* Wanneer een **Basic** cache is geschaald tooa nieuwe grootte, alle gegevens verloren en Hallo-cache is niet beschikbaar tijdens het Hallo bewerking schalen.
+* Wanneer een **Basic** -cache is geschaald tooa **standaard** in de cache, hello gegevens in cache Hallo is doorgaans behouden.
+* Wanneer een **standaard** cache is geschaald tooa groter of laag, of een **Premium** cache wordt geschaald tooa groter formaat, alle gegevens doorgaans blijft behouden. Wanneer een **standaard** of **Premium** cache omlaag tooa kleinere, gegevens zijn mogelijk verloren gegaan, afhankelijk van hoeveel gegevens zich in de cache Hallo toohello nieuwe grootte gerelateerde wanneer deze wordt geschaald. Als gegevens verloren gaan tijdens het omlaag schalen, sleutels zijn verwijderd met behulp van Hallo [allkeys lru](http://redis.io/topics/lru-cache) taakverwijdering beleid. 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>Mijn aangepaste databases configureert betrokken tijdens schalen?
-Sommige Prijscategorieën hebben verschillende [databases limieten](cache-configure.md#databases), dus er enkele overwegingen zijn wanneer het verkleinen van als u een aangepaste waarde voor geconfigureerd de `databases` instellen tijdens het maken van de cache.
+Sommige Prijscategorieën hebben verschillende [databases limieten](cache-configure.md#databases), dus er enkele overwegingen zijn bij het verkleinen van als u een aangepaste waarde voor Hallo geconfigureerd `databases` instellen tijdens het maken van de cache.
 
-* Tijdens het schalen naar een prijscategorie met een lagere `databases` limiet dan de huidige tier:
-  * Als u het standaardaantal `databases` waarmee 16 voor alle Prijscategorieën is, gegevens niet verloren.
-  * Als u een aangepaste aantal `databases` die valt binnen de grenzen voor de laag waarop u hebben, dit `databases` instelling blijft behouden en gegevens niet verloren.
-  * Als u een aangepaste aantal `databases` die overschrijdt de grenzen van de nieuwe laag, de `databases` instelling is verlaagd tot de grenzen van de nieuwe laag en alle gegevens in de verwijderde databases wordt verbroken.
-* Wanneer een de dezelfde of een hogere prijscategorie schalen `databases` limiet dan de huidige tier uw `databases` instelling blijft behouden en gegevens niet verloren.
+* Wanneer schalen tooa prijscategorie met een lagere `databases` limiet dan de huidige tier Hallo:
+  * Als u van Hallo standaardaantal gebruikmaakt `databases` waarmee 16 voor alle Prijscategorieën is, gegevens niet verloren.
+  * Als u een aangepaste aantal `databases` die voor Hallo laag toowhich u schaling valt binnen de grenzen Hallo dit `databases` instelling blijft behouden en gegevens niet verloren.
+  * Als u een aangepaste aantal `databases` die groter is dan Hallo grenzen van de nieuwe laag hello, hello `databases` verlaagde toohello grenzen van Hallo nieuwe laag is en alle gegevens in Hallo verwijderd databases wordt verbroken.
+* Wanneer schalen tooa prijscategorie Hello dezelfde of een hogere `databases` limiet dan de huidige tier Hallo uw `databases` instelling blijft behouden en gegevens niet verloren.
 
 Houd er rekening mee dat Standard en Premium-caches hebben een SLA met 99,9% voor beschikbaarheid, maar er geen SLA gegevens verloren zijn gegaan is.
 
 ### <a name="will-my-cache-be-available-during-scaling"></a>Mijn cache is beschikbaar tijdens het schalen?
-* **Standaard** en **Premium** caches beschikbaar blijven tijdens de bewerking uit te schalen.
-* **Basic** caches zijn offline tijdens het schalen van bewerkingen die een ander formaat, maar beschikbaar blijven tijdens het schalen van **Basic** naar **standaard**.
+* **Standaard** en **Premium** caches beschikbaar blijven tijdens Hallo bewerking schalen.
+* **Basic** caches zijn offline tijdens het schalen van andere bewerkingen tooa-grootte, maar beschikbaar blijven tijdens het schalen van **Basic** te**standaard**.
 
 ### <a name="operations-that-are-not-supported"></a>Bewerkingen die worden niet ondersteund
-* U kan niet uit een hogere prijscategorie schalen naar een lagere prijscategorie.
-  * U kunt geen schalen van een **Premium** omlaag naar de cache een **standaard** of een **Basic** cache.
-  * U kunt geen schalen van een **standaard** omlaag naar de cache een **Basic** cache.
-* U kunt opschalen van een **Basic** in de cache op een **standaard** cache, maar de grootte niet wijzigen op hetzelfde moment. Als u een ander formaat nodig hebt, kunt u de volgende vergroten/verkleinen bewerking naar de gewenste grootte kunt doen.
-* U kunt geen schalen van een **Basic** rechtstreeks naar de cache een **Premium** cache. U moet eerst de schaal van **Basic** naar **standaard** in één bewerking van de schaal en vervolgens van **standaard** naar **Premium** in een toekomstige de bewerking is vergroten/verkleinen.
-* Kan niet worden geschaald uit een groter formaat omlaag naar de **C0 (250 MB)** grootte.
+* U kan niet uit een hogere prijscategorie laag tooa lagere prijscategorie schalen.
+  * U kunt geen schalen van een **Premium** cache omlaag tooa **standaard** of een **Basic** cache.
+  * U kunt geen schalen van een **standaard** cache omlaag tooa **Basic** cache.
+* U kunt opschalen van een **Basic** cache tooa **standaard** cache, maar niet wijzigen Hallo grootte op Hallo hetzelfde moment. Als u een ander formaat nodig hebt, kunt u een daaropvolgende vergroten/verkleinen bewerking toohello gewenst grootte kunt doen.
+* U kunt geen schalen van een **Basic** cache rechtstreeks tooa **Premium** cache. U moet eerst de schaal van **Basic** te**standaard** in één bewerking van de schaal en vervolgens van **standaard** te**Premium** in een toekomstige de bewerking is vergroten/verkleinen.
+* Kan niet worden geschaald uit een groter formaat omlaag toohello **C0 (250 MB)** grootte.
 
-Als een vergroten/verkleinen mislukt, wordt geprobeerd om de bewerking terug te zetten van de service en de cache wordt teruggezet naar de oorspronkelijke grootte.
+Als een vergroten/verkleinen mislukt Hallo-service probeert toorevert Hallo bewerking en Hallo cache toohello oorspronkelijke grootte wordt teruggezet.
 
 ### <a name="how-long-does-scaling-take"></a>Hoe lang duurt schalen voordat?
-Schalen duurt ongeveer 20 minuten, afhankelijk van hoeveel gegevens zich in de cache.
+Duurt ongeveer 20 minuten, afhankelijk van hoeveel gegevens zich in de cache Hallo schalen.
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>Hoe weet ik wanneer de schaal is voltooid?
-In de Azure portal ziet u de schaal bewerking uitgevoerd. Wanneer schalen voltooid is, wordt de status van de cache gewijzigd in **met**.
+Hello Azure-portal ziet u Hallo schalen bewerking uitgevoerd. Wanneer schalen voltooid is, Hallo u status van de wijzigingen in cache hello te**met**.
 
 <!-- IMAGES -->
 

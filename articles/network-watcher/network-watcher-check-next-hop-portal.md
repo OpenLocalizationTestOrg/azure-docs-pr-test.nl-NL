@@ -1,6 +1,6 @@
 ---
-title: Vinden van de volgende hop met Azure-netwerk-Watcher volgende Hop - Azure-portal | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u kunt vinden wat het volgende hoptype is en IP-adres met de volgende Hop met de Azure portal
+title: de volgende hop aaaFind met Azure-netwerk-Watcher volgende Hop - Azure-portal | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u kunt zoeken welke Hallo type voor het volgende hop is en het IP-adres met behulp van volgende Hop hello Azure-portal
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 5434b7972346821985c459fc4620805adb88676b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b64a2a5275c15aa8bdb10601de4ae1504a9ab551
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-the-portal"></a>Uitzoeken wat het volgende hoptype gebruikt de mogelijkheid van de volgende Hop in Azure met behulp van de portal netwerk-Watcher
+# <a name="find-out-what-hello-next-hop-type-is-using-hello-next-hop-capability-in-azure-network-watcher-using-hello-portal"></a>Ontdek welke Hallo volgend hoptype Hallo volgende Hop mogelijkheid gebruikt in Azure met behulp van de portal Hallo netwerk-Watcher
 
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-check-next-hop-portal.md)
@@ -29,38 +29,38 @@ ms.lasthandoff: 07/11/2017
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
 > - [Azure REST-API](network-watcher-check-next-hop-rest.md)
 
-De volgende hop is een functie van netwerk-Watcher die de mogelijkheid get biedt de volgende hoptype en IP-adres op basis van een opgegeven virtuele machine. Deze functie is handig bij het bepalen of een virtuele machine uitgaand verkeer van een gateway, internet of virtuele netwerken om te gaan naar de bestemming passeert.
+De volgende hop is een functie van netwerk-Watcher die de mogelijkheid Hallo biedt Hallo volgend hoptype en IP-adres op basis van een opgegeven virtuele machine ophalen. Deze functie is handig bij het bepalen of een virtuele machine uitgaand verkeer van een gateway, internet of virtuele netwerken tooget tooits bestemming passeert.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Dit scenario wordt ervan uitgegaan dat u de stappen in al hebt gevolgd [maken van een netwerk-Watcher](network-watcher-create.md) voor het maken van een netwerk-Watcher. Het scenario wordt ervan uitgegaan dat er een resourcegroep met een geldige virtuele machine bestaat om te worden gebruikt.
+Dit scenario wordt ervan uitgegaan dat u hebt al Hallo stappen uitgevoerd in [maken van een netwerk-Watcher](network-watcher-create.md) toocreate een netwerk-Watcher. Hallo scenario wordt ervan uitgegaan dat een resourcegroep met een geldige virtuele machine toobe gebruikt bestaat.
 
 ## <a name="scenario"></a>Scenario
 
-Het scenario beschreven in dit artikel maakt gebruik van volgende hop voor informatie over het volgende hoptype en IP-adres voor een resource. Voor meer informatie over de volgende Hop, gaat u naar [volgende Hop overzicht](network-watcher-next-hop-overview.md).
+Hallo scenario beschreven in dit artikel maakt gebruik van volgende hop toofind uit het volgende hoptype hello en IP-adres voor een resource. toolearn meer informatie over het volgende Hop, gaat u naar [volgende Hop overzicht](network-watcher-next-hop-overview.md).
 
 U wordt in dit scenario:
 
-* De volgende hop ophalen van een virtuele machine.
+* De volgende hop Hallo ophalen van een virtuele machine.
 
 ## <a name="get-next-hop"></a>Ophalen van de volgende Hop
 
 ### <a name="step-1"></a>Stap 1
 
-Navigeer naar uw netwerk-Watcher-resource in de Azure-portal.
+Navigeer tooyour netwerk-Watcher-bron in hello Azure-portal.
 
 ### <a name="step-2"></a>Stap 2
 
-Klik op **volgende hop** in het navigatiedeelvenster, selecteer de virtuele machine en de netwerkinterface, invullen van de bron en doel-IP en op de **volgende hop** knop.
+Klik op **volgende hop** invullen in het navigatiedeelvenster Hallo, selecteer Hallo virtuele machine en netwerkinterface, de Hallo bron en doel-IP en klikt u op Hallo **volgende hop** knop.
 
 > [!NOTE]
-> Volgende hop is vereist dat de VM-resource wordt toegewezen om te worden uitgevoerd.
+> Volgende hop is vereist dat de VM-resource Hallo toorun wordt toegewezen.
 
 ![volgende hop-overzicht][1]
 
 ### <a name="step-3"></a>Stap 3
 
-Zodra de taak voltooid is, worden de resultaten worden geleverd. Het IP-adres en het type apparaat dat de volgende hop is, worden weergegeven. De volgende tabel bevat de beschikbare geretourneerde waarden in de portal.
+Zodra het Hallo-taak is voltooid, worden Hallo resultaten verstrekt. Hallo IP-adres en het type apparaat Hallo volgende hop is, wordt weergegeven. Hallo volgende tabel toont Hallo beschikbare geretourneerde waarden in Hallo-portal.
 
 **Volgend Hoptype**
 
@@ -72,13 +72,13 @@ Zodra de taak voltooid is, worden de resultaten worden geleverd. Het IP-adres en
 * VnetPeering
 * Geen
 
-Als een aangepaste route is gebruikt voor dit verkeer routeren, wordt de gebruiker gedefinieerde route (UDR) ook met de resultaten weergegeven.
+Als een aangepaste route gebruikte tooroute is wordt dit verkeer, Hallo gebruiker opgegeven routes (UDR) ook met Hallo resultaten weergegeven.
 
 ![ophalen van de volgende hop-resultaten][2]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het bekijken van de groep beveiligingsinstellingen van uw netwerk via een programma te bezoeken [NSG controleren met de netwerk-Watcher](network-watcher-nsg-auditing-powershell.md)
+Meer informatie over hoe tooreview uw netwerk groep beveiligingsinstellingen programmatisch in via [NSG controleren met de netwerk-Watcher](network-watcher-nsg-auditing-powershell.md)
 
 [1]: ./media/network-watcher-check-next-hop-portal/figure1.png
 [2]: ./media/network-watcher-check-next-hop-portal/figure2.png

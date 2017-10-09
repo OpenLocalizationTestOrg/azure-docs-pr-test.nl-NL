@@ -3,8 +3,8 @@
 | --- | --- | --- | --- |
 | API-aanroepen |500 KB |1.5 M / eenheid |15 M / eenheid |
 | Actieve apparaten |500 |Onbeperkt |Onbeperkt |
-| Schalen |N.v.t. |Maximaal 6 eenheden |Onbeperkte eenheden |
-| Pushmeldingen |Notification Hubs gratis laag opgenomen, maximaal 1 M pushmeldingen |Notification Hubs Basisstaffel opgenomen, tot 10 M pushmeldingen |Notification Hubs standaardcategorie opgenomen, tot 10 M pushmeldingen |
+| Schalen |N.v.t. |Too6-eenheden |Onbeperkte eenheden |
+| Pushmeldingen |Notification Hubs gratis laag opgenomen, tot too1 M pushmeldingen |Notification Hubs Basisstaffel opgenomen, tot too10 M pushmeldingen |Notification Hubs standaardcategorie opgenomen, tot too10 M pushmeldingen |
 | Realtime-berichten /<br/>Websockets |Beperkt |350 / mobiele service |Onbeperkt |
 | Offline synchronisatiebewerkingen |Beperkt |Inbegrepen |Inbegrepen |
 | Geplande jobs |Beperkt |Inbegrepen |Inbegrepen |

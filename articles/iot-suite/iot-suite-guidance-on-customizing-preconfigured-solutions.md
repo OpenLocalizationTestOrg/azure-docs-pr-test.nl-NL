@@ -1,6 +1,6 @@
 ---
-title: Aanpassen van vooraf geconfigureerde oplossingen | Microsoft Docs
-description: Biedt richtlijnen voor het aanpassen van de vooraf geconfigureerde Azure IoT Suite-oplossingen.
+title: aaaCustomizing vooraf geconfigureerde oplossingen | Microsoft Docs
+description: Biedt richtlijnen voor hoe toocustomize hello Azure IoT Suite vooraf oplossingen geconfigureerde.
 services: 
 suite: iot-suite
 documentationcenter: .net
@@ -15,73 +15,73 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: corywink
-ms.openlocfilehash: bdf4cd89d5ad0392337dfe761108608d506adf18
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1a8573f5ac6ed944c44459df495446f15174d513
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="customize-a-preconfigured-solution"></a>Een vooraf geconfigureerde oplossing aanpassen
 
-De vooraf geconfigureerde oplossingen die zijn opgegeven met de Azure IoT Suite laten zien dat de services in de suite die samenwerken voor het leveren van een end-to-end-oplossing. Vanaf deze beginpunt zijn er verschillende plaatsen in die u kunt uitbreiden en aanpassen van de oplossing voor specifieke scenario's. De volgende secties worden deze common aanpassing punten.
+Hallo vooraf geconfigureerde oplossingen Hello Azure IoT Suite demonstreren Hallo services binnen Hallo suite werken samen toodeliver een end-to-end-oplossing. Vanaf deze beginpunt zijn er verschillende plaatsen waarin u kunt uitbreiden en aanpassen Hallo-oplossing voor specifieke scenario's. Hallo volgende secties beschrijven deze common aanpassing punten.
 
-## <a name="find-the-source-code"></a>De broncode vinden
+## <a name="find-hello-source-code"></a>Hallo broncode vinden
 
-De broncode voor de vooraf geconfigureerde oplossingen is beschikbaar op GitHub in de volgende opslagplaatsen:
+de broncode Hallo voor Hallo vooraf geconfigureerde oplossingen is beschikbaar op GitHub in Hallo opslagplaatsen te volgen:
 
 * Externe controle: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
 * Voorspeld onderhoud: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 * Verbonden factory: [https://github.com/Azure/azure-iot-connected-factory](https://github.com/Azure/azure-iot-connected-factory)
 
-De broncode voor de vooraf geconfigureerde oplossingen is voor het demonstreren van de patronen en procedures die worden gebruikt voor het implementeren van de functionaliteit van de end-to-end van een IoT-oplossing met behulp van Azure IoT Suite opgegeven. U vindt meer informatie over het maken en implementeren van de oplossingen in de GitHub-opslagplaatsen.
+de broncode Hallo voor Hallo vooraf geconfigureerde oplossingen wordt verstrekt toodemonstrate Hallo patterns and practice tooimplement Hallo end-to-end-functionaliteit van een IoT-oplossing met behulp van Azure IoT Suite gebruikt. U vindt meer informatie over het toobuild en oplossingen in de GitHub-opslagplaatsen Hallo Hallo implementeren.
 
-## <a name="change-the-preconfigured-rules"></a>De vooraf geconfigureerde regels wijzigen
+## <a name="change-hello-preconfigured-rules"></a>Hallo vooraf geconfigureerde regels wijzigen
 
-De oplossing voor externe controle omvat drie [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) taken voor het afhandelen van apparaatgegevens, Telemetrie en regellogica in de oplossing.
+Hallo oplossing voor externe controle omvat drie [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) taken toohandle apparaatgegevens, Telemetrie en regellogica in Hallo-oplossing.
 
-De drie stream analytics-taken en hun syntaxis worden beschreven in de diepte in de [externe controle oplossing walkthrough over vooraf geconfigureerde](iot-suite-remote-monitoring-sample-walkthrough.md). 
+Hallo drie stream analytics-taken en hun syntaxis worden beschreven in de diepte in Hallo [externe controle oplossing walkthrough over vooraf geconfigureerde](iot-suite-remote-monitoring-sample-walkthrough.md). 
 
-U kunt deze taken om de logica alter rechtstreeks te bewerken of voeg specifieke logica toe aan uw scenario. U vindt de Stream Analytics-taken als volgt:
+U kunt deze taken bewerken direct tooalter Hallo logica of Voeg logica specifieke tooyour scenario. U vindt Hallo Stream Analytics-taken als volgt:
 
-1. Ga naar [Azure-portal](https://portal.azure.com).
-2. Navigeer naar de resourcegroep met dezelfde naam als uw IoT-oplossing. 
-3. Selecteer de Azure Stream Analytics-taak die u wilt wijzigen. 
-4. De taak stoppen als u selecteert **stoppen** in de reeks opdrachten. 
-5. Bewerk de invoer-, query- en uitvoer.
+1. Ga te[Azure-portal](https://portal.azure.com).
+2. De resourcegroep toohello met dezelfde naam als uw IoT-oplossing Hallo navigeren. 
+3. Selecteer hello Azure Stream Analytics-taak gewenst toomodify. 
+4. Hallo-taak stoppen als u selecteert **stoppen** in Hallo reeks opdrachten. 
+5. Hallo-in-, query- en uitgangen bewerken.
    
-    Een eenvoudige wijziging wordt gewijzigd van de query voor de **regels** taak voor het gebruik van een **' < '** in plaats van een **' > '**. Nog steeds weergegeven in de oplossingsportal **' > '** wanneer u een regel voor het bewerken, maar u ziet hoe het gedrag als gevolg van de wijziging in de onderliggende taak wordt gespiegeld.
-6. Start de taak
+    Een eenvoudige wijziging is toochange Hallo-query voor Hallo **regels** taak toouse een **' < '** in plaats van een **' > '**. nog steeds weergegeven in de oplossingsportal Hello **' > '** wanneer u een regel voor het bewerken, maar u ziet hoe Hallo gedrag vanwege toohello wijziging in de onderliggende taak hello wordt gespiegeld.
+6. Hallo taak starten
 
 > [!NOTE]
-> Het dashboard voor externe controle, is afhankelijk van wat u specifieke gegevens dus wijzigen van de taken leiden het dashboard tot kan mislukken.
+> Hallo-dashboard voor externe controle, is afhankelijk van wat u specifieke gegevens dus Hallo dashboard toofail wijzigen Hallo taken kan veroorzaken.
 
 ## <a name="add-your-own-rules"></a>Uw eigen regels toevoegen
 
-Naast de vooraf geconfigureerde Azure Stream Analytics-taken te wijzigen, kunt u de Azure-portal nieuwe taken toevoegen of nieuwe query's toevoegen aan bestaande projecten.
+Bovendien toochanging Hallo vooraf geconfigureerde Azure Stream Analytics-taken, kunt u hello Azure portal tooadd nieuwe taken gebruiken of nieuwe query's tooexisting taken toevoegen.
 
 ## <a name="customize-devices"></a>Apparaten aanpassen
 
-Een van de meest voorkomende extensie activiteiten werkt samen met apparaten die specifiek zijn voor uw scenario. Er zijn verschillende methoden voor het werken met apparaten. Deze methoden omvatten een gesimuleerd apparaat zodat deze overeenkomen met uw scenario te wijzigen of met behulp van de [IoT Device SDK] [ IoT Device SDK] uw fysieke apparaat aan de oplossing te sluiten.
+Een van de meest voorkomende extensie activiteiten Hallo werkt met apparaten specifieke tooyour scenario. Er zijn verschillende methoden voor het werken met apparaten. Deze methoden omvatten een gesimuleerd apparaat toomatch uw scenario wijzigen of met behulp van Hallo [IoT Device SDK] [ IoT Device SDK] tooconnect uw fysieke apparaat toohello oplossing.
 
-Zie voor een stapsgewijze handleiding voor het toevoegen van apparaten, de [Iot Suite-verbinding maken met apparaten](iot-suite-connecting-devices.md) artikel en de [van een remote monitoring C SDK voorbeeld](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring). Dit voorbeeld is ontworpen voor gebruik met de vooraf geconfigureerde oplossing voor externe controle.
+Zie voor een stapsgewijze handleiding tooadding apparaten, Hallo [Iot Suite-verbinding maken met apparaten](iot-suite-connecting-devices.md) artikel en Hallo [van een remote monitoring C SDK voorbeeld](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring). Dit voorbeeld is ontworpen toowork Hello vooraf geconfigureerde oplossing voor externe controle.
 
 ### <a name="create-your-own-simulated-device"></a>Uw eigen gesimuleerd apparaat kunt maken
 
-Opgenomen in de [voor externe controle oplossing broncode](https://github.com/Azure/azure-iot-remote-monitoring), is een .NET-simulator. Deze simulator is ingericht als onderdeel van de oplossing en u kunt wijzigen en andere metagegevens, telemetrie verzenden en reageren op andere opdrachten en -methoden.
+Opgenomen in Hallo [voor externe controle oplossing broncode](https://github.com/Azure/azure-iot-remote-monitoring), is een .NET-simulator. Deze simulator is Hallo een ingericht als onderdeel van het Hallo-oplossing en u kunt wijzigen toosend andere metagegevens telemetrie, reageren toodifferent opdrachten en -methoden.
 
-De vooraf geconfigureerde simulator in de vooraf geconfigureerde oplossing voor externe controle een koelervoorbeeld apparaat simuleert dat temperatuur en vochtigheid telemetrie verzendt. U kunt de simulator in wijzigen de [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) wanneer u hebt de GitHub-opslagplaats forked project.
+de vooraf geconfigureerde simulator Hallo in Hallo vooraf geconfigureerde oplossing voor externe controle een koelervoorbeeld apparaat simuleert dat temperatuur en vochtigheid telemetrie verzendt. U kunt wijzigen Hallo simulator in Hallo [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) wanneer u hebt de GitHub-opslagplaats Hallo forked project.
 
 ### <a name="available-locations-for-simulated-devices"></a>Beschikbare locaties voor de gesimuleerde apparaten
 
-Er is een reeks locaties in Seattle/Redmond, Washington, Verenigde Staten van Amerika. U kunt deze locaties in wijzigen [SampleDeviceFactory.cs][lnk-sample-device-factory].
+Er is een Hallo standaardset locaties in Seattle/Redmond, Washington, Verenigde Staten van Amerika. U kunt deze locaties in wijzigen [SampleDeviceFactory.cs][lnk-sample-device-factory].
 
-### <a name="add-a-desired-property-update-handler-to-the-simulator"></a>Een updatehandler gewenste eigenschap toevoegen aan de simulator
+### <a name="add-a-desired-property-update-handler-toohello-simulator"></a>Een gewenste eigenschap update handler toohello simulator toevoegen
 
-U kunt een waarde voor een gewenste eigenschap voor een apparaat in de oplossingsportal instellen. Het is de verantwoordelijkheid van het apparaat voor het afhandelen van de eigenschap wijzigingsaanvraag wanneer het apparaat wordt de gewenste eigenschapswaarde opgehaald. U voegt ondersteuning voor een wijziging van de eigenschap waarde via een gewenste eigenschap, moet u een handler toevoegen aan de simulator.
+U kunt een waarde voor een gewenste eigenschap voor een apparaat in de oplossingsportal Hallo instellen. Het is Hallo verantwoordelijkheid van Hallo apparaat toohandle Hallo eigenschap wijzigingsaanvraag Hallo apparaat ophalen van eigenschapswaarde Hallo gewenst. tooadd ondersteuning voor een wijziging in de eigenschap waarde via een gewenste eigenschap, moet u een handler toohello simulator tooadd.
 
-De simulator handlers bevat voor de **SetPointTemp** en **TelemetryInterval** eigenschappen die u bijwerken door het instellen van kunt de gewenste waarden in de portal van de oplossing.
+Hallo simulator bevat handlers voor Hallo **SetPointTemp** en **TelemetryInterval** eigenschappen die u bijwerken door het instellen van kunt de gewenste waarden in de oplossingsportal Hallo.
 
-Het volgende voorbeeld ziet u de handler voor de **SetPointTemp** gewenst eigenschap in de **CoolerDevice** klasse:
+Hallo volgende voorbeeld ziet u Hallo-handler voor Hallo **SetPointTemp** gewenst eigenschap in Hallo **CoolerDevice** klasse:
 
 ```csharp
 protected async Task OnSetPointTempUpdate(object value)
@@ -93,11 +93,11 @@ protected async Task OnSetPointTempUpdate(object value)
 }
 ```
 
-Deze methode werkt de telemetrie punt temperatuur en vervolgens meldt deze wijziging terug naar IoT Hub door een eigenschap gemeld.
+Deze methode werkt Hallo telemetrie punt temperatuur- en vervolgens rapporten Hallo back tooIoT Hub wijzigen door een eigenschap gemeld.
 
-U kunt uw eigen handlers voor uw eigen eigenschappen toevoegen aan de hand van het patroon in het voorgaande voorbeeld.
+U kunt uw eigen handlers voor uw eigen eigenschappen toevoegen door de volgende Hallo patroon in het voorgaande voorbeeld Hallo.
 
-U moet ook de gewenste eigenschap binden aan de handler zoals weergegeven in het volgende voorbeeld uit de **CoolerDevice** constructor:
+U moet ook Hallo gewenste eigenschap toohello handler binden zoals weergegeven in het volgende voorbeeld uit Hallo Hallo **CoolerDevice** constructor:
 
 ```csharp
 _desiredPropertyUpdateHandlers.Add(SetPointTempPropertyName, OnSetPointTempUpdate);
@@ -105,16 +105,16 @@ _desiredPropertyUpdateHandlers.Add(SetPointTempPropertyName, OnSetPointTempUpdat
 
 Houd er rekening mee dat **SetPointTempPropertyName** een constante is gedefinieerd als 'Config.SetPointTemp'.
 
-### <a name="add-support-for-a-new-method-to-the-simulator"></a>Ondersteuning voor een nieuwe methode toevoegen aan de simulator
+### <a name="add-support-for-a-new-method-toohello-simulator"></a>Ondersteuning voor een nieuwe methode toohello simulator toevoegen
 
-U kunt de simulator om ondersteuning voor een nieuwe [methode (directe methode)][lnk-direct-methods]. Er zijn twee belangrijke stappen vereist:
+U kunt aanpassen Hallo simulator tooadd ondersteuning voor een nieuwe [methode (directe methode)][lnk-direct-methods]. Er zijn twee belangrijke stappen vereist:
 
-- De simulator verwittigt de IoT-hub in de vooraf geconfigureerde oplossing met details van de methode.
-- De simulator vergezeld gaan van code voor het afhandelen van de methodeaanroep van wanneer u vanuit aanroept de **Apparaatdetails** deelvenster in solution explorer of via een taak.
+- Hallo simulator verwittigt Hallo IoT-hub in Hallo vooraf geconfigureerde oplossing met details van Hallo-methode.
+- Hallo simulator moet code toohandle Hallo methodeaanroep bevatten wanneer u het aanroepen van Hallo **Apparaatdetails** deelvenster in Hallo solution explorer of via een taak.
 
-Externe controle vooraf geconfigureerde oplossing maakt gebruik van *eigenschappen gerapporteerd* details van ondersteunde methoden naar IoT-hub te verzenden. De back-end oplossing houdt een lijst van alle methoden die worden ondersteund door elk apparaat samen met een geschiedenis van methode aanroepen. U kunt deze informatie weergeven over apparaten en methoden aanroepen in de portal van de oplossing.
+Hallo externe controle vooraf geconfigureerde oplossing maakt gebruik van *gerapporteerd eigenschappen* toosend details van de ondersteunde methoden tooIoT hub. Hallo back-end oplossing houdt een lijst van alle Hallo methoden die worden ondersteund door elk apparaat samen met een geschiedenis van methode aanroepen. U kunt deze informatie weergeven over apparaten en methoden aanroepen in de oplossingsportal Hallo.
 
-Melding van de IoT-hub die een apparaat ondersteunt een methode, het apparaat moet details van de methode voor het toevoegen de **SupportedMethods** knooppunt in de gerapporteerde eigenschappen:
+Hallo toonotify IoT-hub of een apparaat een methode ondersteunt, Hallo apparaat moet toevoegen details van Hallo methode toohello **SupportedMethods** knooppunt in Hallo gerapporteerd eigenschappen:
 
 ```json
 "SupportedMethods": {
@@ -123,35 +123,35 @@ Melding van de IoT-hub die een apparaat ondersteunt een methode, het apparaat mo
 }
 ```
 
-De methodehandtekening heeft de volgende indeling: `<method name>--<parameter #0 name>-<parameter #1 type>-...-<parameter #n name>-<parameter #n type>`. Bijvoorbeeld, om op te geven de **InitiateFirmwareUpdate** methode verwacht een tekenreeksparameter met de naam **FwPackageURI**, gebruikt u de volgende methodehandtekening:
+Hallo Methodehandtekening heeft Hallo volgende indeling: `<method name>--<parameter #0 name>-<parameter #1 type>-...-<parameter #n name>-<parameter #n type>`. Bijvoorbeeld: toospecify hello **InitiateFirmwareUpdate** methode verwacht een tekenreeksparameter met de naam **FwPackageURI**, Hallo methodehandtekening volgende gebruiken:
 
 ```json
 InitiateFirmwareUpate--FwPackageURI-string: "description of method"
 ```
 
-Zie voor een lijst van ondersteunde parametertypen de **CommandTypes** klasse in het project voor de infrastructuur.
+Zie voor een lijst van ondersteunde parametertypen Hallo **CommandTypes** klasse in Hallo infrastructuurproject.
 
-Stel voor het verwijderen van een methode in de methodehandtekening op `null` in de eigenschappen van gemeld.
+toodelete een methode instellen Hallo methodehandtekening te`null` in Hallo gerapporteerd eigenschappen.
 
 > [!NOTE]
-> De back-end oplossing informatie over ondersteunde methodes alleen bijgewerkt wanneer het ontvangt een *apparaatgegevens* bericht van het apparaat.
+> Hallo back-end oplossing werkt alleen informatie over ondersteunde methoden wanneer dit ontvangt een *apparaatgegevens* bericht van het Hallo-apparaat.
 
-Het volgende codevoorbeeld van de **SampleDeviceFactory** klasse in het algemene project ziet u hoe u een methode toevoegen aan de lijst met **SupportedMethods** in de gerapporteerde eigenschappen is verzonden door het apparaat:
+Hallo volgende codevoorbeeld van Hallo **SampleDeviceFactory** klasse in Hallo gemeenschappelijke project toont hoe tooadd een methode toohello lijst van **SupportedMethods** Hallo eigenschappen is verzonden door Hallo gerapporteerd apparaat:
 
 ```csharp
 device.Commands.Add(new Command(
     "InitiateFirmwareUpdate",
     DeliveryType.Method,
-    "Updates device Firmware. Use parameter 'FwPackageUri' to specifiy the URI of the firmware file, e.g. https://iotrmassets.blob.core.windows.net/firmwares/FW20.bin",
+    "Updates device Firmware. Use parameter 'FwPackageUri' toospecifiy hello URI of hello firmware file, e.g. https://iotrmassets.blob.core.windows.net/firmwares/FW20.bin",
     new[] { new Parameter("FwPackageUri", "string") }
 ));
 ```
 
-Dit codefragment voegt details van de **InitiateFirmwareUpdate** methode, met inbegrip van tekst moet worden weergegeven in de portal van de oplossing en de details van de vereiste methode-parameters.
+Dit codefragment voegt details van Hallo **InitiateFirmwareUpdate** methode, met inbegrip van tekst toodisplay in de oplossingsportal hello en details van Hallo methodeparameters vereist.
 
-De simulator verzendt gemelde eigenschappen, met inbegrip van de lijst met ondersteunde methoden, IoT-hub wanneer de simulator wordt gestart.
+Hallo simulator verzendt gemelde eigenschappen, waaronder Hallo lijst van ondersteunde methoden tooIoT Hub wanneer Hallo simulator wordt gestart.
 
-Een handler toevoegen aan de simulator code voor elke methode ondersteund. Ziet u de bestaande handlers in de **CoolerDevice** klasse in het project Simulator.WebJob. Het volgende voorbeeld ziet u de handler voor **InitiateFirmwareUpdate** methode:
+Voeg een handler toohello simulator code voor elke methode ondersteund. U kunt bestaande handlers in Hallo Hallo zien **CoolerDevice** klasse in Hallo Simulator.WebJob project. Hallo volgende voorbeeld ziet u Hallo-handler voor **InitiateFirmwareUpdate** methode:
 
 ```csharp
 public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodRequest, object userContext)
@@ -195,58 +195,58 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 }
 ```
 
-Methode handler namen moeten beginnen met `On` gevolgd door de naam van de methode. De **methodRequest** parameter met de aanroepen van de methode van de back-end oplossing doorgegeven parameters bevat. De retourwaarde moet van het type **taak&lt;MethodResponse&gt;**. De **BuildMethodResponse** hulpprogramma methode kunt u de retourwaarde maken.
+Methode handler namen moeten beginnen met `On` gevolgd door Hallo-naam van het Hallo-methode. Hallo **methodRequest** parameter met de methodeaanroep Hallo van Hallo back-end oplossing doorgegeven parameters bevat. Hallo retourwaarde moet van het type **taak&lt;MethodResponse&gt;**. Hallo **BuildMethodResponse** hulpprogramma methode kunt u de retourwaarde Hallo maken.
 
-Binnen de handler methode kunt u het volgende doen:
+Binnen Hallo methode handler, kunt u het volgende doen:
 
 - Een asynchrone taak gestart.
-- Ophalen van de gewenste eigenschappen van de *apparaat twin* in IoT-Hub.
-- Bijwerken van een enkele gemelde eigenschap met de **SetReportedPropertyAsync** methode in de **CoolerDevice** klasse.
-- De eigenschappen van meerdere gemelde bijwerken door het maken van een **TwinCollection** exemplaar en het aanroepen van de **Transport.UpdateReportedPropertiesAsync** methode.
+- Eigenschappen van de gewenste ophalen van Hallo *apparaat twin* in IoT-Hub.
+- Bijwerken van één gemelde eigenschap Hallo met **SetReportedPropertyAsync** methode in Hallo **CoolerDevice** klasse.
+- De eigenschappen van meerdere gemelde bijwerken door het maken van een **TwinCollection** exemplaar en aanroepen Hallo **Transport.UpdateReportedPropertiesAsync** methode.
 
-Het voorgaande voorbeeld van de firmware-update voert de volgende stappen uit:
+Hallo voert voorgaande voorbeeld voor firmware-update Hallo stappen te volgen:
 
-- Controleert dat het apparaat kan de aanvraag voor firmware-update accepteren.
-- Asynchroon initieert de updatebewerking firmware en de telemetrie weer ingesteld als de bewerking voltooid is.
-- Retourneert onmiddellijk het bericht 'FirmwareUpdate geaccepteerd' om aan te geven van dat de aanvraag is geaccepteerd door het apparaat.
+- Controles Hallo apparaat is een aanvraag kunnen tooaccept Hallo firmware-update.
+- Asynchroon Hallo firmware-update-bewerking initieert en herstelt u de Hallo telemetrie wanneer Hallo voltooid is.
+- Onmiddellijk retourneert 'FirmwareUpdate geaccepteerd' Hallo worden bericht tooindicate Hallo-aanvraag is geaccepteerd door Hallo-apparaat.
 
 ### <a name="build-and-use-your-own-physical-device"></a>Opbouwen en uw eigen (fysiek) apparaat gebruiken
 
-De [Azure IoT SDK's](https://github.com/Azure/azure-iot-sdks) bibliotheken voor het verbinden van verschillende typen apparaten (talen en besturingssystemen) in IoT-oplossingen bieden.
+Hallo [Azure IoT SDK's](https://github.com/Azure/azure-iot-sdks) bibliotheken voor het verbinden van verschillende typen apparaten (talen en besturingssystemen) in IoT-oplossingen bieden.
 
 ## <a name="modify-dashboard-limits"></a>Limieten van dashboard wijzigen
 
 ### <a name="number-of-devices-displayed-in-dashboard-dropdown"></a>Aantal apparaten weergegeven in de vervolgkeuzelijst dashboard
 
-De standaardwaarde is 200. U kunt dit nummer in wijzigen [DashboardController.cs][lnk-dashboard-controller].
+Hallo standaardwaarde is 200. U kunt dit nummer in wijzigen [DashboardController.cs][lnk-dashboard-controller].
 
-### <a name="number-of-pins-to-display-in-bing-map-control"></a>Het aantal pincodes dat wordt weergegeven in het kaartbesturingselement van Bing
+### <a name="number-of-pins-toodisplay-in-bing-map-control"></a>Het aantal pincodes toodisplay in besturingselement Bing-kaart
 
-De standaardwaarde is 200. U kunt dit nummer in wijzigen [TelemetryApiController.cs][lnk-telemetry-api-controller-01].
+Hallo standaardwaarde is 200. U kunt dit nummer in wijzigen [TelemetryApiController.cs][lnk-telemetry-api-controller-01].
 
 ### <a name="time-period-of-telemetry-graph"></a>De periode van telemetrie-grafiek
 
-De standaardwaarde is 10 minuten. U kunt deze waarde in wijzigen [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
+Hallo standaardwaarde is 10 minuten. U kunt deze waarde in wijzigen [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
 ## <a name="manually-set-up-application-roles"></a>Toepassingsrollen handmatig instellen
 
-De volgende procedure beschrijft hoe u toevoegt **Admin** en **ReadOnly** toepassingsrollen een vooraf geconfigureerde oplossing. Houd er rekening mee dat vooraf geconfigureerde oplossingen al vanaf de site azureiotsuite.com ingericht bevatten de **Admin** en **ReadOnly** rollen.
+Hallo volgende procedure wordt beschreven hoe tooadd **Admin** en **ReadOnly** toepassing rollen tooa vooraf geconfigureerde oplossing. Houd er rekening mee dat vooraf geconfigureerde oplossingen al ingericht van Hallo azureiotsuite.com site Hallo **Admin** en **ReadOnly** rollen.
 
-Leden van de **ReadOnly** rol kunt het dashboard en de lijst met apparaten zien, maar zijn niet toegestaan voor apparaten toevoegen, wijzigen apparaatkenmerken of opdrachten verzenden.  Leden van de **Admin** rol hebben volledige toegang tot alle functies in de oplossing.
+Leden van Hallo **ReadOnly** rol Hallo dashboard en de lijst met apparaten Hallo kunt zien, maar zijn niet toegestaan tooadd apparaten, apparaatkenmerken wijzigen of de opdrachten voor verzenden.  Leden van Hallo **Admin** rol hebben volledige toegang tooall Hallo functionaliteit in Hallo-oplossing.
 
-1. Ga naar de [klassieke Azure-portal][lnk-classic-portal].
+1. Ga toohello [klassieke Azure-portal][lnk-classic-portal].
 2. Selecteer **Active Directory**.
-3. Klik op de naam van de AAD-tenant die u hebt gebruikt toen u uw oplossing hebt ingericht.
+3. Klik op de naam Hallo van Hallo AAD-tenant die u hebt gebruikt toen u uw oplossing hebt ingericht.
 4. Klik op **toepassingen**.
-5. Klik op de naam van de toepassing die overeenkomt met de naam van uw vooraf geconfigureerde oplossing. Als u uw toepassing in de lijst niet ziet, selecteert u **toepassingen mijn bedrijf eigenaar is van** in de **weergeven** vervolgkeuzelijst en klik op het vinkje.
-6. Klik onder aan de pagina op **beheren Manifest** en vervolgens **downloaden Manifest**.
-7. Deze procedure downloadt een .json-bestand naar uw lokale computer. Open dit bestand bewerken in een teksteditor van uw keuze.
-8. Op de derde regel van het .json-bestand, kunt u het volgende zien:
+5. Klik op Hallo-naam van de toepassing hello die overeenkomt met de naam van uw vooraf geconfigureerde oplossing. Als u uw toepassing in de lijst Hallo niet ziet, selecteert u **toepassingen mijn bedrijf eigenaar is van** in Hallo **weergeven** vervolgkeuzelijst en klik op Hallo selectievakje is ingeschakeld.
+6. Klik onder aan de pagina Hallo Hallo op **beheren Manifest** en vervolgens **downloaden Manifest**.
+7. Deze procedure downloadt een .json-bestand tooyour lokale machine. Open dit bestand bewerken in een teksteditor van uw keuze.
+8. Op de derde regel Hallo van Hallo .json-bestand, kunt u het volgende zien:
 
    ```json
    "appRoles" : [],
    ```
-   Deze regel wordt vervangen door de volgende code:
+   Deze regel vervangen door Hallo code te volgen:
 
    ```json
    "appRoles": [
@@ -254,7 +254,7 @@ Leden van de **ReadOnly** rol kunt het dashboard en de lijst met apparaten zien,
    "allowedMemberTypes": [
    "User"
    ],
-   "description": "Administrator access to the application",
+   "description": "Administrator access toohello application",
    "displayName": "Admin",
    "id": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
    "isEnabled": true,
@@ -264,7 +264,7 @@ Leden van de **ReadOnly** rol kunt het dashboard en de lijst met apparaten zien,
    "allowedMemberTypes": [
    "User"
    ],
-   "description": "Read only access to device information",
+   "description": "Read only access toodevice information",
    "displayName": "Read Only",
    "id": "e5bbd0f5-128e-4362-9dd1-8f253c6082d7",
    "isEnabled": true,
@@ -272,23 +272,23 @@ Leden van de **ReadOnly** rol kunt het dashboard en de lijst met apparaten zien,
    } ],
    ```
 
-9. Sla het bijgewerkte .json-bestand (u kunt het bestaande bestand overschrijven).
-10. Selecteer in de klassieke Azure-portal aan de onderkant van de pagina **beheren Manifest** vervolgens **uploaden Manifest** voor het uploaden van de .json-bestand dat u in de vorige stap hebt opgeslagen.
-11. U hebt nu toegevoegd de **Admin** en **ReadOnly** functies aan uw toepassing.
-12. Zie voor een van deze rollen toewijzen aan een gebruiker in uw directory, [machtigingen op de site azureiotsuite.com][lnk-permissions].
+9. Sla Hallo bijgewerkte .json-bestand (u kunt Hallo bestaand bestand overschrijven).
+10. Selecteer in de klassieke Azure-portal onderaan Hallo Hallo pagina Hallo **beheren Manifest** vervolgens **uploaden Manifest** tooupload hello .json-bestand die u in de vorige stap Hallo opgeslagen.
+11. U hebt nu toegevoegd Hallo **Admin** en **ReadOnly** rollen tooyour toepassing.
+12. Zie tooassign een van deze rollen tooa gebruiker in uw directory [machtigingen op Hallo azureiotsuite.com site][lnk-permissions].
 
 ## <a name="feedback"></a>Feedback
 
-Hebt u een aanpassing u zou willen zien in dit document gedekte? Functie suggesties toevoegen aan [User Voice](https://feedback.azure.com/forums/321918-azure-iot), of de opmerking bij dit artikel. 
+Hebt u het gewenste toosee in dit document behandeld aanpassen? Suggesties voor functies te toevoegen[User Voice](https://feedback.azure.com/forums/321918-azure-iot), of de opmerking bij dit artikel. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de opties voor het aanpassen van de vooraf geconfigureerde oplossingen:
+toolearn meer informatie over het Hallo-opties voor het aanpassen van Hallo vooraf geconfigureerde oplossingen, Zie:
 
-* [Logic App verbinden met uw Azure IoT Suite Remote Monitoring vooraf geconfigureerde oplossing][lnk-logicapp]
-* [Dynamische telemetrie gebruiken met de vooraf geconfigureerde oplossing voor externe controle][lnk-dynamic]
-* [Metagegevens van apparaten informatie in de vooraf geconfigureerde oplossing voor externe controle][lnk-devinfo]
-* [Aanpassen hoe de gegevens van uw OPC UA-servers worden weergegeven in de verbonden factory-oplossing][lnk-cf-customize]
+* [Logische App tooyour Azure IoT Suite Remote Monitoring vooraf geconfigureerde oplossing verbinden][lnk-logicapp]
+* [Gebruik dynamische telemetrie Hello vooraf geconfigureerde oplossing voor externe controle][lnk-dynamic]
+* [Metagegevens van apparaten informatie in Hallo vooraf geconfigureerde oplossing voor externe controle][lnk-devinfo]
+* [Aanpassen hoe Hallo factory oplossing geeft gegevens van uw servers OPC UA verbonden][lnk-cf-customize]
 
 [lnk-logicapp]: iot-suite-logic-apps-tutorial.md
 [lnk-dynamic]: iot-suite-dynamic-telemetry.md

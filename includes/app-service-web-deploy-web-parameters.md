@@ -1,26 +1,26 @@
-Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam van de Parameters die alle van de parameterwaarden bevat.
-U moet een parameter voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving die u om te implementeert definiëren. Geen parameters op voor waarden die u altijd hetzelfde gedefinieerd. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die worden geïmplementeerd. 
+Met Azure Resource Manager u parameters definiëren voor waarden gewenste toospecify wanneer Hallo sjabloon wordt geïmplementeerd. Hallo-sjabloon bevat een sectie met de naam van de Parameters die alle Hallo parameterwaarden bevat.
+U moet een parameter voor de waarden die variëren op basis van Hallo-project die u implementeert of op basis van Hallo-omgeving die u om te implementeert definiëren. Definieer parameters niet voor waarden die altijd blijft dezelfde Hallo. De waarde van elke parameter wordt gebruikt in Hallo sjabloon toodefine Hallo resources die zijn geïmplementeerd. 
 
-Bij het definiëren van parameters, gebruiken de **allowedValues** aan te geven op welke waarden van een gebruiker kunt opgeven tijdens de implementatie. Gebruik de **defaultValue** veld een waarde toewijzen aan de parameter als u geen waarde is opgegeven tijdens de implementatie.
+Bij het definiëren van parameters gebruiken Hallo **allowedValues** veld toospecify die de waarden van een gebruiker kunt opgeven tijdens de implementatie. Gebruik Hallo **defaultValue** tooassign veld een waarde toohello parameter, als geen waarde is opgegeven tijdens de implementatie.
 
-Elke parameter in de sjabloon wordt beschreven.
+Er wordt elke parameter in de sjabloon Hallo beschreven.
 
 ### <a name="sitename"></a>Sitenaam
-De naam van de web-app die u wilt maken.
+Hallo-naam van Hallo web-app die u wenst dat toocreate.
 
     "siteName":{
       "type":"string"
     }
 
 ### <a name="hostingplanname"></a>hostingPlanName
-De naam van de App Service-abonnement moet worden gebruikt voor het hosten van de web-app.
+Hallo-naam van het Hallo-App Service plan toouse voor het hosten van Hallo web-app.
 
     "hostingPlanName":{
       "type":"string"
     }
 
 ### <a name="sku"></a>SKU
-De prijscategorie voor de hosting-plan.
+Hallo prijscategorie voor Hallo hosting-plan.
 
     "sku": {
       "type": "string",
@@ -40,14 +40,14 @@ De prijscategorie voor de hosting-plan.
       ],
       "defaultValue": "S1",
       "metadata": {
-        "description": "The pricing tier for the hosting plan."
+        "description": "hello pricing tier for hello hosting plan."
       }
     }
 
-De sjabloon definieert de waarden die zijn toegestaan voor deze parameter en een standaardwaarde (S1) wordt toegewezen als er geen waarde is opgegeven.
+Hallo sjabloon definieert Hallo-waarden die zijn toegestaan voor deze parameter en een standaardwaarde (S1) wordt toegewezen als er geen waarde is opgegeven.
 
 ### <a name="workersize"></a>workerSize
-De exemplaargrootte van de hosting-abonnement (klein, Gemiddeld of grote).
+Hallo exemplaargrootte van Hallo die als host fungeert voor plan (klein, Gemiddeld of grote).
 
     "workerSize":{
       "type":"string",
@@ -59,5 +59,5 @@ De exemplaargrootte van de hosting-abonnement (klein, Gemiddeld of grote).
       "defaultValue":"0"
     }
 
-De sjabloon definieert de waarden die zijn toegestaan voor deze parameter (0, 1 of 2), en wijst een standaardwaarde (0) als er geen waarde is opgegeven. De waarden komen overeen met kleine, middelgrote en grote.
+Hallo sjabloon definieert Hallo-waarden die zijn toegestaan voor deze parameter (0, 1 of 2), en wijst een standaardwaarde (0) als er geen waarde is opgegeven. Hallo-waarden komen overeen toosmall, middelgrote en grote.
 

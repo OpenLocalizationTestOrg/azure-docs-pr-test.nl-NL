@@ -1,6 +1,6 @@
 ---
-title: Schaalverhoging met Apache Kafka - Azure HDInsight | Microsoft Docs
-description: Leer hoe u beheerde schijven voor een Apache Kafka-cluster configureert in Azure HDInsight om de schaalbaarheid te verhogen.
+title: schaalt aaaApache Kafka - Azure HDInsight | Microsoft Docs
+description: Meer informatie over hoe tooconfigure schijven voor Apache Kafka-cluster op Azure HDInsight tooincrease schaalbaarheid beheerd.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/14/2017
 ms.author: larryfr
-ms.openlocfilehash: 880a186a3d9a23b013294b0121e8265270d160cc
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b51114b33359f2c385f057a7a7a5b134cad27e51
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Opslag en schaalbaarheid configureren voor Apache Kafka in HDInsight
 
-Leer hoe u het aantal beheerde schijven configureert dat wordt gebruikt in Apache Kafka in HDInsight.
+Meer informatie over hoe tooconfigure Hallo aantal beheerde schijven gebruikt door Apache Kafka op HDInsight.
 
-Kafka in HDInsight maakt gebruik van de lokale schijf van de virtuele machines in het HDInsight-cluster. Aangezien Kafka veel gebruikmaakt van invoer/uitvoer, wordt [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) gebruikt voor een hoge doorvoer en meer opslag per knooppunt. Als u de traditionele VHD (virtuele harde schijven) gebruikt voor Kafka, heeft elk knooppunt een limiet van 1 TB. Met beheerde schijven kunt u meerdere schijven gebruiken en zodat elk knooppunt in het cluster een limiet heeft van 16 TB.
+Kafka op HDInsight maakt gebruik van de lokale schijf Hallo Hallo virtuele machines Hallo HDInsight-cluster. Omdat Kafka zwaar, zeer i/o is [Azure beheerd schijven](../virtual-machines/windows/managed-disks-overview.md) gebruikte tooprovide hoge doorvoersnelheid is en bieden meer opslagruimte per knooppunt. Als traditionele virtuele harde schijven (VHD) zijn gebruikt voor Kafka, is in elk knooppunt beperkt too1 TB. Met beheerde schijven kunt u meerdere schijven tooachieve 16 TB voor elk knooppunt in het Hallo-cluster.
 
-In het volgende diagram ziet u een vergelijking tussen Kafka in HDInsight voordat beheerde schijven werden gebruikt, en Kafka in HDInsight met beheerde schijven:
+Hallo biedt volgende diagram een vergelijking tussen Kafka op HDInsight voordat de beheerde schijven en Kafka in HDInsight met beheerde schijven:
 
 ![Diagram waarin Kafka in HDInsight wordt weergegeven met één virtuele harde schijf per VM versus meerdere beheerde schijven per VM](./media/hdinsight-apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
 ## <a name="configure-managed-disks-azure-portal"></a>Beheerde schijven configureren: Azure Portal
 
-1. Volg de stappen in [Een HDInsight-cluster maken](hdinsight-hadoop-create-linux-clusters-portal.md) voor de algemene stappen voor het maken van een cluster met behulp van de portal. Voltooi het creatieproces met behulp van de portal niet.
+1. Volg de stappen Hallo in Hallo [maken van een HDInsight-cluster](hdinsight-hadoop-create-linux-clusters-portal.md) toounderstand Hallo algemene stappen toocreate een cluster met de Hallo-portal. Hallo maken van de portal proces niet worden voltooid.
 
-2. Gebruik op de blade __Clustergrootte__ het veld __Schijven per werkknooppunt__ om het aantal schijven te configureren.
+2. Van Hallo __clustergrootte__ blade, gebruik Hallo __schijven per werkrolknooppunt__ veld tooconfigure Hallo aantal schijven.
 
     > [!NOTE]
-    > Het type beheerde schijf is __Standaard__ (HDD) of __Premium__ (SSD). Premium-schijven worden gebruikt met virtuele machines uit de DS- en GS-reeks. Alle andere VM-typen gebruiken standaardschijven.
+    > Hallo type beheerde schijf kan zijn __standaard__ (HDD) of __Premium__ (SSD). Premium-schijven worden gebruikt met virtuele machines uit de DS- en GS-reeks. Alle andere VM-typen gebruiken standaardschijven.
 
-    ![Afbeelding van de blade Clustergrootte met de schijven gemarkeerd per werkknooppunt](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
+    ![Afbeelding van Hallo cluster grootte blade met Hallo schijven per werkrolknooppunt gemarkeerd](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>Beheerde schijven configureren: Resource Manager-sjabloon
 
-Als u het aantal schijven wilt beheren dat wordt gebruikt in de werkknooppunten van een Kafka-cluster, gebruikt u de volgende sectie van de sjabloon:
+toocontrol hello aantal schijven gebruikt door Hallo worker-knooppunten in een cluster Kafka, gebruik Hallo gedeelte van de sjabloon hello te volgen:
 
 ```json
 "dataDisksGroups": [
@@ -53,15 +53,15 @@ Als u het aantal schijven wilt beheren dat wordt gebruikt in de werkknooppunten 
     ],
 ```
 
-Op [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json) vindt u een volledige sjabloon waarin wordt weergegeven hoe u beheerde schijven kunt configureren.
+U vindt een volledige sjabloon die u laat zien hoe tooconfigure schijven op beheerd [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende documenten voor meer informatie over het werken Kafka in HDInsight:
+Zie voor meer informatie over het werken met Kafka op HDInsight Hallo documenten te volgen:
 
-* [MirrorMaker gebruiken voor het maken van een replica van Kafka in HDInsight](hdinsight-apache-kafka-mirroring.md)
+* [MirrorMaker toocreate een replica van Kafka op HDInsight gebruiken](hdinsight-apache-kafka-mirroring.md)
 * [Apache Storm gebruiken met Kafka in HDInsight](hdinsight-apache-storm-with-kafka.md)
 * [Apache Spark gebruiken met Kafka in HDInsight](hdinsight-apache-spark-with-kafka.md)
-* [Verbinding maken met Kafka via een Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)
+* [TooKafka verbinding via een virtueel Azure-netwerk](hdinsight-apache-kafka-connect-vpn-gateway.md)
 
 * [HDInsight-blog over beheerde schijven met Kafka](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/)

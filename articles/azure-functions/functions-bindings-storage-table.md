@@ -1,6 +1,6 @@
 ---
-title: Azure Storage-tabel functies bindingen | Microsoft Docs
-description: Het gebruik van Azure Storage-bindingen in de Azure Functions begrijpen.
+title: aaaAzure functies opslag tabel bindingen | Microsoft Docs
+description: Begrijpen hoe Azure Storage-bindingen toouse in Azure Functions.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,32 +16,32 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
-ms.openlocfilehash: bb01be3ee044f60376e0c9c2de7b3dd34f3b7aca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 90c2a73329139d4ab3504bc0e2c90370133158bf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-storage-table-bindings"></a>Azure Functions opslag Tabelverbindingen
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Dit artikel wordt uitgelegd hoe u configureert en code Azure Storage Tabelverbindingen in de Azure Functions. Azure Functions ondersteunt invoer en uitvoer van de bindingen voor Azure Storage-tabellen.
+Dit artikel wordt uitgelegd hoe tabel bindingen in de Azure Functions tooconfigure en Azure Storage-code. Azure Functions ondersteunt invoer en uitvoer van de bindingen voor Azure Storage-tabellen.
 
-De binding van de tabel Storage ondersteunt de volgende scenario's:
+Hallo opslag tabelbinding ondersteunt Hallo volgen scenario's:
 
-* **Lezen van een enkele rij in een C# of Node.js-functie** : Stel `partitionKey` en `rowKey`. De `filter` en `take` eigenschappen worden niet gebruikt in dit scenario.
-* **Lezen van meerdere rijen in een C#-functie** -de runtime van Functions biedt een `IQueryable<T>` object gekoppeld aan de tabel. Type `T` moet worden afgeleid van `TableEntity` of implementeert `ITableEntity`. De `partitionKey`, `rowKey`, `filter`, en `take` eigenschappen niet in dit scenario worden gebruikt; u kunt de `IQueryable` -object om alle filters vereist. 
-* **Lezen van meerdere rijen in een functie knooppunt** : Stel de `filter` en `take` eigenschappen. Stelt niet `partitionKey` of `rowKey`.
-* **Schrijven van een of meer rijen in een C#-functie** -de runtime van Functions biedt een `ICollector<T>` of `IAsyncCollector<T>` gekoppeld aan de tabel waar `T` Hiermee geeft u het schema van de entiteiten die u wilt toevoegen. Normaal gesproken Typ `T` is afgeleid van `TableEntity` of implementeert `ITableEntity`, maar deze hoeft niet te. De `partitionKey`, `rowKey`, `filter`, en `take` eigenschappen worden niet gebruikt in dit scenario.
+* **Lezen van een enkele rij in een C# of Node.js-functie** : Stel `partitionKey` en `rowKey`. Hallo `filter` en `take` eigenschappen worden niet gebruikt in dit scenario.
+* **Lezen van meerdere rijen in een C#-functie** -Hallo functies runtime biedt een `IQueryable<T>` object afhankelijk is van de tabel toohello. Type `T` moet worden afgeleid van `TableEntity` of implementeert `ITableEntity`. Hallo `partitionKey`, `rowKey`, `filter`, en `take` eigenschappen worden niet gebruikt in dit scenario; u kunt Hallo `IQueryable` object toodo filteren vereist. 
+* **Lezen van meerdere rijen in een functie knooppunt** : Stel hello `filter` en `take` eigenschappen. Stelt niet `partitionKey` of `rowKey`.
+* **Schrijven van een of meer rijen in een C#-functie** -Hallo functies runtime biedt een `ICollector<T>` of `IAsyncCollector<T>` gebonden toohello tabel, waarbij `T` Hallo schema geeft Hallo entiteiten gewenste tooadd. Normaal gesproken Typ `T` is afgeleid van `TableEntity` of implementeert `ITableEntity`, maar deze hoeft niet te. Hallo `partitionKey`, `rowKey`, `filter`, en `take` eigenschappen worden niet gebruikt in dit scenario.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 <a name="input"></a>
 
 ## <a name="storage-table-input-binding"></a>Invoer tabelbinding opslag
-Invoer tabelbinding van Azure Storage kunt u een tabel met opslag in de functie gebruiken. 
+Hallo invoer tabelbinding Azure Storage kunt u een tabel opslag in uw functie toouse. 
 
-De invoer van de tabel opslag aan een functie maakt gebruik van de volgende JSON-objecten in de `bindings` matrix van function.json:
+Hallo opslagfunctie tabel invoer tooa gebruikt Hallo volgende JSON-objecten in Hallo `bindings` matrix van function.json:
 
 ```json
 {
@@ -49,28 +49,28 @@ De invoer van de tabel opslag aan een functie maakt gebruik van de volgende JSON
     "type": "table",
     "direction": "in",
     "tableName": "<Name of Storage table>",
-    "partitionKey": "<PartitionKey of table entity to read - see below>",
-    "rowKey": "<RowKey of table entity to read - see below>",
-    "take": "<Maximum number of entities to read in Node.js - optional>",
+    "partitionKey": "<PartitionKey of table entity tooread - see below>",
+    "rowKey": "<RowKey of table entity tooread - see below>",
+    "take": "<Maximum number of entities tooread in Node.js - optional>",
     "filter": "<OData filter expression for table input in Node.js - optional>",
     "connection": "<Name of app setting - see below>",
 }
 ```
 
-Houd rekening met het volgende: 
+Let op Hallo volgende: 
 
-* Gebruik `partitionKey` en `rowKey` samen te lezen van één entiteit. Deze eigenschappen zijn optioneel. 
-* `connection`moet de naam van een app-instelling met een verbindingsreeks voor opslag bevatten. In de Azure portal, de standaard editor in de **integreren** tabblad configureert u deze appinstelling voor wanneer u een opslagruimte maakt account of een bestaande selecteert. U kunt ook [configureren van deze app handmatig instellen](functions-how-to-use-azure-function-app-settings.md#settings).  
+* Gebruik `partitionKey` en `rowKey` samen tooread één entiteit. Deze eigenschappen zijn optioneel. 
+* `connection`Hallo-naam van een app-instelling met een verbindingsreeks voor opslag moet worden bevatten. Hallo in hello Azure-portal, standaardeditor in Hallo **integreren** tabblad configureert u deze appinstelling voor wanneer u een opslagruimte maakt account of een bestaande selecteert. U kunt ook [configureren van deze app handmatig instellen](functions-how-to-use-azure-function-app-settings.md#settings).  
 
 <a name="inputusage"></a>
 
 ## <a name="input-usage"></a>Invoer-gebruik
-In C#-functies, u koppelt aan de invoertabel entiteit (of entiteiten) met behulp van een benoemde parameter in de functiehandtekening, zoals `<T> <name>`.
-Waar `T` is het gegevenstype dat u wilt deserialiseren van de gegevens in, en `paramName` is de naam die u hebt opgegeven in de [invoer binding](#input). In Node.js-functies, opent u de invoertabel entiteit (of entiteiten) met behulp van `context.bindings.<name>`.
+In de C# functies, bindt u toohello invoer tabel entiteit (of entiteiten) met behulp van een benoemde parameter in de functiehandtekening, zoals `<T> <name>`.
+Waar `T` is Hallo gegevenstype dat u wilt dat toodeserialize Hallo gegevens in, en `paramName` is Hallo-naam die u hebt opgegeven in Hallo [invoer binding](#input). In een Node.js-functies, opent u de Hallo invoer tabel entiteit (of entiteiten) met behulp van `context.bindings.<name>`.
 
-De ingevoerde gegevens kunnen worden gedeserialiseerd in Node.js- of C#-functies. De gedeserialiseerde objecten hebben `RowKey` en `PartitionKey` eigenschappen.
+Hallo invoergegevens kunnen worden gedeserialiseerd in Node.js- of C#-functies. Hallo gedeserialiseerd objecten hebben `RowKey` en `PartitionKey` eigenschappen.
 
-U kunt ook binden aan een van de volgende typen in C#-functies, en de runtime van Functions wordt geprobeerd te deserialiseren met behulp van dat type gegevens in de tabel:
+U kunt ook tooany van de volgende typen Hallo binden in C#-functies, en Hallo functies runtime wordt geprobeerd te deserialiseren Hallo tabelgegevens met behulp van dat type:
 
 * Type dat wordt geïmplementeerd`ITableEntity`
 * `IQueryable<T>`
@@ -78,8 +78,8 @@ U kunt ook binden aan een van de volgende typen in C#-functies, en de runtime va
 <a name="inputsample"></a>
 
 ## <a name="input-sample"></a>Voorbeeld van invoer
-Stel, dat u hebt de volgende function.json dat gebruikmaakt van een trigger wachtrij om te lezen van een enkele tabelrij. De JSON geeft `PartitionKey`  
- `RowKey`. `"rowKey": "{queueTrigger}"`Hiermee wordt aangegeven dat de rijsleutel is afkomstig uit de wachtrij bericht-tekenreeks.
+Stel, dat u hebt Hallo function.json dat gebruikmaakt van een wachtrij trigger tooread een enkele tabelrij te volgen. Hallo JSON geeft `PartitionKey`  
+ `RowKey`. `"rowKey": "{queueTrigger}"`Hiermee wordt aangegeven dat rijsleutel Hallo afkomstig is van Hallo wachtrij bericht tekenreeks.
 
 ```json
 {
@@ -105,7 +105,7 @@ Stel, dat u hebt de volgende function.json dat gebruikmaakt van een trigger wach
 }
 ```
 
-Zie het voorbeeld taalspecifieke die een met één Tabelentiteit leest.
+Zie Hallo taalspecifieke voorbeeldquery die een met één Tabelentiteit leest.
 
 * [C#](#inputcsharp)
 * [F#](#inputfsharp)
@@ -159,9 +159,9 @@ module.exports = function (context, myQueueItem) {
 <a name="output"></a>
 
 ## <a name="storage-table-output-binding"></a>Table Storage uitvoer binding
-De uitvoer van de Azure Storage-tabel binding kunt tabel u entiteiten schrijven naar een opslag in de functie. 
+Hello Azure Storage tabel uitvoer binding kunt u toowrite entiteiten tooa opslag tabel in de functie. 
 
-De opslag tabel uitvoer voor een functie maakt gebruik van de volgende JSON-objecten in de `bindings` matrix van function.json:
+Hallo tabeluitvoer van opslag voor een functie gebruikt de volgende JSON-objecten in Hallo Hallo `bindings` matrix van function.json:
 
 ```json
 {
@@ -169,33 +169,33 @@ De opslag tabel uitvoer voor een functie maakt gebruik van de volgende JSON-obje
     "type": "table",
     "direction": "out",
     "tableName": "<Name of Storage table>",
-    "partitionKey": "<PartitionKey of table entity to write - see below>",
-    "rowKey": "<RowKey of table entity to write - see below>",
+    "partitionKey": "<PartitionKey of table entity toowrite - see below>",
+    "rowKey": "<RowKey of table entity toowrite - see below>",
     "connection": "<Name of app setting - see below>",
 }
 ```
 
-Houd rekening met het volgende: 
+Let op Hallo volgende: 
 
-* Gebruik `partitionKey` en `rowKey` samen om te schrijven één entiteit. Deze eigenschappen zijn optioneel. U kunt ook opgeven `PartitionKey` en `RowKey` wanneer u de entiteitsobjecten in uw functiecode maakt.
-* `connection`moet de naam van een app-instelling met een verbindingsreeks voor opslag bevatten. In de Azure portal, de standaard editor in de **integreren** tabblad configureert u deze appinstelling voor wanneer u een opslagruimte maakt account of een bestaande selecteert. U kunt ook [configureren van deze app handmatig instellen](functions-how-to-use-azure-function-app-settings.md#settings). 
+* Gebruik `partitionKey` en `rowKey` samen toowrite één entiteit. Deze eigenschappen zijn optioneel. U kunt ook opgeven `PartitionKey` en `RowKey` wanneer u Hallo entiteitsobjecten maken in uw functiecode.
+* `connection`Hallo-naam van een app-instelling met een verbindingsreeks voor opslag moet worden bevatten. Hallo in hello Azure-portal, standaardeditor in Hallo **integreren** tabblad configureert u deze appinstelling voor wanneer u een opslagruimte maakt account of een bestaande selecteert. U kunt ook [configureren van deze app handmatig instellen](functions-how-to-use-azure-function-app-settings.md#settings). 
 
 <a name="outputusage"></a>
 
 ## <a name="output-usage"></a>Gebruik voor uitvoer
-In C# functies, bindt u aan de tabeluitvoer van de met behulp van de benoemde `out` parameter in de functiehandtekening, zoals `out <T> <name>`, waarbij `T` is het gegevenstype dat u wilt serialiseren van de gegevens in, en `paramName` is de naam die u hebt opgegeven in de [uitvoer binding](#output). In een Node.js-functies, opent u de uitvoer met behulp van tabel `context.bindings.<name>`.
+In de C# functies, bindt u toohello tabeluitvoer door gebruik te maken met de naam Hallo `out` parameter in de functiehandtekening, zoals `out <T> <name>`, waarbij `T` is Hallo gegevenstype dat u wilt dat tooserialize Hallo gegevens in, en `paramName` is Hallo servernaam die u hebt opgegeven in Hallo [uitvoer binding](#output). In een Node.js-functies, opent u Hallo tabel uitvoer met behulp van `context.bindings.<name>`.
 
-Objecten in Node.js- of C#-functies kunnen worden geserialiseerd. In C# functies, kunt u ook koppelen aan de volgende typen:
+Objecten in Node.js- of C#-functies kunnen worden geserialiseerd. In C#-functies, kunt u ook na typen toohello binden:
 
 * Type dat wordt geïmplementeerd`ITableEntity`
-* `ICollector<T>`(om de uitvoer van meerdere entiteiten. Zie [voorbeeld](#outcsharp).)
+* `ICollector<T>`(toooutput meerdere entiteiten. Zie [voorbeeld](#outcsharp).)
 * `IAsyncCollector<T>`(async-versie van `ICollector<T>`)
-* `CloudTable`(met behulp van de Azure-opslag-SDK. Zie [voorbeeld](#readmulti).)
+* `CloudTable`(met behulp van hello Azure-opslag-SDK. Zie [voorbeeld](#readmulti).)
 
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Voorbeeld van uitvoer
-De volgende *function.json* en *run.csx* voorbeeld ziet u het schrijven van meerdere tabelentiteiten.
+Hallo volgende *function.json* en *run.csx* voorbeeld wordt getoond hoe toowrite meerdere tabelentiteiten.
 
 ```json
 {
@@ -217,7 +217,7 @@ De volgende *function.json* en *run.csx* voorbeeld ziet u het schrijven van meer
 }
 ```
 
-Zie het voorbeeld taalspecifieke die meerdere tabelentiteiten worden gemaakt.
+Zie Hallo taalspecifieke steekproef die wordt gemaakt van meerdere tabelentiteiten.
 
 * [C#](#outcsharp)
 * [F#](#outfsharp)
@@ -262,7 +262,7 @@ type Person = {
 }
 
 let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
-    for i = 1 to 10 do
+    for i = 1 too10 do
         log.Info(sprintf "Adding Person entity %d" i)
         tableBinding.Add(
             { PartitionKey = "Test"
@@ -293,7 +293,7 @@ module.exports = function (context) {
 <a name="readmulti"></a>
 
 ## <a name="sample-read-multiple-table-entities-in-c"></a>Voorbeeld: Meerdere tabelentiteiten in C# lezen  #
-De volgende *function.json* en C#-codevoorbeeld entiteiten voor een partitiesleutel die is opgegeven in het bericht uit de wachtrij staat.
+Hallo volgende *function.json* en C#-codevoorbeeld leest entiteiten voor een partitiesleutel die is opgegeven in de wachtrij het Hallo-bericht.
 
 ```json
 {
@@ -317,7 +317,7 @@ De volgende *function.json* en C#-codevoorbeeld entiteiten voor een partitiesleu
 }
 ```
 
-De C#-code een verwijzing naar de Azure-opslag-SDK wordt toegevoegd zodat het entiteitstype kan worden afgeleid van `TableEntity`.
+Hallo C#-code een verwijzing toohello Azure-opslag-SDK wordt toegevoegd zodat Hallo entiteitstype kan worden afgeleid van `TableEntity`.
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"

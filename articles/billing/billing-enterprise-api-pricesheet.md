@@ -1,6 +1,6 @@
 ---
-title: Azure API's van Enterprise - prijslijst facturering | Microsoft Docs
-description: Meer informatie over de rapportage-API's waarmee Azure Enterprise-klanten voor het ophalen van gegevens over het verbruik programmatisch.
+title: aaaAzure facturering Enterprise-API's - prijslijst | Microsoft Docs
+description: Meer informatie over Hallo rapportage-API's waarmee Azure Enterprise-klanten toopull verbruiksgegevens programmatisch.
 services: 
 documentationcenter: 
 author: aedwin
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 2e7d6e883abe4cee13bc5f684baf2a1ea9c6c397
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4cfe694c63fba266d117054b046d9caacb3b7197
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reporting-apis-for-enterprise-customers---price-sheet"></a>Rapportage-API's voor Enterprise-klanten - prijslijst
 
-De prijs blad API biedt het tarief voor elke meten voor de opgegeven registratie en facturering periode.
+Hallo Price Sheet API biedt Hallo toepasselijke frequentie voor elke Meter voor Hallo opgegeven registratie en facturering periode.
 
 ##<a name="request"></a>Aanvraag
-Algemene Kopteksteigenschappen voor die moeten worden toegevoegd, zijn opgegeven [hier](billing-enterprise-api.md). Als een factureringsperiode niet is opgegeven, wordt de gegevens voor de huidige factureringsperiode geretourneerd.
+Algemene Kopteksteigenschappen voor die toobe toegevoegd moeten zijn opgegeven [hier](billing-enterprise-api.md). Als een factureringsperiode niet is opgegeven, klikt u vervolgens gegevens voor de huidige facturering Hallo periode geretourneerd.
 
 |Methode | Aanvraag-URI|
 |-|-|
@@ -34,7 +34,7 @@ Algemene Kopteksteigenschappen voor die moeten worden toegevoegd, zijn opgegeven
 |TOEVOEGEN|https://consumption.Azure.com/v2/enrollments/ {enrollmentNumber} /billingPeriods/ {billingPeriod} / prijslijst|
 
 > [!Note]
-> Voor het gebruik van de preview-versie van de API v1 in de bovenstaande URL vervangen v2.
+> toouse hello preview-versie van de API, v2 vervangen door v1 in Hallo bovenstaande URL.
 >
 
 ## <a name="response"></a>Antwoord
@@ -68,22 +68,22 @@ Algemene Kopteksteigenschappen voor die moeten worden toegevoegd, zijn opgegeven
     
 
 > [!Note]
->Als u de Preview-API gebruikt, is meterId veld niet beschikbaar.
+>Als u van Hallo Preview-API gebruikmaakt, is meterId veld niet beschikbaar.
 >
 
 **Broneigenschapdefinities antwoord**
 
 |De naam van eigenschap| Type| Beschrijving
 |-|-|-|
-|id| Tekenreeks| De unieke Id die staat voor een bepaald prijslijst item (meter door periode facturering)|
-|billingPeriodId| Tekenreeks| De unieke Id die staat voor een bepaalde periode voor facturering|
-|meterId| Tekenreeks| De id voor de meter. Deze kan worden toegewezen aan de meterId informatie over het gebruik.|
-|meterName| Tekenreeks| De naam van de meter|
-|unitOfMeasure| Tekenreeks| De eenheid voor het meten van de service|
+|id| Tekenreeks| Hallo unieke Id die staat voor een bepaald prijslijst item (meter door periode facturering)|
+|billingPeriodId| Tekenreeks| Hallo unieke Id die staat voor een bepaalde periode voor facturering|
+|meterId| Tekenreeks| Hallo-id voor Hallo meter. Het kan toegewezen toohello gebruik meterId zijn.|
+|meterName| Tekenreeks| de naam van de meter Hallo|
+|unitOfMeasure| Tekenreeks| Hallo eenheid voor het meten van Hallo-service|
 |includedQuantity| Decimale| Aantal dat is opgenomen |
-|partNumber| Tekenreeks| Het onderdeelnummer die zijn gekoppeld aan de Meter|
-|prijs per eenheid| Decimale| De prijs per eenheid voor de meter|
-|currencyCode| Tekenreeks| De valutacode voor de prijs per eenheid|
+|partNumber| Tekenreeks| Hallo-onderdeelnummer Hallo Meter gekoppeld|
+|prijs per eenheid| Decimale| prijs per eenheid Hallo voor Hallo meter|
+|currencyCode| Tekenreeks| Hallo-valutacode voor Hallo prijs per eenheid|
 <br/>
 ## <a name="see-also"></a>Zie ook
 

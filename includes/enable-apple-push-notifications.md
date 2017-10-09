@@ -1,0 +1,3 @@
+
+* [Een app-ID voor uw app registreren](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html#//apple_ref/doc/uid/TP40012582-CH30-SW991). Maak een expliciete app-ID (niet een jokerteken app-ID) en voor **bundel-ID**, Hallo exacte bundel-ID die in uw Xcode Quick Start-project gebruiken. Het is essentieel dat u Hallo selecteert **Pushmeldingen** optie. 
+* Vervolgens [tooprepare voor het configureren van pushmeldingen](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6), een 'Ontwikkeling' of 'Distributie' SSL-certificaat maken.

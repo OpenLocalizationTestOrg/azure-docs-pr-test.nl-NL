@@ -1,5 +1,5 @@
 ---
-title: "Lijst met efficiënt query's, Azure Batch ontwerpen | Microsoft Docs"
+title: "aaaDesign lijst efficiënt query's, Azure Batch | Microsoft Docs"
 description: De prestaties verbeteren door het filteren van uw query's bij het aanvragen van informatie over Batch-resources zoals pools, jobs, taken en rekenknooppunten.
 services: batch
 documentationcenter: .net
@@ -15,88 +15,88 @@ ms.workload: big-compute
 ms.date: 08/02/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a80b207f591bd888d4749287527013c5e554fb6e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: b7e554119ec9d0e9e8007ccfb1ca80fe142a5e27
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-queries-to-list-batch-resources-efficiently"></a>Query's op de lijst met Batch-resources efficiënt maken
+# <a name="create-queries-toolist-batch-resources-efficiently"></a>Query's efficiënt toolist Batch-resources maken
 
-Hier leert u hoe u de prestaties van uw Azure Batch-toepassingen door te verminderen de hoeveelheid gegevens die door de service worden geretourneerd wanneer u query jobs, taken en met rekenknooppunten verhoogt de [Batch .NET] [ api_net] bibliotheek.
+Hier leert u hoe tooincrease de prestaties van de Azure Batch-toepassing doordat Hallo hoeveelheid gegevens die door Hallo-service worden geretourneerd wanneer u een query uitvoert op taken, taken en rekenknooppunten Hello [Batch .NET] [ api_net] bibliotheek.
 
-Bijna alle Batch-toepassingen hoeft uit te voeren van een type controle of een andere bewerking vaak query van de Batch-service met regelmatige tussenpozen. Om te bepalen of er in een taak resterende taken in de wachtrij zijn, kunt u gegevens moet ophalen voor elke taak in de taak. Om te bepalen van de status van knooppunten in uw pool, moet u gegevens ophalen op elk knooppunt in de groep. In dit artikel wordt uitgelegd hoe u dergelijke query's uitvoeren in de meest efficiënte manier.
+Bijna alle Batch-toepassingen moeten tooperform een soort bewaking of een andere bewerking Hallo Batch-service, vaak query met regelmatige tussenpozen. Bijvoorbeeld, toodetermine of er in een taak resterende taken in de wachtrij zijn, moet u gegevens ophalen voor elke taak in Hallo-taak. toodetermine hello status van knooppunten in uw pool, moet u gegevens op elk knooppunt in de groep Hallo ophalen. Dit artikel wordt uitgelegd hoe tooexecute zoals query's in Hallo zo efficiënt mogelijk.
 
 > [!NOTE]
-> De Batch-service biedt speciale API-ondersteuning voor de gangbare scenario van taken in een taak worden geteld. In plaats van een lijst met query om deze, roept u de [ophalen taak telt] [ rest_get_task_counts] bewerking. Aantallen voor GET-taak geeft aan hoeveel taken in behandeling is, zijn uitgevoerd of voltooid en hoeveel taken hebt voltooid of mislukt. Get-taak telt is efficiënter dan een lijst met query. Zie voor meer informatie [aantal taken voor een taak op status (Preview)](batch-get-task-counts.md). 
+> Hallo Batch-service biedt speciale API-ondersteuning voor veelvoorkomende scenario Hallo van taken in een taak worden geteld. In plaats van een lijst met query om deze, kunt u Hallo aanroepen [ophalen taak telt] [ rest_get_task_counts] bewerking. Aantallen voor GET-taak geeft aan hoeveel taken in behandeling is, zijn uitgevoerd of voltooid en hoeveel taken hebt voltooid of mislukt. Get-taak telt is efficiënter dan een lijst met query. Zie voor meer informatie [aantal taken voor een taak op status (Preview)](batch-get-task-counts.md). 
 >
-> De bewerking taak telt ophalen is niet beschikbaar in Batch-versies eerder dan 2017-06-01.5.1. Als u van een oudere versie van de service gebruikmaakt, gebruikt u een lijst met query voor het tellen van taken in een job in plaats daarvan.
+> Hallo bewerking taak telt ophalen is niet beschikbaar in Batch-versies eerder dan 2017-06-01.5.1. Als u een oudere versie van het Hallo-service gebruikt, gebruikt u een lijst met query toocount taken in een taak in plaats daarvan.
 >
 > 
 
-## <a name="meet-the-detaillevel"></a>Voldoen aan de DetailLevel
-In een productie-Batch-toepassing kunnen entiteiten, zoals jobs, taken en rekenknooppunten in duizendtallen nummeren. Wanneer u informatie over deze bronnen aanvraagt, moet een grote hoeveelheid gegevens 'kruislingse de kabel' van de Batch-service voor uw toepassing op elke query. Door te beperken het aantal items en type informatie dat wordt geretourneerd door een query, verhoogt u de snelheid van uw query's en daarom op de prestaties van uw toepassing.
+## <a name="meet-hello-detaillevel"></a>Voldoen aan de Hallo DetailLevel
+In een productie-Batch-toepassing kunnen entiteiten, zoals jobs, taken en rekenknooppunten in Hallo duizendtallen nummeren. Wanneer u informatie over deze bronnen aanvraagt, moet een grote hoeveelheid gegevens 'afkomstig van Hallo kabel' hello Batch-servicetoepassing tooyour voor elke query. U kunt door te beperken het aantal items Hallo en type informatie dat wordt geretourneerd door een query, verhogen Hallo snelheid van uw query's en daarom Hallo prestaties van uw toepassing.
 
-Dit [Batch .NET] [ api_net] API code codefragment lijsten *elke* taak die is gekoppeld aan een taak, samen met *alle* van de eigenschappen van elke taak:
+Dit [Batch .NET] [ api_net] API code codefragment lijsten *elke* taak die is gekoppeld aan een taak, samen met *alle* van eigenschappen van elke Hallo taak:
 
 ```csharp
-// Get a collection of all of the tasks and all of their properties for job-001
+// Get a collection of all of hello tasks and all of their properties for job-001
 IPagedEnumerable<CloudTask> allTasks =
     batchClient.JobOperations.ListTasks("job-001");
 ```
 
-U kunt echter een veel efficiënter lijstquery uitvoeren door het toepassen van een 'detailniveau' aan de query. Dit doet u door het leveren van een [ODATADetailLevel] [ odata] object toe aan de [JobOperations.ListTasks] [ net_list_tasks] methode. In dit fragment retourneert alleen de ID, de opdrachtregel en de compute knooppunt informatie eigenschappen van voltooide taken:
+U kunt echter een lijstquery veel efficiënter uitvoeren door het toepassen van een query tooyour 'detailniveau'. Dit doet u door het leveren van een [ODATADetailLevel] [ odata] object toohello [JobOperations.ListTasks] [ net_list_tasks] methode. In dit fragment retourneert alleen Hallo-ID, opdrachtregel en compute knooppunt informatie eigenschappen van de voltooide taken:
 
 ```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and
-// their properties to return
+// their properties tooreturn
 ODATADetailLevel detailLevel = new ODATADetailLevel();
 detailLevel.FilterClause = "state eq 'completed'";
 detailLevel.SelectClause = "id,commandLine,nodeInfo";
 
-// Supply the ODATADetailLevel to the ListTasks method
+// Supply hello ODATADetailLevel toohello ListTasks method
 IPagedEnumerable<CloudTask> completedTasks =
     batchClient.JobOperations.ListTasks("job-001", detailLevel);
 ```
 
-In dit voorbeeldscenario als er duizenden taken in de taak, de resultaten van de tweede query wordt doorgaans geretourneerd veel sneller dan de eerste. Meer informatie over het gebruik van ODATADetailLevel wanneer u objecten met de Batch .NET API is opgenomen [hieronder](#efficient-querying-in-batch-net).
+In dit voorbeeldscenario als er duizenden taken in Hallo-job Hallo resultaten van de tweede query hello wordt doorgaans veel sneller dan Hallo als eerste geretourneerd. Meer informatie over het gebruik van ODATADetailLevel wanneer u objecten Hello Batch .NET API is opgenomen [hieronder](#efficient-querying-in-batch-net).
 
 > [!IMPORTANT]
-> Ten zeerste aangeraden dat u *altijd* opgeven van een object ODATADetailLevel op uw lijst .NET API aanroepen van maximale efficiëntie en prestaties van uw toepassing. Door te geven een detailniveau, kunt u helpen te verlagen reactietijden van de Batch-service, netwerkgebruik verbeteren en geheugengebruik minimaliseren door clienttoepassingen.
+> Ten zeerste aangeraden dat u *altijd* leveringen een lijst ODATADetailLevel object tooyour .NET API-aanroepen van maximale efficiëntie tooensure en prestaties van uw toepassing. Door te geven een detailniveau, kunt u toolower Batch-service, reactietijden, netwerkgebruik te verbeteren en geheugengebruik minimaliseren door clienttoepassingen.
 > 
 > 
 
 ## <a name="filter-select-and-expand"></a>Filteren, selecteert en vouw
-De [Batch .NET] [ api_net] en [Batch REST] [ api_rest] API's bieden de mogelijkheid om te beperken van zowel het aantal items dat wordt geretourneerd in een lijst, evenals de hoeveelheid gegevens die voor elke wordt geretourneerd. U dit doen door op te geven **filter**, **Selecteer**, en **Vouw tekenreeksen** bij het uitvoeren van de lijst met query's.
+Hallo [Batch .NET] [ api_net] en [Batch REST] [ api_rest] API's bieden Hallo mogelijkheid tooreduce beide Hallo aantal items dat wordt geretourneerd in een lijst evenals Hallo hoeveelheid informatie die wordt geretourneerd voor elke. U dit doen door op te geven **filter**, **Selecteer**, en **Vouw tekenreeksen** bij het uitvoeren van de lijst met query's.
 
 ### <a name="filter"></a>Filteren
-De filtertekenreeks is een expressie die vermindert het aantal items dat wordt geretourneerd. Bijvoorbeeld, lijst met actieve taken voor een taak of lijst alleen rekenknooppunten die gereed zijn om de taken uitvoeren.
+Hallo filtertekenreeks is een expressie die het aantal items dat wordt geretourneerd Hallo vermindert. Bijvoorbeeld: lijst alleen hello taken voor een taak, of de lijst alleen rekenknooppunten die gereed toorun taken zijn uitgevoerd.
 
-* De filtertekenreeks bestaat uit een of meer expressies met een expressie die uit een eigenschapsnaam, een operator en een waarde bestaat. De eigenschappen die kunnen worden opgegeven zijn specifiek voor elk entiteitstype waarmee u een query uitvoeren, zoals de operators die worden ondersteund voor elke eigenschap zijn.
-* Meerdere expressies kunnen worden gecombineerd met behulp van de logische operators `and` en `or`.
-* In dit voorbeeld filteren tekenreekslijsten alleen de wordt uitgevoerd 'weergeven' taken: `(state eq 'running') and startswith(id, 'renderTask')`.
+* Hallo filtertekenreeks bestaat uit een of meer expressies met een expressie die uit een eigenschapsnaam, een operator en een waarde bestaat. Hallo-eigenschappen die kunnen worden opgegeven zijn specifieke tooeach entiteitstype waarmee u een query uitvoeren, zoals zijn Hallo-operators die worden ondersteund voor elke eigenschap.
+* Meerdere expressies kunnen worden gecombineerd met behulp van de logische operators Hallo `and` en `or`.
+* In dit voorbeeld filteren tekenreekslijsten alleen Hallo uitgevoerd 'weergeven' taken: `(state eq 'running') and startswith(id, 'renderTask')`.
 
 ### <a name="select"></a>Selecteer
-De select-tekenreeks beperkt de waarden van de eigenschappen die worden geretourneerd voor elk item. U geeft een lijst met namen van eigenschappen en alleen de eigenschapswaarden van deze voor de items in de queryresultaten worden geretourneerd.
+Selecteer tekenreeks Hallo beperkt Hallo eigenschapswaarden die voor elk item worden geretourneerd. U geeft een lijst met namen van eigenschappen en alleen de eigenschapswaarden van deze worden geretourneerd voor items in de queryresultaten Hallo Hallo.
 
-* De select-tekenreeks bestaat uit een door komma's gescheiden lijst met namen van eigenschappen. U kunt opgeven dat geen van de eigenschappen voor het entiteitstype die u wilt zoeken.
+* Selecteer tekenreeks Hallo bestaat uit een door komma's gescheiden lijst met namen van eigenschappen. U kunt opgeven dat Hallo-eigenschappen voor het entiteitstype Hallo die u een query wilt uitvoeren.
 * In dit voorbeeld selecteert tekenreeks dat slechts drie eigenschapswaarden voor elke taak moeten worden geretourneerd: `id, state, stateTransitionTime`.
 
 ### <a name="expand"></a>Uitvouwen
-De tekenreeks uit te breiden vermindert het aantal API-aanroepen die nodig zijn om bepaalde informatie te verkrijgen. Wanneer u een tekenreeks uit te breiden, meer informatie over elk item kan worden verkregen met één API-aanroep. In plaats van de eerste verkrijgen van de lijst met entiteiten, die vervolgens vraagt informatie voor elk item in de lijst met een tekenreeks uit te breiden kunt u dezelfde gegevens in één API-aanroep verkrijgen. Minder API-aanroepen betekent betere prestaties.
+Hallo Vouw tekenreeks vermindert het aantal API-aanroepen die vereist tooobtain zijn Hallo bepaalde gegevens. Wanneer u een tekenreeks uit te breiden, meer informatie over elk item kan worden verkregen met één API-aanroep. In plaats van de eerste verkrijgen Hallo-lijst van entiteiten en vervolgens de aanvragende informatie voor elk item in de lijst hello, die u gebruikt een tekenreeks uit te breiden tooobtain Hallo dezelfde gegevens in één API-aanroep. Minder API-aanroepen betekent betere prestaties.
 
-* Net als bij de optie tekenreeks, de expand-reeks bepaalt of bepaalde gegevens worden opgenomen in de lijst met queryresultaten.
-* De tekenreeks uit te breiden wordt alleen ondersteund wanneer het wordt gebruikt in de lijst taken, taakschema's, taken en groepen. Op dit moment wordt alleen ondersteund statistische gegevens.
-* Wanneer alle eigenschappen vereist zijn en er is geen tekenreeks select is opgegeven, de tekenreeks uit te breiden *moet* worden gebruikt voor statistische gegevens ophalen. Als een select-tekenreeks is gebruikt voor het verkrijgen van een subset van eigenschappen, klikt u vervolgens `stats` kunnen worden opgegeven in de select-tekenreeks en de tekenreeks uit te breiden niet hoeft te worden opgegeven.
-* In dit voorbeeld Vouw tekenreeks geeft aan dat statistische gegevens voor elk item in de lijst moet worden geretourneerd: `stats`.
+* Vergelijkbare toohello Selecteer tekenreeks Hallo uitvouwen tekenreeks of bepaalde gegevens in de queryresultaten lijst is opgenomen.
+* Hallo Vouw tekenreeks wordt alleen ondersteund wanneer het wordt gebruikt in de lijst taken, taakschema's, taken en groepen. Op dit moment wordt alleen ondersteund statistische gegevens.
+* Wanneer alle eigenschappen zijn vereist en er is geen tekenreeks select is opgegeven, Hallo tekenreeks uitvouwen *moet* worden statistische informatie over gebruikte tooget. Als een select-tekenreeks tooobtain een subset van de eigenschappen van de gebruikte is `stats` kan worden opgegeven in de select tekenreeks Hallo en Hallo Vouw tekenreeks niet hoeft toobe opgegeven.
+* In dit voorbeeld Vouw tekenreeks geeft aan dat statistische gegevens moet worden geretourneerd voor elk item in de lijst Hallo: `stats`.
 
 > [!NOTE]
-> Bij het maken van een van de drie querytypen tekenreeks (filteren, selecteert en vouw), moet u ervoor zorgen dat de namen van eigenschappen en de aanvraag overeenkomen met die van hun collega's REST-API-element. Bijvoorbeeld, als u werkt met de .NET [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) klasse, moet u **status** in plaats van **status**, zelfs als de eigenschap .NET [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). Zie de tabellen hieronder voor de eigenschaptoewijzingen tussen .NET en REST-API's.
+> Tijdens het construeren van Hallo drie querytypen tekenreeks (filteren, selecteert en vouw), moet u ervoor zorgen dat Hallo eigenschapnamen en case overeenkomen met die van hun collega's REST-API-element. Bijvoorbeeld, als u werkt met .NET Hallo [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) klasse, moet u **status** in plaats van **status**, ook al Hallo .NET-eigenschap is [ CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). Zie Hallo tabellen hieronder voor de eigenschaptoewijzingen tussen Hallo .NET en REST-API's.
 > 
 > 
 
 ### <a name="rules-for-filter-select-and-expand-strings"></a>Regels voor filteren, selecteert en breidt tekenreeksen
-* Namen van eigenschappen in het filter, selecteert en breidt tekenreeksen moeten worden weergegeven als in de [Batch REST] [ api_rest] API--zelfs wanneer u [Batch .NET] [ api_net] of een van de andere Batch-SDK's.
+* Namen van eigenschappen in het filter, selecteert en breidt tekenreeksen moeten worden weergegeven als in Hallo [Batch REST] [ api_rest] API--zelfs wanneer u [Batch .NET] [ api_net] of een andere Batch-SDK Hallo.
 * Alle namen van eigenschappen zijn hoofdlettergevoelig, maar eigenschapswaarden zijn niet hoofdlettergevoelig.
 * Datum/tijd tekenreeksen kunnen twee verschillende indelingen, en moet worden voorafgegaan door `DateTime`.
   
@@ -106,68 +106,68 @@ De tekenreeks uit te breiden vermindert het aantal API-aanroepen die nodig zijn 
 * Als een eigenschap is ongeldig of de operator is opgegeven, een `400 (Bad Request)` fout resulteert.
 
 ## <a name="efficient-querying-in-batch-net"></a>Efficiënter uitvoeren van query's in Batch .NET
-Binnen de [Batch .NET] [ api_net] API, de [ODATADetailLevel] [ odata] klasse wordt gebruikt voor het verstrekken van filter, en selecteer tekenreeksen worden uitgebreid tot bewerkingen na opvragen. De klasse ODataDetailLevel heeft drie openbare eigenschappen die kunnen worden opgegeven in de constructor of rechtstreeks op het object is ingesteld. U geeft het ODataDetailLevel-object als parameter voor de verschillende bewerkingen na opvragen, zoals [ListPools][net_list_pools], [ListJobs][net_list_jobs], en [ListTasks][net_list_tasks].
+Binnen Hallo [Batch .NET] [ api_net] API, Hallo [ODATADetailLevel] [ odata] klasse wordt gebruikt voor het verstrekken van filter, selecteren en uitvouwen tekenreeksen toolist bewerkingen. Hallo ODataDetailLevel klasse heeft drie openbare string-eigenschappen die kunnen worden opgegeven in de constructor Hallo of rechtstreeks op Hallo object ingesteld. U geeft Hallo ODataDetailLevel object als een parameter toohello verschillende bewerkingen na opvragen, zoals [ListPools][net_list_pools], [ListJobs][net_list_jobs], en [ListTasks][net_list_tasks].
 
-* [ODATADetailLevel][odata].[ FilterClause][odata_filter]: Beperk het aantal items dat wordt geretourneerd.
+* [ODATADetailLevel][odata].[ FilterClause][odata_filter]: Hallo aantal items dat wordt geretourneerd beperken.
 * [ODATADetailLevel][odata].[ SelectClause][odata_select]: Geef op welke eigenschapswaarden worden geretourneerd bij elk item.
 * [ODATADetailLevel][odata].[ ExpandClause][odata_expand]: gegevens ophalen voor alle artikelen in één API-aanroep in plaats van afzonderlijke aanroepen voor elk item.
 
-Het volgende codefragment gebruikt de Batch .NET API om efficiënt query de Batch-service voor de statistieken van een specifieke set met groepen. In dit scenario heeft de gebruiker Batch pools test- en productie. De id's van de test-toepassingen worden voorafgegaan door 'test' en de productiepool-id's worden voorafgegaan door 'prod'. In het codefragment *myBatchClient* is een goed geïnitialiseerd exemplaar van de [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) klasse.
+Hallo volgende codefragment Hallo Batch .NET API tooefficiently query Hallo Batch-service gebruikt voor Hallo statistieken van een specifieke set met groepen. In dit scenario heeft Hallo Batch gebruiker test- en productie-groepen. Hallo test groep id's worden voorafgegaan door 'test' en Hallo productie groep id's worden voorafgegaan door 'prod'. In het Hallo-fragment *myBatchClient* is een goed geïnitialiseerd exemplaar van Hallo [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) klasse.
 
 ```csharp
-// First we need an ODATADetailLevel instance on which to set the filter, select,
+// First we need an ODATADetailLevel instance on which tooset hello filter, select,
 // and expand clause strings
 ODATADetailLevel detailLevel = new ODATADetailLevel();
 
-// We want to pull only the "test" pools, so we limit the number of items returned
-// by using a FilterClause and specifying that the pool IDs must start with "test"
+// We want toopull only hello "test" pools, so we limit hello number of items returned
+// by using a FilterClause and specifying that hello pool IDs must start with "test"
 detailLevel.FilterClause = "startswith(id, 'test')";
 
-// To further limit the data that crosses the wire, configure the SelectClause to
-// limit the properties that are returned on each CloudPool object to only
+// toofurther limit hello data that crosses hello wire, configure hello SelectClause to
+// limit hello properties that are returned on each CloudPool object tooonly
 // CloudPool.Id and CloudPool.Statistics
 detailLevel.SelectClause = "id, stats";
 
-// Specify the ExpandClause so that the .NET API pulls the statistics for the
-// CloudPools in a single underlying REST API call. Note that we use the pool's
-// REST API element name "stats" here as opposed to "Statistics" as it appears in
-// the .NET API (CloudPool.Statistics)
+// Specify hello ExpandClause so that hello .NET API pulls hello statistics for the
+// CloudPools in a single underlying REST API call. Note that we use hello pool's
+// REST API element name "stats" here as opposed too"Statistics" as it appears in
+// hello .NET API (CloudPool.Statistics)
 detailLevel.ExpandClause = "stats";
 
-// Now get our collection of pools, minimizing the amount of data that is returned
-// by specifying the detail level that we configured above
+// Now get our collection of pools, minimizing hello amount of data that is returned
+// by specifying hello detail level that we configured above
 List<CloudPool> testPools =
     await myBatchClient.PoolOperations.ListPools(detailLevel).ToListAsync();
 ```
 
 > [!TIP]
-> Een exemplaar van [ODATADetailLevel] [ odata] die is geconfigureerd met selecteren en uitvouwen componenten kunnen ook worden doorgegeven aan de juiste Get-methoden, zoals [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx), te beperken van de hoeveelheid gegevens die wordt geretourneerd.
+> Een exemplaar van [ODATADetailLevel] [ odata] die is geconfigureerd met selecteren en uitvouwen componenten kunnen ook worden doorgegeven tooappropriate Get-methoden, zoals [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx) , toolimit Hallo hoeveelheid gegevens die wordt geretourneerd.
 > 
 > 
 
-## <a name="batch-rest-to-net-api-mappings"></a>Batch REST in .NET API toewijzingen
-Namen van eigenschappen in het filter, selecteert en breidt tekenreeksen *moet* overeenstemming met de REST-API collega's, zowel in de naam en het geval is. De onderstaande tabellen bevatten toewijzingen tussen de collega .NET en REST-API's.
+## <a name="batch-rest-toonet-api-mappings"></a>Batch REST-API voor too.NET toewijzingen
+Namen van eigenschappen in het filter, selecteert en breidt tekenreeksen *moet* overeenstemming met de REST-API collega's, zowel in de naam en het geval is. Hallo onderstaande tabellen bevatten toewijzingen tussen Hallo .NET en REST-API collega's.
 
 ### <a name="mappings-for-filter-strings"></a>Toewijzingen voor tekenreeksen
-* **.NET-lijst methoden**: elk van de .NET API-methoden in deze kolom accepteert een [ODATADetailLevel] [ odata] -object als parameter.
-* **Aanvragen voor REST-lijst**: elke REST-API-pagina is gekoppeld aan in deze kolom bevat een tabel waarin de eigenschappen en bewerkingen die zijn toegestaan in *filter* tekenreeksen. U gebruikt deze eigenschapnamen en bewerkingen wanneer u samenstellen een [ODATADetailLevel.FilterClause] [ odata_filter] tekenreeks.
+* **.NET-lijst methoden**: Hallo .NET API methoden in deze kolom accepteert een [ODATADetailLevel] [ odata] -object als parameter.
+* **Aanvragen voor REST-lijst**: elke REST-API pagina gekoppelde tooin in deze kolom bevat een tabel waarin Hallo eigenschappen en bewerkingen die zijn toegestaan in *filter* tekenreeksen. U gebruikt deze eigenschapnamen en bewerkingen wanneer u samenstellen een [ODATADetailLevel.FilterClause] [ odata_filter] tekenreeks.
 
 | Methoden voor .NET-lijst | Aanvragen voor REST-lijst |
 | --- | --- |
-| [CertificateOperations.ListCertificates][net_list_certs] |[Lijst van de certificaten in een account][rest_list_certs] |
-| [CloudTask.ListNodeFiles][net_list_task_files] |[De bestanden die zijn gekoppeld aan een taak weergeven][rest_list_task_files] |
-| [JobOperations.ListJobPreparationAndReleaseTaskStatus][net_list_jobprep_status] |[De status van de taakvoorbereidingstaak en jobvrijgevingstaken voor een taak weergeven][rest_list_jobprep_status] |
-| [JobOperations.ListJobs][net_list_jobs] |[Lijst van de taken in een account][rest_list_jobs] |
-| [JobOperations.ListNodeFiles][net_list_nodefiles] |[Lijst van de bestanden op een knooppunt][rest_list_nodefiles] |
-| [JobOperations.ListTasks][net_list_tasks] |[Lijst van de taken die zijn gekoppeld aan een taak][rest_list_tasks] |
-| [JobScheduleOperations.ListJobSchedules][net_list_job_schedules] |[Lijst van de taakschema's in een account][rest_list_job_schedules] |
-| [JobScheduleOperations.ListJobs][net_list_schedule_jobs] |[Lijst van de taken die zijn gekoppeld aan een jobplanning][rest_list_schedule_jobs] |
-| [PoolOperations.ListComputeNodes][net_list_compute_nodes] |[Lijst van de rekenknooppunten in een groep][rest_list_compute_nodes] |
-| [PoolOperations.ListPools][net_list_pools] |[De toepassingen in een account weergeven][rest_list_pools] |
+| [CertificateOperations.ListCertificates][net_list_certs] |[Hallo certificaten weergeven in een account][rest_list_certs] |
+| [CloudTask.ListNodeFiles][net_list_task_files] |[Hallo-bestanden weergeven die zijn gekoppeld aan een taak][rest_list_task_files] |
+| [JobOperations.ListJobPreparationAndReleaseTaskStatus][net_list_jobprep_status] |[Status van de lijst Hallo van Hallo taakvoorbereidings- en jobvrijgevingstaken voor een taak][rest_list_jobprep_status] |
+| [JobOperations.ListJobs][net_list_jobs] |[Hallo-taken weergeven in een account][rest_list_jobs] |
+| [JobOperations.ListNodeFiles][net_list_nodefiles] |[Lijst Hallo bestanden op een knooppunt][rest_list_nodefiles] |
+| [JobOperations.ListTasks][net_list_tasks] |[Hallo taken die zijn gekoppeld aan een taak][rest_list_tasks] |
+| [JobScheduleOperations.ListJobSchedules][net_list_job_schedules] |[Lijst Hallo taakschema's in een account][rest_list_job_schedules] |
+| [JobScheduleOperations.ListJobs][net_list_schedule_jobs] |[Hallo-taken weergeven die zijn gekoppeld aan een jobplanning][rest_list_schedule_jobs] |
+| [PoolOperations.ListComputeNodes][net_list_compute_nodes] |[Lijst Hallo rekenknooppunten in een groep][rest_list_compute_nodes] |
+| [PoolOperations.ListPools][net_list_pools] |[Lijst Hallo opslaggroepen in een account][rest_list_pools] |
 
 ### <a name="mappings-for-select-strings"></a>Toewijzingen voor Selecteer tekenreeksen
 * **Batch .NET-typen**: typen Batch .NET API.
-* **REST-API-entiteiten**: elke pagina in deze kolom bevat een of meer tabellen met de namen van de REST-API-eigenschappen voor het type. De namen van deze eigenschappen worden gebruikt wanneer u samenstellen *Selecteer* tekenreeksen. U gebruikt deze dezelfde eigenschapnamen als u een [ODATADetailLevel.SelectClause] [ odata_select] tekenreeks.
+* **REST-API-entiteiten**: elke pagina in deze kolom bevat een of meer tabellen die Hallo REST-API-Eigenschapsnamen voor Hallo type lijst. De namen van deze eigenschappen worden gebruikt wanneer u samenstellen *Selecteer* tekenreeksen. U gebruikt deze dezelfde eigenschapnamen als u een [ODATADetailLevel.SelectClause] [ odata_select] tekenreeks.
 
 | Batch .NET-typen | REST-API-entiteiten |
 | --- | --- |
@@ -179,35 +179,35 @@ Namen van eigenschappen in het filter, selecteert en breidt tekenreeksen *moet* 
 | [CloudTask][net_task] |[Informatie over een taak ophalen][rest_get_task] |
 
 ## <a name="example-construct-a-filter-string"></a>Voorbeeld: een filtertekenreeks maken
-Wanneer u een filtertekenreeks voor samenstellen [ODATADetailLevel.FilterClause][odata_filter], raadpleegt u de bovenstaande tabel onder '-toewijzingen voor filtertekenreeksen' om te zoeken naar de REST-API-documentatiepagina die overeenkomt met de lijstbewerking die u wilt uitvoeren. U vindt de Filterbaar eigenschappen en hun ondersteunde operators in de eerste multirow tabel op die pagina. Als u wilt ophalen van alle taken waarvan afsluitcode niet nul was, bijvoorbeeld dit rij op [lijst van de taken die zijn gekoppeld aan een taak] [ rest_list_tasks] stelt de toepasselijke eigenschap tekenreeks en de toegestane operators:
+Wanneer u een filtertekenreeks voor samenstellen [ODATADetailLevel.FilterClause][odata_filter], raadpleegt u bovenstaande Hallo tabel onder '-toewijzingen voor filtertekenreeksen' toofind Hallo REST-API-documentatiepagina die overeenkomt met toohello lijstbewerking gewenste tooperform. Vindt u Hallo Filterbaar eigenschappen en hun ondersteunde operators in Hallo eerste multirow tabel op die pagina. Als u wenst dat tooretrieve alle taken waarvan afsluitcode niet nul was, bijvoorbeeld dit rij op [Hallo taken die zijn gekoppeld aan een taak] [ rest_list_tasks] Hallo toepasselijke eigenschap tekenreeks en de toegestane operators:
 
 | Eigenschap | Bewerkingen die zijn toegestaan | Type |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
-Daarom zou de filtertekenreeks voor het weergeven van alle taken met een andere waarde dan nul afsluitcode:
+Hallo filtertekenreeks voor het weergeven van alle taken met een andere afsluitcode dan zou dus zijn:
 
 `(executionInfo/exitCode lt 0) or (executionInfo/exitCode gt 0)`
 
 ## <a name="example-construct-a-select-string"></a>Voorbeeld: een select tekenreeks maken
-Om samen te stellen [ODATADetailLevel.SelectClause][odata_select], raadpleegt u de bovenstaande tabel onder '-toewijzingen voor Selecteer tekenreeksen' en navigeer naar de pagina REST-API die overeenkomt met het type entiteit die u weergeeft. U vindt de selecteerbare eigenschappen en hun ondersteunde operators in de eerste multirow tabel op die pagina. Als u wilt dat alleen de ID en de opdrachtregel voor elke taak in een lijst ophalen, bijvoorbeeld, vindt u deze rijen in de tabel van toepassing op [informatie ophalen over een taak][rest_get_task]:
+tooconstruct [ODATADetailLevel.SelectClause][odata_select], raadpleegt u bovenstaande Hallo tabel onder '-toewijzingen voor Selecteer tekenreeksen' en navigeer toohello REST-API-pagina die overeenkomt met het type entiteit toohello die u hebt biedt. Vindt u Hallo selecteerbare eigenschappen en hun ondersteunde operators in Hallo eerste multirow tabel op die pagina. Als u wenst dat tooretrieve alleen Hallo-ID en vanaf de opdrachtregel voor elke taak in een lijst, bijvoorbeeld vindt u deze rijen in de toepasselijke tabel Hallo op [informatie ophalen over een taak][rest_get_task]:
 
 | Eigenschap | Type | Opmerkingen |
 |:--- |:--- |:--- |
-| `id` |`String` |`The ID of the task.` |
-| `commandLine` |`String` |`The command line of the task.` |
+| `id` |`String` |`hello ID of hello task.` |
+| `commandLine` |`String` |`hello command line of hello task.` |
 
-Selecteer de string voor het opnemen van alleen de ID en de opdrachtregel voor elke vermelde taak zou vervolgens zijn:
+Hallo Selecteer string zou voor waaronder alleen Hallo-ID en -opdrachtregel met elke vermelde taak vervolgens zijn:
 
 `id, commandLine`
 
 ## <a name="code-samples"></a>Codevoorbeelden
 ### <a name="efficient-list-queries-code-sample"></a>Voorbeeld van code voor efficiënte lijst met query 's
-Bekijk de [EfficientListQueries] [ efficient_query_sample] voorbeeldproject op GitHub om te zien hoe efficiënt lijst uitvoeren van query's kan invloed hebben op prestaties in een toepassing. Deze C#-consoletoepassing maakt en voegt u een groot aantal taken toe aan een job. Klik op deze manier meerdere aanroepen naar de [JobOperations.ListTasks] [ net_list_tasks] methode en geeft [ODATADetailLevel] [ odata] objecten die zijn geconfigureerd met verschillende eigenschapwaarden variëren van de hoeveelheid gegevens moeten worden geretourneerd. Het wordt ongeveer de volgende uitvoer gegenereerd:
+Bekijk Hallo [EfficientListQueries] [ efficient_query_sample] voorbeeldproject op GitHub toosee hoe efficiënt lijst uitvoeren van query's kan invloed hebben op prestaties in een toepassing. Deze C#-consoletoepassing maakt en een groot aantal taken tooa taak toegevoegd. Klik op deze manier meerdere aanroepen toohello [JobOperations.ListTasks] [ net_list_tasks] methode en geeft [ODATADetailLevel] [ odata] objecten die zijn geconfigureerd met een andere eigenschap waarden toovary Hallo hoeveelheid gegevens toobe geretourneerd. Het volgende voor vergelijkbare toohello uitvoer genereert:
 
 ```
-Adding 5000 tasks to job jobEffQuery...
-5000 tasks added in 00:00:47.3467587, hit ENTER to query tasks...
+Adding 5000 tasks toojob jobEffQuery...
+5000 tasks added in 00:00:47.3467587, hit ENTER tooquery tasks...
 
 4943 tasks retrieved in 00:00:04.3408081 (ExpandClause:  | FilterClause: state eq 'active' | SelectClause: id,state)
 0 tasks retrieved in 00:00:00.2662920 (ExpandClause:  | FilterClause: state eq 'running' | SelectClause: id,state)
@@ -216,22 +216,22 @@ Adding 5000 tasks to job jobEffQuery...
 5000 tasks retrieved in 00:00:15.1016127 (ExpandClause:  | FilterClause:  | SelectClause: id,state,environmentSettings)
 5000 tasks retrieved in 00:00:17.0548145 (ExpandClause: stats | FilterClause:  | SelectClause: )
 
-Sample complete, hit ENTER to continue...
+Sample complete, hit ENTER toocontinue...
 ```
 
-Zoals u in de verstreken tijd, kunt u de reactietijden van de query aanzienlijk verlagen door het beperken van de eigenschappen en het aantal items dat wordt geretourneerd. U vindt deze en andere voorbeeldprojecten in de [azure-batch-samples] [ github_samples] opslagplaats op GitHub.
+Zoals u in Hallo verstreken keren, kunt u de reactietijden van de query aanzienlijk verlagen door te beperken Hallo eigenschappen en Hallo aantal items dat wordt geretourneerd. U vindt deze en andere voorbeeldprojecten in Hallo [azure-batch-samples] [ github_samples] opslagplaats op GitHub.
 
 ### <a name="batchmetrics-library-and-code-sample"></a>BatchMetrics-bibliotheek en code-voorbeeld
-Naast het codevoorbeeld EfficientListQueries bovenstaande vindt u de [BatchMetrics] [ batch_metrics] project in de [azure-batch-samples] [ github_samples] GitHub-opslagplaats. Het voorbeeldproject BatchMetrics laat zien hoe efficiënt voortgang Azure Batch-taak met de Batch-API.
+Bovendien toohello EfficientListQueries codevoorbeeld bovenstaande, kunt u vinden Hallo [BatchMetrics] [ batch_metrics] -project in Hallo [azure-batch-samples] [ github_samples] GitHub-opslagplaats. Hallo BatchMetrics voorbeeldproject laat zien hoe de Azure Batch-taak uitgevoerd met Hallo Batch-API voor het bewaken van tooefficiently.
 
-De [BatchMetrics] [ batch_metrics] voorbeeld bevat een bibliotheekproject voor .NET-klasse die u kunt opnemen in uw eigen projecten en een eenvoudig opdrachtregelprogramma uitoefenen en demonstreren van het gebruik van de bibliotheek.
+Hallo [BatchMetrics] [ batch_metrics] voorbeeld bevat een bibliotheekproject voor .NET-klasse die u in uw eigen projecten en een eenvoudig opdrachtregelprogramma opnemen kunt tooexercise programma en gebruik Hallo Hallo demonstreren bibliotheek.
 
-De voorbeeldtoepassing in het project ziet u de volgende bewerkingen:
+Hallo-voorbeeldtoepassing in Hallo project toont Hallo volgende bewerkingen:
 
-1. Specifieke kenmerken selecteren om te downloaden van alleen de eigenschappen die u nodig hebt
-2. Filteren op status overgang keren om te kunnen downloaden van alleen wijzigingen sinds de laatste query
+1. Specifieke kenmerken in de volgorde toodownload alleen Hallo eigenschappen selecteren die u nodig hebt
+2. Filteren op status overgang keer volgorde toodownload alleen wijzigingen sinds de laatste query waarvoor een Hallo
 
-Bijvoorbeeld, verschijnt de volgende methode in de bibliotheek BatchMetrics. Deze retourneert een ODATADetailLevel die geeft aan dat alleen de `id` en `state` eigenschappen moeten worden opgehaald voor de entiteiten die zijn opgevraagd. Ook wordt hiermee aangegeven dat alleen entiteiten waarvan de status is gewijzigd sinds de opgegeven `DateTime` parameter moet worden geretourneerd.
+Bijvoorbeeld, weergegeven Hallo methode na in Hallo BatchMetrics-bibliotheek. Deze retourneert een ODATADetailLevel waarmee wordt aangegeven dat alleen Hallo `id` en `state` eigenschappen moeten worden opgehaald voor Hallo entiteiten die zijn opgevraagd. Ook wordt hiermee aangegeven dat alleen entiteiten waarvan de status is gewijzigd sinds de opgegeven Hallo `DateTime` parameter moet worden geretourneerd.
 
 ```csharp
 internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
@@ -245,10 +245,10 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 
 ## <a name="next-steps"></a>Volgende stappen
 ### <a name="parallel-node-tasks"></a>Knooppunt parallelle taken
-[Azure Batch compute Resourcegebruik met gelijktijdige knooppunt taken maximaliseren](batch-parallel-node-tasks.md) een ander artikel betrekking heeft op de prestaties van de Batch-toepassingen. Bepaalde typen werkbelastingen kunnen profiteren van parallelle taken worden uitgevoerd op grotere-- maar minder--rekenknooppunten. Bekijk de [voorbeeldscenario](batch-parallel-node-tasks.md#example-scenario) in het artikel voor meer informatie over dit scenario.
+[Azure Batch compute Resourcegebruik met gelijktijdige knooppunt taken maximaliseren](batch-parallel-node-tasks.md) is een ander artikel betrekking tooBatch toepassingsprestaties. Bepaalde typen werkbelastingen kunnen profiteren van parallelle taken worden uitgevoerd op grotere-- maar minder--rekenknooppunten. Bekijk Hallo [voorbeeldscenario](batch-parallel-node-tasks.md#example-scenario) in Hallo-artikel voor meer informatie over dit scenario.
 
 ### <a name="batch-forum"></a>Batch-Forum
-De [Azure Batch-Forum] [ forum] is een goede plaats om te bespreken Batch en vragen over de service op MSDN. Kop op via voor nuttige 'een tijdelijke' berichten, en stel uw vragen wanneer deze zich voordoen tijdens het bouwen van uw Batch-oplossingen.
+Hallo [Azure Batch-Forum] [ forum] is uitermate toodiscuss Batch plaats en vragen over Hallo-service op MSDN. Kop op via voor nuttige 'een tijdelijke' berichten, en stel uw vragen wanneer deze zich voordoen tijdens het bouwen van uw Batch-oplossingen.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx

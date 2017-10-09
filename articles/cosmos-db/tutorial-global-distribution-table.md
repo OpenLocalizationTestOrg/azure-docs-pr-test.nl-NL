@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie voor Azure DB Cosmos globale distributie voor tabel-API | Microsoft Docs
-description: Informatie over het instellen van Azure DB die Cosmos globale distributie op basis van de tabel-API.
+title: aaaAzure Cosmos DB algemene distributie-zelfstudie voor tabel-API | Microsoft Docs
+description: Meer informatie over hoe toosetup Azure Cosmos DB globale distributie op basis Hallo tabel-API.
 services: cosmos-db
 keywords: globale distributie, tabel
 documentationcenter: 
@@ -15,38 +15,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 63c9e530a4982e2e6e478fea56e015fc77851e1d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d2a995e09c37f9449856aef2ab707e95eb8a540c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-table-api"></a>Het instellen van Azure DB die Cosmos globale distributie op basis van de tabel-API
+# <a name="how-toosetup-azure-cosmos-db-global-distribution-using-hello-table-api"></a>Hoe toosetup Azure Cosmos DB globale distributie op basis Hallo tabel-API
 
-In dit artikel, laten we zien hoe de Azure portal gebruiken om setup Azure Cosmos DB globale distributie en maak verbinding met de tabel-API (preview).
+In dit artikel, laten we zien hoe toouse hello Azure portal toosetup Azure Cosmos DB globale distributie en vervolgens verbinding maken via Hallo tabel-API (preview).
 
-In dit artikel bevat informatie over de volgende taken: 
+Dit artikel behandelt Hallo taken te volgen: 
 
 > [!div class="checklist"]
-> * Globale distributie op basis van de Azure-portal configureren
-> * Configureren globale distributie met behulp van de [tabel-API](table-introduction.md)
+> * Globale distributie op basis van hello Azure-portal configureren
+> * Configureren van de algemene distributie op basis van Hallo [tabel-API](table-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Verbinding maken met een voorkeursregio met behulp van de tabel-API
+## <a name="connecting-tooa-preferred-region-using-hello-table-api"></a>Verbinding maken met tooa voorkeursregio met Hallo tabel-API
 
-Om te profiteren van [globale distributie](distribute-data-globally.md), clienttoepassingen de voorkeur geordende lijst met regio's moeten worden gebruikt voor het document bewerkingen uitvoeren kunnen opgeven. Dit kan worden gedaan door het instellen van de `TablePreferredLocations` configuratiewaarde in de app-configuratie voor de preview van Azure-opslag-SDK. Op basis van de Azure DB die Cosmos-accountconfiguratie, huidige regionale beschikbaarheid en de voorkeur lijst is opgegeven, wordt het meest optimale eindpunt door de Azure-opslag-SDK schrijven uitvoeren en leesbewerkingen gekozen.
+In de volgorde tootake profiteren van [globale distributie](distribute-data-globally.md), clienttoepassingen Hallo besteld voorkeur lijst met regio's toobe gebruikte tooperform document bewerkingen kunnen opgeven. Dit kan worden gedaan door de instelling Hallo `TablePreferredLocations` configuratiewaarde in Hallo app-configuratie voor Hallo preview Azure-opslag-SDK. Op basis van hello Azure DB die Cosmos-accountconfiguratie, huidige regionale beschikbaarheid en Hallo voorkeur lijst die is opgegeven, Hallo meeste optimale eindpunt wordt gekozen door hello Azure-opslag-SDK tooperform schrijven en lees-en schrijfopdrachten.
 
-De `TablePreferredLocations` moet een door komma's gescheiden lijst met aanbevolen (multihoming) locaties bevatten voor leesbewerkingen. Elk clientexemplaar kunt u een subset van deze gebieden in de gewenste volgorde voor lage latentie leesbewerkingen opgeven. De regio's moeten de namen van hun [weergavenamen](https://msdn.microsoft.com/library/azure/gg441293.aspx), bijvoorbeeld `West US`.
+Hallo `TablePreferredLocations` moet een door komma's gescheiden lijst met aanbevolen (multihoming) locaties bevatten voor leesbewerkingen. Elk clientexemplaar kunt u een subset van deze gebieden in volgorde van voorkeur Hallo voor lage latentie leesbewerkingen opgeven. Hallo-regio's moeten de namen van hun [weergavenamen](https://msdn.microsoft.com/library/azure/gg441293.aspx), bijvoorbeeld `West US`.
 
-Alle leesbewerkingen wordt verzonden naar de eerste beschikbare regio in de `TablePreferredLocations` lijst. Als de aanvraag is mislukt, zal de client mislukken omlaag in de lijst voor de volgende regio, enzovoort.
+Alle leest de eerste beschikbare regio toohello verzonden in Hallo `TablePreferredLocations` lijst. Als Hallo-aanvraag is mislukt, zal Hallo client mislukken omlaag Hallo lijst toohello volgende regio, enzovoort.
 
-De SDK wordt alleen poging tot lezen van de gebieden die zijn opgegeven `TablePreferredLocations`. Ja, bijvoorbeeld of de Account van de Database is beschikbaar in drie gebieden, maar de client geeft alleen twee van de niet-schrijven regio's voor `TablePreferredLocations`, en vervolgens geen leesbewerkingen buiten de regio schrijven, zelfs wanneer een failover kunnen worden geleverd.
+Hallo SDK proberen enkel tooread uit Hallo regio's die zijn opgegeven in `TablePreferredLocations`. Dus bijvoorbeeld als Hallo databaseaccount beschikbaar in drie gebieden is, maar het Hallo-client alleen twee van bevat Hallo niet schrijven regio's voor `TablePreferredLocations`, en vervolgens geen leesbewerkingen buiten Hallo schrijven regio, zelfs in geval van Hallo van failover kunnen worden geleverd.
 
-Alle schrijfbewerkingen naar de huidige schrijven regio worden automatisch verzonden door de SDK.
+Hallo SDK worden automatisch alle schrijfbewerkingen toohello huidige schrijven regio verzonden.
 
-Als de `TablePreferredLocations` eigenschap niet is ingesteld, wordt alle aanvragen van het huidige schrijven gebied kunnen worden geleverd.
+Als hello `TablePreferredLocations` eigenschap niet is ingesteld, worden alle aanvragen worden aangeboden via Hallo huidige schrijven regio.
 
 ```xml
     <appSettings>
@@ -54,17 +54,17 @@ Als de `TablePreferredLocations` eigenschap niet is ingesteld, wordt alle aanvra
     </appSettings>
 ```
 
-Dat is, die in deze zelfstudie is voltooid. U kunt informatie over het beheren van de consistentie van uw account globaal gerepliceerde door te lezen [consistentieniveaus in Azure Cosmos DB](consistency-levels.md). En Zie voor meer informatie over hoe globale databasereplicatie in Azure Cosmos DB werkt, [gegevens globaal met Azure Cosmos DB distribueren](distribute-data-globally.md).
+Dat is, die in deze zelfstudie is voltooid. U leert hoe toomanage consistentie van uw account globaal gerepliceerde Hallo door te lezen [consistentieniveaus in Azure Cosmos DB](consistency-levels.md). En Zie voor meer informatie over hoe globale databasereplicatie in Azure Cosmos DB werkt, [gegevens globaal met Azure Cosmos DB distribueren](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u het volgende gedaan:
+In deze zelfstudie hebt u Hallo volgende gedaan:
 
 > [!div class="checklist"]
-> * Globale distributie op basis van de Azure-portal configureren
-> * Globale distributie op basis van de DocumentDB APIs configureren
+> * Globale distributie op basis van hello Azure-portal configureren
+> * Globale distributie op basis van Hallo DocumentDB APIs configureren
 
-U kunt nu doorgaan met de volgende zelfstudie voor meer informatie over het ontwikkelen van lokaal via de lokale Azure DB die Cosmos-emulator.
+U kunt nu doorgaan met de volgende zelfstudie toolearn toohello hoe toodevelop lokaal via Azure Cosmos DB lokale emulator Hallo.
 
 > [!div class="nextstepaction"]
-> [Lokaal ontwikkelen met de emulator](local-emulator.md)
+> [Lokaal ontwikkelen met Hallo emulator](local-emulator.md)

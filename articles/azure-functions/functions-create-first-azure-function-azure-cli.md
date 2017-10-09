@@ -1,6 +1,6 @@
 ---
-title: Uw eerste Azure-functie maken vanuit Azure CLI | Microsoft Docs
-description: Informatie over het maken van uw eerste serverloze Azure-functie met behulp van Azure CLI.
+title: uw eerste functie van Azure CLI Hallo aaaCreate | Microsoft Docs
+description: Meer informatie over hoe uw eerste Azure-functie voor het gebruik van zonder server worden uitgevoerd toocreate hello Azure CLI.
 services: functions
 keywords: 
 author: ggailey777
@@ -12,21 +12,21 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: erikre
-ms.openlocfilehash: 8bd3e4bb7423db44c48b04f25edcf1074e6ea0bd
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5feed0045d4998b88b0e1bb50996cb7bb42b0822
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-your-first-function-using-the-azure-cli"></a>Uw eerste functie maken met Azure CLI
+# <a name="create-your-first-function-using-hello-azure-cli"></a>Maken van uw eerste functie met hello Azure CLI
 
-In deze Quick Start-zelfstudie wordt stapsgewijs uitgelegd hoe u Azure Functions kunt gebruiken om uw eerste functie te maken. Azure CLI gebruikt u om een functie-app te maken. Het is de serverloze infrastructuur die als host fungeert voor uw functie. De functiecode zelf wordt geïmplementeerd vanuit een voorbeeldopslagplaats in GitHub.    
+Deze Quick Start-zelfstudie wordt uitgelegd hoe u toouse Azure Functions toocreate uw eerste functie. U hello Azure CLI toocreate een functie-app, zonder server Hallo-infrastructuur die als host fungeert voor de functie. Hallo functiecode zelf wordt geïmplementeerd vanaf een GitHub-opslagplaats voorbeeld.    
 
-U kunt de onderstaande stappen volgen op een Mac-, Windows- of Linux-computer. 
+U kunt stappen Hallo hieronder een Mac-, Windows- of Linux-computer. 
 
 ## <a name="prerequisites"></a>Vereisten 
 
-Voordat u dit voorbeeld kunt uitvoeren moet u ervoor zorgen dat u het volgende hebt:
+Voordat u dit voorbeeld uitvoert, moet u de volgende Hallo hebben:
 
 + Een actief [GitHub](https://github.com)-account. 
 + Een actief Azure-abonnement.
@@ -35,14 +35,14 @@ Voordat u dit voorbeeld kunt uitvoeren moet u ervoor zorgen dat u het volgende h
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, wordt in dit onderwerp vereist dat u hello Azure CLI versie 2.0 of hoger worden uitgevoerd. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources, zoals functie-apps, databases en opslagaccounts worden geïmplementeerd en beheerd.
+Een resourcegroep maken met de Hallo [az groep maken](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources, zoals functie-apps, databases en opslagaccounts worden geïmplementeerd en beheerd.
 
-In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt.  
+Hallo volgende voorbeeld maakt u een resourcegroep met de naam `myResourceGroup`.  
 Als u Cloud Shell niet gebruikt, moet u eerst zich aanmelden met `az login`.
 
 ```azurecli-interactive
@@ -52,15 +52,15 @@ az group create --name myResourceGroup --location westeurope
 
 ## <a name="create-an-azure-storage-account"></a>Een Azure Storage-account maken
 
-Functions gebruikt een Azure Storage-account om de status van uw functies en andere informatie erover te onderhouden. Maak een opslagaccount in de resourcegroep die u hebt gemaakt met behulp van de opdracht [az storage account create](/cli/azure/storage/account#create).
+Functies maakt gebruik van een Azure Storage-account toomaintain status en andere informatie over uw functies. Een opslagaccount maken in Hallo resourcegroep hebt gemaakt met de Hallo [az storage-account maken](/cli/azure/storage/account#create) opdracht.
 
-Vervang in de volgende opdracht de plaatsaanduiding `<storage_name>` met uw eigen wereldwijd unieke opslagaccountnaam. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten.
+In Hallo opdracht, na uw eigen globaal unieke opslagaccountnaam waarin u zien hoe Hallo ook `<storage_name>` tijdelijke aanduiding. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten.
 
 ```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
 ```
 
-Nadat het opslagaccount is gemaakt, toont Azure CLI soortgelijke informatie als in het volgende voorbeeld:
+Nadat het Hallo-storage-account is gemaakt, ziet u hello Azure CLI informatie vergelijkbare toohello voorbeeld te volgen:
 
 ```json
 {
@@ -82,17 +82,17 @@ Nadat het opslagaccount is gemaakt, toont Azure CLI soortgelijke informatie als 
 
 ## <a name="create-a-function-app"></a>Een functie-app maken
 
-U moet een functie-app hebben die als host fungeert voor de uitvoering van uw functies. De functie-app biedt een omgeving waarin uw functiecode zonder server kan worden uitgevoerd. U kunt er functies mee groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren en delen. Een functie-app maken met behulp van de opdracht [az functionapp create](/cli/azure/functionapp#create). 
+U moet een functie-app toohost Hallo uitvoering van uw functies hebben. Hallo functie-app biedt een omgeving voor zonder server uitvoeren van de functiecode. U kunt er functies mee groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren en delen. Een functie-app maken met behulp van Hallo [az functionapp maken](/cli/azure/functionapp#create) opdracht. 
 
-Vervang in de volgende opdracht de plaatsaanduiding `<app_name>` en de opslagaccountnaam voor `<storage_name>` met uw eigen unieke functie-appnaam. De `<app_name>` wordt gebruikt als het standaard DNS-domein voor de functie-app. Om die reden moet de naam uniek zijn in alle apps in Azure. 
+In Hallo volgende opdracht, vervangt u de naam van uw eigen unieke functie-app waarin u zien hoe Hallo `<app_name>` tijdelijke aanduiding en Hallo opslagaccountnaam voor `<storage_name>`. Hallo `<app_name>` wordt gebruikt als Hallo standaard DNS-domein voor Hallo functie-app en geval Hallo-naam toobe uniek zijn in alle apps in Azure moet. 
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
 --consumption-plan-location westeurope
 ```
-Standaard wordt een functie-app gemaakt met het hostingabonnement Consumption, wat betekent dat resources dynamisch worden toegevoegd wanneer ze voor uw functies zijn vereist; en u betaalt alleen wanneer functies worden uitgevoerd. Zie [Het juiste hostingabonnement kiezen](functions-scale.md) voor meer informatie. 
+Standaard wordt een functie-app gemaakt met Hallo verbruik hosting plan, wat betekent dat bronnen dynamisch zoals vereist door uw functies zijn toegevoegd en u alleen betaalt wanneer functies worden uitgevoerd. Zie voor meer informatie [Kies Hallo juist hosting plan](functions-scale.md). 
 
-Nadat de functie-app is gemaakt, toont Azure CLI soortgelijke informatie als in het volgende voorbeeld:
+Nadat het Hallo-functie-app is gemaakt, ziet u hello Azure CLI informatie vergelijkbare toohello voorbeeld te volgen:
 
 ```json
 {
@@ -112,18 +112,18 @@ Nadat de functie-app is gemaakt, toont Azure CLI soortgelijke informatie als in 
 }
 ```
 
-Nu u een functie-app hebt, kunt u de werkelijke functiecode vanuit de voorbeeldopslagplaats in GitHub implementeren.
+Nu dat u een functie-app hebt, kunt u de werkelijke functiecode Hallo van Hallo GitHub-opslagplaats voor voorbeeld kunt implementeren.
 
 ## <a name="deploy-your-function-code"></a>Uw functiecode implementeren  
 
-Er zijn verschillende manieren om uw functiecode te maken in uw nieuwe functie app. In dit onderwerp wordt verbinding gemaakt met een voorbeeldopslagplaats in GitHub. Net als voorheen moet u in de volgende code de plaatsaanduiding `<app_name>` vervangen door de naam van de functie-app die u hebt gemaakt. 
+Er zijn verschillende manieren toocreate uw functiecode in uw nieuwe functie-app. In dit onderwerp maakt verbinding tooa voorbeeld opslagplaats in GitHub. Als voorheen in Hallo na code vervangt Hallo `<app_name>` aanduiding voor items met de naam Hallo van Hallo functie-app u hebt gemaakt. 
 
 ```azurecli-interactive
 az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --branch master \
 --repo-url https://github.com/Azure-Samples/functions-quickstart \
 --manual-integration 
 ```
-Nadat de implementatiebron is ingesteld, wordt door Azure CLI informatie weergegeven die overeenkomt met het volgende voorbeeld (null-waarden zijn verwijderd vanwege de leesbaarheid):
+Na de implementatie van Hallo is bron ingesteld, hello Azure CLI toont informatie vergelijkbare toohello voorbeeld (null-waarden voor de leesbaarheid verwijderd) te volgen:
 
 ```json
 {
@@ -140,9 +140,9 @@ Nadat de implementatiebron is ingesteld, wordt door Azure CLI informatie weergeg
 }
 ```
 
-## <a name="test-the-function"></a>De functie testen
+## <a name="test-hello-function"></a>Hallo functie testen
 
-Gebruik cURL om de geïmplementeerde functie te testen op een Mac- of Linux-computer of met Bash op Windows. Voer de volgende cURL-opdracht uit, waarbij u de plaatsaanduiding `<app_name>` vervangt door de naam van de functie-app die u hebt gemaakt. Voeg de queryreeks `&name=<yourname>` toe aan de URL.
+CURL tootest Hallo geïmplementeerd functie op een Mac- of Linux-computer- of Bash via op Windows gebruiken. Uitvoeren van de volgende cURL-opdracht, waarbij vervangt Hallo Hallo `<app_name>` aanduiding voor items met Hallo-naam van de functie-app. Hallo-queryreeks toevoegen `&name=<yourname>` toohello URL.
 
 ```bash
 curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
@@ -150,7 +150,7 @@ curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
 
 ![Het antwoord van de functie weergegeven in een browser.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-curl.png)  
 
-Als cURL niet beschikbaar is op uw opdrachtregel, moet u gewoon dezelfde URL opgeven op de adresbalk van uw webbrowser. Vervang weer de plaatsaanduiding `<app_name>` door de naam van uw functie-app, voeg de queryreeks `&name=<yourname>` toe aan de URL en voer de aanvraag uit. 
+Als u geen cURL beschikbaar in de opdrachtregel, voert u dezelfde URL Hallo-adres van uw webbrowser Hallo. Opnieuw vervangen Hallo `<app_name>` tijdelijke aanduiding met de naam van uw app functie Hallo en toevoeg-queryreeks Hallo `&name=<yourname>` toohello URL en Hallo aanvraag uit te voeren. 
 
     http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
    
@@ -158,7 +158,7 @@ Als cURL niet beschikbaar is op uw opdrachtregel, moet u gewoon dezelfde URL opg
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u van plan bent om door te gaan met andere Quick Starts of met de zelfstudies, verwijdert u de resources die u in deze Quick Start hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende opdracht om alle resources die via deze Quick Start zijn gemaakt, te verwijderen:
+Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u van plan toocontinue toowork daaropvolgende snelstartgidsen of met Hallo zelfstudies bent, gaat u als Hallo-resources die zijn gemaakt in deze snelstartgids niet opruimen. Als u niet van plan toocontinue bent, gebruikt u Hallo opdracht toodelete na alle resources die zijn gemaakt door deze snelstartgids:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

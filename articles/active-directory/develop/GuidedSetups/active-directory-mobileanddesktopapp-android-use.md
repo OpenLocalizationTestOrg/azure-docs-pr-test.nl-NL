@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2 Android ophalen gestart - gebruiken | Microsoft Docs
+title: aaaAzure AD v2 Android aan de slag - gebruik | Microsoft Docs
 description: Hoe een Android-app kunt ophalen van een toegangstoken en Microsoft Graph API of API's waarvoor toegangstokens van Azure Active Directory-v2-eindpunt aanroepen
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,16 +15,16 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 7963a07a2b9d529e89302f32e5ffd56c51687ffa
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4480d89eb7638fe7d588c8cebd2b1e3c9d4c6e3f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>De Microsoft Authentication Library (MSAL) gebruiken voor het ophalen van een token voor de Microsoft Graph-API
+## <a name="use-hello-microsoft-authentication-library-msal-tooget-a-token-for-hello-microsoft-graph-api"></a>Hallo Microsoft Authentication Library (MSAL) tooget een token voor Hallo Microsoft Graph API gebruiken
 
 1.  Open: `MainActivity` (onder `app`  >  `java`  >  `{domain}.{appname}`)
-2.  Voeg de volgende import toe:
+2.  Hallo na invoer toevoegen:
 
 ```java
 import android.app.Activity;
@@ -46,14 +46,14 @@ import com.microsoft.identity.client.*;
 <!-- Workaround for Docs conversion bug -->
 <ol start="3">
 <li>
-Vervang de `MainActivity` klasse met hieronder:
+Vervang Hallo `MainActivity` klasse met hieronder:
 </li>
 </ol>
 
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    final static String CLIENT_ID = "[Enter the application Id here]";
+    final static String CLIENT_ID = "[Enter hello application Id here]";
     final static String SCOPES [] = {"https://graph.microsoft.com/User.Read"};
     final static String MSGRAPH_URL = "https://graph.microsoft.com/v1.0/me";
 
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                     CLIENT_ID);
         }
 
-  /* Attempt to get a user and acquireTokenSilent
+  /* Attempt tooget a user and acquireTokenSilent
    * If this fails we do an interactive request
    */
         List<User> users = null;
@@ -125,8 +125,8 @@ public class MainActivity extends AppCompatActivity {
 // App callbacks for MSAL
 // ======================
 // getActivity() - returns activity so we can acquireToken within a callback
-// getAuthSilentCallback() - callback defined to handle acquireTokenSilent() case
-// getAuthInteractiveCallback() - callback defined to handle acquireToken() case
+// getAuthSilentCallback() - callback defined toohandle acquireTokenSilent() case
+// getAuthInteractiveCallback() - callback defined toohandle acquireToken() case
 //
 
     public Activity getActivity() {
@@ -134,8 +134,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /* Callback method for acquireTokenSilent calls 
-     * Looks if tokens are in the cache (refreshes if necessary and if we don't forceRefresh)
-     * else errors that we need to do an interactive request.
+     * Looks if tokens are in hello cache (refreshes if necessary and if we don't forceRefresh)
+     * else errors that we need toodo an interactive request.
      */
     private AuthenticationCallback getAuthSilentCallback() {
         return new AuthenticationCallback() {
@@ -144,25 +144,25 @@ public class MainActivity extends AppCompatActivity {
             /* Successfully got a token, call Graph now */
                 Log.d(TAG, "Successfully authenticated");
 
-            /* Store the authResult */
+            /* Store hello authResult */
                 authResult = authenticationResult;
 
             /* call graph */
                 callGraphAPI();
 
-            /* update the UI to post call Graph state */
+            /* update hello UI toopost call Graph state */
                 updateSuccessUI();
             }
 
             @Override
             public void onError(MsalException exception) {
-            /* Failed to acquireToken */
+            /* Failed tooacquireToken */
                 Log.d(TAG, "Authentication failed: " + exception.toString());
 
                 if (exception instanceof MsalClientException) {
                 /* Exception inside MSAL, more info inside MsalError.java */
                 } else if (exception instanceof MsalServiceException) {
-                /* Exception when communicating with the STS, likely config issue */
+                /* Exception when communicating with hello STS, likely config issue */
                 } else if (exception instanceof MsalUiRequiredException) {
                 /* Tokens expired or no session, retry with interactive */
                 }
@@ -170,15 +170,15 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCancel() {
-            /* User canceled the authentication */
+            /* User canceled hello authentication */
                 Log.d(TAG, "User cancelled login.");
             }
         };
     }
 
 
-    /* Callback used for interactive request.  If succeeds we use the access
-         * token to call the Microsoft Graph. Does not check cache
+    /* Callback used for interactive request.  If succeeds we use hello access
+         * token toocall hello Microsoft Graph. Does not check cache
          */
     private AuthenticationCallback getAuthInteractiveCallback() {
         return new AuthenticationCallback() {
@@ -188,37 +188,37 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "Successfully authenticated");
                 Log.d(TAG, "ID Token: " + authenticationResult.getIdToken());
 
-            /* Store the auth result */
+            /* Store hello auth result */
                 authResult = authenticationResult;
 
             /* call Graph */
                 callGraphAPI();
 
-            /* update the UI to post call Graph state */
+            /* update hello UI toopost call Graph state */
                 updateSuccessUI();
             }
 
             @Override
             public void onError(MsalException exception) {
-            /* Failed to acquireToken */
+            /* Failed tooacquireToken */
                 Log.d(TAG, "Authentication failed: " + exception.toString());
 
                 if (exception instanceof MsalClientException) {
                 /* Exception inside MSAL, more info inside MsalError.java */
                 } else if (exception instanceof MsalServiceException) {
-                /* Exception when communicating with the STS, likely config issue */
+                /* Exception when communicating with hello STS, likely config issue */
                 }
             }
 
             @Override
             public void onCancel() {
-            /* User canceled the authentication */
+            /* User canceled hello authentication */
                 Log.d(TAG, "User cancelled login.");
             }
         };
     }
 
-    /* Set the UI for successful token acquisition data */
+    /* Set hello UI for successful token acquisition data */
     private void updateSuccessUI() {
         callGraphButton.setVisibility(View.INVISIBLE);
         signOutButton.setVisibility(View.VISIBLE);
@@ -228,14 +228,14 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.graphData).setVisibility(View.VISIBLE);
     }
 
-    /* Use MSAL to acquireToken for the end-user
+    /* Use MSAL tooacquireToken for hello end-user
      * Callback will call Graph api w/ access token & update UI
      */
     private void onCallGraphClicked() {
         sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
     }
 
-    /* Handles the redirect from the System Browser */
+    /* Handles hello redirect from hello System Browser */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         sampleApp.handleInteractiveRequestRedirect(requestCode, resultCode, data);
@@ -246,25 +246,25 @@ public class MainActivity extends AppCompatActivity {
 <!--start-collapse-->
 ### <a name="more-information"></a>Meer informatie
 #### <a name="getting-a-user-token-interactive"></a>Een token ophalen interactieve
-Het aanroepen van de `AcquireTokenAsync` methode resulteert in een venster vraagt de gebruiker aan te melden. Toepassingen vereisen meestal een gebruiker zich aanmelden interactief de eerste keer dat ze nodig hebben voor toegang tot een beveiligde bron, of wanneer een achtergrond-bewerking te verkrijgen van een token mislukt (bijvoorbeeld van de gebruiker het wachtwoord verlopen).
+Aanroepen Hallo `AcquireTokenAsync` methode resulteert in een venster waarin wordt gevraagd Hallo toosign van de gebruiker in. Toepassingen zijn doorgaans vereist een gebruiker toosign in interactief Hallo eerste keer dat ze tooaccess moeten een beveiligde bron of wanneer een stille bewerking tooacquire een token mislukt (bijvoorbeeld Hallo gebruikerswachtwoord verlopen).
 
 #### <a name="getting-a-user-token-silently"></a>Een gebruiker ophalen achtergrond token
-`AcquireTokenSilentAsync`token acquisities van organisaties en verlenging zonder tussenkomst van de gebruiker worden verwerkt. Na `AcquireTokenAsync` wordt uitgevoerd voor de eerste keer `AcquireTokenSilentAsync` is de methode gewoonlijk gebruikt voor het verkrijgen van toegang tot beveiligde bronnen voor volgende aanroepen --tokens zoals aanroepen aan te vragen of vernieuwen van tokens op de achtergrond worden aangebracht.
-Uiteindelijk `AcquireTokenSilentAsync` mislukt: bijvoorbeeld de gebruiker heeft zich afgemeld, of het wachtwoord op een ander apparaat is gewijzigd. Wanneer MSAL detecteert dat het probleem doordat een interactieve actie kan worden omgezet, wordt deze gebeurtenis wordt gestart een `MsalUiRequiredException`. Uw toepassing kan verwerken van deze uitzondering op twee manieren:
+`AcquireTokenSilentAsync`token acquisities van organisaties en verlenging zonder tussenkomst van de gebruiker worden verwerkt. Na `AcquireTokenAsync` wordt uitgevoerd voor Hallo eerst `AcquireTokenSilentAsync` Hallo methode gebruikte tooobtain tokens tooaccess resources voor volgende aanroepen - beveiligd als aanroepen toorequest of vernieuwen van tokens achtergrond worden aangebracht.
+Uiteindelijk `AcquireTokenSilentAsync` mislukt: bijvoorbeeld Hallo gebruiker heeft zich afgemeld of het wachtwoord op een ander apparaat is gewijzigd. Wanneer MSAL detecteert dat Hallo probleem doordat een interactieve actie kan worden omgezet, wordt deze gebeurtenis wordt gestart een `MsalUiRequiredException`. Uw toepassing kan verwerken van deze uitzondering op twee manieren:
 
-1.  Een aanroep tegen `AcquireTokenAsync` onmiddellijk, wat ertoe leidt de gebruiker om aan te melden. Dit patroon wordt meestal gebruikt in de on line toepassingen wanneer er geen offline inhoud in de toepassing beschikbaar is voor de gebruiker is. Dit patroon maakt gebruik van de steekproef die worden gegenereerd door deze Begeleide instelprocedure: u kunt deze bekijken in actie de eerste keer dat u het voorbeeld uitvoert: omdat er geen gebruiker ooit de toepassing gebruikt `PublicClientApp.Users.FirstOrDefault` bevat een null-waarde en een `MsalUiRequiredException` uitzondering gegenereerd. De code in het voorbeeld de uitzondering wordt verwerkt door het aanroepen van `AcquireTokenAsync` waardoor vraagt de gebruiker om aan te melden.
-2.  Toepassingen kunnen ook een visuele indicatie maken voor de gebruiker die een interactief aanmelden is vereist, zodat de gebruiker het juiste moment aan te melden kunt selecteren of de toepassing opnieuw kunt `AcquireTokenSilentAsync` op een later tijdstip. Dit wordt meestal gebruikt wanneer de gebruiker kan toegang krijgen tot de functionaliteit van de toepassing zonder wordt onderbroken - bijvoorbeeld offline inhoud beschikbaar is in de toepassing is. In dit geval wordt de gebruiker kunt bepalen wanneer ze willen aanmelden voor toegang tot de beveiligde bron, of om de verouderde gegevens te vernieuwen of uw toepassing kunt ervoor kiezen om opnieuw te proberen `AcquireTokenSilentAsync` wanneer netwerk is hersteld na een tijdelijk niet beschikbaar.
+1.  Een aanroep tegen `AcquireTokenAsync` onmiddellijk, wat ertoe leidt Hallo gebruiker toosign in. Dit patroon wordt meestal gebruikt in de on line toepassingen wanneer er geen offline inhoud in de toepassing hello beschikbaar voor Hallo-gebruiker is. Hallo voorbeeld gegenereerd met deze Begeleide installatie maakt gebruik van dit patroon: u kunt deze bekijken in actie Hallo eerste keer dat u Hallo voorbeeld uitvoert: omdat er geen gebruiker ooit toepassing hello gebruikt, `PublicClientApp.Users.FirstOrDefault` bevat een null-waarde en een `MsalUiRequiredException` uitzondering gegenereerd. code in de steekproef Hallo Hallo vervolgens ingangen Hallo uitzondering door aan te roepen `AcquireTokenAsync` waardoor Hallo gebruiker toosign in.
+2.  Toepassingen kunnen ook een visuele indicatie toohello-gebruiker die een interactief aanmelden is vereist, zodat Hallo-gebruiker kunt selecteren Hallo juiste moment toosign in of toepassing hello opnieuw kunt maken `AcquireTokenSilentAsync` op een later tijdstip. Dit wordt meestal gebruikt wanneer het Hallo-gebruiker is kunnen tooaccess functionaliteit van de toepassing hello zonder wordt onderbroken - bijvoorbeeld is offline-inhoud in de toepassing hello beschikbaar. In dit geval Hallo-gebruiker kunt bepalen wanneer hij of zij wil toosign in tooaccess Hallo beveiligde resource, toorefresh Hallo verouderde informatie of uw toepassing kunt bepalen tooretry `AcquireTokenSilentAsync` wanneer netwerk is hersteld na een tijdelijk niet beschikbaar.
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>De Microsoft Graph API met behulp van het token dat u zojuist hebt verkregen aanroepen
-1.  Voeg de volgende methoden in de `MainActivity` klasse:
+## <a name="call-hello-microsoft-graph-api-using-hello-token-you-just-obtained"></a>Hallo Hallo-token die u zojuist hebt verkregen met Microsoft Graph-API niet aanroepen
+1.  Toevoegen van de volgende methoden in Hallo Hallo `MainActivity` klasse:
 
 ```java
-/* Use Volley to make an HTTP request to the /me endpoint from MS Graph using an access token */
+/* Use Volley toomake an HTTP request toohello /me endpoint from MS Graph using an access token */
 private void callGraphAPI() {
-    Log.d(TAG, "Starting volley request to graph");
+    Log.d(TAG, "Starting volley request toograph");
 
-    /* Make sure we have a token to send to graph */
+    /* Make sure we have a token toosend toograph */
     if (authResult.getAccessToken() == null) {return;}
 
     RequestQueue queue = Volley.newRequestQueue(this);
@@ -273,13 +273,13 @@ private void callGraphAPI() {
     try {
         parameters.put("key", "value");
     } catch (Exception e) {
-        Log.d(TAG, "Failed to put parameters: " + e.toString());
+        Log.d(TAG, "Failed tooput parameters: " + e.toString());
     }
     JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, MSGRAPH_URL,
             parameters,new Response.Listener<JSONObject>() {
         @Override
         public void onResponse(JSONObject response) {
-            /* Successfully called graph, process data and send to UI */
+            /* Successfully called graph, process data and send tooUI */
             Log.d(TAG, "Response: " + response.toString());
 
             updateGraphUI(response);
@@ -298,7 +298,7 @@ private void callGraphAPI() {
         }
     };
 
-    Log.d(TAG, "Adding HTTP GET to Queue, Request: " + request.toString());
+    Log.d(TAG, "Adding HTTP GET tooQueue, Request: " + request.toString());
 
     request.setRetryPolicy(new DefaultRetryPolicy(
             3000,
@@ -307,7 +307,7 @@ private void callGraphAPI() {
     queue.add(request);
 }
 
-/* Sets the Graph response */
+/* Sets hello Graph response */
 private void updateGraphUI(JSONObject graphResponse) {
     TextView graphText = (TextView) findViewById(R.id.graphData);
     graphText.setText(graphResponse.toString());
@@ -316,20 +316,20 @@ private void updateGraphUI(JSONObject graphResponse) {
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Meer informatie over het maken van een REST-aanroep op basis van een beveiligde API
 
-In deze voorbeeldtoepassing `callGraphAPI` aanroepen `getAccessToken` en maakt vervolgens een HTTP `GET` -aanvraag in voor een resource die is een token vereist en retourneert de inhoud. Met deze methode wordt het token verkregen in de *HTTP-autorisatie-header*. Voor dit voorbeeld wordt de resource is de Microsoft Graph API *mij* eindpunt – waarin informatie over het profiel van de gebruiker.
+In deze voorbeeldtoepassing `callGraphAPI` aanroepen `getAccessToken` en maakt vervolgens een HTTP `GET` -aanvraag in voor een resource die is een token vereist en retourneert Hallo inhoud. Met deze methode wordt Hallo verkregen token in Hallo *HTTP-autorisatie-header*. Voor dit voorbeeld is Hallo resource Hallo Microsoft Graph API *mij* eindpunt – Hallo van gebruikersprofielgegevens worden weergegeven.
 <!--end-collapse-->
 
 ## <a name="setup-sign-out"></a>Setup afmelden
 
-1.  Voeg de volgende methoden in de `MainActivity` klasse:
+1.  Toevoegen van de volgende methoden in Hallo Hallo `MainActivity` klasse:
 
 ```java
-/* Clears a user's tokens from the cache.
- * Logically similar to "sign out" but only signs out of this app.
+/* Clears a user's tokens from hello cache.
+ * Logically similar too"sign out" but only signs out of this app.
  */
 private void onSignOutClicked() {
 
-    /* Attempt to get a user and remove their cookies from cache */
+    /* Attempt tooget a user and remove their cookies from cache */
     List<User> users = null;
 
     try {
@@ -363,7 +363,7 @@ private void onSignOutClicked() {
     }
 }
 
-/* Set the UI for signed-out user */
+/* Set hello UI for signed-out user */
 private void updateSignedOutUI() {
     callGraphButton.setVisibility(View.VISIBLE);
     signOutButton.setVisibility(View.INVISIBLE);
@@ -375,6 +375,6 @@ private void updateSignedOutUI() {
 <!--start-collapse-->
 ### <a name="more-information"></a>Meer informatie
 
-`onSignOutClicked`hierboven Hiermee verwijdert u de gebruiker uit de cache van de gebruiker MSAL – effectief ziet MSAL vergeten van de huidige gebruiker, zodat een toekomstige aanvraag voor een token verkrijgen alleen lukt als het gaat interactief zijn.
-Hoewel de toepassing in dit voorbeeld een enkele gebruiker ondersteunt, ondersteunt MSAL scenario's waarbij meerdere accounts kunnen worden aangemeld op hetzelfde moment: een voorbeeld is een e-mailtoepassing waar een gebruiker heeft meerdere accounts.
+`onSignOutClicked`hierboven verwijdert hello gebruiker uit de cache van de gebruiker MSAL – effectief ziet MSAL tooforget Hallo huidige gebruiker zodat een tooacquire toekomstige aanvraag een token alleen slaagt als het gaat toobe interactieve.
+Hoewel het Hallo-toepassing in dit voorbeeld ondersteunt een enkele gebruiker, MSAL scenario's waar meerdere accounts aangemeld op Hallo worden kunnen ondersteunt dezelfde tijd: een voorbeeld hiervan is een e-mailtoepassing waar een gebruiker heeft meerdere accounts.
 <!--end-collapse-->

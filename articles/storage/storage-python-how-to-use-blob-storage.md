@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van Azure Blob storage (objectopslag) met Python | Microsoft Docs
-description: Sla niet-gestructureerde gegevens op in de cloud met Azure Blob Storage (objectopslag).
+title: aaaHow toouse Azure Blob storage (objectopslag) met Python | Microsoft Docs
+description: Niet-gestructureerde gegevens opslaan in Hallo cloud met Azure Blob storage (objectopslag).
 services: storage
 documentationcenter: python
 author: mmacy
@@ -14,34 +14,34 @@ ms.devlang: python
 ms.topic: article
 ms.date: 2/24/2017
 ms.author: marsma
-ms.openlocfilehash: 968814db9496fd410162d482191592c8a56101f0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6efc61aa89e6d2544b7a18c80ce3546640f90462
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-blob-storage-from-python"></a>Hoe Azure Blob storage gebruiken met Python
+# <a name="how-toouse-azure-blob-storage-from-python"></a>Hoe toouse Azure Blob storage met Python
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Overzicht
-Azure Blob Storage is een service waarmee ongestructureerde gegevens als objecten/blobs worden opgeslagen in de cloud. In Blob Storage kan elk type tekst of binaire gegevens, zoals een document, mediabestand of toepassingsinstallatieprogramma, worden opgeslagen. U kunt Blob Storage zien als een vorm van objectopslag.
+Azure Blob storage is een service die niet-gestructureerde gegevens in de cloud Hallo als objecten/blobs opslaat. In Blob Storage kan elk type tekst of binaire gegevens, zoals een document, mediabestand of toepassingsinstallatieprogramma, worden opgeslagen. BLOB-opslag is ook bedoeld tooas vorm van objectopslag.
 
-In dit artikel wordt beschreven hoe u veelvoorkomende scenario's met behulp van Blob-opslag uitvoeren. De voorbeelden zijn geschreven in Python en gebruik de [Microsoft Azure-opslag-SDK voor Python]. De scenario's worden behandeld bevatten uploaden, aanbieding, downloaden en verwijderen van blobs.
+In dit artikel wordt uitgelegd hoe u tooperform algemene scenario's met behulp van Blob-opslag. Hallo-voorbeelden zijn geschreven in Python en gebruiken van Hallo [Microsoft Azure-opslag-SDK voor Python]. Hallo scenario's worden behandeld bevatten uploaden, aanbieding, downloaden en verwijderen van blobs.
 
 [!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-container"></a>Een container maken
-Op basis van het type van de blob die u wilt gebruiken, maakt een **BlockBlobService**, **AppendBlobService**, of **PageBlobService** object. De volgende code wordt een **BlockBlobService** object. De volgende boven aan elk Python-bestand waarin u programmatisch toegang biedt tot Azure-blok-Blob-opslag wilt toevoegen.
+Op basis van Hallo type blob gewenst toouse, maak een **BlockBlobService**, **AppendBlobService**, of **PageBlobService** object. Hallo volgende code wordt een **BlockBlobService** object. De volgende Hallo bij Hallo bovenkant van een Python-bestand waarin u tooprogrammatically access Azure blok-Blob-opslag wilt toevoegen.
 
 ```python
 from azure.storage.blob import BlockBlobService
 ```
 
-De volgende code maakt een **BlockBlobService** object met de naam en het account opslagaccountsleutel.  'Myaccount' en 'mykey' vervangen door uw accountnaam en de sleutel.
+Hallo volgende code maakt een **BlockBlobService** -object op met de Hallo naam en opslagaccountsleutel.  'Myaccount' en 'mykey' vervangen door uw accountnaam en de sleutel.
 
 ```python
 block_blob_service = BlockBlobService(account_name='myaccount', account_key='mykey')
@@ -49,33 +49,33 @@ block_blob_service = BlockBlobService(account_name='myaccount', account_key='myk
 
 [!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-In het volgende voorbeeld, kunt u een **BlockBlobService** object te maken van de container als deze niet bestaat.
+In de Hallo volgende codevoorbeeld, kunt u een **BlockBlobService** toocreate Hallo objectcontainer als deze niet bestaat.
 
 ```python
 block_blob_service.create_container('mycontainer')
 ```
 
-Standaard is de nieuwe container privé, dus u uw toegangssleutel voor opslag opgeven moet (zoals u eerder hebt gedaan) om blobs te downloaden uit deze container. Als u de blobs in de container beschikbaar maken voor iedereen wilt, kunt u de container maken en geeft het niveau van de openbare toegang met de volgende code.
+Hallo nieuwe container is standaard privé, dus u uw toegangssleutel voor opslag opgeven moet (zoals u eerder hebt gedaan) toodownload blobs uit deze container. U kunt desgewenst toomake Hallo blobs in hello container beschikbaar tooeveryone Hallo container maken en Hallo openbare toegangsniveau met behulp van de volgende code Hallo doorgeven.
 
 ```python
 from azure.storage.blob import PublicAccess
 block_blob_service.create_container('mycontainer', public_access=PublicAccess.Container)
 ```
 
-U kunt ook een container wijzigen nadat u hebt gemaakt met behulp van de volgende code.
+U kunt ook een container wijzigen nadat u hebt gemaakt met behulp van de volgende code Hallo.
 
 ```python
 block_blob_service.set_container_acl('mycontainer', public_access=PublicAccess.Container)
 ```
 
-Na deze wijziging iedereen op Internet kan blobs in een openbare container zien, maar u kunt alleen wijzigen of verwijderen.
+Na deze wijziging kan iedereen op Internet Hallo blobs in een openbare container zien, maar u kunt alleen wijzigen of verwijderen.
 
 ## <a name="upload-a-blob-into-a-container"></a>Een blob uploaden naar een container
-Voor het maken van een blok-blob en gegevens uploaden, gebruiken de **maken\_blob\_van\_pad**, **maken\_blob\_van\_stroom**, **maken\_blob\_van\_bytes** of **maken\_blob\_van\_tekst** methoden. Op hoog niveau methoden voor het uitvoeren van de benodigde verdeling in segmenten wanneer de grootte van de gegevens is groter dan 64 MB zijn.
+toocreate een blok-blob en het van uploadgegevens, gebruikt u Hallo **maken\_blob\_van\_pad**, **maken\_blob\_van\_stroom**, **maken\_blob\_van\_bytes** of **maken\_blob\_van\_tekst** methoden. Op hoog niveau van de methoden die Hallo nodig verdeling in segmenten uitvoeren wanneer Hallo Hallo gegevens groter zijn dan 64 MB zijn.
 
-**maken\_blob\_van\_pad** uploadt u de inhoud van een bestand uit het opgegeven pad en **maken\_blob\_van\_stroom** de inhoud van een al geopend bestandsstroom uploadt. **maken\_blob\_van\_bytes** een bytematrix, uploadt en **maken\_blob\_van\_tekst** uploadt de opgegeven tekstwaarde met behulp van de opgegeven codering (standaard ingesteld op UTF-8).
+**Maak\_blob\_van\_pad** uploads Hallo inhoud van een bestand uit het opgegeven pad Hallo, en **maken\_blob\_van\_stroom** uploads Hallo inhoud uit een al geopend bestandsstroom. **maken\_blob\_van\_bytes** een bytematrix, uploadt en **maken\_blob\_van\_tekst** uploadt Hallo opgegeven tekstwaarde met Hallo opgegeven codering (standaardwaarden tooUTF-8).
 
-Het volgende voorbeeld wordt de inhoud van geüpload de **sunset.png** bestand naar de **myblob** blob.
+Hallo volgende voorbeeld wordt geüpload Hallo inhoud Hallo **sunset.png** -bestand in Hallo **myblob** blob.
 
 ```python
 from azure.storage.blob import ContentSettings
@@ -87,8 +87,8 @@ block_blob_service.create_blob_from_path(
             )
 ```
 
-## <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
-Als de blobs in een container wilt weergeven, gebruikt de **lijst\_blobs** methode. Deze methode retourneert een generator. De volgende code uitvoer de **naam** van elke blob in een container met de console.
+## <a name="list-hello-blobs-in-a-container"></a>Lijst Hallo blobs in een container
+toolist hello blobs in een container gebruiken Hallo **lijst\_blobs** methode. Deze methode retourneert een generator. Hallo volgende code levert Hallo **naam** van elke blob in een container toohello-console.
 
 ```python
 generator = block_blob_service.list_blobs('mycontainer')
@@ -97,33 +97,33 @@ for blob in generator:
 ```
 
 ## <a name="download-blobs"></a>Blobs downloaden
-Als u wilt downloaden van gegevens van een blob **ophalen\_blob\_naar\_pad**, **ophalen\_blob\_naar\_stroom**, **ophalen\_blob\_naar\_bytes**, of **ophalen\_blob\_naar\_tekst**. Op hoog niveau methoden voor het uitvoeren van de benodigde verdeling in segmenten wanneer de grootte van de gegevens is groter dan 64 MB zijn.
+toodownload gegevens van een blob gebruiken **ophalen\_blob\_naar\_pad**, **ophalen\_blob\_naar\_stroom**, **ophalen\_blob\_naar\_bytes**, of **ophalen\_blob\_naar\_tekst**. Op hoog niveau van de methoden die Hallo nodig verdeling in segmenten uitvoeren wanneer Hallo Hallo gegevens groter zijn dan 64 MB zijn.
 
-Het volgende voorbeeld worden **ophalen\_blob\_naar\_pad** voor het downloaden van de inhoud van de **myblob** blob en op te slaan op de **out sunset.png** bestand.
+Hallo volgende voorbeeld worden **ophalen\_blob\_naar\_pad** toodownload Hallo inhoud Hallo **myblob** blob en sla het toohello **out sunset.png** bestand.
 
 ```python
 block_blob_service.get_blob_to_path('mycontainer', 'myblockblob', 'out-sunset.png')
 ```
 
 ## <a name="delete-a-blob"></a>Een blob verwijderen
-Tenslotte voor het verwijderen van een blob, roept **delete_blob**.
+Tenslotte toodelete een blob roept **delete_blob**.
 
 ```python
 block_blob_service.delete_blob('mycontainer', 'myblockblob')
 ```
 
-## <a name="writing-to-an-append-blob"></a>Schrijven naar een toevoeg-blob
-Een toevoeg-blob is geoptimaliseerd voor toevoegbewerkingen, zoals logboekregistratie. Net als een blok-blob bestaat een toevoeg-blob uit blokken, maar wanneer u een nieuw blok aan een toevoeg-blob toevoegt, wordt het altijd toegevoegd aan het einde van de blob. U kunt een bestaand blok in een toevoeg-blob niet bijwerken of verwijderen. De blok-id's voor een toevoeg-blob worden niet weergegeven zoals voor een blok-blob.
+## <a name="writing-tooan-append-blob"></a>Schrijven tooan toevoeg-blob
+Een toevoeg-blob is geoptimaliseerd voor toevoegbewerkingen, zoals logboekregistratie. Zoals een blok-blob bestaat een toevoeg-blob uit blokken, maar wanneer u een nieuw blok tooan toevoeg-blob toevoegt, wordt het altijd toegevoegde toohello einde van Hallo blob. U kunt een bestaand blok in een toevoeg-blob niet bijwerken of verwijderen. Hallo blok-id's voor een toevoeg-blob worden niet weergegeven zoals ze zijn voor een blok-blob.
 
-Alle blokken in een toevoeg-blob kunnen verschillend van grootte zijn. De maximale grootte is 4 MB. Een toevoeg-blob kan maximaal 50.000 blokken bevatten. De maximale grootte van een toevoeg-blob is daarom iets meer dan 195 GB (4 MB X 50.000 blokken).
+Elk blok in een toevoeg-blob kan een andere grootte, up tooa maximaal 4 MB en een toevoeg-blob kan maximaal 50.000 blokken bevatten. Hallo maximale grootte van een toevoeg-blob is daarom iets meer dan 195 GB (4 MB X 50.000 blokken).
 
-In onderstaand voorbeeld wordt een nieuwe toevoeg-blob gemaakt en worden er enkele gegevens aan toegevoegd, waarmee een eenvoudige logboekregistratiebewerking wordt gesimuleerd.
+Hallo in het volgende voorbeeld maakt u een nieuwe toevoeg-blob en voegt sommige gegevens tooit, een bewerking voor eenvoudige logboekregistratie simuleren.
 
 ```python
 from azure.storage.blob import AppendBlobService
 append_blob_service = AppendBlobService(account_name='myaccount', account_key='mykey')
 
-# The same containers can hold all types of blobs
+# hello same containers can hold all types of blobs
 append_blob_service.create_container('mycontainer')
 
 # Append blobs must be created before they are appended to
@@ -134,7 +134,7 @@ append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob'
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-U bent nu bekend met de basisprincipes van Blob Storage. Volg deze koppelingen voor meer informatie.
+Nu u Hallo basisprincipes van Blob storage hebt geleerd, volgt u deze koppelingen toolearn meer.
 
 * [Python Developer Center](https://azure.microsoft.com/develop/python/)
 * [REST-API voor Azure Storage-services](http://msdn.microsoft.com/library/azure/dd179355)

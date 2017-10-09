@@ -1,6 +1,6 @@
 ---
-title: Vloeiende Streaming van Windows Store-App-zelfstudie | Microsoft Docs
-description: Informatie over het gebruik van Azure Media Services een C# Windows Store-toepassing maken met een XML-MediaElement besturingselement Smooth Stream afspelen van inhoud.
+title: aaaSmooth Streaming Windows Store-App-zelfstudie | Microsoft Docs
+description: Meer informatie over hoe toouse Azure Media Services toocreate een C# Windows Store-toepassing met een XML-MediaElement tooplayback Smooth Stream inhoud beheren.
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: c9bb3b1915543fea3561cb309f55c4e8a74ded6d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b02aa2c7f68fe22a23ea846d72fdd23bfba2b19c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Het bouwen van een Smooth Streaming van Windows Store-toepassing
+# <a name="how-toobuild-a-smooth-streaming-windows-store-application"></a>Hoe tooBuild een Smooth Streaming Windows Store-toepassing
 
-De Smooth Streaming Client SDK voor Windows 8 kunnen ontwikkelaars om Windows Store-toepassingen die kunnen op aanvraag en live-Smooth Streaming inhoud afspelen te bouwen. Naast het basic afspelen van inhoud Smooth Streaming, biedt de SDK ook uitgebreide functies zoals Microsoft PlayReady protection, kwaliteit niveau beperking, Live DVR, audiostroom overschakelen, luisteren naar statusupdates (zoals kwaliteit verandert) en foutgebeurtenissen, enzovoort. Zie voor meer informatie de ondersteunde functies van de [release-opmerkingen](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Zie voor meer informatie [Player Framework voor Windows 8](http://playerframework.codeplex.com/). 
+Hallo Smooth Streaming Client SDK voor Windows 8 kan ontwikkelaars toobuild Windows Store-toepassingen die op aanvraag en live-Smooth Streaming inhoud kunnen spelen. Bovendien biedt toohello basic afspelen van Smooth Streaming-inhoud, Hallo SDK ook uitgebreide functies zoals Microsoft PlayReady protection, kwaliteit niveau beperking, DVR, audiostroom overschakelen, luisteren naar statusupdates (zoals kwaliteit niveau wijzigingen Live ) en foutgebeurtenissen, enzovoort. Zie voor meer informatie van functies ondersteund Hallo Hallo [release-opmerkingen](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Zie voor meer informatie [Player Framework voor Windows 8](http://playerframework.codeplex.com/). 
 
 Deze zelfstudie bevat vier uitkomsten:
 
 1. Een eenvoudige Smooth Streaming Store-toepassing maken
-2. Toevoegen van een schuifbalk voor het beheren van de voortgang van de Media
+2. Toevoegen van een schuifbalk tooControl Hallo Media uitgevoerd
 3. Selecteer Streams Smooth Streaming
 4. Selecteer nummers Smooth Streaming
 
 ## <a name="prerequisites"></a>Vereisten
 * Windows 8, 32-bits of 64-bits. U kunt krijgen [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/evalcenter/jj554510.aspx) van MSDN.
-* Visual Studio 2012 of Visual Studio Express 2012 (of een latere versie). U kunt de evaluatieversie van [hier](http://www.microsoft.com/visualstudio/11/downloads).
+* Visual Studio 2012 of Visual Studio Express 2012 (of een latere versie). U krijgt Hallo evaluatieversie van [hier](http://www.microsoft.com/visualstudio/11/downloads).
 * [Microsoft Smooth Streaming Client SDK voor Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
-De voltooide oplossing voor elke les kan worden gedownload van MSDN Developer-codevoorbeelden (Codegalerie): 
+oplossing voor elke les Hallo voltooid kan worden gedownload van MSDN Developer-codevoorbeelden (Codegalerie): 
 
 * [Les 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) : een eenvoudige Windows 8-Smooth Streaming MediaPlayer 
 * [Les 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) : een eenvoudige Windows 8-Smooth Streaming MediaPlayer met een schuifregelaar beheren 
@@ -45,22 +45,22 @@ De voltooide oplossing voor elke les kan worden gedownload van MSDN Developer-co
 
 ## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Les 1: Een eenvoudige Smooth Streaming Store-toepassing maken
 
-In deze les maakt u een Windows Store-toepassing met een MediaElement besturingselement Smooth Stream afspelen inhoud.  De actieve toepassing ziet eruit als:
+In deze les maakt u een Windows Store-toepassing met een MediaElement besturingselement tooplay Smooth Stream inhoud.  de actieve toepassing Hello ziet eruit als:
 
 ![Voorbeeld van Smooth Streaming Windows Store-toepassing][PlayerApplication]
 
-Zie voor meer informatie over het ontwikkelen van Windows Store-toepassing [ontwikkelen geweldige Apps voor Windows 8](http://msdn.microsoft.com/windows/apps/br229512.aspx). Deze les bevat de volgende procedures:
+Zie voor meer informatie over het ontwikkelen van Windows Store-toepassing [ontwikkelen geweldige Apps voor Windows 8](http://msdn.microsoft.com/windows/apps/br229512.aspx). Deze les bevat Hallo procedures te volgen:
 
 1. Een Windows Store-project maken
-2. Ontwerp van de gebruikersinterface (XAML)
-3. Wijzigen van de onderliggende-codebestand
-4. Compileren en de toepassing testen
+2. Hallo-gebruikersinterface (XAML) ontwerpen
+3. Hallo onderliggende-codebestand wijzigen
+4. Compileren en Hallo toepassing testen
 
-**Een Windows Store-project maken**
+**toocreate Windows Store-project**
 
 1. Visual Studio 2012 of hoger wordt uitgevoerd.
-2. Klik in het menu **FILE** op **Nieuw** en klik vervolgens op **Project**.
-3. In het dialoogvenster Nieuw Project typt of selecteert u de volgende waarden:
+2. Van Hallo **bestand** menu, klikt u op **nieuw**, en klik vervolgens op **Project**.
+3. In het dialoogvenster Nieuw Project Hallo waarden type of selecteer Hallo volgende:
 
 | Naam | Waarde |
 | --- | --- |
@@ -73,10 +73,10 @@ Zie voor meer informatie over het ontwikkelen van Windows Store-toepassing [ontw
 
 1. Klik op **OK**.
 
-**Een verwijzing naar de Smooth Streaming Client SDK toevoegen**
+**tooadd een verwijzing toohello Smooth Streaming Client SDK**
 
 1. In Solution Explorer met de rechtermuisknop op **SSPlayer**, en klik vervolgens op **verwijzing toevoegen**.
-2. Typ of selecteer de volgende waarden:
+2. Typ of selecteer Hallo volgende waarden:
 
 | Naam | Waarde |
 | --- | --- |
@@ -85,12 +85,12 @@ Zie voor meer informatie over het ontwikkelen van Windows Store-toepassing [ontw
 
 1. Klik op **OK**. 
 
-Nadat de referenties zijn toegevoegd, moet u het doelplatform (x64 of x86), toe te voegen verwijzingen werkt niet voor platformconfiguratie Any CPU.  Klik in solution explorer ziet u gele waarschuwing is ingeschakeld voor deze referenties toegevoegd.
+Na het toevoegen van Hallo verwijzingen u Hallo gericht platform (x64 of x86) moet selecteren, toe te voegen verwijzingen werkt niet voor platformconfiguratie Any CPU.  Klik in solution explorer ziet u gele waarschuwing is ingeschakeld voor deze referenties toegevoegd.
 
-**Voor het ontwerpen van de gebruikersinterface player**
+**toodesign hello player-gebruikersinterface**
 
-1. Klik in Solution Explorer, dubbelklik op **MainPage.xaml** om dit te openen in de ontwerpweergave.
-2. Zoek de  **&lt;raster&gt;**  en  **&lt;/Grid&gt;**  labels van de XAML-bestand en plak de volgende code tussen de twee labels:
+1. Klik in Solution Explorer, dubbelklik op **MainPage.xaml** tooopen in Hallo ontwerp weergeven.
+2. Zoek Hallo  **&lt;raster&gt;**  en  **&lt;/Grid&gt;**  labels Hallo XAML-bestand en plakken Hallo volgende code tussen de twee Hallo tags:
 
          <Grid.RowDefinitions>
 
@@ -135,27 +135,27 @@ Nadat de referenties zijn toegevoegd, moet u het doelplatform (x64 of x86), toe 
             <TextBox x:Name="txtStatus" FontSize="10" Width="700" VerticalAlignment="Center"/>
          </StackPanel>
    
-   Het besturingselement MediaElement wordt gebruikt voor het afspelen van media. De schuifregelaar sliderProgress met de naam wordt gebruikt in de volgende les waarmee de voortgang van de media.
-3. Druk op **CTRL + S** het bestand wilt opslaan.
+   Hallo MediaElement besturingselement is gebruikte tooplayback media. Hallo schuifregelaars met de naam sliderProgress wordt Hallo volgende les toocontrol Hallo media uitgevoerd gebruikt.
+3. Druk op **CTRL + S** toosave Hallo-bestand.
 
-Het besturingselement MediaElement biedt geen ondersteuning voor Smooth Streaming inhoud out-of-box. De Smooth Streaming als ondersteuning wilt inschakelen, moet u de handler byte-stroom Smooth Streaming door de bestandsnaamextensie en MIME-typen registreren.  Als u wilt registreren, moet u de methode MediaExtensionManager.RegisterByteStremHandler van de naamruimte Windows.Media gebruiken.
+Hallo MediaElement beheer biedt geen ondersteuning voor Smooth Streaming inhoud out-of-box. ondersteuning van tooenable Hallo-Smooth Streaming, moet u Hallo Smooth Streaming bytestream handler door bestandsnaamextensie en een MIME-type registreren.  tooregister, gebruikt u Hallo MediaExtensionManager.RegisterByteStremHandler hello Windows.Media naamruimte.
 
-In dit XAML-bestand zijn sommige gebeurtenis-handlers gekoppeld aan de besturingselementen.  U moet deze gebeurtenis-handlers definiëren.
+In dit XAML-bestand zijn sommige gebeurtenis-handlers gekoppeld aan Hallo besturingselementen.  U moet deze gebeurtenis-handlers definiëren.
 
-**Wijzigen van de onderliggende-codebestand**
+**toomodify hello onderliggende-codebestand**
 
 1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **weergavecode**.
-2. Voeg het volgende toe aan de bovenkant van het bestand met de instructie:
+2. Bovenaan Hallo Hallo-bestand, voegt u de volgende Hallo toe met de instructie:
    
         using Windows.Media;
-3. Aan het begin van de **MainPage** klasse, voegt u het volgende gegevenslid:
+3. Aan begin Hallo Hallo **MainPage** klasse, Hallo gegevenslid volgende toevoegen:
    
          private MediaExtensionManager extensions = new MediaExtensionManager();
-4. Aan het einde van de **MainPage** -constructor aan, voeg de volgende twee regels:
+4. Achter Hallo Hallo **MainPage** constructor Hallo volgende twee regels toevoegen:
    
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
-5. Aan het einde van de **MainPage** klasse, plak de volgende code:
+5. Achter Hallo Hallo **MainPage** klasse, plak Hallo code te volgen:
    
          # region UI Button Click Events
          private void btnPlay_Click(object sender, RoutedEventArgs e)
@@ -182,7 +182,7 @@ In dit XAML-bestand zijn sommige gebeurtenis-handlers gekoppeld aan de besturing
          }
          else
          {
-             txtStatus.Text = "Click the Play button to play the media source.";
+             txtStatus.Text = "Click hello Play button tooplay hello media source.";
          }
          }
          private void btnStop_Click(object sender, RoutedEventArgs e)
@@ -194,68 +194,68 @@ In dit XAML-bestand zijn sommige gebeurtenis-handlers gekoppeld aan de besturing
          private void sliderProgress_PointerPressed(object sender, PointerRoutedEventArgs e)
          {
 
-         txtStatus.Text = "Seek to position " + sliderProgress.Value;
+         txtStatus.Text = "Seek tooposition " + sliderProgress.Value;
          mediaElement.Position = new TimeSpan(0, 0, (int)(sliderProgress.Value));
          }
          # endregion
 
-Hier wordt de gebeurtenis-handler sliderProgress_PointerPressed gedefinieerd.  Er zijn meer works doen om het werkt, worden behandeld in de volgende les van deze zelfstudie.
-6. Druk op **CTRL + S** het bestand wilt opslaan.
+Hallo sliderProgress_PointerPressed gebeurtenis-handler wordt hier gedefinieerd.  Er zijn meer works toodo tooget Hiermee aan de slag, die worden behandeld in de volgende les Hallo van deze zelfstudie.
+6. Druk op **CTRL + S** toosave Hallo-bestand.
 
-Het voltooide die het onderliggende-codebestand moet uitzien:
+Hallo moet klaar Hallo onderliggende-codebestand uitzien:
 
 ![CodeView in Visual Studio of Smooth Streaming Windows Store-toepassing][CodeViewPic]
 
-**Om te compileren en de toepassing testen**
+**toocompile en test Hallo-toepassing**
 
-1. Van de **bouwen** menu, klikt u op **Configuration Manager**.
-2. Wijziging **actieve oplossing platform** overeenkomen met uw ontwikkelplatform.
-3. Druk op **F6** voor het compileren van het project. 
-4. Druk op **F5** om de toepassing uit te voeren.
-5. Aan de bovenkant van de toepassing, kunt u de standaard-URL voor Smooth Streaming of voer een andere. 
-6. Klik op **bron instellen**. Omdat **automatisch afspelen** is ingeschakeld standaard de media wordt afgespeeld.  U kunt bepalen de media met de **afspelen**, **onderbreken** en **stoppen** knoppen.  U kunt de Mediavolume met de verticale schuifbalk beheren.  Evenwel de horizontale schuifbalk voor het beheren van de voortgang van de media is volledig nog niet geïmplementeerd. 
+1. Van Hallo **bouwen** menu, klikt u op **Configuration Manager**.
+2. Wijziging **actieve oplossing platform** toomatch uw ontwikkelplatform.
+3. Druk op **F6** toocompile Hallo project. 
+4. Druk op **F5** toorun Hallo-toepassing.
+5. Bovenaan Hallo Hallo toepassing, kunt u Hallo standaard-URL voor Smooth Streaming of voer een andere. 
+6. Klik op **bron instellen**. Omdat **automatisch afspelen** is standaard hello wordt afgespeeld automatisch ingeschakeld.  U kunt beheren met Hallo Hallo-media **afspelen**, **onderbreken** en **stoppen** knoppen.  U kunt Hallo Mediavolume met verticale schuifbalk Hallo beheren.  Hallo echter horizontale schuifbalk voor het beheren van Hallo media uitgevoerd is volledig nog niet geïmplementeerd. 
 
-U kunt lesson1 hebt voltooid.  In deze les gebruikt u een besturingselement MediaElement Smooth Streaming inhoud afspelen.  In de volgende les voegt u een schuifregelaar voor het beheren van de voortgang van de inhoud Smooth Streaming.
+U kunt lesson1 hebt voltooid.  In deze les gebruikt u een MediaElement besturingselement tooplayback Smooth Streaming-inhoud.  In de volgende les hello, moet u een schuifregelaar toocontrol Hallo voortgang Hallo Smooth Streaming inhoud toevoegen.
 
-## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>Les 2: Een schuifbalk voor het beheren van de voortgang van de Media toevoegen
+## <a name="lesson-2-add-a-slider-bar-toocontrol-hello-media-progress"></a>Les 2: Een schuifbalk tooControl Hallo Media uitgevoerd toevoegen
 
-In les 1, kunt u een Windows Store-servicetoepassing gemaakt met een MediaElement XAML-besturingselement voor het afspelen Smooth Streaming media-inhoud.  Sommige functies basic media zoals starten, stoppen en onderbreken wordt geleverd.  In deze les wordt u een balk schuifregelaar toevoegen aan de toepassing.
+In les 1, kunt u een Windows Store-servicetoepassing gemaakt met een MediaElement XAML besturingselement tooplayback Smooth Streaming media-inhoud.  Sommige functies basic media zoals starten, stoppen en onderbreken wordt geleverd.  In deze les, moet u een schuifregelaar balk besturingselement toohello toepassing toevoegen.
 
-In deze zelfstudie gebruiken we een timer voor het bijwerken van de positie van de schuifregelaar op basis van de huidige positie van het besturingselement MediaElement.  De schuifregelaar begin- en -tijd die ook moeten worden bijgewerkt in geval van een live-inhoud.  Dit kan beter worden verwerkt in de gebeurtenis adaptieve gegevensbron bijwerken.
+In deze zelfstudie gebruiken we een timer tooupdate Hallo positie van de schuifregelaar op basis van de huidige positie Hallo Hallo MediaElement besturingselement.  Hallo schuifregelaar start- en eindtijd ook nodig toobe bijgewerkt in geval van een live-inhoud.  Dit kan beter worden verwerkt in Hallo adaptieve bron update gebeurtenis.
 
-Mediabronnen zijn objecten die mediagegevens genereren.  De bron-resolver een URL of byte-stroom accepteert en maakt de mediumbron voor de juiste voor die inhoud.  De bronoplossing is de standaardmethode voor de toepassingen voor het maken van media-bronnen. 
+Mediabronnen zijn objecten die mediagegevens genereren.  Hallo voor de bronoplossing een URL of byte-stroom accepteert en maakt Hallo juiste mediumbron voor die inhoud.  Hallo voor de bronoplossing is standaard manier Hallo toepassingen toocreate mediabronnen Hallo. 
 
-Deze les bevat de volgende procedures:
+Deze les bevat Hallo procedures te volgen:
 
-1. De handler Smooth Streaming registreren 
-2. De adaptieve bron manager niveau gebeurtenis-handlers toevoegen
-3. De adaptieve bron niveau gebeurtenis-handlers toevoegen
+1. Hallo Smooth Streaming-handler registreren 
+2. Hallo adaptieve bron manager niveau gebeurtenis-handlers toevoegen
+3. Hallo adaptieve bron niveau gebeurtenis-handlers toevoegen
 4. Gebeurtenis-handlers MediaElement toevoegen
 5. Schuifregelaar gerelateerde code toevoegen
-6. Compileren en de toepassing testen
+6. Compileren en Hallo toepassing testen
 
-**De byte-stroom Smooth Streaming handler registreren en de propertyset doorgeven**
+**tooregister hello Smooth Streaming bytestream handler en pass Hallo propertyset**
 
 1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **weergavecode**.
-2. Voeg het volgende toe aan het begin van het bestand met de instructie:
+2. Aan het begin van de Hallo van Hallo-bestand, voegt u de volgende Hallo toe met de instructie:
 
         using Microsoft.Media.AdaptiveStreaming;
-3. Toevoegen aan het begin van de klasse MainPage de gegevensleden van de volgende:
+3. Toevoegen aan het begin van de Hallo Hallo MainPage klasse, Hallo gegevensleden te volgen:
 
          private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
          private IAdaptiveSourceManager adaptiveSourceManager;
-4. In de **MainPage** -constructor aan, voeg de volgende code na de **dit. Initialiseren van Components();**  lijn en de registratie van de regels die zijn geschreven in de vorige les code:
+4. Hallo binnen **MainPage** constructor toevoegen na code na Hallo Hallo **dit. Initialiseren van Components();**  regel en Hallo registratie coderegels in de vorige les Hallo geschreven:
 
-        // Gets the default instance of AdaptiveSourceManager which manages Smooth 
+        // Gets hello default instance of AdaptiveSourceManager which manages Smooth 
         //Streaming media sources.
         adaptiveSourceManager = AdaptiveSourceManager.GetDefault();
-        // Sets property key value to AdaptiveSourceManager default instance.
+        // Sets property key value tooAdaptiveSourceManager default instance.
         // {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
         propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
-5. In de **MainPage** constructor wijzigen van de twee methoden RegisterByteStreamHandler toevoegen de beschreven parameters:
+5. Hallo binnen **MainPage** -constructor aan, wijzig Hallo twee RegisterByteStreamHandler methoden tooadd Hallo beschreven parameters:
 
          // Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
-         // "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
+         // "text/xml" and "application/vnd.ms-ss" mime-types and pass hello propertyset. 
          // http://*.ism/manifest URI resources will be resolved by Byte-stream handler.
          extensions.RegisterByteStreamHandler(
 
@@ -269,15 +269,15 @@ Deze les bevat de volgende procedures:
             ".ism", 
             "application/vnd.ms-sstr+xml", 
          propertySet);
-6. Druk op **CTRL + S** het bestand wilt opslaan.
+6. Druk op **CTRL + S** toosave Hallo-bestand.
 
-**De adaptieve bron manager niveau gebeurtenis-handler toevoegen**
+**tooadd hello adaptieve bron manager niveau gebeurtenis-handler**
 
 1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **weergavecode**.
-2. In de **MainPage** klasse, voegt u het volgende gegevenslid:
+2. Hallo binnen **MainPage** klasse, Hallo gegevenslid volgende toevoegen:
    
      persoonlijke AdaptiveSource adaptiveSource = null;
-3. Aan het einde van de **MainPage** klasse, de volgende gebeurtenis-handler toevoegen:
+3. Achter Hallo Hallo **MainPage** klasse, Hallo volgende gebeurtenis-handler toevoegen:
    
          # region Adaptive Source Manager Level Events
          private void mediaElement_AdaptiveSourceOpened(AdaptiveSource sender, AdaptiveSourceOpenedEventArgs args)
@@ -287,19 +287,19 @@ Deze les bevat de volgende procedures:
          }
 
          # endregion Adaptive Source Manager Level Events
-4. Aan het einde van de **MainPage** -constructor aan, voeg de volgende regel om u te abonneren adaptieve bron gebeurtenis:
+4. Achter Hallo Hallo **MainPage** constructor toevoegen Hallo regel toosubscribe toohello adaptieve bron open gebeurtenis te volgen:
    
          adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
            new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
-5. Druk op **CTRL + S** het bestand wilt opslaan.
+5. Druk op **CTRL + S** toosave Hallo-bestand.
 
-**Niveau gebeurtenis-handlers adaptieve bron toevoegen**
+**tooadd adaptieve bron niveau gebeurtenis-handlers**
 
 1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **weergavecode**.
-2. In de **MainPage** klasse, voegt u het volgende gegevenslid:
+2. Hallo binnen **MainPage** klasse, Hallo gegevenslid volgende toevoegen:
    
      persoonlijke AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate;   persoonlijke Manifest manifestObject;
-3. Aan het einde van de **MainPage** klasse, de volgende gebeurtenis-handlers toevoegen:
+3. Achter Hallo Hallo **MainPage** klasse, Hallo volgende gebeurtenis-handlers toevoegen:
 
          # region Adaptive Source Level Events
          private void mediaElement_ManifestReady(AdaptiveSource sender, ManifestReadyEventArgs args)
@@ -322,7 +322,7 @@ Deze les bevat de volgende procedures:
          }
 
          # endregion Adaptive Source Level Events
-4. Aan het einde van de **mediaElement AdaptiveSourceOpened** methode, voeg de volgende code om u te abonneren op de gebeurtenissen:
+4. Achter Hallo Hallo **mediaElement AdaptiveSourceOpened** methode toevoegen Hallo code toosubscribe toohello gebeurtenissen te volgen:
    
          adaptiveSource.ManifestReadyEvent +=
 
@@ -333,14 +333,14 @@ Deze les bevat de volgende procedures:
          adaptiveSource.AdaptiveSourceFailedEvent += 
 
             mediaElement_AdaptiveSourceFailed;
-5. Druk op **CTRL + S** het bestand wilt opslaan.
+5. Druk op **CTRL + S** toosave Hallo-bestand.
 
-Dezelfde gebeurtenissen zijn beschikbaar op adaptieve bron Manager niveau, die kan worden gebruikt voor het verwerken van de functionaliteit die gemeenschappelijk zijn voor alle media-elementen in de app. Elke AdaptiveSource omvat zijn eigen gebeurtenissen en worden alle gebeurtenissen voor AdaptiveSource trapsgewijs onder AdaptiveSourceManager.
+Hallo dezelfde gebeurtenissen voor adaptieve bron Manager niveau, die kan worden gebruikt voor het verwerken van functionaliteit tooall media standaardelementen in Hallo-app beschikbaar zijn. Elke AdaptiveSource omvat zijn eigen gebeurtenissen en worden alle gebeurtenissen voor AdaptiveSource trapsgewijs onder AdaptiveSourceManager.
 
-**Media-Element gebeurtenis-handlers toevoegen**
+**gebeurtenis-handlers voor tooadd Media-Element**
 
 1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **weergavecode**.
-2. Aan het einde van de **MainPage** klasse, de volgende gebeurtenis-handlers toevoegen:
+2. Achter Hallo Hallo **MainPage** klasse, Hallo volgende gebeurtenis-handlers toevoegen:
 
          # region Media Element Event Handlers
          private void MediaOpened(object sender, RoutedEventArgs e)
@@ -362,29 +362,29 @@ Dezelfde gebeurtenissen zijn beschikbaar op adaptieve bron Manager niveau, die k
          }
 
          # endregion Media Element Event Handlers
-3. Aan het einde van de **MainPage** -constructor aan, voeg de volgende code toe subscript op de gebeurtenissen:
+3. Achter Hallo Hallo **MainPage** constructor toevoegen Hallo code toosubscript toohello gebeurtenissen te volgen:
 
          mediaElement.MediaOpened += MediaOpened;
          mediaElement.MediaEnded += MediaEnded;
          mediaElement.MediaFailed += MediaFailed;
-4. Druk op **CTRL + S** het bestand wilt opslaan.
+4. Druk op **CTRL + S** toosave Hallo-bestand.
 
-**Toevoegen van de schuifregelaar gerelateerde code**
+**de schuifregelaar tooadd gerelateerde streepjescode**
 
 1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **weergavecode**.
-2. Voeg het volgende toe aan het begin van het bestand met de instructie:
+2. Aan het begin van de Hallo van Hallo-bestand, voegt u de volgende Hallo toe met de instructie:
       
         using Windows.UI.Core;
-3. In de **MainPage** klasse, voeg de gegevensleden van de volgende:
+3. Hallo binnen **MainPage** klasse, Hallo volgende gegevensleden toe te voegen:
    
          public static CoreDispatcher _dispatcher;
          private DispatcherTimer sliderPositionUpdateDispatcher;
-4. Aan het einde van de **MainPage** -constructor aan, voeg de volgende code:
+4. Achter Hallo Hallo **MainPage** constructor Hallo na code toevoegen:
    
          _dispatcher = Window.Current.Dispatcher;
          PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);
          sliderProgress.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);    
-5. Aan het einde van de **MainPage** klasse, voeg de volgende code:
+5. Achter Hallo Hallo **MainPage** klasse, Hallo volgende code toe te voegen:
 
          # region sliderMediaPlayer
          private double SliderFrequency(TimeSpan timevalue)
@@ -469,7 +469,7 @@ Dezelfde gebeurtenissen zijn beschikbaar op adaptieve bron Manager niveau, die k
          # endregion sliderMediaPlayer
       
 >[!NOTE]
->CoreDispatcher wordt gebruikt om wijzigingen aanbrengen in de gebruikersinterface-thread van niet-UI-Thread. In geval van een knelpunt op dispatcher-thread kunt developer dispatcher geleverd door de UI-element hij wil bijwerken gebruiken.  Bijvoorbeeld:
+>CoreDispatcher is gebruikte toomake wijzigingen toohello UI-thread van niet-UI-Thread. In geval van een knelpunt op dispatcher-thread kunt developer toouse dispatcher geleverd door UI-element dat hij wil tooupdate.  Bijvoorbeeld:
    
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 
@@ -477,38 +477,38 @@ Dezelfde gebeurtenissen zijn beschikbaar op adaptieve bron Manager niveau, die k
          double absvalue  = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero); 
 
          sliderProgress.Maximum = absvalue; }); 
-6. Aan het einde van de **mediaElement_AdaptiveSourceStatusUpdated** methode, voeg de volgende code:
+6. Achter Hallo Hallo **mediaElement_AdaptiveSourceStatusUpdated** methode Hallo na code toevoegen:
 
          setSliderStartTime(args.StartTime);
          setSliderEndTime(args.EndTime);
-7. Aan het einde van de **MediaOpened** methode, voeg de volgende code:
+7. Achter Hallo Hallo **MediaOpened** methode Hallo na code toevoegen:
 
          sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
          sliderProgress.Width = mediaElement.Width;
          setupTimer();
-8. Druk op **CTRL + S** het bestand wilt opslaan.
+8. Druk op **CTRL + S** toosave Hallo-bestand.
 
-**Om te compileren en de toepassing testen**
+**toocompile en test Hallo-toepassing**
 
-1. Druk op **F6** voor het compileren van het project. 
-2. Druk op **F5** om de toepassing uit te voeren.
-3. Aan de bovenkant van de toepassing, kunt u de standaard-URL voor Smooth Streaming of voer een andere. 
+1. Druk op **F6** toocompile Hallo project. 
+2. Druk op **F5** toorun Hallo-toepassing.
+3. Bovenaan Hallo Hallo toepassing, kunt u Hallo standaard-URL voor Smooth Streaming of voer een andere. 
 4. Klik op **bron instellen**. 
-5. Test de schuifregelaar.
+5. Test Hallo schuifregelaar.
 
-U kunt les 2 hebt voltooid.  In deze les kunt u een schuifregelaar toegevoegd aan de toepassing. 
+U kunt les 2 hebt voltooid.  In deze les moet u een schuifregelaar tooapplication toegevoegd. 
 
 ## <a name="lesson-3-select-smooth-streaming-streams"></a>Les 3: Selecteer Streams Smooth Streaming
-Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio nummers die kunnen geselecteerd door de viewers worden.  In deze les schakelt u viewers streams selecteren. Deze les bevat de volgende procedures:
+Smooth Streaming is geschikt toostream inhoud met meerdere taal audio nummers die kunnen geselecteerd door Hallo viewers worden.  In deze les schakelt u viewers tooselect stromen. Deze les bevat Hallo procedures te volgen:
 
-1. De XAML-bestand wijzigen
-2. Wijzigen van het codebestand behand
-3. Compileren en de toepassing testen
+1. Hallo XAML-bestand wijzigen
+2. Hallo-codebestand behand wijzigen
+3. Compileren en Hallo toepassing testen
 
-**Het XAML-bestand te wijzigen**
+**toomodify hello XAML-bestand**
 
 1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **ontwerper**.
-2. Zoek &lt;Grid.RowDefinitions&gt;, en wijzig de RowDefinitions zodat ze eruitzien:
+2. Zoek &lt;Grid.RowDefinitions&gt;, en wijzig Hallo RowDefinitions zodat ze eruitzien:
    
          <Grid.RowDefinitions>            
             <RowDefinition Height="20"/>
@@ -517,7 +517,7 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio numme
             <RowDefinition Height="80"/>
             <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
-3. In de &lt;raster&gt;&lt;/Grid&gt; tags, voeg de volgende code voor het definiëren van een besturingselement listbox zodat gebruikers kunnen de lijst met beschikbare stromen en streams selecteren:
+3. Hallo binnen &lt;raster&gt;&lt;/Grid&gt; tags toevoegen Hallo volgende code toodefine een keuzelijst, zodat gebruikers kunnen Hallo van de beschikbare stromen overzicht en streams selecteren:
 
          <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
             <Grid.RowDefinitions>
@@ -542,12 +542,12 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio numme
                 </ListBox>
             </StackPanel>
          </Grid>
-4. Druk op **CTRL + S** de wijzigingen wilt opslaan.
+4. Druk op **CTRL + S** toosave Hallo wijzigingen.
 
-**Wijzigen van de onderliggende-codebestand**
+**toomodify hello onderliggende-codebestand**
 
 1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **weergavecode**.
-2. Voeg een nieuwe klasse toe binnen de naamruimte SSPlayer:
+2. Voeg een nieuwe klasse in Hallo SSPlayer naamruimte:
    
         #region class Stream
    
@@ -574,7 +574,7 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio numme
                 get { return isCheckedValue; }
                 set
                 {
-                    // mMke the video stream always checked.
+                    // mMke hello video stream always checked.
                     if (stream.Type == MediaStreamType.Video)
                     {
                         isCheckedValue = true;
@@ -593,21 +593,21 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio numme
             }
         }
         #endregion class Stream
-3. Voeg de volgende variabele definities aan het begin van de klasse MainPage:
+3. Toevoegen aan het begin van de Hallo Hallo MainPage klasse, Hallo variabele definities te volgen:
    
          private List<Stream> availableStreams;
          private List<Stream> availableAudioStreams;
          private List<Stream> availableTextStreams;
          private List<Stream> availableVideoStreams;
-4. Voeg de volgende regio in de klasse MainPage:
+4. Toevoegen in Hallo MainPage klasse, Hallo regio te volgen:
    
         #region stream selection
         ///<summary>
-        ///Functionality to select streams from IManifestStream available streams
+        ///Functionality tooselect streams from IManifestStream available streams
         /// </summary>
    
-        // This function is called from the mediaElement_ManifestReady event handler 
-        // to retrieve the streams and populate them to the local data members.
+        // This function is called from hello mediaElement_ManifestReady event handler 
+        // tooretrieve hello streams and populate them toohello local data members.
         public void getStreams(Manifest manifestObject)
         {
             availableStreams = new List<Stream>();
@@ -622,7 +622,7 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio numme
                     Stream newStream = new Stream(manifestObject.AvailableStreams[i]);
                     newStream.isChecked = false;
    
-                    //populate the stream lists based on the types
+                    //populate hello stream lists based on hello types
                     availableStreams.Add(newStream);
    
                     switch (newStream.ManifestStream.Type)
@@ -638,7 +638,7 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio numme
                             break;
                     }
    
-                    // Select the default selected streams from the manifest.
+                    // Select hello default selected streams from hello manifest.
                     for (int j = 0; j<manifestObject.SelectedStreams.Count; j++)
                     {
                         string selectedStreamName = manifestObject.SelectedStreams[j].Name;
@@ -656,12 +656,12 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio numme
             }
         }
    
-        // This function set the list box ItemSource
+        // This function set hello list box ItemSource
         private async void refreshAvailableStreamsListBoxItemSource()
         {
             try
             {
-                //update the stream check box list on the UI
+                //update hello stream check box list on hello UI
                 await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, ()
                     => { lbAvailableStreams.ItemsSource = availableStreams; });
             }
@@ -687,7 +687,7 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio numme
                 }
             }
    
-            // Select the frist video stream from the list if no video stream is selected
+            // Select hello frist video stream from hello list if no video stream is selected
             if (!isOneVideoSelected)
             {
                 availableVideoStreams[0].isChecked = true;
@@ -701,11 +701,11 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio numme
                 {
                     selectedStreams.Add(availableAudioStreams[j].ManifestStream);
                     isOneAudioSelected = true;
-                    txtStatus.Text = "The audio stream is changed to " + availableAudioStreams[j].ManifestStream.Name;
+                    txtStatus.Text = "hello audio stream is changed too" + availableAudioStreams[j].ManifestStream.Name;
                 }
             }
    
-            // Select the frist audio stream from the list if no audio steam is selected.
+            // Select hello frist audio stream from hello list if no audio steam is selected.
             if (!isOneAudioSelected)
             {
                 availableAudioStreams[0].isChecked = true;
@@ -736,46 +736,46 @@ Smooth Streaming is in staat om inhoud te streamen met meerdere taal audio numme
             }
         }
         #endregion stream selection
-5. De methode mediaElement_ManifestReady vinden, de volgende code aan het einde van de functie toevoegen:
+5. Hallo mediaElement_ManifestReady methode vinden, na de code aan einde van de functie Hallo HALLO hallo toevoegen:
    
         getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
    
-    Dus wanneer MediaElement manifest klaar is, wordt de code een lijst van de beschikbare stromen wordt en vult de UI-keuzelijst met de lijst.
-6. Zoek de gebruikersinterface in de klasse MainPage knoppen klikt u op gebeurtenissen regio en voeg vervolgens de volgende functiedefinitie:
+    Dus wanneer MediaElement manifest klaar is, Hallo code wordt een lijst met beschikbare streams Hallo en vult Hallo UI-keuzelijst met Hallo lijst.
+6. Zoek in de klasse MainPage Hallo, Hallo UI knoppen klikt u op gebeurtenissen regio en voeg vervolgens Hallo functiedefinitie te volgen:
    
         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
         {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
    
-            // Create a list of the selected streams
+            // Create a list of hello selected streams
             createSelectedStreamsList(selectedStreams);
    
-            // Change streams on the presentation
+            // Change streams on hello presentation
             changeStreams(selectedStreams);
         }
 
-**Om te compileren en de toepassing testen**
+**toocompile en test Hallo-toepassing**
 
-1. Druk op **F6** voor het compileren van het project. 
-2. Druk op **F5** om de toepassing uit te voeren.
-3. Aan de bovenkant van de toepassing, kunt u de standaard-URL voor Smooth Streaming of voer een andere. 
+1. Druk op **F6** toocompile Hallo project. 
+2. Druk op **F5** toorun Hallo-toepassing.
+3. Bovenaan Hallo Hallo toepassing, kunt u Hallo standaard-URL voor Smooth Streaming of voer een andere. 
 4. Klik op **bron instellen**. 
-5. De standaardtaal is audio_eng. Probeer schakelen tussen audio_eng en audio_es. Telkens wanneer, selecteert u een nieuwe stream, klikt u op de knop verzenden.
+5. Hallo standaardtaal is audio_eng. Probeer tooswitch tussen audio_eng en audio_es. Telkens wanneer, selecteert u een nieuwe stream, klikt u op de knop verzenden Hallo.
 
-U kunt les 3 hebt voltooid.  In deze les voegt u de functionaliteit om stromen te selecteren.
+U kunt les 3 hebt voltooid.  In deze les voegt u Hallo functionaliteit toochoose stromen.
 
 ## <a name="lesson-4-select-smooth-streaming-tracks"></a>Les 4: Selecteer nummers Smooth Streaming
-Een presentatie Smooth Streaming kan meerdere videobestanden gecodeerd met verschillende kwaliteitsniveaus (bitsnelheden) en oplossingen bevatten. In deze les schakelt u gebruikers kunnen selecteren, houdt. Deze les bevat de volgende procedures:
+Een presentatie Smooth Streaming kan meerdere videobestanden gecodeerd met verschillende kwaliteitsniveaus (bitsnelheden) en oplossingen bevatten. In deze les schakelt u gebruikers tooselect houdt. Deze les bevat Hallo procedures te volgen:
 
-1. De XAML-bestand wijzigen
-2. Wijzigen van het codebestand behand
-3. Compileren en de toepassing testen
+1. Hallo XAML-bestand wijzigen
+2. Hallo-codebestand behand wijzigen
+3. Compileren en Hallo toepassing testen
 
-**Het XAML-bestand te wijzigen**
+**toomodify hello XAML-bestand**
 
 1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **ontwerper**.
-2. Zoek de &lt;raster&gt; tag met de naam **gridStreamAndBitrateSelection**, de volgende code aan het einde van de tag toevoegen:
+2. Zoek Hallo &lt;raster&gt; tag met de naam van de Hallo **gridStreamAndBitrateSelection**, Hallo volgende code achter Hallo Hallo-tag toevoegen:
    
          <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
          <StackPanel Orientation="Horizontal">
@@ -791,12 +791,12 @@ Een presentatie Smooth Streaming kan meerdere videobestanden gecodeerd met versc
              </ListBox.ItemTemplate>
          </ListBox>
          </StackPanel>
-3. Druk op **CTRL + S** hij wijzigingen op te slaan
+3. Druk op **CTRL + S** toosave hij wordt gewijzigd
 
-**Wijzigen van de onderliggende-codebestand**
+**toomodify hello onderliggende-codebestand**
 
 1. In Solution Explorer met de rechtermuisknop op **MainPage.xaml**, en klik vervolgens op **weergavecode**.
-2. Voeg een nieuwe klasse toe binnen de naamruimte SSPlayer:
+2. Voeg een nieuwe klasse in Hallo SSPlayer naamruimte:
    
         #region class Track
         public class Track
@@ -834,17 +834,17 @@ Een presentatie Smooth Streaming kan meerdere videobestanden gecodeerd met versc
             //public Track() { }
         }
         #endregion class Track
-3. Voeg de volgende variabele definities aan het begin van de klasse MainPage:
+3. Toevoegen aan het begin van de Hallo Hallo MainPage klasse, Hallo variabele definities te volgen:
    
         private List<Track> availableTracks;
-4. Voeg de volgende regio in de klasse MainPage:
+4. Toevoegen in Hallo MainPage klasse, Hallo regio te volgen:
    
         #region track selection
         /// <summary>
-        /// Functionality to select video streams
+        /// Functionality tooselect video streams
         /// </summary>
    
-        /// This Function gets the tracks for the selected video stream
+        /// This Function gets hello tracks for hello selected video stream
         public void getTracks(Manifest manifestObject)
         {
             availableTracks = new List<Track>();
@@ -878,7 +878,7 @@ Een presentatie Smooth Streaming kan meerdere videobestanden gecodeerd met versc
             }
         }
    
-        // This function gets the video stream that is playing
+        // This function gets hello video stream that is playing
         private IManifestStream getVideoStream()
         {
             IManifestStream videoStream = null;
@@ -893,12 +893,12 @@ Een presentatie Smooth Streaming kan meerdere videobestanden gecodeerd met versc
             return videoStream;
         }
    
-        // This function set the UI list box control ItemSource
+        // This function set hello UI list box control ItemSource
         private async void refreshAvailableTracksListBoxItemSource()
         {
             try
             {
-                // Update the track check box list on the UI 
+                // Update hello track check box list on hello UI 
                 await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, ()
                     => { lbAvailableVideoTracks.ItemsSource = availableTracks; });
             }
@@ -908,7 +908,7 @@ Een presentatie Smooth Streaming kan meerdere videobestanden gecodeerd met versc
             }        
         }
    
-        // This function creates a list of the selected tracks.
+        // This function creates a list of hello selected tracks.
         private void createSelectedTracksList(List<IManifestTrack> selectedTracks)
         {
             // Create a list of selected tracks
@@ -921,7 +921,7 @@ Een presentatie Smooth Streaming kan meerdere videobestanden gecodeerd met versc
             }
         }
    
-        // This function selects the tracks based on user selection 
+        // This function selects hello tracks based on user selection 
         private void changeTracks(List<IManifestTrack> selectedTracks)
         {
             IManifestStream videoStream = getVideoStream();
@@ -935,32 +935,32 @@ Een presentatie Smooth Streaming kan meerdere videobestanden gecodeerd met versc
             }
         }
         #endregion track selection
-5. De methode mediaElement_ManifestReady vinden, de volgende code aan het einde van de functie toevoegen:
+5. Hallo mediaElement_ManifestReady methode vinden, na de code aan einde van de functie Hallo HALLO hallo toevoegen:
    
          getTracks(manifestObject);
          refreshAvailableTracksListBoxItemSource();
-6. Zoek de gebruikersinterface in de klasse MainPage knoppen klikt u op gebeurtenissen regio en voeg vervolgens de volgende functiedefinitie:
+6. Zoek in de klasse MainPage Hallo, Hallo UI knoppen klikt u op gebeurtenissen regio en voeg vervolgens Hallo functiedefinitie te volgen:
    
          private void btnChangeStream_Click(object sender, RoutedEventArgs e)
          {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
 
-            // Create a list of the selected streams
+            // Create a list of hello selected streams
             createSelectedStreamsList(selectedStreams);
 
-            // Change streams on the presentation
+            // Change streams on hello presentation
             changeStreams(selectedStreams);
          }
 
-**Om te compileren en de toepassing testen**
+**toocompile en test Hallo-toepassing**
 
-1. Druk op **F6** voor het compileren van het project. 
-2. Druk op **F5** om de toepassing uit te voeren.
-3. Aan de bovenkant van de toepassing, kunt u de standaard-URL voor Smooth Streaming of voer een andere. 
+1. Druk op **F6** toocompile Hallo project. 
+2. Druk op **F5** toorun Hallo-toepassing.
+3. Bovenaan Hallo Hallo toepassing, kunt u Hallo standaard-URL voor Smooth Streaming of voer een andere. 
 4. Klik op **bron instellen**. 
-5. Alle nummers van de videostream zijn standaard geselecteerd. Als u wilt experimenteren het bits tarief wordt gewijzigd, kunt u de laagste bitsnelheid beschikbaar selecteren en selecteer vervolgens de hoogste bitsnelheid beschikbaar. U moet op verzenden klikt na elke wijziging.  U kunt de videokwaliteit wijzigingen kan zien.
+5. Alle Hallo houdt van Hallo videostream zijn standaard geselecteerd. tooexperiment Hallo bit tarief wordt gewijzigd, kunt u selecteren Hallo laagste bitsnelheid die beschikbaar is en selecteer vervolgens Hallo hoogste bitsnelheid die beschikbaar is. U moet op verzenden klikt na elke wijziging.  U kunt Hallo videokwaliteit wijzigingen kan zien.
 
-U kunt les 4 hebt voltooid.  In deze les voegt u de functionaliteit om te kiezen houdt.
+U kunt les 4 hebt voltooid.  In deze les voegt u Hallo functionaliteit toochoose houdt.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -969,7 +969,7 @@ U kunt les 4 hebt voltooid.  In deze les voegt u de functionaliteit om te kiezen
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Andere bronnen:
-* [Het bouwen van een toepassing Smooth Streaming Windows 8 JavaScript met geavanceerde functies](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
+* [Hoe toobuild Smooth Streaming Windows 8 JavaScript-toepassing met geavanceerde functies](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 * [Smooth Streaming technisch overzicht](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png

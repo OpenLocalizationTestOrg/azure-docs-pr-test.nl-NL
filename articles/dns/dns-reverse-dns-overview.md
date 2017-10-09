@@ -1,5 +1,5 @@
 ---
-title: Overzicht van de reverse DNS-server in Azure | Microsoft Docs
+title: aaaOverview van omgekeerde DNS-server in Azure | Microsoft Docs
 description: Meer informatie over hoe reverse DNS-werkt en hoe deze kan worden gebruikt in Azure
 services: dns
 documentationcenter: na
@@ -12,38 +12,38 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.openlocfilehash: 70a1ad070e812951fca3d2b19da12c67f0725dd0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 687663fb83469ab8e696bb714649d0856915bad6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Overzicht van de reverse DNS- en biedt ondersteuning in Azure
 
-In dit artikel biedt een overzicht van hoe reverse DNS-werkt en de reverse DNS-scenario's ondersteund in Azure.
+In dit artikel biedt een overzicht van hoe reverse DNS-werkt en Hallo omgekeerde DNS-scenario's die worden ondersteund in Azure.
 
 ## <a name="what-is-reverse-dns"></a>Wat is omgekeerde DNS?
 
-Conventionele DNS-records voor het inschakelen van een toewijzing van een DNS-naam (zoals 'www.contoso.com') naar een IP-adres (zoals 64.4.6.100).  Omgekeerde DNS kunt de vertaling van een IP-adres (64.4.6.100) terug naar een naam (www.contoso.com).
+Conventionele DNS-records van inschakelen een toewijzing van een DNS-naam (zoals 'www.contoso.com') tooan IP-adres (zoals 64.4.6.100).  Omgekeerde DNS kunt Hallo vertaling van een IP-adres (64.4.6.100) back tooa naam (www.contoso.com).
 
-Omgekeerde DNS-records worden gebruikt in verschillende situaties. Omgekeerde DNS-records zijn bijvoorbeeld veel gebruikt in de bestrijding van e-mailbericht door te controleren of de afzender van een e-mailbericht.  De ontvangende e-mailserver haalt de reverse DNS-record van de verzendende server IP-adres en wordt gecontroleerd of die host is gemachtigd om e-mail te verzenden van het oorspronkelijke domein. 
+Omgekeerde DNS-records worden gebruikt in verschillende situaties. Omgekeerde DNS-records zijn bijvoorbeeld veel gebruikt in de bestrijding van e-mailbericht door te controleren of de afzender Hallo van een e-mailbericht.  Hallo ontvangende mail-server haalt Hallo omgekeerde DNS-record Hallo van server IP-adres verzenden en controleert of als die host is geautoriseerd toosend e-mailberichten van Hallo die afkomstig zijn domein. 
 
 ## <a name="how-reverse-dns-works"></a>Hoe reverse DNS-werkt
 
-Omgekeerde DNS-records worden gehost in speciale DNS-zones, bekend als 'ARPA-zones.  Deze zones vormen een afzonderlijke DNS-hiërarchie in combinatie met de normale hiërarchie die als host fungeert voor domeinen, zoals 'contoso.com'.
+Omgekeerde DNS-records worden gehost in speciale DNS-zones, bekend als 'ARPA-zones.  Deze zones vormen een afzonderlijke DNS-hiërarchie in combinatie met normale Hallo-hiërarchie die als host fungeert voor domeinen, zoals 'contoso.com'.
 
-Bijvoorbeeld, wordt de DNS-record 'www.contoso.com' geïmplementeerd met behulp van een DNS-'A'-record met de naam 'www' in de zone contoso.com.  Deze A-record verwijst naar de bijbehorende IP-adres, in dit geval 64.4.6.100.  De reverse lookup wordt afzonderlijk geïmplementeerd met een 'PTR-record met de naam '100' in de zone '6.4.64.in-addr.arpa' (Let erop dat de IP-adressen in ARPA-zones worden omgekeerd.)  Deze PTR-record, verwijst als deze juist is geconfigureerd naar de naam www.contoso.com.
+Bijvoorbeeld, wordt DNS-record 'www.contoso.com' hello geïmplementeerd met een "A" DNS-record met de Hallo-naam 'www' hello zone 'contoso.com'.  Deze A-record verwijst toohello bijbehorende IP-adres, in dit geval 64.4.6.100.  Hallo reverse lookup wordt afzonderlijk geïmplementeerd met een 'PTR-record met de naam '100' hello zone '6.4.64.in-addr.arpa' (Let erop dat de IP-adressen in ARPA-zones worden omgekeerd.)  Deze PTR-record verwijst toohello naam 'www.contoso.com' als dit correct is geconfigureerd.
 
-Wanneer een organisatie een IP-Adresblok toegewezen is, aanschaffen ze ook het recht voor het beheren van de bijbehorende ARPA zone. De ARPA-zones die overeenkomt met de IP-adresblokken gebruikt door Azure worden gehost en beheerd door Microsoft. Uw Internetprovider kan host voor de zone ARPA voor uw eigen IP-adressen voor u mogelijk toe te staan of te hosten van de zone ARPA in een DNS-service van uw keuze, zoals Azure DNS.
+Wanneer een organisatie een IP-Adresblok toegewezen is, aanschaffen ze ook Hallo rechts toomanage Hallo bijbehorende ARPA zone. Hallo ARPA-zones overeenkomt toohello IP-adres blokken die worden gebruikt door Azure worden gehost en beheerd door Microsoft. Uw Internetprovider Hallo ARPA zone voor uw eigen IP-adressen voor u kan hosten of kan tooyou host Hallo ARPA zone in een DNS-service van uw keuze, zoals Azure DNS.
 
 > [!NOTE]
-> Forward DNS-zoekacties en reverse DNS-zoekacties worden in afzonderlijke, parallelle DNS-hiërarchieën geïmplementeerd. De reverse lookup voor 'www.contoso.com' **niet** gehost in de zone 'contoso.com', in plaats daarvan deze is opgenomen in de zone ARPA voor de bijbehorende IP-Adresblok. Afzonderlijke zones worden gebruikt voor IPv4 en IPv6-adresblokken.
+> Forward DNS-zoekacties en reverse DNS-zoekacties worden in afzonderlijke, parallelle DNS-hiërarchieën geïmplementeerd. reverse lookup voor 'www.contoso.com' Hello **niet** gehost in Hallo zone 'contoso.com', in plaats daarvan het wordt gehost in Hallo ARPA zone voor Hallo bijbehorende IP-Adresblok. Afzonderlijke zones worden gebruikt voor IPv4 en IPv6-adresblokken.
 
 ### <a name="ipv4"></a>IPv4
 
-De naam van een IPv4-zone voor reverse lookup moet in de volgende indeling: `<IPv4 network prefix in reverse order>.in-addr.arpa`.
+Hallo-naam van een IPv4-zone voor reverse lookup moet in de volgende indeling Hallo: `<IPv4 network prefix in reverse order>.in-addr.arpa`.
 
-Bijvoorbeeld bij het maken van een reverse zone voor hostrecords voor hosts met IP-adressen die zich in het voorvoegsel 192.0.2.0/24, zouden de zonenaam worden gemaakt met het voorvoegsel van het netwerk van het adres (192.0.2) te isoleren en omkeren, volgorde (2.0.192) en het achtervoegsel toevoegen`.in-addr.arpa`.
+Bijvoorbeeld bij het maken van een zone voor reverse toohost records voor hosts met IP-adressen die zich in Hallo 192.0.2.0/24 voorvoegsel zouden Hallo zonenaam worden gemaakt met Hallo netwerk voorvoegsel van het Hallo-adres (192.0.2) en vervolgens Hallo volgorde (2.0.192) om te keren en toe te voegen Hallo isoleren achtervoegsel `.in-addr.arpa`.
 
 |Subnet-klasse|Netwerk voorvoegsel  |Omgekeerde netwerk voorvoegsel  |Standaard-achtervoegsel  |Zonenaam van voor reverse |
 |-------|----------------|------------|-----------------|---------------------------|
@@ -53,13 +53,13 @@ Bijvoorbeeld bij het maken van een reverse zone voor hostrecords voor hosts met 
 
 ### <a name="classless-ipv4-delegation"></a>Een IPv4-overdracht
 
-In sommige gevallen kan het IP-adresbereik dat is toegewezen aan een organisatie kleiner is dan een klasse C (/ 24) bereik. Het IP-bereik valt in dit geval niet op de grens van een zone binnen de `.in-addr.arpa` zone hiërarchie en daarom kan niet worden overgedragen als een onderliggende zone.
+In sommige gevallen Hallo IP-adresbereik toegewezen tooan organisatie kleiner is dan een klasse C (/ 24) bereik. Hallo IP-adresbereik valt in dit geval niet op de grens van een zone binnen Hallo `.in-addr.arpa` zone hiërarchie en daarom kan niet worden overgedragen als een onderliggende zone.
 
-In plaats daarvan wordt een ander mechanisme gebruikt voor het beheer van record voor afzonderlijke reverse lookup (Pointer) overbrengen naar een specifieke DNS-zone. Dit mechanisme delegeert een onderliggende zone voor elk IP-adresbereik en vervolgens elk IP-adres in het bereik afzonderlijk wordt toegewezen aan die onderliggende zone met behulp van CNAME-records.
+In plaats daarvan een ander mechanisme wordt gebruikt tootransfer besturingselement van afzonderlijke reverse lookup (Pointer) registreert tooa specifiek DNS-zone. Dit mechanisme delegeert een onderliggende zone voor elk IP-adresbereik en vervolgens elk IP-adres van Hallo maps bereik afzonderlijk toothat onderliggende zone met behulp van CNAME-records.
 
-Stel bijvoorbeeld dat een organisatie is het IP-bereik 192.0.2.128/26 verleend door de Internetprovider. Dit vertegenwoordigt 64 IP-adressen van 192.0.2.128 naar 192.0.2.191. Omgekeerde DNS voor dit bereik wordt als volgt geïmplementeerd:
-- De organisatie maakt aangeroepen 128-26.2.0.192.in-addr.arpa-zone voor reverse lookup. Het voorvoegsel ' 128-26' vertegenwoordigt het netwerksegment dat wordt toegewezen aan de organisatie binnen de klasse C (/ 24) bereik.
-- De Internetprovider maakt NS-records voor het instellen van de DNS-delegering voor de bovenstaande zone van de bovenliggende klasse C zone. Dit leidt ook tot CNAME-records in de bovenliggende (klasse C) reverse lookup zone, elk IP-adres in de IP-adresbereik toewijzen aan de nieuwe zone gemaakt door de organisatie:
+Stel bijvoorbeeld dat een organisatie Hallo IP-bereik 192.0.2.128/26 is verleend door de Internetprovider. Dit staat voor 64 IP-adressen uit 192.0.2.128 too192.0.2.191. Omgekeerde DNS voor dit bereik wordt als volgt geïmplementeerd:
+- Hallo organisatie maakt aangeroepen 128-26.2.0.192.in-addr.arpa-zone voor reverse lookup. Hallo-voorvoegsel vertegenwoordigt ' 128-26' Hallo netwerk toegewezen segment toohello organisatie binnen Hallo klasse C (/ 24) bereik.
+- Hallo ISP maakt tooset van NS-records van DNS-delegering voor Hallo hierboven zone Hallo Hallo klasse C bovenliggende zone. Dit leidt ook tot CNAME-records in hello (klasse C) bovenliggende zone voor reverse lookup toewijzing van elk IP-adres van Hallo IP-bereik toohello nieuwe zone gemaakt door Hallo organisatie:
 
 ```
 $ORIGIN 2.0.192.in-addr.arpa
@@ -72,7 +72,7 @@ $ORIGIN 2.0.192.in-addr.arpa
 131       CNAME    131.128-26.2.0.192.in-addr.arpa
 ; etc
 ```
-- De organisatie beheert de afzonderlijke PTR-records binnen hun onderliggende zone.
+- Hallo organisatie beheert Hallo afzonderlijke PTR-records in de onderliggende zone.
 
 ```
 $ORIGIN 128-26.2.0.192.in-addr.arpa
@@ -82,13 +82,13 @@ $ORIGIN 128-26.2.0.192.in-addr.arpa
 131      PTR    partners.contoso.com
 ; etc
 ```
-Een reverse lookup voor de IP-adres '192.0.2.129' query's voor een PTR-record met de naam '129.2.0.192.in-addr.arpa'. Deze query wordt omgezet via de CNAME in de bovenliggende zone naar de PTR-record in de onderliggende zone.
+Een reverse lookup voor Hallo IP-adres '192.0.2.129' query's voor een PTR-record met de naam '129.2.0.192.in-addr.arpa'. Deze query wordt omgezet via Hallo CNAME Hallo bovenliggende zone toohello PTR-record in Hallo onderliggende zone.
 
 ### <a name="ipv6"></a>IPv6
 
-De naam van een IPv6-zone voor reverse lookup worden de volgende notatie:`<IPv6 network prefix in reverse order>.ip6.arpa`
+Hallo-naam van een IPv6-zone voor reverse lookup moet Hallo formulier te volgen:`<IPv6 network prefix in reverse order>.ip6.arpa`
 
-Bijvoorbeeld:. Wanneer maken van een reverse zone voor hostrecords voor hosts met IP-adressen die zich in de 2001:db8:1000:abdc:: / 64-voorvoegsel, de zonenaam zouden worden gemaakt met het voorvoegsel van het netwerk van het adres te isoleren (2001:db8:abdc::). Vouw vervolgens het IPv6-netwerk voorvoegsel verwijderen [nul compressie](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), als deze is gebruikt om te verkorten van de IPv6-adresvoorvoegsel (2001:0db8:abdc:0000::). De volgorde, met een punt als scheidingsteken tussen elke hexadecimaal getal in het voorvoegsel voor het bouwen van de omgekeerde netwerk voorvoegsel (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) en voeg het achtervoegsel `.ip6.arpa`.
+Bijvoorbeeld:. Bij het maken van een zone voor reverse toohost records voor hosts met IP-adressen die zich in Hallo 2001:db8:1000:abdc:: / 64 voorvoegsel Hallo zonenaam zouden worden gemaakt met de Hallo netwerk voorvoegsel van Hallo adres isoleren (2001:db8:abdc::). Vouw vervolgens Hallo IPv6-netwerk voorvoegsel tooremove [nul compressie](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), als deze gebruikte tooshorten Hallo IPv6-adresvoorvoegsel (2001:0db8:abdc:0000::). Omgekeerde volgorde hello, gebruik van een punt als scheidingsteken tussen elke hexadecimaal getal in Hallo voorvoegsel Hallo toobuild Hallo omgekeerd netwerk voorvoegsel (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) en voeg Hallo achtervoegsel `.ip6.arpa`.
 
 
 |Netwerk voorvoegsel  |Uitgebreide en omgekeerde netwerk voorvoegsel |Standaard-achtervoegsel |Zonenaam van voor reverse  |
@@ -99,18 +99,18 @@ Bijvoorbeeld:. Wanneer maken van een reverse zone voor hostrecords voor hosts me
 
 ## <a name="azure-support-for-reverse-dns"></a>Ondersteuning van Azure voor omgekeerde DNS
 
-Azure ondersteunt twee afzonderlijke scenario's met betrekking tot de reverse DNS:
+Azure ondersteunt twee afzonderlijke scenario's met betrekking tooreverse DNS:
 
-**De zone voor reverse lookup overeenkomt met uw IP-Adresblok hosten.**
-Azure DNS kan worden gebruikt voor het [hosten van uw zones voor reverse lookup en PTR-records voor elke reverse DNS-lookup beheren](dns-reverse-dns-hosting.md), voor zowel IPv4 als IPv6.  Het proces van het maken van de zone voor reverse lookup (ARPA) en PTR-records configureren instellen van de overdracht is hetzelfde als voor gewone DNS-zones.  De enige verschillen zijn dat de overdracht moet worden geconfigureerd via uw Internetprovider in plaats van uw registrar DNS- en alleen het PTR-record type moet worden gebruikt.
+**Hallo reverse lookup zone bijbehorende tooyour IP-Adresblok hosten.**
+Azure DNS te kunnen worden gebruikt[hosten van uw zones voor reverse lookup en beheren van Hallo PTR-records voor elke reverse DNS-lookup](dns-reverse-dns-hosting.md), voor zowel IPv4 als IPv6.  Hallo proces voor het maken van hello (ARPA) zone voor reverse lookup Hallo delegering instellen en configureren van PTR records is Hallo dezelfde als voor gewone DNS-zones.  Hallo zijn alleen verschillen dat Hallo delegering moet worden geconfigureerd via uw Internetprovider in plaats van uw registrar DNS- en alleen Hallo type PTR-record moet worden gebruikt.
 
-**Configureer de reverse DNS-record voor de IP-adres dat is toegewezen aan uw Azure-service.** U kunt Azure [de reverse lookup voor de IP-adressen toegewezen aan uw Azure-service configureren](dns-reverse-dns-for-azure-services.md).  Deze reverse lookup is geconfigureerd door Azure als een PTR-record in de bijbehorende ARPA-zone.  Deze ARPA-zones, overeenkomt met alle IP-adresbereiken die worden gebruikt door Azure worden gehost door Microsoft
+**Configureer Hallo omgekeerde DNS-record voor Hallo IP-adres toegewezen tooyour Azure-service.** Azure kunt u te[Hallo reverse lookup configureren voor Hallo IP-adressen tooyour Azure service toegewezen](dns-reverse-dns-for-azure-services.md).  Deze reverse lookup is geconfigureerd door Azure als een PTR-record in de bijbehorende ARPA zone Hallo.  Deze ARPA-zones overeenkomt tooall Hallo IP-adresbereiken gebruikt door Azure worden gehost door Microsoft
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie over omgekeerde DNS [achterwaartse DNS-zoekopdracht op Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
-Meer informatie over hoe [zone voor reverse lookup voor uw Internetprovider toegewezen IP-adresbereik in Azure DNS hosten](dns-reverse-dns-for-azure-services.md).
+Meer informatie over hoe te[host Hallo-zone voor reverse lookup voor uw Internetprovider toegewezen IP-adresbereik in Azure DNS](dns-reverse-dns-for-azure-services.md).
 <br>
-Meer informatie over hoe [omgekeerde DNS-records voor uw Azure-services beheren](dns-reverse-dns-for-azure-services.md).
+Meer informatie over hoe te[omgekeerde DNS-records voor uw Azure-services beheren](dns-reverse-dns-for-azure-services.md).
 

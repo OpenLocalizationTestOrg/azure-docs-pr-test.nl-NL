@@ -1,6 +1,6 @@
 ---
-title: Inleiding tot Azure Advisor | Microsoft Docs
-description: Gebruik Azure Advisor om te optimaliseren van uw Azure-implementaties.
+title: aaaIntroduction tooAzure Advisor | Microsoft Docs
+description: Gebruik Azure Advisor toooptimize uw Azure-implementaties.
 services: advisor
 documentationcenter: NA
 author: kumudd
@@ -14,57 +14,57 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 35678142550f9f887562f311a5e7d9516495cf53
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5d796fc06366221efdb6f1bda39ab3fb676abfd2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-azure-advisor"></a>Inleiding tot Azure Advisor
+# <a name="introduction-tooazure-advisor"></a>Inleiding tooAzure Advisor
 
-Meer informatie over Azure Advisor en de belangrijkste mogelijkheden en antwoorden op veelgestelde vragen.
+Meer informatie over Azure Advisor en de belangrijkste mogelijkheden en antwoorden toofrequently vragen ophalen.
 
 ## <a name="what-is-advisor"></a>Wat is Advisor?
-Advisor is een persoonlijke cloud-consultant waarmee u Volg de aanbevolen procedures om uw Azure-implementaties te optimaliseren. Het analyseert uw resourceconfiguratie en de telemetrie van de informatie over het gebruik en vervolgens raadt aan om de oplossingen waarmee u de kosteneffectiviteit, prestaties, beschikbaarheid en beveiliging van uw Azure-resources te verbeteren.
+Advisor is een persoonlijke cloud-consultant die u helpt volgen best practices toooptimize uw Azure-implementaties. Het analyseert uw resourceconfiguratie en de telemetrie van de informatie over het gebruik en vervolgens raadt oplossingen die u kunnen helpen verbeteren Hallo kosteneffectiviteit, prestaties, beschikbaarheid en beveiliging van uw Azure-resources.
 
 Met Advisor, kunt u het volgende doen:
 * Proactieve, bruikbare ophalen en gepersonaliseerde aanbevolen procedures. 
-* Verbeteren de prestaties, beveiliging en hoge beschikbaarheid van uw resources, zoals u Identificeer mogelijkheden om te beperken van uw algehele Azure hoeven te besteden aan.
+* Hallo prestaties, beveiliging en hoge beschikbaarheid van uw resources verbeteren bij het bepalen van verkoopkansen tooreduce uw algehele Azure hoeven te besteden aan.
 * Aanbevelingen met voorgestelde acties inline worden opgehaald.
 
-U hebt toegang tot Advisor via de [Azure-portal](https://aka.ms/azureadvisordashboard). Aanmelden bij de [portal](https://portal.azure.com), selecteer **Bladeren**, en schuif vervolgens naar **Azure Advisor**. De Advisor-dashboard toont de persoonlijke aanbevelingen voor een geselecteerde abonnement. 
+U kunt Advisor benaderen via Hallo [Azure-portal](https://aka.ms/azureadvisordashboard). Meld u aan toohello [portal](https://portal.azure.com), selecteer **Bladeren**, en schuif vervolgens te**Azure Advisor**. Hallo Advisor dashboard toont de persoonlijke aanbevelingen voor een geselecteerde abonnement. 
 
-De aanbevelingen worden onderverdeeld in vier categorieën: 
+Hallo aanbevelingen worden onderverdeeld in vier categorieën: 
 
-* **Hoge beschikbaarheid**: om te controleren en de continuïteit van uw bedrijfskritieke toepassingen te verbeteren. Zie voor meer informatie [aanbevelingen voor hoge beschikbaarheid van Advisor](advisor-high-availability-recommendations.md).
+* **Hoge beschikbaarheid**: tooensure en Hallo continuïteit van uw bedrijfskritieke toepassingen te verbeteren. Zie voor meer informatie [aanbevelingen voor hoge beschikbaarheid van Advisor](advisor-high-availability-recommendations.md).
 
-* **Beveiliging**: voor het detecteren van bedreigingen en zwakke plekken die tot beveiligingsrisico's leiden mogelijk. Zie voor meer informatie [Advisor beveiligingsaanbevelingen](advisor-security-recommendations.md).
+* **Beveiliging**: toodetect bedreigingen en zwakke plekken die toosecurity schendingen kunnen leiden. Zie voor meer informatie [Advisor beveiligingsaanbevelingen](advisor-security-recommendations.md).
 
-* **Prestaties**: voor het verbeteren van de snelheid van uw toepassingen. Zie voor meer informatie [Advisor prestaties aanbevelingen](advisor-performance-recommendations.md).
+* **Prestaties**: tooimprove Hallo snelheid van uw toepassingen. Zie voor meer informatie [Advisor prestaties aanbevelingen](advisor-performance-recommendations.md).
 
-* **Kosten**: te optimaliseren en reduceren uw algehele Azure besteden. Zie voor meer informatie [aanbevelingen van Advisor kosten](advisor-cost-recommendations.md).
+* **Kosten**: toooptimize en reduceren uw algehele Azure hoeven te besteden aan. Zie voor meer informatie [aanbevelingen van Advisor kosten](advisor-cost-recommendations.md).
 
   ![Advisor aanbeveling typen](./media/advisor-overview/advisor-all-tab-examples.png)
 
 > [!NOTE]
-> Voor toegang tot de aanbevelingen Advisor te ontvangen, moet u eerst *registreren van uw abonnement* met Advisor. Een abonnement is geregistreerd als een *abonnement eigenaar* start van de Advisor-dashboard en klikt op de **aanbevelingen krijgen** knop. Dit is een *eenmalige bewerking*. Nadat het abonnement is geregistreerd, kunt u de aanbevelingen van Advisor als openen *eigenaar*, *Inzender*, of *lezer* voor een abonnement, resourcegroep of een specifieke bron.
+> tooaccess aanbevelingen Advisor te ontvangen, moet u eerst *registreren van uw abonnement* met Advisor. Een abonnement is geregistreerd als een *abonnement eigenaar* gestart Hallo dashboard en klikt op Hallo van Advisor **aanbevelingen krijgen** knop. Dit is een *eenmalige bewerking*. Nadat het Hallo-abonnement is geregistreerd, kunt u Advisor aanbevelingen als openen *eigenaar*, *Inzender*, of *lezer* voor een abonnement, een resourcegroep of een bepaalde resource.
 
-U kunt klikken op een aanbeveling voor meer informatie over deze. U kunt ook meer informatie over acties die u uitvoeren kunt om te profiteren van een kans of een probleem oplost. 
+U kunt klikken op een aanbeveling toolearn meer informatie. U kunt ook meer informatie over acties tootake profiteren van de gelegenheid uitvoeren of een probleem oplost. 
 
-Advisor biedt aanbevelingen met inline acties of documentatie koppelingen. Te klikken op een inline-actie doorloopt u via een 'begeleide gebruiker reis' om dit te implementeren. Een documentatie-koppeling te klikken, wordt u verwijst naar documentatie die wordt beschreven hoe u de actie handmatig implementeren. 
+Advisor biedt aanbevelingen met inline acties of documentatie koppelingen. Te klikken op een inline-actie doorloopt u via een tooimplement 'begeleide gebruiker reis' deze. Te klikken op een koppeling documentatie verwijst toodocumentation waarin wordt beschreven hoe toomanually Hallo actie implementeren. 
 
-Advisor updates aanbevelingen per uur. Als u niet dat onmiddellijk actie ondernemen op een aanbeveling wilt, kunt u deze uitstellen voor een opgegeven periode of genegeerd. 
+Advisor updates aanbevelingen per uur. Als een aanbeveling tootake directe actie dat u niet wilt, kunt u deze uitstellen voor een opgegeven periode of genegeerd. 
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 ### <a name="how-do-i-access-advisor"></a>Hoe krijg ik toegang tot Advisor?
-U hebt toegang tot Advisor via de [Azure-portal](https://aka.ms/azureadvisordashboard). Aanmelden bij de [portal](https://portal.azure.com), selecteer **Bladeren**, en schuif vervolgens naar **Azure Advisor**. De Advisor-dashboard toont de persoonlijke aanbevelingen voor een geselecteerde abonnement. 
+U kunt Advisor benaderen via Hallo [Azure-portal](https://aka.ms/azureadvisordashboard). Meld u aan toohello [portal](https://portal.azure.com), selecteer **Bladeren**, en schuif vervolgens te**Azure Advisor**. Hallo Advisor dashboard toont de persoonlijke aanbevelingen voor een geselecteerde abonnement. 
 
-U kunt ook aanbevelingen van Advisor weergeven via de resourceblade van de virtuele machine. Kies een virtuele machine en schuif vervolgens naar de Advisor-aanbevelingen in het menu. 
+U kunt ook aanbevelingen van Advisor weergeven via de resourceblade van Hallo virtuele machine. Kies de virtuele machine en schuif vervolgens tooAdvisor aanbevelingen in Hallo-menu. 
 
-### <a name="what-permissions-do-i-need-to-access-advisor"></a>Welke machtigingen heb ik nodig voor toegang tot Advisor?
+### <a name="what-permissions-do-i-need-tooaccess-advisor"></a>Wat machtigingen doen ik tooaccess Advisor nodig?
 
-Voor toegang tot de aanbevelingen Advisor te ontvangen, moet u eerst *registreren van uw abonnement* met Advisor. Een abonnement is geregistreerd als een *abonnement eigenaar* start van de Advisor-dashboard en klikt op de **aanbevelingen krijgen** knop. Dit is een *eenmalige bewerking*. Nadat het abonnement is geregistreerd, kunt u de aanbevelingen van Advisor als openen *eigenaar*, *Inzender*, of *lezer* voor een abonnement, resourcegroep of een specifieke bron.
+tooaccess aanbevelingen Advisor te ontvangen, moet u eerst *registreren van uw abonnement* met Advisor. Een abonnement is geregistreerd als een *abonnement eigenaar* gestart Hallo dashboard en klikt op Hallo van Advisor **aanbevelingen krijgen** knop. Dit is een *eenmalige bewerking*. Nadat het Hallo-abonnement is geregistreerd, kunt u Advisor aanbevelingen als openen *eigenaar*, *Inzender*, of *lezer* voor een abonnement, een resourcegroep of een bepaalde resource.
 
 ### <a name="how-often-are-advisor-recommendations-updated"></a>Hoe vaak worden aanbevelingen van Advisor bijgewerkt?
 
@@ -76,11 +76,11 @@ Advisor bevat aanbevelingen voor virtuele machines, beschikbaarheidssets Toepass
 
 ### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>Kan ik uitstellen of een aanbeveling negeren?
 
-Als u wilt uitstellen of een aanbeveling negeren, klikt u op de **uitstellen** knop of koppeling. U kunt opgeven dat een tijd uitstellen periode of selecteer **nooit** naar de aanbeveling negeren.
+toosnooze of een aanbeveling negeren, klikt u op Hallo **uitstellen** knop of koppeling. U kunt opgeven dat een tijd uitstellen periode of selecteer **nooit** toodismiss Hallo aanbeveling.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Advisor aanbevelingen:
+toolearn meer informatie over de aanbevelingen van Advisor, Zie:
 
 * [Aan de slag met Advisor](advisor-get-started.md)
 * [Hoge beschikbaarheid aanbevelingen Advisor te ontvangen](advisor-high-availability-recommendations.md)

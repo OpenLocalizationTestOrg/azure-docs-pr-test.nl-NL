@@ -1,6 +1,6 @@
 ---
-title: Verwijderen van een Azure-cluster en de bijbehorende bronnen | Microsoft Docs
-description: Informatie over hoe u een Service Fabric cluster volledig verwijderen van de resourcegroep met het cluster verwijderen of door de bronnen selectief te verwijderen.
+title: aaaDelete een Azure-cluster en de bijbehorende bronnen | Microsoft Docs
+description: Meer informatie over hoe toocompletely verwijderen, een Service Fabric-cluster beide verwijderen Hallo resourcegroep Hallo-cluster met of door de bronnen selectief te verwijderen.
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/24/2017
 ms.author: chackdan
-ms.openlocfilehash: 7672aa12421fbe4ad86e7315d6a7a06c2ff5124d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5c15a4184644da715cd69397f2150de86ab433ba
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Verwijderen van een Service Fabric-cluster op Azure en de resources die wordt gebruikt
-Een Service Fabric-cluster is opgebouwd uit veel andere Azure-resources naast de clusterbron zelf. Als u een Service Fabric-cluster volledig wilt verwijderen, moet u dus ook alle resources waar het cluster uit bestaat, verwijderen.
-Hebt u twee opties: ofwel de resourcegroep die het cluster verwijderen (die wist de clusterbron en alle andere resources in de resourcegroep) of de clusterbron specifiek verwijderen en de bijbehorende resources (maar geen andere resources in de resourcegroep).
+# <a name="delete-a-service-fabric-cluster-on-azure-and-hello-resources-it-uses"></a>Verwijderen van een Service Fabric-cluster op Azure en Hallo bronnen die wordt gebruikt
+Een Service Fabric-cluster bestaat uit veel andere Azure-resources verder toohello clusterbron zelf. Zodat toocompletely verwijdert een Service Fabric-cluster moet u ook alle resources die wordt gemaakt van Hallo toodelete.
+Hebt u twee opties: beide verwijderen Hallo resourcegroep bevindt die Hallo cluster zich in (die wist Hallo clusterbron en alle andere resources in de resourcegroep Hallo) of specifiek Hallo cluster resource verwijderen en de bijbehorende resources (maar geen andere resources in de resourcegroep Hallo).
 
 > [!NOTE]
-> Verwijderen van de clusterbron **heeft geen** verwijderen van alle andere resources die uw Service Fabric-cluster is samengesteld uit.
+> Verwijderen van de clusterbron Hallo **heeft geen** alle andere resources die uw Service Fabric-cluster is samengesteld uit Hallo verwijderen.
 > 
 > 
 
-## <a name="delete-the-entire-resource-group-rg-that-the-service-fabric-cluster-is-in"></a>Verwijderen van de hele resourcegroep (RG) die de Service Fabric-cluster in gebruik is
-Dit is de eenvoudigste manier om ervoor te zorgen dat u alle resources die zijn gekoppeld aan het cluster, met inbegrip van de resourcegroep verwijderen. U kunt de resourcegroep met behulp van PowerShell verwijderen of via de Azure-portal. Als uw resourcegroep resources die niet zijn gerelateerd aan de Service fabric-cluster bevat, kunt u specifieke bronnen verwijderen.
+## <a name="delete-hello-entire-resource-group-rg-that-hello-service-fabric-cluster-is-in"></a>Hallo hele resourcegroep verwijderen (RG) die Hallo Service Fabric-cluster in gebruik is
+Dit is Hallo gemakkelijkste manier tooensure dat u alle Hallo resources die zijn gekoppeld aan uw cluster, inclusief Hallo resourcegroep verwijderen. U kunt verwijderen Hallo resourcegroep met PowerShell of via hello Azure-portal. Als uw resourcegroep resources die geen gerelateerde tooService fabric-cluster bevat, kunt u specifieke bronnen verwijderen.
 
-### <a name="delete-the-resource-group-using-azure-powershell"></a>De resourcegroep met Azure PowerShell verwijderen
-U kunt ook de resourcegroep verwijderen door het uitvoeren van de volgende Azure PowerShell-cmdlets. Zorg ervoor dat Azure PowerShell 1.0 of hoger is geïnstalleerd op uw computer. Als u dit nog niet hebt gedaan, volgt u de stappen in [installeren en configureren van Azure PowerShell.](/powershell/azure/overview)
+### <a name="delete-hello-resource-group-using-azure-powershell"></a>Hallo-resourcegroep met Azure PowerShell verwijderen
+U kunt ook Hallo resourcegroep verwijderen door het uitvoeren van hello Azure PowerShell-cmdlets te volgen. Zorg ervoor dat Azure PowerShell 1.0 of hoger is geïnstalleerd op uw computer. Als u dit nog niet hebt gedaan, volgt u Hallo-stappen die worden beschreven in [hoe tooinstall en configureer Azure PowerShell.](/powershell/azure/overview)
 
-Open een PowerShell-venster en voer de volgende PS-cmdlets:
+Open een PowerShell-venster en Voer Hallo PS-cmdlets te volgen:
 
 ```powershell
 Login-AzureRmAccount
@@ -43,61 +43,61 @@ Login-AzureRmAccount
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
 
-Wordt u gevraagd om bevestiging als u niet gebruikt de *-Force* optie. Op de bevestiging de RG en alle resources daarin verwijderd.
+U krijgt een prompt tooconfirm Hallo verwijdering als u Hallo niet gebruikt *-Force* optie. Op de bevestiging Hallo RG en alle Hallo resources bevat worden verwijderd.
 
-### <a name="delete-a-resource-group-in-the-azure-portal"></a>Verwijderen van een resourcegroep in de Azure portal
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
-2. Ga naar het Service Fabric-cluster dat u wilt verwijderen.
-3. Klik op de naam van de resourcegroep op de pagina van de essentials cluster.
-4. Hiermee wordt de **Resource groep Essentials** pagina.
+### <a name="delete-a-resource-group-in-hello-azure-portal"></a>Verwijderen van een resourcegroep in hello Azure-portal
+1. Aanmelding toohello [Azure-portal](https://portal.azure.com).
+2. Navigeer toohello gewenste toodelete Service Fabric-cluster.
+3. Klik op Hallo naam resourcegroep op Hallo cluster essentials pagina.
+4. Hiermee wordt Hallo **Resource groep Essentials** pagina.
 5. Klik op **Verwijderen**.
-6. Volg de instructies op deze pagina om het verwijderen van de resourcegroep te voltooien.
+6. Hallo instructies op die pagina toocomplete Hallo verwijdering van de resourcegroep Hallo.
 
 ![Verwijderen van resourcegroep][ResourceGroupDelete]
 
-## <a name="delete-the-cluster-resource-and-the-resources-it-uses-but-not-other-resources-in-the-resource-group"></a>De clusterbron en de resources die wordt gebruikt, maar geen andere resources in de resourcegroep verwijderen
-Als uw resourcegroep alleen bronnen die gerelateerd zijn aan de Service Fabric-cluster dat u wilt verwijderen heeft, is het eenvoudiger om de gehele resourcedatabase-groep te verwijderen. Als u de resources één voor één in uw resourcegroep selectief te verwijderen wilt, voert u deze stappen.
+## <a name="delete-hello-cluster-resource-and-hello-resources-it-uses-but-not-other-resources-in-hello-resource-group"></a>Hallo-clusterbron en Hallo-resources die wordt gebruikt, maar geen andere resources in de resourcegroep Hallo verwijderen
+Als de resourcegroep is alleen de resources die gerelateerd toohello Service Fabric-cluster zijn gewenste toodelete, is het eenvoudiger toodelete Hallo hele resourcegroep. Als u wilt dat tooselectively verwijderen Hallo resources één voor één in de resourcegroep, voert u deze stappen.
 
-Als u uw cluster met behulp van de portal of via een van de Service Fabric-Resource Manager-sjablonen uit de sjablonengalerie hebt geïmplementeerd, zijn de resources die het cluster gebruikt gelabeld met de volgende twee codes. U kunt deze gebruiken om te bepalen welke bronnen die u wilt verwijderen.
+Als u uw cluster met behulp van Hallo portal of via een van de Service Fabric Resource Manager-sjablonen Hallo van Hallo sjablonengalerie hebt geïmplementeerd, worden alle Hallo resources Hallo cluster gebruikt gelabeld met Hallo na twee labels. U kunt ze toodecide welke resources u wilt dat toodelete.
 
-***Label #1:*** sleutel = clusternaam, waarde = 'naam van het cluster'
+***Label #1:*** sleutel = clusternaam, waarde = 'naam van het cluster Hallo'
 
 ***Label #2:*** sleutel = resourceName, waarde = ServiceFabric
 
-### <a name="delete-specific-resources-in-the-azure-portal"></a>Verwijderen van specifieke bronnen in de Azure portal
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
-2. Ga naar het Service Fabric-cluster dat u wilt verwijderen.
-3. Ga naar **alle instellingen** op de blade essentials.
-4. Klik op **labels** onder **bronbeheer** op de instellingenblade.
-5. Klik op een van de **labels** in de blade labels voor een lijst van alle resources met dit label.
+### <a name="delete-specific-resources-in-hello-azure-portal"></a>Verwijderen van specifieke bronnen in hello Azure-portal
+1. Aanmelding toohello [Azure-portal](https://portal.azure.com).
+2. Navigeer toohello gewenste toodelete Service Fabric-cluster.
+3. Ga te**alle instellingen** op Hallo essentials blade.
+4. Klik op **labels** onder **bronbeheer** op de blade Hallo-instellingen.
+5. Klik op een van de Hallo **labels** in Hallo labels blade tooget een lijst met alle Hallo resources met dit label.
    
     ![Resourcelabels][ResourceTags]
-6. Zodra u de lijst met gelabelde resources hebt, klikt u op elk van de resources en verwijder deze.
+6. Zodra u Hallo lijst met gelabelde resources hebt, klikt u op elk van de Hallo resources en verwijder deze.
    
     ![Resources met tags][TaggedResources]
 
-### <a name="delete-the-resources-using-azure-powershell"></a>Verwijderen van de resources met Azure PowerShell
-U kunt de resources één voor één verwijderen door het uitvoeren van de volgende Azure PowerShell-cmdlets. Zorg ervoor dat Azure PowerShell 1.0 of hoger is geïnstalleerd op uw computer. Als u dit nog niet hebt gedaan, volgt u de stappen in [installeren en configureren van Azure PowerShell.](/powershell/azure/overview)
+### <a name="delete-hello-resources-using-azure-powershell"></a>Hallo-resources met Azure PowerShell verwijderen
+Door het uitvoeren van hello Azure PowerShell-cmdlets te volgen, kunt u Hallo bronnen, één voor één verwijderen. Zorg ervoor dat Azure PowerShell 1.0 of hoger is geïnstalleerd op uw computer. Als u dit nog niet hebt gedaan, volgt u Hallo-stappen die worden beschreven in [hoe tooinstall en configureer Azure PowerShell.](/powershell/azure/overview)
 
-Open een PowerShell-venster en voer de volgende PS-cmdlets:
+Open een PowerShell-venster en Voer Hallo PS-cmdlets te volgen:
 
 ```powershell
 Login-AzureRmAccount
 ```
-Voor elk van de resources wilt u verwijderen, voert u de volgende:
+Voor elk van de resources Hallo toodelete wilt, voert u de volgende Hallo:
 
 ```powershell
-Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "<Resource Type>" -ResourceGroupName "<name of the resource group>" -Force
+Remove-AzureRmResource -ResourceName "<name of hello Resource>" -ResourceType "<Resource Type>" -ResourceGroupName "<name of hello resource group>" -Force
 ```
 
-Als u wilt verwijderen van de cluster-bron, voert u de volgende:
+toodelete hello clusterbron, voert u de volgende Hallo:
 
 ```powershell
-Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName "<name of the resource group>" -Force
+Remove-AzureRmResource -ResourceName "<name of hello Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName "<name of hello resource group>" -Force
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Lees het volgende wanneer u ook meer informatie over het upgraden van een cluster en partitionering services:
+Lezen Hallo tooalso na meer over het upgraden van een cluster en partitionering services:
 
 * [Meer informatie over de cluster-upgrades](service-fabric-cluster-upgrade.md)
 * [Meer informatie over partitioneren stateful services voor maximale schaal](service-fabric-concepts-partitioning.md)

@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure Data Lake Store - zelfstudies, API-verwijzing | Microsoft Docs
-description: Leer hoe u een grootschalige, met Hadoop compatibele Data Lake-opslagplaats kunt instellen, beheren en openen voor analyse van gegevens van elke grootte, soort en opnamesnelheid.
+title: aaaAzure Data Lake Store-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Ontdek hoe tooset, beheren en toegang tot een hyperschaal, Hadoop-compatibele data lake-opslagplaats voor analyses op gegevens van elke grootte, type en opnamesnelheid snelheid.
 services: data-lake-store
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 473cb9709421f853cb78853b54682adb3e48d372
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8a4730472b7811f022991bffc6dde7bb1be6458e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="data-lake-store-documentation"></a>Documentatie voor Data Lake Store
 
-Leer hoe u Data Lake Store kunt gebruiken om een grootschalige, met Hadoop compatibele opslagplaats te maken voor analyse van gegevens van elke grootte, soort en opnamesnelheid. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u een Data Lake-opslagplaats kunt instellen, beheren en openen voor operationele en verkennende analyse.
+Meer informatie over hoe toouse Data Lake Store toocreate een hyperschaal, Hadoop-compatibele opslagplaats voor analyses op gegevens van elke grootte, type en opnamesnelheid versnellen. Zelfstudies, API-referenties en andere documentatie wordt uitgelegd hoe tooset, beheren, en toegang tot een data lake-opslagplaats voor operationele en experimentele analyses.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Leer hoe u Data Lake Store kunt gebruiken om een grootschalige, met Hadoop compa
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Azure Data Lake Store met Azure Portal</h3>
+                        <h3>Aan de slag met Azure Data Lake Store met hello Azure-portal</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Leer hoe u Data Lake Store kunt gebruiken om een grootschalige, met Hadoop compa
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Azure Data Lake Store met de Azure CLI</h3>
+                        <h3>Aan de slag met Azure Data Lake Store met hello Azure CLI</h3>
                     </div>
                 </div>
             </div>

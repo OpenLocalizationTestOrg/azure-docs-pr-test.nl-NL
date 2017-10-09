@@ -1,5 +1,5 @@
 ---
-title: Voorbeelden voor Azure Cosmos DB DocumentDB API Python | Microsoft Docs
+title: Voorbeelden van Python aaaDocumentDB API voor Azure Cosmos DB | Microsoft Docs
 description: Python-voorbeelden op github voor algemene taken in Azure Cosmos DB, inclusief CRUD-bewerkingen niet vinden.
 keywords: Python-voorbeelden
 services: cosmos-db
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2016
 ms.author: moderakh
-ms.openlocfilehash: d1577eeeb8fe8007394431ce70a1c7a6ee61776b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d8f240782b0997f2d32b68d310dc6f4ff6cb36d0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python-voorbeelden
 > [!div class="op_single_selector"]
@@ -30,25 +30,25 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Voorbeeldoplossingen die worden uitgevoerd CRUD-bewerkingen en andere veelvoorkomende bewerkingen op Azure DB die Cosmos-bronnen zijn opgenomen in de [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) GitHub-opslagplaats. Dit artikel bevat:
+Voorbeeldoplossingen die worden uitgevoerd CRUD-bewerkingen en andere veelvoorkomende bewerkingen op Azure DB die Cosmos-bronnen zijn opgenomen in Hallo [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) GitHub-opslagplaats. Dit artikel bevat:
 
-* Koppelingen naar de taken in elk van de projectbestanden voor Python-voorbeeld. 
-* Koppelingen naar de bijbehorende API verwijst naar inhoud.
+* Koppelingen toohello taken in elk Hallo Python voorbeeld project-bestanden. 
+* Koppelingen toohello gerelateerd API-referentie-inhoud.
 
 **Vereisten**
 
-1. U moet een Azure-account te gebruiken deze Python-voorbeelden:
-   * U kunt [gratis een Azure-account openen](https://azure.microsoft.com/pricing/free-trial/): u ontvangt tegoeden die u kunt gebruiken om betaalde Azure-services uit te proberen, en zelfs nadat u alle tegoeden hebt gebruikt, kunt u het account houden en gratis Azure-services zoals Websites gebruiken. Er wordt nooit iets op uw creditcard in rekening gebracht, tenzij u expliciet de instellingen wijzigt en vraagt of de kosten op uw creditcard in rekening kunnen worden gebracht.
+1. U moet een Azure-account toouse deze Python-voorbeelden:
+   * U kunt [gratis een Azure-account openen](https://azure.microsoft.com/pricing/free-trial/): U ontvangt tegoed kunt u tootry uit betaalde Azure-services en zelfs nadat ze allemaal hebt gebruikt kunt u maximaal Hallo account houden en gebruik gratis Azure-services, zoals Websites. Uw creditcard wordt nooit worden in rekening gebracht, tenzij u expliciet de instellingen wijzigen en vraag toobe in rekening gebracht.
      * U kunt [voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): uw Visual Studio-abonnement ontvangt u elke maand tegoeden die u voor betaalde Azure-services kunt gebruiken.
-2. U moet ook de [Python SDK](documentdb-sdk-python.md). 
+2. U moet ook Hallo [Python SDK](documentdb-sdk-python.md). 
    
    > [!NOTE]
-   > Elk voorbeeld staat op zichzelf, het zelf wordt ingesteld en opgeschoond. Als zodanig voorbeelden uitgeven voor meerdere aanroepen naar [document_client. CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html). Telkens wanneer dit wordt gedaan uw abonnement wordt gefactureerd voor gebruik per laag van de prestaties van de verzameling wordt gemaakt van 1 uur. 
+   > Elk voorbeeld staat op zichzelf, het zelf wordt ingesteld en opgeschoond. Als zodanig Hallo voorbeelden meerdere aanroepen te verlenen[document_client. CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html). Telkens wanneer dit wordt gedaan uw abonnement wordt gefactureerd voor gebruik per Hallo prestatielaag van Hallo verzameling wordt gemaakt van 1 uur. 
    > 
    > 
 
 ## <a name="database-examples"></a>Database-voorbeelden
-De [Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement/Program.py) -bestand van de [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement) project ziet u hoe u de volgende taken uitvoeren.
+Hallo [Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement/Program.py) bestand Hallo [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement) project ziet u hoe tooperform Hallo na taken.
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -59,7 +59,7 @@ De [Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/sam
 | [Een database verwijderen](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/DatabaseManagement/Program.py#L113-L126) |[document_client. DeleteDatabase](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html) |
 
 ## <a name="collection-examples"></a>Voorbeelden van de verzameling
-De [Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement/Program.py) -bestand van de [CollectionManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement) project ziet u hoe u de volgende taken uitvoeren.
+Hallo [Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement/Program.py) bestand Hallo [CollectionManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement) project ziet u hoe tooperform Hallo na taken.
 
 | Taak | API-verwijzing |
 | --- | --- |

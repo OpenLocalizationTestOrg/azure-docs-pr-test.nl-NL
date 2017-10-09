@@ -1,6 +1,6 @@
 ---
 title: 'MyDriving Azure IoT-voorbeeld: samenstellen | Microsoft Docs'
-description: Maken van een app die is een uitgebreide demonstratie van het bouwen van een IoT-systeem met Microsoft Azure, met inbegrip van de Stream Analytics, Machine Learning en Event Hubs.
+description: Een app die is een uitgebreide demonstratie van het bouwen tooarchitect een IoT-systeem met Microsoft Azure, met inbegrip van de Stream Analytics, Machine Learning en Event Hubs.
 services: 
 documentationcenter: .net
 suite: 
@@ -14,106 +14,106 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: harikm
-ms.openlocfilehash: c4b19cc76ca11f606ca8af6b0f3277b5aa46ac5a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e78571225697f745fe011c722e57c8600704c392
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="build-and-deploy-the-mydriving-solution-to-your-environment"></a>Bouwen en implementeren van de oplossing MyDriving aan uw omgeving
-MyDriving is een Internet der dingen (IoT)-oplossing die u verzamelt gegevens uit uw auto, verwerkt met behulp van machine learning en geeft deze op uw mobiele telefoon. De back-end bestaat uit diverse services geleverd door Microsoft Azure. De clients kunnen worden Android, iOS of Windows 10-telefoons.
+# <a name="build-and-deploy-hello-mydriving-solution-tooyour-environment"></a>Bouw en implementeer Hallo MyDriving oplossing tooyour omgeving
+MyDriving is een Internet der dingen (IoT)-oplossing die u verzamelt gegevens uit uw auto, verwerkt met behulp van machine learning en geeft deze op uw mobiele telefoon. Hallo back-end bestaat uit diverse services geleverd door Microsoft Azure. Hallo-clients kunnen Android, iOS of Windows 10 Phone zijn.
 
-De oplossing MyDriving zodat u snel aan de slag bij het maken van uw eigen IoT-systeem is gemaakt. Van de [MyDriving opslagplaats op GitHub](https://github.com/Azure-Samples/MyDriving), kunt u Azure Resource Manager-scripts voor het implementeren van de back-end-architectuur in uw eigen Azure-account krijgen. U kunt vanaf dat moment opnieuw configureren van de andere services, wijzig de query's om aan de behoeften van uw eigen gegevens, enzovoort. U vindt deze scripts--samen met de code voor de mobiele app, het Azure App Service API-project en meer--in de opslagplaats MyDriving.
+Wij Hallo MyDriving oplossing toogive u snel aan de slag bij het maken van uw eigen IoT-systeem. Van Hallo [MyDriving opslagplaats op GitHub](https://github.com/Azure-Samples/MyDriving), krijgt u Azure Resource Manager scripts toodeploy Hallo back-end-architectuur in uw eigen Azure-account. Vanaf dat moment kunt u Hallo verschillende services configureren, Hallo query's toosuit uw eigen gegevens wijzigen en enzovoort. U vindt deze scripts--samen met de code voor de mobiele app hello, hello Azure App Service API-project en meer--in Hallo MyDriving opslagplaats.
 
-Als u de app nog niet hebt geprobeerd, bekijkt u de [Get-handleiding](iot-solution-get-started.md).
+Als u Hallo app nog niet hebt geprobeerd, bekijkt hello [Get-handleiding](iot-solution-get-started.md).
 
-Er is een gedetailleerd overzicht van de architectuur in de [MyDriving handleiding](http://aka.ms/mydrivingdocs). Kortom zijn er enkele softwareonderdelen die wij instellen om een soortgelijke project te maken:
+Er is een gedetailleerd overzicht van Hallo-architectuur in Hallo [MyDriving handleiding](http://aka.ms/mydrivingdocs). Kortom, er zijn verschillende dat we ingesteld toocreate een vergelijkbaar project:
 
-* Een **clientapp** wordt uitgevoerd op Android, iOS en Windows 10 Phone-telefoons. We gebruiken de Xamarin-platform voor het delen van veel van de code die is opgeslagen op GitHub onder `src/MobileApp`. De app daadwerkelijk voert twee afzonderlijke functies uit:
-  * Deze organisatiebeveiligingstokens telemetrie van het apparaat ingebouwde diagnostische gegevens (OBD) en van de eigen Locatieservice naar back-end van het systeem.
+* Een **clientapp** wordt uitgevoerd op Android, iOS en Windows 10 Phone-telefoons. We gebruiken Hallo Xamarin platform tooshare veel van Hallo code, die is opgeslagen op GitHub onder `src/MobileApp`. Hallo-app voert daadwerkelijk twee afzonderlijke functies uit:
+  * Deze organisatiebeveiligingstokens telemetrie uit Hallo on-board diagnostics (OBD)-apparaat en een eigen locatie service toohello systeem cloud back-end.
   * Het is een gebruikersinterface waarin gebruikers kunnen zoeken over hun reizen opgenomen weg.
-* Een **cloudservice** opgenomen van de gegevens onderweg reis in realtime en verwerkt deze. Het belangrijkste werk voor het maken van deze service is, kiest voorzien en bekabelen van tal van Azure-services. Sommige van de onderdelen vereist scripts te filteren en proces de inkomende gegevens. We gebruiken een Azure Resource Manager-sjabloon voor het configureren van alle onderdelen.
-* Een **mobiele service app** is de webservice achter het deel van de gebruikersinterface van de app voor het apparaat. De belangrijkste taak is om te zoeken in de database opgeslagen, verwerkt gegevens. De code op GitHub onder is `src/MobileAppService`.
-* **Visual Studio met Xamarin** is onze ontwikkelomgeving. Xamarin dat bestaat als een onderdeel van de Visual Studio en als een zelfstandige integrated development environment (IDE), wordt gebruikt voor het bouwen van de apparaatcode voor meerdere platforms. Als de iOS-code, is het nodig zijn voor een exemplaar van het Xamarin uitgevoerd op een OS X-machine. Indien nodig, kan deze worden uitgevoerd als een agent, beheerd vanuit Visual Studio.
-* **Testen van de eenheden** van het apparaat-apps in Xamarin-Testcloud wordt uitgevoerd.
-* **GitHub** is de opslagplaats waar we de code, scripts en sjablonen opslaat.
-* **Visual Studio Team Services** is een cloudservice die wordt gebruikt voor het beheren van de continue bouwen en testen van de web-service en apparaat-apps.
-* **HockeyApp** wordt gebruikt voor het distribueren van de versies van de apparaatcode. Verzamelt ook crashes en gebruik rapporten en feedback van gebruikers.
-* **Visual Studio Application Insights** bewaakt de mobiele web-service.
+* Een **cloudservice** Hallo weg reis gegevens in real-time opgenomen en verwerkt deze. Hallo belangrijkste werk voor het maken van deze service is toochoose, voorzien en bekabelen van tal van Azure-services. Sommige onderdelen Hallo vereist scripts toofilter en proces Hallo binnenkomende gegevens. We gebruiken een Azure Resource Manager-sjabloon tooconfigure alle Hallo delen.
+* Een **mobiele service app** Hallo webservice achter Hallo gebruikersinterface onderdeel van de app Hallo-apparaat is. De belangrijkste taak is tooquery Hallo-database opgeslagen, verwerkt gegevens. De code op GitHub onder is `src/MobileAppService`.
+* **Visual Studio met Xamarin** is onze ontwikkelomgeving. Xamarin dat bestaat als een onderdeel van de Visual Studio en als een zelfstandige integrated development environment (IDE), wordt gebruikt toobuild Hallo platformoverschrijdende apparaatcode. toobuild hello iOS code is noodzakelijk toohave een exemplaar van het Xamarin uitgevoerd op een OS X-machine. Indien nodig, kan deze worden uitgevoerd als een agent, beheerd vanuit Visual Studio.
+* **Testen van de eenheden** Hallo apparaat apps in Xamarin-Testcloud wordt uitgevoerd.
+* **GitHub** is Hallo opslagplaats waar we alle Hallo code, scripts en sjablonen opslaat.
+* **Visual Studio Team Services** is een cloudservice die is gebruikt toomanage Hallo continue bouwen en testen van Hallo web service en apparaat-apps.
+* **HockeyApp** gebruikte toodistribute releases van Hallo apparaatcode is. Verzamelt ook crashes en gebruik rapporten en feedback van gebruikers.
+* **Visual Studio Application Insights** monitors Hallo mobiele web-service.
 
 Dus gaan we kijken hoe we ingesteld dat alle. 
 
 > [!NOTE] 
-> Veel van de volgende stappen zijn optioneel.
+> Veel van de volgende stappen uit Hallo zijn optioneel.
 >
 >
 
 ## <a name="sign-up-for-accounts"></a>Aanmelden voor accounts
-* [Visual Studio Developer Essentials](https://www.visualstudio.com/products/visual-studio-dev-essentials-vs.aspx). Dit gratis programma biedt eenvoudige toegang tot veel hulpprogramma's voor ontwikkelaars en -services, waaronder Visual Studio, Visual Studio Team Services en Azure. Dit biedt u een creditcard $25 per maand op Azure voor twaalf maanden. Dit omvat ook abonnementen op Pluralsight trainings- en Xamarin universiteit. U kunt ook aanmelden afzonderlijk voor gratis lagen van [Azure](https://azure.com) en [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs.aspx), maar deze geen Azure-tegoed.
+* [Visual Studio Developer Essentials](https://www.visualstudio.com/products/visual-studio-dev-essentials-vs.aspx). Dit gratis programma biedt eenvoudige toegang toomany ontwikkelhulpprogramma's en services, zoals Visual Studio, Visual Studio Team Services en Azure. Dit biedt u een creditcard $25 per maand op Azure voor twaalf maanden. Dit omvat ook abonnementen tooPluralsight trainings- en Xamarin universiteit. U kunt ook aanmelden afzonderlijk voor gratis lagen van [Azure](https://azure.com) en [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs.aspx), maar deze geen Azure-tegoed.
 * [HockeyApp](https://rink.hockeyapp.net/) (optioneel), voor het beheren van de test-distributie van mobiele apps en het verzamelen van telemetrie.
-* [Xamarin](https://xamarin.com/) (vereist), voor het bouwen van de mobiele app en foutopsporing wordt uitgevoerd en tests uitgevoerd op [Xamarin-Testcloud](https://xamarin.com/test-cloud).
-* [GitHub](https://github.com/Azure-Samples/MyDriving/) (optioneel), vrije openbare opslagplaatsen voor uw eigen code (persoonlijke opslagplaatsen betaald) maken. U kunt ook het basisniveau gebruiken in Visual Studio Team Services voor privé-opslagplaatsen.
-* [Power BI](https://powerbi.microsoft.com/) (optioneel), uitgebreide visualisaties van gegevens maken in het hele systeem.
+* [Xamarin](https://xamarin.com/) (vereist), voor het bouwen van de mobiele app Hallo en actieve foutopsporing wordt uitgevoerd en tests op [Xamarin-Testcloud](https://xamarin.com/test-cloud).
+* [GitHub](https://github.com/Azure-Samples/MyDriving/) (optioneel), toocreate gratis openbare opslagplaatsen voor uw eigen code (persoonlijke opslagplaatsen betaald). U kunt ook Hallo basisniveau in Visual Studio Team Services voor privé-opslagplaatsen.
+* [Power BI](https://powerbi.microsoft.com/) (optioneel) toocreate uitgebreide afbeeldingen van gegevens over het hele systeem Hallo.
 
 > [!NOTE]
-> U hoeft niet een GitHub-account voor toegang tot de code MyDriving in [de GitHub MyDriving-opslagplaats](https://github.com/Azure-Samples/MyDriving).
+> U hoeft niet met een account tooaccess Hallo MyDriving code in GitHub [GitHub MyDriving-opslagplaats Hallo](https://github.com/Azure-Samples/MyDriving).
 > 
 > 
 
 ## <a name="install-development-tools"></a>Ontwikkelingsprogramma's installeren
-De volgende instellingen zijn voor het ontwikkelen van de volledige oplossing: een iOS-, Android- en Windows 10 Mobile platformoverschrijdende-app met een Azure back-end.
+Hallo volgende instellingen zijn voor het ontwikkelen van de volledige oplossing Hallo: een iOS-, Android- en Windows 10 Mobile platformoverschrijdende-app met een Azure back-end.
 
-Als alternatief kunt u Xamarin Studio in Mac of Windows voor het ontwikkelen van de mobiele apps als u niet werken op de Azure back-end.
+Als alternatief kunt u Xamarin Studio in Mac of Windows toodevelop Hallo mobile apps als u niet werken op Hallo Azure back-end.
 
 Er is een [langere beschrijving van deze installatie](https://msdn.microsoft.com/library/mt613162.aspx).
 
 ### <a name="windows-development-machine"></a>Windows-ontwikkelcomputer
-Het centrale hulpprogramma in Windows is Visual Studio voor het werken met de MyDriving-app voor Android en Windows, de App Service API-project en microservice-extensies.
+Hallo centrale hulpprogramma in Windows is Visual Studio voor het werken met Hallo MyDriving app voor Android en Windows, Hallo-App Service API-project en microservice-extensies.
 
 Xamarin, Git emulators en andere onderdelen nuttig zijn alle geïntegreerd met Visual Studio.
 
 Installeren:
 
 * [Visual Studio met Xamarin](https://www.visualstudio.com/products/visual-studio-community-vs) (elke editie--Community is gratis).
-* [SQLite voor Universal Windows Platform](https://visualstudiogallery.msdn.microsoft.com/4913e7d5-96c9-4dde-a1a1-69820d615936). Vereist voor het bouwen van de Windows 10 Mobile-code.
-* [Azure SDK voor Visual Studio](https://www.visualstudio.com/vs/azure-tools/). Biedt u de SDK voor apps in Azure, samen met de opdrachtregelprogramma's voor het beheren van Azure wordt uitgevoerd.
-* [Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). Vereist voor het bouwen de [microservice](../service-fabric/service-fabric-get-started.md) extensie.
+* [SQLite voor Universal Windows Platform](https://visualstudiogallery.msdn.microsoft.com/4913e7d5-96c9-4dde-a1a1-69820d615936). Toobuild hello Windows 10 Mobile-code vereist.
+* [Azure SDK voor Visual Studio](https://www.visualstudio.com/vs/azure-tools/). Biedt u Hallo SDK voor apps in Azure, samen met de opdrachtregelprogramma's voor het beheren van Azure wordt uitgevoerd.
+* [Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). Vereiste toobuild hello [microservice](../service-fabric/service-fabric-get-started.md) extensie.
 
-Zorg ervoor dat u de juiste Visual Studio-extensies hebben. Controleer of onder **extra**, ziet u **Android, iOS, Xamarin...** . Als dat niet het geval is, Visual Studio niet openen, doorzoeken voor Xamarin en volg de aanwijzingen om deze te installeren. Controleer ook of **Git voor Windows** is geïnstalleerd. Als dat niet het geval is, wordt in Visual Studio, zoekt u het en volg de aanwijzingen om deze te installeren. 
+Zorg ervoor dat u de juiste Visual Studio-serverextensies Hallo hebt. Controleer of onder **extra**, ziet u **Android, iOS, Xamarin...** . Als dit niet het geval is, Visual Studio niet openen, zoekt u Xamarin en volg Hallo prompts tooinstall deze. Controleer ook of **Git voor Windows** is geïnstalleerd. Als deze niet in de Visual Studio, zoeken en volg Hallo prompts tooinstall deze. 
 
 ### <a name="mac-development-machine"></a>Mac-ontwikkelcomputer
-De Mac (Yosemite of hoger) is vereist als u wilt ontwikkelen voor iOS. Hoewel we Visual Studio met Xamarin in Windows te ontwikkelen en beheren van alle code gebruiken, gebruikt Xamarin een agent is geïnstalleerd op een Mac wilt bouwen en meld u aan de iOS-code.
+Hallo Mac (Yosemite of hoger) is vereist als u wilt dat toodevelop voor iOS. Hoewel we Visual Studio met Xamarin op Windows-toodevelop gebruiken en alle Hallo code beheren, Xamarin maakt gebruik van een agent is geïnstalleerd op een Mac in volgorde toobuild en aanmelding Hallo iOS-code.
 
 ![Voor Windows ontwikkelen en bouwen op Mac](./media/iot-solution-build-system/image1.png)
 
-(Als alternatief kunt u Xamarin Studio rechtstreeks op de Mac om platformoverschrijdende apps te ontwikkelen.)
+(Als alternatief kunt u Xamarin Studio rechtstreeks op Hallo Mac toodevelop platformoverschrijdende apps.)
 
-U hoeft niet op de Mac als u niet wilt laten iOS als doelplatform.
+U hoeft niet Hallo Mac als u niet tooinclude iOS als doelplatform wilt.
 
 Installeren:
 
 * [Xamarin Studio voor iOS](https://developer.xamarin.com/guides/ios/getting_started/installation/mac/). U kunt ook Visual Studio en Xamarin op een Mac met een virtuele Windows-computer instellen. Zie [-installatie, installatie en verificaties voor Mac-gebruikers](https://msdn.microsoft.com/library/mt488770.aspx) op MSDN.
 * [Azure ontwikkelingsprogramma's](https://azure.microsoft.com/downloads/) (optioneel).
 
-Inschakelen van externe aanmelding op de Mac. Open **Systeemvoorkeuren** > **delen**, en selecteer vervolgens **externe aanmelding**.
+Inschakelen van externe aanmelding op Hallo Mac. Open **Systeemvoorkeuren** > **delen**, en selecteer vervolgens **externe aanmelding**.
 
-Wanneer u een iOS-project in Visual Studio in Windows opent, wordt de invoegtoepassing Xamarin u gevraagd voor de ID van de Mac.
+Wanneer u een iOS-project in Visual Studio in Windows opent, wordt Hallo Xamarin-invoegtoepassing u gevraagd voor ID Hallo Hallo Mac.
 
-## <a name="fetch-the-github-repository"></a>Ophalen van de GitHub-opslagplaats
-Ophalen van een lokale kopie van [de GitHub MyDriving-opslagplaats](https://github.com/Azure-Samples/MyDriving) met behulp van de **ZIP downloaden** knop in GitHub, Visual Studio of een andere Git-client.
+## <a name="fetch-hello-github-repository"></a>Hallo GitHub-opslagplaats ophalen
+Ophalen van een lokale kopie van [GitHub MyDriving-opslagplaats Hallo](https://github.com/Azure-Samples/MyDriving) met behulp van Hallo **ZIP downloaden** knop in GitHub, Visual Studio of een andere Git-client.
 
-Pak het bestand naar een map met een korte padnaam, zoals C:\\code.
+Pak Hallo tooa map met een korte padnaam, zoals C:\\code.
 
-U kunt ook als u wilt up-to-date te houden met of bijdragen aan onze code, de opslagplaats klonen als volgt:
+U kunt ook als u wilt dat tookeep up toodate met of tooour code bijdragen, Hallo opslagplaats klonen als volgt:
 
 **GIT kloon https://github.com/Azure-Samples/MyDriving.git**
 
 ## <a name="get-a-bing-maps-api-key"></a>Een Bing maps API-sleutel ophalen
 [Registreren voor een Bing kaarten-API-sleutel](https://msdn.microsoft.com/library/ff428642.aspx).
 
-U moet dit vervangen in regel 22 in `src/MobileApps/MyDriving/MyDriving.Utils/Logger.cs`.
+U moet dit in 22 in regel tooreplace `src/MobileApps/MyDriving/MyDriving.Utils/Logger.cs`.
 
-## <a name="build-the-demo-app"></a>De demo-app bouwen
+## <a name="build-hello-demo-app"></a>Hallo demo-app bouwen
 Deze oplossingen openen in Visual Studio:
 
 * src\MobileApps\MyDriving.sln
@@ -122,98 +122,98 @@ Deze oplossingen openen in Visual Studio:
 
 Krijgt u de aanwijzingen voor het:
 
-* Vertrouwen van sommige mogelijk onbetrouwbare projecten. Kies om deze te openen als u wilt doorgaan.
+* Vertrouwen van sommige mogelijk onbetrouwbare projecten. Kies tooopen ze als u wilt dat toogo vooruit.
 * Modus voor ontwikkelaars instellen als u op een nieuwe Windows 10-computer werkt.
 * Geef uw Xamarin-referenties.
-* Verbinding maken met de Xamarin-Mac. Als u een Mac hebt, met de rechtermuisknop op het iOS-project in Visual Studio en selecteer vervolgens **Unload project**.
+* Verbinding maken met toohello Xamarin Mac. Als u een Mac hebt, klik met de rechtermuisknop Hallo iOS in Visual Studio-project en selecteer vervolgens **Unload project**.
 
-De oplossing opnieuw worden opgebouwd.
+Hallo-oplossing opnieuw maakt.
 
-Als u problemen ondervindt bij het bouwen, probeert u de oplossingen quirks die we hebben gevonden:
+Hebt u problemen bij het bouwen, probeert u Hallo oplossingen tooquirks die we hebben gevonden:
 
-* *VINLookupApplication project niet laden*: Controleer of u geïnstalleerd de [Azure SDK voor Visual Studio](https://www.visualstudio.com/vs/azure-tools/).
-* *Service Fabric-project niet onderhouden*: eerst de interface-projecten bouwen en controleer of u de Service Fabric SDK geïnstalleerd.
+* *VINLookupApplication project niet laden*: Controleer of u Hallo geïnstalleerd [Azure SDK voor Visual Studio](https://www.visualstudio.com/vs/azure-tools/).
+* *Service Fabric-project niet onderhouden*: eerst Hallo interface projecten bouwen en controleer of u Hallo Service Fabric SDK geïnstalleerd.
 * *Android-app niet onderhouden*:
   
   * Open **extra** > **Android** > **Android SDK Manager**, en zorg ervoor dat Android 6 (API 23) / Platform SDK is geïnstalleerd.
   * Deze map te verwijderen en vervolgens opnieuw maken:<br/>
     `%LocalAppData%\Xamarin\zips`
 
-## <a name="get-to-know-the-code"></a>Kennismaking met de code
-In de oplossing vindt u het:
+## <a name="get-tooknow-hello-code"></a>Tooknow hello code ophalen
+Hallo-oplossing, hebt u:
 
 * Azure-extensies: Service Fabric.
 * Azure HDInsight: Scripts voor het verwerken van reis gegevens in Azure.
-* Mobiele Apps: De apparaat-apps.
-* MobileAppsService/MyDrivingService: Het web terug eindigen.
-* Power BI: Definitie van het rapport.
+* Mobiele Apps: apps Hallo apparaten.
+* MobileAppsService/MyDrivingService: Hallo web terug eindigen.
+* Power BI: Hallo rapportdefinitie.
 * Scripts:
   
-  * Resource Manager: sjablonen voor het bouwen van de Azure-resources.
-  * PowerShell: Scripts worden uitgevoerd van de Resource Manager-sjablonen.
+  * Resource Manager: sjablonen toobuild hello Azure-resources.
+  * PowerShell: Scripts toorun Hallo Resource Manager-sjablonen.
   * Azure SQL Database: Foutopsporing databases.
 * SQL Database: CreateTables: schemadefinities.
-* Azure Stream Analytics: Query's die de gegevensstroom inkomende te transformeren.
+* Azure Stream Analytics: Een query die transformatie Hallo binnenkomende gegevensstroom.
 
-## <a name="run-the-apps-in-development-mode"></a>De apps worden uitgevoerd in de Ontwikkelingsmodus
-Onderneem actie om uit te voeren van de apps, op basis van het apparaat dat u gebruikt:
+## <a name="run-hello-apps-in-development-mode"></a>Hallo-apps uitvoeren in de Ontwikkelingsmodus
+Onderneem actie toorun Hallo-apps, op basis van het Hallo-apparaat dat u gebruikt:
 
-* Back-end: MyDrivingService instellen als opstartproject en druk op F5 om uit te voeren van de back-end-webservice. Een browserweergave van de API-vermelding wordt geopend.
-* Mobiele clients: de [mobiele apps zijn ontwikkeld in Xamarin](https://developer.xamarin.com/guides/cross-platform/deployment,_testing,_and_metrics/debugging_with_xamarin/).
+* Back-end: MyDrivingService instellen als opstartproject Hallo en druk op F5 toorun Hallo back-end-webservice. Een browserweergave van Hallo API aanbieding wordt geopend.
+* Mobiele clients: Hallo [mobiele apps zijn ontwikkeld in Xamarin](https://developer.xamarin.com/guides/cross-platform/deployment,_testing,_and_metrics/debugging_with_xamarin/).
   
   * Android: Zie voor meer informatie [Android foutopsporing in Xamarin](http://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/debugging_with_xamarin_android/).
   * iOS: Zie voor meer informatie [foutopsporing in iOS](http://developer.xamarin.com/guides/ios/deployment,_testing,_and_metrics/debugging_in_xamarin_ios/).
   * Windows Phone: Zie voor meer informatie [Xamarin + Windows Phone](https://developer.xamarin.com/guides/cross-platform/windows/phone/).
 
-## <a name="upload-the-mobile-app-to-hockeyapp"></a>De mobiele app uploaden naar HockeyApp
-HockeyApp beheert de distributie van uw Android, iOS of Windows-app voor het testen van gebruikers, het verwittigen van gebruikers met nieuwe releases. Verzamelt ook nuttig foutenrapporten, feedback van gebruikers met schermafbeeldingen en meetgegevens voor softwaregebruik.
+## <a name="upload-hello-mobile-app-toohockeyapp"></a>Hallo mobiele app tooHockeyApp uploaden
+HockeyApp beheert Hallo distributie van uw Android, iOS of Windows-app tootest gebruikers verwittigen van gebruikers met nieuwe releases. Verzamelt ook nuttig foutenrapporten, feedback van gebruikers met schermafbeeldingen en meetgegevens voor softwaregebruik.
 
-[Start met uploaden van](http://support.hockeyapp.net/kb/app-management-2/how-to-create-a-new-app) uw build-app. Meld u vervolgens, bij [HockeyApp](https://rink.hockeyapp.net) van uw ontwikkelcomputer. Klik op het dashboard voor ontwikkelaars **nieuwe App**, en sleep de gemaakte bestanden naar het venster. (Later kunt u automatiseren uw buildservice om dit te doen.)
+[Start met uploaden van](http://support.hockeyapp.net/kb/app-management-2/how-to-create-a-new-app) uw build-app. Meld u vervolgens aan te[HockeyApp](https://rink.hockeyapp.net) van uw ontwikkelcomputer. Klik op dashboard Hallo voor ontwikkelaars, **nieuwe App**, en sleep Hallo gebouwd bestanden naar Hallo-venster. (Later kunt u automatiseren uw service build toodo dit.)
 
 U kunt nu in uw app-dashboard.
 
-![Overzichtstabblad op het app-dashboard](./media/iot-solution-build-system/image2.png)
+![Overzichtstabblad op Hallo app-dashboard](./media/iot-solution-build-system/image2.png)
 
-Het proces herhalen voor elk platform dat uw app wordt uitgevoerd op. Vervolgens kunt u het volgende doen:
+Hallo proces herhalen voor elk platform dat uw app wordt uitgevoerd op. Vervolgens kunt u doen Hallo volgende:
 
-* Gebruik de [app-ID](http://support.hockeyapp.net/kb/app-management-2/how-to-find-the-app-id) vanuit het dashboard crashgegevens en feedback verzenden vanuit uw app. Werk in MyDriving, de id's in src/MobileApps/MyDriving/MyDriving.Utils/Logger.cs.
-* [Testgebruikers uitnodigen](http://support.hockeyapp.net/kb/app-management-2/how-to-invite-beta-testers). U ophalen een URL naar het werven testers gebruikers. Deze persoon zich aanmelden voor uw team, de app downloaden en u feedback sturen.
-* Als u liever een meer geopende bètaversie, stelt u de distributie naar openbaar. Klik op **App beheren** > **distributie** > **downloaden = openbare**. Iedereen kan nu uw app downloaden en u feedback verzenden en ze ziet een melding wanneer u een nieuwe versie plaatsen. U kunt sommige foutenrapporten van deze te ophalen.
+* Gebruik Hallo [app-ID](http://support.hockeyapp.net/kb/app-management-2/how-to-find-the-app-id) van Hallo dashboard toosend crashgegevens en feedback van uw app. Werk in MyDriving, Hallo-id's in src/MobileApps/MyDriving/MyDriving.Utils/Logger.cs.
+* [Testgebruikers uitnodigen](http://support.hockeyapp.net/kb/app-management-2/how-to-invite-beta-testers). Krijgt u een URL-toorecruit testers gebruikers. Ze je kunnen toosign voor uw team worden, Hallo-app downloaden en u feedback sturen.
+* Als u liever een meer geopende bètaversie, stelt u Hallo distributie toopublic. Klik op **App beheren** > **distributie** > **downloaden = openbare**. Iedereen kan nu uw app downloaden en u feedback verzenden en ze ziet een melding wanneer u een nieuwe versie plaatsen. U kunt sommige foutenrapporten van deze te ophalen.
   
-   ![Teams op het dashboard](./media/iot-solution-build-system/image3.png)
-* [Foutenrapporten koppelen aan Visual Studio Team Services](http://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs). Klik op **App beheren** > **Visual Studio teamservices**. HockeyApp kunt automatisch werkitems in Team Services maken wanneer er foutenrapporten of wanneer feedback wordt ontvangen.
+   ![Teams op Hallo-dashboard](./media/iot-solution-build-system/image3.png)
+* [Koppeling crash rapporten tooVisual Studio Team Services](http://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs). Klik op **App beheren** > **Visual Studio teamservices**. HockeyApp kunt automatisch werkitems in Team Services maken wanneer er foutenrapporten of wanneer feedback wordt ontvangen.
 
-Meer informatie op de [HockeyApp site](https://hockeyapp.net).
+Lees meer op Hallo [HockeyApp site](https://hockeyapp.net).
 
-## <a name="test-the-mobile-app-on-xamarin-test-cloud"></a>Testen van de mobiele app op Xamarin-Testcloud
-[Xamarin-Testcloud](https://developer.xamarin.com/guides/testcloud/introduction-to-test-cloud/) automatiseert UI testen op echte apparaten in de cloud. Met behulp van het framework NUnit schrijven u tests die uw app via de gebruikersinterface uitvoeren.
+## <a name="test-hello-mobile-app-on-xamarin-test-cloud"></a>Test Hallo mobiele app op Xamarin-Testcloud
+[Xamarin-Testcloud](https://developer.xamarin.com/guides/testcloud/introduction-to-test-cloud/) UI testen op echte apparaten in de cloud Hallo automatiseert. Met behulp van Hallo NUnit framework, kunt u tests die uw app via de gebruikersinterface Hallo uitvoeren schrijven.
 
-Voor het gebruik van Xamarin, die u neemt de [Xamarin.UITests](https://developer.xamarin.com/guides/testcloud/uitest/intro-to-uitest/) SDK in uw app wordt geleverd als een NuGet-pakket. U vindt deze in de demo-app en is opgenomen wanneer u nieuwe Testprojecten met de Xamarin-sjablonen maakt.
+toouse Xamarin, als u Hallo opnemen [Xamarin.UITests](https://developer.xamarin.com/guides/testcloud/uitest/intro-to-uitest/) SDK in uw app wordt geleverd als een NuGet-pakket. U vindt deze in Hallo demo-app en is opgenomen bij het maken van nieuwe Testprojecten Hello Xamarin-sjablonen.
 
-![Waar vind ik de platformoverschrijdende SDK op de interface](./media/iot-solution-build-system/image4.png)
+![Waar toofind Hallo platformoverschrijdende SDK op Hallo-interface](./media/iot-solution-build-system/image4.png)
 
-Een voorbeeldproject van de test is opgenomen in de app in de opslagplaats. In [MyDriving](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileAppService), zoek onder [src](https://github.com/Azure-Samples/MyDriving/tree/master/src)/MobileApps/[MyDriving](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileApps/MyDriving)/MyDriving.UITests/.
+Een voorbeeldproject van de test is opgenomen in de app in de opslagplaats Hallo Hallo. In [MyDriving](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileAppService), zoek onder [src](https://github.com/Azure-Samples/MyDriving/tree/master/src)/MobileApps/[MyDriving](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileApps/MyDriving)/MyDriving.UITests/.
 
-Als u een build voor Visual Studio Team Services gebruikt, is het gemakkelijk te schrijven Xamarin UI eenheidstests en ze worden uitgevoerd als onderdeel van uw build.
+Als u een build voor Visual Studio Team Services gebruikt, is het eenvoudig toowrite Xamarin UI eenheid test en ze worden uitgevoerd als onderdeel van uw build.
 
 ## <a name="deploy-azure-services"></a>Azure-services implementeren
-Raadpleeg de gedetailleerde instructies in om uit te voeren een automatische implementatie van Azure-services en build-services Team Services, **scripts/README.md**.
+een automatische implementatie van Azure-services en services van de build Team Services, tooperform verwijzen toohello gedetailleerde instructies in **scripts/README.md**.
 
-Microsoft Azure biedt een schat aan andere services die u gebruiken kunt om cloudtoepassingen te bouwen. Hoewel veel kunnen afzonderlijk (zoals App Service of Web-Apps) worden gebruikt, zijn ze op hun best wanneer ze zijn verbonden met een geïntegreerde systeem, zoals dat we gebruiken in MyDriving formulier.
+Microsoft Azure biedt een schat aan verschillende services waarmee u toobuild cloud-toepassingen kunt. Hoewel veel kunnen worden gebruikt (zoals App Service of Web-Apps) afzonderlijk, ze zijn op hun best wanneer ze met elkaar bent verbonden tooform een geïntegreerd systeem die we gebruiken in MyDriving.
 
-Het is mogelijk te maken en Azure-services handmatig verbinding, maar het is veel sneller en betrouwbaarder gebruik van Azure Resource Manager-sjablonen. [Resource Manager](../azure-resource-manager/resource-group-overview.md) automatiseert de implementatie van een oplossing resources en de onderlinge verbindingen tussen hen maken.
+Het is mogelijk toocreate en Azure-services handmatig verbinding, maar het is veel sneller en betrouwbaarder toouse Azure Resource Manager-sjablonen. [Resource Manager](../azure-resource-manager/resource-group-overview.md) automatiseert het Hallo-implementatie van een oplossing bronnen en Hallo onderlinge verbindingen tussen hen maken.
 
-U vindt de sjabloon voor het systeem MyDriving in de GitHub-opslagplaats onder [scripts/ARM](https://github.com/Azure-Samples/MyDriving/tree/master/scripts/ARM). Het biedt een uitgebreide en beknopt overzicht van hoe de andere services in onze architectuur onderling verbonden. We uitleggen al deze beschreven in de [MyDriving handleiding](http://aka.ms/mydrivingdocs), maar veel meer door te lezen via de sjabloon zelf.
+U vindt Hallo-sjabloon voor Hallo MyDriving systeem in Hallo GitHub-opslagplaats onder [scripts/ARM](https://github.com/Azure-Samples/MyDriving/tree/master/scripts/ARM). Het biedt een uitgebreide en beknopt overzicht van hoe verschillende services in onze architectuur Hallo onderling verbonden. Kunnen al deze in Hallo in detail uitgelegd [MyDriving handleiding](http://aka.ms/mydrivingdocs), maar u veel meer door te lezen via Hallo sjabloon zelf.
 
 > [!NOTE]
-> De meeste Azure-services hebben een bijbehorende kosten, afhankelijk van de prijscategorie. Als u geen ervaring met Azure, kunt u [gratis uitproberen](https://azure.microsoft.com/free/). Echter, als u niet dat bepaalde onderdelen in het systeem MyDriving gebruiken wilt, moet verwijderen, om de kosten vermijden. De sectie 'Schatting maken van de operationele kosten' verderop in dit artikel biedt een overzicht van de typische service onkosten.
+> De meeste Azure-services hebben een bijbehorende kosten, afhankelijk van Hallo prijscategorie. Als u nieuwe tooAzure bent, kunt u [gratis uitproberen](https://azure.microsoft.com/free/). Als u niet van plan toouse bepaalde onderdelen in Hallo MyDriving systeem bent, worden echter zeker tooremove ze tooavoid steeds kosten. Hallo bevat 'Schatting operationele kosten' later in dit artikel een overzicht van de typische service onkosten.
 > 
 > 
 
-### <a name="edit-the-template"></a>De sjabloon bewerken
-Voor het aanpassen van uw implementatie mogelijk overbodige om onderdelen te verwijderen of toevoegen van anderen, moet u eerst een kopieën van scenario\_complete.params.json en scenario\_complete.json waarin wijzigingen aanbrengen.
+### <a name="edit-hello-template"></a>Hallo-sjabloon bewerken
+toocustomize uw implementatie mogelijk tooremove onnodige onderdelen of tooadd anderen, moet u eerst een kopieën maken van het scenario voor\_complete.params.json en scenario\_complete.json in welke wijzigingen toomake.
 
-U kunt het scenario\_complete.params.json-bestand voor het onderdrukken van verschillende standaardwaarden, zoals de SKU-service of het replicatietype, zoals beschreven in de volgende tabel. De standaardwaarden selecteren de laagste kosten-opties.
+U kunt Hallo scenario\_complete.params.json bestand toooverride verschillende, zoals Hallo service SKU of Hallo opslagreplicatietype, standaardwaarden zoals beschreven in de volgende tabel Hallo. standaardwaarden Hallo selecteren Hallo laagste kosten opties.
 
 | **Parameter** | **Beschrijving** | **Standaardwaarde** |
 | --- | --- | --- |
@@ -224,35 +224,35 @@ U kunt het scenario\_complete.params.json-bestand voor het onderdrukken van vers
 
 In scenario\_complete.json:
 
-* Zoek naar 'baseName' en wijzig dit in een naam die u liever.
+* Zoek naar 'baseName' en tooa-naam die u wilt wijzigen.
 * Zoek naar 'Maken'. Elk van deze secties maakt een resource.
-* SqlServerAdminLogin en sqlServerAdminPassword geschikte waarden instellen.
-* Voordat u een sectie die u een resource maakt verwijdert, moet u controleren of er afhankelijke services door te zoeken naar de naam ervan ergens anders in het bestand. Denk eraan dat elke sectie maakt u een service bevat een *dependsOn* sectie waarin de afhankelijkheden ervan.
+* SqlServerAdminLogin en sqlServerAdminPassword toosuitable waarden instellen.
+* Voordat u een sectie die u een resource maakt verwijdert, moet u controleren of er afhankelijke services door te zoeken naar de naam elders in Hallo-bestand. Denk eraan dat elke sectie maakt u een service bevat een *dependsOn* sectie waarin de afhankelijkheden ervan.
 
-Dit is wat de sjabloon configureert. Informatie vindt u in de [handleiding](http://aka.ms/mydrivingdocs).
+Hier volgt welke Hallo-sjabloon configureert. Informatie vindt u in Hallo [handleiding](http://aka.ms/mydrivingdocs).
 
 | **Service** | **Beschrijving en details** |
 | --- | --- |
-| Opslagaccounts |De sjabloon maakt drie accounts: |
-| -Een SQL-database die ontvangt geaggregeerde telemetrie van Stream Analytics en fungeert als de back-uparchief voor Azure App Service-tabellen die deze gegevens via de API-eindpunten beschikbaar. | |
-| -Blob opslag, stelt u historische gegevens uit een andere Stream Analytics-taak kan worden verwerkt door HDInsight samen. | |
+| Opslagaccounts |Hallo-sjabloon maakt drie accounts: |
+| -Een SQL-database die ontvangt geaggregeerde telemetrie van Stream Analytics en fungeert als Hallo back-uparchief voor Azure App Service-tabellen die deze gegevens via de API-eindpunten beschikbaar. | |
+| -Blob opslag, stelt u historische gegevens uit een andere Stream Analytics-taak toobe verwerkt door HDInsight samen. | |
 | -Een SQL-database die door HDInsight worden verwerkt voor gebruik met Power BI resultaten ontvangt. | |
-| Azure IoT Hub |Een verbinding tot stand wederzijdse op elk aangesloten apparaat. In de oplossing MyDriving fungeert de mobiele app als een veldgateway gegevens verzenden naar Azure IoT Hub. Azure IoT Hub en fungeert als invoer voor Stream Analytics. |
-| Azure Event Hubs |Uitvoer voor een Stream Analytics-taak die de uitvoer naar uitbreidingen die zijn gemaakt met Azure Service Fabric in de wachtrij geplaatst. |
+| Azure IoT Hub |Hiermee stelt u een wederzijdse verbinding tooeach aangesloten apparaat. In Hallo MyDriving oplossing fungeert mobiele app Hallo als een veld gateway toosend gegevens tooAzure IoT Hub. Azure IoT Hub en fungeert als een invoer tooStream Analytics. |
+| Azure Event Hubs |Uitvoer voor een Stream Analytics-taak die in de wachtrij Hallo geplaatst uitvoer tooextensions die zijn gemaakt met Azure Service Fabric. |
 | Azure SQL Data Warehouse | |
-| Stream Analytics-taken |In- en uitgangen verbinden met een query die wordt gebruikt voor het cumuleren van zowel real-time en historische gegevens voor de App Service-API's, Azure Machine Learning, uitbreidingen en Power BI. |
+| Stream Analytics-taken |In- en uitgangen verbinden met een query, namelijk gebruikte tooaggregate real-time en historische gegevens voor het Hallo-App Service-API's, Azure Machine Learning, uitbreidingen en Power BI. |
 | Machine Learning-werkruimte |Omvat experimenten, R-code en API-service. |
 | Azure Data Factory |Geplande Machine Learning retraining. |
 | Hosting service Fabric-plan |Voor uitbreidingen. |
-| App Service ("mam") |Als host fungeert voor de mobiele Apps API-project met eindpunten voor de mobiele app. De API-code moet worden geïmplementeerd in App Service vanuit Visual Studio. |
-| Regels voor waarschuwingen |Verzendt dat u e-als de app-antwoorden duiden op fouten. |
-| Application Insights |Voor het bewaken van de prestaties van de API in App Service. U moet de verbinding wordt geconfigureerd in Visual Studio. |
-| Azure Key Vault |Voor het opslaan van het certificaat voor web service-cluster. |
+| App Service ("mam") |Hosts Hallo Mobile Apps-API-project met eindpunten voor de mobiele app Hallo. Hallo API-code moet geïmplementeerde tooApp Service vanuit Visual Studio. |
+| Regels voor waarschuwingen |Verzendt dat u e-als Hallo app antwoorden duiden op fouten. |
+| Application Insights |Voor het bewaken van de prestaties van Hallo-API's in App Service. U hebt tooconfigure Hallo verbinding in Visual Studio. |
+| Azure Key Vault |Voor het opslaan van certificaat Hallo web service-cluster. |
 
-### <a name="run-the-template"></a>Voer de sjabloon
-In **scripts/README.md**, er zijn gedetailleerde instructies voor het uitvoeren van de sjabloon.
+### <a name="run-hello-template"></a>Hallo sjabloon uitvoeren
+In **scripts/README.md**, er zijn gedetailleerde instructies voor het actieve Hallo-sjabloon.
 
-Voor het inrichten van deze services in uw eigen Azure-account met behulp van het script, doe het volgende:
+tooprovision deze services in uw eigen Azure-account met behulp van script hello, doe hello te volgen:
 
 * PowerShell gebruiken:
   
@@ -262,28 +262,28 @@ Voor het inrichten van deze services in uw eigen Azure-account met behulp van he
   deploy.ps1 *location* *resourceGroupName*
   ```
   
-  * *locatie* is de [Azure-locatie](https://azure.microsoft.com/regions/), zoals `North Europe` of `West US`. Gebruik `Get-AzureLocation` aan een lijst met beschikbare locaties.
-  * *resourceGroupName* is de naam die u wilt geven aan de groep waartoe alle resources moeten behoren. Wanneer u klaar bent met de resources, kunt u ze allemaal tegelijk verwijderen door deze groep te verwijderen.
+  * *locatie* Hallo is [Azure-locatie](https://azure.microsoft.com/regions/), zoals `North Europe` of `West US`. Gebruik `Get-AzureLocation` toofind een lijst met beschikbare locaties.
+  * *resourceGroupName* is Hallo-naam die u wilt dat toogive toohello groep die alle Hallo resources deel van uitmaakt. Wanneer u klaar bent met de Hallo resources, kunt u ze allemaal tegelijk verwijderen door deze groep te verwijderen.
 * Voer DeploymentScripts/Bash/deploy.sh met Bash.
-* Open en bouwen van de Visual Studio-oplossing DeploymentScripts/VS/DeployARM.sln.
+* Open en Hallo Visual Studio-oplossing DeploymentScripts/VS/DeployARM.sln bouwen.
 
-Houd er rekening mee dat elke keer dat de sjabloon die wordt uitgevoerd, wordt een nieuwe set resources gemaakt onder een andere naam. U verwijdert de resources, gaat u naar de portal en de resourcegroep verwijderen.
+Houd er rekening mee dat elke keer Hallo-sjabloon wordt uitgevoerd, wordt een nieuwe set resources gemaakt onder een andere naam. toodelete hello resources, Ga toohello portal en Hallo resourcegroep verwijderen.
 
-Als het script voor een of andere reden mislukt, kunt u het opnieuw uitvoeren.
+Als het Hallo-script voor een of andere reden mislukt, kunt u het opnieuw uitvoeren.
 
-Het script geeft u de optie van de configuratie van doorlopende integratie in Visual Studio Team Services. Als u een Team Services-project hebt ingesteld, hebt u een URL: https://yourAccountName.visualstudio.com. Voer de volledige URL als u wordt gevraagd. U kunt daarvoor een nieuwe of bestaande naam voor een Team Services-project.
+Hallo script kunt u de optie van de configuratie van doorlopende integratie in Visual Studio Team Services Hallo. Als u een Team Services-project hebt ingesteld, hebt u een URL: https://yourAccountName.visualstudio.com. Voer de volledige URL Hallo wanneer u wordt gevraagd. U kunt daarvoor een nieuwe of bestaande naam voor een Team Services-project.
 
 ## <a name="set-up-build-and-test-definitions-in-visual-studio-team-services"></a>Instellen van de build en definities in Visual Studio Team Services testen
-We gebruiken Team Services op dit project voornamelijk voor de build en functies testen. Maar, biedt ook ondersteuning voor uitstekende samenwerking, zoals Taakbeheer met kanbanborden, code-revisie geïntegreerd met taken en bronbeheer en geregeld bouwt. Het is geïntegreerd met andere hulpprogramma's zoals GitHub, Xamarin HockeyApp en natuurlijk Visual Studio. U kunt toegang tot dit via de web-interface of Visual Studio, indien dit handiger op elk moment.
+We gebruiken Team Services op dit project voornamelijk voor de build en functies testen. Maar, biedt ook ondersteuning voor uitstekende samenwerking, zoals Taakbeheer met kanbanborden, code-revisie geïntegreerd met taken en bronbeheer en geregeld bouwt. Het is geïntegreerd met andere hulpprogramma's zoals GitHub, Xamarin HockeyApp en natuurlijk Visual Studio. U kunt toegang tot dit via Hallo webinterface of Visual Studio, indien dit handiger op elk moment.
 
-De stappen in de definities van build en release gebruikt tal van invoegtoepassing services die beschikbaar in de Team Services zijn [Marketplace](https://marketplace.visualstudio.com/VSTS). Naast eenvoudige hulpprogramma's voor opdrachtregels worden uitgevoerd of kopiëren van bestanden, zijn er services die wordt aangeroepen builds door Xamarin-, Android- en andere leveranciers en die verbinding maken met HockeyApp.
+Hallo stappen voor het Hallo-build en release definities gebruiken diverse invoegtoepassing services die beschikbaar in Hallo Team Services zijn [Marketplace](https://marketplace.visualstudio.com/VSTS). Er zijn services die wordt aangeroepen builds door Xamarin-, Android- en andere leveranciers en die verbinding maken met tooHockeyApp in toorun opdrachtregels voor toevoeging toobasic hulpprogramma's of bestanden kopiëren.
 
 ![Opties in het Team Services bouwen](./media/iot-solution-build-system/image5.png)
 
 ### <a name="build-definitions"></a>Definities bouwen
-We hebben build definities voor elk van de belangrijkste doelen. We hebben ook variaties voor functie- en regressie testen. Dat geeft ons:
+We hebben build definities voor elk van de belangrijkste doelen Hallo. We hebben ook variaties voor functie- en regressie testen. Dat geeft ons:
 
-* MyDriving.Services (de back-end-web-app voor de mobiele app)
+* MyDriving.Services (back-end-web-app voor de mobiele app Hallo Hallo)
 * MyDriving.Xamarin.Android
   
   * MyDriving.Xamarin.Android-functie
@@ -297,59 +297,59 @@ We hebben build definities voor elk van de belangrijkste doelen. We hebben ook v
   * MyDriving.Xamarin.UWP-functie
   * MyDriving.Xamarin.UWP regressie
 
-Als u zien van de volledige details van de configuratie wilt, raadpleegt u de sectie 4.7 van de [MyDriving handleiding](http://aka.ms/mydrivingdocs), 'Build en Release-configuratie.' Ze volgen de algemene patroon. Het script:
+Als u wilt dat toosee Hallo volledige details van de configuratie, raadpleegt u de sectie 4.7 Hallo [MyDriving handleiding](http://aka.ms/mydrivingdocs), 'Build en Release-configuratie.' Deze Hallo volgen algemene patroon. Hallo-script:
 
-1. Hiermee herstelt u het NuGet-pakket. We bewaren niet gecompileerde code in de opslagplaats, zodat de eerste stappen van elke build zijn de vereiste NuGet-pakketten.
-2. De licentie activeert. De build wordt uitgevoerd in de cloud, zodat indien een licentie--moet met name voor de Xamarin-build-service--we hebben onze licentie op de huidige build-machine te activeren. Vervolgens wordt deze deactiveren onmiddellijk daarna zodat deze kan worden gebruikt op een andere computer.
-3. Met behulp van de desbetreffende service is gebaseerd. We gebruiken Xamarin builds voor mobiele apps en Visual Studio maakt voor de back-end-webservice.
+1. Hiermee herstelt u Hallo NuGet-pakket. We bewaren niet gecompileerde code in Hallo-opslagplaats, zodat de eerste stappen Hallo van elke build toorestore Hallo vereist NuGet-pakketten.
+2. Hallo licentie activeert. Hallo build wordt uitgevoerd in de cloud Hallo, dus indien een licentie--moet in het bijzonder voor Hallo Xamarin bouwen service--we hebben tooactivate onze licentie op het huidige build machine Hallo. Vervolgens wordt deze onmiddellijk daarna tooallow deactiveren deze toobe gebruikt op een andere computer.
+3. Met behulp van de relevante service Hallo is gebaseerd. We Xamarin builds voor mobiele apps hello gebruiken en Visual Studio builds voor Hallo back-end-webservice.
 4. Tests is gebaseerd.
-5. Voert testen uit. We de tests voor de mobiele app in Xamarin-Testcloud uitgevoerd.
-6. Het resultaat van de build publiceert naar de doellocatie.
+5. Voert testen uit. We Hallo mobiele app tests worden uitgevoerd in Xamarin-Testcloud.
+6. Hallo build resultaat toohello-doellocatie publiceert.
 
-De trigger voor de belangrijkste builds is ingesteld op continue integratie. Dat wil zeggen, de build uitgevoerd telkens wanneer de code wordt ingecheckt bij de hoofdvertakking.
+Hallo-trigger voor de belangrijkste builds Hallo ingesteld toocontinuous integratie. Dat wil zeggen, Hallo build uitgevoerd telkens wanneer de code is ingeschakeld in de hoofdvertakking toohello.
 
-![Interface waarvan de trigger is ingesteld op doorlopende integratie](./media/iot-solution-build-system/image6.png)
+![Interface waar Hallo trigger is de set toocontinuous integratie](./media/iot-solution-build-system/image6.png)
 
 ### <a name="release-definitions"></a>Definities van release
-Release-definities worden ingesteld op ongeveer dezelfde manier.
+Release-definities worden ingesteld in veel Hallo dezelfde manier.
 
-Voor de webservice instellen we implementatie als een Azure-web-app:
+Voor de webservice hello instellen we implementatie als een Azure-web-app:
 
 ![Interface voor het instellen van de implementatie als een Azure-web-app](./media/iot-solution-build-system/image7.png)
 
-En we de release-trigger voor continue implementatie instellen. Dat wil zeggen, elke inchecken gevolgd door een geslaagde build resulteert in een update naar de web-app.
+En we Hallo release trigger toocontinuous implementatie instellen. Dat wil zeggen, elke inchecken gevolgd door een geslaagde build resulteert in een update toohello web-app.
 
-![Interface voor het instellen van de release-trigger voor continue implementatie](./media/iot-solution-build-system/image8.png)
+![Interface voor het instellen van Hallo release trigger toocontinuous implementatie](./media/iot-solution-build-system/image8.png)
 
-We implementeren naar HockeyApp voor mobiele apps:
+We implementeren tooHockeyApp voor mobiele apps:
 
-![Interface voor het implementeren van een mobiele app naar HockeyApp](./media/iot-solution-build-system/image9.png)
+![Interface voor het implementeren van een mobiele app tooHockeyApp](./media/iot-solution-build-system/image9.png)
 
 ## <a name="explore-telemetry-by-using-application-insights"></a>Telemetrie verkennen met behulp van Application Insights
-[Application Insights](../application-insights/app-insights-overview.md) telemetrie over de prestaties en het gebruik van uw webservices worden verzameld. De Application Insights-SDK verzendt telemetrie van de service naar de Application Insights-resource in Azure.
+[Application Insights](../application-insights/app-insights-overview.md) telemetrie over Hallo prestaties en het gebruik van uw webservices worden verzameld. Hallo Application Insights-SDK verzendt telemetrie van Hallo service toohello Application Insights-resource in Azure.
 
-Blader naar de Application Insights-resource die de sjabloon is ingesteld. Daar vindt u op de grafieken van de prestaties van uw [mobiele App Service-project](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileAppService). Deze serveraanvragen en reactietijden, fouten, weergeven en uitzondering telt. Er zijn ook grafieken van afhankelijkheid responstijden--dat wil zeggen, aanroepen naar de database en REST-API's zoals Machine Learning. Als er problemen met de prestaties, kunt u zult kunnen zien welk onderdeel van uw systeem veroorzaken.
+Blader toohello Application Insights-resource die Hallo-sjabloon instellen. Daar vindt u diagrammen van Hallo prestaties van uw [mobiele App Service-project](https://github.com/Azure-Samples/MyDriving/tree/master/src/MobileAppService). Deze serveraanvragen en reactietijden, fouten, weergeven en uitzondering telt. Er zijn ook grafieken van afhankelijkheid responstijden--dat wil zeggen aanroepen toohello database en tooREST API's zoals Machine Learning. Als er problemen met de prestaties, zult u kunnen toosee welk onderdeel van uw systeem veroorzaken.
 
 ![Voorbeeld van grafiek](./media/iot-solution-build-system/image11.png)
 
-Als u een webservice die u handmatig hebt ingesteld hebt, is het verkrijgen van de dezelfde grafieken. Klik op de blade web-service op **extra** > **extensies** > **toevoegen**. Selecteer **Application Insights**.
+Als u hebt een webservice die u handmatig hebt ingesteld, van eenvoudige tooget Hallo dezelfde grafieken. Klik op Hallo blade web-service op **extra** > **extensies** > **toevoegen**. Selecteer **Application Insights**.
 
-![Interface voor het selecteren van Application Insights om op te halen van de grafieken](./media/iot-solution-build-system/image12.png)
+![Interface voor het selecteren van Application Insights tooget Hallo grafieken](./media/iot-solution-build-system/image12.png)
 
-De functie werkt door het instrumenteren van uw toepassing met de Application Insights-SDK.
+Hallo-functie werkt door het instrumenteren van uw toepassing Hello Application Insights-SDK.
 
-U kunt aangepaste telemetrie (of dat een toepassing die ergens buiten Azure wordt uitgevoerd) toevoegen door [Application Insights-SDK toevoegen](../application-insights/app-insights-asp-net.md) tijdens ontwikkeling. Dit is handig voor logboek-metrische gegevens die afhankelijk van de toepassing, zoals gebruikers gemiddelde reis lengte of Totaalaantal kilometers zijn. In Visual Studio met de rechtermuisknop op het project en selecteer vervolgens **Application Insights toevoegen**.
+U kunt aangepaste telemetrie (of dat een toepassing die ergens buiten Azure wordt uitgevoerd) toevoegen door [Application Insights-SDK toe te voegen Hallo](../application-insights/app-insights-asp-net.md) tijdens ontwikkeling. Dit is nuttig toolog metrische gegevens die afhankelijk van toepassing op Hallo, zoals gebruikers gemiddelde reis lengte of Totaalaantal kilometers zijn. In Visual Studio met de rechtermuisknop op het Hallo-project en selecteer vervolgens **Application Insights toevoegen**.
 
-![Interface voor het selecteren van Application Insights toevoegen aan het toevoegen van aangepaste telemetrie](./media/iot-solution-build-system/image10.png)
+![Interface voor aangepaste telemetrie voor Application Insights toevoegen tooadd selecteren](./media/iot-solution-build-system/image10.png)
 
 Application Insights wordt waarschuwingsmails sturen als er vreemde aantal mislukte reacties. U kunt ook uw eigen waarschuwingen op verschillende metrische gegevens, zoals responstijden instellen.
 
-Alleen om ervoor te zorgen dat uw web-service is altijd up-to-date en wordt uitgevoerd, kunt u instellen [beschikbaarheidstests](../application-insights/app-insights-monitor-web-app-availability.md). Deze tests ping uw site vanuit verschillende locaties over de hele wereld om de 15 minuten. U krijgt een e-mailbericht opnieuw als blijkt te zijn van een probleem.
+Alleen toobe ervoor dat uw web-service altijd up-to-date is en wordt uitgevoerd, kunt u instellen [beschikbaarheidstests](../application-insights/app-insights-monitor-web-app-availability.md). Deze tests ping uw site vanuit verschillende locaties Hallo wereld om de 15 minuten. U ontvangt een e-mailbericht opnieuw, als er een probleem toobe lijkt.
 
 ## <a name="estimate-operational-costs"></a>Schatting maken van de operationele kosten
-Het is opmerkelijk goedkope een app in zoals deze op kleine schaal uitvoert. Veel van de services hebben gratis instapmodellen lagen, zodat de ontwikkeling en kleinschalige bewerking weinig kosten. En uw eigen apps niet beschikken over alle functies in MyDriving gedemonstreerd gebruiken.
+Het is opmerkelijk goedkope toorun een app in zoals deze op kleine schaal. Veel van Hallo services hebben gratis instapmodellen lagen, zodat ontwikkeling en kleinschalige bewerking weinig kosten. En uw eigen apps niet beschikken over alle functies van de Hallo gedemonstreerd in MyDriving toouse.
 
-Hier volgt een ruwe schatting van onze kosten bij het instellen van de configuratie van de ontwikkeling voor MyDriving. We enkele alternatieven die we hebben ook Opmerking *niet* gebruiken. Deze informatie kan nuttig zijn als u een schatting maken van uw eigen kosten.
+Hier volgt een ruwe schatting van onze kosten bij het instellen van de configuratie van Hallo-ontwikkeling voor MyDriving. We enkele alternatieven die we hebben ook Opmerking *niet* gebruiken. Deze informatie kan nuttig zijn als u een schatting maken van uw eigen kosten.
 
 We gaan ervan uit:
 
@@ -358,16 +358,16 @@ We gaan ervan uit:
 * 100 gebruikers met vier reizen per dag.
 
 > [!NOTE]
-> Als u geen ervaring met Azure, er is een [gratis account](https://azure.microsoft.com/free/).
+> Als u nieuwe tooAzure er is een [gratis account](https://azure.microsoft.com/free/).
 > 
 > 
 
 | **Onderdeel-service** | **Opmerkingen bij de** | **Kosten per maand** |
 | --- | --- | --- |
-| [Visual Studio 2015 Community](https://www.visualstudio.com/products/visual-studio-community-vs) met [Xamarin](https://visualstudiogallery.msdn.microsoft.com/dcd5b7bd-48f0-4245-80b6-002d22ea6eee) <br/>Cross-platform dev-omgeving |Visual Studio Community. (Moet [Visual Studio Professional](https://www.visualstudio.com/vs-2015-product-editions) voor [Xamarin.Forms](https://xamarin.com/forms), voor het ontwerpen van cross-platform van één codebasis.) |$0 |
-| [Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/) <br/>Wederzijdse gegevensverbinding met apparaten |8000 berichten + 0,5 KB/bericht vrij te geven. |$0 |
-| [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/)  <br/>   Stroom van grote hoeveelheden gegevens verwerken |De kosten van $0,031 per eenheid per uur, streaming terwijl ingeschakeld. Kies van het aantal streaming-eenheden die u wilt. meer worden uitgebreid. |$23 |
-| [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)<br/> Adaptieve reacties |seat-$10/maand. <br/>                                                                                                                                                                                 + 3 uur experiment \* $1 / experimenteren uur. <br/>                                                                                                                                                           + 3.5 uur API CPU \* $2 / productie CPU uur. <br/>                                                                                                                                                          API-CPU-tijd wordt ervan uitgegaan 5 min. per dag retraining, hoewel dit zou toename met meer invoergegevens.                   <br/>                                                                                                                                                                     + 2 min. per dag score berekenen voor het verwerken van 400 reizen per dag. |$20 |
+| [Visual Studio 2015 Community](https://www.visualstudio.com/products/visual-studio-community-vs) met [Xamarin](https://visualstudiogallery.msdn.microsoft.com/dcd5b7bd-48f0-4245-80b6-002d22ea6eee) <br/>Cross-platform dev-omgeving |Visual Studio Community. (Moet [Visual Studio Professional](https://www.visualstudio.com/vs-2015-product-editions) voor [Xamarin.Forms](https://xamarin.com/forms), toodesign platformoverschrijdende uit één codebasis.) |$0 |
+| [Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/) <br/>Wederzijdse gegevens verbinding toodevices |8000 berichten + 0,5 KB/bericht vrij te geven. |$0 |
+| [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/)  <br/>   Stroom van grote hoeveelheden gegevens verwerken |De kosten van $0,031 per eenheid per uur, streaming terwijl ingeschakeld. U kiest Hallo aantal streaming-eenheden die u wilt. meer tooscale up. |$23 |
+| [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)<br/> Adaptieve reacties |seat-$10/maand. <br/>                                                                                                                                                                                 + 3 uur experiment \* $1 / experimenteren uur. <br/>                                                                                                                                                           + 3.5 uur API CPU \* $2 / productie CPU uur. <br/>                                                                                                                                                          API-CPU-tijd wordt ervan uitgegaan 5 min. per dag retraining, hoewel dit zou toename met meer invoergegevens.                   <br/>                                                                                                                                                                     + 2 min. per dag score berekenen tooprocess 400 reizen per dag. |$20 |
 | [App Service](https://azure.microsoft.com/pricing/details/app-service/)  <br/> Host voor mobiele back-end |Laag B1--productie web-apps. |$56 |
 | [Visual Studio teamservices](https://azure.microsoft.com/pricing/details/visual-studio-team-services/)  <br/> Bouwen, testen van eenheden en releasebeheer; Taakbeheer |Persoonlijke agents vijf gebruikers. |$0 |
 | [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/) <br/>Bewaking van prestaties en het gebruik van web-services en sites |Gratis laag. |$0 |
@@ -389,17 +389,17 @@ Zie voor meer informatie:
 * Azure [prijscategorie Rekenmachine](https://azure.microsoft.com/pricing/calculator/)
 
 ## <a name="send-us-your-feedback"></a>Stuur ons uw feedback
-Omdat we MyDriving om te helpen aan de slag met uw eigen IoT-systemen gemaakt, willen we zeker graag van u over hoe goed werkt. Laat ons weten als:
+Omdat we MyDriving toohelp aan de slag met uw eigen IoT-systemen gemaakt, willen we zeker toohear van u over hoe goed werkt. Laat ons weten als:
 
 * U ondervindt problemen of uitdagingen.
-* Er is een extensiepunt zou om het meest geschikt is voor uw scenario.
-* U vindt een efficiëntere manier voor het uitvoeren van bepaalde behoeften.
+* Er is een extensiepunt waaruit zou geschikte tooyour scenario.
+* U vindt een efficiëntere manier tooaccomplish bepaalde behoeften.
 * U hebt andere suggesties voor het verbeteren van MyDriving of deze documentatie.
 
-Als u feedback geven, een probleem op GitHub bestand of een opmerking hieronder laat (en-us edition).
+feedback over toogive bestand een probleem op GitHub of een opmerking hieronder laat (en-us edition).
 
-We hopen graag van u!
+We hopen toohearing van u!
 
 ## <a name="next-steps"></a>Volgende stappen
-Het is raadzaam de [MyDriving handleiding](http://aka.ms/mydrivingdocs), dit is een uitgebreide beschrijving van het ontwerp van het systeem en de bijbehorende onderdelen.
+Hallo wordt aangeraden [MyDriving handleiding](http://aka.ms/mydrivingdocs), dit is een uitgebreide beschrijving van Hallo ontwerp van Hallo systeem en de bijbehorende onderdelen.
 

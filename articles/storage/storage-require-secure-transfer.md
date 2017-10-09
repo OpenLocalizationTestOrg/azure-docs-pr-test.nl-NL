@@ -1,6 +1,6 @@
 ---
-title: Veilige overdracht in Azure Storage vereisen | Microsoft Docs
-description: Meer informatie over de functie 'Veilige overdracht vereist' voor Azure Storage en hoe deze in te schakelen.
+title: aaaRequire veilige overdracht in Azure Storage | Microsoft Docs
+description: Meer informatie over 'Vereisen veilige overdracht' Hallo-functie voor Azure Storage en hoe tooenable deze.
 services: storage
 documentationcenter: na
 author: fhryo-msft
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
-ms.openlocfilehash: bc5b7fc79869c632db96958f17aaf953a5fd3b19
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 27f745c5e771b50213c1dbb39dee081947be1f39
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="require-secure-transfer"></a>Veilige overdracht vereisen
 
-De optie "Veilig vereiste gegevensoverdracht" verhoogt de beveiliging van uw storage-account door alleen aanvragen naar de storage-account van beveiligde verbindingen. Bijvoorbeeld bij het aanroepen van REST-API's voor toegang tot uw storage-account, moet u verbinden via HTTPS. Alle aanvragen met HTTP zijn afgewezen als "Veilig vereiste gegevensoverdracht" is ingeschakeld.
+Hallo 'beveiligde transfer-vereist' optie verhoogt Hallo beveiliging van uw storage-account door alleen aanvragen toohello storage-account van beveiligde verbindingen. Bijvoorbeeld bij het aanroepen van REST-API's tooaccess uw storage-account, moet u verbinden via HTTPS. Alle aanvragen met HTTP zijn afgewezen als "Veilig vereiste gegevensoverdracht" is ingeschakeld.
 
-Wanneer u de service Azure-bestanden gebruikt, wordt er een verbinding zonder versleuteling mislukt wanneer "Veilig vereiste gegevensoverdracht" is ingeschakeld. Dit geldt ook voor scenario's die gebruikmaken van SMB 2.1, SMB 3.0 zonder versleuteling en bepaalde versies van de Linux SMB-client. 
+Wanneer u hello Azure Files service gebruikt, wordt een verbinding zonder versleuteling mislukt wanneer "Veilig vereiste gegevensoverdracht" is ingeschakeld. Dit geldt ook voor scenario's die gebruikmaken van SMB 2.1, SMB 3.0 zonder versleuteling en bepaalde versies van het Hallo Linux SMB-client. 
 
-De optie "Veilig vereiste gegevensoverdracht" is standaard uitgeschakeld.
+Hallo 'beveiligde transfer-vereist' optie is standaard uitgeschakeld.
 
 > [!NOTE]
 > Omdat Azure Storage biedt geen ondersteuning voor HTTPS voor aangepaste domeinnamen, is deze optie niet toegepast wanneer u een aangepaste domeinnaam.
 
-## <a name="enable-secure-transfer-required-in-the-azure-portal"></a>"Veilig vereiste gegevensoverdracht" inschakelen in de Azure portal
+## <a name="enable-secure-transfer-required-in-hello-azure-portal"></a>Inschakelen van 'Veilige overdracht vereist' in hello Azure-portal
 
-Kunt u de 'beveiligde overdracht vereist' beide instellen bij het maken van een opslagaccount in de [Azure-portal](https://portal.azure.com), en voor bestaande opslagaccounts.
+U kunt inschakelen Hallo 'veilige overdracht vereist' beide instellen wanneer u een opslagaccount in Hallo maken [Azure-portal](https://portal.azure.com), en voor bestaande opslagaccounts.
 
 ### <a name="require-secure-transfer-when-you-create-a-storage-account"></a>Veilige overdracht vereisen wanneer u een opslagaccount maken
 
-1. Open de **storage-account maken** blade in de Azure portal.
+1. Open Hallo **storage-account maken** blade in hello Azure-portal.
 1. Onder **vereiste gegevensoverdracht Secure**, selecteer **ingeschakeld**.
 
   ![schermopname](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### <a name="require-secure-transfer-for-an-existing-storage-account"></a>Veilige overdracht voor een bestaand opslagaccount vereisen
 
-1. Selecteer een bestaand opslagaccount in de Azure-portal.
-1. Selecteer **configuratie** onder **instellingen** in de blade opslagaccount menu.
+1. Selecteer een bestaand opslagaccount in hello Azure-portal.
+1. Selecteer **configuratie** onder **instellingen** in de blade Hallo opslagaccount menu.
 1. Onder **vereiste gegevensoverdracht Secure**, selecteer **ingeschakeld**.
 
   ![schermopname](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
 ## <a name="enable-secure-transfer-required-programmatically"></a>"Veilig vereiste gegevensoverdracht" inschakelen via een programma
 
-De naam van de instelling is _supportsHttpsTrafficOnly_ in eigenschappen van het opslagaccount. U kunt "veilige overdracht vereist' instellen met de REST-API, hulpprogramma's of bibliotheken inschakelen:
+de naam van de instelling Hallo is _supportsHttpsTrafficOnly_ in eigenschappen van het opslagaccount. U kunt "veilige overdracht vereist' instellen met de REST-API, hulpprogramma's of bibliotheken inschakelen:
 
 * **REST-API** (versie: 2016-12-01): [releasepakket](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts)
 * **PowerShell** (versie: 4.1.0): [releasepakket](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0)
@@ -64,9 +64,9 @@ De naam van de instelling is _supportsHttpsTrafficOnly_ in eigenschappen van het
 
 ### <a name="enable-secure-transfer-required-setting-with-rest-api"></a>'Veilige overdracht vereist' instellen met de REST-API inschakelen
 
-U kunt gebruiken om te vereenvoudigen testen met de REST-API, [ArmClient](https://github.com/projectkudu/ARMClient) aan te roepen vanuit de opdrachtregel.
+toosimplify testen met REST API, kunt u [ArmClient](https://github.com/projectkudu/ARMClient) toocall uit vanaf de opdrachtregel.
 
- U kunt hieronder vanaf de opdrachtregel gebruiken om te controleren van de instelling met de REST-API:
+ U kunt gebruiken dan opdrachtregel toocheck Hallo instelling Hello REST-API:
 
 ```
 # Login Azure and proceed with your credentials
@@ -75,7 +75,7 @@ U kunt gebruiken om te vereenvoudigen testen met de REST-API, [ArmClient](https:
 > armclient GET  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01
 ```
 
-U kunt vinden in het antwoord _supportsHttpsTrafficOnly_ instelling. Voorbeeld:
+In het antwoord van Hallo vindt u _supportsHttpsTrafficOnly_ instelling. Voorbeeld:
 
 ```Json
 {
@@ -90,7 +90,7 @@ U kunt vinden in het antwoord _supportsHttpsTrafficOnly_ instelling. Voorbeeld:
 }
 ```
 
-U kunt hieronder vanaf de opdrachtregel gebruiken om de instelling met de REST-API:
+U kunt gebruiken dan opdrachtregel tooenable Hallo instelling Hello REST-API:
 
 ```
 # Login Azure and proceed with your credentials
@@ -109,4 +109,4 @@ Voorbeeld van Input.json:
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Azure Storage biedt een uitgebreide reeks beveiligingsmogelijkheden die samen kunnen ontwikkelaars om beveiligde toepassingen te bouwen. Voor meer informatie gaat u naar de [opslag beveiligingshandleiding](storage-security-guide.md).
+Azure Storage biedt een uitgebreide reeks beveiligingsmogelijkheden die samen ontwikkelaars kunnen toobuild beveiligde toepassingen. Voor meer informatie gaat u naar Hallo [opslag beveiligingshandleiding](storage-security-guide.md).

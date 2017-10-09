@@ -1,6 +1,6 @@
 ---
-title: Betrouwbare WCF Services communicatiestack | Microsoft Docs
-description: De ingebouwde WCF communicatie-stack in Service Fabric biedt WCF-communicatie van client-service voor Reliable Services.
+title: aaaReliable WCF Services communicatiestack | Microsoft Docs
+description: Hallo ingebouwde WCF communicatiestack in Service Fabric biedt WCF-communicatie van client-service voor Reliable Services.
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
-ms.openlocfilehash: 7037620ebdc26a9f18531064bf45d058f5060e39
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7feebef4d46a6ae66d05129f47f9b5911e82aec9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>WCF-communicatiestack voor Reliable Services
-Het framework Reliable Services kan auteurs in service kiezen van de communicatiestack die ze willen gebruiken voor hun service. Ze kunnen plug-in de communicatiestack van hun keuze via de **ICommunicationListener** geretourneerd door de [CreateServiceReplicaListeners of CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) methoden. Het framework biedt een implementatie van de communicatiestack gebaseerd op Windows Communication Foundation (WCF) voor service-auteurs die u wilt gebruiken, WCF-communicatie.
+Hallo Reliable Services framework kunt service auteurs toochoose hello communicatiestack ze toouse willen gebruiken voor hun service. Ze communicatiestack Hallo van hun keuze via Hallo kunnen aansluiten **ICommunicationListener** geretourneerd van Hallo [CreateServiceReplicaListeners of CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) methoden. Hallo-framework biedt een implementatie van Hallo communicatiestack op basis van Hallo Windows Communication Foundation (WCF) voor service-auteurs willen toouse WCF-communicatie.
 
 ## <a name="wcf-communication-listener"></a>Listener voor WCF-communicatie
-De WCF-specifieke implementatie van **ICommunicationListener** wordt geleverd door de **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** klasse.
+Hallo WCF-specifieke implementatie van **ICommunicationListener** wordt geleverd door Hallo **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** klasse.
 
 Lest spreek we een servicecontract van het type hebben`ICalculator`
 
@@ -37,7 +37,7 @@ public interface ICalculator
 }
 ```
 
-We kunnen de listener voor een WCF-communicatie maken in de service de volgende manier.
+We kunt een WCF-communicatie-listener Hallo service Hallo volgende wijze maken.
 
 ```csharp
 
@@ -48,13 +48,13 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
             wcfServiceObject:this,
             serviceContext:context,
             //
-            // The name of the endpoint configured in the ServiceManifest under the Endpoints section
-            // that identifies the endpoint that the WCF ServiceHost should listen on.
+            // hello name of hello endpoint configured in hello ServiceManifest under hello Endpoints section
+            // that identifies hello endpoint that hello WCF ServiceHost should listen on.
             //
             endpointResourceName: "WcfServiceEndpoint",
 
             //
-            // Populate the binding information that you want the service to use.
+            // Populate hello binding information that you want hello service toouse.
             //
             listenerBinding: WcfUtility.CreateTcpListenerBinding()
         )
@@ -63,8 +63,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 ```
 
-## <a name="writing-clients-for-the-wcf-communication-stack"></a>Schrijven van clients voor de WCF-stack-communicatie
-Voor het schrijven van clients te communiceren met services met behulp van WCF het framework biedt **WcfClientCommunicationFactory**, dit is de WCF-specifieke implementatie van [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
+## <a name="writing-clients-for-hello-wcf-communication-stack"></a>Clients voor Hallo WCF communicatiestack schrijven
+Voor het schrijven van clients toocommunicate met services met behulp van WCF, Hallo-framework biedt **WcfClientCommunicationFactory**, namelijk Hallo WCF-specifieke implementatie van [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
 
 ```csharp
 
@@ -76,7 +76,7 @@ public WcfCommunicationClientFactory(
     object callback = null);
 ```
 
-Het communicatiekanaal WCF toegankelijk is vanaf de **WcfCommunicationClient** gemaakt door de **WcfCommunicationClientFactory**.
+Hallo WCF communicatiekanaal toegankelijk zijn vanuit Hallo **WcfCommunicationClient** gemaakt door Hallo **WcfCommunicationClientFactory**.
 
 ```csharp
 
@@ -90,7 +90,7 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
 
 ```
 
-Clientcode kunt gebruiken de **WcfCommunicationClientFactory** samen met de **WcfCommunicationClient** welke implements **ServicePartitionClient** om te bepalen van het service-eindpunt en communiceren met de service.
+Clientcode kunt Hallo **WcfCommunicationClientFactory** samen met de Hallo **WcfCommunicationClient** welke implements **ServicePartitionClient** toodetermine Hallo service-eindpunt en communiceren met Hallo-service.
 
 ```csharp
 // Create binding
@@ -102,7 +102,7 @@ var wcfClientFactory = new WcfCommunicationClientFactory<ICalculator>
     (clientBinding: binding, servicePartitionResolver: partitionResolver);
 
 //
-// Create a client for communicating with the ICalculator service that has been created with the
+// Create a client for communicating with hello ICalculator service that has been created with the
 // Singleton partition scheme.
 //
 var calculatorServiceCommunicationClient =  new WcfCommunicationClient(
@@ -111,14 +111,14 @@ var calculatorServiceCommunicationClient =  new WcfCommunicationClient(
                 ServicePartitionKey.Singleton);
 
 //
-// Call the service to perform the operation.
+// Call hello service tooperform hello operation.
 //
 var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
                 client => client.Channel.Add(2, 3)).Result;
 
 ```
 > [!NOTE]
-> De standaardwaarde ServicePartitionResolver wordt ervan uitgegaan dat de client in hetzelfde cluster als de service wordt uitgevoerd. Als dat niet het geval is, een ServicePartitionResolver-object maken en in de eindpunten van het cluster-verbinding.
+> Hallo standaard ServicePartitionResolver wordt ervan uitgegaan dat Hallo-client in hetzelfde cluster als Hallo-service wordt uitgevoerd. Als dat niet Hallo geval is, een ServicePartitionResolver-object maken en in verbindingseindpunten Hallo-cluster.
 > 
 > 
 

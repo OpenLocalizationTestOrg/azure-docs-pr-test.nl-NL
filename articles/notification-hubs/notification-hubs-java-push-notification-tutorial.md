@@ -1,6 +1,6 @@
 ---
-title: Notification Hubs gebruiken met Java
-description: Informatie over het gebruik van Azure Notification Hubs vanuit een Java-back-end.
+title: aaaHow toouse Notification Hubs met behulp van Java
+description: Meer informatie over hoe toouse Azure Notification Hubs vanuit een Java-back-end.
 services: notification-hubs
 documentationcenter: 
 author: ysxu
@@ -14,20 +14,20 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 41f978750ddef9f7e878c65b0017e909720154aa
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: afcf305b1acd9ee28ee4889040ece59d9399d29d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-notification-hubs-from-java"></a>Hoe Notification Hubs gebruiken vanuit Java
+# <a name="how-toouse-notification-hubs-from-java"></a>Hoe toouse Notification Hubs met Java
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Dit onderwerp beschrijft de belangrijkste functies van de nieuwe volledig ondersteunde officiële Azure Notification Hub Java SDK. Dit is een open source-project en vindt u de volledige code SDK aan [Java SDK]. 
+Dit onderwerp wordt beschreven Hallo belangrijke functies van nieuwe volledig ondersteund Hallo officiële Azure Notification Hub Java SDK. Dit is een open source-project en kunt u het volledige SDK code op Hallo weergeven [Java SDK]. 
 
-In het algemeen kunt u alle functies van de Notification Hubs kunt openen vanaf een Java/PHP/Python/Ruby back-end met de Notification Hub REST-interface, zoals beschreven in de MSDN-onderwerp [Notification Hubs REST-API's](http://msdn.microsoft.com/library/dn223264.aspx). Deze SDK voor Java biedt een thin wrapper via deze interfaces REST in Java. 
+In het algemeen kunt u toegang hebt tot alle functies van de Notification Hubs vanuit back-end van een Java/PHP/Python/Ruby Hallo Notification Hub REST-interface gebruiken, zoals beschreven in de MSDN-onderwerp Hallo [Notification Hubs REST-API's](http://msdn.microsoft.com/library/dn223264.aspx). Deze SDK voor Java biedt een thin wrapper via deze interfaces REST in Java. 
 
-De SDK biedt momenteel ondersteuning:
+Hallo ondersteunt SDK momenteel:
 
 * CRUD op Notification Hubs 
 * CRUD op registraties
@@ -42,7 +42,7 @@ De SDK biedt momenteel ondersteuning:
 ### <a name="compile-and-build"></a>Compileren en bouwen
 Gebruik [Maven]
 
-Voor het bouwen:
+toobuild:
 
     mvn package
 
@@ -104,7 +104,7 @@ U kunt ook registraties maken voor Android (GCM), Windows Phone (MPNS) en Kindle
 
 **Registraties maken met behulp van maken registrationid + upsert patroon**
 
-Hiermee verwijdert u duplicaten vanwege geen antwoorden verloren als de registratie-id's worden opgeslagen op het apparaat:
+Hiermee verwijdert u duplicaten vanwege tooany verloren antwoorden als registratie-id's worden opgeslagen op Hallo apparaat:
 
     String id = hub.createRegistrationId();
     WindowsRegistration reg = new WindowsRegistration(id, new URI(CHANNELURI));
@@ -136,21 +136,21 @@ Hiermee verwijdert u duplicaten vanwege geen antwoorden verloren als de registra
 Alle query's ondersteunen $top en voortzetting tokens.
 
 ### <a name="installation-api-usage"></a>Gebruik API-installatie
-API-installatie is een alternatief mechanisme voor het beheer van de registratie. In plaats van meerdere registraties die niet is heel eenvoudig en gemakkelijk kan worden gedaan ten onrechte of inefficiënt onderhouden, is het nu mogelijk om met een enkele installatie-object. Installatie bevat alles wat u nodig: push-kanaal (apparaattoken), tags, sjablonen, secundaire tegels (voor WNS en APNS). U hoeft niet de service voor meer-Id ophalen - NET GUID of een andere id genereren, op apparaat behouden en verzenden naar uw back-end samen met push-kanaal (apparaattoken) aanroepen. Op de back-end moet u slechts één aanroep doen: CreateOrUpdateInstallation, is het volledig idempotent, dus probeer zonodig opnieuw.
+API-installatie is een alternatief mechanisme voor het beheer van de registratie. In plaats van meerdere registraties die niet is heel eenvoudig en gemakkelijk kan worden gedaan ten onrechte of inefficiënt onderhouden, is het nu mogelijk toouse een installatie van één object. Installatie bevat alles wat u nodig: push-kanaal (apparaattoken), tags, sjablonen, secundaire tegels (voor WNS en APNS). U niet meer nodig hebt toocall Hallo service tooget Id - NET GUID of een andere id genereren, op apparaat behouden en verzenden tooyour back-end samen met push-kanaal (apparaattoken). Op Hallo back-end moet u slechts één aanroep doen: CreateOrUpdateInstallation, is volledig idempotent, dus u kunt gratis tooretry indien nodig.
 
 Als voorbeeld voor Amazon Kindle Fire als volgt uitziet:
 
     Installation installation = new Installation("installation-id", NotificationPlatform.Adm, "adm-push-channel");
     hub.createOrUpdateInstallation(installation);
 
-Als u bijwerken wilt: 
+Als u wilt dat tooupdate het: 
 
     installation.addTag("foo");
     installation.addTemplate("template1", new InstallationTemplate("{\"data\":{\"key1\":\"$(value1)\"}}","tag-for-template1"));
     installation.addTemplate("template2", new InstallationTemplate("{\"data\":{\"key2\":\"$(value2)\"}}","tag-for-template2"));
     hub.createOrUpdateInstallation(installation);
 
-Voor geavanceerde scenario's hebben we gedeeltelijke updatefunctie zodat alleen bepaalde eigenschappen van het object installatie wijzigen. Gedeeltelijke update is in feite subset van JSON-Patch-bewerkingen die u met de installatie-object uitvoeren kunt.
+Voor geavanceerde scenario's hebben we gedeeltelijke updatefunctie waarmee toomodify alleen bepaalde eigenschappen van het Hallo-installatie-object. Gedeeltelijke update is in feite subset van JSON-Patch-bewerkingen die u met de installatie-object uitvoeren kunt.
 
     PartialUpdateOperation addChannel = new PartialUpdateOperation(UpdateOperationType.Add, "/pushChannel", "adm-push-channel2");
     PartialUpdateOperation addTag = new PartialUpdateOperation(UpdateOperationType.Add, "/tags", "bar");
@@ -161,9 +161,9 @@ Verwijder de installatie:
 
     hub.deleteInstallation(installation.getInstallationId());
 
-CreateOrUpdate, Patch en Delete zijn uiteindelijk consistent is met Get. De aangevraagde bewerking wordt alleen overschakelt naar de wachtrij van het systeem tijdens de oproep en wordt uitgevoerd op de achtergrond. Houd er rekening mee dat Get is niet ontworpen voor belangrijkste runtime-scenario, maar alleen voor foutopsporing en het oplossen van problemen, het is nauw beperkt door de service.
+CreateOrUpdate, Patch en Delete zijn uiteindelijk consistent is met Get. De aangevraagde bewerking NET toohello wachtrij van het systeem tijdens de oproep Hallo gaat en wordt uitgevoerd op de achtergrond. Houd er rekening mee dat Get is niet ontworpen voor belangrijkste runtime-scenario, maar alleen voor foutopsporing en het oplossen van problemen, het is nauw beperkt door Hallo-service.
 
-Verzenden stroom voor installaties is hetzelfde als voor registraties. Hebben zojuist wij een optie voor het doel van de melding aan de installatie van bepaalde: tag gebruiken ' de installatie-id: {desired-id} '. Voor de bovenstaande eruit deze als volgt:
+Werkstroom voor verzenden voor installaties is hetzelfde als Hallo voor registraties. Er zijn een optie tootarget melding toohello net hebt geïntroduceerd specifieke installatie - alleen gebruik tag ' omwille van: {desired-id} '. Voor de bovenstaande eruit deze als volgt:
 
     Notification n = Notification.createWindowsNotification("WNS body");
     hub.sendNotification(n, "InstallationId:{installation-id}");
@@ -176,7 +176,7 @@ Voor een van de verschillende sjablonen:
     hub.sendNotification(n, "InstallationId:{installation-id} && tag-for-template1");
 
 ### <a name="schedule-notifications-available-for-standard-tier"></a>Meldingen (beschikbaar voor STANDARD-laag) plannen
-Hetzelfde als reguliere verzenden, maar met één extra parameter - scheduledTime die aangeeft wanneer de melding moet worden geleverd. Service accepteert elk punt in tijd tussen nu + 5 minuten en nu + 7 dagen.
+Hallo dezelfde als reguliere verzenden, maar met één extra parameter - scheduledTime die aangeeft wanneer de melding moet worden geleverd. Service accepteert elk punt in tijd tussen nu + 5 minuten en nu + 7 dagen.
 
 **Plannen van een systeemeigen Windows-melding:**
 
@@ -186,7 +186,7 @@ Hetzelfde als reguliere verzenden, maar met één extra parameter - scheduledTim
     hub.scheduleNotification(n, c.getTime());
 
 ### <a name="importexport-available-for-standard-tier"></a>(Beschikbaar voor de prijscategorie STANDARD) voor importeren/exporteren
-Soms is het vereist bulksgewijze bewerking tegen registraties uit te voeren. Meestal is voor de integratie met een ander systeem of alleen een enorme fix om in te spreken bijwerken de labels. Het verdient sterk niet ophalen/bijwerken stroom gebruiken als we duizenden registraties bedoelen. Mogelijkheid voor importeren/exporteren is ontworpen voor het scenario. In feite bieden u een toegang tot een aantal blob-container onder uw storage-account als een bron van binnenkomende gegevens en de locatie voor de uitvoer.
+Soms is het vereiste tooperform bulkbewerking tegen registraties. Meestal is voor de integratie met een ander systeem of alleen een enorme fix toosay update Hallo-tags. Het verdient sterk niet toouse stroom Get of bij te werken als we duizenden registraties bedoelen. Import/Export-functie is ontworpen toocover Hallo scenario. In feite bieden u een toegang toosome blob-container onder uw storage-account als een bron van binnenkomende gegevens en de locatie voor de uitvoer.
 
 **Taak voor het exporteren verzenden:**
 
@@ -217,10 +217,10 @@ Soms is het vereist bulksgewijze bewerking tegen registraties uit te voeren. Mee
 
     List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**URI met SAS-handtekening:** dit is de URL van een aantal blob-bestand of de blob-container plus set parameters zoals machtigingen en verlooptijd plus handtekening van deze dingen die zijn gemaakt met behulp van account-SAS-sleutel. Azure Storage Java SDK heeft geavanceerde mogelijkheden, waaronder het maken van dergelijke soort URI's. U kunt als alternatief voor eenvoudige kijken ImportExportE2E test klasse (van de github-locatie) met zeer basic en compact uitvoering van handtekeningalgoritme nemen.
+**URI met SAS-handtekening:** dit Hallo-URL van een aantal blob-bestand of de blob-container plus set parameters zoals machtigingen en verlooptijd plus handtekening van deze dingen die zijn gemaakt met behulp van account-SAS-sleutel is. Azure Storage Java SDK heeft geavanceerde mogelijkheden, waaronder het maken van dergelijke soort URI's. U kunt als alternatief voor eenvoudige kijken ImportExportE2E test klasse (van Hallo github locatie) met zeer basic en compact uitvoering van handtekeningalgoritme nemen.
 
 ### <a name="send-notifications"></a>Meldingen verzenden
-Het object melding is gewoon een instantie met kopteksten, bepaalde hulpprogrammamethoden voor het helpen bij het bouwen van de sjabloon en systeemeigen meldingen-objecten.
+Hallo melding object is gewoon een instantie met kopteksten, bepaalde hulpprogrammamethoden voor het helpen bij het bouwen van Hallo systeemeigen en sjabloon meldingen objecten.
 
 * **Windows Store en Windows Phone 8.1 (zonder Silverlight)**
   
@@ -252,13 +252,13 @@ Het object melding is gewoon een instantie met kopteksten, bepaalde hulpprogramm
         String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
         Notification n = Notification.createAdmNotification(message);
         hub.sendNotification(n);
-* **Verzenden naar labels**
+* **TooTags verzenden**
   
         Set<String> tags = new HashSet<String>();
         tags.add("boo");
         tags.add("foo");
         hub.sendNotification(n, tags);
-* **Verzenden naar het code-expressie**       
+* **De expressie tootag verzenden**       
   
         hub.sendNotification(n, "foo && ! bar");
 * **Sjabloon melding verzenden**
@@ -272,22 +272,22 @@ Het object melding is gewoon een instantie met kopteksten, bepaalde hulpprogramm
 Uw Java-code wordt uitgevoerd, moet u een melding weergegeven op het doelapparaat nu produceren.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit onderwerp we hebt u geleerd hoe u een eenvoudige Java REST-client voor Notification Hubs maakt. Hier kunt u het volgende doen:
+In dit onderwerp we hebt u geleerd hoe toocreate een eenvoudige Java REST-client voor Notification Hubs. Hier kunt u het volgende doen:
 
-* Downloaden van de volledige [Java SDK], die de hele SDK-code bevat. 
-* Met de voorbeelden spelen:
+* Hallo volledige downloaden [Java SDK], die Hallo gehele SDK-code bevat. 
+* Spelen met Hallo voorbeelden:
   * [Aan de slag met Notification Hubs]
   * [Belangrijk nieuws te verzenden]
   * [Gelokaliseerde belangrijk nieuws te verzenden]
-  * [Meldingen verzenden aan geverifieerde gebruikers]
-  * [Cross-platform meldingen verzenden aan geverifieerde gebruikers]
+  * [Meldingen verzenden tooauthenticated gebruikers]
+  * [Verzenden van meldingen van de platformoverschrijdende tooauthenticated gebruikers]
 
 [Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
 [Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Aan de slag met Notification Hubs]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
 [Belangrijk nieuws te verzenden]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
 [Gelokaliseerde belangrijk nieuws te verzenden]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Meldingen verzenden aan geverifieerde gebruikers]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
-[Cross-platform meldingen verzenden aan geverifieerde gebruikers]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Meldingen verzenden tooauthenticated gebruikers]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
+[Verzenden van meldingen van de platformoverschrijdende tooauthenticated gebruikers]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Maven]: http://maven.apache.org/
 

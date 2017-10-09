@@ -1,6 +1,6 @@
 ---
-title: Toewijzen en beheren van Azure bronbeleid | Microsoft Docs
-description: Beschrijft hoe Azure-resource beleid toepast op abonnementen en resourcegroepen en het bronbeleid weergeven.
+title: aaaAssign en beheren van Azure-resource beleid | Microsoft Docs
+description: Hierin wordt beschreven hoe tooapply Azure beleid toosubscriptions en resource-resourcegroepen, en hoe tooview bronbeleid.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: b204cffa8fab0ad27a9f78a81c04f0a0225d95f5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b6999b43bbcc80d2fde9911352fd4352fa453443
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="assign-and-manage-resource-policies"></a>Toewijzen en beheren van bronbeleid
 
-Als u wilt een beleid implementeren, moet u deze stappen uitvoeren:
+tooimplement een beleid, moet u deze stappen uitvoeren:
 
-1. Controleer de beleidsdefinities (inclusief ingebouwde beleid verstrekt door Azure) om te zien als er al een bestaat in uw abonnement die voldoet aan uw vereisten.
+1. Controleer beleid definities (inclusief ingebouwde beleid verstrekt door Azure) toosee als er al een bestaat in uw abonnement die voldoet aan uw vereisten.
 2. Als dit bestaat, krijgen de naam ervan.
-3. Als deze niet bestaat, de beleidsregel met JSON definiëren en toevoegen als de beleidsdefinitie van een in uw abonnement. Deze stap maakt het beleid beschikbaar voor toewijzing, maar niet de regels van toepassing op uw abonnement.
-4. Voor beide gevallen wijst u het beleid toe aan een bereik (zoals een abonnement of de resource-groep). De regels van het beleid worden nu afgedwongen.
+3. Als deze niet bestaat, Hallo beleidsregel JSON definiëren en toevoegen als de beleidsdefinitie van een in uw abonnement. Deze stap maakt beleid Hallo beschikbaar voor toewijzing maar Hallo regels tooyour abonnement is niet van toepassing.
+4. Voor beide gevallen toewijzen Hallo beleid tooa bereik (zoals een abonnement of de resource-groep). Hallo-regels van het Hallo-beleid worden nu afgedwongen.
 
-Dit artikel is gericht op de stappen voor het maken van de beleidsdefinitie van een en die definitie toewijzen aan een scope via REST API, PowerShell of Azure CLI. Als u liever de portal gebruiken voor het toewijzen van beleid, Zie [gebruik Azure-portal toewijzen en beheren van bronbeleid](resource-manager-policy-portal.md). In dit artikel is niet gericht op de syntaxis voor het maken van de beleidsdefinitie. Zie voor meer informatie over de syntaxis van het beleid [Resource overzicht](resource-manager-policy.md).
+Dit artikel is gericht op Hallo stappen toocreate een beleidsdefinitie en toewijzen dat bereik definitie tooa via REST API, PowerShell of Azure CLI. Als u liever toouse Hallo portal tooassign beleidsregels, Zie [gebruik Azure portal tooassign en beheren van bronbeleid](resource-manager-policy-portal.md). In dit artikel is niet gericht op Hallo-syntaxis voor het maken van de beleidsdefinitie Hallo. Zie voor meer informatie over de syntaxis van het beleid [Resource overzicht](resource-manager-policy.md).
 
 ## <a name="rest-api"></a>REST API
 
 ### <a name="create-policy-definition"></a>Beleidsdefinitie maken
 
-Kunt u een beleid met de [REST-API voor beleidsdefinities](/rest/api/resources/policydefinitions). De REST-API kunt u maken en verwijderen van beleidsdefinities en informatie over bestaande definities.
+U kunt een beleid maken met de Hallo [REST-API voor beleidsdefinities](/rest/api/resources/policydefinitions). Hallo REST-API kunt u toocreate beleidsdefinities verwijderen en informatie over bestaande definities.
 
-Voor het maken van een beleidsdefinitie uitvoeren:
+een beleidsdefinitie toocreate uitvoeren:
 
 ```HTTP
 PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 
-Vergelijkbaar met het volgende voorbeeld wordt een aanvraagtekst omvatten:
+Een aanvraag hoofdtekst vergelijkbare toohello volgt zijn:
 
 ```json
 {
@@ -52,14 +52,14 @@ Vergelijkbaar met het volgende voorbeeld wordt een aanvraagtekst omvatten:
       "allowedLocations": {
         "type": "array",
         "metadata": {
-          "description": "The list of locations that can be specified when deploying resources",
+          "description": "hello list of locations that can be specified when deploying resources",
           "strongType": "location",
           "displayName": "Allowed locations"
         }
       }
     },
     "displayName": "Allowed locations",
-    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+    "description": "This policy enables you toorestrict hello locations your organization can specify when deploying resources.",
     "policyRule": {
       "if": {
         "not": {
@@ -77,22 +77,22 @@ Vergelijkbaar met het volgende voorbeeld wordt een aanvraagtekst omvatten:
 
 ### <a name="assign-policy"></a>Toewijzen van beleid
 
-U kunt toepassen op het gewenste bereik via beleidsdefinitie de [REST-API voor beleidstoewijzingen](/rest/api/resources/policyassignments). De REST-API kunt u maken en verwijderen van beleidstoewijzingen en informatie over bestaande toewijzingen.
+U kunt de beleidsdefinitie Hallo bij Hallo gewenst bereik via Hallo toepassen [REST-API voor beleidstoewijzingen](/rest/api/resources/policyassignments). Hallo REST-API kunt u toocreate beleidstoewijzingen verwijderen en informatie over bestaande toewijzingen.
 
-Voor het maken van een beleidstoewijzing uitvoeren:
+een beleidstoewijzing toocreate uitvoeren:
 
 ```HTTP
 PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 ```
 
-De {-beleidstoewijzing} is de naam van de beleidstoewijzing.
+Hallo {beleidstoewijzing} is Hallo-naam van de beleidstoewijzing Hallo.
 
-Vergelijkbaar met het volgende voorbeeld wordt een aanvraagtekst omvatten:
+Een aanvraag hoofdtekst vergelijkbare toohello volgt zijn:
 
 ```json
 {
   "properties":{
-    "displayName":"West US only policy assignment on the subscription ",
+    "displayName":"West US only policy assignment on hello subscription ",
     "description":"Resources can only be provisioned in West US regions",
     "parameters": {
       "allowedLocations": { "value": ["northeurope", "westus"] }
@@ -104,16 +104,16 @@ Vergelijkbaar met het volgende voorbeeld wordt een aanvraagtekst omvatten:
 ```
 
 ### <a name="view-policy"></a>Weergave-beleid
-Als u een beleid, gebruikt de [ophalen van de beleidsdefinitie](https://docs.microsoft.com/rest/api/resources/policydefinitions#PolicyDefinitions_Get) bewerking.
+een beleid tooget gebruiken Hallo [ophalen van de beleidsdefinitie](https://docs.microsoft.com/rest/api/resources/policydefinitions#PolicyDefinitions_Get) bewerking.
 
 ### <a name="get-aliases"></a>Aliassen ophalen
-U kunt aliassen via de REST-API ophalen:
+U kunt aliassen via Hallo REST-API ophalen:
 
 ```HTTP
 GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
 ```
 
-Het volgende voorbeeld ziet een definitie van een alias. Zoals u ziet, definieert een alias paden in verschillende API-versies, zelfs wanneer er een wijziging van de eigenschap. 
+Hallo volgende voorbeeld ziet u een definitie van een alias. Zoals u ziet, definieert een alias paden in verschillende API-versies, zelfs wanneer er een wijziging van de eigenschap. 
 
 ```json
 "aliases": [
@@ -140,16 +140,16 @@ Het volgende voorbeeld ziet een definitie van een alias. Zoals u ziet, definieer
 
 ## <a name="powershell"></a>PowerShell
 
-Controleer of u hebt voordat u doorgaat met de PowerShell-voorbeelden [de nieuwste versie geïnstalleerd](/powershell/azure/install-azurerm-ps) van Azure PowerShell. Beleidsparameters zijn toegevoegd in versie 3.6.0. Als er een eerdere versie, retourneren in de voorbeelden foutmelding dat de parameter kan niet worden gevonden.
+Controleer of u hebt voordat u doorgaat met de PowerShell-voorbeelden Hallo [Hallo meest recente versie hebt geïnstalleerd](/powershell/azure/install-azurerm-ps) van Azure PowerShell. Beleidsparameters zijn toegevoegd in versie 3.6.0. Als er een eerdere versie, retourneren Hallo voorbeelden dat een fout die duiden Hallo-parameter kan niet worden gevonden.
 
 ### <a name="view-policy-definitions"></a>Definities van beleid weergeven
-Als alle beleidsdefinities in uw abonnement wilt weergeven, gebruikt u de volgende opdracht:
+toosee alle beleidsdefinities in uw abonnement, gebruik Hallo volgende opdracht:
 
 ```powershell
 Get-AzureRmPolicyDefinition
 ```
 
-Retourneert alle beschikbare door beleidsdefinities, met inbegrip van ingebouwde beleid. Elk beleid wordt geretourneerd in de volgende indeling:
+Retourneert alle beschikbare door beleidsdefinities, met inbegrip van ingebouwde beleid. Elk beleid wordt geretourneerd als Hallo volgende indeling:
 
 ```powershell
 Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
@@ -157,18 +157,18 @@ ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962
 ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
 ResourceType       : Microsoft.Authorization/policyDefinitions
 Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
-                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     restrict hello locations your organization can specify when deploying resources. Use tooenforce
                      your geo-compliance requirements.; parameters=; policyRule=}
 PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
 ```
 
-Voordat u doorgaat een beleidsdefinitie maken, bekijkt u de ingebouwde beleidsregels. Als u een ingebouwde beleid dat van toepassing is de grenzen die u nodig hebt gevonden, kunt u het maken van een beleidsdefinitie overslaan. In plaats daarvan de ingebouwde beleid toewijzen aan het gewenste bereik.
+Bekijk voordat u doorgaat toocreate een beleidsdefinitie, Hallo ingebouwde beleid. Als u een ingebouwde beleid dat van toepassing is Hallo-limieten die u nodig hebt gevonden, kunt u het maken van een beleidsdefinitie overslaan. In plaats daarvan toewijzen Hallo ingebouwde beleid toohello gewenst bereik.
 
 ### <a name="create-policy-definition"></a>Beleidsdefinitie maken
-U kunt een beleid maakt definitie met de `New-AzureRmPolicyDefinition` cmdlet.
+U kunt de beleidsdefinitie van een met behulp van Hallo maken `New-AzureRmPolicyDefinition` cmdlet.
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy toospecify access tier." -Policy '{
   "if": {
     "allOf": [
       {
@@ -193,15 +193,15 @@ $definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Pol
 }'
 ```            
 
-De uitvoer wordt opgeslagen in een `$definition` -object, dat wordt gebruikt tijdens de toewijzing van configuratiebeleid. 
+Hallo-uitvoer wordt opgeslagen in een `$definition` -object, dat wordt gebruikt tijdens de toewijzing van configuratiebeleid. 
 
-In plaats van de JSON geven als parameter, kunt u het pad naar een .json-bestand met de beleidsregel opgeven.
+U kunt in plaats van Hallo JSON geven als parameter, Hallo pad tooa .json-bestand met beleidsregel Hallo opgeven.
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
+$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy toospecify access tier." -Policy "c:\policies\coolAccessTier.json"
 ```
 
-Het volgende voorbeeld wordt de beleidsdefinitie van een met parameters:
+Hallo wordt volgende voorbeeld de beleidsdefinitie van een met parameters:
 
 ```powershell
 $policy = '{
@@ -228,26 +228,26 @@ $parameters = '{
     "allowedLocations": {
         "type": "array",
         "metadata": {
-          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "description": "hello list of locations that can be specified when deploying storage accounts.",
           "strongType": "location",
           "displayName": "Allowed locations"
         }
     }
 }' 
 
-$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters 
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy toospecify locations for storage accounts." -Policy $policy -Parameter $parameters 
 ```
 
 ### <a name="assign-policy"></a>Toewijzen van beleid
 
-U het beleid op het gewenste bereik toepassen met behulp van de `New-AzureRmPolicyAssignment` cmdlet. Het volgende voorbeeld wordt het beleid aan een resourcegroep.
+U beleid voor het Hallo Hallo gewenst bereik toepassen via Hallo `New-AzureRmPolicyAssignment` cmdlet. Hallo volgt toegewezen Hallo beleid tooa resourcegroep.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
 New-AzureRMPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
-Als u een beleid dat parameters vereist toewijzen, maken en deze waarden van objecten. Het volgende voorbeeld wordt een ingebouwde beleid opgehaald en wordt doorgegeven in parameterwaarden:
+tooassign een beleid dat parameters vereist zijn, maken en deze waarden van objecten. Hallo volgende voorbeeld wordt een ingebouwde beleid opgehaald en wordt doorgegeven in parameterwaarden:
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
@@ -259,14 +259,14 @@ New-AzureRMPolicyAssignment -Name locationAssignment -Scope $rg.ResourceId -Poli
 
 ### <a name="view-policy-assignment"></a>De toewijzing van beleid weergeven
 
-Als u de toewijzing van een specifiek beleid, gebruikt u:
+de toewijzing van een specifiek beleid tooget gebruiken:
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
 (Get-AzureRmPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId
 ```
 
-Als u wilt de beleidsregel voor de beleidsdefinitie van een weergeven, gebruikt u:
+tooview hello beleidsregel voor de beleidsdefinitie van een, gebruiken:
 
 ```powershell
 (Get-AzureRmPolicyDefinition -Name coolAccessTier).Properties.policyRule | ConvertTo-Json
@@ -274,7 +274,7 @@ Als u wilt de beleidsregel voor de beleidsdefinitie van een weergeven, gebruikt 
 
 ### <a name="remove-policy-assignment"></a>Beleidstoewijzing verwijderen 
 
-Als u wilt een beleidstoewijzing verwijderen, gebruikt u:
+een beleidstoewijzing tooremove gebruiken:
 
 ```powershell
 Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
@@ -283,17 +283,17 @@ Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscription
 ## <a name="azure-cli"></a>Azure CLI
 
 ### <a name="view-policy-definitions"></a>Definities van beleid weergeven
-Als alle beleidsdefinities in uw abonnement wilt weergeven, gebruikt u de volgende opdracht:
+toosee alle beleidsdefinities in uw abonnement, gebruik Hallo volgende opdracht:
 
 ```azurecli
 az policy definition list
 ```
 
-Retourneert alle beschikbare door beleidsdefinities, met inbegrip van ingebouwde beleid. Elk beleid wordt geretourneerd in de volgende indeling:
+Retourneert alle beschikbare door beleidsdefinities, met inbegrip van ingebouwde beleid. Elk beleid wordt geretourneerd als Hallo volgende indeling:
 
 ```azurecli
 {                                                            
-  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "description": "This policy enables you toorestrict hello locations your organization can specify when deploying resources. Use tooenforce your geo-compliance requirements.",                      
   "displayName": "Allowed locations",
   "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
   "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
@@ -312,14 +312,14 @@ Retourneert alle beschikbare door beleidsdefinities, met inbegrip van ingebouwde
 }
 ```
 
-Voordat u doorgaat een beleidsdefinitie maken, bekijkt u de ingebouwde beleidsregels. Als u een ingebouwde beleid dat van toepassing is de grenzen die u nodig hebt gevonden, kunt u het maken van een beleidsdefinitie overslaan. In plaats daarvan de ingebouwde beleid toewijzen aan het gewenste bereik.
+Bekijk voordat u doorgaat toocreate een beleidsdefinitie, Hallo ingebouwde beleid. Als u een ingebouwde beleid dat van toepassing is Hallo-limieten die u nodig hebt gevonden, kunt u het maken van een beleidsdefinitie overslaan. In plaats daarvan toewijzen Hallo ingebouwde beleid toohello gewenst bereik.
 
 ### <a name="create-policy-definition"></a>Beleidsdefinitie maken
 
-U kunt een definitie voor Azure CLI gebruiken met de opdracht van de definitie beleid maken.
+U kunt de beleidsdefinitie van een met Azure CLI met Hallo beleid definitie opdracht maken.
 
 ```azurecli
-az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+az policy definition create --name coolAccessTier --description "Policy toospecify access tier." --rules '{
   "if": {
     "allOf": [
       {
@@ -346,7 +346,7 @@ az policy definition create --name coolAccessTier --description "Policy to speci
 
 ### <a name="assign-policy"></a>Toewijzen van beleid
 
-U kunt het beleid toepassen op het gewenste bereik met de opdracht van de toewijzing van beleid. Het volgende voorbeeld wordt een beleid aan een resourcegroep.
+U kunt Hallo beleid toohello gewenst bereik toepassen met behulp van Hallo beleid toewijzing opdracht. Hallo volgende voorbeeld wordt een resourcegroep van beleid tooa toegewezen.
 
 ```azurecli
 az policy assignment create --name coolAccessTierAssignment --policy coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
@@ -354,7 +354,7 @@ az policy assignment create --name coolAccessTierAssignment --policy coolAccessT
 
 ### <a name="view-policy-assignment"></a>De toewijzing van beleid weergeven
 
-Als u wilt weergeven van de beleidstoewijzing van een, bieden de beleidstoewijzingsnaam en het bereik:
+een beleidstoewijzing tooview bieden Hallo beleidstoewijzingsnaam en Hallo bereik:
 
 ```azurecli
 az policy assignment show --name coolAccessTierAssignment --scope "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}"
@@ -362,12 +362,12 @@ az policy assignment show --name coolAccessTierAssignment --scope "/subscription
 
 ### <a name="remove-policy-assignment"></a>Beleidstoewijzing verwijderen 
 
-Als u wilt een beleidstoewijzing verwijderen, gebruikt u:
+een beleidstoewijzing tooremove gebruiken:
 
 ```azurecli
 az policy assignment delete --name coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](resource-manager-subscription-governance.md).
+* Abonnementen voor instructies over hoe ondernemingen tooeffectively Resource Manager kunt beheren, Zie [Azure enterprise scaffold - prescriptieve abonnement governance](resource-manager-subscription-governance.md).
 

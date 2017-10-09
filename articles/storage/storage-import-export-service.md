@@ -1,6 +1,6 @@
 ---
-title: Gebruik Azure Import/Export voor het overbrengen van gegevens naar en van blob-opslag | Microsoft Docs
-description: Informatie over het maken van importeren en exporteren van taken in de Azure-portal voor het overbrengen van gegevens naar en van blob-opslag.
+title: aaaUsing Azure Import/Export tootransfer gegevens tooand uit blob storage | Microsoft Docs
+description: Informatie over hoe toocreate importeren en exporteren van taken in hello Azure-portal voor het overbrengen van gegevens tooand van blob-opslag.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,90 +14,90 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
-ms.openlocfilehash: 9dc50a101384bb40ad3a878245b80dcb31a7c08e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 84471d736d2433ffee9f49fbef91856d3dd56bb4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>De Microsoft Azure Import/Export-service gebruiken om gegevens te brengen naar blob storage
-De Azure Import/Export-service kunt u grote hoeveelheden gegevens veilig overdragen naar Azure blob storage door back-upfunctie harde schijven naar een Azure-Datacenter. U kunt deze service ook gebruiken voor de overdracht van gegevens uit Azure blob storage naar harde schijven en verzenden naar uw on-premises site. Deze service is geschikt in situaties waar u wilt overbrengen van verschillende terabyte (TB) aan gegevens van en naar Azure, maar uploaden of downloaden via het netwerk onbruikbare vanwege beperkte bandbreedte of hoge netwerkkosten is.
+# <a name="use-hello-microsoft-azure-importexport-service-tootransfer-data-tooblob-storage"></a>Hallo Microsoft Azure Import/Export-service tootransfer gegevens tooblob opslag gebruiken
+Hello Azure Import/Export-service kunt u toosecurely overdracht grote hoeveelheden gegevens tooAzure blob-opslag door back-upfunctie harde schijven tooan Azure-Datacenter. U kunt ook gebruik van deze service tootransfer op gegevens uit Azure blob storage toohard harde schijven en verzenden van tooyour lokale site. Deze service is geschikt in situaties waar u tootransfer verschillende terabyte (TB) aan gegevens tooor van Azure, maar uploaden of downloaden via Hallo-netwerk onbruikbare vanwege toolimited bandbreedte of hoge is kosten netwerk.
 
-De service vereist dat BitLocker is versleuteld voor de beveiliging van uw gegevens op harde schijven moeten. De service ondersteunt zowel het klassieke en het Azure Resource Manager storage-accounts (standard- en cool laag) aanwezig is in alle regio's van openbare Azure. U kunt harde schijven op een van de ondersteunde locaties opgegeven verderop in dit artikel moet verzenden.
+Hallo-service vereist dat BitLocker is versleuteld voor Hallo beveiliging van uw gegevens op harde schijven moeten. Hallo-service ondersteunt zowel Hallo Classic en Azure Resource Manager storage-accounts (standard- en cool laag) aanwezig is in alle Hallo gebieden van openbare Azure. U moet tooone harde schijven van Hallo ondersteund locaties opgegeven verderop in dit artikel worden geleverd.
 
-In dit artikel hebt meer u informatie over de Azure Import/Export-service en het verzenden van de schijven voor uw gegevens kopiëren van en naar Azure Blob-opslag.
+In dit artikel hebt meer u informatie over hello Azure Import/Export-service en hoe tooship schijven voor uw tooand gegevens kopiëren van Azure Blob-opslag.
 
-## <a name="when-should-i-use-the-azure-importexport-service"></a>Wanneer moet ik de Azure Import/Export-service gebruiken?
-Overweeg het gebruik van Azure Import/Export-service wanneer uploaden of downloaden van gegevens via het netwerk te langzaam is of meer netwerkbandbreedte ophalen kostbaar is.
+## <a name="when-should-i-use-hello-azure-importexport-service"></a>Wanneer moet ik hello Azure Import/Export-service gebruiken?
+Overweeg het gebruik van Azure Import/Export-service tijdens het uploaden van gegevens worden gedownload via Hallo netwerk te langzaam is of meer netwerkbandbreedte ophalen is kostbaar.
 
 U kunt deze service, zoals in scenario's gebruiken:
 
-* Migreren van gegevens naar de cloud: grote hoeveelheden gegevens snel verplaatsen naar Azure en voordelige wijze.
-* Inhoudsdistributie: snel gegevens verzenden naar uw klant-sites.
-* Back-up: Back-ups van uw on-premises gegevens op te slaan in Azure blob-opslag in beslag nemen.
-* Herstel van gegevens: herstellen grote hoeveelheid gegevens die zijn opgeslagen in blob storage en bezorgd bij uw on-premises locatie.
+* Migreren gegevens toohello cloud: grote hoeveelheden gegevens tooAzure snel verplaatsen en voordelige wijze.
+* Inhoudsdistributie: snel gegevens tooyour sites van de klant verzenden.
+* Back-up: Haal de back-ups van uw lokale gegevens toostore in Azure blob-opslag.
+* Herstel van gegevens: herstellen grote hoeveelheid gegevens die zijn opgeslagen in blob storage en tooyour on-premises locatie worden bezorgd.
 
 ## <a name="prerequisites"></a>Vereisten
-In deze sectie wordt de vereiste onderdelen voor het gebruik van deze service weergeven. Bekijk deze aandachtig door voordat verzending van uw schijven.
+In deze sectie wij in de lijst Hallo vereisten vereist toouse deze service. Bekijk deze aandachtig door voordat verzending van uw schijven.
 
 ### <a name="storage-account"></a>Storage-account
-Er moet een bestaande Azure-abonnement en een of meer opslagaccounts de Import/Export-service gebruiken. Elke taak kan worden gebruikt voor gegevensoverdracht naar of van slechts één opslagaccount. Een enkel voor importeren/exporteren-taak kan niet met andere woorden, meerdere opslagaccounts overbruggen. Zie voor meer informatie over het maken van een nieuw opslagaccount [het maken van een Opslagaccount](storage-create-storage-account.md#create-a-storage-account).
+U moet een bestaande Azure-abonnement en een of meer accounts toouse Hallo voor importeren/exporteren opslagservice hebben. Elke taak mogelijk gebruikte tootransfer gegevens tooor uit slechts één opslagaccount. Een enkel voor importeren/exporteren-taak kan niet met andere woorden, meerdere opslagaccounts overbruggen. Zie voor meer informatie over het maken van een nieuw opslagaccount [hoe tooCreate een Opslagaccount](storage-create-storage-account.md#create-a-storage-account).
 
 ### <a name="blob-types"></a>BLOB-typen
-U kunt Azure Import/Export-service gebruiken om gegevens te kopiëren **blok** blobs of **pagina** blobs. Als u daarentegen, kunt u alleen exporteren **blok** blobs, **pagina** blobs of **Append** blobs uit Azure-opslag met deze service.
+U kunt ook Azure Import/Export-service toocopy gegevens gebruiken**blok** blobs of **pagina** blobs. Als u daarentegen, kunt u alleen exporteren **blok** blobs, **pagina** blobs of **Append** blobs uit Azure-opslag met deze service.
 
 ### <a name="job"></a>Job
-Als u wilt beginnen met het importeren of exporteren van Blob-opslag, moet u eerst een taak maken. Een taak kan een import-taak of een taak voor het exporteren worden uitgevoerd:
+toobegin hello proces van het importeren van tooor exporteren van Blob-opslag, u een taak eerst maken. Een taak kan een import-taak of een taak voor het exporteren worden uitgevoerd:
 
-* Een import-taak maken wanneer u overbrengen van gegevens die u wilt on-premises naar BLOB's hebt in uw Azure storage-account.
-* Maken van een taak voor het exporteren wanneer u overbrengen van gegevens als blobs in uw storage-account voor de harde schijven die worden verzonden naar you.s wilt bij het maken van een taak die momenteel zijn opgeslagen, u waarschuwen dat de Import/Export-service dat u een of meer harde schijven voor een Azure data cente wordt verzending r.
+* Maak een import-taak wanneer u tootransfer gegevens hebt u lokale tooblobs in uw Azure storage-account.
+* Maken van een taak voor het exporteren wanneer u wilt dat tootransfer gegevens als blobs in uw storage-account toohard stations die zijn verzonden tooyou.s wanneer u een taak maakt momenteel zijn opgeslagen, u waarschuwen Hallo Import/Export-service die u zal worden back-upfunctie een of meer harde schijven tooan Azure Datacenter.
 
 * Voor een import-taak wordt u harde schijven met uw gegevens verzending.
 * Voor een exporttaak wordt u lege harde schijven verzending.
-* U kunt maximaal 10 harde schijven per taak kan worden verzonden.
+* U kunt leveren up too10 harde schijven per taak.
 
-U kunt maken van een import of exporteren van de taak met de Azure portal of de [REST-API van Azure Storage Import/Export](/rest/api/storageimportexport).
+U kunt maken van een import of taak met hello Azure-portal of Hallo exporteren [REST-API van Azure Storage Import/Export](/rest/api/storageimportexport).
 
 ### <a name="waimportexport-tool"></a>WAImportExport hulpprogramma
-De eerste stap bij het maken van een **importeren** taak is het voorbereiden van uw schijven die worden verzonden voor importeren. Als u met het voorbereiden van uw schijven, moet u deze verbinding te maken met een lokale server en het hulpprogramma WAImportExport uitvoeren op de lokale server. Dit hulpprogramma WAImportExport vereenvoudigt het kopiëren van uw gegevens naar het station, de gegevens op het station met BitLocker versleutelen en het genereren van het station journaal-bestanden.
+Hallo eerste stap bij het maken van een **importeren** taak tooprepare stations die worden verzonden voor het importeren van is. tooprepare stations, moet u deze lokale server tooa en aansluiten uitvoeren Hallo WAImportExport hulpprogramma op de lokale server Hallo. Dit hulpprogramma WAImportExport vereenvoudigt het kopiëren van uw toohello gegevensstation, versleuteling van gegevens op Hallo-station met BitLocker Hallo en Hallo station journaal bestanden genereren.
 
-De wijzigingslogboek-bestanden opslaan basisinformatie over de taak en het station zoals serienummer van station en de naam van het opslagaccount. Dit logboek-bestand wordt niet opgeslagen op de schijf. Het wordt gebruikt tijdens het maken van de import-taak. Meer informatie over het maken van de taak wordt stap voor stap opgegeven verderop in dit artikel.
+Hallo-logboek bestanden bevatten de algemene informatie over de taak en het station zoals serienummer van station en de naam van het opslagaccount. Dit logboek-bestand niet is opgeslagen op Hallo-station. Het wordt gebruikt tijdens het maken van de import-taak. Meer informatie over het maken van de taak wordt stap voor stap opgegeven verderop in dit artikel.
 
-Het hulpprogramma WAImportExport is alleen compatibel met 64-bits Windows-besturingssysteem. Zie de [besturingssysteem](#operating-system) sectie voor specifieke OS-versies die worden ondersteund.
+Hallo WAImportExport hulpprogramma is alleen compatibel met 64-bits Windows-besturingssysteem. Zie Hallo [besturingssysteem](#operating-system) sectie voor specifieke OS-versies die worden ondersteund.
 
-Download de nieuwste versie van de [WAImportExport hulpprogramma](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). Zie voor meer informatie over het gebruik van het hulpprogramma WAImportExport de [met het hulpprogramma WAImportExport](storage-import-export-tool-how-to.md).
+Download de nieuwste versie Hallo Hallo [WAImportExport hulpprogramma](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). Zie voor meer informatie over het gebruik van hello WAImportExport hulpprogramma, Hallo [Using Hallo WAImportExport hulpprogramma](storage-import-export-tool-how-to.md).
 
 >[!NOTE]
->**Vorige versie:** kunt u [WAImportExpot V1 downloaden](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) versie van het hulpprogramma en verwijzen naar [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1-versie van het hulpprogramma biedt ondersteuning voor **schijven voorbereiden wanneer gegevens al vooraf is geschreven naar de schijf**. U moet ook WAImportExpot V1-hulpprogramma gebruiken als de enige beschikbare sleutel SAS-sleutel.
+>**Vorige versie:** kunt u [WAImportExpot V1 downloaden](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) versie Hallo hulpprogramma en te verwijzen[WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1-versie van Hallo hulpprogramma biedt ondersteuning voor **schijven voorbereiden wanneer gegevens worden toohello schijf al vooraf geschreven**. U moet ook toouse WAImportExpot V1 hulpprogramma als Hallo alleen sleutel beschikbaar SAS-sleutel is.
 
 >
 
 ### <a name="hard-disk-drives"></a>Harde schijven
-Alleen 2,5 inch SSD of 2,5-inch of 3.5" SATA II of III interne harde schijven worden ondersteund voor gebruik met de Import/Export-service. Een taak één importeren/exporteren kan maximaal 10 HDD SSD's en elke afzonderlijke harde schijven per SSD van elke grootte kunnen zijn. Groot aantal schijven kan worden verdeeld over meerdere taken en er is geen beperkingen op het aantal taken dat kan worden gemaakt. 
+Alleen 2,5 inch SSD of 2,5-inch of 3.5" SATA II of III interne harde schijven worden ondersteund voor gebruik met Hallo Import/Export-service. Een taak één importeren/exporteren kan maximaal 10 HDD SSD's en elke afzonderlijke harde schijven per SSD van elke grootte kunnen zijn. Groot aantal schijven kan worden verdeeld over meerdere taken en er is geen beperkingen op Hallo aantal taken dat kan worden gemaakt. 
 
-Voor taken van gegevensimport worden alleen het eerste gegevensvolume op de schijf verwerkt. Het gegevensvolume moet zijn geformatteerd met NTFS.
+Voor taken van gegevensimport worden alleen Hallo eerste gegevensvolume op Hallo station verwerkt. Hallo gegevensvolume moet zijn geformatteerd met NTFS.
 
 > [!IMPORTANT]
-> Externe harde schijven die worden geleverd met een ingebouwde USB-adapter worden niet ondersteund door deze service. Bovendien kan de schijf binnen het hoofdlettergebruik van een externe harde schijf kan niet worden gebruikt; Stuur geen externe HDD's.
+> Externe harde schijven die worden geleverd met een ingebouwde USB-adapter worden niet ondersteund door deze service. Bovendien kan niet Hallo schijf binnen Hallo hoofdlettergebruik van een externe harde schijf worden gebruikt; Stuur geen externe HDD's.
 > 
 > 
 
-Hieronder volgt een lijst met externe USB-adapters die worden gebruikt om gegevens te kopiëren naar interne harde schijven. Anker 68UPSATAA - 02 door Anker 68UPSHHDS door Startech SATADOCK22UE Orico 6628SUS3 C BK (6628-serie) Thermaltake BlacX Hot Swap SATA externe harde schijf dockingstation (USB 2.0 & eSATA)
+Hieronder volgt dat een lijst met externe USB-adapters toocopy gegevens toointernal HDD's gebruikt. Anker 68UPSATAA - 02 door Anker 68UPSHHDS door Startech SATADOCK22UE Orico 6628SUS3 C BK (6628-serie) Thermaltake BlacX Hot Swap SATA externe harde schijf dockingstation (USB 2.0 & eSATA)
 
 ### <a name="encryption"></a>Versleuteling
-De gegevens op de schijf moeten worden versleuteld met BitLocker-stationsversleuteling. Dit beschermt u uw gegevens terwijl het onderweg is.
+Hallo-gegevens op Hallo schijf moeten worden versleuteld met BitLocker-stationsversleuteling. Dit beschermt u uw gegevens terwijl het onderweg is.
 
-Er zijn twee manieren om uit te voeren van de versleuteling voor taken van gegevensimport. De eerste manier is om op te geven van de optie bij gebruik van CSV-bestand gegevensset tijdens het uitvoeren van het hulpprogramma WAImportExport tijdens de voorbereiding van het station. De tweede manier is het inschakelen van BitLocker-versleuteling handmatig op de schijf en geef de versleutelingssleutel in de driveset CSV wanneer WAImportExport hulpprogramma vanaf de opdrachtregel wordt uitgevoerd tijdens de voorbereiding van het station.
+Er zijn twee manieren tooperform Hallo versleuteling voor de taken van gegevensimport. Hallo eerste manier is toospecify Hallo optie bij gebruik van CSV-bestand gegevensset tijdens het Hallo WAImportExport hulpprogramma uitvoeren tijdens de voorbereiding van het station. Hallo tweede manier tooenable BitLocker-versleuteling handmatig op Hallo schijf is en geef Hallo versleutelingssleutel in Hallo driveset CSV wanneer WAImportExport hulpprogramma vanaf de opdrachtregel wordt uitgevoerd tijdens de voorbereiding van het station.
 
-Voor het exporteren, nadat uw gegevens worden gekopieerd naar de stations de service wordt het station versleutelen met BitLocker voordat deze terug naar de back-upfunctie. De versleutelingssleutel worden aan u verstrekt via de Azure-portal.  
+Voor exporttaken, nadat uw gegevens gekopieerde toohello stations is, worden Hallo-service gecodeerd Hallo-station met BitLocker voordat u het back-tooyou levert. Hallo-versleutelingssleutel krijgt tooyou via hello Azure-portal.  
 
 ### <a name="operating-system"></a>Besturingssysteem
-U kunt een van de volgende 64-bits besturingssystemen voor het voorbereiden van de harde schijf met het hulpprogramma WAImportExport voordat het back-upfunctie het station naar Azure:
+U kunt een van de volgende 64-bits besturingssystemen tooprepare Hallo harde schijf met Hallo WAImportExport hulpprogramma voordat het back-upfunctie Hallo station tooAzure hello gebruiken:
 
 Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, WindowsServer 2012, Windows Server 2012 R2. Alle deze besturingssystemen ondersteunen BitLocker-stationsversleuteling.
 
 ### <a name="locations"></a>Locaties
-De Azure Import/Export-service ondersteunt kopiëren van gegevens naar en van alle openbare Azure-opslagaccounts. U kunt harde schijven op een van de volgende locaties kan worden verzonden. Als uw storage-account zich in een openbare Azure-locatie die wordt hier niet gespecificeerd, wordt een back-ups van alternatieve locatie worden opgegeven tijdens het maken van de taak met de Azure-portal of de REST-API voor importeren/exporteren.
+Hello Azure Import/Export-service ondersteunt kopiëren tooand van gegevens uit alle openbare Azure-opslagaccounts. U kunt tooone harde schijven van de volgende locaties Hallo verzenden. Als uw storage-account zich in een openbare Azure-locatie die wordt hier niet gespecificeerd, wordt een back-ups van alternatieve locatie worden opgegeven tijdens het maken van Hallo taak hello Azure-portal of REST-API voor importeren/exporteren Hallo.
 
 Back-upfunctie locaties ondersteund:
 
@@ -133,136 +133,136 @@ Back-upfunctie locaties ondersteund:
 * Verenigd Koninkrijk Zuid
 
 ### <a name="shipping"></a>Back-ups
-**Back-ups van stations met Datacenter:**
+**Back-ups van stations toohello Datacenter:**
 
-Bij het maken van een taak importeren of exporteren, krijgt u een back-ups van-adres van een van de ondersteunde locaties voor het verzenden van uw schijven. Het opgegeven adres van de back-upfunctie hangen af van de locatie van uw storage-account, maar deze mogelijk niet hetzelfde zijn als de opslaglocatie voor het account.
+Bij het maken van een taak importeren of exporteren, krijgt u dat een back-ups van-adres van een van de Hallo ondersteund locaties tooship uw schijven. Hallo verzendadres opgegeven hangen af van het Hallo-locatie van uw storage-account, maar deze mogelijk niet dezelfde als de opslaglocatie voor de account Hallo.
 
-Providers zoals FedEx, DHL, UPS of de postservice van ons kunt u de schijven in het back-ups van-adres verzenden.
+U kunt uw stations toohello verzendadres providers zoals FedEx, DHL, UPS of Hallo ons opstuurt tooship.
 
-**Back-upfunctie voor de schijven van het datacenter:**
+**Back-ups van stations van Hallo Datacenter:**
 
-Bij het maken van een taak importeren of exporteren, moet u opgeven dat een retouradres voor Microsoft levert de stations terug nadat de taak voltooid is. Controleer of dat u een geldig retouradres om te voorkomen dat vertragingen bij het verwerken van opgeven.
+Bij het maken van een taak importeren of exporteren, moet u een adres opgeven voor Microsoft toouse wanneer back-upfunctie Hallo stations back-nadat de taak voltooid is. Controleer of dat u een geldig retouradres tooavoid vertragingen bij het verwerken van opgeven.
 
-U kunt een carrier van uw keuze gebruiken om de harde schijf doorsturen te verzenden. De provider moet hebben met het juiste bijhouden om bewakingsketen onderhouden. U moet een geldige FedEx of DHL carrier ook opgeven dat moet worden gebruikt door Microsoft voor het verzenden van de stations back-account. Een nummer voor de FedEx is vereist voor back-upfunctie stations terug van de Verenigde Staten en Europa locaties. Een nummer voor de DHL is vereist voor back-upfunctie stations terug vanaf Asia en Australië locaties. Kunt u een [FedEx](http://www.fedex.com/us/oadr/) (voor de Verenigde Staten en Europa) of [DHL](http://www.dhl.com/) carrier (Asia en Australië)-account als u nog geen abonnement hebt. Als u al een nummer voor de provider hebt, controleert u of geldig is.
+U kunt een carrier van uw keuze in volgorde tooforward verzenden Hallo harde schijf gebruiken. Hallo carrier moet de juiste bijhouden van wijzigingen in de volgorde toomaintain keten bewakingsketen hebben. U moet een geldige FedEx of DHL carrier ook account number toobe door Microsoft worden gebruikt voor het verzenden van Hallo stations terug opgeven. Een nummer voor de FedEx is vereist voor het verzenden van stations terug vanaf Hallo VS en Europa locaties. Een nummer voor de DHL is vereist voor back-upfunctie stations terug vanaf Asia en Australië locaties. Kunt u een [FedEx](http://www.fedex.com/us/oadr/) (voor de Verenigde Staten en Europa) of [DHL](http://www.dhl.com/) carrier (Asia en Australië)-account als u nog geen abonnement hebt. Als u al een nummer voor de provider hebt, controleert u of geldig is.
 
-In uw pakketten verzendt, moet u de voorwaarden op volgen [Microsoft Azure-servicevoorwaarden](https://azure.microsoft.com/support/legal/services-terms/).
+In uw pakketten verzendt, moet u voorwaarden op Hallo volgen [Microsoft Azure-servicevoorwaarden](https://azure.microsoft.com/support/legal/services-terms/).
 
 > [!IMPORTANT]
-> Houd er rekening mee dat de fysieke media die u levert mogelijk moet cross internationale grenzen heen. U bent zelf verantwoordelijk voor het garanderen dat uw fysieke media en de gegevens zijn geïmporteerd en/of geëxporteerd in overeenstemming met het toepasselijk recht. Voordat de back-ups van de fysieke media Neem contact op met uw adviseurs om te controleren of uw media en de gegevens kan dit wettelijk naar het geïdentificeerde datacenter worden verzonden. Dit helpt ervoor te zorgen dat het Microsoft tijdig is bereikt. Alle pakketten die worden internationale grenzen heen loopt moet bijvoorbeeld een commerciële factuur gepaard gaan met het pakket (met uitzondering van kruisende randen binnen de Europese Unie als). U kunt een gevulde kopie van de commerciële factuur van carrier website afdrukken. Voorbeeld van een commerciële facturen zijn [DHL commerciële factuur](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) en [FedEx commerciële factuur](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Zorg ervoor dat Microsoft niet als de exportfunctie is aangegeven.
+> Houd er rekening mee dat Hallo fysieke media die u levert toocross internationale grenzen heen wellicht. U bent zelf verantwoordelijk voor het garanderen dat uw fysieke media en de gegevens zijn geïmporteerd en/of in overeenstemming met de toepasbare wet Hallo geëxporteerd. Voordat u de fysieke media Hallo levert, contact op met uw tooverify adviseurs dat uw media en de gegevens dit wettelijk verzonden toohello geïdentificeerd datacenter zijn kan. Dit helpt het Microsoft bereikt tijdig tooensure. Alle pakketten die worden internationale grenzen heen loopt moet bijvoorbeeld een commerciële factuur toobe vergezeld gaan van de met Hallo-pakket (met uitzondering van kruisende randen binnen de Europese Unie als). U kunt een gevulde kopie van de commerciële factuur Hallo van carrier website afdrukken. Voorbeeld van een commerciële facturen zijn [DHL commerciële factuur](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) en [FedEx commerciële factuur](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Zorg ervoor dat Microsoft niet als Hallo exportfunctie is aangegeven.
 > 
 > 
 
-## <a name="how-does-the-azure-importexport-service-work"></a>Hoe werkt de Azure Import/Export-service?
-U kunt gegevens overbrengen tussen uw lokale site en Azure blob storage met de Azure Import/Export-service door de taken te maken en verzenden van harde schijven naar een Azure-Datacenter. Elke harde schijf die u verzendt, is gekoppeld aan één taak. Elke taak is gekoppeld aan een enkele storage-account. Controleer de [vereisten sectie](#pre-requisites) zorgvuldig voor meer informatie over de details van deze service zoals ondersteund blob typen, schijftypen, locaties en back-upfunctie.
+## <a name="how-does-hello-azure-importexport-service-work"></a>Hoe werkt hello Azure Import/Export-service?
+U kunt gegevens overbrengen tussen uw lokale site en Azure blob storage met hello Azure Import/Export-service door de taken te maken en verzenden van harde schijven tooan Azure-Datacenter. Elke harde schijf die u verzendt, is gekoppeld aan één taak. Elke taak is gekoppeld aan een enkele storage-account. Bekijk Hallo [vereisten sectie](#pre-requisites) zorgvuldig toolearn over Hallo details van deze service zoals ondersteund blob typen, schijftypen, locaties en back-upfunctie.
 
-In deze sectie worden beschreven op hoog niveau de stappen voor het importeren en exporteren van taken. Verderop in de [Quick Start-sectie](#quick-start), bieden we Stapsgewijze instructies voor het maken van een importeren en exporteren van de taak.
+In deze sectie wordt beschreven op een hoog niveau Hallo stappen voor het importeren en exporteren van taken. Verderop in Hallo [Quick Start-sectie](#quick-start), wij bieden stapsgewijze instructies toocreate importeren en exporteren van de taak.
 
 ### <a name="inside-an-import-job"></a>Binnen een import-taak
-Op een hoog niveau omvat een import-taak de volgende stappen:
+Op een hoog niveau omvat een import-taak Hallo stappen te volgen:
 
-* De gegevens moeten worden geïmporteerd en het aantal stations dat u moet bepalen.
-* Identificeer de doellocatie van de blob van uw gegevens in Blob storage.
-* Het hulpprogramma WAImportExport gebruiken om uw gegevens kopiëren naar een of meer harde schijven en ze te versleutelen met BitLocker.
-* Maak een import-taak in uw doel storage-account via de Azure portal of de REST-API voor importeren/exporteren. Als u de Azure portal gebruikt, moet u de station journaal-bestanden uploaden.
-* Geef de afzender en carrier account dat moet worden gebruikt voor het verzenden van de stations voor u.
-* De harde schijven naar het opgegeven tijdens het maken van de taak back-upfunctie adres verzenden.
-* Werk de bezorging volgnummer in de taakgegevens importeren en verzenden van de importtaak.
-* Stations worden ontvangen en verwerkt in het Azure Datacenter.
-* Schijven worden geleverd met uw account carrier adres van de afzender opgegeven in de import-taak.
+* Bepaal Hallo gegevens toobe geïmporteerd en Hallo aantal stations dat u moet.
+* Identificeer Hallo doellocatie blob voor uw gegevens in Blob storage.
+* Hallo WAImportExport hulpprogramma toocopy met uw gegevens tooone of meer harde schijven en versleuteld met BitLocker.
+* Een import-taak maken in uw opslagaccount voor doel met hello Azure-portal of REST-API voor importeren/exporteren Hallo. Als hello Azure-portal wordt gebruikt, moet u Hallo station journaal bestanden uploaden.
+* Hallo-mailadres van afzender en carrier account number toobe gebruikt voor het verzenden van Hallo stations back tooyou opgeven.
+* Verzend Hallo harde schijven toohello verzendadres opgegeven tijdens het maken van de taak.
+* Hallo-levering volgnummer in Hallo importeren taakdetails bijwerken en het verzenden van Hallo import-taak.
+* Stations worden ontvangen en verwerkt op Hallo Azure-Datacenter.
+* Stations worden verzonden met behulp van carrier account toohello adres van de afzender opgegeven in Hallo import-taak.
   
     ![Afbeelding 1:Import taak stroom](./media/storage-import-export-service/importjob.png)
 
 ### <a name="inside-an-export-job"></a>Binnen een taak voor het exporteren
-Op een hoog niveau omvat een exporttaak de volgende stappen:
+Op een hoog niveau omvat een exporttaak Hallo stappen te volgen:
 
-* De gegevens worden geëxporteerd en het aantal stations dat u moet bepalen.
-* Identificeer de bron blobs of paden van uw gegevens in Blob storage-container.
-* Maak een exporttaak in uw bron storage-account via de Azure portal of de REST-API voor importeren/exporteren.
-* Geef de bron blobs of paden van de container van uw gegevens in de taak voor exporteren.
-* Geef de retouradres en het nummer van carrier voor moet worden gebruikt voor het verzenden van de stations voor u.
-* De harde schijven naar het opgegeven tijdens het maken van de taak back-upfunctie adres verzenden.
-* Werk de bezorging volgnummer in de taakgegevens exporteren en verzenden van de taak voor exporteren.
-* De stations worden ontvangen en verwerkt in het Azure Datacenter.
-* De stations zijn versleuteld met BitLocker; de sleutels zijn beschikbaar via de Azure-portal.  
-* De stations worden geleverd met uw account carrier adres van de afzender opgegeven in de import-taak.
+* Hallo gegevens toobe geëxporteerd en Hallo aantal stations dat u moet bepalen.
+* Identificeer Hallo bron blobs of paden van uw gegevens in Blob storage-container.
+* Maken van een taak voor het exporteren in uw bron storage-account met behulp van hello Azure-portal of REST-API voor importeren/exporteren Hallo.
+* Hallo bron blobs of paden van de container van uw gegevens in Hallo taak exporteren opgeven.
+* Geef Hallo return adres en de provider van het nummer voor toobe gebruikt voor het verzenden van Hallo stations back tooyou.
+* Verzend Hallo harde schijven toohello verzendadres opgegeven tijdens het maken van de taak.
+* Hallo levering volgnummer in Hallo export taakdetails bijwerken en het Hallo-exporttaak verzenden.
+* Hallo-stations worden ontvangen en verwerkt op Hallo Azure-Datacenter.
+* Hallo stations zijn versleuteld met BitLocker; Hallo-sleutels zijn beschikbaar via hello Azure-portal.  
+* Hallo-stations worden verzonden met behulp van carrier account toohello adres van de afzender opgegeven in Hallo import-taak.
   
     ![Afbeelding 2:Export taak stroom](./media/storage-import-export-service/exportjob.png)
 
 ### <a name="viewing-your-job-and-drive-status"></a>De status van de taak en het station weergeven
-U kunt de status van de importbewerking volgen of taken exporteren vanuit de Azure-portal. Klik op de **voor importeren/exporteren** tabblad. Een lijst met uw taken worden weergegeven op de pagina.
+U kunt bijhouden Hallo status van het importeren of exporteren van taken van hello Azure-portal. Klik op Hallo **voor importeren/exporteren** tabblad. Een lijst met uw taken wordt weergegeven op de pagina Hallo.
 
 ![Status van de taak weergeven](./media/storage-import-export-service/jobstate.png)
 
-U ziet een van de volgende statussen van de taak afhankelijk van waar de schijf in het proces is.
+U ziet een Hallo status van een taak, afhankelijk van waar de schijf zich in Hallo proces bevindt te volgen.
 
 | De Status van taak | Beschrijving |
 |:--- |:--- |
-| Maken | Nadat een taak is gemaakt, wordt de status is ingesteld op maken. Terwijl de taak de status maken wordt, de Import/Export-service wordt ervan uitgegaan dat de schijven nog niet zijn verzonden naar het datacenter. Een taak kan blijven in de status maken voor maximaal twee weken, waarna deze worden automatisch verwijderd door de service. |
-| Back-ups | Nadat u uw pakket verzendt, moet u de controle-informatie in de Azure portal bijwerken.  Hierdoor wordt de taak in 'Back-upfunctie'. De taak blijft in de status van de back-ups van twee weken. 
-| Ontvangen | Nadat alle stations zijn ontvangen in het datacenter, wordt de taakstatus ingesteld in de ontvangen. |
-| Overdragen | Nadat ten minste één station is begonnen verwerking, wordt de taakstatus worden ingesteld op de overdragen. Zie de sectie station statussen hieronder voor meer informatie. |
-| Verpakking | Nadat alle stations verwerking is voltooid, wordt de taak in de status van de verpakking geplaatst totdat de stations worden verzonden naar u terug. |
-| Voltooid | Nadat alle stations zijn verzonden naar de klant, als de taak is voltooid zonder fouten, wordt de taak ingesteld op de status voltooid. De taak worden, automatisch verwijderd na 90 dagen in de status voltooid. |
-| gesloten | Nadat alle stations zijn verzonden naar de klant, als er fouten tijdens het verwerken van de taak zijn, wordt de taak ingesteld op de status Closed. De taak worden, automatisch verwijderd na 90 dagen in de status Closed. |
+| Maken | Nadat een taak is gemaakt, wordt de status tooCreating ingesteld. Terwijl hello Hallo maken status wordt, hello Import/Export-service wordt ervan uitgegaan Hallo stations niet verzonden toohello datacenter zijn. Een taak kan in de status voor maken van tootwo weken, waarna hij wordt automatisch verwijderd door de service Hallo Hallo blijven. |
+| Back-ups | Nadat u uw pakket verzendt, moet u bijwerken Hallo traceringsgegevens in hello Azure-portal.  Hierdoor wordt Hallo taak in 'Back-upfunctie'. Hallo taak blijft in Hallo back-ups van de status voor up tootwo weken. 
+| Ontvangen | Nadat alle stations zijn ontvangen op Hallo Datacenter, worden taakstatus Hallo ingesteld toohello ontvangen. |
+| Overdragen | Nadat ten minste één station is begonnen verwerking, taakstatus Hallo toohello ingesteld overdragen. Zie Hallo station statussen sectie hieronder voor meer informatie. |
+| Verpakking | Nadat alle stations verwerking is voltooid, wordt Hallo taak Hallo verpakking status worden geplaatst totdat Hallo stations verzonden back tooyou zijn. |
+| Voltooid | Nadat alle stations verzonden back toohello klant, zijn als het Hallo-taak is voltooid zonder fouten, vervolgens Hallo taak ingesteld toohello status voltooid. Hallo-taak, automatisch worden verwijderd na 90 dagen in Hallo status voltooid. |
+| gesloten | Nadat alle stations verzonden back toohello klant, zijn als er fouten tijdens de verwerking van de taak Hallo Hallo zijn, vervolgens Hallo taak ingesteld toohello gesloten status. Hallo-taak worden, automatisch verwijderd na 90 dagen Hallo gesloten status heeft. |
 
-De volgende tabel bevat de levenscyclus van een afzonderlijke schijf als deze door middel van een taak worden geïmporteerd of geëxporteerd overgezet. De huidige status van elke schijf in een taak is nu zichtbaar zijn vanaf de Azure-portal.
-De volgende tabel beschrijft elke status die elk station in een taak kan doorgeven.
+Hallo in de volgende tabel beschrijft Hallo levenscyclus van een afzonderlijke schijf zoals deze door middel van een taak worden geïmporteerd of geëxporteerd overgezet. Hallo huidige status van elke schijf in een taak is nu zichtbaar zijn vanaf hello Azure-portal.
+Hallo beschrijft volgende tabel elke status die elk station in een taak kan doorgeven.
 
 | Status van station | Beschrijving |
 |:--- |:--- |
-| Opgegeven | Wanneer de taak is gemaakt vanuit de Azure-portal is de aanvankelijke status voor een station voor een import-taak de status van de opgegeven. Aangezien geen station opgeeft wanneer de taak is gemaakt, is de status van de eerste schijf voor een exporttaak de status Received hebben. |
-| Ontvangen | Het station overgangen naar de status Received hebben wanneer de stations die zijn ontvangen van het bedrijf back-upfunctie voor een import-taak is verwerkt door de operator Import/Export-service. Voor een exporttaak is de status van de eerste schijf de status Received hebben. |
-| NeverReceived | Het station wordt verplaatst naar de status NeverReceived wanneer het pakket voor een taak binnenkomt, maar het pakket niet het station bevat. Een station kunt ook verplaatsen naar deze status als deze twee weken is sinds de service heeft ontvangen van de back-ups van gegevens, maar het pakket nog niet in het datacenter ontvangen is. |
-| Overdragen | Een station wordt verplaatst naar de status van de overdragen wanneer de service begint met de gegevens van de schijf overbrengen naar Windows Azure Storage. |
-| Voltooid | Een station wordt verplaatst naar de status voltooid wanneer de service heeft de gegevens zonder fouten is overgedragen.
-| CompletedMoreInfo | Een station wordt verplaatst naar de status CompletedMoreInfo wanneer de service enkele problemen aangetroffen heeft tijdens het kopiëren van gegevens van of naar het station. De informatie kan bestaan fouten, waarschuwingen of informatieve berichten over het overschrijven van blobs.
-| ShippedBack | Het station wordt verplaatst naar de status ShippedBack wanneer deze is verzonden vanaf de achterkant van data center adres van de afzender. |
+| Opgegeven | Wanneer het Hallo-taak wordt gemaakt van hello Azure-portal is Hallo aanvankelijke status voor een station voor een import-taak Hallo opgegeven status. Aangezien geen station wordt opgegeven wanneer het Hallo-taak is gemaakt, is Hallo initiële station staat voor een exporttaak Hallo ontvangen-status. |
+| Ontvangen | Hallo station verandert toohello ontvangen-status wanneer Hallo Import/Export-service operator Hallo stations die zijn ontvangen van het bedrijf voor een import-taak back-upfunctie Hallo is verwerkt. Voor een exporttaak is Hallo initiële station status Hallo ontvangen-status. |
+| NeverReceived | Hallo-station wordt toohello NeverReceived status verplaatst als Hallo-pakket voor een taak binnenkomt maar Hallo pakket bevat geen Hallo-station. Een station kunt ook verplaatsen naar deze status als het al twee weken geleden Hallo service Hallo back-upfunctie informatie ontvangen, maar Hallo pakket nog niet is ontvangen op Hallo Datacenter. |
+| Overdragen | Een station verplaatst toohello overdragen status wanneer het Hallo-service wordt gestart tootransfer gegevens van Hallo station tooWindows Azure Storage. |
+| Voltooid | Een station wordt toohello voltooide status verplaatst als Hallo-service heeft alle Hallo gegevens zonder fouten is overgedragen.
+| CompletedMoreInfo | Een station wordt verplaatst toohello CompletedMoreInfo status wanneer het Hallo-service heeft aangetroffen enkele problemen bij het kopiëren van gegevens vanaf of toohello station. Hallo-informatie kan bestaan fouten, waarschuwingen of informatieve berichten over het overschrijven van blobs.
+| ShippedBack | Hallo-station wordt toohello ShippedBack status verplaatst als van Hallo data center back toohello retouradres is verzonden. |
 
-Deze installatiekopie van de Azure-portal wordt de status van de schijf van de taak voor een voorbeeld weergegeven:
+Deze installatiekopie van hello Azure-portal bevat Hallo station status van de taak voor een voorbeeld:
 
 ![Status van station weergeven](./media/storage-import-export-service/drivestate.png)
 
-De volgende tabel beschrijft de statussen van de fout station en de acties die voor elke status.
+Hallo volgende tabel beschrijft Hallo station fout statussen en Hallo-acties die worden uitgevoerd voor elke status.
 
 | Status van station | Gebeurtenis | Resolutie / de volgende stap |
 |:--- |:--- |:--- |
-| NeverReceived | Een station dat is gemarkeerd als NeverReceived (omdat deze niet is ontvangen als onderdeel van de verzending van de taak) in een andere verzending binnenkomt. | Het operationele team wordt het station worden verplaatst naar de status Received hebben. |
-| N.v.t. | Een station dat geen deel uitmaakt van elke taak komt in het datacenter als onderdeel van een andere taak. | Het station wordt gemarkeerd als een extra schijf en naar de klant wordt geretourneerd wanneer de taak die is gekoppeld aan het oorspronkelijke pakket is voltooid. |
+| NeverReceived | Een station dat is gemarkeerd als NeverReceived (omdat deze niet is ontvangen als onderdeel van de verzending van de taak Hallo) in een andere verzending binnenkomt. | Hallo operationele team verplaatst Hallo station toohello status Received hebben. |
+| N.v.t. | Een station dat geen deel uitmaakt van elke taak komt bij Hallo Datacenter als onderdeel van een andere taak. | Hallo-station wordt gemarkeerd als een extra schijf en wordt geretourneerd toohello klant wanneer zijn gekoppeld aan het oorspronkelijke pakket Hallo Hallo-taak is voltooid. |
 
-### <a name="time-to-process-job"></a>Tijd tot verwerkingstaak
-De hoeveelheid tijd die nodig is voor een taak van import/export, afhankelijk van verschillende factoren, zoals back-ups van tijd varieert, proces taak type, type en grootte van de gegevens worden gekopieerd en de grootte van de schijven die zijn opgegeven. De Import/Export-service beschikt niet over een SLA maar nadat de schijven worden ontvangen. de service wil de kopie in 7 tot 10 dagen voltooien. De REST-API kunt u de voortgang van de taak nauwkeuriger te volgen. Er is een percentage voltooid parameter in de lijst met taken bewerking waarmee een indicatie van de voortgang van de kopie. Bereiken voor ons. Als u een schatting maken om een tijd kritieke voor importeren/exporteren taak te voltooien.
+### <a name="time-tooprocess-job"></a>Tijd tooprocess taak
+Hallo hoeveelheid tijd die nodig is een taak van import/export, afhankelijk van verschillende factoren, zoals verzendtijd taaktype varieert tooprocess type en de grootte van Hallo gegevens worden gekopieerd en Hallo grootte van Hallo-schijven die zijn opgegeven. Hallo Import/Export-service beschikt niet over een SLA maar na van Hallo schijven ontvangst Hallo service toocomplete Hallo kopiëren streeft 7 too10 dagen. U kunt beter Hallo REST-API tootrack Hallo taak uitgevoerd. Er is een percentage voltooid parameter in Hallo lijst taken bewerking een indicatie van de voortgang van de kopie geeft. Bereiken toous als u een schatting toocomplete een kritieke voor importeren/exporteren timeropdracht nodig.
 
 ### <a name="pricing"></a>Prijzen
 **Station kosten verwerken**
 
-Er is een station verwerking vast bedrag voor elk station verwerkt als onderdeel van het importeren of exporteren van de taak. Zie de details over de [prijzen van Azure Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/).
+Er is een station verwerking vast bedrag voor elk station verwerkt als onderdeel van het importeren of exporteren van de taak. Zie Hallo details over Hallo [prijzen van Azure Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/).
 
 **Back-upfunctie voor kosten**
 
-Tijdens het verzenden van stations naar Azure, betaalt u de kosten van de back-upfunctie voor aan de back-ups van provider. Wanneer Microsoft de stations naar u terugkeert, wordt de kosten van de back-upfunctie voor verrekend met het provider-account die u hebt opgegeven op het moment van de taak maken.
+Wanneer u schijven tooAzure verzendt, betaalt u Hallo kosten toohello back-ups van carrier back-upfunctie. Wanneer Microsoft hello stations tooyou worden geretourneerd, is Hallo back-upfunctie kosten in rekening gebracht toohello carrier account dat u hebt opgegeven op Hallo moment taak gemaakt.
 
 **Transactiekosten**
 
-Er zijn geen transactiekosten bij het importeren van gegevens in blob-opslag. De kosten voor standaard uitgaande zijn van toepassing wanneer gegevens worden geëxporteerd van blob-opslag. Zie voor meer informatie over transactiekosten [gegevensoverdracht prijzen.](https://azure.microsoft.com/pricing/details/data-transfers/)
+Er zijn geen transactiekosten bij het importeren van gegevens in blob-opslag. Hallo standaard uitgaande kosten zijn van toepassing wanneer gegevens worden geëxporteerd van blob-opslag. Zie voor meer informatie over transactiekosten [gegevensoverdracht prijzen.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 ## <a name="quick-start"></a>Snel starten
-In deze sectie bieden we Stapsgewijze instructies voor het maken van een import en een taak voor het exporteren. Controleer of u alle voldoet aan de [vereisten](#pre-requisites) voordat u verder gaat.
+In deze sectie bieden we Stapsgewijze instructies voor het maken van een import en een taak voor het exporteren. Zorg ervoor dat u voldoet aan alle Hallo [vereisten](#pre-requisites) voordat u verder gaat.
 
 > [!IMPORTANT]
-> De service ondersteunt één standaard opslagaccount per importeren of exporteren van de taak en biedt geen ondersteuning voor premium storage-accounts. 
+> Hallo-service ondersteunt een standard-opslagaccount per importeren of exporteren van de taak en biedt geen ondersteuning voor premium storage-accounts. 
 > 
 > 
 ## <a name="create-an-import-job"></a>Een importtaak maken
-Maak een import-taak om gegevens te kopiëren naar uw Azure storage-account van harde schijven met een of meer stations die gegevens naar de opgegeven Datacenter back-upfunctie. De import-taak geeft details over harde schijven, gegevens te worden gekopieerd, richt storage-account en back-ups van gegevens naar de Azure Import/Export-service. Maken van een import-taak is een proces drie stappen. De stations met het hulpprogramma WAImportExport eerst voorbereiden. Ten tweede indienen een import-taak met de Azure portal. Derde de schijven naar het opgegeven tijdens het maken van de taak back-upfunctie adres verzenden en de back-ups van gegevens in uw taakdetails bijwerken.   
+Een import-taak toocopy gegevens tooyour Azure storage-account van harde schijven maken door een of meer stations gegevens toohello opgegeven datacenter met de back-upfunctie. Hallo import-taak wordt informatie over harde schijven, gegevens toobe gekopieerd, doel-storage-account en het verzenden van informatie toohello Azure Import/Export-service. Maken van een import-taak is een proces drie stappen. Eerst voorbereiden met Hallo WAImportExport hulpprogramma stations. Ten tweede indienen een import-taak met hello Azure-portal. Ten slotte Hallo stations toohello verzendadres opgegeven tijdens de taak maken en update Hallo info back-upfunctie in de taakdetails te verzenden.   
 
 ### <a name="prepare-your-drives"></a>Voorbereiden van uw schijven
-De eerste stap bij het importeren van gegevens met behulp van de Azure Import/Export-service is het voorbereiden van uw schijven met het hulpprogramma WAImportExport. Volg onderstaande stappen voor het voorbereiden van uw schijven.
+Hallo eerste stap bij het importeren van gegevens met behulp van hello Azure Import/Export-service is tooprepare met Hallo WAImportExport hulpprogramma stations. Voer onderstaande tooprepare Hallo stappen uw schijven.
 
-1. Bepaal welke gegevens moeten worden geïmporteerd. Dit kan mappen en bestanden op de lokale server of een netwerkshare zelfstandig zijn.  
-2. Het aantal stations dat u, afhankelijk van de totale grootte van de gegevens moet bepalen. Het vereiste aantal 2,5 inch SSD of 2,5-inch of 3.5" schaft u SATA II of III harde schijven.
-3. Identificeer de doel-storage-account, container, virtuele mappen en blobs.
-4.  Bepaal de mappen en/of de zelfstandige bestanden die moeten worden gekopieerd naar elke harde schijf.
-5.  De CSV-bestanden voor de gegevensset en driveset maken.
+1. Identificeer Hallo gegevens toobe geïmporteerd. Dit kan zijn mappen en bestanden op de lokale server Hallo zelfstandige of een netwerkshare.  
+2. Het aantal stations u, afhankelijk van de totale grootte van de gegevens Hallo moet Hallo bepalen. Schaffen Hallo vereist aantal 2,5 inch SSD of 2,5-inch of 3.5" SATA II of III harde schijven.
+3. Identificeer Hallo doel storage-account, container, virtuele mappen en blobs.
+4.  Bepaal Hallo mappen en/of zelfstandige bestanden die gekopieerd tooeach harde schijf worden.
+5.  Hallo CSV-bestanden voor de gegevensset en driveset maken.
     
     **DataSet CSV-bestand**
     
@@ -274,17 +274,17 @@ De eerste stap bij het importeren van gegevens met behulp van de Azure Import/Ex
     "F:\50M_original\","containername/",BlockBlob,rename,"None",None 
     ```
    
-    In het bovenstaande voorbeeld worden 100M_1.csv.txt gekopieerd naar de hoofdmap van de container met de naam 'containername'. Als de container-naam 'containername' niet bestaat, kunt u een wordt gemaakt. Alle bestanden en mappen onder 50M_original worden gekopieerd naar containername. Mapstructuur behouden blijft.
+    In Hallo hierboven voorbeeld 100M_1.csv.txt gekopieerde toohello hoofdmap van Hallo-container met de naam 'containername' niet. Als containername' hello container naam' niet bestaat, kunt u een wordt gemaakt. Alle bestanden en mappen onder 50M_original worden toocontainername recursief gekopieerd. Mapstructuur behouden blijft.
 
-    Meer informatie over [voorbereiden van het CSV-bestand van gegevensset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
+    Meer informatie over [voorbereiden Hallo gegevensset CSV-bestand](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
-    **Houd er rekening mee**: standaard de gegevens worden geïmporteerd als blok-Blobs. U kunt de veldwaarde BlobType gebruiken voor het importeren van gegevens als een pagina-Blobs. Bijvoorbeeld, als u gekoppeld als schijven op een Azure VM VHD-bestanden importeert, moet u importeren ze als pagina-Blobs.
+    **Houd er rekening mee**: standaard Hallo gegevens worden geïmporteerd als blok-Blobs. U kunt Hallo BlobType waarde van veld tooimport gegevens gebruiken als een pagina-Blobs. Bijvoorbeeld, als u gekoppeld als schijven op een Azure VM VHD-bestanden importeert, moet u importeren ze als pagina-Blobs.
 
     **Driveset CSV-bestand**
 
-    De waarde van de vlag driveset is een CSV-bestand waarin de lijst met schijven waaraan de stationsletters zijn toegewezen om het hulpprogramma correct kiest de lijst met schijven te worden voorbereid. 
+    Hallo-waarde van Hallo driveset vlag is een CSV-bestand met Hallo-lijst van schijven toowhich Hallo stationsletters zijn toegewezen om Hallo hulpprogramma toocorrectly Kies Hallo lijst met schijven toobe voorbereid. 
 
-    Hieronder vindt u in het voorbeeld van driveset CSV-bestand:
+    Hieronder volgt Hallo voorbeeld van driveset CSV-bestand:
     
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -292,23 +292,23 @@ De eerste stap bij het importeren van gegevens met behulp van de Azure Import/Ex
     H,Format,SilentMode,Encrypt,
     ```
 
-    In het bovenstaande voorbeeld wordt ervan uitgegaan dat twee schijven zijn gekoppeld en standaard NTFS-volumes met volumeletter G:\ en H:\ zijn gemaakt. Het hulpprogramma wordt opmaken en de schijf die als host fungeert voor H:\ en wordt niet opmaken of de schijf die als host fungeert voor volume G:\ versleutelen versleutelen.
+    In Hallo bovenstaande voorbeeld wordt ervan uitgegaan dat twee schijven zijn gekoppeld en standaard NTFS-volumes met volumeletter G:\ en H:\ zijn gemaakt. Hallo formatteren en hulpprogramma Hallo-schijf die als host fungeert voor H:\ en wordt niet opmaken of versleutelen Hallo schijf die als host fungeert voor volume G:\ versleutelen.
 
-    Meer informatie over [voorbereiden van het CSV-bestand driveset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
+    Meer informatie over [voorbereiden Hallo driveset CSV-bestand](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
 
-6.  Gebruik de [WAImportExport hulpprogramma](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) uw gegevens kopiëren naar een of meer harde schijven.
-7.  U kunt 'Coderen' opgeven op versleuteling veld in drivset CSV voor het inschakelen van BitLocker-versleuteling op de harde schijf. U kunt ook kan u ook Schakel versleuteling in BitLocker handmatig op de harde schijf en 'AlreadyEncrypted' opgeven en de sleutel in de driveset CSV opgeven tijdens het uitvoeren van het hulpprogramma.
+6.  Gebruik Hallo [WAImportExport hulpprogramma](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) toocopy uw gegevens tooone of meer harde schijven.
+7.  U kunt 'Coderen' opgeven op versleuteling veld in drivset CSV tooenable BitLocker-versleuteling op Hallo harde schijf. U kunt ook kan u ook inschakelen van BitLocker-versleuteling handmatig op Hallo harde schijf en 'AlreadyEncrypted' opgeven en Hallo-sleutel in Hallo driveset CSV opgeven tijdens het Hallo-hulpprogramma uitvoeren.
 
-8. De gegevens op de harde schijven of het journaalbestand mag niet worden gewijzigd na het voltooien van de schijfvoorbereiding van de.
+8. Hallo-gegevens op Hallo harde schijven of Hallo journal-bestand mag niet worden gewijzigd na het voltooien van de schijfvoorbereiding van de.
 
 > [!IMPORTANT]
-> Elke harde schijf die u wilt voorbereiden, resulteert in een journal-bestand. Wanneer u de import-taak met de Azure portal maakt, moet u alle journaal-bestanden van de stations die deel van deze importtaak uitmaken uploaden. Stations zonder journaal bestanden wordt niet verwerkt.
+> Elke harde schijf die u wilt voorbereiden, resulteert in een journal-bestand. Wanneer u Hallo import-taak met hello Azure-portal maakt, moet u alle Hallo journaal-bestanden van Hallo stations die deel van deze importtaak uitmaken uploaden. Stations zonder journaal bestanden wordt niet verwerkt.
 > 
 >
 
-Hieronder ziet u de opdrachten en voorbeelden voor het voorbereiden van de harde schijf met WAImportExport hulpprogramma.
+Hieronder Hallo opdrachten en voorbeelden voor het voorbereiden van Hallo harde schijf met behulp van WAImportExport hulpprogramma.
 
-WAImportExport hulpprogramma PrepImport opdracht voor de eerste kopieersessie voor het kopiëren van mappen en/of bestanden met een nieuwe kopieersessie:
+WAImportExport hulpprogramma PrepImport opdracht voor Hallo eerst kopiëren sessie toocopy mappen en/of bestanden met een nieuwe kopieersessie:
 
 ```
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
@@ -320,7 +320,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDire
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-Om **meer stations toevoegen**, een kunt maken van een nieuw driveset-bestand en voer de opdracht zoals hieronder. Geef een nieuwe driveset CSV-bestand voor latere kopie-sessies in de verschillende schijfstations dan is opgegeven in het CSV-bestand InitialDriveset, en opgeven als een waarde in de parameter 'AdditionalDriveSet'. Gebruik de **hetzelfde journaalbestand** een naam en geef een **nieuwe sessie-ID**. De indeling van AdditionalDriveset CSV-bestand is hetzelfde als InitialDriveSet-indeling.
+In de volgorde te**meer stations toevoegen**, een kunt maken van een nieuw bestand met driveset en Hallo-opdracht uitvoeren als hieronder. Geef een nieuwe driveset CSV-bestand voor latere kopie sessies toohello verschillende schijven dan is opgegeven in InitialDriveset CSV-bestand, en opgeven als waarde toohello parameter 'AdditionalDriveSet'. Gebruik Hallo **hetzelfde journaalbestand** een naam en geef een **nieuwe sessie-ID**. Hallo-indeling van AdditionalDriveset CSV-bestand is hetzelfde als InitialDriveSet-indeling.
 
 ```
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
@@ -331,7 +331,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveS
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDriveSet:driveset-2.csv
 ```
 
-Om aanvullende gegevens toevoegen aan de dezelfde driveset, WAImportExport hulpprogramma PrepImport opdracht kan worden aangeroepen voor latere kopie sessies aanvullende bestanden en de map te kopiëren: voor latere kopie-sessies door naar de dezelfde harde schijven die is opgegeven in InitialDriveset CSV bestand, geeft de **hetzelfde journaalbestand** een naam en geef een **nieuwe sessie-ID**; is niet nodig om de sleutel van het opslagaccount.
+In de volgorde tooadd aanvullende gegevens toohello dezelfde driveset WAImportExport hulpprogramma PrepImport opdracht kan worden aangeroepen voor latere kopie sessies toocopy aanvullende bestanden en de map: voor latere kopie sessies toohello dezelfde harde schijven opgegeven in InitialDriveset CSV bestand, geeft Hallo **hetzelfde journaalbestand** een naam en geef een **nieuwe sessie-ID**; er is geen sleutel nodig tooprovide Hallo storage-account.
 
 ```
 WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>
@@ -343,200 +343,200 @@ WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
 ```
 
-Meer informatie over het gebruik van het hulpprogramma WAImportExport in [harde schijven voorbereiden voor het importeren van](storage-import-export-tool-preparing-hard-drives-import.md).
+Meer informatie over het hulpprogramma Hallo WAImportExport in [harde schijven voorbereiden voor het importeren van](storage-import-export-tool-preparing-hard-drives-import.md).
 
-Ook verwijzen naar de [voorbeeldwerkstroom harde schijven voorbereiden voor een import-taak](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) voor stapsgewijze instructies gedetailleerde.  
+Raadpleeg ook toohello [steekproef werkstroom tooprepare harde schijven voor een import-taak](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) voor stapsgewijze instructies gedetailleerde.  
 
-### <a name="create-the-import-job"></a>De import-taak maken
-1. Als u de schijf hebt voorbereid, navigeer naar uw opslagaccount in de Azure-portal en het Dashboard te bekijken. Onder **snel in één oogopslag**, klikt u op **een Import-taak maken**. Bekijk de stappen en schakel het selectievakje om aan te geven dat u de schijf hebt voorbereid en u het station journaal-bestand beschikbaar hebt.
-2. In stap 1 kunt u contactgegevens voor de persoon die verantwoordelijk is voor deze importtaak en een geldig retouradres bevatten. Als u opslaan, uitgebreide logboekgegevens voor de import-taak wilt, controleert u de optie voor het **uitgebreide logboekbestand opslaan in mijn blob-container 'waimportexport'**.
-3. In stap 2 de station-logboek bestanden uploaden die u hebt verkregen tijdens de stap station ter voorbereiding. U moet een bestand voor elke schijf die u hebt voorbereid te uploaden.
+### <a name="create-hello-import-job"></a>Hallo import-taak maken
+1. Als u de schijf hebt voorbereid, navigeer tooyour storage-account in hello Azure-portal en Hallo Dashboard weergeven. Onder **snel in één oogopslag**, klikt u op **een Import-taak maken**. Bekijk Hallo stappen en selecteer Hallo selectievakje tooindicate dat u de schijf hebt voorbereid en u Hallo station journaal-bestand beschikbaar hebt.
+2. In stap 1 kunt u contactgegevens voor Hallo persoon die verantwoordelijk is voor deze importtaak en een geldig retouradres bevatten. Als u wenst dat uitgebreide logboekgegevens toosave voor de import-taak hello, controleert u Hallo optie te**opslaan Hallo uitgebreide logboek in mijn blob-container 'waimportexport'**.
+3. In stap 2 Hallo station journaal bestanden uploaden die u hebt verkregen tijdens de stap ter voorbereiding van Hallo station. U moet één bestand tooupload voor elke schijf die u hebt voorbereid.
    
    ![Stap 3 van importtaak - maken](./media/storage-import-export-service/import-job-03.png)
-4. Voer een beschrijvende naam voor de import-taak in stap 3. Houd er rekening mee dat de naam die u invoert alleen kleine letters, cijfers, afbreekstreepjes mogen en onderstrepingstekens bevatten, moet beginnen met een letter en mag geen spaties bevatten. U gebruikt de naam die u kiest voor het bijhouden van uw taken terwijl ze zijn uitgevoerd en wanneer ze zijn voltooid.
+4. Voer een beschrijvende naam voor de import-taak Hallo in stap 3. Houd er rekening mee dat Hallo-naam die u invoert alleen kleine letters, cijfers, afbreekstreepjes mogen en onderstrepingstekens bevatten, moet beginnen met een letter en mag geen spaties bevatten. U gebruikt Hallo gekozen naam tootrack uw taken terwijl ze zijn uitgevoerd en wanneer ze zijn voltooid.
    
-   Selecteer vervolgens de middelste gebied van uw gegevens in de lijst. Het gegevensgebied center geeft de Datacenter en het adres waarnaar het pakket moet worden verzonden. Zie de veelgestelde vragen hieronder voor meer informatie.
-5. In stap 4 uw return carrier selecteert in de lijst en voer de nummer van uw provider. Microsoft gebruikt deze account voor het verzenden van de stations voor u zodra de import-taak is voltooid.
+   Selecteer vervolgens de middelste gebied van uw gegevens in de lijst Hallo. Hallo-gegevensgebied center geeft Hallo data center en los deze toowhich uw pakket moet worden verzonden. Zie de Hallo Veelgestelde vragen hieronder voor meer informatie.
+5. In stap 4 selecteert u het geretourneerde telecombedrijf in Hallo lijst en voer de nummer van uw provider. Microsoft gebruikt deze account tooship Hallo stations back tooyou zodra de import-taak is voltooid.
    
-   Als u het volgnummer hebt, selecteert u het telecombedrijf levering in de lijst en voer het volgnummer.
+   Als u het volgnummer hebt, selecteert u het telecombedrijf levering in Hallo lijst en voer het volgnummer.
    
-   Als u nog geen bijgehouden number nog kiezen **biedt ik mijn back-ups van gegevens voor deze taak importeren wanneer ik mijn pakket hebt verzonden**, voltooit u het importproces.
-6. Als u wilt het volgnummer invoeren nadat u het pakket hebt verzonden, terug naar de **voor importeren/exporteren** pagina voor uw opslagaccount in de Azure portal, selecteert u de taak in de lijst en kies **back-upfunctie Info**. Navigeer via de wizard en voer het volgnummer in stap 2.
+   Als u nog geen bijgehouden number nog kiezen **biedt ik mijn back-ups van gegevens voor deze taak importeren wanneer ik mijn pakket hebt verzonden**, voltooit u het importproces Hallo.
+6. tooenter het volgnummer nadat u het pakket hebt verzonden retourneren toohello **voor importeren/exporteren** pagina voor uw opslagaccount in hello Azure-portal, selecteert u de taak uit Hallo lijst en kies **back-upfunctie Info**. Navigeer via de wizard Hallo en voer het volgnummer in stap 2.
    
-    Als het volgnummer niet binnen twee weken bijgewerkt is van de taak wordt gemaakt, verloopt de taak.
+    Als Hallo volgnummer niet binnen twee weken bijgewerkt is van het Hallo-taak maken, verloopt Hallo-taak.
    
-    Als de taak de status maken, back-ups of overdragen wordt, kunt u ook uw carrier nummer in stap 2 van de wizard bijwerken. Nadat de taak de status van de verpakking is, kunt u de nummer van uw provider voor die taak niet bijwerken.
-7. U kunt de voortgang van de taak volgen op het portaldashboard. Zie de taakstatus van elke in het vorige gedeelte: door [weer te geven de status van uw taak](#viewing-your-job-status).
+    Als Hallo taak Hallo maken, back-ups of overdragen status, kunt u ook uw carrier nummer in stap 2 van de wizard Hallo bijwerken. Zodra Hallo taak Hallo verpakking status heeft, kunt u de nummer van uw provider voor die taak niet bijwerken.
+7. U kunt de voortgang van uw taak bijhouden op Hallo-portaldashboard. Zie de taakstatus van elke in de vorige sectie Hallo: door [weer te geven de status van uw taak](#viewing-your-job-status).
 
 ## <a name="create-an-export-job"></a>Een exporttaak maken
-Maak een exporttaak voor het verwittigen van de Import/Export-service dat u zult worden back-upfunctie lege stations voor een of meer tot het datacenter zodat gegevens kunnen worden geëxporteerd vanuit uw storage-account aan de stations en de stations en vervolgens naar u verzonden.
+Maak een export taak toonotify Hallo Import/Export-service dat u zult worden back-upfunctie een of meer lege stations toohello datacentrum zodat gegevens kunnen worden geëxporteerd van uw storage-account toohello schijven en Hallo stations vervolgens tooyou verzonden.
 
 ### <a name="prepare-your-drives"></a>Voorbereiden van uw schijven
 Eerste controles van volgende worden aanbevolen voor het voorbereiden van uw schijven voor een taak voor het exporteren:
 
-1. Controleer het aantal schijven met behulp van het hulpprogramma WAImportExport PreviewExport opdracht vereist. Zie voor meer informatie [station gebruik bekijken voor een taak exporteren](https://msdn.microsoft.com/library/azure/dn722414.aspx). Kunt u de preview-schijfgebruik voor de blobs die u hebt geselecteerd, op basis van de grootte van de stations die u gaat gebruiken.
-2. Controleer of u kunt lezen/schrijven naar de harde schijf die voor de taak voor het exporteren worden verzonden.
+1. Het aantal schijven die zijn vereist met Hallo WAImportExport hulpprogramma PreviewExport opdracht Hallo controleren. Zie voor meer informatie [station gebruik bekijken voor een taak exporteren](https://msdn.microsoft.com/library/azure/dn722414.aspx). Kunt u de preview-schijfgebruik voor Hallo blobs die u hebt geselecteerd, op basis van de grootte Hallo Hallo stations u gaat toouse.
+2. Controleer of u kunt lezen/schrijven toohello harde schijf die voor de exporttaak Hallo worden verzonden.
 
-### <a name="create-the-export-job"></a>De exporttaak maken
-1. Maken van een taak voor het exporteren, gaat u naar uw opslagaccount in de Azure-portal en het weergeven van het Dashboard. Onder **snel in één oogopslag**, klikt u op **maken van een taak exporteren** en doorloop de wizard.
-2. In stap 2, bieden contactgegevens voor de persoon die verantwoordelijk is voor deze taak voor exporteren. Als u opslaan uitgebreide logboekgegevens voor de taak voor het exporteren wilt, controleert u de optie voor het **uitgebreide logboekbestand opslaan in mijn blob-container 'waimportexport'**.
-3. Opgeven welke blob-gegevens die u wilt exporteren van uw opslagaccount naar uw lege schijf of schijven in stap 3. U kunt kiezen om alle blobgegevens in het opslagaccount te exporteren of u kunt opgeven dat blobs of ingesteld van BLOB's om te exporteren.
+### <a name="create-hello-export-job"></a>Hallo exporttaak maken
+1. een exporttaak toocreate tooyour storage-account in hello Azure-portal te navigeren en Hallo Dashboard weergeven. Onder **snel in één oogopslag**, klikt u op **maken van een taak exporteren** en volg de stappen Hallo-wizard.
+2. In stap 2 bieden contactgegevens voor Hallo persoon die verantwoordelijk is voor deze taak voor exporteren. Als u toosave uitgebreide logboekgegevens voor exporttaak hello wenst, controleert u Hallo optie te**opslaan Hallo uitgebreide logboek in mijn blob-container 'waimportexport'**.
+3. Opgeven welke blob-gegevens die u wenst dat tooexport van uw storage-account tooyour leeg schijf of schijven in stap 3. U kunt tooexport alle blobgegevens in Hallo storage-account of u kunt opgeven die blobs of bepaalt van blobs tooexport.
    
-   Een blob om te exporteren, gebruikt u de **gelijk aan** selector en geeft u het relatieve pad naar de blob, beginnend met de containernaam van de. Gebruik *$root* om op te geven van de basiscontainer.
+   een blob-tooexport toospecify gebruiken Hallo **gelijk aan** selector en Hallo relatief pad toohello blob vanaf Hallo containernaam opgeven. Gebruik *$root* toospecify Hallo root-container.
    
-   Alle blobs die beginnen met een voorvoegsel gebruikt u de **begint met** selector en geef het voorvoegsel, beginnen met een slash '/'. Het voorvoegsel mogelijk het voorvoegsel van de containernaam van de, de containernaam van de volledige of de containernaam van de volledige gevolgd door het voorvoegsel van de blob-naam.
+   toospecify alle blobs beginnen met een voorvoegsel, gebruik Hallo **begint met** selector en geef Hallo-voorvoegsel beginnen met een slash '/'. Hallo voorvoegsel mogelijk Hallo-voorvoegsel van containernaam hello, Hallo voltooid containernaam of volledige containernaam Hallo gevolgd door het Hallo-voorvoegsel van Hallo blob-naam.
    
-   De volgende tabel ziet u voorbeelden van geldige blob-paden:
+   Hallo volgende tabel ziet u voorbeelden van geldige blob-paden:
    
    | Selector | Blobpad | Beschrijving |
    | --- | --- | --- |
-   | Begint met |/ |Exporteert u alle blobs in de storage-account |
-   | Begint met |/$root / |Alle blobs in de hoofdmap container exporteert |
+   | Begint met |/ |Exporteert u alle blobs in Hallo storage-account |
+   | Begint met |/$root / |Alle blobs in Hallo hoofdcontainer exporteert |
    | Begint met |/Book |Alle blobs in elke container die met het voorvoegsel begint exporteert **adresboek** |
    | Begint met |/Music/ |Alle blobs in container exporteert **muziek** |
    | Begint met |hou muziek / |Alle blobs in container exporteert **muziek** die beginnen met het voorvoegsel **favoriete** |
-   | Gelijk aan |$root/logo.bmp |Uitvoer-blob **logo.bmp** in de hoofdmap-container |
-   | Gelijk aan |videos/Story.mp4 |Uitvoer-blob **story.mp4** in de container **video's** |
+   | Gelijk aan|$root/logo.bmp |Uitvoer-blob **logo.bmp** in Hallo hoofdcontainer |
+   | Gelijk aan|videos/Story.mp4 |Uitvoer-blob **story.mp4** in de container **video's** |
    
-   U kunt de blob-paden in geldige notaties om fouten te voorkomen tijdens de verwerking moet opgeven, zoals weergegeven in deze schermafbeelding.
+   U moet opgeven Hallo blob paden in geldige notaties tooavoid fouten tijdens de verwerking, zoals weergegeven in deze schermafbeelding.
    
    ![Maak exporttaak voor - stap 3](./media/storage-import-export-service/export-job-03.png)
-4. Voer een beschrijvende naam voor de exporttaak in stap 4. De naam die u invoert mogen alleen kleine letters, cijfers, afbreekstreepjes en onderstrepingstekens bevatten, moet beginnen met een letter en mag geen spaties bevatten.
+4. Voer een beschrijvende naam voor de exporttaak Hallo in stap 4. Hallo-naam die u invoert mogen alleen kleine letters, cijfers, afbreekstreepjes en onderstrepingstekens bevatten, moet beginnen met een letter en mag geen spaties bevatten.
    
-   Het gegevensgebied center geeft het datacenter waarop u het pakket moet verzenden. Zie de veelgestelde vragen hieronder voor meer informatie.
-5. In stap 5 uw return carrier selecteert in de lijst en voer het nummer van uw carrier-account. Microsoft gebruikt deze account voor het verzenden van uw schijven voor u zodra de taak voor het exporteren voltooid is.
+   Hallo-gegevensgebied center geeft Hallo data center toowhich uw pakket moet worden verzonden. Zie de Hallo Veelgestelde vragen hieronder voor meer informatie.
+5. In stap 5, selecteer het geretourneerde telecombedrijf uit Hallo lijst en voer de nummer van uw provider. Microsoft gebruikt deze account tooship stations back tooyou zodra de taak voor het exporteren voltooid is.
    
-   Als u het volgnummer hebt, selecteert u het telecombedrijf levering in de lijst en voer het volgnummer.
+   Als u het volgnummer hebt, selecteert u het telecombedrijf levering in Hallo lijst en voer het volgnummer.
    
-   Als u nog geen bijgehouden number nog kiezen **ik mijn back-ups van gegevens voor deze exporttaak biedt wanneer ik mijn pakket hebt verzonden**, voltooit u het exportproces.
-6. Als u wilt het volgnummer invoeren nadat u het pakket hebt verzonden, terug naar de **voor importeren/exporteren** pagina voor uw opslagaccount in de Azure portal, selecteert u de taak in de lijst en kies **back-upfunctie Info**. Navigeer via de wizard en voer het volgnummer in stap 2.
+   Als u nog geen bijgehouden number nog kiezen **ik mijn back-ups van gegevens voor deze exporttaak biedt wanneer ik mijn pakket hebt verzonden**, voltooit u het exportproces Hallo.
+6. tooenter het volgnummer nadat u het pakket hebt verzonden retourneren toohello **voor importeren/exporteren** pagina voor uw opslagaccount in hello Azure-portal, selecteert u de taak uit Hallo lijst en kies **back-upfunctie Info**. Navigeer via de wizard Hallo en voer het volgnummer in stap 2.
    
-    Als het volgnummer niet binnen twee weken bijgewerkt is van de taak wordt gemaakt, verloopt de taak.
+    Als Hallo volgnummer niet binnen twee weken bijgewerkt is van het Hallo-taak maken, verloopt Hallo-taak.
    
-    Als de taak de status maken, back-ups of overdragen wordt, kunt u ook uw carrier nummer in stap 2 van de wizard bijwerken. Nadat de taak de status van de verpakking is, kunt u de nummer van uw provider voor die taak niet bijwerken.
+    Als Hallo taak Hallo maken, back-ups of overdragen status, kunt u ook uw carrier nummer in stap 2 van de wizard Hallo bijwerken. Zodra Hallo taak Hallo verpakking status heeft, kunt u de nummer van uw provider voor die taak niet bijwerken.
    
    > [!NOTE]
-   > Als de blob wordt geëxporteerd gebruikt op het moment wordt van kopiëren naar de harde schijf, wordt de Azure Import/Export-service een momentopname van de blob en kopiëren van de momentopname.
+   > Als Hallo blob toobe geëxporteerd gebruikt tijdens het Hallo toohard station kopiëren wordt, wordt Azure Import/Export-service een momentopname van Hallo blob en kopieer Hallo momentopname.
    > 
    > 
-7. U kunt de voortgang van de taak volgen in het dashboard in de Azure-portal. Zie de taakstatus van elke betekent dat in de vorige sectie 'de status weergeven"op.
-8. Nadat u de stations met de geëxporteerde gegevens ontvangt, kunt u deze kunt bekijken en de BitLocker-sleutels die worden gegenereerd door de service voor de schijf kopiëren. Navigeer naar uw opslagaccount in de Azure-portal en klik op het tabblad voor importeren/exporteren. Selecteer de taak voor het exporteren uit de lijst en klik op de knop sleutels weergeven. De BitLocker-sleutels worden weergegeven zoals hieronder wordt weergegeven:
+7. U kunt de voortgang van de taak volgen op Hallo dashboard in hello Azure-portal. Zie wat de taakstatus van elke in de vorige sectie Hallo betekent 'uw status weergeven"op.
+8. Nadat u Hallo stations met de geëxporteerde gegevens ontvangt, kunt u deze kunt bekijken en Hallo BitLocker-sleutels worden gegenereerd door Hallo-service voor de schijf kopiëren. Navigeer tooyour storage-account in hello Azure-portal en klik op Hallo Import/Export-tabblad. Selecteert u de afdruktaak exporteren uit de lijst Hallo en klikt u op Hallo weergave sleutels. Hallo BitLocker-sleutels weergegeven zoals hieronder wordt weergegeven:
    
    ![BitLocker-sleutels voor de exporttaak weergeven](./media/storage-import-export-service/export-job-bitlocker-keys.png)
 
-Ga via de sectie Veelgestelde vragen hieronder als dit de meest voorkomende vragen klanten optreden bij het gebruik van deze service omvat.
+Ga via de onderstaande sectie voor Hallo Veelgestelde vragen over omdat dit de meest voorkomende vragen Hallo klanten optreden bij het gebruik van deze service omvat.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-**Kan ik Azure File storage met behulp van de service Azure Import/Export kopiëren?**
+**Kan ik Azure File storage met hello Azure Import/Export-service kopiëren?**
 
-De Azure Import/Export-service ondersteunt Nee, alleen blok-Blobs en pagina-Blobs. Alle andere soorten opslag waaronder Azure File storage, Table Storage en Queue Storage worden niet ondersteund.
+Nee, ondersteunt hello Azure Import/Export-service alleen blok-Blobs en pagina-Blobs. Alle andere soorten opslag waaronder Azure File storage, Table Storage en Queue Storage worden niet ondersteund.
 
-**Is de Azure Import/Export-service beschikbaar voor abonnementen van de CSP?**
+**Hello Azure Import/Export-service beschikbaar voor abonnementen van de CSP is?**
 
 Azure Import/Export-service biedt ondersteuning voor abonnementen van de CSP.
 
-**Kan ik de stap ter voorbereiding van station voor een import-taak overslaan of kan ik een station voorbereiden zonder te kopiëren?**
+**Kan ik Hallo station voorbereiding stap overslaan voor een import-taak, of kan ik een station voorbereiden zonder te kopiëren?**
 
-Een station dat u verzenden wilt voor het importeren van gegevens moet worden voorbereid met het hulpprogramma Azure WAImportExport. U moet het hulpprogramma WAImportExport gebruiken om gegevens te kopiëren naar het station.
+Een station wilt u tooship voor het importeren van gegevens moet worden voorbereid met hello Azure WAImportExport hulpprogramma. U moet Hallo WAImportExport hulpprogramma toocopy gegevens toohello station gebruiken.
 
-**Heb ik nodig om uit te voeren van de schijfvoorbereiding van een bij het maken van een taak voor het exporteren?**
+**Moet ik tooperform de schijfvoorbereiding van een bij het maken van een taak voor het exporteren?**
 
-Eerste controles van geen, maar sommige worden aanbevolen. Controleer het aantal schijven met behulp van het hulpprogramma WAImportExport PreviewExport opdracht vereist. Zie voor meer informatie [station gebruik bekijken voor een taak exporteren](https://msdn.microsoft.com/library/azure/dn722414.aspx). Kunt u de preview-schijfgebruik voor de blobs die u hebt geselecteerd, op basis van de grootte van de stations die u gaat gebruiken. Controleer ook gelezen uit en schrijven naar de harde schijf die voor de taak voor het exporteren worden verzonden.
+Eerste controles van geen, maar sommige worden aanbevolen. Het aantal schijven die zijn vereist met Hallo WAImportExport hulpprogramma PreviewExport opdracht Hallo controleren. Zie voor meer informatie [station gebruik bekijken voor een taak exporteren](https://msdn.microsoft.com/library/azure/dn722414.aspx). Kunt u de preview-schijfgebruik voor Hallo blobs die u hebt geselecteerd, op basis van de grootte Hallo Hallo stations u gaat toouse. Controleer of u van lezen kunt en schrijven toohello harde schijf die worden verzonden voor Hallo ook exporteren taak.
 
-**Wat gebeurt er als ik verstuurt per ongeluk een harde schijf die niet voldoet aan de vereisten voor ondersteunde?**
+**Wat gebeurt er als verstuurt per ongeluk een harde schijf die niet toohello voldoet vereisten ondersteund?**
 
-De Azure-Datacenter wordt het station dat niet voldoet aan de ondersteunde eisen aan u geretourneerd. Als er slechts enkele van de stations in het pakket voldoen aan de ondersteuningsvereisten die stations worden verwerkt en de stations die niet voldoen aan de vereisten voor u worden geretourneerd.
+Hello Azure-Datacenter wordt Hallo station dat toohello ondersteund vereisten tooyou niet voldoet geretourneerd. Als er slechts enkele Hallo-schijven in Hallo pakket aan Hallo ondersteuning vereisten voldoet, deze stations worden verwerkt en Hallo stations die niet voldoen aan vereisten Hallo tooyou worden geretourneerd.
 
 **Kan ik mijn taak annuleren?**
 
 U kunt een taak annuleren wanneer de status ervan wordt maken of back-upfunctie.
 
-**Hoe lang kan ik de status van de voltooide taken weergeven in de Azure portal?**
+**Hoe lang kan ik Hallo status van de voltooide taken weergeven in hello Azure-portal?**
 
-U kunt de status voor voltooide taken weergeven voor maximaal 90 dagen. Voltooide taken worden na 90 dagen verwijderd.
+U kunt de status van de Hallo voor voltooide taken voor too90 dagen weergeven. Voltooide taken worden na 90 dagen verwijderd.
 
-**Wat moet ik doen als ik wil importeren of exporteren van meer dan 10 schijven?**
+**Wat moet ik doen als ik tooimport wilt of exporteren van meer dan 10 schijven?**
 
-Invoer of exporttaak kan verwijzen naar alleen 10 schijven in een enkele taak voor de Import/Export-service. Als u meer dan 10 schijven verzenden wilt, kunt u meerdere taken kunt maken. Stations die gekoppeld aan dezelfde taak zijn moeten samen worden verzonden in hetzelfde pakket.
+Invoer of exporttaak kan verwijzen naar maximaal 10-schijven in een enkele taak voor Import/Export-service Hallo. Als u meer dan 10 schijven tooship wilt, kunt u meerdere taken. Stations die gekoppeld aan dezelfde taak samen moet worden verzonden zijn in Hallo Hallo hetzelfde pakket.
 Microsoft biedt richtlijnen en hulp wanneer gegevenscapaciteit meerdere schijf omvat importtaken. Neem contact op met bulkimport@microsoft.com voor meer informatie
 
-**De service formatteren van de schijven voordat deze wordt teruggezonden?**
+**Service indeling Hallo schijven voordat deze wordt teruggezonden Hallo?**
 
 Nee. Alle stations zijn versleuteld met BitLocker.
 
 **Kan ik stations voor importeren/exporteren taken kopen van Microsoft?**
 
-Nee. U moet worden geleverd stations voor beide importeren en exporteren van taken.
+Nee. U moet tooship stations voor beide importeren en exporteren van taken.
 
 ** Hoe kan ik toegang tot gegevens die zijn geïmporteerd door deze service **
 
-De gegevens onder uw Azure storage-account toegankelijk zijn via Azure Portal of met behulp van een zelfstandige tool Opslagverkenner wordt aangeroepen. https://docs.Microsoft.com/en-us/Azure/VS-Azure-Tools-Storage-Manage-with-Storage-Explorer 
+Hallo gegevens onder uw Azure storage-account toegankelijk zijn via hello Azure Portal of met behulp van een zelfstandige tool Opslagverkenner wordt aangeroepen. https://docs.Microsoft.com/en-us/Azure/VS-Azure-Tools-Storage-Manage-with-Storage-Explorer 
 
-**Nadat de import-taak is voltooid, hoe worden mijn gegevens eruit in de storage-account? Mijn directory-hiërarchie worden bewaard?**
+**Nadat Hallo import-taak is voltooid, hoe worden mijn gegevens eruit in Hallo storage-account? Mijn directory-hiërarchie worden bewaard?**
 
-Als u een harde schijf voorbereidt voor een import-taak, wordt de bestemming opgegeven in het veld DstBlobPathOrPrefix in de gegevensset CSV. Dit is de doelcontainer in het opslagaccount waarvoor gegevens van de vaste schijf worden gekopieerd. Virtuele mappen worden gemaakt voor mappen van de vaste schijf en blobs zijn gemaakt voor bestanden in deze bestemmingscontainer. 
+Bij het voorbereiden van een harde schijf voor een import-taak, is door Hallo DstBlobPathOrPrefix veld in de gegevensset CSV Hallo bestemming opgegeven. Dit is de doelcontainer Hallo in Hallo storage account toowhich gegevens van de vaste schijf Hallo worden gekopieerd. Virtuele mappen worden gemaakt voor mappen van de vaste schijf Hallo en blobs zijn gemaakt voor bestanden in deze bestemmingscontainer. 
 
-**Als het station bestanden die al bestaan in mijn storage-account heeft, de service overschrijft bestaande blobs in mijn storage-account?**
+**Als Hallo station bestanden die al bestaan in mijn storage-account heeft, Hallo service overschrijft bestaande blobs in mijn storage-account?**
 
-Bij het voorbereiden van het station kunt u opgeven of de doel-bestanden moeten worden overschreven of genegeerd met het veld in het CSV-bestand gegevensset toestand aangeroepen: < naam | Nee overschrijven | overschrijven >. Standaard wordt de service de naam van de nieuwe bestanden plaats van bestaande blobs te overschrijven.
+Wanneer voorbereiden Hallo station, kunt u opgeven of Hallo doel-bestanden moeten worden overschreven of genegeerd met Hallo veld in de gegevensset CSV-bestand met de naam van de toestand: < naam | Nee overschrijven | overschrijven >. Standaard wordt Hallo-service de naam van de nieuwe bestanden Hallo en niet overschrijven bestaande blobs.
 
-**Het hulpprogramma WAImportExport compatibel is met 32-bits besturingssystemen?**
-Nee. Het hulpprogramma WAImportExport is alleen compatibel met 64-bits Windows-besturingssystemen. Raadpleeg de sectie Operating Systems in de [vereisten](#pre-requisites) voor een volledige lijst met ondersteunde versies van het besturingssysteem.
+**Hallo WAImportExport hulpprogramma compatibel is met 32-bits besturingssystemen?**
+Nee. Hallo WAImportExport hulpprogramma is alleen compatibel met 64-bits Windows-besturingssystemen. Raadpleeg de sectie van de toohello Operating Systems in Hallo [vereisten](#pre-requisites) voor een volledige lijst met ondersteunde versies van het besturingssysteem.
 
-**Moet ik iets anders dan de vaste schijf in mijn pakket opnemen?**
+**Moet ik iets anders dan Hallo harde schijf in mijn pakket opnemen?**
 
 Verzend alleen de vaste schijven. Neem geen items zoals power supply kabels of USB-kabels.
 
-**Heb ik mijn schijven met FedEx of DHL verzenden?**
+**Heb ik tooship Mijn stations met FedEx of DHL?**
 
-U kunt schijven naar het datacenter met behulp van een bekende carrier zoals FedEx, DHL, UPS of ons opstuurt verzenden. Voor het verzenden van de stations voor u van het datacenter moet u evenwel een nummer in de Verenigde Staten en de EU FedEx of een nummer in de regio's Asia en Australië DHL.
+U kunt stations toohello datacenter met een bekende carrier zoals FedEx, DHL, UPS of ons opstuurt verzenden. Voor back-upfunctie Hallo stations back tooyou van Datacenter Hallo, moet u evenwel een FedEx account getal Hallo Verenigde Staten en de EU of een nummer DHL in Azië Hallo en Australië regio's.
 
 **Zijn er beperkingen met mijn station internationaal verzenden?**
 
-Houd er rekening mee dat de fysieke media die u levert mogelijk moet cross internationale grenzen heen. U bent zelf verantwoordelijk voor het garanderen dat uw fysieke media en de gegevens zijn geïmporteerd en/of geëxporteerd in overeenstemming met het toepasselijk recht. Voordat de back-ups van de fysieke media Neem contact op met uw adviseurs om te controleren of uw media en de gegevens kan dit wettelijk naar het geïdentificeerde datacenter worden verzonden. Dit helpt ervoor te zorgen dat het Microsoft tijdig is bereikt.
+Houd er rekening mee dat Hallo fysieke media die u levert toocross internationale grenzen heen wellicht. U bent zelf verantwoordelijk voor het garanderen dat uw fysieke media en de gegevens zijn geïmporteerd en/of in overeenstemming met de toepasbare wet Hallo geëxporteerd. Voordat u de fysieke media Hallo levert, contact op met uw tooverify adviseurs dat uw media en de gegevens dit wettelijk verzonden toohello geïdentificeerd datacenter zijn kan. Dit helpt het Microsoft bereikt tijdig tooensure.
 
-**Wanneer u een taak maakt, is het adres van de back-ups van een locatie die verschilt van de locatie van mijn storage-account. Wat moet ik doen?**
+**Bij het maken van een taak is Hallo verzendadres een locatie die verschilt van de locatie van mijn storage-account. Wat moet ik doen?**
 
-Sommige opslaglocaties account zijn toegewezen aan back-upfunctie voor alternatieve locaties. Eerder kunnen beschikbare back-upfunctie locaties ook worden tijdelijk toegewezen naar alternatieve locaties. Controleer altijd het verzendadres opgegeven tijdens het maken van de taak vóór het verzenden van uw schijven.
+Sommige opslaglocaties account zijn toegewezen tooalternate back-upfunctie locaties. Back-ups van beschikbare locaties kunnen eerder ook worden tijdelijk toegewezen tooalternate locaties. Controleer altijd Hallo verzendadres opgegeven tijdens het maken van de taak vóór het verzenden van uw schijven.
 
-**Tijdens het verzenden van mijn station, wordt u gevraagd de provider voor de data center-mailadres en telefoonnummer telefoonnummer. Wat moet ik bieden?**
+**Tijdens het verzenden van mijn station, wordt u gevraagd Hallo carrier voor Hallo data center-mailadres en telefoonnummer telefoonnummer. Wat moet ik bieden?**
 
-Het telefoonnummer en de DC-adressen is beschikbaar als onderdeel van taak maken.
+Hallo telefoonnummer en de DC-adressen is beschikbaar als onderdeel van taak maken.
 
-**Kan ik de Azure Import/Export-service PST postvakken en SharePoint-gegevens kopiëren naar O365 gebruiken?**
+**Kan ik hello Azure Import/Export-toocopy PST postvakken en SharePoint-gegevens tooO365 gebruiken?**
 
-Raadpleeg [importeren PST-bestanden of SharePoint-gegevens op Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
+Raadpleeg het te[importeren PST-bestanden of tooOffice van SharePoint-gegevens 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
 
-**Kan ik de Azure Import/Export-service offline Mijn back-ups kopiëren naar de Azure Backup-Service gebruiken?**
+**Kan ik gebruiken hello Azure Import/Export-service toocopy Mijn back-ups offline toohello Azure Backup-Service?**
 
-Raadpleeg [Offlineback-upwerkstroom in Azure Backup](../backup/backup-azure-backup-import-export.md).
+Raadpleeg het te[Offlineback-upwerkstroom in Azure Backup](../backup/backup-azure-backup-import-export.md).
 
-**Wat is het maximum aantal harde schijven voor in één verzending?**
+**Wat is Hallo maximum aantal harde schijven voor in één verzending?**
 
-Een willekeurig aantal HDD's kan zich in één verzending en als de schijven tot meerdere taken behoren het beste een) de schijven die zijn gelabeld met de desbetreffende namen van de taak. b) de taken bijwerken met een volgnummer dat wordt voorafgegaan door -1,-2, enzovoort.
+Een willekeurig aantal HDD's kan zich in één verzending en als Hallo schijven toomultiple taken behoren wordt u aangeraden te een) gelabeld met de desbetreffende taak namen Hallo Hallo-schijven. b) Hallo-taken met een volgnummer dat wordt voorafgegaan door -1, update-2, enzovoort.
   
-**Wat is de maximale blok-Blob en pagina-blobgrootte ondersteund door schijf importeren/exporteren?**
+**Wat is Hallo maximale blok-Blob en pagina-blobgrootte ondersteund door schijf importeren/exporteren?**
 
 De grootte van de maximale blok-Blob is ongeveer 4.768TB of 5,000,000 MB.
 Maximale Page Blob-grootte is 1TB.
 
 **Schijf Import/Export biedt ondersteuning voor AES 256-versleuteling?**
 
-Azure Import/Export-service standaard versleuteld met AES 128 bitlocker-versleuteling, maar dit kan worden verhoogd tot AES 256 door handmatig te versleutelen met bitlocker voordat gegevens worden gekopieerd. 
+Azure Import/Export-service standaard versleuteld met AES 128 bitlocker-versleuteling, maar dit is toegenomen tooAES 256 door handmatig te versleutelen met bitlocker voordat gegevens worden gekopieerd. 
 
 Als u [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), hieronder volgt een voorbeeld van een opdracht
 ```
 WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
 ```
-Als u [WAImportExport hulpprogramma](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) opgeven 'AlreadyEncrypted' en de sleutel in de driveset CSV opgeven.
+Als u [WAImportExport hulpprogramma](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) 'AlreadyEncrypted' opgeven en Hallo-sleutel in Hallo driveset CSV opgeven.
 ```
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
 ```
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Instellen van het hulpprogramma WAImportExport](storage-import-export-tool-how-to.md)
-* [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md)
+* [Hallo WAImportExport hulpprogramma instellen](storage-import-export-tool-how-to.md)
+* [Gegevensoverdracht met Hallo AzCopy-opdrachtregelprogramma](storage-use-azcopy.md)
 * [Azure Import exporteren REST-API-voorbeeld](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
 

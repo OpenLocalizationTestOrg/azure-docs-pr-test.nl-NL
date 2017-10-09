@@ -1,6 +1,6 @@
 ---
-title: Wat te doen in het geval van een storing Azure Storage | Microsoft Docs
-description: Wat te doen in het geval van een storing Azure Storage
+title: aaaWhat toodo in geval van een Azure Storage-storing Hallo | Microsoft Docs
+description: Welke toodo in Hallo-gebeurtenis van een storing Azure Storage
 services: storage
 documentationcenter: .net
 author: robinsh
@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
-ms.openlocfilehash: 83ab487f382eb84aa64b927bdf5560eec5cbbd6d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ee7eb71311c6e453dc078ec3566267ee0c2f444a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Wat te doen in het geval van een Azure Storage-storing
-Bij Microsoft werken we hard om ervoor te zorgen dat onze services altijd beschikbaar zijn. Soms dwingt afgezien van onze invloed ons op een manier die niet-geplande storingen in een of meer regio's veroorzaken. Als u deze zeldzame exemplaren verwerken, bieden we het volgende op hoog niveau richtlijnen voor Azure Storage-services.
+# <a name="what-toodo-if-an-azure-storage-outage-occurs"></a>Welke toodo als een Azure Storage-storing optreedt
+Bij Microsoft werken we harde toomake ervoor dat onze services altijd beschikbaar zijn. Soms dwingt afgezien van onze invloed ons op een manier die niet-geplande storingen in een of meer regio's veroorzaken. toohelp verwerken van deze exemplaren zeldzame, bieden we Hallo op hoog niveau richtlijnen voor Azure Storage-services te volgen.
 
-## <a name="how-to-prepare"></a>Voorbereiden
-Het is essentieel dat elke klant een eigen plan voor herstel na noodgevallen voorbereidt. De inspanning om te herstellen van een storing opslag doorgaans omvat zowel operations personeel en geautomatiseerde procedures om uw toepassingen met een werkende status opnieuw activeren. Raadpleeg de documentatie voor Azure voor het bouwen van uw eigen noodherstelplan hieronder:
+## <a name="how-tooprepare"></a>Hoe tooprepare
+Het is essentieel voor elke klant tooprepare hun eigen noodherstelplan. Hallo inspanning toorecover van een storing opslag betekent meestal dat zowel operations personeel en geautomatiseerde procedures in de volgorde tooreactivate uw toepassingen in een werkende staat. Raadpleeg toohello Azure-documentatie hieronder toobuild uw eigen noodherstelplan:
 
 * [Herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 * [Technische richtlijnen voor flexibiliteit van Azure](../resiliency/resiliency-technical-guidance.md)
@@ -32,41 +32,41 @@ Het is essentieel dat elke klant een eigen plan voor herstel na noodgevallen voo
 * [Azure Storage-replicatie](storage-redundancy.md)
 * [Azure Backup-service](https://azure.microsoft.com/services/backup/)
 
-## <a name="how-to-detect"></a>Het vaststellen van
-De aanbevolen manier om te bepalen van de status van de Azure-service is zich abonneren op de [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
+## <a name="how-toodetect"></a>Hoe toodetect
+Hallo aanbevolen manier toodetermine hello Azure servicestatus is toosubscribe toohello [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
 
-## <a name="what-to-do-if-a-storage-outage-occurs"></a>Wat te doen als er een storing opslag optreedt
-Als een of meer opslagservices tijdelijk niet beschikbaar op een of meer regio's zijn, zijn er twee opties voor u te overwegen. Als u directe toegang tot uw gegevens willen, overweeg dan optie 2.
+## <a name="what-toodo-if-a-storage-outage-occurs"></a>Welke toodo als er een storing opslag optreedt
+Als een of meer opslagservices tijdelijk niet beschikbaar op een of meer regio's zijn, zijn er twee opties voor u tooconsider. Als u directe toegang tot tooyour gegevens willen, overweeg dan optie 2.
 
 ### <a name="option-1-wait-for-recovery"></a>Optie 1: Wacht voor herstel
-In dit geval is geen actie ondernemen vereist. We werken naar eer en geweten voor het herstellen van de beschikbaarheid van de Azure-service. U kunt de servicestatus bewaken op de [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
+In dit geval is geen actie ondernemen vereist. We werken naar eer en geweten toorestore hello Azure servicebeschikbaarheid. U kunt de servicestatus Hallo op Hallo bewaken [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
 
 ### <a name="option-2-copy-data-from-secondary"></a>Optie 2: Gegevens kopiëren van secundaire
-Als u hebt gekozen [geografisch redundante opslag met leestoegang (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (aanbevolen) voor uw storage-accounts, hebt u alleen toegang tot uw gegevens van de secundaire regio. U kunt hulpprogramma's gebruiken zoals [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), en de [bibliotheek voor gegevensverplaatsing van Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) gegevens uit de secundaire regio kopiëren naar een ander opslagaccount in een unimpacted regio en wijst u uw toepassingen aan dit opslagaccount voor zowel lezen als beschikbaarheid schrijven.
+Als u hebt gekozen [geografisch redundante opslag met leestoegang (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (aanbevolen) voor uw storage-accounts, hebt u leestoegang tooyour gegevens van de secundaire regio Hallo. U kunt hulpprogramma's gebruiken zoals [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), en Hallo [bibliotheek voor gegevensverplaatsing van Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) toocopy gegevens van de secundaire regio Hallo in een ander opslagaccount in een unimpacted regio en vervolgens punt uw toepassingen toothat storage-account voor zowel lezen en schrijven van beschikbaarheid.
 
-## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Wat ze kunnen verwachten als een opslag-failover wordt uitgevoerd
+## <a name="what-tooexpect-if-a-storage-failover-occurs"></a>Welke tooexpect als er een failover opslag optreedt
 Als u hebt gekozen [geografisch redundante opslag (GRS)](storage-redundancy.md#geo-redundant-storage) of [geografisch redundante opslag met leestoegang (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (aanbevolen), Azure Storage houdt uw gegevens duurzaam in twee gebieden (primair en secundair). In beide regio's houdt de Azure Storage voortdurend meerdere replica's van uw gegevens.
 
-Wanneer een regionale noodgeval is van invloed op uw primaire regio, wordt eerst geprobeerd om de service in deze regio te herstellen. Afhankelijk van de aard van de sitedatabase en de effecten, in sommige soms we niet mogelijk om terug te zetten van de primaire regio. Op dat moment wordt uitgevoerd, er een geo-failover. De regio-overschrijdende gegevensreplicatie is een asynchrone proces waarbij een vertraging kunt uitgevoerd, zodat het mogelijk dat de wijzigingen die nog niet is gerepliceerd naar de secundaire regio mogelijk verloren gegaan. U kunt een query de ['Tijd van laatste synchronisatie' van uw opslagaccount](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) voor meer informatie over de replicatiestatus.
+Wanneer een regionale noodgeval is van invloed op uw primaire regio, proberen we eerst toorestore Hallo service in deze regio. Afhankelijk van Hallo aard van Hallo na noodgevallen en de effecten, in sommige soms wordt mogelijk niet kunnen toorestore Hallo primaire regio. Op dat moment wordt uitgevoerd, er een geo-failover. Hallo regio-overschrijdende gegevensreplicatie is een asynchroon proces waarbij een vertraging, zodat het mogelijk dat wijzigingen die nog niet zijn gerepliceerd toohello secundaire regio kan zijn mogelijk verloren gegaan. U kunt een query Hallo ['Tijd van laatste synchronisatie' van uw opslagaccount](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) tooget details op Hallo replicatiestatus.
 
-Een aantal punten met betrekking tot de geo-failover-ervaring van opslag:
+Een aantal punten met betrekking tot Hallo geo failover opslagervaring:
 
-* Opslag-geo-failover wordt alleen geactiveerd door het team van Azure Storage: Er is geen klant-actie vereist.
-* Uw bestaande service-eindpunten van opslag voor blobs, tabellen, wachtrijen en -bestanden blijven hetzelfde na het foutherstel. de DNS-vermelding moet worden bijgewerkt om de primaire regio overschakelt naar de secundaire regio.
-* Voor en tijdens de geo-failover, u hebt geen toegang voor schrijven naar uw opslagaccount als gevolg van de impact van de sitedatabase, maar u kunt nog steeds lezen vanaf de secundaire als uw storage-account is geconfigureerd als een RA-GRS.
-* Wanneer de geo-failover is voltooid en de wijzigingen van de DNS-doorgegeven, worden de lees- en schrijftoegang heeft tot uw storage-account hervat; Dit verwijst naar uw secundaire eindpunt wordt. 
-* Houd er rekening mee dat u schrijftoegang hebt als u GRS of RA-GRS geconfigureerd voor het opslagaccount. 
-* U kunt een query ['Laatste Geo Failover keer' van uw opslagaccount](https://msdn.microsoft.com/library/azure/ee460802.aspx) voor meer informatie.
-* Na de failover uw storage-account volledig functioneert, maar in een 'gedegradeerde' status, zoals deze wordt daadwerkelijk gehost in een zelfstandige regio met geen geo-replicatie mogelijk. Om dit risico te beperken, wordt de oorspronkelijke primaire regio herstellen en voert u een geo-failback voor het herstellen van de oorspronkelijke status. Als de oorspronkelijke primaire regio is een onherstelbare, wordt er een andere secundaire regio toewijzen.
-  Voor meer informatie over de infrastructuur van Azure Storage geo-replicatie, raadpleegt u het artikel op de blog van Storage-team over [opties voor redundantie en RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+* Opslag-geo-failover wordt alleen geactiveerd door hello Azure Storage team: Er is geen klant-actie vereist.
+* Uw bestaande storage-service-eindpunten voor blobs, tabellen, wachtrijen en -bestanden blijven Hallo dezelfde na een failover Hallo; Hallo DNS-vermelding moet toobe bijgewerkt tooswitch van Hallo primaire regio toohello secundaire regio.
+* Voor en tijdens het Hallo geo-failover, u hebt geen schrijftoegang tooyour opslagaccount vanwege toohello gevolgen van het Hallo-noodherstel, maar u kunt nog steeds lezen van de secundaire Hallo als uw storage-account is geconfigureerd als een RA-GRS.
+* Lees- en schrijftoegang tooyour storage-account wordt hervat wanneer Hallo geo-failover is voltooid en DNS-wijzigingen die zijn doorgegeven hello, Dit verwijst toobe toowhat gebruikt uw secundaire eindpunt. 
+* Houd er rekening mee dat u schrijftoegang hebt als u GRS of RA-GRS geconfigureerd voor het Hallo-opslagaccount. 
+* U kunt een query ['Laatste Geo Failover keer' van uw opslagaccount](https://msdn.microsoft.com/library/azure/ee460802.aspx) tooget om meer details.
+* Na een failover Hallo uw storage-account volledig functioneert, maar in een 'gedegradeerde' status, zoals deze wordt daadwerkelijk gehost in een zelfstandige regio met geen geo-replicatie mogelijk. toomitigate dit risico, we Hallo van de oorspronkelijke primaire regio en vervolgens een geo-failback wilt toorestore Hallo oorspronkelijke staat herstellen. Als de oorspronkelijke primaire regio Hallo is een onherstelbare, wordt er een andere secundaire regio toewijzen.
+  Voor meer informatie over het Hallo-infrastructuur van Azure Storage geo-replicatie, raadpleegt u toohello artikel op Hallo Storage teamblog over [opties voor redundantie en RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ## <a name="best-practices-for-protecting-your-data"></a>Aanbevolen procedures voor het beveiligen van uw gegevens
-Er zijn enkele aanbevolen aanpak voor back-up van de gegevens van uw opslag op regelmatige basis.
+Er zijn enkele aanbevolen methoden tooback van uw opslaggegevens regelmatig.
 
-* VM-schijven – gebruiken de [Azure Backup-service](https://azure.microsoft.com/services/backup/) back-up van de VM-schijven die worden gebruikt door uw virtuele machines in Azure.
-* Blok-blobs – maken een [momentopname](https://msdn.microsoft.com/library/azure/hh488361.aspx) van elk blok-blob of de blobs kopieert naar een ander opslagaccount in met behulp van een andere regio [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), of de [bibliotheek voor gegevensverplaatsing van Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-* Gebruik tabellen – [AzCopy](storage-use-azcopy.md) gegevens in de tabel exporteren naar een ander opslagaccount in een andere regio.
-* Bestanden – gebruiken [AzCopy](storage-use-azcopy.md) of [Azure PowerShell](storage-powershell-guide-full.md) uw bestanden kopiëren naar een ander opslagaccount in een andere regio.
+* VM-schijven gebruik Hallo [Azure Backup-service](https://azure.microsoft.com/services/backup/) tooback up Hallo VM-schijven die door uw virtuele Azure-machines gebruikt.
+* Blok-blobs: Maak een [momentopname](https://msdn.microsoft.com/library/azure/hh488361.aspx) van elk blok-blob of Hallo blobs tooanother storage-account in met behulp van een andere regio kopiëren [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), of Hallo [ Azure bibliotheek voor gegevensverplaatsing](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+* Gebruik tabellen – [AzCopy](storage-use-azcopy.md) tooexport Hallo tabelgegevens in een ander opslagaccount in een andere regio.
+* Bestanden – gebruiken [AzCopy](storage-use-azcopy.md) of [Azure PowerShell](storage-powershell-guide-full.md) toocopy uw tooanother File storage-account in een andere regio.
 
-Voor informatie over het maken van toepassingen die volledig te van de functie voor RA-GRS profiteren check [ontwerpen van maximaal beschikbare toepassingen RA-GRS-opslag](storage-designing-ha-apps-with-ragrs.md)
+Voor informatie over het maken van toepassingen die volledig te van de functie Hallo RA-GRS profiteren check [ontwerpen van maximaal beschikbare toepassingen RA-GRS-opslag](storage-designing-ha-apps-with-ragrs.md)
 

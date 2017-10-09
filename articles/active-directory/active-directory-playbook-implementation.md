@@ -1,5 +1,5 @@
 ---
-title: Implementatie van Azure Active Directory-implementatiemodel Playbook | Microsoft Docs
+title: Active Directory-implementatiemodel Playbook implementatie aaaAzure | Microsoft Docs
 description: Verkennen en snel implementeren scenario's voor Identity and Access Management
 services: active-directory
 keywords: Azure active directory, playbook, Proof-of-Concept, implementatiemodel
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/12/2017
 ms.author: dstefan
-ms.openlocfilehash: 8a934213497b4cbc81b6863ff7719a2613af93c0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4d61f1432d5f1c15cd88fda4824cf1c1de64c712
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-implementation"></a>Azure Active Directory-bewijs van Concept Playbook: uitvoering
 
-## <a name="foundation---syncing-ad-to-azure-ad"></a>Foundation - AD naar Azure AD synchroniseren 
+## <a name="foundation---syncing-ad-tooazure-ad"></a>Foundation - AD tooAzure AD synchroniseren 
 
-Een hybride identiteit vormt de basis voor het merendeel van de enterprise-klanten die al een on-premises adreslijst. Dit is opzettelijk besteden aan als minder tijd om weer te geven van de waarde van de werkelijke identiteit en toegang scenario's mogelijk. 
+Een hybride identiteit is Hallo basis voor de meeste Hallo enterprise-klanten die al een on-premises adreslijst hebben. Hallo hier de doelstelling is toointentionally als minder tijd hier mogelijk tooshow Hallo-waarde van Hallo werkelijke identiteit en toegang scenario's. 
 
 | Scenario | Bouwstenen| 
 | --- | --- |  
-| [Uitbreiden van uw on-premises identiteits naar de cloud](#extending-your-on-premises-identity-to-the-cloud) | [Synchronisatie van Directory - Wachtwoordhashsynchronisatie](active-directory-playbook-building-blocks.md#directory-synchronization---password-hash-sync-phs---new-installation) <br/>**Opmerking**: als u al DirSync/ADSync of eerdere versies van Azure AD Connect hebt, deze stap is optioneel. Sommige scenario's in deze handleiding mogelijk nieuwere versie van Azure AD Connect.  <br/>[De huisstijl](active-directory-playbook-building-blocks.md#branding) | 
+| [Uw on-premises uitbreiden identity toohello cloud](#extending-your-on-premises-identity-to-the-cloud) | [Synchronisatie van Directory - Wachtwoordhashsynchronisatie](active-directory-playbook-building-blocks.md#directory-synchronization---password-hash-sync-phs---new-installation) <br/>**Opmerking**: als u al DirSync/ADSync of eerdere versies van Azure AD Connect hebt, deze stap is optioneel. Sommige scenario's in deze handleiding mogelijk nieuwere versie van Azure AD Connect.  <br/>[De huisstijl](active-directory-playbook-building-blocks.md#branding) | 
 | [Groepen met Azure AD-licenties toewijzen](#assigning-azure-ad-licenses-using-groups) | [Groeperen op basis van de licentieverlening](active-directory-playbook-building-blocks.md#group-based-licensing) |
 
 
-### <a name="extending-your-on-premises-identity-to-the-cloud"></a>Uitbreiden van uw on-premises identiteits naar de cloud 
+### <a name="extending-your-on-premises-identity-toohello-cloud"></a>Uw on-premises uitbreiden identity toohello cloud 
 
-1. Bob is de Active Directory-beheerder van Contoso. Hij haalt de vereiste identiteit inschakelen als een service voor een groep gebruikers. Na de uitvoering van Azure AD Connect-wizard, de identiteit van de doelgebruikers die beschikbaar zijn in de cloud. 
-2. Bob vraagt Susie, een van de doelgebruikers voor toegang tot het toegangsvenster Azure Active Directory en Bevestig dat ze kan worden geverifieerd. Susie ziet een huisstijl aanmeldingspagina en een leeg Toegangsvenster die gereed is voor het inschakelen van toegang voor toekomstige toepassingen.
+1. Bob is Hallo Active Directory-beheerder bij Contoso. Hij Hallo vereiste tooenable identiteit opgehaald als een service voor een groep gebruikers. Hallo identiteit van de beschikbare Hallo Doelgebruikers in de cloud Hallo na de uitvoering van Azure AD Connect-wizard. 
+2. Bob vraagt Susie een Doelgebruikers hello, tooaccess hello Azure Active Directory-Toegangsvenster en Bevestig dat ze kan worden geverifieerd. Susie ziet een huisstijl aanmeldingspagina en een leeg Toegangsvenster die gereed is voor het inschakelen van toegang voor toekomstige toepassingen.
 
 ### <a name="assigning-azure-ad-licenses-using-groups"></a>Groepen met Azure AD-licenties toewijzen 
 
-1. Bob is van de globale beheerder van Azure AD en wil Azure AD-licenties voor een specifieke set gebruikers toewijzen als onderdeel van de initiële implementatie van Azure AD.
-2. Bob maakt een groep voor de gebruikers. 
-3. Bob toegewezen licenties aan de groep
-4. Susie, een van de IT-medewerkers wordt toegevoegd aan de beveiligingsgroep als onderdeel van haar taakfuncties
-5. Na enige tijd heeft Susie toegang tot de Azure AD premium-licentie. Hiermee schakelt u meer van de POC-scenario's later op.
+1. Bob is Hallo globale beheerder van Azure AD en wil tooallocate Azure AD-licenties tooa specifieke set met gebruikers als onderdeel van de initiële implementatie Hallo van Azure AD.
+2. Bob maakt een groep voor Hallo testgebruikers. 
+3. Bob wijst Hallo licenties toohello groep
+4. Susie een Hallo informatiemedewerkers, wordt toohello beveiligingsgroep toegevoegd als onderdeel van haar taakfuncties
+5. Na enige tijd heeft Susie toegang toohello Azure AD premium-licentie. Hiermee schakelt u meer Hallo Implementatiemodel scenario's later op.
 
 ## <a name="theme---lots-of-apps-one-identity"></a>Thema - veel apps, één identiteit
 
@@ -52,51 +52,51 @@ Een hybride identiteit vormt de basis voor het merendeel van de enterprise-klant
 | [Het integreren van SaaS-toepassingen - federatieve SSO](#integrate-saas-applications---federated-sso) | [Configuratie van de SaaS-federatieve SSO](active-directory-playbook-building-blocks.md#saas-federated-sso-configuration) <br/>[Groepen - overgedragen eigendom](active-directory-playbook-building-blocks.md#groups---delegated-ownership) |
 | [Wachtwoord eenmalige aanmelding voor SaaS-toepassingen - integreren](#integrate-saas-applications---password-sso) | [SaaS-wachtwoord SSO-configuratie](active-directory-playbook-building-blocks.md#saas-password-sso-configuration) |
 | [Eenmalige aanmelding en Identity Lifecycle Events](#sso-and-identity-lifecycle-events) | [SaaS en Identity Lifecycle](active-directory-playbook-building-blocks.md#saas-and-identity-lifecycle) |
-| [Veilige toegang tot gedeelde Accounts](#secure-access-to-shared-accounts) | [SaaS gedeelde configuratie van Accounts](active-directory-playbook-building-blocks.md#saas-shared-accounts-configuration) |
-| [Veilige externe toegang tot On-Premises toepassingen](#secure-remote-access-to-on-premises-applications) | [App-proxyconfiguratie](active-directory-playbook-building-blocks.md#app-proxy-configuration) |
-| [LDAP-identiteiten met Azure AD synchroniseren](#synchronize-ldap-identities-to-azure-ad) |  [Algemene configuratie van de LDAP-Connector](active-directory-playbook-building-blocks.md#generic-ldap-connector-configuration) |
+| [Toegangsaccounts tooShared beveiligen](#secure-access-to-shared-accounts) | [SaaS gedeelde configuratie van Accounts](active-directory-playbook-building-blocks.md#saas-shared-accounts-configuration) |
+| [Externe toegang tooOn-Premises toepassingen beveiligen](#secure-remote-access-to-on-premises-applications) | [App-proxyconfiguratie](active-directory-playbook-building-blocks.md#app-proxy-configuration) |
+| [LDAP-identiteiten tooAzure AD synchroniseren](#synchronize-ldap-identities-to-azure-ad) |  [Algemene configuratie van de LDAP-Connector](active-directory-playbook-building-blocks.md#generic-ldap-connector-configuration) |
 
 ### <a name="integrate-saas-applications---federated-sso"></a>Het integreren van SaaS-toepassingen - federatieve SSO 
 
-1. Bob is van de globale beheerder van Azure AD en ontvangt een aanvraag van de marketingafdeling voor toegang tot hun ServiceNow-exemplaar. Bob vindt stapsgewijze zelfstudie in Azure AD-documentatie en volgt en de toewijzing van gebruikers naar de app delegeert naar Kevin, het hoofd van Marketing-team. 
-2. Kevin zich aanmeldt als eigenaar van rechten tussen ServiceNow en wijst Susie toe aan de app. Kevin ook meldingen van Susie profiel automatisch in ServiceNow is gemaakt
-3. Susie is een Informatiemedewerker van de marketingafdeling. Ze zich aanmelden bij azure AD en vindt alle SaaS-toepassingen die ze aan is toegewezen in myapps-portal. Van daaruit ze naadloos toegang tot ServiceNow opgehaald.
-4. De marketingafdeling wil controleren wie ServiceNow geraadpleegd. Bob downloadt van een activiteitenrapport en wordt gedeeld met Kevin via e-mail.  
+1. Bob hello Azure AD met globale beheerder is en een aanvraag ontvangt van Hallo Marketing afdeling tooenable toegang tootheir ServiceNow-exemplaar. Bob Hallo stapsgewijze zelfstudie zoekt in de documentatie van Azure AD en erna en gemachtigden Hallo toewijzing van gebruikers toohello app tooKevin, Hallo-head van Marketing-team. 
+2. Kevin zich aanmeldt als Hallo eigenaar van rechten tussen ServiceNow en Susie toohello app wijst. Kevin ook meldingen van Susie profiel automatisch in ServiceNow is gemaakt
+3. Susie is een Informatiemedewerker in de marketingafdeling Hallo. Ze worden vastgelegd in tooazure AD en vindt alle SaaS-toepassingen is ze tooin myapps portal toegewezen. Van daaruit ze naadloos toegang tooServiceNow opgehaald.
+4. Hallo marketingafdeling wil tooaudit die ServiceNow toegang heeft. Bob downloadt van een activiteitenrapport en wordt gedeeld met Kevin via e-mail.  
 
 ### <a name="sso-and-identity-lifecycle-events"></a>Eenmalige aanmelding en Identity Lifecycle Events
 
-1. Susie neemt een afwezig laat en door het bedrijfsbeleid de on-premises AD-account is tijdelijk uitgeschakeld. Susie nu niet kunt aanmelden bij Azure AD en daarom geen toegang tot ServiceNow. 
-2. Susie maakt een laterale verplaatsing van Marketing te verkopen. Kevin verwijderd haar toegang uit ServiceNow. Susie wordt geregistreerd in de azure ad-myapps en ze niet langer de ServiceNow-tegel ziet. Na 10 minuten bevestigt Kevin dat Susie account is uitgeschakeld in ServiceNow-beheerconsole.
+1. Susie duurt een laat afwezig, en door het bedrijfsbeleid Hallo on-premises AD-account is tijdelijk uitgeschakeld. Susie nu niet kunt aanmelden tooAzure AD en daarom geen toegang tot ServiceNow. 
+2. Susie maakt een laterale verplaatsing van tooSales Marketing. Kevin verwijderd haar toegang uit ServiceNow. Susie wordt geregistreerd in azure ad-myapps hello en ze niet langer Hallo ServiceNow-tegel ziet. Na 10 minuten bevestigt Kevin dat Susie account is uitgeschakeld in ServiceNow-beheerconsole.
 
 ### <a name="integrate-saas-applications---password-sso"></a>Wachtwoord eenmalige aanmelding voor SaaS-toepassingen - integreren
 
-1. Bob configureert toegang tot Atlassian HipChat. HipChat heeft wachtwoord SSO-integratie en toegang verlenen tot Susie
-2. Susie zich aanmeldt bij de portal myapps en ziet een koppeling naar de extensie Azure AD-IE browser, die ze downloadt downloaden
-3. Wanneer u op klikt, ze opgehaald haar HipChat gebruikersnaam en wachtwoord om referenties gevraagd. Dit is een eenmalige bewerking en na het voltooien van deze zij toegang heeft tot HipChat
+1. Bob configureert toegang tooAtlassian HipChat. HipChat heeft tooSusie van wachtwoord SSO-integratie en Verleen toegang
+2. Susie toohello myapps portal aanmeldt en ziet een koppeling toodownload hello Azure AD-IE browser extensie, die ze downloadt
+3. Wanneer u op klikt, ze opgehaald haar HipChat gebruikersnaam en wachtwoord om referenties gevraagd. Dit is een eenmalige bewerking en na het voltooien van deze ze tooHipChat toegang heeft
 4. Een paar dagen later Susie myapps portal en klikt op HipChat opnieuw. Dit keer ongeveer krijgt ze deze naadloos toegang
-5. Kevin, de eigenaar van de app HipChat wil controleren wie toegang tot de toepassing. Bob een controlerapport downloadt en gedeeld met Kevin via e-mail. 
+5. Kevin, Hallo HipChat app eigenaar wil tooaudit die toepassing hello toegang heeft. Bob een controlerapport downloadt en gedeeld met Kevin via e-mail. 
 
-### <a name="secure-access-to-shared-accounts"></a>Veilige toegang tot gedeelde Accounts 
+### <a name="secure-access-tooshared-accounts"></a>Toegangsaccounts tooShared beveiligen 
 
-1. Bob is te beheren voor het beveiligen van de gedeelde Twitter-ingang voor leden van de verkoop-team. Hij voegt Twitter toe als een SSO-toepassing en toegewezen aan de beveiligingsgroep van de Sales-Team. Hij de referenties aan het gedeelde account is opgegeven en hij deze voorziet in het systeem. 
-2. Referenties voor Twitter delen wordt niet meer vertrouwd door meerdere personen zijn geïnstalleerd. Bob kan automatische rollover van het wachtwoord Twitter.
-3. Susie, lid zijn van het team verkoop, zich aanmelden bij de portal myapps en ziet een koppeling naar de Browseruitbreiding van de Azure AD-IE downloaden. Ze worden geïnstalleerd.
-4. Wanneer u op klikt ze toegang krijgen rechtstreeks tot Twitter. Zij weet het wachtwoord niet.
-5. Arnold maakt ook deel uit van het verkoopteam. Hij heeft dezelfde ervaring als Susie in stap 3 en 4
-6. De afdeling verkoop wil controleren wie Twitter geraadpleegd. Bob downloadt van een activiteitenrapport en wordt gedeeld met Kevin via e-mail. 
+1. Bob is toosecure te beheren Hallo gedeeld Twitter-ingang voor leden van Hallo Sales-team. Hij voegt Twitter toe als een SSO-toepassing en toegewezen toohello beveiligingsgroep Hallo Sales-Team. Hij Hallo referenties toohello gedeeld account is opgegeven en hij deze voorziet in Hallo-systeem. 
+2. Referenties voor Twitter delen wordt niet meer vertrouwd vanwege toomultiple mensen die zijn geïnstalleerd. Bob kan automatische rollover van Hallo Twitter-wachtwoord.
+3. Susie, lid zijn van Hallo Sales-team, toohello myapps portal aanmeldt en een koppeling toodownload hello Azure AD-IE Browseruitbreiding ziet. Ze worden geïnstalleerd.
+4. Wanneer u op klikt ze get rechtstreeks toegang hebben tot tooTwitter. Ze weet niet Hallo wachtwoord.
+5. Arnold maakt ook deel uit van het verkoopteam Hallo. Hij heeft Hallo dezelfde ervaring als Susie in stap 3 en 4
+6. Hallo verkoopafdeling wil tooaudit die Twitter toegang heeft. Bob downloadt van een activiteitenrapport en wordt gedeeld met Kevin via e-mail. 
 
-### <a name="secure-remote-access-to-on-premises-applications"></a>Veilige externe toegang tot On-Premises toepassingen
+### <a name="secure-remote-access-tooon-premises-applications"></a>Externe toegang tooOn-Premises toepassingen beveiligen
 
-1. Bob, de Azure AD-hoofdbeheerder, is verbeterd talrijke verzoeken om werknemers toegang tot verschillende nuttig lokale resources, zoals de toepassing kosten tijdens het op afstand werken. Hij volgt de [toepassingsproxy documentatie](active-directory-application-proxy-enable.md) voor het installeren van een connector en onkosten publiceren als een toepassingsproxy-toepassing. 
-2. De URL van de externe uitgaven delen Bob met Susie, een van de werknemers die extern toegang nodig heeft. Ze toegang heeft tot de koppeling en na verificatie op basis van AAD, ze kan toegang tot de app uitgaven en doorgaan om productief te zijn terwijl deze extern is. 
-3. Bob blijft vervolgens extra on-premises toepassingen hetzelfde proces gebruikt en die toegang geeft tot gebruikers naar behoefte publiceren. Hij voegt voorwaardelijke toegang en multi-factor authentication voor de gevoeliger toepassingen die hij publiceert, om ervoor te zorgen extra beveiliging.
+1. Berend hello Azure AD globale beheerder is verbeterd talrijke verzoeken tooenable werknemers tooaccess diverse nuttig lokale bronnen, zoals Hallo uitgaven toepassing tijdens het op afstand werken. Hij volgt Hallo [toepassingsproxy documentatie](active-directory-application-proxy-enable.md) tooinstall een connector en onkosten publiceren als een toepassing Application Proxy. 
+2. Hallo externe uitgaven toepassing URL delen Bob met Susie een Hallo werknemers die extern toegang nodig heeft. Ze toegang heeft tot Hallo koppeling en na verificatie ten opzichte van AAD, ze kunnen tooaccess Hallo uitgaven app en toobe productief blijven terwijl deze extern is. 
+3. Bob wordt vervolgens doorgaat toopublish extra on-premises toepassingen via Hallo hetzelfde proces en geeft toegang tot toousers indien nodig. Hij voegt voorwaardelijke toegang en multi-factor authentication voor Hallo gevoeliger toepassingen die hij publiceert, tooensure extra beveiliging.
 
-### <a name="synchronize-ldap-identities-to-azure-ad"></a>LDAP-identiteiten met Azure AD synchroniseren
+### <a name="synchronize-ldap-identities-tooazure-ad"></a>LDAP-identiteiten tooAzure AD synchroniseren
 
-1. Berend van het bedrijf heeft complexe identiteitsinfrastructuur kunt koppelen. De meeste van de gebruikers worden beheerd in Windows Server Active Directory Domain Services (toevoegen). Sommige van hen worden beheerd door HR-systeem in Active Directory Lightweight Directory Services (ADLDS).
-2. Bob opgedragen toegang tot SaaS-apps voor alle gebruikers (ook deze niet aanwezig in ADDS) inschakelen.
-3. Bob configureert algemene LDAP-Connector naar pull-gegevens van ADLDS in Azure AD Connect.
-4. Bob maakt synchronisatieregels zodat gebruikers LDAP worden ingevuld in de Metaverse en naar Azure AD
+1. Berend van het bedrijf heeft complexe identiteitsinfrastructuur kunt koppelen. De meeste Hallo gebruikers worden beheerd in Windows Server Active Directory Domain Services (toevoegen). Sommige van hen worden beheerd door HR-systeem in Active Directory Lightweight Directory Services (ADLDS).
+2. Bob opgedragen toegang tooSaaS apps voor alle gebruikers (ook deze niet aanwezig in ADDS) inschakelen.
+3. Algemene LDAP-Connector toopull gegevens uit ADLDS configureert Bob in Azure AD Connect.
+4. Bob maakt synchronisatieregels zodat gebruikers LDAP zijn ingevuld in de Metaverse en tooAzure AD
 5. Susie wordt LDAP gebruiker toegang krijgt tot haar SaaS app met behulp gesynchroniseerd identiteit
 
 
@@ -118,53 +118,53 @@ Een hybride identiteit vormt de basis voor het merendeel van de enterprise-klant
 
 ### <a name="secure-administrator-account-access"></a>Beveiligde administrator-accounttoegang
 
-1. Bob is de globale beheerder van Azure AD. Hij geconstateerd Stuart als medebeheerder van de service. 
-2. Berend configureert van Stuart account altijd om MFA voor het verbeteren van de beveiligingspostuur
-3. Stuart meldt zich aan bij de Azure-portal en kennisgevingen die hij nodig heeft om door te gaan van de aanmelding zijn telefoonnummer op dat registreren
-4. Toekomstige aanmeldingen van Stuart nu zijn beveiligd met meervoudige verificatie en wordt nu een telefonische oproep zijn identiteit verifiëren.
+1. Bob is Hallo hoofdbeheerder voor Azure AD. Hij is Stuart als medebeheerder van Hallo-service geïdentificeerd. 
+2. Bob configureert van Stuart account tooalways MFA tooimprove hello beveiligingspostuur vereisen
+3. Stuart wordt geregistreerd in Azure-portal toohello en kennisgevingen die hij nodig heeft tooregister zijn phone nummer toocontinue Hallo aanmelding
+4. Toekomstige aanmeldingen van Stuart nu zijn beveiligd met meervoudige verificatie en hij nu ontvangt een telefoongesprek tooverify zijn identiteit.
 
-### <a name="secure-access-to-applications"></a>Beveiligde toegang tot toepassingen
+### <a name="secure-access-tooapplications"></a>Veilige toegang tooapplications
 
-1. Kevin is de eigenaar van het bedrijf van ServiceNow. Het bedrijf wil nu die gebruikers aanmelden met MFA bij het openen van buiten het bedrijfsnetwerk.
-2. Berend onze globale beheerder Azure AD voegt een beleid voor voorwaardelijke toegang tot de ServiceNow-toepassing voor het inschakelen van MFA voor externe toegang
-3. Susie, onze Informatiemedewerker wordt geregistreerd in de portal van mijn apps en klikt op de tegel ServiceNow. Ze is nu gecontroleerd met MFA.
+1. Kevin is Hallo zakelijke eigenaar van ServiceNow. Hallo bedrijf wil nu die gebruikers toologin met MFA bij het openen van externe Hallo bedrijfsnetwerk.
+2. Berend onze globale beheerder van Azure AD, voegt een voorwaardelijk beleid toohello ServiceNow toepassing tooenable MFA voor externe toegang
+3. Susie, onze Informatiemedewerker wordt geregistreerd in de portal van mijn apps en klikt op Hallo ServiceNow-tegel. Ze is nu gecontroleerd met MFA.
 
 ### <a name="enable-just-in-time-jit-administration"></a>Just in time (Just in time)-beheer inschakelen
 
-1. Bob en Stuart zijn globale beheerders van Azure AD. Ze willen voor JIT-toegang tot de management-rollen en bij te houden op het gebruik van bevoorrechte rollen.
-2. Bob PIM kan in de Azure AD-tenant en wordt de beveiligingsbeheerder. Hij verandert zelf en lidmaatschap van de rol globale beheerder van Stuart van permanente in een in aanmerking komt.
-3. Bob en Stuart is nu vereist voor het activeren van hun rol via de Azure portal voordat u wijzigingen naar Azure AD-configuratie uitvoert. 
+1. Bob en Stuart zijn globale beheerders van Azure AD. Ze willen tooenable JIT toegang toohello-beheerrollen en ook tookeep records op Hallo gebruik van Hallo beschermde rollen.
+2. Bob PIM kan in hello Azure AD-tenant en wordt de beveiligingsbeheerder Hallo. Hij verandert zelf en lidmaatschap van de rol globale beheerder van Stuart van permanente tooeligible.
+3. Bob en Stuart vereisen nu activeren van hun rol via hello Azure-portal voordat tooAzure AD als volgt wijzigt configuratie. 
 
 ### <a name="protect-identities-based-on-risk"></a>Identiteiten op basis van de risico's beschermen 
 
 1. Susie, probeert een Informatiemedewerker logboekregistratie in een tor-browser. 
-2. Bob controleert de Azure AD identity protection-dashboard en Susie van aanmelding vanuit een anoniem IP-adres krijgt. Het security team wil uitdaging dergelijke gebruikers toegang geeft tot met MFA
-3. Bob kan Azure AD Identity Protection-beleid voor MFA-vraag voor gemiddeld of hoger risico 's
-4. Tijd gaat door, en Susie in vanuit de browser Tor opnieuw. Deze tijd ziet ze de MFA-controle
+2. Bob hello Azure AD identity protection-dashboard controleert en Susie van aanmelding vanuit een anoniem IP-adres krijgt. Hallo beveiligingsteam wil toochallenge dergelijke heeft toegang tot gebruikers met MFA
+3. Bob kan Azure AD Identity Protection-beleid toochallenge MFA voor gemiddeld of hoger risico 's
+4. Tijd gaat door, en Susie in vanuit de browser Tor opnieuw. Deze tijd die ze zien Hallo MFA uitdaging
 
 ### <a name="authenticate-without-passwords-using-certificate-based-authentication"></a>Verifiëren zonder verificatie op basis van wachtwoorden
 
 1. Bob is een globale beheerder voor financiële instelling, die gebruik van wachtwoorden als een factor authentication voor hun toepassingen verbiedt.
 2. Bob kunt en dwingt certificaatverificatie op AD FS en Azure AD
-3. Susie tijdens het openen van toepassing is gevraagd om te verifiëren met behulp van certificaat
+3. Susie tijdens het openen van toepassing is gevraagd tooauthenticate met certificaat
 
 ## <a name="theme---scale-with-self-service"></a>Thema - schaal met selfservice
 
 | Scenario | Bouwstenen| 
 | --- | --- |  
 | [Selfservice voor wachtwoordherstel](#self-service-password-reset) | [Selfservice voor wachtwoordherstel](active-directory-playbook-building-blocks.md#self-service-password-reset) |
-| [Selfservice voor toegang tot toepassingen](#self-service-access-to-applications) | [Selfservice voor toegang tot toepassingen](active-directory-playbook-building-blocks.md#self-service-access-to-application-management) |
+| [Self Servicetoegang tooApplications](#self-service-access-to-applications) | [Self Servicetoegang tooApplications](active-directory-playbook-building-blocks.md#self-service-access-to-application-management) |
 
 ### <a name="self-service-password-reset"></a>Selfservice voor wachtwoordherstel 
 
-1. Bob is van de globale beheerder van Azure AD en wachtwoordbeheer voor Self Service maakt op een subset van gebruikers, met inbegrip van Susie. 
-2. Susie Logboeken in myapps portal en zien een bericht te registreren haar beveiligingsinformatie voor toekomstige wachtwoord opnieuw instellen voor gebeurtenissen.
+1. Bob is hello Azure AD globale beheerder en schakelt Self Service wachtwoordbeheer tooa subset van gebruikers, met inbegrip van Susie. 
+2. Susie registreert in toomyapps portal en zien een bericht tooregister haar beveiligingsinformatie voor toekomstige wachtwoord opnieuw instellen voor gebeurtenissen.
 3. Snel vooruit een paar dagen Susie haar wachtwoord vergeet, en stelt deze via Azure AD-portal
 
-### <a name="self-service-access-to-applications"></a>Selfservice voor toegang tot toepassingen 
+### <a name="self-service-access-tooapplications"></a>Self Servicetoegang tooApplications 
 
-1. Kevin is de eigenaar van het bedrijf van ServiceNow. Hij wil dat gebruikers ' aanmelden ' voor het op aanvraag, in plaats van ze toe te voegen in één keer
-2. Berend onze globale beheerder van Azure AD, wijzigt de ServiceNow-toepassing voor self-service aanvragen inschakelen
-3. Susie, onze Informatiemedewerker wordt geregistreerd in de portal van mijn apps en klikt op de knop 'Meer toepassingen toevoegen' en ServiceNow zien als een van de aanbevolen toepassingen. Vervolgens zij gaat terug naar Mijn apps-portal en de toepassing ServiceNow zien.
+1. Kevin is Hallo zakelijke eigenaar van ServiceNow. Hij wil dat gebruikers te 'aanmelden' voor het op aanvraag, in plaats van ze toe te voegen in één keer
+2. Berend onze globale beheerder Azure AD wijzigt Hallo ServiceNow toepassing tooenable Self-service aanvragen
+3. Susie, onze Informatiemedewerker wordt geregistreerd in de portal van mijn apps en klikt op knop 'Meer toepassingen toevoegen' Hallo en ServiceNow zien als een Hallo aanbevolen toepassingen. Vervolgens zij back toomy apps portal navigeert en ServiceNow-toepassing hello zien.
 
 [!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-steps.md)]

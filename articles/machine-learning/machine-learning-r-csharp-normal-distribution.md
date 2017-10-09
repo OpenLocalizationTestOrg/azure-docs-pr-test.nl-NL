@@ -1,5 +1,5 @@
 ---
-title: (afgeschaft) Normale verdeling Web Service Suite - Azure | Microsoft Docs
+title: AAA(deprecated) normaalverdeling Web Service Suite - Azure | Microsoft Docs
 description: (afgeschaft) Normale verdeling Web Service Suite
 services: machine-learning
 documentationcenter: 
@@ -16,69 +16,69 @@ ms.date: 01/06/2017
 ms.author: ireiter
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 79d1621330ad56b0c62ca46cfac424c2306e371f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 8bdb5afd9fee88587f548d7c5299480f64289bbe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-normal-distribution-suite"></a>(afgeschaft) Normale verdeling Suite
 
 > [!NOTE]
-> De Microsoft-DataMarket wordt buiten gebruik gesteld en deze API is afgeschaft. 
+> Hallo Microsoft DataMarket wordt buiten gebruik gesteld en deze API is afgeschaft. 
 > 
-> U kunt zoeken veel nuttige voorbeeld experimenten en API's in de [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Zie voor meer informatie over de Gallery [Share en het detecteren van bronnen in de Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+> U vindt veel nuttige voorbeeld experimenten en API's in Hallo [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Zie voor meer informatie over Hallo galerie [Share en het detecteren van bronnen in Hallo Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-De normaalverdeling Suite is een reeks webservices voorbeeld ([Generator](https://datamarket.azure.com/dataset/aml_labs/ndg7), [kwantiel Rekenmachine](https://datamarket.azure.com/dataset/aml_labs/ndq5), [kans Rekenmachine](https://datamarket.azure.com/dataset/aml_labs/ndp5)) die helpen bij het genereren en verwerking van de normale verdelingen. De services kunnen genereren van een reeks normale verdeling van een willekeurige lengte, quantiles van een bepaalde waarschijnlijkheid berekenen en waarschijnlijkheid van een bepaalde kwantiel berekenen. Elk van de services andere uitvoer, op basis van de geselecteerde service verzendt (Zie onderstaande beschrijving). De Suite normale distributie is gebaseerd op de R functies qnorm rnorm en pnorm, die zijn opgenomen in statistieken-R-pakket.
+Hallo normaalverdeling Suite is een reeks webservices voorbeeld ([Generator](https://datamarket.azure.com/dataset/aml_labs/ndg7), [kwantiel Rekenmachine](https://datamarket.azure.com/dataset/aml_labs/ndq5), [kans Rekenmachine](https://datamarket.azure.com/dataset/aml_labs/ndp5)) die helpen bij het genereren en verwerking normale verdelingen. Hallo-services kunnen genereren van een reeks normale verdeling van een willekeurige lengte, quantiles van een bepaalde waarschijnlijkheid berekenen en waarschijnlijkheid van een bepaalde kwantiel berekenen. Elk van de services Hallo andere uitvoer, op basis van geselecteerde Hallo service verzendt (Zie onderstaande beschrijving). Hallo normaalverdeling Suite is gebaseerd op Hallo R functies qnorm rnorm en pnorm, die zijn opgenomen in statistieken-R-pakket.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-> Deze webservice kan bijvoorbeeld worden gebruikt door gebruikers – mogelijk via een mobiele app via een website of zelfs op een lokale computer. Maar het doel van de webservice is ook als een voorbeeld van hoe Azure Machine Learning-webservices boven op R code maken kan worden gebruikt. Met een paar regels code R en klikt op een knop in Azure Machine Learning Studio, worden een experiment gemaakt met R code en gepubliceerd als een webservice. De webservice kan vervolgens worden gepubliceerd naar Azure Marketplace en verbruikt door gebruikers en apparaten over de hele wereld zonder instellingen infrastructuur door de auteur van de webservice.  
+> Deze webservice kan bijvoorbeeld worden gebruikt door gebruikers – mogelijk via een mobiele app via een website of zelfs op een lokale computer. Maar Hallo doel van de webservice Hallo is ook tooserve als een voorbeeld van hoe Azure Machine Learning-webservices gebruikte toocreate boven op R-code kan zijn. Met een paar regels code R en klikt op een knop in Azure Machine Learning Studio, worden een experiment gemaakt met R code en gepubliceerd als een webservice. Hallo-webservice vervolgens gepubliceerde toohello Azure Marketplace kan worden en verbruikt door gebruikers en apparaten via Hallo wereld zonder instellingen infrastructuur door de auteur Hallo van Hallo-webservice.  
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Gebruik van web-service
-De normaalverdeling Suite omvat de volgende 3-services.
+Hallo normaalverdeling Suite bevat Hallo 3-services te volgen.
 
 ### <a name="normal-distribution-quantile-calculator"></a>Normale verdeling kwantiel Rekenmachine
-Deze service accepteert 4 argumenten van een normale verdeling en de bijbehorende kwantiel berekent.
+Deze service accepteert 4 argumenten van een normale verdeling en berekent kwantiel Hallo die zijn gekoppeld.
 
-De invoerargumenten zijn:
+Hallo invoerargumenten zijn:
 
 * p - een enkele waarschijnlijkheid van een gebeurtenis met normale verdeling. 
-* gemiddelde - het gemiddelde van de normale verdeling.
-* SD - de standaarddeviatie van de normale verdeling. 
-* Side - L voor het onderste gedeelte van het distributiepunt en U voor de bovenzijde van het distributiepunt.
+* Gemiddelde - Hallo normale verdeling gemiddelde.
+* SD - standaardafwijking Hallo-normale distributie. 
+* Side - L voor lagere zijde Hallo Hallo verdeling en U voor Hallo bovenzijde Hallo-verdeling.
 
-De uitvoer van de service is de berekende kwantiel die is gekoppeld aan de opgegeven kans.
+Hallo-uitvoer van Hallo-service is Hallo berekend kwantiel die is gekoppeld aan Hallo kans gegeven.
 
 ### <a name="normal-distribution-probability-calculator"></a>Normale verdeling kans Rekenmachine
-Deze service accepteert 4 argumenten van een normale verdeling en de bijbehorende kans berekent.
+Deze service accepteert 4 argumenten van een normale verdeling en berekent de kans op Hallo die zijn gekoppeld.
 
-De invoerargumenten zijn:
+Hallo invoerargumenten zijn:
 
 * q - a één kwantiel van een gebeurtenis met normale verdeling. 
-* gemiddelde - het gemiddelde van de normale verdeling.
-* SD - de standaarddeviatie van de normale verdeling. 
-* Side - L voor het onderste gedeelte van het distributiepunt en U voor de bovenzijde van het distributiepunt.
+* Gemiddelde - Hallo normale verdeling gemiddelde.
+* SD - standaardafwijking Hallo-normale distributie. 
+* Side - L voor lagere zijde Hallo Hallo verdeling en U voor Hallo bovenzijde Hallo-verdeling.
 
-De uitvoer van de service is de berekende kans die is gekoppeld aan de opgegeven kwantiel.
+Hallo-uitvoer van Hallo-service is Hallo berekend kans dat is gekoppeld aan Hallo kwantiel gegeven.
 
 ### <a name="normal-distribution-generator"></a>Normale verdeling Generator
-Deze service accepteert 3 argumenten van een normale verdeling en genereert een willekeurige volgorde van de cijfers die normaal gesproken worden gedistribueerd. De volgende argumenten moeten worden opgegeven in de aanvraag:
+Deze service accepteert 3 argumenten van een normale verdeling en genereert een willekeurige volgorde van de cijfers die normaal gesproken worden gedistribueerd. Hallo moeten volgende argumenten worden opgegeven tooit binnen Hallo-aanvraag:
 
-* n - het aantal metingen. 
-* gemiddelde - het gemiddelde van de normale verdeling.
-* SD - de standaarddeviatie van de normale verdeling. 
+* n - Hallo aantal metingen. 
+* gemiddelde - Hallo normale verdeling gemiddelde.
+* SD - standaardafwijking Hallo-normale distributie. 
 
-De uitvoer van de service is een opeenvolging van lengte n met een normale verdeling op basis van de gemiddelde en sd-argumenten.
+Hallo-uitvoer van Hallo-service is een reeks van lengte n met een normale verdeling op basis van Hallo gemiddelde en sd-argumenten.
 
-> Deze service wordt gehost op Azure Marketplace, een OData-service Deze kunnen worden aangeroepen via POST of GET-methoden. 
+> Deze service is gehost op Azure Marketplace Hallo een OData-service Deze kunnen worden aangeroepen via POST of GET-methoden. 
 > 
 > 
 
-Er zijn meerdere manieren van de consumptie van de service op automatische wijze (voorbeeld-apps worden hier: [Generator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionGenerator.aspx), [kans Rekenmachine](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionProbabilityCalculator.aspx), [kwantiel Rekenmachine](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionQuantileCalculator.aspx)).
+Er zijn meerdere manieren Hallo-service op automatische wijze verbruikt (voorbeeld-apps worden hier: [Generator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionGenerator.aspx), [kans Rekenmachine](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionProbabilityCalculator.aspx), [kwantiel Rekenmachine](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionQuantileCalculator.aspx)).
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>C#-code voor het web service starten:
 ### <a name="normal-distribution-quantile-calculator"></a>Normale verdeling kwantiel Rekenmachine
@@ -177,7 +177,7 @@ Er zijn meerdere manieren van de consumptie van de service op automatische wijze
 > 
 > 
 
-Hieronder vindt u een schermopname van het experiment dat de web-service en een voorbeeld van code voor elk van de modules in het experiment gemaakt.
+Hieronder staat een screenshot van Hallo experiment die Hallo web service en voorbeeld-code hebt gemaakt voor elk Hallo-modules in Hallo experiment.
 
 ### <a name="normal-distribution-quantile-calculator"></a>Normale verdeling kwantiel Rekenmachine
 Stroom experiment:
@@ -186,9 +186,9 @@ Stroom experiment:
 
     #Data schema with example data (replaced with data from web service)
     data.set=data.frame(p=0.1,mean=0,sd=1,side='L');
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
 
-    # Map 1-based optional input ports to variables
+    # Map 1-based optional input ports toovariables
     dataset1 <- maml.mapInputPort(1) # class: data.frame
 
     param = dataset1
@@ -211,7 +211,7 @@ Stroom experiment:
 
     output = as.data.frame(q)
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("output");
 
 ### <a name="normal-distribution-probability-calculator"></a>Normale verdeling kans Rekenmachine
@@ -221,9 +221,9 @@ Stroom experiment:
 
      #Data schema with example data (replaced with data from web service)
     data.set=data.frame(q=-1,mean=0,sd=1,side='L');
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
 
-    # Map 1-based optional input ports to variables
+    # Map 1-based optional input ports toovariables
     dataset1 <- maml.mapInputPort(1) # class: data.frame
 
     param = dataset1
@@ -241,7 +241,7 @@ Stroom experiment:
 
     output = as.data.frame(prob)
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("output");
 
 ### <a name="normal-distribution-generator"></a>Normale verdeling Generator
@@ -251,9 +251,9 @@ Stroom experiment:
 
     #Data schema with example data (replaced with data from web service)
     data.set=data.frame(n=50,mean=0,sd=1);
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
 
-    # Map 1-based optional input ports to variables
+    # Map 1-based optional input ports toovariables
     dataset1 <- maml.mapInputPort(1) # class: data.frame
 
     param = dataset1
@@ -261,14 +261,14 @@ Stroom experiment:
 
     output = as.data.frame(t(dist))
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("output");
 
 ## <a name="limitations"></a>Beperkingen
-Dit zijn eenvoudige voorbeelden rondom de normale verdeling. Zoals u kunt zien van de bovenstaande voorbeeldcode, is weinig fout vastgelegd geïmplementeerd.
+Dit zijn eenvoudige voorbeelden omringende Hallo normaalverdeling. Zoals u kunt zien van Hallo voorbeeldcode hierboven, is weinig fout vastgelegd geïmplementeerd.
 
 ## <a name="faq"></a>Veelgestelde vragen
-Zie voor veelgestelde vragen over het verbruik van de webservice of publiceren naar Azure Marketplace [hier](machine-learning-marketplace-faq.md).
+Zie voor veelgestelde vragen over het verbruik van de webservice Hallo of publishing toohello Azure Marketplace [hier](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-normal-distribution/normal-img1.png
 [2]: ./media/machine-learning-r-csharp-normal-distribution/normal-img2.png

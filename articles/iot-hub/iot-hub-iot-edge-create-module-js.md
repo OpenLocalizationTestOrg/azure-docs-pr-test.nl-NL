@@ -1,6 +1,6 @@
 ---
-title: Een Azure IoT-Edge-Module maken met behulp van Node.js | Microsoft Docs
-description: Deze zelfstudie gepresenteerd het schrijven van een Aanmeldingsprompt gegevens converter module met behulp van de meest recente Azure IoT rand NPM pakketten en Yeoman generator.
+title: aaaCreate een Azure IoT Edge-Module met behulp van Node.js | Microsoft Docs
+description: Deze zelfstudie gepresenteerd hoe een Aanmeldingsprompt gegevens converter module met toowrite Hallo meest recente Azure IoT rand NPM pakketten en Yeoman generator.
 services: iot-hub
 author: sushi
 manager: timlt
@@ -11,23 +11,23 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: sushi
-ms.openlocfilehash: ba466f47e157d805600c41fa3d84ed5a0363969c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d3e696b5a310377ffb8e99998ff0714bf7c0bb41
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-nodejs"></a>Een Azure IoT-Edge-Module maken met behulp van Node.js
 
-Deze zelfstudie maken van een module voor Azure IoT rand in de JS gepresenteerd.
+Deze zelfstudie gepresenteerd hoe toocreate een module voor Azure IoT rand in de JS.
 
-In deze zelfstudie we doorlopen omgeving in te stellen en het schrijven van een [uitschakelen](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) gegevens converter module met behulp van de meest recente Azure IoT rand NPM-pakketten.
+In deze zelfstudie bekijken we omgeving in te stellen en hoe toowrite een [uitschakelen](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) gegevens converter module met behulp van de meest recente Azure IoT rand NPM pakketten Hallo.
 
 ## <a name="prerequisites"></a>Vereisten
 
-In deze sectie, moet u uw omgeving voor het ontwikkelen van de module IoT rand instellen. Van toepassing op beide *64-bits Windows* en *64-bits Linux (Ubuntu) 14 +* besturingssystemen.
+In deze sectie, moet u uw omgeving voor het ontwikkelen van de module IoT rand instellen. Toepassing tooboth *64-bits Windows* en *64-bits Linux (Ubuntu) 14 +* besturingssystemen.
 
-De volgende software is vereist:
+Hallo volgende software is vereist:
 * [GIT Client](https://git-scm.com/downloads).
 * [Knooppunt TNS](https://nodejs.org).
 * `npm install -g yo`.
@@ -35,41 +35,41 @@ De volgende software is vereist:
 
 ## <a name="architecture"></a>Architectuur
 
-Het platform Azure IoT rand sterk neemt de [Von Neumann architectuur](https://en.wikipedia.org/wiki/Von_Neumann_architecture). Wat betekent dat de volledige rand van Azure IoT-architectuur is een systeem dat invoer verwerkt en produceert uitvoer; en elke afzonderlijke module is ook een klein input-output-subsysteem. In deze zelfstudie stellen we de volgende twee modules:
+Hello Azure IoT rand platform aanneemt sterk Hallo [Von Neumann architectuur](https://en.wikipedia.org/wiki/Von_Neumann_architecture). Wat betekent dat Hallo volledige rand van Azure IoT-architectuur is een systeem dat invoer verwerkt en produceert uitvoer; en elke afzonderlijke module is ook een klein input-output-subsysteem. In deze zelfstudie stellen we Hallo na twee modules:
 
 1. Een module die u een gesimuleerde ontvangt [uitschakelen](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) signaal en converteert naar een geformatteerde [JSON](https://en.wikipedia.org/wiki/JSON) bericht.
-2. Een module die worden afgedrukt de ontvangen [JSON](https://en.wikipedia.org/wiki/JSON) bericht.
+2. Een module die worden afgedrukt Hallo ontvangen [JSON](https://en.wikipedia.org/wiki/JSON) bericht.
 
-De volgende afbeelding geeft de typische end-to-end-gegevensstroom voor dit project weer:
+Hallo bevat volgende afbeelding Hallo typische end tooend gegevensstroom voor dit project:
 
 ![Gegevensstroom tussen drie modules](media/iot-hub-iot-edge-create-module/dataflow.png "invoer: gesimuleerde uitschakelen Module. Processor: Converter Module. Uitvoer: Printer Module")
 
-## <a name="set-up-the-environment"></a>De omgeving instellen
-Hieronder wordt beschreven hoe u snel omgeving instellen om te beginnen met het schrijven van uw eerste uitschakelen converter module met JS.
+## <a name="set-up-hello-environment"></a>Hallo-omgeving instellen
+Hieronder zien we u hoe tooquickly ingesteld omgeving toostart toowrite uw eerste uitschakelen converter module met JS.
 
 ### <a name="create-module-project"></a>Module-project maken
 1. Open een opdrachtregelvenster, voert u `yo az-iot-gw-module`.
-2. Volg de stappen op het scherm voor het voltooien van de initialisatie van de module-project.
+2. Volg de stappen Hallo op Hallo scherm toofinish Hallo initialisatie van de module-project.
 
 ### <a name="project-structure"></a>Projectstructuur
-Een module JS project bestaat uit de volgende onderdelen:
+Een module JS project bestaat uit Hallo volgende onderdelen:
 
-`modules`-De aangepaste JS module bronbestanden. De standaard vervangen `sensor.js` en `printer.js` met uw eigen module-bestanden.
+`modules`-Hallo aangepast JS module bronbestanden. Hallo standaard vervangen `sensor.js` en `printer.js` met uw eigen module-bestanden.
 
-`app.js`-De post-bestand om het exemplaar van de rand te starten.
+`app.js`-Hallo vermelding bestand toostart Hallo rand exemplaar.
 
-`gw.config.json`-Het configuratiebestand voor het aanpassen van de modules moeten worden geladen door een rand.
+`gw.config.json`-Hallo configuration file toocustomize Hallo modules toobe geladen door een rand.
 
-`package.json`-Informatie over de metagegevens voor module project.
+`package.json`-Hallo-metagegevens voor de module project.
 
-`README.md`-De basisdocumentatie voor module project.
+`README.md`-Hallo basisdocumentatie voor module project.
 
 
 ### <a name="package-file"></a>Het pakketbestand
 
-Dit `package.json` declareert alle informatie over de metagegevens die nodig is voor een module-project met de naam, versie, post, scripts, runtime en ontwikkeling afhankelijkheden.
+Dit `package.json` alle Hallo metagegevens die nodig is voor een module-project met de naam, versie, post, scripts, runtime en ontwikkeling afhankelijkheden Hallo declareert.
 
-Volgende codefragment toont hoe u configureert voor converter-voorbeeldproject uitschakelen.
+Na de code codefragment bevat steekproef tooconfigure uitschakelen conversieprogramma voor hoe project.
 ```json
 {
   "name": "converter",
@@ -95,7 +95,7 @@ Volgende codefragment toont hoe u configureert voor converter-voorbeeldproject u
 
 
 ### <a name="entry-file"></a>Post-bestand
-De `app.js` definieert de manier waarop het exemplaar van de rand initialiseren. Er hoeft niet hier een wijziging aanbrengt.
+Hallo `app.js` Hallo manier tooinitialize Hallo rand exemplaar definieert. Hier moeten niet we toomake elke wijziging.
 
 ```javascript
 (function() {
@@ -117,13 +117,13 @@ De `app.js` definieert de manier waarop het exemplaar van de rand initialiseren.
 ### <a name="interface-of-module"></a>Interface van de module
 U kunt een module voor Azure IoT rand behandelen als een processor van de gegevens waarvan de taak is: invoer ontvangen, verwerken en uitvoer te produceren.
 
-De invoer mogelijk gegevens van hardware (zoals een detectie beweging), een bericht van andere modules of iets anders (zoals een willekeurig getal die regelmatig worden gegenereerd door een timer).
+Hallo invoer mogelijk gegevens van hardware (zoals een detectie beweging), een bericht van andere modules of iets anders (zoals een willekeurig getal die regelmatig worden gegenereerd door een timer).
 
-De uitvoer is vergelijkbaar met de invoer gebruikt, kan het gedrag van hardware (zoals de knipperende LED), een bericht naar de andere modules of iets anders (zoals afdrukken naar de console) activeren.
+Hallo-uitvoer is vergelijkbaar toohello invoer gebruikt, kan het gedrag van hardware (zoals Hallo knipperende LED), een bericht tooother modules of iets anders (zoals afdrukken toohello console) activeren.
 
-Modules communiceren met elkaar met behulp van `message` object. De **inhoud** van een `message` is een bytematrix die geschikt is voor elk soort gegevens die u wilt dat vertegenwoordigt. **Eigenschappen** zijn ook beschikbaar in de `message` en gewoon de toewijzing van een tekenreeks-naar-tekenreeks zijn. U kunt zien **eigenschappen** als de kopteksten in een HTTP-aanvraag of de metagegevens van een bestand.
+Modules communiceren met elkaar met behulp van `message` object. Hallo **inhoud** van een `message` is een bytematrix die geschikt is voor elk soort gegevens die u wilt dat vertegenwoordigt. **Eigenschappen** zijn ook beschikbaar in Hallo `message` en gewoon de toewijzing van een tekenreeks-naar-tekenreeks zijn. U kunt zien **eigenschappen** als Hallo veldnamen in een HTTP-aanvraag of Hallo metagegevens van een bestand.
 
-Om een Azure-IoT-Edge van de module JS ontwikkelt, moet u een nieuwe module-object dat de vereiste methoden implementeert maken `receive()`. Op dit punt wordt u mogelijk ook voor kiezen voor het implementeren van de optionele `create()` of `start()`, of `destroy()` ook methoden. Het volgende codefragment bevat de steiger van JS module-object.
+In de volgorde toodevelop een Azure-IoT-Edge van de module JS, moet u een nieuwe moduleobject dat Hallo vereist methoden implementeert toocreate `receive()`. Op dit moment, u kunt ook tooimplement Hallo optionele `create()` of `start()`, of `destroy()` ook methoden. Hallo volgende codefragment toont dat u Hallo scaffolding van JS module-object.
 
 ```javascript
 'use strict';
@@ -158,16 +158,16 @@ module.exports = {
 | ------------------------ | -------------------------------------- | ---------------------- | ---------------------- |
 | Bericht temperatuur-gegevens | Parseren en het maken van een nieuwe JSON-bericht | Structuur JSON-bericht | `converter.js` |
 
-Dit is een typische Azure IoT Edge-module. De cmdlet accepteert temperatuur berichten van andere modules (een hardware-module of in dit geval onze gesimuleerde uitschakelen module); en vervolgens Normaliseert het temperatuur-bericht in een gestructureerde JSON-bericht (inclusief het toevoegen van de bericht-ID, de eigenschap van het of we moeten de temperatuur waarschuwing activeren, enzovoort).
+Dit is een typische Azure IoT Edge-module. De cmdlet accepteert temperatuur berichten van andere modules (een hardware-module of in dit geval onze gesimuleerde uitschakelen module); en vervolgens normaliseert temperatuur het Hallo-bericht in tooa gestructureerd JSON bericht (inclusief voegen Hallo bericht-ID, Hallo-eigenschap van het of we tootrigger Hallo temperatuur waarschuwing moeten enzovoort).
 
 ```javascript
 receive: function (message) {
-  // Initialize the messageCount in global object at first time.
+  // Initialize hello messageCount in global object at first time.
   if (!global.messageCount) {
     global.messageCount = 0;
   }
 
-  // Read the content and properties objects from message.
+  // Read hello content and properties objects from message.
   let rawContent = JSON.parse(Buffer.from(message.content).toString('utf8'));
   let rawProperties = message.properties;
 
@@ -185,7 +185,7 @@ receive: function (message) {
     temperature: rawContent.temperature
   };
 
-  // Publish the new message to broker.
+  // Publish hello new message toobroker.
   this.broker.publish(
     {
       properties: newProperties,
@@ -198,9 +198,9 @@ receive: function (message) {
 ### <a name="printer-module"></a>Module printer
 | Invoer                          | Processor | Uitvoer                     | Bronbestand          |
 | ------------------------------ | --------- | -------------------------- | -------------------- |
-| Een bericht ontvangen van andere modules | N.v.t.       | Meld u het bericht aan console | `printer.js` |
+| Een bericht ontvangen van andere modules | N.v.t.       | Meld u Hallo-bericht tooconsole | `printer.js` |
 
-Deze module is eenvoudig, zelfverklarend, die het terminalvenster uitgang van de ontvangen berichten (eigenschap, inhoud).
+Deze module is eenvoudig, zelfverklarend, die Hallo ontvangen berichten (eigenschap, inhoud) toohello terminalvenster levert.
 
 ```javascript
 receive: function (message) {
@@ -213,9 +213,9 @@ receive: function (message) {
 ```
 
 ### <a name="configuration"></a>Configuratie
-De laatste stap voordat u de modules is voor het configureren van de rand van de IoT Azure en de verbindingen tussen modules.
+laatste stap voordat u de modules Hallo Hallo is tooconfigure hello Azure IoT rand en tooestablish Hallo verbindingen tussen modules.
 
-Eerst moet u declareren onze `node` loader (sinds het Azure IoT rand ondersteunt laadprogramma's van verschillende talen) die kan worden verwezen door de `name` in de secties later.
+Eerst moet u toodeclare onze `node` loader (sinds het Azure IoT rand ondersteunt laadprogramma's van verschillende talen) die kan worden verwezen door de `name` in daarna Hallo-secties.
 
 ```json
 "loaders": [
@@ -226,7 +226,7 @@ Eerst moet u declareren onze `node` loader (sinds het Azure IoT rand ondersteunt
 ]
 ```
 
-Wanneer we onze laadprogramma's hebt gedeclareerd, moeten we ook onze modules ook declareren. Net als bij het declareren van het laadprogramma's, kan ook worden verwezen door hun `name` kenmerk. Als u een module definieert, moeten we de lader van de het moet gebruiken (dit moet zijn voordat is gedefinieerd) opgeven en het-ingangspunt (moet de genormaliseerde klassenaam van onze module zijn) voor elke module. De `simulated_device` is een systeemeigen module die is opgenomen in de Azure IoT rand core runtime-pakket. Omvatten `args` in de JSON-bestand, zelfs indien deze `null`.
+Wanneer we onze laadprogramma's hebt gedeclareerd, ook moet toodeclare ook onze modules. Te laadprogramma's vergelijkbaar toodeclaring hello, kan ook worden verwezen door hun `name` kenmerk. Als u een module definieert, moeten we toospecify Hallo loader het moet gebruiken (dit moet Hallo een we gedefinieerd vóór zijn) en het Hallo ingangspunt (moet Hallo genormaliseerde klassenaam van onze module zijn) voor elke module. Hallo `simulated_device` is een systeemeigen module die is opgenomen in hello Azure IoT rand core runtime-pakket. Omvatten `args` in JSON-bestand zelfs indien deze Hallo `null`.
 
 ```json
 "modules": [
@@ -266,7 +266,7 @@ Wanneer we onze laadprogramma's hebt gedeclareerd, moeten we ook onze modules oo
 ]
 ```
 
-Aan het einde van de configuratie maken we de verbindingen. Elke verbinding wordt uitgedrukt door `source` en `sink`. Ze moeten beide verwijzen naar een vooraf gedefinieerde module. Het uitvoerbericht van `source` module wordt doorgestuurd naar de invoer van `sink` module.
+Aan het einde van de Hallo van Hallo configuratie maken we Hallo verbindingen. Elke verbinding wordt uitgedrukt door `source` en `sink`. Ze moeten beide verwijzen naar een vooraf gedefinieerde module. Hallo-bericht van uitvoer van `source` module doorgestuurd toohello invoer van `sink` module.
 
 ```json
 "links": [
@@ -281,11 +281,11 @@ Aan het einde van de configuratie maken we de verbindingen. Elke verbinding word
 ]
 ```
 
-## <a name="running-the-modules"></a>De modules uitgevoerd
+## <a name="running-hello-modules"></a>Hallo-modules uitgevoerd
 1. `npm install`
 2. `npm start`
 
-Als u wilt dat de toepassing beëindigt, drukt u op `<Enter>` sleutel.
+Als u tooterminate Hallo toepassing wilt, drukt u op `<Enter>` sleutel.
 
 > [!IMPORTANT]
-> Het is niet raadzaam gebruik Ctrl + c drukken om de rand van de IoT-toepassing te beëindigen. Als op deze manier ertoe leiden het proces is abnormaal beëindigd dat kan.
+> Het wordt niet aangeraden toouse Ctrl + C tooterminate Hallo IoT rand toepassing. Als op deze manier Hallo proces tooterminate abnormaal veroorzaken kan.

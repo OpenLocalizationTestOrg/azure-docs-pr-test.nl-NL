@@ -1,6 +1,6 @@
 ---
-title: Beheren van uw StorSimple-volumecontainers | Microsoft Docs
-description: Legt uit hoe u kunt de pagina van de volume-containers voor de StorSimple Manager-service toevoegen, wijzigen of verwijderen van een volumecontainer.
+title: aaaManage uw StorSimple-volumecontainers | Microsoft Docs
+description: Legt uit hoe u Hallo StorSimple Manager service volumecontainers tooadd pagina, wijzigen of verwijderen van een volumecontainer kunt gebruiken.
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -14,49 +14,49 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/24/2016
 ms.author: v-sharos
-ms.openlocfilehash: bb55a7a4bff0fd4319de6f6ce958686ad8a4142b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9b29536e0072306e53ac92bacca78a13d932c2b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-storsimple-manager-service-to-manage-storsimple-volume-containers"></a>De StorSimple Manager-service gebruiken voor het beheren van StorSimple volumecontainers
+# <a name="use-hello-storsimple-manager-service-toomanage-storsimple-volume-containers"></a>Hallo StorSimple Manager-service toomanage StorSimple volumecontainers gebruiken
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie wordt uitgelegd hoe de StorSimple Manager-service maken en beheren van StorSimple volumecontainers gebruiken.
+Deze zelfstudie wordt uitgelegd hoe toouse StorSimple Manager service toocreate Hallo en beheer containers voor StorSimple-volume.
 
 Een volumecontainer in een Microsoft Azure StorSimple-apparaat bevat een of meer volumes die storage-account, versleuteling en verbruik van bandbreedte-instellingen delen. Een apparaat kan meerdere volumecontainers voor alle volumes hebben. 
 
-Een volumecontainer heeft de volgende kenmerken:
+Een volumecontainer heeft Hallo volgende kenmerken:
 
-* **Volumes** – de lagen of lokaal vastgemaakt StorSimple-volumes die zijn opgenomen in de volumecontainer. Een volumecontainer mag maximaal 256 StorSimple-volumes bevatten.
-* **Versleuteling** – een versleutelingssleutel die kan worden gedefinieerd voor elke volumecontainer. Deze sleutel wordt gebruikt voor het versleutelen van de gegevens die door uw StorSimple-apparaat wordt verzonden naar de cloud. Een defensie hoogwaardige AES-256-bitssleutel wordt gebruikt door de gebruiker ingevoerde sleutel. Uw gegevens wilt beveiligen, is het raadzaam dat u altijd versleuteling van cloudopslag inschakelen.
-* **Storage-account** – het opslagaccount dat is gekoppeld aan uw serviceprovider voor cloud-opslag. Alle volumes die zich in een volumecontainer delen dit opslagaccount. U kunt een opslagaccount kiezen uit een bestaande lijst of maak een nieuw account als u de volumecontainer maken en geef vervolgens de referenties voor toegang voor dat account.
-* **Cloud bandbreedte** – de bandbreedte die door het apparaat worden gebruikt wanneer de gegevens van het apparaat worden verzonden naar de cloud. U kunt een bandbreedteregeling afdwingen door een waarde tussen 1 en 1000 Mbps bij het definiëren van deze container. Als u het apparaat voor gebruik van alle beschikbare bandbreedte wilt, moet u dit veld ingesteld op onbeperkt. U kunt ook maken en toepassen van een bandbreedtesjabloon op basis van schema-bandbreedte toewijzen.
+* **Volumes** – Hallo lagen of lokaal vastgemaakt StorSimple-volumes die zijn opgenomen in de volumecontainer Hallo. Een volumecontainer kan up too256 StorSimple-volumes bevatten.
+* **Versleuteling** – een versleutelingssleutel die kan worden gedefinieerd voor elke volumecontainer. Deze sleutel wordt gebruikt voor het versleutelen van Hallo-gegevens die worden verzonden vanuit uw StorSimple-apparaat toohello cloud. Een defensie hoogwaardige AES-256-bitssleutel wordt gebruikt met de gebruiker ingevoerde Hallo-sleutel. toosecure uw gegevens, het is raadzaam dat u altijd versleuteling van cloudopslag inschakelen.
+* **Storage-account** – Hallo storage-account dat is gekoppeld tooyour cloud-opslag-serviceprovider. Alle Hallo volumes die zich in een volumecontainer delen dit opslagaccount. U kunt een opslagaccount kiezen uit een bestaande lijst of maak een nieuw account als u Hallo volumecontainer maken en geef vervolgens Hallo-referenties voor dat account.
+* **Cloud bandbreedte** – Hallo netwerkbandbreedte verbruikt door Hallo apparaat wanneer het Hallo-gegevens van het Hallo-apparaat toohello cloud worden verzonden. U kunt een bandbreedteregeling afdwingen door een waarde tussen 1 en 1000 Mbps bij het definiëren van deze container. Als u Hallo apparaat tooconsume alle beschikbare bandbreedte wilt, stelt u dit veld tooUnlimited. U kunt ook maken en toepassen van een bandbreedte tooallocate bandbreedte van het sjabloon op basis van de planning.
 
 ![Volume containers pagina](./media/storsimple-manage-volume-containers/HCS_VolumeContainersPage.png)
 
-Deze volgende procedures wordt uitgelegd hoe u de StorSimple **volumecontainers** pagina om de volgende algemene bewerkingen uitgevoerd:
+Deze volgende procedures wordt uitgelegd hoe toouse StorSimple Hallo **volumecontainers** pagina toocomplete Hallo algemene bewerkingen te volgen:
 
 * Een volumecontainer toevoegen 
 * Een volumecontainer wijzigen 
 * Een volumecontainer verwijderen 
 
 ## <a name="add-a-volume-container"></a>Een volumecontainer toevoegen
-Voer de volgende stappen uit om een volumecontainer toevoegen.
+Volgende stappen tooadd een volumecontainer Hallo uitvoeren.
 
 [!INCLUDE [storsimple-add-volume-container](../../includes/storsimple-add-volume-container.md)]
 
 ## <a name="modify-a-volume-container"></a>Een volumecontainer wijzigen
-Voer de volgende stappen uit voor het wijzigen van een volumecontainer.
+Volgende stappen toomodify een volumecontainer Hallo uitvoeren.
 
 [!INCLUDE [storsimple-modify-volume-container](../../includes/storsimple-modify-volume-container.md)]
 
 ## <a name="delete-a-volume-container"></a>Een volumecontainer verwijderen
-Een volumecontainer heeft volumes in het. Worden kan verwijderd als de volumes die zijn opgenomen in het eerst worden verwijderd. Voer de volgende stappen uit voor het verwijderen van een volumecontainer.
+Een volumecontainer heeft volumes in het. Deze kan alleen als alle Hallo volumes die dit eerst worden verwijderd, worden verwijderd. Volgende stappen toodelete een volumecontainer Hallo uitvoeren.
 
 [!INCLUDE [storsimple-delete-volume-container](../../includes/storsimple-delete-volume-container.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [StorSimple-volumes beheren](storsimple-manage-volumes.md). 
-* Meer informatie over [de StorSimple Manager-service gebruiken voor het beheer van uw StorSimple-apparaat](storsimple-manager-service-administration.md).
+* Meer informatie over [StorSimple Manager service tooadminister uw StorSimple-apparaat met behulp van Hallo](storsimple-manager-service-administration.md).
 

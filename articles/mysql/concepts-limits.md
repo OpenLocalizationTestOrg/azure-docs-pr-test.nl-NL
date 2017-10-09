@@ -1,5 +1,5 @@
 ---
-title: Beperkingen in Azure-Database voor MySQL | Microsoft Docs
+title: aaaLimitations in Azure-Database voor MySQL | Microsoft Docs
 description: Preview-beperkingen in Azure-Database voor MySQL beschrijft.
 services: mysql
 author: jasonh
@@ -9,19 +9,19 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/10/2017
-ms.openlocfilehash: c61d70897b66c2ffee819ac98c38ab75000db907
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9c877c592bf640f62182d8761c9c51363882d706
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="limitations-in-azure-database-for-mysql-preview"></a>Beperkingen in Azure-Database voor MySQL (Preview)
-De Azure-Database voor de MySQL-service is in de openbare preview. De volgende secties beschrijven de capaciteit en functionele limieten in de database-service.
+Hello Azure Database voor de MySQL-service is in de openbare preview. Hallo volgende secties beschrijven capaciteit en functionele limieten in Hallo database-service.
 
 ## <a name="service-tier-maximums"></a>Service Tier maximumwaarden
 Azure MySQL-Database heeft meerdere Servicelagen die u kiezen kunt uit bij het maken van een server. Zie voor meer informatie [begrijpen wat er beschikbaar is in elke servicelaag](concepts-service-tiers.md).  
 
-Er is een maximum aantal verbindingen, compute-eenheden en opslag in elke servicelaag tijdens de preview service als volgt: 
+Er is een maximum aantal verbindingen, compute-eenheden en opslag in elke servicelaag tijdens Hallo service preview, als volgt: 
 
 |                            |                   |
 | :------------------------- | :---------------- |
@@ -39,7 +39,7 @@ Er is een maximum aantal verbindingen, compute-eenheden en opslag in elke servic
 | Basisservicelaag         | 1 TB              |
 | Standaardservicelaag      | 1 TB              |
 
-Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
+Wanneer er te veel verbindingen zijn bereikt, wordt het foutbericht Hallo volgende fout:
 > FOUT (08004) 1040: Te veel verbindingen
 
 ## <a name="preview-functional-limitations"></a>Preview functionele beperkingen:
@@ -55,7 +55,7 @@ Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
 - Dynamisch vooraf gemaakte servers verplaatsen tussen abonnement en resourcegroep is momenteel niet ondersteund.
 
 ### <a name="point-in-time-restore"></a>Punt-in-time-terugzetten:
-1.  Herstellen naar andere servicelaag en/of Compute-eenheden en de opslaggrootte is niet toegestaan.
+1.  Herstellen van de servicelaag toodifferent en/of Compute-eenheden en de opslaggrootte is niet toegestaan.
 2.  Herstellen van een uitgevallen server wordt niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen

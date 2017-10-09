@@ -1,5 +1,5 @@
 ---
-title: Batch-berichten verwerken als een groep of een verzameling - Azure Logic Apps | Microsoft Docs
+title: verwerken van berichten aaaBatch als een groep of een verzameling - Azure Logic Apps | Microsoft Docs
 description: Verzenden en ontvangen van berichten voor batchverwerking in logic apps
 keywords: batch, batchproces
 author: jonfancey
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: 480ffce5dbe7c25181bb0ba5639de884e98ff4e6
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2603db71ee0659d5b6bf5ce3d32f1b0d13c34194
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Verzenden, ontvangen en verwerken van berichten in logic apps batch
 
-Voor het verwerken van berichten samen in groepen, u kunt verzenden gegevensitems of berichten naar een *batch*, en vervolgens deze items als een batch te verwerken. Deze methode is handig als u wilt controleren of gegevensitems worden gegroepeerd in een bepaalde manier en samen worden verwerkt. 
+tooprocess berichten samen in groepen, kunt u gegevens items of berichten, tooa verzenden *batch*, en vervolgens deze items als een batch te verwerken. Deze methode is handig als u wilt ervoor gegevensitems toomake zijn gegroepeerd in een bepaalde manier en samen worden verwerkt. 
 
-Kunt u logic apps die items als een batch met behulp van ontvangen de **Batch** trigger. Vervolgens kunt u maken logic apps die items naar een batch te met behulp van verzenden de **Batch** in te grijpen.
+U kunt logische apps die items als een batch ontvangen met behulp van Hallo maken **Batch** trigger. Vervolgens kunt u logische apps die items tooa batch verzenden met behulp van Hallo maken **Batch** in te grijpen.
 
 Dit onderwerp wordt beschreven hoe u een batchen oplossing kunt maken met het uitvoeren van deze taken: 
 
-* [Maken van een logische app dat ontvangt en verzamelt items als batch](#batch-receiver). Deze 'batch ontvanger' logische app geeft de batch-naam en release criteria om te voldoen aan voordat u de ontvanger logische app vrijgegeven en worden items verwerkt. 
+* [Maken van een logische app dat ontvangt en verzamelt items als batch](#batch-receiver). Deze 'batch ontvanger' logische app geeft Hallo batch naam en release criteria toomeet voor Hallo ontvanger logische app vrijgegeven en worden items verwerkt. 
 
-* [Maken van een logische app waarmee items worden verzonden naar een batch](#batch-sender). Deze 'batch afzender' logische app geeft aan waar items, die een bestaande batch ontvanger logic app moet verzenden. U kunt ook een unieke sleutel, zoals een klantnummer 'partitie' of delen, de doel-batch in subsets op basis van die sleutel opgeven. Op die manier worden alle items met die sleutel verzameld en verwerkt samen. 
+* [Maken van een logische app die u items tooa batch verzendt](#batch-sender). Deze 'batch afzender' logische app geeft aan waar toosend-items een bestaande batch ontvanger logic app moeten. U kunt ook een unieke sleutel, zoals een klantnummer opgeven, te 'partitie' of delen, Hallo doel batch in subsets op basis van die sleutel. Op die manier worden alle items met die sleutel verzameld en verwerkt samen. 
 
 ## <a name="requirements"></a>Vereisten
 
-Wilt u dit voorbeeld gebruiken, moet u deze items:
+toofollow in dit voorbeeld moet u deze items:
 
 * Een Azure-abonnement. Als u geen abonnement hebt, kunt u [beginnen met een gratis Azure-account](https://azure.microsoft.com/free/). U kunt eventueel ook direct kiezen voor [een Betalen per gebruik-abonnement](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Elementaire kennis over [logic apps maken](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Elementaire kennis over [hoe toocreate logic apps](../logic-apps/logic-apps-create-a-logic-app.md) 
 
 * Een e-mailaccount met een [e-provider wordt ondersteund door Azure Logic Apps](../connectors/apis-list.md)
 
@@ -47,32 +47,32 @@ Wilt u dit voorbeeld gebruiken, moet u deze items:
 
 ## <a name="create-logic-apps-that-receive-messages-as-a-batch"></a>Logic apps die berichten te als een batch ontvangen maken
 
-Voordat u berichten naar een batch verzenden kunt, moet u eerst een 'batch ontvanger' logische app met maken de **Batch** trigger. Op die manier kunt u deze ontvanger logic app bij het maken van de afzender logische app. Voor de ontvanger geeft u de batchnaam van de, release criteria en andere instellingen. 
+Voordat u berichten tooa batch verzenden kunt, moet u eerst een 'batch ontvanger' logische app maken met de Hallo **Batch** trigger. Op die manier kunt u deze ontvanger logic app bij het maken van Hallo afzender logische app. Voor de ontvanger hello geeft u Hallo batchnaam, versie criteria en andere instellingen. 
 
-Afzender logische apps moeten weten waar items, terwijl de ontvanger logische apps hoeft niet te weten over de afzenders.
+Afzender logische apps moeten weten waar toosend items, terwijl de ontvanger logische apps tooknow alles over Hallo afzenders niet nodig.
 
-1. In de [Azure-portal](https://portal.azure.com), een logische app maken met deze naam: 'BatchReceiver' 
+1. In Hallo [Azure-portal](https://portal.azure.com), een logische app maken met deze naam: 'BatchReceiver' 
 
-2. In Logic Apps Designer, voegt u de **Batch** trigger uw logische app-werkstroom op te starten. Voer in het zoekvak 'batch' als filter. Selecteer deze trigger: **Batch: Batch-berichten**
+2. In Logic Apps Designer toevoegen Hallo **Batch** trigger uw logische app-werkstroom op te starten. Voer in het zoekvak hello, 'batch' als filter. Selecteer deze trigger: **Batch: Batch-berichten**
 
    ![Batch-trigger toevoegen](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
-3. Geef een naam voor de batch en Geef criteria op voor het vrijgeven van de batch, bijvoorbeeld:
+3. Geef een naam voor de batch Hallo en Geef criteria op voor het vrijgeven van Hallo batch, bijvoorbeeld:
 
-   * **Batch-naam**: de naam die wordt gebruikt voor het identificeren van de batch is 'TestBatch' in dit voorbeeld.
-   * **Aantal berichten**: het aantal berichten voor het opslaan als een batch voordat voor verwerking, namelijk '5' in dit voorbeeld zijn vrijgegeven.
+   * **Batch-naam**: Hallo naam die wordt gebruikt tooidentify Hallo batch, namelijk 'TestBatch' in dit voorbeeld.
+   * **Aantal berichten**: het aantal berichten toohold Hallo als batch voordat vrijgegeven voor verwerking, namelijk '5' in dit voorbeeld.
 
    ![Geef details op Batch trigger](./media/logic-apps-batch-process-send-receive-messages/receive-batch-trigger-details.png)
 
-4. Voeg een andere actie die een e-mailbericht wordt verzonden wanneer de batch-trigger wordt geactiveerd. Telkens wanneer die de batch vijf items heeft in de logische app verzendt een e-mailbericht.
+4. Voeg een andere actie die een e-mailbericht wordt verzonden wanneer Hallo batch trigger wordt geactiveerd. Elke keer Hallo-batch heeft vijf items, Hallo logic app stuurt een e-mailbericht.
 
-   1. Kies onder de trigger batch **+ een nieuwe stap** > **een actie toevoegen**.
+   1. Kies onder Hallo batch worden geactiveerd, **+ een nieuwe stap** > **een actie toevoegen**.
 
-   2. Voer in het zoekvak 'e' als filter.
+   2. Voer in het zoekvak hello, 'e' als filter.
    Op basis van uw e-mailprovider, selecteert u een e-connector.
    
-      Als u een account voor werk of school hebt, Selecteer bijvoorbeeld de Outlook van Office 365-connector. 
-      Als u een Gmail-account hebt, selecteert u de connector Gmail.
+      Als u een account voor werk of school hebt, Selecteer bijvoorbeeld Hallo Outlook van Office 365-connector. 
+      Als u een Gmail-account hebt, selecteert u Hallo Gmail connector.
 
    3. Deze actie voor de connector selecteert:  **{*e-mailprovider*}-sturen een e-mail **
 
@@ -82,26 +82,26 @@ Afzender logische apps moeten weten waar items, terwijl de ontvanger logische ap
 
 5. Als u niet eerder verbinding kunt voor uw e-mailprovider maken, moet u uw e-referenties opgeven voor verificatie wanneer u wordt gevraagd. Meer informatie over [verifiëren van de referenties van uw e-mailadres](../logic-apps/logic-apps-create-a-logic-app.md).
 
-6. Stel de eigenschappen voor de actie die u zojuist hebt toegevoegd.
+6. Hallo eigenschappen instellen voor Hallo-actie die u zojuist hebt toegevoegd.
 
-   * In de **naar** Voer het e-mailadres van de geadresseerde. 
+   * In Hallo **naar** Voer Hallo ontvanger van e-mailadres. 
    U kunt uw eigen e-mailadres gebruiken voor testdoeleinden.
 
-   * In de **onderwerp** vak, wanneer de **dynamische inhoud** lijst wordt weergegeven, selecteert u de **partitienaam** veld.
+   * In Hallo **onderwerp** vak wanneer hello **dynamische inhoud** lijst wordt weergegeven, selecteert u Hallo **partitienaam** veld.
 
-     ![Selecteer in de lijst 'Dynamische inhoud', 'Partitienaam'](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png)
+     ![Selecteer 'Partitienaam' Hallo 'Dynamische inhoud' lijst](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png)
 
-     In een volgende sectie, kunt u een unieke partitiesleutel die verdeelt de doel-batch in logische groepen waarbij u kunt om berichten te verzenden. 
-     Elke set heeft een uniek nummer dat wordt gegenereerd door de afzender logische app. 
-     Deze mogelijkheid kunt u één batch met meerdere subsets gebruikt, en elke subset met de naam die u opgeeft.
+     In een volgende sectie, kunt u opgeven dat delen doel batch Hallo in logische unieke partitiesleutel ingesteld toowhere kunt u berichten verzenden. 
+     Elke set heeft een uniek nummer dat wordt gegenereerd door Hallo afzender logische app. 
+     Deze mogelijkheid kunt u één batch met meerdere subsets gebruikt, en elke subset met Hallo-naam die u opgeeft.
 
-   * In de **hoofdtekst** vak, wanneer de **dynamische inhoud** lijst wordt weergegeven, selecteert u de **bericht-Id** veld.
+   * In Hallo **hoofdtekst** vak wanneer hello **dynamische inhoud** lijst wordt weergegeven, selecteert u Hallo **bericht-Id** veld.
 
      ![Selecteer voor 'Hoofdtekst', 'bericht-Id](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
 
-     Omdat de invoer voor de e-mailbericht verzendactie een matrix is, voegt de ontwerpfunctie automatisch een **voor elk** lus rond de **e-mailbericht verzenden** in te grijpen. 
-     Deze lus voert de interne actie op elk item in de batch. 
-     Dus met de batch-trigger is ingesteld op vijf items, beschikt u over tijd vijf e-mails die de trigger wordt geactiveerd.
+     Omdat het Hallo-invoer voor Hallo verzenden e-actie is een matrix, voegt Hallo designer automatisch een **voor elk** lus rond Hallo **e-mailbericht verzenden** in te grijpen. 
+     Deze lus voert Hallo binnenste actie op elk item in Hallo batch. 
+     Dus met Hallo batch trigger set toofive items krijgt u vijf e-mailberichten die elke keer Hallo trigger wordt geactiveerd.
 
 7.  Nu dat u een batch ontvanger logische app hebt gemaakt, sla uw logische app.
 
@@ -109,61 +109,61 @@ Afzender logische apps moeten weten waar items, terwijl de ontvanger logische ap
 
 <a name="batch-sender"></a>
 
-## <a name="create-logic-apps-that-send-messages-to-a-batch"></a>Logic apps die berichten naar een batch verzenden maken
+## <a name="create-logic-apps-that-send-messages-tooa-batch"></a>Maken van logische apps die berichten tooa batch verzenden
 
-Maak nu een of meer logische apps die items naar de batch gedefinieerd door de ontvanger logische app verzendt. Voor de afzender geeft u de ontvanger logische app en de batchnaam van de, inhoud van het bericht en eventuele andere instellingen. U kunt eventueel een unieke partitiesleutel voor het delen van de batch in deelverzamelingen voor het verzamelen van items met die sleutel opgeven.
+Maak nu een of meer logische apps die items toohello batch gedefinieerd door Hallo ontvanger logische app verzendt. Voor de afzender hello geeft u Hallo ontvanger logische app en de batchnaam van de, inhoud van het bericht en eventuele andere instellingen. Desgewenst kunt u een unieke partitie sleutel toodivide Hallo batch in subsets toocollect items met die sleutel opgeven.
 
-Afzender logische apps moeten weten waar items, terwijl de ontvanger logische apps hoeft niet te weten over de afzenders.
+Afzender logische apps moeten weten waar toosend items, terwijl de ontvanger logische apps tooknow alles over Hallo afzenders niet nodig.
 
 1. Een andere logische app maken met deze naam: 'BatchSender'
 
-   1. Voer in het zoekvak "recurrence" als filter. 
+   1. Voer in het zoekvak Hallo "recurrence" als filter. 
    Selecteer deze trigger: **schema - terugkeerpatroon**
 
-      ![Toevoegen van de trigger "Terugkeerpatroon plannen"](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-receiver.png)
+      ![Hallo "Terugkeerpatroon plannen" trigger toevoegen](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-receiver.png)
 
-   2. Stel de frequentie en het interval om uit te voeren van de afzender logische app elke minuut.
+   2. Hallo-frequentie en interval toorun Hallo afzender logische app elke minuut instellen.
 
       ![Frequentie en het interval voor de trigger terugkeerpatroon ingesteld](./media/logic-apps-batch-process-send-receive-messages/recurrence-trigger-batch-receiver-details.png)
 
-2. Voeg een nieuwe stap voor het verzenden van berichten naar een batch.
+2. Voeg een nieuwe stap voor het verzenden van berichten tooa batch.
 
-   1. Kies onder de trigger terugkeerpatroon **+ een nieuwe stap** > **een actie toevoegen**.
+   1. Kies onder Hallo terugkeerpatroon trigger **+ een nieuwe stap** > **een actie toevoegen**.
 
-   2. Voer in het zoekvak 'batch' als filter. 
+   2. Voer in het zoekvak hello, 'batch' als filter. 
 
-   3. Deze actie selecteert: **berichten verzenden naar batch: Kies een werkstroom Logic Apps met batch-trigger**
+   3. Deze actie selecteert: **verzenden van berichten toobatch: Kies een werkstroom Logic Apps met batch-trigger**
 
-      ![Selecteer 'Verzenden van berichten in een batch moet'](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
+      ![Selecteer 'Verzenden berichten toobatch'](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
 
    4. Nu uw 'BatchReceiver' logische app die u eerder hebt gemaakt, die nu wordt weergegeven als een actie selecteren.
 
       !['Batch ontvanger' logische app selecteren](./media/logic-apps-batch-process-send-receive-messages/send-batch-select-batch-receiver.png)
 
       > [!NOTE]
-      > De lijst bevat ook andere logic apps waarvoor de batch-triggers.
+      > Hallo-lijst bevat ook andere logic apps waarvoor de batch-triggers.
 
-3. De Batcheigenschappen instellen.
+3. Hallo Batcheigenschappen instellen.
 
-   * **Batch-naam**: de batchnaam gedefinieerd door de ontvanger logische app, die 'TestBatch' in dit voorbeeld en wordt gevalideerd tijdens runtime.
+   * **Batch-naam**: de naam van de batch Hallo gedefinieerd Hallo ontvanger logische app, die 'TestBatch' in dit voorbeeld en wordt gevalideerd tijdens runtime.
 
      > [!IMPORTANT]
-     > Zorg ervoor dat u de batchnaam, die moet overeenkomen met de batchnaam die wordt opgegeven door de ontvanger logische app niet te wijzigen.
-     > Als de batchnaam van de wijzigt, wordt de afzender logische app mislukken.
+     > Zorg ervoor dat u Hallo batchnaam, die moet overeenkomen met Hallo batchnaam die opgegeven door Hallo ontvanger logische app niet te wijzigen.
+     > Naam van de batch veranderende Hallo zorgt ervoor dat Hallo afzender logic app toofail.
 
-   * **Inhoud bericht**: de inhoud van het bericht dat u wilt verzenden. 
-   Voor dit voorbeeld voegen deze expressie die de huidige datum en tijd worden ingevoegd in de inhoud van het bericht dat u de batch verzenden:
+   * **Inhoud bericht**: inhoud van het bericht dat u wilt dat toosend Hallo. 
+   Voor dit voorbeeld voegen deze expressie Hallo huidige datum en tijd van toevoegingen, in het Hallo-bericht inhoud die u toohello batch verzendt:
 
-     1. Wanneer de **dynamische inhoud** lijst wordt weergegeven, kies **expressie**. 
-     2. Voer de expressie **utcnow()**, en kies **OK**. 
+     1. Wanneer Hallo **dynamische inhoud** lijst wordt weergegeven, kies **expressie**. 
+     2. Voer Hallo expressie **utcnow()**, en kies **OK**. 
 
         ![Kies in 'Bericht inhoud', 'Expressie'. Voer 'utcnow()'.](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details.png)
 
-4. Nu ingesteld op een partitie voor de batch. Kies in de actie 'BatchReceiver' **geavanceerde opties weergeven**.
+4. Nu ingesteld op een partitie voor Hallo batch. Kies in de actie 'BatchReceiver' hello, **geavanceerde opties weergeven**.
 
-   * **De naam van partitie**: een optionele unieke partitiesleutel moet worden gebruikt voor het verdelen van de doel-batch. Voor dit voorbeeld voegt u een expressie die een willekeurig getal tussen een en vijf genereert.
+   * **De naam van partitie**: een optionele unieke partitie sleutel toouse voor het verdelen van Hallo doel batch. Voor dit voorbeeld voegt u een expressie die een willekeurig getal tussen een en vijf genereert.
    
-     1. Wanneer de **dynamische inhoud** lijst wordt weergegeven, kies **expressie**.
+     1. Wanneer Hallo **dynamische inhoud** lijst wordt weergegeven, kies **expressie**.
      2. Voer deze expressie: **rand(1,6)**
 
         ![Instellen van een partitie voor de doel-batch](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-partition-advanced-options.png)
@@ -174,18 +174,18 @@ Afzender logische apps moeten weten waar items, terwijl de ontvanger logische ap
    * **Bericht-Id**: een optionele bericht-id en een gegenereerde GUID wanneer leeg is. 
    In dit voorbeeld laat u dit vak leeg.
 
-5. Sla uw logische app. Uw afzender logische app nu er ongeveer als volgt in dit voorbeeld:
+5. Sla uw logische app. Uw afzender logische app zoekt nu vergelijkbaar toothis voorbeeld:
 
    ![Sla uw logische app van afzender](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details-finished.png)
 
 ## <a name="test-your-logic-apps"></a>Uw logische apps testen
 
-Laat uw logische apps uitgevoerd voor een paar minuten voor het testen van uw batchen oplossing. U start binnenkort opvragen van e-mailberichten in groepen van vijf allemaal met dezelfde partitiesleutel.
+tootest uw oplossing, batchverwerking laat uw logische apps uitgevoerd voor een paar minuten. Binnenkort u begint met het ophalen van e-mailberichten in groepen van vijf, Hallo met dezelfde sleutel partitie.
 
-Uw BatchSender logische app uitgevoerd elke minuut, genereert een willekeurig getal tussen 1 en 5 en maakt gebruik van deze gegenereerd nummer als de partitiesleutel voor de doel-batch waarin berichten worden verzonden. Telkens wanneer die de batch vijf items met dezelfde partitiesleutel bevat uw BatchReceiver logische app wordt gestart en e-mail voor elk bericht verzendt.
+Uw BatchSender logische app uitgevoerd elke minuut, genereert een willekeurig getal tussen 1 en 5 en maakt gebruik van deze gegenereerd nummer als partitiesleutel Hallo voor Hallo doel batch waarin berichten worden verzonden. Telkens wanneer Hallo batch vijf items Hello bevat dezelfde partitiesleutel uw BatchReceiver logische app wordt geactiveerd en e-mail voor elk bericht verzendt.
 
 > [!IMPORTANT]
-> Wanneer u klaar bent testen, zorg ervoor dat de BatchSender logische app om te stoppen met het verzenden van berichten en te voorkomen dat uw postvak in overbelasting uit te schakelen.
+> Wanneer u klaar bent testen, zorg ervoor dat Hallo BatchSender logic app toostop verzenden van berichten uit te schakelen en te voorkomen dat uw postvak in overbelasting.
 
 ## <a name="next-steps"></a>Volgende stappen
 

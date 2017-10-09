@@ -1,6 +1,6 @@
 ---
-title: Hoe gebruik iOS SDK voor Azure Mobile Apps
-description: Hoe gebruik iOS SDK voor Azure Mobile Apps
+title: aaaHow tooUse iOS SDK voor Azure Mobile Apps
+description: Hoe tooUse iOS SDK voor Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: ios
 author: ysxu
@@ -14,31 +14,31 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
-ms.openlocfilehash: 65817208e1b26fb5f9eb56d164f48b44d57dce56
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fa299ab3f152bad12d821832fa9fb5495d1fa296
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Hoe gebruik iOS-clientbibliotheek voor Azure Mobile Apps
+# <a name="how-toouse-ios-client-library-for-azure-mobile-apps"></a>Hoe tooUse iOS-clientbibliotheek voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-Deze handleiding leert u veelvoorkomende scenario's met behulp van de meest recente uitvoeren [iOS SDK voor Azure Mobile Apps][1]. Als u niet bekend met Azure Mobile Apps bent, eerst voltooien [Azure Mobile Apps Quick Start] voor het maken van een back-end van een tabel maken en een vooraf samengestelde iOS Xcode-project downloaden. In deze handleiding richten we op de client-side iOS SDK. Zie voor meer informatie over de SDK-serverzijde voor de back-end, de HOWTOs van de SDK-Server.
+Deze handleiding leert u tooperform algemene scenario's met Hallo nieuwste [iOS SDK voor Azure Mobile Apps][1]. Als u nieuwe tooAzure Mobile Apps, eerst voltooien [Azure Mobile Apps Quick Start] toocreate een back-end van een tabel maken en deze te downloaden van een vooraf samengestelde iOS Xcode-project. In deze handleiding richten we op Hallo clientzijde iOS SDK. toolearn informatie over Hallo van server-side '-SDK voor Hallo back-end, Zie Hallo Server SDK HOWTOs.
 
 ## <a name="reference-documentation"></a>Referentiedocumentatie
-De documentatie bij de client-iOS SDK bevindt zich hier: [Azure Mobile Apps iOS referentie Client][2].
+Hallo-naslagdocumentatie voor Hallo iOS client SDK bevindt zich hier: [Azure Mobile Apps iOS referentie Client][2].
 
 ## <a name="supported-platforms"></a>Ondersteunde Platforms
-De iOS SDK biedt ondersteuning voor Objective-C-projecten, Swift 2.2 projecten en Swift 2.3 projecten voor iOS-versie 8.0 of hoger.
+Hallo iOS SDK biedt ondersteuning voor Objective-C-projecten, Swift 2.2 projecten en Swift 2.3 projecten voor iOS-versie 8.0 of hoger.
 
-De verificatie 'server-flow' maakt gebruik van een webweergave voor de gebruikersinterface weergegeven.  Als het apparaat is niet een UI WebView presentatie mogelijk en vervolgens een andere verificatiemethode is vereist is die buiten het bereik van het product.  
+Hallo 'server-flow' verificatie maakt gebruik van een webweergave voor Hallo gebruikersinterface weergegeven.  Als het Hallo-apparaat is niet kunnen toopresent een UI WebView en vervolgens een andere verificatiemethode is vereist is die buiten Hallo-bereik van Hallo product.  
 Deze SDK is derhalve niet geschikt voor controle-type of op dezelfde manier beperkte apparaten.
 
 ## <a name="Setup"></a>Het installatieprogramma en vereisten
-Deze handleiding wordt ervan uitgegaan dat u een back-end hebt gemaakt met een tabel. Deze handleiding wordt ervan uitgegaan dat de tabel heeft van hetzelfde schema als de tabellen in deze zelfstudies. Deze handleiding wordt ervan uitgegaan dat in uw code u verwijzen naar `MicrosoftAzureMobile.framework` en importeer `MicrosoftAzureMobile/MicrosoftAzureMobile.h`.
+Deze handleiding wordt ervan uitgegaan dat u een back-end hebt gemaakt met een tabel. Deze handleiding wordt ervan uitgegaan dat Hallo-tabel heeft hetzelfde schema Hallo tabellen in deze zelfstudies. Deze handleiding wordt ervan uitgegaan dat in uw code u verwijzen naar `MicrosoftAzureMobile.framework` en importeer `MicrosoftAzureMobile/MicrosoftAzureMobile.h`.
 
 ## <a name="create-client"></a>How to: Client maken
-Als u een back-end van Azure Mobile Apps in uw project, maak een `MSClient`. Vervang `AppUrl` met de app-URL. U laten `gatewayURLString` en `applicationKey` leeg. Als u een gateway voor verificatie instelt, vullen `gatewayURLString` met de URL van de gateway.
+Maak een back-end van Azure Mobile Apps in uw project tooaccess een `MSClient`. Vervang `AppUrl` met Hallo app-URL. U laten `gatewayURLString` en `applicationKey` leeg. Als u een gateway voor verificatie instelt, vullen `gatewayURLString` met Hallo gateway URL.
 
 **Objective-C**:
 
@@ -54,7 +54,7 @@ let client = MSClient(applicationURLString: "AppUrl")
 
 
 ## <a name="table-reference"></a>How to: tabelverwijzing maken
-Maak een verwijzing naar de back-endtabel als u gegevens wilt bekijken of bijwerken. Vervang `TodoItem` door de naam van uw tabel
+tooaccess of update gegevens, maken een verwijzing toohello back-end-tabel. Vervang `TodoItem` met de naam van de tabel Hallo
 
 **Objective-C**:
 
@@ -70,7 +70,7 @@ let table = client.tableWithName("TodoItem")
 
 
 ## <a name="querying"></a>Procedure: een Query over gegevens
-Query voor het maken van een databasequery uitvoeren op de `MSTable` object. De volgende query haalt alle items in `TodoItem` en registreert de tekst van elk item.
+toocreate een databasequery query Hallo `MSTable` object. Hallo volgende query haalt alle Hallo items in `TodoItem` en logboeken Hallo tekst van elk item.
 
 **Objective-C**:
 
@@ -101,16 +101,16 @@ table.readWithCompletion { (result, error) in
 ```
 
 ## <a name="filtering"></a>How to: Filter gegevens geretourneerd
-Om resultaten te filteren, zijn er veel opties beschikbaar.
+toofilter resultaten, er zijn veel opties beschikbaar.
 
-Als u wilt filteren met behulp van een predicaat, gebruiken een `NSPredicate` en `readWithPredicate`. De volgende filters resultaatgegevens om alleen onvolledige Todo-items te vinden.
+met behulp van een predicaat, gebruik toofilter een `NSPredicate` en `readWithPredicate`. Hallo volgende filtert geretourneerde gegevens toofind alleen onvolledige Todo-items.
 
 **Objective-C**:
 
 ```
 // Create a predicate that finds items where complete is false
 NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-// Query the TodoItem table
+// Query hello TodoItem table
 [table readWithPredicate:predicate completion:^(MSQueryResult *result, NSError *error) {
         if(error) {
                 NSLog(@"ERROR %@", error);
@@ -127,7 +127,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 ```
 // Create a predicate that finds items where complete is false
 let predicate =  NSPredicate(format: "complete == NO")
-// Query the TodoItem table
+// Query hello TodoItem table
 table.readWithPredicate(predicate) { (result, error) in
     if let err = error {
         print("ERROR ", err)
@@ -140,7 +140,7 @@ table.readWithPredicate(predicate) { (result, error) in
 ```
 
 ## <a name="query-object"></a>How to: MSQuery gebruiken
-Als een complexe query (inclusief sortering en paginering) uitvoert, maakt u een `MSQuery` object, rechtstreeks of via een predikaat:
+tooperform maken van een complexe query's (inclusief sortering en paginering), een `MSQuery` object, rechtstreeks of via een predikaat:
 
 **Objective-C**:
 
@@ -159,16 +159,16 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 `MSQuery`kunt u verschillende query gedrag bepalen.
 
 * Geef de volgorde van resultaten
-* Beperken welke velden u wilt retourneren
-* Hoeveel records om terug te beperken
+* Welke velden tooreturn beperken
+* Hoeveel records tooreturn beperken
 * Totaal aantal opgeven om in het antwoord
 * Aangepaste queryreeksparameters in aanvraag opgeven
 * Aanvullende functies toepassen
 
-Uitvoeren van een `MSQuery` query door het aanroepen van `readWithCompletion` op het object.
+Uitvoeren van een `MSQuery` query door het aanroepen van `readWithCompletion` op Hallo-object.
 
 ## <a name="sorting"></a>How to: gegevens met MSQuery sorteren
-Om te sorteren resultaten, kunt u een voorbeeld gaan we kijken. Aanroepen om te sorteren op het veld 'text' oplopende, vervolgens op het 'complete' aflopende, `MSQuery` als volgt te werk:
+toosort resultaten, bekijk een voorbeeld. toosort op het veld 'text' oplopende, vervolgens op het 'complete' aflopende aanroepen `MSQuery` als volgt te werk:
 
 **Objective-C**:
 
@@ -204,7 +204,7 @@ query.readWithCompletion { (result, error) in
 
 
 ## <a name="selecting"></a><a name="parameters"></a>How to: beperken van velden en vouw queryreeksparameters met MSQuery
-Geef de namen van de velden in om te beperken velden moeten worden geretourneerd in een query, het **selectFields** eigenschap. In dit voorbeeld retourneert alleen de tekst en voltooide velden:
+toolimit velden toobe geretourneerd in een query opgeven Hallo namen van Hallo velden in Hallo **selectFields** eigenschap. In dit voorbeeld retourneert alleen tekst hello en voltooide velden:
 
 **Objective-C**:
 
@@ -218,7 +218,7 @@ query.selectFields = @[@"text", @"complete"];
 query.selectFields = ["text", "complete"]
 ```
 
-Als u wilt aanvullende queryreeksparameters opnemen in de aanvraag van de server (bijvoorbeeld omdat ze maakt gebruik van een aangepast script van de server-side), vullen `query.parameters` als volgt te werk:
+de aanvullende queryreeksparameters tooinclude in Hallo-server aanvragen (bijvoorbeeld omdat ze maakt gebruik van een aangepast script van de server-side), vullen `query.parameters` als volgt te werk:
 
 **Objective-C**:
 
@@ -236,17 +236,17 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 ```
 
 ## <a name="paging"></a>How to: paginaformaat configureren
-Met Azure Mobile Apps bepaalt de grootte van het aantal records dat tegelijk uit de back-end-tabellen worden opgehaald. Een aanroep van `pull` gegevens zou vervolgens batch-up van gegevens, op basis van dit paginaformaat tot er zijn geen records meer om op te halen.
+Met Azure Mobile Apps Hallo Hallo grootte paginabesturingselementen aantal records dat tegelijk uit Hallo back-end tabellen worden opgehaald. Een gesprek te starten`pull` gegevens zou vervolgens batch-up van gegevens, op basis van dit paginaformaat totdat er geen meer records toopull.
 
-Het is mogelijk voor het configureren van een pagina grootte met **MSPullSettings** zoals hieronder wordt weergegeven. Grootte van de pagina is 50 en het onderstaande voorbeeld gewijzigd in 3.
+Het is mogelijk tooconfigure een pagina grootte met **MSPullSettings** zoals hieronder wordt weergegeven. Hallo standaardpaginaformaat 50 en Hallo in het volgende voorbeeld wordt too3.
 
-U kunt een ander paginaformaat Prestatieoverwegingen configureren. Als u een groot aantal kleine gegevensrecords hebt, minder een hoge paginaformaat server retourbewerkingen.
+U kunt een ander paginaformaat Prestatieoverwegingen configureren. Als er een groot aantal kleine gegevensrecords, vermindert een hoge paginaformaat Hallo aantal retouren van de server.
 
-Deze instelling bepaalt de paginagrootte aan de clientzijde. Als de client om een pagina groter vraagt dan de back-end van Mobile Apps wordt ondersteund, is het paginaformaat beperkt tot het maximum dat de back-end is geconfigureerd voor ondersteuning.
+Deze instelling bepaalt alleen Hallo paginagrootte aan clientzijde Hallo. Als Hallo client om een pagina groter vraagt dan het Hallo Mobile Apps-back-end wordt ondersteund, is het paginaformaat Hallo beperkt tot Hallo maximale Hallo backend geconfigureerde toosupport is.
 
-Deze instelling is ook de *getal* gegevensrecords, niet de *bytegrootte*.
+Deze instelling is ook Hallo *getal* van records met gegevens niet Hallo *bytegrootte*.
 
-Als u het formaat van de client verhoogt, moet u ook de paginagrootte van de op de server te verhogen. Zie [' How to: pas de grootte van de tabel paginering '](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) voor de stappen om dit te doen.
+Als u Hallo client paginagrootte verhoogt, moet u ook de paginagrootte Hallo op Hallo server verhogen. Zie [' How to: Hallo tabel paginering grootte aanpassen '](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) voor Hallo toodo dit stappen.
 
 **Objective-C**:
 
@@ -273,11 +273,11 @@ table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
 ```
 
 ## <a name="inserting"></a>How to: gegevens invoegen
-Voor het invoegen van een rij in een nieuwe tabel maken van een `NSDictionary` en oproepen `table insert`. Als [dynamische Schema] is ingeschakeld, de Azure App Service mobiele back-end genereert automatisch nieuwe kolommen op basis van de `NSDictionary`.
+maken van een nieuwe tabelrij tooinsert een `NSDictionary` en oproepen `table insert`. Als [dynamische Schema] is ingeschakeld, hello Azure App Service mobiele back-end genereert automatisch nieuwe kolommen die zijn gebaseerd op Hallo `NSDictionary`.
 
-Als `id` is niet opgegeven, wordt de back-end genereert automatisch een nieuwe unieke ID. Geef uw eigen `id` e-mailadres gebruiken adressen, gebruikersnamen, of uw eigen aangepaste waarden als de ID. Uw eigen ID bieden gemakkelijker joins en database zakelijke logica.
+Als `id` is niet opgegeven Hallo back-end automatisch een nieuwe unieke ID genereert. Geef uw eigen `id` toouse e-adressen, gebruikersnamen of uw eigen aangepaste waarden als de ID. Uw eigen ID bieden gemakkelijker joins en database zakelijke logica.
 
-De `result` bevat het nieuwe item dat is ingevoegd. Afhankelijk van de logische server, kan deze extra of gewijzigde gegevens vergeleken met wat is doorgegeven aan de server hebben.
+Hallo `result` bevat nieuwe Hallo-item dat is ingevoegd. Afhankelijk van de logische server wellicht aanvullende of gewijzigde gegevens vergeleken toowhat toohello server is doorgegeven.
 
 **Objective-C**:
 
@@ -306,7 +306,7 @@ table.insert(newItem) { (result, error) in
 ```
 
 ## <a name="modifying"></a>How to: gegevens wijzigen
-Voor het bijwerken van een bestaande rij wijzigen van een item en de aanroep `update`:
+een bestaande rij tooupdate wijzigen een item en de aanroep `update`:
 
 **Objective-C**:
 
@@ -337,7 +337,7 @@ if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
 }
 ```
 
-U kunt ook de rij-ID en het bijgewerkte veld opgeven:
+U kunt ook Hallo rij-ID en het Hallo bijgewerkt veld opgeven:
 
 **Objective-C**:
 
@@ -363,10 +363,10 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 }
 ```
 
-Ten minste de `id` kenmerk moet worden ingesteld bij het maken van updates.
+Ten minste Hallo `id` kenmerk moet worden ingesteld bij het maken van updates.
 
 ## <a name="deleting"></a>How to: gegevens verwijderen
-Als u wilt een item verwijdert, worden aangeroepen `delete` met het item:
+aanroepen van toodelete een item, `delete` met Hallo item:
 
 **Objective-C**:
 
@@ -418,12 +418,12 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 }
 ```
 
-Ten minste de `id` kenmerk moet worden ingesteld wanneer u wordt verwijderd.
+Ten minste Hallo `id` kenmerk moet worden ingesteld wanneer u wordt verwijderd.
 
 ## <a name="customapi"></a>How to: aangepaste API aanroepen
-Met een aangepaste API kan geen back-end-functies worden blootgesteld. Heeft geen toewijzen aan een tabel-bewerking. Niet alleen doet u meer controle krijgen over messaging, maar u kunt zelfs lezen/set headers en wijzigt u de indeling van het antwoord-instantie. Lees voor meer informatie over het maken van een aangepaste API gebruiken op de back-end, [aangepaste API's](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
+Met een aangepaste API kan geen back-end-functies worden blootgesteld. Heeft geen toomap tooa tabel bewerking. Niet alleen doet u meer controle krijgen over messaging, maar u kunt zelfs lezen/set headers en het Hallo-antwoordindeling hoofdtekst wijzigen. hoe toocreate aangepaste API op Hallo backend, lees toolearn [aangepaste API's](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
 
-Voor het aanroepen van aangepaste API aanroepen `MSClient.invokeAPI`. De aanvraag en antwoord inhoud worden behandeld als JSON. Andere typen media [gebruik de andere overbelasting van `invokeAPI` ] [ 5].  Om ervoor een `GET` aanvragen in plaats van een `POST` aanvraagt, setparameter `HTTPMethod` naar `"GET"` en parameter `body` naar `nil` (omdat de GET-aanvragen beschikt niet over de berichttekst.) Als uw aangepaste API andere HTTP-termen ondersteunt, wijzigt u `HTTPMethod` op de juiste wijze.
+toocall aangepaste API aanroepen `MSClient.invokeAPI`. Hallo-aanvraag en -antwoord inhoud worden behandeld als JSON. toouse andere mediatypen [gebruik andere overbelasting van de Hallo `invokeAPI` ] [ 5].  toomake een `GET` aanvragen in plaats van een `POST` aanvraagt, setparameter `HTTPMethod` te`"GET"` en parameter `body` te`nil` (omdat de GET-aanvragen beschikt niet over de berichttekst.) Als uw aangepaste API andere HTTP-termen ondersteunt, wijzigt u `HTTPMethod` op de juiste wijze.
 
 **Objective-C**:
 
@@ -460,8 +460,8 @@ client.invokeAPI("sendEmail",
         }
 ```
 
-## <a name="templates"></a>Hoe: Register push sjablonen om platformoverschrijdende meldingen te verzenden
-Voor het registreren van sjablonen doorgeven sjablonen met uw **client.push registerDeviceToken** methode in uw client-app.
+## <a name="templates"></a>Hoe: Register sjablonen toosend platformoverschrijdende pushmeldingen
+tooregister sjablonen, doorgeven sjablonen met uw **client.push registerDeviceToken** methode in uw client-app.
 
 **Objective-C**:
 
@@ -483,7 +483,7 @@ Voor het registreren van sjablonen doorgeven sjablonen met uw **client.push regi
     })
 ```
 
-Uw sjablonen van het type NSDictionary en kunnen meerdere sjablonen in de volgende indeling bevatten:
+Uw sjablonen van het type NSDictionary en kunnen meerdere sjablonen in de volgende indeling Hallo bevatten:
 
 **Objective-C**:
 
@@ -497,12 +497,12 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
-Alle codes worden verwijderd van de aanvraag voor beveiliging.  Zie voor informatie over het toevoegen van labels op installaties of -sjablonen in installaties [werken met de .NET-back-endserver SDK voor Azure Mobile Apps][4].  Om meldingen te verzenden met behulp van deze geregistreerde sjablonen, werken met [Notification Hubs-API's][3].
+Alle codes zijn verwijderd uit het Hallo-aanvraag voor beveiliging.  tooadd tags tooinstallations of sjablonen binnen installaties, Zie [werken met back-endserver voor Hallo .NET SDK voor Azure Mobile Apps][4].  toosend meldingen met behulp van deze sjablonen geregistreerde werken met [Notification Hubs-API's][3].
 
 ## <a name="errors"></a>How to: afhandelen van fouten
-Wanneer u een Azure App Service mobiele back-end aanroept, wordt het blok voltooiing bevat een `NSError` parameter. Wanneer er een fout optreedt, wordt met deze parameter niet nul is. U moet deze parameter inschakelt en verwerken van de fout naar behoefte, zoals wordt beschreven in de voorgaande codefragmenten in uw code.
+Wanneer u een Azure App Service mobiele back-end aanroept, Hallo voltooiing blok bevat een `NSError` parameter. Wanneer er een fout optreedt, wordt met deze parameter niet nul is. U moet deze parameter inschakelt en verwerken Hallo fout indien nodig, zoals wordt beschreven in voorgaande codefragmenten Hallo in uw code.
 
-Het bestand [ `<WindowsAzureMobileServices/MSError.h>` ] [ 6] definieert de constanten `MSErrorResponseKey`, `MSErrorRequestKey`, en `MSErrorServerItemKey`. Ophalen van meer gegevens met betrekking tot de volgende fout:
+Hallo bestand [ `<WindowsAzureMobileServices/MSError.h>` ] [ 6] definieert Hallo constanten `MSErrorResponseKey`, `MSErrorRequestKey`, en `MSErrorServerItemKey`. tooget toohello fout met betrekking tot meer gegevens:
 
 **Objective-C**:
 
@@ -516,7 +516,7 @@ NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 let serverItem = error.userInfo[MSErrorServerItemKey]
 ```
 
-Het bestand definieert bovendien constanten voor elke foutcode:
+Hallo-bestand definieert bovendien constanten voor elke foutcode:
 
 **Objective-C**:
 
@@ -530,26 +530,26 @@ if (error.code == MSErrorPreconditionFailed) {
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-## <a name="adal"></a>Procedure: verificatie van gebruikers met de Active Directory Authentication Library
-U kunt de Active Directory Authentication Library (ADAL) gebruiken voor het ondertekenen van gebruikers in uw toepassing met Azure Active Directory. Stroom clientverificatie met een id-provider SDK heeft de voorkeur boven met behulp van de `loginWithProvider:completion:` methode.  Stroom clientverificatie biedt een meer systeemeigen UX idee en kunt u extra aanpassingen.
+## <a name="adal"></a>Procedure: verificatie van gebruikers met Active Directory Authentication Library Hallo
+U kunt Hallo Active Directory Authentication Library (ADAL) toosign gebruikers in uw toepassing met Azure Active Directory. Clientverificatie-stroom met een id-provider SDK is beter toousing hello `loginWithProvider:completion:` methode.  Stroom clientverificatie biedt een meer systeemeigen UX idee en kunt u extra aanpassingen.
 
-1. Uw mobiele app back-end voor aanmelding bij de AAD instellen door de [App Service configureren voor Active Directory-aanmelding] [ 7] zelfstudie. Zorg ervoor dat de optionele stap voor het registreren van een systeemeigen clienttoepassing van voltooien. Voor iOS-, we raden aan dat de omleidings-URI van het formulier is `<app-scheme>://<bundle-id>`. Zie voor meer informatie de [ADAL iOS Quick Start][8].
-2. Installeren met behulp van Cocoapods ADAL. Uw Podfile zodanig dat de volgende definitie bewerken vervangen **uw PROJECT** met de naam van uw Xcode-project:
+1. Uw mobiele app back-end voor aanmelding bij de AAD configureren door de volgende Hallo [hoe tooconfigure App Service voor Active Directory-aanmelding] [ 7] zelfstudie. Zorg ervoor dat toocomplete Hallo optionele stap voor het registreren van een systeemeigen clienttoepassing van. Voor iOS, raden we aan dat Hallo omleidings-URI Hallo vorm is `<app-scheme>://<bundle-id>`. Zie voor meer informatie, Hallo [ADAL iOS Quick Start][8].
+2. Installeren met behulp van Cocoapods ADAL. Uw Podfile tooinclude Hallo definitie te volgen en vervangt bewerken **uw PROJECT** met Hallo-naam van uw Xcode-project:
 
         source 'https://github.com/CocoaPods/Specs.git'
         link_with ['YOUR-PROJECT']
         xcodeproj 'YOUR-PROJECT'
 
-   en een schil:
+   en Hallo schil:
 
         pod 'ADALiOS'
-3. Met behulp van de Terminal en voer `pod install` uit de directory waarin u uw project en open vervolgens de gegenereerde Xcode-werkruimte (niet op het project).
-4. De volgende code toevoegen aan uw toepassing, volgens de taal die u gebruikt. In elk, moet u deze vervangingen:
+3. Hallo Terminal uitvoeren met `pod install` uit Hallo directory waarin u uw project en open vervolgens Hallo gegenereerd Xcode-werkruimte (geen Hallo project).
+4. Voeg Hallo code tooyour toepassing te volgen, op basis van toohello taal die u gebruikt. In elk, moet u deze vervangingen:
 
-   * Vervang **INSERT-instantie-hier** met de naam van de tenant waarin u uw toepassing hebt ingericht. De indeling moet https://login.microsoftonline.com/contoso.onmicrosoft.com. Deze waarde kan worden gekopieerd vanaf het tabblad domein in uw Azure Active Directory in de [klassieke Azure portal].
-   * Vervang **INSERT RESOURCE-ID hier** met de client-ID voor uw back-end voor de mobiele app. U vindt de client-ID van de **Geavanceerd** tabblad onder **Azure Active Directory-instellingen** in de portal.
-   * Vervang **INSERT-CLIENT-ID-hier** met de client-ID die u hebt gekopieerd uit de native client-toepassing.
-   * Vervang **INSERT-OMLEIDINGS-URI-hier** aan uw site */.auth/login/done* eindpunt, met behulp van het HTTPS-schema. Deze waarde moet er ongeveer als *https://contoso.azurewebsites.net/.auth/login/done*.
+   * Vervang **INSERT-instantie-hier** met de naam van de Hallo van Hallo tenant waarin u uw toepassing hebt ingericht. De indeling moet https://login.microsoftonline.com/contoso.onmicrosoft.com. Deze waarde kan worden gekopieerd Hallo domein tabblad in uw Azure Active Directory in Hallo [klassieke Azure portal].
+   * Vervang **INSERT RESOURCE-ID hier** met Hallo client-ID voor uw back-end voor de mobiele app. U kunt de client-ID verkrijgen van Hallo **Geavanceerd** tabblad onder **Azure Active Directory-instellingen** in Hallo-portal.
+   * Vervang **INSERT-CLIENT-ID-hier** met client-ID Hallo u hebt gekopieerd uit Hallo native client-toepassing.
+   * Vervang **INSERT-OMLEIDINGS-URI-hier** aan uw site */.auth/login/done* eindpunt, met Hallo HTTPS-schema. Deze waarde moet er ongeveer te*https://contoso.azurewebsites.net/.auth/login/done*.
 
 **Objective-C**:
 
@@ -588,7 +588,7 @@ U kunt de Active Directory Authentication Library (ADAL) gebruiken voor het onde
 
 **SWIFT**:
 
-    // add the following imports to your bridging header:
+    // add hello following imports tooyour bridging header:
     //        #import <ADALiOS/ADAuthenticationContext.h>
     //        #import <ADALiOS/ADAuthenticationSettings.h>
 
@@ -612,14 +612,14 @@ U kunt de Active Directory Authentication Library (ADAL) gebruiken voor het onde
             }
     }
 
-## <a name="facebook-sdk"></a>Procedure: verificatie van gebruikers met de Facebook-SDK voor iOS
-U kunt de Facebook SDK voor iOS gebruiken voor het ondertekenen van gebruikers in uw toepassing met Facebook.  Met behulp van een stroom clientverificatie heeft de voorkeur boven met behulp van de `loginWithProvider:completion:` methode.  De verificatie van de client-stroom biedt een meer systeemeigen UX idee en kunt u extra aanpassingen.
+## <a name="facebook-sdk"></a>Procedure: verificatie van gebruikers met Hallo Facebook SDK voor iOS
+U kunt Hallo Facebook SDK voor iOS toosign gebruikers in uw toepassing met Facebook.  Met behulp van een stroom clientverificatie is beter toousing hello `loginWithProvider:completion:` methode.  Hallo-clientverificatie stroom biedt een meer systeemeigen UX idee en kunt u extra aanpassingen.
 
-1. Uw mobiele app back-end voor aanmelding bij Facebook instellen door de [App Service configureren voor aanmelding Facebook] [ 9] zelfstudie.
-2. De Facebook-SDK voor iOS installeren door de [Facebook SDK voor iOS - aan de slag] [ 10] documentatie. In plaats van een app maken, kunt u het iOS-platform toevoegen aan uw bestaande registratie.
-3. Facebook van documentatie bevat enkele Objective-C-code in de gemachtigde voor de App. Als u **Swift**, kunt u de volgende vertalingen voor AppDelegate.swift:
+1. Uw mobiele app back-end voor aanmelding bij Facebook instellen door de [hoe tooconfigure App Service voor Facebook aanmelding] [ 9] zelfstudie.
+2. Hallo Facebook SDK voor iOS door de volgende Hallo installeren [Facebook SDK voor iOS - aan de slag] [ 10] documentatie. In plaats van een app maken, kunt u bestaande tooyour-registratie van de Hallo iOS-platform toevoegen.
+3. Facebook van documentatie bevat enkele Objective-C-code in Hallo App gemachtigde. Als u **Swift**, kunt u Hallo vertalingen voor AppDelegate.swift te volgen:
 
-        // Add the following import to your bridging header:
+        // Add hello following import tooyour bridging header:
         //        #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
         func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
@@ -633,8 +633,8 @@ U kunt de Facebook SDK voor iOS gebruiken voor het ondertekenen van gebruikers i
             // Add any custom logic here.
             return handled
         }
-4. Naast het toevoegen van `FBSDKCoreKit.framework` aan uw project een verwijzing naar ook toevoegen `FBSDKLoginKit.framework` op dezelfde manier.
-5. De volgende code toevoegen aan uw toepassing, volgens de taal die u gebruikt.
+4. In aanvulling tooadding `FBSDKCoreKit.framework` tooyour project, Voeg een verwijzing ook te`FBSDKLoginKit.framework` in Hallo dezelfde manier.
+5. Voeg Hallo code tooyour toepassing te volgen, op basis van toohello taal die u gebruikt.
 
 **Objective-C**:
 
@@ -664,7 +664,7 @@ U kunt de Facebook SDK voor iOS gebruiken voor het ondertekenen van gebruikers i
 
 **SWIFT**:
 
-    // Add the following imports to your bridging header:
+    // Add hello following imports tooyour bridging header:
     //        #import <FBSDKLoginKit/FBSDKLoginKit.h>
     //        #import <FBSDKCoreKit/FBSDKAccessToken.h>
 
@@ -685,17 +685,17 @@ U kunt de Facebook SDK voor iOS gebruiken voor het ondertekenen van gebruikers i
     }
 
 ## <a name="twitter-fabric"></a>Procedure: verificatie van gebruikers met Twitter Fabric voor iOS
-Fabric voor iOS kunt u gebruikers zich aanmelden in uw toepassing met Twitter. Verificatie van client-stroom heeft de voorkeur boven met behulp van de `loginWithProvider:completion:` methode, zoals deze biedt een meer systeemeigen UX idee en kunt u extra aanpassingen.
+U kunt voor iOS toosign gebruikers Fabric in uw toepassing met Twitter. Clientverificatie voor de stroom is beter toousing hello `loginWithProvider:completion:` methode, zoals deze biedt een meer systeemeigen UX idee en kunt u extra aanpassingen.
 
-1. Instellen van uw mobiele app back-end voor Twitter aanmelding door de [App Service configureren voor aanmelding Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) zelfstudie.
-2. Fabric toevoegen aan uw project door de [Fabric voor iOS - aan de slag] documentatie en TwitterKit in te stellen.
+1. Uw mobiele app back-end voor aanmelding bij Twitter configureren door de volgende Hallo [hoe tooconfigure App Service voor Twitter aanmelding](app-service-mobile-how-to-configure-twitter-authentication.md) zelfstudie.
+2. Voeg Fabric tooyour project met de volgende Hallo [Fabric voor iOS - aan de slag] documentatie en TwitterKit in te stellen.
 
    > [!NOTE]
-   > Standaard Fabric Twitter-toepassing voor u gemaakt. U kunt voorkomen dat een toepassing maken via het registreren van de Consumer-sleutel en de consumentgeheim eerder met de volgende codefragmenten hebt gemaakt.    U kunt ook kunt u de sleutel van de Consumer en consumentgeheim waarden die u in App Service met de waarden die u ziet opgeeft in vervangen de [Dashboard voor Infrastructuurresources]. Als u deze optie kiest, moet u de callback-URL, zoals ingesteld in een tijdelijke aanduidingswaarde, `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
+   > Standaard Fabric Twitter-toepassing voor u gemaakt. U kunt voorkomen dat het maken van een toepassing registreren Hallo Consumer-sleutel en consumentgeheim eerder met Hallo volgende codefragmenten hebt gemaakt.    U kunt ook kunt u Hallo consumentsleutel vervangen en consumentgeheim waarden op te geven tooApp Service Hello waarden die u hebt ziet in Hallo [Dashboard voor Infrastructuurresources]. Als u deze optie kiest, is ervoor tooset Hallo callback URL tooa tijdelijke aanduiding voor waarde, zoals `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
    >
    >
 
-    Als u gebruiken de geheimen die u eerder hebt gemaakt wilt, moet u de volgende code toevoegen aan uw App gemachtigde:
+    Als u toouse Hallo geheimen die u eerder hebt gemaakt kiest, toevoegen Hallo code tooyour App gemachtigde te volgen:
 
     **Objective-C**:
 
@@ -721,7 +721,7 @@ Fabric voor iOS kunt u gebruikers zich aanmelden in uw toepassing met Twitter. V
             // Add any custom logic here.
             return true
         }
-3. De volgende code toevoegen aan uw toepassing, volgens de taal die u gebruikt.
+3. Voeg Hallo code tooyour toepassing te volgen, op basis van toohello taal die u gebruikt.
 
 **Objective-C**:
 
@@ -758,12 +758,12 @@ Fabric voor iOS kunt u gebruikers zich aanmelden in uw toepassing met Twitter. V
         }
     }
 
-## <a name="google-sdk"></a>Procedure: verificatie van gebruikers met de Google-In SDK voor iOS
-U kunt de Google-In SDK voor iOS gebruiken voor het ondertekenen van gebruikers in uw toepassing met behulp van een Google-account.  Google aangekondigd onlangs wijzigingen in hun OAuth-beveiligingsbeleid.  Deze wijzigingen vereisen het gebruik van de Google-SDK in de toekomst.
+## <a name="google-sdk"></a>Procedure: verificatie van gebruikers met Hallo Google-In SDK voor iOS
+U kunt Hallo Google-In SDK voor iOS toosign gebruikers in uw toepassing met behulp van een Google-account gebruiken.  Google aangekondigd onlangs wijzigingen tootheir OAuth-beveiligingsbeleid.  Deze beleidswijzigingen vereist het gebruik van de Google-SDK in toekomstige Hallo Hallo.
 
-1. Instellen van uw mobiele app back-end voor Google aanmelding door de [het configureren van App Service voor Google aanmelding](app-service-mobile-how-to-configure-google-authentication.md) zelfstudie.
-2. Installeer de Google SDK voor iOS door de [Google Sign-In voor iOS - Start integreren](https://developers.google.com/identity/sign-in/ios/start-integrating) documentatie. U kunt de sectie 'Verifiëren met een back-endserver' overslaan.
-3. Voeg het volgende toe aan uw gemachtigde `signIn:didSignInForUser:withError:` methode volgens de taal die u gebruikt.
+1. Uw mobiele app back-end voor Google aanmelding configureren door de volgende Hallo [hoe tooconfigure App Service voor Google aanmelding](app-service-mobile-how-to-configure-google-authentication.md) zelfstudie.
+2. Hallo Google SDK voor iOS door de volgende Hallo installeren [Google Sign-In voor iOS - Start integreren](https://developers.google.com/identity/sign-in/ios/start-integrating) documentatie. Hallo verifiëren met een back-end sectie 'Server', kunt u overslaan.
+3. Hallo van tooyour gemachtigde na toevoegen `signIn:didSignInForUser:withError:` methode op basis van toohello taal die u gebruikt.
 
 **Objective-C**:
 
@@ -783,7 +783,7 @@ U kunt de Google-In SDK voor iOS gebruiken voor het ondertekenen van gebruikers 
             // ...
         }
 
-1. Zorg ervoor dat u ook het volgende toevoegen aan `application:didFinishLaunchingWithOptions:` in uw app gemachtigde, 'SERVER_CLIENT_ID' met dezelfde ID die u gebruikt voor het configureren van App Service in stap 1 vervangen.
+1. Zorg ervoor dat u ook de volgende te Hallo toevoegen`application:didFinishLaunchingWithOptions:` delegeren in uw app, "SERVER_CLIENT_ID" vervangen door een Hallo dezelfde ID die u hebt gebruikt tooconfigure App Service in stap 1.
 
 **Objective-C**:
 
@@ -794,7 +794,7 @@ U kunt de Google-In SDK voor iOS gebruiken voor het ondertekenen van gebruikers 
         GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
 
 
-1. De volgende code toevoegen aan uw toepassing in een UIViewController waarmee de `GIDSignInUIDelegate` protocol, volgens de taal die u gebruikt.  U bent afgemeld voordat opnieuw wordt ondertekend en hoewel u niet hoeft uw referenties opnieuw invoeren, ziet u een dialoogvenster toestemming.  Deze methode pas aanroepen wanneer het sessietoken is verlopen.
+1. Hallo na code tooyour toepassing in een UIViewController waarmee Hallo toevoegen `GIDSignInUIDelegate` -protocol op basis van toohello taal die u gebruikt.  U bent afgemeld voordat opnieuw wordt ondertekend en hoewel u niet tooenter uw referenties opnieuw hoeft, ziet u een dialoogvenster toestemming.  Deze methode pas aanroepen wanneer Hallo sessietoken is verlopen.
 
    **Objective-C**:
 
@@ -821,14 +821,14 @@ U kunt de Google-In SDK voor iOS gebruiken voor het ondertekenen van gebruikers 
 [What is Mobile Services]: #what-is
 [Concepts]: #concepts
 [Setup and Prerequisites]: #Setup
-[How to: Create the Mobile Services client]: #create-client
+[How to: Create hello Mobile Services client]: #create-client
 [How to: Create a table reference]: #table-reference
 [How to: Query data from a mobile service]: #querying
 [Filter returned data]: #filtering
 [Sort returned data]: #sorting
 [Return data in pages]: #paging
 [Select specific columns]: #selecting
-[How to: Bind data to the user interface]: #binding
+[How to: Bind data toohello user interface]: #binding
 [How to: Insert data into a mobile service]: #inserting
 [How to: Modify data in a mobile service]: #modifying
 [How to: Authenticate users]: #authentication
@@ -836,7 +836,7 @@ U kunt de Google-In SDK voor iOS gebruiken voor het ondertekenen van gebruikers 
 [How to: Upload images and large files]: #blobs
 [How to: Handle errors]: #errors
 [How to: Design unit tests]: #unit-testing
-[How to: Customize the client]: #customizing
+[How to: Customize hello client]: #customizing
 [Customize request headers]: #custom-headers
 [Customize data type serialization]: #custom-serialization
 [Next Steps]: #next-steps
@@ -847,7 +847,7 @@ U kunt de Google-In SDK voor iOS gebruiken voor het ondertekenen van gebruikers 
 <!-- URLs. -->
 [Azure Mobile Apps Quick Start]: app-service-mobile-ios-get-started.md
 
-[Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
+[Add Mobile Services tooExisting App]: /develop/mobile/tutorials/get-started-data
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
 [Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
@@ -858,13 +858,13 @@ U kunt de Google-In SDK voor iOS gebruiken voor het ondertekenen van gebruikers 
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
-[Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Use scripts tooauthorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [dynamische Schema]: http://go.microsoft.com/fwlink/p/?LinkId=296271
 [How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: /cli/azure/get-started-with-az-cli2
+[CLI toomanage Mobile Services tables]: /cli/azure/get-started-with-az-cli2
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [Dashboard voor Infrastructuurresources]: https://www.fabric.io/home

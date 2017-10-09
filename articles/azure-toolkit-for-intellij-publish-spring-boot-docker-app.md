@@ -1,6 +1,6 @@
 ---
-title: Een app Spring opstarten publiceren als een Docker-container met behulp van de Azure-Toolkit voor IntelliJ | Microsoft Docs
-description: Informatie over het publiceren van een web-app naar Microsoft Azure als een Docker-container met behulp van de Azure-Toolkit voor IntelliJ.
+title: een app Spring opstarten als een Docker-container met behulp van aaaPublish hello Azure Toolkit voor IntelliJ | Microsoft Docs
+description: Meer informatie over hoe toopublish een web-app tooMicrosoft Azure als een Docker-container met behulp van Azure Toolkit Hallo voor IntelliJ.
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,75 +14,75 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: robmcm
-ms.openlocfilehash: b771238934183c953615ac33c42a275d80657556
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8964cb33fd8f61a39f091633ae9074d9658232fd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="publish-a-spring-boot-app-as-a-docker-container-by-using-the-azure-toolkit-for-intellij"></a>Een app Spring opstarten publiceren als een Docker-container met behulp van de Azure-Toolkit voor IntelliJ
+# <a name="publish-a-spring-boot-app-as-a-docker-container-by-using-hello-azure-toolkit-for-intellij"></a>Een app Spring opstarten publiceren als een Docker-container met behulp van hello Azure Toolkit voor IntelliJ
 
-De [Spring Framework] is een open source-oplossing waarmee ontwikkelaars van Java op bedrijfsniveau toepassingen maken. Een van de meer populaire projecten die is gebaseerd op deze platform is [Spring Boot], waarmee u een vereenvoudigde benadering voor het maken van zelfstandige Java-toepassingen.
+Hallo [Spring Framework] is een open source-oplossing waarmee ontwikkelaars van Java op bedrijfsniveau toepassingen maken. Een meer populaire Hallo-projecten die is gebaseerd op deze platform is [Spring Boot], waarmee u een vereenvoudigde benadering voor het maken van zelfstandige Java-toepassingen.
 
-[Docker] is een open source-oplossing waarmee ontwikkelaars automatiseren implementatie, schaalbaarheid en beheer van hun toepassingen die worden uitgevoerd in containers.
+[Docker] is een open source-oplossing waarmee ontwikkelaars automatiseren Hallo-implementatie, schaalbaarheid en beheer van hun toepassingen die worden uitgevoerd in containers.
 
-Deze zelfstudie leert u de stappen voor het implementeren van een toepassing Spring opstarten als een Docker-container met Microsoft Azure met behulp van de Azure-Toolkit voor IntelliJ.
+Deze zelfstudie wordt u begeleid Hallo stappen toodeploy een toepassing Spring opstarten als een Docker-container tooMicrosoft Azure via hello Azure Toolkit voor IntelliJ.
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-## <a name="clone-the-default-spring-boot-docker-repo"></a>Kloon de standaard Spring Boot Docker-opslagplaats
+## <a name="clone-hello-default-spring-boot-docker-repo"></a>Hallo standaard Spring Boot Docker opslagplaats klonen
 
-De volgende stappen maakt u via de Spring Boot Docker-opslagplaats met behulp van IntelliJ klonen. Als u wilt een opdrachtregel te gebruiken, Zie [implementeren van een toepassing Spring opstarten op Linux in Azure Container Service][Deploy Spring Boot on Linux in ACS].
+Hallo doorlopen volgende stappen Hallo Spring Boot Docker-opslagplaats met behulp van IntelliJ klonen. Als u een opdrachtregel toouse wilt, Zie [implementeren van een toepassing Spring opstarten op Linux in Azure Container Service][Deploy Spring Boot on Linux in ACS].
 
 1. Open IntelliJ.
 
-1. Selecteer op het welkomstscherm van de **GitHub** optie in de **uitchecken uit versiebeheer** lijst.
+1. Selecteer in het welkomstscherm Hallo Hallo **GitHub** optie in Hallo **uitchecken uit versiebeheer** lijst.
 
    ![GitHub-optie voor versiebeheer][CL01]
 
-1. Geef uw referenties als u wordt gevraagd om aan te melden.
+1. Geef uw referenties als u na vragen aan gebruiker toolog in.
 
-   * Als u een gebruikersnaam en wachtwoord voor aanmelding bij GitHub:
+   * Als u een gebruikersnaam en wachtwoord toolog in tooGitHub:
 
       ![In het dialoogvenster voor het invoeren van GitHub-gebruikersnaam en wachtwoord][CL02a]
 
-   * Als u een token gebruikt voor aanmelding bij GitHub:
+   * Als u een token toolog in tooGitHub:
 
       ![In het dialoogvenster voor het invoeren van een GitHub-token][CL02b]
 
-1. Voer **https://github.com/spring-guides/gs-spring-boot-docker.git** opgeven voor de URL van de opslagplaats, uw lokale pad en de mapgegevens en klik vervolgens op **kloon**.
+1. Voer **https://github.com/spring-guides/gs-spring-boot-docker.git** uw lokale pad en de mapinformatie opgeven voor de URL van de opslagplaats hello, en klik vervolgens op **kloon**.
 
    ![Dialoogvenster kloon-opslagplaats][CL03]
 
-1. Wanneer u wordt gevraagd om een IntelliJ-project te maken, selecteert u **Nee**.
+1. Wanneer u wordt gevraagd een IntelliJ-project, selecteer toocreate **Nee**.
 
-   ![Weigeren een IntelliJ-project maken][CL04]
+   ![Een project IntelliJ toocreate weigeren][CL04]
 
-1. Klik op de welkomstpagina op **Project importeren**.
+1. Klik op de welkomstpagina Hallo **Project importeren**.
 
    ![Het project importeren][CL05]
 
-1. Zoek het pad waar u de opslagplaats Spring opstarten gekloond, selecteert u de **voltooid** map onder de hoofdmap en klik vervolgens op **OK**.
+1. Hallo-pad waar u Hallo Spring opstarten opslagplaats gekloond vinden, selecteer Hallo **voltooid** map onder de hoofdmap Hallo en klik vervolgens op **OK**.
 
    ![Selecteer een map voor importeren][CL06]
 
 1. Wanneer u wordt gevraagd, selecteert u **project maken van bestaande bronnen**.
 
-   ![Optie voor het maken van een project van bestaande bronnen][CL07]
+   ![Optie toocreate een project van bestaande bronnen][CL07]
 
-1. Geef de projectnaam van uw of accepteer de standaardinstelling, controleert u het juiste pad naar de **voltooid** map en klik vervolgens op **volgende**.
+1. Geef de projectnaam van uw of accepteer de standaardinstelling hello, Hallo pad toohello controleren **voltooid** map en klik vervolgens op **volgende**.
 
-   ![Geef de naam van het project][CL08]
+   ![Hallo projectnaam opgeven][CL08]
 
 1. Alle mappen voor het importeren van aanpassen en klik vervolgens op **volgende**.
 
    ![Kies de mappen][CL09]
 
-1. Bekijk de bibliotheken om te importeren en klik vervolgens op **volgende**.
+1. Hallo-bibliotheken tooimport bekijken en klik vervolgens op **volgende**.
 
    ![Bekijk de project-bibliotheken][CL10]
 
-1. Structuur van de module bekijken en klik vervolgens op **volgende**.
+1. Hallo Modulestructuur bekijken en klik vervolgens op **volgende**.
 
    ![Bekijk de modulestructuur][CL11]
 
@@ -94,19 +94,19 @@ De volgende stappen maakt u via de Spring Boot Docker-opslagplaats met behulp va
 
    ![De knop Voltooien][CL13]
 
-IntelliJ importeert de Spring Boot-app als een project en de structuur wordt weergegeven wanneer het importeren is voltooid.
+IntelliJ hello Spring opstarten app als een project importeert en Hallo structuur wordt weergegeven wanneer Hallo importeren is voltooid.
 
 ![Spring Boot-app in IntelliJ][CL14]
 
 ## <a name="build-your-spring-boot-app"></a>Uw Spring opstart opbouwen app
 
-### <a name="build-the-app-by-using-the-maven-pom"></a>De app bouwen met behulp van de POM Maven
+### <a name="build-hello-app-by-using-hello-maven-pom"></a>Hallo-app maken met behulp van Maven POM Hallo
 
-1. Open het werkvenster Maven als deze nog niet is geopend. Klik op **weergave** > **Windows hulpprogramma** > **Maven-projecten**.
+1. Hallo Maven hulpprogramma venster openen als deze nog niet is geopend. Klik op **weergave** > **Windows hulpprogramma** > **Maven-projecten**.
 
    ![Hulpprogramma voor Windows en Maven-projecten opdrachten][BU01]
 
-1. In het venster Maven-hulpprogramma met de rechtermuisknop op **pakket** en selecteer **uitvoeren Maven Build**. (Als uw Maven-project niet automatisch weergegeven wordt, klikt u op de **opnieuw importeren** pictogram op de werkbalk Maven.)
+1. Hallo Maven hulpprogramma venster met de rechtermuisknop op **pakket** en selecteer **uitvoeren Maven Build**. (Als uw Maven-project niet automatisch weergegeven wordt, klikt u op Hallo **opnieuw importeren** pictogram op Hallo Maven-werkbalk.)
 
    ![Build Maven-opdracht uitvoeren][BU02]
 
@@ -116,7 +116,7 @@ IntelliJ importeert de Spring Boot-app als een project en de structuur wordt wee
 
 ### <a name="create-a-deployment-ready-artifact"></a>Maken van een artefact klaar voor implementatie
 
-Voor het publiceren van uw app Spring opstart, moet u een artefact implementatie gereed te maken. Voer de volgende stappen uit:
+toopublish uw app Spring opstart, moet u een implementatie-ready artefact toocreate. Gebruik Hallo stappen te volgen:
 
 1. Open IntelliJ uw web-app-project.
 
@@ -124,11 +124,11 @@ Voor het publiceren van uw app Spring opstart, moet u een artefact implementatie
 
    ![Opdracht voor project-structuur][ART01]
 
-1. Klik op het groen plusteken (**+**) symbool een artefact toevoegen, klikt u op **JAR**, en klik vervolgens op **leeg**.
+1. Klik op Hallo groen plus (**+**) tooadd een artefact symbool, klikt u op **JAR**, en klik vervolgens op **leeg**.
 
    ![Toevoegen van een artefact][ART02]
 
-1. Naam van uw artefacten terwijl u ervoor dat u niet de extensie "JAR" toevoegen en geef vervolgens de doelmap voor de uitvoer Maven.
+1. Naam van uw artefacten bij om ervoor te zorgen niet tooadd extensie 'JAR' Hallo en geef vervolgens de doelmap Hallo op Hallo Maven uitvoer.
 
    ![Artefact-eigenschappen opgeven][ART03]
 
@@ -136,13 +136,13 @@ Voor het publiceren van uw app Spring opstart, moet u een artefact implementatie
 
    a. Klik op **Manifest maken**.
 
-      ![Klik op de knop maken Manifest][ART04a]
+      ![Klik op Hallo Manifest maken][ART04a]
 
-   b. Kies het standaardpad voor het artefact en klik vervolgens op **OK**.
+   b. Kies Hallo standaardpad voor Hallo artefacten en klik vervolgens op **OK**.
 
       ![Artefacten pad opgeven][ART04b]
 
-   c. Klik op het weglatingsteken (**...** ) de hoofdklasse vinden.
+   c. Klik op Hallo weglatingsteken (**...** ) toolocate Hallo hoofdklasse.
 
       ![Zoek hoofdklasse][ART04c]
 
@@ -152,65 +152,65 @@ Voor het publiceren van uw app Spring opstart, moet u een artefact implementatie
 
 1. Klik op **OK**.
 
-   ![Sluit het dialoogvenster Project-structuur][ART05]
+   ![Hallo structuur Project dialoogvenster te sluiten][ART05]
 
 > [!NOTE]
-> Zie voor meer informatie over het maken van artefacten in IntelliJ [artefacten configureren] op de website JetBrains.
+> Zie voor meer informatie over het maken van artefacten in IntelliJ [artefacten configureren] op Hallo JetBrains website.
 >
 
-### <a name="build-the-artifact-for-deployment"></a>Maken van het artefact voor implementatie
+### <a name="build-hello-artifact-for-deployment"></a>Hallo artefact voor implementatie maken
 
 1. Klik op **bouwen**, en klik vervolgens op **artefacten**.
 
    ![Artefacten opdracht bouwen][BU04]
 
-1. Wanneer de **bouwen artefact** contextmenu weergegeven, klikt u op **bouwen**.
+1. Wanneer Hallo **bouwen artefact** contextmenu weergegeven, klikt u op **bouwen**.
 
    ![Contextmenu artefact bouwen][BU05]
 
-IntelliJ het voltooide artefact voor uw app Spring opstarten moet worden weergegeven in het venster van het hulpprogramma project.
+IntelliJ artefact Hallo voltooid voor uw app Spring opstarten moet worden weergegeven in venster Hallo project-hulpprogramma.
 
    ![Gemaakte artefact][BU06]
 
-## <a name="publish-your-web-app-to-azure-by-using-a-docker-container"></a>Uw web-app publiceren naar Azure met behulp van Docker-container
+## <a name="publish-your-web-app-tooazure-by-using-a-docker-container"></a>Uw web-app tooAzure publiceren met behulp van Docker-container
 
-1. Als u niet hebt aangemeld bij uw Azure-account, volg de stappen in [aanmelden instructies voor de Azure-Toolkit voor IntelliJ][Azure Sign In for IntelliJ].
+1. Als u tooyour Azure-account niet hebt aangemeld, stappen Hallo in [aanmelden instructies voor hello Azure Toolkit voor IntelliJ][Azure Sign In for IntelliJ].
 
-1. In het venster van het hulpprogramma Projectverkenner met de rechtermuisknop op het project en selecteer vervolgens **Azure** > **publiceren als Docker-Container**.
+1. Hallo Projectverkenner hulpprogramma-venster met de rechtermuisknop op het Hallo-project en selecteer vervolgens **Azure** > **publiceren als Docker-Container**.
 
    ![Als de opdracht Docker-Container publiceren][PU01]
 
-1. Wanneer de **Docker-Container in Azure implementeren** dialoogvenster wordt weergegeven, worden alle bestaande Docker-hosts weergegeven. Als u kiest voor het implementeren van een bestaande host, kunt u doorgaan met stap 4. Gebruik anders de volgende stappen uit voor het maken van een host:
+1. Wanneer Hallo **Docker-Container in Azure implementeren** dialoogvenster wordt weergegeven, worden alle bestaande Docker-hosts weergegeven. Als u toodeploy tooan bestaande host kiest, kunt u toostep 4 overslaan. Gebruik anders Hallo stappen toocreate een host te volgen:
 
-   a. Klik op het groen plusteken (**+**) symbool.
+   a. Klik op Hallo groen plus (**+**) symbool.
 
       ![Een nieuwe Docker-host toevoegen][PU02]
 
-   b. Wanneer de **Docker-Host maken** dialoogvenster wordt weergegeven, kunt u de standaardinstellingen accepteren of kunt u aangepaste instellingen voor uw nieuwe Docker-host. (Zie voor gedetailleerde beschrijvingen van de verschillende instellingen [een web-app publiceren als een Docker-container met behulp van de Azure-Toolkit voor IntelliJ][Publish Container with Azure Toolkit].) Klik op **volgende** wanneer u hebt opgegeven welke instellingen u wilt gebruiken.
+   b. Wanneer Hallo **Docker-Host maken** dialoogvenster wordt weergegeven, kunt u tooaccept Hallo standaardwaarden of kunt u aangepaste instellingen voor uw nieuwe Docker-host. (Zie voor gedetailleerde beschrijvingen van Hallo diverse instellingen [een web-app publiceren als een Docker-container met behulp van hello Azure Toolkit voor IntelliJ][Publish Container with Azure Toolkit].) Klik op **volgende** wanneer u welke instellingen toouse hebt opgegeven.
 
       ![Geef opties voor Docker-host][PU03a]
 
-   c. U kunt bestaande inloggegevens van een Azure sleutelkluis gebruiken of kunt u nieuwe Docker-aanmeldingsreferenties opgeven. Klik op **voltooien** wanneer u uw opties hebt opgegeven.
+   c. U kunt bestaande aanmeldingsreferenties toouse kiezen uit een Azure sleutelkluis, of u kunt tooenter nieuwe Docker-aanmeldingsreferenties. Klik op **voltooien** wanneer u uw opties hebt opgegeven.
 
       ![Geef referenties op Docker-host][PU03b]
 
 1. Selecteer de Docker-host en klik vervolgens op **volgende**.
 
-   ![Selecteer de Docker-host te gebruiken][PU04]
+   ![Hallo Docker host toouse selecteren][PU04]
 
-1. Op de laatste pagina van de **Docker-Container in Azure implementeren** dialoogvenster geeft u de volgende opties:
+1. Op de laatste pagina Hallo Hallo **Docker-Container in Azure implementeren** dialoogvenster geeft u de Hallo volgende opties:
 
-   a. U kunt een aangepaste naam voor de container die als host voor uw Docker-container fungeert opgeven of u kunt de standaardwaarde accepteren.
+   a. U kunt toospecify een aangepaste naam voor het Hallo-container die als host voor uw Docker-container fungeert of kunt u de standaard Hallo accepteren.
 
-   b. Geef de TCP-poorten voor uw docker-host met behulp van de volgende syntaxis: *[externe poort]*:*[interne poort]*. Bijvoorbeeld: **80:8080** Hiermee geeft u een externe poort 80 en de interne Spring opstarten standaardpoort 8080.
+   b. Voer Hallo TCP-poorten voor de docker-host met behulp van de volgende syntaxis Hallo: *[externe poort]*:*[interne poort]*. Bijvoorbeeld: **80:8080** geeft een externe poort 80 en Hallo interne Spring opstarten standaardpoort 8080.
    
-      Als u uw interne poort (bijvoorbeeld door het bewerken van het bestand application.yml) aangepast hebt, moet u het poortnummer opgeven voor de juiste routering uitgevoerd in Azure.
+      Als u uw interne poort (bijvoorbeeld door het bewerken van Hallo application.yml-bestand) aangepast hebt, moet u toospecify Hallo-poortnummer voor de juiste routering toooccur Hallo in Azure.
 
    c. Nadat u deze opties hebt geconfigureerd, klikt u op **voltooien**.
 
    ![Een Docker-container in Azure implementeren][PU05]
 
-1. Wanneer de Toolkit Azure is gepubliceerd, de Azure Activity Log weergegeven **gepubliceerde** voor de status.
+1. Wanneer hello Azure Toolkit is gepubliceerd, geeft Azure Activity Log Hallo **gepubliceerde** voor Hallo status.
 
    ![Docker-host is geïmplementeerd][PU06]
 
@@ -218,7 +218,7 @@ IntelliJ het voltooide artefact voor uw app Spring opstarten moet worden weergeg
 
 [!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
 
-Zie voor meer informatie over aanvullende methoden voor het maken van opstarten Spring apps met behulp van IntelliJ, [Spring Boot-projecten maken](https://www.jetbrains.com/help/idea/creating-spring-boot-projects.html) op de website JetBrains.
+toolearn over aanvullende methoden voor het maken van opstarten Spring apps met behulp van IntelliJ, Zie [Spring Boot-projecten maken](https://www.jetbrains.com/help/idea/creating-spring-boot-projects.html) op Hallo JetBrains website.
 
 <!-- URL List -->
 

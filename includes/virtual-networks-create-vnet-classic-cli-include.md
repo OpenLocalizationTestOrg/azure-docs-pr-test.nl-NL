@@ -1,8 +1,8 @@
-## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Het maken van een klassiek VNet met Azure CLI
-U kunt Azure CLI gebruiken voor het beheer van uw Azure-resources via de opdrachtprompt op elke computer met Windows, Linux of OS X. Volg de onderstaande stappen om een VNet te maken met behulp van de Azure CLI.
+## <a name="how-toocreate-a-classic-vnet-using-azure-cli"></a>Hoe toocreate een klassiek VNet met Azure CLI
+U kunt uw Azure-resources via de opdrachtprompt Hallo vanaf elke computer met Windows, Linux of OS x hello Azure CLI toomanage. een VNet met behulp van Azure CLI Hallo toocreate Hallo volgende stappen.
 
-1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../articles/cli-install-nodejs.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
-2. Voer de opdracht **azure network vnet create** uit om een VNet en een subnet te maken, zoals hieronder weergegeven. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters.
+1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [installeren en configureren van Azure CLI Hallo](../articles/cli-install-nodejs.md) en volg de instructies Hallo toohello punt waar u uw Azure-account en abonnement selecteren.
+2. Voer Hallo **azure network vnet maken** opdracht toocreate een VNet en een subnet, zoals hieronder wordt weergegeven. Hallo-lijst die wordt weergegeven na Hallo uitvoer wordt uitgelegd Hallo parameters die worden gebruikt.
    
             azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
    
@@ -14,41 +14,41 @@ U kunt Azure CLI gebruiken voor het beheer van uw Azure-resources via de opdrach
             + Setting network configuration
             info:    network vnet create command OK
    
-   * **--vnet**. Naam van de VNet die moet worden gemaakt. In ons scenario *TestVNet*
+   * **--vnet**. Naam van Hallo VNet toobe gemaakt. In ons scenario *TestVNet*
    * **-e (of--adresruimte)**. VNet-adresruimte. In ons scenario *192.168.0.0*
    * **-i (of de cidr-)**. Het netwerkmasker in CIDR-notatie. In ons scenario *16*.
-   * **-n (of--subnet naam**). Naam van het eerste subnet. In ons scenario *FrontEnd*.
+   * **-n (of--subnet naam**). Naam van het eerste subnet Hallo. In ons scenario *FrontEnd*.
    * **-p (of--begin-ip-subnet)**. IP-adres voor het subnet of subnetadresruimte wordt gestart. In ons scenario *192.168.1.0*.
    * **-r (of--subnet cidr)**. Het netwerkmasker in CIDR-indeling voor het subnet. In ons scenario *24*.
-   * **-l (of --locatie)**. De Azure-regio waar de VNet wordt gemaakt. In ons scenario *VS-midden*.
-3. Voer de opdracht **azure network vnet subnet create** om een subnet te maken, zoals hieronder weergegeven. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters.
+   * **-l (of --locatie)**. Azure-regio waar Hallo VNet wordt gemaakt. In ons scenario *VS-midden*.
+3. Voer Hallo **azure network vnet subnet maken** opdracht toocreate een subnet, zoals hieronder wordt weergegeven. Hallo-lijst die wordt weergegeven na Hallo uitvoer wordt uitgelegd Hallo parameters die worden gebruikt.
    
             azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
    
-    Dit is de verwachte uitvoer voor de bovenstaande opdracht:
+    Dit is verwacht Hallo uitvoer voor Hallo bovenstaande opdracht:
    
             info:    Executing command network vnet subnet create
             + Looking up network configuration
             + Creating subnet "BackEnd"
             + Setting network configuration
-            + Looking up the subnet "BackEnd"
+            + Looking up hello subnet "BackEnd"
             + Looking up network configuration
             data:    Name                            : BackEnd
             data:    Address prefix                  : 192.168.2.0/24
             info:    network vnet subnet create command OK
    
-   * **-t (of--vnet naam**. Naam van de VNet waar het subnet wordt gemaakt. In ons scenario *TestVNet*.
-   * **-n (of --name)**. Naam van het nieuwe subnet. In ons scenario *back-end*.
+   * **-t (of--vnet naam**. Naam van Hallo VNet waar Hallo subnet wordt gemaakt. In ons scenario *TestVNet*.
+   * **-n (of --naam)**. Naam van nieuw subnet Hallo. In ons scenario *back-end*.
    * **-a (of --adresvoorvoegsel)**. Subnet CIDR-blok. Vier in ons scenario *192.168.2.0/24*.
-4. Voer de opdracht **azure network vnet show** uit om de eigenschappen van de nieuwe VNet weer te geven, zoals hieronder weergegeven.
+4. Voer Hallo **azure network vnet show** opdracht tooview Hallo eigenschappen van nieuwe vnet hello, zoals hieronder wordt weergegeven.
    
             azure network vnet show
    
-    Dit is de verwachte uitvoer voor de bovenstaande opdracht:
+    Dit is verwacht Hallo uitvoer voor Hallo bovenstaande opdracht:
    
             info:    Executing command network vnet show
             Virtual network name: TestVNet
-            + Looking up the virtual network sites
+            + Looking up hello virtual network sites
             data:    Name                            : TestVNet
             data:    Location                        : Central US
             data:    State                           : Created

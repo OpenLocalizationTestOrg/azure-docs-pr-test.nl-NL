@@ -1,6 +1,6 @@
 ---
-title: Beheren van gegevensassets in Azure Data Catalog | Microsoft Docs
-description: Het artikel wordt uitgelegd hoe u instellingen voor zichtbaarheid en de eigenaar te worden van gegevensassets die zijn geregistreerd in Azure Data Catalog.
+title: aaaManage gegevensassets in Azure Data Catalog | Microsoft Docs
+description: Hallo artikel ziet u hoe toocontrol zichtbaarheid en eigendom van gegevensassets geregistreerd in Azure Data Catalog.
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -15,61 +15,61 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.openlocfilehash: 8b9159b7bc4f7b2dac12d9012c6c903e75a6ac16
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 48a634b92d7da19c32c9e551f295eec257f54f1d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gegevensassets in Azure Data Catalog beheren
 ## <a name="introduction"></a>Inleiding
-Azure Data Catalog is ontworpen voor detectie van de gegevensbron, zodat u gemakkelijk detecteren en begrijpen van de gegevensbronnen die u moet analyses uitvoeren en beslissingen te nemen. Deze mogelijkheden voor detectie maken de grootste impact wanneer u en andere gebruikers kunnen vinden en begrijpen waren van een breed scala aan gegevensbronnen beschikbaar. Met de volgende elementen in gedachten is het standaardgedrag van Data Catalog voor alle geregistreerde gegevensbronnen zijn zichtbaar voor en kunnen worden gedetecteerd door alle gebruikers van de catalogus.
+Azure Data Catalog is ontworpen voor detectie van de gegevensbron, zodat u eenvoudig kunt detecteren en begrijpen van gegevensbronnen Hallo u tooperform analyse nodig hebt en beslissingen te nemen. Deze mogelijkheden voor detectie maken de grootste impact Hallo wanneer u en andere gebruikers kunnen vinden en begrijpen Hallo breedste scala aan beschikbare gegevensbronnen waren. Met de volgende elementen rekening is Hallo standaardgedrag van Data Catalog voor alle geregistreerde gegevensbronnen toobe zichtbaar tooand kunnen worden gedetecteerd door alle gebruikers van de catalogus.
 
-Data Catalog biedt niet krijgt u toegang tot de gegevens zelf. Gegevenstoegang wordt bepaald door de eigenaar van de gegevensbron. U kunt met Data Catalog gegevensbronnen detecteren en weergeven van de metagegevens met betrekking tot de bronnen die zijn geregistreerd in de catalogus.
+Data Catalog geeft u geen toegang tot toohello gegevens zelf. Gegevenstoegang wordt bepaald door de eigenaar van de gegevensbron Hallo Hallo. U kunt met Data Catalog gegevensbronnen detecteren en Hallo metagegevens die gerelateerde toohello bronnen die zijn geregistreerd in Hallo-catalogus weergeven.
 
-Er zijn mogelijk situaties echter waar gegevensbronnen alleen zichtbaar voor specifieke gebruikers of leden van specifieke groepen zijn moeten. In dergelijke gevallen kunnen gebruikers eigenaar worden van geregistreerde gegevensassets in de catalogus en vervolgens bepalen de zichtbaarheid van de activa die ze eigenaar.
+Er zijn mogelijk situaties echter waar gegevensbronnen alleen zichtbaar toospecific gebruikers of toomembers van specifieke groepen worden mogen. In dergelijke gevallen kunnen gebruikers eigenaar worden van geregistreerde gegevensassets binnen Hallo-catalogus en vervolgens bepalen Hallo zichtbaarheid van Hallo activa die ze eigenaar.
 
 > [!NOTE]
-> De functionaliteit die is beschreven in dit artikel is alleen beschikbaar in de Standard-editie van Azure Data Catalog. De editie Free biedt geen mogelijkheden voor eigenaar en beperking gegevens asset-zichtbaarheid.
+> Hallo-functionaliteit die wordt beschreven in dit artikel is alleen beschikbaar in Standard-editie van Azure Data Catalog Hallo. Hallo biedt editie Free geen mogelijkheden voor eigendom en gegevens asset-zichtbaarheid beperken.
 >
 >
 
 ## <a name="manage-ownership-of-data-assets"></a>Eigendom van gegevensassets beheren
-Standaard zijn de gegevensassets die zijn geregistreerd in Data Catalog zonder eigenaar. Een gebruiker met machtigingen voor toegang tot de catalogus kan detecteren en aantekeningen toevoegen aan deze activa. Gebruikers kunnen eigenaar worden van gegevensassets zonder eigenaar en vervolgens de zichtbaarheid van de activa die ze eigenaar te beperken.
+Standaard zijn de gegevensassets die zijn geregistreerd in Data Catalog zonder eigenaar. Elke gebruiker met machtigingen tooaccess Hallo catalog kan detecteren en aantekeningen toevoegen aan deze activa. Gebruikers kunnen eigenaar worden van gegevensassets zonder eigenaar en vervolgens beperken Hallo zichtbaarheid van Hallo activa die ze eigenaar.
 
-Wanneer u het eigendom van een activum gegevens in Data Catalog is alleen gebruikers die zijn geautoriseerd door de eigenaren van de asset detecteren en weergeven van de metagegevens en alleen de eigenaren van de activa kunnen verwijderen uit de catalogus.
+Wanneer u het eigendom van een activum gegevens in Data Catalog is alleen gebruikers die zijn geautoriseerd door eigenaren van Hallo Hallo asset detecteren en weergeven van de metagegevens en alleen Hallo eigenaars Hallo asset kunnen verwijderen uit de catalogus Hallo.
 
 > [!NOTE]
-> Data Catalog eigendom is van invloed op alleen de metagegevens die zijn opgeslagen in de catalogus. Eigenaar verleent alle machtigingen op de onderliggende gegevensbron.
+> Data Catalog eigendom is van invloed op Hallo alleen metagegevens die zijn opgeslagen in de catalogus Hallo. Eigenaar verleent alle machtigingen op Hallo onderliggende gegevensbron.
 >
 >
 
 ### <a name="take-ownership"></a>Eigenaar worden
-Gebruikers kunnen eigenaar worden van gegevensassets door het selecteren van de **eigenaar** optie in de portal voor Data Catalog. Geen speciale machtigingen zijn vereist om de eigenaar van een activum zonder eigenaar gegevens. Elke gebruiker kan de eigenaar van een activum zonder eigenaar gegevens.
+Gebruikers kunnen eigenaar worden van gegevensassets door het selecteren van Hallo **eigenaar** optie in Hallo Data Catalog-portal. Er is geen speciale machtigingen zijn vereist tootake eigendom van een actief gegevens zonder eigenaar. Elke gebruiker kan de eigenaar van een activum zonder eigenaar gegevens.
 
 ### <a name="add-owners-and-co-owners"></a>Eigenaar en mede-eigenaren toevoegen
 Gewoon als een gegevensasset is al het eigendom, andere gebruikers kunnen geen eigenaar. Ze moeten worden toegevoegd als mede-eigenaren door de eigenaar van een bestaande. Eigenaar kunt extra gebruikers of beveiligingsgroepen toevoegen als mede-eigenaren.
 
 > [!NOTE]
-> Het is een best practice om ten minste twee personen als eigenaars voor een willekeurige gegevensasset in eigendom van.
+> Er is een best practice toohave voor een gegevensasset die eigendom zijn van ten minste twee personen als eigenaars.
 >
 >
 
 ### <a name="remove-owners"></a>Eigenaars verwijderen
 Net zoals een activumeigenaar mede-eigenaren toevoegen kunt, kunt een activumeigenaar mede-eigenaar verwijderen.
 
-Een asset-eigenaar die zichzelf als eigenaar van een verwijderd kan niet meer beheren voor de asset. Als de activumeigenaar zichzelf als eigenaar van een verwijderd en er geen andere mede-eigenaars, wordt de asset terug naar de status zonder eigenaar.
+De eigenaar van een asset die zichzelf als eigenaar van een verwijderd kunt Hallo asset niet langer beheren. Als de activumeigenaar Hallo zichzelf als eigenaar van een verwijderd en er geen andere mede-eigenaars, terug Hallo asset tooan staat geen eigenaar ingesteld.
 
 ## <a name="control-visibility"></a>Zichtbaarheid besturingselement
-Gegevensasset eigenaren kunnen bepalen de zichtbaarheid van de gegevensassets die ze eigenaar zijn. Als u wilt beperken zichtbaarheid als de standaardconfiguratie, waarbij alle gebruikers van Data Catalog detecteren en weergeven van de gegevensasset, de activumeigenaar de zichtbaarheidsinstelling van kunt schakelen **iedereen** naar **eigenaars en deze gebruikers** in de eigenschappen voor de asset. Eigenaars kunnen vervolgens specifieke gebruikers en beveiligingsgroepen toevoegen.
+Gegevensasset eigenaars kunnen beheren Hallo zichtbaarheid van gegevensassets Hallo die ze eigenaar zijn. toorestrict zichtbaarheid als Hallo standaard, wanneer alle Data Catalog gebruikers kunnen detecteren en weergave Hallo gegevensasset, activumeigenaar Hallo kunt schakelen Hallo zichtbaarheidsinstelling van **iedereen** te**eigenaars en deze gebruikers** in de eigenschappen van Hallo voor Hallo asset. Eigenaars kunnen vervolgens specifieke gebruikers en beveiligingsgroepen toevoegen.
 
 > [!NOTE]
-> Indien mogelijk moeten asset eigendom en zichtbaarheid machtigingen worden toegewezen aan beveiligingsgroepen en niet naar afzonderlijke gebruikers.
+> Indien mogelijk moeten machtigingen voor het eigendom en de zichtbaarheid van asset toosecurity groepen en niet tooindividual gebruikers worden toegewezen.
 >
 >
 
 ## <a name="catalog-administrators"></a>Beheerders van de catalogus
-Data Catalog beheerders zijn impliciet mede-eigenaren van alle activa in de catalogus. Asset eigenaars kunnen visibility niet verwijderen uit beheerders en beheerders kunnen beheren, eigendom en de zichtbaarheid van alle gegevensassets in de catalogus.
+Data Catalog beheerders zijn impliciet mede-eigenaren van alle activa in Hallo-catalogus. Asset eigenaars zichtbaarheid aan beheerders niet verwijderen en beheerders kunnen beheren, eigendom en de zichtbaarheid van alle gegevens activa in Hallo-catalogus.
 
 ## <a name="summary"></a>Samenvatting
-De Data Catalog crowdsourcing-model voor detectie van metagegevens en activa kan alle catalogusgebruikers bijdragen en detecteren. De Standard-editie van Data Catalog is ontworpen voor het eigenaarschap en beheer beperken de zichtbaarheid van en het gebruik van specifieke gegevensassets.
+Hallo Data Catalog crowdsourcing-model toometadata asset detectie en kunnen alle catalogus gebruikers toocontribute en detecteren. Hallo Standard-editie van Data Catalog is ontworpen voor het eigenaarschap en beheer toolimit Hallo zichtbaarheid en het gebruik van specifieke gegevensassets.

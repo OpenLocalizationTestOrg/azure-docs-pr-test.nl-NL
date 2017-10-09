@@ -1,6 +1,6 @@
 ---
-title: Uw Key Vault beveiligen | Microsoft Docs
-description: Toegangsmachtigingen voor Key Vault voor het beheer van kluizen, sleutels en geheimen beheren. Verificatie- en autorisatiemodel voor Key Vault en informatie over het beveiligen van uw Key Vault
+title: aaaSecure uw sleutel vault | Microsoft Docs
+description: Toegangsmachtigingen voor Key Vault voor het beheer van kluizen, sleutels en geheimen beheren. Verificatie en autorisatie model voor sleutelkluis en hoe toosecure uw sleutel-kluis
 services: key-vault
 documentationcenter: 
 author: amitbapat
@@ -14,155 +14,155 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 84f5fc18142a1ad89babbd11f4f65eca105afc32
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="secure-your-key-vault"></a>Uw Key Vault beveiligen
-Azure Key Vault is een cloudservice die versleutelingssleutels en geheimen (zoals certificaten, verbindingsreeksen en wachtwoorden) voor uw cloudtoepassingen beveiligt. Omdat deze gegevens vertrouwelijk en essentieel voor uw bedrijf zijn, is het belangrijk om de toegang tot uw Key Vaults te beveiligen, zodat alleen gemachtigde toepassingen en gebruikers toegang hebben tot Key Vault. In dit artikel wordt een overzicht gegeven van het toegangsmodel van Key Vault, verificatie en autorisatie worden uitgelegd en met een voorbeeld wordt veilige toegang tot Key Vault voor uw cloud-toepassingen geïllustreerd.
+Azure Key Vault is een cloudservice die versleutelingssleutels en geheimen (zoals certificaten, verbindingsreeksen en wachtwoorden) voor uw cloudtoepassingen beveiligt. Aangezien deze gegevens vertrouwelijk en kritieke zakelijke is, gewenste toosecure toegang tooyour sleutelkluizen zodat alleen gemachtigde toepassingen en gebruikers hebben toegang tot de sleutelkluis. In dit artikel biedt een overzicht van de sleutelkluis toegangsmodel, verificatie en autorisatie uitgelegd en wordt beschreven hoe toosecure toegang tookey vault voor uw cloudtoepassingen met een voorbeeld.
 
 ## <a name="overview"></a>Overzicht
-Toegang tot een Key Vault wordt geregeld via twee afzonderlijke interfaces: de beheerlaag en de gegevenslaag. Voor beide lagen is juiste verificatie en autorisatie vereist voordat een aanroeper (een gebruiker of een toepassing) toegang kan krijgen tot Key Vault. Met verificatie wordt de identiteit van de aanroeper vastgesteld, terwijl autorisatie bepaalt welke bewerkingen de aanroeper mag uitvoeren.
+Toegang tooa sleutelkluis wordt geregeld via twee afzonderlijke interfaces: management vlak en het vlak van gegevens. Voor beide vlakken is juiste verificatie en autorisatie vereist voordat een aanroeper (een gebruiker of een toepassing) toegang tookey kluis kunt ophalen. Verificatie stelt Hallo identiteit van de aanroepfunctie hello, terwijl autorisatie bepaalt welke bewerkingen Hallo aanroeper tooperform is toegestaan.
 
 Voor verificatie gebruiken zowel de beheerlaag als de gegevenslaag Azure Active Directory. Voor autorisatie gebruikt het beheervlak op rollen gebaseerd toegangsbeheer (RBAC), terwijl de gegevenslaag het toegangsbeleid van Key Vault gebruikt.
 
-Hier volgt een kort overzicht van de onderwerpen die aan bod komen:
+Hier volgt een kort overzicht van Hallo onderwerpen komen aan bod:
 
-[Verificatie met behulp van Azure Active Directory](#authentication-using-azure-active-directory): in deze sectie wordt uitgelegd hoe een aanroeper verificatie uitvoert met Azure Active Directory voor toegang tot een Key Vault via de beheerlaag en de gegevenslaag. 
+[Verificatie met behulp van Azure Active Directory](#authentication-using-azure-active-directory) -deze sectie wordt uitgelegd hoe een aanroeper wordt geverifieerd met Azure Active Directory tooaccess een sleutelkluis via management vlak en vlak van gegevens. 
 
-[Beheerlaag en gegevenslaag](#management-plane-and-data-plane): de beheerlaag en de gegevenslaag zijn twee toegangslagen die worden gebruikt voor toegang tot uw Key Vault. Elke toegangslaag ondersteunt specifieke bewerkingen. In deze sectie worden de toegangseindpunten, ondersteunde bewerkingen en toegangsbeheermethodes beschreven die beide lagen gebruiken. 
+[Beheerlaag en gegevenslaag](#management-plane-and-data-plane): de beheerlaag en de gegevenslaag zijn twee toegangslagen die worden gebruikt voor toegang tot uw Key Vault. Elke toegangslaag ondersteunt specifieke bewerkingen. Deze sectie beschrijft Hallo toegang eindpunten, bewerkingen ondersteund en toegang tot de control-methode die door elke vlak gebruikt. 
 
-[Toegangsbeheer voor de beheerlaag](#management-plane-access-control): in deze sectie laten we zien hoe u toegang geeft aan bewerkingen op de beheerlaag met op rollen gebaseerd toegangsbeheer.
+[Toegangsbeheer voor Management vlak](#management-plane-access-control) - In deze sectie zullen we toegang toe te staan toomanagement vlak bewerkingen met behulp van toegangsbeheer op basis van rollen.
 
-[Toegangsbeheer voor de gegevenslaag](#data-plane-access-control): in deze sectie wordt beschreven hoe u het toegangsbeleid van Key Vault gebruikt om de toegang tot de gegevenslaag te beheren.
+[Toegangsbeheer voor gegevens vlak](#data-plane-access-control) -in deze sectie wordt beschreven hoe gegevens van toouse sleutelkluis access policy toocontrol vlak toegang.
 
-[Voorbeeld](#example): in dit voorbeeld wordt beschreven hoe u het toegangsbeheer voor uw Key Vault zo instelt dat drie verschillende teams (beveiligingsteam, ontwikkelaars/operators en auditors) specifieke taken uitvoeren om een toepassing in Azure te ontwikkelen, beheren en controleren.
+[Voorbeeld](#example) -in dit voorbeeld wordt beschreven hoe toosetup toegangsbeheer voor uw sleutelkluis tooallow drie verschillende teams (beveiligingsteam ontwikkelaars/operators en auditors) tooperform specifieke taken toodevelop, beheren en controleren van een toepassing in Azure .
 
 ## <a name="authentication-using-azure-active-directory"></a>Verificatie met Azure Active Directory
-Wanneer u een Key Vault maakt in een Azure-abonnement, is het automatisch gekoppeld aan de tenant van Azure Active Directory voor dat abonnement. Alle aanroepers (gebruikers en toepassingen) moeten in deze tenant worden geregistreerd voor toegang tot de Key Vault. Een toepassing of een gebruiker moet worden geverifieerd met Azure Active Directory voor toegang tot de Key Vault. Dit geldt voor toegang tot zowel de beheerlaag als de gegevenslaag. In beide gevallen kan een toepassing op twee manieren toegang krijgen tot de Key Vault:
+Wanneer u een sleutelkluis in een Azure-abonnement maakt, is het automatisch gekoppeld aan Azure Active Directory-tenant Hallo-abonnement. Alle aanroepfuncties (gebruikers en toepassingen) moeten worden geregistreerd in deze tenant tooaccess deze sleutelkluis. Een toepassing of een gebruiker moet worden geverifieerd bij Azure Active Directory tooaccess sleutelkluis. Dit geldt tooboth management vlak en gegevens vlak toegang. In beide gevallen kan een toepassing op twee manieren toegang krijgen tot de Key Vault:
 
-* **Toegang voor gebruikers en toepassingen**: meestal is dit voor toepassingen die de Key Vault gebruiken namens een aangemelde gebruiker. Azure PowerShell en Azure Portal zijn voorbeelden van dit type toegang. Er zijn twee manieren om toegang te verlenen aan gebruikers: u kunt gebruikers toegang geven tot de Key Vault wanneer ze een willekeurige toepassing gebruiken of alleen wanneer ze een bepaalde toepassing gebruiken (aangeduid als samengestelde identiteit). 
-* **Alleen toegang voor toepassingen**: voor toepassingen die daemon-services, achtergrondtaken, enz. uitvoeren. De identiteit van de toepassing krijgt toegang tot de Key Vault.
+* **Toegang voor gebruikers en toepassingen**: meestal is dit voor toepassingen die de Key Vault gebruiken namens een aangemelde gebruiker. Azure PowerShell en Azure Portal zijn voorbeelden van dit type toegang. Er zijn twee manieren toogrant toegang toousers: eenrichtingssessie is toogrant toegang toousers dus sleutelkluis is toegankelijk vanuit elke toepassing en Hallo andere manier is een gebruiker toegang tookey kluis toogrant alleen wanneer ze een bepaalde toepassing (waarnaar wordt verwezen tooas samengestelde identiteit) gebruiken. 
+* **App-lezentoegang** : voor toepassingen of daemon services uitvoert, enz. Hallo toepassingsidentiteit is verleend achtergrondtaken toegang toohello tot sleutel kluis.
 
-Voor beide typen toepassingen wordt de aanvraag geverifieerd met Azure Active Directory met een van de [ondersteunde verificatiemethoden](../active-directory/active-directory-authentication-scenarios.md) en krijgt de toepassing een token. De gebruikte verificatiemethode is afhankelijk van het type toepassing. Vervolgens gebruikt de toepassing dit token en stuurt deze een REST API-verzoek naar Key Vault. Bij toegang tot de beheerlaag worden de verzoeken gerouteerd via het eindpunt van Azure Resource Manager. Bij toegang tot de gegevenslaag gebruiken de toepassingen een eindpunt van Key Vault. Raadpleeg meer informatie over de [gehele verificatiestroom](../active-directory/active-directory-protocols-oauth-code.md). 
+In beide soorten toepassingen Hallo-aanvraag wordt geverifieerd met Azure Active Directory met behulp van een Hallo [ondersteunde verificatiemethoden](../active-directory/active-directory-authentication-scenarios.md) en krijgt een token. Verificatiemethode die wordt gebruikt, is afhankelijk van het toepassingstype Hallo. Hallo-toepassing wordt vervolgens gebruikt dit token en REST-API-aanvraag tookey kluis verzendt. In geval van een management vlak toegang Hallo worden aanvragen gerouteerd via Azure Resource Manager-eindpunt. Bij het openen van gegevens vlak Hallo toepassingen wordt gesproken rechtstreeks tooa sleutelkluis-eindpunt. Meer informatie Zie op Hallo [hele authenticatiestroom](../active-directory/active-directory-protocols-oauth-code.md). 
 
-De resourcenaam waarvoor de toepassing een token aanvraagt, is afhankelijk van de laag waartoe de toepassing toegang probeert te krijgen: de beheerlaag of de gegevenslaag. De resourcenaam is daarom het eindpunt van de beheerlaag of gegevenslaag en wordt beschreven in de tabel verderop in dit artikel. Deze is afhankelijk van de Azure-omgeving.
+Hallo resourcenaam waarvoor toepassing hello een token vraagt verschilt, afhankelijk van of toepassing hello management vlak of vlak van gegevens opent. Hallo resourcenaam is daarom op management vlak of gegevens vlak de eindpunten in de tabel Hallo verderop, afhankelijk van hello Azure-omgeving beschreven.
 
-Het gebruik van één enkel verificatiemechanisme voor de beheer- en gegevenslaag heeft zijn eigen voordelen:
+Een enkel mechanisme voor verificatie tooboth heeft beheer- en vlak een eigen voordelen:
 
-* Organisaties kunnen de toegang tot alle Key Vaults in hun organisatie centraal beheren
-* Als een gebruiker het bedrijf verlaat, verliest hij onmiddellijk de toegang tot alle Key Vaults in de organisatie
-* Organisaties kunnen de verificatie aanpassen via de opties in Azure Active Directory (bijvoorbeeld door Multi-Factor Authentication in te schakelen voor extra beveiliging)
+* Organisaties kunnen toegang tooall sleutelkluizen in hun organisatie centraal beheren
+* Als een gebruiker verlaat, verliezen ze onmiddellijk toegang tooall sleutelkluizen in Hallo organisatie
+* Organisaties kunnen aanpassen verificatie via Hallo-opties in Azure Active Directory (bijvoorbeeld, waardoor multi-factor authentication voor extra beveiliging)
 
 ## <a name="management-plane-and-data-plane"></a>De beheer- en gegevenslaag
-Azure Key Vault is een Azure-service die beschikbaar is via het Azure Resource Manager-implementatiemodel. Als u een Key Vault hebt gemaakt, krijgt u een virtuele container waarin u andere objecten (zoals sleutels, geheimen en certificaten) kunt maken. U krijgt vervolgens toegang tot uw Key Vault via de beheer- en gegevenslaag om specifieke bewerkingen uit te voeren. De interface van de beheerlaag wordt gebruikt voor het beheren van uw Key Vault zelf. U kunt bijvoorbeeld kenmerken van de Key Vault maken, verwijderen en bijwerken, en toegangsbeleid voor de gegevenslaag instellen. De gegevenslaag wordt gebruikt voor het toevoegen, verwijderen, wijzigen en gebruiken van sleutels, geheimen en certificaten die zijn opgeslagen in uw Key Vault.
+Azure Key Vault is een Azure-service die beschikbaar is via het Azure Resource Manager-implementatiemodel. Als u een Key Vault hebt gemaakt, krijgt u een virtuele container waarin u andere objecten (zoals sleutels, geheimen en certificaten) kunt maken. Vervolgens opent u de sleutelkluis met vlak en gegevens vlak tooperform specifieke beheerbewerkingen. Vlak beheerinterface is gebruikte toomanage uw sleutel sleutelkluis zelf, zoals het maken, verwijderen, het bijwerken van de kenmerken en het instellen van toegangsbeleid voor gegevens vlak. Gegevens vlak-interface is gebruikte tooadd, verwijderen, wijzigen en gebruik Hallo-sleutels, geheimen en certificaten die zijn opgeslagen in de sleutelkluis.
 
-U opent de interfaces van de beheer- en gegevenslaag via verschillende eindpunten (zie tabel). De tweede kolom in de tabel beschrijft de DNS-namen voor deze eindpunten in verschillende Azure-omgevingen. De derde kolom beschrijft de bewerkingen die u vanaf elke toegangslaag kunt uitvoeren. Elke toegangslaag heeft ook een eigen mechanisme voor toegangsbeheer. Het toegangsbeheer voor de beheerlaag wordt ingesteld met behulp van toegangsbeheer op basis van rollen (RBAC) in Azure Resource Manager. Het toegangsbeheer voor de gegevenslaag wordt ingesteld met toegangsbeleid van Key Vault.
+Hallo vlak en gegevens vlak beheerinterfaces toegankelijk zijn via verschillende eindpunten (Zie tabel). tweede kolom in tabel Hallo Hallo beschrijft Hallo DNS-namen voor deze eindpunten in verschillende Azure-omgevingen. de derde kolom Hallo beschrijft Hallo kunt u bewerkingen vanuit elke vlak toegang uitvoeren. Elke toegangslaag heeft ook een eigen mechanisme voor toegangsbeheer. Het toegangsbeheer voor de beheerlaag wordt ingesteld met behulp van toegangsbeheer op basis van rollen (RBAC) in Azure Resource Manager. Het toegangsbeheer voor de gegevenslaag wordt ingesteld met toegangsbeleid van Key Vault.
 
 | Toegangslaag | Eindpunten voor toegang | Bewerkingen | Mechanisme voor toegangsbeheer |
 | --- | --- | --- | --- |
 | Beheerlaag |**Wereldwijd:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure van de Amerikaanse overheid:**<br> management.usgovcloudapi.net:443<br><br> **Azure Duitsland:**<br> management.microsoftazure.de:443 |Key Vault maken/lezen/bijwerken/verwijderen <br> Toegangsbeleid voor Key Vault instellen<br>Tags instellen voor Key Vault |Toegangsbeheer op basis van rollen (RBAC) in Azure Resource Manager |
 | Gegevenslaag |**Wereldwijd:**<br> &lt;kluisnaam&gt;.vault.azure.net:443<br><br> **Azure China:**<br> &lt;kluisnaam&gt;.vault.azure.cn:443<br><br> **Azure van de Amerikaanse overheid:**<br> &lt;kluisnaam&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Duitsland:**<br> &lt;kluisnaam&gt;.vault.microsoftazure.de:443 |Voor sleutels: Ontsleutelen, Versleutelen, Sleutel uitpakken, Sleutel inpakken, Controleren, Ondertekenen, Ophalen, Sorteren, Bijwerken, Maken, Importeren, Verwijderen, Back-up maken, Herstellen<br><br> Voor geheimen: Ophalen, Sorteren, Instellen, Verwijderen |Toegangsbeleid van Key Vault |
 
-Het toegangsbeheer van de beheerlaag en het toegangsbeheer van de gegevenslaag werken onafhankelijk van elkaar. Als u bijvoorbeeld toegang wilt verlenen aan een toepassing voor het gebruik van sleutels in een Key Vault, hoeft u alleen toegangsmachtigingen toe te kennen aan de gegevenslaag met toegangsbeleid van Key Vault. Er is voor deze toepassing geen toegang tot de beheerlaag vereist. Als u echter wilt dat een gebruiker eigenschappen en tags van de Vault kan lezen, maar geen toegang heeft tot de sleutels, geheimen of certificaten, kunt u deze gebruiker leestoegang geven met RBAC. Hiervoor is geen toegang tot de gegevenslaag vereist.
+Hallo management vlak en gegevens vlak toegangsbeheer werken onafhankelijk. Bijvoorbeeld, als u een toepassing toouse toegangstoetsen in een sleutelkluis toogrant wilt, hoeft u alleen toogrant vlak machtigingen voor gegevenstoegang met behulp van het toegangsbeleid voor sleutelkluizen en geen vlak management toegang nodig is voor deze toepassing. En als u daarentegen als u wilt dat een gebruiker toobe kunnen tooread vault eigenschappen en labels, maar hebben geen toegang tot tookeys, geheimen of certificaten, kunt u deze gebruiker verlenen, 'read-toegang met RBAC en geen toegang tot toodata vlak is vereist.
 
 ## <a name="management-plane-access-control"></a>Toegangsbeheer voor de beheerlaag
-De beheerlaag bestaat uit bewerkingen die invloed hebben op de Key Vault zelf. U kunt bijvoorbeeld een Key Vault maken of verwijderen. U kunt een lijst met Vaults krijgen in een abonnement. U kunt eigenschappen van de Key Vault (zoals SKU en tags) ophalen en toegangsbeleid voor de Key Vault instellen waarmee de gebruikers en toepassingen die toegang hebben tot sleutels en geheimen in de Key Vault, worden beheerd. Het toegangsbeheer voor de beheerlaag gebruikt RBAC. Zie de volledige lijst met bewerkingen die in Key Vault kunnen worden uitgevoerd via de beheerlaag, in de tabel in de voorgaande sectie. 
+Hallo management vlak bestaat uit de bewerkingen die invloed hebben op Hallo sleutelkluis zelf. U kunt bijvoorbeeld een Key Vault maken of verwijderen. U kunt een lijst met Vaults krijgen in een abonnement. U kunt de sleutelkluis-eigenschappen (zoals SKU, tags) ophalen en instellen sleutelkluis toegangsbeleid waarmee Hallo-gebruikers en toepassingen die toegang hebben tot sleutels en geheimen in de sleutelkluis Hallo. Het toegangsbeheer voor de beheerlaag gebruikt RBAC. Overzicht Hallo volledige van sleutelkluis-bewerkingen die kunnen worden uitgevoerd via management vlak in Hallo-tabel in de voorgaande sectie. 
 
 ### <a name="role-based-access-control-rbac"></a>Toegangsbeheer op basis van rollen (RBAC)
-Elk Azure-abonnement heeft een Azure Active Directory. Gebruikers, groepen en toepassingen in deze directory kunnen worden gemachtigd om resources te beheren in het Azure-abonnement dat gebruikmaakt van het Azure Resource Manager-implementatiemodel. Dit type toegangsbeheer wordt toegangsbeheer op basis van rollen (RBAC) genoemd. Voor het beheren van deze toegang kunt u [Azure Portal](https://portal.azure.com/), de [Azure CLI-tools](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) of de [Azure Resource Manager REST-API's](https://msdn.microsoft.com/library/azure/dn906885.aspx) gebruiken.
+Elk Azure-abonnement heeft een Azure Active Directory. Toegang tot toomanage bronnen in hello Azure-abonnement met Azure Resource Manager-implementatiemodel Hallo kunnen verleend aan gebruikers, groepen en toepassingen van deze map. Dit type van toegangsbeheer is waarnaar wordt verwezen tooas op rollen gebaseerde toegangsbeheer (RBAC). toomanage dit openen, kunt u Hallo [Azure-portal](https://portal.azure.com/), Hallo [Azure CLI-hulpprogramma's](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), of Hallo [Azure Resource Manager REST-API's](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
-Met het Azure Resource Manager-model maakt u uw Key Vault in een resourcegroep en beheert u de toegang tot de beheerlaag van deze Key Vault met Azure Active Directory. U kunt bijvoorbeeld gebruikers of een groep machtigen om Key Vaults in een bepaalde resourcegroep te beheren.
+Met hello Azure Resource Manager-model maakt u de sleutelkluis in een resource group en beheer toegang toohello management vlak van deze sleutelkluis met behulp van Azure Active Directory. U kunt bijvoorbeeld gebruikers of een groep mogelijkheid toomanage sleutelkluizen in een specifieke resourcegroep verlenen.
 
-U kunt toegang verlenen aan gebruikers, groepen en toepassingen binnen een bepaald bereik door de juiste RBAC-rollen toe te wijzen. Als u bijvoorbeeld een gebruiker wilt machtigen om Key Vaults te beheren, kunt u de vooraf gedefinieerde rol 'Key Vault-inzender' toewijzen aan deze gebruiker voor een bepaald bereik. Het bereik is in dit geval een abonnement, een resourcegroep of alleen een specifieke Key Vault. Een rol die is toegewezen op abonnementsniveau, is van toepassing op alle resourcegroepen en resources in dat abonnement. Een rol die is toegewezen op het niveau van de resourcegroep, is van toepassing op alle resources in die resourcegroep. Een rol die is toegewezen voor een specifieke resource, geldt alleen voor die resource. Er zijn verschillende vooraf gedefinieerde rollen (zie [RBAC: ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md)). Als de vooraf gedefinieerde rollen niet aansluiten bij uw behoeften, kunt u ook uw eigen rollen definiëren.
+U kunt toegang toousers, groepen en toepassingen bij een bepaalde scope verlenen door de juiste RBAC-rollen toewijzen. Bijvoorbeeld: toogrant toegang krijgen tot tooa gebruiker toomanage sleutelkluizen zou u een vooraf gedefinieerde rol 'sleutelkluis Inzender' toothis gebruiker op een bepaalde scope toewijzen. Hallo-bereik zou in dit geval zijn een abonnement, resourcegroep of alleen voor een specifieke sleutelkluis. Een rol die is toegewezen op abonnementsniveau geldt tooall resourcegroepen en resources binnen dat abonnement. Een rol heeft op het niveau van de resourcegroep is van toepassing tooall resources in die resourcegroep. Een rol die is toegewezen voor een specifieke bron toothat resource is alleen van toepassing. Er zijn verschillende vooraf gedefinieerde functies (Zie [RBAC: ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md)), en als Hallo vooraf rollen gedefinieerde passen niet uw behoeften kunt u ook uw eigen rollen definiëren.
 
 > [!IMPORTANT]
-> Houd er rekening mee dat een gebruiker die inzendersmachtigingen (RBAC) heeft voor de beheerlaag van een Key Vault, zichzelf toegang kan geven tot de gegevenslaag. Dit kan hij doen door toegangsbeleid voor de Key Vault in te stellen en zo de toegang tot de gegevenslaag te beheren. Daarom is het aanbevolen streng te zijn bij het bepalen wie er inzenderstoegang heeft tot uw Key Vaults en er zo voor te zorgen dat alleen gemachtigde personen toegang hebben tot uw Key Vaults, sleutels, geheimen en certificaten, en deze kunnen beheren.
+> Houd er rekening mee dat als een gebruiker Inzender machtigingen (RBAC) tooa sleutelkluis management vlak heeft, ze zichzelf toegang toodata vlak, verlenen kan door in te stellen van de sleutelkluis-beleid, die toegang toodata vlak bepaalt. Daarom wordt aanbevolen tootightly bepalen wie Inzender toegang tooyour sleutelkluizen tooensure alleen daartoe gemachtigde personen kunnen toegang tot en beheer uw sleutelkluizen, sleutels, geheimen en certificaten heeft.
 > 
 > 
 
 ## <a name="data-plane-access-control"></a>Toegangsbeheer voor de gegevenslaag
-De gegevenslaag van een Key Vault bestaat uit de bewerkingen die invloed hebben op de objecten in een Key Vault, zoals sleutels, geheimen en certificaten.  Dit zijn onder andere sleutelbewerkingen, zoals sleutels maken, importeren, bijwerken, sorteren, herstellen en er back-ups van maken, cryptografische bewerkingen, zoals ondertekenen, controleren, versleutelen, ontsleutelen, inpakken en uitpakken, en tags en andere kenmerken voor sleutels instellen. Voor geheimen gaat het om bewerkingen zoals ophalen, instellen, sorteren en verwijderen.
+Hallo sleutelkluis gegevens vlak bestaat uit de bewerkingen die invloed hebben op Hallo-objecten in een sleutelkluis, zoals sleutels, geheimen en certificaten.  Dit zijn onder andere sleutelbewerkingen, zoals sleutels maken, importeren, bijwerken, sorteren, herstellen en er back-ups van maken, cryptografische bewerkingen, zoals ondertekenen, controleren, versleutelen, ontsleutelen, inpakken en uitpakken, en tags en andere kenmerken voor sleutels instellen. Voor geheimen gaat het om bewerkingen zoals ophalen, instellen, sorteren en verwijderen.
 
-U verleent toegang tot de gegevenslaag door toegangsbeleid voor een Key Vault in te stellen. Een gebruiker, groep of toepassing heeft inzendersrechten (RBAC) voor de beheerlaag van een Key Vault nodig om toegangsbeleid voor die Key Vault in te stellen. Een gebruiker, groep of toepassing kan worden gemachtigd om bepaalde bewerkingen voor sleutels of geheimen in een Key Vault uit te voeren. Key Vault ondersteunt maximaal 16 toegangsbeleidsitems voor een sleutelkluis. Maak een Azure Active Directory-beveiligingsgroep en voeg gebruikers toe aan die groep om meerdere gebruikers in een Key Vault toegang te geven tot de gegevenslaag.
+U verleent toegang tot de gegevenslaag door toegangsbeleid voor een Key Vault in te stellen. Een gebruiker, groep of een toepassing moet bijdragerrechten (RBAC) voor management vlak voor een sleutelkluis toobe kunnen tooset toegangsbeleid voor die sleutelkluis hebben. Een gebruiker, groep of toepassing kan toegang tooperform specifieke bewerkingen voor sleutels of geheimen in een sleutelkluis te worden verleend. Ondersteuning voor sleutelkluis uit too16 toegang beleid items voor een sleutelkluis. Een Azure Active Directory-beveiligingsgroep maken en toevoegen van gebruikers toothat groep toogrant gegevens vlak toegang tooseveral gebruikers tooa sleutelkluis.
 
 ### <a name="key-vault-access-policies"></a>Toegangsbeleid van Key Vault
-Met toegangsbeleid van Key Vault kunt u machtigingen voor sleutels, geheimen en certificaten afzonderlijk toekennen. U kunt bijvoorbeeld een gebruiker toegang geven tot sleutels, maar geen machtigingen voor geheimen geven. Machtigingen voor toegang tot sleutels, geheimen of certificaten bevinden zich echter op het niveau van de Key Vault. Met andere woorden: het toegangsbeleid voor Key Vault ondersteunt geen machtigingen op objectniveau. U kunt [Azure Portal](https://portal.azure.com/), de [Azure CLI-hulpprogramma's](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) of de [Key Vault-beheer REST-API's](https://msdn.microsoft.com/library/azure/mt620024.aspx) gebruiken om toegangsbeleid in te stellen voor Key Vault.
+Het toegangsbeleid voor sleutelkluizen verlenen afzonderlijk machtigingen tookeys, geheimen en certificaten. U kunt bijvoorbeeld een gebruiker toegang tooonly sleutels, maar er zijn geen machtigingen voor geheimen geven. Machtigingen tooaccess sleutels of geheimen of certificaten zijn echter op Hallo kluis niveau. Met andere woorden: het toegangsbeleid voor Key Vault ondersteunt geen machtigingen op objectniveau. U kunt [Azure-portal](https://portal.azure.com/), Hallo [Azure CLI-hulpprogramma's](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), of Hallo [sleutelkluis REST-API's](https://msdn.microsoft.com/library/azure/mt620024.aspx) tooset-beleid voor een sleutelkluis.
 
 > [!IMPORTANT]
-> Houd er rekening mee dat toegangsbeleid voor Key Vault wordt toegevoegd op het niveau van de Key Vault. Wanneer een gebruiker bijvoorbeeld is gemachtigd voor het maken en verwijderen van sleutels, kan hij deze bewerkingen uitvoeren op alle sleutels in die Key Vault.
+> Houd er rekening mee dat het toegangsbeleid voor sleutelkluizen van toepassing op Hallo kluis niveau. Bijvoorbeeld als een gebruiker is verleend machtiging toocreate en delete-sleutels, ze kan deze bewerkingen uitvoeren op alle sleutels in die sleutelkluis.
 > 
 > 
 
 ## <a name="example"></a>Voorbeeld
-Stel dat u een toepassing ontwikkelt die gebruikmaakt van een certificaat voor SSL, Azure Storage voor het opslaan van gegevens, en een RSA 2048 bits-sleutel voor tekenbewerkingen. Stel dat deze toepassing wordt uitgevoerd in een VM (of een schaalset voor VM’s). U kunt een Key Vault gebruiken voor het opslaan van alle geheimen van de toepassing en Key Vault voor het opslaan van het bootstrap-certificaat dat door de toepassing wordt gebruikt voor verificatie met Azure Active Directory.
+Stel dat u een toepassing ontwikkelt die gebruikmaakt van een certificaat voor SSL, Azure Storage voor het opslaan van gegevens, en een RSA 2048 bits-sleutel voor tekenbewerkingen. Stel dat deze toepassing wordt uitgevoerd in een VM (of een schaalset voor VM’s). U kunt een sleutelkluis toostore die alle Hallo toepassing geheimen en gebruik sleutelkluis toostore Hallo bootstrap-certificaat dat wordt gebruikt door Hallo toepassing tooauthenticate met Azure Active Directory.
 
-Hier volgt een overzicht van de sleutels en geheimen die kunnen worden opgeslagen in een Key Vault.
+Dus volgt hier een samenvatting weer van alle Hallo sleutels en geheimen toobe opgeslagen in een sleutelkluis.
 
 * **SSL-certificaat**: wordt gebruikt voor SSL
-* **Opslagsleutel**: wordt gebruikt voor toegang tot het opslagaccount
+* **Opslagsleutel** -account voor toegang tot tooStorage tooget gebruikt
 * **2048-bits RSA-sleutel**: wordt gebruikt voor tekenbewerkingen
-* **Bootstrap-certificaat**: wordt gebruikt voor verificatie met Azure Active Directory, om toegang te krijgen tot Key Vault om de opslagsleutel op te halen en om de RSA-sleutel te gebruiken om zaken te ondertekenen.
+* **Bootstrap-certificaat** -tooauthenticate tooAzure Active Directory, tooget tookey kluis toofetch Hallo opslag toegangssleutel en gebruik Hallo RSA-sleutel gebruikt voor het ondertekenen.
 
-We gaan nu bekijken wie deze toepassing beheren, implementeren en controleren. In dit voorbeeld gebruiken we drie rollen.
+Nu gaan we voldoen aan de Hallo mensen die beheren, implementeren en controleren van deze toepassing. In dit voorbeeld gebruiken we drie rollen.
 
-* **Beveiligingsteam**: dit is gewoonlijk IT-personeel dat onder de CSO (Chief Security Officer) staat, of personeel met gelijkwaardige machtigingen, dat verantwoordelijk is voor de juiste beveiliging van geheimen zoals SSL-certificaten, RSA-sleutels die worden gebruikt om te ondertekenen, tekenreeksen voor databases en opslagaccountsleutels.
-* **Ontwikkelaars/operators**: dit zijn de mensen die deze toepassing ontwikkelen en vervolgens implementeren in Azure. Doorgaans maken ze geen deel uit van het beveiligingsteam. Ze hebben daarom vaak geen toegang tot gevoelige gegevens, zoals SSL-certificaten en RSA-sleutels, maar ze hebben wel toegang nodig tot de toepassing die ze implementeren.
-* **Auditors**: dit is meestal een andere groep mensen die niet bij de ontwikkelaars en het algemene IT-personeel horen. Zij controleren of de certificaten, sleutels, enz. juist worden gebruikt en onderhouden, en zorgen ervoor dat de veiligheidsnormen voor gegevens worden nageleefd. 
+* **Beveiligingsteam** : dit zijn meestal IT-personeel Hallo 'kantoor Hallo CSO (Chief Security Officer)', of gelijkwaardig, is verantwoordelijk voor het Hallo u juiste bewaren geheimen zoals SSL-certificaten, die wordt gebruikt voor het ondertekenen van tekenreeksen voor databaseverbindingen voor RSA-sleutels databases, toegangscodes voor opslag.
+* **Ontwikkelaars/operators** -dit zijn Hallo mensen die deze toepassing ontwikkelen en vervolgens te implementeren in Azure. Normaal gesproken ze maken geen deel uit van het beveiligingsteam hello, en daarom moeten ze geen toegang tooany gevoelige gegevens, zoals SSL-certificaten, RSA-sleutels hebben maar Hallo toepassing die ze implementeren toothose toegang moet hebben.
+* **Auditors** -dit is meestal een andere set personen, geïsoleerd van Hallo ontwikkelaars en algemene IT-personeel. Hun verantwoordelijkheid is tooreview onjuist wordt gebruikt en het onderhoud van certificaten, sleutels, enz. en ervoor te zorgen dat aan data security standards. 
 
-Er is nog een rol die deze toepassing niet gebruikt, maar die wel relevant is om hier te vermelden. Dit is de abonnementbeheerder (of resourcegroepbeheerder). De abonnementbeheerder stelt de initiële toegangsmachtigingen voor het beveiligingsteam in. Hier gaan we ervan uit dat de abonnementbeheerder het beveiligingsteam toegang heeft gegeven tot een resourcegroep waarin alle resources zijn geplaatst die nodig zijn voor deze toepassing.
+Er is een meer rol die buiten Hallo bereik van deze toepassing, maar de relevante hier toobe vermeld, en dat is Hallo-abonnement (of resourcegroep) beheerder. Abonnementsbeheerder stelt u initiële toegangsmachtigingen voor Hallo beveiligingsteam. Hier nemen we aan dat abonnement Hallo beheerder toegang toohello team tooa resource beveiligingsgroep waarin alle benodigde resources voor deze toepassing wonen Hallo heeft verleend.
 
-We gaan nu kijken welke acties elke rol uitvoert voor deze toepassing.
+Nu gaan we kijken welke acties elke rol in de context van deze toepassing hello uitvoert.
 
 * **Beveiligingsteam**
   * Key Vaults maken
   * Logboekregistratie van Key Vault inschakelen
   * Sleutels/geheimen toevoegen
   * Back-ups van sleutels maken voor herstel na noodgevallen
-  * Toegangsbeleid voor Key Vaults instellen om machtigingen te verlenen aan gebruikers en toepassingen om bepaalde bewerkingen uit te voeren
+  * Beleid toogrant machtigingen toousers en toepassingen tooperform specifieke bewerkingen voor sleutelkluis toegang instellen
   * Sleutels/geheimen periodiek terugdraaien
 * **Ontwikkelaars/operators**
-  * Verwijzingen naar bootstrap- en SSL-certificaten (vingerafdrukken), de opslagsleutel (geheime URI) en de handtekeningsleutel (sleutel-URI) verkrijgen van het beveiligingsteam
+  * Verwijzingen toobootstrap en SSL-certificaten klant (vingerafdrukken) opslagsleutel (geheim URI) en de handtekeningsleutel (URI van Key) van het beveiligingsteam ophalen
   * Toepassingen die programmatisch sleutels en geheimen gebruiken, ontwikkelen en implementeren
 * **Auditors**
-  * Gebruikslogboeken bekijken om te bevestigen dat sleutels/geheimen op de juiste manier en in overeenstemming met de beveiligingsnormen voor gegevens worden gebruikt
+  * Gebruik Logboeken tooconfirm correct sleutel/geheim gebruik en naleving aan data security standards controleren
 
-Nu gaan we bekijken welke toegangsmachtigingen voor Key Vault er nodig zijn zodat elke rol (en de toepassing) de toegewezen taken kan uitvoeren. 
+Nu gaan we kijken welke toegang machtigingen tookey kluis nodig zijn voor elke rol (en de toepassing hello) tooperform hen toegewezen taken. 
 
 | Gebruikersrol | Machtigingen voor de beheerlaag | Machtigingen voor de gegevenslaag |
 | --- | --- | --- |
 | Beveiligingsteam |Inzender voor Key Vault |Sleutels: back-ups maken, verwijderen, ophalen, importeren, sorteren, herstellen <br> Geheimen: alle |
-| Ontwikkelaars/Operators |Implementatiemachtigingen voor Key Vault, zodat de virtuele machines die ze implementeren, geheimen kunnen ophalen uit de Key Vault |Geen |
+| Ontwikkelaars/Operators |sleutelkluis machtiging implementeren zodat Hallo VMs ze implementeren kunnen geheimen ophalen van de sleutelkluis Hallo |Geen |
 | Auditors |Geen |Sleutels: weergeven<br>Geheimen: weergeven |
 | Toepassing |Geen |Sleutels: ondertekenen<br>Geheimen: ophalen |
 
 > [!NOTE]
-> Auditors hebben weergavemachtigingen voor sleutels en geheimen nodig, zodat ze de kenmerken voor sleutels en geheimen die niet worden weergegeven in de logboeken, kunnen bekijken. Het gaat hierbij bijvoorbeeld om tags en activatie- en vervaldatums.
+> Auditors moeten de machtiging voor sleutels en geheimen lijst zodat u ze kunnen inspecteren kenmerken voor sleutels en geheimen die niet worden gegenereerd in Logboeken hello, zoals tags, activering en de vervaldatum.
 > 
 > 
 
-Alle drie de rollen hebben niet alleen machtigingen voor Key Vault nodig, maar ook toegang tot andere resources. Ze moeten bijvoorbeeld VM’s kunnen implementeren (of web-apps enz.). Ontwikkelaars/Operators hebben ook Inzenderstoegang tot de resourcetypen nodig. Auditors hebben leestoegang nodig tot het opslagaccount waarin de logboeken van Key Vault worden opgeslagen.
+Naast de machtiging tookey kluis, alle drie functies ook moeten toegang tot tooother bronnen. Bijvoorbeeld: toobe kunnen toodeploy VMs (of Web-Apps enz.) Ontwikkelaars/Operators moet ook 'Inzender' toegang toothose resourcetypen. Auditors moeten leestoegang toohello storage-account waarin Hallo sleutelkluis-logboeken worden opgeslagen.
 
-Omdat de focus van dit artikel ligt op de beveiliging van de toegang tot uw Key Vault, illustreren we alleen de relevante onderdelen voor dit onderwerp en slaan we informatie over de implementatie van certificaten, de programmatische toegang tot sleutels en geheimen, enz. over. Deze informatie wordt elders al behandeld. De implementatie van certificaten die zijn opgeslagen in Key Vault voor VM’s, wordt beschreven in een [blogbericht](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/) en er is [voorbeeldcode](https://www.microsoft.com/download/details.aspx?id=45343) beschikbaar die laat zien hoe u een bootstrap-certificaat gebruikt voor verificatie met Azure Active Directory om toegang te krijgen tot Key Vault.
+Aangezien access tooyour sleutelkluis is de beveiliging van dit artikel gericht hello, we alleen illustreren Hallo relevante delen die deel uitmaakt van toothis onderwerp en details met betrekking tot implementatie van certificaten, enzovoort programmatisch toegang van sleutels en geheimen overslaan. Deze informatie wordt elders al behandeld. Implementatie van certificaten die zijn opgeslagen in de sleutelkluis tooVMs vindt u in een [blogbericht](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/), en er [voorbeeldcode](https://www.microsoft.com/download/details.aspx?id=45343) beschikbaar die laat zien hoe toouse bootstrap tooauthenticate tooAzure AD tooget certificaat toegang tookey kluis.
 
-De meeste toegangsmachtigingen kunnen worden verleend met behulp van Azure Portal, maar om gedetailleerde machtigingen te verlenen, moet u mogelijk Azure PowerShell (of Azure CLI) gebruiken om het gewenste resultaat te bereiken. 
+De meeste Hallo toegangsmachtigingen kunnen worden verleend via Azure portal, maar toogrant gedetailleerde machtigingen die u wellicht toouse Azure PowerShell (of Azure CLI) tooachieve Hallo gewenst resultaat. 
 
-De volgende PowerShell-fragmenten gaan uit van het volgende:
+Hallo na PowerShell codefragmenten wordt ervan uitgegaan dat:
 
-* De Azure Active Directory-beheerder heeft beveiligingsgroepen gemaakt die staan voor de drie rollen, namelijk Contoso Security Team, Contoso App Devops en Contoso App Auditors. De beheerder heeft ook gebruikers toegevoegd aan de groepen waartoe ze behoren.
-* **ContosoAppRG** is de resourcegroep waarin alle resources zich bevinden. **contosologstorage** is waar de logboeken worden opgeslagen. 
-* Key Vault **ContosoKeyVault** en het opslagaccount **contosologstorage**, dat wordt gebruikt voor logboeken van Key Vault, moeten zich in dezelfde Azure-locatie bevinden
+* Hello Azure Active Directory-beheerder heeft beveiligingsgroepen voor Hallo drie rollen, namelijk Contoso beveiligingsteam, Contoso App Devops, Contoso App Auditors gemaakt. Hallo beheerder heeft ook toegevoegd aan gebruikers toohello groepen die ze behoren.
+* **ContosoAppRG** Hallo resourcegroep is waarin alle Hallo bronnen zich bevinden. **contosologstorage** waarin Hallo logboeken worden opgeslagen. 
+* Sleutelkluis **ContosoKeyVault** en storage-account gebruikt voor sleutelkluis-logboeken **contosologstorage** Hallo moet dezelfde Azure-locatie
 
-De abonnementbeheerder wijst allereerst de rollen Inzender voor Key Vault en Beheerder van gebruikerstoegang toe aan het beveiligingsteam. Hiermee kan het beveiligingsteam de toegang tot andere resources beheren en Key Vault in de resourcegroep ContosoAppRG beheren.
+Eerste Hallo abonnementsbeheerder toegewezen 'sleutel kluis Inzender' en ' beheerder voor gebruikerstoegang ' rollen toohello beveiligingsteam. Hiermee kan Hallo-team toomanage toegang tooother beveiligingsbronnen en sleutelkluizen in de resourcegroep Hallo ContosoAppRG beheren.
 
 ```
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
-Het volgende script geeft weer hoe het beveiligingsteam een Key Vault kan maken, logboekregistratie kan instellen, en toegangsmachtigingen voor andere rollen en de toepassing kan instellen. 
+Hallo volgende script ziet u hoe Hallo beveiligingsteam kunt een sleutelkluis maken, instellen van logboekregistratie en stel toegangsmachtigingen voor andere rollen en het Hallo-toepassing. 
 
 ```
 # Create key vault and enable logging
@@ -185,61 +185,61 @@ $devopsrole.AssignableScopes = @("/subscriptions/<SUBSCRIPTION-GUID>")
 $devopsrole.Actions.Add("Microsoft.KeyVault/vaults/deploy/action")
 New-AzureRmRoleDefinition -Role $devopsrole
 
-# Assign this newly defined role to Dev ops security group
+# Assign this newly defined role tooDev ops security group
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -ResourceGroupName ContosoAppRG
 
 # Data plane permissions for Auditors
 Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionsToKeys list -PermissionsToSecrets list
 ```
 
-De gedefinieerde aangepaste rol kan alleen worden toegewezen aan het abonnement waarin de resourcegroep ContosoAppRG wordt gemaakt. Als dezelfde aangepaste rollen worden gebruikt voor andere projecten in andere abonnementen, kunnen er meer abonnementen aan het bereik worden toegevoegd.
+de aangepaste rol Hallo gedefinieerd, wordt alleen toegewezen toohello abonnement waar Hallo ContosoAppRG resourcegroep wordt gemaakt. Als hello dezelfde aangepaste rollen wordt gebruikt voor andere projecten in andere abonnementen, kan de scope meer abonnementen toegevoegd hebben.
 
-De aangepaste rol voor de ontwikkelaars/operators voor de machtiging 'implementeren/actie' kan worden toegewezen aan de resourcegroep. Op deze manier krijgen alleen de VM's die zijn gemaakt in de resourcegroep ContosoAppRG, de geheimen (SSL-certificaat en bootstrap-certificaat). Geen van de VM's die door een lid van het ontwikkelaars/operators-team worden gemaakt in een andere resourcegroep, kunnen deze geheimen ophalen, zelfs niet als de geheime URI's bekend zijn.
+Hallo aangepaste roltoewijzing voor ontwikkelaars Hallo/operators voor Hallo "implementeren/action" machtiging is binnen het bereik toohello resourcegroep. Op deze manier alleen Hallo VMs gemaakt in resourcegroep Hallo 'ContosoAppRG' hello geheimen (SSL-certificaat verstuurd en bootstrap cert) krijgen. Alle virtuele machines die een lid van de dev/ops team in de andere resourcegroep maakt worden niet kunnen tooget deze geheime gegevens zelfs als ze Hallo geheim URI's kent.
 
-In dit voorbeeld ziet u een eenvoudig scenario. In de praktijk zijn scenario's mogelijk ingewikkelder. Mogelijk moet u de machtigingen voor uw Key Vault aanpassen op basis van uw behoeften. In ons voorbeeld gaan we er bijvoorbeeld van uit dat het beveiligingsteam de sleutel en geheime verwijzingen (URI's en vingerafdrukken) levert waarnaar het ontwikkelaars/operators-team in hun toepassingen moet verwijzen. Daarom hoeven ze de ontwikkelaars/operators geen toegang te geven tot de gegevenslaag. Houd er ook rekening mee dat dit voorbeeld is gericht op het beveiligen van uw Key Vault. Het is ook belangrijk om uw [VM’s](https://azure.microsoft.com/services/virtual-machines/security/), [opslagaccounts](../storage/common/storage-security-guide.md) en andere Azure-resources te beveiligen.
+In dit voorbeeld ziet u een eenvoudig scenario. Echte leven scenario's mogelijk ingewikkelder en u moet wellicht tooadjust machtigingen tooyour sleutelkluis op basis van uw behoeften. Bijvoorbeeld: in ons voorbeeld gaan we ervan uit dat beveiligingsteam geven Hallo-sleutel en geheime verwijzingen (URI's en vingerafdrukken) die ontwikkelaars/operators team nodig tooreference in hun toepassingen. Daarom hoeven niet ontwikkelaars toogrant/operators vlak toegang tot gegevens. Houd er ook rekening mee dat dit voorbeeld is gericht op het beveiligen van uw Key Vault. Vergelijkbare moet worden overwogen toosecure [uw virtuele machines](https://azure.microsoft.com/services/virtual-machines/security/), [opslagaccounts](../storage/common/storage-security-guide.md) en andere Azure-resources te.
 
 > [!NOTE]
-> Opmerking: Dit voorbeeld toont hoe toegang tot de Key Vault wordt vergrendeld tijdens de productie. De ontwikkelaars moeten hun eigen abonnement of resourcegroep hebben waarin ze volledige machtigingen hebben voor het beheren van hun kluizen, VM's en het opslagaccount waarin ze de toepassing ontwikkelen.
+> Opmerking: Dit voorbeeld toont hoe toegang tot de Key Vault wordt vergrendeld tijdens de productie. Hallo ontwikkelaars moeten hebben hun eigen abonnement of resourcegroup waarvoor zij hebben volledige machtigingen toomanage hun kluizen, VM's en storage-account waarin ze Hallo toepassing ontwikkelt.
 > 
 > 
 
-## <a name="resources"></a>Bronnen
+## <a name="resources"></a>Resources
 * [Toegangsbeheer op basis van rollen in Azure Active Directory](../active-directory/role-based-access-control-configure.md)
   
-  In dit artikel wordt het toegangsbeheer op basis van rollen in Azure Active Directory uitgelegd.
+  Dit artikel wordt uitgelegd Hallo toegangsbeheer op basis van een functie van Azure Active Directory en hoe het werkt.
 * [RBAC: ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md)
   
-  In dit artikel worden alle beschikbare ingebouwde rollen in RBAC beschreven.
+  Deze details van alle Hallo ingebouwde rollen die beschikbaar zijn in RBAC.
 * [Resource Manager-implementatie en klassieke implementatie begrijpen](../azure-resource-manager/resource-manager-deployment-model.md)
   
-  In dit artikel worden het Resource Manager-implementatiemodel en het klassieke implementatiemodel uitgelegd en worden de voordelen van het gebruik van Resource Manager en resourcegroepen beschreven
+  In dit artikel wordt uitgelegd Hallo Resource Manager-implementatie en klassieke implementatiemodel en wordt uitgelegd Hallo voordelen van het gebruik van Hallo Resource Manager en resource-groepen
 * [Toegangsbeheer op basis van rollen beheren met Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   
-  In dit artikel wordt uitgelegd hoe u toegangsbeheer op basis van rollen beheert met Azure PowerShell
-* [Toegangsbeheer op basis van rollen beheren met de REST-API](../active-directory/role-based-access-control-manage-access-rest.md)
+  Dit artikel wordt uitgelegd hoe toomanage rollen gebaseerd toegangsbeheer met Azure PowerShell
+* [Toegangsbeheer op basis van rollen met Hallo REST-API beheren](../active-directory/role-based-access-control-manage-access-rest.md)
   
-  Dit artikel beschrijft hoe u de REST-API gebruikt om RBAC te beheren.
+  Dit artikel laat zien hoe toouse Hallo REST-API toomanage RBAC.
 * [Toegangsbeheer op basis van rollen voor Microsoft Azure vanuit Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
   
-  Dit is een koppeling naar een video op Channel 9 van de vergadering over MS Ignite in 2015. In deze sessie wordt ingegaan op de opties voor toegangsbeheer en rapportage in Azure en worden aanbevolen procedures behandeld voor de beveiliging van de toegang tot Azure-abonnementen met Azure Active Directory.
-* [Toegang verlenen aan webtoepassingen die gebruikmaken van OAuth 2.0 en Azure Active Directory](../active-directory/active-directory-protocols-oauth-code.md)
+  Dit is een koppeling tooa video op Channel 9 Hallo 2015 MS Ignite conferentie. In deze sessie, hebben ze over toegang tot beheer- en rapportagefuncties in Azure en bekijk de aanbevolen procedures om de toegang beveiligen tooAzure abonnementen met Azure Active Directory.
+* [Toegang tooweb toepassingen met behulp van OAuth 2.0 en Azure Active Directory autoriseren](../active-directory/active-directory-protocols-oauth-code.md)
   
   Dit artikel beschrijft de volledige OAuth 2.0-stroom voor verificatie met Azure Active Directory.
 * [Key Vault-beheer met REST-API’s](https://msdn.microsoft.com/library/azure/mt620024.aspx)
   
-  Dit document dient als referentie voor de REST-API's voor het programmatisch beheren van uw Key Vault, inclusief het instellen van het toegangsbeleid voor de Key Vault.
+  Dit document is Hallo-verwijzing voor Hallo REST-API's toomanage uw sleutel vault programmatisch, inclusief het instellen van toegangsbeleid voor sleutelkluis.
 * [REST-API’s van Key Vault](https://msdn.microsoft.com/library/azure/dn903609.aspx)
   
-  Koppeling naar de REST API-referentiedocumentatie voor Key Vault.
+  Koppeling tookey kluis REST-API-naslagdocumentatie.
 * [Toegangsbeheer voor sleutels](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
   
-  Koppeling naar de referentiedocumentatie voor toegangsbeheer voor geheimen.
+  TooSecret access control-naslagdocumentatie koppelen.
 * [Toegangsbeheer voor geheimen](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
-  Koppeling naar de referentiedocumentatie voor toegangsbeheer voor sleutels.
+  TooKey access control-naslagdocumentatie koppelen.
 * Toegangsbeleid voor Key Vault [instellen](https://msdn.microsoft.com/library/mt603625.aspx) en [verwijderen](https://msdn.microsoft.com/library/mt619427.aspx) met behulp van PowerShell
   
-  Koppelingen naar referentiedocumentatie voor PowerShell-cmdlets voor het beheren van toegangsbeleid voor Key Vault.
+  Koppelingen tooreference documentatie voor PowerShell-cmdlets toomanage sleutelkluis-beleid.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie [Aan de slag met Azure Key Vault](key-vault-get-started.md) voor een inleidende zelfstudie voor beheerders.
@@ -248,5 +248,5 @@ Zie [Logboekregistratie van Azure Key Vault](key-vault-logging.md) voor meer inf
 
 Zie [Over sleutels en geheimen](https://msdn.microsoft.com/library/azure/dn903623.aspx) voor meer informatie over het gebruik van sleutels en geheimen met Azure Key Vault.
 
-Ga naar de [forums van Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault) als u vragen hebt over Key Vault
+Als u vragen over sleutelkluis hebt, gaat u naar Hallo [Azure sleutelkluis Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 

@@ -1,5 +1,5 @@
 ---
-title: Een Azure-web-app uitgevoerd op Linux maken | Microsoft Docs
+title: een Azure aaaCreate web-app uitgevoerd op Linux | Microsoft Docs
 description: Web-app maken van workflow voor Azure-Web-App op Linux.
 keywords: Azure app service, web-app, linux, oss
 services: app-service
@@ -15,39 +15,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.openlocfilehash: 49091d4a85bed23927850f9c0bbc5ea8b6e8c9e1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: de1bd030345d5e2a8024012067b5bcaa2cca09dc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-web-app-running-on-linux"></a>Een Azure-web-app uitgevoerd op Linux maken
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
 
-## <a name="use-the-azure-portal-to-create-your-web-app"></a>De Azure portal gebruiken om uw web-app maken
-U kunt beginnen met het maken van uw web-app op Linux van de [Azure-portal](https://portal.azure.com) zoals weergegeven in de volgende afbeelding:
+## <a name="use-hello-azure-portal-toocreate-your-web-app"></a>Hello Azure portal toocreate uw web-app gebruiken
+U kunt beginnen met het maken van uw web-app op Linux van Hallo [Azure-portal](https://portal.azure.com) zoals weergegeven in Hallo installatiekopie te volgen:
 
-![Beginnen met het maken van een web-app in de Azure portal][1]
+![Beginnen met het maken van een web-app op Hallo Azure-portal][1]
 
-Vervolgens moet de **blade maken** opent, zoals wordt weergegeven in de volgende afbeelding:
+Vervolgens Hallo **blade maken** wordt geopend zoals weergegeven in Hallo installatiekopie te volgen:
 
-![De blade maken][2]
+![blade Hallo-maken][2]
 
 1. Uw web-app een naam geven.
-2. Kies een bestaande resourcegroep of maak een nieuwe. (Zie beschikbare regio's in de [sectie beperkingen](app-service-linux-intro.md).)
-3. Kies een bestaand Azure App Service-abonnement of een nieuwe maken. (Zie de opmerkingen bij de App Service-plan in de [sectie beperkingen](app-service-linux-intro.md).)
-4. Kies de stack van de toepassing die u wilt gebruiken. U kunt kiezen tussen verschillende versies van Node.js, PHP, .net Core en Ruby.
+2. Kies een bestaande resourcegroep of maak een nieuwe. (Zie beschikbare regio's in Hallo [sectie beperkingen](app-service-linux-intro.md).)
+3. Kies een bestaand Azure App Service-abonnement of een nieuwe maken. (Zie de opmerkingen bij de App Service-plan in Hallo [sectie beperkingen](app-service-linux-intro.md).)
+4. Kies de toepassing hello stack die u van plan toouse bent. U kunt kiezen tussen verschillende versies van Node.js, PHP, .net Core en Ruby.
 
-Nadat u de app hebt gemaakt, kunt u de toepassing-stack van de toepassingsinstellingen zoals weergegeven in de volgende afbeelding:
+Nadat u Hallo app hebt gemaakt, kunt u Hallo toepassing stack van Hallo toepassingsinstellingen zoals weergegeven in Hallo installatiekopie te volgen:
 
 ![Toepassingsinstellingen][3]
 
 ## <a name="deploy-your-web-app"></a>Uw web-app implementeren
-Kiezen **implementatieopties** in de management portal biedt u de optie voor lokale Git- of GitHub-opslagplaats gebruiken voor het implementeren van uw toepassing. De rest van de instructies zijn vergelijkbaar met die voor een niet-Linux-web-app. U kunt de instructies in [lokale Git-implementatie](app-service-deploy-local-git.md) of [continue implementatie](app-service-continuous-deployment.md) om uw app te implementeren.
+Kiezen **implementatieopties** van Hallo management portal biedt u Hallo optie toouse lokale Git- of GitHub-opslagplaats toodeploy uw toepassing. Hallo overige Hallo-instructies zijn vergelijkbaar toothose voor een niet-Linux-web-app. U kunt Hallo instructies in [lokale Git-implementatie](app-service-deploy-local-git.md) of [continue implementatie](app-service-continuous-deployment.md) toodeploy uw app.
 
-U kunt ook FTP gebruiken voor het uploaden van uw toepassing naar uw site. U kunt het FTP-eindpunt voor uw web-app krijgen van de diagnostische logboeken sectie zoals weergegeven in de volgende afbeelding:
+U kunt uw toepassing tooyour site ook FTP-tooupload. U kunt krijgen Hallo FTP-eindpunt voor uw web-app van Hallo diagnostics sectie logs zoals weergegeven in Hallo volgende afbeelding:
 
 ![Diagnostische logboeken][4]
 

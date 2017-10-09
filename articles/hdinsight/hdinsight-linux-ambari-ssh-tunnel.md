@@ -1,6 +1,6 @@
 ---
-title: SSH-tunneling voor toegang tot Azure HDInsight gebruiken | Microsoft Docs
-description: Informatie over het gebruik van een SSH-tunnel te zoeken veilig webbronnen gehost op uw HDInsight op basis van Linux-knooppunten.
+title: aaaUse SSH tunneling tooaccess Azure HDInsight | Microsoft Docs
+description: Meer informatie over hoe een SSH-tunnel toosecurely toouse bladeren webbronnen gehost op uw HDInsight op basis van Linux-knooppunten.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/21/2017
 ms.author: larryfr
-ms.openlocfilehash: 4b606ea3797d685b9deacf72f1bd31e0ef007f98
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8a315c53751bbe6950a182674f4108c67c2f2f8e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>SSH-Tunneling gebruiken voor toegang tot de Ambari-webgebruikersinterface, JobHistory, NameNode, Oozie en andere web-UI
+# <a name="use-ssh-tunneling-tooaccess-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>SSH-Tunneling tooaccess Ambari-webgebruikersinterface, JobHistory, NameNode, Oozie en andere web UI gebruiken
 
-Linux gebaseerde HDInsight-clusters bieden toegang tot de Ambari-webgebruikersinterface via Internet, maar sommige functies van de gebruikersinterface zijn niet. Bijvoorbeeld: de webgebruikersinterface voor andere services die via Ambari worden opgehaald. Voor volledige functionaliteit van de Ambari-webgebruikersinterface, moet u een SSH-tunnel naar de kop van het cluster.
+Linux gebaseerde HDInsight-clusters bieden toegang tooAmbari webgebruikersinterface via Internet hello, maar sommige functies van Hallo gebruikersinterface zijn niet. Bijvoorbeeld, Hallo-webgebruikersinterface voor andere services die via Ambari worden opgehaald. Voor volledige functionaliteit van Hallo Ambari-webgebruikersinterface, moet u een SSH-tunnel toohello cluster head.
 
 ## <a name="why-use-an-ssh-tunnel"></a>Waarom gebruikt een SSH-tunnel
 
-Aantal van de menu's in Ambari werken alleen via een SSH-tunnel. Deze menu's zijn afhankelijk van websites en services worden uitgevoerd op andere knooppunttypen zoals worker-knooppunten. Deze websites zijn vaak niet beveiligd, zodat het is niet veilig om ze rechtstreeks op het internet weer te geven.
+Een aantal menu's Hallo in Ambari werken alleen via een SSH-tunnel. Deze menu's zijn afhankelijk van websites en services worden uitgevoerd op andere knooppunttypen zoals worker-knooppunten. Vaak deze websites zijn niet beveiligd, zodat het niet veilig toodirectly zichtbaar Hallo ze op internet.
 
-De volgende Web-UI vereisen een SSH-tunnel:
+Hallo Web UI na vereisen een SSH-tunnel:
 
 * JobHistory
 * NameNode
@@ -37,118 +37,118 @@ De volgende Web-UI vereisen een SSH-tunnel:
 * Oozie-webgebruikersinterface
 * HBase hoofd- en logboeken gebruikersinterface
 
-Als u scriptacties gebruikt voor het aanpassen van uw cluster, vereisen geen services of hulpprogramma's die u installeert die een web-UI zichtbaar een SSH-tunnel. Als u Hue met behulp van een scriptactie installeren, moet u een SSH-tunnel gebruiken voor toegang tot de Hue-webgebruikersinterface.
+Als u uw cluster scriptacties toocustomize gebruiken, vereisen geen services of hulpprogramma's die u installeert die een web-UI zichtbaar een SSH-tunnel. Bijvoorbeeld, als u Hue met behulp van een scriptactie installeren, moet u een SSH-tunnel tooaccess Hallo Hue-webgebruikersinterface.
 
 > [!IMPORTANT]
-> Als u directe toegang tot HDInsight via een virtueel netwerk hebt, hoeft u geen gebruik van SSH-tunnels. Zie voor een voorbeeld van rechtstreeks toegang hebben tot HDInsight via een virtueel netwerk, de [HDInsight verbinding maken met uw lokale netwerk](connect-on-premises-network.md) document.
+> Als u directe toegang tooHDInsight via een virtueel netwerk hebt, hoeft u geen toouse SSH-tunnels. Zie voor een voorbeeld van rechtstreeks toegang hebben tot HDInsight via een virtueel netwerk, Hallo [verbinding maken met HDInsight tooyour on-premises netwerk](connect-on-premises-network.md) document.
 
 ## <a name="what-is-an-ssh-tunnel"></a>Wat is een SSH-tunnel
 
-[Secure Shell (SSH) tunneling](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) verzonden naar een poort op uw lokale werkstation verkeer gerouteerd. Het verkeer wordt gerouteerd via een SSH-verbinding met het hoofdknooppunt van uw HDInsight-cluster. De aanvraag is opgelost, alsof deze afkomstig van het hoofdknooppunt is. Het antwoord wordt vervolgens doorgestuurd teruggestuurd via de tunnel naar uw werkstation.
+[Secure Shell (SSH) tunneling](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) tooa poort verzonden op uw lokale werkstation verkeer gerouteerd. Hallo-verkeer wordt gerouteerd via een SSH-verbinding tooyour HDInsight-cluster hoofdknooppunt. Hallo-aanvraag is opgelost, alsof deze afkomstig van het hoofdknooppunt Hallo is. antwoord Hallo wordt vervolgens doorgestuurd teruggestuurd via Hallo tunnel tooyour werkstation.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een SSH-client. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-* Een webbrowser die kan worden geconfigureerd om een proxy SOCKS5 te gebruiken.
+* Een webbrowser die kan worden geconfigureerd toouse SOCKS5 proxy.
 
     > [!WARNING]
-    > De ondersteuning voor SOCKS-proxy is ingebouwd in Windows biedt geen ondersteuning voor SOCKS5 en werkt niet met de stappen in dit document. De volgende browsers zijn afhankelijk van de proxy-instellingen voor Windows en op dit moment niet werken met de stappen in dit document:
+    > Hallo SOCKS-proxy-ondersteuning is ingebouwd in Windows biedt geen ondersteuning voor SOCKS5 en werkt niet met Hallo stappen in dit document. Hallo volgende browsers zijn afhankelijk van de proxy-instellingen voor Windows, en niet op dit moment werken met Hallo stappen in dit document:
     >
     > * Microsoft Edge
     > * Microsoft Internet Explorer
     >
-    > Google Chrome is ook afhankelijk van de proxy-instellingen van Windows. U kunt echter de uitbreidingen die ondersteuning bieden voor SOCKS5 installeren. Het is raadzaam [FoxyProxy standaard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp).
+    > Google Chrome is ook afhankelijk van Hallo Windows proxy-instellingen. U kunt echter de uitbreidingen die ondersteuning bieden voor SOCKS5 installeren. Het is raadzaam [FoxyProxy standaard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp).
 
-## <a name="usessh"></a>Maken van een tunnel met behulp van de SSH-opdracht
+## <a name="usessh"></a>Hallo SSH-opdracht met een tunnel maken
 
-Gebruik de volgende opdracht voor het maken van een SSH-tunnel met behulp van de `ssh` opdracht. Vervang **gebruikersnaam** met een SSH-gebruiker voor uw HDInsight-cluster en vervang **CLUSTERNAME** met de naam van uw HDInsight-cluster:
+Gebruik Hallo volgende opdracht toocreate een SSH-tunnel met Hallo `ssh` opdracht. Vervang **gebruikersnaam** met een SSH-gebruiker voor uw HDInsight-cluster en vervang **CLUSTERNAME** met Hallo-naam van uw HDInsight-cluster:
 
 ```bash
 ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 ```
 
-Deze opdracht maakt u een verbinding die verkeer gerouteerd naar lokale poort 9876 aan het cluster via SSH. De opties zijn:
+Deze opdracht maakt u een verbinding die verkeer toolocal poort 9876 toohello cluster via SSH van routes. Hallo-opties zijn:
 
-* **D 9876** -de lokale poort waarmee verkeer via de tunnel.
+* **D 9876** -lokale poort waarmee verkeer via de tunnel Hallo Hallo.
 * **C** -alle gegevens te comprimeren omdat webverkeer voornamelijk tekst is.
-* **2** -force SSH protocol versie 2 alleen proberen.
+* **2** -force SSH tootry protocolversie 2 alleen.
 * **q** -stille modus.
 * **T** -toewijzing van de pseudo-tty uitschakelen omdat we zojuist een poort doorstuurt.
 * **n**-Voorkomen dat het lezen van STDIN, aangezien we zojuist een poort doorstuurt.
 * **N** -een externe opdracht niet uitvoeren omdat er slechts een poort doorstuurt.
-* **f** -op de achtergrond uitgevoerd.
+* **f** -Hallo achtergrond uitvoeren.
 
-Zodra de opdracht is voltooid, wordt verkeer dat wordt verzonden naar poort 9876 op de lokale computer naar het hoofdknooppunt van het cluster gestuurd.
+Zodra het Hallo-opdracht is voltooid, is verkeer dat wordt verzonden tooport 9876 op de lokale computer Hallo gerouteerde toohello cluster hoofdknooppunt.
 
 ## <a name="useputty"></a>Maken van een tunnel met PuTTY
 
-[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) een grafische SSH-client voor Windows. Gebruik de volgende stappen voor het maken van een SSH-tunnel met PuTTY:
+[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) een grafische SSH-client voor Windows. Hallo stappen toocreate na een SSH-tunnel met PuTTY gebruiken:
 
-1. PuTTY opent en voert u de verbindingsgegevens. Als u niet bekend met PuTTY bent, raadpleegt u de [PuTTY-documentatie (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html).
+1. PuTTY opent en voert u de verbindingsgegevens. Als u niet bekend met PuTTY bent, raadpleegt u Hallo [PuTTY-documentatie (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html).
 
-2. In de **categorie** sectie aan de linkerkant van het dialoogvenster uit, vouw **verbinding**, vouw **SSH**, en selecteer vervolgens **Tunnels**.
+2. In Hallo **categorie** sectie toohello links van dialoogvenster hello, vouw **verbinding**, vouw **SSH**, en selecteer vervolgens **Tunnels**.
 
-3. Geef de volgende informatie op de **opties voor SSH-poort doorsturen** vorm:
+3. Bieden de volgende informatie op Hallo Hallo **opties voor SSH-poort doorsturen** vorm:
    
-   * **Bronpoort**: de poort op de client die u wilt doorsturen. Bijvoorbeeld: **9876**.
+   * **Bronpoort** -Hallo poort op de gewenste tooforward Hallo-client. Bijvoorbeeld: **9876**.
 
-   * **Bestemming** -de SSH-adres voor het Linux gebaseerde HDInsight-cluster. Bijvoorbeeld **mijncluster-ssh.azurehdinsight.net**.
+   * **Bestemming** -Hallo SSH-adres voor Hallo Linux gebaseerde HDInsight-cluster. Bijvoorbeeld **mijncluster-ssh.azurehdinsight.net**.
 
    * **Dynamisch**: hiermee schakelt u de dynamische routering van SOCKS-proxy's in.
      
      ![afbeelding van de opties-tunneling](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
 
-4. Klik op **toevoegen** toevoegen van de instellingen en klik vervolgens op **openen** een SSH-verbinding openen.
+4. Klik op **toevoegen** tooadd Hallo instellingen en klik vervolgens op **Open** tooopen een SSH-verbinding.
 
-5. Wanneer u wordt gevraagd, moet u zich aanmelden bij de server.
+5. Wanneer u wordt gevraagd, meld u bij toohello-server.
 
-## <a name="use-the-tunnel-from-your-browser"></a>Gebruik de tunnel vanuit de browser
+## <a name="use-hello-tunnel-from-your-browser"></a>Hallo-tunnel vanuit de browser gebruiken
 
 > [!IMPORTANT]
-> De stappen in deze sectie de Mozilla FireFox browser gebruiken, aangezien deze dezelfde proxyinstellingen voor alle platforms biedt. Andere moderne browsers, zoals Google Chrome moet mogelijk een extensie zoals FoxyProxy werken met de tunnel.
+> Hallo stappen in deze sectie gebruik Hallo Mozilla FireFox browser, aangezien deze Hallo dezelfde proxy-instellingen voor alle platforms biedt. Andere moderne browsers, zoals Google Chrome moet mogelijk een extensie zoals FoxyProxy toowork met Hallo-tunnel.
 
-1. Configureer de browser te gebruiken **localhost** en het maken van de poort die u hebt gebruikt toen de tunnel als een **SOCKS v5** proxy. Hier ziet u hoe de instellingen van Firefox eruit. Als u een andere poort dan 9876 gebruikt, moet u de poort wijzigen in het abonnement dat u gebruikt:
+1. Configureer Hallo browser toouse **localhost** en het Hallo-poort die u hebt gebruikt toen maken Hallo tunnel als een **SOCKS v5** proxy. Hier ziet u hoe Hallo Firefox instellingen eruit. Als u een andere poort dan 9876 gebruikt, wijzigen Hallo poort toohello die u gebruikt:
    
     ![afbeelding van Firefox instellingen](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
    
    > [!NOTE]
-   > Selecteren **externe DNS** wordt omgezet Domain Name System (DNS) aanvragen met behulp van het HDInsight-cluster. Deze instelling wordt omgezet DNS met het hoofdknooppunt van het cluster.
+   > Selecteren **externe DNS** wordt omgezet Domain Name System (DNS)-aanvragen via Hallo HDInsight-cluster. Deze instelling wordt omgezet DNS met Hallo hoofdknooppunt van Hallo-cluster.
 
-2. Controleer of de tunnel werkt via een site, zoals [http://www.whatismyip.com/](http://www.whatismyip.com/). Het IP-adres geretourneerd moet één die wordt gebruikt door de Microsoft Azure-datacenter.
+2. Controleer of deze tunnel Hallo werkt via een site, zoals [http://www.whatismyip.com/](http://www.whatismyip.com/). Hallo IP geretourneerd een dient te worden door Microsoft Azure-datacenter Hallo.
 
 ## <a name="verify-with-ambari-web-ui"></a>Controleer met Ambari-webgebruikersinterface
 
-Zodra het cluster is ingesteld, gebruikt u de volgende stappen uit om te controleren of u toegang web service UI van het Ambari Web tot:
+Zodra het Hallo-cluster is ingesteld, gebruikt u hello te volgen stappen tooverify dat u service-web UI vanaf Hallo Ambari Web openen kunt:
 
-1. Ga naar http://headnodehost:8080 in uw browser. De `headnodehost` adres tot het cluster en los naar de headnode die Ambari op wordt uitgevoerd via de tunnel wordt verzonden. Wanneer u wordt gevraagd, typt u de beheerdersgebruikersnaam (admin) en het wachtwoord voor uw cluster. U wordt mogelijk gevraagd een tweede maal door de Ambari-webgebruikersinterface. Als dit het geval is, voert u de gegevens opnieuw.
+1. Ga in uw browser toohttp://headnodehost:8080. Hallo `headnodehost` adres wordt verzonden via Hallo tunnel toohello cluster en toohello headnode die Ambari wordt uitgevoerd op te lossen. Wanneer u wordt gevraagd, typt u Hallo-beheerdersgebruikersnaam (admin) en het wachtwoord voor uw cluster. U wordt mogelijk gevraagd een tweede maal door Hallo Ambari-webgebruikersinterface. Als dit het geval is, voert u Hallo gegevens opnieuw.
 
    > [!NOTE]
-   > Wanneer u het adres http://headnodehost:8080 verbinding maken met het cluster, wordt u verbinding maakt via de tunnel. Communicatie wordt beveiligd met behulp van de SSH-tunnel in plaats van HTTPS. Als u wilt verbinden via internet met behulp van HTTPS, gebruiken https://CLUSTERNAME.azurehdinsight.net, waarbij **CLUSTERNAME** is de naam van het cluster.
+   > Wanneer u Hallo http://headnodehost:8080 adres tooconnect toohello cluster gebruikt, wordt u verbinding maakt via Hallo-tunnel. Communicatie wordt beveiligd met Hallo SSH-tunnel in plaats van HTTPS. tooconnect meer dan Hallo internet met behulp van HTTPS, gebruikt u https://CLUSTERNAME.azurehdinsight.net, waarbij **CLUSTERNAME** Hallo-naam van Hallo-cluster.
 
-2. Selecteer in de Ambari-Webgebruikersinterface HDFS uit de lijst aan de linkerkant van de pagina.
+2. Selecteer in de lijst Hallo op Hallo links van de pagina Hallo Hallo Ambari-Webgebruikersinterface, HDFS.
 
     ![Afbeelding met HDFS geselecteerd](./media/hdinsight-linux-ambari-ssh-tunnel/hdfsservice.png)
 
-3. Wanneer de gegevens van de HDFS-service wordt weergegeven, selecteert u **snelkoppelingen**. Er verschijnt een lijst met de hoofdknooppunten van het cluster. Selecteer een van de hoofdknooppunten en selecteer vervolgens **NameNode UI**.
+3. Wanneer Hallo HDFS-service-informatie wordt weergegeven, selecteert u **snelkoppelingen**. Een lijst van head clusterknooppunten hello wordt weergegeven. Selecteer een van de hoofdknooppunten Hallo en selecteer vervolgens **NameNode UI**.
 
-    ![Afbeelding met het menu QuickLinks uitgevouwen](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
+    ![De installatiekopie met de Hallo QuickLinks menu uitgevouwen](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
    > [!NOTE]
-   > Wanneer u selecteert __snelkoppelingen__, krijgt u mogelijk een indicator wacht. Dit probleem kan optreden als u een trage internetverbinding hebben. Wacht enkele minuten duren om de gegevens te worden ontvangen van de server en probeer het opnieuw de lijst.
+   > Wanneer u selecteert __snelkoppelingen__, krijgt u mogelijk een indicator wacht. Dit probleem kan optreden als u een trage internetverbinding hebben. Wacht een minuut of twee Hallo gegevens toobe ontvangen van Hallo-server en probeer het opnieuw Hallo-lijst.
    >
-   > Sommige items in de **snelkoppelingen** menu worden afgekapt door aan de rechterkant van het scherm. Zo ja, vouw het menu met de muis en pijl-rechts om te schuiven het scherm naar rechts om de rest van het menu te geven.
+   > Een aantal invoergegevens in Hallo **snelkoppelingen** menu kan worden genegeerd door de rechterkant Hallo van welkomstscherm. Zo ja, vouw Hallo menu met de muis en gebruiken van Hallo pijl naar rechts sleutel tooscroll Hallo scherm toohello juiste toosee Hallo rest van Hallo-menu.
 
-4. Een pagina zoals in de volgende afbeelding wordt weergegeven:
+4. Een pagina vergelijkbaar toohello volgende afbeelding wordt weergegeven:
 
-    ![Afbeelding van de gebruikersinterface NameNode](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
+    ![Afbeelding van Hallo NameNode UI](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
    > [!NOTE]
-   > U ziet de URL voor deze pagina. moet er ongeveer als **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Deze URI met behulp van de interne volledig gekwalificeerde domeinnaam (FQDN) van het knooppunt en is alleen toegankelijk wanneer u een SSH-tunnel.
+   > Let op Hallo-URL voor deze pagina. moet vergelijkbaar te**http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Deze URI gebruikt Hallo interne volledig gekwalificeerde domeinnaam (FQDN) van Hallo-knooppunt en is alleen toegankelijk wanneer u een SSH-tunnel.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt geleerd hoe maken en gebruiken van een SSH-tunnel, Zie het volgende document voor andere manieren om te Ambari gebruiken:
+U hebt geleerd hoe toocreate en gebruikt een SSH-tunnel Hallo volgende document voor andere manieren toouse Ambari zien:
 
 * [HDInsight-clusters beheren met Ambari](hdinsight-hadoop-manage-ambari.md)
 

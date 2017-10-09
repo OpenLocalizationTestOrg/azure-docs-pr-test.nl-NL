@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> De versie SCP.Net in uw project moet overeenkomen met de Storm versie aanwezig is op uw HDInsight-cluster. Gebruik de volgende tabel om te bepalen welke versie u moet gebruiken:
+> Hallo SCP.Net versie die wordt gebruikt in uw project moet overeenkomen met de Hallo Storm versie aanwezig is op uw HDInsight-cluster. Hallo tabel toodetermine welke versie moet u volgende gebruiken:
 > 
 > | HDInsight-versie | Apache Storm-versie | SCP.NET versie | Standaard Mono-versie |
 > |:---:|:---:|:---:|:---:|

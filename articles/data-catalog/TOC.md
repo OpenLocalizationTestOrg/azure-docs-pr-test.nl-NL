@@ -14,13 +14,13 @@
 ## [Gegevensbronnen zoeken](data-catalog-how-to-discover.md)
 ## [Aantekeningen toevoegen aan gegevensbronnen](data-catalog-how-to-annotate.md)
 ## [Gegevensbronnen documenteren](data-catalog-how-to-documentation.md)
-## [Verbinding maken met gegevensbronnen](data-catalog-how-to-connect.md)
+## [Verbinding maken met bronnen toodata](data-catalog-how-to-connect.md)
 ## [Werken met grote gegevensbronnen](data-catalog-how-to-big-data.md)
 ## [Gegevensbronnen met gegevensprofielen](data-catalog-how-to-data-profile.md)
 ## [Gegevensassets beheren](data-catalog-how-to-manage.md)
 ## [Zoekopdrachten opslaan en gegevensassets vastzetten](data-catalog-how-to-save-pin.md)
-## [De zakelijke woordenlijst instellen](data-catalog-how-to-business-glossary.md)
-## [Toegang tot de gegevenscatalogus beveiligen](data-catalog-how-to-secure-catalog.md)
+## [Hallo zakelijke woordenlijst instellen](data-catalog-how-to-business-glossary.md)
+## [Veilige toegang toodata catalogus](data-catalog-how-to-secure-catalog.md)
 ## [Gerelateerde gegevensassets weergeven](data-catalog-how-to-view-related-data-assets.md) 
 
 # Naslaginformatie

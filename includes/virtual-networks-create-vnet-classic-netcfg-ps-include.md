@@ -1,10 +1,10 @@
-## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Het maken van een virtueel netwerk met een configuratiebestand netwerk vanuit PowerShell
-Azure maakt gebruik van een xml-bestand voor het definiëren van alle virtuele netwerken die beschikbaar zijn in een abonnement. U kunt dit bestand downloaden, bewerkt om te wijzigen of verwijderen van de bestaande virtuele netwerken en nieuwe virtuele netwerken maken. In deze zelfstudie u meer informatie over het downloaden van dit bestand, netwerk-configuratie (of netcfg) bestand genoemd en bewerken om te maken van een nieuw virtueel netwerk. Zie voor meer informatie over het configuratiebestand van het netwerk, de [Azure virtual network-configuratieschema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+## <a name="how-toocreate-a-virtual-network-using-a-network-config-file-from-powershell"></a>Hoe toocreate een virtueel netwerk met een netwerk-config bestand van PowerShell
+Azure gebruikt een XML-bestand toodefine alle virtuele netwerken beschikbaar tooa abonnement. U kunt dit bestand downloaden, toomodify te bewerken of verwijderen van de bestaande virtuele netwerken en nieuwe virtuele netwerken maken. In deze zelfstudie leert u hoe toodownload dit bestand waarnaar wordt verwezen tooas network configuration (of netcfg) en toocreate een nieuw virtueel netwerk te bewerken. toolearn meer informatie over het netwerkconfiguratiebestand Hallo Hallo Zie [Azure virtual network-configuratieschema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
-Als een virtueel netwerk maken met een netcfg-bestand met behulp van PowerShell, moet u de volgende stappen uitvoeren:
+toocreate een virtueel netwerk met een netcfg-bestand met behulp van PowerShell, volledige Hallo stappen te volgen:
 
-1. Als u Azure PowerShell nog nooit hebt gebruikt, voer de stappen in de [installeren en configureren van Azure PowerShell](/powershell/azureps-cmdlets-docs) artikel, vervolgens aanmelden bij Azure en uw abonnement te selecteren.
-2. Via de Azure PowerShell-console, gebruiken de **Get-AzureVnetConfig** cmdlet voor het downloaden van het configuratiebestand van het netwerk naar een map op uw computer met de volgende opdracht: 
+1. Als u Azure PowerShell nog nooit hebt gebruikt, volledige Hallo stappen voor het Hallo [hoe tooInstall en configureer Azure PowerShell](/powershell/azureps-cmdlets-docs) artikel, vervolgens tooAzure aanmelden en uw abonnement te selecteren.
+2. Vanuit hello Azure PowerShell-console, gebruiken Hallo **Get-AzureVnetConfig** cmdlet toodownload Hallo netwerk bestand tooa configuratiemap op uw computer door het uitvoeren van de volgende opdracht Hallo: 
    
    ```powershell
    Get-AzureVNetConfig -ExportToFile c:\azure\NetworkConfig.xml
@@ -18,8 +18,8 @@ Als een virtueel netwerk maken met een netcfg-bestand met behulp van PowerShell,
       <?xml version="1.0" encoding="utf-8"?>...
       ```
 
-3. Open het bestand dat u in stap 2, gebruikmakend van een XML- of -editor toepassing opgeslagen en zoekt u de  **<VirtualNetworkSites>**  element. Als er geen netwerken hebt gemaakt, elk netwerk wordt weergegeven als een eigen  **<VirtualNetworkSite>**  element.
-4. Toevoegen voor het maken van het virtuele netwerk in dit scenario wordt de volgende XML net onder de  **<VirtualNetworkSites>**  element:
+3. Open Hallo bestand dat u in stap 2, gebruikmakend van elke toepassing van de editor voor XML- of opgeslagen en zoekt u naar Hallo  **<VirtualNetworkSites>**  element. Als er geen netwerken hebt gemaakt, elk netwerk wordt weergegeven als een eigen  **<VirtualNetworkSite>**  element.
+4. toocreate hello virtueel netwerk dat wordt beschreven in dit scenario toevoegen na XML onder Hallo Hallo  **<VirtualNetworkSites>**  element:
 
    ```xml
         <VirtualNetworkSite name="TestVNet" Location="East US">
@@ -37,8 +37,8 @@ Als een virtueel netwerk maken met een netcfg-bestand met behulp van PowerShell,
         </VirtualNetworkSite>
    ```
    
-5. Sla het configuratiebestand van het netwerk.
-6. Via de Azure PowerShell-console, gebruiken de **Set AzureVnetConfig** cmdlet voor het uploaden van het configuratiebestand van het netwerk met de volgende opdracht: 
+5. Hallo netwerk-configuratiebestand opslaan.
+6. Vanuit hello Azure PowerShell-console, gebruiken Hallo **Set AzureVnetConfig** cmdlet tooupload Hallo netwerk configuratiebestand door het uitvoeren van de volgende opdracht Hallo: 
    
    ```powershell
    Set-AzureVNetConfig -ConfigurationPath c:\azure\NetworkConfig.xml
@@ -52,15 +52,15 @@ Als een virtueel netwerk maken met een netcfg-bestand met behulp van PowerShell,
       Set-AzureVNetConfig  <Id>                                 Succeeded 
       ```
    
-   Als **OperationStatus** is niet *geslaagd* in de uitvoer van de geretourneerde controleren op fouten en volledige stap 6 van het xml-bestand opnieuw.
+   Als **OperationStatus** is niet *geslaagd* in Hallo uitvoer geretourneerd, controle op Hallo XML-bestand voor de fouten en volledige stap 6 opnieuw.
 
-7. Via de Azure PowerShell-console, gebruiken de **Get-AzureVnetSite** cmdlet om te controleren of het nieuwe netwerk is toegevoegd met de volgende opdracht: 
+7. Vanuit hello Azure PowerShell-console, gebruiken Hallo **Get-AzureVnetSite** cmdlet tooverify die nieuwe netwerk Hallo is toegevoegd door het uitvoeren van de volgende opdracht Hallo: 
 
    ```powershell
    Get-AzureVNetSite -VNetName TestVNet
    ```
    
-   De uitvoer van de geretourneerde (afgekort) omvat de volgende tekst:
+   Hallo geretourneerd (afgekort) uitvoer bevat de volgende tekst hello:
   
       ```
       AddressSpacePrefixes : {192.168.0.0/16}

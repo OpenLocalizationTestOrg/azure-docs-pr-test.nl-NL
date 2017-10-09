@@ -1,6 +1,6 @@
 ---
-title: Uw bestaande Azure datawarehouse migreren naar premium-opslag | Microsoft Docs
-description: Instructies voor het migreren van een bestaand datawarehouse naar premium-opslag
+title: aaaMigrate uw bestaande Azure-opslag toopremium datawarehouse | Microsoft Docs
+description: Instructies voor het migreren van een bestaande datawarehouse toopremium gegevensopslag
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -15,19 +15,19 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 860e50b532b4b0a21d3be54f087730070b0e56bb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 145199c2da1f6f1fb8898626cd04886c42d82204
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="migrate-your-data-warehouse-to-premium-storage"></a>Uw datawarehouse migreren naar premium-opslag
-Azure SQL Data Warehouse onlangs geïntroduceerd [premium-opslag voor groter prestaties, voorspelbaarheid][premium storage for greater performance predictability]. Bestaande datawarehouses momenteel op standaardopslag kunnen nu worden gemigreerd naar de premium-opslag. U kunt profiteren van de automatische migratie van of als u liever om te beheren wanneer voor het migreren van (dit heeft betrekking op enige downtime), kunt u de migratie zelf doen.
+# <a name="migrate-your-data-warehouse-toopremium-storage"></a>Uw datawarehouse toopremium opslag migreren
+Azure SQL Data Warehouse onlangs geïntroduceerd [premium-opslag voor groter prestaties, voorspelbaarheid][premium storage for greater performance predictability]. Bestaande gegevens worden in datawarehouses die momenteel in de standard-opslag kunnen worden gemigreerd toopremium opslag. U kunt profiteren van de automatische migratie van of als u liever toocontrol wanneer toomigrate (waarbij uitval), kunt u doen Hallo migratie zelf.
 
-Als u meer dan een datawarehouse hebt, gebruikt u de [schema voor automatische migratie] [ automatic migration schedule] om te bepalen wanneer dit wordt ook worden gemigreerd.
+Als u meer dan een datawarehouse hebt, gebruikt u Hallo [schema voor automatische migratie] [ automatic migration schedule] toodetermine wanneer deze ook worden gemigreerd.
 
 ## <a name="determine-storage-type"></a>Opslagtype bepalen
-Als u een datawarehouse hebt gemaakt voordat de volgende datums, u standaardopslag momenteel gebruikt.
+Als u een datawarehouse voordat Hallo datums na hebt gemaakt, gebruikt u momenteel standard-opslag.
 
 | **Regio** | **Datawarehouse gemaakt voor deze datum** |
 |:--- |:--- |
@@ -41,31 +41,31 @@ Als u een datawarehouse hebt gemaakt voordat de volgende datums, u standaardopsl
 | Noord-centraal VS |10 november 2016 |
 
 ## <a name="automatic-migration-details"></a>Details van de automatische migratie
-Standaard gaan we uw database voor u tussen 18:00 uur en 6:00 uur in uw regio lokale tijd tijdens de [schema voor automatische migratie][automatic migration schedule]. Uw bestaande datawarehouse kan niet worden gebruikt tijdens de migratie. De migratie duurt ongeveer één uur per terabyte van opslag per datawarehouse. U wordt niet in rekening gebracht tijdens een gedeelte van de automatische migratie.
+Standaard gaan we uw database voor u tussen 18:00 uur en 6:00 uur in uw regio lokale tijd tijdens Hallo [schema voor automatische migratie][automatic migration schedule]. Uw bestaande datawarehouse kan niet worden gebruikt tijdens de migratie Hallo. Hallo migratie duurt ongeveer één uur per terabyte van opslag per datawarehouse. U wordt niet in rekening gebracht tijdens een gedeelte van de automatische Hallo-migratie.
 
 > [!NOTE]
-> Wanneer de migratie voltooid is, wordt uw datawarehouse worden weer online is en kan worden gebruikt.
+> Wanneer Hallo migratie voltooid is, wordt uw datawarehouse zich weer online is en kan worden gebruikt.
 >
 >
 
-Microsoft neemt de volgende stappen uit om de migratie (deze hoeven niet alle betrokkenheid van uw kant) te voltooien. Stel in dit voorbeeld of uw bestaande datawarehouse op een standard-opslag is momenteel met de naam 'MyDW'.
+Microsoft neemt Hallo stappen toocomplete Hallo migratie (deze hoeven niet alle betrokkenheid van uw kant) te volgen. Stel in dit voorbeeld of uw bestaande datawarehouse op een standard-opslag is momenteel met de naam 'MyDW'.
 
-1. Microsoft wijzigt de naam 'MyDW' naar 'MyDW_DO_NOT_USE_ [tijdstempel]'.
+1. Microsoft wijzigt de naam 'MyDW' te 'MyDW_DO_NOT_USE_ [tijdstempel]'.
 2. Microsoft pauzeert 'MyDW_DO_NOT_USE_ [tijdstempel]'. Gedurende deze tijd is een back-up gemaakt. Mogelijk ziet u meerdere onderbroken en hervat als er problemen ondervindt tijdens dit proces.
-3. Microsoft maakt een nieuw datawarehouse met de naam 'MyDW' op premium-opslag van de back-up gemaakt in stap 2. 'MyDW' worden niet weergegeven tot na het herstellen voltooid is.
-4. Nadat het herstel voltooid is 'MyDW' retourneert met dezelfde magazijn eenheden en status (onderbroken of actieve) is dat deze vóór de migratie.
-5. Nadat de migratie voltooid is, verwijdert Microsoft 'MyDW_DO_NOT_USE_ [tijdstempel]'.
+3. Microsoft maakt een nieuw datawarehouse met de naam 'MyDW' op premium-opslag vanuit Hallo back-up gemaakt in stap 2. 'MyDW' worden niet weergegeven tot nadat Hallo herstellen voltooid is.
+4. Nadat het Hallo herstellen is voltooid 'MyDW' toohello dezelfde gegevens datawarehouse-eenheden en -status geretourneerd (onderbroken of actieve) die deze was voordat Hallo-migratie.
+5. Nadat Hallo migratie voltooid is, verwijdert Microsoft 'MyDW_DO_NOT_USE_ [tijdstempel]'.
 
 > [!NOTE]
-> De volgende instellingen uitvoeren als onderdeel van de migratie niet via:
+> Hallo uitvoeren volgende instellingen niet via als onderdeel van Hallo migratie:
 >
-> * Controle op het databaseniveau van de moet opnieuw worden ingeschakeld.
-> * Firewall-regels op het databaseniveau van de moeten opnieuw worden toegevoegd. Firewallregels op serverniveau worden niet getroffen.
+> * Controle op databaseniveau Hallo moet toobe weer wordt ingeschakeld.
+> * Firewallregels op databaseniveau Hallo moeten toobe opnieuw toegevoegd. Firewallregels op serverniveau Hallo worden niet getroffen.
 >
 >
 
 ### <a name="automatic-migration-schedule"></a>Planning voor automatische migratie
-Automatische migraties optreden tussen 18:00 uur en 6:00 uur (lokale tijd per regio) tijdens het volgende schema van de storing.
+Automatische migraties optreden tussen 18:00 uur en 6:00 uur (lokale tijd per regio) tijdens het Hallo onderbreking schema te volgen.
 
 | **Regio** | **Geschatte begindatum** | **Geschatte einddatum** |
 |:--- |:--- |:--- |
@@ -78,49 +78,49 @@ Automatische migraties optreden tussen 18:00 uur en 6:00 uur (lokale tijd per re
 | Japan - west |Nog niet worden vastgesteld |Nog niet worden vastgesteld |
 | Noord-centraal VS |9 januari 2017 |13 januari 2017 |
 
-## <a name="self-migration-to-premium-storage"></a>Zelfstandige migratie naar de premium-opslag
-Als u bepalen wilt wanneer uw uitvaltijd wordt uitgevoerd, kunt u de volgende stappen uit om te migreren van een bestaand datawarehouse op een standard-opslag naar de premium-opslag. Als u deze optie kiest, moet u de zelfstandige migratie voltooien voordat de automatische migratie in deze regio begint. Dit zorgt ervoor dat u het risico van de automatische migratie een conflict veroorzaken vermijden (Raadpleeg de [schema voor automatische migratie][automatic migration schedule]).
+## <a name="self-migration-toopremium-storage"></a>Zelfstandige migratie toopremium opslag
+Als u toocontrol wilt wanneer uw uitvaltijd wordt uitgevoerd, kunt u Hallo stappen toomigrate een bestaand datawarehouse op standaardopslag toopremium opslag te volgen. Als u deze optie kiest, moet u Hallo zelf migratie voltooien voordat Hallo automatische migratie in deze regio begint. Dit zorgt ervoor dat u het risico van Hallo automatische migratie een conflict veroorzaken vermijden (Raadpleeg toohello [schema voor automatische migratie][automatic migration schedule]).
 
 ### <a name="self-migration-instructions"></a>Zelfstandige migratie-instructies
-Migreren van uw datawarehouse, gebruikt u de back-up en herstellen van functies. Het gedeelte voor herstel van de migratie is ongeveer één uur per terabyte van opslag verwacht per datawarehouse. Als u wilt behouden dezelfde naam na de migratie is voltooid, voert u de [stappen om te wijzigen tijdens de migratie][steps to rename during migration].
+toomigrate uw gegevens datawarehouse zelf, gebruikt u Hallo back-up en herstellen van functies. Hallo terugzetten gedeelte van de migratie Hallo is verwachte tootake ongeveer één uur per terabyte van opslag per datawarehouse. Als u wilt dat tookeep Hallo dezelfde naam nadat de migratie is voltooid, voert u de Hallo [stappen toorename tijdens de migratie][steps toorename during migration].
 
 1. [Onderbreken] [ Pause] uw datawarehouse. Dit vindt een automatische back-up.
 2. [Herstellen] [ Restore] van uw meest recente momentopname.
-3. Verwijder het bestaande datawarehouse op een standard-opslag. **Als u niet in deze stap doet, wordt in rekening gebracht voor beide datawarehouses.**
+3. Verwijder het bestaande datawarehouse op een standard-opslag. **Als u niet in deze stap toodo, wordt in rekening gebracht voor beide datawarehouses.**
 
 > [!NOTE]
-> De volgende instellingen uitvoeren als onderdeel van de migratie niet via:
+> Hallo uitvoeren volgende instellingen niet via als onderdeel van Hallo migratie:
 >
-> * Controle op het databaseniveau van de moet opnieuw worden ingeschakeld.
-> * Firewall-regels op het databaseniveau van de moeten opnieuw worden toegevoegd. Firewallregels op serverniveau worden niet getroffen.
+> * Controle op databaseniveau Hallo moet toobe weer wordt ingeschakeld.
+> * Firewallregels op databaseniveau Hallo moeten toobe opnieuw toegevoegd. Firewallregels op serverniveau Hallo worden niet getroffen.
 >
 >
 
 #### <a name="rename-data-warehouse-during-migration-optional"></a>Wijzig de naam van datawarehouse tijdens de migratie (optioneel)
-Twee databases op dezelfde logische server kunnen niet dezelfde naam hebben. SQL Data Warehouse ondersteunt nu de mogelijkheid om te wijzigen van een datawarehouse.
+Twee databases op dezelfde logische server kan geen Hallo Hallo dezelfde naam. SQL Data Warehouse ondersteunt nu Hallo mogelijkheid toorename een datawarehouse.
 
 Stel in dit voorbeeld of uw bestaande datawarehouse op een standard-opslag is momenteel met de naam 'MyDW'.
 
-1. Wijzig de naam 'MyDW' met behulp van de volgende opdracht ALTER DATABASE. (In dit voorbeeld we je Wijzig de naam 'MyDW_BeforeMigration'.)  Deze opdracht alle bestaande transacties wordt gestopt en moet worden uitgevoerd in de database master kan slagen.
+1. Wijzig de naam 'MyDW' met behulp van Hallo na de opdracht ALTER DATABASE. (In dit voorbeeld we je Wijzig de naam 'MyDW_BeforeMigration'.)  Deze opdracht alle bestaande transacties wordt gestopt en moet worden uitgevoerd in Hallo hoofddatabase toosucceed.
    ```
    ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
    ```
 2. [Onderbreken] [ Pause] 'MyDW_BeforeMigration'. Dit vindt een automatische back-up.
-3. [Herstellen] [ Restore] van de meest recente momentopname maken van een nieuwe database met de naam die wordt gebruikt om te worden (bijvoorbeeld 'MyDW').
-4. Verwijderen van 'MyDW_BeforeMigration'. **Als u niet in deze stap doet, wordt in rekening gebracht voor beide datawarehouses.**
+3. [Herstellen] [ Restore] van uw meest recente momentopname van een nieuwe database met naam Hallo deze toobe (bijvoorbeeld ' MyDW') gebruikt.
+4. Verwijderen van 'MyDW_BeforeMigration'. **Als u niet in deze stap toodo, wordt in rekening gebracht voor beide datawarehouses.**
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Met het wijzigen naar premium-opslag hebt u ook een toenemend aantal blob-databasebestanden in de onderliggende architectuur van uw datawarehouse. Om de prestatievoordelen maximaliseren van deze wijziging, kunt u uw geclusterde columnstore-indexen met behulp van het volgende script opnieuw maken. Het script werkt door af te dwingen een deel van uw bestaande gegevens voor de aanvullende blobs. Als u geen actie onderneemt, wordt de gegevens natuurlijk na verloop van tijd distribueren, als u meer gegevens in de tabellen laden.
+Hello toopremium opslag wijzigen, moet u ook een toenemend aantal blob-databasebestanden in Hallo onderliggende architectuur van uw datawarehouse. toomaximize hello prestatievoordelen van deze wijziging opnieuw maken van uw geclusterde columnstore-indexen met behulp van Hallo script volgen. Hallo script werkt door af te dwingen enkele van uw bestaande gegevens toohello extra blobs. Als u geen actie onderneemt, distribueren Hallo gegevens natuurlijk gedurende een bepaalde periode, als u meer gegevens in de tabellen laden.
 
 **Vereisten:**
 
-- Het datawarehouse moet worden uitgevoerd met 1000 datawarehouse eenheden of hoger (Zie [scale rekenkracht][scale compute power]).
-- De gebruiker uitvoeren van het script moet in de [mediumrc rol] [ mediumrc role] of hoger. Een gebruiker toevoegen aan deze rol, uitvoeren van het volgende:````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+- Hallo-datawarehouse moet worden uitgevoerd met 1000 datawarehouse eenheden of hoger (Zie [scale rekenkracht][scale compute power]).
+- Hallo gebruiker uitvoeren van script Hallo zou in Hallo [mediumrc rol] [ mediumrc role] of hoger. een gebruikersrol toothis tooadd Hallo volgende uitvoeren:````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
 ````sql
 -------------------------------------------------------------------------------
--- Step 1: Create table to control index rebuild
+-- Step 1: Create table toocontrol index rebuild
 -- Run as user in mediumrc or higher
 --------------------------------------------------------------------------------
 create table sql_statements
@@ -138,7 +138,7 @@ where
 go
 
 --------------------------------------------------------------------------------
--- Step 2: Execute index rebuilds. If script fails, the below can be re-run to restart where last left off.
+-- Step 2: Execute index rebuilds. If script fails, hello below can be re-run toorestart where last left off.
 -- Run as user in mediumrc or higher
 --------------------------------------------------------------------------------
 
@@ -160,19 +160,19 @@ drop table sql_statements;
 go
 ````
 
-Als u problemen ondervindt met uw datawarehouse [Maak een ondersteuningsticket] [ create a support ticket] en verwijzing 'migratie naar de premium-opslag' als de mogelijke oorzaak.
+Als u problemen ondervindt met uw datawarehouse [Maak een ondersteuningsticket] [ create a support ticket] en verwijzen naar 'migratie toopremium opslag' als Hallo mogelijke oorzaak.
 
 <!--Image references-->
 
 <!--Article references-->
 [automatic migration schedule]: #automatic-migration-schedule
-[self-migration to Premium Storage]: #self-migration-to-premium-storage
+[self-migration tooPremium Storage]: #self-migration-to-premium-storage
 [create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
 [Azure paired region]: best-practices-availability-paired-regions.md
 [main documentation site]: services/sql-data-warehouse.md
 [Pause]: sql-data-warehouse-manage-compute-portal.md#pause-compute
 [Restore]: sql-data-warehouse-restore-database-portal.md
-[steps to rename during migration]: #optional-steps-to-rename-during-migration
+[steps toorename during migration]: #optional-steps-to-rename-during-migration
 [scale compute power]: sql-data-warehouse-manage-compute-portal.md#scale-compute-power
 [mediumrc role]: sql-data-warehouse-develop-concurrency.md
 

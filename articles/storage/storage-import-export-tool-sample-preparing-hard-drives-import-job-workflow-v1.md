@@ -1,6 +1,6 @@
 ---
-title: De voorbeeldwerkstroom klaarmaken voor harde schijven voor een Azure Import/Export-import-taak - v1 | Microsoft Docs
-description: Zie een scenario voor het volledige proces van het voorbereiden van stations voor een import-taak in de Azure Import/Export-service.
+title: importtaak aaaSample werkstroom tooprep harde schijven voor een Azure Import/Export - v1 | Microsoft Docs
+description: Zie een overzicht voor het volledige proces Hallo stations voorbereiden van een import-taak in hello Azure Import/Export-service.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 313f8c1f3962a943b4c98c530c324ff28aa84c10
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f836fc6104d8b4ad5660cb110a62f61b40b0b7ff
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak
-In dit onderwerp leert u het volledige proces van het voorbereiden van stations voor een import-taak.  
+# <a name="sample-workflow-tooprepare-hard-drives-for-an-import-job"></a>Voorbeeld werkstroom tooprepare harde schijven voor een import-taak
+In dit onderwerp wordt u begeleid Hallo volledige proces van het voorbereiden van stations voor een import-taak.  
   
-In dit voorbeeld importeert de volgende gegevens in een venster Azure storage-account met de naam `mystorageaccount`:  
+In dit voorbeeld volgt de gegevens in een venster Azure storage-account met de naam Hallo geïmporteerd `mystorageaccount`:  
   
 |Locatie|Beschrijving|  
 |--------------|-----------------|  
@@ -32,7 +32,7 @@ In dit voorbeeld importeert de volgende gegevens in een venster Azure storage-ac
 |K:\Temp\FavoriteMovie.ISO|A Blu-ray™ schijfimage, 25 GB.|  
 |\\\bigshare\john\music|Een verzameling van muziekbestanden op een netwerkshare, 10 GB in totaal.|  
   
-De import-taak wordt deze gegevens importeren in de volgende bestemmingen in de storage-account:  
+Hallo import-taak wordt deze gegevens importeren in Hallo bestemmingen in Hallo storage-account te volgen:  
   
 |Bron|Doel-virtuele map of blob|  
 |------------|-------------------------------------------|  
@@ -41,13 +41,13 @@ De import-taak wordt deze gegevens importeren in de volgende bestemmingen in de 
 |K:\Temp\FavoriteMovie.ISO|https://mystorageaccount.BLOB.Core.Windows.NET/Favorite/FavoriteMovies.ISO|  
 |\\\bigshare\john\music|https://mystorageaccount.BLOB.Core.Windows.NET/Music|  
   
-Met deze toewijzing, het bestand `H:\Video\Drama\GreatMovie.mov` wordt geïmporteerd naar de blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.  
+Met deze toewijzing Hallo bestand `H:\Video\Drama\GreatMovie.mov` worden geïmporteerde toohello blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.  
   
-Compute vervolgens om te bepalen hoeveel harde schijven nodig zijn, de grootte van de gegevens:  
+Vervolgens toodetermine hoeveel harde schijven nodig zijn, compute Hallo grootte van Hallo gegevens:  
   
 `5TB + 30GB + 25GB + 10GB = 5TB + 65GB`  
   
-Twee 3TB harde schijven moet voldoende zijn voor dit voorbeeld. Echter, omdat de bronmap `H:\Video` 5TB aan gegevens en capaciteit van uw één harde schijf is alleen 3TB hoeft te verbreken `H:\Video` in twee kleinere mappen voordat u het hulpprogramma voor importeren/exporteren van Microsoft Azure: `H:\Video1` en `H:\Video2`. Deze stap levert de volgende bron-mappen:  
+Twee 3TB harde schijven moet voldoende zijn voor dit voorbeeld. Echter sinds Hallo bronmap `H:\Video` 5TB aan gegevens en capaciteit van uw één harde schijf is alleen 3TB is noodzakelijk toobreak `H:\Video` Hallo in twee kleinere mappen voordat u Microsoft Azure-hulpprogramma voor importeren/exporteren: `H:\Video1` en `H:\Video2`. Deze stap levert Hallo bron mappen te volgen:  
   
 |Locatie|Grootte|Doel-virtuele map of blob|  
 |--------------|----------|-------------------------------------------|  
@@ -57,9 +57,9 @@ Twee 3TB harde schijven moet voldoende zijn voor dit voorbeeld. Echter, omdat de
 |K:\Temp\FavoriteMovies.ISO|25 GB|https://mystorageaccount.BLOB.Core.Windows.NET/Favorite/FavoriteMovies.ISO|  
 |\\\bigshare\john\music|10GB|https://mystorageaccount.BLOB.Core.Windows.NET/Music|  
   
- Houd er rekening mee dat zelfs als de `H:\Video`directory is gesplitst in twee mappen ze verwijzen naar dezelfde bestemming virtuele map in het opslagaccount. Op deze manier alle videobestanden worden beheerd via één `video` container in het opslagaccount.  
+ Let op: hoewel Hallo `H:\Video`directory tootwo mappen is gesplitst, ze toohello Wijs dezelfde virtuele map van de bestemming in Hallo storage-account. Op deze manier alle videobestanden worden beheerd via één `video` container in Hallo storage-account.  
   
- De bovenstaande bron mappen zijn daarna evenredig verdeeld over de twee harde schijven:  
+ Hallo hierboven bron mappen gelijkmatig zijn verdeeld vervolgens toohello twee harde schijven:  
   
 ||||  
 |-|-|-|  
@@ -70,7 +70,7 @@ Twee 3TB harde schijven moet voldoende zijn voor dit voorbeeld. Echter, omdat de
 ||K:\Temp\BlueRay.ISO||  
 ||\\\bigshare\john\music||  
   
-Bovendien kunt u de volgende metagegevens voor alle bestanden instellen:  
+U kunt bovendien Hallo metagegevens voor alle bestanden volgende instellen:  
   
 -   **UploadMethod:** Windows Azure Import/Export-service  
   
@@ -78,7 +78,7 @@ Bovendien kunt u de volgende metagegevens voor alle bestanden instellen:
   
 -   **CreationDate:** 1/10/2013  
   
-Om in te stellen metagegevens voor de geïmporteerde bestanden, maak een tekstbestand, `c:\WAImportExport\SampleMetadata.txt`, met de volgende inhoud:  
+tooset metagegevens voor Hallo geïmporteerd bestanden, maak een tekstbestand, `c:\WAImportExport\SampleMetadata.txt`, hello volgende inhoud:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -89,7 +89,7 @@ Om in te stellen metagegevens voor de geïmporteerde bestanden, maak een tekstbe
 </Metadata>  
 ```
   
-U kunt ook bepaalde eigenschappen instellen voor de `FavoriteMovie.ISO` blob:  
+U kunt ook een aantal eigenschappen instellen voor Hallo `FavoriteMovie.ISO` blob:  
   
 -   **Content-Type:** application/octet-stream  
   
@@ -97,7 +97,7 @@ U kunt ook bepaalde eigenschappen instellen voor de `FavoriteMovie.ISO` blob:
   
 -   **Cache-Control:** no-cache  
   
-Deze eigenschappen instelt, maak een tekstbestand `c:\WAImportExport\SampleProperties.txt`:  
+tooset deze eigenschappen, maak een tekstbestand, `c:\WAImportExport\SampleProperties.txt`:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -108,30 +108,30 @@ Deze eigenschappen instelt, maak een tekstbestand `c:\WAImportExport\SamplePrope
 </Properties>  
 ```
   
-U bent nu klaar om uit te voeren van het Azure Import/Export-hulpprogramma voor het voorbereiden van de twee harde schijven. Opmerking:  
+U bent nu klaar toorun hello Azure-hulpprogramma voor importeren/exporteren tooprepare Hallo twee harde schijven. Opmerking:  
   
--   De eerste schijf is gekoppeld als station X.  
+-   de eerste schijf Hallo is als station X gekoppeld.  
   
--   De tweede schijf is als station Y gekoppeld.  
+-   de tweede schijf Hallo is als station Y gekoppeld.  
   
--   De sleutel voor het opslagaccount `mystorageaccount` is `8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg==`.  
+-   Hallo-sleutel voor opslagaccount hello `mystorageaccount` is `8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg==`.  
 
 ## <a name="preparing-disk-for-import-when-data-is-pre-loaded"></a>Voorbereiden van schijf voor het importeren van gegevens vooraf is geladen
  
- Als de gegevens moeten worden geïmporteerd, al aanwezig op de schijf is, gebruikt u de vlag /skipwrite. De waarde van /t en /srcdir die beide moeten verwijzen naar de schijf die wordt voorbereid voor importeren. Als niet alle gegevens op de schijf moet gaat u naar de dezelfde bestemming virtuele map of het basiscertificaat van het opslagaccount voor elke map afzonderlijk houden de waarde van /id dezelfde opdracht uitvoert hetzelfde voor alle uitvoert.
+ Als Hallo gegevens toobe geïmporteerd al aanwezig op Hallo schijf is, gebruikt u Hallo vlag /skipwrite. Waarde van /t en /srcdir moet toohello schijf wordt voorbereid voor het importeren van gegevenspunt. Als niet alle gegevens op Hallo Hallo schijf toogo toohello moet dezelfde bestemming virtuele map of hoofdmap van het opslagaccount hello, Voer Hallo dezelfde opdracht voor elke map afzonderlijk houden Hallo-waarde van /id hetzelfde voor alle uitvoert.
 
 >[!NOTE] 
->Geef geen/Format zoals deze wordt de gegevens op de schijf wissen. U kunt opgeven / versleutelen of /bk, afhankelijk van of de schijf al is versleuteld of niet. 
+>Geef geen/Format zoals deze wordt Hallo gegevens op Hallo schijf wissen. U kunt opgeven / versleutelen of /bk, afhankelijk van of Hallo schijf al is versleuteld of niet. 
 >
 
 ```
-    When data is already present on the disk for each drive run the following command.
+    When data is already present on hello disk for each drive run hello following command.
     WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:x:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt /skipwrite
 ```
 
 ## <a name="copy-sessions---first-drive"></a>Sessies - kopiëren eerst station
 
-Voer het hulpprogramma Azure Import/Export twee keer te kopiëren van de twee bron mappen voor de eerste schijf:  
+Voer voor de eerste schijf Hallo, hello Azure Import/Export Tool tweemaal toocopy Hallo twee bron mappen:  
 
 **Eerste kopieersessie**
   
@@ -147,7 +147,7 @@ WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstd
 
 ## <a name="copy-sessions---second-drive"></a>Kopieer sessies - tweede station
  
-Voer de Azure-hulpprogramma voor importeren/exporteren voor het tweede station driemaal, eenmaal elk voor de bron-mappen, en eenmaal voor het installatiekopiebestand zelfstandige Blu-Ray™):  
+Voor Hallo tweede station, voer hello Azure-hulpprogramma voor importeren/exporteren drie keer wanneer elk voor Hallo bron mappen en eens Hallo zelfstandig Blu-Ray™ afbeeldingsbestand):  
   
 **Eerste kopieersessie** 
 
@@ -169,7 +169,7 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 
 ## <a name="copy-session-completion"></a>Kopiëren van de sessie is voltooid
 
-Nadat de kopie-sessies hebt voltooid, kunt u de twee schijven verbreken van de computer kopiëren en naar het juiste Windows Azure-datacenter worden verzonden. U gaat de twee journaal-bestanden uploaden `FirstDrive.jrn` en `SecondDrive.jrn`wanneer u de import-taak in de [Windows Azure-beheerportal](https://manage.windowsazure.com/).  
+Nadat Hallo kopie sessies hebt voltooid, kunt u Verbreek de verbinding tussen twee schijven Hallo Hallo kopie computer en toohello juiste Windows Azure-datacenter worden verzonden. U gaat Hallo twee journaal bestanden uploaden `FirstDrive.jrn` en `SecondDrive.jrn`, wanneer u Hallo import-taak in Hallo maken [Windows Azure-beheerportal](https://manage.windowsazure.com/).  
   
 ## <a name="next-steps"></a>Volgende stappen
 

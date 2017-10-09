@@ -1,6 +1,6 @@
 ---
-title: Gegevensoverdracht met het Microsoft Azure Storage-bibliotheek voor gegevensverplaatsing | Microsoft Docs
-description: "Gebruik de bibliotheek voor gegevensverplaatsing verplaatsen of kopiëren van gegevens of naar blob- en -inhoud. Gegevens van lokale bestanden kopiëren naar Azure Storage of kopiëren van gegevens binnen of tussen opslagaccounts. Uw gegevens eenvoudig migreren naar Azure Storage."
+title: aaaTransfer gegevens met Microsoft Azure Storage-bibliotheek voor gegevensverplaatsing Hallo | Microsoft Docs
+description: "Hallo-bibliotheek voor gegevensverplaatsing toomove of een kopie van gegevens tooor van blob- en inhoud gebruiken. Kopiëren van gegevens tooAzure opslag van lokale bestanden of kopiëren van gegevens binnen of tussen opslagaccounts. Eenvoudig uw gegevens tooAzure opslag migreren."
 services: storage
 documentationcenter: 
 author: seguler
@@ -14,27 +14,27 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: seguler
-ms.openlocfilehash: 7db1761a9a3b8a74a39b2d441849fb89d44cd42b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9aec6cb171f794cc6ca432938ce499079e7dfdec
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Gegevensoverdracht met het Microsoft Azure Storage-bibliotheek voor gegevensverplaatsing
+# <a name="transfer-data-with-hello-microsoft-azure-storage-data-movement-library"></a>Gegevens overdragen met Hallo Microsoft Azure Storage-bibliotheek voor gegevensverplaatsing
 
 ## <a name="overview"></a>Overzicht
-De Microsoft Azure Storage-bibliotheek voor gegevensverplaatsing is een open-source platformoverschrijdende-bibliotheek die is ontworpen voor hoge prestaties uploaden, downloaden en uit Azure Storage-Blobs en bestanden te kopiëren. Deze bibliotheek is core data movement framework die ook door [AzCopy](../storage-use-azcopy.md). De bibliotheek voor gegevensverplaatsing biedt handige methoden die niet beschikbaar zijn in onze traditionele [.NET Azure Storage-clientbibliotheek](../blobs/storage-dotnet-how-to-use-blobs.md). Dit biedt de mogelijkheid om het aantal parallelle bewerkingen instellen, overdracht voortgang volgen, hervat eenvoudig een geannuleerde overdracht en nog veel meer.  
+Hallo Microsoft Azure Storage-bibliotheek voor gegevensverplaatsing is een open-source platformoverschrijdende-bibliotheek die is ontworpen voor hoge prestaties uploaden, downloaden en uit Azure Storage-Blobs en bestanden te kopiëren. Deze bibliotheek is Hallo data movement basisschema die ook door [AzCopy](../storage-use-azcopy.md). Hallo-bibliotheek voor gegevensverplaatsing biedt handige methoden die niet beschikbaar zijn in onze traditionele [.NET Azure Storage-clientbibliotheek](../blobs/storage-dotnet-how-to-use-blobs.md). Dit omvat Hallo mogelijkheid tooset Hallo aantal parallelle bewerkingen, bijhouden overdracht voortgang, hervatten eenvoudig een geannuleerde overdracht en nog veel meer.  
 
-Deze bibliotheek gebruikt ook .NET Core, wat betekent dat u deze kunt gebruiken dat bij het bouwen van .NET-toepassingen voor Windows, Linux en Mac OS. Raadpleeg voor meer informatie over .NET Core, de [.NET Core documentatie](https://dotnet.github.io/). Deze bibliotheek werkt ook voor traditionele .NET Framework-apps voor Windows. 
+Deze bibliotheek gebruikt ook .NET Core, wat betekent dat u deze kunt gebruiken dat bij het bouwen van .NET-toepassingen voor Windows, Linux en Mac OS. toolearn meer informatie over .NET Core verwijzen toohello [.NET Core documentatie](https://dotnet.github.io/). Deze bibliotheek werkt ook voor traditionele .NET Framework-apps voor Windows. 
 
-Dit document laat zien hoe u een .NET Core-consoletoepassing maken die die wordt uitgevoerd op Windows, Linux en Mac OS en voert de volgende scenario's:
+Dit document wordt gedemonstreerd hoe toocreate een .NET Core consoletoepassing die wordt uitgevoerd op Windows, Linux en Mac OS en voert Hallo volgen scenario's:
 
-- Het van uploadbestanden en mappen naar Blob Storage.
-- Definieer het aantal parallelle bewerkingen bij de overdracht van gegevens.
+- Het uploaden van bestanden en mappen tooBlob opslag.
+- Definieer Hallo aantal parallelle bewerkingen bij de overdracht van gegevens.
 - Voortgang van het overbrengen bijhouden.
 - Overdracht van gegevens hervatten geannuleerd. 
-- Bestand kopiëren van de URL naar Blob Storage. 
-- Kopiëren van Blob-opslag naar Blob Storage.
+- Bestand kopiëren van de URL tooBlob opslag. 
+- Kopiëren van Blob Storage tooBlob opslag.
 
 **Wat u nodig hebt:**
 
@@ -42,25 +42,25 @@ Dit document laat zien hoe u een .NET Core-consoletoepassing maken die die wordt
 * Een [Azure Storage-account](storage-create-storage-account.md#create-a-storage-account)
 
 > [!NOTE]
-> Deze handleiding wordt ervan uitgegaan dat u al bekend met bent [Azure Storage](https://azure.microsoft.com/services/storage/). Als u niet lezen van de [Inleiding tot Azure Storage](storage-introduction.md) documentatie is het handig. Het belangrijkste is, moet u [een opslagaccount maken](storage-create-storage-account.md#create-a-storage-account) aan de slag met de bibliotheek voor gegevensverplaatsing.
+> Deze handleiding wordt ervan uitgegaan dat u al bekend met bent [Azure Storage](https://azure.microsoft.com/services/storage/). Als u niet lezen Hallo [inleiding tooAzure opslag](storage-introduction.md) documentatie is het handig. Het belangrijkste is dat u nodig hebt te[een opslagaccount maken](storage-create-storage-account.md#create-a-storage-account) met behulp van toostart Hallo-bibliotheek voor gegevensverplaatsing.
 > 
 > 
 
 ## <a name="setup"></a>Instellen  
 
-1. Ga naar de [installatiehandleiding voor .NET Core](https://www.microsoft.com/net/core) .NET Core installeren. Als u uw omgeving, kiest u de opdrachtregeloptie. 
-2. Maak een map voor uw project vanaf de opdrachtregel. Navigeer naar deze map staan, typ `dotnet new` een C#-console-project maken.
-3. Deze map openen in Visual Studio Code. Deze stap kan worden snel gedaan via de opdrachtregel te typen `code .`.  
-4. Installeer de [C#-extensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) vanuit Visual Studio Code Marketplace. Start Visual Studio Code opnieuw. 
-5. U ziet nu twee keer worden gevraagd. Een is voor het toevoegen van 'vereist activa voor het bouwen en debug'. Klik op 'Ja'. Een andere vraag is voor het herstellen van niet-omgezette afhankelijkheden. Klik op 'herstellen'.
-6. Uw toepassing moet nu bevatten een `launch.json` bestand onder de `.vscode` directory. In dit bestand, wijzig de `externalConsole` van waarde naar `true`.
-7. Visual Studio Code kunt u foutopsporing .NET Core-toepassingen. Klik op `F5` voor het uitvoeren van uw toepassing en controleren of uw instellingen werkt. U ziet "Hello World!" aan de console afgedrukt. 
+1. Ga naar Hallo [installatiehandleiding voor .NET Core](https://www.microsoft.com/net/core) tooinstall .NET Core. Als u uw omgeving, kies Hallo-opdrachtregeloptie. 
+2. Vanaf de opdrachtregel hello, maak een map voor uw project. Navigeer naar deze map staan, typ `dotnet new` toocreate een C#-consoleproject.
+3. Deze map openen in Visual Studio Code. Deze stap kan worden snel uitgevoerd via de opdrachtregel Hallo door te typen `code .`.  
+4. Hallo installeren [C#-extensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) van Hallo Visual Studio Code Marketplace. Start Visual Studio Code opnieuw. 
+5. U ziet nu twee keer worden gevraagd. Een is voor het toevoegen van 'vereist activa toobuild en foutopsporing'. Klik op 'Ja'. Een andere vraag is voor het herstellen van niet-omgezette afhankelijkheden. Klik op 'herstellen'.
+6. Uw toepassing moet nu bevatten een `launch.json` bestand onder Hallo `.vscode` directory. In dit bestand, wijzig Hallo `externalConsole` waarde te`true`.
+7. Visual Studio Code kunt u toodebug .NET Core toepassingen. Klik op `F5` toorun uw toepassing en controleer of de installatie werkt. U ziet "Hello World!" afgedrukte toohello-console. 
 
-## <a name="add-data-movement-library-to-your-project"></a>Bibliotheek voor gegevensverplaatsing toevoegen aan uw project
+## <a name="add-data-movement-library-tooyour-project"></a>Bibliotheek voor gegevensverplaatsing tooyour project toevoegen
 
-1. Toevoegen van de nieuwste versie van de bibliotheek voor gegevensverplaatsing voor de `dependencies` gedeelte van uw `project.json` bestand. Op het moment van schrijven is deze versie`"Microsoft.Azure.Storage.DataMovement": "0.5.0"` 
-2. Voeg `"portable-net45+win8"` naar de `imports` sectie. 
-3. Een prompt moet worden weergegeven voor het herstellen van uw project. Klik op de knop 'restore'. U kunt ook uw project terugzetten vanaf de opdrachtregel typt u de opdracht `dotnet restore` in de hoofdmap van uw projectmap.
+1. Toevoegen van de meest recente versie van het Hallo-bibliotheek voor gegevensverplaatsing toohello Hallo `dependencies` gedeelte van uw `project.json` bestand. Bij Hallo schrijven is deze versie`"Microsoft.Azure.Storage.DataMovement": "0.5.0"` 
+2. Voeg `"portable-net45+win8"` toohello `imports` sectie. 
+3. Een prompt moet worden weergegeven toorestore uw project. Klik op de knop 'herstellen' Hallo. U kunt ook uw project terugzetten vanaf de opdrachtregel Hallo door Hallo-opdracht te typen `dotnet restore` in Hallo hoofdmap van uw projectmap.
 
 Wijzig `project.json`:
 
@@ -89,8 +89,8 @@ Wijzig `project.json`:
       }
     }
 
-## <a name="set-up-the-skeleton-of-your-application"></a>De basis van uw toepassing instellen
-Het eerste wat dat we doen is de code 'basisproject' van de toepassing ingesteld. Deze code ons gevraagd een naam en het account opslagaccountsleutel en deze referenties gebruikt voor het maken een `CloudStorageAccount` object. Dit object wordt gebruikt om te communiceren met de Storage-account in alle scenario's voor overdracht. De code wordt ook gevraagd ons Kies het type overdrachtsbewerking willen we uitvoeren. 
+## <a name="set-up-hello-skeleton-of-your-application"></a>Instellen van een geraamte van uw toepassing hello
+Hallo is eerste wat die we doen ingesteld Hallo 'basisproject' code van de toepassing. Deze code ons gevraagd een naam en het account opslagaccountsleutel en gebruikt deze referenties toocreate een `CloudStorageAccount` object. Dit object is gebruikte toointeract met onze opslagaccount in alle scenario's voor overdracht. Hallo-code gevraagd ons ook toochoose Hallo type overdrachtsbewerking willen we graag tooexecute. 
 
 Wijzig `Program.cs`:
 
@@ -122,7 +122,7 @@ namespace DMLibSample
 
         public static void ExecuteChoice(CloudStorageAccount account)
         {
-            Console.WriteLine("\nWhat type of transfer would you like to execute?\n1. Local file --> Azure Blob\n2. Local directory --> Azure Blob directory\n3. URL (e.g. Amazon S3 file) --> Azure Blob\n4. Azure Blob --> Azure Blob");
+            Console.WriteLine("\nWhat type of transfer would you like tooexecute?\n1. Local file --> Azure Blob\n2. Local directory --> Azure Blob directory\n3. URL (e.g. Amazon S3 file) --> Azure Blob\n4. Azure Blob --> Azure Blob");
             int choice = int.Parse(Console.ReadLine());
 
             if(choice == 1)
@@ -166,8 +166,8 @@ namespace DMLibSample
 }
 ```
 
-## <a name="transfer-local-file-to-azure-blob"></a>Lokale bestand overdragen naar Azure-Blob
-Voeg de methoden `GetSourcePath` en `GetBlob` naar `Program.cs`:
+## <a name="transfer-local-file-tooazure-blob"></a>Overdracht lokaal bestand tooAzure Blob
+Voeg Hallo methoden `GetSourcePath` en `GetBlob` te`Program.cs`:
 
 ```csharp
 public static string GetSourcePath()
@@ -195,7 +195,7 @@ public static CloudBlockBlob GetBlob(CloudStorageAccount account)
 }
 ```
 
-Wijzig de `TransferLocalFileToAzureBlob` methode:
+Hallo wijzigen `TransferLocalFileToAzureBlob` methode:
 
 ```csharp
 public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount account)
@@ -209,34 +209,34 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 }
 ```
 
-Deze code wordt ons gevraagd om het pad naar een lokaal bestand, de naam van een nieuwe of bestaande container en de naam van een nieuwe blob. De `TransferManager.UploadAsync` methode voert u het gebruik van deze informatie uploaden. 
+Deze code gevraagd ons Hallo pad tooa lokaal bestand, Hallo-naam van een nieuwe of bestaande container en Hallo-naam van een nieuwe blob. Hallo `TransferManager.UploadAsync` methode Hallo uploaden met behulp van deze informatie wordt uitgevoerd. 
 
-Raak `F5` uw toepassing uit te voeren. U kunt controleren dat de upload is opgetreden door het bekijken van uw opslagaccount met de [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+Klik op `F5` toorun uw toepassing. U kunt controleren dat uploaden Hallo is opgetreden door het bekijken van uw opslagaccount Hello [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
 ## <a name="set-number-of-parallel-operations"></a>Aantal parallelle bewerkingen
-Een goede functie aangeboden door de bibliotheek voor gegevensverplaatsing is de mogelijkheid het aantal parallelle bewerkingen te verhogen van de overdracht gegevensdoorvoer instellen. De bibliotheek voor gegevensverplaatsing wordt standaard het aantal parallelle bewerkingen zijn ingesteld op 8 * het aantal kernen op uw computer. 
+Een goede functie aangeboden door Hallo-bibliotheek voor gegevensverplaatsing is Hallo mogelijkheid tooset Hallo aantal parallelle bewerkingen tooincrease Hallo-gegevensdoorvoer overdracht. Hallo-bibliotheek voor gegevensverplaatsing wordt standaard ingesteld van het aantal parallelle bewerkingen too8 Hallo * Hallo aantal kernen op uw computer. 
 
-Houd er rekening mee dat veel parallelle bewerkingen in een omgeving met lage bandbreedte mogelijk de netwerkverbinding overbelast en daadwerkelijk te voorkomen dat de bewerkingen van het volledig is voltooid. U wilt experimenteren met deze instelling om te bepalen wat het beste op basis werkt op de beschikbare netwerkbandbreedte. 
+Houd er rekening mee dat veel parallelle bewerkingen in een omgeving met lage bandbreedte mogelijk Hallo netwerkverbinding overbelast en daadwerkelijk te voorkomen dat de bewerkingen van het volledig is voltooid. U moet tooexperiment met deze instelling toodetermine wat werkt er beste op basis van de beschikbare netwerkbandbreedte. 
 
-Laten we code waarmee we het aantal parallelle bewerkingen instellen toevoegen. We gaan ook programmacode toevoegen die hoe lang het duurt voor de overdracht time-out te voltooien.
+Laten we code waarmee we tooset Hallo aantal parallelle bewerkingen toevoegen. We gaan ook programmacode toevoegen die hoe lang het duurt Hallo overdracht toocomplete time-out.
 
-Voeg een `SetNumberOfParallelOperations` methode `Program.cs`:
+Voeg een `SetNumberOfParallelOperations` methode te`Program.cs`:
 
 ```csharp
 public static void SetNumberOfParallelOperations()
 {
-    Console.WriteLine("\nHow many parallel operations would you like to use?");
+    Console.WriteLine("\nHow many parallel operations would you like toouse?");
     string parallelOperations = Console.ReadLine();
     TransferManager.Configurations.ParallelOperations = int.Parse(parallelOperations);
 }
 ```
 
-Wijzig de `ExecuteChoice` te gebruiken methode `SetNumberOfParallelOperations`:
+Hallo wijzigen `ExecuteChoice` methode toouse `SetNumberOfParallelOperations`:
 
 ```csharp
 public static void ExecuteChoice(CloudStorageAccount account)
 {
-    Console.WriteLine("\nWhat type of transfer would you like to execute?\n1. Local file --> Azure Blob\n2. Local directory --> Azure Blob directory\n3. URL (e.g. Amazon S3 file) --> Azure Blob\n4. Azure Blob --> Azure Blob");
+    Console.WriteLine("\nWhat type of transfer would you like tooexecute?\n1. Local file --> Azure Blob\n2. Local directory --> Azure Blob directory\n3. URL (e.g. Amazon S3 file) --> Azure Blob\n4. Azure Blob --> Azure Blob");
     int choice = int.Parse(Console.ReadLine());
 
     SetNumberOfParallelOperations();
@@ -260,7 +260,7 @@ public static void ExecuteChoice(CloudStorageAccount account)
 }
 ```
 
-Wijzig de `TransferLocalFileToAzureBlob` methode een timer gebruiken:
+Hallo wijzigen `TransferLocalFileToAzureBlob` methode toouse een timer:
 
 ```csharp
 public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount account)
@@ -277,9 +277,9 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 ```
 
 ## <a name="track-transfer-progress"></a>Voortgang van de overdracht bijhouden
-Weten hoe lang geduurd voor onze gegevens om over te dragen is uitstekend. Echter, wordt de voortgang van onze overdracht zien *tijdens* de overdrachtsbewerking nog beter zou zijn. Voor dit scenario, moeten we maken een `TransferContext` object. De `TransferContext` object kent twee vormen: `SingleTransferContext` en `DirectoryTransferContext`. De voormalige is voor de overdracht van één bestand (dit is wat we geven nu) en de laatste is voor de overdracht van een map met bestanden (die we later toevoegen).
+Weten hoe lang geduurd voor onze gegevens tootransfer is uitstekend. Wordt echter kunnen toosee Hallo voortgang van onze overdracht *tijdens* Hallo overdrachtsbewerking nog beter zou zijn. tooachieve dit scenario moeten we toocreate een `TransferContext` object. Hallo `TransferContext` object kent twee vormen: `SingleTransferContext` en `DirectoryTransferContext`. Hallo voormalige is voor de overdracht van één bestand (dit is wat we geven nu) en Hallo laatstgenoemde is voor de overdracht van een map met bestanden (die we later toevoegen).
 
-Voeg de methoden `GetSingleTransferContext` en `GetDirectoryTransferContext` naar `Program.cs`: 
+Voeg Hallo methoden `GetSingleTransferContext` en `GetDirectoryTransferContext` te`Program.cs`: 
 
 ```csharp
 public static SingleTransferContext GetSingleTransferContext(TransferCheckpoint checkpoint)
@@ -307,7 +307,7 @@ public static DirectoryTransferContext GetDirectoryTransferContext(TransferCheck
 }
 ```
 
-Wijzig de `TransferLocalFileToAzureBlob` te gebruiken methode `GetSingleTransferContext`:
+Hallo wijzigen `TransferLocalFileToAzureBlob` methode toouse `GetSingleTransferContext`:
 
 ```csharp
 public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount account)
@@ -326,7 +326,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 ```
 
 ## <a name="resume-a-canceled-transfer"></a>Een geannuleerde overdracht hervat
-Een andere handige functie aangeboden door de bibliotheek voor gegevensverplaatsing is de mogelijkheid een geannuleerde overdracht hervatten. Laten we de code die kan worden uitgevoerd op de overdracht tijdelijk annuleren door op te geven toevoegen `c`, en vervolgens de overdracht 3 seconden later hervatten.
+Een andere handige functie aangeboden door Hallo-bibliotheek voor gegevensverplaatsing is Hallo mogelijkheid tooresume een geannuleerde overdracht. Laten we code waarmee we tootemporarily annuleren Hallo overdracht door te typen toevoegen `c`, en vervolgens 3 seconden later hervatten Hallo overdracht.
 
 Wijzig `TransferLocalFileToAzureBlob`:
 
@@ -338,7 +338,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
     TransferCheckpoint checkpoint = null;
     SingleTransferContext context = GetSingleTransferContext(checkpoint); 
     CancellationTokenSource cancellationSource = new CancellationTokenSource();
-    Console.WriteLine("\nTransfer started...\nPress 'c' to temporarily cancel your transfer...\n");
+    Console.WriteLine("\nTransfer started...\nPress 'c' tootemporarily cancel your transfer...\n");
 
     Stopwatch stopWatch = Stopwatch.StartNew();
     Task task;
@@ -380,12 +380,12 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 }
 ```
 
-Tot nu toe onze `checkpoint` waarde is altijd ingesteld op `null`. Nu als we de overdracht annuleert, we het laatste controlepunt van onze overdracht ophalen en dit nieuwe controlepunt in de context van onze overdracht gebruiken. 
+Tot nu toe onze `checkpoint` waarde is altijd ingesteld te`null`. Nu als we Hallo overbrengen annuleren, we Hallo laatste controlepunt van onze overdracht ophalen en deze nieuw controlepunt in de context van onze overdracht gebruiken. 
 
-## <a name="transfer-local-directory-to-azure-blob-directory"></a>Lokale directory overdragen naar Azure Blob-directory
-Het normaal zou zijn geplaatst als de bibliotheek voor gegevensverplaatsing slechts één tegelijk bestandsoverdracht kan. Gelukkig is dit niet het geval. De bibliotheek voor gegevensverplaatsing biedt de mogelijkheid om over te dragen van een map met bestanden en alle submappen. Laten we code waarmee we dit wordt geregeld toevoegen.
+## <a name="transfer-local-directory-tooazure-blob-directory"></a>Lokale directory tooAzure Blob directory overdragen
+Het normaal zou zijn geplaatst als het Hallo-bibliotheek voor gegevensverplaatsing kan slechts één bestandsoverdracht tegelijk. Dit is gelukkig niet Hallo geval. Hallo-bibliotheek voor gegevensverplaatsing biedt Hallo mogelijkheid tootransfer een lijst van bestanden en alle submappen. Laten we code toevoegen waarmee we toodo geregeld.
 
-Voeg eerst de methode `GetBlobDirectory` naar `Program.cs`:
+Voeg eerst de methode Hallo `GetBlobDirectory` te`Program.cs`:
 
 ```csharp
 public static CloudBlobDirectory GetBlobDirectory(CloudStorageAccount account)
@@ -413,7 +413,7 @@ public static async Task TransferLocalDirectoryToAzureBlobDirectory(CloudStorage
     TransferCheckpoint checkpoint = null;
     DirectoryTransferContext context = GetDirectoryTransferContext(checkpoint); 
     CancellationTokenSource cancellationSource = new CancellationTokenSource();
-    Console.WriteLine("\nTransfer started...\nPress 'c' to temporarily cancel your transfer...\n");
+    Console.WriteLine("\nTransfer started...\nPress 'c' tootemporarily cancel your transfer...\n");
 
     Stopwatch stopWatch = Stopwatch.StartNew();
     Task task;
@@ -460,10 +460,10 @@ public static async Task TransferLocalDirectoryToAzureBlobDirectory(CloudStorage
 }
 ```
 
-Er zijn een aantal verschillen tussen deze methode en de methode voor het uploaden van één bestand. We maken nu gebruik `TransferManager.UploadDirectoryAsync` en de `getDirectoryTransferContext` methode we eerder hebben gemaakt. Bovendien we bieden nu een `options` waarde aan onze uploadbewerking, waardoor we om aan te geven dat we willen submappen opnemen in de upload. 
+Er zijn een aantal verschillen tussen deze methode en het Hallo-methode voor het uploaden van één bestand. We maken nu gebruik `TransferManager.UploadDirectoryAsync` en Hallo `getDirectoryTransferContext` methode we eerder hebben gemaakt. Bovendien we bieden nu een `options` tooour uploadbewerking, waardoor we tooindicate dat we tooinclude submappen in de upload willen-waarde. 
 
-## <a name="copy-file-from-url-to-azure-blob"></a>Bestand kopiëren vanuit de URL naar Azure-Blob
-Nu gaan we code toevoegen die kan worden uitgevoerd op een bestand kopiëren vanuit een URL naar een Azure-Blob. 
+## <a name="copy-file-from-url-tooazure-blob"></a>Bestand kopiëren vanuit URL tooAzure Blob
+Nu gaan we code waarmee we een bestand van een URL tooan Azure Blob toocopy toevoegen. 
 
 Wijzig `TransferUrlToAzureBlob`:
 
@@ -475,7 +475,7 @@ public static async Task TransferUrlToAzureBlob(CloudStorageAccount account)
     TransferCheckpoint checkpoint = null;
     SingleTransferContext context = GetSingleTransferContext(checkpoint); 
     CancellationTokenSource cancellationSource = new CancellationTokenSource();
-    Console.WriteLine("\nTransfer started...\nPress 'c' to temporarily cancel your transfer...\n");
+    Console.WriteLine("\nTransfer started...\nPress 'c' tootemporarily cancel your transfer...\n");
 
     Stopwatch stopWatch = Stopwatch.StartNew();
     Task task;
@@ -517,10 +517,10 @@ public static async Task TransferUrlToAzureBlob(CloudStorageAccount account)
 }
 ```
 
-Een belangrijk gebruiksvoorbeeld voor deze functie is als u nodig hebt om gegevens te verplaatsen van een andere cloudservice (bijvoorbeeld AWS) naar Azure. Als u een URL die u toegang tot de resource biedt hebt, kunt u eenvoudig verplaatsen die resource in Azure Blobs met behulp van de `TransferManager.CopyAsync` methode. Deze methode wordt ook introduceert een nieuwe Boole-parameter. Als deze parameter `true` geeft aan dat er een asynchrone serverzijde kopiëren wilt maken. Als deze parameter `false` synchrone kopiëren - wat betekent dat de resource eerst gedownload naar de lokale computer, wordt geüpload naar Azure-Blob. Synchrone kopie is echter momenteel alleen beschikbaar voor het kopiëren van een Azure Storage-resource naar een andere. 
+Een belangrijk gebruiksvoorbeeld voor deze functie is wanneer u gegevens uit een andere cloud-service (bijvoorbeeld AWS) tooAzure toomove nodig. Als u een URL waarmee hebt u toegang tot toohello bron, kunt u eenvoudig die resource in Azure Blobs verplaatsen met behulp van Hallo `TransferManager.CopyAsync` methode. Deze methode wordt ook introduceert een nieuwe Boole-parameter. Als deze parameter te`true` geeft aan dat er een asynchrone serverzijde toodo kopiëren. Als deze parameter te`false` geeft een synchrone kopie - betekenis Hallo-bron is de lokale computer gedownloade tooour eerst tooAzure Blob vervolgens geüpload. Synchrone kopie is echter momenteel alleen beschikbaar voor het kopiëren van een Azure Storage resource tooanother. 
 
-## <a name="transfer-azure-blob-to-azure-blob"></a>Azure Blob overdragen naar Azure Blob
-Een andere functie die uniek opgegeven door de bibliotheek voor gegevensverplaatsing is de mogelijkheid om te kopiëren van de ene Azure Storage resource naar een andere. 
+## <a name="transfer-azure-blob-tooazure-blob"></a>Azure Blob-tooAzure Blob overdragen
+Een andere functie die een unieke wordt geleverd door het Hallo-bibliotheek voor gegevensverplaatsing is Hallo mogelijkheid toocopy van een Azure Storage resource tooanother. 
 
 Wijzig `TransferAzureBlobToAzureBlob`:
 
@@ -532,7 +532,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
     TransferCheckpoint checkpoint = null;
     SingleTransferContext context = GetSingleTransferContext(checkpoint); 
     CancellationTokenSource cancellationSource = new CancellationTokenSource();
-    Console.WriteLine("\nTransfer started...\nPress 'c' to temporarily cancel your transfer...\n");
+    Console.WriteLine("\nTransfer started...\nPress 'c' tootemporarily cancel your transfer...\n");
 
     Stopwatch stopWatch = Stopwatch.StartNew();
     Task task;
@@ -574,13 +574,13 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
 }
 ```
 
-In dit voorbeeld wordt de Booleaanse parameter ingesteld in `TransferManager.CopyAsync` naar `false` om aan te geven dat we willen een synchrone kopiëren. Dit betekent dat de resource is eerst gedownload naar de lokale computer vervolgens geüpload naar Azure-Blob. De optie synchrone kopie is een uitstekende manier om ervoor te zorgen dat uw kopieerbewerking een consistente snelheid. Daarentegen is is de snelheid van een asynchrone serverzijde kopie afhankelijk van de beschikbare netwerkbandbreedte op de server, kan variëren. Synchrone kopie mogelijk echter extra uitgaande kosten vergeleken met de asynchrone kopie genereren. De aanbevolen aanpak is het synchrone exemplaar gebruiken op een virtuele machine van Azure die zich in dezelfde regio bevinden als uw storage-account van de bron om te voorkomen dat de kosten voor uitgaande gegevens.
+In dit voorbeeld ingesteld we Hallo Boole-parameter in `TransferManager.CopyAsync` te`false` tooindicate willen we toodo een synchrone kopie. Dit betekent dat Hallo resource eerst de lokale computer gedownloade tooour is en tooAzure Blob geüpload. Hallo synchrone kopie-optie is een uitstekende manier tooensure dat uw kopieerbewerking een consistente snelheid heeft. Daarentegen is Hallo snelheid van de kopie van een asynchrone serverzijde afhankelijk van de beschikbare netwerkbandbreedte Hallo op Hallo-server kan variëren. Synchrone kopie mogelijk echter extra uitgaande kosten vergeleken tooasynchronous kopie genereren. Hallo aanbevolen aanpak is toouse synchrone kopie in een virtuele machine van Azure in Hallo dezelfde regio bevinden als uw gegevensbron account tooavoid uitgaande opslagkosten.
 
 ## <a name="conclusion"></a>Conclusie
-Onze toepassing van de verplaatsing van gegevens is voltooid. [Het volledige voorbeeld is beschikbaar op GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app). 
+Onze toepassing van de verplaatsing van gegevens is voltooid. [Voorbeeld van de volledige code Hallo is beschikbaar op GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app). 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze aan de slag, is er een toepassing die communiceert met Azure Storage en wordt uitgevoerd op Windows, Linux en Mac OS gemaakt. Deze aan de slag gericht op het Blob-opslag. Deze dezelfde kennis kan echter worden toegepast op File Storage. Bekijk voor meer informatie, [Azure Storage-bibliotheek voor gegevensverplaatsing naslagdocumentatie](https://azure.github.io/azure-storage-net-data-movement).
+In deze aan de slag, is er een toepassing die communiceert met Azure Storage en wordt uitgevoerd op Windows, Linux en Mac OS gemaakt. Deze aan de slag gericht op het Blob-opslag. Deze dezelfde kennis kan echter toegepaste tooFile opslag zijn. toolearn meer, Bekijk [Azure Storage-bibliotheek voor gegevensverplaatsing naslagdocumentatie](https://azure.github.io/azure-storage-net-data-movement).
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
 

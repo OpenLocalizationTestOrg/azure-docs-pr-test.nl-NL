@@ -1,0 +1,2 @@
+Als uw Azure probleem niet wordt besproken in dit artikel, gaat u naar Azure-forums op Hallo [MSDN en Hallo Stack Overflow](https://azure.microsoft.com/support/forums/). Plaats uw probleem in deze forums of te posten[ @AzureSupport op Twitter](https://twitter.com/AzureSupport). U kunt ook een ondersteuning van Azure-aanvraag indienen. een ondersteuningsverzoek op Hallo toosubmit [ondersteuning van Azure](https://azure.microsoft.com/support/options/) pagina **ondersteuning krijgen**.
+

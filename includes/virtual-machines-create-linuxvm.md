@@ -1,13 +1,13 @@
 
-1. Meld u aan bij uw Azure-abonnement met behulp van de stappen in [Connect to Azure from the Azure CLI 1.0](../articles/xplat-cli-connect.md) (Verbinding maken met Azure via de Azure CLI 1.0).
+1. Meld u aan tooyour Azure-abonnement met Hallo stappen in [tooAzure verbinding van hello Azure CLI 1.0](../articles/xplat-cli-connect.md).
 
-2. Zorg er als volgt voor dat u zich in de klassieke implementatiemodus bevindt:
+2. Zorg ervoor dat u in Hallo klassieke implementatiemodus zijn als volgt:
 
     ```azurecli
     azure config mode asm
     ```
 
-3. Doe het volgende om de Linux-installatiekopie te zoeken die u wilt laden:
+3. Hallo Linux installatiekopie weten dat u wilt dat tooload uit de beschikbare installatiekopieën Hallo als volgt:
 
    ```azurecli   
     azure vm image list | grep "Linux"
@@ -15,7 +15,7 @@
    
     Gebruik in een opdrachtpromptvenster van Windows **find** in plaats van grep.
    
-4. Gebruik `azure vm create` om een virtuele machine te maken met de Linux-installatiekopie uit de vorige lijst. In deze stap maakt u een cloudservice en een opslagaccount. U kunt deze virtuele machine ook verbinden met een bestaande cloudservice met de optie `-c`. Maak een SSH-eindpunt voor aanmelding bij de virtuele Linux-machine met de optie `-e`. In het volgende voorbeeld wordt een virtuele machine met de naam `myVM` gemaakt met behulp van de installatiekopie `Ubuntu-14_04_4-LTS` op de locatie `West US`, en voegt u de gebruikersnaam `ops` toe:
+4. Gebruik `azure vm create` toocreate een virtuele machine met Linux-installatiekopie Hallo van Hallo vorige lijst. In deze stap maakt u een cloudservice en een opslagaccount. U kunt ook verbinding maken met deze VM tooan bestaande cloudservice met een `-c` optie. Maken van een SSH-eindpunt toolog in toohello virtuele Linux-machine Hello `-e` optie. Hallo volgende voorbeeld wordt een virtuele machine met de naam `myVM` met Hallo `Ubuntu-14_04_4-LTS` installatiekopie in Hallo `West US` locatie, en voegt u een gebruikersnaam `ops`:
    
     ```azurecli
     azure vm create myVM \
@@ -23,7 +23,7 @@
         -g ops -p P@ssw0rd! -z "Small" -e -l "West US"
     ```
 
-    De uitvoer lijkt op die in het volgende voorbeeld:
+    Hallo uitvoer is vergelijkbaar toohello volgende voorbeeld:
 
     ```azurecli
     info:    Executing command vm create
@@ -37,20 +37,20 @@
     ```
    
    > [!NOTE]
-   > Voor een virtuele Linux-machine moet u de optie `-e` opgeven in `vm create`. Het is niet mogelijk om SSH in te schakelen nadat de virtuele machine is gemaakt. Zie voor meer informatie over SSH [SSH gebruiken met Linux op Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+   > Voor een virtuele Linux-machine, moet u opgeven Hallo `-e` optie in `vm create`. Het is niet mogelijk tooenable SSH nadat Hallo virtuele machine is gemaakt. Lees voor meer informatie over SSH [hoe tooUse SSH met Linux op Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-5. U kunt de kenmerken van de virtuele machine controleren via de opdracht `azure vm show`. In het volgende voorbeeld worden gegevens weergegeven voor de virtuele machine met de naam `myVM`:
+5. U kunt Hallo kenmerken van Hallo VM controleren via Hallo `azure vm show` opdracht. Hallo volgende voorbeeld vindt u gegevens voor de virtuele machine met de naam Hallo `myVM`:
 
     ```azurecli   
     azure vm show myVM
     ```
 
-6. Start de virtuele machine als volgt met de opdracht `azure vm start`:
+6. Start uw virtuele machine met Hallo `azure vm start` opdracht als volgt:
 
     ```azurecli
     azure vm start myVM
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Lees voor meer informatie over deze Azure CLI 1.0-opdrachten voor virtuele machines [Using the Azure CLI 1.0 with the Classic deployment API](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) (De Azure CLI 1.0 gebruiken met de API voor klassieke implementatie).
+Lees voor meer informatie over deze opdrachten voor de virtuele machine Azure CLI 1.0 Hallo [Using hello Azure CLI 1.0 met Hallo klassieke implementatie API](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 

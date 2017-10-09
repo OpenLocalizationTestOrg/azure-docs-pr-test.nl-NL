@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: bwren
-ms.openlocfilehash: 8bdaf9592ed29371ecfe8e9e5d2f8da9ac1795bb
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 14b363c934a018ce72be97d1a0b74a6c2210656e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Analyses voor ontwikkelaars: talen, platforms en integraties
 Deze items zijn implementaties van [Application Insights](app-insights-overview.md) die tot nu toe bij ons bekend zijn (inclusief implementaties door derden).
@@ -82,4 +82,4 @@ Deze items zijn implementaties van [Application Insights](app-insights-overview.
 * [Stream Analytics](app-insights-export-power-bi.md)
 
 ## <a name="projects"></a> Uw eigen SDK bouwen
-Als er nog geen SDK beschikbaar is voor uw taal of platform, kunt u er ook zelf een bouwen. Bekijk de code van de bestaande SDK's die worden beschreven in het [Application Insights SDK-project op GitHub](https://github.com/Microsoft/AppInsights-Home).
+Als er nog een SDK voor uw taal of platform, mogelijk gewenst toobuild een? Kijk eens naar de code van bestaande SDK's die worden vermeld in Hallo HALLO hallo [Application Insights-SDK-project op GitHub](https://github.com/Microsoft/AppInsights-Home).

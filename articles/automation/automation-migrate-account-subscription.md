@@ -1,6 +1,6 @@
 ---
-title: Automation-Account en Resources migreren | Microsoft Docs
-description: In dit artikel wordt beschreven hoe een Automation-Account in Azure Automation en de bijbehorende bronnen van een abonnement te verplaatsen naar een andere.
+title: aaaMigrate Automation-Account en Resources | Microsoft Docs
+description: "Dit artikel wordt beschreven hoe toomove een Automation-Account in Azure Automation en de bijbehorende resources uit één abonnement tooanother."
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: magoedte
-ms.openlocfilehash: 687da15bdaf854254321b59350f47549781676f5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 201c9091cd2d78d7ea407c1e5fb27f366bb4fa8c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="migrate-automation-account-and-resources"></a>Automation-Account en resources migreren
-Voor het Automation-accounts en de bijbehorende bronnen (dat wil zeggen activa, runbooks, modules, enzovoort) die u hebt gemaakt in de Azure portal en wilt migreren van een resourcegroep naar een andere of van een abonnement naar een andere, u kunt dit doen eenvoudig met de [verplaatsen van resources](../azure-resource-manager/resource-group-move-resources.md) functie is beschikbaar in de Azure-portal. Echter, voordat u doorgaat met deze actie moet u eerst nagaan de volgende [controlelijst voor het verplaatsen van resources](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) en daarnaast de lijst hieronder die specifiek zijn voor Automation.   
+Voor het Automation-accounts en de bijbehorende bronnen (dat wil zeggen activa, runbooks, modules, enzovoort) die u hebt gemaakt in hello Azure-portal en wilt toomigrate van de ene groep tooanother of van één abonnement tooanother, u kunt dit doen eenvoudig met Hallo [verplaatsen van resources](../azure-resource-manager/resource-group-move-resources.md) beschikbare functie in hello Azure-portal. Echter, voordat u doorgaat met deze actie moet u eerst nagaan Hallo volgende [controlelijst voor het verplaatsen van resources](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) en daarnaast Hallo onderstaande lijst met specifieke tooAutomation.   
 
-1. De bestemming/resourcegroep moet zich in dezelfde regio bevinden als de bron.  Wat betekent dat Automation-accounts niet verplaatsen tussen regio's.
-2. Bij het verplaatsen van resources (bijvoorbeeld runbooks, taken, enzovoort), worden zowel de bronnengroep als de doelgroep vergrendeld voor de duur van de bewerking. Schrijven en verwijderen van bewerkingen op de groepen die worden geblokkeerd totdat de verplaatsing is voltooid.  
-3. De runbooks of variabelen die verwijzen naar een resourcegroep of abonnement-ID van het bestaande abonnement moet worden bijgewerkt nadat de migratie is voltooid.   
+1. Hallo bestemming/resourcegroep moet zich in dezelfde regio bevinden als het Hallo-bron.  Wat betekent dat Automation-accounts niet verplaatsen tussen regio's.
+2. Bij het verplaatsen van resources (bijvoorbeeld runbooks, taken, enzovoort), worden zowel Hallo brongroep en de doelgroep Hallo vergrendeld voor Hallo duur van Hallo-bewerking. Schrijf- en verwijderbewerkingen op Hallo groepen worden geblokkeerd totdat Hallo verplaatsen is voltooid.  
+3. De runbooks of variabelen die verwijzen naar een resourcegroep of abonnement-ID van het bestaande abonnement Hallo moet toobe bijgewerkt nadat de migratie is voltooid.   
 
 > [!NOTE]
 > Deze functie ondersteunt geen bewegende klassieke automation-resources.
 >
 >
 
-## <a name="to-move-the-automation-account-using-the-portal"></a>Verplaatsen van het Automation-Account via de portal
-1. Van uw Automation-account, klikt u op **verplaatsen** boven aan de blade.<br> ![Optie verplaatsen](media/automation-migrate-account-subscription/automation-menu-move.png)<br>
-2. Op de **verplaatsen van resources** blade, Let op: dit geeft de bronnen die betrekking hebben op uw Automation-account en uw groep(en) resource.  Selecteer de **abonnement** en **resourcegroep** uit de vervolgkeuzelijst, of Selecteer de optie **een nieuwe resourcegroep maken** en voert u een nieuwe Resourcegroepnaam in het veld dat is opgegeven.  
-3. Bekijk en schakel het selectievakje in om te bevestigen dat u *over hulpprogramma's en scripts moet worden bijgewerkt om de nieuwe resource-id's gebruiken nadat resources zijn verplaatst* en klik vervolgens op **OK**.<br> ![Blade voor Resources verplaatsen](media/automation-migrate-account-subscription/automation-move-resources-blade.png)<br>   
+## <a name="toomove-hello-automation-account-using-hello-portal"></a>toomove Hallo Automation-Account met Hallo-portal
+1. Van uw Automation-account, klikt u op **verplaatsen** Hallo boven aan het Hallo-blade.<br> ![Optie verplaatsen](media/automation-migrate-account-subscription/automation-menu-move.png)<br>
+2. Op Hallo **verplaatsen van resources** blade, notitie deze resources gerelateerde tooboth geeft uw Automation-account en uw groep(en) resource.  Selecteer Hallo **abonnement** en **resourcegroep** van select Hallo optie of Hallo vervolgkeuzelijsten **een nieuwe resourcegroep maken** en voert u een nieuwe Resourcegroepnaam in Hallo-veld is opgegeven.  
+3. Bekijken en selecteer Hallo selectievakje tooacknowledge u *hulpprogramma's en scripts wordt inzicht moeten toobe bijgewerkt toouse nieuwe resource-id nadat resources zijn verplaatst* en klik vervolgens op **OK**.<br> ![Blade voor Resources verplaatsen](media/automation-migrate-account-subscription/automation-move-resources-blade.png)<br>   
 
-Deze actie duurt enkele minuten in beslag.  In **meldingen**, u krijgt de status van elke actie die uitgevoerd - validatie, migratie wordt, en klik tot slot wanneer deze is voltooid.     
+Deze actie duurt enkele minuten toocomplete.  In **meldingen**, u krijgt de status van elke actie die uitgevoerd - validatie, migratie wordt, en klik tot slot wanneer deze is voltooid.     
 
-## <a name="to-move-the-automation-account-using-powershell"></a>Verplaatsen van het Automation-Account met behulp van PowerShell
-U kunt bestaande Automation-resources verplaatsen naar een andere resourcegroep of abonnement met de **Get-AzureRmResource** cmdlet ophalen van de specifieke Automation-account en vervolgens **verplaatsen AzureRmResource** cmdlet uit te voeren van de verplaatsing.
+## <a name="toomove-hello-automation-account-using-powershell"></a>toomove Hallo Automation-Account met behulp van PowerShell
+toomove bestaande Automation-resources tooanother resourcegroep of abonnement, hello gebruiken **Get-AzureRmResource** cmdlet tooget Hallo specifieke Automation-account en vervolgens **verplaatsen AzureRmResource** cmdlet tooperform Hallo verplaatsen.
 
-Het eerste voorbeeld laat zien hoe een Automation-account verplaatsen naar een nieuwe resourcegroep.
+Hallo eerste voorbeeld laat zien hoe toomove een Automation-account tooa nieuwe resourcegroep.
 
    ```
     $resource = Get-AzureRmResource -ResourceName "TestAutomationAccount" -ResourceGroupName "ResourceGroup01"
     Move-AzureRmResource -ResourceId $resource.ResourceId -DestinationResourceGroupName "NewResourceGroup"
    ```
 
-Nadat u het bovenstaande voorbeeld uitvoert, wordt u gevraagd om te controleren of dat u wilt dat deze actie uit te voeren.  Nadat u op **Ja** en toestaan dat het script om door te gaan, ontvangt u geen meldingen tijdens het uitvoeren van de migratie.  
+Nadat u Hallo hierboven codevoorbeeld uitvoert, kunt u zich na vragen aan gebruiker tooverify gewenste tooperform deze actie.  Nadat u op **Ja** waardoor Hallo script tooproceed, ontvangt u geen meldingen terwijl het Hallo-migratie uitvoert.  
 
-Als u wilt verplaatsen naar een nieuw abonnement, een waarde bevatten voor de *DestinationSubscriptionId* parameter.
+toomove tooa nieuw abonnement, een waarde bevatten voor Hallo *DestinationSubscriptionId* parameter.
 
    ```
     $resource = Get-AzureRmResource -ResourceName "TestAutomationAccount" -ResourceGroupName "ResourceGroup01"
     Move-AzureRmResource -ResourceId $resource.ResourceId -DestinationResourceGroupName "NewResourceGroup" -DestinationSubscriptionId "SubscriptionId"
    ```
 
-Net als bij het vorige voorbeeld, wordt u gevraagd om te bevestigen dat de verplaatsing.  
+Net als bij het vorige voorbeeld hello, kunt u zich na vragen aan gebruiker tooconfirm Hallo verplaatsen.  
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het verplaatsen van resources naar de nieuwe resourcegroep of abonnement [resources verplaatsen naar de nieuwe resourcegroep of abonnement](../azure-resource-manager/resource-group-move-resources.md)
-* Zie [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md) voor meer informatie over het op rollen gebaseerd toegangsbeheer in Azure Automation.
-* Zie voor meer informatie over PowerShell-cmdlets voor het beheren van uw abonnement, [Azure PowerShell gebruiken met Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
-* Zie voor meer informatie over portal functies voor het beheren van uw abonnement, [om resources te beheren met behulp van de Azure Portal](../azure-resource-manager/resource-group-portal.md).
+* Zie voor meer informatie over de zwevende resources toonew-resourcegroep of abonnement [verplaatsen van resources toonew resourcegroep of abonnement](../azure-resource-manager/resource-group-move-resources.md)
+* Voor meer informatie over toegangsbeheer op basis van rollen in Azure Automation te verwijzen[toegangsbeheer op basis van rollen in Azure Automation](automation-role-based-access-control.md).
+* toolearn over PowerShell-cmdlets voor het beheren van uw abonnement, Zie [Azure PowerShell gebruiken met Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
+* toolearn over portal functies voor het beheren van uw abonnement, Zie [hello Azure Portal toomanage bronnen](../azure-resource-manager/resource-group-portal.md).

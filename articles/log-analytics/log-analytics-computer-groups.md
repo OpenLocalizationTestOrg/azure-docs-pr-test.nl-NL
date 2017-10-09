@@ -1,6 +1,6 @@
 ---
-title: Computergroepen in logboekanalyse Meld zoekopdrachten | Microsoft Docs
-description: Computergroepen in Log Analytics kunnen u bereik logboek zoekopdrachten aan een bepaalde set van computers.  In dit artikel beschrijft de verschillende methoden die u gebruiken kunt om computergroepen en hoe ze te gebruiken in een zoekopdracht logboek te maken.
+title: aaaComputer groepen in logboekanalyse Meld zoekopdrachten | Microsoft Docs
+description: Computergroepen in Log Analytics kunnen u tooscope logboek zoekopdrachten tooa bepaalde set van computers.  Dit artikel wordt beschreven Hallo verschillende methoden kunt u toocreate computergroepen en hoe toouse die ze in een logboek zoeken.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: bwren
-ms.openlocfilehash: a2ddc932343d54963a378ee27dc962a790326b2a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7dafea9829e541f5582a1d855fafb82aa4d94430
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Meld u zoekopdrachten computergroepen in Log Analytics
 
 >[!NOTE]
-> Dit artikel wordt het gebruik van computergroepen met behulp van de huidige logboek Anayltics querytaal beschreven.    Als uw werkruimte is bijgewerkt naar de [nieuwe logboekanalyse querytaal](log-analytics-log-search-upgrade.md), dan anders werkt de computergroepen.  Opmerkingen zijn opgenomen in dit artikel met de syntaxis van de andere en het gedrag voor de nieuwe query language.  
+> Dit artikel wordt beschreven Hallo gebruik van computergroepen Hallo huidige logboek Anayltics query language gebruiken.    Als uw werkruimte bijgewerkte toohello is [nieuwe logboekanalyse querytaal](log-analytics-log-search-upgrade.md), dan anders werkt de computergroepen.  Opmerkingen zijn opgenomen in dit artikel met andere Hallo-syntaxis en het gedrag voor nieuwe querytaal Hallo.  
 
 
-Computergroepen in Log Analytics kunnen u bereik [Meld zoekopdrachten](log-analytics-log-searches.md) aan een bepaalde set van computers.  Elke groep wordt gevuld met computers met behulp van een query die u definieert of groepen importeren uit verschillende bronnen.  Wanneer de groep is opgenomen in een zoekopdracht in de logboekbestanden, zijn de resultaten beperkt tot records die overeenkomen met de computers in de groep.
+Computergroepen in Log Analytics kunnen u tooscope [Meld zoekopdrachten](log-analytics-log-searches.md) tooa bepaalde set computers.  Elke groep wordt gevuld met computers met behulp van een query die u definieert of groepen importeren uit verschillende bronnen.  Als u Hallo is opgenomen in een logboek zoekopdracht, zijn Hallo resultaten beperkt toorecords die overeenkomen met de computers in de groep Hallo Hallo.
 
 ## <a name="creating-a-computer-group"></a>Een computergroep maken
-U kunt een computergroep maken in een van de methoden in de volgende tabel met logboekanalyse.  In de onderstaande secties vindt u meer informatie over elke methode. 
+U kunt een computergroep maken in met behulp van een Hallo methoden in de volgende tabel Hallo logboekanalyse.  Meer informatie over elke methode vindt u in de volgende secties voor Hallo. 
 
 | Methode | Beschrijving |
 |:--- |:--- |
-| Zoekopdrachten in logboeken |Maak een logboek zoekquery waarmee een lijst met computers en de resultaten opslaan als een computergroep. |
-| API voor zoeken in logboeken |Het logboek zoeken-API maken op een computergroep op basis van de resultaten van een zoekopdracht logboek gebruiken. |
-| Active Directory |Automatisch scannen van het groepslidmaatschap van de agentcomputers die lid zijn van een Active Directory-domein en een groep maken in Log Analytics voor elke beveiligingsgroep. |
+| Zoekopdrachten in logboeken |Maak een logboek zoekquery waarmee een lijst met computers en Hallo resultaten opslaan als een computergroep. |
+| API voor zoeken in logboeken |Gebruik Hallo Log-API van zoekservice tooprogrammatically Maak een computergroep op basis van resultaten van een zoekopdracht logboek Hallo. |
+| Active Directory |Automatisch scannen Hallo-groepslidmaatschap van de agentcomputers die lid zijn van een Active Directory-domein en een groep maken in Log Analytics voor elke beveiligingsgroep. |
 | WSUS |Automatisch scannen van WSUS-servers of clients gebruiken om groepen en maakt u een groep in Log Analytics voor elk. |
 
 ### <a name="log-search"></a>Zoekopdrachten in logboeken
-Gemaakt op basis van een zoekopdracht logboek computergroepen bevatten alle computers geretourneerd door een zoekopdracht die u definieert.  Deze query wordt uitgevoerd telkens wanneer de computergroep wordt gebruikt zodat alle wijzigingen die sinds de groep is gemaakt wordt weergegeven.
+Computergroepen gemaakt op basis van een zoekopdracht logboek bevat alle Hallo-computers die zijn geretourneerd door een zoekopdracht die u definieert.  Deze query wordt uitgevoerd telkens wanneer de computergroep hello wordt gebruikt zodat alle wijzigingen die sinds Hallo-groep is gemaakt wordt weergegeven.
 
-Gebruik de volgende procedure een computergroep maken van een zoekopdracht logboek.
+Hallo te volgen procedure toocreate een computergroep van een zoekopdracht logboek gebruiken.
 
-1. [Maken van een zoekopdracht logboek](log-analytics-log-searches.md) die resulteert in een lijst van computers.  De zoekopdracht moet een unieke set computers retourneren met behulp van ongeveer **Distinct Computer** of **count() door Computer te meten** in de query.  
-2. Klik op de **opslaan** knop aan de bovenkant van het scherm.
-3. Selecteer **Ja** naar **deze query opslaan als een computergroep**.
-4. Typ in een **naam** en een **categorie** voor de groep.  Als een zoekopdracht met dezelfde naam en categorie al bestaat, worden wordt u gevraagd om te overschrijven.  U kunt meerdere zoekopdrachten met dezelfde naam hebben in verschillende categorieën. 
+1. [Maken van een zoekopdracht logboek](log-analytics-log-searches.md) die resulteert in een lijst van computers.  Hallo zoeken moet retourneren een unieke set van computers met behulp van ongeveer **Distinct Computer** of **count() door Computer te meten** in Hallo-query.  
+2. Klik op Hallo **opslaan** knop Hallo boven aan het welkomstscherm.
+3. Selecteer **Ja** te**deze query opslaan als een computergroep**.
+4. Typ in een **naam** en een **categorie** voor Hallo-groep.  Als er een zoekopdracht met dezelfde naam en categorie al Hallo bestaat, moet u zijn na vragen aan gebruiker toooverwrite deze.  U kunt meerdere zoekopdrachten met dezelfde naam in verschillende categorieën Hallo hebben. 
 
 Hieronder vindt u voorbeelden van zoekopdrachten die u kunt opslaan als een computergroep.
 
@@ -54,72 +54,72 @@ Hieronder vindt u voorbeelden van zoekopdrachten die u kunt opslaan als een comp
     Computer=*srv* | measure count() by Computer
 
 >[!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [querytaal van nieuwe logboekanalyse](log-analytics-log-search-upgrade.md) en vervolgens de volgende wijzigingen zijn aangebracht aan de procedure voor het maken van een nieuwe computergroep.
+> Als uw werkruimte bijgewerkte toohello is [querytaal van nieuwe logboekanalyse](log-analytics-log-search-upgrade.md) vervolgens hello volgende wijzigingen aangebracht toohello procedure toocreate een nieuwe computergroep worden.
 >  
-> - De query voor het maken van een computergroep moet bevatten `distinct Computer`.  Hieronder volgt een voorbeeld van een query naar een computergroep maken.<br>`Heartbeat | where Computer contains "srv" `
-> - Wanneer u een nieuwe computergroep maakt, moet u een alias naast de naam opgeven.  U kunt de alias gebruiken bij gebruik van de computergroep in een query zoals hieronder wordt beschreven.  
+> - Hallo query toocreate vergezeld gaan van een computergroep `distinct Computer`.  Hier volgt een voorbeeld van een query toocreate een computergroep.<br>`Heartbeat | where Computer contains "srv" `
+> - Wanneer u een nieuwe computergroep maakt, moet u een alias in toevoeging toohello naam opgeven.  U Hallo alias gebruiken wanneer u de computergroep Hallo in een query zoals hieronder wordt beschreven.  
 
 ### <a name="log-search-api"></a>Meld u API van zoekservice
-Computergroepen die zijn gemaakt met de Search-API van het logboek zijn hetzelfde als de zoekopdrachten die zijn gemaakt met een zoekopdracht logboek.
+Computergroepen die zijn gemaakt met de Hallo Log-API van zoekservice zijn Hallo dezelfde als de zoekopdrachten die zijn gemaakt met een zoekopdracht logboek.
 
-Zie voor meer informatie over het maken van de groep van een computer met de Search-API van het logboek [computergroepen in logboek logboekanalyse zoeken REST-API](log-analytics-log-search-api.md#computer-groups).
+Zie voor meer informatie over het maken van een computergroep Hallo Log zoeken-API met [computergroepen in logboek logboekanalyse zoeken REST-API](log-analytics-log-search-api.md#computer-groups).
 
 ### <a name="active-directory"></a>Active Directory
-Wanneer u Log Analytics Active Directory-groepslidmaatschappen importeren configureert, wordt het groepslidmaatschap van computers met de OMS-agent lid van domein geanalyseerd.  Een computergroep in logboekanalyse gemaakt voor elke beveiligingsgroep in Active Directory en elke computer is toegevoegd aan de overeenkomt met de beveiligingsgroepen waarvan die ze lid van zijn computergroepen.  Dit lidmaatschap wordt voortdurend bijgewerkt voor elke 4 uur.  
+Wanneer u Log Analytics tooimport Active Directory-groepslidmaatschappen configureert, wordt geanalyseerd Hallo-groepslidmaatschap van computers met Hallo OMS-agent verbonden met het domein.  Een computergroep in logboekanalyse gemaakt voor elke beveiligingsgroep in Active Directory en elke computer toegevoegd toohello computergroepen toohello beveiligingsgroepen waarvan die ze lid van zijn overeenkomt.  Dit lidmaatschap wordt voortdurend bijgewerkt voor elke 4 uur.  
 
-Configureren van logboekanalyse voor het importeren van Active Directory-beveiligingsgroepen van de **computergroepen** menu van logboekanalyse **instellingen**.  Selecteer **Automation** en vervolgens **importeren Active Directory-groepslidmaatschappen van computers**.  Er is geen verdere configuratie nodig.
+Configureren van logboekanalyse tooimport Active Directory-beveiligingsgroepen van Hallo **computergroepen** menu van logboekanalyse **instellingen**.  Selecteer **Automation** en vervolgens **importeren Active Directory-groepslidmaatschappen van computers**.  Er is geen verdere configuratie nodig.
 
 ![Computergroepen uit Active Directory](media/log-analytics-computer-groups/configure-activedirectory.png)
 
-Wanneer u groepen zijn geïmporteerd, worden in het menu het aantal computers met groepslidmaatschappen gedetecteerd en het aantal groepen geïmporteerd worden.  U kunt klikken op een van deze koppelingen om terug te keren de **ComputerGroup** records met deze informatie.
+Wanneer groepen ingevoerd zijn, hello menu lijsten Hallo aantal computers met groepslidmaatschappen gedetecteerd en Hallo aantal groepen geïmporteerd.  U kunt klikken op een van deze koppelingen tooreturn hello **ComputerGroup** records met deze informatie.
 
 ### <a name="windows-server-update-service"></a>Windows Server updateservice
-Wanneer u Log Analytics WSUS-groepslidmaatschappen importeren configureert, wordt het lidmaatschap van de toewijzing van alle computers met de OMS-agent geanalyseerd.  Als u aan de clientzijde heeft ontwikkelt, elke computer die is verbonden met OMS en maakt deel uit van een WSUS het groepslidmaatschap geïmporteerd met logboekanalyse groepen als doel. Als u van server side gebruikmaakt moet ontwikkelt, de OMS agent worden geïnstalleerd op de WSUS-server om de gegevens worden geïmporteerd op OMS.  Dit lidmaatschap wordt voortdurend bijgewerkt voor elke 4 uur. 
+Bij het configureren van logboekanalyse tooimport WSUS-groepslidmaatschappen, Hallo die gericht is op het lidmaatschap van alle computers met Hallo OMS-agent wordt geanalyseerd.  Als u aan de clientzijde is ontwikkelt, elke computer die is verbonden tooOMS en maakt deel uit van een WSUS targeting van groepen het groepslidmaatschap geïmporteerd tooLog Analytics. Als u van server side gebruikmaakt ontwikkelt, Hallo OMS-agent moet worden geïnstalleerd op Hallo WSUS-server in de volgorde voor Hallo groepslidmaatschap informatie toobe geïmporteerd tooOMS.  Dit lidmaatschap wordt voortdurend bijgewerkt voor elke 4 uur. 
 
-Configureren van logboekanalyse voor het importeren van Active Directory-beveiligingsgroepen van de **computergroepen** menu van logboekanalyse **instellingen**.  Selecteer **Active Directory** en vervolgens **importeren Active Directory-groepslidmaatschappen van computers**.  Er is geen verdere configuratie nodig.
+Configureren van logboekanalyse tooimport Active Directory-beveiligingsgroepen van Hallo **computergroepen** menu van logboekanalyse **instellingen**.  Selecteer **Active Directory** en vervolgens **importeren Active Directory-groepslidmaatschappen van computers**.  Er is geen verdere configuratie nodig.
 
 ![Computergroepen uit Active Directory](media/log-analytics-computer-groups/configure-wsus.png)
 
-Wanneer u groepen zijn geïmporteerd, worden in het menu het aantal computers met groepslidmaatschappen gedetecteerd en het aantal groepen geïmporteerd worden.  U kunt klikken op een van deze koppelingen om terug te keren de **ComputerGroup** records met deze informatie.
+Wanneer groepen ingevoerd zijn, hello menu lijsten Hallo aantal computers met groepslidmaatschappen gedetecteerd en Hallo aantal groepen geïmporteerd.  U kunt klikken op een van deze koppelingen tooreturn hello **ComputerGroup** records met deze informatie.
 
 ## <a name="managing-computer-groups"></a>Computergroepen beheren
-U kunt weergeven computergroepen die zijn gemaakt op basis van een zoekopdracht logboek of de Search-API van het logboek van de **computergroepen** menu van logboekanalyse **instellingen**.  Klik op de **x** in de **verwijderen** kolom te verwijderen van de computergroep.  Klik op de **leden weergeven** pictogram voor een groep voor het uitvoeren van de groep logboek zoekquery waarmee de leden ervan. 
+U kunt bekijken van computergroepen die zijn gemaakt met een zoekopdracht logboek of Log zoeken-API van Hallo Hallo **computergroepen** menu van logboekanalyse **instellingen**.  Klik op Hallo **x** in Hallo **verwijderen** kolom toodelete Hallo-computergroep.  Klik op Hallo **leden weergeven** pictogram voor een groep toorun Hallo groep logboek zoekquery waarmee de leden ervan. 
 
 ![Opgeslagen computergroepen](media/log-analytics-computer-groups/configure-saved.png)
 
-Voor het wijzigen van de groep, kunt u een nieuwe groep maken met dezelfde **categorie** en **naam** naar de oorspronkelijke groep overschrijven.
+Hallo toomodify groep, maakt u een nieuwe groep Hello dezelfde **categorie** en **naam** toooverwrite Hallo oorspronkelijke groep.
 
 ## <a name="using-a-computer-group-in-a-log-search"></a>Met behulp van de groep van een computer in een logboek zoekopdracht
-U de volgende syntaxis gebruiken om te verwijzen naar een computergroep in een logboek zoekopdracht.  Geven de **categorie** is optioneel en is alleen vereist als er computergroepen met dezelfde naam in verschillende categorieën. 
+U Hallo syntaxis toorefer tooa computergroep in een logboek zoekopdracht te volgen.  Geven Hallo **categorie** is optioneel en is alleen vereist als u computergroepen met dezelfde naam in verschillende categorieën Hallo hebt. 
 
     $ComputerGroups[Category: Name]
 
-Wanneer u een zoekopdracht uitvoert, worden de leden van alle computergroepen die is opgenomen in de zoekopdracht eerst opgelost.  Als de groep is gebaseerd op een zoekopdracht logboek, wordt die zoekopdracht uitgevoerd om te retourneren van de leden van de groep voordat u de zoekopdracht op het hoogste niveau logboek uitvoert.
+Wanneer u een zoekopdracht uitvoert, worden leden van alle computergroepen opgenomen in de zoekopdracht Hallo Hallo eerst opgelost.  Als de groep Hallo is gebaseerd op een zoekopdracht logboek, wordt die zoekopdracht uitgevoerd tooreturn Hallo leden van Hallo groep voordat u Hallo op het hoogste niveau logboek zoekopdracht uitvoert.
 
-Computergroepen worden doorgaans gebruikt voor de **IN** -component in de zoekopdracht logboek zoals in het volgende voorbeeld:
+Computergroepen worden meestal gebruikt met Hallo **IN** -component in Hallo logboek zoeken zoals Hallo volgt in:
 
     Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]
 
 >[!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [nieuwe logboekanalyse querytaal](log-analytics-log-search-upgrade.md), u een computergroep gebruiken in een query door de alias behandelen als een functie, zoals in het volgende voorbeeld:
+> Als uw werkruimte bijgewerkte toohello is [nieuwe logboekanalyse querytaal](log-analytics-log-search-upgrade.md), u een computergroep in een query door de alias behandelen als een functie, zoals in het volgende voorbeeld Hallo gebruiken:
 > 
 >  `UpdateSummary | where Computer IN (MyComputerGroup)`
 
 ## <a name="computer-group-records"></a>Groeperen van computerrecords
-Een record gemaakt in de OMS-opslagplaats voor elke computer groepslidmaatschap gemaakt op basis van Active Directory of WSUS.  Deze records zijn een type **ComputerGroup** en de eigenschappen in de volgende tabel hebben.  Records worden niet gemaakt voor computergroepen op basis van het logboek zoekopdrachten.
+Een record gemaakt in Hallo OMS-opslagplaats voor elke computer groepslidmaatschap gemaakt op basis van Active Directory of WSUS.  Deze records zijn een type **ComputerGroup** en Hallo eigenschappen in de volgende tabel Hallo hebben.  Records worden niet gemaakt voor computergroepen op basis van het logboek zoekopdrachten.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | Type |*ComputerGroup* |
 | SourceSystem |*SourceSystem* |
-| Computer |Naam van de computer die lid is. |
-| Groep |De naam van de groep. |
-| GroupFullName |Volledig pad naar de groep met inbegrip van de bron en de naam van de gegevensbron. |
+| Computer |Naam van de computer die lid is Hallo. |
+| Groep |Naam van groep Hallo. |
+| GroupFullName |Volledig pad toohello groep inclusief Hallo bron- en naam van de gegevensbron. |
 | GroupSource |Bron van die groep die is verzameld van is. <br><br>Active Directory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |De naam van de bron waarvan de groep is verzameld.  Dit is de domeinnaam voor Active Directory. |
-| ManagementGroupName |Naam van de beheergroep voor SCOM-agents.  Dit is voor andere agents AOI -\<werkruimte-ID\> |
-| TimeGenerated |Datum en tijd van de computergroep is gemaakt of bijgewerkt. |
+| GroupSourceName |Naam van Hallo-bron die groep Hallo is verzameld.  Voor Active Directory is dit Hallo domeinnaam. |
+| ManagementGroupName |De naam van de beheergroep Hallo voor SCOM-agents.  Dit is voor andere agents AOI -\<werkruimte-ID\> |
+| TimeGenerated |Datum en tijd Hallo computergroep is gemaakt of bijgewerkt. |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [Meld zoekopdrachten](log-analytics-log-searches.md) om de gegevens verzameld van gegevensbronnen en oplossingen te analyseren.  
+* Meer informatie over [Meld zoekopdrachten](log-analytics-log-searches.md) tooanalyze Hallo gegevens verzameld van gegevensbronnen en oplossingen.  
 

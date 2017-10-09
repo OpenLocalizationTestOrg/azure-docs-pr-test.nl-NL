@@ -1,6 +1,6 @@
 ---
-title: Directe methoden Azure IoT Hub | Microsoft Docs
-description: Handleiding voor ontwikkelaars - rechtstreekse methoden gebruiken om aan te roepen code op uw apparaten vanuit een app service.
+title: Azure IoT Hub aaaUnderstand directe methoden | Microsoft Docs
+description: Handleiding voor ontwikkelaars - code voor gebruik rechtstreeks methoden tooinvoke op uw apparaten vanuit een app service.
 services: iot-hub
 documentationcenter: .net
 author: nberdy
@@ -15,50 +15,50 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 77e788a32097edbcb1cd4faaa45f35812eabd94a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0d15d44a0c3e1d1cda1669c1ed011c2f932e3d92
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Begrijpen en direct methoden uit IoT Hub aanroepen
 ## <a name="overview"></a>Overzicht
-IoT-Hub kunt u direct methoden op apparaten uit de cloud. Rechtstreekse methoden vertegenwoordigen een request-reply interactie met een apparaat dat vergelijkbaar is met een HTTP-aanroep in dat ze slagen of onmiddellijk (na een door de gebruiker opgegeven time mislukken). Dit is nuttig voor scenario's waarin het verloop van directe actie verschillend, afhankelijk van of het apparaat kunnen reageren, zoals het verzenden van een SMS wake-up naar een apparaat als een apparaat is offline (SMS wordt duurder dan een methodeaanroep van) is.
+IoT Hub, hebt u mogelijkheid tooinvoke rechtstreekse methoden op apparaten van Hallo cloud. Rechtstreekse methoden vertegenwoordigen een request-reply interactie met een apparaat vergelijkbare tooan HTTP aanroepen in dat ze slagen of mislukken onmiddellijk (na een door de gebruiker opgegeven time). Dit is nuttig voor scenario's waarin Hallo loop van de directe actie verschillend, afhankelijk van of Hallo apparaat kunnen toorespond, zoals een SMS wake-up tooa apparaat verzenden als een apparaat is offline (SMS wordt duurder dan een methodeaanroep van) is.
 
-Elke methode apparaat gericht op één apparaat. [Taken] [ lnk-devguide-jobs] plannen methodeaanroep voor niet-verbonden apparaten en bieden een manier om aan te roepen rechtstreekse methoden op meerdere apparaten.
+Elke methode apparaat gericht op één apparaat. [Taken] [ lnk-devguide-jobs] plannen methodeaanroep voor niet-verbonden apparaten en bieden een manier tooinvoke rechtstreekse methoden op meerdere apparaten.
 
 Iedereen met **service verbinding** machtigingen voor IoT Hub kunnen een methode aangeroepen voor een apparaat.
 
-### <a name="when-to-use"></a>Wanneer gebruikt u dit?
-Methoden voor direct een reactie op aanvragen patroon volgen en zijn bedoeld voor communicatie waarvoor onmiddellijke bevestiging van hun resultaat, meestal interactief beheer van het apparaat, bijvoorbeeld een ventilator inschakelen.
+### <a name="when-toouse"></a>Wanneer toouse
+Methoden voor direct een reactie op aanvragen patroon volgen en zijn bedoeld voor communicaties die direct bevestiging van hun resultaat, meestal interactieve besturingselement van het Hallo-apparaat, bijvoorbeeld tooturn op een ventilator vereisen.
 
-Raadpleeg [Cloud-naar-apparaat communicatie richtlijnen] [ lnk-c2d-guidance] als u twijfelt tussen het gebruik van de eigenschappen van de gewenste directe methoden of cloud-naar-apparaat-berichten.
+Raadpleeg te[Cloud-naar-apparaat communicatie richtlijnen] [ lnk-c2d-guidance] als u twijfelt tussen het gebruik van de eigenschappen van de gewenste directe methoden of cloud-naar-apparaat-berichten.
 
 ## <a name="method-lifecycle"></a>De levenscyclus van de methode
-Rechtstreekse methoden worden geïmplementeerd op het apparaat en nul of meer van de invoervermeldingen in de nettolading van de methode correct instantiëren vereisen. Aanroepen van een directe methode via een URI service gerichte (`{iot hub}/twins/{device id}/methods/`). Een apparaat ontvangt rechtstreekse methoden door een apparaat-specifieke MQTT onderwerp (`$iothub/methods/POST/{method name}/`). We kunnen rechtstreekse methoden in de toekomst ondersteuning op extra apparaten aan clientzijde-netwerkprotocollen.
+Rechtstreekse methoden op Hallo apparaat worden geïmplementeerd en is mogelijk nul of meer invoerwaarden in Hallo methode nettolading toocorrectly instantiëren. Aanroepen van een directe methode via een URI service gerichte (`{iot hub}/twins/{device id}/methods/`). Een apparaat ontvangt rechtstreekse methoden door een apparaat-specifieke MQTT onderwerp (`$iothub/methods/POST/{method name}/`). We kunnen op extra apparaten aan clientzijde netwerkprotocollen in toekomstige Hallo ondersteuning voor directe methoden.
 
 > [!NOTE]
-> Wanneer u een directe methode voor een apparaat aangeroepen, namen en waarden mogen alleen US-ASCII-afdrukbare alfanumerieke behalve aanwezig in de volgende set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
+> Wanneer u een directe methode voor een apparaat aangeroepen, namen en waarden mogen alleen US-ASCII-afdrukbare alfanumerieke behalve aanwezig in de volgende set Hallo: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
 > 
 > 
 
-Directe methoden zijn synchrone en een slagen of mislukken na de time-outperiode (standaard: 30 seconden, worden ingesteld van 3600 seconden). Directe methoden zijn nuttig in interactieve scenario's waar u een apparaat om te fungeren als het apparaat online en ontvangende opdrachten is, zoals het inschakelen van een licht via een telefoon. In deze scenario's die u wilt zien van een onmiddellijke slagen of mislukken, dus de cloudservice kan worden uitgevoerd op het resultaat zo snel mogelijk. Het apparaat kan sommige berichttekst als gevolg van de methode retourneren, maar het is niet vereist voor de methode om dit te doen. Er is geen garantie op volgorde of eventuele semantiek gelijktijdigheid van taken op methodeaanroepen.
+Directe methoden zijn synchrone en een slagen of mislukken na de time-outperiode hello (standaard: 30 seconden, instelbare up too3600 seconden). Directe methoden zijn nuttig in interactieve scenario's waar u een apparaat tooact als Hallo-apparaat online en ontvangende opdrachten is, zoals het inschakelen van een licht via een telefoon. In deze scenario's gewenste toosee een onmiddellijke slagen of mislukken zodat Hallo cloudservice zo snel mogelijk op Hallo resultaat kan reageren. Hallo-apparaat kan sommige berichttekst als gevolg van het Hallo-methode retourneren, maar het is niet vereist voor Hallo methode toodo zodat. Er is geen garantie op volgorde of eventuele semantiek gelijktijdigheid van taken op methodeaanroepen.
 
-Directe methode zijn HTTP alleen-lezen van de kant van de cloud en MQTT alleen-lezen van de kant van het apparaat.
+Directe methode zijn HTTP-only van Hallo cloud kant en MQTT alleen-lezen van Hallo apparaat kant.
 
-De nettolading voor methodeaanvragen en antwoorden is een JSON-document maximaal 8KB.
+Hallo-nettolading voor methodeaanvragen en antwoorden is een JSON-document van too8KB.
 
 ## <a name="reference-topics"></a>De onderwerpen waarnaar wordt verwezen:
-De volgende onderwerpen met naslaginformatie bieden u meer informatie over het gebruik van rechtstreekse methoden.
+Hallo bieden volgende naslagonderwerpen u meer informatie over het gebruik van rechtstreekse methoden.
 
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Aanroepen van een directe methode van een back-endserver voor apps
 ### <a name="method-invocation"></a>De methodeaanroep
 Directe methode aanroepen op een apparaat zijn HTTP-aanroepen die bestaan uit:
 
-* De *URI* specifiek zijn voor het apparaat (`{iot hub}/twins/{device id}/methods/`)
-* De POST *methode*
-* *Headers* waarop de autorisatie bevatten, aanvraag-ID, het type inhoud en de codering van inhoud
-* Een transparante JSON *hoofdtekst* in de volgende indeling:
+* Hallo *URI* specifieke toohello apparaat (`{iot hub}/twins/{device id}/methods/`)
+* Hallo POST *methode*
+* *Headers* waarop Hallo autorisatie bevatten, aanvraag-ID, het type inhoud en de codering van inhoud
+* Een transparante JSON *hoofdtekst* in Hallo volgende indeling:
 
 ```
 {
@@ -71,14 +71,14 @@ Directe methode aanroepen op een apparaat zijn HTTP-aanroepen die bestaan uit:
 }
 ```
 
-Er is een time-out in seconden. Als de time-out voor niet is ingesteld, wordt standaard 30 seconden.
+Er is een time-out in seconden. Als u time-out niet is ingesteld, wordt standaard too30 seconden.
 
 ### <a name="response"></a>Antwoord
-De back-end-app ontvangt een antwoord dat bestaat uit:
+Hallo back-end app ontvangt een antwoord dat bestaat uit:
 
-* *HTTP-statuscode*, die wordt gebruikt voor fouten die afkomstig zijn van de IoT-Hub, met inbegrip van een 404-fout voor apparaten die momenteel niet verbonden
-* *Headers* waarop de ETag bevatten, aanvraag-ID, het type inhoud en de codering van inhoud
-* Een JSON *hoofdtekst* in de volgende indeling:
+* *HTTP-statuscode*, die wordt gebruikt voor fouten die afkomstig zijn van Hallo IoT Hub, met inbegrip van een 404-fout voor apparaten die momenteel niet verbonden
+* *Headers* waarop Hallo ETag bevatten, aanvraag-ID, het type inhoud en de codering van inhoud
+* Een JSON *hoofdtekst* in Hallo volgende indeling:
 
 ```
 {
@@ -87,13 +87,13 @@ De back-end-app ontvangt een antwoord dat bestaat uit:
 }
 ```
 
-   Beide `status` en `body` zijn geleverd door het apparaat en gebruikt om met de statuscode van het apparaat en/of beschrijving te reageren.
+   Beide `status` en `body` worden geleverd door het Hallo-apparaat en toorespond gebruikt met de statuscode van Hallo van het apparaat en/of beschrijving.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Verwerken van een directe methode op een apparaat
 ### <a name="method-invocation"></a>De methodeaanroep
-Directe methodeaanvragen in het onderwerp MQTT, ontvangen apparaten:`$iothub/methods/POST/{method name}/?$rid={request id}`
+Apparaten ontvangen directe methode-aanvragen op Hallo MQTT onderwerp:`$iothub/methods/POST/{method name}/?$rid={request id}`
 
-De instantie die het apparaat ontvangt is in de volgende indeling:
+Hallo hoofdtekst welk apparaat Hallo ontvangt heeft Hallo volgende indeling:
 
 ```
 {
@@ -105,28 +105,28 @@ De instantie die het apparaat ontvangt is in de volgende indeling:
 Methodeaanvragen zijn QoS 0.
 
 ### <a name="response"></a>Antwoord
-Het apparaat verzendt reacties naar `$iothub/methods/res/{status}/?$rid={request id}`, waarbij:
+Hallo apparaat verzendt reacties te`$iothub/methods/res/{status}/?$rid={request id}`, waarbij:
 
-* De `status` eigenschap is de status apparaat opgegeven van de methode kan worden uitgevoerd.
-* De `$rid` eigenschap is de aanvraag-ID van het aanroepen van de methode heeft ontvangen van IoT-Hub.
+* Hallo `status` eigenschap Hallo apparaat opgegeven status van de uitvoering van de methode is.
+* Hallo `$rid` eigenschap Hallo aanvraag-ID van de methodeaanroep Hallo ontvangen van IoT Hub is.
 
-De hoofdtekst kan is ingesteld door het apparaat en geen status.
+Hallo-instantie is ingesteld door Hallo-apparaat en elke status kunt worden.
 
 ## <a name="additional-reference-material"></a>Aanvullende referentiemateriaal
-Er zijn andere onderwerpen waarnaar wordt verwezen in de IoT Hub developer guide:
+Er zijn andere onderwerpen met naslaginformatie in Hallo Ontwikkelaarshandleiding voor IoT Hub:
 
-* [IoT-hubeindpunten] [ lnk-endpoints] beschrijft de verschillende eindpunten die elke IoT-hub voor runtime- en beheerbewerkingen toont.
-* [Bandbreedtebeperking en quota's] [ lnk-quotas] beschrijving van de quota die betrekking hebben op de IoT Hub-service en het gedrag bandbreedteregeling kunt verwachten wanneer u de service gebruiken.
-* [Azure IoT-SDKs voor apparaat en de service] [ lnk-sdks] geeft een lijst van de verschillende SDK's kunt u bij het ontwikkelen van apps voor het apparaat en de service die communiceren met IoT Hub-taal.
-* [IoT Hub-querytaal voor apparaat horende, taken en berichtroutering] [ lnk-query] beschrijft de IoT Hub-querytaal kunt u gegevens ophalen uit IoT Hub over uw apparaat horende en taken.
-* [Ondersteuning voor IoT Hub MQTT] [ lnk-devguide-mqtt] meer informatie over IoT Hub ondersteuning biedt voor het MQTT-protocol.
+* [IoT-hubeindpunten] [ lnk-endpoints] beschrijft Hallo verschillende eindpunten die elke IoT-hub voor runtime- en beheerbewerkingen toont.
+* [Bandbreedtebeperking en quota's] [ lnk-quotas] beschrijft Hallo quota's die van toepassing toohello service IoT Hub en bandbreedteregeling gedrag tooexpect Hallo wanneer u Hallo-service gebruiken.
+* [Azure IoT-SDKs voor apparaat en de service] [ lnk-sdks] lijsten Hallo verschillende taal kunt u bij het ontwikkelen van apps voor het apparaat en de service die communiceren met IoT Hub SDK's.
+* [IoT Hub-querytaal voor apparaat horende, taken en berichtroutering] [ lnk-query] Hallo querytaal IoT-Hub kunt u informatie van de tooretrieve uit IoT Hub over uw apparaat horende en taken worden beschreven.
+* [Ondersteuning voor IoT Hub MQTT] [ lnk-devguide-mqtt] meer informatie over IoT Hub ondersteuning biedt voor Hallo MQTT protocol.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u hebt geleerd hoe u directe methoden kunt gebruiken, kunt u mogelijk geïnteresseerd in het volgende onderwerp van IoT Hub developer guide:
+Nu hebt u geleerd hoe toouse direct methoden, hebt u mogelijk geïnteresseerd in Hallo IoT Hub developer guide onderwerp te volgen:
 
 * [Taken plannen op meerdere apparaten][lnk-devguide-jobs]
 
-Als u wilt uitproberen enkele concepten die in dit artikel wordt beschreven, kunt u mogelijk geïnteresseerd in de volgende IoT Hub-zelfstudie:
+Als u tootry sommige Hallo concepten die in dit artikel wordt beschreven wilt, kunt u mogelijk geïnteresseerd in Hallo IoT Hub-zelfstudie:
 
 * [Directe methoden gebruiken][lnk-methods-tutorial]
 

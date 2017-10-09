@@ -1,43 +1,43 @@
 ---
-title: Azure op rollen gebaseerde toegangsbeheer (RBAC) om toegangsrechten te maken en beheren van ondersteuningsaanvragen | Microsoft Docs
-description: Azure op rollen gebaseerde toegangsbeheer (RBAC) om toegangsrechten te maken en beheren van aanvragen voor ondersteuning
+title: aaaAzure op rollen gebaseerde toegangsbeheer (RBAC) toocontrol rechten toocreate raadplegen en beheren van ondersteuningsaanvragen | Microsoft Docs
+description: Azure op rollen gebaseerde toegangsbeheer (RBAC) toocontrol rechten toocreate raadplegen en beheren van aanvragen voor ondersteuning
 author: ganganarayanan
 ms.author: gangan
 ms.date: 1/31/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c68a699ac870fa6bf371deb8ed0424848f39acf0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Azure op rollen gebaseerde toegangsbeheer (RBAC) om toegangsrechten te maken en beheren van aanvragen voor ondersteuning
+# <a name="azure-role-based-access-control-rbac-toocontrol-access-rights-toocreate-and-manage-support-requests"></a>Azure op rollen gebaseerde toegangsbeheer (RBAC) toocontrol rechten toocreate raadplegen en beheren van aanvragen voor ondersteuning
 
 [Op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) kunt Geavanceerd toegangsbeheer voor Azure.
-Ondersteuning voor het maken van de aanvraag in de Azure portal [portal.azure.com](https://portal.azure.com), maakt gebruik van Azure RBAC-model om te definiëren die kunt maken en beheren van aanvragen voor ondersteuning.
-Toegang wordt verleend door de juiste RBAC-rol toewijzen aan gebruikers, groepen en toepassingen op een bepaalde scope, kan dit een abonnement, resourcegroep of een resource.
+Ondersteuning voor het maken van de aanvraag in hello Azure-portal [portal.azure.com](https://portal.azure.com), maakt gebruik van Azure RBAC-model toodefine die maken en beheren van aanvragen voor ondersteuning.
+Toegang is verleend door toe te wijzen Hallo juiste RBAC-rol toousers, groepen en toepassingen op een bepaalde scope, kan dit een abonnement, resourcegroep of een resource.
 
-Voorbeeld: als een eigenaar van de groep resource met leesmachtigingen voor de scope abonnement kunt u alle resources onder de resourcegroep, zoals websites, virtuele machines en subnetten beheren.
-Echter, wanneer u probeert om een ondersteuningsaanvraag op basis van de bron van de virtuele machine te maken, de volgende fout optreedt
+Voorbeeld: als een eigenaar van de groep resource met leesmachtigingen op Hallo abonnementsbereik u alle Hallo resources onder de resourcegroep hello, zoals websites, virtuele machines en subnetten kunt beheren.
+Echter, wanneer u een ondersteuningsaanvraag in voor de bron van de virtuele machine Hallo toocreate, u tegenkomt Hallo volgende fout
 
 ![Abonnement-fout](./media/create-manage-support-requests-using-access-control/subscription-error.png)
 
-U moet in het beheer van de aanvraag van ondersteuning machtiging of een functie die de actie ondersteuning Microsoft.Support/* bij het abonnementsbereik heeft te kunnen maken en beheren van ondersteuningsaanvragen schrijven.
+In het beheer van de aanvraag van ondersteuning u moet de machtiging schrijven of een rol heeft die over Hallo actie Microsoft.Support/* Hallo abonnement bereik toobe kunnen toocreate ondersteunen en ondersteuningsaanvragen beheren.
 
-Het volgende artikel wordt uitgelegd hoe u Azure aangepaste op rollen gebaseerde toegangsbeheer (RBAC) maken en beheren van aanvragen voor ondersteuning in de Azure portal kunt gebruiken.
+Hallo volgende artikel wordt uitgelegd hoe u Azure aangepaste op rollen gebaseerde toegangsbeheer (RBAC) toocreate gebruiken en beheren ondersteuningsaanvragen in hello Azure-portal.
 
 ## <a name="getting-started"></a>Aan de slag
 
-In het bovenstaande voorbeeld zou u een ondersteuningsaanvraag wilt indienen voor uw resource maken als u een aangepaste RBAC-rol op het abonnement zijn toegewezen door de eigenaar van het abonnement zijn.
-[Aangepaste RBAC-rollen](https://azure.microsoft.com/documentation/articles/role-based-access-control-custom-roles/) kunnen worden gemaakt met Azure PowerShell, Azure-opdrachtregelinterface (CLI) en de REST-API.
+Hallo bovenstaande voorbeeld gebruikt, zou u kunnen toocreate een verzoek om ondersteuning voor uw resource als u een aangepaste RBAC-rol op Hallo abonnement zijn toegewezen door de eigenaar van de Hallo-abonnement.
+[Aangepaste RBAC-rollen](https://azure.microsoft.com/documentation/articles/role-based-access-control-custom-roles/) kunnen worden gemaakt met Azure PowerShell, Azure-opdrachtregelinterface (CLI) en Hallo REST-API.
 
-De eigenschap acties van een aangepaste beveiligingsrol Hiermee geeft u de Azure-bewerkingen waarvoor de rol toegang verleent.
-Voor het maken van een aangepaste rol voor het beheer van de aanvraag ondersteuning, moet de rol de actie Microsoft.Support/* hebben.
+Hallo acties eigenschap van een aangepaste rol geeft hello Azure-bewerkingen toowhich Hallo rol toegang verleent.
+een aangepaste rol voor het beheer van de aanvraag ondersteuning toocreate, Hallo rol moet beschikken over Hallo actie Microsoft.Support/*
 
-Hier volgt een voorbeeld van een aangepaste rol die u kunt maken en beheren van aanvragen voor ondersteuning.
-We deze rol 'Ondersteuning vragen Inzender' hebt genoemd en hoe we verwijzen naar de aangepaste rol die in dit artikel is.
+Hier volgt een voorbeeld van een aangepaste rol die u kunt toocreate gebruiken en beheren ondersteuning aanvragen.
+We deze rol 'Ondersteuning vragen Inzender' hebt genoemd en dat is hoe we de aangepaste rol toohello in dit artikel verwijzen.
 
 ``` Json
 {
@@ -56,51 +56,51 @@ We deze rol 'Ondersteuning vragen Inzender' hebt genoemd en hoe we verwijzen naa
 }
 ```
 
-Volg de stappen die worden beschreven in [in deze video](https://www.youtube.com/watch?v=-PaBaDmfwKI) voor informatie over het maken van een aangepaste beveiligingsrol voor uw abonnement.
+Hallo stappen die worden beschreven in [in deze video](https://www.youtube.com/watch?v=-PaBaDmfwKI) toolearn hoe toocreate een aangepaste beveiligingsrol voor uw abonnement.
 
-## <a name="create-and-manage-support-requests-in-the-azure-portal"></a>Maken en beheren van aanvragen voor ondersteuning in de Azure portal
+## <a name="create-and-manage-support-requests-in-hello-azure-portal"></a>Maken en beheren van ondersteuningsaanvragen in hello Azure-portal
 
-Voorbeeld: u bent de eigenaar van het abonnement "Visual Studio MSDN-abonnement."
-Jan is uw peer wie de eigenaar van een resource op sommige van de resourcegroepen in dit abonnement is en leesrechten heeft voor het abonnement.
-U wilt toegang geven tot uw peer, Jan, de mogelijkheid om te maken en beheren van ondersteuningstickets voor de resources onder dit abonnement.
+Voorbeeld: u bent Hallo eigenaar van het abonnement "Visual Studio MSDN-abonnement."
+Jan is de peer die is een resource-eigenaar toosome van resourcegroepen Hallo in dit abonnement en machtiging toohello abonnement is gelezen.
+U wilt toogive toegang tooyour peer, Jan, Hallo mogelijkheid toocreate en ondersteuningstickets voor Hallo resources onder dit abonnement beheren.
 
-1. De eerste stap is om naar het abonnement te gaan en onder 'Instellingen' ziet u een lijst met gebruikers. Klik op de gebruiker Jan die lezerstoegang heeft tot het abonnement en gaan we een nieuwe aangepaste beveiligingsrol aan hem toewijzen.
+1. de eerste stap Hallo is toogo toohello abonnement en onder 'Instellingen' ziet u een lijst met gebruikers. Klik op Hallo gebruiker Jan die leestoegang hebben op Hallo abonnement en gaan we een nieuwe aangepaste rol toohim toewijzen.
 
     ![Functie toevoegen](./media/create-manage-support-requests-using-access-control/add-role.png)
 
-2. Klik op "Toevoegen" onder de blade 'Gebruikers'. Selecteer de aangepaste rol 'Ondersteuning vragen Inzender' uit de lijst met rollen
+2. Klik op "Toevoegen" onder Hallo 'Gebruikers' blade. Selecteer Hallo aangepaste rol 'Ondersteuning vragen Inzender' in hello lijst met rollen
 
     ![Ondersteuning voor de rol van Inzender toevoegen](./media/create-manage-support-requests-using-access-control/add-support-contributor-role.png)
 
-3. Klik op 'Gebruikers toevoegen' en voer de Jan e referenties na het selecteren van de naam van de rol. Klik op 'Selecteren'
+3. Na het selecteren van de rolnaam hello, klik op 'Gebruikers toevoegen' en Voer Hallo Joe's e-referenties. Klik op 'Selecteren'
 
     ![Gebruikers toevoegen](./media/create-manage-support-requests-using-access-control/add-users.png)
 
-4. Klik op 'Ok' om door te gaan
+4. Klik op 'Ok' tooproceed
 
     ![Toegang toevoegen](./media/create-manage-support-requests-using-access-control/add-access.png)
 
-5. U ziet nu de gebruiker met de zojuist toegevoegde aangepaste rol 'Ondersteuning vragen Inzender' onder het abonnement waarvoor u de eigenaar bent
+5. U ziet nu Hallo-gebruiker met Hallo toegevoegde aangepaste rol 'Ondersteuning vragen Inzender' Hallo-abonnement waarvoor u Hallo eigenaar bent
 
     ![Toegevoegde gebruiker](./media/create-manage-support-requests-using-access-control/user-added.png)
 
-    Wanneer Jan zich in de portal aanmeldt, ziet hij het abonnement waaraan hij is toegevoegd.
+    Wanneer de Hallo portal Jan zich aanmeldt, ziet hij Hallo abonnement toowhich die hij is toegevoegd.
 
-7. Jan klikt op 'Nieuw ondersteuningsverzoek' op de blade 'Help en ondersteuning voor' en ondersteuningsaanvragen kunt maken voor 'Visual Studio Ultimate met MSDN'
+7. Jan klikt op 'Nieuw ondersteuningsverzoek' Hallo 'Help en ondersteuning voor' blade en ondersteuningsaanvragen kunt maken voor 'Visual Studio Ultimate met MSDN'
 
     ![Nieuw ondersteuningsverzoek](./media/create-manage-support-requests-using-access-control/new-support-request.png)
 
-8. Te klikken op 'Alle ondersteunen aanvragen' Jan bevat een overzicht van ondersteuningsaanvragen gemaakt voor dit abonnement ![Aanvraagdetails weergeven](./media/create-manage-support-requests-using-access-control/case-details-view.png)
+8. Te klikken op 'Alle ondersteunen aanvragen' Jan overzicht Hallo van ondersteuningsaanvragen gemaakt voor dit abonnement ![Aanvraagdetails weergeven](./media/create-manage-support-requests-using-access-control/case-details-view.png)
 
-## <a name="remove-support-request-access-in-the-azure-portal"></a>Toegang voor ondersteuning aanvragen in de Azure portal verwijderen
+## <a name="remove-support-request-access-in-hello-azure-portal"></a>Toegang voor ondersteuning aanvragen in hello Azure-portal verwijderen
 
-Net zoals het is mogelijk om toegang te verlenen aan een gebruiker maken en beheren van ondersteuningsaanvragen, is het mogelijk om toegang voor de gebruiker ook te verwijderen.
-Om te kunnen maken en beheren van ondersteuningsaanvragen, gaat u naar het abonnement verwijderen, klik op 'Instellingen' en klik op de gebruiker (in dit geval Jan).
-Met de rechtermuisknop op de naam van de rol, 'Ondersteuning vragen Inzender' en klik op 'Verwijderen'
+Omdat deze mogelijk toogrant toegang tooa gebruiker toocreate en ondersteuningsaanvragen beheren, is het mogelijk tooremove-toegang voor ook Hallo-gebruiker.
+tooremove mogelijkheid toocreate Hallo ondersteuningsaanvragen beheren, gaat u toohello abonnement, klik op 'Instellingen' en op Hallo gebruiker (in dit geval Jan).
+Met de rechtermuisknop op Hallo rolnaam, 'Ondersteuning vragen Inzender' en klik op 'Verwijderen'
 
 ![Ondersteuning aanvragen voor toegang verwijderen](./media/create-manage-support-requests-using-access-control/remove-support-request-access.png)
 
-Wanneer Jan zich bij de portal aanmeldt en probeert om een ondersteuningsaanvraag te maken, wordt hij de volgende fout aangetroffen
+Wanneer Jan toohello portal aanmeldt en toocreate ondersteuning aan te vragen probeert, hij Hallo volgende fout aangetroffen
 
 ![Abonnement fout-2](./media/create-manage-support-requests-using-access-control/subscription-error-2.png)
 

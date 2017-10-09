@@ -1,6 +1,6 @@
 ---
 ms.assetid: 
-title: Azure Sleutelkluis - voorlopig verwijderen gebruiken met CLI
+title: aaaAzure Key Vault - hoe toouse voorlopig verwijderen met CLI
 description: Case voorbeelden van voorlopig verwijderen gebruiken met CLI codefragmenten
 author: BrucePerlerMS
 manager: mbaldwin
@@ -9,15 +9,15 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: bruceper
-ms.openlocfilehash: 3ee2c5dfb99d734cde25894174466b8e49823c67
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 672f5210ab119c244ca712f0bb80b653b50ea79b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Sleutelkluis voorlopig verwijderen gebruiken met CLI
+# <a name="how-toouse-key-vault-soft-delete-with-cli"></a>Hoe toouse Sleutelkluis voorlopig verwijderen met CLI
 
-Azure Key Vault van voorlopige verwijderingen functie kunt herstellen van verwijderde kluizen en objecten van de kluis. In het bijzonder voorlopig verwijderen adressen van de volgende scenario's:
+Azure Key Vault van voorlopige verwijderingen functie kunt herstellen van verwijderde kluizen en objecten van de kluis. In het bijzonder voorlopig verwijderen adressen Hallo volgen scenario's:
 
 - Ondersteuning voor herstelbare verwijdering van een sleutelkluis
 - Ondersteuning voor verwijdering van de herstelbare objecten van de sleutelkluis. sleutels, geheimen, en certificaten
@@ -42,14 +42,14 @@ Zie voor meer informatie over de machtigingen en toegangsbeheer [beveiligen van 
 
 ## <a name="enabling-soft-delete"></a>Inschakelen van voorlopig verwijderen
 
-Als u een verwijderde sleutelkluis of objecten die zijn opgeslagen in een sleutelkluis herstellen, moet u eerst de soft-het verwijderen van die sleutelkluis inschakelen.
+toobe kunnen toorecover een verwijderde sleutelkluis of objecten die zijn opgeslagen in een sleutel-kluis, moet u eerst soft-het verwijderen van die sleutelkluis inschakelen.
 
 ### <a name="existing-key-vault"></a>Bestaande sleutelkluis
 
 Voor een bestaande sleutelkluis ContosoVault met de naam, moet u voorlopig verwijderen als volgt inschakelen. 
 
 >[!NOTE]
->Op dit moment moet u met Azure Resource Manager resource manipulatie rechtstreeks schrijft de *enableSoftDelete* eigenschap aan de Sleutelkluis-resource.
+>Op dit moment moet u toouse Azure Resource Manager resource manipulatie toodirectly schrijven Hallo *enableSoftDelete* eigenschap toohello Sleutelkluis-resource.
 
 ```azurecli
 az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{print $1}') --set properties.enableSoftDelete=true
@@ -57,7 +57,7 @@ az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{pr
 
 ### <a name="new-key-vault"></a>Nieuwe sleutelkluis
 
-Voorlopig verwijderen voor een nieuwe sleutelkluis inschakelen tijdens het maken wordt gedaan door toe te voegen de vlag voorlopig verwijderen inschakelen voor uw opdracht maken.
+Voorlopig verwijderen voor een nieuwe sleutelkluis inschakelen wordt uitgevoerd tijdens het maken door toe te voegen Hallo voorlopig verwijderen inschakelen vlag tooyour opdracht maken.
 
 ```azurecli
 az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-delete true --location westus
@@ -65,7 +65,7 @@ az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-
 
 ### <a name="verify-soft-delete-enablement"></a>Controleren inschakelen voor voorlopig verwijderen
 
-Om te controleren of er een sleutelkluis voorlopig verwijderen ingeschakeld is, voer de *weergeven* opdracht en zoekt u de 'voorlopig verwijderen Enabled?' kenmerk en de instelling true of false.
+tooverify die een sleutelkluis ingeschakeld is, zachte verwijderen uitvoeren Hallo *weergeven* opdracht en zoek naar 'Voorlopig verwijderen Enabled?' Hallo kenmerk en de instelling true of false.
 
 ```azurecli
 az keyvault show --name ContosoVault
@@ -73,40 +73,40 @@ az keyvault show --name ContosoVault
 
 ## <a name="deleting-a-key-vault-protected-by-soft-delete"></a>Verwijderen van een sleutelkluis beveiligd door voorlopig verwijderen
 
-De opdracht uit om een sleutelkluis verwijderen (of verwijderen) hetzelfde is gebleven, maar het gedrag verandert, afhankelijk van of u voorlopig verwijderen of niet hebt ingeschakeld.
+Hallo opdracht toodelete (of verwijderen) blijft een sleutelkluis Hallo dezelfde, maar de gedragswijzigingen afhankelijk van of u hebt ingeschakeld voorlopig verwijderen of niet.
 
 ```azurecli
 az keyvault delete --name ContosoVault
 ```
 
 > [!IMPORTANT]
->Als u de vorige opdracht voor een sleutelkluis die geen voorlopig verwijderen ingeschakeld uitvoert, wordt u deze sleutelkluis en alle bijbehorende inhoud zonder opties voor herstel permanent verwijderd.
+>Als u de vorige opdracht Hallo voor een sleutelkluis die geen voorlopig verwijderen ingeschakeld uitvoert, wordt u deze sleutelkluis en alle bijbehorende inhoud zonder opties voor herstel permanent verwijderd.
 
 ### <a name="how-soft-delete-protects-your-key-vaults"></a>Hoe voorlopig verwijderen beschermt uw sleutelkluizen
 
 Ingeschakeld met voorlopig verwijderen:
 
-- Wanneer een sleutelkluis wordt verwijderd, is deze verwijderd uit de resourcegroep en geplaatst in een gereserveerde naamruimte die alleen wordt gekoppeld aan de locatie waar ze werden gemaakt. 
-- Objecten in een verwijderde sleutel kluis, zoals sleutels, geheimen en certificaten, zijn niet toegankelijk en blijven ook terwijl hun insluitende sleutelkluis de status verwijderd heeft wordt. 
-- De DNS-naam voor een sleutelkluis in een verwijderde status is nog steeds gereserveerd, zodat een nieuwe sleutelkluis met dezelfde naam kan niet worden gemaakt.  
+- Wanneer een sleutelkluis wordt verwijderd, is deze verwijderd uit de resourcegroep en geplaatst in een gereserveerde naamruimte die alleen wordt gekoppeld aan het Hallo-locatie waar ze werden gemaakt. 
+- Objecten in een verwijderde sleutel kluis, zoals sleutels, geheimen en certificaten, zijn niet toegankelijk en blijven ook wanneer hun insluitende sleutelkluis Hallo verwijderde status heeft. 
+- Hallo DNS-naam voor een sleutelkluis in een verwijderde status is nog steeds gereserveerd, zodat een nieuwe sleutelkluis met dezelfde naam kan niet worden gemaakt.  
 
-U kunt verwijderde status sleutelkluizen, dat wordt gekoppeld aan uw abonnement weergeven met de volgende opdracht:
+U kunt verwijderde status sleutelkluizen, dat wordt gekoppeld aan uw abonnement bekijken met behulp van de volgende opdracht Hallo:
 
 ```azurecli
 az keyvault list-deleted
 ```
 
-De *Resource-ID* verwijst in de uitvoer naar de oorspronkelijke bron-ID van deze kluis. Aangezien deze sleutelkluis nu in een verwijderde staat bevindt is, bestaat er is geen resource met die resource-ID. De *Id* veld kan worden gebruikt voor het identificeren van de resource als herstellen of verwijderen. De *opschonen datum gepland* veld geeft aan wanneer de kluis wordt definitief verwijderd (verwijderd) als er geen actie voor deze verwijderde kluis ondernomen. De bewaartermijn gebruikt voor het berekenen van de *opschonen datum gepland*, is 90 dagen.
+Hallo *Resource-ID* in Hallo uitvoer toohello oorspronkelijke bron-ID van deze kluis verwijst. Aangezien deze sleutelkluis nu in een verwijderde staat bevindt is, bestaat er is geen resource met die resource-ID. Hallo *Id* het veld mag gebruikte tooidentify Hallo resource als herstellen of verwijderen. Hallo *opschonen datum gepland* veld geeft aan wanneer Hallo kluis wordt definitief verwijderd (verwijderd) als er geen actie voor deze verwijderde kluis ondernomen. Hallo standaard bewaren periode, gebruikte toocalculate hello *opschonen datum gepland*, is 90 dagen.
 
 ## <a name="recovering-a-key-vault"></a>Een sleutelkluis herstellen
 
-Om te herstellen een sleutelkluis, moet u de naam van de sleutelkluis, resourcegroep en locatie opgeven. Noteer de locatie en de resourcegroep van de verwijderde sleutelkluis als u deze voor het herstelproces van een sleutelkluis nodig.
+een sleutelkluis toorecover, moet u toospecify hello sleutelkluisnaam, de resourcegroep en locatie. Houd er rekening mee Hallo locatie en de resourcegroep Hallo van sleutelkluis Hallo verwijderd als u deze voor het herstelproces van een sleutelkluis nodig.
 
 ```azurecli
 az keyvault recover --location westus --name ContosoVault
 ```
 
-Wanneer een sleutelkluis is hersteld, is het resultaat een nieuwe resource met de sleutelkluis oorspronkelijke bron-ID. Als de resourcegroep waar de sleutelkluis bestond is verwijderd, moet een nieuwe resourcegroep met dezelfde naam worden gemaakt voordat de sleutelkluis kan worden hersteld.
+Een sleutelkluis is hersteld, Hallo resultaat is een nieuwe resource met Hallo sleutelkluis de oorspronkelijke bron-ID. Als de resourcegroep Hallo waar Hallo sleutelkluis bestond is verwijderd, moet een nieuwe resourcegroep met dezelfde naam worden gemaakt voordat de sleutelkluis Hallo kan worden hersteld.
 
 ## <a name="key-vault-objects-and-soft-delete"></a>Sleutelkluis-objecten en voorlopig verwijderen
 
@@ -116,9 +116,9 @@ Voor een sleutel 'ContosoFirstKey' in een sleutelkluis met de naam 'ContosoVault
 az keyvault key delete --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-Aan de sleutelkluis is ingeschakeld voor voorlopig verwijderen, weergegeven een verwijderde sleutel nog steeds zoals deze wordt verwijderd, behalve, wanneer u expliciet aanbiedt of verwijderde sleutels ophalen. De meeste bewerkingen voor een sleutel in de status verwijderd heeft mislukt met uitzondering van de aanbieding een verwijderde sleutel, herstellen of leegmaakt. 
+Aan de sleutelkluis is ingeschakeld voor voorlopig verwijderen, weergegeven een verwijderde sleutel nog steeds zoals deze wordt verwijderd, behalve, wanneer u expliciet aanbiedt of verwijderde sleutels ophalen. De meeste bewerkingen voor een sleutel in Hallo verwijderd status mislukt met uitzondering van de aanbieding een verwijderde sleutel, herstellen of leegmaakt. 
 
-Bijvoorbeeld, om aan te vragen tot sleutels van de lijst verwijderd in een sleutelkluis, gebruik de volgende opdracht:
+Bijvoorbeeld: toorequest toolist verwijderd sleutels in een sleutelkluis Hallo volgende opdracht gebruiken:
 
 ```azurecli
 az keyvault key list-deleted --vault-name ContosoVault
@@ -126,7 +126,7 @@ az keyvault key list-deleted --vault-name ContosoVault
 
 ### <a name="transition-state"></a>Transitiestatus 
 
-Wanneer u een sleutel in een sleutelkluis met de soft-delete is ingeschakeld verwijderen, wordt het duurt een paar seconden voor de overgang te voltooien. Tijdens deze transitiestatus zal verschijnen de sleutel is niet in de actieve status of de status verwijderd heeft. Met deze opdracht wordt een lijst alle verwijderde sleutels in de sleutelkluis met de naam 'ContosoVault'.
+Wanneer u een sleutel in een sleutelkluis met de soft-delete is ingeschakeld verwijderen, wordt het duurt een paar seconden Hallo overgang toocomplete. Tijdens deze transitiestatus deze kan worden weergegeven die Hallo-sleutel niet in Hallo active of Hallo verwijderde staat. Met deze opdracht wordt een lijst alle verwijderde sleutels in de sleutelkluis met de naam 'ContosoVault'.
 
 ```azurecli
 az keyvault key list-deleted --vault-name ContosoVault
@@ -134,17 +134,17 @@ az keyvault key list-deleted --vault-name ContosoVault
 
 ### <a name="using-soft-delete-with-key-vault-objects"></a>Voorlopig verwijderen gebruiken met sleutelkluis-objecten
 
-Net zoals sleutelkluizen, een verwijderde sleutel geheim of certificaat blijft in verwijderde staat bevindt voor maximaal 90 dagen tenzij u deze herstellen of het opschonen. 
+Net zoals sleutelkluizen, een verwijderde sleutel geheim of certificaat blijft in verwijderde staat bevindt voor too90 dagen tenzij u deze herstellen of het opschonen. 
 
 #### <a name="keys"></a>Sleutels
 
-Een verwijderde sleutel herstellen:
+een verwijderde sleutel toorecover:
 
 ```azurecli
 az keyvault key recover --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-Een sleutel permanent verwijderen:
+toopermanently een sleutel verwijderen:
 
 ```azurecli
 az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
@@ -153,7 +153,7 @@ az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 >[!NOTE]
 >Bezig met het verwijderen van een sleutel wordt permanent verwijderd, wat betekent dat deze kan niet worden hersteld.
 
-De **herstellen** en **opschonen** acties hebben hun eigen machtigingen die zijn gekoppeld in een sleutelkluis-beleid. Voor een gebruiker of service-principal te kunnen uitvoeren een **herstellen** of **opschonen** actie ze gemachtigd bent de respectieve voor dat object (sleutel of geheim) in het toegangsbeleid van de sleutelkluis. Standaard de **opschonen** machtiging is niet toegevoegd aan een sleutelkluis toegangsbeleid wanneer de snelkoppeling 'all' wordt gebruikt voor alle machtigingen verlenen aan een gebruiker. U moet expliciet verlenen **opschonen** machtiging. De volgende opdracht bijvoorbeeld verleent user@contoso.com toestemming voor het uitvoeren van verschillende bewerkingen voor sleutels in *ContosoVault* inclusief **opschonen**.
+Hallo **herstellen** en **opschonen** acties hebben hun eigen machtigingen die zijn gekoppeld in een sleutelkluis-beleid. Voor een gebruiker of service principal toobe kunnen tooexecute een **herstellen** of **opschonen** ze gemachtigd Hallo respectieve voor dat object (sleutel of geheim) in Hallo sleutelkluis-beleid in te grijpen. Standaard Hallo **opschonen** machtiging tooa key vault-beleid niet is toegevoegd als Hallo 'all' snelkoppeling gebruikte toogrant tooa alle machtigingen van gebruiker. U moet expliciet verlenen **opschonen** machtiging. Bijvoorbeeld, Hallo opdracht verleent na user@contoso.com machtiging tooperform verschillende bewerkingen voor sleutels in *ContosoVault* inclusief **opschonen**.
 
 #### <a name="set-a-key-vault-access-policy"></a>Beleid voor sleutelkluis toegang instellen
 
@@ -166,7 +166,7 @@ az keyvault set-policy --name ContosoVault --key-permissions get create delete l
 
 #### <a name="secrets"></a>Geheimen
 
-Zoals sleutels, worden geheimen in een sleutelkluis met hun eigen opdrachten beheerd op. Te volgen, zijn de opdrachten voor het verwijderen van, aanbieden, herstellen en geheimen verwijderen.
+Zoals sleutels, worden geheimen in een sleutelkluis met hun eigen opdrachten beheerd op. Te volgen, zijn Hallo-opdrachten voor het verwijderen van, aanbieden, herstellen en geheimen verwijderen.
 
 - Een geheim dat met de naam SQLPassword verwijderen: 
 ```azurecli
@@ -178,7 +178,7 @@ az keyvault secret delete --vault-name ContosoVault -name SQLPassword
 az keyvault secret list-deleted --vault-name ContosoVault
 ```
 
-- Een geheim in de status verwijderd heeft herstellen: 
+- Een geheim Hallo verwijderd status herstellen: 
 ```azurecli
 az keyvault secret recover --name SQLPassword --vault-name ContosoVault
 ```
@@ -195,10 +195,10 @@ az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
 
 ### <a name="key-vault-objects"></a>Sleutelkluis-objecten
 
-Opruimen van een sleutel wordt geheim of certificaat permanent verwijderd, wat betekent dat deze kan niet worden hersteld. De sleutelkluis die deel uitmaakt van het verwijderde object echter blijven behouden als alle andere objecten in de sleutelkluis. 
+Opruimen van een sleutel wordt geheim of certificaat permanent verwijderd, wat betekent dat deze kan niet worden hersteld. Hallo-sleutelkluis die Hallo verwijderd object bevat echter blijven behouden als alle andere objecten in de sleutelkluis Hallo. 
 
 ### <a name="key-vaults-as-containers"></a>Sleutel-kluizen als containers
-Wanneer een sleutelkluis is opgeschoond, worden alle inhoud, met inbegrip van sleutels, geheimen en certificaten, permanent verwijderd. Als u wilt een sleutelkluis verwijderen, gebruikt u de `az keyvault purge` opdracht. U kunt zoeken naar de locatie van uw abonnement verwijderd sleutelkluizen met de opdracht `az keyvault list-deleted`.
+Wanneer een sleutelkluis is opgeschoond, worden alle inhoud, met inbegrip van sleutels, geheimen en certificaten, permanent verwijderd. een sleutelkluis toopurge gebruiken Hallo `az keyvault purge` opdracht. U kunt zoeken naar Hallo locatie van uw abonnement verwijderd sleutelkluizen met Hallo opdracht `az keyvault list-deleted`.
 
 ```azurecli
 az keyvault purge --location westus --name ContosoVault
@@ -208,13 +208,13 @@ az keyvault purge --location westus --name ContosoVault
 >Bezig met het verwijderen van een sleutelkluis wordt permanent verwijderd, wat betekent dat deze kan niet worden hersteld.
 
 ### <a name="purge-permissions-required"></a>Opschonen van de vereiste machtigingen
-- Als u wilt verwijderen een verwijderde sleutelkluis, zodat de kluis en alle bijbehorende inhoud permanent worden verwijderd, moet de gebruiker RBAC-machtiging voor het uitvoeren van een *Microsoft.KeyVault/locations/deletedVaults/purge/action* bewerking. 
-- Als de verwijderde sleutel wilt weergeven, de kluis van een gebruiker RBAC heeft toestemming nodig om uit te voeren *Microsoft.KeyVault/deletedVaults/read* machtiging. 
+- een verwijderde sleutelkluis toopurge, zodat het Hallo-kluis en alle bijbehorende inhoud permanent worden verwijderd, Hallo gebruiker RBAC-machtiging tooperform moet een *Microsoft.KeyVault/locations/deletedVaults/purge/action* bewerking. 
+- toolist hello verwijderd sleutel Hallo kluis een gebruiker moet RBAC-machtiging tooperform *Microsoft.KeyVault/deletedVaults/read* machtiging. 
 - Alleen de abonnementsbeheerder van een heeft standaard deze machtigingen. 
 
 ### <a name="scheduled-purge"></a>Geplande opschonen
 
-Uw sleutelkluis verwijderde objecten weergeven geeft aan wanneer ze schedled worden opgeschoond door Sleutelkluis. De *opschonen datum gepland* veld geeft aan wanneer een object van de sleutelkluis, worden definitief verwijderd, als er geen actie ondernomen. De bewaarperiode voor een verwijderde sleutelkluis-object is standaard 90 dagen.
+Uw sleutelkluis verwijderde objecten weergeven geeft aan wanneer ze schedled toobe Sleutelkluis opgeschoond. Hallo *opschonen datum gepland* veld geeft aan wanneer een object van de sleutelkluis, worden definitief verwijderd, als er geen actie ondernomen. Hallo bewaarperiode voor een object verwijderde sleutelkluis is standaard 90 dagen.
 
 >[!NOTE]
 >Een object opgeschoonde kluis, geactiveerd door de *opschonen datum gepland* veld, wordt definitief verwijderd. Het is niet hersteld.

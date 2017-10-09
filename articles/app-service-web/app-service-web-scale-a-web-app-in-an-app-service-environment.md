@@ -1,5 +1,5 @@
 ---
-title: Schalen van een App in App Service-omgeving
+title: aaaHow tooScale een App in een App-serviceomgeving
 description: Schalen van een app in App Service-omgeving
 services: app-service
 documentationcenter: 
@@ -14,59 +14,59 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
-ms.openlocfilehash: 240c2486c23b7cd84e2471bf5b2170e08ee1f150
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 08916eac056c46bf8cb6edffbf96285317b32062
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Apps schalen in een App Service-omgeving
-In de Azure App Service zijn er normaal gesproken drie dingen die kunt schalen:
+In Azure App Service Hallo zijn er normaal gesproken drie dingen die kunt u de schaal:
 
 * plan prijzen
 * de grootte van de werknemer 
 * aantal exemplaren.
 
-In een as-omgeving hoeft niet te selecteren of de prijsstelling wijzigen.  Wat betreft mogelijkheden is het al op een Premium-prijscategorie mogelijkheid niveau.  
+In een as-omgeving is er geen noodzaak tooselect of wijzig Hallo plan prijzen.  Wat betreft mogelijkheden is het al op een Premium-prijscategorie mogelijkheid niveau.  
 
-Met betrekking tot de grootte van de werknemer, kan de beheerder van de as-omgeving de grootte van de compute-bron moet worden gebruikt voor elke worker-groep toewijzen.  Dit betekent dat u kunt Worker-groep 1 hebben met P4 rekenresources en 2 voor Worker-groep met P1 rekenresources indien gewenst.  Ze hoeft niet te worden in volgorde van de grootte.  Zie voor meer informatie om de grootte en de prijscategorie het document hier [prijzen van Azure App Service][AppServicePricing].  Hierbij blijft de schalingsopties voor web-apps en App Service-abonnementen in een App-serviceomgeving moet:
+Met opzicht tooworker grootten toewijzen Hallo as-omgeving beheerder Hallo grootte van Hallo compute resource toobe gebruikt voor elke worker-groep.  Dit betekent dat u kunt Worker-groep 1 hebben met P4 rekenresources en 2 voor Worker-groep met P1 rekenresources indien gewenst.  Hebben geen toobe in volgorde van de grootte.  Zie voor meer informatie over Hallo grootten en de prijscategorie Hallo document hier [prijzen van Azure App Service][AppServicePricing].  Hierbij blijft Hallo opties voor web-apps en App Service-abonnementen in een App Service-omgeving toobe schalen:
 
 * selectie van Worker-groep
 * aantal exemplaren
 
-Het wijzigen van een item wordt gedaan door de juiste gebruikersinterface weergegeven voor de as-omgeving App Service-abonnementen gehoste.  
+Het wijzigen van een item wordt gedaan door Hallo gebruikersinterface weergegeven voor de as-omgeving App Service-abonnementen gehoste van toepassing.  
 
 ![][1]
 
-U kunt geen uw ASP dan het aantal beschikbare rekenresources in de worker-groep die de ASP is in opschalen.  Als u resources in die groep worker moet berekenen die u wilt ophalen van de as-omgeving-beheerder om toe te voegen.  Voor informatie over uw as-omgeving opnieuw te configureren, lees de informatie hier: [het configureren van een App Service-omgeving][HowtoConfigureASE].  U kunt ook om te profiteren van de as-omgeving voor automatisch schalen functies toevoegen capaciteit op basis van schema of metrische gegevens.  Voor meer informatie over het configureren van automatisch schalen voor de as-omgeving omgeving zelf Zie [automatisch schalen configureren voor een App-serviceomgeving][ASEAutoscale].
+U kunt uw ASP dan het aantal beschikbare rekenresources in Hallo worker-groep die de ASP is in Hallo kan niet opschalen.  Als u resources in die groep worker moet berekenen moet u tooget uw as-omgeving beheerder tooadd ze.  Voor informatie over het configureren van uw as-omgeving opnieuw Lees hier Hallo-informatie: [hoe App Service-omgeving tooConfigure][HowtoConfigureASE].  U kunt ook tootake profiteren van Hallo as-omgeving voor automatisch schalen functies tooadd capaciteit op basis van het schema of metrische gegevens.  Zie voor meer informatie over het configureren van automatisch schalen voor Hallo as-omgeving omgeving zelf tooget [hoe tooconfigure automatisch schalen voor een App-serviceomgeving][ASEAutoscale].
 
-Kunt u meerdere app service-abonnementen met behulp van rekenresources vanaf verschillende werknemersgroepen maken of kunt u dezelfde worker-groep.  Bijvoorbeeld als er (10) beschikbare rekenresources in Worker-groep 1, kunt u een app service-abonnement met behulp van rekenresources (6) maken en een tweede app service-plan dat wordt gebruikt (4) de bronnen te berekenen.
+Kunt u meerdere app service-abonnementen met behulp van rekenresources vanaf verschillende werknemersgroepen maken of kunt u dezelfde werknemersgroep Hallo.  Voor het voorbeeld hebt u (10) beschikbare rekenresources in het werkproces groep 1, kunt u toocreate één app service-abonnement met behulp van rekenresources (6) en een tweede app service-plan dat maakt gebruik van rekenresources (4).
 
-### <a name="scaling-the-number-of-instances"></a>Het aantal exemplaren van schaal
-Wanneer u eerst uw web-app in App Service-omgeving maken wordt gestart 1 exemplaar.  U kunt vervolgens uitschalen naar extra exemplaren voor extra rekenresources voor uw app.   
+### <a name="scaling-hello-number-of-instances"></a>Het aantal exemplaren Hallo schalen
+Wanneer u eerst uw web-app in App Service-omgeving maken wordt gestart 1 exemplaar.  U kunt vervolgens scale-out tooadditional exemplaren tooprovide extra bronnen berekenen voor uw app.   
 
-Als u uw as-omgeving heeft onvoldoende capaciteit vervolgens is dit heel eenvoudig.  Gaat u naar uw App Service-Plan waarin de sites die u wilt opschalen en selecteer schaal.  Hiermee opent u de kunt u handmatig de schaal voor de ASP instellen of regels voor automatisch schalen configureren voor de ASP-gebruikersinterface.  Voor het handmatig schalen van uw app gewoon ingesteld ***schalen door*** naar ***aantal instanties dat ik handmatig invoeren***.  Sleep de schuifregelaar naar de gewenste hoeveelheid of voer deze in het vak naast de schuifregelaar hiervandaan.  
+Als u uw as-omgeving heeft onvoldoende capaciteit vervolgens is dit heel eenvoudig.  U gaat tooyour App Service-Plan dat Hallo sites u tooscale-up wilt en selecteer schaal bevat.  Hiermee opent u Hallo UI kunt u handmatig Hallo schaal ingesteld voor de ASP of regels voor automatisch schalen configureren voor de ASP.  toomanually schaal uw app in te stellen ***schalen door*** te***aantal instanties dat ik handmatig invoeren***.  Hier Hallo schuifregelaar toohello gewenst aantal slepen of invoeren in Hallo vak volgende toohello schuifregelaar.  
 
 ![][2] 
 
-De regels voor automatisch schalen voor een ASP in een as-omgeving werken op dezelfde manier als normaal.  U kunt selecteren ***CPU-Percentage*** onder ***schalen door*** en automatisch schalen regels te maken voor de ASP op basis van CPU-Percentage, of u complexere regels die gebruikmaken van kunt maken ***regels voor planning en prestaties ***.  Voor meer informatie over het configureren van automatisch schalen gebruikt u de handleiding hier [schalen van een app in Azure App Service][AppScale]. 
+Hallo automatisch schalen regels voor een ASP in een as-omgeving voor werk Hallo dezelfde dan normaal.  U kunt selecteren ***CPU-Percentage*** onder ***schalen door*** en automatisch schalen regels te maken voor de ASP op basis van CPU-Percentage, of u complexere regels die gebruikmaken van kunt maken ***regels voor planning en prestaties ***.  toosee voltooien meer details over het configureren van automatisch schalen gebruik Hallo handleiding hier [schalen van een app in Azure App Service][AppScale]. 
 
 ### <a name="worker-pool-selection"></a>Selectie van Worker-groep
-Zoals eerder opgemerkt, wordt de selectie worker-groep is toegankelijk vanuit de gebruikersinterface voor ASP.  Open de blade voor de ASP-code die u wilt schalen en selecteer worker-groep.  U ziet alle worker-groepen die u hebt geconfigureerd in uw App Service-omgeving.  Als er slechts één werknemersgroep vervolgens ziet alleen u de één groep weergegeven.  Als u welke worker-groep die de ASP is in, selecteert u gewoon de worker-groep die u wilt dat uw App Service-Plan om naar te verplaatsen.  
+Zoals eerder opgemerkt, worden Hallo worker-groep selectie is toegankelijk vanuit Hallo ASP gebruikersinterface.  Hallo-blade voor Hallo ASP dat u tooscale wilt en selecteer werknemersgroep geopend.  U ziet alle Hallo werknemersgroepen die u hebt geconfigureerd in uw App Service-omgeving.  Als er slechts één werknemersgroep vervolgens ziet alleen u een Hallo van toepassingen die worden vermeld.  toochange in welke worker-groep de ASP is, u eenvoudig hello werknemersgroep u wilt dat uw App Service-Plan toomove te selecteren.  
 
 ![][3]
 
-Voordat u uw ASP in een werknemersgroep verplaatst naar een andere is het belangrijk om ervoor te zorgen dat er voldoende capaciteit voor de ASP.  In de lijst met werknemersgroepen, niet alleen wordt de naam van de werknemer toepassingen vermeld maar u kunt ook zien hoeveel werknemers beschikbaar zijn in die worker-groep.  Zorg ervoor dat er voldoende exemplaren beschikbaar zijn voor uw App Service-Plan bevatten.  Als u meer bronnen in de worker-groep die u verplaatsen wilt naar berekenen moet, krijgt u vervolgens de beheerder as-omgeving om toe te voegen.  
+Voordat uw ASP verplaatsen van een werknemer groep tooanother is belangrijk dat er voldoende capaciteit voor de ASP toomake.  In Hallo lijst met werknemersgroepen, niet alleen Hallo worker Poolnaam wordt vermeld maar u kunt ook zien hoeveel werknemers beschikbaar zijn in die worker-groep.  Zorg ervoor dat er voldoende beschikbare toocontain exemplaren uw App Service-Plan.  U moet meer rekenresources in Hallo werknemersgroep desgewenst toomove naar Haal vervolgens uw as-omgeving beheerder tooadd ze.  
 
 > [!NOTE]
-> Het verplaatsen van dat een ASP in een werknemersgroep zullen koude start van de ASP-apps.  Hierdoor kan aanvragen langzamer uitgevoerd als uw app koude gestart op de nieuwe rekenresources is.  De koude start kan worden voorkomen met behulp van de [toepassing warme up mogelijkheid] [ AppWarmup] in Azure App Service.  De initialisatie van de toepassing module beschreven in het artikel werkt ook voor koude startprocedures omdat het initialisatieproces ook aangeroepen wordt wanneer apps koude gestart op de nieuwe rekenresources zijn. 
+> Hallo-apps in ASP Start verplaatsen van dat een ASP in een werknemersgroep zullen koude.  Hierdoor kan aanvragen toorun langzaam als uw app koude gestart op de nieuwe rekenresources Hallo is.  Hallo koude start kan worden voorkomen met behulp van Hallo [toepassing warme up mogelijkheid] [ AppWarmup] in Azure App Service.  Hallo initialisatie van de toepassing module beschreven in artikel Hallo werkt ook voor koude startprocedures omdat het initialisatieproces hello ook aangeroepen wordt wanneer apps koude gestart op de nieuwe rekenresources zijn. 
 > 
 > 
 
 ## <a name="getting-started"></a>Aan de slag
-Om aan de slag met App Service-omgevingen, Zie [hoe te maken van een App Service-omgeving][HowtoCreateASE]
+tooget de slag met App Service-omgevingen, Zie [hoe tooCreate een App Service-omgeving][HowtoCreateASE]
 
-Zie voor meer informatie over het Azure App Service-platform [Azure App Service][AzureAppService].
+Zie voor meer informatie over hello Azure App Service-platform, [Azure App Service][AzureAppService].
 
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/aseappscale-aspblade.png

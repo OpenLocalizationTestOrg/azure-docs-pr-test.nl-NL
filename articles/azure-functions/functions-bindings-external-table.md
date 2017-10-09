@@ -1,5 +1,5 @@
 ---
-title: Azure Functions externe tabel binding (Preview) | Microsoft Docs
+title: aaaAzure functies externe tabel binding (Preview) | Microsoft Docs
 description: Met behulp van de externe tabel bindingen in de Azure-functies
 services: functions
 documentationcenter: 
@@ -14,22 +14,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 716438e5ea490f6716999813112305499dbe61a8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bf19d7d377232edc91087d5f4110602bb82c67ef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Azure Functions externe tabel binding (Preview)
-In dit artikel laat zien hoe manipuleren tabelgegevens op aanbieders van SaaS (zoals Sharepoint, Dynamics) binnen de functie met ingebouwde bindingen. Azure Functions ondersteunt de invoer en uitvoer bindingen voor externe tabellen.
+Dit artikel laat zien hoe de tabelgegevens toomanipulate op aanbieders van SaaS (zoals Sharepoint, Dynamics) binnen de functie met ingebouwde bindingen. Azure Functions ondersteunt de invoer en uitvoer bindingen voor externe tabellen.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="api-connections"></a>API-verbindingen
 
-Tabelverbindingen gebruikmaken van externe verbindingen te verifiëren met 3e SaaS leveranciers die API. 
+Tabelverbindingen gebruikmaken van externe API verbindingen tooauthenticate met 3e SaaS leveranciers. 
 
-Bij het toewijzen van een binding kunt u een nieuwe API-verbinding te maken of moet u een bestaande verbinding API binnen dezelfde resourcegroep gebruiken
+Bij het toewijzen van een binding kunt u een nieuwe API-verbinding te maken of moet u een bestaande verbinding API binnen hello gebruiken dezelfde resourcegroep
 
 ### <a name="supported-api-connections-tables"></a>Ondersteunde API-verbindingen (tabel) s
 
@@ -62,14 +62,14 @@ Bij het toewijzen van een binding kunt u een nieuwe API-verbinding te maken of m
 1. Scenario `Experimental`  >  `ExternalTable-CSharp` sjabloon > Maak een nieuwe `External Table connection` 
  ![invoer sjabloon kiezen](./media/functions-bindings-storage-table/create-template-table.jpg)
 1. Kies uw SaaS-provider > Kies/maken van een verbinding ![configureren SaaS-verbinding](./media/functions-bindings-storage-table/authorize-API-connection.jpg)
-1. Selecteer uw API-verbinding > de functie maken ![tabelfunctie maken](./media/functions-bindings-storage-table/table-template-options.jpg)
+1. Selecteer uw API-verbinding > Hallo-functie maken ![tabelfunctie maken](./media/functions-bindings-storage-table/table-template-options.jpg)
 1. Selecteer`Integrate` > `External Table`
-    1. Configureer de verbinding voor het gebruik van de doeltabel. Deze instellingen wordt zeer tussen aanbieders van SaaS. Ze zijn overzicht hieronder in [gegevensbron instellingen](#datasourcesettings)
+    1. Hallo verbinding toouse uw doeltabel configureren. Deze instellingen wordt zeer tussen aanbieders van SaaS. Ze zijn overzicht hieronder in [gegevensbron instellingen](#datasourcesettings)
 ![tabel configureren](./media/functions-bindings-storage-table/configure-API-connection.jpg)
 
 ## <a name="usage"></a>Gebruik
 
-In dit voorbeeld verbindt met een tabel met de naam 'Neem contact op met' met Id, LastName en FirstName kolommen. De code geeft een lijst van de contactpersoon entiteiten in de tabel en de voor- en achternamen registreert.
+In dit voorbeeld maakt verbinding met de naam 'Neem contact op met' met Id, LastName en FirstName kolommen tooa-tabel. Hallo-code bevat Hallo Contact entiteiten in de tabel Hallo en logboeken voor- en achternamen Hallo.
 
 ### <a name="bindings"></a>Bindingen
 ```json
@@ -95,9 +95,9 @@ In dit voorbeeld verbindt met een tabel met de naam 'Neem contact op met' met Id
 ```
 `entityId`moet leeg zijn voor Tabelverbindingen.
 
-`ConnectionAppSettingsKey`identificeert de app-instelling die de API-verbindingsreeks opslaat. De app-instelling wordt automatisch gemaakt wanneer u een API-verbinding in de gebruikersinterface van de integreren toevoegen.
+`ConnectionAppSettingsKey`Hallo app-instelling die wordt Hallo API-verbindingsreeks opgeslagen identificeert. Hallo app-instelling wordt automatisch gemaakt wanneer u een API toevoegen verbinding in Hallo UI integreren.
 
-Een in tabelvorm connector biedt gegevenssets en elke gegevensset tabellen bevat. De naam van de standaardgegevensset is 'standaard'. De titels van een gegevensset en een tabel in verschillende SaaS-providers worden hieronder weergegeven:
+Een in tabelvorm connector biedt gegevenssets en elke gegevensset tabellen bevat. Hallo-naam van de standaardgegevensset Hallo is 'standaard'. Hallo titels voor een gegevensset en een tabel in verschillende SaaS-providers worden hieronder weergegeven:
 
 |Connector|Gegevensset|Tabel|
 |:-----|:---|:---| 
@@ -107,7 +107,7 @@ Een in tabelvorm connector biedt gegevenssets en elke gegevensset tabellen bevat
 |**Excel**|Excel-bestand|Blad 
 
 <!--
-See the language-specific sample that copies the input file to the output file.
+See hello language-specific sample that copies hello input file toohello output file.
 
 * [C#](#incsharp)
 * [Node.js](#innodejs)
@@ -125,7 +125,7 @@ using System;
 using Microsoft.Azure.ApiHub;
 
 //Variable name must match column type
-//Variable type is dynamically bound to the incoming data
+//Variable type is dynamically bound toohello incoming data
 public class Contact
 {
     public string Id { get; set; }
@@ -135,7 +135,7 @@ public class Contact
 
 public static async Task Run(string input, ITable<Contact> table, TraceWriter log)
 {
-    //Iterate over every value in the source table
+    //Iterate over every value in hello source table
     ContinuationToken continuationToken = null;
     do
     {   
@@ -172,7 +172,7 @@ module.exports = function(context) {
 
 ### <a name="sql-server"></a>SQL Server
 
-Het script te maken en gegevens van de tabel Contact is lager dan. dataSetName is 'standaard'.
+Hallo script toocreate en vullen Hallo Neem contact op met tabel is lager dan. dataSetName is 'standaard'.
 
 ```sql
 CREATE TABLE Contact
@@ -192,7 +192,7 @@ GO
 ```
 
 ### <a name="google-sheets"></a>Google Sheets
-In Google Docs, maakt u een werkblad met een werkblad met de naam `Contact`. De connector niet de weergavenaam van het werkblad gebruiken. De interne naam (in de vet weergegeven) moet worden gebruikt als dataSetName, bijvoorbeeld: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  toevoegen de kolomnamen `Id`, `LastName`, `FirstName` naar de eerste rij vervolgens vullen gegevens op volgende rijen.
+In Google Docs, maakt u een werkblad met een werkblad met de naam `Contact`. Hallo-connector niet Hallo werkblad weergegeven naam gebruiken. de interne naam Hello (in de vet weergegeven) moet toobe gebruikt als dataSetName, bijvoorbeeld: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  Hallo kolomnamen toevoegen `Id`, `LastName`, `FirstName` toohello eerst rij en vervolgens de gegevens op te vullen volgende rijen.
 
 ### <a name="salesforce"></a>SalesForce
 dataSetName is 'standaard'.

@@ -1,6 +1,6 @@
 ---
-title: Doorsturen van gegevens van Azure Automation-taak met OMS Log Analytics | Microsoft Docs
-description: In dit artikel laat zien hoe u met het verzenden van taakstatus en runbook-taak streams Microsoft Operations Management Suite-logboekanalyse meer inzicht leveren en het beheer.
+title: aaaForward Azure Automation-taak gegevens tooOMS Log Analytics | Microsoft Docs
+description: In dit artikel laat zien hoe toosend taak status en runbook-taak streams tooMicrosoft Operations Management Suite Log Analytics toodeliver meer inzicht en beheer.
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/02/2017
 ms.author: magoedte
-ms.openlocfilehash: 2c0ca7fc332963e5a5db3c20c400ed877ae0cc54
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e78b6c6677d6502711ce828e2d32b7a91922ae26
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Doorsturen taakstatus en taak stromen van Automation voor logboekanalyse (OMS)
-Automation kan runbook taak status en taak streams verzenden naar de werkruimte voor logboekanalyse voor Microsoft Operations Management Suite (OMS).  Taak registreert en taak streams zichtbaar zijn in de Azure-portal of PowerShell zijn voor afzonderlijke taken en Hiermee kunt u eenvoudige onderzoeken uitvoeren. Met Log Analytics kunt u nu:
+# <a name="forward-job-status-and-job-streams-from-automation-toolog-analytics-oms"></a>Taakstatus en taak streams doorsturen van Automation tooLog logboekanalyse (OMS)
+Automatisering kan de runbook-taak status en taak streams tooyour Microsoft Operations Management Suite (OMS) werkruimte voor logboekanalyse verzenden.  Taak registreert en taak streams zichtbaar zijn in hello Azure-portal of PowerShell voor afzonderlijke taken en deze kunnen u eenvoudige onderzoeken tooperform. Met Log Analytics kunt u nu:
 
 * Inzicht verkrijgen in uw Automation-taken
 * Trigger een e-mailadres of de waarschuwing op basis van de status van de taak runbook (bijvoorbeeld is mislukt of onderbroken)
@@ -30,29 +30,29 @@ Automation kan runbook taak status en taak streams verzenden naar de werkruimte 
 * De taakgeschiedenis visualiseren gedurende een periode     
 
 ## <a name="prerequisites-and-deployment-considerations"></a>Vereisten en overwegingen voor de implementatie
-Als u wilt beginnen met het verzenden van uw Automation-logboeken met Log Analytics, hebt u het volgende nodig:
+verzenden van uw Automation toostart tooLog Analytics registreert, moet u:
 
-1. De November 2016 of hoger release van [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
+1. Hallo November 2016 of later release van [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
 2. Een werkruimte voor logboekanalyse. Zie voor meer informatie [aan de slag met logboekanalyse](../log-analytics/log-analytics-get-started.md). 
-3. De ResourceId voor uw Azure Automation-account
+3. Hallo ResourceId voor uw Azure Automation-account
 
-Voer de volgende PowerShell ResourceId van de voor uw Azure Automation-account en de werkruimte voor logboekanalyse vindt:
+toofind hello ResourceId voor uw Azure Automation-account en de werkruimte voor logboekanalyse Hallo PowerShell volgende uitvoeren:
 
 ```powershell
-# Find the ResourceId for the Automation Account
+# Find hello ResourceId for hello Automation Account
 Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
 
-# Find the ResourceId for the Log Analytics workspace
+# Find hello ResourceId for hello Log Analytics workspace
 Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
-Als er meerdere Automation-accounts of werkruimten, in de uitvoer van de bovenstaande opdrachten, vinden de *naam* hoeft te configureren en kopieer de waarde voor *ResourceId*.
+Als er meerdere Automation-accounts of werkruimten, in de uitvoer Hallo Hallo voorafgaand aan de opdrachten, Hallo vinden *naam* u tooconfigure nodig hebt en kopieer Hallo-waarde voor *ResourceId*.
 
-Als u wilt zoeken naar de *naam* van uw Automation-account in de Azure portal, selecteer uw Automation-account van de **Automation-account** blade en selecteer **alle instellingen** .  Selecteer op de blade **Alle instellingen** onder **Accountinstellingen** de optie **Eigenschappen**.  Noteer de waarden die op de blade **Eigenschappen** worden weergegeven.<br> ![Eigenschappen van Automation-Account](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
+Als u nodig hebt toofind hello *naam* van uw Automation-account hello Azure-portal Selecteer in uw Automation-account van Hallo **Automation-account** blade en selecteer **alle instellingen**.  Van Hallo **alle instellingen** blade onder **Accountinstellingen** Selecteer **eigenschappen**.  In Hallo **eigenschappen** blade kunt u deze waarden noteren.<br> ![Eigenschappen van Automation-Account](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
 ## <a name="set-up-integration-with-log-analytics"></a>Integratie met logboekanalyse instellen
-1. Start op uw computer **Windows PowerShell** van de **Start** scherm.  
-2. Kopieer en plak de volgende PowerShell en bewerken van de waarde voor de `$workspaceId` en `$automationAccountId`.  Voor de `-Environment` parameter, geldige waarden zijn *AzureCloud* of *AzureUSGovernment* , afhankelijk van de cloudomgeving die u in werkt.     
+1. Start op uw computer **Windows PowerShell** van Hallo **Start** scherm.  
+2. Kopiëren en plakken Hallo PowerShell te volgen en Hallo-waarde voor Hallo bewerken `$workspaceId` en `$automationAccountId`.  Voor Hallo `-Environment` parameter, geldige waarden zijn *AzureCloud* of *AzureUSGovernment* , afhankelijk van de cloudomgeving Hallo u werkt.     
 
 ```powershell
 [cmdletBinding()]
@@ -63,14 +63,14 @@ Als u wilt zoeken naar de *naam* van uw Automation-account in de Azure portal, s
         [string]$Environment="AzureCloud"
     )
 
-#Check to see which cloud environment to sign into.
+#Check toosee which cloud environment toosign into.
 Switch ($Environment)
    {
        "AzureCloud" {Login-AzureRmAccount}
        "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
    }
 
-# if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
+# if you have one Log Analytics workspace you can use hello following command tooget hello resource id of hello workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
 $automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
@@ -81,10 +81,10 @@ Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $work
 
 Na dit script uitvoert, ziet u records in logboekanalyse binnen 10 minuten van nieuwe JobLogs of JobStreams wordt geschreven.
 
-Overzicht van de logboeken, voer de volgende query in logboekanalyse logboek zoeken:`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
+toosee hello Logboeken, Hallo logboekanalyse logboek zoekquery volgende uitvoeren:`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Configuratie controleren
-Om te bevestigen dat uw Automation-account logboeken naar uw werkruimte voor logboekanalyse is verzendt, moet u controleren of diagnostische gegevens correct zijn ingesteld op het Automation-account met behulp van de volgende PowerShell:
+tooconfirm dat uw Automation-account verzendt werkruimte voor logboekanalyse tooyour registreert, moet u controleren of diagnostische gegevens correct zijn ingesteld op Hallo Automation-account met behulp van de volgende PowerShell Hallo:
 
 ```powershell
 [cmdletBinding()]
@@ -95,13 +95,13 @@ Om te bevestigen dat uw Automation-account logboeken naar uw werkruimte voor log
         [string]$Environment="AzureCloud"
     )
 
-#Check to see which cloud environment to sign into.
+#Check toosee which cloud environment toosign into.
 Switch ($Environment)
    {
        "AzureCloud" {Login-AzureRmAccount}
        "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
    }
-# if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
+# if you have one Log Analytics workspace you can use hello following command tooget hello resource id of hello workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
 $automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
@@ -109,9 +109,9 @@ $automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESO
 Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```
 
-Zorg ervoor dat in de uitvoer:
-+ Onder *logboeken*, de waarde voor *ingeschakeld* is *True*
-+ De waarde van *WorkspaceId* is ingesteld op de ResourceId van de werkruimte voor logboekanalyse
+Zorg ervoor dat in Hallo uitvoer:
++ Onder *logboeken*, Hallo waarde voor *ingeschakeld* is *True*
++ waarde van Hallo *WorkspaceId* toohello ResourceId van de werkruimte voor logboekanalyse is ingesteld
 
 
 ## <a name="log-analytics-records"></a>Log Analytics-records
@@ -120,21 +120,21 @@ Diagnostische gegevens van Azure Automation maakt u twee soorten records in Log 
 ### <a name="job-logs"></a>Taaklogboeken
 | Eigenschap | Beschrijving |
 | --- | --- |
-| TimeGenerated |Datum en tijd van uitvoering van de runbooktaak. |
-| RunbookName_s |De naam van het runbook. |
-| Caller_s |Wie de bewerking heeft gestart.  Mogelijke waarden zijn een e-mailadres of het systeem voor geplande taken. |
-| Tenant_g | GUID die de tenant voor de aanroeper identificeert. |
-| JobId_g |De GUID die de id van de runbooktaak is. |
-| ResultType |De status van de runbooktaak.  Mogelijke waarden zijn:<br>- Gestart<br>- Gestopt<br>- Onderbroken<br>- Mislukt<br>-Voltooid |
-| Category | Classificatie van het type gegevens.  Voor Automation is de waarde JobLogs. |
-| OperationName | Hiermee wordt het type bewerking opgegeven dat in Azure wordt uitgevoerd.  De waarde is voor automatisering kunt taak. |
-| Resource | Naam van het Automation-account |
-| SourceSystem | Log Analytics verzameld hoe de gegevens. Altijd *Azure* voor Azure diagnostics. |
-| ResultDescription |Hiermee wordt resultaatstatus van de runbooktaak beschreven.  Mogelijke waarden zijn:<br>- Taak is gestart<br>- Taak is mislukt<br>- Taak is voltooid |
-| CorrelationId |De GUID die de correlatie-id van de runbooktaak is. |
-| ResourceId |Hiermee geeft u de Azure Automation-account-id van het runbook. |
-| SubscriptionId | De Azure-abonnement-Id (GUID) voor het Automation-account. |
-| ResourceGroup | Naam van de resourcegroep voor het Automation-account. |
+| TimeGenerated |Datum en tijd wanneer de runbooktaak Hallo uitgevoerd. |
+| RunbookName_s |Hallo-naam van Hallo runbook. |
+| Caller_s |Wie Hallo opnieuw gestart.  Mogelijke waarden zijn een e-mailadres of het systeem voor geplande taken. |
+| Tenant_g | GUID die Hallo tenant voor Hallo aanroeper identificeert. |
+| JobId_g |De GUID die Hallo-Id van de runbooktaak Hallo. |
+| ResultType |Hallo-status van de runbooktaak Hallo.  Mogelijke waarden zijn:<br>- Gestart<br>- Gestopt<br>- Onderbroken<br>- Mislukt<br>-Voltooid |
+| Category | Classificatie van Hallo type gegevens.  Hallo-waarde is voor automatisering kunt JobLogs. |
+| OperationName | Hiermee geeft u Hallo bewerking uitgevoerd in Azure.  Hallo-waarde is voor automatisering kunt taak. |
+| Resource | Naam van Hallo Automation-account |
+| SourceSystem | Hoe logboekanalyse Hallo gegevens verzameld. Altijd *Azure* voor Azure diagnostics. |
+| ResultDescription |Hierin wordt beschreven Hallo runbook taakstatus resultaat.  Mogelijke waarden zijn:<br>- Taak is gestart<br>- Taak is mislukt<br>- Taak is voltooid |
+| CorrelationId |De GUID die Hallo correlatie-Id van de runbooktaak Hallo. |
+| ResourceId |Hiermee geeft u een Azure Automation-account resource-id van runbook Hallo Hallo. |
+| SubscriptionId | Hallo Azure-abonnement-Id (GUID) voor Hallo Automation-account. |
+| ResourceGroup | De naam van de resourcegroep Hallo voor Hallo Automation-account. |
 | ResourceProvider | MICROSOFT CORPORATION. AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 
@@ -142,67 +142,67 @@ Diagnostische gegevens van Azure Automation maakt u twee soorten records in Log 
 ### <a name="job-streams"></a>Taak stromen
 | Eigenschap | Beschrijving |
 | --- | --- |
-| TimeGenerated |Datum en tijd van uitvoering van de runbooktaak. |
-| RunbookName_s |De naam van het runbook. |
-| Caller_s |Wie de bewerking heeft gestart.  Mogelijke waarden zijn een e-mailadres of het systeem voor geplande taken. |
-| StreamType_s |Het type taakstroom. Mogelijke waarden zijn:<br>- Voortgang<br>- Uitvoer<br>- Waarschuwing<br>- Fout<br>- Foutopsporing<br>- Uitgebreid |
-| Tenant_g | GUID die de tenant voor de aanroeper identificeert. |
-| JobId_g |De GUID die de id van de runbooktaak is. |
-| ResultType |De status van de runbooktaak.  Mogelijke waarden zijn:<br>-In voortgang |
-| Category | Classificatie van het type gegevens.  Voor Automation is de waarde JobStreams. |
-| OperationName | Hiermee wordt het type bewerking opgegeven dat in Azure wordt uitgevoerd.  De waarde is voor automatisering kunt taak. |
-| Resource | Naam van het Automation-account |
-| SourceSystem | Log Analytics verzameld hoe de gegevens. Altijd *Azure* voor Azure diagnostics. |
-| ResultDescription |Bevat de uitvoerstroom van het runbook. |
-| CorrelationId |De GUID die de correlatie-id van de runbooktaak is. |
-| ResourceId |Hiermee geeft u de Azure Automation-account-id van het runbook. |
-| SubscriptionId | De Azure-abonnement-Id (GUID) voor het Automation-account. |
-| ResourceGroup | Naam van de resourcegroep voor het Automation-account. |
+| TimeGenerated |Datum en tijd wanneer de runbooktaak Hallo uitgevoerd. |
+| RunbookName_s |Hallo-naam van Hallo runbook. |
+| Caller_s |Wie Hallo opnieuw gestart.  Mogelijke waarden zijn een e-mailadres of het systeem voor geplande taken. |
+| StreamType_s |Hallo-type van de taakstroom. Mogelijke waarden zijn:<br>- Voortgang<br>- Uitvoer<br>- Waarschuwing<br>- Fout<br>- Foutopsporing<br>- Uitgebreid |
+| Tenant_g | GUID die Hallo tenant voor Hallo aanroeper identificeert. |
+| JobId_g |De GUID die Hallo-Id van de runbooktaak Hallo. |
+| ResultType |Hallo-status van de runbooktaak Hallo.  Mogelijke waarden zijn:<br>-In voortgang |
+| Category | Classificatie van Hallo type gegevens.  Hallo-waarde is voor automatisering kunt JobStreams. |
+| OperationName | Hiermee geeft u Hallo bewerking uitgevoerd in Azure.  Hallo-waarde is voor automatisering kunt taak. |
+| Resource | Naam van Hallo Automation-account |
+| SourceSystem | Hoe logboekanalyse Hallo gegevens verzameld. Altijd *Azure* voor Azure diagnostics. |
+| ResultDescription |Bevat de uitvoerstroom Hallo van Hallo runbook. |
+| CorrelationId |De GUID die Hallo correlatie-Id van de runbooktaak Hallo. |
+| ResourceId |Hiermee geeft u een Azure Automation-account resource-id van runbook Hallo Hallo. |
+| SubscriptionId | Hallo Azure-abonnement-Id (GUID) voor Hallo Automation-account. |
+| ResourceGroup | De naam van de resourcegroep Hallo voor Hallo Automation-account. |
 | ResourceProvider | MICROSOFT CORPORATION. AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 
 ## <a name="viewing-automation-logs-in-log-analytics"></a>Log Analytics Automation weer aanmeldt
-Nu uw Automation-taaklogboeken verzenden met logboekanalyse hebt gestart, gaan we kijken wat u kunt doen met deze logboeken in logboekanalyse.
+Nu dat u hebt gestart met het verzenden van uw Automation-taak logboeken tooLog Analytics, laten we zien wat u kunt doen met deze logboeken in Log Analytics.
 
-Overzicht van de logboeken, voer de volgende query:`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
+toosee hello Logboeken, Hallo volgende query worden uitgevoerd:`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Een e-mailbericht verzenden wanneer een runbooktaak is mislukt of wordt onderbroken
-Een van onze belangrijkste klant vraagt is voor de mogelijkheid voor het verzenden van een e-mailbericht of een tekst wanneer er iets mis met een runbooktaak gaat.   
+Een van onze belangrijkste klant wordt gevraagd voor Hallo mogelijkheid toosend een e-mailbericht of een tekstvak wanneer er iets mis met een runbooktaak gaat.   
 
-Als u wilt een waarschuwingsregel maakt, begint u met het maken van een zoekopdracht logboek voor de runbook-taak-records die de waarschuwing moet worden aangeroepen.  Klik op de **waarschuwing** knop maken en configureren van de waarschuwingsregel.
+een waarschuwing toocreate regel u begint met het maken van een zoekopdracht logboek voor Hallo runbook Taakrecords die Hallo waarschuwing moeten worden aangeroepen.  Klik op Hallo **waarschuwing** toocreate knop en de waarschuwingsregel Hallo configureren.
 
-1. Klik op de pagina overzicht van Log Analytics **logboek zoeken**.
-2. Maken van een zoekquery logboek voor de waarschuwing door de volgende zoeken in het queryveld typen: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended)` u kunt de RunbookName groeperen met behulp van:`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended) | measure Count() by RunbookName_s`   
+1. Klik op de pagina overzicht van Log Analytics Hallo **logboek zoeken**.
+2. Maken van een zoekquery logboek voor de waarschuwing door te zoeken naar Hallo queryveld volgende Hallo typen: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended)` u kunt ook groeperen op Hallo RunbookName door gebruik te maken:`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended) | measure Count() by RunbookName_s`   
 
-   Als u naar de werkruimte logboeken van meer dan een Automation-account of -abonnement hebt ingesteld, kunt u uw waarschuwingen per abonnement en de Automation-account kunt groeperen.  Automation-accountnaam kan worden afgeleid van het veld Resource in het doorzoeken van JobLogs.  
-3. Openen van de **waarschuwingsregel toevoegen** scherm, klikt u op **waarschuwing** boven aan de pagina. Zie voor meer informatie over de opties voor het configureren van de waarschuwing [waarschuwingen in logboekanalyse](../log-analytics/log-analytics-alerts.md#alert-rules).
+   Als u de logboeken van meer dan een Automation-account of abonnement tooyour werkruimte hebt ingesteld, kunt u uw waarschuwingen per abonnement en de Automation-account kunt groeperen.  Automation-accountnaam kan worden afgeleid van Hallo Resource aan in de zoekopdracht Hallo van JobLogs.  
+3. Hallo tooopen **waarschuwingsregel toevoegen** scherm, klikt u op **waarschuwing** bovenaan Hallo Hallo pagina. Zie voor meer informatie over Hallo opties tooconfigure Hallo waarschuwing [waarschuwingen in logboekanalyse](../log-analytics/log-analytics-alerts.md#alert-rules).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Alle taken die zijn voltooid met fouten vinden
-Naast de waarschuwingen op fouten, vindt u wanneer een runbooktaak een fout niet wordt beëindigd heeft. In dergelijke gevallen PowerShell produceert een foutstroom, maar de fouten niet wordt beëindigd zorgen niet voor de taak onderbreken of als mislukt.    
+Bovendien tooalerting op fouten, vindt u wanneer een runbooktaak een fout niet wordt beëindigd heeft. In dergelijke gevallen PowerShell produceert een foutstroom, maar Hallo niet wordt beëindigd fouten niet ervoor zorgen dat uw taak toosuspend of mislukken.    
 
 1. Klik in de werkruimte voor logboekanalyse op **logboek zoeken**.
-2. Typ in het queryveld `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobStreams StreamType_s=Error | measure count() by JobId_g` en klik vervolgens op **Search**.
+2. Typ in Hallo queryveld `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobStreams StreamType_s=Error | measure count() by JobId_g` en klik vervolgens op **Search**.
 
 ### <a name="view-job-streams-for-a-job"></a>Weergave taak stromen voor een taak
-Wanneer u een taak foutopsporing, kunt u ook om te zoeken in de taak stromen.  De volgende query geeft alle stromen voor een enkele taak met GUID 2ebd22ea-e05e-4eb9 - 9d 76-d73cbd4356e0:   
+Wanneer u een taak foutopsporing, kunt u ook toolook in Hallo taak stromen.  Hallo geeft volgende query alle Hallo stromen voor een enkele taak met GUID 2ebd22ea-e05e-4eb9 - 9d 76-d73cbd4356e0:   
 
 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobStreams JobId_g="2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort TimeGenerated | select ResultDescription`
 
 ### <a name="view-historical-job-status"></a>Status van de historische taak weergeven
-U kunt ten slotte uw Taakgeschiedenis visualiseren gedurende een bepaalde periode.  U kunt deze query gebruiken om te zoeken naar de status van de taken gedurende een bepaalde periode.
+Ten slotte kunt u toovisualize uw Taakgeschiedenis gedurende een bepaalde periode.  U kunt deze query toosearch gebruiken voor Hallo status van uw taken gedurende een bepaalde periode.
 
 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs NOT(ResultType="started") | measure Count() by ResultType interval 1hour`  
 <br> ![OMS historische taak Statusgrafiek](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## <a name="summary"></a>Samenvatting
-Verzenden van uw Automation-taak status en stream-gegevens met Log Analytics, krijgt u inzicht in de status van uw Automation-taken op:
-+ Instellen van waarschuwingen om u te waarschuwen wanneer er een probleem
-+ Met behulp van aangepaste weergaven en zoekopdrachten voor het visualiseren van de runbookresultaten, gerelateerde de status van de runbook-taak en andere indicatoren of metrische gegevens.  
+Door het verzenden van uw Automation-taak status en stroom gegevens tooLog Analytics, kunt u meer inzicht in de status van uw Automation-taken op Hallo ophalen:
++ Instellen van waarschuwingen toonotify u wanneer er een probleem
++ Met behulp van aangepaste weergaven en zoeken query's toovisualize gerelateerde uw runbookresultaten, de status van de runbook-taak en andere indicatoren of metrische gegevens.  
 
-Log Analytics biedt meer operationeel inzicht voor uw Automation-taken en adres incidenten sneller kan helpen.  
+Log Analytics biedt meer operationeel inzicht tooyour Automation taken en adres incidenten sneller kan helpen.  
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Log searches in Log Analytics (Logboekzoekopdrachten in Log Analytics)](../log-analytics/log-analytics-log-searches.md) voor meer informatie over het maken van verschillende zoekquery's en het controleren van de Automation-taaklogboeken met Log Analytics
-* Zie voor informatie over het maken en ophalen van de uitvoer en foutberichten van runbooks, [Runbook uitvoer en berichten](automation-runbook-output-and-messages.md)
-* Zie [Track a runbook job (Runbooktaken bijhouden)](automation-runbook-execution.md) voor meer informatie over runbookuitvoering, het bewaken van runbooktaken en andere technische details
-* Zie [Collecting Azure storage data in Log Analytics overview (Overzicht Azure-opslaggegevens verzamelen in Log Analytics)](../log-analytics/log-analytics-azure-storage.md) voor meer informatie over OMS Log Analytics en gegevensverzamelingsbronnen
+* Zie toolearn meer informatie over hoe tooconstruct verschillende zoekquery's en bekijk Hallo Automation logboeken met Log Analytics taak [zoekopdrachten aanmelden met Log Analytics](../log-analytics/log-analytics-log-searches.md)
+* hoe toocreate en ophalen uitvoer en foutberichten van runbooks, Zie toounderstand [Runbook uitvoer en berichten](automation-runbook-output-and-messages.md)
+* meer over de uitvoering van runbook, hoe toomonitor runbooktaken en andere technische details, Zie toolearn [een runbooktaak bijhouden](automation-runbook-execution.md)
+* toolearn meer informatie over OMS Log Analytics en verzameling gegevensbronnen, Zie [verzamelen van Azure storage-gegevens in het overzicht van de Log Analytics](../log-analytics/log-analytics-azure-storage.md)

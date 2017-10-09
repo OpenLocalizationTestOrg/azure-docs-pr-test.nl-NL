@@ -1,6 +1,6 @@
 ---
-title: Azure Storage voor 'cool' blobs | Microsoft Docs
-description: Opslaglagen voor Azure Blob Storage bieden voordelige opslag voor objectgegevens op basis van toegangspatronen. De opslaglaag voor 'cool' blobs is geoptimaliseerd voor gegevens die minder regelmatig worden geopend.
+title: aaaAzure cool storage voor blobs | Microsoft Docs
+description: Opslaglagen voor Azure Blob Storage bieden voordelige opslag voor objectgegevens op basis van toegangspatronen. Hallo cool storage-laag is geoptimaliseerd voor gegevens die minder regelmatig worden geopend.
 services: storage
 documentationcenter: 
 author: michaelhauss
@@ -14,64 +14,64 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/05/2017
 ms.author: mihauss
-ms.openlocfilehash: 21e7b9c6a063b29a76043154a760fd9131425655
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 56fae3fdae31a6958ebae01fd96a0366e70ae938
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Azure Blob Storage: opslaglagen voor 'hot' blobs en 'cool' blobs
 ## <a name="overview"></a>Overzicht
-Azure Storage biedt twee opslaglagen voor Blob-objectopslag, zodat u gegevens zeer voordelig kunt opslaan afhankelijk van hoe u deze gebruikt. De Azure **Hot Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die regelmatig worden geopend. De Azure **Cool Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die niet regelmatig worden geopend en een lange levensduur hebben. Voor gegevens in de Cool Storage-laag is een iets lagere beschikbaarheid toegestaan, maar ze vereisen nog steeds een hoge duurzaamheid en een gelijke tijdsduur voor toegang en doorvoer als gegevens in de Hot Storage-laag. Voor gegevens in de Cool Storage-laag zijn een SLA met een iets lagere beschikbaarheid en hogere toegangskosten aanvaardbaar vanwege de veel lagere opslagkosten.
+Azure Storage biedt twee opslaglagen voor Blob-objectopslag, zodat u gegevens zeer voordelig kunt opslaan afhankelijk van hoe u deze gebruikt. Hello Azure **hot storage-laag** is geoptimaliseerd voor het opslaan van gegevens die regelmatig worden geopend. Hello Azure **cool storage-laag** is geoptimaliseerd voor het opslaan van gegevens die niet regelmatig worden geopend en een lange levensduur hebben. Gegevens in de cool storage-laag Hallo tolereert iets lagere beschikbaarheid, maar nog steeds vereist hoge duurzaamheid en vergelijkbare kenmerken voor de tijd voor toegang en doorvoer als hot gegevens. Voor gegevens in de Cool Storage-laag zijn een SLA met een iets lagere beschikbaarheid en hogere toegangskosten aanvaardbaar vanwege de veel lagere opslagkosten.
 
-Het aantal gegevens dat is opgeslagen in de cloud, groeit vandaag de dag exponentieel. Voor een effectief beheer van de kosten voor uw groeiende opslagbehoeften is het een goed idee om de gegevens te ordenen op basis van kenmerken als toegangsfrequentie en geplande bewaarperiode. Er bestaan verschillen in de manier waarop gegevens die in de cloud zijn opgeslagen, tijdens hun levensduur worden gegenereerd, benaderd en verwerkt. Sommige gegevens worden tijdens hun hele levensduur actief geopend en gewijzigd. Andere gegevens worden in het begin van hun levensduur regelmatig geopend, terwijl dit naarmate de tijd verstrijkt, aanzienlijk minder vaak gebeurt. Weer andere gegevens in de cloud zijn inactief en worden, als ze eenmaal zijn opgeslagen, zelden tot nooit geopend.
+Gegevens die zijn opgeslagen in de cloud Hallo groeit vandaag de dag exponentieel. toomanage kosten voor uw groeiende opslagbehoeften, is het handig tooorganize uw gegevens op basis van kenmerken, zoals de frequentie van toegang en geplande bewaarperiode. Gegevens die zijn opgeslagen in de cloud Hallo kan afwijken in termen van hoe deze wordt gegenereerd, verwerkt en toegankelijk is via de levensduur. Sommige gegevens worden tijdens hun hele levensduur actief geopend en gewijzigd. Sommige gegevens wordt vaak vroeg in de levensduur geopend met verstrijkt, aanzienlijk als Hallo gebeurt. Sommige gegevens in de cloud Hallo inactief blijft en zelden, als ooit geopend eenmaal opgeslagen.
 
-Het is nuttig om voor elk van deze scenario‘s voor toegang tot gegevens die hierboven worden beschreven, een gedifferentieerde opslaglaag te maken die is geoptimaliseerd voor een specifiek toegangspatroon. Dankzij de introductie van de opslaglagen voor 'hot' blobs en 'cool' blobs in Azure Blob Storage wordt voorzien in deze behoefte aan gedifferentieerde opslaglagen met afzonderlijke prijsmodellen.
+Het is nuttig om voor elk van deze scenario‘s voor toegang tot gegevens die hierboven worden beschreven, een gedifferentieerde opslaglaag te maken die is geoptimaliseerd voor een specifiek toegangspatroon. Dankzij de introductie van de Hallo van hot en cool storage-lagen afzonderlijke Azure Blob storage wordt voorzien in deze behoefte aan gedifferentieerde opslaglagen met prijsmodellen.
 
 ## <a name="blob-storage-accounts"></a>Blob Storage-accounts
-**Blob Storage-accounts** zijn gespecialiseerde opslagaccounts voor het opslaan van ongestructureerde gegevens als blobs (objecten) in Azure Storage. Met Blob Storage-accounts kunt u nu kiezen tussen opslaglagen voor 'hot' blobs en 'cool' blobs. Zo kunt u minder regelmatig geopende gegevens opslaan tegen lagere opslagkosten en regelmatiger geopende gegevens tegen lagere toegangskosten. Blob Storage-accounts zijn vergelijkbaar met de bestaande opslagaccounts voor algemeen gebruik en bieden dezelfde hoogwaardige kenmerken op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties waarover u nu al beschikt, inclusief 100 procent API-consistentie voor blok-blobs en toevoeg-blobs.
+**Blob Storage-accounts** zijn gespecialiseerde opslagaccounts voor het opslaan van ongestructureerde gegevens als blobs (objecten) in Azure Storage. Met Blob storage-accounts, kunt u nu kiezen tussen hot en cool storage lagen toostore uw minder regelmatig geopende gegevens tegen lagere opslagkosten en gegevens tegen lagere toegangskosten store vaker worden gebruikt. BLOB storage-accounts zijn vergelijkbaar tooyour bestaande opslagaccounts en delen Hallo geweldige duurzaamheid, beschikbaarheid, schaalbaarheid en prestatiefuncties waarmee u vandaag, inclusief 100 procent API-consistentie voor blok-blobs en toevoeg-blobs.
 
 > [!NOTE]
 > Blob Storage-accounts ondersteunen alleen blok-blobs en toevoeg-blobs. Pagina-blobs worden niet ondersteund.
 > 
 > 
 
-Blob Storage-accounts maken het kenmerk **Toegangslaag** beschikbaar. Dit stelt u in staat om de opslaglaag te specificeren als **Hot** of **Cool**, afhankelijk van de gegevens die in het account zijn opgeslagen. Als er een wijziging optreedt in het gebruikspatroon van de gegevens, kunt u op elk gewenst moment schakelen tussen deze opslaglagen.
+BLOB storage-accounts beschikbaar Hallo **Toegangslaag** kenmerk waarmee u toospecify Hallo storage-laag als **Hot** of **Cool** afhankelijk van het Hallo-gegevens die zijn opgeslagen in Hallo account. Als er een wijziging in het gebruikspatroon Hallo van uw gegevens, kunt u ook schakelen tussen deze opslaglagen op elk gewenst moment.
 
 > [!NOTE]
-> Aan het wijzigen van de opslaglaag kunnen extra kosten zijn verbonden. Zie de sectie [Prijzen en facturering](storage-blob-storage-tiers.md#pricing-and-billing) voor meer informatie.
+> Veranderende Hallo storage-laag kan leiden tot extra kosten. Zie Hallo [prijzen en facturering](storage-blob-storage-tiers.md#pricing-and-billing) sectie voor meer informatie.
 > 
 > 
 
-Enkele voorbeelden van gebruiksscenario's voor de opslaglaag voor 'hot' blobs:
+Voorbeeld gebruiksscenario's voor Hallo hot storage-laag omvatten:
 
-* Gegevens die actief worden gebruikt of waarvan wordt verwacht dat ze regelmatig worden geopend (lees- en schrijfbewerkingen).
-* Gegevens die tijdelijk worden opgeslagen voor verwerking en uiteindelijk voor migratie naar de Cool Storage-laag.
+* Gegevens die in gebruik of de verwachte toobe regelmatig worden geopend (Lees- en schrijfbewerkingen).
+* Gegevens die tijdelijk worden opgeslagen voor verwerking en uiteindelijk migratie toohello cool storage-laag.
 
-Enkele voorbeelden van gebruiksscenario's voor de Cool Storage-laag:
+Voorbeeld gebruiksscenario's voor Hallo cool storage-laag omvatten:
 
 * Gegevenssets waarvan een back-up is gemaakt, die zijn gearchiveerd of die na een noodgeval zijn hersteld.
-* Oudere media-inhoud die niet meer regelmatig wordt bekeken, maar onmiddellijk beschikbaar moet zijn wanneer deze wordt geopend.
-* Grote gegevenssets die voordelig moeten worden opgeslagen, terwijl er meer gegevens worden verzameld voor toekomstige verwerking. (*bijvoorbeeld*: langetermijnopslag van wetenschappelijke gegevens, onbewerkte telemetriegegevens van een fabrikant)
+* Oudere media-inhoud is niet meer regelmatig wordt bekeken maar verwachte toobe beschikbaar is bij direct toegankelijk.
+* Grote gegevenssets waarvoor toobe opgeslagen kosten effectief terwijl er meer gegevens worden verzameld voor toekomstige verwerking. (*bijvoorbeeld*: langetermijnopslag van wetenschappelijke gegevens, onbewerkte telemetriegegevens van een fabrikant)
 * Oorspronkelijke (onbewerkte) gegevens die moeten worden bewaard, zelfs nadat deze zijn verwerkt tot hun uiteindelijke, bruikbare vorm. (*bijvoorbeeld*: onbewerkte mediabestanden na transcodering naar andere indelingen)
-* Compliance- en archiveringsgegevens die gedurende lange tijd moeten worden opgeslagen en bijna nooit worden geopend. (*bijvoorbeeld*: beeldmateriaal van beveiligingscamera‘s, oude röntgenfoto‘s/MRI‘s in ziekenhuizen, geluidsopnamen en transcripties van verkoopgesprekken voor financiële diensten)
+* Compatibiliteit en archivering van gegevens die u moet beschikken over toobe gedurende een lange periode zijn opgeslagen en bijna nooit worden geopend. (*bijvoorbeeld*: beeldmateriaal van beveiligingscamera‘s, oude röntgenfoto‘s/MRI‘s in ziekenhuizen, geluidsopnamen en transcripties van verkoopgesprekken voor financiële diensten)
 
 Zie [Over Azure Storage-accounts](storage-create-storage-account.md) voor meer informatie over opslagaccounts.
 
-Voor toepassingen waarvoor alleen de opslag van blok- of toevoeg-blobs is vereist, wordt aangeraden gebruik te maken van Blob Storage-accounts. Zo profiteert u maximaal van het gedifferentieerde prijsmodel voor gelaagde opslag. We begrijpen dat dit onder bepaalde omstandigheden, waar opslagaccounts voor algemeen gebruik beter werken, wellicht niet mogelijk is. Bijvoorbeeld:
+Voor toepassingen die alleen blok- of toevoeg-blob-opslag, wordt aangeraden Blob storage-accounts, tootake profiteren van Hallo gedifferentieerde prijsmodel voor gelaagde opslag. We begrijpen dat dit mogelijk niet worden onder bepaalde omstandigheden waarin algemene opslag accounts zou worden Hallo manier toogo, zoals:
 
-* U maakt gebruik van tabellen, wachtrijen of bestanden en wilt de blobs opslaan in hetzelfde opslagaccount. Let op: opslaan van deze items in hetzelfde account biedt geen technisch voordeel behalve dezelfde gedeelde sleutels.
-* U moet nog steeds gebruikmaken van het klassieke implementatiemodel. Blob Storage-accounts zijn alleen beschikbaar via het Azure Resource Manager-implementatiemodel.
-* U moet gebruikmaken van pagina-blobs. Blob Storage-accounts bieden geen ondersteuning voor pagina-blobs. Over het algemeen raden we het gebruik van blok-blobs aan, tenzij u specifiek behoefte hebt aan pagina-blobs.
-* U gebruikt een versie van de [REST API voor Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx) die ouder is dan 2014-02-14 of een clientbibliotheek met een lagere versie dan 4.x en u uw toepassing niet kunt upgraden.
+* U moet toouse tabellen, wachtrijen of bestanden en wilt dat uw blobs die zijn opgeslagen in hetzelfde opslagaccount Hallo. Houd er rekening mee dat er is geen technisch voordeel toostoring in Hallo die dezelfde account anders dan dat Hallo dezelfde sleutels gedeelde.
+* U moet nog steeds toouse Hallo klassieke implementatiemodel. BLOB storage-accounts zijn alleen beschikbaar via hello Azure Resource Manager-implementatiemodel.
+* U moet toouse pagina-blobs. Blob Storage-accounts bieden geen ondersteuning voor pagina-blobs. Over het algemeen raden we het gebruik van blok-blobs aan, tenzij u specifiek behoefte hebt aan pagina-blobs.
+* U gebruikt een versie van Hallo [REST-API voor Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx) die ouder is dan 2014-02-14 of een clientbibliotheek met een versie lager dan 4.x en uw toepassing niet bijwerken.
 
 > [!NOTE]
 > Blob Storage-accounts worden momenteel ondersteund in alle Azure-regio's.
 > 
 > 
 
-## <a name="comparison-between-the-storage-tiers"></a>Vergelijking tussen de opslaglagen
-De volgende tabel maakt de verschillen tussen de twee opslaglagen inzichtelijk:
+## <a name="comparison-between-hello-storage-tiers"></a>Vergelijking tussen de opslaglagen Hallo
+Hallo licht volgende tabel Hallo vergelijking tussen de twee opslaglagen Hallo:
 
 <table border="1" cellspacing="0" cellpadding="0" style="border: 1px solid #000000;">
 <col width="250">
@@ -107,7 +107,7 @@ De volgende tabel maakt de verschillen tussen de twee opslaglagen inzichtelijk:
     <td colspan="2"><center>N.v.t.</center></td>
 </tr>
 <tr>
-    <td><strong><center>Latentie<br>(Tijd tot eerste byte)<center></strong></td>
+    <td><strong><center>Latentie<br>(Tijd toofirst byte)<center></strong></td>
     <td colspan="2"><center>milliseconden</center></td>
 </tr>
 <tr>
@@ -118,109 +118,109 @@ De volgende tabel maakt de verschillen tussen de twee opslaglagen inzichtelijk:
 </table>
 
 > [!NOTE]
-> Blob Storage-accounts bieden ondersteuning voor dezelfde schaalbaarheids- en prestatiedoelen als opslagaccounts voor algemeen gebruik. Zie [Schaalbaarheids- en prestatiedoelen in Azure Storage](storage-scalability-targets.md) voor meer informatie.
+> BLOB storage accounts ondersteuning Hallo dezelfde prestaties en schaalbaarheid doelen als opslagaccounts voor algemeen gebruik. Zie [Schaalbaarheids- en prestatiedoelen in Azure Storage](storage-scalability-targets.md) voor meer informatie.
 > 
 > 
 
 ## <a name="pricing-and-billing"></a>Prijzen en facturering
-Blob Storage-accounts maken gebruik van een nieuw prijsmodel voor het opslaan van blobs op basis van de opslaglaag. Als u een Blob Storage-account gebruikt, zijn de volgende factureringsvoorwaarden van toepassing:
+BLOB storage-accounts gebruiken een nieuw prijsmodel voor blob-opslag op basis van Hallo storage-laag. Wanneer u een Blob storage-account, Hallo volgende factureringsvoorwaarden van toepassing:
 
-* **Opslagkosten**: de kosten voor het opslaan van gegevens hangen niet alleen af van de hoeveelheid opgeslagen gegevens, maar ook van de gebruikte opslaglaag. De kosten per GB voor de opslaglaag voor 'cool' blobs zijn lager dan die voor de opslaglaag voor 'hot' blobs.
-* **Kosten voor gegevenstoegang**: voor gegevens in de opslaglaag voor 'cool' blobs worden kosten in rekening gebracht per GB aan gegevenstoegang voor lees- en schrijfbewerkingen.
-* **Transactiekosten**: voor beide lagen worden kosten in rekening gebracht per transactie. De kosten per transactie zijn voor de opslaglaag voor 'cool' blobs echter hoger dan voor de opslaglaag voor 'hot' blobs.
-* **Kosten voor gegevensoverdracht met geo-replicatie**: dit is alleen van toepassing op accounts waarvoor geo-replicatie is geconfigureerd, inclusief GRS en RA-GRS. Kosten voor gegevensoverdracht met geo-replicatie worden in rekening gebracht per GB.
+* **Opslagkosten**: bovendien toohello hoeveelheid opgeslagen gegevens Hallo kosten voor het opslaan van gegevens varieert afhankelijk van Hallo storage-laag. de kosten per GB Hallo is lagere voor Hallo cool storage-laag dan voor Hallo hot storage-laag.
+* **Data access-kosten**: voor gegevens in de cool storage-laag hello, wordt u gefactureerd per GB gegevens toegang kosten met zich mee voor lees- en schrijfbewerkingen.
+* **Transactiekosten**: voor beide lagen worden kosten in rekening gebracht per transactie. Kosten per transactie zijn Hallo voor Hallo cool storage-laag is echter hoger dan voor Hallo hot storage-laag.
+* **Kosten voor gegevensoverdracht geo-replicatie**: dit is alleen van toepassing tooaccounts waarvoor geo-replicatie is geconfigureerd, inclusief GRS en RA-GRS. Kosten voor gegevensoverdracht met geo-replicatie worden in rekening gebracht per GB.
 * **Kosten voor uitgaande gegevensoverdracht**: uitgaande gegevensoverdracht (gegevens die buiten een Azure-regio worden overgedragen) worden gefactureerd voor bandbreedtegebruik per GB, net zoals bij opslagaccounts voor algemeen gebruik.
-* **De opslaglaag wijzigen**: als u de opslaglaag wijzigt van 'cool' naar 'hot', worden voor elke overgang kosten in rekening gebracht die overeenkomen met de kosten voor het lezen van alle bestaande gegevens in het opslagaccount. Het wijzigen van de opslaglaag van 'hot' naar 'cool' is echter gratis.
+* **Veranderende Hallo opslaglaag**: als u Hallo opslaglaag wijzigt van cool toohot, worden een kosten gelijk tooreading alle Hallo bestaande gegevens in Hallo storage-account voor elke overgang. Op Hallo is daarentegen als Hallo opslaglaag wijzigt van hot toocool gratis.
 
 > [!NOTE]
-> De kosten voor het wijzigen van de opslaglaag van 'cool' naar 'hot' zijn tot 30 juni 2016 niet van toepassing. Dit is om gebruikers in staat te stellen de nieuwe opslaglagen uit te proberen en de functionaliteit na het op de markt brengen van het product te valideren. Vanaf 1 juli 2016 zijn er kosten van toepassing op alle overgangen van Cool naar Hot. Ga naar de pagina [Azure Storage-prijzen](https://azure.microsoft.com/pricing/details/storage/) voor meer informatie over het prijsmodel voor Blob Storage-accounts. Ga naar de pagina [Prijsinformatie voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) voor meer informatie over de kosten voor uitgaande gegevensoverdracht.
+> In volgorde tooallow gebruikers tootry uit Hallo nieuwe opslaglagen en valideren van de functionaliteit na de introductie, Hallo kosten voor het wijzigen van de opslaglaag Hallo van cool toohot wordt worden niet van toepassing tot en met 30 juni-2016. Vanaf 1 juli 2016, Hallo kosten worden toegepaste tooall overgangen van cool toohot. Zie voor meer informatie op Hallo prijzen model voor Blob storage-accounts, [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/) pagina. Zie voor meer informatie op Hallo uitgaande gegevens overdracht kosten, [prijsinformatie over gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) pagina.
 > 
 > 
 
 ## <a name="quick-start"></a>Snel starten
-In deze sectie worden de volgende scenario‘s toegelicht, waarbij gebruik wordt gemaakt van Azure Portal:
+In deze sectie wordt gedemonstreerd Hallo volgen scenario's die gebruikmaken van hello Azure-portal:
 
-* Het maken van een Blob Storage-account.
-* Het beheren van een Blob Storage-account.
+* Hoe toocreate een Blob storage-account.
+* Hoe toomanage een Blob storage-account.
 
-### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
-#### <a name="create-a-blob-storage-account-using-the-azure-portal"></a>Een Blob Storage-account maken met behulp van Azure Portal
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
-2. Selecteer in het menu Hub achtereenvolgens **Nieuw** > **Gegevens en opslag** > **Opslagaccount**.
+### <a name="using-hello-azure-portal"></a>Met behulp van hello Azure-portal
+#### <a name="create-a-blob-storage-account-using-hello-azure-portal"></a>Een Blob storage-account maken met hello Azure-portal
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com).
+2. Selecteer op de Hub-menu Hallo **nieuw** > **gegevens en opslag** > **opslagaccount**.
 3. Voer een naam in voor het opslagaccount.
    
-    Deze naam moet uniek zijn. De naam wordt gebruikt als onderdeel van de URL die wordt gebruikt voor toegang tot de objecten in het opslagaccount.  
-4. Selecteer **Resource Manager** als het implementatiemodel.
+    Deze naam moet globaal uniek zijn. het wordt gebruikt als onderdeel van Hallo-URL van tooaccess Hallo objecten in Hallo storage-account gebruikt.  
+4. Selecteer **Resource Manager** als Hallo-implementatiemodel.
    
-    Gelaagde opslag kan alleen worden gebruikt met Resource Manager-opslagaccounts. Dit is het aanbevolen implementatiemodel voor nieuwe resources. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
-5. Selecteer **Blob Storage** in de vervolgkeuzelijst Soort account.
+    Gelaagde opslag kan alleen worden gebruikt met Resource Manager-opslagaccounts; Dit is Hallo aanbevolen implementatiemodel voor nieuwe resources. Bekijk voor meer informatie Hallo [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
+5. Selecteer in de vervolgkeuzelijst Hallo soort Account, **Blob Storage**.
    
-    Hier selecteert u het type opslagaccount. Gelaagde opslag is niet beschikbaar in de algemene opslag. Dit is alleen beschikbaar in het type account voor Blob Storage.     
+    Dit is waar u Hallo type opslagaccount selecteren. Gelaagde opslag is niet beschikbaar in de opslagaccount; Dit is alleen beschikbaar in Hallo Blob storage-type account.     
    
-    Houd er rekening mee dat, wanneer u deze optie selecteert, de prestatielaag wordt ingesteld op Standaard. Gelaagde opslag is niet beschikbaar bij de Premium-prestatielaag.
-6. Selecteer de replicatieoptie voor het opslagaccount: **LRS**, **GRS** of **RA-GRS**. **RA-GRS** is de standaardinstelling.
+    Houd er rekening mee dat wanneer u deze optie selecteert, Hallo prestatielaag ingesteld tooStandard. Gelaagde opslag is niet beschikbaar met de prestatielaag van Hallo Premium.
+6. Selecteer de replicatieoptie Hallo voor Hallo storage-account: **LRS**, **GRS**, of **RA-GRS**. Hallo standaardwaarde is **RA-GRS**.
    
-    LRS = locally redundant storage (lokaal redundante opslag), GRS = geo-redundant storage (geografisch redundante opslag) (2 regio's), RA-GRS = read-access geo-redundant storage (geografisch redundante opslag met leestoegang) (2 regio's met leestoegang tot de tweede).
+    LRS = lokaal redundante opslag; GRS = geografisch redundante opslag (2 regio's); RA-GRS is geografisch redundante opslag met leestoegang (2 regio's met lees access toohello seconde).
    
     Zie [Azure Storage-replicatie](storage-redundancy.md) voor meer informatie over Azure Storage-replicatieopties.
-7. Selecteer de juiste opslaglaag voor wat u nodig hebt: stel de **Toegangslaag** in op **'Cool'** of **'Hot'**. **Hot** is de standaardinstelling.
-8. Selecteer het abonnement waarin u het nieuwe opslagaccount wilt maken.
-9. Geef een nieuwe resourcegroep op of selecteer een bestaande resourcegroep. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie over resourcegroepen.
-10. Selecteer de regio voor uw opslagaccount.
-11. Klik op **Maken** om het opslagaccount te maken.
+7. Selecteer Hallo rechts storage-laag voor uw behoeften: Set Hallo **toegangslaag** tooeither **Cool** of **Hot**. Hallo standaardwaarde is **Hot**.
+8. Hallo-abonnement waaraan u toocreate Hallo nieuw opslagaccount wilt selecteren.
+9. Geef een nieuwe resourcegroep op of selecteer een bestaande resourcegroep. Zie [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
+10. Hallo-regio voor uw storage-account selecteren.
+11. Klik op **maken** toocreate Hallo storage-account.
 
-#### <a name="change-the-storage-tier-of-a-blob-storage-account-using-the-azure-portal"></a>De opslaglaag voor een Blob Storage-account wijzigen via Azure Portal
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Ga naar uw opslagaccount, selecteer Alle resources en selecteer vervolgens uw opslagaccount.
-3. Klik in de Instellingen-blade op **Configuratie** om de accountconfiguratie te bekijken en/of te wijzigen.
-4. Selecteer de juiste opslaglaag voor wat u nodig hebt: stel de **Toegangslaag** in op **'Cool'** of **'Hot'**.
-5. Klik op Opslaan boven aan de blade.
+#### <a name="change-hello-storage-tier-of-a-blob-storage-account-using-hello-azure-portal"></a>Hallo storage-laag van een Blob storage-account met behulp van hello Azure-portal wijzigen
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com).
+2. toonavigate tooyour storage-account, selecteert u alle Resources, en selecteer vervolgens uw storage-account.
+3. Klik op de blade instellingen hello, **configuratie** Hallo-accountconfiguratie tooview en/of wijzigen.
+4. Selecteer Hallo rechts storage-laag voor uw behoeften: Set Hallo **toegangslaag** tooeither **Cool** of **Hot**.
+5. Klik op Opslaan Hallo boven aan het Hallo-blade.
 
 > [!NOTE]
-> Aan het wijzigen van de opslaglaag kunnen extra kosten zijn verbonden. Zie de sectie [Prijzen en facturering](storage-blob-storage-tiers.md#pricing-and-billing) voor meer informatie.
+> Veranderende Hallo storage-laag kan leiden tot extra kosten. Zie Hallo [prijzen en facturering](storage-blob-storage-tiers.md#pricing-and-billing) sectie voor meer informatie.
 > 
 > 
 
-## <a name="evaluating-and-migrating-to-blob-storage-accounts"></a>Evalueren en migreren naar Blob Storage-accounts
-Het doel van deze sectie is om gebruikers op soepele wijze te helpen migreren naar het gebruiken van Blob Storage-accounts. Er zijn twee scenario's voor gebruikers:
+## <a name="evaluating-and-migrating-tooblob-storage-accounts"></a>Evalueren en het migreren van tooBlob storage-accounts
+Hallo doel van deze sectie is toohelp gebruikers toomake een vloeiende overgang toousing Blob storage-accounts. Er zijn twee scenario's voor gebruikers:
 
-* U beschikt over een bestaand algemene opslagaccount en wilt een wijziging evalueren in een Blob Storage-account met de juiste opslaglaag.
-* U hebt besloten om een Blob Storage-account te gebruiken of u hebt er al een, en u wilt beoordelen of een opslaglaag voor 'hot' blobs of een opslaglaag voor 'cool' blobs moet gebruiken.
+* U hebt een bestaande opslagaccounts voor algemeen gebruik-account en een wijziging tooa Blob storage-account met de juiste opslaglaag Hallo tooevaluate wilt.
+* U hebt besloten toouse een Blob storage-account of al een en wilt tooevaluate of moet u Hallo hot of cool storage-laag.
 
-In beide gevallen moeten eerst de kosten worden geschat van het opslaan en openen van uw gegevens die zijn opgeslagen in een Blob Storage-account en dient u deze te vergelijken met uw huidige kosten.
+In beide gevallen Hallo eerste volgorde van zakelijke tooestimate Hallo kosten voor het opslaan van en toegang tot uw gegevens opgeslagen in een Blob storage-account is en die worden vergeleken op basis van uw huidige kosten.
 
 ### <a name="evaluating-blob-storage-account-tiers"></a>Lagen voor Blob Storage-accounts evalueren
-Voor het maken van een schatting van de kosten voor het opslaan en openen van gegevens die zijn opgeslagen in een Blob Storage-account, moet u uw bestaande gebruikspatroon evalueren of een schatting maken van het verwachte gebruikspatroon. Doorgaans zijn de volgende gegevens hiervoor van belang:
+In de volgorde tooestimate Hallo kosten van het opslaan van en toegang tot gegevens die zijn opgeslagen in een Blob storage-account, wordt u tooevaluate moet uw bestaande gebruikspatroon of bij benadering de verwachte gebruikspatroon. In het algemeen is het verstandig tooknow:
 
 * Wat is het gebruik van de opslag? Hoeveel gegevens worden er opgeslagen en hoe wijzigt dit maandelijks?
-* Wat is het toegangspatroon voor de opslag? Op hoeveel gegevens in het account worden er lees- en/of schrijfbewerkingen uitgevoerd (inclusief nieuwe gegevens)? Hoeveel transacties worden gebruikt voor toegang tot gegevens? En wat voor soort transacties zijn dit?
+* Uw opslag toegangstijden - hoeveel gegevens worden van de gelezen en geschreven toohello-account (inclusief nieuwe gegevens)? Hoeveel transacties worden gebruikt voor toegang tot gegevens? En wat voor soort transacties zijn dit?
 
 #### <a name="monitoring-existing-storage-accounts"></a>Bewaking van bestaande opslagaccounts
-Voor het bewaken van uw bestaande opslagaccounts en het verzamelen van deze gegevens, kunt u gebruikmaken van Azure Storage Analytics dat logboekregistratie uitvoert en metrische gegevens biedt voor een opslagaccount.
-Storage Analytics kan metrische gegevens opslaan die samengevoegde transactiestatistieken en capaciteitsgegevens bevat over Blob Storage-serviceaanvragen voor algemene opslagaccounts en Blob Storage-accounts.
-Deze gegevens worden opgeslagen in bekende tabellen in hetzelfde opslagaccount.
+toomonitor uw bestaande opslagruimte, accounts en deze gegevens te verzamelen, kunt u het gebruik van Azure Storage Analytics waardoor voert logboekregistratie en metrische gegevens voor een opslagaccount.
+Storage Analytics metrische gegevens die samengevoegde statistieken en capaciteit transactiegegevens over aanvragen toohello Blob storage-service voor zowel opslagaccounts als Blob storage-accounts zijn kunnen worden opgeslagen.
+Deze gegevens worden opgeslagen in een bekende tabellen in Hallo hetzelfde opslagaccount.
 
 Raadpleeg voor meer informatie [Informatie over metrische gegevens in Storage Analytics](https://msdn.microsoft.com/library/azure/hh343258.aspx) en [Tabelschema van metrische gegevens in Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Blob Storage-accounts geven het service-eindpunt van de tabel alleen weer voor het opslaan en openen van de metrische gegevens voor dat account.
+> BLOB storage-accounts beschikbaar Hallo tabel service-eindpunt alleen voor het opslaan en openen van Hallo metrische gegevens voor dat account.
 > 
 > 
 
-Voor het controleren van het opslagverbruik voor de Blob Storage-service moet u de metrische gegevens over capaciteit inschakelen.
-Als dit is ingeschakeld, worden de capaciteitsgegevens van een Blob Storage-serviceaccount dagelijks geregistreerd en vastgelegd als een tabelvermelding die naar de *$MetricsCapacityBlob*-tabel binnen hetzelfde opslagaccount wordt geschreven.
+Hallo opslagverbruik toomonitor voor Hallo Blob storage-service, moet u tooenable hello capaciteitsmetrieken.
+Dit is ingeschakeld, capaciteitsgegevens dagelijks voor de Blob-service een opslagaccount worden vastgelegd en geregistreerd als een vermelding die is geschreven toohello *$MetricsCapacityBlob* tabel binnen Hallo dezelfde storage-account.
 
-Voor het controleren van het gegevenstoegangspatroon voor de Blob Storage-service, moet u de metrische gegevens die per uur worden verzameld voor de transactie inschakelen op een API-niveau.
-Als dit is ingeschakeld, worden er elk uur per-API-transacties verzameld en geregistreerd als een tabelvermelding die is naar de *$MetricsHourPrimaryTransactionsBlob*-tabel binnen hetzelfde opslagaccount wordt geschreven. De *$MetricsHourSecondaryTransactionsBlob*-tabel registreert de transacties naar het secundaire eindpunt in het geval van RA-GRS-opslagaccounts.
+toomonitor hello gegevenstoegangspatroon voor Hallo Blob storage-service, moet u tooenable Hallo per uur transactie metrische gegevens op een API-niveau.
+Met deze ingeschakeld per API transacties worden samengevoegd om het uur, en geregistreerd als een vermelding die is geschreven toohello *$MetricsHourPrimaryTransactionsBlob* tabel binnen Hallo hetzelfde opslagaccount. Hallo *$MetricsHourSecondaryTransactionsBlob* tabelrecords Hallo transacties toohello secundair eindpunt in geval van een RA-GRS-accounts voor opslag.
 
 > [!NOTE]
-> Als u een algemeen opslagaccount hebt waarin u pagina-blobs en virtuele-machineschijven hebt opgeslagen naast blok- en toevoegblobgegevens, is dit schattingsproces niet van toepassing. Dit komt omdat er geen enkele manier is om onderscheid te maken tussen metrische gegevens voor capaciteit en voor transactie op basis van het type blob voor alleen blok- en toevoeg-blobs die kunnen worden gemigreerd naar een Blob Storage-account.
+> Als u een algemeen opslagaccount hebt waarin u pagina-blobs en virtuele-machineschijven hebt opgeslagen naast blok- en toevoegblobgegevens, is dit schattingsproces niet van toepassing. Dit komt doordat er geen enkele manier van onderscheidende capaciteit en transactie metrische gegevens op basis van Hallo type blob voor alleen blokkeren en toevoeg-blobs die kunnen worden gemigreerd tooa Blob storage-account.
 > 
 > 
 
-Als u een goede schatting wilt maken van uw gegevensverbruik en toegangspatroon, raden we u aan voor de metrische gegevens een retentieperiode te kiezen die een goede afspiegeling is van uw normale gebruik en dat als uitgangspunt te nemen.
-Een optie is de metrische gegevens 7 dagen te bewaren en de gegevens elke week te verzamelen en aan het einde van de maand te analyseren.
-Een andere optie is de metrische gegevens van de afgelopen 30 dagen te bewaren en deze gegevens aan het einde van deze periode van 30 dagen te verzamelen en te analyseren.
+een goede benadering van uw gegevens gebruiks- en toegangspatroon tooget, wordt aangeraden u kiest een bewaarperiode voor Hallo metrische gegevens die representatief is voor het gebruik van uw normale en afleiden.
+Een mogelijkheid is tooretain Hallo metrische gegevens voor 7 dagen en gegevens verzamelen Hallo elke week voor analyse aan Hallo einde van Hallo maand.
+Een andere optie tooretain Hallo metrische gegevens voor Hallo is afgelopen 30 dagen en verzamelen en analyseren van gegevens Hallo Hallo na 30 dagen Hallo.
 
 Voor meer informatie over het inschakelen, verzamelen en weergeven van metrische gegevens, raadpleegt u [Metrische gegevens voor Azure Storage en metrische weergavegegevens inschakelen](storage-enable-and-view-metrics.md).
 
@@ -229,100 +229,100 @@ Voor meer informatie over het inschakelen, verzamelen en weergeven van metrische
 > 
 > 
 
-#### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Metrische gegevens over het gebruik inzetten voor het schatten van de kosten
+#### <a name="utilizing-usage-metrics-tooestimate-costs"></a>Met metrische gegevens tooestimate gebruikskosten
 ##### <a name="storage-costs"></a>Opslagkosten
-De meest recente vermelding in de metrische gegevenstabel voor capaciteit *$MetricsCapacityBlob* met de rijsleutel *'data'* toont de opslagcapaciteit die wordt gebruikt door gebruikersgegevens.
-De meest recente vermelding in de metrische gegevenstabel voor capaciteit *$MetricsCapacityBlob* met de rijsleutel *'analytics'* toont de opslagcapaciteit die wordt gebruikt door de analyselogboeken.
+meest recente vermelding in de Hallo capaciteit metrische gegevens tabel Hallo *$MetricsCapacityBlob* met Hallo rijsleutel *'data'* toont Hallo opslagcapaciteit verbruikt door gebruikersgegevens.
+meest recente vermelding in de Hallo capaciteit metrische gegevens tabel Hallo *$MetricsCapacityBlob* met Hallo rijsleutel *'analytics'* toont Hallo opslagcapaciteit verbruikt door Hallo analytics Logboeken.
 
-Deze totale capaciteit die wordt verbruikt door zowel gebruikersgegevens en analyselogboeken (indien ingeschakeld) kunnen vervolgens worden gebruikt om de opslagkosten te schatten voor gegevens in het opslagaccount.
-Deze manier kan ook worden gebruikt voor het schatten van de opslagkosten voor blok- en toevoegblobs in algemene opslagaccounts.
+Deze totale capaciteit is verbruikt door beide gebruiker gegevens en analyse-Logboeken (indien ingeschakeld) vervolgens kan worden gebruikt tooestimate Hallo kosten voor het opslaan van gegevens in Hallo storage-account.
+Hallo dezelfde methode kan ook worden gebruikt voor het schatten van de opslagkosten voor blok- en toevoeg-blobs in opslagaccounts.
 
 ##### <a name="transaction-costs"></a>Transactiekosten
-Het totaal van *'TotalBillableRequests'*, in alle items voor een API in de metrische gegevenstabel voor transactie, geeft het totale aantal transacties voor die bepaalde API weer. *bijvoorbeeld*, het totale aantal *'GetBlob'*-transacties in een bepaalde periode kunnen worden berekend door het totaal te nemen van het totale aantal factureerbare aanvragen voor alle items met de rijsleutel *'user;GetBlob'*.
+Hallo som van *'TotalBillableRequests'*, in alle items voor een API in Hallo transactie geeft metrische gegevens tabel Hallo kunt u het totale aantal transacties voor die bepaalde API. *bijvoorbeeld*, totaalaantal Hallo *'GetBlob'* transacties in een bepaalde periode kunnen worden berekend door Hallo som van de totale factureerbare aanvragen voor alle vermeldingen met Hallo rijsleutel *' gebruiker. GetBlob'*.
 
-Voor het schatten van de transactiekosten van Blob Storage-accounts moet u de transacties in drie groepen opdelen omdat ze verschillend zijn geprijsd.
+In de volgorde tooestimate transactiekosten voor Blob storage-accounts moet u toobreak omlaag Hallo transacties in drie groepen omdat ze anders zijn berekend.
 
 * Schrijftransacties zoals *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* en *'CopyBlob'*.
 * Verwijdertransacties zoals *'DeleteBlob'* en *'DeleteContainer'*.
 * Alle andere transacties.
 
-Voor het schatten van de transactiekosten voor algemene opslagaccounts moet u alle transacties verzamelen ongeacht de bewerking/API.
+In de volgorde tooestimate transactiekosten voor opslagaccounts voor algemeen gebruik moet u tooaggregate alle transacties ongeacht Hallo bewerking/API.
 
 ##### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Gegevenstoegang en overdrachtskosten voor geo-replicatiegegevens
-Opslaganalyse biedt geen informatie over de hoeveelheid gegevens die zijn gelezen en geschreven van en naar een opslagaccount, maar deze hoeveelheid kan min of meer worden geschat door te kijken naar de metrische gegevenstabel voor transacties.
-Het totaal van *'TotalIngress'* in alle items voor een API in de metrische gegevenstabel voor transacties, geeft de totale hoeveelheid inkomende gegevens in bytes voor die bepaalde API weer.
-Op dezelfde manier geeft het totaal van *'TotalEgress'* de totale hoeveelheid uitgaande gegevens in bytes weer.
+Hoewel storage analytics geen biedt Hallo hoeveelheid gegevens gelezen uit en geschreven tooa storage-account, deze kan worden ongeveer geschat door te kijken Hallo transactie metrische gegevens tabel.
+Hallo som van *'TotalIngress'* in alle items voor een API in Hallo transactie metrische gegevens geeft tabel Hallo totale hoeveelheid inkomend gegevens in bytes voor die bepaalde API.
+Op dezelfde manier Hallo som van *'TotalEgress'* geeft Hallo totale hoeveelheid uitgaande gegevens, in bytes.
 
-Voor het schatten van de kosten voor het openen van gegevens in Blob Storage-accounts moet u de transacties in twee groepen opdelen.
+In de volgorde tooestimate Hallo gegevens toegangskosten voor Blob storage-accounts moet u toobreak omlaag Hallo transacties in twee groepen.
 
-* De hoeveelheid gegevens die is opgehaald van het opslagaccount, kan worden geschat door te kijken naar het totaal van *'TotalEgress'* voor met name de *'GetBlob'*- en *'CopyBlob'*-bewerkingen.
-* De hoeveelheid gegevens die wordt geschreven naar het opslagaccount kan worden geschat door te kijken naar het totaal van *'TotalIngress'* voor met name de *'PutBlob'*-, *'PutBlock'*-, *'CopyBlob'*- en *'AppendBlock'*-bewerkingen.
+* Hallo en de hoeveelheid gegevens die zijn opgehaald uit Hallo storage-account kan worden geschat door te kijken Hallo som van *'TotalEgress'* voor voornamelijk Hallo *'GetBlob'* en *'CopyBlob'* bewerkingen.
+* Hallo en de hoeveelheid gegevens geschreven toohello storage-account kan worden geschat door te kijken Hallo som van *'TotalIngress'* voor voornamelijk Hallo *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* en *'AppendBlock'* bewerkingen.
 
-De overdrachtskosten van geo-replicatiegegevens voor Blob Storage-accounts kan ook worden berekend met behulp van de schatting voor de hoeveelheid gegevens die wordt geschreven in het geval van een GRS- of RA-GRS-opslagaccount.
+Hallo kosten voor gegevensoverdracht geo-replicatie voor Blob storage-accounts kunnen worden berekend met behulp van Hallo schatting voor Hallo en de hoeveelheid gegevens geschreven in het geval van een GRS of RA-GRS-opslagaccount.
 
 > [!NOTE]
-> Bekijk voor een uitgebreider voorbeeld over het berekenen van de kosten voor het gebruik van opslaglaag voor 'cool' blobs of de opslaglaag voor 'hot' blobs de veelgestelde vraag *'Wat zijn toegangslagen voor 'hot' en 'cool' blobs en hoe bepaal ik welke ik moet gebruiken?'* op de [pagina met prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+> Te kijken hoe Hallo Veelgestelde vragen over met de titel voor een uitgebreider voorbeeld over het berekenen van de kosten voor het gebruik van Hallo hot of cool storage-laag Hallo *'wat Hot en Cool toegangslagen zijn en hoe moet ik bepalen welke één toouse?'* in Hallo [Azure Storage-prijzen pagina](https://azure.microsoft.com/pricing/details/storage/).
 > 
 > 
 
 ### <a name="migrating-existing-data"></a>Bestaande gegevens migreren
-Een Blob Storage-account is speciaal bedoeld voor het opslaan van blok-blobs en toevoeg-blobs. Bestaande opslagaccounts voor algemeen gebruik, waarin u naast blobs ook tabellen, wachtrijen, bestanden en schijven kunt opslaan, kunnen niet worden geconverteerd naar Blob Storage-accounts. Als u gebruik wilt maken van de toegangslagen, maakt u nieuwe Blob Storage-accounts en migreert u de bestaande gegevens naar deze nieuwe accounts.
+Een Blob Storage-account is speciaal bedoeld voor het opslaan van blok-blobs en toevoeg-blobs. Bestaande opslagaccounts, waarmee u toostore tabellen, wachtrijen, bestanden en schijven, evenals blobs, niet geconverteerd tooBlob storage-accounts. toouse Hallo opslaglagen, u moet toocreate nieuwe Blob storage-accounts en uw bestaande gegevens migreren naar nieuw gemaakte Hallo-accounts.
 
-U kunt de volgende methoden gebruiken om bestaande gegevens vanaf on-premises opslagapparaten, van cloudopslagproviders van derden of vanuit bestaande opslagaccounts voor algemeen gebruik in Azure te migreren naar Blob Storage-accounts:
+Kunt u de volgende methoden toomigrate bestaande gegevens in Blob storage-accounts van lokale opslagapparaten, van derden cloudopslagproviders of uw bestaande opslagaccounts in Azure Hallo gebruiken:
 
 #### <a name="azcopy"></a>AzCopy
-AzCopy is een Windows-opdrachtregelprogramma dat is  ontworpen voor het high-performance kopiëren van gegevens van en naar Azure Storage. U kunt AzCopy gebruiken om gegevens uit bestaande opslagaccounts voor algemeen gebruik te kopiëren naar een Blob Storage-account en om gegevens van on-premises opslagaccounts te uploaden naar een Blob Storage-account.
+AzCopy is een Windows-opdrachtregelprogramma ontworpen voor high-performance kopiëren van gegevens tooand uit Azure Storage. U kunt AzCopy toocopy-gegevens in Blob storage-account van uw bestaande opslagaccounts of tooupload van uw opslag on-premises apparaten in Blob storage-account gebruiken.
 
-Zie [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md) voor meer informatie.
+Zie voor meer informatie [gegevensoverdracht met het AzCopy-opdrachtregelprogramma Hallo](storage-use-azcopy.md).
 
 #### <a name="data-movement-library"></a>Bibliotheek voor gegevensverplaatsing
-De Azure Storage-bibliotheek voor gegevensverplaatsing voor .NET is gebaseerd op het basisframework voor gegevensverplaatsing van AzCopy. De bibliotheek is ontworpen voor high-performance, betrouwbare en eenvoudige gegevensoverdracht vergelijkbaar met AzCopy. Hierdoor kunt u in uw toepassing op systeemeigen wijze maximaal profiteren van de functies die AzCopy biedt, zonder dat u externe exemplaren van AzCopy hoeft uit te voeren of te controleren.
+Azure Storage-bibliotheek voor gegevensverplaatsing voor .NET is gebaseerd op Hallo data movement basisschema die ook door AzCopy. Hallo-bibliotheek is ontworpen voor high-performance, betrouwbare en eenvoudige gegevensoverdracht vergelijkbaar tooAzCopy bewerkingen. Hiermee kunt u tootake voordelen van Hallo functies die AzCopy in uw toepassing systeemeigen zonder toodeal aan het uitvoeren en controleren van externe exemplaren van AzCopy.
 
 Zie [Bibliotheek voor gegevensverplaatsing van Azure Storage voor .Net](https://github.com/Azure/azure-storage-net-data-movement) voor meer informatie.
 
 #### <a name="rest-api-or-client-library"></a>REST-API of clientbibliotheek
-U kunt een aangepaste toepassing maken om gegevens naar een Blob Storage-account te migreren met behulp van een van de Azure-clientbibliotheken of de REST API voor Azure Storage-services. Azure Storage biedt uitgebreide clientbibliotheken voor meerdere talen en platforms, zoals  .NET, Java, C++, Node.JS, PHP, Ruby en Python. De clientbibliotheken bieden geavanceerde mogelijkheden, zoals pogingslogica, logboekregistratie en parallelle uploads. U kunt ook rechtstreeks met de REST API ontwikkelen. Deze kan worden aangeroepen in elke taal waarin HTTP-/HTTPS-verzoeken kunnen worden gemaakt.
+U kunt een aangepaste toepassing toomigrate van uw gegevens naar een Blob storage-account met behulp van een Azure-clientbibliotheken Hallo maken of Hallo REST-API van Azure storage-services. Azure Storage biedt uitgebreide clientbibliotheken voor meerdere talen en platforms, zoals  .NET, Java, C++, Node.JS, PHP, Ruby en Python. Hallo-clientbibliotheken bieden geavanceerde mogelijkheden, zoals Pogingslogica, logboekregistratie en parallelle uploads. U kunt ook rechtstreeks met de REST-API kan worden aangeroepen door elke taal waarin HTTP/HTTPS-aanvragen Hallo ontwikkelen.
 
 Zie [Aan de slag met Azure Blob Storage](storage-dotnet-how-to-use-blobs.md) voor meer informatie.
 
 > [!NOTE]
-> Blobs die aan de clientzijde zijn versleuteld, bevatten versleutelingsgerelateerde metagegevens die samen met de blob zijn opgeslagen. Het is absoluut essentieel dat de metagegevens in de blob (en dan met name de versleutelingsgerelateerde metagegevens) bij het kopiëren behouden blijven. Als u de blobs kopieert zonder deze metagegevens, kan de inhoud van de blob niet meer worden opgehaald. Zie [Azure Storage-versleuteling aan de clientzijde](storage-client-side-encryption.md) voor meer informatie over versleutelingsgerelateerde metagegevens.
+> BLOBs die zijn versleuteld met behulp van versleuteling aan clientzijde opslaan versleutelingsgerelateerde metagegevens die zijn opgeslagen met Hallo blob. Het is absoluut essentieel dat kopiëren ervoor zorgen moet dat Hallo blobmetagegevens, en vooral Hallo versleutelingsgerelateerde metagegevens, blijft behouden. Als u blobs Hallo zonder deze metagegevens kopieert, Hallo blob-inhoud wordt niet meer worden opgehaald. Zie [Azure Storage-versleuteling aan de clientzijde](storage-client-side-encryption.md) voor meer informatie over versleutelingsgerelateerde metagegevens.
 > 
 > 
 
 ## <a name="faqs"></a>Veelgestelde vragen
 1. **Zijn de bestaande opslagaccounts nog steeds beschikbaar?**
    
-    Ja, de bestaande opslagaccounts zijn nog steeds beschikbaar. De prijs en de functionaliteit hiervan zijn niet gewijzigd.  U kunt voor deze opslagaccounts echter geen opslaglagen kiezen. Dit zal in de toekomst niet veranderen.
+    Ja, de bestaande opslagaccounts zijn nog steeds beschikbaar. De prijs en de functionaliteit hiervan zijn niet gewijzigd.  Ze hebben geen Hallo mogelijkheid toochoose storage-laag en wordt geen toegangslagen in toekomstige Hallo.
 2. **Waarom en wanneer is het een goed idee om Blob Storage-accounts te gebruiken?**
    
-    Blob Storage-accounts zijn helemaal gericht op het opslaan van blobs en maken het introduceren van nieuwe blobfuncties mogelijk. Het is een goed idee om Blob Storage-accounts te gebruiken voor het opslaan van blobs, omdat er in de toekomst nieuwe mogelijkheden (bijvoorbeeld hiërarchische opslag en lagen) worden geïntroduceerd in dit accounttype. Op basis van uw bedrijfsvereisten bepaalt u echter helemaal zelf wanneer u uw gegevens migreert.
-3. **Kan ik mijn bestaande opslagaccount converteren naar een Blob Storage-account?**
+    BLOB storage-accounts zijn speciaal bedoeld voor het opslaan van blobs en kunnen we toointroduce nieuwe blobfuncties mogelijk. Voortaan kunt zijn Blob storage-accounts Hallo aanbevolen manier voor het opslaan van blobs, als toekomstige mogelijkheden bijvoorbeeld hiërarchische opslag en lagen worden ingevoerd op basis van dit accounttype. Het is echter up tooyou helemaal zelf wanneer u toomigrate op basis van uw zakelijke vereisten.
+3. **Kan ik mijn bestaande storage account tooa Blob storage-account converteren**
    
-    Nee. Een Blob Storage-account is een ander soort opslagaccount. Daarom moet u dit account afzonderlijk maken en dient u de gegevens naar dit account te migreren zoals hierboven wordt uitgelegd.
-4. **Kan ik objecten opslaan in beide opslaglagen van hetzelfde account?**
+    Nee. BLOB storage-account is een ander soort opslagaccount en moet u toocreate deze nieuwe en uw gegevens te migreren zoals hierboven is uitgelegd.
+4. **Kan ik objecten opslaan in beide opslaglagen in Hallo hetzelfde account?**
    
-    Het kenmerk *'Toegangslaag'* dat de opslaglaag aangeeft, wordt op accountniveau ingesteld en is van toepassing op alle objecten in het account. U kunt het kenmerk toegangslaag niet instellen op objectniveau.
-5. **Kan ik de opslaglaag van mijn Blob Storage-account wijzigen?**
+    Hallo *'Laag'* kenmerk waarmee wordt aangegeven Hallo storage-laag is ingesteld op accountniveau en tooall objecten in het account is van toepassing. U kunt Hallo toegang laag kenmerk niet instellen op het objectniveau van een.
+5. **Kan ik Hallo storage-laag van mijn Blob storage-account wijzigen?**
    
-    Ja. U kunt de opslaglaag in het opslagaccount wijzigen door het kenmerk *'Toegangslaag'* in te stellen op het opslagaccount. Als u de opslaglaag wijzigt, is dit van toepassing op alle objecten die in het account zijn opgeslagen. Als u de opslaglaag wijzigt van 'hot' naar 'cool', worden er geen kosten in rekening gebracht. Als u echter de toegangslaag wijzigt van 'cool' naar 'hot', worden er kosten berekend per GB voor het lezen van alle gegevens in het account.
-6. **Hoe vaak kan ik de opslaglaag van mijn Blob Storage-account wijzigen?**
+    Ja. U zult kunnen toochange Hallo opslaglaag door Hallo instelling *'Laag'* -kenmerk op Hallo storage-account. Veranderende Hallo storage-laag geldt tooall-objecten die zijn opgeslagen in het Hallo-account. Wijziging Hallo storage-laag van hot toocool niet eventuele kosten, worden tijdens het wijzigen van cool toohot, worden een per GB kosten voor het lezen van gegevens van alle Hallo Hallo-account.
+6. **Hoe vaak kan ik Hallo storage-laag van mijn Blob storage-account wijzigen?**
    
-    Let op: hoewel er geen beperking bestaat voor het aantal malen dat u de opslaglaag kunt wijzigen, worden er voor het wijzigen van de opslaglaag van 'cool' naar 'hot' aanzienlijke kosten in rekening gebracht. We raden u daarom aan de opslaglaag niet te vaak te wijzigen.
-7. **Gedragen blobs in de opslaglaag voor 'cool' blobs zich anders dan blobs in de opslaglaag voor 'hot' blobs?**
+    Zorg ervoor dat als Hallo opslaglaag wijzigt van cool toohot aanzienlijke kosten terwijl we doen geen beperking op hoe vaak Hallo storage-laag kan worden gewijzigd. We raden niet Hallo opslaglaag vaak wijzigen.
+7. **Wordt Hallo blobs in de cool storage-laag Hallo zich anders gedragen dan uitzonderingen in de hot storage-laag Hallo Hallo?**
    
-    Blobs in de opslaglaag voor 'hot' blobs hebben dezelfde latentie als blobs in opslagaccounts voor algemeen gebruik. Blobs in de opslaglaag voor 'cool' blobs hebben een gelijksoortige latentie (in milliseconden) als blobs in opslagaccounts voor algemeen gebruik.
+    BLOBs in de hot storage-laag Hallo Hallo hebben dezelfde latentie als blobs in opslagaccounts. BLOBs in de cool storage-laag Hallo hebben een gelijksoortige latentie (in milliseconden) als blobs in opslagaccounts voor algemeen gebruik.
    
-    Blobs in de opslaglaag voor 'cool' blobs hebben een lagere SLA (Service Level Availability) dan blobs die zijn opgeslagen in de opslaglaag voor 'hot' blobs. Zie [SLA voor opslag](https://azure.microsoft.com/support/legal/sla/storage) voor meer informatie.
+    BLOBs in de cool storage-laag hello wordt een iets lagere beschikbaarheid serviceniveau (SLA) dan Hallo blobs die zijn opgeslagen in de hot storage-laag Hallo hebben. Zie [SLA voor opslag](https://azure.microsoft.com/support/legal/sla/storage) voor meer informatie.
 8. **Kan ik pagina-blobs en virtuele-machineschijven opslaan in Blob Storage-accounts?**
    
-    Blob Storage-accounts ondersteunen alleen blok-blobs en toevoeg-blobs. Pagina-blobs worden niet ondersteund. Omdat virtuele machines van Azure gebruikmaken van pagina-blobs, kunnen virtuele-machineschijven niet worden opgeslagen in Blob Storage-accounts. Het is echter wel mogelijk om back-ups van de virtuele-machineschijven als blok-blobs op te slaan in een Blob Storage-account.
-9. **Moet ik mijn bestaande toepassingen wijzigen om Blob Storage-accounts te kunnen gebruiken?**
+    Blob Storage-accounts ondersteunen alleen blok-blobs en toevoeg-blobs. Pagina-blobs worden niet ondersteund. Virtuele machine van Azure-schijven worden ondersteund door de pagina-blobs en als gevolg hiervan toostore gebruikte virtuele-machineschijven mag niet in Blob storage-accounts. Maar het is mogelijk toostore back-ups van Hallo virtuele-machineschijven als blok-blobs in een Blob storage-account.
+9. **Moet ik toochange mijn bestaande toepassingen toouse Blob storage-accounts?**
    
-    Blob Storage-accounts zijn voor 100 procent API-consistent met opslagaccounts voor algemeen gebruik voor blok- en toevoeg-blobs. Zolang uw toepassing gebruikmaakt van blok-blobs of toevoeg-blobs en u versie 2014-02-14 of hoger van de [REST-API voor Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx) gebruikt, zal uw toepassing geen problemen ondervinden. Als u een oudere versie van het protocol gebruikt, moet u uw toepassing bijwerken voor gebruik van de nieuwe versie, zodat deze naadloos werkt met beide typen opslagaccounts. Over het algemeen is het bijna altijd het beste om de meest recente versie te gebruiken, ongeacht het type opslagaccount dat u gebruikt.
+    Blob Storage-accounts zijn voor 100 procent API-consistent met opslagaccounts voor algemeen gebruik voor blok- en toevoeg-blobs. Zolang uw toepassing gebruikmaakt van blok-blobs of toevoeg-blobs en gebruik Hallo 2014-02-14 versie Hallo [REST-API voor Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx) of hoger moet samenwerken met uw toepassing. Als u een oudere versie van het Hallo-protocol gebruikt, moet u tooupdate uw toouse Hallo nieuwe toepassingsversie dus als toowork naadloos met beide typen opslagaccounts. In het algemeen altijd wordt aangeraden de nieuwste versie Hallo ongeacht welke opslagaccounttype dat u gebruikt.
 10. **Is de gebruikerservaring gewijzigd?**
     
-    Blob Storage-accounts zijn vergelijkbaar met opslagaccounts voor algemeen gebruik voor het opslaan van blok- en toevoeg-blobs. Hierbij maken ze maximaal gebruik van de kracht van Azure Storage op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid, prestaties en beveiliging. Afgezien van de hierboven beschreven functionaliteit en beperkingen die specifiek zijn voor Blob Storage-accounts en de bijbehorende opslaglagen, verandert er voor u niets.
+    BLOB storage-accounts zijn vergelijkbaar tooa opslagaccounts voor voor het opslaan van blok en toevoeg-blobs en ondersteuning van alle onderdelen met de Hallo van Azure Storage, met inbegrip van hoge duurzaamheid en beschikbaarheid, schaalbaarheid, prestaties en beveiliging. Dan Hallo functies en -beperkingen specifieke tooBlob storage-accounts en de opslaglagen die hierboven, alles is genoemd Hallo anders blijft hetzelfde.
 
 ## <a name="next-steps"></a>Volgende stappen
 ### <a name="evaluate-blob-storage-accounts"></a>Blob Storage-accounts evalueren
@@ -337,9 +337,9 @@ Zie [Aan de slag met Azure Blob Storage](storage-dotnet-how-to-use-blobs.md) voo
 ### <a name="start-using-blob-storage-accounts"></a>Blob Storage-accounts gebruiken
 [Aan de slag met Azure Blob Storage](storage-dotnet-how-to-use-blobs.md)
 
-[Gegevens verplaatsen naar en uit Azure Storage](storage-moving-data.md)
+[Verplaatsen van gegevens tooand van Azure Storage](storage-moving-data.md)
 
-[Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md)
+[Gegevensoverdracht met het AzCopy-opdrachtregelprogramma Hallo](storage-use-azcopy.md)
 
 [Uw opslagaccounts bekijken en verkennen](http://storageexplorer.com/)
 

@@ -1,6 +1,6 @@
 ---
-title: Kan niet aanmelden bij Azure-abonnement | Microsoft Docs
-description: Beschrijft hoe een aantal algemene Azure-abonnement aanmelding problemen kunt oplossen.
+title: aaaCan't tooAzure abonnement aanmelden | Microsoft Docs
+description: Hierin wordt beschreven hoe tootroubleshoot enkele algemene Azure-abonnement aanmelding uitgeeft.
 services: 
 documentationcenter: 
 author: genlin
@@ -15,35 +15,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: genli
-ms.openlocfilehash: 4f67be9b59ab42e10c4cd755998795a72b711da6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 00a4d04be18567a803032bb836fc6f1ac9cc5ffe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="i-cant-sign-in-to-manage-my-azure-subscription"></a>Ik kan niet aanmelden bij het beheren van mijn Azure-abonnement
-In dit artikel begeleidt u bij een aantal veelgebruikte methoden voor aanmelding problemen oplossen.
+# <a name="i-cant-sign-in-toomanage-my-azure-subscription"></a>Ik kan niet aanmelden toomanage mijn Azure-abonnement
+In dit artikel begeleidt u bij van Hallo meest voorkomende methoden tooresolve aanmelding problemen.
 
-## <a name="page-hangs-in-the-loading-status"></a>Pagina reageert niet meer in de status laden
-Als uw pagina van de browser internet vastloopt, probeert u elk van de volgende stappen totdat u tot krijgen toegang de [Azure-portal](https://portal.azure.com).
+## <a name="page-hangs-in-hello-loading-status"></a>Pagina reageert niet meer in Hallo bij het laden van status
+Als uw internet browser pagina loopt vast, probeert elk van de volgende Hallo stappen totdat u toohello [Azure-portal](https://portal.azure.com).
 
-* Vernieuw de pagina.
+* Hallo pagina vernieuwen.
 * Gebruik een andere internetbrowser.
-* Als u Microsoft Internet Explorer, bladert u naar de Azure-portal met behulp van de modus InPrivate-navigatie. 
+* Als u Microsoft Internet Explorer, bladert u toohello Azure-portal met behulp van Hallo InPrivate-navigatie-modus. 
   
   A. Klik op **extra** ![knop Extra](./media/billing-cannot-login-subscription/Toolsbutton.png) > **veiligheid** > **InPrivate-navigatie**.
   
-  B. Blader naar de [Azure-portal](https://portal.azure.com), en vervolgens weer aanmelden bij de portal.
+  B. Blader toohello [Azure-portal](https://portal.azure.com), en vervolgens weer aanmelden toohello-portal.
 
 ## <a name="you-are-automatically-signed-in-as-a-different-user"></a>U bent automatisch aangemeld als een andere gebruiker
 Dit probleem kan optreden als u meer dan één gebruikersaccount in een internetbrowser gebruiken.
 
-U lost het probleem probeert u een van de volgende methoden:
+tooresolve hello probleem probeer Hallo volgende methoden:
 
-* De cache wissen en verwijderen van cookies met Internet. Klik in Internet Explorer op **extra** ![knop Extra](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Internetopties** > **verwijderen**. Zorg ervoor dat de selectievakjes voor tijdelijke bestanden, cookies, wachtwoord en browsegeschiedenis zijn geselecteerd en klik vervolgens op verwijderen.
-* De standaardinstellingen van de Internet Explorer als u wilt terugkeren van alle persoonlijke instellingen die u hebt aangebracht. Klik op **extra** ![knop Extra](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Internetopties** > **Geavanceerd** > Selecteer de **persoonlijke instellingen verwijderen** vak > **opnieuw instellen**.
-* Blader naar de Azure-portal in de modus InPrivate-navigatie. Klik op **extra** ![knop Extra](./media/billing-cannot-login-subscription/Toolsbutton.png) > **veiligheid** > **InPrivate-navigatie**.
+* Hallo-cache wissen en verwijderen van cookies met Internet. Klik in Internet Explorer op **extra** ![knop Extra](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Internetopties** > **verwijderen**. Zorg ervoor dat de selectievakjes Hallo voor tijdelijke bestanden, cookies, wachtwoord en browsegeschiedenis zijn geselecteerd en klik vervolgens op verwijderen.
+* Opnieuw instellen Hallo Internet Explorer-instellingen toorevert alle persoonlijke instellingen die u hebt aangebracht. Klik op **extra** ![knop Extra](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Internetopties** > **Geavanceerd** > Selecteer Hallo **Persoonlijke instellingen verwijderen** vak > **opnieuw**.
+* Blader toohello Azure-portal in de modus InPrivate-navigatie. Klik op **extra** ![knop Extra](./media/billing-cannot-login-subscription/Toolsbutton.png) > **veiligheid** > **InPrivate-navigatie**.
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
-Als u nog hulp nodig hebt, [contact op met ondersteuning](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) ophalen van uw probleem snel worden opgelost. 
+Als u nog hulp nodig hebt, [contact op met ondersteuning](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) tooget uw probleem snel worden opgelost. 
 

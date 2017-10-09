@@ -1,6 +1,6 @@
 ---
-title: Azure Blob-opslag gebruiken met de WebJobs SDK
-description: Informatie over het Azure blob storage gebruiken met de WebJobs SDK. Een proces wordt geactiveerd wanneer een nieuwe blob wordt weergegeven in een container en verwerken van verontreinigde BLOB's.
+title: aaaHow toouse Azure blob storage met Hallo WebJobs SDK
+description: Meer informatie over hoe toouse Azure blob-opslag met Hallo WebJobs SDK. Een proces wordt geactiveerd wanneer een nieuwe blob wordt weergegeven in een container en verwerken van verontreinigde BLOB's.
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
@@ -14,30 +14,30 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
-ms.openlocfilehash: e0a792ccdf8097d5cde254d6d4690a64838378ea
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b34ea8cffee7c0475641886150dee521130a3132
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-blob-storage-with-the-webjobs-sdk"></a>Azure Blob-opslag gebruiken met de WebJobs SDK
+# <a name="how-toouse-azure-blob-storage-with-hello-webjobs-sdk"></a>Hoe toouse Azure blob-opslag met Hallo WebJobs SDK
 ## <a name="overview"></a>Overzicht
-Deze handleiding bevat C#-codevoorbeelden die laten hoe een proces wordt geactiveerd zien wanneer een Azure-blob is gemaakt of bijgewerkt. De code voorbeelden gebruik [WebJobs SDK](websites-dotnet-webjobs-sdk.md) versie 1.x.
+Deze handleiding bevat C# code voorbeelden die tonen hoe tootrigger een proces wanneer een Azure-blob is gemaakt of bijgewerkt. Hallo code voorbeelden gebruik [WebJobs SDK](websites-dotnet-webjobs-sdk.md) versie 1.x.
 
-Zie voor codevoorbeelden die laten hoe zien u blobs, [Azure queue storage gebruiken met de WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+Zie voor codevoorbeelden die laten zien hoe toocreate blobs [hoe toouse Azure queue storage Hello WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
-De handleiding wordt ervan uitgegaan dat u weet [tekenreeksen dat punt naar uw opslagaccount, het maken van een webtaak-project in Visual Studio met verbinding](websites-dotnet-webjobs-sdk-get-started.md) of [meerdere opslagaccounts](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
+Hallo handleiding wordt ervan uitgegaan dat u weet [hoe een webtaak-project in Visual Studio met verbinding toocreate dat punt tooyour storage-account tekenreeksen](websites-dotnet-webjobs-sdk-get-started.md) of te[meerdere opslagaccounts](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 
-## <a id="trigger"></a>Het activeren van een functie wanneer een blob is gemaakt of bijgewerkt
-Deze sectie wordt beschreven hoe u de `BlobTrigger` kenmerk. 
+## <a id="trigger"></a>Hoe tootrigger een functie wanneer een blob is gemaakt of bijgewerkt
+Deze sectie wordt beschreven hoe toouse hello `BlobTrigger` kenmerk. 
 
 > [!NOTE]
-> De WebJobs SDK scant logboekbestanden moeten worden gecontroleerd op nieuwe of gewijzigde blobs. Dit proces is niet realtime; een functie mogelijk niet ophalen geactiveerd tot enkele minuten of langer nadat de blob is gemaakt. Bovendien [opslag logboeken worden gemaakt op een 'best inspanningen'](https://msdn.microsoft.com/library/azure/hh343262.aspx) basis; er is geen garantie dat alle gebeurtenissen wordt vastgelegd. Onder bepaalde omstandigheden kunnen een logboeken worden gemist. Als de beperkingen snelheid en betrouwbaarheid van blob-triggers niet toegestaan voor uw toepassing zijn, de aanbevolen methode is het maken van een wachtrijbericht wanneer u de blob maken en gebruiken de [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) kenmerk in plaats van de `BlobTrigger` kenmerk voor de functie die de blob wordt verwerkt.
+> Hallo WebJobs SDK scans logboek bestanden toowatch voor nieuwe of gewijzigde blobs. Dit proces is niet realtime; een functie mogelijk niet ophalen geactiveerd tot enkele minuten of langer nadat Hallo blob is gemaakt. Bovendien [opslag logboeken worden gemaakt op een 'best inspanningen'](https://msdn.microsoft.com/library/azure/hh343262.aspx) basis; er is geen garantie dat alle gebeurtenissen wordt vastgelegd. Onder bepaalde omstandigheden kunnen een logboeken worden gemist. Als de snelheid en betrouwbaarheid beperkingen Hallo van blob-triggers niet toegestaan voor uw toepassing zijn, Hallo aanbevolen methode toocreate een wachtrijbericht is wanneer u Hallo blob maken en Hallo gebruiken [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) in plaats van het kenmerk Hallo `BlobTrigger` -kenmerk op Hallo-functie die Hallo blob verwerkt.
 > 
 > 
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>Één tijdelijke aanduiding voor blob-naam met de extensie
-Het volgende codevoorbeeld kopieert tekst blobs die worden weergegeven in de *invoer* container voor de *uitvoer* container:
+Hallo codevoorbeeld tekst blobs die worden weergegeven in kopieert Hallo *invoer* container toohello *uitvoer* container:
 
         public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
             [Blob("output/{name}")] out string output)
@@ -45,9 +45,9 @@ Het volgende codevoorbeeld kopieert tekst blobs die worden weergegeven in de *in
             output = input.ReadToEnd();
         }
 
-De kenmerkconstructor tekenreeksparameter een waarin de containernaam van de en een tijdelijke aanduiding voor de blob-naam opgegeven. In dit voorbeeld als de naam van een blob *Blob1.txt* wordt gemaakt in de *invoer* -container, de functie maakt een blob met de naam *Blob1.txt* in de *uitvoer* container. 
+Hallo kenmerkconstructor tekenreeksparameter een die Hallo containernaam en een tijdelijke aanduiding voor Hallo blob-naam aangeeft. In dit voorbeeld als de naam van een blob *Blob1.txt* wordt gemaakt in Hallo *invoer* -container, Hallo-functie maakt een blob met de naam *Blob1.txt* in Hallo *uitvoer*  container. 
 
-Zoals wordt weergegeven in het volgende codevoorbeeld, kunt u een bestandsnaampatroon opgeven met de tijdelijke aanduiding voor blob:
+Zoals wordt weergegeven in het volgende codevoorbeeld hello, kunt u een bestandsnaampatroon opgeven met de Hallo blob naam tijdelijke:
 
         public static void CopyBlob([BlobTrigger("input/original-{name}")] TextReader input,
             [Blob("output/copy-{name}")] out string output)
@@ -55,9 +55,9 @@ Zoals wordt weergegeven in het volgende codevoorbeeld, kunt u een bestandsnaampa
             output = input.ReadToEnd();
         }
 
-Deze code alleen blobs die namen die beginnen met 'oorspronkelijke--' hebt opgehaald. Bijvoorbeeld: *oorspronkelijke Blob1.txt* in de *invoer* container wordt gekopieerd naar *kopie Blob1.txt* in de *uitvoer* container.
+Deze code alleen blobs die namen die beginnen met 'oorspronkelijke--' hebt opgehaald. Bijvoorbeeld: *oorspronkelijke Blob1.txt* in Hallo *invoer* container te worden gekopieerd*kopie Blob1.txt* in Hallo *uitvoer* container.
 
-Als u een naampatroon opgeven voor blob-namen die accolades hebben met de naam moet, dubbelklikt u accolades gebruiken. Bijvoorbeeld, als u wilt zoeken blobs in de *installatiekopieën* container met namen als volgt:
+Als u een bestandsnaampatroon toospecify voor blobnamen die accolades in Hallo naam hebben moet, dubbelklik Hallo accolades gebruiken. Bijvoorbeeld, als u wilt dat toofind blobs in Hallo *installatiekopieën* container met namen als volgt:
 
         {20140101}-soundfile.mp3
 
@@ -65,10 +65,10 @@ Gebruik deze optie voor het patroon:
 
         images/{{20140101}}-{name}
 
-In het voorbeeld wordt de *naam* aanduidingswaarde zou worden *soundfile.mp3*. 
+In voorbeeld Hallo Hallo *naam* aanduidingswaarde zou worden *soundfile.mp3*. 
 
 ### <a name="separate-blob-name-and-extension-placeholders"></a>Afzonderlijke blob-naam en extensie voor tijdelijke aanduidingen
-Het volgende codevoorbeeld de bestandsextensie wijzigt, zoals het gekopieerd blobs die worden weergegeven in de *invoer* container voor de *uitvoer* container. De code registreert de uitbreiding van de *invoer* blob en stelt u de uitbreiding van de *uitvoer* -blob naar *.txt*.
+Hallo volgende code voorbeeld wijzigt Hallo bestandsextensie als blobs die worden weergegeven in Hallo gekopieerd *invoer* container toohello *uitvoer* container. Hallo code registreert Hallo extensie Hallo *invoer* blob en Hiermee stelt u de extensie Hallo Hallo *uitvoer* blob te*.txt*.
 
         public static void CopyBlobToTxtFile([BlobTrigger("input/{name}.{ext}")] TextReader input,
             [Blob("output/{name}.txt")] out string output,
@@ -81,8 +81,8 @@ Het volgende codevoorbeeld de bestandsextensie wijzigt, zoals het gekopieerd blo
             output = input.ReadToEnd();
         }
 
-## <a id="types"></a>Typen die u aan BLOB's koppelen kunt
-U kunt de `BlobTrigger` -kenmerk op de volgende typen:
+## <a id="types"></a>Typen dat kunt u tooblobs binden
+U kunt Hallo `BlobTrigger` -kenmerk op Hallo volgende typen:
 
 * `string`
 * `TextReader`
@@ -96,12 +96,12 @@ U kunt de `BlobTrigger` -kenmerk op de volgende typen:
 * `IEnumerable<CloudPageBlob>`
 * Andere typen gedeserialiseerd door [ICloudBlobStreamBinder](#icbsb) 
 
-Als u samenwerken met het Azure storage-account wilt, kunt u ook toevoegen een `CloudStorageAccount` -parameter voor de methodehandtekening.
+Als u wilt dat toowork rechtstreeks met hello Azure storage-account, kunt u ook toevoegen een `CloudStorageAccount` parameter toohello methodehandtekening.
 
-Zie voor voorbeelden van de [blob-binding-code in de sdk van azure webjobs-opslagplaats op GitHub.com](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs).
+Zie voor voorbeelden Hallo [blob-code van de binding in Hallo sdk van azure webjobs opslagplaats op GitHub.com](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs).
 
-## <a id="string"></a>Ophalen van blob tekstinhoud door binding naar een tekenreeks
-Als tekst blobs worden verwacht, `BlobTrigger` kunnen worden toegepast op een `string` parameter. Het volgende codevoorbeeld wordt gebonden een tekst-blob naar een `string` parameter met de naam `logMessage`. De functie wordt deze parameter de inhoud van de blob geschreven naar het dashboard WebJobs SDK. 
+## <a id="string"></a>Tekst blob-inhoud opvragen door binding toostring
+Als tekst blobs worden verwacht, `BlobTrigger` kunnen worden toegepast tooa `string` parameter. Hallo volgende codevoorbeeld wordt gebonden een blob tekst tooa `string` parameter met de naam `logMessage`. Hallo-functie maakt gebruik van die inhoud parameter toowrite Hallo van Hallo blob toohello WebJobs SDK-dashboard. 
 
         public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
             string name, 
@@ -113,7 +113,7 @@ Als tekst blobs worden verwacht, `BlobTrigger` kunnen worden toegepast op een `s
         }
 
 ## <a id="icbsb"></a>Ophalen van blob-inhoud geserialiseerd met behulp van ICloudBlobStreamBinder
-Het volgende codevoorbeeld maakt gebruik van een klasse die implementeert `ICloudBlobStreamBinder` zodat de `BlobTrigger` kenmerk binden van een blob naar de `WebImage` type.
+Hallo volgende codevoorbeeld maakt gebruik van een klasse die implementeert `ICloudBlobStreamBinder` tooenable hello `BlobTrigger` toobind een blob-toohello kenmerk `WebImage` type.
 
         public static void WaterMark(
             [BlobTrigger("images3/{name}")] WebImage input,
@@ -132,7 +132,7 @@ Het volgende codevoorbeeld maakt gebruik van een klasse die implementeert `IClou
             output = input.Resize(width, height);
         }
 
-De `WebImage` binding code is opgegeven een `WebImageBinder` klasse die is afgeleid van `ICloudBlobStreamBinder`.
+Hallo `WebImage` binding code is opgegeven een `WebImageBinder` klasse die is afgeleid van `ICloudBlobStreamBinder`.
 
         public class WebImageBinder : ICloudBlobStreamBinder<WebImage>
         {
@@ -149,8 +149,8 @@ De `WebImage` binding code is opgegeven een `WebImageBinder` klasse die is afgel
             }
         }
 
-## <a name="getting-the-blob-path-for-the-triggering-blob"></a>Ophalen van de blobpad voor de activerende blob
-Als u wilt ophalen van de naam van de container en de blob-naam van de blob die de functie is geactiveerd, bevatten een `blobTrigger` opgegeven parameter in de functiehandtekening.
+## <a name="getting-hello-blob-path-for-hello-triggering-blob"></a>Hallo blobpad ophalen voor activering van blob Hallo
+Hallo-containernaam tooget en blob-naam van de blob Hallo die Hallo-functie is geactiveerd bevatten een `blobTrigger` tekenreeksparameter in Hallo functiehandtekening.
 
         public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
             string name,
@@ -163,20 +163,20 @@ Als u wilt ophalen van de naam van de container en de blob-naam van de blob die 
         }
 
 
-## <a id="poison"></a>Het verwerken van verontreinigde blobs
-Wanneer een `BlobTrigger` functie mislukt, de SDK-aanroepen deze opnieuw als de fout is veroorzaakt door een tijdelijke fout. Als de fout wordt veroorzaakt door de inhoud van de blob, mislukt de functie elke keer dat de blob wordt verwerkt. Standaard de SDK-aanroepen een functie maximaal 5 maal voor een opgegeven blob. Als de vijfde mislukt probeert, wordt een bericht met de SDK toegevoegd aan een wachtrij met de naam *webjobs-blobtrigger-poison*.
+## <a id="poison"></a>Hoe toohandle poison blobs
+Wanneer een `BlobTrigger` functie mislukt, Hallo SDK aangeroepen opnieuw, indien Hallo-fout is veroorzaakt door een tijdelijke fout. Als Hallo fout wordt veroorzaakt door Hallo inhoud van de blob hello, mislukt de Hallo functie telkens wanneer wordt geprobeerd tooprocess Hallo blob. Standaard-Hallo SDK een functie van too5 tijden aanroepen voor een opgegeven blob. Als de vijfde probeer Hallo mislukt, Hallo SDK wordt toegevoegd een berichtenwachtrij tooa met de naam *webjobs-blobtrigger-poison*.
 
-Het maximum aantal nieuwe pogingen kan worden geconfigureerd. Dezelfde [MaxDequeueCount](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) instelling wordt gebruikt voor de verwerking van verontreinigde blob en wachtrij verontreinigd bericht verwerking. 
+maximum aantal pogingen Hallo kan worden geconfigureerd. Hallo dezelfde [MaxDequeueCount](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) instelling wordt gebruikt voor de verwerking van verontreinigde blob en wachtrij verontreinigd bericht verwerking. 
 
-Bericht uit de wachtrij voor verontreinigde blobs is een JSON-object met de volgende eigenschappen:
+Hallo-bericht van wachtrij voor verontreinigde blobs is een JSON-object met Hallo volgende eigenschappen:
 
-* FunctionId (in de notatie *{naam van een webtaak}*. Functies. *{Functienaam}*, bijvoorbeeld: WebJob1.Functions.CopyBlob)
+* FunctionId (Hallo indeling *{naam van een webtaak}*. Functies. *{Functienaam}*, bijvoorbeeld: WebJob1.Functions.CopyBlob)
 * BlobType ('BlockBlob' of 'PageBlob')
 * ContainerName
 * BlobName
 * ETag (een blob-id, bijvoorbeeld: '0x8D1DC6E70A277EF')
 
-In het volgende codevoorbeeld wordt de `CopyBlob` functie heeft code die ervoor zorgt dat mislukken telkens wanneer deze wordt aangeroepen. Nadat de SDK voor het maximum aantal nieuwe pogingen aangeroepen, een bericht in de wachtrij verontreinigd blob gemaakt en dat bericht is verwerkt door de `LogPoisonBlob` functie. 
+In de volgende Hallo code voorbeeld hello `CopyBlob` functie heeft code die ervoor zorgt toofail dat telkens wanneer deze wordt aangeroepen. Nadat Hallo SDK voor Hallo kunt u het maximum aantal nieuwe pogingen aangeroepen, een bericht op Hallo verontreinigd blob wachtrij is gemaakt en dat bericht is verwerkt door Hallo `LogPoisonBlob` functie. 
 
         public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
             [Blob("textblobs/output-{name}")] out string output)
@@ -196,7 +196,7 @@ In het volgende codevoorbeeld wordt de `CopyBlob` functie heeft code die ervoor 
             logger.WriteLine("ETag: {0}", message.ETag);
         }
 
-De SDK deserializes automatisch het JSON-bericht. Hier volgt de `PoisonBlobMessage` klasse: 
+Hallo SDK deserializes automatisch JSON het Hallo-bericht. Hier volgt Hallo `PoisonBlobMessage` klasse: 
 
         public class PoisonBlobMessage
         {
@@ -208,40 +208,40 @@ De SDK deserializes automatisch het JSON-bericht. Hier volgt de `PoisonBlobMessa
         }
 
 ### <a id="polling"></a>BLOB polling-algoritme
-De WebJobs SDK scant alle containers die zijn opgegeven door `BlobTrigger` kenmerken aan begin van de toepassing. In een grote opslagaccount deze scan kan enige tijd duren, zodat dit mogelijk even voordat nieuwe blobs zijn gevonden en `BlobTrigger` functies worden uitgevoerd.
+Hallo WebJobs SDK scant alle containers die zijn opgegeven door `BlobTrigger` kenmerken aan begin van de toepassing. In een grote opslagaccount deze scan kan enige tijd duren, zodat dit mogelijk even voordat nieuwe blobs zijn gevonden en `BlobTrigger` functies worden uitgevoerd.
 
-Om te detecteren nieuwe of gewijzigde blobs na het starten van toepassingsservices, leest de SDK periodiek uit de logboeken van de blob-opslag. De logboeken van de blob zijn gebufferd en alleen fysiek elke 10 minuten weggeschreven of dus, dus er aanzienlijke vertraging optreden nadat een blob wordt gemaakt of voordat de bijbehorende bijgewerkt `BlobTrigger` functie wordt uitgevoerd. 
+toodetect blobs nieuw of gewijzigd na toepassing start, Hallo die SDK periodiek uit Hallo blob-opslag leest Logboeken. Hallo blob logboeken zijn gebufferd en alleen fysiek elke 10 minuten weggeschreven of dus, dus er aanzienlijke vertraging optreden nadat een blob wordt gemaakt of voordat het Hallo overeenkomt bijgewerkt `BlobTrigger` functie wordt uitgevoerd. 
 
-Er is een uitzondering voor blobs die u met behulp van maakt de `Blob` kenmerk. Wanneer de WebJobs SDK een nieuwe blob maakt, wordt de nieuwe blob onmiddellijk doorgegeven aan een overeenkomende `BlobTrigger` functies. Daarom hebt u een keten van blob-invoer en uitvoer, kan de SDK verwerken efficiënt. Maar als u wilt een lage latentie functies voor blobs die zijn gemaakt of bijgewerkt op een andere manier voor het verwerken van uw blob uitgevoerd, wordt u aangeraden `QueueTrigger` plaats `BlobTrigger`.
+Er is een uitzondering voor blobs die u maakt met behulp van Hallo `Blob` kenmerk. Als Hallo WebJobs SDK wordt een nieuwe blob gemaakt, wordt de nieuwe blob Hallo onmiddellijk doorgegeven tooany overeenkomende `BlobTrigger` functies. Daarom hebt u een keten van blob-invoer en uitvoer, kan Hallo SDK verwerken efficiënt. Maar als u wilt een lage latentie functies voor blobs die zijn gemaakt of bijgewerkt op een andere manier voor het verwerken van uw blob uitgevoerd, wordt u aangeraden `QueueTrigger` plaats `BlobTrigger`.
 
 ### <a id="receipts"></a>BLOB ontvangstbevestigingen
-De WebJobs SDK zorgt ervoor dat er geen `BlobTrigger` functie wordt meer dan één keer aangeroepen voor de dezelfde nieuwe of bijgewerkte blob. Dit wordt uitgevoerd door het onderhouden van *blob ontvangstbevestigingen* om te bepalen of een versie van de opgegeven blob is verwerkt.
+Hallo WebJobs SDK zorgt ervoor dat er geen `BlobTrigger` functie wordt aangeroepen meer dan één keer voor Hallo dezelfde nieuw of bijgewerkt blob. Dit wordt uitgevoerd door het onderhouden van *blob ontvangstbevestigingen* in volgorde toodetermine als een versie van de opgegeven blob is verwerkt.
 
-BLOB ontvangstbevestigingen worden opgeslagen in een container met de naam *webjobs-azure-hosts* in de Azure storage-account dat is opgegeven door de verbindingsreeks AzureWebJobsStorage. De ontvangst van een blob heeft de volgende informatie:
+BLOB ontvangstbevestigingen worden opgeslagen in een container met de naam *webjobs-azure-hosts* in hello Azure storage-account is opgegeven door Hallo AzureWebJobsStorage verbindingsreeks. De ontvangst van een blob heeft Hallo volgende informatie:
 
-* De functie die voor de blob is aangeroepen ('*{naam van een webtaak}*. Functies. *{Functienaam}*', bijvoorbeeld: 'WebJob1.Functions.CopyBlob')
-* De containernaam
-* Het blobtype ('BlockBlob' of 'PageBlob')
-* De blob-naam
-* De ETag (een blob-id, bijvoorbeeld: '0x8D1DC6E70A277EF')
+* de functie die is aangeroepen voor blob Hallo Hallo ('*{naam van een webtaak}*. Functies. *{Functienaam}*', bijvoorbeeld: 'WebJob1.Functions.CopyBlob')
+* Hallo-containernaam
+* Hallo blobtype ('BlockBlob' of 'PageBlob')
+* Hallo blob-naam
+* Hallo ETag (een blob-id, bijvoorbeeld: '0x8D1DC6E70A277EF')
 
-Als u afdwingen opnieuw verwerken van een blob wilt, kunt u handmatig de ontvangst van de blob voor blob uit verwijderen de *webjobs-azure-hosts* container.
+Als u tooforce opnieuw verwerken van een blob wilt, kunt u Hallo blob ontvangst voor blob handmatig verwijderen van Hallo *webjobs-azure-hosts* container.
 
-## <a id="queues"></a>Verwante onderwerpen gedekt door het artikel wachtrijen
-Scenario's die niet specifiek zijn voor blob-verwerking, Zie voor meer informatie over het afhandelen van de blob-verwerking geactiveerd door een wachtrijbericht of voor WebJobs SDK [Azure queue storage gebruiken met de WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+## <a id="queues"></a>Verwante onderwerpen Hallo wachtrijen artikel vallen
+Zie voor informatie over hoe toohandle blob verwerking geactiveerd door een wachtrijbericht of voor de WebJobs SDK scenario's geen specifieke tooblob verwerking, [hoe toouse Azure queue storage Hello WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
-Verwante onderwerpen in dit artikel omvatten het volgende:
+Verwante onderwerpen in dit artikel zijn Hallo volgende:
 
 * Async-functies
 * Meerdere exemplaren
 * Correct afsluiten
-* Kenmerken in de hoofdtekst van een functie WebJobs SDK gebruiken
-* De SDK-verbindingsreeksen in code instellen.
+* Kenmerken in de hoofdtekst van een functie Hallo WebJobs SDK gebruiken
+* Hallo SDK verbindingsreeksen in code instellen.
 * Waarden instellen voor de WebJobs SDK constructorparameters in code
 * Configureer `MaxDequeueCount` voor het verwerken van verontreinigde blob.
 * Een functie handmatig activeren
 * Schrijven Logboeken
 
 ## <a id="nextsteps"></a> Volgende stappen
-Deze handleiding is opgegeven codevoorbeelden die laten hoe algemene scenario's zien voor het werken met Azure blobs afhandelen. Zie voor meer informatie over het gebruik van Azure WebJobs en de WebJobs SDK [Azure WebJobs aanbevolen Resources](http://go.microsoft.com/fwlink/?linkid=390226).
+Deze handleiding is opgegeven codevoorbeelden die tonen hoe toohandle algemene scenario's voor het werken met Azure blobs. Voor meer informatie over hoe toouse Azure WebJobs en Hallo WebJobs SDK zien [Azure WebJobs aanbevolen Resources](http://go.microsoft.com/fwlink/?linkid=390226).
 

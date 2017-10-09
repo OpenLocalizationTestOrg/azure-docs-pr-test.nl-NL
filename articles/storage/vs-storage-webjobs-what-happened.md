@@ -1,6 +1,6 @@
 ---
-title: Wat is er gebeurd met mijn webtaak-project (Visual Studio Azure Storage verbonden service)? | Microsoft Docs
-description: Hierin wordt beschreven wat er gebeurd is in een project Azure webtaak nadat verbinding te maken met een opslagaccount met Visual Studio services verbonden
+title: aaaWhat is er gebeurd toomy webtaak project (Visual Studio Azure Storage verbonden service)? | Microsoft Docs
+description: Hierin wordt beschreven wat er gebeurd is in een project Azure webtaak nadat tooa storage-account met Visual Studio verbinding services verbonden
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
-ms.openlocfilehash: 3b28ddeadc87937941d60b16fae817e59a220b22
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7735f49b1e7ec8dda30d1262d7ce65454604b610
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="what-happened-to-my-webjob-project-visual-studio-azure-storage-connected-service"></a>Wat is er gebeurd met mijn webtaak-project (Visual Studio Azure Storage verbonden service)?
+# <a name="what-happened-toomy-webjob-project-visual-studio-azure-storage-connected-service"></a>Wat is er gebeurd toomy webtaak-project (Visual Studio Azure Storage verbonden service)?
 ## <a name="references-added"></a>Verwijzingen die zijn toegevoegd
-Het Azure Storage NuGet-pakket is toegevoegd aan of bijgewerkt in Visual Studio-project.  
-Dit pakket voegt de volgende .NET verwijzingen toe:
+Hello Azure Storage NuGet-pakket is bijgewerkt in Visual Studio-project tooor toegevoegd.  
+Dit pakket wordt toegevoegd Hallo .NET verwijzingen te volgen:
 
 * **Microsoft.Data.Edm**
 * **Microsoft.Data.OData**
@@ -35,7 +35,7 @@ Dit pakket voegt de volgende .NET verwijzingen toe:
 * **System.Spatial**
 
 ## <a name="connection-string-for-azure-storage-added"></a>Verbindingsreeks voor Azure Storage toegevoegd
-In het bestand App.config van uw project de **AzureWebJobsStorage** en **AzureWebJobsDashboard** -items zijn bijgewerkt met de verbindingsreeks en de sleutel van het geselecteerde opslagaccount.
+Hallo in Hallo App.config-bestand van uw project, **AzureWebJobsStorage** en **AzureWebJobsDashboard** -items zijn bijgewerkt met de verbindingsreeks en de sleutel Hallo geselecteerd van het opslagaccount.
 
 Zie voor meer informatie [documentatiebronnen Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
 

@@ -1,6 +1,6 @@
 ---
-title: Runbookinstellingen | Microsoft Docs
-description: Beschrijft de configuratie-instellingen voor een runbook in Azure Automation en het wijzigen van deze met de Azure Management Portal en de Windows PowerShell.
+title: aaaRunbook instellingen | Microsoft Docs
+description: Beschrijft Hallo configuratie-instellingen voor een runbook in Azure Automation en hoe ze met zowel Azure-beheerportal en Windows PowerShell Hallo toochange.
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
-ms.openlocfilehash: 20ecbc270e61d234e026e6ba2634c7aad63b3355
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6f0ef09c148355a351464424c22c33df9300f0dd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="runbook-settings"></a>Runbook-instellingen
-Elk runbook in Azure Automation heeft meerdere instellingen waarmee het kan worden geïdentificeerd en de logboekregistratie kan wijzigen. Elk van deze instellingen wordt hieronder beschreven en gevolgd door procedures voor het wijzigen van deze.
+Elk runbook in Azure Automation heeft meerdere instellingen waarmee het toobe geïdentificeerd en toochange de logboekregistratie kan. Elk van deze instellingen wordt hieronder beschreven en gevolgd door procedures voor het toomodify ze.
 
 ## <a name="settings"></a>Instellingen
 ### <a name="name-and-description"></a>Naam en beschrijving
-U kunt de naam van een runbook niet wijzigen nadat deze is gemaakt. De beschrijving is optioneel en mag maximaal 512 tekens lang zijn.
+U kunt Hallo-naam van een runbook niet wijzigen nadat deze is gemaakt. Hallo beschrijving is optioneel en kan up too512 tekens.
 
 ### <a name="tags"></a>Tags
-Labels kunt u verschillende woorden en woordgroepen om vast te stellen van een runbook toewijzen. Bijvoorbeeld, wanneer het indienen van een runbook de [PowerShell Gallery](https://www.powershellgallery.com/), u bepaalde labels om te identificeren welke categorieën die het runbook moet worden weergegeven in opgeven. U kunt meerdere labels voor een runbook opgeven door deze te scheiden met komma's.
+Labels kunt dat u tooassign verschillende woorden en woordgroepen toohelp identificatie van een runbook. Bijvoorbeeld, wanneer het indienen van een runbook toohello [PowerShell Gallery](https://www.powershellgallery.com/), u bepaalde labels tooidentify welke categorieën Hallo runbook zou moeten worden vermeld opgeven. U kunt meerdere labels voor een runbook opgeven door deze te scheiden met komma's.
 
 ### <a name="logging"></a>Logboekregistratie
-Standaard worden uitgebreid en voortgang van de records niet naar Taakgeschiedenis geschreven. U kunt de instellingen voor een bepaald runbook voor logboekregistratie van deze records te wijzigen. Zie voor meer informatie over deze records [Runbookuitvoer en -berichten](automation-runbook-output-and-messages.md).
+Standaard worden uitgebreid en voortgang van de records niet toojob geschiedenis geschreven. U kunt instellingen voor een bepaald runbook toolog Hallo deze records te wijzigen. Zie voor meer informatie over deze records [Runbookuitvoer en -berichten](automation-runbook-output-and-messages.md).
 
 ## <a name="changing-runbook-settings"></a>Runbookinstellingen
 
-### <a name="changing-runbook-settings-with-the-azure-portal"></a>Runbookinstellingen met de Azure-portal
-Kunt u instellingen voor een runbook in de Azure portal van de **instellingen** blade voor het runbook.
+### <a name="changing-runbook-settings-with-hello-azure-portal"></a>Runbookinstellingen met hello Azure-portal
+U kunt instellingen voor een runbook in hello Azure-portal wijzigen via Hallo **instellingen** blade voor Hallo runbook.
 
-1. Selecteer in de Azure-portal **Automation** en klik vervolgens op de naam van een automation-account.
-2. Selecteer de **Runbooks** tabblad.
-3. Klik op de naam van een runbook en wordt u omgeleid naar de instellingenblade voor het runbook. Hier kunt u opgeven of labels, de beschrijving van de runbook wijzigen, logboekregistratie en traceringsinstellingen configureren en toegang tot ondersteuning voor hulpprogramma's om u te helpen bij het oplossen van problemen.     
+1. Selecteer in de Azure-portal hello, **Automation** en klik vervolgens op Hallo-naam van een automation-account.
+2. Selecteer Hallo **Runbooks** tabblad.
+3. Klik op de naam van een runbook hello en u de instellingenblade gerichte toohello voor Hallo runbook. Hier kunt u opgeven of labels wijzigen, Hallo runbook beschrijving, logboekregistratie en tracering instellingen configureren en toegang tot support tools toohelp oplossen van problemen.     
 
 ### <a name="changing-runbook-settings-with-windows-powershell"></a>Runbookinstellingen met Windows PowerShell
-U kunt de [Set AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx) cmdlet om de instellingen voor een runbook wijzigen. Als u meerdere labels opgeven wilt, kunt u ofwel een matrix of een tekenreeks met door komma's gescheiden waarden naar de Tags-parameter opgeven. U kunt de huidige labels met krijgen de [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx).
+U kunt Hallo [Set AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx) cmdlet toochange Hallo-instellingen voor een runbook. Als u meerdere labels toospecify wilt, kunt u ofwel een matrix of een tekenreeks met door komma's gescheiden waarden toohello labels parameter opgeven. Kun je huidige labels Hallo Hello [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx).
 
-De volgende voorbeeldopdrachten laten zien hoe de eigenschappen voor een runbook instellen. Dit voorbeeld worden drie tags toegevoegd aan de bestaande labels en geeft aan dat uitgebreide records moeten worden vastgelegd.
+Hallo volgende voorbeeldopdrachten laten zien hoe tooset Hallo eigenschappen voor een runbook. Dit voorbeeld voegt drie tags toohello bestaande tags en geeft aan dat uitgebreide records moeten worden vastgelegd.
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
@@ -56,6 +56,6 @@ De volgende voorbeeldopdrachten laten zien hoe de eigenschappen voor een runbook
     –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het maken en ophalen van de uitvoer en foutberichten van runbooks, [Runbookuitvoer en -berichten](automation-runbook-output-and-messages.md) 
-* Om te begrijpen hoe een runbook dat al is ontwikkeld door de community of een andere bron toevoegen of maken van uw eigen Zie runbook [een Runbook maken of importeren](automation-creating-importing-runbook.md) 
+* hoe toocreate en ophalen uitvoer en foutberichten van runbooks, Zie toolearn [Runbookuitvoer en -berichten](automation-runbook-output-and-messages.md) 
+* hoe een runbook dat is al ontwikkeld door Hallo community of andere bron- of toocreate uw eigen runbook tooadd zien toounderstand [een Runbook maken of importeren](automation-creating-importing-runbook.md) 
 

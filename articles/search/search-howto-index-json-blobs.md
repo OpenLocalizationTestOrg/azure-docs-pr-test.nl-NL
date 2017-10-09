@@ -1,5 +1,5 @@
 ---
-title: Indexeren van JSON-blobs met Azure Search blob indexeerfunctie
+title: aaaIndexing JSON-blobs met Azure Search blob indexeerfunctie
 description: Indexeren van JSON-blobs met Azure Search blob indexeerfunctie
 services: search
 documentationcenter: 
@@ -14,29 +14,29 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: c4a9e57cda4ba5b4db742c1a37686a802f58212f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 269968714358cd40ea66863b4dbb97766e1d77e1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexeren van JSON-blobs met Azure Search blob indexeerfunctie
-In dit artikel laat zien hoe Azure Search blob indexeerfunctie om uit te pakken gestructureerde inhoud uit blobs die JSON bevatten configureren.
+Dit artikel laat zien hoe tooconfigure Azure Search blob indexeerfunctie tooextract gestructureerd inhoud uit blobs die JSON bevatten.
 
 ## <a name="scenarios"></a>Scenario's
-Standaard [Azure Search-indexeerfunctie voor blob](search-howto-indexing-azure-blob-storage.md) JSON-blobs worden geparseerd als een enkel deel van de tekst. Vaak wilt u de structuur van uw JSON-documenten behouden. Bijvoorbeeld, krijgt het JSON-document
+Standaard [Azure Search-indexeerfunctie voor blob](search-howto-indexing-azure-blob-storage.md) JSON-blobs worden geparseerd als een enkel deel van de tekst. Vaak wilt u toopreserve Hallo structuur van uw JSON-documenten. Bijvoorbeeld: opgegeven Hallo JSON-document
 
     {
         "article" : {
-             "text" : "A hopefully useful article explaining how to parse JSON blobs",
+             "text" : "A hopefully useful article explaining how tooparse JSON blobs",
             "datePublished" : "2016-04-13"
             "tags" : [ "search", "storage", "howto" ]    
         }
     }
 
-u kunt in een Azure Search-document met 'text', 'datePublished' en 'labels' velden worden geparseerd.
+u kunt dit in een Azure Search-document met 'text', 'datePublished' en 'tags' velden tooparse.
 
-U kunt ook wanneer uw blobs bevatten een **matrix met JSON-objecten**, kunt u elk element van de matrix om te worden van een afzonderlijk Azure Search-document. Bijvoorbeeld, krijgt een blob met deze JSON:  
+U kunt ook wanneer uw blobs bevatten een **matrix met JSON-objecten**, kunt u elk element van Hallo matrix toobecome een afzonderlijk Azure Search-document. Bijvoorbeeld, krijgt een blob met deze JSON:  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -47,12 +47,12 @@ U kunt ook wanneer uw blobs bevatten een **matrix met JSON-objecten**, kunt u el
 u kunt uw Azure Search-index met drie afzonderlijke documenten, elk met velden 'id' en 'text' vullen.
 
 > [!IMPORTANT]
-> De JSON-matrix parseren functionaliteit is momenteel in preview. Dit is alleen beschikbaar in de REST-API met versie **2015-02-28-Preview**. Denk erom, preview-API's zijn bedoeld voor testen en evalueren en mag niet worden gebruikt in een productieomgeving.
+> Hallo JSON-matrix parseren functionaliteit is momenteel in preview. Dit is alleen beschikbaar in Hallo REST-API met versie **2015-02-28-Preview**. Denk erom, preview-API's zijn bedoeld voor testen en evalueren en mag niet worden gebruikt in een productieomgeving.
 >
 >
 
 ## <a name="setting-up-json-indexing"></a>Instellen van JSON indexeren
-Indexeren van JSON-blobs is vergelijkbaar met de extractie standaarddocument. Maak eerst de datasource precies zoals u normaal doet: 
+Indexeren van JSON-blobs is vergelijkbaar toohello standaarddocument uitpakken. Maak eerst Hallo datasource precies zoals u normaal doet: 
 
     POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
@@ -65,9 +65,9 @@ Indexeren van JSON-blobs is vergelijkbaar met de extractie standaarddocument. Ma
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }   
 
-De doel-zoekindex vervolgens maken als u er nog geen hebt. 
+Vervolgens Hallo doel search-index maken als u er nog geen hebt. 
 
-Ten slotte Maak een indexeerfunctie en stel de `parsingMode` -parameter voor `json` (om het indexeren van elke blob als één document) of `jsonArray` (als uw blobs JSON-matrices bevatten en moet u elk element van een matrix moet worden behandeld als een afzonderlijk document):
+Ten slotte Maak een indexeerfunctie en stel Hallo `parsingMode` parameter te`json` (tooindex elke blob als één document) of `jsonArray` (als uw blobs JSON-matrices bevatten en moet u elk element van een matrix toobe behandeld als een afzonderlijk document):
 
     POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
@@ -81,27 +81,27 @@ Ten slotte Maak een indexeerfunctie en stel de `parsingMode` -parameter voor `js
       "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
 
-Gebruik indien noodzakelijk **veld toewijzingen** kiest u de eigenschappen van de bron-JSON-document gebruikt voor het vullen van uw doel search-index in de volgende sectie.
+Gebruik indien noodzakelijk **veld toewijzingen** toopick Hallo eigenschappen van toopopulate Hallo bron JSON-document dat wordt gebruikt uw search-index van het doel, zoals wordt weergegeven in de volgende sectie Hallo.
 
 > [!IMPORTANT]
-> Als u werkt met `json` of `jsonArray` parseren van de modus Azure Search wordt ervan uitgegaan dat alle blobs in uw gegevensbron JSON bevatten. Als u nodig hebt voor de ondersteuning van een combinatie van JSON en niet-JSON-blobs in dezelfde gegevensbron, laat ons weten op [onze UserVoice-site](https://feedback.azure.com/forums/263029-azure-search).
+> Als u werkt met `json` of `jsonArray` parseren van de modus Azure Search wordt ervan uitgegaan dat alle blobs in uw gegevensbron JSON bevatten. Als u een combinatie van JSON toosupport moet en niet-JSON-blobs in Hallo dezelfde gegevensbron, laat ons weten op [onze UserVoice-site](https://feedback.azure.com/forums/263029-azure-search).
 >
 >
 
-## <a name="using-field-mappings-to-build-search-documents"></a>U veld-verwijzingen voor het bouwen van documenten zoeken
-Op dit moment Azure Search kan niet worden geïndexeerd willekeurige JSON-documenten rechtstreeks, omdat het ondersteunt alleen primitieve gegevenstypen, tekenreeksmatrices en GeoJSON punten. U kunt echter **veld toewijzingen** moeten worden verzameld van de onderdelen van uw JSON-document en 'lift' deze in op het hoogste niveau van de velden van het zoekdocument. Zie voor meer informatie over de basisprincipes van veld toewijzingen, [veld-verwijzingen voor Azure Search-indexeerfunctie overbruggen de verschillen tussen de gegevensbronnen en zoekindexen](search-indexer-field-mappings.md).
+## <a name="using-field-mappings-toobuild-search-documents"></a>Met behulp van documenten voor veld toewijzingen toobuild zoeken
+Op dit moment Azure Search kan niet worden geïndexeerd willekeurige JSON-documenten rechtstreeks, omdat het ondersteunt alleen primitieve gegevenstypen, tekenreeksmatrices en GeoJSON punten. U kunt echter **veld toewijzingen** toopick onderdelen van uw JSON-document en 'til' deze in op het hoogste niveau van de velden van Hallo zoekdocument. toolearn over de basisprincipes van veld toewijzingen, Zie [veld-verwijzingen voor Azure Search-indexeerfunctie overbruggen Hallo verschillen tussen de gegevensbronnen en zoekindexen](search-indexer-field-mappings.md).
 
-Binnenkort terug naar onze voorbeeld JSON-document:
+Terugkomen tooour voorbeeld JSON-document:
 
     {
         "article" : {
-             "text" : "A hopefully useful article explaining how to parse JSON blobs",
+             "text" : "A hopefully useful article explaining how tooparse JSON blobs",
             "datePublished" : "2016-04-13"
             "tags" : [ "search", "storage", "howto" ]    
         }
     }
 
-Stel dat u hebt een search-index met de volgende velden: `text` van het type `Edm.String`, `date` van het type `Edm.DateTimeOffset`, en `tags` van het type `Collection(Edm.String)`. Als u wilt uw JSON toewijzen aan de gewenste vorm, gebruiken de veldtoewijzingen van de volgende:
+Stel dat u hebt een search-index met de volgende velden Hallo: `text` van het type `Edm.String`, `date` van het type `Edm.DateTimeOffset`, en `tags` van het type `Collection(Edm.String)`. toomap uw JSON naar Hallo gewenst vorm, Hallo volgende veldtoewijzingen gebruiken:
 
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
@@ -109,21 +109,21 @@ Stel dat u hebt een search-index met de volgende velden: `text` van het type `Ed
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
       ]
 
-De bron-veldnamen in de toewijzingen worden opgegeven met de [JSON aanwijzer](http://tools.ietf.org/html/rfc6901) notatie. U start met een slash om te verwijzen naar de hoofdmap van uw JSON-document en vervolgens de gewenste eigenschap (op een willekeurige niveau geneste) met behulp van doorsturen slash gescheiden pad kiezen.
+Hallo bron veldnamen in Hallo-toewijzingen zijn opgegeven met Hallo [JSON aanwijzer](http://tools.ietf.org/html/rfc6901) notatie. U start met een schuine streep toorefer toohello hoofdmap van uw JSON-document vervolgens Hallo desired-eigenschap (op een willekeurige niveau geneste) met behulp van doorsturen slash gescheiden pad kiezen.
 
-U kunt ook afzonderlijke matrixelementen verwijzen met behulp van een op nul gebaseerde index. Bijvoorbeeld, om te selecteren in het eerste element van de matrix 'labels' uit het voorgaande voorbeeld, gebruikt u een veldtoewijzing als volgt:
+U kunt ook tooindividual matrixelementen verwijzen met behulp van een op nul gebaseerde index. Bijvoorbeeld: toopick Hallo eerste element van Hallo 'labels' matrix van Hallo hierboven bijvoorbeeld een veldtoewijzing als volgt gebruiken:
 
     { "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
 
 > [!NOTE]
-> Als de naam van een bron in een veld toewijzing pad naar een eigenschap die niet bestaat in de JSON verwijst, wordt er zonder fouten toewijzing overgeslagen. Dit wordt gedaan zodat we kunnen documenten met een ander schema (dit is een algemene gebruiksvoorbeeld) ondersteunen. Omdat er geen validatie, moet u behandelen om te voorkomen dat typefouten in uw toewijzing veld opgeven.
+> Als de naam van een bron in een veld toewijzing pad tooa-eigenschap die niet bestaat in de JSON verwijst, wordt er zonder fouten toewijzing overgeslagen. Dit wordt gedaan zodat we kunnen documenten met een ander schema (dit is een algemene gebruiksvoorbeeld) ondersteunen. Omdat er geen validatie, moet u tootake voorzichtig tooavoid typefouten in uw toewijzing veld opgeven.
 >
 >
 
-Als uw JSON-documenten alleen eenvoudige op het hoogste niveau eigenschappen bevatten, moet u mogelijk geen veldtoewijzingen helemaal. Bijvoorbeeld, als uw JSON uitziet, de eigenschappen van het hoogste niveau 'text', 'datePublished' en 'tags' rechtstreeks wordt toegewezen aan de overeenkomende velden in de search-index:
+Als uw JSON-documenten alleen eenvoudige op het hoogste niveau eigenschappen bevatten, moet u mogelijk geen veldtoewijzingen helemaal. Bijvoorbeeld, als uw JSON lijkt op deze, Hallo op het hoogste niveau eigenschappen 'text', 'datePublished' en 'tags' rechtstreeks toegewezen toohello overeenkomende velden in de search-index Hallo:
 
     {
-       "text" : "A hopefully useful article explaining how to parse JSON blobs",
+       "text" : "A hopefully useful article explaining how tooparse JSON blobs",
        "datePublished" : "2016-04-13"
        "tags" : [ "search", "storage", "howto" ]    
      }
@@ -148,19 +148,19 @@ Hier volgt een volledige indexeerfunctie nettolading met veldtoewijzingen:
     }
 
 ## <a name="indexing-nested-json-arrays"></a>Geneste matrices van JSON indexeren
-Wat gebeurt er als u wilt een matrix van JSON-objecten, maar dat matrix index ergens is genest binnen het document? U kunt kiezen welke eigenschap bevat de matrix met behulp van de `documentRoot` configuratie-eigenschap. Als bijvoorbeeld uw blobs moeten uitzien:
+Wat gebeurt er als u tooindex desgewenst een matrix van JSON-objecten, maar dat matrix ergens is genest binnen Hallo document? U kunt kiezen welke eigenschap bevat Hallo-matrix met Hallo `documentRoot` configuratie-eigenschap. Als bijvoorbeeld uw blobs moeten uitzien:
 
     {
         "level1" : {
             "level2" : [
-                { "id" : "1", "text" : "Use the documentRoot property" },
-                { "id" : "2", "text" : "to pluck the array you want to index" },
-                { "id" : "3", "text" : "even if it's nested inside the document" }  
+                { "id" : "1", "text" : "Use hello documentRoot property" },
+                { "id" : "2", "text" : "toopluck hello array you want tooindex" },
+                { "id" : "3", "text" : "even if it's nested inside hello document" }  
             ]
         }
     }
 
-Deze configuratie gebruiken om te indexeren van de matrix die is opgenomen in de `level2` eigenschap:
+Gebruik deze configuratie tooindex Hallo matrix in Hallo `level2` eigenschap:
 
     {
         "name" : "my-json-array-indexer",
@@ -169,4 +169,4 @@ Deze configuratie gebruiken om te indexeren van de matrix die is opgenomen in de
     }
 
 ## <a name="help-us-make-azure-search-better"></a>Help ons Azure Search te verbeteren
-Als u hebt het functieaanvragen of suggesties voor verbeteringen, bereiken ons op onze [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+Als u hebt het functieaanvragen of suggesties voor verbeteringen, bereiken toous op onze [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).

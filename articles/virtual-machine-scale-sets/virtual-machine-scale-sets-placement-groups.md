@@ -1,6 +1,6 @@
 ---
-title: Werken met grote Azure Virtual Machine Scale Sets | Microsoft Docs
-description: Wat u moet weten wanneer u grote Azure-virtuele-machineschaalsets wilt gaan gebruiken
+title: aaaWorking met grote Azure virtuele-Machineschaalsets | Microsoft Docs
+description: Wat u moet tooknow toouse grote virtuele machine van Azure sets schalen
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gbowerman
@@ -15,52 +15,52 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/7/2017
 ms.author: guybo
-ms.openlocfilehash: 9e9eae1623e55c1c05e97aa0b836819ce5dc16f9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: a39aab25925d7fc50763f0a20148b1f2213b492f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Werken met grote virtuele-machineschaalsets
-U kunt nu Azure-[virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/) maken met een capaciteit van maximaal 1000 virtuele machines. In dit document wordt een _grote virtuele-machineschaalset_ gedefinieerd als een schaalset waarmee u kunt schalen tot meer dan 100 virtuele machines. Deze mogelijkheid wordt ingesteld met een schaalseteigenschap (_singlePlacementGroup=False_). 
+U kunt nu Azure maken [virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/) met een capaciteit van up too1, 000 virtuele machines. In dit document, een _grote virtuele-machineschaalset_ is gedefinieerd als een schaal ingesteld geschikt is voor het schalen van toogreater dan 100 virtuele machines. Deze mogelijkheid wordt ingesteld met een schaalseteigenschap (_singlePlacementGroup=False_). 
 
-Bepaalde aspecten van grote schaalsets, zoals taakverdeling en foutdomeinen, werken anders dan in een standaardschaalset. In dit document worden de kenmerken van grote schaalsets uitgelegd en wordt beschreven wat u moet weten om ze in uw toepassingen te gebruiken. 
+Bepaalde aspecten van grote schaal wordt ingesteld, zoals load balancing en fouttolerantie domeinen zich anders gedragen tooa standaardschaal set. Dit document wordt uitgelegd Hallo kenmerken van grote schaalsets en wordt beschreven wat u moet tooknow toosuccessfully ze gebruiken in uw toepassingen. 
 
-Een algemene aanpak voor de implementatie van een grootschalige cloudinfrastructuur is het maken van een reeks _schaaleenheden_, bijvoorbeeld door meerdere virtuele-machineschaalsets op meerdere VNETs en opslagaccounts te maken. Deze aanpak is eenvoudiger te beheren dan enkelvoudige virtuele machines, en meerdere schaaleenheden zijn nuttig voor veel toepassingen, met name voor toepassingen die ook andere stapelbare onderdelen nodig hebben, zoals meerdere virtuele netwerken en eindpunten. Als uw toepassing echter een groot cluster nodig heeft, is het misschien eenvoudiger om één schaalset van maximaal 1000 virtuele machines te implementeren. Voorbeeldscenario's zijn gecentraliseerde big data-implementaties, of rekenrasters die een eenvoudig beheer van een grote groep werkrolknooppunten vereisen. In combinatie met aan een VM-schaalset [gekoppelde gegevensschijven](virtual-machine-scale-sets-attached-disks.md) kunt u met grootschalige sets in één bewerking een schaalbare infrastructuur van duizenden kernen en petabytes aan opslag implementeren.
+Een gemeenschappelijke aanpak voor het implementeren van cloudinfrastructuur op grote schaal toocreate is een reeks _schaaleenheden_, bijvoorbeeld door het maken van meerdere virtuele machines sets schalen op meerdere VNETs en storage-accounts. Deze aanpak geeft u eenvoudiger beheer vergeleken toosingle VM's en meerdere schaaleenheden zijn handig voor veel toepassingen, met name de waarvoor andere stapelbare onderdelen, zoals meerdere virtuele netwerken en eindpunten. Als uw toepassing echter een grote cluster vereist, kan het eenvoudiger toodeploy één scale van too1, 000 VM's instellen zijn. Voorbeeldscenario's zijn gecentraliseerde big data-implementaties, of rekenrasters die een eenvoudig beheer van een grote groep werkrolknooppunten vereisen. In combinatie met VM-schaalaanpassingsset [gegevensschijven gekoppeld](virtual-machine-scale-sets-attached-disks.md), grote schaal stelt u in staat stellen toodeploy een schaalbare infrastructuur, die bestaan uit duizenden kernen en petabytes aan opslag, als een enkele bewerking.
 
 ## <a name="placement-groups"></a>Plaatsingsgroepen 
-Wat een _grote_ schaalset zo bijzonder maakt, is niet het aantal virtuele machines, maar het aantal _plaatsingsgroepen_ dat deze bevat. Een plaatsingsgroep is een constructie die vergelijkbaar is met een Azure-beschikbaarheidsset, met eigen foutdomeinen en upgradedomeinen. Standaard bestaat een schaalset uit één plaatsingsgroep met een omvang van maximaal 100 virtuele machines. Als een schaaleigenschap met de naam _singlePlacementGroup_ is ingesteld op _onwaar_, kan de schaal bestaan uit meerdere plaatsingsgroepen en heeft deze een capaciteit van 0-1000 virtuele machines. Als de eigenschap de standaardwaarde _waar_ heeft, bestaat een schaalset uit één plaatsingsgroep en heeft deze een capaciteit van 0-100 virtuele machines.
+Wat maakt een _grote_ schaal instelt speciale is geen Hallo aantal virtuele machines, maar Hallo aantal _plaatsing groepen_ bevat. Een groep plaatsing is een constructie vergelijkbare tooan Azure beschikbaarheidsset, met een eigen domeinen met fouten en upgradedomeinen. Standaard bestaat een schaalset uit één plaatsingsgroep met een omvang van maximaal 100 virtuele machines. Als de eigenschap met de naam van een schaalset _singlePlacementGroup_ too_false_, is ingesteld Hallo scale set kunnen moet bestaan uit meerdere plaatsing groepen en heeft een bereik van 0-1000 virtuele machines. Als de standaardwaarde toohello van ingesteld _true_, een scale-set bestaat uit een groep één plaatsing en heeft een bereik van 0-100 virtuele machines.
 
 ## <a name="checklist-for-using-large-scale-sets"></a>Controlelijst voor het gebruik van grote schaalsets
-Overweeg de volgende vereisten voordat u beslist of uw toepassing doeltreffend gebruik kan maken van grootschalige sets:
+toodecide of uw toepassing kunt aanbrengen effectief gebruik van grote schaalsets, kunt u overwegen Hallo volgens de vereisten:
 
-- Grote schaalsets vereisen Azure Managed Disks. Voor schaalsets die niet worden gemaakt met Managed Disks zijn meerdere opslagaccounts vereist (één voor elke 20 virtuele machines). Grote schaalsets zijn ontworpen om exclusief met Managed Disks te werken om de overhead voor opslagbeheer te beperken en om het risico te vermijden dat u met abonnementslimieten van opslagaccounts wordt geconfronteerd. Als u niet met Managed Disks werkt, is uw schaalset beperkt tot 100 virtuele machines.
-- Schaalsets die vanuit Azure Marketplace zijn gemaakt, kunnen worden geschaald tot maximaal 1000 virtuele machines.
-- Schaalsets die vanuit aangepaste installatiekopieën (VM-installatiekopieën die u zelf maakt en uploadt) zijn gemaakt, kunnen op dit moment worden geschaald tot maximaal 100 virtuele machines.
-- Laag-4 taakverdeling met de Azure Load Balancer wordt nog niet ondersteund voor schaalsets die uit meerdere plaatsingsgroepen bestaan. Als u de Azure Load Balancer moet gebruiken, zorg dan dat de schaalset is geconfigureerd voor het gebruik van één plaatsingsgroep. Dit is de standaardinstelling.
-- Laag-7 taakverdeling met de Azure Application Gateway wordt voor alle schaalsets ondersteund.
-- Een schaalset wordt gedefinieerd met één subnet. Zorg dat het subnet een adresruimte heeft die groot genoeg is voor alle virtuele machines die u nodig hebt. Standaard wordt een schaalset te groot ingericht (dat wil zeggen dat er tijdens de implementatie of bij het uitschalen extra virtuele machines worden gemaakt, waarvoor u niet hoeft te betalen), om de betrouwbaarheid en prestaties van de implementatie te verbeteren. Zorg daarom voor een adresruimte die 20% groter is dan het aantal virtuele machines waarnaar u wilt gaan schalen.
-- Als u veel virtuele machines wilt gaan implementeren, moeten de quotumlimieten voor uw rekenkernen mogelijk worden verhoogd.
-- Fout- en upgradedomeinen zijn alleen consistent binnen een plaatsingsgroep. Deze architectuur verandert niet de algemene beschikbaarheid van een schaalset, omdat virtuele machines evenredig worden verdeeld over verschillende fysieke hardware. Als u moet garanderen dat twee virtuele machines zich op verschillende hardware bevinden, betekent dit echter wel dat u ervoor moet zorgen dat ze zich in verschillende foutdomeinen in dezelfde plaatsingsgroep bevinden. Het foutdomein en de id van de plaatsingsgroep worden weergegeven in de _exemplaarweergave_  van een schaalset-VM. U kunt de exemplaarweergave van een schaalset-VM bekijken in de [Azure Resource Explorer](https://resources.azure.com/).
+- Grote schaalsets vereisen Azure Managed Disks. Voor schaalsets die niet worden gemaakt met Managed Disks zijn meerdere opslagaccounts vereist (één voor elke 20 virtuele machines). Grote schaalsets zijn ontworpen toowork uitsluitend met schijven beheerd tooreduce uw storage management overhead en tooavoid Hallo risico van het uitvoeren van abonnement is beperkt voor opslagaccounts. Als u geen beheerde schijven gebruikt, is uw schaalset beperkt too100 virtuele machines.
+- Gemaakt op basis van installatiekopieën van Azure Marketplace-schaalsets kunnen opschalen van too1, 000 virtuele machines.
+- Gemaakt op basis van aangepaste installatiekopieën (VM-installatiekopieën u maken en uploaden zelf)-schaalsets kunnen momenteel opschalen van too100 virtuele machines.
+- Laag 4 taakverdeling met hello Azure Load Balancer is nog niet ondersteund voor schaalsets bestaat uit meerdere groepen voor plaatsing. Als u toouse hello Azure Load Balancer Zorg ervoor dat Hallo schaal instelt moet is een groep één plaatsing, wat de standaardinstelling Hallo is geconfigureerde toouse.
+- Laag 7 taakverdeling met hello Azure Application Gateway wordt ondersteund voor alle-schaalsets.
+- Een scale-set is gedefinieerd met één subnet: Zorg ervoor dat uw subnet is een adresruimte die groot genoeg zijn voor alle Hallo VM die u nodig hebt. Standaard een schaal overprovisions ingesteld (leidt tot extra virtuele machines tijdens de implementatie of het uitbreiden, die u niet weet in rekening gebracht voor) tooimprove implementatie betrouwbaarheid en prestaties. Toestaan dat voor een groter dan het aantal virtuele machines die u van plan bent tooscale op Hallo van adresruimte 20%.
+- Als u van plan bent toodeploy veel VM's, moet de quotalimieten voor uw berekenings-core toobe verhoogd.
+- Fout- en upgradedomeinen zijn alleen consistent binnen een plaatsingsgroep. Deze architectuur wordt niet gewijzigd Hallo algemene beschikbaarheid van een schaal instellen, zoals virtuele machines gelijkmatig worden verdeeld over verschillende fysieke hardware, maar wordt uitgevoerd betekent dat als u twee virtuele machines op andere hardware zijn tooguarantee moet zorg ervoor dat ze zich in verschillende domeinen met fouten domeinen in dezelfde groep van de plaatsing Hallo. Fout domein en de plaatsing groeps-ID worden weergegeven in Hallo _weergave exemplaar_ instellen van een schaal VM. U kunt Hallo instantieweergave van een VM-schaalset bevatten weergeven in Hallo [Azure Resource Explorer](https://resources.azure.com/).
 
 
 ## <a name="creating-a-large-scale-set"></a>Een grote schaalset maken
-Wanneer u in Azure Portal een schaalset maakt, kunt u schaling naar meerdere plaatsingsgroepen toestaan door de optie _Limit to a single placement group_ (Beperken tot één plaatsingsgroep) op de blade _Basics_ (Basisinformatie) in te stellen op _False_. Als u deze optie instelt op _False_, kunt u de waarde van _Instance count_ (Aantal exemplaren) instellen op maximaal 1000.
+Wanneer u een schaal instellen in hello Azure-portal maakt, kunt u toestaan deze tooscale toomultiple plaatsing groepen door Hallo instelling _limiet tooa één plaatsing groep_ optie too_False_ in Hallo _basisbeginselen_ blade. Met deze optie set too_False_, kunt u een _aantal exemplaar_ waarde van too1, 000.
 
 ![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
-U kunt u een grote virtuele-machineschaalset maken met de [Azure CLI](https://github.com/Azure/azure-cli)-opdracht _az vmss create_. Met deze opdracht stelt u intelligente standaardinstellingen in, zoals een subnetgrootte op basis van het argument _instance-count_:
+Kunt u een VM grootschalige ingesteld met Hallo [Azure CLI](https://github.com/Azure/azure-cli) _az vmss maken_ opdracht. Met deze opdracht ingesteld intelligent standaardinstellingen zoals subnetgrootte op basis van Hallo _aantal exemplaren_ argument:
 
 ```bash
 az group create -l southcentralus -n biginfra
 az vmss create -g biginfra -n bigvmss --image ubuntults --instance-count 1000
 ```
-De opdracht _vmss create_ gebruikt standaard bepaalde configuratiewaarden als u ze niet opgeeft. Probeer het volgende om de beschikbare opties te bekijken die u kunt overschrijven:
+Houd er rekening mee dat Hallo _vmss maken_ wordt standaard een bepaalde configuratiewaarden als u ze niet opgeven. toosee hello beschikbare opties die u kunt onderdrukken, probeer:
 ```bash
 az vmss create --help
 ```
 
-Als u een grote schaalset maakt door een Azure Resource Manager-sjabloon te maken, zorg dan dat de sjabloon een schaalset maakt op basis van Azure Managed Disks. U kunt de eigenschap _singlePlacementGroup_ in de sectie _Properties_ van de resource _Microsoft.Compute/virtualMAchineScaleSets_ instellen op _false_. In het volgende JSON-fragment ziet u het begin van een schaalsetsjabloon, met een capaciteit voor 1000 virtuele machines en de instelling _"singlePlacementGroup": false_:
+Als u een grote schaal ingesteld door het opstellen van een Azure Resource Manager-sjabloon maakt, zorg er dan voor dat Hallo-sjabloon maakt u een scale-set op basis van beheerde Azure-schijven. U kunt instellen Hallo _singlePlacementGroup_ eigenschap too_false_ in Hallo _eigenschappen_ sectie Hallo _Microsoft.Compute/virtualMAchineScaleSets_ resource. Hallo volgende JSON-fragment toont Hallo begin van een scale set sjabloon, inclusief Hallo 1.000 VM-capaciteit en Hallo _'singlePlacementGroup': false_ instelling:
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -77,12 +77,12 @@ Als u een grote schaalset maakt door een Azure Resource Manager-sjabloon te make
       "mode": "Automatic"
     }
 ```
-Voor een volledig voorbeeld van een schaalsetsjabloon raadpleegt u [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
+Voor een compleet voorbeeld van een grote schaal stelt u de sjabloon, raadpleeg dan te[https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
 
-## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Een bestaande schaalset converteren zodat deze meerdere plaatsingsgroepen omvat
-Als u een bestaande VM-schaalset geschikt wilt maken voor schaling naar meer dan 100 virtuele machines, moet u de eigenschap _singlePlacementGroup_ in het schaalsetmodel wijzigen in _false_. Met de [Azure Resource Explorer](https://resources.azure.com/) kunt u controleren of deze eigenschap is gewijzigd. Zoek een bestaande schaalset, selecteer _Edit_ (Bewerken) en wijzig de eigenschap _singlePlacementGroup_. Als u deze eigenschap niet ziet, bekijkt u de schaalset misschien met een oudere versie van de Microsoft.Compute-API.
+## <a name="converting-an-existing-scale-set-toospan-multiple-placement-groups"></a>Toospan instellen meerdere plaatsing groepen converteren van een bestaande schaal
+toomake een bestaande VM-geschikt is schaalset voor het schalen van toomore dan 100 virtuele machines, moet u toochange hello _singplePlacementGroup_ eigenschap too_false_ in Hallo scale model instelt. U kunt testen met het wijzigen van deze eigenschap Hello [Azure Resource Explorer](https://resources.azure.com/). Zoeken naar een bestaande schaalset, selecteer _bewerken_ en wijzig Hallo _singlePlacementGroup_ eigenschap. Als u deze eigenschap niet ziet, kan worden weergegeven, Hallo scale ingesteld met een oudere versie van Hallo Microsoft.Compute-API.
 
 >[!NOTE] 
-U kunt een schaalset zo wijzigen dat deze in plaats van slechts één plaatsingsgroep (de standaardinstelling) ondersteuning biedt voor meerdere plaatsingsgroepen. Andersom is echter niet mogelijk. Zorg daarom dat u begrijpt waarvoor de eigenschappen van grote schaalsets dienen, voordat u deze converteert. Zorg er met name voor dat u laag-4 taakverdeling niet nodig hebt met de Azure Load Balancer.
+U kunt een ingesteld op basis van een enkele plaatsing groep alleen (Hallo standaardgedrag) tooa ondersteunen meerdere plaatsing groepen ondersteunende schaal wijzigen, maar Hallo andersom kan niet worden geconverteerd. Zorg daarom dat u weet Hallo eigenschappen van grote schaalsets voordat deze wordt geconverteerd. Zorg in het bijzonder, hoeft u geen laag 4 taakverdeling met hello Azure Load Balancer.
 
 

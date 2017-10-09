@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van Power BI Embedded met REST | Microsoft Docs
-description: 'Informatie over het gebruik van Power BI Embedded met REST '
+title: aaaHow toouse Power BI Embedded met REST | Microsoft Docs
+description: 'Meer informatie over hoe toouse Power BI Embedded met REST '
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -15,55 +15,55 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 02/06/2017
 ms.author: asaxton
-ms.openlocfilehash: 31624b9d15772a4f08cf013ac713b3aa636acfca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 98057724e60ba868f9c93de8c50383569eb8852d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-power-bi-embedded-with-rest"></a>Het gebruik van Power BI Embedded met REST
+# <a name="how-toouse-power-bi-embedded-with-rest"></a>Hoe toouse Power BI Embedded met REST
 
 ## <a name="power-bi-embedded-what-it-is-and-what-its-for"></a>Power BI Embedded: Wat is en wat het doet
 
-Een overzicht van Power BI Embedded wordt beschreven in de officiële [Power BI Embedded site](https://azure.microsoft.com/services/power-bi-embedded/), maar we even voordat we de details over het gebruik van deze met REST krijgen.
+Een overzicht van Power BI Embedded wordt beschreven in de officiële Hallo [Power BI Embedded site](https://azure.microsoft.com/services/power-bi-embedded/), maar we even voordat we Hallo details over het gebruik van deze met REST krijgen.
 
-Het is heel heel eenvoudig. u kunt de dynamische gegevensvisualisaties van gebruiken [Power BI](https://powerbi.microsoft.com) in uw eigen toepassing.
+Het is heel heel eenvoudig. u kunt toouse Hallo dynamische gegevensvisualisaties van [Power BI](https://powerbi.microsoft.com) in uw eigen toepassing.
 
-De meeste aangepaste toepassingen vereist voor het leveren van de gegevens voor hun eigen klanten, niet noodzakelijkerwijs gebruikers in hun eigen organisatie. Bijvoorbeeld, als u deel van de service voor bedrijf A en B bedrijf bieden, moeten gebruikers in bedrijf A alleen gegevens zien voor hun eigen bedrijf A. Dat wil zeggen, is de multi-tenancymodus nodig voor de bezorging.
+De meeste aangepaste toepassingen nodig toodeliver Hallo gegevens hebben voor hun eigen klanten, niet noodzakelijkerwijs gebruikers in hun eigen organisatie. Bijvoorbeeld, als u deel van de service voor bedrijf A en B bedrijf bieden, moeten gebruikers in bedrijf A alleen gegevens zien voor hun eigen bedrijf A. Dat wil zeggen, is Hallo multi-tenancymodus nodig voor de levering van Hallo.
 
-De aangepaste toepassing mogelijk worden biedt tevens een eigen verificatiemethoden zoals formulierverificatie, basic auth, enzovoort... Vervolgens de insluiten oplossing moet werken samen met deze bestaande verificatiemethoden veilig. Het is ook nodig zijn voor gebruikers om te kunnen gebruikmaken van deze ISV-toepassingen zonder de extra aankoop of licenties van een Power BI-abonnement.
+aangepaste toepassing Hello mogelijk worden biedt tevens een eigen verificatiemethoden zoals formulierverificatie, basic auth, enzovoort... Vervolgens Hallo insluiten oplossing moet werken samen met deze bestaande verificatiemethoden veilig. Het is ook nodig zijn voor gebruikers toobe kunnen toouse die ISV-toepassingen zonder Hallo extra aankoop- of -licentieverlening van een Power BI-abonnement.
 
- **Power BI Embedded** is ontworpen voor nauwkeurig dit soort scenario's. Dus nu dat we deze korte inleiding uit de weg hebben, gaan we krijgen tot de details van sommige
+ **Power BI Embedded** is ontworpen voor nauwkeurig dit soort scenario's. Dus nu dat we deze korte inleiding buiten Hallo manier hebben, gaan we krijgen tot de details van sommige
 
-U kunt de .NET \(C#) of Node.js-SDK voor uw toepassing met Power BI Embedded eenvoudig te maken. Maar in dit artikel wordt uitgelegd over HTTP-stroom \(inclusief AuthN) van Power BI zonder SDK's. Kennis van deze overdracht, kunt u uw toepassing bouwen **met elke programmeertaal**, en u kunt begrijpt diep de essentie van Power BI Embedded.
+U kunt .NET Hallo \(C#) of Node.js SDK, tooeasily uw toepassing met Power BI Embedded bouwen. Maar in dit artikel wordt uitgelegd over HTTP-stroom \(inclusief AuthN) van Power BI zonder SDK's. Kennis van deze overdracht, kunt u uw toepassing bouwen **met elke programmeertaal**, en u kunt begrijpt diep Hallo essentie van Power BI Embedded.
 
 ## <a name="create-power-bi-workspace-collection-and-get-access-key-provisioning"></a>Maken van Power BI-werkruimteverzameling en get-toegangssleutel \(inrichten)
 
-Power BI Embedded is een van de Azure-services. Alleen de ISV die gebruikmaakt van Azure Portal wordt in rekening gebracht voor gebruikskosten \(per uur gebruikerssessie), en de gebruiker die het rapport is niet in rekening gebracht of zelfs vereisen een Azure-abonnement.
-Voordat u begint onze toepassingsontwikkeling, maken we de **Power BI-werkruimteverzameling** met behulp van Azure-Portal.
+Power BI Embedded is een van de hello Azure-services. Alleen Hallo ISV die gebruikmaakt van Azure Portal wordt in rekening gebracht voor gebruikskosten \(per uur gebruikerssessie), en het Hallo-gebruiker die weergaven Hallo rapport is niet geladen of zelfs een Azure-abonnement nodig.
+Voordat u begint onze toepassingsontwikkeling, maken we Hallo **Power BI-werkruimteverzameling** met behulp van Azure-Portal.
 
-Elke werkruimte van Power BI Embedded is de werkruimte voor elke klant (tenant) en we veel werkruimten in elke werkruimteverzameling kunt toevoegen. De dezelfde toegangssleutel wordt gebruikt in elke werkruimteverzameling. In de effect, de werkruimteverzameling is de beveiligingsgrens voor Power BI Embedded.
+Elke werkruimte van Power BI Embedded Hallo werkruimte voor elke klant (tenant) is en we veel werkruimten in elke werkruimteverzameling kunt toevoegen. Hallo dezelfde toegangssleutel wordt gebruikt in elke werkruimteverzameling. In effect Hallo werkruimteverzameling is de beveiligingsgrens Hallo voor Power BI Embedded.
 
 ![](media/power-bi-embedded-iframe/create-workspace.png)
 
-Wanneer we klaar bent met het maken van de werkruimteverzameling, kopieert u de toegangssleutel vanuit Azure Portal.
+Wanneer we klaar bent met het Hallo-werkruimteverzameling maken, kopieert u de toegangssleutel Hallo vanuit Azure Portal.
 
 ![](media/power-bi-embedded-iframe/copy-access-key.png)
 
 > [!NOTE]
-> We kunnen ook de werkruimteverzameling inrichten en verkrijgen toegangssleutel via REST-API. Zie voor meer informatie, [Power BI Resource Provider-API's](https://msdn.microsoft.com/library/azure/mt712306.aspx).
+> We kunnen ook Hallo werkruimteverzameling inrichten en verkrijgen toegangssleutel via REST-API. toolearn meer, Zie [Power BI Resource Provider-API's](https://msdn.microsoft.com/library/azure/mt712306.aspx).
 
 ## <a name="create-pbix-file-with-power-bi-desktop"></a>Pbix-bestand maken met Power BI Desktop
 
-Vervolgens maken we moet de verbinding van gegevens en rapporten worden ingesloten.
+Vervolgens maken we moet gegevensverbinding Hallo en rapporten toobe ingesloten.
 Voor deze taak is er geen programmeren of de code. We gebruiken gewoon Power BI Desktop.
-In dit artikel won't doorloopt u de details over het gebruik van Power BI Desktop. Als u moet enkele hier, raadpleegt u [aan de slag met Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/). In ons voorbeeld alleen gebruiken we de [Retail Analysis Sample](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/).
+In dit artikel won't doorloopt u informatie over het Hallo toouse Power BI Desktop. Als u moet enkele hier, raadpleegt u [aan de slag met Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/). In ons voorbeeld gebruiken we zojuist Hallo [Retail Analysis Sample](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/).
 
 ![](media/power-bi-embedded-iframe/power-bi-desktop-1.png)
 
 ## <a name="create-a-power-bi-workspace"></a>Een Power BI-werkruimte maken
 
-Nu dat het inrichten is voltooid, aan de slag van een klant-werkruimte maken in de werkruimteverzameling via REST-API's. De volgende HTTP POST aanvragen (REST) maakt de nieuwe werkruimte in de werkruimteverzameling van onze bestaande. Dit is de [POST werkruimte API](https://msdn.microsoft.com/library/azure/mt711503.aspx). In ons voorbeeld wordt de naam van de werkruimte-verzameling is **mypbiapp**. We stelt u de toegangssleutel die we eerder hebt gekopieerd, als **App-sleutel**. Het is zeer eenvoudig verificatie.
+Nu dat Hallo inrichten is voltooid, aan de slag van een klant-werkruimte maken in de werkruimteverzameling Hallo via REST-API's. Hallo maakt volgende HTTP POST aanvragen (REST) Hallo nieuwe werkruimte in de werkruimteverzameling van onze bestaande. Dit is Hallo [POST werkruimte API](https://msdn.microsoft.com/library/azure/mt711503.aspx). In ons voorbeeld is de naam van Hallo werkruimte verzameling **mypbiapp**. We stelt u de toegangssleutel hello, die we eerder hebt gekopieerd, als **App-sleutel**. Het is zeer eenvoudig verificatie.
 
 **HTTP-aanvraag**
 
@@ -87,13 +87,13 @@ RequestId: 4220d385-2fb3-406b-8901-4ebe11a5f6da
 }
 ```
 
-De geretourneerde **workspaceId** wordt gebruikt voor de volgende volgende API-aanroepen. Onze toepassing moet deze waarde bewaren.
+Hallo geretourneerd **workspaceId** wordt gebruikt voor Hallo na de volgende API-aanroepen. Onze toepassing moet deze waarde bewaren.
 
-## <a name="import-pbix-file-into-the-workspace"></a>Pbix-bestand importeren in de werkruimte
+## <a name="import-pbix-file-into-hello-workspace"></a>Hallo-werkruimte van pbix-bestand importeren
 
-Elk rapport in een werkruimte komt overeen met één Power BI Desktop-bestand met een gegevensset \(met inbegrip van instellingen voor gegevensbron). We kunt onze pbix-bestand importeren naar de werkruimte, zoals wordt weergegeven in de onderstaande code. Zoals u ziet, kunnen we het binaire bestand van pbix-bestand met MIME-multipart in HTTP-uploaden.
+Elk rapport in een werkruimte overeenkomt met tooa één Power BI Desktop-bestand met een gegevensset \(met inbegrip van instellingen voor gegevensbron). We kunt onze werkruimte pbix-bestand toohello zoals weergegeven in onderstaande Hallo code importeren. Zoals u ziet, kunnen we Hallo binair van pbix-bestand met MIME-multipart in HTTP-uploaden.
 
-De uri-fragment **32960a09-6366-4208-a8bb-9e0678cdbb9d** is de workspaceId en queryparameter **datasetDisplayName** is de gegevenssetnaam te maken. De gemaakte gegevensset bevat alle gegevens gerelateerd artefacten in pbix-bestand bijvoorbeeld als de geïmporteerde gegevens, de pointer naar de gegevensbron, enzovoort...
+Hallo-uri-fragment **32960a09-6366-4208-a8bb-9e0678cdbb9d** hello workspaceId en queryparameter **datasetDisplayName** Hallo gegevensset naam toocreate is. Hallo gemaakt gegevensset bevat alle gegevens met betrekking artefacten in pbix-bestand, zoals de geïmporteerde gegevens Hallo aanwijzer toohello gegevensbron, enzovoort...
 
 ```
 POST https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/imports?datasetDisplayName=mydataset01
@@ -103,11 +103,11 @@ Content-Type: multipart/form-data; boundary="A300testx"
 --A300testx
 Content-Disposition: form-data
 
-{the content (binary) of .pbix file}
+{hello content (binary) of .pbix file}
 --A300testx--
 ```
 
-Deze importtaak kan uitvoeren voor een tijdje. Als u klaar kunt onze toepassing de status van de taak met id importeren vragen. In ons voorbeeld wordt de invoer-id is **4eec64dd-533b-47c3-a72c-6508ad854659**.
+Deze importtaak kan uitvoeren voor een tijdje. Als u klaar kunt onze toepassing hello taakstatus import-id met vragen. In ons voorbeeld Hallo import-id is **4eec64dd-533b-47c3-a72c-6508ad854659**.
 
 ```
 HTTP/1.1 202 Accepted
@@ -118,14 +118,14 @@ RequestId: 658bd6b4-b68d-4ec3-8818-2a94266dc220
 {"id":"4eec64dd-533b-47c3-a72c-6508ad854659"}
 ```
 
-De volgende vraagt de status van deze import-id:
+Hallo volgende vraagt de status van deze import-id:
 
 ```
 GET https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/imports/4eec64dd-533b-47c3-a72c-6508ad854659
 Authorization: AppKey MpaUgrTv5e...
 ```
 
-Als de taak niet is voltooid, kan het HTTP-antwoord zijn als volgt:
+Als Hallo-taak niet is voltooid, kan de Hallo HTTP-antwoord zijn als volgt:
 
 ```
 HTTP/1.1 200 OK
@@ -141,7 +141,7 @@ RequestId: 614a13a5-4de7-43e8-83c9-9cd225535136
 }
 ```
 
-Als de taak voltooid is, is het mogelijk dat het HTTP-antwoord meer als volgt:
+Als het Hallo-taak is voltooid, kan de Hallo HTTP-antwoord meer als volgt zijn:
 
 ```
 HTTP/1.1 200 OK
@@ -176,9 +176,9 @@ RequestId: eb2c5a85-4d7d-4cc2-b0aa-0bafee4b1606
 
 ## <a name="data-source-connectivity-and-multi-tenancy-of-data"></a>Gegevensbron connectiviteit \(en multi-tenancymodus van gegevens)
 
-Terwijl bijna alle de artefacten in pbix-bestand in de werkruimte worden geïmporteerd, zijn de referenties voor gegevensbronnen niet. Als gevolg hiervan, wanneer u **DirectQuery-modus**, het ingesloten rapport correct kan niet worden weergegeven. Maar wanneer u **importmodus**, wordt het rapport met de bestaande geïmporteerde gegevens kunt bekijken. In dat geval moet er de referentie met de volgende stappen via REST-aanroepen ingesteld.
+Terwijl bijna alle Hallo artefacten in pbix-bestand in de werkruimte worden geïmporteerd, zijn geen Hallo referenties voor gegevensbronnen. Als gevolg hiervan, wanneer u **DirectQuery-modus**, hello ingesloten rapport kan niet meer correct weergegeven. Maar wanneer u **importmodus**, we Hallo rapport met Hallo bestaande geïmporteerde gegevens kunt bekijken. In dat geval moet er Hallo-referentie met behulp van de volgende stappen uit via de REST-aanroepen Hallo ingesteld.
 
-Er moet eerst de gateway datasource ophalen. We weten dat de dataset **id** is de eerder geretourneerde-id.
+Er moet eerst Hallo gateway datasource ophalen. We weten Hallo gegevensset **id** Hallo eerder geretourneerd id.
 
 **HTTP-aanvraag**
 
@@ -207,7 +207,7 @@ RequestId: 574b0b18-a6fa-46a6-826c-e65840cf6e15
 }
 ```
 
-De geretourneerde gateway-id en de gegevensbron-id \(Zie de vorige **gatewayId** en **id** in de geretourneerde resultatenset), kunnen we de referentie van deze gegevensbron als volgt wijzigen:
+Met behulp van Hallo geretourneerd gateway-id en een datasource-id \(Zie vorige Hallo **gatewayId** en **id** in Hallo resultaat geretourneerd), kunnen we Hallo referentie van deze gegevensbron als volgt wijzigen:
 
 **HTTP-aanvraag**
 
@@ -233,9 +233,9 @@ Content-Type: application/octet-stream
 RequestId: 0e533c13-266a-4a9d-8718-fdad90391099
 ```
 
-In productie, kunnen we ook de andere verbindingsreeks voor elke werkruimte met REST-API instellen. \(Internet Explorer, we kunt scheidt u de database voor elk klanten.)
+In productie, kunnen we ook Hallo verschillende verbindingsreeks voor elke werkruimte met REST-API instellen. \(Internet Explorer, we kunt scheiden Hallo database voor elk klanten.)
 
-Het volgende is het wijzigen van de verbindingsreeks van de gegevensbron via REST.
+Hallo volgende met het wijzigen van de verbindingsreeks Hallo van datasource via REST.
 
 ```
 POST https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/datasets/458e0451-7215-4029-80b3-9627bf3417b0/Default.SetAllConnections
@@ -247,25 +247,25 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Of we beveiliging op rijniveau in Power BI Embedded kunnen gebruiken en we kunnen de gegevens voor elke gebruikers in een rapport scheiden. We kunnen as a Result, elke klant rapport met dezelfde pbix inrichten \(gebruikersinterface, enz.) en andere gegevensbronnen.
+Of we beveiliging op rijniveau in Power BI Embedded kunnen gebruiken en we Hallo-gegevens voor elke gebruikers in een rapport kunt scheiden. We kunnen as a Result, elke klant rapport met dezelfde pbix inrichten \(gebruikersinterface, enz.) en andere gegevensbronnen.
 
 > [!NOTE]
-> Als u **importmodus** in plaats van **DirectQuery-modus**, er is geen manier om te vernieuwen modellen via API. En on-premises gegevensbronnen via Power BI gateway nog wordt niet ondersteund in Power BI Embedded. Echter zeker wilt u het oog houden de [Power BI-blog](https://powerbi.microsoft.com/blog/) voor wat is er nieuw en wat er nieuw in toekomstige releases.
+> Als u **importmodus** in plaats van **DirectQuery-modus**, er is geen modellen manier toorefresh via API. En on-premises gegevensbronnen via Power BI gateway nog wordt niet ondersteund in Power BI Embedded. Echter zeker zult u tookeep gaten Hallo [Power BI-blog](https://powerbi.microsoft.com/blog/) voor wat is er nieuw en wat er nieuw in toekomstige releases.
 
 ## <a name="authentication-and-hosting-embedding-reports-in-our-web-page"></a>Verificatie en die als host fungeert voor (insluiten) rapporten in onze webpagina
 
-In de vorige REST-API, gebruiken we de toegangssleutel **App-sleutel** zelf als de autorisatie-header. Het is veilig omdat deze aanroepen kunnen worden verwerkt op de server back-end.
+In Hallo vorige REST-API, gebruiken we Hallo toegangssleutel **App-sleutel** zelf als Hallo autorisatie-header. Het is veilig omdat deze aanroepen kunnen worden verwerkt op Hallo back-end-serverzijde.
 
-Maar als we het rapport in onze webpagina insluiten, dit soort informatie over beveiliging zou worden afgehandeld met JavaScript \(frontend). De waarde van de autorisatie-header moet vervolgens worden beveiligd. Als onze toegangssleutel wordt gedetecteerd door een kwaadwillende gebruiker of schadelijke code, kunnen ze geen bewerkingen met deze sleutel aanroepen.
+Maar wanneer we Hallo rapport in onze webpagina insluiten, dit soort informatie over beveiliging zou worden verwerkt met JavaScript \(frontend). Vervolgens moet Hallo autorisatie-header-waarde worden beveiligd. Als onze toegangssleutel wordt gedetecteerd door een kwaadwillende gebruiker of schadelijke code, kunnen ze geen bewerkingen met deze sleutel aanroepen.
 
-Wanneer we het rapport in onze webpagina insluiten, we het berekende token moet gebruiken in plaats van de toegangssleutel **App-sleutel**. Onze toepassing moet maken OAuth Json Web Token \(JWT) die bestaat uit de claims en de berekende digitale handtekening. Zoals hieronder weergegeven, is deze OAuth JWT-tokens punt gescheiden gecodeerde tekenreeks.
+Wanneer we Hallo rapport in onze webpagina insluiten, moet we berekende Hallo-token gebruiken in plaats van de toegangssleutel **App-sleutel**. Onze toepassing hello OAuth Json Web Token moet maken \(JWT) die bestaat uit Hallo claims en Hallo berekende digitale handtekening. Zoals hieronder weergegeven, is deze OAuth JWT-tokens punt gescheiden gecodeerde tekenreeks.
 
 ![](media/power-bi-embedded-iframe/oauth-jwt.png)
 
-Er moet eerst de invoerwaarde is ondertekend later voorbereiden. Deze waarde is de tekenreeks base64-gecodeerd url (rfc4648) van de volgende json en deze worden gescheiden door het punt \(.) teken. Later, wordt uitgelegd hoe u de id van het rapport niet ophalen.
+Er moet eerst Hallo invoerwaarde, die later wordt ondertekend voorbereiden. Deze waarde is Hallo base64-gecodeerd url (rfc4648) tekenreeks Hallo volgende json en deze worden gescheiden door Hallo punt \(.) teken. Later, wordt uitgelegd hoe tooget Hallo lijst-id.
 
 > [!NOTE]
-> Als we rij Level Security (RLS) gebruiken met Power BI Embedded willen, er moet ook opgeven **gebruikersnaam** en **rollen** in de claims.
+> Als we toouse rij Level Security (RLS) met Power BI Embedded willen, er moet ook opgeven **gebruikersnaam** en **rollen** in Hallo claims.
 
 ```
 {
@@ -287,9 +287,9 @@ Er moet eerst de invoerwaarde is ondertekend later voorbereiden. Deze waarde is 
 }
 ```
 
-Vervolgens maken we de met base64 gecodeerde tekenreeks van HMAC \(de handtekening) met SHA256-algoritme. Deze ondertekende invoerwaarde is de vorige tekenreeks.
+Vervolgens maken we Hallo base64-gecodeerde tekenreeks HMAC \(Hallo handtekening) met SHA256-algoritme. Deze ondertekende invoerwaarde is Hallo vorige tekenreeks.
 
-Laatste combineren we de waarde en handtekening invoerreeks periode met \(.) teken. De voltooide tekenreeks is de app-token voor het rapport insluiten. Zelfs als de app-token wordt gedetecteerd door een kwaadwillende gebruiker, kunnen ze de oorspronkelijke toegangssleutel niet ophalen. Deze app-token verloopt snel.
+Laatste, moet we Hallo invoerwaarde en handtekening tekenreeks op basis van de periode combineren \(.) teken. Hallo voltooid tekenreeks is Hallo app-token voor het Hallo-rapport insluiten. Zelfs als Hallo app-token wordt gedetecteerd door een kwaadwillende gebruiker, kunnen ze Hallo oorspronkelijke toegangssleutel niet ophalen. Deze app-token verloopt snel.
 
 Hier volgt een voorbeeld van een PHP voor deze stappen:
 
@@ -324,7 +324,7 @@ $hash = hash_hmac("sha256",
     true);
 $sig = rfc4648_base64_encode($hash);
 
-// 4. show result (which is the apptoken)
+// 4. show result (which is hello apptoken)
 $apptoken = $inputval . "." . $sig;
 echo($apptoken);
 
@@ -340,9 +340,9 @@ function rfc4648_base64_encode($arg) {
 ?>
 ```
 
-## <a name="finally-embed-the-report-into-the-web-page"></a>Ten slotte wordt het rapport insluiten in de webpagina
+## <a name="finally-embed-hello-report-into-hello-web-page"></a>Ten slotte Hallo rapport insluiten in Hallo webpagina
 
-Voor het insluiten van onze rapport moet krijgen we de insluiten-url en het rapport **id** met de volgende REST-API.
+Voor het insluiten van onze rapport krijgen we Hallo-url en het rapport insluiten **id** met Hallo REST-API te volgen.
 
 **HTTP-aanvraag**
 
@@ -372,11 +372,11 @@ RequestId: d4099022-405b-49d3-b3b7-3c60cf675958
 }
 ```
 
-We kunnen het rapport insluiten in de web-app met behulp van het vorige app-token.
-Als we de volgende voorbeeldcode bekijkt, wordt het vorige gedeelte is hetzelfde als het vorige voorbeeld. In het laatste deel dit voorbeeld wordt de **embedUrl** \(het vorige resultaat te bekijken) in de iframe en wordt het app-token boeken in de iframe.
+We kunt Hallo rapport insluiten in de web-app met behulp van Hallo eerdere app-token.
+Als we de volgende voorbeeldcode Hallo bekijkt, is Hallo voormalige onderdeel hetzelfde als het vorige voorbeeld Hallo Hallo. In het laatste gedeelte hello, dit voorbeeld wordt Hallo **embedUrl** \(Zie vorige resultaat Hallo) in Hallo iframe en boekt Hallo app-token in Hallo iframe.
 
 > [!NOTE]
-> U moet de id-waarde van het rapport wijzigen in een eigen. Vanwege een fout in ons systeem inhoudsbeheer is de iframe-code in het voorbeeld Lees ook letterlijk. Verwijder de capped tekst uit het label als u kopieert en plakt deze voorbeeldcode.
+> U moet toochange Hallo rapport id waarde tooone van uzelf. Vervaldatum tooa bug in ons systeem inhoudsbeheer is Hallo iframe-code in Hallo-codevoorbeeld Lees ook letterlijk. Verwijder Hallo beperkt tekst uit Hallo label als u kopieert en plakt deze voorbeeldcode.
 
 ```
     <?php
@@ -460,10 +460,10 @@ En dit is het resultaat:
 
 ![](media/power-bi-embedded-iframe/view-report.png)
 
-Op dit moment Power BI Embedded alleen het rapport weergegeven in de iframe. Maar let op de [Power BI Blog](https://powerbi.microsoft.com/blog/). Toekomstige verbeteringen kunnen gebruiken om nieuwe clientzijde API's die worden laat het ons informatie in de iframe verzenden, evenals informatie opvragen uit. Interessante spullen!
+Op dit moment bevat Power BI Embedded alleen Hallo rapport in Hallo iframe. Maar let op Hallo [Power BI Blog](https://powerbi.microsoft.com/blog/). Toekomstige verbeteringen kunnen gebruiken om nieuwe clientzijde API's die worden laat het ons verzenden van informatie naar Hallo iframe, evenals informatie opvragen uit. Interessante spullen!
 
 ## <a name="see-also"></a>Zie ook
 * [Verifiëren en autoriseren in Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-Nog vragen? [Probeer de Power BI-community](http://community.powerbi.com/)
+Nog vragen? [Probeer Hallo Power BI-Community](http://community.powerbi.com/)
 

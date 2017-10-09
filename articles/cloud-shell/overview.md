@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Azure Cloud-Shell (Preview) | Microsoft Docs
-description: Overzicht van de Azure-Cloud-Shell.
+title: overzicht van aaaAzure Cloud Shell (Preview) | Microsoft Docs
+description: Overzicht van hello Azure Cloud-Shell.
 services: 
 documentationcenter: 
 author: jluk
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: juluk
-ms.openlocfilehash: 7165633cd354eeea2e3619f839338e6af1524e56
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 45c6c85b167a90947a333f44a9186e2c01b4fa7b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Overzicht van Azure-Cloud-Shell (Preview)
 Azure Cloud-Shell is een interactieve, browser toegankelijke shell voor het beheren van Azure-resources.
@@ -27,24 +27,24 @@ Azure Cloud-Shell is een interactieve, browser toegankelijke shell voor het behe
 
 ## <a name="features"></a>Functies
 ### <a name="browser-based-shell-experience"></a>Browser gebaseerde shell-ervaring
-Cloud-Shell kan toegang tot een browser gebaseerde opdrachtregelprogramma ervaring gebouwd met Azure beheertaken in gedachten. Hefboomwerking Cloud Shell voelt van een lokale computer werkt op een manier alleen de cloud kunnen bieden.
+Cloud Shell Hiermee toegang tooa-opdrachtregelprogramma browserervaring gebouwd met Azure beheertaken in gedachten. Maak gebruik van Cloud-Shell toowork vrije van een lokale computer op een manier die alleen Hallo cloud kan bieden.
 
 ### <a name="pre-configured-azure-workstation"></a>Vooraf geconfigureerde Azure werkstation
 Cloud-Shell is voorgeïnstalleerd met populaire opdrachtregelprogramma's en talen zodat u sneller kunt werken.
 
-[De lijst volledige tooling voor Azure Cloud Shell hier weergeven.](features.md#tools)
+[Hallo volledige tooling lijst weergeven voor Azure Cloud Shell hier.](features.md#tools)
 
 ### <a name="automatic-authentication"></a>Automatische verificatie
-Cloud-Shell verifieert veilig automatisch op elke sessie voor directe toegang tot uw resources via de Azure CLI 2.0.
+Cloud-Shell verifieert veilig automatisch op elke sessie voor directe toegang tooyour resources via hello Azure CLI 2.0.
 
 ### <a name="connect-your-azure-file-storage"></a>Verbinding maken met uw Azure File storage
-Cloud-Shell-machines zijn tijdelijk en als gevolg hiervan vereisen een Azure-bestandsshare te koppelen als `clouddrive` voor het persistent maken van uw directory $Home.
-Op de eerste keer opstarten die cloud Shell wordt gevraagd om een resource te maken delen groep, storage-account en -bestand namens jou. Dit is een eenmalige stap en wordt automatisch voor alle sessies worden gekoppeld. 
+Cloud-Shell-machines zijn tijdelijk en als gevolg hiervan vereisen een Azure file share toobe gekoppeld als `clouddrive` toopersist uw directory $Home.
+Op de eerste keer opstarten Cloud Shell wordt gevraagd om een resourcegroep, een opslagaccount en een bestand namens jou delen toocreate. Dit is een eenmalige stap en wordt automatisch voor alle sessies worden gekoppeld. 
 
 #### <a name="create-new-storage"></a>Maken van nieuwe opslag
 ![](media/basic-storage.png)
 
-Een lokaal redundant opslagaccount (LRS) kan namens jou worden gemaakt met een Azure-bestandsshare met de installatiekopie van een standaard 5 GB schijf. De bestandsshare koppelt als `clouddrive` delen interactie met de installatiekopie van de schijf die wordt gebruikt om te synchroniseren en uw directory $Home behouden voor het bestand. Reguliere opslagkosten van toepassing.
+Een lokaal redundant opslagaccount (LRS) kan namens jou worden gemaakt met een Azure-bestandsshare met de installatiekopie van een standaard 5 GB schijf. Hallo-bestandsshare koppelt als `clouddrive` voor bestand delen interactie met Hallo schijfimage gebruikte toosync wordt en uw directory $Home behouden. Reguliere opslagkosten van toepassing.
 
 Drie bronnen worden namens jou gemaakt:
 1. De resourcegroep met de naam:`cloud-shell-storage-<region>`
@@ -57,7 +57,7 @@ Drie bronnen worden namens jou gemaakt:
 #### <a name="use-existing-resources"></a>Bestaande bronnen gebruiken
 ![](media/advanced-storage.png)
 
-Een geavanceerde optie is ook beschikbaar waarmee u kunt het koppelen van bestaande resources voor Cloud-Shell. Wanneer de opslag setup prompt krijgt, klikt u op 'Weergeven geavanceerde instellingen' om extra opties te selecteren. Opgegeven waarin DropDowns worden gefilterd voor uw toegewezen Cloud Shell regio en lokaal/globaal-redundant storage-accounts.
+Een geavanceerde optie is ook beschikbaar waarmee u tooassociate bestaande resources tooCloud Shell. Wanneer met Hallo opslag setup prompt weergegeven, klikt u op 'Instellingen voor geavanceerde weergeven' tooselect extra opties. Opgegeven waarin DropDowns worden gefilterd voor uw toegewezen Cloud Shell regio en lokaal/globaal-redundant storage-accounts.
 
 [Meer informatie over opslag voor Cloud-Shell, gedeelde bestanden bijwerken en het uploaden/downloaden van bestanden.] (het behouden blijven-shell-storage.md)
 
@@ -71,19 +71,19 @@ Een geavanceerde optie is ook beschikbaar waarmee u kunt het koppelen van bestaa
 [Meer informatie over alle functies van de Cloud-Shell.](features.md)
 
 ## <a name="examples"></a>Voorbeelden
-* Maken of bewerken van scripts voor het automatiseren van Azure management
+* Maken of bewerken van scripts tooautomate Azure management
 * Resources via Azure portal en Azure CLI 2.0 tegelijkertijd te beheren
 * Azure CLI 2.0 Test-Drive
 
-[Probeer deze voorbeelden op de Cloud Shell Quick Start.](quickstart.md)
+[Probeer deze voorbeelden op Hallo Cloud Shell Quick Start.](quickstart.md)
 
 ## <a name="pricing"></a>Prijzen
-De computer die als host fungeert voor Cloud-Shell is gratis, met een vereiste van een gekoppelde Azure-bestandsshare voor het persistent maken van uw directory $Home. Reguliere opslagkosten van toepassing.
+Hallo-machine voor het hosten van Cloud-Shell is gratis, met een vereiste van een gekoppelde Azure-bestand delen toopersist uw directory $Home. Reguliere opslagkosten van toepassing.
 
 ## <a name="supported-browsers"></a>Ondersteunde browsers
-Cloud-Shell wordt aanbevolen voor Chrome, rand en Safari. Cloud-Shell wordt ondersteund voor Chrome, Firefox Safari, Internet Explorer en Edge, is Cloud Shell onderworpen aan specifieke browserinstellingen.
+Cloud-Shell wordt aanbevolen voor Chrome, rand en Safari. Cloud-Shell wordt ondersteund voor Chrome, Firefox Safari, Internet Explorer en Edge, is Cloud Shell onderwerp toospecific browserinstellingen.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-1. Wanneer u een abonnement op Azure Active Directory gebruikt, kan ik niet maken opslag vanwege fout: 400 DisallowedOperation. Gebruik een Azure-abonnement te maken van de storage-resources op te lossen dit. Er zijn geen AD-abonnementen kunnen maken van Azure-resources.
+1. Wanneer u een abonnement op Azure Active Directory, ik opslag kan niet maken vanwege tooError: 400 DisallowedOperation. tooresolve, gebruik een Azure-abonnement te maken van de storage-resources. AD-abonnementen zijn niet mogelijk toocreate Azure-resources.
 
 Voor specifieke bekende beperkingen, gaat u naar [beperkingen van Cloud-Shell](limitations.md).

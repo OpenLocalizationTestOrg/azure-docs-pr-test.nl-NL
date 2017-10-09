@@ -1,6 +1,6 @@
 ---
-title: Hoe voeg informatiemedewerkers B2B-samenwerking gebruikers toe aan Azure Active Directory | Microsoft Docs
-description: B2B-samenwerking stelt IT-medewerkers gebruikers vanuit hun organisatie toevoegen aan Azure AD voor toegang | Microsoft Docs
+title: aaaHow doen informatie werknemers B2B-samenwerking gebruikers tooAzure Active Directory toevoegen? | Microsoft Docs
+description: B2B-samenwerking kan gegevens werknemers tooadd gebruikers uit hun organisatie tooAzure AD voor toegang | Microsoft Docs
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: c6ca561d1a02e283c7932f08f53b8dd590208835
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: efe9eab852ec93986f9d777f200f8f7dbfd18ad9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Hoe voeg informatiemedewerkers B2B-samenwerking gebruikers toe aan Azure Active Directory
+# <a name="how-do-information-workers-add-b2b-collaboration-users-tooazure-active-directory"></a>Hoe voeg informatiemedewerkers B2B-samenwerking gebruikers tooAzure Active Directory?
 
-Informatiemedewerkers kunnen gebruiken de [toepassing Toegangsvenster](http://myapps.microsoft.com) B2B-samenwerking gebruikers toevoegen aan groepen en toepassingen die ze beheren.
+Informatiemedewerkers kunnen hello gebruiken [toepassing Toegangspaneel](http://myapps.microsoft.com) tooadd B2B collaboration gebruikers toogroups en toepassingen die ze beheren.
 
-## <a name="information-workers-adding-b2b-collaboration-users-to-an-application"></a>IT-medewerkers B2B-samenwerking gebruikers toevoegen aan een toepassing
-B2B-samenwerking gebruikers toewijzen aan een app als een Informatiemedewerker in een partnerorganisatie, zoals wordt weergegeven in de volgende video:
+## <a name="information-workers-adding-b2b-collaboration-users-tooan-application"></a>IT-medewerkers B2B-samenwerking gebruikers tooan toepassing toe te voegen
+Toewijzen B2B-samenwerking gebruikers tooan app als een Informatiemedewerker in een andere organisatie, zoals wordt weergegeven in de volgende Hallo video:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps/Player]
 
-## <a name="information-workers-adding-b2b-collaboration-users-to-a-group"></a>IT-medewerkers B2B-samenwerking gebruikers toevoegen aan een groep
+## <a name="information-workers-adding-b2b-collaboration-users-tooa-group"></a>IT-medewerkers B2B-samenwerking tooa gebruikersgroep toevoegen
 
-IT-medewerkers kunnen op dezelfde manier B2B-samenwerking gebruikers toevoegen aan een toegewezen groep die is ingeschakeld voor groepsbeheer met Self-service.
+Informatiemedewerkers kunnen op dezelfde manier B2B-samenwerking tooan toegewezen gebruikersgroep dat is ingeschakeld voor selfservicegroepsbeheer toevoegen.
 > [!NOTE]
-> U kunt B2B-samenwerking gebruikers niet toevoegen aan een dynamische groep of aan een groep die wordt gesynchroniseerd met de lokale Active Directory.
+> U kunt geen B2B-samenwerking tooa dynamische gebruikersgroep of tooa-groep die wordt gesynchroniseerd met de lokale Active Directory toevoegen.
 
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -43,7 +43,7 @@ Lees ook onze andere artikelen over Azure AD B2B-samenwerking:
 
 * [Wat is Azure AD B2B-samenwerking?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Hoe voeg beheerders van Azure Active Directory B2B-samenwerking gebruikers?](active-directory-b2b-admin-add-users.md)
-* [De elementen van de uitnodigingsmail voor B2B-samenwerking](active-directory-b2b-invitation-email.md)
+* [Hallo-elementen van Hallo uitnodigingsmail voor B2B-samenwerking](active-directory-b2b-invitation-email.md)
 * [B2B-samenwerking uitnodiging inwisseling](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B-samenwerking licentieverlening](active-directory-b2b-licensing.md)
 * [Het oplossen van Azure Active Directory B2B-samenwerking](active-directory-b2b-troubleshooting.md)

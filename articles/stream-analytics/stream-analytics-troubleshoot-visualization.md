@@ -1,6 +1,6 @@
 ---
-title: Visualiseren en Stream Analytics-taken oplossen | Microsoft Docs
-description: Ontdek hoe u een pijplijn Stream Analytics-taak voor self-service het oplossen van problemen met de functie voor het diagram van diagnostische gegevens te visualiseren.
+title: aaaVisualize en Stream Analytics-taken oplossen | Microsoft Docs
+description: Meer informatie over hoe toovisualize een Stream Analytics-taak voor het oplossen van problemen met de Hallo diagnostics diagram functie selfservice pipeline.
 keywords: 
 documentationcenter: 
 services: stream-analytics
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-ms.openlocfilehash: 18c39a025f750cf5a17c535ab40923b7cafe413d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8a6715be601fdc47b8d9caf4112da161dad22618
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>Visualiseren en Stream Analytics-taken oplossen
-In de Stream Analytics, net als bij andere technologieën cloud-gebaseerde is probleemoplossing soms nodig te onderzoeken waarom een taak geen levert de verwachte uitvoer (of eigenlijk uitvoer). Daarom biedt Stream Analytics de mogelijkheid voor het visualiseren van een streaming-taak. Dit is ook handig als een hulpmiddel voor het modelleren en heeft het voordeel aan clientzijde voor deze vereisen documentatie van hun werk.
+In de Stream Analytics, net als bij andere technologieën cloud-gebaseerde is probleemoplossing het soms nodig toolook in waarom een taak geen levert uitvoer verwacht hello (of geen uitvoer eigenlijk). Daarom biedt Stream Analytics Hallo mogelijkheid voor het visualiseren van een streaming-taak. Dit is ook handig als een hulpmiddel voor het modelleren en Hallo side voordeel voor de documentatie van hun werk dat vereist is.
 
-De invoer is in het deelvenster visualisatie zichtbaar evenals de query wordt uitgevoerd en vervolgens alle de uitvoer geconfigureerd. - Of configuratieproblemen problemen kunnen duidelijker en kan ook handig om te zien van een visuele representatie van uw configuratie zijn.
+In Hallo visualisatie Configuratiescherm Hallo invoer is zichtbaar evenals Hallo-query wordt uitgevoerd en vervolgens alle Hallo uitvoerwaarden geconfigureerd. - Of configuratieproblemen problemen kunnen duidelijker en is ook handig toosee een visuele representatie van uw configuratie.
 
-## <a name="using-the-diagnosis-diagram-tool"></a>Hulpprogramma voor het diagnose diagram
-Voor toegang tot deze visualizer, klikt u op de knop 'Diagnose diagram' op de blade 'Instellingen' van de van de Stream Analytics-taak.
+## <a name="using-hello-diagnosis-diagram-tool"></a>Het hulpprogramma voor Hallo diagnose diagram
+Deze visualizer, klikt u op de knop 'Diagnose diagram' in Hallo tooaccess Hallo blade 'Instellingen' Hallo van Hallo Stream Analytics-taak.
 
 ![Stream-Analytics-Troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram1.png)
 
-Alle invoer en uitvoer is kleurcode om aan te geven van de huidige status van dit onderdeel, zoals hieronder wordt weergegeven.
+Alle invoer en uitvoer is kleurcode tooindicate Hallo huidige status van dit onderdeel, zoals hieronder wordt weergegeven.
 
 ![Stream-Analytics-Troubleshoot-visualization-Input-map](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-input-map.png)
 
-Wanneer de gebruiker wil om te kijken naar tussenliggende querystappen om te begrijpen van het patroon van de gegevensstroom binnen een taak, biedt het hulpprogramma visualisatie een weergave van de uitsplitsing van de query in de bijbehorende stappen onderdeel en de volgorde van de stroom. Op elke stap van de query te klikken, wordt de bijbehorende sectie in een query bewerken deelvenster zoals wordt geïllustreerd weergeven. 
+Wanneer Hallo gebruiker wil toolook op tussenliggende stappen toounderstand Hallo gegevensstroom querypatronen binnen een taak, biedt Hallo visualisatie hulpprogramma een weergave van Hallo uitsplitsing van Hallo query in de component stappen en Hallo stroom sequence. Te klikken op elke stap van de query, wordt de bijbehorende sectie Hallo in een query bewerken deelvenster zoals geïllustreerd weergeven. 
 
 ![Stream-Analytics-Troubleshoot-visualization-Intermediate-Steps](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-intermediate-steps.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
+* [Inleiding tooAzure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
 * [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)

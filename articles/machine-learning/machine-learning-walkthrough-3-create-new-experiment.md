@@ -1,6 +1,6 @@
 ---
 title: 'Stap 3: Maak een nieuwe Machine Learning-experiment | Microsoft Docs'
-description: 'Stap 3 van de prognose een voorspellende oplossing overzicht: een nieuw trainingsexperiment maken in Azure Machine Learning Studio.'
+description: 'Stap 3 van Hallo een overzicht van de voorspellende oplossing ontwikkelen: een nieuw trainingsexperiment maken in Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,123 +14,123 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: cd410316910bce76f5c915c06e83b24c034481b7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4697d461a205c50c8d2aa6a3bd56697840cb30f9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Kennismaken, stap 3: Een nieuw Azure Machine Learning-experiment maken
-Dit is de derde stap van de procedure [predictive analytics-oplossing in Azure Machine Learning ontwikkelen](machine-learning-walkthrough-develop-predictive-solution.md)
+Dit is de derde stap Hallo van Hallo-rondleiding [predictive analytics-oplossing in Azure Machine Learning ontwikkelen](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Een Machine Learning-werkruimte maken](machine-learning-walkthrough-1-create-ml-workspace.md)
 2. [Bestaande gegevens uploaden](machine-learning-walkthrough-2-upload-data.md)
 3. **Een nieuw experiment maken**
-4. [De modellen trainen en evalueren](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5. [De webservice implementeren](machine-learning-walkthrough-5-publish-web-service.md)
-6. [Toegang tot de webservice](machine-learning-walkthrough-6-access-web-service.md)
+4. [Trainen en evalueren Hallo modellen](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+5. [Hallo-webservice implementeren](machine-learning-walkthrough-5-publish-web-service.md)
+6. [Toegang tot Hallo-webservice](machine-learning-walkthrough-6-access-web-service.md)
 
 - - -
-De volgende stap in dit scenario is het maken van een experiment in Machine Learning Studio die gebruikmaakt van de gegevensset die wordt geüpload.  
+Hallo volgende stap in dit scenario is toocreate een experiment in Machine Learning Studio die gebruikmaakt van Hallo gegevensset die wordt geüpload.  
 
-1. Klik in Studio **+ nieuw** aan de onderkant van het venster.
+1. Klik in Studio **+ nieuw** onderaan Hallo Hallo-venster.
 2. Selecteer **EXPERIMENT**, en selecteer vervolgens 'Leeg Experiment'. 
 
     ![Een nieuw experiment maken][0]
 
-2. Selecteer de naam van de standaard-experiment aan de bovenkant van het canvas en herkenbare naam.
+2. Selecteer Hallo standaard naam Hallo boven aan het papier Hallo experiment en wijzig deze toosomething zinvolle.
 
     ![Wijzig de naam van experiment][5]
    
    > [!TIP]
-   > Het is raadzaam om in te vullen **samenvatting** en **beschrijving** voor het experiment in de **eigenschappen** deelvenster. Deze eigenschappen kunnen u de kans op het experiment documenteren, zodat iedereen die deze later wordt uw doelen en methodologie begrijpen.
+   > Het is een goede gewoonte toofill in **samenvatting** en **beschrijving** voor Hallo experiment in Hallo **eigenschappen** deelvenster. Deze eigenschappen kunt u kans toodocument Hallo experiment hello, zodat iedereen die deze later wordt uw doelen en methodologie begrijpen.
    > 
    > ![Experiment eigenschappen][6]
    > 
-3. Vouw in het modulepalet links van het experimentcanvas **gegevenssets opgeslagen**.
-4. Zoek de gegevensset die u hebt gemaakt onder **mijn gegevenssets** en sleep deze naar het canvas. U kunt de gegevensset ook vinden door de naam in te voeren de **Search** vak boven het palet.  
+3. Vouw in het Hallo-module palet toohello links van het experimentcanvas hello **gegevenssets opgeslagen**.
+4. Zoeken naar Hallo gegevensset die u hebt gemaakt onder **mijn gegevenssets** en sleep deze naar Hallo canvas. U vindt ook Hallo gegevensset Hallo naam door in te voeren Hallo **Search** vak boven Hallo palet.  
 
-    ![De gegevensset naar het experimentcanvas toevoegen][7]
+    ![Hallo gegevensset toohello experiment toevoegen][7]
 
-## <a name="prepare-the-data"></a>De gegevens voorbereiden
-U kunt de eerste 100 rijen van de gegevens en enkele statische gegevens voor de volledige gegevensset bekijken: klik op de uitvoerpoort van de gegevensset (kleine cirkel onderaan) en selecteer **Visualize**.  
+## <a name="prepare-hello-data"></a>Hallo gegevens voorbereiden
+U kunt weergeven eerste 100 rijen Hallo gegevens en enkele statische gegevens voor de volledige gegevensset Hallo Hallo: klik op de uitvoerpoort Hallo van Hallo gegevensset (Hallo kleine cirkel Hallo onderin) en selecteer **visualiseren**.  
 
-Omdat het bestand niet is meegeleverd met kolomkoppen, Studio algemene koppen is opgegeven (Col1, Col2, *enzovoort*). Goede koppen niet essentieel is voor het maken van een model, maar ze gemakkelijker te werken met de gegevens in het experiment. Ook als we uiteindelijk dit model in een webservice publiceren, de koppen helpen bij het identificeren van de kolommen voor de gebruiker van de service.  
+Omdat het gegevensbestand Hallo niet meegeleverd met kolomkoppen, Studio algemene koppen is opgegeven (Col1, Col2, *enzovoort*). Goede koppen niet essentieel toocreating een model, maar ze eenvoudiger eenvoudiger toowork met Hallo gegevens in Hallo-experiment. Ook wanneer we dit model uiteindelijk in een webservice publiceren, Hallo koppen te identificeren Hallo kolommen toohello gebruiker van Hallo-service.  
 
-We kunt toevoegen met behulp van kolomkoppen de [metagegevens bewerken] [ edit-metadata] module.
-U gebruikt de [metagegevens bewerken] [ edit-metadata] module die u wilt wijzigen van de metagegevens gekoppeld aan een dataset. In dit geval gebruiken we het meer beschrijvende namen voor kolomkoppen op te geven. 
+We kunt toevoegen met behulp van Hallo kolomkoppen [metagegevens bewerken] [ edit-metadata] module.
+Gebruik van Hallo [metagegevens bewerken] [ edit-metadata] module toochange metagegevens gekoppeld aan een dataset. In dit geval we gebruiken deze tooprovide meer beschrijvende namen voor kolomkoppen. 
 
-Gebruik [metagegevens bewerken][edit-metadata], geeft u eerst welke kolommen te wijzigen (in dit geval ze allemaal.) Geef vervolgens de actie die moet worden uitgevoerd op deze kolommen (in dit geval kolomkoppen te wijzigen.)
+toouse [metagegevens bewerken][edit-metadata], u eerst een opgeven welke kolommen toomodify (in dit geval ze allemaal.) Geef vervolgens Hallo actie toobe uitgevoerd op deze kolommen (in dit geval kolomkoppen te wijzigen.)
 
-1. Typ in het modulepalet 'metagegevens' in de **Search** vak. De [metagegevens bewerken] [ edit-metadata] wordt weergegeven in de modulelijst.
+1. Typ in het modulepalet hello, 'metagegevens' in hello **Search** vak. Hallo [metagegevens bewerken] [ edit-metadata] wordt weergegeven in de modulelijst Hallo.
 
-2. Klik en sleep de [metagegevens bewerken] [ edit-metadata] module naar het canvas en zet deze neer onder de gegevensset die we eerder hebt toegevoegd.
+2. Klik en sleep Hallo [metagegevens bewerken] [ edit-metadata] module op Hallo canvas en zet deze neer hieronder Hallo gegevensset we die eerder is toegevoegd.
 
-3. Verbinding maken met de gegevensset naar de [metagegevens bewerken][edit-metadata]: klik op de uitvoerpoort van de gegevensset (kleine cirkel aan de onderkant van de gegevensset), sleept u naar de invoer-poort van [metagegevens bewerken] [ edit-metadata] (de kleine cirkel aan de bovenkant van de module), klikt u vervolgens de muisknop loslaat. De module en gegevensset blijven verbonden, zelfs als u ofwel op het canvas verplaatsen.
+3. Verbinding maken met de Hallo gegevensset toohello [metagegevens bewerken][edit-metadata]: klikt u op de uitvoerpoort Hallo Hallo gegevensset (Hallo kleine cirkel onderaan Hallo Hallo gegevensset), sleep toohello invoerpoort van [metagegevens bewerken ] [ edit-metadata] (Hallo kleine cirkel Hallo boven aan het Hallo-module), laat u Hallo muisknop los. Hallo gegevensset en module blijven verbonden, zelfs als u ofwel op Hallo canvas verplaatsen.
    
-   Het experiment moet nu als volgt uitzien:  
+   Hallo-experiment moet nu als volgt uitzien:  
    
    ![Metagegevens bewerken][1]
    
-   Rood uitroepteken geeft aan dat we de eigenschappen voor deze module nog niet hebt ingesteld. We doen om het dialoogvenster.
+   Hallo rood uitroepteken geeft aan we Hallo-eigenschappen voor deze module nog niet hebt ingesteld. We doen om het dialoogvenster.
    
    > [!TIP]
-   > U kunt een opmerking aan een module toevoegen door te dubbelklikken op de module en tekst in te voeren. Zodoende kunt u in één oogopslag zien wat de module in uw experiment doet. In dit geval, dubbelklikt u op de [metagegevens bewerken] [ edit-metadata] module en typ de opmerking 'Add kolomkoppen'. Klik ergens anders op het canvas te sluiten van het tekstvak. De opmerking, klikt u op de pijl-omlaag in de module.
+   > U kunt een opmerking tooa module door te dubbelklikken op Hallo-module en tekstinvoer toevoegen. Hiermee kunt u in één oogopslag zien welke Hallo-module in uw experiment doet. Dubbelklik in dit geval op Hallo [metagegevens bewerken] [ edit-metadata] module en type Hallo Opmerking 'Add kolomkoppen'. Klik ergens anders op Hallo canvas tooclose Hallo-tekstvak. toodisplay Opmerking hello, klikt u op Hallo pijl-omlaag op het Hallo-module.
    > 
    > ![Metagegevens module bewerken met opmerkingen toegevoegd][8]
    > 
-4. Selecteer [metagegevens bewerken][edit-metadata], en in de **eigenschappen** deelvenster rechts van het canvas te klikken op **Launch column selector**.
+4. Selecteer [metagegevens bewerken][edit-metadata], en in Hallo **eigenschappen** deelvenster toohello rechts van het canvas hello, klikt u op **Launch column selector**.
 
-5. In de **kolommen selecteren** dialoogvenster, selecteer de rijen in **beschikbare kolommen** en klik op > te verplaatsen naar **geselecteerde kolommen**.
-   Het dialoogvenster ziet er als volgt:
+5. In Hallo **kolommen selecteren** dialoogvenster, selecteer alle rijen in Hallo **beschikbare kolommen** en klik op > toomove ze te**geselecteerde kolommen**.
+   Hallo dialoogvenster ziet er als volgt:
 
    ![Kolomkiezer met alle kolommen geselecteerd][2]
 
-6. Klik op de **OK** selectievakje is ingeschakeld.
+6. Klik op Hallo **OK** selectievakje is ingeschakeld.
 
-7. Terug in de **eigenschappen** deelvenster, zoek de **nieuwe kolomnamen** parameter. Geef een lijst met namen van de 21 kolommen in de gegevensset, gescheiden door komma's en in de volgorde van kolommen in dit veld. U kunt de namen van kolommen uit de dataset-documentatie op de website UCI verkrijgen of voor uw gemak bedoeld; u kunt kopiëren en plakken van de volgende lijst:  
+7. Terug in Hallo **eigenschappen** deelvenster, zoek Hallo **nieuwe kolomnamen** parameter. Geef een lijst met namen voor Hallo 21 kolommen in de gegevensset hello, gescheiden door komma's en in de volgorde van kolommen in dit veld. U kunt Hallo kolommen namen ophalen Hallo gegevensset documentatie op Hallo UCI website of voor het gemak kunt u kopiëren en plakken Hallo lijst na:  
    
        Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
    
-   Het deelvenster Eigenschappen ziet er als volgt:
+   Hallo eigenschappendeelvenster ziet er als volgt:
    
    ![Eigenschappen voor metagegevens bewerken][3]
 
 > [!TIP]
-> Als u controleren of de kolomkoppen wilt, voer het experiment (Klik op **uitvoeren** onder het experimentcanvas). Wanneer deze is voltooid (Er verschijnt een groen vinkje op [metagegevens bewerken][edit-metadata]), klikt u op de uitvoerpoort van de [metagegevens bewerken] [ edit-metadata] module en selecteer **Visualize**. U kunt de uitvoer van elke module weergeven op dezelfde manier om de voortgang van de gegevens via het experiment weer te geven.
+> Als u tooverify Hallo kolomkoppen wilt, Hallo experiment uitvoeren (Klik op **uitvoeren** onder het experimentcanvas Hallo). Wanneer deze is voltooid (Er verschijnt een groen vinkje op [metagegevens bewerken][edit-metadata]), klikt u op de uitvoerpoort Hallo Hallo [metagegevens bewerken] [ edit-metadata] module en selecteer **Visualize**. U kunt Hallo-uitvoer van elke module weergeven in Hallo dezelfde manier tooview Hallo voortgang van Hallo gegevens via Hallo experiment.
 > 
 > 
 
 ## <a name="create-training-and-test-datasets"></a>Training maken en testen van gegevenssets
-We moeten sommige gegevens aan het model trainen en sommige te testen.
-Dus in de volgende stap van het experiment we de gegevensset in twee afzonderlijke gegevenssets splitsen: één voor het trainen van het model en één voor het testen van het.
+Sommige gegevens tootrain Hallo-model en sommige tootest moet het.
+Dus in de volgende stap Hallo van Hallo experiment, we Hallo gegevensset in twee afzonderlijke gegevenssets splitsen: één voor het trainen van het model en één voor het testen van het.
 
-Om dit te doen, gebruiken we de [Split Data] [ split] module.  
+toodo, gebruiken we Hallo [Split Data] [ split] module.  
 
-1. Zoek de [Split Data] [ split] module, sleep deze naar het canvas en verbindt deze met de [metagegevens bewerken] [ edit-metadata] module.
+1. Hallo zoeken [Split Data] [ split] -module, sleep deze naar Hallo canvas en verbindt u deze toohello [metagegevens bewerken] [ edit-metadata] module.
 
-2. Standaard is de verhouding tussen het gesplitste 0,5 en de **Randomized gesplitste** parameter is ingesteld. Dit betekent dat een willekeurige helft van de gegevens uitgevoerd via één poort van wordt de [Split Data] [ split] -module en de helft via de andere. U kunt deze parameters aanpassen, evenals de **willekeurige seed** parameter wijzigen van de scheiding tussen trainings- en testdoeleinden gegevens. In dit voorbeeld laat we ze-is.
+2. Hallo gesplitste verhouding is standaard 0,5 en Hallo **Randomized gesplitste** parameter is ingesteld. Dit betekent dat een willekeurige helft van Hallo gegevens uitgevoerd via één poort Hallo wordt [Split Data] [ split] -module en de helft via Hallo andere. U kunt deze parameters aanpassen, evenals Hallo **willekeurige seed** parameter toochange Hallo verdeeld over de trainings- en testdoeleinden gegevens. In dit voorbeeld laat we ze-is.
    
    > [!TIP]
-   > De eigenschap **fractie van rijen in de eerste uitvoergegevensset** bepaalt hoeveel van de gegevens is de uitvoer via de *links* uitvoerpoort. Bijvoorbeeld als u de verhouding tussen 0,7 instelt, is 70% van de gegevens uitvoer via de poort van de linker- en 30% tot en met de juiste poort.  
+   > eigenschap Hallo **fractie van rijen in Hallo eerst uitvoergegevensset** bepaalt hoeveel gegevens Hallo uitvoer via Hallo *links* uitvoerpoort. Bijvoorbeeld als u Hallo verhouding too0.7 instelt, wordt vervolgens 70% van Hallo gegevens uitgevoerd via de poort en 30% links via de juiste poort Hallo Hallo.  
    > 
    > 
 
-3. Dubbelklik op de [Split Data] [ split] module en de opmerking invoeren, ' Training/testen gegevens splitsen 50% '. 
+3. Dubbelklik op Hallo [Split Data] [ split] module en Hallo opmerking invoeren, ' Training/testen gegevens splitsen 50% '. 
 
-Kunnen we gebruiken de uitvoer van de [Split Data] [ split] module echter we graag, maar we Kies moet de uitvoer van de linker trainingsgegevens en het recht uitvoergegevens als testen.  
+We kunnen Hallo uitvoerwaarden van hello gebruiken [Split Data] [ split] module echter we graag, maar we kiezen toouse Hallo links uitvoer als trainingsgegevens en Hallo rechts als testen uitvoergegevens.  
 
-Zoals vermeld in de [vorige stap](machine-learning-walkthrough-2-upload-data.md), de kosten van een hoge kredietrisico als laag onjuiste vijf keer hoger dan de kosten van het onjuiste een lage kredietrisico zo hoog is. Als u wilt voor dit account, moet er een nieuwe gegevensset die overeenkomt met deze functie kosten gegenereerd. In de nieuwe gegevensset, elk met een hoog risico voorbeeld vijf keer gerepliceerd terwijl elke laag risico voorbeeld niet is gerepliceerd.   
+Zoals vermeld in Hallo [vorige stap](machine-learning-walkthrough-2-upload-data.md), Hallo kosten van een hoge kredietrisico als laag onjuiste vijf keer hoger is dan Hallo kosten van het onjuiste een lage kredietrisico zo hoog. tooaccount voor dit dat er een nieuwe gegevensset die overeenkomt met deze functie kosten gegenereerd. In de nieuwe gegevensset Hallo, elk met een hoog risico voorbeeld vijf keer gerepliceerd terwijl elke laag risico voorbeeld niet is gerepliceerd.   
 
 We kunnen deze replicatie doen met behulp van R-code:  
 
-1. Zoek en sleep de [R-Script uitvoeren] [ execute-r-script] module naar het experimentcanvas. 
+1. Zoek en sleep Hallo [R-Script uitvoeren] [ execute-r-script] module naar het experimentcanvas Hallo. 
 
-2. Verbinding maken met de uitvoerpoort links van de [Split Data] [ split] module aan de eerste invoer poort ('Dataset1') van de [R-Script uitvoeren] [ execute-r-script] module.
+2. Hallo links uitvoerpoort Hallo verbinding [Split Data] [ split] poort ('Dataset1') module toohello eerste invoer Hallo [R-Script uitvoeren] [ execute-r-script] module.
 
-3. Dubbelklik op de [R-Script uitvoeren] [ execute-r-script] module en voer de opmerking 'Instellen kosten aanpassing'.
+3. Dubbelklik op Hallo [R-Script uitvoeren] [ execute-r-script] module en Voer Hallo-Opmerking 'Instellen kosten aanpassing'.
 
-4. In de **eigenschappen** deelvenster, verwijdert u de standaardtekst in de **R-Script** parameter en voer dit script:
+4. In Hallo **eigenschappen** deelvenster verwijderen Hallo standaardtekst in Hallo **R-Script** parameter en voer dit script:
    
        dataset1 <- maml.mapInputPort(1)
        data.set<-dataset1[dataset1[,21]==1,]
@@ -138,20 +138,20 @@ We kunnen deze replicatie doen met behulp van R-code:
        for (i in 1:5) data.set<-rbind(data.set,pos)
        maml.mapOutputPort("data.set")
 
-    ![R-script in de module R-Script uitvoeren][9]
+    ![R-script module Hallo R-Script uitvoeren][9]
 
-We moeten doen deze dezelfde replicatiebewerking voor elke uitvoer van de [Split Data] [ split] module zodat de training en testen gegevens de dezelfde aanpassing van de kosten hebben. De eenvoudigste manier om dit te doen is door het dupliceren van de [R-Script uitvoeren] [ execute-r-script] module die we zojuist hebt gemaakt en verbinding maken met de andere uitvoerpoort van de [Split Data] [ split] module.
+Deze dezelfde replicatiebewerking voor elke uitvoer Hallo toodo moet [Split Data] [ split] module zodat deze Hallo trainings- en testdoeleinden gegevens hebben dezelfde Hallo kosten aanpassing. Hallo gemakkelijkste manier toodo dit is de Hallo dupliceren [R-Script uitvoeren] [ execute-r-script] module we zojuist hebt gemaakt en dit toohello verbindt ander uitvoer poort Hallo [Split Data] [ split] module.
 
-1. Met de rechtermuisknop op de [R-Script uitvoeren] [ execute-r-script] module en selecteer **kopie**.
+1. Klik met de rechtermuisknop Hallo [R-Script uitvoeren] [ execute-r-script] module en selecteer **kopie**.
 
-2. Met de rechtermuisknop op het experimentcanvas en selecteer **plakken**.
+2. Met de rechtermuisknop op het experimentcanvas hello en selecteer **plakken**.
 
-3. De nieuwe module naar positie slepen en sluit vervolgens de juiste uitvoerpoort van de [Split Data] [ split] module die u wilt de eerste invoerpoort van deze nieuwe [R-Script uitvoeren] [ execute-r-script] module. 
+3. Hallo nieuwe module naar positie slepen en sluit vervolgens de juiste uitvoerpoort Hallo Hallo [Split Data] [ split] eerste invoer-poort van dit nieuwe module toohello [R-Script uitvoeren] [ execute-r-script] module. 
 
-4. Klik aan de onderkant van het canvas op **uitvoeren**. 
+4. Klik onder Hallo Hallo canvas op **uitvoeren**. 
 
 > [!TIP]
-> De kopie van de module R-Script uitvoeren bevat hetzelfde script als de oorspronkelijke module. Wanneer u kopieert en plakt een module op het canvas, behoudt de kopie de eigenschappen van het origineel.  
+> Hallo-exemplaar van Hallo R-Script niet uitvoeren-module bevat Hallo dezelfde als de oorspronkelijke module Hallo script. Wanneer u kopieert en plakt een module op Hallo canvas, behoudt Hallo kopiëren alle Hallo-eigenschappen van het oorspronkelijke Hallo.  
 > 
 > 
 
@@ -161,7 +161,7 @@ Onze experiment ziet nu er ongeveer als volgt:
 
 Zie voor meer informatie over het gebruik van R-scripts in uw experimenten [uw experiment uitbreiden met R](machine-learning-extend-your-experiment-with-r.md).
 
-**Volgende stap: [trainen en evalueren van de modellen](machine-learning-walkthrough-4-train-and-evaluate-models.md)**
+**Volgende stap: [trainen en evalueren Hallo modellen](machine-learning-walkthrough-4-train-and-evaluate-models.md)**
 
 [0]: ./media/machine-learning-walkthrough-3-create-new-experiment/create-new-experiment.png
 [5]: ./media/machine-learning-walkthrough-3-create-new-experiment/rename-experiment.png

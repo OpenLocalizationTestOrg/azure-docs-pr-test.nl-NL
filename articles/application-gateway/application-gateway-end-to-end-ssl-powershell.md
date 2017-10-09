@@ -1,6 +1,6 @@
 ---
-title: End-to-end SSL configureren met Azure Application Gateway | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u complete SSL configureren met een toepassingsgateway met Azure Resource Manager PowerShell
+title: aaaConfigure end tooend SSL met Azure Application Gateway | Microsoft Docs
+description: "Dit artikel wordt beschreven hoe tooconfigure tooend SSL met Application Gateway met Azure Resource Manager PowerShell beëindigen"
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: gwallace
-ms.openlocfilehash: 6d969d6a0c649c263e1d5bb99bdbceec484cb9a3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 7c280478e143d309e7665219441cbee8c81d9a80
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-end-to-end-ssl-with-application-gateway-using-powershell"></a>End-to-end SSL configureren met Application Gateway met behulp van PowerShell
+# <a name="configure-end-tooend-ssl-with-application-gateway-using-powershell"></a>Einde tooend SSL configureren met Application Gateway met behulp van PowerShell
 
 ## <a name="overview"></a>Overzicht
 
-Application Gateway biedt ondersteuning voor end-to-end-versleuteling van verkeer. Application Gateway doet dit door de SSL-verbinding bij de toepassingsgateway te beëindigen. De gateway past vervolgens de routeringsregels op het verkeer toe, versleutelt het pakket opnieuw en stuurt het pakket naar de juiste back-end op basis van de gedefinieerde routeringsregels. Reacties van de webserver ondergaan hetzelfde proces terug naar de eindgebruiker.
+Een toepassing Gateway ondersteunt eindigen tooend codering van verkeer. Toepassingsgateway doet dit door het Hallo-SSL-verbinding op Hallo application gateway wordt beëindigd. Hallo gateway geldt routeringsregels Hallo toohello verkeer, opnieuw versleutelt hello-pakket en stuurt Hallo pakket toohello juiste back-end op basis van Hallo routeringsregels gedefinieerd. Geen antwoord van de webserver Hallo Hallo doorloopt dezelfde back toohello eindgebruiker verwerken.
 
-Een andere functie die toepassingsgateway ondersteunt aangepaste SSL opties definiëren. Application Gateway biedt ondersteuning voor het uitschakelen van de volgende protocolversie; **TLSv1.0**, **TLSv1.1**, en **TLSv1.2** als goed definiëren de die coderingssuites moet gebruiken en de volgorde van voorkeur.  Voor meer informatie over de configureerbare opties voor SSL, gaat u naar [SSL overzicht](application-gateway-SSL-policy-overview.md).
+Een andere functie die toepassingsgateway ondersteunt aangepaste SSL opties definiëren. Toepassingsgateway ondersteunt uitschakelen Hallo na protocolversie; **TLSv1.0**, **TLSv1.1**, en **TLSv1.2** ook definiëren Hallo die cipher suites toouse en Hallo volgorde van voorkeur.  toolearn meer informatie over de configureerbare opties voor SSL, gaat u naar [SSL overzicht](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
-> SSL 2.0 en SSL 3.0 zijn standaard uitgeschakeld en kan niet worden ingeschakeld. Deze worden beschouwd als niet-beveiligd en niet kunnen worden gebruikt met Application Gateway.
+> SSL 2.0 en SSL 3.0 zijn standaard uitgeschakeld en kan niet worden ingeschakeld. Ze worden als onveilig beschouwd en zijn niet kunnen toobe gebruikt met Application Gateway.
 
 ![afbeelding van scenario][scenario]
 
 ## <a name="scenario"></a>Scenario
 
-In dit scenario wordt informatie over het maken van een toepassingsgateway met end-to-end SSL met behulp van PowerShell.
+In dit scenario, leert u hoe een application gateway met toocreate tooend SSL eindigen met behulp van PowerShell.
 
 Dit scenario wordt:
 
 * Maak een resourcegroep met de naam **appgw-rg**
 * Maak een virtueel netwerk met de naam **appgwvnet** met een adresruimte van 10.0.0.0/16.
 * Maken van twee subnetten aangeroepen **appgwsubnet** en **appsubnet**.
-* Maak een kleine toepassingsgateway complete SSL-versleuteling ondersteunen die limieten SSL-protocollen versies en coderingssuites.
+* Maak een kleine toepassing gateway ondersteunende end tooend SSL-versleuteling die limieten SSL-protocollen versies en coderingssuites.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Voor end-to-end SSL met een application gateway configureert, is een certificaat vereist voor de gateway en certificaten zijn vereist voor de back-endservers. Het gatewaycertificaat wordt gebruikt voor het versleutelen en ontsleutelen van het verkeer dat wordt verzonden via SSL. Het gatewaycertificaat moet zich in de indeling Personal Information Exchange (pfx). Deze bestandsindeling kunt u de persoonlijke sleutel exporteerbaar die voor de toepassingsgateway vereist is om uit te voeren voor de versleuteling en ontsleuteling van verkeer.
+tooconfigure end tooend SSL met een application gateway, een certificaat is vereist voor het Hallo-gateway en certificaten zijn vereist voor Hallo back-endservers. Hallo gatewaycertificaat is gebruikte tooencrypt en ontsleutelen Hallo verkeer dat wordt verzonden tooit met SSL. Hallo gatewaycertificaat moet toobe Personal Information Exchange (pfx)-indeling. Deze bestandsindeling kunt Hallo persoonlijke sleutel toobe geëxporteerd die vereist wordt door Hallo application gateway tooperform Hallo versleuteling en ontsleuteling van verkeer.
 
-Voor end-to-end-SSL-codering moet de back-end goedgekeurde lijst met toepassingsgateway. Dit wordt gedaan door het openbare certificaat van de back-ends uploaden naar de toepassingsgateway. Dit zorgt ervoor dat de toepassingsgateway alleen met bekende back-end-exemplaren communiceert. Dit verdere beveiligt de end-to-end communicatie.
+Voor end moet tooend SSL-versleuteling Hallo back-end goedgekeurde lijst met toepassingsgateway. Dit wordt gedaan door het openbare certificaat van Hallo back-ends toohello toepassingsgateway Hallo uploadt. Dit zorgt ervoor dat toepassingsgateway Hallo communiceert alleen met bekende back-end-exemplaren. Dit verdere beveiligt Hallo end tooend communicatie.
 
-Dit proces wordt beschreven in de volgende stappen:
+Dit proces wordt beschreven in Hallo stappen te volgen:
 
-## <a name="create-the-resource-group"></a>De resourcegroep maken
+## <a name="create-hello-resource-group"></a>Hallo resourcegroep maken
 
-Deze sectie helpt u bij het maken van een resourcegroep met de toepassingsgateway.
+Deze sectie helpt u bij het maken van een resourcegroep met Hallo toepassingsgateway.
 
 ### <a name="step-1"></a>Stap 1
 
-Aanmelden bij uw Azure-Account.
+Meld u bij tooyour Azure-Account.
 
 ```powershell
 Login-AzureRmAccount
@@ -66,7 +66,7 @@ Login-AzureRmAccount
 
 ### <a name="step-2"></a>Stap 2
 
-Selecteer het abonnement moet worden gebruikt voor dit scenario.
+Selecteer Hallo abonnement toouse voor dit scenario.
 
 ```powershell
 Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
@@ -80,26 +80,26 @@ Maak een resourcegroep (u kunt deze stap overslaan als u een bestaande resourceg
 New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 ```
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Een virtueel netwerk en een subnet maken voor de toepassingsgateway
+## <a name="create-a-virtual-network-and-a-subnet-for-hello-application-gateway"></a>Een virtueel netwerk en een subnet voor de toepassingsgateway Hallo maken
 
-Het volgende voorbeeld wordt een virtueel netwerk en twee subnets. Eén subnet wordt gebruikt om de toepassingsgateway. Het andere subnet wordt gebruikt voor de back-ends die als host fungeert voor de webtoepassing.
+Hallo volgende voorbeeld wordt een virtueel netwerk en twee subnets. Eén subnet is gebruikte toohold Hallo toepassingsgateway. Hallo wordt andere subnet gebruikt voor Hallo back-ends hosting Hallo-webtoepassing.
 
 ### <a name="step-1"></a>Stap 1
 
-Een adresbereik toewijzen voor het subnet voor de toepassingsgateway zelf worden gebruikt.
+Een adresbereik toewijzen voor Hallo subnet voor Application Gateway zelf hello worden gebruikt.
 
 ```powershell
 $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
 ```
 
 > [!NOTE]
-> Subnetten geconfigureerd voor application gateway moeten correct worden aangepast. Een application gateway kan worden geconfigureerd voor maximaal 10 exemplaren. Elk exemplaar duurt één IP-adres van het subnet. Te klein van een subnet, kan de uitbreiden van een toepassingsgateway nadelig beïnvloeden.
+> Subnetten geconfigureerd voor application gateway moeten correct worden aangepast. Een application gateway kan worden geconfigureerd voor up too10 exemplaren. Elk exemplaar duurt één IP-adres van Hallo subnet. Te klein van een subnet, kan de uitbreiden van een toepassingsgateway nadelig beïnvloeden.
 > 
 > 
 
 ### <a name="step-2"></a>Stap 2
 
-Een adresbereik moet worden gebruikt voor de back-end-adresgroep toewijzen.
+Een adresbereik toobe gebruikt voor back-endadresgroep Hallo toewijzen.
 
 ```powershell
 $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
@@ -107,7 +107,7 @@ $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPr
 
 ### <a name="step-3"></a>Stap 3
 
-Een virtueel netwerk maken met de subnetten die is gedefinieerd in de voorgaande stappen hebt uitgevoerd.
+Een virtueel netwerk maken met gedefinieerd in de vorige stappen Hallo Hallo-subnetten.
 
 ```powershell
 $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
@@ -115,7 +115,7 @@ $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg 
 
 ### <a name="step-4"></a>Stap 4
 
-Ophalen van de resource van virtueel netwerk en bronnen van het subnet moet worden gebruikt in de volgende stappen:
+Hallo virtueel netwerk resource en subnet resources toobe gebruikt in de volgende stappen uit Hallo ophalen:
 
 ```powershell
 $vnet = Get-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg
@@ -123,24 +123,24 @@ $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -VirtualNe
 $nicSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appsubnet' -VirtualNetwork $vnet
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Een openbaar IP-adres maken voor de front-endconfiguratie
+## <a name="create-a-public-ip-address-for-hello-front-end-configuration"></a>Een openbaar IP-adres voor de front-endconfiguratie Hallo maken
 
-Een openbaar IP-bron moet worden gebruikt voor de toepassingsgateway maken. Dit openbare IP-adres wordt gebruikt een volgende stap.
+Maak een openbare IP-resource toobe gebruikt voor toepassingsgateway Hallo. Dit openbare IP-adres wordt gebruikt een volgende stap.
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01' -Location "West US" -AllocationMethod Dynamic
 ```
 
 > [!IMPORTANT]
-> Toepassingsgateway biedt geen ondersteuning voor het gebruik van een openbaar IP-adres dat is gemaakt met een domein etiket is gedefinieerd. Alleen een openbaar IP-adres met een domeinlabel dynamisch gemaakte wordt ondersteund. Als u een beschrijvende DNS-naam voor de toepassingsgateway vereist, wordt het aanbevolen een CNAME-record gebruiken als een alias.
+> Toepassingsgateway biedt geen ondersteuning voor Hallo gebruik van een openbaar IP-adres dat is gemaakt met een domein etiket is gedefinieerd. Alleen een openbaar IP-adres met een domeinlabel dynamisch gemaakte wordt ondersteund. Als u een beschrijvende DNS-naam voor de toepassingsgateway Hallo vereist, is het raadzaam toouse een CNAME-record als een alias.
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Een configuratieobject voor de toepassingsgateway maken
 
-Alle configuratie-items zijn ingesteld voordat u de toepassingsgateway maakt. Volg de onderstaande stappen om de configuratie-items te maken die nodig zijn voor een toepassingsgatewayresource.
+Alle configuratie-items worden ingesteld voordat u de toepassingsgateway Hallo maakt. Hallo volgt Hallo configuratie-items maken die nodig zijn voor een toepassingsgatewayresource.
 
 ### <a name="step-1"></a>Stap 1
 
-Toepassingsgateway een IP-configuratie maken, deze instelling configureert welke subnet maakt gebruik van de toepassingsgateway. Wanneer de toepassingsgateway wordt geopend, neemt over een IP-adres van het geconfigureerde subnet en routeert netwerkverkeer naar de IP-adressen in de back-end-IP-adresgroep. Onthoud dat elk exemplaar één IP-adres gebruikt.
+Toepassingsgateway een IP-configuratie maken, deze instelling configureert welke subnet Hallo application gateway gebruikt. Wanneer de toepassingsgateway wordt geopend, een IP-adres van de geconfigureerde Hallo subnet opneemt en netwerkverkeer toohello IP-adressen van routes in Hallo backend-IP-adresgroep. Onthoud dat elk exemplaar één IP-adres gebruikt.
 
 ```powershell
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
@@ -148,7 +148,7 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subn
 
 ### <a name="step-2"></a>Stap 2
 
-Maak een front-end-IP-configuratie, deze instelling wordt een persoonlijke of openbare IP-adres toegewezen aan de front-end van de toepassingsgateway. De volgende stap koppelt het openbare IP-adres in de vorige stap aan de front-end-IP-configuratie.
+Maak een front-end-IP-configuratie, deze instelling wordt een persoonlijke of openbare IP-adres toohello front-end van de toepassingsgateway Hallo toegewezen. Hallo stap koppelt Hallo openbaar IP-adres in de voorgaande stap met het front-end-IP-configuratie Hallo Hallo.
 
 ```powershell
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
@@ -156,18 +156,18 @@ $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -Public
 
 ### <a name="step-3"></a>Stap 3
 
-De backend-IP-adresgroep configureren met de IP-adressen van de back-end-webservers. Deze IP-adressen zijn de IP-adressen die het netwerkverkeer ontvangen dat afkomstig is van het front-end-IP-eindpunt. U vervangen de volgende IP-adressen voor het toevoegen van uw eigen toepassing IP-adreseindpunten.
+Hallo backend-IP-adresgroep configureren met Hallo IP-adressen van Hallo back-end-webservers. Deze IP-adressen zijn Hallo IP-adressen die ontvangen netwerkverkeer op Hallo van Hallo front-end-IP-eindpunt binnenkomt. U vervangen Hallo IP-adressen tooadd na uw eigen toepassing IP-adreseindpunten.
 
 ```powershell
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
 ```
 
 > [!NOTE]
-> Een volledig gekwalificeerde domeinnaam (FQDN) is ook een geldige waarde in plaats van een IP-adres voor de back-endservers met de schakeloptie - BackendFqdns. 
+> Een volledig gekwalificeerde domeinnaam (FQDN) is ook een geldige waarde in plaats van een IP-adres voor de back-endservers Hallo door middel van Hallo - BackendFqdns switch. 
 
 ### <a name="step-4"></a>Stap 4
 
-Configureer de front-end-IP-poort voor het openbare IP-eindpunt. Dit is de poort waarmee gebruikers verbinding maken.
+Hallo front-end-IP-poort voor het openbare IP-eindpunt Hallo configureren. Dit is Hallo-poort waarmee gebruikers verbinding maken.
 
 ```powershell
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
@@ -175,18 +175,18 @@ $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 
 ### <a name="step-5"></a>Stap 5
 
-Configureer het certificaat voor de toepassingsgateway. Dit certificaat wordt gebruikt om te ontsleutelen en opnieuw versleutelen van het verkeer in de toepassingsgateway.
+Hallo-certificaat voor de toepassingsgateway Hallo configureren. Dit certificaat wordt gebruikt toodecrypt en Hallo-verkeer in de toepassingsgateway Hallo opnieuw versleutelen.
 
 ```powershell
-$cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+$cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path too.pfx file> -Password <password for certificate file>
 ```
 
 > [!NOTE]
-> Hiermee configureert u het certificaat dat wordt gebruikt voor de SSL-verbinding. Het certificaat moet de indeling .pfx hebben en het wachtwoord moet uit 4-12 tekens bestaan.
+> Dit voorbeeld configureert Hallo gebruikte certificaat voor SSL-verbinding. Hallo-certificaat moet toobe in PFX-indeling en Hallo wachtwoord moet tussen 4 too12 tekens.
 
 ### <a name="step-6"></a>Stap 6
 
-De HTTP-listener voor de toepassingsgateway maken. Toewijzen aan de front-end-IP-configuratie, de poort en de SSL-certificaat te gebruiken.
+Hallo HTTP-listener voor de toepassingsgateway Hallo maken. Hallo front-end-IP-configuratie, poort en SSL-certificaat toouse toewijzen.
 
 ```powershell
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
@@ -194,21 +194,21 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol
 
 ### <a name="step-7"></a>Stap 7
 
-Het uploaden van het certificaat moet worden gebruikt op het SSL-resources in de back-end ingeschakeld.
+Upload het Hallo-certificaat toobe gebruikt op Hallo SSL ingeschakeld resources in de back-end.
 
 > [!NOTE]
-> De standaard-test haalt de openbare sleutel van de **standaard** SSL-binding op de back-end-IP-adres en vergelijkt de waarde voor openbare sleutel wordt ontvangen aan de waarde van de openbare sleutel u hier opgeeft. De opgehaalde openbare sleutel kan niet de gewenste site naar welke verkeersstromen **als** u hostheaders en SNI gebruikt op de back-end. Als u twijfelt, gaat u naar https://127.0.0.1/ op de back-ends om te controleren welk certificaat wordt gebruikt voor de **standaard** SSL-binding. Gebruik de openbare sleutel van de aanvraag die in deze sectie. Als u van hostheaders en SNI op HTTPS-bindingen gebruikmaakt en niet u een antwoord en het certificaat van een aanvraag voor een handmatige browser naar https://127.0.0.1/ op de back-ends ontvangt, moet u een standaard SSL-binding op de back-ends instellen. Als u niet doet dit, mislukt de tests en de back-end is niet wilt plaatsen.
+> Hallo standaard test krijgt Hallo openbare sleutel van Hallo **standaard** SSL-binding op Hallo back-end van IP-adres en vergelijkt Hallo waarde de openbare sleutel toohello waarde de openbare sleutel u hier opgeeft, wordt ontvangen. Hallo opgehaalde openbare sleutel mag niet per se zijn bedoeld Hallo site toowhich verkeersstromen **als** u hostheaders en SNI op Hallo back-end gebruikt. Als u twijfelt, gaat u naar https://127.0.0.1/ op Hallo back-ends van tooconfirm welk certificaat wordt gebruikt voor Hallo **standaard** SSL-binding. Hallo openbare sleutel van deze aanvraag gebruikt in deze sectie. Als u van hostheaders en SNI op HTTPS-bindingen gebruikmaakt en niet u een antwoord en het certificaat van een handmatige browser aanvraag toohttps://127.0.0.1/ op Hallo back-ends ontvangt, moet u een standaard SSL-binding op back-ends van Hallo instellen. Als u niet doet dit, mislukt de tests en Hallo back-end is niet wilt plaatsen.
 
 ```powershell
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
 ```
 
 > [!NOTE]
-> Het certificaat dat is opgegeven in deze stap moet de openbare sleutel van het pfx-certificaat dat aanwezig is op de back-end. Exporteer het certificaat (niet het basiscertificaat) geïnstalleerd op de back-endserver in. CER indeling en deze gebruiken in deze stap. Deze stap whitelists de back-end met de toepassingsgateway.
+> Hallo certificaat dat is opgegeven in deze stap moet Hallo openbare sleutel van het Hallo pfx-certificaat aanwezig is op Hallo back-end. Exporteer Hallo certificaat (geen basiscertificaat Hallo) op Hallo back-endserver in. CER indeling en deze gebruiken in deze stap. Deze stap whitelists Hallo backend met Hallo toepassingsgateway.
 
 ### <a name="step-8"></a>Stap 8
 
-De back-end-HTTP-instellingen voor de toepassingsgateway configureren. Toewijzen van het certificaat dat is geüpload in de vorige stap in de http-instellingen.
+Hallo application gateway back-end-HTTP-instellingen configureren. Hallo-certificaat geüpload in de voorgaande stap toohello HTTP-instellingen Hallo toewijzen.
 
 ```powershell
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
@@ -216,7 +216,7 @@ $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01
 
 ### <a name="step-9"></a>Stap 9
 
-Maak een load balancer-routeringsregel waarmee het gedrag van de load balancer worden geconfigureerd. In dit voorbeeld wordt wordt een eenvoudige round robinregel gemaakt.
+Maak een load balancer-routeringsregel waarmee het gedrag van Hallo load balancer worden geconfigureerd. In dit voorbeeld wordt wordt een eenvoudige round robinregel gemaakt.
 
 ```powershell
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
@@ -224,34 +224,34 @@ $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType
 
 ### <a name="step-10"></a>Stap 10
 
-Configureer de exemplaargrootte van de toepassingsgateway.  De beschikbare grootten zijn **standaard\_kleine**, **standaard\_gemiddeld**, en **standaard\_grote**.  De capaciteit zijn de beschikbare waarden 1 tot en met 10.
+Hallo exemplaargrootte van de toepassingsgateway Hallo configureren.  Hallo beschikbare grootten zijn **standaard\_kleine**, **standaard\_gemiddeld**, en **standaard\_grote**.  Hallo beschikbare waarden zijn, de capaciteit van 1 t/m 10.
 
 ```powershell
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
 > [!NOTE]
-> Een aantal exemplaren van 1 worden gekozen voor testdoeleinden. Het is belangrijk te weten dat alle exemplaren onder twee exemplaren niet wordt gedekt door de SLA en worden daarom niet aanbevolen. Er zijn kleine gateways moet worden gebruikt voor het ontwikkelen testen en niet voor productiedoeleinden.
+> Een aantal exemplaren van 1 worden gekozen voor testdoeleinden. Het is belangrijk dat elke instantie onder twee exemplaren tellen tooknow niet wordt gedekt door Hallo SLA en worden daarom niet aanbevolen. Kleine gateways worden gebruikt voor het ontwikkelen testen en niet voor productiedoeleinden toobe.
 
 ### <a name="step-11"></a>Stap 11
 
-Configureer het SSL-beleid moet worden gebruikt in de toepassingsgateway. Application Gateway ondersteunt de mogelijkheid om in te stellen de minimumversie voor SSL-protocol versie.
+Hallo SSL beleid toobe gebruikt op Hallo toepassingsgateway configureren. Hallo mogelijkheid tooset minimaal versie biedt ondersteuning voor toepassingsgateway voor SSL-protocol versie.
 
-De volgende waarden zijn een lijst met protocolversies die kunnen worden gedefinieerd.
+Hallo zijn volgende waarden een lijst met protocolversies die kunnen worden gedefinieerd.
 
 * **TLSv1_0**
 * **TLSv1_1**
 * **TLSv1_2**
 
-De minimale protocolversie stelt op **TLSv1_2** en schakelt **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, en **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** alleen.
+Sets Hallo minimale protocolversie te**TLSv1_2** en schakelt **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_ SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, en **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** alleen.
 
 ```powershell
 $SSLPolicy = New-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
 ```
 
-## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
+## <a name="create-hello-application-gateway"></a>Hallo toepassingsgateway maken
 
-Met de bovenstaande stappen maakt u de toepassingsgateway. Het maken van de gateway is een langdurige proces.
+Maak met alle Hallo vorige stappen Hallo Application Gateway. Hallo maken van Hallo gateway is een langdurige proces.
 
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
@@ -259,11 +259,11 @@ $appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -
 
 ## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>SSL-protocol versie op een bestaande toepassingsgateway beperken
 
-De voorgaande stappen gaat u door het maken van een toepassing met end-to-end-SSL- en uitschakelen van bepaalde versies van SSL-protocol. Bepaalde beleidsregels SSL op een bestaande toepassingsgateway Hiermee schakelt u het volgende voorbeeld.
+Hallo voorgaande stappen nemen u bij het maken van een toepassing met einde tooend SSL- en uitschakelen van bepaalde versies van SSL-protocol. Hallo volgende voorbeeld wordt uitgeschakeld bepaalde beleidsregels SSL op een bestaande toepassingsgateway.
 
 ### <a name="step-1"></a>Stap 1
 
-Ophalen van de toepassingsgateway om bij te werken.
+Hallo application gateway tooupdate ophalen.
 
 ```powershell
 $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
@@ -271,7 +271,7 @@ $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName Ad
 
 ### <a name="step-2"></a>Stap 2
 
-Definieer een SSL-beleid. In het volgende voorbeeld TLSv1.0 en TLSv1.1 zijn uitgeschakeld en de coderingssuites **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, en **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** zijn de enigen toegestaan.
+Definieer een SSL-beleid. In Hallo voorbeeld te volgen, TLSv1.0 TLSv1.1 zijn uitgeschakeld en de coderingssuites Hallo **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256** , **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, en  **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** Hallo enigen toegestaan zijn.
 
 ```powershell
 Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
@@ -280,7 +280,7 @@ Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion -PolicyType Custom -C
 
 ### <a name="step-3"></a>Stap 3
 
-Tot slot werkt de gateway. Het is belangrijk te weten dat deze laatste stap een langlopende taak is. Wanneer deze is voltooid, wordt end-to-end-SSL geconfigureerd in de toepassingsgateway.
+Tot slot werkt Hallo-gateway. Het is belangrijk toonote dat deze laatste stap een langlopende taak is. Wanneer dit wordt gedaan, eindigen tooend die SSL op Hallo application gateway is geconfigureerd.
 
 ```powershell
 $gw | Set-AzureRmApplicationGateway
@@ -288,7 +288,7 @@ $gw | Set-AzureRmApplicationGateway
 
 ## <a name="get-application-gateway-dns-name"></a>DNS-naam van toepassingsgateway verkrijgen
 
-Wanneer de gateway is gemaakt, gaat u in de volgende stap de front-end voor communicatie configureren. Wanneer u een openbare IP gebruikt, heeft de toepassingsgateway een dynamisch toegewezen DNS-naam nodig. Dit is niet gebruiksvriendelijk. Om ervoor te zorgen dat eindgebruikers de toepassingsgateway kunnen bereiken, kan een CNAME-record worden gebruikt die verwijst naar het openbare eindpunt van de toepassingsgateway. [Een aangepaste domeinnaam configureren voor in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Daartoe haalt u details van de toepassingsgateway en de bijbehorende IP-/ DNS-naam op met het PublicIPAddress-element gekoppeld aan de toepassingsgateway. De DNS-naam van de toepassingsgateway moet worden gebruikt om een CNAME-record te maken die de twee webtoepassingen naar deze DNS-naam wijst. Het gebruik van A-records wordt niet aanbevolen, omdat het VIP kan veranderen wanneer de toepassingsgateway opnieuw wordt gestart.
+Zodra Hallo gateway is gemaakt, is de volgende stap Hallo tooconfigure Hallo front-end voor communicatie. Wanneer u een openbare IP gebruikt, heeft de toepassingsgateway een dynamisch toegewezen DNS-naam nodig. Dit is niet gebruiksvriendelijk. eindgebruikers tooensure kunt Hallo toepassingsgateway bereikt, een CNAME-record kan gebruikte toopoint toohello openbaar eindpunt van de toepassingsgateway Hallo. [Een aangepaste domeinnaam configureren voor in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). toodo deze, details ophalen van de toepassingsgateway Hallo en de bijbehorende IP-en DNS-naam op Hallo PublicIPAddress element gekoppelde toohello application gateway met. Hallo application gateway DNS-naam moet gebruikte toocreate een CNAME-record punten Hallo twee web applications toothis DNS-naam. Hallo-gebruik van A-records wordt niet aanbevolen omdat Hallo VIP bij opnieuw opstarten van toepassingsgateway mag wijzigen.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -318,6 +318,6 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het beperken van de beveiliging van uw webtoepassingen met Web Application Firewall via Application Gateway in via [Web Application Firewall-overzicht](application-gateway-webapplicationfirewall-overview.md)
+Meer informatie over het beperken van Hallo beveiliging van uw webtoepassingen met Web Application Firewall via Application Gateway in via [Web Application Firewall-overzicht](application-gateway-webapplicationfirewall-overview.md)
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png

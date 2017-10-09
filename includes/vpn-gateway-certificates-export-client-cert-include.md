@@ -1,0 +1,8 @@
+Wanneer u een clientcertificaat genereren, is deze automatisch geïnstalleerd op Hallo computer die u hebt gebruikt toogenerate deze. Als u wilt dat het Hallo-clientcertificaat tooinstall op een andere clientcomputer, moet u tooexport Hallo-clientcertificaat dat u hebt gegenereerd.                              
+
+1. een clientcertificaat tooexport openen **Gebruikerscertificaten beheren**. Hallo-clientcertificaten die u hebt gegenereerd, standaard, staan in 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten'. Klik met de rechtermuisknop Hallo-clientcertificaat dat u wilt dat tooexport, klikt u op **alle taken**, en klik vervolgens op **exporteren** tooopen hello **Wizard Certificaat exporteren**.
+2. Klik in de Wizard Hallo, **volgende**, selecteer daarna **Ja, Hallo persoonlijke sleutel exporteren**, en klik vervolgens op **volgende**.
+3. Op Hallo **bestandsindeling voor Export** pagina, laat u Hallo standaard geselecteerd. Zorg ervoor dat **indien mogelijk exporteren met alle certificaten in het certificeringspad Hallo** is geselecteerd. Als u deze exporteert ook Hallo hoofdmap certificaatgegevens die nodig is voor een geslaagde verificatie. Klik op **Volgende**.
+4. Op Hallo **beveiliging** pagina, moet u de persoonlijke sleutel Hallo beveiligen. Als u een wachtwoord toouse selecteert, zorg ervoor dat toorecord of Hallo wachtwoord die u voor dit certificaat instelt. Klik op **Volgende**.
+5. Op Hallo **bestand tooExport**, **Bladeren** toohello locatie toowhich gewenste tooexport Hallo certificaat. Voor **bestandsnaam**, naam Hallo-certificaatbestand. Klik op **Volgende**.
+6. Klik op **voltooien** tooexport Hallo certificaat.

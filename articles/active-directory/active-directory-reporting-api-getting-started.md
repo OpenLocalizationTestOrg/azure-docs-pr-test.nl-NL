@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure AD rapportage-API in de klassieke Azure AD-portal | Microsoft Docs
-description: Hoe u aan de slag met de Azure Active Directory rapportage-API
+title: aaaGetting de slag met Azure AD Hallo reporting API in de klassieke portal hello Azure AD | Microsoft Docs
+description: Hoe tooget gestart Hello Azure Active Directory-rapportage-API
 services: active-directory
 documentationcenter: 
 author: dhanyahk
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/18/2017
 ms.author: dhanyahk;markvi
-ms.openlocfilehash: 5e98b660fe19bb8abebf1c3b996b6295a6c4e728
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 52e22d442650731fc6ed28991fc65f9182af0540
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="getting-started-with-the-azure-active-directory-reporting-api-on-the-azure-ad-classic-portal"></a>Aan de slag met de Azure Active Directory rapportage-API in de klassieke Azure AD-portal
-*In dit onderwerp maakt deel uit van de [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
+# <a name="getting-started-with-hello-azure-active-directory-reporting-api-on-hello-azure-ad-classic-portal"></a>Aan de slag met Azure Active Directory rapportage-API in de klassieke portal hello Azure AD Hallo
+*In dit onderwerp maakt deel uit van Hallo [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
-Azure Active Directory beschikt u over tal van rapporten. De gegevens van deze rapporten kunnen zeer nuttig zijn voor uw toepassingen, zoals SIEM-systemen, audit- en business intelligence-hulpprogramma's. De API's van Azure AD Reporting bieden toegang tot de gegevens op programmeerniveau via een set op REST-gebaseerde API's. U kunt deze API's vanuit een groot aantal computertalen en hulpprogramma's aanroepen.
+Azure Active Directory beschikt u over tal van rapporten. Hallo-gegevens van deze rapporten kunnen zeer nuttig tooyour toepassingen, zoals de SIEM-systemen, controle en hulpprogramma's voor bedrijfsinformatie worden. Hello Azure AD rapportage-API's bieden toegang op programmeerniveau toohello gegevens via een set op basis van REST-API's. U kunt deze API's vanuit een groot aantal computertalen en hulpprogramma's aanroepen.
 
-In dit artikel biedt u de informatie die u moet aan de slag met Azure AD rapportage-API's.
-In de volgende sectie stelt u meer informatie over het gebruik van de audit en meld u API's. Voor alle andere API's, Zie de [Azure AD-rapporten en events(preview)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview) artikel.
+In dit artikel vindt u Hallo informatie moet u de slag met Azure AD Hallo rapportage tooget API's.
+In de volgende sectie hello u meer informatie over het gebruik van Hallo controleren en meld u API's. Zie voor andere API Hallo [Azure AD-rapporten en events(preview)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview) artikel.
 
 Voor vragen, problemen of feedback, neem contact op met [AAD rapportage Help](mailto:aadreportinghelp@microsoft.com).
 
 ## <a name="learning-map"></a>Leertraject
-1. **Voorbereiden** -voordat u uw API-voorbeelden testen kunt, u moet voltooien de [vereisten voor toegang tot de Azure AD rapportage-API](active-directory-reporting-api-prerequisites.md).
-2. **Verken** -ophalen van een eerste indruk van de rapportage-API's:
+1. **Voorbereiden** -voordat u uw API-voorbeelden testen kunt, moet u toocomplete hello [vereisten tooaccess hello Azure AD reporting API](active-directory-reporting-api-prerequisites.md).
+2. **Verken** -ophalen van een eerste indruk Hallo rapportage-API's:
    
-   * [Met behulp van de voorbeelden voor de API-controle](active-directory-reporting-api-audit-samples.md) 
-   * [Met behulp van de voorbeelden voor het rapport aanmeldingsactiviteiten API](active-directory-reporting-api-sign-in-activity-samples.md)
+   * [Met behulp van Hallo voorbeelden voor Hallo audit API](active-directory-reporting-api-audit-samples.md) 
+   * [Met behulp van Hallo voorbeelden voor Hallo aanmeldingsactiviteiten rapport API](active-directory-reporting-api-sign-in-activity-samples.md)
 3. **Aanpassen** -Maak uw eigen oplossing: 
    
-   * [Met behulp van de audit API-referentiemateriaal](active-directory-reporting-api-audit-reference.md) 
-   * [Met behulp van de aanmeldingsactiviteiten rapport API-verwijzing](active-directory-reporting-api-sign-in-activity-reference.md)
+   * [Met behulp van Hallo audit API-referentiemateriaal](active-directory-reporting-api-audit-reference.md) 
+   * [Hallo aanmeldingsactiviteiten rapport met API-referentiemateriaal](active-directory-reporting-api-sign-in-activity-reference.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u wilt alle van de beschikbare Azure AD Graph API-eindpunten bekijken door te navigeren naar [https://graph.windows.net/tenant-name/reports/$ metagegevens? api-version = beta](https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta).
+Als u weten toosee alle beschikbare Azure AD Graph API-eindpunten door te navigeren Hallo[https://graph.windows.net/tenant-name/reports/$ metagegevens? api-version = beta](https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta).
 

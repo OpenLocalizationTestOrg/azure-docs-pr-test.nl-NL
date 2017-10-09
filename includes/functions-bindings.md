@@ -5,7 +5,7 @@
 | [Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md) |Azure Storage |✔ |✔ |✔ |  
 | [Gebeurtenissen](../articles/azure-functions/functions-bindings-event-hubs.md) |Azure Event Hubs |✔ | |✔ |  
 | [Wachtrijen](../articles/azure-functions/functions-bindings-storage-queue.md) |Azure Storage |✔ | |✔ |  
-| [Wachtrijen en onderwerpen](../articles/azure-functions/functions-bindings-service-bus.md) |Service Bus van Azure |✔ | |✔ |  
+| [Wachtrijen en onderwerpen](../articles/azure-functions/functions-bindings-service-bus.md) |Azure Service Bus |✔ | |✔ |  
 | [Storage-tabellen](../articles/azure-functions/functions-bindings-storage-table.md) |Azure Storage | |✔ |✔ |  
 | [SQL-tabellen](../articles/azure-functions/functions-bindings-mobile-apps.md) |Azure Mobile Apps | |✔ |✔ |  
 | [Er is geen SQL-database](../articles/azure-functions/functions-bindings-documentdb.md) | Azure DocumentDB | |✔ |✔ |  
@@ -15,6 +15,6 @@
 
 (\* -Alle triggers hebt gekoppeld aan de invoergegevens)
 
-(\**-De HTTP-uitvoer binding vereist een HTTP-trigger)
+(\**-Hallo HTTP uitvoer binding vereist een HTTP-trigger)
 
 

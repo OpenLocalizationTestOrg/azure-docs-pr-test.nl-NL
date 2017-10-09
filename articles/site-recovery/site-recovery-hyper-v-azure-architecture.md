@@ -1,5 +1,5 @@
 ---
-title: Hoe werkt Hyper-V-replicatie naar Azure in Site Recovery? | Microsoft Docs
+title: aaaHow werkt Hyper-V-replicatie tooAzure in Site Recovery? | Microsoft Docs
 description: Dit artikel geeft een overzicht van de werking van Hyper-V-replicatie in Azure Site Recovery
 services: site-recovery
 documentationcenter: 
@@ -16,87 +16,86 @@ ms.date: 06/14/2017
 ms.author: raynew
 ROBOTS: NOINDEX, NOFOLLOW
 redirect_url: site-recovery-architecture-hyper-v-to-azure
-ms.openlocfilehash: 6fa952af93033f82effdef418903fc93d94dd05c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e982806b4d6cdec2f71f82d8c73c17cc50ad3c33
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-does-hyper-v-replication-to-azure-work"></a>Hoe werkt Hyper-V-replicatie naar Azure?
+# <a name="how-does-hyper-v-replication-tooazure-work"></a>Hoe werkt de Hyper-V-replicatie tooAzure?
 
-Lees dit artikel voor een beter begrip van de architectuur en werkstromen voor Hyper-V-replicatie naar Azure met behulp van de [Azure Site Recovery](site-recovery-overview.md)-service.
+Lees dit artikel toounderstand Hallo architectuur en werkstromen voor Hyper-V-replicatie tooAzure Hallo met [Azure Site Recovery](site-recovery-overview.md) service.
 
-U kunt onder aan dit artikel of op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) opmerkingen plaatsen.
+Eventuele opmerkingen posten onderin Hallo van dit artikel of in Hallo [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-U kunt het volgende repliceren naar Azure:
+U kunt repliceren Hallo tooAzure te volgen:
 - **Hyper-V met VMM**: VM's op on-premises Hyper-V-hosts die in System Center Virtual Machine Manager-clouds (VMM) worden beheerd. Hosts kunnen worden uitgevoerd op elk [ondersteund besturingssysteem](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). U kunt virtuele Hyper-V-machines repliceren waarop gastbesturingssystemen worden uitgevoerd die [worden ondersteund door Hyper-V en Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
-- **Hyper-V zonder VMM**: on-premises VM's op Hyper-V-hosts die niet worden beheerd in VMM-clouds. Hosts kunnen elk van de [ondersteunde besturingssystemen](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) uitvoeren. U kunt virtuele Hyper-V-machines repliceren waarop gastbesturingssystemen worden uitgevoerd die [worden ondersteund door Hyper-V en Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+- **Hyper-V zonder VMM**: on-premises VM's op Hyper-V-hosts die niet worden beheerd in VMM-clouds. Hosts kunnen uitvoeren op een van de Hallo [ondersteunde besturingssystemen](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions). U kunt virtuele Hyper-V-machines repliceren waarop gastbesturingssystemen worden uitgevoerd die [worden ondersteund door Hyper-V en Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 
 ## <a name="architectural-components"></a>Architectuuronderdelen
 
 **Onderwerp** | **Onderdeel** | **Details**
 --- | --- | ---
-**Azure** | U hebt in Azure een Microsoft Azure-account, een Azure-opslagaccount en een Azure-netwerk nodig. | Opslag en netwerk kunnen Resource Manager-gebaseerd of klassieke accounts zijn.<br/><br/> Gerepliceerde gegevens worden opgeslagen in het opslagaccount. Azure-VM’s worden gemaakt met de gerepliceerde gegevens bij failover van uw on-premises site.<br/><br/> De Azure-VM's maken verbinding met het virtuele Azure-netwerk wanneer ze worden gemaakt.
-**VMM-server** | Hyper-V-hosts die zich in VMM-clouds bevinden | Als Hyper-V-hosts in VMM-clouds worden beheerd, kunt u de VMM-server registreren in de Recovery Services-kluis.<br/><br/> U installeert de Site Recovery-provider op de VMM-server om replicatie te beheren met Azure.<br/><br/> U hebt ingestelde logische en VM-netwerken nodig om netwerktoewijzing te configureren. Een netwerk met virtuele machines moet zijn gekoppeld aan een logisch netwerk dat verbinding heeft met de cloud.
-**Hyper-V-host** | Hyper-V-servers kunnen worden geïmplementeerd met of zonder de VMM-server. | Als er geen VMM-server is, wordt de Site Recovery-provider geïnstalleerd op de host, zodat replicatie via internet kan worden beheerd met Site Recovery. Als er een VMM-server is, wordt de provider daarop geïnstalleerd en niet op de host.<br/><br/> De Recovery Services-agent wordt geïnstalleerd op de host om de gegevensreplicatie af te handelen.<br/><br/> De communicatie vanuit zowel de Provider als de agent is beveiligd en versleuteld. De gerepliceerde gegevens in de Azure-opslag zijn eveneens versleuteld.
-**Virtuele Hyper-V-machines** | U hebt één of meer virtuele machines nodig op de Hyper-V-hostserver. | Er hoeft niets verplicht op virtuele machines te worden geïnstalleerd
+**Azure** | U hebt in Azure een Microsoft Azure-account, een Azure-opslagaccount en een Azure-netwerk nodig. | Opslag en netwerk kunnen Resource Manager-gebaseerd of klassieke accounts zijn.<br/><br/> Gerepliceerde gegevens worden opgeslagen in Hallo storage-account en Azure VM's zijn gemaakt met Hallo gerepliceerde gegevens bij een storing van uw on-premises site.<br/><br/> Hallo virtuele Azure-machines verbinding toohello virtuele Azure-netwerk maken wanneer ze worden gemaakt.
+**VMM-server** | Hyper-V-hosts die zich in VMM-clouds bevinden | Als Hyper-V-hosts in VMM-clouds worden beheerd, kunt u Hallo VMM-server registreren in Hallo die Recovery Services-kluis.<br/><br/> Installeer op Hallo VMM-server Hallo Site Recovery Provider tooorchestrate replicatie met Azure.<br/><br/> U moet logische en VM-netwerken tooconfigure netwerktoewijzing instellen. Een VM-netwerk moet gekoppelde tooa logisch netwerk dat is gekoppeld aan het Hallo-cloud.
+**Hyper-V-host** | Hyper-V-servers kunnen worden geïmplementeerd met of zonder de VMM-server. | Als er geen VMM-server, Hallo Hallo Site Recovery Provider is geïnstalleerd op Hallo host tooorchestrate replicatie met Site Recovery via internet. Als er een VMM-server, worden Hallo Provider is geïnstalleerd op deze en niet op Hallo host.<br/><br/> Hallo Recovery Services-agent is geïnstalleerd op Hallo host toohandle gegevensreplicatie.<br/><br/> Communicatie van zowel Hallo Provider en Hallo-agent is beveiligd en versleuteld. De gerepliceerde gegevens in de Azure-opslag zijn eveneens versleuteld.
+**Virtuele Hyper-V-machines** | U moet een of meer virtuele machines op Hallo Hyper-V-hostserver. | Hoeft u niets tooexplicitly geïnstalleerd op virtuele machines
 
 ## <a name="deployment-steps"></a>Implementatiestappen
 
-1. **Azure**: u stelt de Azure-onderdelen in. Wij raden u aan om opslag- en netwerkaccounts in te stellen voordat u begint met de Site Recovery-implementatie.
+1. **Azure**: U hebt ingesteld hello Azure onderdelen. Wij raden u aan om opslag- en netwerkaccounts in te stellen voordat u begint met de Site Recovery-implementatie.
 2. **Kluis**: u maakt een Recovery Services-kluis voor Site Recovery en configureert de kluisinstellingen, met inbegrip van het configureren van de bron- en doelinstellingen, het instellen van een replicatiebeleid en het inschakelen van replicatie.
 3. **Bron en doel**:
-    - **Hyper-V-hosts in VMM-clouds**: als onderdeel van het opgeven van de broninstellingen downloadt en installeert u de Azure Site Recovery-provider op de VMM-server en de Azure Recovery Services-agent op elke Hyper-V-host. De bron is de VMM-server. Het doel is Azure.
-    - Hyper-V-hosts zonder VMM: wanneer u instellingen voor de bron opgeeft, downloadt en installeert u de provider en agent op elke Hyper-V-host. Tijdens de implementatie verzamelt u de hosts op een Hyper-V-site en geeft u vervolgens deze site op als bron. Het doel is Azure.
+    - **Hyper-V-hosts in VMM-clouds**: als onderdeel van het opgeven van instellingen van de bronserver u downloaden en installeren van hello Azure Site Recovery Provider op Hallo VMM-server en hello Azure Recovery Services-agent op elke Hyper-V-host. Hallo bron wordt Hallo VMM-server zijn. Hallo-doel is Azure.
+    - Hyper-V-hosts zonder VMM: wanneer u de instellingen van de bronserver opgeeft, u en downloaden en installeren Hallo Provider-agent op elke Hyper-V-host. Hallo hosts verzamelen in een Hyper-V-site tijdens de implementatie en geef op deze site als Hallo bron. Hallo-doel is Azure.
 
-    ![Hyper-V of VMM-replicatie naar Azure](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png) ![Hyper-V-site-replicatie naar Azure](./media/site-recovery-components/arch-onprem-azure-hypervsite.png)
+    ![Replicatie van Hyper-V of VMM tooAzure](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png) ![Hyper-V-site-replicatie tooAzure](./media/site-recovery-components/arch-onprem-azure-hypervsite.png)
 
 
-4. **Replicatiebeleid**: u maakt een replicatiebeleid voor de Hyper-V-site of de VMM-cloud. Het beleid wordt toegepast op alle VM’s die zich op hosts in de site of de cloud bevinden.
-5. **Replicatie inschakelen**: u schakelt replicatie voor virtuele Hyper-V-machines in. De initiële replicatie wordt uitgevoerd in overeenstemming met de instellingen van het replicatiebeleid. Verschillen in de gegevens worden bijgehouden en de replicatie van deltaverschillen naar Azure begint nadat de initiële replicatie is voltooid. Bijgehouden wijzigingen voor een item worden opgeslagen in een .hrl-bestand.
-6. **Testfailover**: u voert een testfailover uit om te controleren of alles werkt.
+4. **Beleid voor wachtwoordreplicatie**: maken van een beleid voor wachtwoordreplicatie voor Hallo Hyper-V-site of de VMM-cloud. Hallo-beleid is toegepast tooall virtuele machines op hosts in het Hallo-site of in de cloud bevinden.
+5. **Replicatie inschakelen**: u schakelt replicatie voor virtuele Hyper-V-machines in. Initiële replicatie vindt plaats in overeenstemming met beleidsinstellingen Hallo-replicatie. Gegevenswijzigingen worden bijgehouden en replicatie van verschillen wijzigingen tooAzure wordt gestart nadat de Hallo initiële replicatie is voltooid. Bijgehouden wijzigingen voor een item worden opgeslagen in een .hrl-bestand.
+6. **Failover testen**: uitvoeren van een test failover toomake, controleren of alles werkt zoals verwacht.
 
 Meer informatie over implementatie:
-- [Aan de slag met replicatie van Hyper-V-VM's naar Azure (met VMM)](site-recovery-vmm-to-azure.md)
-- [Aan de slag met replicatie van Hyper-V-VM's naar Azure (zonder VMM)](site-recovery-hyper-v-site-to-azure.md)
+- [Aan de slag met Hyper-V VM replicatie tooAzure - met VMM](site-recovery-vmm-to-azure.md)
+- [Aan de slag met Hyper-V VM replicatie tooAzure - zonder VMM](site-recovery-hyper-v-site-to-azure.md)
 
 ## <a name="hyper-v-replication-workflow"></a>Werkstroom van de Hyper-V-replicatie
 
 ### <a name="enable-protection"></a>Beveiliging inschakelen
 
-1. Nadat u de beveiliging voor een Hyper-V-VM in Azure Portal of on-premises hebt ingeschakeld, start **Beveiliging inschakelen**.
-2. Met deze taak wordt gecontroleerd of de machine voldoet aan de vereisten. Hierna wordt [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) aangeroepen om replicatie in te stellen op basis van de instellingen die u hebt geconfigureerd.
-3. De taak start initiële replicatie door de methode [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) aan te roepen om een volledige VM-replicatie te initialiseren en de virtuele schijven van de virtuele machine naar Azure te versturen.
-4. U kunt de voortgang van de taak controleren op het tabblad **Taken**.
-        ![Takenlijst](media/site-recovery-hyper-v-azure-architecture/image1.png)![Inzoomen op beveiliging inschakelen](media/site-recovery-hyper-v-azure-architecture/image2.png)
+1. Nadat u de beveiliging voor een virtuele Hyper-V-machine hebt ingeschakeld in hello Azure-portal of on-premises, Hallo **beveiliging inschakelen** wordt gestart.
+2. Hallo taak controleert die machine Hallo voldoet aan de vereisten, voordat Functieselectie wordt aangeroepen Hallo [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), tooset van de replicatie met Hallo-instellingen die u hebt geconfigureerd.
+3. Hallo taak initiële replicatie start met het aanroepen van Hallo [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) methode tooinitialize een volledige replicatie en verzenden Hallo van de virtuele machine virtuele schijven tooAzure.
+4. U kunt bewaken Hallo taak in Hallo **taken** tabblad.      ![Takenlijst](media/site-recovery-hyper-v-azure-architecture/image1.png)![Inzoomen op beveiliging inschakelen](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
 ### <a name="initial-replication"></a>Initiële replicatie
 
 1. Er wordt een [Hyper-V VM-momentopname](https://technet.microsoft.com/library/dd560637.aspx) gemaakt wanneer de initiële replicatie wordt geactiveerd.
-2. Virtuele harde schijven worden één voor één gerepliceerd totdat ze allemaal naar Azure zijn gekopieerd. Het kan even duren, afhankelijk van de VM-grootte en de netwerkbandbreedte. Zie [How to manage on-premises to Azure protection network bandwidth usage](https://support.microsoft.com/kb/3056159) (On-premises beheren aan de hand van de door Azure-beveiliging gebruikte netwerkbandbreedte) om uw netwerkgebruik te optimaliseren.
-3. Als er tijdens de eerste replicatie schijfwijzigingen optreden, worden deze met de Hyper-V Replica-replicatietracker bijgehouden als Hyper-V-replicatielogboeken (.hrl). Deze bestanden bevinden zich in dezelfde map als de schijven. Elke schijf heeft een eigen HRL-bestand dat naar de secundaire opslag wordt verzonden.
-4. De momentopname- en logboekbestanden nemen schijfbronnen in beslag terwijl de eerste replicatie wordt uitgevoerd.
-5. Als de initiële replicatie is voltooid, wordt de VM-momentopname verwijderd. Verschillen in het logboek worden gesynchroniseerd en samengevoegd op de bovenliggende schijf.
+2. Virtuele harde schijven zijn een voor een gerepliceerd tot ze alle gekopieerde tooAzure zijn. Het kan even duren, afhankelijk van Hallo VM-grootte en de netwerkbandbreedte. toooptimize uw netwerkgebruik Zie [hoe toomanage lokale tooAzure beveiliging netwerkbandbreedtegebruik](https://support.microsoft.com/kb/3056159).
+3. Als er schijfwijzigingen optreden terwijl de eerste replicatie uitgevoerd wordt, Hallo Hyper-V Replica Replication Tracker deze wijzigingen worden bijgehouden als Hyper-V-Replicatielogboeken (.hrl). Deze bestanden bevinden zich in Hallo dezelfde map als het Hallo-schijven. Elke schijf heeft een hrl-bestand dat wordt verzonden toosecondary opslag.
+4. Hallo schijfbronnnen momentopname- en logboekbestanden terwijl de eerste replicatie uitgevoerd wordt.
+5. Wanneer Hallo initiële replicatie is voltooid, wordt de VM-momentopname Hallo verwijderd. Verschillen in logboek Hallo zijn gesynchroniseerd en samengevoegd toohello bovenliggende schijf.
 
 
 ### <a name="finalize-protection"></a>Beveiliging voltooien
 
-1. Wanneer de eerste replicatie is voltooid, configureert de taak **Beveiliging van de virtuele machine voltooien** de netwerkinstellingen en overige instellingen na de replicatie zodanig dat de virtuele machine is beveiligd.
+1. Nadat de initiële replicatie Hallo is voltooid, hello **beveiliging op Hallo virtuele machine voltooien** taak configureert u netwerk- en andere instellingen na de replicatie zodat Hallo virtuele machine is beveiligd.
     ![Taak Beveiliging voltooien](media/site-recovery-hyper-v-azure-architecture/image3.png)
-2. Als u repliceert naar Azure, moet u mogelijk de instellingen voor de virtuele machine zo aanpassen dat deze gereed is voor failover. Nu kunt u een failovertest uitvoeren om te controleren of alles werkt zoals het hoort.
+2. Als u tooAzure repliceert, moet u mogelijk tootweak Hallo-instellingen voor Hallo virtuele machine zodat deze gereed voor failover. U kunt een test failover toocheck die alles werkt zoals verwacht op dit moment kunt uitvoeren.
 
 ### <a name="delta-replication"></a>Replicatie van verschillen
 
-1. Na de initiële replicatie start de deltasynchronisatie in overeenstemming met de replicatie-instellingen.
-2. De Hyper-V Replica-replicatietracker houdt de wijzigingen op een virtuele harde schijf bij in .hrl-bestanden. Elke schijf die voor replicatie is geconfigureerd, heeft een bijbehorend .hrl-bestand. Dit logboek wordt naar het opslagaccount van de klant verzonden nadat de initiële replicatie is voltooid. Wanneer een logboek naar Azure wordt verzonden, worden de wijzigingen in de primaire schijf bijgehouden in een ander logboekbestand in dezelfde map.
-3. Tijdens de initiële replicatie en replicatie van verschillen, kunt u de virtuele machine in de VM-weergave bewaken. [Meer informatie](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
+1. Na de initiële replicatie hello Start de Deltasynchronisatie in overeenstemming met de replicatie-instellingen.
+2. Hallo Hyper-V Replica Replication Tracker bijgehouden Hallo wijzigingen tooa virtuele hardeschijf als .hrl-bestanden. Elke schijf die voor replicatie is geconfigureerd, heeft een bijbehorend .hrl-bestand. Dit logboek wordt storage-account van de klant toohello verzonden nadat de initiële replicatie is voltooid. Wanneer een logboek in transit tooAzure, in een ander logboekbestand in Hallo Hallo wijzigingen in de primaire schijf Hallo worden bijgehouden dezelfde directory.
+3. Tijdens de eerste en delta-replicatie, kunt u Hallo VM in Hallo VM weergave bewaken. [Meer informatie](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
 
 ### <a name="replication-synchronization"></a>Replicatiesynchronisatie
 
-1. Als de replicatie van verschillen mislukt en een volledige replicatie veel bandbreedte of tijd zou kosten, wordt de virtuele machine gemarkeerd voor hersynchronisatie. Als de HRL-bestanden bijvoorbeeld 50% van de schijfgrootte in beslag nemen, wordt de virtuele machine gemarkeerd voor hersynchronisatie.
-2.  Met een hersynchronisatie wordt de hoeveelheid verzonden gegevens geminimaliseerd door controlesommen van de bron- en doel-VM's te berekenen en alleen de verschilgegevens te verzenden. Hersynchronisatie maakt gebruik van een vaste-blokalgoritme voor verdelen in segmenten, waarbij bron- en doelbestanden in vaste segmenten worden verdeeld. Voor elk segment worden controlesommen gegenereerd en vervolgens vergeleken om te bepalen welke blokken van de bron op het doel moeten worden toegepast.
-3. Na hersynchronisatie moet de normale replicatie van verschillen worden hervat. Hersynchronisatie is standaard zo gepland dat deze automatisch buiten kantooruren wordt uitgevoerd, maar u kunt een virtuele machine ook handmatig opnieuw synchroniseren. U kunt de hersynchronisatie bijvoorbeeld hervatten als er een netwerkstoring of een andere storing optreedt. Selecteer hiervoor de virtuele machine in de portal > **Opnieuw synchroniseren**.
+1. Als de replicatie van verschillen mislukt en een volledige replicatie veel bandbreedte of tijd zou kosten, wordt de virtuele machine gemarkeerd voor hersynchronisatie. Bijvoorbeeld, als Hallo .hrl bestanden 50% van de schijfgrootte hello bereiken, vervolgens hello VM gemarkeerd voor hersynchronisatie.
+2.  Hersynchronisatie wordt geminimaliseerd Hallo en de hoeveelheid gegevens die zijn verzonden door controlesommen van Hallo bron- en virtuele machines en alleen Hallo delta-gegevens te verzenden. Hersynchronisatie maakt gebruik van een vaste-blokalgoritme voor verdelen in segmenten, waarbij bron- en doelbestanden in vaste segmenten worden verdeeld. Controlesommen voor elk segment worden gegenereerd en worden vervolgens vergeleken toodetermine die vanaf het Hallo-bron moet toobe toegepaste toohello doel wordt geblokkeerd.
+3. Na hersynchronisatie moet de normale replicatie van verschillen worden hervat. Hersynchronisatie is standaard geplande toorun automatisch buiten kantooruren, maar u kunt een virtuele machine handmatig synchroniseren. U kunt de hersynchronisatie bijvoorbeeld hervatten als er een netwerkstoring of een andere storing optreedt. toodo deze, selecteer Hallo VM in de portal Hallo > **opnieuw synchroniseren**.
 
     ![Handmatig opnieuw synchroniseren](media/site-recovery-hyper-v-azure-architecture/image4.png)
 
@@ -107,8 +106,8 @@ Als er een replicatiefout optreedt, wordt de replicatie automatisch opnieuw gepr
 
 **Categorie** | **Details**
 --- | ---
-**Niet-herstelbare fouten** | Er wordt geen nieuwe poging gedaan. De status van de virtuele machine is **Kritiek** en tussenkomst van de beheerder is vereist. Enkele voorbeelden van deze fouten zijn: verbroken VHD-keten; ongeldige status voor de replica-VM; netwerkverificatiefouten: autorisatiefouten; fouten in verband met een niet gevonden virtuele machine (voor zelfstandige Hyper-V-servers)
-**Herstelbare fouten** | Nieuwe pogingen worden elk replicatie-interval uitgevoerd met behulp van een exponentiële uitstelbewerking die het interval voor nieuwe pogingen vanaf het begin van de eerste poging met 1, 2, 4, 8 en 10 minuten verhoogt. Als een fout zich blijft voordoen, probeert u het om de 30 minuten opnieuw. Voorbeelden zijn onder meer: netwerkfouten; fouten in verband met weinig schijfruimte; weinig geheugenruimte |
+**Niet-herstelbare fouten** | Er wordt geen nieuwe poging gedaan. De status van de virtuele machine is **Kritiek** en tussenkomst van de beheerder is vereist. Voorbeelden van deze fouten zijn: verbroken VHD keten; Ongeldige status voor Hallo replica-VM; Netwerk verificatiefouten: fouten autorisatie; Virtuele machine geen fouten gevonden (voor zelfstandige Hyper-V-servers)
+**Herstelbare fouten** | Nieuwe pogingen uitgevoerd elke replicatie-interval, met behulp van een exponentiële back-uit die Hallo-interval voor opnieuw proberen van Hallo begin van de eerste poging Hallo door 1, 2, 4, 8 en 10 minuten verhoogt. Als een fout zich blijft voordoen, probeert u het om de 30 minuten opnieuw. Voorbeelden zijn onder meer: netwerkfouten; fouten in verband met weinig schijfruimte; weinig geheugenruimte |
 
 ## <a name="protection-and-recovery-lifecycle"></a>Levenscyclus beveiliging en herstel
 

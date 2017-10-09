@@ -1,6 +1,6 @@
 ---
-title: Azure Automation-resources in OMS-oplossingen | Microsoft Docs
-description: Oplossingen in OMS omvatten meestal runbooks in Azure Automation voor het automatiseren van processen, zoals het verzamelen en bewakingsgegevens verwerken.  Dit artikel wordt beschreven hoe u runbooks en hun bijbehorende resources opnemen in een oplossing.
+title: Automation-resources aaaAzure in OMS-oplossingen | Microsoft Docs
+description: Oplossingen in OMS omvatten meestal runbooks in Azure Automation tooautomate processen zoals het verzamelen en bewakingsgegevens verwerken.  Dit artikel wordt beschreven hoe tooinclude runbooks en hun verwante resources in een oplossing.
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,42 +15,42 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1909183a33ed03d8165671cff25cc8b83b77733
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 82a156f89bf77ce25e52e5e4596261ec07a24dae
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Azure Automation-resources toe te voegen aan een OMS-beheeroplossing (Preview)
+# <a name="adding-azure-automation-resources-tooan-oms-management-solution-preview"></a>Toevoegen van Azure Automation-resources tooan OMS beheeroplossing (Preview)
 > [!NOTE]
-> Dit is voorlopige documentatie voor het maken van oplossingen voor het beheer in OMS die zich momenteel in preview. De hieronder beschreven schema kan worden gewijzigd.   
+> Dit is voorlopige documentatie voor het maken van oplossingen voor het beheer in OMS die zich momenteel in preview. De hieronder beschreven schema is onderwerp toochange.   
 
 
-[Oplossingen voor het beheer in OMS](operations-management-suite-solutions.md) omvatten meestal runbooks in Azure Automation voor het automatiseren van processen, zoals het verzamelen en bewakingsgegevens verwerken.  Automation-accounts bevat naast runbooks, assets, zoals variabelen en schema's die ondersteuning bieden voor de runbooks gebruikt in de oplossing.  Dit artikel wordt beschreven hoe u runbooks en hun bijbehorende resources opnemen in een oplossing.
+[Oplossingen voor het beheer in OMS](operations-management-suite-solutions.md) omvatten meestal runbooks in Azure Automation tooautomate processen zoals het verzamelen en bewakingsgegevens verwerken.  Bovendien toorunbooks, omvat Automation-accounts activa zoals variabelen en schema's die ondersteuning bieden voor Hallo runbooks gebruikt in Hallo-oplossing.  Dit artikel wordt beschreven hoe tooinclude runbooks en hun verwante resources in een oplossing.
 
 > [!NOTE]
-> De voorbeelden in dit artikel gebruiken parameters en variabelen die zijn vereist of gemeenschappelijke voor beheeroplossingen en wordt beschreven in [beheeroplossingen maken in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) 
+> Hallo voorbeelden in dit artikel gebruiken parameters en variabelen die zijn beide vereist of algemene toomanagement oplossingen en wordt beschreven in [beheeroplossingen maken in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) 
 
 
 ## <a name="prerequisites"></a>Vereisten
-In dit artikel wordt ervan uitgegaan dat u al bekend met de volgende informatie bent.
+In dit artikel wordt ervan uitgegaan dat u al bekend bent met Hallo informatie te volgen.
 
-- Hoe [maken van een beheeroplossing](operations-management-suite-solutions-creating.md).
-- De structuur van een [oplossingsbestand](operations-management-suite-solutions-solution-file.md).
-- Hoe [Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md)
+- Hoe te[maken van een beheeroplossing](operations-management-suite-solutions-creating.md).
+- Hallo structuur van een [oplossingsbestand](operations-management-suite-solutions-solution-file.md).
+- Hoe te[Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Automation-account
-Alle resources in Azure Automation zijn opgenomen in een [Automation-account](../automation/automation-security-overview.md#automation-account-overview).  Zoals beschreven in [OMS werkruimte en de Automation-account](operations-management-suite-solutions.md#oms-workspace-and-automation-account) het Automation-account niet is opgenomen in de oplossing voor beheer, maar moet bestaan voordat de oplossing is geïnstalleerd.  De installatie van de oplossing zal mislukken als het is niet beschikbaar.
+Alle resources in Azure Automation zijn opgenomen in een [Automation-account](../automation/automation-security-overview.md#automation-account-overview).  Zoals beschreven in [OMS werkruimte en de Automation-account](operations-management-suite-solutions.md#oms-workspace-and-automation-account) Hallo Automation-account niet is opgenomen in de oplossing voor het beheer van hello, maar moet bestaan voordat het Hallo-oplossing is geïnstalleerd.  Als het is niet beschikbaar, mislukken Hallo oplossing installatie.
 
-De naam van elke resource Automation bevat de naam van de Automation-account.  Dit doet u in de oplossing met de **accountName** parameter zoals in het volgende voorbeeld van een runbook-resource.
+Hallo-naam van elke resource Automation omvat Hallo-naam van de Automation-account.  Dit wordt gedaan Hallo-oplossing met Hallo **accountName** parameter zoals in Hallo voorbeeld van een runbook-resource te volgen.
 
     "name": "[concat(parameters('accountName'), '/MyRunbook'))]"
 
 
 ## <a name="runbooks"></a>Runbooks
-Alle runbooks die door de oplossing in het oplossingsbestand gebruikt zodat ze worden gemaakt wanneer de oplossing is geïnstalleerd, moet u opnemen.  U mag niet de hoofdtekst van het runbook in de sjabloon, dus u moet het runbook publiceren naar een openbaar toegankelijke locatie waar deze kan worden geopend door elke gebruiker installeren van uw oplossing.
+Alle runbooks die wordt gebruikt door Hallo-oplossing in het oplossingsbestand hello, zodat ze worden gemaakt wanneer het Hallo-oplossing is geïnstalleerd, moet u opnemen.  U mag geen Hallo-hoofdtekst van het runbook in de sjabloon Hallo Hallo echter bevatten zodat u Hallo runbook tooa openbaar toegankelijke locatie waar deze kan worden geopend door elke gebruiker installeren van uw oplossing moet publiceren.
 
-[Azure Automation-runbook](../automation/automation-runbook-types.md) resources zijn een type **Microsoft.Automation/automationAccounts/runbooks** en hebben de volgende structuur. Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters. 
+[Azure Automation-runbook](../automation/automation-runbook-types.md) resources zijn een type **Microsoft.Automation/automationAccounts/runbooks** en hebben Hallo structuur te volgen. Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en Hallo parameternamen wijzigen. 
 
     {
         "name": "[concat(parameters('accountName'), '/', variables('Runbook').Name)]",
@@ -73,21 +73,21 @@ Alle runbooks die door de oplossing in het oplossingsbestand gebruikt zodat ze w
     }
 
 
-De eigenschappen voor runbooks worden in de volgende tabel beschreven.
+Hallo-eigenschappen voor runbooks worden beschreven in de volgende tabel Hallo.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| runbookType |Hiermee geeft u de typen van het runbook. <br><br> Script - PowerShell-script <br>PowerShell - PowerShell-werkstroom <br> GraphPowerShell - grafische PowerShell-script runbook <br> GraphPowerShellWorkflow - grafische PowerShell workflow-runbook |
-| logProgress |Hiermee geeft u op of [records voortgang](../automation/automation-runbook-output-and-messages.md) voor het runbook moet worden gegenereerd. |
-| logVerbose |Hiermee geeft u op of [uitgebreide records](../automation/automation-runbook-output-and-messages.md) voor het runbook moet worden gegenereerd. |
-| Beschrijving |Optionele beschrijving voor het runbook. |
-| publishContentLink |Hiermee geeft u de inhoud van het runbook. <br><br>URI - Uri met de inhoud van het runbook.  Dit is een ps1-bestand voor runbooks met PowerShell en het Script en een geëxporteerde grafisch runbook-bestand voor een Graph-runbook.  <br> versie - versie van het runbook voor uw eigen bijhouden. |
+| runbookType |Hiermee geeft u Hallo Hallo runbook typen. <br><br> Script - PowerShell-script <br>PowerShell - PowerShell-werkstroom <br> GraphPowerShell - grafische PowerShell-script runbook <br> GraphPowerShellWorkflow - grafische PowerShell workflow-runbook |
+| logProgress |Hiermee geeft u op of [records voortgang](../automation/automation-runbook-output-and-messages.md) voor Hallo runbook moet worden gegenereerd. |
+| logVerbose |Hiermee geeft u op of [uitgebreide records](../automation/automation-runbook-output-and-messages.md) voor Hallo runbook moet worden gegenereerd. |
+| description |Optionele beschrijving voor het Hallo-runbook. |
+| publishContentLink |Hiermee geeft u Hallo inhoud van het Hallo-runbook. <br><br>URI - inhoud-Uri toohello van Hallo runbook.  Dit is een ps1-bestand voor runbooks met PowerShell en het Script en een geëxporteerde grafisch runbook-bestand voor een Graph-runbook.  <br> versie - versie van de runbook Hallo voor uw eigen bijhouden. |
 
 
 ## <a name="automation-jobs"></a>Automation-taken
-Wanneer u een runbook in Azure Automation start, wordt een automation-taak gemaakt.  U kunt een automation-taak resource toevoegen aan uw oplossing automatisch een runbook wordt gestart wanneer het systeem is geïnstalleerd.  Deze methode wordt doorgaans gebruikt voor het starten van runbooks die worden gebruikt voor de initiële configuratie van de oplossing.  Maak eerst een runbook met regelmatige tussenpozen een [planning](#schedules) en een [taakschema](#job-schedules)
+Wanneer u een runbook in Azure Automation start, wordt een automation-taak gemaakt.  U kunt een automation-taak resource tooyour oplossing tooautomatically start een runbook toevoegen als oplossing voor het beheer van Hallo is geïnstalleerd.  Deze methode is gewoonlijk gebruikte toostart runbooks die worden gebruikt voor de initiële configuratie van Hallo-oplossing.  maken van een runbook met regelmatige tussenpozen toostart een [planning](#schedules) en een [taakschema](#job-schedules)
 
-Taak resources zijn een type **Microsoft.Automation/automationAccounts/jobs** en hebben de volgende structuur.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters. 
+Taak resources zijn een type **Microsoft.Automation/automationAccounts/jobs** en hebben Hallo structuur te volgen.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en Hallo parameternamen wijzigen. 
 
     {
       "name": "[concat(parameters('accountName'), '/', parameters('Runbook').JobGuid)]",
@@ -109,20 +109,20 @@ Taak resources zijn een type **Microsoft.Automation/automationAccounts/jobs** en
       }
     }
 
-De eigenschappen voor automatisering taken worden beschreven in de volgende tabel.
+Hallo-eigenschappen voor automatisering taken worden beschreven in de volgende tabel Hallo.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| runbook |De naam van één entiteit met de naam van het runbook te starten. |
-| Parameters |De entiteit voor elke parameterwaarde vereist voor het runbook. |
+| runbook |Één naam-entiteit met de naam van de Hallo van Hallo runbook toostart. |
+| parameters |De entiteit voor elke parameterwaarde vereist voor Hallo runbook. |
 
-De taak bevat de runbooknaam en parameterwaarden worden verzonden naar het runbook.  De taak moet [afhankelijk](operations-management-suite-solutions-solution-file.md#resources) het runbook dat deze wordt gestart nadat het runbook moet worden gemaakt voordat de taak.  Als er meerdere runbooks die moet worden gestart, kunt u de volgorde definiëren wanneer er een taak die afhankelijk zijn van andere taken die eerst moeten worden uitgevoerd.
+Hallo-taak bevat Hallo runbooknaam en elke parameter waarden toobe toohello runbook verzonden.  Hallo-taak moet [afhankelijk](operations-management-suite-solutions-solution-file.md#resources) hello runbook dat deze wordt gestart sinds Hallo runbook moet worden gemaakt voordat het Hallo-taak.  Als er meerdere runbooks die moet worden gestart, kunt u de volgorde definiëren wanneer er een taak die afhankelijk zijn van andere taken die eerst moeten worden uitgevoerd.
 
-De naam van de resource van een taak moet een GUID die doorgaans wordt toegewezen door een parameter bevatten.  Meer informatie over parameters in GUID [om oplossingen te maken in Operations Management Suite (OMS)](operations-management-suite-solutions-solution-file.md#parameters).  
+Hallo-naam van een resource van de taak moet een GUID die doorgaans wordt toegewezen door een parameter bevatten.  Meer informatie over parameters in GUID [om oplossingen te maken in Operations Management Suite (OMS)](operations-management-suite-solutions-solution-file.md#parameters).  
 
 
 ## <a name="certificates"></a>Certificaten
-[Azure Automation-certificaten](../automation/automation-certificates.md) een soort **Microsoft.Automation/automationAccounts/certificates** en hebben de volgende structuur. Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters. 
+[Azure Automation-certificaten](../automation/automation-certificates.md) een soort **Microsoft.Automation/automationAccounts/certificates** en hebben Hallo structuur te volgen. Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en Hallo parameternamen wijzigen. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Certificate').Name)]",
@@ -140,17 +140,17 @@ De naam van de resource van een taak moet een GUID die doorgaans wordt toegeweze
 
 
 
-De eigenschappen van bronnen van de certificaten worden in de volgende tabel beschreven.
+Hallo-eigenschappen van bronnen van de certificaten worden beschreven in de volgende tabel Hallo.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| base64Value |Base 64-waarde voor het certificaat. |
-| vingerafdruk |Vingerafdruk van het certificaat. |
+| base64Value |De waarde van de Base 64 voor Hallo certificaat. |
+| vingerafdruk |Vingerafdruk voor Hallo certificaat. |
 
 
 
 ## <a name="credentials"></a>Referenties
-[Azure Automation-referenties](../automation/automation-credentials.md) een soort **Microsoft.Automation/automationAccounts/credentials** en hebben de volgende structuur.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters. 
+[Azure Automation-referenties](../automation/automation-credentials.md) een soort **Microsoft.Automation/automationAccounts/credentials** en hebben Hallo structuur te volgen.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en Hallo parameternamen wijzigen. 
 
 
     {
@@ -167,16 +167,16 @@ De eigenschappen van bronnen van de certificaten worden in de volgende tabel bes
       }
     }
 
-De eigenschappen voor de referentie-resources worden in de volgende tabel beschreven.
+Hallo-eigenschappen voor de referentie-bronnen worden beschreven in de volgende tabel Hallo.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| Gebruikersnaam |De naam van de gebruiker voor de referentie. |
-| wachtwoord |Wachtwoord voor de referentie. |
+| Gebruikersnaam |De gebruikersnaam voor Hallo referentie. |
+| wachtwoord |Wachtwoord voor het Hallo-referentie. |
 
 
 ## <a name="schedules"></a>Planningen
-[Azure Automation-planningen](../automation/automation-schedules.md) een soort **Microsoft.Automation/automationAccounts/schedules** en hebben de volgende structuur. Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters. 
+[Azure Automation-planningen](../automation/automation-schedules.md) een soort **Microsoft.Automation/automationAccounts/schedules** en hebben Hallo Hallo structuur te volgen. Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en Hallo parameternamen wijzigen. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Schedule').Name)]",
@@ -195,26 +195,26 @@ De eigenschappen voor de referentie-resources worden in de volgende tabel beschr
       }
     }
 
-De eigenschappen voor resources plannen worden in de volgende tabel beschreven.
+Hallo-eigenschappen voor schema-bronnen worden beschreven in de volgende tabel Hallo.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| Beschrijving |Optionele beschrijving voor de planning. |
-| startTime |Hiermee geeft u de begintijd van een planning als een datum/tijd-object. Een tekenreeks kan worden opgegeven als kan worden geconverteerd naar een geldige DateTime. |
-| IsEnabled |Hiermee geeft u op of de planning is ingeschakeld. |
-| Interval |Het type interval voor de planning.<br><br>dag<br>uur |
-| Frequentie |De frequentie waarmee de planning moet worden geactiveerd in aantal dagen of uren. |
+| description |Optionele beschrijving voor Hallo planning. |
+| startTime |Hiermee geeft u de begintijd Hallo van een planning als een datum/tijd-object. Een tekenreeks kan worden opgegeven als geconverteerde tooa geldige DateTime. |
+| IsEnabled |Hiermee geeft u op of het Hallo-schema is ingeschakeld. |
+| interval |Hallo type interval voor Hallo planning.<br><br>dag<br>uur |
+| frequency |Frequentie waarmee Hallo planning moet worden geactiveerd in aantal dagen of uren. |
 
-Schema's moeten een begintijd met een waarde groter is dan de huidige tijd hebben.  U kunt deze waarde kan niet opgeven met een variabele, omdat u er niet toe van weten wanneer deze het wil worden geïnstalleerd.
+Schema's moeten een begintijd met een waarde groter dan Hallo huidige tijd hebben.  U kunt deze waarde kan niet opgeven met een variabele omdat u er niet toe van weten wanneer het gaat toobe geïnstalleerd is.
 
-Gebruik een van de volgende twee strategieën wanneer resources plannen in een oplossing.
+Gebruik een van de Hallo twee strategieën bij gebruik van resources plannen in een oplossing te volgen.
 
-- Gebruik een parameter voor de begintijd van de planning.  Dit wordt de gebruiker gevraagd om een waarde opgeven bij de installatie van de oplossing.  Als u meerdere schema's hebt, kunt u een enkele parameterwaarde kunt gebruiken voor meer dan één.
-- Maak de schema's met behulp van een runbook dat wordt gestart wanneer de oplossing is geïnstalleerd.  Hiermee verwijdert u de vereisten van de gebruiker een tijdstip opgeven, maar u mag niet de planning in uw oplossing zodat wordt verwijderd wanneer de oplossing wordt verwijderd.
+- Gebruik een parameter voor de begintijd Hallo van Hallo planning.  Dit wordt gevraagd om Hallo gebruiker tooprovide een waarde wanneer ze Hallo-oplossing installeren.  Als u meerdere schema's hebt, kunt u een enkele parameterwaarde kunt gebruiken voor meer dan één.
+- Maak Hallo schema's met behulp van een runbook dat wordt gestart wanneer het Hallo-oplossing is geïnstalleerd.  Hiermee verwijdert u de vereiste Hallo van Hallo gebruiker toospecify, maar u mag niet Hallo plannen in uw oplossing zodat deze worden verwijderd wanneer het Hallo-oplossing is verwijderd.
 
 
 ### <a name="job-schedules"></a>Jobplanningen
-Taak schema resources koppelen een runbook met een schema.  Ze hebben een soort **Microsoft.Automation/automationAccounts/jobSchedules** en hebben de volgende structuur.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters. 
+Taak schema resources koppelen een runbook met een schema.  Ze hebben een soort **Microsoft.Automation/automationAccounts/jobSchedules** en hebben Hallo Hallo structuur te volgen.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en Hallo parameternamen wijzigen. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Schedule').LinkGuid)]",
@@ -238,17 +238,17 @@ Taak schema resources koppelen een runbook met een schema.  Ze hebben een soort 
     }
 
 
-De eigenschappen voor taakschema's worden in de volgende tabel beschreven.
+Hallo-eigenschappen voor taakschema's worden beschreven in de volgende tabel Hallo.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| de naam van de planning |Één **naam** entiteit met de naam van de planning. |
-| Runbooknaam  |Één **naam** entiteit met de naam van het runbook.  |
+| de naam van de planning |Één **naam** entiteit met de naam van het schema Hallo Hallo. |
+| Runbooknaam  |Één **naam** entiteit met de naam van de runbook Hallo Hallo.  |
 
 
 
 ## <a name="variables"></a>Variabelen
-[Azure Automation-variabelen](../automation/automation-variables.md) een soort **Microsoft.Automation/automationAccounts/variables** en hebben de volgende structuur.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters.
+[Azure Automation-variabelen](../automation/automation-variables.md) een soort **Microsoft.Automation/automationAccounts/variables** en hebben Hallo structuur te volgen.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en Hallo parameternamen wijzigen.
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Variable').Name)]",
@@ -265,31 +265,31 @@ De eigenschappen voor taakschema's worden in de volgende tabel beschreven.
       }
     }
 
-De eigenschappen voor de variabele resources worden in de volgende tabel beschreven.
+Hallo-eigenschappen voor de variabele resources worden beschreven in de volgende tabel Hallo.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| Beschrijving | Optionele beschrijving voor de variabele. |
-| isEncrypted | Hiermee geeft u op of de variabele moet worden versleuteld. |
-| type | Deze eigenschap heeft momenteel geen effect.  Het gegevenstype van de variabele wordt bepaald door de initiële waarde. |
-| waarde | De waarde voor de variabele. |
+| description | Optionele beschrijving voor Hallo-variabele. |
+| isEncrypted | Hiermee geeft u op of Hallo variabele moet worden versleuteld. |
+| type | Deze eigenschap heeft momenteel geen effect.  Hallo-gegevenstype van Hallo variabele wordt bepaald door de beginwaarde Hallo. |
+| waarde | De waarde voor Hallo-variabele. |
 
 > [!NOTE]
-> De **type** eigenschap heeft momenteel geen effect op de variabele die wordt gemaakt.  Het gegevenstype voor de variabele wordt bepaald door de waarde.  
+> Hallo **type** eigenschap heeft momenteel geen effect op Hallo variabele wordt gemaakt.  Hallo-gegevenstype voor Hallo variabele wordt bepaald door het Hallo-waarde.  
 
-Als u de beginwaarde voor de variabele instelt, moet deze worden geconfigureerd als het juiste gegevenstype.  De volgende tabel bevat de verschillende gegevenstypen toegestane en hun syntaxis.  Houd er rekening mee dat de waarden in JSON moeten altijd tussen aanhalingstekens met de speciale tekens binnen de aanhalingstekens worden geplaatst.  Bijvoorbeeld, zou een string-waarde worden opgegeven door aanhalingstekens rond de tekenreeks (met behulp van het escape-teken (\\)) tijdens een numerieke waarde zou worden opgegeven met een set van aanhalingstekens.
+Als u de beginwaarde voor de variabele Hallo Hallo instelt, moet deze worden geconfigureerd als het juiste gegevenstype Hallo.  Hallo volgende tabel biedt Hallo verschillende gegevenstypen toegestane en de syntaxis.  Er rekening mee dat de waarden in JSON verwachte tooalways tussen aanhalingstekens met de speciale tekens in Hallo aanhalingstekens staan.  Bijvoorbeeld, zou een string-waarde worden opgegeven door aanhalingstekens rond het Hallo-tekenreeks (met behulp van Hallo escape-teken (\\)) tijdens een numerieke waarde zou worden opgegeven met een set van aanhalingstekens.
 
-| Gegevenstype | Beschrijving | Voorbeeld | Wordt omgezet in |
+| Gegevenstype | Beschrijving | Voorbeeld | Wordt omgezet te|
 |:--|:--|:--|:--|
 | Tekenreeks   | Waarde moet tussen dubbele aanhalingstekens.  | '\"Hallo wereld\"' | "Hallo wereld" |
 | numerieke  | Numerieke waarde met enkele aanhalingstekens.| "64" | 64 |
 | Booleaanse waarde  | **de waarde True** of **false** tussen aanhalingstekens.  Houd er rekening mee dat deze waarde een kleine letter moet. | 'true' | De waarde True |
-| Datum/tijd | Geserialiseerde date-waarde.<br>U kunt de ConvertTo-Json-cmdlet in PowerShell gebruiken voor het genereren van deze waarde voor een bepaalde datum.<br>Voorbeeld: get-date ' 24/5/2017 13:14:57 "\| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| Datum/tijd | Geserialiseerde date-waarde.<br>U kunt op deze waarde Hallo ConvertTo-Json cmdlet in PowerShell toogenerate gebruiken voor een bepaalde datum.<br>Voorbeeld: get-date ' 24/5/2017 13:14:57 "\| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Modules
-Uw oplossing voor het beheer niet hoeft te definiëren [globale modules](../automation/automation-integration-modules.md) gebruikt door uw runbooks omdat ze altijd beschikbaar zijn in uw Automation-account.  U hoeft een resource voor elke andere module die wordt gebruikt door uw runbooks bevatten.
+Uw beheeroplossing voor hoeft niet toodefine [globale modules](../automation/automation-integration-modules.md) gebruikt door uw runbooks omdat ze altijd beschikbaar zijn in uw Automation-account.  U hoeft tooinclude een resource voor elke andere module die wordt gebruikt door uw runbooks.
 
-[Integratiemodules](../automation/automation-integration-modules.md) een soort **Microsoft.Automation/automationAccounts/modules** en hebben de volgende structuur.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters.
+[Integratiemodules](../automation/automation-integration-modules.md) een soort **Microsoft.Automation/automationAccounts/modules** en hebben Hallo structuur te volgen.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en Hallo parameternamen wijzigen.
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Module').Name)]",
@@ -305,35 +305,35 @@ Uw oplossing voor het beheer niet hoeft te definiëren [globale modules](../auto
     }
 
 
-De eigenschappen voor de module resources worden in de volgende tabel beschreven.
+Hallo-eigenschappen van bronnen van de module worden beschreven in de volgende tabel Hallo.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| contentLink |Hiermee geeft u de inhoud van de module. <br><br>URI - Uri met de inhoud van de module.  Dit is een ps1-bestand voor runbooks met PowerShell en het Script en een geëxporteerde grafisch runbook-bestand voor een Graph-runbook.  <br> versie - versie van de module voor uw eigen bijhouden. |
+| contentLink |Hiermee geeft u Hallo inhoud van het Hallo-module. <br><br>URI - Uri toohello inhoud van het Hallo-module.  Dit is een ps1-bestand voor runbooks met PowerShell en het Script en een geëxporteerde grafisch runbook-bestand voor een Graph-runbook.  <br> versie - versie van de module Hallo voor uw eigen bijhouden. |
 
-Het runbook moet afhankelijk zijn van de bron van de module om ervoor te zorgen dat deze gemaakt voordat het runbook.
+Hallo runbook moet afhankelijk van Hallo module resource tooensure voordat Hallo runbook gemaakt.
 
 ### <a name="updating-modules"></a>Bijwerken van modules
-Als u een oplossing met een runbook dat gebruikmaakt van een schema bijwerken en de nieuwe versie van uw oplossing een nieuwe module door dat runbook gebruikt is, kan het runbook de oude versie van de module gebruiken.  U moet de volgende runbooks opnemen in uw oplossing en taak maken voor deze uitvoeren vóór alle andere runbooks.  Dit zorgt ervoor dat alle modules die worden bijgewerkt als vereist voordat de runbooks worden geladen.
+Als u een oplossing met een runbook dat gebruikmaakt van een schema bijwerken en Hallo nieuwe versie van uw oplossing een nieuwe module die wordt gebruikt door dat runbook heeft, kan Hallo runbook Hallo oude versie van de module hello gebruiken.  U moet nemen Hallo runbooks in uw oplossing te volgen en maken van een taak toorun toe voordat alle andere runbooks.  Dit zorgt ervoor dat alle modules die worden bijgewerkt als vereist voordat Hallo runbooks zijn geladen.
 
-* [Update ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) zorgt ervoor dat alle modules die worden gebruikt door runbooks in uw oplossing de meest recente versie zijn.  
-* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) alle resources schema om ervoor te zorgen dat de runbooks is gekoppeld aan deze bij gebruik de meest recente modules opnieuw registreren.
+* [Update ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) zorgt ervoor dat alle Hallo-modules die worden gebruikt door runbooks in uw oplossing de meest recente versie Hallo zijn.  
+* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) alle Hallo planning resources tooensure dat Hallo runbooks toothem met gebruik Hallo nieuwste modules gekoppeld opnieuw registreren.
 
 
 
 
 ## <a name="sample"></a>Voorbeeld
-Hier volgt een voorbeeld van een oplossing die opnemen met de volgende bronnen:
+Hier volgt een voorbeeld van een oplossing die bevatten die Hallo resources te volgen:
 
 - Runbook.  Dit is een voorbeeldrunbook dat is opgeslagen in een openbare GitHub-opslagplaats.
-- Automation-taak die het runbook wordt gestart wanneer de oplossing is geïnstalleerd.
-- Planning en het schema voor het runbook starten met regelmatige tussenpozen.
+- Automation-taak die Hallo runbook wordt gestart wanneer Hallo-oplossing is geïnstalleerd.
+- Planning en taak plannen toostart hello runbook met regelmatige tussenpozen.
 - Certificaat.
 - De referentie.
 - Variabele.
-- Module.  Dit is de [OMSIngestionAPI module](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) voor het schrijven van gegevens met logboekanalyse. 
+- Module.  Dit is Hallo [OMSIngestionAPI module](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) voor het schrijven van gegevens tooLog Analytics. 
 
-In dit voorbeeld worden [standaardoplossing parameters](operations-management-suite-solutions-solution-file.md#parameters) variabelen die meestal in een oplossing in plaats van hardcoderen waarden in de resourcedefinities gebruikt wordt.
+voorbeeld gebruikt Hallo [standaardoplossing parameters](operations-management-suite-solutions-solution-file.md#parameters) variabelen die meestal in een oplossing als gebruikt wordt toohardcoding waarden in de resourcedefinities Hallo geboden.
 
 
     {
@@ -409,14 +409,14 @@ In dit voorbeeld worden [standaardoplossing parameters](operations-management-su
         "scheduleLinkGuid": {
           "type": "string",
           "metadata": {
-            "description": "GUID for the schedule link to runbook.",
+            "description": "GUID for hello schedule link toorunbook.",
             "control": "guid"
           }
         },
         "runbookJobGuid": {
           "type": "string",
           "metadata": {
-            "description": "GUID for the runbook job.",
+            "description": "GUID for hello runbook job.",
             "control": "guid"
           }
         }
@@ -650,4 +650,4 @@ In dit voorbeeld worden [standaardoplossing parameters](operations-management-su
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Een weergave toevoegen aan uw oplossing](operations-management-suite-solutions-resources-views.md) om verzamelde gegevens te visualiseren.
+* [Toevoegen van een oplossing voor weergave tooyour](operations-management-suite-solutions-resources-views.md) toovisualize gegevens verzameld.

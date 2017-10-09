@@ -1,6 +1,6 @@
 ---
-title: Beheerde schijven gebruiken met Azure Virtual Machine Scale Sets | Microsoft Docs
-description: Meer informatie over waarom en hoe u beheerde schijven gebruikt met virtuele-machineschaalsets
+title: aaaUsing beheerd schijven met Azure Virtual Machine-Schaalsets | Microsoft Docs
+description: Meer informatie over waarom en hoe toouse beheerd schijven met virtuele-machineschaalsets
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
@@ -15,41 +15,41 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.openlocfilehash: 3ab1d432a2f90db57b99f0e7d419d85e2958c308
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0e2a21e9f8b114ae1c8b81e1e6124621366f5643
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Virtuele-machineschaalsets in Azure en beheerde schijven
 
 [Virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/) in Azure ondersteunen virtuele machines met beheerde schijven. Het gebruik van beheerde schijven met schaalsets heeft een aantal voordelen, waaronder:
 
-* Het is niet meer nodig om op voorhand opslagaccounts te maken en deze te beheren om de besturingssysteemschijven voor virtuele machines met schaalsets op te slaan.
+* U hoeft niet meer toopre-maken en beheren van accounts toostore Hallo OS opslagschijven voor Hallo virtuele machines schaalset.
 
-* U kunt beheerde gegevensschijven aan de schaalset koppelen.
+* U kunt beheerde gegevens schijven toohello scale set toevoegen.
 
 * Met een beheerde schijf kan een schaalset een capaciteit van wel 1000 virtuele machines hebben als deze is gebaseerd op een platforminstallatiekopie, of 100 virtuele machines als deze is gebaseerd op een aangepaste installatiekopie.
 
 ## <a name="get-started"></a>Aan de slag
 
-Een eenvoudige manier om aan de slag te gaan met schaalsets met beheerde schijven, is door er een te implementeren vanuit Azure Portal. Raadpleeg [dit artikel](./virtual-machine-scale-sets-portal-create.md) voor meer informatie. Een andere eenvoudige manier om aan de slag te gaan, is door [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) te gebruiken om een schaalset te implementeren. In het volgende voorbeeld ziet u hoe een op Ubuntu gebaseerde schaalset met 10 virtuele machines wordt gemaakt, elk met een gegevensschijf van 50 GB en 100 GB:
+Een eenvoudige manier tooget gestart met beheerde schijf-schaalsets is toodeploy van hello Azure-portal. Raadpleeg [dit artikel](./virtual-machine-scale-sets-portal-create.md) voor meer informatie. Een andere eenvoudige manier tooget gestart is toouse [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) toodeploy een schaalset. Hallo volgende voorbeeld ziet u hoe scale 10 virtuele machines, elk met een gegevensschijf van 50- en 100 GB in te stellen op basis van een Ubuntu toocreate:
 
 ```azurecli
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-U kunt ook eens in de [GitHub-opslagplaats met snelstartsjablonen voor Azure](https://github.com/Azure/azure-quickstart-templates) naar mappen zoeken die `vmss` bevatten, om kant-en-klare voorbeelden te bekijken van sjablonen waarmee schaalsets worden geïmplementeerd. Raadpleeg [deze lijst](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md) als u wilt weten welke sjablonen al gebruikmaken van beheerde schijven.
+U kunt ook zoeken in Hallo [Azure Quick Start-sjablonen GitHub-repo-](https://github.com/Azure/azure-quickstart-templates) voor mappen met `vmss` toosee vooraf gemaakte voorbeelden van sjablonen die schaalsets implementeren. tootell welke sjablonen al beheerde schijven gebruikt, kunt u verwijzen te[deze lijst](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In [dit artikel](../virtual-machines/windows/managed-disks-overview.md) vindt u meer informatie over beheerde schijven in het algemeen.
 
-Raadpleeg [dit artikel](./virtual-machine-scale-sets-convert-template-to-md.md) als u wilt weten hoe u een Resource Manager-sjabloon omzet voor het inrichten van schaalsets met beheerde schijven. De wijzigingen in de Resource Manager-sjablonen zijn ook van toepassing op de Azure REST API.
+toosee de wijze waarop een schaal van Resource Manager sjabloon tooprovision ingesteld met tooconvert beheerd schijven, Zie [in dit artikel](./virtual-machine-scale-sets-convert-template-to-md.md). Hallo toepassen dezelfde wijzigingen toohello Resource Manager-sjablonen ook toohello REST API van Azure.
 
-Raadpleeg [dit artikel](./virtual-machine-scale-sets-attached-disks.md) voor meer informatie over het gebruik van beheerde gegevensschijven met schaalsets.
+toolearn meer informatie over het gebruik van beheerde gegevensschijven met schaalsets, Zie [in dit artikel](./virtual-machine-scale-sets-attached-disks.md).
 
-Raadpleeg [dit artikel](./virtual-machine-scale-sets-placement-groups.md) als u met grote schaalsets wilt gaan werken.
+werken met grote schaalsets, toobegin te verwijzen[in dit artikel](./virtual-machine-scale-sets-placement-groups.md).
 
 

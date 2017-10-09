@@ -1,6 +1,6 @@
 ---
-title: Azure-Service Fabric-invoegtoepassing voor Eclipse | Microsoft Docs
-description: Aan de slag met de Service Fabric- invoegtoepassing voor Eclipse.
+title: Service Fabric-invoegtoepassing voor Eclipse aaaAzure | Microsoft Docs
+description: Aan de slag met Hallo Service Fabric-invoegtoepassing voor Eclipse.
 services: service-fabric
 documentationcenter: java
 author: sayantancs
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2016
 ms.author: saysa
-ms.openlocfilehash: 98c1b99972b9ad7a396d72b98e727286f6822e42
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4ba5a28a6282387249a2bd4e62314e891ff04162
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Service Fabric-invoegtoepassing voor de ontwikkeling van Eclipse Java-toepassingen
-Eclipse is een van de meest gebruikte Integrated Development Environments (IDE's) voor Java-ontwikkelaars. In dit artikel wordt beschreven hoe u een Eclipse-ontwikkelomgeving instelt voor gebruik met Azure Service Fabric. Ontdek hoe u de Service Fabric-invoegtoepassing installeert en een Service Fabric-toepassing implementeert in een lokaal of extern Service Fabric-cluster in Eclipse Neon.
+Eclipse is een van de meest gebruikte Hallo ontwikkelomgevingen (IDE's) voor Java-ontwikkelaars geïntegreerd. In dit artikel wordt beschreven hoe tooset van uw Eclipse development environment toowork met Azure Service Fabric. Ontdek hoe tooinstall Hallo Service Fabric-invoegtoepassing, een Service Fabric-toepassing maken en implementeren van uw Service Fabric-toepassing tooa lokale of externe Service Fabric-cluster in Eclipse Neon.
 
-## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse-neon"></a>De Service Fabric-invoegtoepassing installeren of bijwerken in Eclipse Neon
-U kunt een Service Fabric-invoegtoepassing in Eclipse installeren. De invoegtoepassing vereenvoudigt het proces voor het maken en implementeren van Java-services.
+## <a name="install-or-update-hello-service-fabric-plug-in-in-eclipse-neon"></a>Installeren of bijwerken van Service Fabric-invoegtoepassing in Eclipse Neon Hallo
+U kunt een Service Fabric-invoegtoepassing in Eclipse installeren. Hallo invoegtoepassing vereenvoudigen Hallo-proces voor het maken en implementeren van Java-services.
 
-1.  Zorg ervoor dat u de nieuwste versie van Eclipse Neon en de nieuwste versie van Buildship (1.0.17 of hoger) hebt geïnstalleerd:
-    -   U kunt de versies van geïnstalleerde onderdelen controleren door in Eclipse Neon **Help** > **Installation Details** te kiezen.
-    -   Zie [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: Eclipse-invoegtoepassingen voor Gradle) als u Buildship wilt bijwerken.
-    -   Als u updates voor Eclipse Neon wilt zoeken en installeren, gaat u naar **Help** > **Check for Updates**.
+1.  Zorg ervoor dat u de meest recente versie Hallo van Eclipse Neon en Hallo meest recente versie van Buildship (1.0.17 of een latere versie) geïnstalleerd:
+    -   toocheck hello versies van geïnstalleerde onderdelen, in Eclipse Neon, gaat u te**Help** > **installatiegegevens**.
+    -   tooupdate Buildship, Zie [Eclipse Buildship: Eclipse-invoegtoepassingen voor Gradle][buildship-update].
+    -   Ga te toocheck voor en installeren van updates voor de Eclipse-Neon**Help** > **controleren op Updates**.
 
-2.  Als u de Service Fabric-invoegtoepassing wilt installeren, gaat u in Eclipse Neon naar **Help** > **Install New Software**.
-  1.    Geef in het vak **Work with** **http://dl.microsoft.com/eclipse** op.
+2.  tooinstall hello Service Fabric-invoegtoepassing in Eclipse Neon, gaat u te**Help** > **nieuwe Software installeren**.
+  1.    In Hallo **werken met** Voer **http://dl.microsoft.com/eclipse**.
   2.    Klik op **Add**.
 
          ![De Service Fabric-invoegtoepassing voor Eclipse Neon][sf-eclipse-plugin-install]
-  3.    Selecteer de Fabric Service-invoegtoepassing en klik op **Next**.
-  4.    Voer de installatiestappen uit en accepteer de licentievoorwaarden voor Microsoft-software.
+  3.    Hallo Service Fabric-invoegtoepassing selecteren en klik vervolgens op **volgende**.
+  4.    Hallo installatiestappen voltooien en accepteer de licentievoorwaarden voor Microsoft-Software Hallo.
 
-Als u de Service Fabric-invoegtoepassing al hebt geïnstalleerd, controleert u of u de meest recente versie gebruikt. Ga naar **Help** > **Installation Details** om te controleren of er updates beschikbaar zijn. Selecteer Service Fabric in de lijst met geïnstalleerde invoegtoepassingen en klik op **Update**. Beschikbare updates worden geïnstalleerd.
+Als u al Hallo Service Fabric-invoegtoepassing is geïnstalleerd, zorg ervoor dat hebt u Hallo meest recente versie. toocheck naar beschikbare updates te gaan**Help** > **installatiegegevens**. Selecteer Service Fabric in Hallo lijst met geïnstalleerde invoegtoepassingen, en klik vervolgens op **Update**. Beschikbare updates worden geïnstalleerd.
 
 > [!NOTE]
-> Als de installatie of update van de Service Fabric-invoegtoepassing traag verloopt, kan dit het gevolg zijn van een instelling in Eclipse. Eclipse verzamelt metagegevens over alle wijzigingen in updatesites die zijn geregistreerd bij uw exemplaar van Eclipse. Als u het proces voor het controleren op en installeren van updates van Service Fabric-invoegtoepassingen wilt versnellen, gaat u naar **Available Software Sites**. Schakel de selectievakjes uit voor alle sites, behalve voor de site die naar de locatie van de Fabric Service-invoegtoepassing wijst (http://dl.microsoft.com/eclipse/azure/servicefabric).
+> Als installeren of bijwerken van Service Fabric-invoegtoepassing Hallo traag is, mogelijk vanwege tooan Eclipse-instelling. Eclipse verzamelt metagegevens op alle wijzigingen tooupdate sites die zijn geregistreerd met uw Eclipse-exemplaar. toospeed Hallo-installatieproces van controleren en de installatie van een Service Fabric-invoegtoepassing update te gaan**beschikbare Software Sites**. Schakel de selectievakjes Hallo voor alle sites, met uitzondering van Hallo die toohello Service Fabric invoegtoepassing locatie (http://dl.microsoft.com/eclipse/azure/servicefabric wijst).
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Een Service Fabric-toepassing maken in Eclipse
 
-1.  Ga in Eclipse Neon naar **File** > **New** > **Other**. Selecteer **Fabric Service Project** en klik op **Next**.
+1.  Ga te in Eclipse-Neon**bestand** > **nieuw** > **andere**. Selecteer **Fabric Service Project** en klik op **Next**.
 
     ![Nieuw Service Fabric-project pagina 1][create-application/p1]
 
@@ -54,15 +54,15 @@ Als u de Service Fabric-invoegtoepassing al hebt geïnstalleerd, controleert u o
 
     ![Nieuw Service Fabric-project pagina 2][create-application/p2]
 
-3.  Selecteer **Service Template** in de lijst met sjablonen. Selecteer het type servicesjabloon (Actor, Stateless, Container of Guest Binary) en klik op **Next**.
+3.  Selecteer in de lijst met sjablonen Hallo **servicesjabloon**. Selecteer het type servicesjabloon (Actor, Stateless, Container of Guest Binary) en klik op **Next**.
 
     ![Nieuw Service Fabric-project pagina 3][create-application/p3]
 
-4.  Voer de servicenaam en servicegegevens in en klik op **Finish**.
+4.  Voer Hallo servicenaam en servicedetails en klik vervolgens op **voltooien**.
 
     ![Nieuw Service Fabric-project pagina 4][create-application/p4]
 
-5. Wanneer u uw eerste Service Fabric-project maakt, klikt u in het dialoogvenster **Open Associated Perspective** op **Yes**.
+5. Wanneer u uw eerste Service Fabric-project maken in Hallo **openen die zijn gekoppeld perspectief** in het dialoogvenster klikt u op **Ja**.
 
     ![Nieuw Service Fabric-project pagina 5][create-application/p5]
 
@@ -76,77 +76,77 @@ Als u de Service Fabric-invoegtoepassing al hebt geïnstalleerd, controleert u o
 
     ![Snelmenu van Service Fabric][publish/RightClick]
 
-2. Selecteer de gewenste optie in het submenu:
-    -   Klik op **Build Application** als u de toepassing wilt maken zonder op te schonen.
-    -   Klik op **Rebuild Application** als u een schone build van de toepassing wilt maken.
-    -   Klik op **Clean Application** als u de gebouwde artefacts uit de toepassing wilt verwijderen.
+2. Selecteer in vervolgmenu hello, Hallo-optie die u wilt:
+    -   toobuild hello toepassing zonder reinigen, klikt u op **toepassing bouwen**.
+    -   toodo leegmaken en opnieuw opbouwen van de toepassing hello, klikt u op **toepassing bouwen**.
+    -   tooclean hello toepassing van ingebouwde artefacten, klikt u op **schone toepassing**.
 
 3.  Vanuit dit menu kunt u de toepassing ook implementeren, de implementatie ervan verwijderen en de toepassing publiceren:
-    -   Klik op **Deploy Application** als u wilt implementeren naar het lokale cluster.
-    -   Selecteer in het dialoogvenster **Publish Application** een publicatieprofiel:
+    -   toodeploy tooyour lokale cluster, klik op **toepassing implementeren**.
+    -   In Hallo **toepassing publiceren** dialoogvenster Selecteer een publicatieprofiel:
         -  **Local.json**
         -  **Cloud.json**
 
-     Deze JSON-bestanden (JavaScript Object Notation) bevatten informatie (zoals verbindingseindpunten en beveiligingsgegevens) die nodig zijn om verbinding te maken met het lokale cluster of het cloudcluster (Azure).
+     Deze notatie JSON (JavaScript Object)-bestanden opgeslagen informatie (zoals verbindingseindpunten en beveiligingsgegevens) die is vereist tooconnect tooyour lokale cloud (Azure)-cluster.
 
   ![Service Fabric-menu Publish][publish/Publish]
 
-U kunt de Service Fabric-toepassing ook implementeren met behulp van Eclipse-uitvoerconfiguraties.
+Een andere manier toodeploy Service Fabric-toepassing is via Eclipse uitvoeren configuraties.
 
-  1.    Ga naar **Run** > **Run Configurations**.
-  2.    Selecteer onder **Gradle Project** de uitvoerconfiguratie **ServiceFabricDeployer**.
-  3.    Klik in het rechterdeelvenster op het tabblad **Arguments** en selecteer bij **publishProfile** de optie **local** of **cloud**.  De standaardinstelling is **local**. Selecteer **cloud** voor een implementatie in een extern of cloudcluster.
-  4.    Bewerk **Local.json** of **Cloud.json** als dat nodig is om ervoor te zorgen dat de juiste informatie in de publicatieprofielen wordt ingevuld. U kunt eindpuntdetails en beveiligingsreferenties toevoegen of bijwerken.
-  5.    Zorg ervoor dat **Working Directory** wijst naar de toepassing die u wilt implementeren. Als u de toepassing wilt wijzigen, klikt u op de knop **Workspace** en selecteert u de gewenste toepassing.
+  1.    Ga te**uitvoeren** > **configuratie uitvoeren**.
+  2.    Onder **Project met Gradle**, selecteer Hallo **ServiceFabricDeployer** configuratie uitvoeren.
+  3.    In het rechterdeelvenster Hallo op Hallo **argumenten** tabblad voor **publishProfile**, selecteer **lokale** of **cloud**.  Hallo standaardwaarde is **lokale**. toodeploy tooa externe of selecteer cloud cluster **cloud**.
+  4.    tooensure dat de juiste informatie Hallo is ingevuld in Hallo profielen publiceren, bewerken **Local.json** of **Cloud.json** indien nodig. U kunt eindpuntdetails en beveiligingsreferenties toevoegen of bijwerken.
+  5.    Zorg ervoor dat **werkmap** gewenste toodeploy toohello-toepassing verwijst. toochange toepassing hello, klikt u op Hallo **werkruimte** knop en selecteer vervolgens de gewenste Hallo-toepassing.
   6.    Klik op **Apply** en vervolgens op **Run**.
 
-De toepassing is binnen enkele ogenblikken gemaakt en geïmplementeerd. U kunt de implementatiestatus controleren in Service Fabric Explorer.  
+De toepassing is binnen enkele ogenblikken gemaakt en geïmplementeerd. U kunt de implementatiestatus Hallo in Service Fabric Explorer bewaken.  
 
-## <a name="add-a-service-fabric-service-to-your-service-fabric-application"></a>Een Service Fabric-service toevoegen aan uw Service Fabric-toepassing
+## <a name="add-a-service-fabric-service-tooyour-service-fabric-application"></a>Een Service Fabric-service tooyour Service Fabric-toepassing toevoegen
 
-Voer de volgende stappen uit als u een Service Fabric-service aan een bestaande Service Fabric-toepassing wilt toevoegen:
+een Service Fabric-service tooan bestaande Service Fabric-toepassing, tooadd Hallo volgende stappen:
 
-1.  Klik met de rechtermuisknop op het project waaraan u een service wilt toevoegen en klik vervolgens op **Service Fabric**.
+1.  Met de rechtermuisknop op Hallo-project dat u wilt dat een service tooadd en klik vervolgens op **Service Fabric**.
 
     ![Service aan Service Fabric toevoegen pagina 1][add-service/p1]
 
-2.  Klik op **Add Service Fabric Service** en voer de stappen uit om een service aan het project toe te voegen.
-3.  Selecteer de servicesjabloon die u aan het project wilt toevoegen en klik op **Next**.
+2.  Klik op **Service Fabric-Service toevoegen**, en volledige Hallo set stappen tooadd een toohello serviceproject.
+3.  Selecteer Hallo servicesjabloon u wilt tooadd tooyour project en klik vervolgens op **volgende**.
 
     ![Service aan Service Fabric toevoegen pagina 2][add-service/p2]
 
-4.  Voer de servicenaam (en andere gevraagde informatie) in en klik op de knop **Add Service**.  
+4.  Voer de naam van de service Hallo (en andere details, indien nodig) en klik vervolgens op Hallo **Service toevoegen** knop.  
 
     ![Service aan Service Fabric toevoegen pagina 3][add-service/p3]
 
-5.  Nadat de service is toegevoegd, ziet de algehele projectstructuur er ongeveer als volgt uit:
+5.  Nadat Hallo-service wordt toegevoegd, zoekt de projectstructuur van uw algehele vergelijkbare toohello project te volgen:
 
     ![Service aan Service Fabric toevoegen pagina 4][add-service/p4]
 
 ## <a name="edit-manifest-versions-of-your-service-fabric-java-application"></a>Manifestversies van uw Service Fabric Java-toepassing bewerken
 
-Als u manifestversies wilt bewerken, klikt u met de rechtermuisknop op het project, gaat u naar **Service Fabric** en selecteert u **Edit Manifest Versions...** in de vervolgkeuzelijst. In de wizard kunt u de manifestversies bijwerken voor het toepassingsmanifest, servicemanifest en de versies voor de pakketten **Code**, **Config** en **Data**.
+tooedit manifest versies, klik met de rechtermuisknop op het Hallo-project, gaat u te**Service Fabric** en selecteer **Manifest versies bewerken...**  van Hallo vervolgmenu. In de wizard hello, kunt u manifest versies voor het manifest, servicemanifest toepassing hello en Hallo voor bijwerken **Code**, **Config** en **gegevens** pakketten.
 
-Als u de optie **Automatically update application and service versions** inschakelt en vervolgens een versie bijwerkt, worden de manifestversies automatisch bijgewerkt. Als u bijvoorbeeld eerst het selectievakje inschakelt, vervolgens de versie van **Code** bijwerkt van 0.0.0 naar 0.0.1 en op **Finish** klikt, worden de versies van het servicemanifest en toepassingsmanifest automatisch bijgewerkt naar 0.0.1.
+Als u het selectievakje Hallo optie **automatisch bijwerken van toepassing en Serviceversies** en werk vervolgens een versie, Hallo manifest versies vervolgens automatisch bijgewerkt. toogive bijvoorbeeld u eerst Kies selectievakje Hallo Hallo updateversie van **Code** -versie uit 0.0.0 too0.0.1 en klik op **voltooien**, klikt u vervolgens service manifest versie en het toepassingsmanifest versie wordt automatisch bijgewerkt too0.0.1 zijn.
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Uw Service Fabric Java-toepassing upgraden
 
-Stel dat u voor een upgradescenario het project **App1** hebt gemaakt met behulp van de Service Fabric-invoegtoepassing in Eclipse. U hebt dit vervolgens met behulp van de invoegtoepassing geïmplementeerd om een toepassing met de naam **fabric:/App1Application** te maken. Het toepassingstype is **App1AppicationType** en de toepassingsversie is 1.0. Nu wilt u een toepassingsupgrade uitvoeren zonder de beschikbaarheid van de toepassing te onderbreken.
+Voor een upgradescenario aannemen dat u hebt gemaakt Hallo **App1** project met behulp van Hallo Service Fabric-invoegtoepassing in Eclipse. Hebt geïmplementeerd met behulp van de invoegtoepassing toocreate Hallo een toepassing met de naam **fabric: / App1Application**. Hallo toepassingstype **App1AppicationType**, en versie van de toepassing hello 1.0 is. Nu u tooupgrade uw toepassing zonder de beschikbaarheid te onderbreken.
 
-Breng eerst eventuele wijzigingen aan in de toepassing en bouw vervolgens de gewijzigde service opnieuw op. Werk het manifestbestand van de gewijzigde service (ServiceManifest.xml) bij met de bijgewerkte versies voor de service (en code, configuratie of gegevens, indien van toepassing). Wijzig ook het toepassingsmanifest (ApplicationManifest.xml) met het bijgewerkte versienummer voor de toepassing en de gewijzigde service.  
+Controleer eerst eventuele wijzigingen tooyour toepassing en vervolgens opnieuw opbouwen Hallo service gewijzigd. Hallo update gewijzigd van service manifestbestand (ServiceManifest.xml) met de Hallo bijgewerkt versies voor het Hallo-service (en, Config of gegevens, zoals relevante). Ook wijzigen van de toepassing hello-manifest (ApplicationManifest.xml) met versienummer Hallo bijgewerkt voor de toepassing hello en Hallo gewijzigde service.  
 
-Als u de toepassingsupgrade wilt uitvoeren met behulp van Eclipse Neon, kunt u een dubbel uitvoerconfiguratieprofiel maken. Vervolgens gebruikt u dit om de toepassingsupgrade uit te voeren.
+tooupgrade uw toepassing met behulp van Eclipse Neon, kunt u een dubbele uitvoeren configuratieprofiel. Gebruik vervolgens tooupgrade uw toepassing naar behoefte.
 
-1.  Ga naar **Run** > **Run Configurations**. Klik in het linkerdeelvenster op de kleine pijl, links van **Gradle Project**.
+1.  Ga te**uitvoeren** > **configuratie uitvoeren**. Klik in het linkerdeelvenster Hallo Hallo pijltje toohello links van **Project met Gradle**.
 2.  Klik met de rechtermuisknop op **ServiceFabricDeployer** en selecteer **Duplicate**. Voer een nieuwe naam in voor deze configuratie, bijvoorbeeld **ServiceFabricUpgrader**.
-3.  Ga in het rechterdeelvenster naar het tabblad **Arguments** en wijzig **-Pconfig='deploy'** in **-Pconfig=upgrade**. Klik vervolgens op **Apply**.
+3.  In het rechterpaneel Hallo op Hallo **argumenten** en wijzig **- Pconfig = 'implementeren'** te**- Pconfig = 'bijwerken'**, en klik vervolgens op **toepassen**.
 
-Met dit proces wordt een uitvoerconfiguratieprofiel gemaakt en opgeslagen dat u op elk gewenst moment kunt gebruiken om een upgrade van uw toepassing uit te voeren. Hiermee wordt ook de laatst bijgewerkte versie van het toepassingstype opgehaald uit het manifest-bestand van de toepassing.
+Dit proces wordt gemaakt en opgeslagen configuratieprofiel uitvoeren u kunt gebruiken om uw toepassing op alle tooupgrade tijd. Ook krijgt Hallo meest recente bijgewerkte versie van het toepassingstype van manifestbestand van de toepassing hello.
 
-De toepassingsupgrade duurt enkele minuten. U kunt de upgrade van de toepassing bewaken in Service Fabric Explorer.
+upgrade van de toepassing Hello duurt een paar minuten. U kunt de upgrade van de toepassing hello in Service Fabric Explorer bewaken.
 
-## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>Oude Service Fabric Java-toepassingen migreren die moeten worden gebruikt met Maven
-We hebben onlangs de bibliotheken van Java Service Fabric verplaatst van de Service Fabric Java SDK naar de Maven-opslagplaats. De nieuwe toepassingen die u genereert met behulp van Eclipse produceren projecten die u zonder problemen kunt gebruiken met Maven. Uw bestaande stateless Service Fabric- of Java-actortoepassingen zult u echter moeten bijwerken om ze te laten werken met de Service Fabric Java-afhankelijkheden van Maven. Deze oudere toepassingen maken namelijk nog gebruik van de Service Fabric Java SDK. Volg [deze stappen](service-fabric-migrate-old-javaapp-to-use-maven.md) om te controleren of een oudere toepassing werkt met Maven.
+## <a name="migrating-old-service-fabric-java-applications-toobe-used-with-maven"></a>Oude Service Fabric-Java-toepassingen toobe gebruikt met Maven migreren
+We hebben onlangs Service Fabric-Java-bibliotheken verplaatst vanuit Service Fabric Java SDK tooMaven opslagplaats. Tijdens het Hallo nieuwe toepassingen die u met behulp van Eclipse genereren genereert de meest recente bijgewerkte projecten (die worden kunnen toowork met Maven), kunt u uw bestaande Service Fabric staatloze of actor Java-toepassingen, wat Hallo Service Fabric Java SDK gebruikten bijwerken eerdere versies, toouse Hallo Service Fabric Java afhankelijkheden van Maven. Stappen Hallo vermeld [hier](service-fabric-migrate-old-javaapp-to-use-maven.md) tooensure de oudere toepassing met Maven werkt.
 
 <!-- Images -->
 

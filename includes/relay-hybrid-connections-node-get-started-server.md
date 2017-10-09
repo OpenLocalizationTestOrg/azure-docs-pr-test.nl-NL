@@ -2,25 +2,25 @@
 
 Maak een nieuw JavaScript-bestand met de naam `listener.js`.
 
-### <a name="add-the-relay-npm-package"></a>Het pakket Relay NPM toevoegen
+### <a name="add-hello-relay-npm-package"></a>Hallo Relay NPM pakket toevoegen
 
 Voer `npm install hyco-ws` uit vanaf een Node-opdrachtprompt in de projectmap.
 
-### <a name="write-some-code-to-receive-messages"></a>Code schrijven om berichten te ontvangen
+### <a name="write-some-code-tooreceive-messages"></a>Code schrijven tooreceive berichten
 
-1. Voeg de volgende constante toe aan het begin van het bestand `listener.js`.
+1. Toevoegen van de volgende constante toohello bovenaan Hallo Hallo `listener.js` bestand.
    
     ```js
     const WebSocket = require('hyco-ws');
     ```
-2. Voeg de volgende constanten toe aan het bestand `listener.js` voor de gegevens van de hybride verbinding. Vervang de tijdelijke aanduidingen tussen punthaken door de waarden die u hebt verkregen bij het maken van de hybride verbinding.
+2. Toevoegen van de volgende constanten toohello hello `listener.js` bestand voor meer informatie Hallo hybride verbinding. Tijdelijke aanduidingen Hallo haakjes vervangen door Hallo-waarden die u hebt verkregen tijdens het Hallo hybride verbinding maken.
    
-   1. `const ns`: de Relay-naamruimte. Zorg ervoor dat u de volledig gekwalificeerde naamruimte gebruikt, bijvoorbeeld `{namespace}.servicebus.windows.net`.
-   2. `const path`: de naam van de hybride verbinding.
-   3. `const keyrule`: de naam van de SAS-sleutel.
-   4. `const key`: de waarde van de SAS-sleutel.
+   1. `const ns`-Hallo Relay-naamruimte. Ervoor toouse Hallo naamruimte volledig gekwalificeerde naam; bijvoorbeeld: `{namespace}.servicebus.windows.net`.
+   2. `const path`-de naam Hallo van Hallo hybride verbinding.
+   3. `const keyrule`-naam op Hallo van Hallo SAS-sleutel.
+   4. `const key`-Hallo SAS-sleutelwaarde.
 
-3. Voeg de volgende code toe aan het bestand `listener.js`:
+3. Hallo na code toohello toevoegen `listener.js` bestand:
    
     ```js
     var wss = WebSocket.createRelayedServer(

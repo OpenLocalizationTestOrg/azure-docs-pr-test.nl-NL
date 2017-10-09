@@ -1,6 +1,6 @@
 ---
-title: Gebruik van Apache Phoenix en SQuirreL met Azure HDInsight op basis van Windows | Microsoft Docs
-description: Informatie over het gebruik van Apache Phoenix in HDInsight en het installeren en configureren van SQuirreL op uw werkstation verbinding maken met een HBase-cluster in HDInsight.
+title: aaaUse Apache Phoenix en SQuirreL met op basis van Windows Azure HDInsight | Microsoft Docs
+description: Meer informatie over hoe toouse Apache Phoenix in HDInsight, en hoe tooinstall en SQuirreL configureren op uw werkstation tooconnect tooan HBase-cluster in HDInsight.
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -15,54 +15,54 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 024b70df99fdefa1598225ebb1fbfee85ea375d0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 147ac35fa882fd1bedbc5361ac804c36a4d56de1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>Apache Phoenix en SQuirreL gebruiken met HBase op basis van Windows-clusters in HDInsight
-Informatie over het gebruik [Apache Phoenix](http://phoenix.apache.org/) in HDInsight en het installeren en configureren van SQuirreL op uw werkstation verbinding maken met een HBase-cluster in HDInsight. Zie voor meer informatie over Phoenix [Phoenix in 15 minuten of minder](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Zie voor de grammatica Phoenix [Phoenix grammatica](http://phoenix.apache.org/language/index.html).
+Meer informatie over hoe toouse [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, en hoe tooinstall en SQuirreL configureren op uw werkstation tooconnect tooan HBase-cluster in HDInsight. Zie voor meer informatie over Phoenix [Phoenix in 15 minuten of minder](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Zie voor Hallo Phoenix grammatica, [Phoenix grammatica](http://phoenix.apache.org/language/index.html).
 
 > [!NOTE]
-> Zie voor de versie-informatie voor Phoenix in HDInsight, [wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight?](hdinsight-component-versioning.md).
+> Zie voor Hallo Phoenix versie-informatie in HDInsight, [wat is er nieuw in Hallo Hadoop-clusterversies geleverd door HDInsight?](hdinsight-component-versioning.md).
 >
 
 > [!IMPORTANT]
-> De stappen in dit document werkt alleen voor Windows gebaseerde HDInsight-clusters. HDInsight is alleen beschikbaar in Windows voor versies lager is dan HDInsight 3.4. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor meer informatie over het gebruik van Phoenix op Linux gebaseerde HDInsight [gebruik Apache Phoenix met HBase op basis van Linux-clusters in HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+> Hallo stappen in dit document alleen werk voor op Windows gebaseerde HDInsight-clusters. HDInsight is alleen beschikbaar in Windows voor versies lager is dan HDInsight 3.4. Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor meer informatie over het gebruik van Phoenix op Linux gebaseerde HDInsight [gebruik Apache Phoenix met HBase op basis van Linux-clusters in HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
 
 
 
 ## <a name="use-sqlline"></a>Gebruik SQLLine
-[SQLLine](http://sqlline.sourceforge.net/) is een opdrachtregelprogramma SQL uitvoeren.
+[SQLLine](http://sqlline.sourceforge.net/) is een opdrachtregel-hulpprogramma tooexecute SQL.
 
 ### <a name="prerequisites"></a>Vereisten
-Voordat u SQLLine gebruiken kunt, moet u het volgende hebben:
+Voordat u SQLLine gebruiken kunt, moet u de volgende Hallo hebben:
 
 * **Een HBase-cluster in HDInsight**. Voor informatie over het inrichten van HBase-cluster, Zie [aan de slag met Apache HBase in HDInsight][hdinsight-hbase-get-started].
-* **Verbinding maken met de HBase-cluster via remote desktop protocol**. Zie voor instructies [beheren Hadoop-clusters in HDInsight met behulp van de klassieke Azure Portal][hdinsight-manage-portal].
+* **Verbinding maken met HBase-cluster via remote desktop protocol Hallo toohello**. Zie voor instructies [beheren Hadoop-clusters in HDInsight met behulp van de klassieke Azure-Portal Hallo][hdinsight-manage-portal].
 
-**Om erachter te komen de hostnaam**
+**toofind uit Hallo-hostnaam**
 
-1. Open **Hadoop-opdrachtregel** vanaf het bureaublad.
-2. Voer de volgende opdracht om op te halen van het DNS-achtervoegsel:
+1. Open **Hadoop-opdrachtregel** vanaf Hallo bureaublad.
+2. Voer Hallo opdracht tooget Hallo DNS-achtervoegsel te volgen:
 
         ipconfig
 
-    Noteer **verbindingsspecifieke DNS-achtervoegsel**. Bijvoorbeeld: *myhbasecluster.f5.internal.cloudapp.net*. Wanneer u verbinding met een HBase-cluster maakt, moet u verbinding maken met een van de Zookeepers met FQDN-naam. Elke HDInsight-cluster heeft 3 Zookeepers. Ze zijn *zookeeper0*, *zookeeper1*, en *zookeeper2*. De FQDN-naam is ongeveer *zookeeper2.myhbasecluster.f5.internal.cloudapp.net*.
+    Noteer **verbindingsspecifieke DNS-achtervoegsel**. Bijvoorbeeld: *myhbasecluster.f5.internal.cloudapp.net*. Als u verbinding tooan HBase-cluster, moet u tooconnect tooone van Hallo Zookeepers met FQDN-naam. Elke HDInsight-cluster heeft 3 Zookeepers. Ze zijn *zookeeper0*, *zookeeper1*, en *zookeeper2*. Hallo FQDN is ongeveer *zookeeper2.myhbasecluster.f5.internal.cloudapp.net*.
 
-**SQLLine gebruiken**
+**toouse SQLLine**
 
-1. Open **Hadoop-opdrachtregel** vanaf het bureaublad.
-2. Voer de volgende opdrachten SQLLine openen:
+1. Open **Hadoop-opdrachtregel** vanaf Hallo bureaublad.
+2. Voer Hallo opdrachten tooopen SQLLine te volgen:
 
         cd %phoenix_home%\bin
-        sqlline.py [The FQDN of one of the Zookeepers]
+        sqlline.py [hello FQDN of one of hello Zookeepers]
 
     ![Phoenix sqlline van HDInsight hbase][hdinsight-hbase-phoenix-sqlline]
 
-    De opdrachten in de steekproef:
+    Hallo-opdrachten in het Hallo-voorbeeld gebruikt:
 
         CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
 
@@ -75,115 +75,115 @@ Voordat u SQLLine gebruiken kunt, moet u het volgende hebben:
 Zie voor meer informatie [SQLLine handmatige](http://sqlline.sourceforge.net/#manual) en [Phoenix grammatica](http://phoenix.apache.org/language/index.html).
 
 ## <a name="use-squirrel"></a>SQuirreL gebruiken
-[SQuirreL SQL Client](http://squirrel-sql.sourceforge.net/) is een grafische Java-programma waarmee u kunt de structuur van een JDBC compatibele database weergeven, de gegevens in tabellen bladeren, voert u SQL-opdrachten enzovoort. Het kan worden gebruikt om met Apache Phoenix op HDInsight.
+[SQuirreL SQL Client](http://squirrel-sql.sourceforge.net/) is een grafische Java-programma dat kunt u tooview Hallo structuur van een JDBC compatibele database, gegevens hello in tabellen bladeren, voert u SQL-opdrachten enzovoort. Het kan gebruikte tooconnect tooApache Phoenix in HDInsight zijn.
 
-Deze sectie leest u hoe installeren en configureren van SQuirreL op uw werkstation verbinding maken met een HBase-cluster in HDInsight via VPN.
+Deze sectie leest u hoe tooinstall en SQuirreL configureren op uw werkstation tooconnect tooan HBase-cluster in HDInsight via VPN.
 
 ### <a name="prerequisites"></a>Vereisten
-Voordat u de procedures uitvoert, moet u het volgende hebben:
+Voordat u Hallo procedures uitvoert, moet u Hallo volgende hebben:
 
-* Een HBase-cluster is geïmplementeerd op een virtuele Azure-netwerk met een DNS-virtuele machine.  Zie voor instructies [maken HBase-clusters op Azure Virtual Network][hdinsight-hbase-provision-vnet].
+* Een HBase-cluster geïmplementeerd tooan virtuele Azure-netwerk met een DNS-virtuele machine.  Zie voor instructies [maken HBase-clusters op Azure Virtual Network][hdinsight-hbase-provision-vnet].
 
-* Haal het HBase-cluster cluster verbindingsspecifiek DNS-achtervoegsel. Om toegang te krijgen, RDP in het cluster, en voer vervolgens IPConfig.  Het DNS-achtervoegsel is vergelijkbaar met:
+* Hallo HBase-cluster cluster verbindingsspecifiek DNS-achtervoegsel worden opgehaald. tooget het RDP in Hallo-cluster, en voer vervolgens IPConfig.  Hallo DNS-achtervoegsel is vergelijkbaar met:
 
         myhbase.b7.internal.cloudapp.net
-* Download en installeer [Microsoft Visual Studio Express voor Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) op uw werkstation. U moet makecert van het pakket om het certificaat te maken.  
+* Download en installeer [Microsoft Visual Studio Express voor Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) op uw werkstation. U moet makecert van Hallo pakket toocreate uw certificaat.  
 * Download en installeer [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html) op uw werkstation.  SQuirreL SQL clientversie 3.0 en hoger vereist JRE 1.6 of hoger.  
 
-### <a name="configure-a-point-to-site-vpn-connection-to-the-azure-virtual-network"></a>Een punt-naar-Site VPN-verbinding met het Azure-netwerk configureren
+### <a name="configure-a-point-to-site-vpn-connection-toohello-azure-virtual-network"></a>Een punt-naar-Site VPN-verbinding toohello virtuele Azure-netwerk configureren
 Er zijn 3 stappen voor het configureren van een punt-naar-site VPN-verbinding:
 
 1. [Een virtueel netwerk en een gateway voor dynamische routering configureren](#Configure-a-virtual-network-and-a-dynamic-routing-gateway)
 2. [Uw certificaten maken](#Create-your-certificates)
 3. [Uw VPN-client configureren](#Configure-your-VPN-client)
 
-Zie [punt-naar-Site VPN-verbinding geconfigureerd met een Azure Virtual Network](../vpn-gateway/vpn-gateway-point-to-site-create.md) voor meer informatie.
+Zie [configureren van een punt-naar-Site VPN-verbinding tooan Azure Virtual Network](../vpn-gateway/vpn-gateway-point-to-site-create.md) voor meer informatie.
 
 #### <a name="configure-a-virtual-network-and-a-dynamic-routing-gateway"></a>Een virtueel netwerk en een gateway voor dynamische routering configureren
-U hebt een HBase-cluster in virtueel netwerk van Azure ingericht zorgen (Zie de vereisten voor deze sectie). De volgende stap is het configureren van een punt-naar-site-verbinding.
+U hebt een HBase-cluster in virtueel netwerk van Azure ingericht zorgen (Zie Hallo-vereisten voor deze sectie). de volgende stap Hallo is tooconfigure een punt-naar-site-verbinding.
 
-**Voor het configureren van de punt-naar-site-connectiviteit**
+**tooconfigure hello punt-naar-site-connectiviteit**
 
-1. Aanmelden bij de [klassieke Azure-Portal][azure-portal].
-2. Klik aan de linkerkant op **netwerken**.
-3. Klik op het virtuele netwerk dat u hebt gemaakt (Zie [inrichten HBase-clusters op Azure Virtual Network][hdinsight-hbase-provision-vnet]).
-4. Klik op **configureren** vanaf de bovenkant.
-5. In de **punt-naar-site-connectiviteit** sectie **punt-naar-site-connectiviteit configureren**.
-6. Configureer **IP-BEGINADRES** en **CIDR** om op te geven van het IP-adresbereik waarvan uw VPN-clients een IP-adres wanneer verbinding wordt ontvangen. Het bereik kan niet overlappen met een van de bereiken die zich op uw on-premises netwerk en het Azure-netwerk dat u verbinding met. Bijvoorbeeld. Als u 10.0.0.0/20 voor het virtuele netwerk hebt geselecteerd, kunt u 10.1.0.0/24 voor de adresruimte van de client. Zie de [punt-naar-Site-connectiviteit] [ vnet-point-to-site-connectivity] pagina voor meer informatie.
-7. Klik in de sectie virtueel netwerk adres spaties **gatewaysubnet toevoegen**.
-8. Klik op **opslaan** aan de onderkant van de pagina.
-9. Klik op **Ja** de wijziging te bevestigen. Wacht totdat de wijziging aan te brengen voordat u met de volgende procedure doorgaat van het systeem is voltooid.
+1. Meld u aan toohello [klassieke Azure-Portal][azure-portal].
+2. Klik aan de linkerkant Hallo op **netwerken**.
+3. Klik op Hallo virtuele netwerk dat u hebt gemaakt (Zie [inrichten HBase-clusters op Azure Virtual Network][hdinsight-hbase-provision-vnet]).
+4. Klik op **configureren** van Hallo boven.
+5. In Hallo **punt-naar-site-connectiviteit** sectie **punt-naar-site-connectiviteit configureren**.
+6. Configureer **IP-BEGINADRES** en **CIDR** toospecify Hallo IP-adresbereik waarvan uw VPN-clients een IP-adres ontvangen wanneer verbonden adres. Hallo bereik kan niet overlappen met Hallo bereiken in uw on-premises netwerk en Hallo u verbinding met virtuele Azure-netwerk. Bijvoorbeeld. Als u 10.0.0.0/20 voor Hallo virtueel netwerk hebt geselecteerd, kunt u 10.1.0.0/24 voor Hallo client-adresruimte. Zie Hallo [punt-naar-Site-connectiviteit] [ vnet-point-to-site-connectivity] pagina voor meer informatie.
+7. Klik in Hallo virtueel netwerk adres spaties sectie op **gatewaysubnet toevoegen**.
+8. Klik op **opslaan** op Hallo onder aan Hallo pagina.
+9. Klik op **Ja** tooconfirm Hallo wijzigen. Wacht totdat het Hallo-systeem Hallo wijzigen voordat u doorgaat met de volgende procedure toohello heeft aangebracht.
 
-**Een gateway voor dynamische routering maken**
+**toocreate een gateway voor dynamische routering**
 
-1. Klik in de klassieke Azure-Portal op **DASHBOARD** vanaf de bovenkant van de pagina.
-2. Klik op **GATEWAY maken** van de onderkant van de pagina.
-3. Klik op **Ja** om te bevestigen. Wacht totdat de gateway is aangemaakt.
-4. Klik op **DASHBOARD** vanaf de bovenkant.  Hier ziet u een diagram van het virtuele netwerk:
+1. Hallo klassieke Azure-Portal, klik op **DASHBOARD** van Hallo Hallo pagina bovenaan.
+2. Klik op **GATEWAY maken** van Hallo onder Hallo.
+3. Klik op **Ja** tooconfirm. Wacht totdat het Hallo-gateway is gemaakt.
+4. Klik op **DASHBOARD** van Hallo boven.  Hier ziet u een diagram van het virtuele netwerk Hallo:
 
     ![Virtuele Azure-netwerk punt-naar-site-diagram][img-vnet-diagram]
 
-    Het diagram toont 0 clientverbindingen. Nadat u een verbinding met het virtuele netwerk, wordt het aantal bijgewerkt naar een.
+    Hallo diagram toont 0 clientverbindingen. Nadat u een verbinding toohello virtueel netwerk, wordt Hallo aantal bijgewerkte tooone zijn.
 
 #### <a name="create-your-certificates"></a>Uw certificaten maken
-Een manier voor het maken van een X.509-certificaat is door het hulpprogramma voor het certificaat maken (makecert.exe) die wordt geleverd met [Microsoft Visual Studio Express voor Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
+Eenzijdige toocreate een X.509-certificaat is via Hallo certificaat hulpprogramma voor het maken (makecert.exe) die wordt geleverd met [Microsoft Visual Studio Express voor Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
 
-**Maken van een zelfondertekend basiscertificaat**
+**een zelfondertekend basiscertificaat toocreate**
 
 1. Open een opdrachtpromptvenster vanuit uw werkstation.
-2. Navigeer naar de map Visual Studio-hulpprogramma's.
-3. De volgende opdracht in het volgende voorbeeld maakt en installeer een basiscertificaat in het persoonlijke certificaatarchief op uw werkstation en ook maken een cer-bestand dat u later naar de klassieke Azure-Portal gaat uploaden.
+2. Navigeer map toohello Visual Studio-hulpprogramma's.
+3. Hallo volgende opdracht in Hallo in het volgende voorbeeld maakt en installeer een basiscertificaat in Hallo persoonlijke certificaatarchief op uw werkstation en ook maken een cer-bestand dat u later toohello klassieke Azure-Portal gaat uploaden.
 
         makecert -sky exchange -r -n "CN=HBaseVnetVPNRootCertificate" -pe -a sha1 -len 2048 -ss My "C:\Users\JohnDole\Desktop\HBaseVNetVPNRootCertificate.cer"
 
-    Ga naar de map die u wilt dat het cer-bestand zich bevinden in, waarbij HBaseVnetVPNRootCertificate is de naam die u wilt gebruiken voor het certificaat.
+    Toohello map die u Hallo .cer-bestand toobe bevinden zich wilt in, waarbij HBaseVnetVPNRootCertificate Hallo naam dat u toouse voor Hallo certificaat wilt wijzigen.
 
-    Sluit de opdrachtprompt niet.  U moet deze in de volgende procedure.
+    Sluit de opdrachtprompt Hallo niet.  U moet deze in de volgende procedure Hallo.
 
    > [!NOTE]
-   > Omdat u een basiscertificaat hebt gemaakt op basis waarvan clientcertificaten worden gegenereerd, wilt u dit certificaat misschien samen met de persoonlijke sleutel exporteren en opslaan op een veilige locatie vanaf waar deze kunnen worden hersteld.
+   > Omdat u een basiscertificaat op basis waarvan clientcertificaten worden gegenereerd hebt gemaakt, kunt u tooexport wilt dat dit certificaat samen met de persoonlijke sleutel en sla het tooa veilige locatie waar deze kunnen worden hersteld.
    >
    >
 
-**Een certificaat maken**
+**een clientcertificaat toocreate**
 
-* Vanaf de dezelfde opdrachtprompt (er moet op dezelfde computer waarop u het basiscertificaat hebt gemaakt. Het clientcertificaat moet worden gegenereerd vanuit het basiscertificaat), voer de volgende opdracht:
+* Van Hallo dezelfde opdrachtprompt (toobe op Hallo heeft dezelfde computer waarop u Hallo basiscertificaat hebt gemaakt. Hallo-clientcertificaat moet worden gegenereerd vanuit Hallo basiscertificaat), voer hello volgende opdracht:
 
           makecert.exe -n "CN=HBaseVnetVPNClientCertificate" -pe -sky exchange -m 96 -ss My -in "HBaseVnetVPNRootCertificate" -is my -a sha1
 
-    HBaseVnetVPNRootCertificate is de naam van het root-certificaat.  Deze moet overeenkomen met de naam van het root-certificaat.  
+    HBaseVnetVPNRootCertificate is certificaatnaam Hallo-hoofdmap.  Toomatch hello hoofdnaam certificaat heeft.  
 
-    Zowel het basiscertificaat als het clientcertificaat worden opgeslagen in uw persoonlijke certificaatarchief op uw computer. Gebruik certmgr.msc om te controleren.
+    Zowel Hallo-basiscertificaat en clientcertificaat Hallo worden opgeslagen in uw persoonlijke certificaatarchief op uw computer. Gebruik certmgr.msc tooverify.
 
     ![Virtuele Azure-netwerk punt-naar-site VPN-certificaat][img-certificate]
 
-    U moet een clientcertificaat installeren op elke computer die u met het virtueel netwerk wilt verbinden. U wordt geadviseerd om unieke clientcertificaten te maken voor elke computer die u wilt verbinden met het virtuele netwerk. Gebruik voor het exporteren van de clientcertificaten certmgr.msc.
+    Een clientcertificaat moet worden geïnstalleerd op elke computer die u wilt dat tooconnect toohello virtueel netwerk. U wordt aangeraden dat u unieke client certificaten voor elke computer maken die u wilt dat tooconnect toohello virtueel netwerk. Hallo clientcertificaten tooexport certmgr.msc gebruiken.
 
-**Het basiscertificaat uploaden naar de klassieke Azure Portal**
+**tooupload hello root certificate toohello klassieke Azure-Portal**
 
-1. Klik in de klassieke Azure-Portal op **netwerk** aan de linkerkant.
-2. Klik op het virtuele netwerk waar uw HBase-cluster wordt geïmplementeerd op.
-3. Klik op **certificaten** vanaf de bovenkant.
-4. Klik op **uploaden** van de onderkant en u hebt gemaakt in de procedure vóór laatste bestand voor het basiscertificaat opgeven. Wacht totdat het certificaat hebt geïmporteerd.
-5. Klik op **DASHBOARD** bovenaan.  Het virtuele diagram toont de status.
+1. Hallo klassieke Azure-Portal, klik op **netwerk** op Hallo links.
+2. Klik op Hallo virtueel netwerk waar uw HBase-cluster wordt geïmplementeerd op.
+3. Klik op **certificaten** van Hallo boven.
+4. Klik op **uploaden** van Hallo onderzijde en u hebt gemaakt in procedure vóór laatste Hallo Hallo basiscertificaatbestand opgeven. Wacht totdat het Hallo-certificaat hebt geïmporteerd.
+5. Klik op **DASHBOARD** Hallo bovenaan.  Hallo virtuele diagram toont Hallo status.
 
 #### <a name="configure-your-vpn-client"></a>Uw VPN-client configureren
-**Downloaden en installeren van het VPN-clientpakket**
+**toodownload en installeer Hallo VPN-clientpakket**
 
-1. Klik op de pagina DASHBOARD van het virtuele netwerk, in de sectie snelle weergave **de 64-bits VPN-clientpakket downloaden** of **de 32-bits VPN-clientpakket downloaden** op basis van uw werkstation OS Versie.
-2. Klik op **uitvoeren** om het pakket te installeren.
-3. Klik bij de beveiligingsprompt **meer info**, en klik vervolgens op **toch uitvoeren**.
+1. Klik op een van de dashboardpagina Hallo Hallo virtueel netwerk in Hallo snelle weergave sectie **downloaden Hallo 64-bits VPN-clientpakket** of **downloaden Hallo 32-bits VPN-clientpakket** op basis van uw werkstation OS-versie.
+2. Klik op **uitvoeren** tooinstall Hallo-pakket.
+3. Hallo wordt weergegeven, klikt u op **meer info**, en klik vervolgens op **toch uitvoeren**.
 4. Klik op **Ja** twee keer.
 
-**Verbinding maken met VPN**
+**tooconnect tooVPN**
 
-1. Klik op het pictogram netwerken op de taakbalk op het bureaublad van uw werkstation. U ziet een VPN-verbinding met de naam van uw virtuele netwerk.
-2. Klik op de naam van de VPN-verbinding.
+1. Klik op Hallo netwerken pictogram op de taakbalk Hallo op Hallo-bureaublad van uw werkstation. U ziet een VPN-verbinding met de naam van uw virtuele netwerk.
+2. Klik op de naam van Hallo VPN-verbinding.
 3. Klik op **Verbinden**.
 
-**De VPN-verbinding en het domein naamomzetting te testen**
+**tootest hello naamomzetting van VPN-verbinding en het domein**
 
-* Open een opdrachtprompt vanuit het werkstation en ping een van de volgende namen opgegeven van de HBase-cluster DNS-achtervoegsel is myhbase.b7.internal.cloudapp.net:
+* Open een opdrachtprompt op Hallo-werkstation en ping Hallo na namen Hallo HBase-cluster van DNS-achtervoegsel is myhbase.b7.internal.cloudapp.net:
 
         zookeeper0.myhbase.b7.internal.cloudapp.net
         zookeeper0.myhbase.b7.internal.cloudapp.net
@@ -193,84 +193,84 @@ Een manier voor het maken van een X.509-certificaat is door het hulpprogramma vo
         workernode0.myhbase.b7.internal.cloudapp.net
 
 ### <a name="install-and-configure-squirrel-on-your-workstation"></a>Installeren en configureren van SQuirreL op uw werkstation
-**SQuirreL installeren**
+**tooinstall SQuirreL**
 
-1. Download het SQuirreL SQL client jar-bestand van [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation).
-2. Het jar-bestand openen/uitvoeren. Vereist de [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
+1. Hallo SQuirreL SQL client jar bestand downloaden via [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation).
+2. Hallo openen/uitvoeren jar-bestand. Hiervoor Hallo [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Klik op **volgende** twee keer.
-4. Geef een pad op waar u de machtiging schrijven, en klik op **volgende**.
+4. Geef een pad op waar u Hallo schrijftoegang en klik vervolgens op hebt **volgende**.
 
   > [!NOTE]
-  > De standaardinstallatiemap is in de map C:\Program Files\squirrel-sql-3.6.  Om te schrijven naar dit pad, moet het installatieprogramma de administrator-bevoegdheden worden verleend. U kunt open een opdrachtprompt als beheerder, gaat u naar de map bin van Java en voer vervolgens:
+  > Hallo standaardinstallatiemap is Hallo C:\Program Files\squirrel-sql-3.6 map.  In de volgorde toowrite toothis pad moet Hallo installatieprogramma Hallo administrator-bevoegdheden worden toegekend. U kunt open een opdrachtprompt als beheerder, navigeer tooJava de bin-map en voer vervolgens:
   >
-  >     Java.exe-jar [het pad naar het jar-bestand SQuirreL]
-5. Klik op **OK** om te bevestigen dat het maken van de doelmap.
-6. De standaardinstelling is de basis en standaard pakketten installeren.  Klik op **Volgende**.
+  >     Java.exe-jar [pad Hallo van Hallo SQuirreL jar-bestand]
+5. Klik op **OK** tooconfirm Hallo doelmap maken.
+6. de standaardinstelling Hallo is tooinstall Hallo basis en standaard pakketten.  Klik op **Volgende**.
 7. Klik op **volgende** tweemaal, en klik vervolgens op **gedaan**.
 
-**Het stuurprogramma Phoenix installeren**
+**tooinstall hello Phoenix stuurprogramma**
 
-Het phoenix stuurprogramma jar-bestand bevindt zich op de HBase-cluster. Het pad is vergelijkbaar met het volgende op basis van de versies:
+Hallo phoenix stuurprogramma jar-bestand bevindt zich op Hallo HBase-cluster. Hallo-pad is vergelijkbaar toohello volgende op basis van Hallo-versies:
 
     C:\apps\dist\phoenix-4.0.0.2.1.11.0-2316\phoenix-4.0.0.2.1.11.0-2316-client.jar
-U moet dit te kopiëren naar uw werkstation onder de [SQuirreL-installatiemap] / lib pad.  De eenvoudigste manier is het RDP in het cluster, en gebruik vervolgens bestand kopiëren en plakken (CTRL + C en CTRL + V) om deze te kopiëren naar uw werkstation.
+U moet toocopy het werkstation tooyour onder Hallo [SQuirreL-installatiemap] / lib pad.  Hallo gemakkelijkst tooRDP in Hallo-cluster en gebruik bestand kopiëren en plakken (CTRL + C en CTRL + V) toocopy het tooyour werkstation.
 
-**Een Phoenix stuurprogramma wilt toevoegen aan SQuirreL**
+**een stuurprogramma Phoenix tooSQuirreL tooadd**
 
 1. Open SQuirreL SQL-Client op uw werkstation.
-2. Klik op de **stuurprogramma** tabblad aan de linkerkant.
-3. Van de **stuurprogramma's** menu, klikt u op **nieuw stuurprogramma**.
-4. Voer de volgende informatie in:
+2. Klik op Hallo **stuurprogramma** tabblad op Hallo links.
+3. Van Hallo **stuurprogramma's** menu, klikt u op **nieuw stuurprogramma**.
+4. Voer Hallo volgende informatie:
 
    * **Naam**: Phoenix
    * **Voorbeeld-URL**: jdbc:phoenix:zookeeper2.contoso-hbase-eu.f5.internal.cloudapp.net
    * **Klassenaam**: org.apache.phoenix.jdbc.PhoenixDriver
 
      > [!WARNING]
-     > Gebruiker alle kleine letters in de voorbeeld-URL. U kunt gebruiken ze volledig zookeeper quorum als een ervan is niet beschikbaar.  De hostnamen zijn zookeeper0, zookeeper1 en zookeeper2.
+     > Gebruiker alle kleine letters in Hallo voorbeeld-URL. U kunt gebruiken ze volledig zookeeper quorum als een ervan is niet beschikbaar.  Hallo hostnamen zijn zookeeper0, zookeeper1 en zookeeper2.
      >
      >
 
      ![HDInsight HBase Phoenix SQuirreL stuurprogramma][img-squirrel-driver]
 5. Klik op **OK**.
 
-**Een alias aan de HBase-cluster maken**
+**toocreate een alias toohello HBase-cluster**
 
-1. SQuirreL, klik op de **aliassen** tabblad aan de linkerkant.
-2. Van de **aliassen** menu, klikt u op **Alias voor nieuwe**.
-3. Voer de volgende informatie in:
+1. Klik op Hallo van SQuirreL, **aliassen** tabblad op Hallo links.
+2. Van Hallo **aliassen** menu, klikt u op **Alias voor nieuwe**.
+3. Voer Hallo volgende informatie:
 
-   * **Naam**: de naam van de HBase-cluster of een willekeurige naam die u liever.
-   * **Stuurprogramma**: Phoenix.  Dit moet overeenkomen met de naam van het stuurprogramma die u in de laatste procedure hebt gemaakt.
-   * **URL**: de URL van de configuratie van uw stuurprogramma gekopieerd. Zorg ervoor dat aan gebruiker alle kleine letters.
-   * **Gebruikersnaam**: deze tekst kan worden.  Omdat u hier VPN-verbinding gebruiken, wordt de gebruikersnaam niet helemaal gebruikt.
+   * **Naam**: Hallo-naam van Hallo HBase-cluster of een willekeurige naam die u liever.
+   * **Stuurprogramma**: Phoenix.  Dit moet overeenkomen met de naam stuurprogramma Hallo die u hebt gemaakt in de laatste procedure Hallo.
+   * **URL**: Hallo-URL is gekopieerd uit uw stuurprogrammaconfiguratie van het. Zorg ervoor dat toouser alle kleine letters.
+   * **Gebruikersnaam**: deze tekst kan worden.  Omdat u hier VPN-verbinding gebruiken, wordt helemaal Hallo gebruikersnaam niet gebruikt.
    * **Wachtwoord**: deze tekst kan worden.
 
      ![HDInsight HBase Phoenix SQuirreL stuurprogramma][img-squirrel-alias]
 4. Klik op **Test**.
-5. Klik op **Verbinden**. Wanneer de verbinding maakt, wordt de SQuirreL ziet:
+5. Klik op **Verbinden**. Wanneer het Hallo-verbinding maakt, wordt de SQuirreL ziet:
 
     ![HBase Phoenix SQuirreL][img-squirrel]
 
-**Een test uitvoeren**
+**een test toorun**
 
-1. Klik op de **SQL** tabblad rechts naast de **objecten** tabblad.
-2. Kopieer en plak de volgende code:
+1. Klik op Hallo **SQL** tabblad rechts volgende toohello **objecten** tabblad.
+2. Kopieer en plak de volgende code Hallo:
 
         CREATE TABLE IF NOT EXISTS us_population (state CHAR(2) NOT NULL, city VARCHAR NOT NULL, population BIGINT  CONSTRAINT my_pk PRIMARY KEY (state, city))
-3. Klik op uitvoeren.
+3. Klik op Hallo uitvoeren.
 
     ![HBase Phoenix SQuirreL][img-squirrel-sql]
-4. Ga terug naar de **objecten** tabblad.
-5. Vouw de aliasnaam uit en vouw vervolgens **tabel**.  U ziet de nieuwe tabel vermeld in.
+4. Overschakelen back toohello **objecten** tabblad.
+5. Vouw de aliasnaam Hallo uit en vouw vervolgens **tabel**.  U ziet de nieuwe tabel Hallo vermeld in.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe u van Apache Phoenix in HDInsight.  Zie voor meer informatie.
+In dit artikel hebt u geleerd hoe toouse Apache Phoenix in HDInsight.  toolearn meer, Zie
 
 * [Overzicht van HDInsight HBase][hdinsight-hbase-overview]: HBase is een Apache, open-source NoSQL-database op basis van Hadoop. HBase biedt willekeurige toegang en een sterke consistentie voor grote hoeveelheden ongestructureerde en semigestructureerde gegevens.
-* [HBase-clusters op Azure Virtual Network inrichten][hdinsight-hbase-provision-vnet]: door de integratie van virtueel netwerk, HBase-clusters kunnen worden geïmplementeerd op hetzelfde virtuele netwerk als uw toepassingen zodat toepassingen met HBase communiceren kunnen rechtstreeks.
-* [Configureren van replicatie van HBase in HDInsight](hdinsight-hbase-replication.md): informatie over het configureren van HBase-replicatie tussen twee Azure-datacenters.
-* [Twitter-gevoel met HBase in HDInsight analyseren][hbase-twitter-sentiment]: meer informatie over hoe u realtime [gevoel analysis](http://en.wikipedia.org/wiki/Sentiment_analysis) van big data met behulp van HBase in een Hadoop-cluster in HDInsight.
+* [HBase-clusters op Azure Virtual Network inrichten][hdinsight-hbase-provision-vnet]: aan de integratie van virtueel netwerk, HBase-clusters geïmplementeerde toohello virtuele netwerk als uw toepassingen zodat kunnen worden dat toepassingen met communiceren kunnen Rechtstreeks HBase.
+* [Configureren van replicatie van HBase in HDInsight](hdinsight-hbase-replication.md): meer informatie over hoe tooconfigure HBase-replicatie tussen twee Azure-datacenters.
+* [Twitter-gevoel met HBase in HDInsight analyseren][hbase-twitter-sentiment]: meer informatie over hoe toodo realtime [gevoel analysis](http://en.wikipedia.org/wiki/Sentiment_analysis) van big data met behulp van HBase in een Hadoop-cluster in HDInsight.
 
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT

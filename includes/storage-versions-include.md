@@ -1,0 +1,3 @@
+### <a name="storage-service-versions"></a>Versies van de Storage-service
+Hello Azure Storage-services worden regelmatig bijgewerkt met ondersteuning voor nieuwe functies. Hallo naslaginformatie over REST API van Azure Storage-services worden alle ondersteunde versies en de bijbehorende functies beschreven. Het is raadzaam dat u de meest recente versie Hallo indien mogelijk. Zie voor meer informatie over de meest recente versie Hallo van hello Azure Storage-services, evenals informatie over eerdere versies, [versiebeheer voor hello Azure Storage-Services](https://msdn.microsoft.com/library/azure/dd894041.aspx).  
+

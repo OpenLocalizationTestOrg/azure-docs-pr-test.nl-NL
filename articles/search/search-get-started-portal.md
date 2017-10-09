@@ -1,59 +1,43 @@
 ---
-title: 'Zelfstudie: uw eerste Azure Search-index maken via de portal | Microsoft Docs'
-description: Gebruik in Azure Portal de vooraf gedefinieerde voorbeeldgegevens om een index te genereren. Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten, geosearch en meer.
-services: search
-documentationcenter: 
-author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
-ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.date: 06/26/2017
-ms.author: heidist
-ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
----
-# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Zelfstudie: uw eerste Azure Search-index maken via de portal
+titel: aaa "zelfstudie: maken van uw eerste Azure Search-index in Hallo portal | Microsoft Docs' Beschrijving: In hello Azure-portal, vooraf gedefinieerde gebruiken sample data toogenerate een index. Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten, geosearch en meer.
+Services: documentationcenter zoeken: '' auteur: HeidiSteen manager: jhubbard-editor: '' tags: azure-portal
 
-Begin in Azure Portal met een vooraf gedefinieerde set voorbeeldgegevens om snel een index te genereren met behulp van de wizard **Gegevens importeren**. Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten en geosearch met **Search Explorer**.  
+MS.AssetID: 21adc351-69bb-4a39-bc59-598c60c8f958 ms.service: ms.devlang zoeken: n.v.t. ms.workload: ms.topic zoeken: hero-article ms.tgt_pltfrm: n.v.t. ms.date: 26-06/2017 ms.author: heidist
+
+---
+# <a name="tutorial-create-your-first-azure-search-index-in-hello-portal"></a>Zelfstudie: Uw eerste Azure Search-index maken in Hallo-portal
+
+In hello Azure-portal, beginnen met een vooraf gedefinieerde voorbeeld gegevensset tooquickly genereren een index met behulp van Hallo **gegevens importeren** wizard. Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten en geosearch met **Search Explorer**.  
 
 Met deze inleiding zonder code kunt u aan de slag met vooraf gedefinieerde gegevens, zodat u direct interessante query's kunt schrijven. Hoewel de hulpprogramma's van de portal geen vervanging zijn voor code, zijn ze handig voor deze taken:
 
 + Hands On leren met minimale ramp-up
 + Prototype van een index maken voordat u code schrijft in **Gegevens importeren**
 + Query's testen en syntaxis parseren in **Search Explorer**
-+ Een bestaande index weergeven die is gepubliceerd in uw service, en de bijbehorende kenmerken zoeken
++ Weergeven van een bestaande index gepubliceerde tooyour service en de kenmerken worden opgezocht
 
 **Geschatte tijd:** ongeveer 15 minuten, maar het kan langer duren als ook is vereist dat u zich registreert bij het account of de service. 
 
-U kunt ook aan de slag met een [op code gebaseerde inleiding tot het programmeren van Azure Search in .NET](search-howto-dotnet-sdk.md).
+U kunt ook mogelijk uitbreiden met behulp van een [inleiding op basis van code tooprogramming Azure Search in .NET](search-howto-dotnet-sdk.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
 In deze zelfstudie wordt ervan uitgegaan dat u beschikt over een [Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) en [Azure-service](search-create-service-portal.md). 
 
-Als u niet direct een service wilt inrichten, kunt u ook een zes minuten durende demonstratie bekijken van de stappen in deze zelfstudie. De demonstratie ziet u na ongeveer drie minuten in deze [Azure Search-overzichtsvideo](https://channel9.msdn.com/Events/Connect/2016/138).
+Als u niet onmiddellijk tooprovision een service wilt, kunt u bekijken een demonstratie 6 minuten durende Hallo stappen in deze zelfstudie begint bij ongeveer drie minuten in deze [overzicht van Azure Search video](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## <a name="find-your-service"></a>Uw service vinden
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Open het servicedashboard van uw Azure Search-service. Als u de servicetegel niet hebt vastgemaakt aan het dashboard, kunt u de service op de volgende manier vinden: 
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com).
+2. Open het servicedashboard Hallo van uw Azure Search-service. Als u niet Hallo service tegel tooyour dashboard vastmaken, kunt u uw service op deze manier vinden: 
    
-   * Klik in de Jumpbar onder aan het linkernavigatiedeelvenster op **Meer services**.
-   * Typ in het zoekvak het woord *zoeken* voor een lijst met zoekservices voor uw abonnement. Als het goed is, wordt de service nu weergegeven in de lijst. 
+   * Klik in de Snelbalk hello, op **meer services** Hallo Hallo linkernavigatiedeelvenster onderaan in.
+   * Typ in het zoekvak Hallo *search* tooget een lijst met services voor uw abonnement. Uw service moet worden weergegeven in de lijst Hallo. 
 
 ## <a name="check-for-space"></a>Controleren of er voldoende ruimte is
-Veel klanten beginnen met de gratis service. Deze versie is beperkt tot drie indexen drie gegevensbronnen en drie indexeerfuncties. Zorg ervoor dat er voldoende ruimte is voor extra items voordat u begint. In deze zelfstudie wordt van elk object één exemplaar gemaakt. 
+Veel klanten beginnen met Hallo gratis service. Deze versie is beperkt toothree indexen drie gegevensbronnen en drie indexeerfuncties. Zorg ervoor dat er voldoende ruimte is voor extra items voordat u begint. In deze zelfstudie wordt van elk object één exemplaar gemaakt. 
 
 > [!TIP] 
-> Op tegels in het servicedashboard wordt weergegeven hoeveel indexen, indexeerfuncties en gegevensbronnen u al hebt. De tegel Indexeerfunctie bevat indicatoren voor slagen en voor mislukken. Klik op de tegel om het aantal indexeerfuncties te bekijken. 
+> Tegels op het servicedashboard Hallo weergeven hoeveel indexen, Indexeerfuncties en gegevensbronnen al. de tegel indexeerfunctie Hallo bevat indicatoren geslaagd en mislukt. Klik op Hallo tegel tooview Hallo indexeerfunctie count. 
 >
 > ![Tegels voor indexeerfuncties en gegevensbronnen][1]
 >
@@ -61,151 +45,151 @@ Veel klanten beginnen met de gratis service. Deze versie is beperkt tot drie ind
 ## <a name="create-index"></a> Een index maken en gegevens laden
 Zoekopdrachten worden over een *index* herhaald met doorzoekbare gegevens, metagegevens en constructies, die worden gebruikt om bepaald zoekgedrag te optimaliseren.
 
-We gebruiken een ingebouwde voorbeeldgegevensset die met behulp van een indexeerfunctie kan worden verkend via de wizard **Gegevens importeren**, om deze taak portal-gebaseerd te houden. 
+tookeep deze taak portal-gebaseerde, gebruiken we een ingebouwde voorbeeldgegevensset die kan worden benaderd met een indexeerfunctie via Hallo **gegevens importeren** wizard. 
 
-#### <a name="step-1-start-the-import-data-wizard"></a>Stap 1: Wizard Gegevens importeren starten
-1. Klik op het dashboard van uw Azure Search-service op **Gegevens importeren** in de opdrachtbalk om een wizard te starten waarmee u een index maakt en deze vervolgens vult.
+#### <a name="step-1-start-hello-import-data-wizard"></a>Stap 1: Start de wizard importeren Hallo
+1. Klik op het dashboard van de service Azure Search **gegevens importeren** in Hallo opdracht balk toostart een wizard die u maakt zowel een index vult.
    
     ![Opdracht Gegevens importeren][2]
 
-2. Klik in de wizard **Gegevensbron** > **Voorbeelden** > **realestate-us-sample**. Deze gegevensbron is vooraf geconfigureerd met informatie over een naam, type en verbinding. Zodra de gegevensbron is gemaakt, wordt deze een bestaande gegevensbron genoemd die opnieuw kan worden gebruikt voor andere bewerkingen.
+2. Klik in de wizard Hallo op **gegevensbron** > **voorbeelden** > **onroerend goed-ons-sample**. Deze gegevensbron is vooraf geconfigureerd met informatie over een naam, type en verbinding. Zodra de gegevensbron is gemaakt, wordt deze een bestaande gegevensbron genoemd die opnieuw kan worden gebruikt voor andere bewerkingen.
 
     ![Voorbeeldgegevensset selecteren][9]
 
-3. Klik op **OK** om deze te gebruiken.
+3. Klik op **OK** toouse deze.
 
-#### <a name="step-2-define-the-index"></a>Stap 2: De index definiëren
-Het maken van een index gebeurt meestal handmatig en is gebaseerd op code, maar met de wizard kan een index worden gegenereerd voor elke gegevensbron die ermee kan worden verkend. In een index moeten minimaal een naam en een verzameling met velden zijn opgenomen, waarbij één veld is gemarkeerd als de unieke documentsleutel voor elk document.
+#### <a name="step-2-define-hello-index"></a>Stap 2: Hallo index definiëren
+Maken van een index is doorgaans handmatige en op basis van code, maar de wizard Hallo kunt genereren een index voor elke gegevensbron die het kunt verkennen. Minimaal een index moeten een naam en een verzameling van velden, waarbij één veld is gemarkeerd als key toouniquely document Hallo identificeren elk document.
 
-Velden bevatten gegevenstypen en kenmerken. De selectievakjes bovenaan zijn *indexkenmerken* die bepalen hoe het veld wordt gebruikt. 
+Velden bevatten gegevenstypen en kenmerken. Hallo selectievakjes in aan de bovenkant Hallo worden *indexkenmerken* beheren hoe Hallo veld wordt gebruikt. 
 
 * **Ophalen mogelijk** betekent dat dit veld wordt weergegeven in de lijst met zoekresultaten. U kunt afzonderlijke velden markeren als ontoegankelijk voor zoekresultaten door dit selectievakje uit te schakelen, bijvoorbeeld voor velden die alleen in filterexpressies worden gebruikt. 
 * De kenmerken **Filterbaar**, **Sorteerbaar** en **Geschikt voor facetten** bepalen of een veld in een filter, een sorteervolgorde of een facetnavigatiestructuur kan worden gebruikt. 
 * **Doorzoekbaar** betekent dat een veld is opgenomen in een zoekopdracht in volledige tekst. Tekenreeksen zijn doorzoekbaar. Numerieke velden en Booleaanse waarden zijn vaak gemarkeerd als niet doorzoekbaar. 
 
-Standaard wordt met de wizard de gegevensbron gescand op unieke id's als basis voor het sleutelveld. Tekenreeksen hebben de kenmerken Ophaalbaar en Doorzoekbaar. Gehele getallen hebben de kenmerken Ophaalbaar, Filterbaar, Sorteerbaar en Geschikt voor facetten.
+Standaard scant Hallo wizard Hallo gegevensbron voor unieke id's als basis voor het sleutelveld Hallo Hallo. Tekenreeksen hebben de kenmerken Ophaalbaar en Doorzoekbaar. Gehele getallen hebben de kenmerken Ophaalbaar, Filterbaar, Sorteerbaar en Geschikt voor facetten.
 
   ![Gegenereerde onroerend goed-index][3]
 
-Klik op **OK** om de index te maken.
+Klik op **OK** toocreate Hallo index.
 
-#### <a name="step-3-define-the-indexer"></a>Stap 3: De indexeerfunctie definiëren
-Klik in de wizard**Gegevens importeren** op **Indexeerfunctie** > **Naam** en typ een naam voor de indexeerfunctie. 
+#### <a name="step-3-define-hello-indexer"></a>Stap 3: Hallo indexeerfunctie definiëren
+Nog steeds in Hallo **gegevens importeren** wizard, klikt u op **indexeerfunctie** > **naam**, en typ een naam voor de indexeerfunctie Hallo. 
 
-Dit object definieert een uitvoerbaar proces. U kunt een terugkerend schema instellen, maar in dit geval gebruikt u de standaardoptie om de indexeerfunctie één keer uit te voeren zodra u op **OK** klikt.  
+Dit object definieert een uitvoerbaar proces. U kunt plaatsen op terugkerende planning, maar voor nu gebruik Hallo standaard optie toorun Hallo indexeerfunctie zodra onmiddellijk, wanneer u klikt op **OK**.  
 
   ![indexeerfunctie voor onroerend goed][8]
 
 ## <a name="check-progress"></a>Voortgang controleren
-Ga terug naar het servicedashboard, schuif omlaag en dubbelklik op de tegel **Indexeerfuncties** om de lijst met indexeerfuncties te openen als u het importeren van gegevens wilt controleren. Als het goed is, ziet u de zojuist gemaakte indexeerfunctie in de lijst met de status Wordt uitgevoerd of Geslaagd, samen met het aantal geïndexeerde documenten.
+toomonitor gegevens importeren, gaat u terug toohello servicedashboard, schuif omlaag en dubbelklik op Hallo **indexeerfuncties** tegel tooopen Hallo indexeerfuncties lijst. U ziet de indexeerfunctie Hallo nieuw gemaakt in Hallo lijst met status die aangeeft 'wordt uitgevoerd' of een geslaagd, samen met het aantal geïndexeerde documenten Hallo.
 
    ![Voortgangsbericht voor de indexeerfunctie][4]
 
-## <a name="query-index"></a> Een query uitvoeren voor de index
-U hebt nu een zoekindex die gereed is om op te vragen. **Search explorer** is een queryprogramma dat is ingebouwd in de portal. Er wordt een zoekvak geboden zodat u kunt controleren of de zoekresultaten aan de verwachting voldoen. 
+## <a name="query-index"></a>Query Hallo index
+U hebt nu een zoekindex die gereed tooquery. **Search explorer** is een queryprogramma dat is ingebouwd in Hallo-portal. Er wordt een zoekvak geboden zodat u kunt controleren of de zoekresultaten aan de verwachting voldoen. 
 
 > [!TIP]
-> In de [Azure Search-overzichtsvideo](https://channel9.msdn.com/Events/Connect/2016/138) worden de volgende stappen na 6 min 8 sec gedemonstreerd.
+> In Hallo [overzicht van Azure Search video](https://channel9.msdn.com/Events/Connect/2016/138), Hallo stappen te volgen in Hallo video op 6m08s worden uitgelegd.
 >
 
-1. Klik op **Search explorer** in de opdrachtbalk.
+1. Klik op **Search explorer** op Hallo opdrachtbalk klikken.
 
    ![Opdracht Search Explorer][5]
 
-2. Klik in de opdrachtbalk op **Index wijzigen** om te schakelen naar *realestate-us-sample*.
+2. Klik op **wijziging index** op Hallo opdrachtbalk tooswitch te*onroerend goed-ons-sample*.
 
    ![Index- en API-opdrachten][6]
 
-3. Klik in de opdrachtbalk op **API-versie instellen** om te zien welke REST API's beschikbaar zijn. Met voorbeeld-API's hebt u toegang tot nieuwe functies die nog niet algemeen zijn uitgebracht. Gebruik voor onderstaande query’s de algemeen beschikbare versie (01-09-2016) tenzij u andere instructies krijgt. 
+3. Klik op **ingesteld API-versie** op Hallo opdracht balk toosee die REST-API's beschikbaar zijn. Preview-API's krijgt die u toegang toonew functies tot nog in het algemeen niet vrijgegeven. Gebruik voor Hallo query's hieronder, algemeen beschikbaar Hallo-versie (2016 09 01) tenzij omgeleid. 
 
     > [!NOTE]
-    > [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) en de [.NET-bibliotheek](search-howto-dotnet-sdk.md#core-scenarios) zijn volledig equivalent, maar **Search Explorer** is alleen uitgerust om REST-oproepen te verwerken. Er wordt syntaxis geaccepteerd voor [eenvoudige querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) en [volledige Lucene-queryparser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus alle zoekparameters die beschikbaar zijn in bewerkingen voor [Document doorzoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+    > [Azure Search REST-API](https://docs.microsoft.com/rest/api/searchservice/search-documents) en Hallo [.NET-bibliotheek](search-howto-dotnet-sdk.md#core-scenarios) volledig equivalent zijn, maar **Search explorer** alleen ingerichte toohandle REST-aanroepen. Accepteert syntaxis voor beide [vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) en [volledige Lucene queryparser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus alle beschikbaar in de zoekparameters Hallo [zoekdocument](https://docs.microsoft.com/rest/api/searchservice/search-documents) bewerkingen.
     > 
 
-4. Voer in de zoekbalk de onderstaande querytekenreeksen in en klik op **Zoeken**.
+4. Voer onderstaande Hallo queryreeksen in de zoekbalk Hallo, en klik op **Search**.
 
   ![Voorbeeld van zoekquery][7]
 
 **`search=seattle`**
 
-+ De parameter `search` wordt gebruikt om een zoekopdracht voor zoeken in volledige tekst in te voeren waarmee, in dit geval, vermeldingen in King County, Washington state worden geretourneerd die *Seattle* bevatten in elk doorzoekbaar veld van het document. 
++ Hallo `search` parameter gebruikte tooinput een zoeken met trefwoorden voor zoeken in volledige tekst in dit geval is, lijsten in koning regio, Washington status retourneren, die *Seattle* in elk doorzoekbaar veld in het Hallo-document. 
 
-+ Met **Search Explorer** worden resultaten geretourneerd in JSON. Deze indeling is uitgebreid en moeilijk te lezen als documenten een compacte structuur hebben. Afhankelijk van uw documenten moet u mogelijk code schrijven die zoekresultaten verwerkt, om belangrijke elementen uit te pakken. 
++ **Search explorer** retourneert resultaten in JSON, dit is uitgebreid en vaste tooread als documenten een dense structuur hebben. Afhankelijk van uw documenten moet u mogelijk toowrite code dat ingangen resultaten tooextract belangrijke elementen zoeken. 
 
-+ Documenten bestaan uit alle velden die in de index zijn gemarkeerd als 'Ophalen mogelijk'. Als u in de portal indexkenmerken wilt weergeven, gaat u naar de tegel **Indexen** en klikt u op *realestate-us-sample*.
++ Documenten bestaan uit alle velden die zijn gemarkeerd als ophalen in index Hallo mogelijk. tooview indexkenmerken in Hallo-portal klikt u op *onroerend goed-ons-sample* in Hallo **indexen** tegel.
 
 **`search=seattle&$count=true&$top=100`**
 
-+ Het symbool `&` wordt gebruikt om zoekparameters toe te voegen. Deze kunnen in willekeurige volgorde worden opgegeven. 
++ Hallo `&` symbool is de zoekparameters gebruikte tooappend, die kunnen worden opgegeven in een willekeurige volgorde. 
 
-+  De parameter `$count=true` retourneert het totale aantal geretourneerde documenten. U kunt filterquery's controleren door de wijzigingen te controleren die door `$count=true` worden gerapporteerd. 
++  Hallo `$count=true` parameter retourneert een getal voor Hallo som van alle documenten die worden geretourneerd. U kunt filterquery's controleren door de wijzigingen te controleren die door `$count=true` worden gerapporteerd. 
 
-+ De `$top=100` retourneert de 100 hoogst scorende documenten in dit totaal. Standaard retourneert Azure Search de 50 beste resultaten. U kunt dit aantal vergroten of verkleinen via `$top`.
++ Hallo `$top=100` retourneert Hallo hoogste 100 documenten buiten Hallo totale gerangschikt. Standaard retourneert Azure Search Hallo eerste 50 beste overeenkomsten. U kunt vergroten of verkleinen Hallo bedrag via `$top`.
 
 **`search=*&facet=city&$top=2`**
 
-+ `search=*` is een lege zoekopdracht. Met een lege zoekopdracht wordt naar alles gezocht. Eén reden om een lege query in te dienen, is om de hele set documenten te filteren of als facet te gebruiken. U wilt bijvoorbeeld een facetnavigatiestructuur die bestaat uit alle plaatsen in de index.
++ `search=*` is een lege zoekopdracht. Met een lege zoekopdracht wordt naar alles gezocht. Een reden voor het indienen van een leeg query is te filteren of facet ten opzichte van de volledige set Hallo van documenten. U wilt bijvoorbeeld een tooconsist facetten navigatie structuur van alle steden in Hallo index.
 
-+  `facet` retourneert een navigatiestructuur die u kunt doorgeven aan een UI-besturingselement. Deze retourneert categorieën en een aantal. In dit geval zijn categorieën gebaseerd op het aantal plaatsen. Er is geen aggregatie in Azure Search, maar u kunt een geschatte aggregatie bepalen via `facet`, dat het aantal documenten in elke categorie retourneert.
++  `facet`retourneert een navigatie structuur, dat u de UI-besturingselement tooa kunt doorgeven. Deze retourneert categorieën en een aantal. In dit geval zijn categorieën gebaseerd op Hallo aantal steden. Er is geen aggregatie in Azure Search, maar u kunt een geschatte aggregatie bepalen via `facet`, dat het aantal documenten in elke categorie retourneert.
 
-+ `$top=2` retourneert twee documenten, om te illustreren dat u `top` kunt gebruiken om het aantal resultaten te verlagen of te verhogen.
++ `$top=2`brengt terug ter illustratie van waarmee u kunt twee documenten `top` tooboth neemt toe of resultaten.
 
 **`search=seattle&facet=beds`**
 
-+ Deze query gebruikt het facet bedden in een tekstuele zoekopdracht naar *Seattle*. `"beds"` kan worden opgegeven als een facet, omdat het veld in de index is gemarkeerd als ophaalbaar, filterbaar en bruikbaar als facet. En de waarden die het bevat (numeriek, 1 tot en met 5), zijn geschikt voor het categoriseren van vermeldingen in groepen (vermeldingen met 3 slaapkamers, 4 slaapkamers). 
++ Deze query gebruikt het facet bedden in een tekstuele zoekopdracht naar *Seattle*. `"beds"`kan worden opgegeven als een facet omdat Hallo-veld is gemarkeerd als ophalen mogelijk, Filterbaar en geschikt voor facetten in Hallo-index en Hallo deze waarden bevat (numeriek, 1 tot en met 5), geschikt zijn voor de aanbiedingen categoriseren in groepen (aanbiedingen met 3 slaapkamers, 4 slaapkamers). 
 
-+ Alleen filterbare velden kunnen als facet worden gebruikt. Alleen ophaalbare velden kunnen in de resultaten worden geretourneerd.
++ Alleen filterbare velden kunnen als facet worden gebruikt. Alleen ophalen mogelijk velden kunnen worden geretourneerd in Hallo resultaten.
 
 **`search=seattle&$filter=beds gt 3`**
 
-+ De parameter `filter` retourneert resultaten die voldoen aan de criteria die u hebt opgegeven. In dit geval: meer dan 3 slaapkamers. 
++ Hallo `filter` parameter retourneert resultaten die overeenkomen met de Hallo criteria die u hebt opgegeven. In dit geval: meer dan 3 slaapkamers. 
 
 + Filtersyntaxis is een OData-constructie. Zie [OData-syntaxis filteren](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) voor meer informatie.
 
 **`search=granite countertops&highlight=description`**
 
-+ Markeren betekent het toevoegen van opmaak aan tekst die overeenkomt met het trefwoord, overeenkomsten die in een bepaald veld zijn aangetroffen. Als de zoekterm verborgen is in een beschrijving, kunt u de treffers markeren om deze makkelijker te vinden. In dit geval is de opgemaakte woordgroep `"granite countertops"` gemakkelijker te zien in het omschrijvingsveld.
++ Treffers markeren verwijst tooformatting op tekst hello-sleutelwoord overeenkomende komt overeen met gegeven zijn gevonden in een bepaald veld. Als uw zoekterm diep in een beschrijving wordt overspoeld, kunt u treffers markeren toomake toevoegen het gemakkelijker toospot. In dit geval Hallo woordgroep geformatteerd `"granite countertops"` eenvoudiger toosee in Hallo beschrijvingsveld is.
 
 **`search=mice&highlight=description`**
 
-+ Met zoekopdrachten in de volledige tekst kunnen woorden met vergelijkbare semantiek worden gevonden. In dit geval bevatten zoekresultaten gemarkeerde tekst voor ´muis´, bij een zoekopdracht naar ´muizen´ voor huizen die te maken hebben met een muizenplaag. De resultaten kunnen verschillende vormen van hetzelfde woord bevatten vanwege taalkundige analyse. 
++ Met zoekopdrachten in de volledige tekst kunnen woorden met vergelijkbare semantiek worden gevonden. In dit geval bevatten zoekresultaten gemarkeerde tekst voor 'muis' thuis waarvoor de muis is aangetast, in het antwoord tooa zoeken met trefwoorden op 'muizen'. Verschillende vormen van Hallo hetzelfde woord in de resultaten kan worden weergegeven vanwege taalkundige analyse. 
 
-+ Azure Search ondersteunt 56 analyzers van Lucene en Microsoft. Standaard wordt Lucene Analyzer gebruikt voor Azure Search. 
++ Azure Search ondersteunt 56 analyzers van Lucene en Microsoft. Hallo-standaardwaarde gebruikt door Azure Search is Hallo standaard Lucene analyzer. 
 
 **`search=samamish`**
 
-+ Voor verkeerd gespelde woorden (bijvoorbeeld 'samamish' voor het Samammish plateau in de regio Seattle) worden bij standaardzoekopdrachten geen overeenkomsten geretourneerd. U kunt fuzzy zoekopdrachten gebruiken om spelfouten te omzeilen. In het volgende voorbeeld ziet u hoe dit in zijn werk gaat.
++ Verkeerd gespelde woorden, zoals 'samamish' voor Hallo Samammish plateau in Hallo gebied van Seattle, mislukken tooreturn overeenkomsten in typische zoeken. toohandle typefouten, kunt u fuzzy zoeken, die worden beschreven in het volgende voorbeeld hello gebruiken.
 
 **`search=samamish~&queryType=full`**
 
-+ Fuzzy zoeken wordt ingeschakeld als u het symbool `~` opgeeft en de volledige queryparser gebruikt. Hiermee wordt de `~`-syntaxis geïnterpreteerd en juist geparseerd. 
++ Fuzzy zoeken is ingeschakeld wanneer u Hallo opgeeft `~` symbool en Hallo volledige queryparser gebruiken, die wordt geïnterpreteerd en correct parseert Hallo `~` syntaxis. 
 
-+ Fuzzy zoeken is beschikbaar wanneer u voor de volledige queryparser kiest. Deze wordt weergegeven wanneer u `queryType=full` instelt. Zie [Lucene-querysyntaxis in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) voor meer informatie over queryscenario's op basis van de volledige queryparser.
++ Fuzzy zoeken is beschikbaar wanneer u opt-in voor Hallo volledige queryparser, waarmee deze gebeurtenis treedt op wanneer u `queryType=full`. Zie voor meer informatie over query's ingeschakeld door de volledige queryparser hello [Lucene-querysyntaxis in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
-+ Als `queryType` niet is opgegeven, wordt standaard de eenvoudige queryparser gebruikt. De eenvoudige queryparser is sneller, maar als u gebruik wilt maken van fuzzy zoeken, reguliere expressies, zoeken op nabijheid of andere geavanceerde typen query's, dan hebt u de volledige syntaxis nodig. 
++ Wanneer `queryType` is niet is opgegeven, Hallo standaard eenvoudige queryparser wordt gebruikt. Hallo eenvoudige queryparser is sneller, maar als u nodig hebt voor fuzzy zoeken, reguliere expressies, zoeken bij benadering of andere soorten geavanceerde query's, moet u de volledige syntaxis Hallo. 
 
 **`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
-+ Georuimtelijk zoeken wordt ondersteund door het [gegevenstype edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) voor een veld met coördinaten. Geosearch is een type filter dat wordt opgegeven bij [Filter OData-syntaxis](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
++ Georuimtelijke zoekopdracht wordt ondersteund door Hallo [edm. Het gegevenstype GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) voor een veld met coördinaten. Geosearch is een type filter dat wordt opgegeven bij [Filter OData-syntaxis](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
-+ Met dit voorbeeld worden alle resultaten voor positionele gegevens gefilterd die minder dan 5 kilometer zijn verwijderd van een opgegeven punt (opgegeven als coördinaten voor lengte- en breedtegraad). Door `$count` toe te voegen, kunt u zien hoeveel resultaten er worden geretourneerd als u de afstand of de coördinaten wijzigt. 
++ Hallo voorbeeldquery filtert alle resultaten voor positionele gegevens, waar de resultaten minder dan 5 kilometer vanaf een bepaald moment (opgegeven als breedtegraad en lengtegraad coördinaten) zijn. Door toe te voegen `$count`, kunt u zien hoeveel resultaten worden geretourneerd wanneer u de afstand Hallo of Hallo coördinaten wijzigen. 
 
-+ Georuimtelijk zoeken is handig als uw zoektoepassing een functie ´in mijn buurt zoeken´ heeft of gebruikmaakt van kaartnavigatie. Dit is echter niet een zoekopdracht in volledige tekst. Als uw gebruikers op naam naar steden of landen willen zoeken, voegt u, naast coördinaten, ook velden met namen van steden of landen toe.
++ Georuimtelijk zoeken is handig als uw zoektoepassing een functie ´in mijn buurt zoeken´ heeft of gebruikmaakt van kaartnavigatie. Dit is echter niet een zoekopdracht in volledige tekst. Als u gebruikersvereisten hebt voor zoekopdrachten op een plaats of land met de naam, velden met namen van een stad of land in toevoeging toocoordinates toevoegen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-+ Wijzig de objecten die u zojuist hebt gemaakt. Nadat u de wizard één keer hebt uitgevoerd, kunt u teruggaan en de afzonderlijke onderdelen weergeven of wijzigen, zoals de index, indexeerfunctie of de gegevensbron. Bepaalde wijzigingen die u aanbrengt, zoals het wijzigen van het gegevensveldtype, zijn niet toegestaan in de index. De meeste eigenschappen en instellingen kunnen echter wel worden gewijzigd.
++ Wijzig alle Hallo-objecten die u zojuist hebt gemaakt. Nadat u de wizard Hallo eenmaal hebt uitgevoerd, u kunt teruggaan en weergeven of wijzigen van afzonderlijke onderdelen: index, indexeerfunctie of de gegevensbron. Bepaalde bewerkingen, zoals Hallo wijzigen Hallo gegevensveldtype, zijn niet toegestaan op Hallo index, maar de meeste eigenschappen en instellingen worden gewijzigd.
 
-  Als u afzonderlijke onderdelen wilt weergeven, klikt u op **Index**, **Indexeerfunctie** of op de tegel **Gegevensbronnen** op uw dashboard om een lijst met bestaande objecten weer te geven. Zie [Index bijwerken (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index) voor informatie over indexbewerkingen waarvoor opnieuw bouwen niet is vereist.
+  tooview afzonderlijke onderdelen, klikt u op Hallo **Index**, **indexeerfunctie**, of **gegevensbronnen** tegels op uw dashboard toodisplay een lijst met bestaande objecten. toolearn meer informatie over de bewerkingen van de index waarvoor niet opnieuw opbouwen, Zie [Index bijwerken (Azure Search REST-API)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
-+ Probeer de hulpprogramma's en stappen met andere gegevensbronnen. De voorbeeldgegevensset (`realestate-us-sample`) komt uit een Azure SQL-database die kan worden verkend met Azure Search. Naast Azure SQL Database kan Azure Search ook een index uit platte gegevensstructuren in Azure Table Storage, Blob Storage of SQL Server op een Azure-VM en Azure Cosmos DB verkennen of afleiden. Al deze gegevensbronnen worden ondersteund in de wizard. In code kunt u een index gemakkelijk vullen met behulp van een *indexeerfunctie*.
++ Probeer het Hallo-hulpprogramma's en stappen met andere gegevensbronnen. Hallo voorbeeldgegevensset `realestate-us-sample`, is van een Azure SQL Database die Azure Search kunt verkennen. Naast Azure SQL Database kan Azure Search ook een index uit platte gegevensstructuren in Azure Table Storage, Blob Storage of SQL Server op een Azure-VM en Azure Cosmos DB verkennen of afleiden. Al deze gegevensbronnen worden ondersteund in de wizard Hallo. In code kunt u een index gemakkelijk vullen met behulp van een *indexeerfunctie*.
 
-+ Alle andere gegevensbronnen die geen indexeerfunctie zijn, worden ondersteund via een pushmodel, waarbij de code nieuwe en gewijzigde rijensets in JSON naar de index pusht. Zie [Documenten toevoegen, bijwerken of verwijderen in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) voor meer informatie.
++ Alle andere niet-indexeerfunctie gegevensbronnen worden ondersteund via een pushmodel, waarbij uw code pushes nieuw en gewijzigd rijensets in JSON tooyour index. Zie [Documenten toevoegen, bijwerken of verwijderen in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) voor meer informatie.
 
 Voor meer informatie over andere functies die in dit artikel worden vermeld, gaat u naar deze koppelingen:
 
 * [Overzicht van indexeerfuncties](search-indexer-overview.md)
-* [Een index maken (inclusief een gedetailleerde beschrijving van de indexkenmerken)](https://docs.microsoft.com/rest/api/searchservice/create-index)
+* [Index maken (inclusief een gedetailleerde beschrijving van de indexkenmerken Hallo)](https://docs.microsoft.com/rest/api/searchservice/create-index)
 * [Search Explorer](search-explorer.md)
 * [Documenten zoeken (inclusief voorbeelden van een querysyntaxis)](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 

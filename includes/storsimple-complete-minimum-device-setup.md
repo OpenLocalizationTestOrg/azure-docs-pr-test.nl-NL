@@ -1,39 +1,39 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>De minimale StorSimple-apparaatinstelling voltooien
-1. Selecteer het apparaat op de pagina **Apparaten** en klik op de pijl naast de naam van het apparaat om naar de specifieke apparaatpagina te gaan. 
+#### <a name="toocomplete-hello-minimum-storsimple-device-setup"></a>toocomplete hello minimale StorSimple-Apparaatinstelling
+1. In Hallo **apparaten** pagina, selecteer Hallo-apparaat, klikt u op Hallo pijl tegen Hallo apparaat naam toogo toohello specifiek Apparaatpagina. 
    
     ![Pagina met apparaten terwijl het apparaat online is](./media/storsimple-complete-minimum-device-setup/HCS_DevicesPageM-include.png) 
-2. Klik op het pictogram van Quick Start ![Pictogram Quick Start](./media/storsimple-complete-minimum-device-setup/HCS_QuickStartIcon-include.png) om de pagina Quick Start voor het apparaat te openen. Klik op **Apparaatinstelling voltooien** om de wizard **Apparaat configureren** te starten.
+2. Klik op het pictogram snel starten ![pictogram Quick Start](./media/storsimple-complete-minimum-device-setup/HCS_QuickStartIcon-include.png) tooaccess Hallo apparaat snel starten-pagina. Klik op **Apparaatinstelling** toostart hello **apparaat configureren** wizard.
    
     ![De pagina Quick Start voor het apparaat](./media/storsimple-complete-minimum-device-setup/Device_Quick_Start_page_1M.png)
-3. Ga op de pagina **Basisinstellingen** als volgt te werkt:
+3. Op Hallo **basisinstellingen** pagina, Hallo te volgen:
    
-   1. Geef een **beschrijvende naam** voor het apparaat op. De standaardapparaatnaam bevat informatie zoals het model en serienummer van het apparaat. U kunt een beschrijvende naam van maximaal 64 tekens toewijzen om uw apparaat te beheren.
-   2. Stel de **tijdzone** in op basis van de geografische regio waarin het apparaat wordt geïmplementeerd. Het apparaat zal deze tijdzone gebruiken voor alle geplande bewerkingen.
-   3. Geef onder **DNS-instellingen** het adres voor uw **secundaire DNS-server** op. Als u IPv6 gebruikt, wordt het veld ingevuld op basis van het IPv6-voorvoegsel dat is opgegeven in de Windows PowerShell-interface. 
-      Als de secundaire DNS-server niet is geconfigureerd, kunt u de apparaatconfiguratie niet opslaan.
-   4. Schakel onder de iSCSI-interfaces ten minste één netwerk voor iSCSI in. Ten minste één netwerkinterface moet worden ingeschakeld voor de cloud en één interface moet worden ingeschakeld voor iSCSI. DATA 0 is automatisch ingeschakeld voor de cloud.
+   1. Geef een **beschrijvende naam** voor het apparaat op. Hallo standaardapparaatnaam informatie zoals Hallo Apparaatmodel en serienummer. Uw apparaat, kunt u een beschrijvende naam van up too64 tekens toomanage toewijzen.
+   2. Set Hallo **tijdzone** op basis van de geografische locatie Hallo in welke Hallo apparaat wordt geïmplementeerd. Het apparaat zal deze tijdzone gebruiken voor alle geplande bewerkingen.
+   3. Geef onder **DNS-instellingen** het adres voor uw **secundaire DNS-server** op. Als u IPv6 gebruikt, wordt Hallo veld ingevuld op basis van Hallo IPv6-voorvoegsel dat is opgegeven in de Windows PowerShell-interface Hallo. 
+      Als Hallo secundaire DNS-server niet is geconfigureerd, worden niet toegestaan toosave configuratie van uw apparaat.
+   4. Schakel onder de iSCSI-interfaces ten minste één netwerk voor iSCSI in. Ten minste één netwerkinterface moet toobe ingeschakeld voor de cloud en één interface moet toobe iSCSI-functionaliteit. DATA 0 is automatisch ingeschakeld voor de cloud.
       
       ![Basisinstellingen voor de minimale StorSimple-apparaatinstelling](./media/storsimple-complete-minimum-device-setup/HCS_MinDeviceSetupBasicSettings1-include.png)
-4. Klik op het pijlpictogram. ![StorSimple-pijlpictogram](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
-5. Geef op de pagina **Netwerkinterfaces** de vaste IP-adressen voor Controller 0 en Controller 1 op. Als de DATA 0-interface is geconfigureerd voor IPv4, moeten de vaste IP-adressen worden opgegeven in de IPv4-indeling. Als u een voorvoegsel voor IPv6-configuratie hebt opgegeven, worden de vaste IP-adressen automatisch in deze velden ingevuld.
+4. Klik op het pijlpictogram Hallo. ![StorSimple-pijlpictogram](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
+5. Op Hallo **netwerkinterfaces** pagina, bevatten Hallo van vaste IP-adressen voor Controller 0 en Controller 1. Als hello DATA 0 interface is geconfigureerd voor IPv4, hello de vaste IP-adressen moeten toobe is opgegeven in Hallo IPv4-indeling. Als u een voorvoegsel voor IPv6-configuratie hebt opgegeven, wordt Hallo vaste IP-adressen automatisch in deze velden ingevuld.
 
     > [!NOTE] 
-    > - De vaste IP-adressen voor de controllers moeten beschikbare IP-adressen binnen het subnet zijn die toegankelijk zijn voor het IP-adres van het apparaat.
-    > - Omdat de vaste IP-adressen voor de controller worden gebruikt om de updates aan het apparaat te leveren, moeten de vaste IP-adressen routeerbaar zijn en verbinding kunnen maken met internet.
+    > - Hallo-controller vaste IP-adressen moet toobe gratis IP-adressen binnen Hallo subnet toegankelijk door Hallo apparaat IP-adres.
+    > - Hallo vaste IP-adressen voor controller hello worden gebruikt voor het onderhoud van Hallo updates toohello apparaat en Hallo vaste IP-adressen moet daarom routeerbaar en kunnen tooconnect toohello Internet.
 
     ![Netwerkinterfaces voor de minimale StorSimple-apparaatinstelling](./media/storsimple-complete-minimum-device-setup/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
-1. Klik op het vinkje ![Vinkje voor StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png).
-   U keert terug naar de pagina **Quick Start** van het apparaat.
+1. Klik op het vinkje Hallo ![vinkje voor StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png).
+   U keert terug toohello apparaat **Quick Start** pagina.
    
    > [!NOTE]
-   > U kunt alle andere apparaatinstellingen op elk gewenst moment wijzigen door de pagina **Configureren** te openen.
+   > U kunt wijzigen Hallo alle andere apparaatinstellingen op elk gewenst moment via Hallo **configureren** pagina.
    > 
    > 
 
 ![Video beschikbaar](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Video beschikbaar**
 
-Als u een video wilt bekijken over het uitvoeren van de minimale apparaatinstelling, klikt u [hier](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
+toowatch een video die u laat zien hoe toocomplete Hallo minimale Apparaatinstelling, klikt u op [hier](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 

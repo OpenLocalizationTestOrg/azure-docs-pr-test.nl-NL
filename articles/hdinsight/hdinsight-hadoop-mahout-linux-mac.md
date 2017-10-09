@@ -1,6 +1,6 @@
 ---
-title: Genereren met Mahout en HDInsight (SSH) - Azure aanbevelingen | Microsoft Docs
-description: Informatie over het gebruik van de Apache Mahout-machine learning-bibliotheek voor het genereren van filmaanbevelingen met HDInsight (Hadoop).
+title: aaaGenerate aanbevelingen met Mahout en HDInsight (SSH) - Azure | Microsoft Docs
+description: Meer informatie over hoe toouse Hallo Apache Mahout machine learning-bibliotheek toogenerate filmaanbevelingen met HDInsight (Hadoop).
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,52 +16,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: larryfr
-ms.openlocfilehash: 28450d72f19a5467d88bc787d11f6c37c5afbf9a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: fedac9ceb4268f8421bce4623a5ad271041b8b3d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Filmaanbevelingen genereren met behulp van Apache Mahout met Hadoop op basis van Linux in HDInsight (SSH)
 
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
-Meer informatie over het gebruik van de [Apache Mahout](http://mahout.apache.org) machine learning-bibliotheek met Azure HDInsight filmaanbevelingen genereren.
+Meer informatie over hoe toouse hello [Apache Mahout](http://mahout.apache.org) machine learning-bibliotheek met Azure HDInsight toogenerate filmaanbevelingen.
 
-Mahout is een [machine learning] [ ml] -bibliotheek voor Apache Hadoop. Mahout bevat algoritmen voor het verwerken van gegevens, zoals filteren, classificatie en clustering. In dit artikel kunt u een aanbeveling engine filmaanbevelingen die zijn gebaseerd op je vrienden hebt gezien films genereren.
+Mahout is een [machine learning] [ ml] -bibliotheek voor Apache Hadoop. Mahout bevat algoritmen voor het verwerken van gegevens, zoals filteren, classificatie en clustering. In dit artikel gebruikt u een aanbeveling engine toogenerate filmaanbevelingen die zijn gebaseerd op films je vrienden hebt gezien.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een Linux gebaseerde HDInsight-cluster. Zie voor meer informatie over het maken van een [aan de slag met Hadoop op basis van Linux in HDInsight][getstarted].
 
 > [!IMPORTANT]
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+> Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-* Een SSH-client. Zie het document [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+* Een SSH-client. Zie voor meer informatie, Hallo [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
 ## <a name="mahout-versioning"></a>Mahout versiebeheer
 
-Zie voor meer informatie over de versie van Mahout in HDInsight [HDInsight versies en Hadoop-onderdelen](hdinsight-component-versioning.md).
+Zie voor meer informatie over het Hallo-versie van Mahout in HDInsight [HDInsight versies en Hadoop-onderdelen](hdinsight-component-versioning.md).
 
 ## <a name="recommendations"></a>Understanding aanbevelingen
 
-Een van de functies die wordt geleverd door Mahout is een aanbeveling-engine. Deze engine accepteert gegevens in de indeling van `userID`, `itemId`, en `prefValue` (de voorkeur voor het item). Mahout kunt uitvoeren, analyse van CO-exemplaar om te bepalen: *gebruikers die een voorkeur voor een item hebben ook een voorkeur voor deze andere items hebt*. Mahout bepaalt vervolgens gebruikers met dergelijke-item voorkeuren, die kunnen worden gebruikt om aanbevelingen te doen.
+Een van Hallo-functies die wordt geleverd door Mahout is een aanbeveling-engine. Deze engine accepteert gegevens in de indeling van Hallo `userID`, `itemId`, en `prefValue` (Hallo voorkeur voor Hallo item). Mahout kunt uitvoeren, mede exemplaar analysis toodetermine: *gebruikers die een voorkeur voor een item hebben ook een voorkeur voor deze andere items hebt*. Mahout vervolgens gebruikers met dergelijke-item-voorkeuren gebruikte toomake aanbevelingen kunnen worden bepaald.
 
-De volgende werkstroom is een voorbeeld van een vereenvoudigde die gebruikmaakt van filmgegevens:
+Hallo is volgende werkstroom een voorbeeld van een vereenvoudigde die gebruikmaakt van filmgegevens:
 
-* **Mede exemplaar**: Jan Els en Bob alle bevallen *Star Wars*, *terug ontvangen in de Empire*, en *Return van de Jedi*. Mahout bepaalt dat gebruikers die een van deze films ook de andere twee zoals.
+* **Mede exemplaar**: Jan Els en Bob alle bevallen *Star Wars*, *Empire ontvangen terug Hallo*, en *Return Hallo Jedi*. Mahout bepaalt dat gebruikers die als een van deze films ook graag twee andere Hallo.
 
-* **Mede exemplaar**: Bob en Els ook bevallen *de Phantom Menace*, *een aanval van de klonen*, en *Revenge van de Sith*. Mahout bepaalt dat gebruikers die de vorige drie films ook bevallen, zoals deze drie films.
+* **Mede exemplaar**: Bob en Els ook bevallen *Hallo Phantom Menace*, *een aanval op Hallo klonen*, en *Revenge Hallo Sith*. Mahout bepaalt dat gebruikers die ook de vorige drie films Hallo bevallen, zoals deze drie films.
 
-* **Gelijkenis aanbeveling**: Jan omdat de eerste drie films bevallen, Mahout wordt bekeken films die anderen met vergelijkbare voorkeuren bevallen, maar Joe heeft geen gevolgde (bevallen/geclassificeerd). In dit geval Mahout raadt *de Phantom Menace*, *een aanval van de klonen*, en *Revenge van de Sith*.
+* **Gelijkenis aanbeveling**: omdat Jan bevallen Hallo eerste drie films, Mahout wordt bekeken films die anderen met vergelijkbare voorkeuren bevallen, maar Joe heeft geen gevolgde (bevallen/geclassificeerd). In dit geval Mahout raadt *Hallo Phantom Menace*, *een aanval op Hallo klonen*, en *Revenge Hallo Sith*.
 
-### <a name="understanding-the-data"></a>Wat zijn de gegevens?
+### <a name="understanding-hello-data"></a>Understanding Hallo gegevens
 
 Gemakkelijk [GroupLens Research] [ movielens] biedt classificatie gegevens voor films in een indeling die compatibel is met Mahout. Deze gegevens zijn beschikbaar op het cluster standaard opslag op `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-Er zijn twee bestanden: `moviedb.txt` en `user-ratings.txt`. De gebruiker ratings.txt-bestand wordt gebruikt tijdens de analyse, terwijl moviedb.txt gebruiksvriendelijke om tekstinformatie te geven bij het weergeven van de resultaten van de analyse wordt gebruikt.
+Er zijn twee bestanden: `moviedb.txt` en `user-ratings.txt`. Hallo gebruiker ratings.txt bestand wordt gebruikt tijdens de analyse, terwijl moviedb.txt gebruikte tooprovide gebruiksvriendelijke tekstinformatie Hallo resultaten van Hallo analyse om weer te geven.
 
-De gegevens in gebruiker ratings.txt heeft een structuur van `userID`, `movieID`, `userRating`, en `timestamp`, die vertellen hoe maximaal elke gebruiker een film beoordeeld. Hier volgt een voorbeeld van de gegevens:
+Hallo gegevens in gebruiker ratings.txt heeft een structuur van `userID`, `movieID`, `userRating`, en `timestamp`, die vertellen hoe maximaal elke gebruiker een film beoordeeld. Hier volgt een voorbeeld van Hallo gegevens:
 
     196    242    3    881250949
     186    302    3    891717742
@@ -69,50 +69,50 @@ De gegevens in gebruiker ratings.txt heeft een structuur van `userID`, `movieID`
     244    51    2    880606923
     166    346    1    886397596
 
-## <a name="run-the-analysis"></a>De analyse uitvoeren
+## <a name="run-hello-analysis"></a>Hallo-analyse uitvoeren
 
-Gebruik de volgende opdracht om uit te voeren de aanbeveling van een SSH-verbinding met het cluster:
+Gebruik van een SSH-verbinding toohello-cluster Hallo opdracht toorun Hallo aanbeveling taak te volgen:
 
 ```bash
 mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
 ```
 
 > [!NOTE]
-> De taak duurt enkele minuten in beslag, en mogelijk meerdere MapReduce-taken worden uitgevoerd.
+> Hallo taak duurt enkele minuten toocomplete, en mogelijk meerdere MapReduce-taken worden uitgevoerd.
 
-## <a name="view-the-output"></a>De uitvoer weergeven
+## <a name="view-hello-output"></a>Hallo-uitvoer weergeven
 
-1. Zodra de taak is voltooid, gebruikt u de volgende opdracht om weer te geven van de gegenereerde uitvoer:
+1. Zodra het Hallo-taak is voltooid, gebruikt u Hallo opdrachtuitvoer tooview Hallo gegenereerd na:
 
     ```bash
     hdfs dfs -text /example/data/mahoutout/part-r-00000
     ```
 
-    De uitvoer ziet er als volgt uit:
+    Hallo-uitvoer ziet er als volgt uit:
 
         1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
         2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
         3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
         4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
 
-    De eerste kolom is de `userID`. De waarden in ' [' en ']' zijn `movieId`:`recommendationScore`.
+    de eerste kolom Hallo is Hallo `userID`. waarden in Hallo ' [' en ']' zijn `movieId`:`recommendationScore`.
 
-2. U kunt de uitvoer, samen met de moviedb.txt bieden meer informatie over de aanbevelingen. Eerst moet de bestanden kopiëren lokaal met de volgende opdrachten:
+2. U kunt Hallo-uitvoer, samen met de Hallo moviedb.txt, tooprovide meer informatie op Hallo aanbevelingen. We moeten eerst toocopy Hallo bestanden lokaal via Hallo volgende opdrachten:
 
     ```bash
     hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
     hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
     ```
 
-    Met deze opdracht wordt de uitvoergegevens gekopieerd naar een bestand met de naam **recommendations.txt** in de huidige map, samen met de gegevensbestanden film.
+    Met deze opdracht kopieën Hallo tooa uitvoergegevensbestand met de naam **recommendations.txt** in de huidige map Hallo samen met de Hallo film gegevensbestanden worden opgeslagen.
 
-3. Gebruik de volgende opdracht voor het maken van een pythonscript dat Hiermee u film namen voor de gegevens in de uitvoer van de aanbevelingen zoekt:
+3. Hallo opdracht toocreate een pythonscript dat Hiermee u film namen voor gegevens in de uitvoer van de aanbevelingen Hallo Hallo zoekt volgende gebruiken:
 
     ```bash
     nano show_recommendations.py
     ```
 
-    Wanneer de editor wordt geopend, gebruikt u de volgende tekst als de inhoud van het bestand:
+    Wanneer Hallo editor wordt geopend, gebruikt u Hallo tekst als Hallo inhoud van Hallo-bestand te volgen:
 
    ```python
    #!/usr/bin/env python
@@ -166,43 +166,43 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
    print "------------------------"
    ```
 
-    Druk op **Ctrl X**, **Y**, en tot slot **Enter** gegevens opslaan.
+    Druk op **Ctrl X**, **Y**, en tot slot **Enter** toosave Hallo gegevens.
 
-4. Het Python-script uitvoeren. De volgende opdracht wordt ervan uitgegaan dat u in de map waar alle bestanden zijn gedownload:
+4. Hallo pythonscript uitvoeren. Hallo volgende opdracht wordt ervan uitgegaan dat u in het Hallo-directory waar alle Hallo-bestanden zijn gedownload:
 
     ```bash
     python show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
     ```
 
-    Met deze opdracht wordt de aanbevelingen die worden gegenereerd voor de gebruiker-ID 4 bekeken.
+    Met deze opdracht wordt bekeken Hallo aanbevelingen gegenereerd voor de gebruiker-ID 4.
 
-    * De **gebruiker ratings.txt** bestand wordt gebruikt voor het ophalen van films die zijn beoordeeld.
+    * Hallo **gebruiker ratings.txt** bestand is gebruikte tooretrieve films die zijn beoordeeld.
 
-    * De **moviedb.txt** bestand wordt gebruikt voor het ophalen van de namen van de films.
+    * Hallo **moviedb.txt** bestand gebruikte tooretrieve Hallo namen van Hallo films is.
 
-    * De **recommendations.txt** wordt gebruikt voor het ophalen van de filmaanbevelingen voor deze gebruiker.
+    * Hallo **recommendations.txt** gebruikte tooretrieve hello filmaanbevelingen voor deze gebruiker is.
 
-     De uitvoer van deze opdracht is vergelijkbaar met de volgende tekst:
+     Hallo uitvoer van deze opdracht is vergelijkbaar toohello de volgende tekst:
 
-        Fraudewaarschuwing in Tibet (1997), beoordelen 5.0 = Indiana Jones en de laatste Crusade (1989) score = 5.0 Jaws (1975) score = 5.0 zin en mee (1995) score = 5.0 onafhankelijkheid dag (ID4) (1996) score = 5.0 mijn beste vriend Wedding (1997), beoordelen 5.0 = Jerry Maguire (1996) score 5.0 = Scream 2 (1997) score = 5.0 tijd Kill, een (1996) score = 5.0
+        Fraudewaarschuwing in Tibet (1997) score = 5.0 Indiana Jones en Hallo laatste Crusade (1989) score = 5.0 Jaws (1975) score 5.0 = zin en mee (1995) score 5.0 = onafhankelijkheid dag (ID4) (1996) score = 5.0 mijn beste vriend Wedding (1997), beoordelen 5.0 = Jerry Maguire (1996 ), score 5.0 = Scream 2 (1997) score = 5.0 tijd tooKill, een (1996) score = 5.0
 
 ## <a name="delete-temporary-data"></a>Tijdelijke gegevens verwijderen
 
-Mahout taken verwijderd tijdelijke gegevens die zijn gemaakt tijdens het verwerken van de taak niet. De `--tempDir` parameter wordt opgegeven in de voorbeeld-taak voor het isoleren van de tijdelijke bestanden in een specifiek pad voor eenvoudig verwijderen. Gebruik de volgende opdracht voor het verwijderen van de tijdelijke bestanden:
+Mahout taken verwijderd tijdelijke gegevens die zijn gemaakt tijdens het verwerken van Hallo-taak niet. Hallo `--tempDir` parameter wordt opgegeven in Hallo voorbeeld taak tooisolate Hallo tijdelijke bestanden naar een specifiek pad voor eenvoudig verwijderen. tooremove hello tijdelijke bestanden, Hallo volgende opdracht gebruiken:
 
 ```bash
 hdfs dfs -rm -f -r /temp/mahouttemp
 ```
 
 > [!WARNING]
-> Als u de opdracht opnieuw uitvoeren wilt, moet u ook de uitvoermap verwijderen. Gebruik de volgende om deze map te verwijderen:
+> Als u opnieuw toorun Hallo opdracht wilt, moet u ook Hallo uitvoermap verwijderen. Deze map Hallo toodelete volgende gebruiken:
 >
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u Mahout, detectie van andere manieren van het werken met gegevens in HDInsight:
+U hebt geleerd hoe toouse Mahout, andere manieren om te werken met gegevens in HDInsight detecteren:
 
 * [Hive met HDInsight](hdinsight-use-hive.md)
 * [Pig met HDInsight](hdinsight-use-pig.md)

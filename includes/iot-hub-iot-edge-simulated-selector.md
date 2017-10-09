@@ -2,65 +2,65 @@
 > * [Linux](../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md)
 > * [Windows](../articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md)
 
-Dit overzicht van de [gesimuleerde apparaat Cloud uploaden voorbeeld] leest u hoe u [Azure IoT rand] [ lnk-sdk] IoT Hub apparaat-naar-cloud telemetrie verzenden van de gesimuleerde apparaten .
+In dit scenario Hallo [gesimuleerde apparaat Cloud uploaden voorbeeld] laat u zien hoe toouse [Azure IoT rand] [ lnk-sdk] toosend tooIoT Hub van gesimuleerde telemetrie voor apparaat-naar-cloud apparaten.
 
 Dit overzicht omvat:
 
-* **Architectuur**: architecturale informatie over de [gesimuleerde apparaat Cloud uploaden voorbeeld].
-* **Ontwikkeling en uitvoering**: de stappen die nodig zijn om het voorbeeld te bouwen en uit te voeren.
+* **Architectuur**: architecturale informatie over Hallo [gesimuleerde apparaat Cloud uploaden voorbeeld].
+* **Bouwen en uitvoeren van**: Hallo stappen vereist toobuild en Voer Hallo-voorbeeld.
 
 ## <a name="architecture"></a>Architectuur
 
-De [gesimuleerde apparaat Cloud uploaden voorbeeld] laat zien hoe u een gateway die telemetrie van de gesimuleerde apparaten naar een iothub verzendt maken. Een apparaat mogelijk niet rechtstreeks verbinding maken met IoT Hub omdat het apparaat:
+Hallo [gesimuleerde apparaat Cloud uploaden voorbeeld] ziet u hoe een gateway die u telemetrie van verzendt toocreate gesimuleerde apparaten tooan IoT-hub. Een apparaat mogelijk niet kunnen tooconnect rechtstreeks tooIoT Hub omdat Hallo apparaat:
 
 * Gebruikt geen een communicatieprotocol begrepen door de IoT Hub.
-* Is geen smartcard te onthouden van de identiteit die is toegewezen door de IoT Hub.
+* Is niet genoeg smart tooremember Hallo identiteit toegewezen tooit door de IoT Hub.
 
-Een IoT-Edge-gateway kan deze problemen op de volgende manieren oplossen:
+Een IoT-Edge-gateway kan deze problemen in Hallo volgende manieren oplossen:
 
-* De gateway begrijpt het protocol dat wordt gebruikt door het apparaat ontvangt telemetrie voor apparaat-naar-cloud van het apparaat en stuurt deze berichten naar IoT Hub met behulp van een protocol begrepen door de IoT-hub.
+* Hallo gateway Hallo protocol dat wordt gebruikt door Hallo apparaat begrijpt, ontvangt telemetrie voor apparaat-naar-cloud van Hallo-apparaat en stuurt deze berichten tooIoT Hub met behulp van een protocol begrepen door de Hallo iothub.
 
-* De gateway IoT Hub identiteiten wordt toegewezen aan apparaten en fungeert als een proxy wanneer een apparaat berichten naar IoT Hub verzendt.
+* Hallo gateway IoT Hub identiteiten toodevices toegewezen en fungeert als een proxy wanneer een apparaat berichten tooIoT Hub verzendt.
 
-Het volgende diagram toont de belangrijkste onderdelen van het voorbeeld, met inbegrip van de rand van de IoT-modules:
+Hallo volgende diagram ziet u Hallo hoofdonderdelen van Hallo voorbeeld, met inbegrip van IoT rand modules Hallo:
 
 ![][1]
 
-De modules geven geen berichten rechtstreeks aan elkaar door. De modules publiceren berichten naar een interne broker, die zorgt voor de berichten op de andere modules met behulp van een mechanisme voor het abonnement. Zie voor meer informatie [aan de slag met Azure IoT rand][lnk-gw-getstarted].
+Hallo-modules niet doorgegeven berichten rechtstreeks tooeach andere. Hallo-modules publiceren berichten interne broker tooan die Hallo berichten toohello biedt andere modules met behulp van een mechanisme voor het abonnement. Zie voor meer informatie [aan de slag met Azure IoT rand][lnk-gw-getstarted].
 
 ### <a name="protocol-ingestion-module"></a>Module voor het protocolopname
 
-Dit is het startpunt voor de ontvangst van gegevens van apparaten, via de gateway en naar de cloud. In het voorbeeld wordt de module:
+Deze module is een startpunt voor de ontvangst van gegevens van apparaten, via de gateway hello en in de cloud Hallo Hallo. In de module Hallo Hallo voorbeeld:
 
-1. Gesimuleerde temperatuur gegevens maakt. Als u fysieke apparaten, leest de module gegevens van deze fysieke apparaten.
+1. Gesimuleerde temperatuur gegevens maakt. Als u fysieke apparaten gebruikt, leest Hallo module de gegevens van deze fysieke apparaten.
 1. Hiermee maakt u een bericht.
-1. De gesimuleerde temperatuur-gegevens in de inhoud van het bericht geplaatst.
-1. Hiermee voegt u een eigenschap met een valse MAC-adres toe aan het bericht.
-1. Maakt het bericht beschikbaar voor de volgende module in de keten.
+1. Hallo gesimuleerde temperatuur gegevens in inhoud van het bericht Hallo geplaatst.
+1. Voegt een eigenschap met een valse toohello bericht dat MAC-adres toe.
+1. Hallo-bericht beschikbaar toohello volgende module maakt in de keten Hallo.
 
-De module wordt aangeroepen **Protocol X opname** in het vorige diagram heet **gesimuleerd apparaat** in de broncode.
+Hallo module met de naam **Protocol X opname** in Hallo vorige diagram heet **gesimuleerd apparaat** in Hallo broncode.
 
 ### <a name="mac-lt-gt-iot-hub-id-module"></a>Module MAC &lt;-&gt; IoT Hub-id
 
-Deze module wordt gescand voor berichten met een Mac-adres-eigenschap. In het voorbeeld wordt de module protocol opname toegevoegd de MAC-adres-eigenschap. Als de module vindt een dergelijke eigenschap, deze wordt toegevoegd een andere eigenschap met de sleutel van een IoT Hub-apparaat aan het bericht. De module wordt het bericht naar de volgende module beschikbaar in de keten.
+Deze module wordt gescand voor berichten met een Mac-adres-eigenschap. In voorbeeld Hallo toegevoegd Hallo protocol opname module Hallo MAC-adres-eigenschap. Als Hallo module vindt een dergelijke eigenschap, wordt een andere eigenschap met een IoT Hub apparaat sleutel toohello bericht toegevoegd. Hallo module maakt vervolgens Hallo-bericht beschikbaar toohello volgende module in de keten Hallo.
 
-De ontwikkelaar stelt een toewijzing tussen MAC-adressen en IoT Hub identiteiten in de gesimuleerde apparaten koppelen met IoT Hub apparaat-id's. De ontwikkelaar wordt de toewijzing handmatig toegevoegd als onderdeel van de moduleconfiguratie.
+Hallo developer stelt u een toewijzing tussen MAC-adressen en IoT Hub identiteiten tooassociate Hallo gesimuleerde apparaten met IoT Hub apparaat-id's. Hallo-ontwikkelaar wordt Hallo toewijzing handmatig toegevoegd als onderdeel van de moduleconfiguratie Hallo.
 
 > [!NOTE]
-> In dit voorbeeld wordt een MAC-adres gebruikt als een unieke apparaat-id en wordt deze gekoppeld aan de id van een IoT Hub-apparaat. U kunt echter uw eigen module schrijven die een andere unieke id gebruikt. Bijvoorbeeld, uw apparaten mogelijk zijn unieke serienummers of de telemetriegegevens kan de naam van een unieke embedded-apparaat bevatten.
+> In dit voorbeeld wordt een MAC-adres gebruikt als een unieke apparaat-id en wordt deze gekoppeld aan de id van een IoT Hub-apparaat. U kunt echter uw eigen module schrijven die een andere unieke id gebruikt. Bijvoorbeeld, uw apparaten mogelijk zijn unieke serienummers of Hallo telemetrische gegevens kan bevatten de naam van een unieke embedded-apparaat.
 
 ### <a name="iot-hub-communication-module"></a>Module voor IoT Hub-communicatie
 
-Deze module wordt berichten met een IoT Hub apparaat-sleuteleigenschap die is toegewezen door de vorige module. De module verzendt inhoud van het bericht naar IoT Hub met de HTTP-protocol. HTTP is een van de drie protocollen die door IoT Hub wordt begrepen.
+Deze module wordt berichten met een IoT Hub apparaat-sleuteleigenschap die is toegewezen door de vorige module Hallo. Hallo module verzendt de inhoud tooIoT Hub met behulp van HTTP-protocol Hallo het Hallo-bericht. HTTP is een Hallo drie protocollen begrepen door de IoT Hub.
 
-Deze module wordt in plaats van een verbinding voor elk gesimuleerd apparaat te openen, één HTTP-verbinding geopend van de gateway met de iothub. De module multiplexes vervolgens verbindingen van de gesimuleerde apparaten via deze verbinding. Deze aanpak kunt één gateway om veel meer apparaten te verbinden.
+Deze module wordt in plaats van een verbinding voor elk gesimuleerd apparaat te openen, één HTTP-verbinding geopend uit Hallo gateway toohello iothub. Hallo module multiplexes vervolgens verbindingen van alle Hallo gesimuleerde apparaten via deze verbinding. Deze aanpak kunt een enkele gateway tooconnect veel meer apparaten.
 
 ## <a name="before-you-get-started"></a>Voordat u aan de slag gaat
 
 Voordat u begint, moet u het volgende doen:
 
-* [Een iothub maken] [ lnk-create-hub] in uw Azure-abonnement, moet u de naam van uw hub voor dit scenario. Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.
-* Twee apparaten toevoegen aan uw IoT-hub en noteer de id's en apparaten sleutels. U kunt de [apparaat explorer] [ lnk-device-explorer] of [iothub explorer] [ lnk-iothub-explorer] hulpprogramma uw apparaten toevoegen aan de IoT-hub die u in de vorige stap hebt gemaakt en de sleutels worden opgehaald.
+* [Een iothub maken] [ lnk-create-hub] in uw Azure-abonnement, moet u het Hallo-naam van uw hub toocomplete in dit scenario. Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.
+* Voeg twee apparaten tooyour IoT-hub en noteer de id's en apparaten sleutels. Kunt u Hallo [apparaat explorer] [ lnk-device-explorer] of [iothub explorer] [ lnk-iothub-explorer] tooadd uw apparaten toohello IoT-hub u hebt gemaakt in Hallo hulpprogramma vorige stap en de sleutels op te halen.
 
 ![][2]
 

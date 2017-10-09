@@ -1,6 +1,6 @@
 ---
-title: HDInsight met het virtuele netwerk - Azure uitbreiden | Microsoft Docs
-description: Informatie over het gebruik van Azure Virtual Network verbinding maken met HDInsight andere cloudresources of resources in uw datacenter
+title: aaaExtend HDInsight met het virtuele netwerk - Azure | Microsoft Docs
+description: Meer informatie over hoe toouse Azure Virtual Network tooconnect HDInsight tooother cloud resources of resources in uw datacenter
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,173 +15,173 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
-ms.openlocfilehash: 380423ec42ad4905c73fcd57501102e9f7062e81
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ba80be4d9f280c6c62fa8acc996ef5f921acdbbd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
-Informatie over het gebruik van HDInsight met een [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Een virtueel netwerk van Azure, kunt de volgende scenario's:
+Meer informatie over hoe HDInsight toouse met een [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Een virtueel netwerk van Azure kunt Hallo volgen scenario's:
 
-* Verbinding maken met HDInsight rechtstreeks vanuit een on-premises netwerk.
+* Verbinding tooHDInsight rechtstreeks vanuit een on-premises netwerk.
 
-* Verbinding maken met HDInsight gegevens opslaat in een virtueel Azure-netwerk.
+* Verbinding maken met HDInsight toodata worden opgeslagen in een virtueel Azure-netwerk.
 
-* Rechtstreeks toegang hebben tot Hadoop-services die niet beschikbaar openbaar via internet zijn. Kafka-API's of de HBase-Java-API.
+* Rechtstreeks toegang tot Hadoop-services die niet openbaar meer dan beschikbaar Hallo internet. Kafka-API's of Hallo HBase Java API.
 
 > [!WARNING]
-> De informatie in dit document is een goed begrip van TCP/IP-netwerken vereist. Als u niet bekend met TCP/IP-netwerken bent, moet u samenwerken met iemand die dit voordat u wijzigingen op productienetwerken.
+> Hallo-informatie in dit document is een goed begrip van TCP/IP-netwerken vereist. Als u niet bekend met TCP/IP-netwerken bent, moet u samenwerken met iemand die dit voordat u wijzigingen tooproduction netwerken.
 
 ## <a name="planning"></a>Planning
 
-Hier volgen de vragen die u bij het plannen voor het installeren van HDInsight in een virtueel netwerk moet beantwoorden:
+Hallo volgen Hallo vragen die u bij het plannen van tooinstall HDInsight in een virtueel netwerk moet beantwoorden:
 
-* Moet u voor het installeren van HDInsight in een bestaand virtueel netwerk? Of maakt u een nieuw netwerk?
+* Moet u tooinstall HDInsight in een bestaand virtueel netwerk? Of maakt u een nieuw netwerk?
 
-    Als u een bestaand virtueel netwerk gebruikt, moet u wellicht de netwerkconfiguratie wijzigen voordat u HDInsight kunt installeren. Zie voor meer informatie de [HDInsight toevoegen aan een bestaand virtueel netwerk](#existingvnet) sectie.
+    Als u een bestaand virtueel netwerk gebruikt, moet u mogelijk toomodify Hallo netwerkconfiguratie voordat u HDInsight kunt installeren. Zie voor meer informatie, Hallo [HDInsight tooan bestaand virtueel netwerk toevoegen](#existingvnet) sectie.
 
-* Wilt u toch verbinding maken met het virtuele netwerk met HDInsight op een ander virtueel netwerk of uw on-premises netwerk?
+* Wilt u tooconnect Hallo virtueel netwerk met HDInsight tooanother virtueel netwerk of uw on-premises netwerk?
 
-    Eenvoudig werkt alleen met resources in netwerken, moet u een aangepaste DNS-server maken en configureren van DNS-doorsturen. Zie voor meer informatie de [meerdere netwerken met elkaar verbinden](#multinet) sectie.
+    tooeasily werk met bronnen in netwerken, u kunt toocreate een aangepaste DNS-server nodig en doorsturen van DNS-configureren. Zie voor meer informatie, Hallo [meerdere netwerken met elkaar verbinden](#multinet) sectie.
 
-* Wilt u beperken/omleiden binnenkomend of uitgaand verkeer naar HDInsight?
+* Wilt u toch toorestrict/omleiden tooHDInsight binnenkomend of uitgaand verkeer?
 
-    HDInsight moet hebben onbeperkte communicatie met specifieke IP-adressen in de Azure-Datacenter. Er zijn ook verschillende poorten die moeten worden toegestaan via firewalls voor clientcommunicatie. Zie voor meer informatie de [netwerkverkeer beheren](#networktraffic) sectie.
+    HDInsight moet hebben onbeperkte communicatie met specifieke IP-adressen in hello Azure-Datacenter. Er zijn ook verschillende poorten die moeten worden toegestaan via firewalls voor clientcommunicatie. Zie voor meer informatie, Hallo [netwerkverkeer beheren](#networktraffic) sectie.
 
-## <a id="existingvnet"></a>HDInsight toevoegen aan een bestaand virtueel netwerk
+## <a id="existingvnet"></a>HDInsight tooan bestaand virtueel netwerk toevoegen
 
-Gebruik de stappen in deze sectie om te ontdekken hoe u een nieuwe HDInsight toevoegt aan een bestaand virtueel netwerk van Azure.
+Gebruik Hallo stappen in deze sectie toodiscover hoe tooadd een nieuwe HDInsight tooan bestaande Azure Virtual Network.
 
 > [!NOTE]
 > U kunt een bestaand HDInsight-cluster in een virtueel netwerk niet toevoegen.
 
-1. Gebruikt u een klassiek of Resource Manager-implementatiemodel voor het virtuele netwerk?
+1. Gebruikt u een klassiek of Resource Manager-implementatiemodel voor Hallo virtuele netwerk?
 
     HDInsight 3,4 en groter vereist een virtueel netwerk van Resource Manager. Eerdere versies van HDInsight vereist een klassiek virtueel netwerk.
 
-    Als uw bestaande netwerk een klassiek virtueel netwerk is, moet u een virtueel netwerk van Resource Manager maken en sluit vervolgens de twee. [Klassieke vnet's verbinden met nieuwe VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+    Als uw bestaande netwerk een klassiek virtueel netwerk is, moet u een virtueel netwerk van Resource Manager maken en sluit vervolgens Hallo twee. [Klassieke vnet's toonew VNets verbinden](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
-    Zodra toegevoegd, wordt HDInsight geïnstalleerd in het Resource Manager-netwerk kan communiceren met resources in het klassieke netwerk.
+    Zodra het is toegevoegd, wordt HDInsight geïnstalleerd in Hallo Resource Manager-netwerk kan communiceren met resources in de klassieke netwerk Hallo.
 
-2. Geforceerde tunneling gebruiken Geforceerde tunneling is subnetinstelling dat ervoor zorgt uitgaand internetverkeer met een apparaat voor controle dat en logboekregistratie. HDInsight biedt geen ondersteuning voor geforceerde tunneling. Verwijder geforceerde tunneling voordat u HDInsight installeert in een subnet, of een nieuw subnet maken voor HDInsight.
+2. Geforceerde tunneling gebruiken Geforceerde tunneling is subnetinstelling dat ervoor zorgt dat de uitgaande Internet verkeer tooa apparaat voor controle en logboekregistratie. HDInsight biedt geen ondersteuning voor geforceerde tunneling. Verwijder geforceerde tunneling voordat u HDInsight installeert in een subnet, of een nieuw subnet maken voor HDInsight.
 
-3. Gebruik je netwerkbeveiligingsgroepen, de gebruiker gedefinieerde routes of virtuele netwerkapparaten naar het verkeer te beperken van of naar het virtuele netwerk?
+3. Gebruik je netwerkbeveiligingsgroepen, de gebruiker gedefinieerde routes of virtuele netwerkapparaten toorestrict verkeer van of naar Hallo virtuele netwerk?
 
-    Als een beheerde service vereist HDInsight onbeperkte toegang tot verschillende IP-adressen in de Azure-Datacenter. Werk alle bestaande netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes zodat de communicatie met deze IP-adressen.
+    Als een beheerde service vereist HDInsight onbeperkte toegang tooseveral IP-adressen in hello Azure-Datacenter. tooallow communicatie met deze IP-adressen, eventuele bestaande netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes bijwerken.
 
-    HDInsight als host fungeert voor meerdere services, die verschillende poorten gebruiken. Geen verkeer blokkeert dat via deze poorten. Zie voor een lijst met poorten om toe te staan via firewalls virtueel apparaat, de [beveiliging](#security) sectie.
+    HDInsight als host fungeert voor meerdere services, die verschillende poorten gebruiken. Verkeer toothese poorten niet blokkeren. Zie voor een lijst met poorten tooallow via virtueel apparaat firewalls, Hallo [beveiliging](#security) sectie.
 
-    Als u uw bestaande beveiligingsconfiguratie zoekt, gebruikt u de volgende Azure PowerShell of Azure CLI-opdrachten:
+    toofind uw bestaande beveiligingsconfiguratie gebruik hello Azure PowerShell of Azure CLI-opdrachten te volgen:
 
     * Netwerkbeveiligingsgroepen
 
         ```powershell
-        $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
+        $resourceGroupName = Read-Input -Prompt "Enter hello resource group that contains hello virtual network used with HDInsight"
         get-azurermnetworksecuritygroup -resourcegroupname $resourceGroupName
         ```
 
         ```azurecli-interactive
-        read -p "Enter the name of the resource group that contains the virtual network: " RESOURCEGROUP
+        read -p "Enter hello name of hello resource group that contains hello virtual network: " RESOURCEGROUP
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        Zie voor meer informatie de [netwerkbeveiligingsgroepen oplossen](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) document.
+        Zie voor meer informatie, Hallo [netwerkbeveiligingsgroepen oplossen](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) document.
 
         > [!IMPORTANT]
-        > Netwerkbeveiligingsgroepen worden toegepast in volgorde op basis van Regelprioriteit. De eerste regel die overeenkomt met het patroon verkeer wordt toegepast en geen andere voor dat verkeer wordt toegepast. Volgorde van de regels van meest strikte op minimaal. Zie voor meer informatie de [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) document.
+        > Netwerkbeveiligingsgroepen worden toegepast in volgorde op basis van Regelprioriteit. Hallo eerste regel die overeenkomt met Hallo verkeer patroon wordt toegepast en geen andere voor dat verkeer wordt toegepast. De regels van de volgorde van meest strikte tooleast strikte. Zie voor meer informatie, Hallo [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) document.
 
     * Door de gebruiker gedefinieerde routes
 
         ```powershell
-        $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
+        $resourceGroupName = Read-Input -Prompt "Enter hello resource group that contains hello virtual network used with HDInsight"
         get-azurermroutetable -resourcegroupname $resourceGroupName
         ```
 
         ```azurecli-interactive
-        read -p "Enter the name of the resource group that contains the virtual network: " RESOURCEGROUP
+        read -p "Enter hello name of hello resource group that contains hello virtual network: " RESOURCEGROUP
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        Zie voor meer informatie de [routes oplossen](../virtual-network/virtual-network-routes-troubleshoot-portal.md) document.
+        Zie voor meer informatie, Hallo [routes oplossen](../virtual-network/virtual-network-routes-troubleshoot-portal.md) document.
 
-4. Maken van een HDInsight-cluster en het virtuele netwerk van Azure selecteren tijdens de configuratie. Gebruik de stappen in de volgende documenten voor inzicht in het proces voor het cluster maken:
+4. Maken van een HDInsight-cluster en hello Azure Virtual Network selecteren tijdens de configuratie. Gebruik Hallo stappen in Hallo aanmaakproces voor documenten toounderstand Hallo-cluster te volgen:
 
-    * [HDInsight maken met Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md)
+    * [Maken van HDInsight met behulp van hello Azure-portal](hdinsight-hadoop-create-linux-clusters-portal.md)
     * [HDInsight maken met Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
     * [Maken van HDInsight met behulp van Azure CLI 1.0](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [HDInsight met behulp van een Azure Resource Manager-sjabloon maken](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
   > [!IMPORTANT]
-  > HDInsight toe te voegen aan een virtueel netwerk is een optionele configuratie-stap. Zorg ervoor dat het virtuele netwerk selecteren bij het configureren van het cluster.
+  > Toevoegen van HDInsight is tooa virtueel netwerk een optionele configuratie-stap. Ervoor tooselect Hallo virtueel netwerk worden bij het Hallo-cluster configureren.
 
 ## <a id="multinet"></a>Meerdere netwerken met elkaar verbinden
 
-De grootste uitdaging met een configuratie met meerdere is naamomzetting tussen de netwerken.
+Hallo grootste uitdaging met een configuratie met meerdere is naamomzetting tussen Hallo netwerken.
 
-Azure biedt naamomzetting voor Azure-services die zijn geïnstalleerd in een virtueel netwerk. Deze ingebouwde naamomzetting kunt HDInsight verbinding maken met de volgende bronnen met behulp van een volledig gekwalificeerde domeinnaam (FQDN):
+Azure biedt naamomzetting voor Azure-services die zijn geïnstalleerd in een virtueel netwerk. Deze ingebouwde naamomzetting kunt HDInsight tooconnect toohello resources met behulp van een volledig gekwalificeerde domeinnaam (FQDN) te volgen:
 
-* Een resource die beschikbaar is op het internet. Bijvoorbeeld microsoft.com, google.com.
+* Een resource die beschikbaar is op Hallo internet. Bijvoorbeeld microsoft.com, google.com.
 
-* Alle bronnen die zich in hetzelfde Azure-netwerk, met behulp van de __interne DNS-naam__ van de resource. Bijvoorbeeld, wanneer u de standaard-naamomzetting, volgen voorbeeld interne DNS-namen is toegewezen aan HDInsight worker-knooppunten:
+* Een resource die is in Hallo hetzelfde virtuele netwerk van Azure, met behulp van Hallo __interne DNS-naam__ van Hallo resource. Wanneer u Hallo standaard naamomzetting gebruikt, zijn Hallo volgende voorbeeld interne DNS-namen toegewezen tooHDInsight worker-knooppunten:
 
     * wn0 hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
     * wn2 hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Deze beide knooppunten kunnen communiceren rechtstreeks met elkaar en andere knooppunten in HDInsight, met behulp van de interne DNS-namen.
 
-De standaard-naamomzetting biedt __niet__ HDInsight omzetten van de namen van bronnen in netwerken die zijn gekoppeld aan het virtuele netwerk toestaan. Het is bijvoorbeeld algemene uw on-premises netwerk koppelen aan het virtuele netwerk. Met alleen de standaard naamomzetting HDInsight kan geen toegang krijgen tot bronnen in de on-premises netwerk met de naam. Het omgekeerde geldt ook resources in uw on-premises netwerk geen toegang tot bronnen in het virtuele netwerk met de naam.
+Hallo standaard naamomzetting biedt __niet__ HDInsight tooresolve Hallo namen van bronnen in netwerken die gekoppeld toohello virtueel netwerk zijn toestaan. Bijvoorbeeld, het algemene toojoin is uw on-premises netwerk toohello virtueel netwerk. Met alleen Hallo standaard naamomzetting HDInsight kan geen toegang krijgen tot bronnen in Hallo on-premises netwerk met de naam. Hallo tegengestelde geldt ook resources in uw on-premises netwerk heeft geen toegang tot resources in Hallo virtueel netwerk met de naam.
 
 > [!WARNING]
-> U moet de aangepaste DNS-server maken en configureren van het virtuele netwerk om het te gebruiken voordat u het HDInsight-cluster maakt.
+> U moet Hallo aangepaste DNS-server maken en configureren van Hallo virtueel netwerk toouse deze voordat u Hallo HDInsight-cluster.
 
-Om naamomzetting tussen het virtuele netwerk en bronnen in de gekoppelde netwerken, moet u de volgende acties uitvoeren:
+naamomzetting tooenable tussen Hallo virtueel netwerk en bronnen in gekoppelde netwerken, moet u Hallo volgende acties uitvoeren:
 
-1. Maak een aangepaste DNS-server in de Azure Virtual Network waaruit u plant voor het installeren van HDInsight.
+1. Maak een aangepaste DNS-server in hello Azure Virtual Network waar u van plan tooinstall HDInsight bent.
 
-2. Het virtuele netwerk voor het gebruik van de aangepaste DNS-server configureren.
+2. Hallo virtueel netwerk toouse Hallo aangepaste DNS-server configureren.
 
-3. Zoeken naar dat de Azure DNS-achtervoegsel voor het virtuele netwerk toegewezen. Deze waarde is vergelijkbaar met `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Zie voor meer informatie over het zoeken naar de DNS-achtervoegsel de [voorbeeld: aangepaste DNS](#example-dns) sectie.
+3. Azure DNS-achtervoegsel voor het virtuele netwerk toegewezen Hallo zoeken. Deze waarde is te vergelijkbare`0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Zie voor informatie over het zoeken naar Hallo DNS-achtervoegsel Hallo [voorbeeld: aangepaste DNS](#example-dns) sectie.
 
-4. Doorsturen van tussen de DNS-servers configureren. De configuratie is afhankelijk van het type van het externe netwerk.
+4. Doorsturen tussen Hallo DNS-servers configureren. Hallo-configuratie, is afhankelijk van Hallo-type van het externe netwerk.
 
-    * Als het externe netwerk een on-premises netwerk is, configureren van DNS als volgt:
+    * Als het externe netwerk Hallo een on-premises netwerk is, configureren van DNS als volgt:
         
-        * __Aangepaste DNS__ (in het virtuele netwerk):
+        * __Aangepaste DNS__ (in Hallo virtueel netwerk):
 
-            * Aanvragen voor de DNS-achtervoegsel van het virtuele netwerk naar de Azure recursieve resolver (168.63.129.16) doorsturen. Azure verwerkt aanvragen voor bronnen in het virtuele netwerk
+            * Aanvragen voor Hallo DNS-achtervoegsel van Hallo virtueel netwerk toohello Azure recursieve naamomzetting (168.63.129.16) doorsturen. Aanvragen voor bronnen in het virtuele netwerk hello Azure worden verwerkt
 
-            * Doorsturen van alle andere verzoeken naar de lokale DNS-server. De lokale DNS-server verwerkt alle andere aanvragen voor naamomzetting, zelfs aanvragen voor internetbronnen zoals Microsoft.com.
+            * Doorsturen van alle andere aanvragen toohello lokale DNS-server. Hallo lokale DNS verwerkt alle andere aanvragen voor naamomzetting, zelfs aanvragen voor internetbronnen zoals Microsoft.com.
 
-        * __Lokale DNS__: doorsturen van aanvragen voor het virtuele netwerk DNS-achtervoegsel voor de aangepaste DNS-server. De aangepaste DNS-server stuurt vervolgens door naar de Azure recursieve-resolver.
+        * __Lokale DNS__: doorsturen van aanvragen voor Hallo virtueel netwerk DNS-achtervoegsel toohello aangepaste DNS-server. Hallo aangepaste DNS-server stuurt toohello Azure recursieve resolver.
 
-        Deze configuratie routes aanvragen voor FQDN-namen die het DNS-achtervoegsel van het virtuele netwerk voor de aangepaste DNS-server bevatten. Alle andere verzoeken (zelfs voor openbare internet-adressen) worden verwerkt door de lokale DNS-server.
+        Deze configuratie routes aanvragen voor FQDN-namen die Hallo DNS-achtervoegsel van Hallo virtueel netwerk toohello aangepaste DNS-server bevatten. Alle andere verzoeken (zelfs voor openbare internet-adressen) worden verwerkt door Hallo lokale DNS-server.
 
-    * Als het externe netwerk een ander virtueel netwerk van Azure is, configureren van DNS als volgt:
+    * Als het externe netwerk Hallo een ander virtueel netwerk van Azure is, configureren van DNS als volgt:
 
         * __Aangepaste DNS__ (in elk virtueel netwerk):
 
-            * Aanvragen voor het DNS-achtervoegsel van de virtuele netwerken worden doorgestuurd naar de aangepaste DNS-servers. De DNS-server in elk virtueel netwerk is verantwoordelijk voor het oplossen van resources binnen het netwerk.
+            * Aanvragen voor Hallo DNS-achtervoegsel van de virtuele netwerken Hallo doorgestuurd toohello aangepaste DNS-servers. Hallo DNS in elk virtueel netwerk is verantwoordelijk voor het oplossen van resources binnen het netwerk.
 
-            * Alle andere verzoeken naar de Azure recursieve resolver doorsturen. De recursieve resolver is verantwoordelijk voor het oplossen van lokale en internetbronnen.
+            * Alle andere aanvragen toohello Azure recursieve resolver doorsturen. Hallo recursieve resolver is verantwoordelijk voor het oplossen van lokale en internetbronnen.
 
-        De DNS-server voor elk netwerk aanvragen naar de andere verzendt, op basis van DNS-achtervoegsel. Andere aanvragen worden omgezet met behulp van de Azure recursieve-resolver.
+        Hallo DNS-server voor elk netwerk verzendt aanvragen toohello andere, op basis van DNS-achtervoegsel. Andere aanvragen worden omgezet met behulp van hello Azure recursieve resolver.
 
-    Zie voor een voorbeeld van elke configuratie, de [voorbeeld: aangepaste DNS](#example-dns) sectie.
+    Zie voor een voorbeeld van elke configuratie Hallo [voorbeeld: aangepaste DNS](#example-dns) sectie.
 
-Zie voor meer informatie de [naamomzetting voor VM's en Rolexemplaren](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
+Zie voor meer informatie, Hallo [naamomzetting voor VM's en Rolexemplaren](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
 
-## <a name="directly-connect-to-hadoop-services"></a>Rechtstreeks verbinding maken met Hadoop-services
+## <a name="directly-connect-toohadoop-services"></a>TooHadoop services rechtstreeks verbinding te maken
 
-De meeste documentatie op HDInsight wordt ervan uitgegaan dat u toegang tot het cluster via internet hebt. Bijvoorbeeld, u verbinding kunt maken met het cluster op https://CLUSTERNAME.azurehdinsight.net. Dit adres wordt gebruikt voor de openbare-gateway niet beschikbaar is als u nsg's of udr's hebt gebruikt om toegang te beperken van het internet.
+De meeste documentatie op HDInsight wordt ervan uitgegaan dat u toegang toohello cluster via Hallo internet. Bijvoorbeeld, kunt u de cluster toohello op https://CLUSTERNAME.azurehdinsight.net koppelen. Dit adres Hallo openbare-gateway niet beschikbaar is als u nsg's hebt gebruikt of udr's toorestrict toegang vanaf internet Hallo gebruikt.
 
-Voor verbinding met Ambari en andere webpagina's via het virtuele netwerk, gebruikt u de volgende stappen uit:
+tooconnect tooAmbari en andere webpagina's via Hallo virtueel netwerk, gebruikt u Hallo stappen te volgen:
 
-1. Voor het detecteren van de interne volledig gekwalificeerde domeinnamen (FQDN) van de clusterknooppunten HDInsight, moet u een van de volgende methoden gebruiken:
+1. toodiscover hello interne volledig gekwalificeerde domeinnamen (FQDN) van clusterknooppunten Hallo HDInsight, een van de volgende methoden hello gebruiken:
 
     ```powershell
-    $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
+    $resourceGroupName = "hello resource group that contains hello virtual network used with HDInsight"
 
     $clusterNICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
 
@@ -200,44 +200,44 @@ Voor verbinding met Ambari en andere webpagina's via het virtuele netwerk, gebru
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-    De FQDN-naam vinden voor de hoofdknooppunten in de lijst met knooppunten die zijn geretourneerd, en de FQDN's gebruiken voor verbinding met Ambari en andere web-services. Bijvoorbeeld: `http://<headnode-fqdn>:8080` voor toegang tot de Ambari.
+    Hallo FQDN-naam vinden voor Hallo hoofdknooppunten in Hallo lijst met knooppunten die zijn geretourneerd, en Hallo FQDN's tooconnect tooAmbari en andere webservices gebruiken. Bijvoorbeeld: `http://<headnode-fqdn>:8080` tooaccess Ambari.
 
     > [!IMPORTANT]
-    > Sommige services die worden gehost op de hoofdknooppunten zijn alleen actief is op één knooppunt tegelijk. Als u probeert toegang tot een service op één hoofdknooppunt en een 404-fout retourneert, overschakelen naar het hoofdknooppunt.
+    > Sommige services die worden gehost op Hallo hoofdknooppunten zijn alleen actief is op één knooppunt tegelijk. Als u probeert toegang tot een service op één hoofdknooppunt en een 404-fout retourneert, overschakelen toohello andere hoofdknooppunt.
 
-2. Zie het vaststellen van het knooppunt en de poort die een service beschikbaar is op de [poorten die worden gebruikt door de services van Hadoop op HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
+2. toodetermine hello knooppunt en de poort die een service is beschikbaar op, Zie Hallo [poorten die worden gebruikt door de services van Hadoop op HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
 
 ## <a id="networktraffic"></a>Beheren van netwerkverkeer
 
-Netwerkverkeer in een virtuele Azure-netwerken kan worden beheerd met behulp van de volgende methoden:
+Netwerkverkeer in een virtuele Azure-netwerken kan worden beheerd met behulp van de volgende methoden Hallo:
 
-* **Netwerkbeveiligingsgroepen** (NSG) kunt u binnenkomend en uitgaand verkeer op het netwerk te filteren. Zie voor meer informatie de [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) document.
+* **Netwerkbeveiligingsgroepen** (NSG) kunt u toofilter binnenkomend en uitgaand verkeer toohello netwerk. Zie voor meer informatie, Hallo [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) document.
 
     > [!WARNING]
     > HDInsight biedt geen ondersteuning voor uitgaand verkeer te beperken.
 
-* **Gebruiker gedefinieerde routes** (UDR) definiëren hoe verkeersstromen tussen resources in het netwerk. Zie voor meer informatie de [gebruiker gedefinieerde routes en doorsturen via IP](../virtual-network/virtual-networks-udr-overview.md) document.
+* **Gebruiker gedefinieerde routes** (UDR) definiëren hoe verkeer tussen resources in Hallo netwerk loopt. Zie voor meer informatie, Hallo [gebruiker gedefinieerde routes en doorsturen via IP](../virtual-network/virtual-networks-udr-overview.md) document.
 
-* **Virtuele apparaten** repliceren van de functionaliteit van apparaten, zoals firewalls en routers. Zie voor meer informatie de [netwerkapparaten](https://azure.microsoft.com/solutions/network-appliances) document.
+* **Virtuele apparaten** Hallo-functionaliteit van apparaten, zoals firewalls en routers repliceren. Zie voor meer informatie, Hallo [netwerkapparaten](https://azure.microsoft.com/solutions/network-appliances) document.
 
-Als een beheerde service vereist HDInsight onbeperkte toegang tot Azure-status en beheer van services in de Azure-cloud. Wanneer u nsg's en udr's, moet u ervoor zorgen dat HDInsight deze services nog steeds met HDInsight communiceren kunnen.
+Als een beheerde service moet HDInsight onbeperkte toegang tooAzure status en beheer van services in hello Azure-cloud. Wanneer u nsg's en udr's, moet u ervoor zorgen dat HDInsight deze services nog steeds met HDInsight communiceren kunnen.
 
-HDInsight beschrijft de services op verschillende poorten. Wanneer u een virtueel apparaat firewall gebruikt, moet u verkeer op de poorten die voor deze services toestaan. Zie de sectie [vereiste poorten] voor meer informatie.
+HDInsight beschrijft de services op verschillende poorten. Wanneer u een virtueel apparaat firewall gebruikt, moet u verkeer op Hallo poorten die worden gebruikt voor deze services toestaan. Zie Hallo [vereiste poorten] sectie voor meer informatie.
 
 ### <a id="hdinsight-ip"></a>HDInsight met netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes
 
-Als u gebruiken wilt **netwerkbeveiligingsgroepen** of **gebruiker gedefinieerde routes** netwerkverkeer wordt beheerd, voert u de volgende acties voor de installatie van HDInsight:
+Als u gebruiken wilt **netwerkbeveiligingsgroepen** of **gebruiker gedefinieerde routes** toocontrol netwerkverkeer, voert u Hallo van de volgende activiteiten voor de installatie van HDInsight:
 
-1. Identificeer de Azure-regio die u wilt gebruiken voor HDInsight.
+1. Identificeer hello Azure dat u van plan toouse voor HDInsight bent-regio.
 
-2. Identificeer de IP-adressen die door HDInsight vereist. Zie voor meer informatie de [IP-adressen die zijn vereist voor HDInsight](#hdinsight-ip) sectie.
+2. Hallo IP-adressen vereist voor HDInsight identificeren. Zie voor meer informatie, Hallo [IP-adressen die zijn vereist voor HDInsight](#hdinsight-ip) sectie.
 
-3. Maak of wijzig de netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes voor het subnet dat u van plan bent voor het installeren van HDInsight in.
+3. Hallo netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes voor Hallo subnet dat u van plan tooinstall HDInsight bent maakt of wijzigt in.
 
-    * __Netwerkbeveiligingsgroepen__: toestaan __inkomende__ verkeer op poort __443__ van de IP-adressen.
-    * __Gebruiker gedefinieerde routes__: Maak een route voor elk IP-adres en stel de __volgende hop type__ naar __Internet__.
+    * __Netwerkbeveiligingsgroepen__: toestaan __inkomende__ verkeer op poort __443__ van Hallo IP-adressen.
+    * __Gebruiker gedefinieerde routes__: maken van een route tooeach IP-adres en Hallo __volgende hop type__ too__Internet__.
 
-Zie de volgende documentatie voor meer informatie over netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes:
+Zie voor meer informatie over netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes Hallo documentatie te volgen:
 
 * [Netwerkbeveiligingsgroep](../virtual-network/virtual-networks-nsg.md)
 
@@ -245,18 +245,18 @@ Zie de volgende documentatie voor meer informatie over netwerkbeveiligingsgroepe
 
 #### <a name="forced-tunneling"></a>Geforceerde tunneling
 
-Geforceerde tunneling is een gebruiker gedefinieerde routering configuratie waarbij alle verkeer van een subnet wordt geforceerd voor een specifieke netwerk- of locatie, zoals uw on-premises netwerk. HDInsight biedt __niet__ ondersteuning geforceerde tunneling.
+Geforceerde tunneling is een door de gebruiker gedefinieerde routering configuratie waarbij alle verkeer van een subnet geforceerde tooa specifieke netwerk- of locatie, zoals uw on-premises netwerk. HDInsight biedt __niet__ ondersteuning geforceerde tunneling.
 
 ## <a id="hdinsight-ip"></a>Vereiste IP-adressen
 
 > [!IMPORTANT]
-> De Azure management van de status en -services moet communiceren met HDInsight. Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes gebruikt, kunt u verkeer van de IP-adressen voor deze services te bereiken van HDInsight.
+> Hallo Azure health en beheerservices moet kunnen toocommunicate met HDInsight. Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes gebruikt, kunt u verkeer van Hallo IP-adressen voor deze services tooreach HDInsight.
 >
-> Als u niet netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes waarmee verkeer gebruikt, kunt u deze sectie overslaan.
+> Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes toocontrol verkeer niet gebruikt, kunt u deze sectie overslaan.
 
-Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes gebruikt, moet u het verkeer van de Azure status en de management-services te bereiken HDInsight toestaan. Gebruik de volgende stappen uit om te zoeken de IP-adressen dat moeten worden toegestaan:
+Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes gebruikt, moet u het verkeer van hello Azure status- en management services tooreach HDInsight toestaan. Gebruik Hallo volgende stappen toofind Hallo IP-adressen die moeten worden toegestaan:
 
-1. U moet altijd verkeer van de volgende IP-adressen toestaan:
+1. U moet altijd verkeer van Hallo volgende IP-adressen toestaan:
 
     | IP-adres | Toegestane poort | Richting |
     | ---- | ----- | ----- |
@@ -265,10 +265,10 @@ Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes gebruikt, 
     | 168.61.48.131 | 443 | Inkomend |
     | 138.91.141.162 | 443 | Inkomend |
 
-2. Als uw HDInsight-cluster zich in een van de volgende regio's, moet u het verkeer van de IP-adressen die worden vermeld voor de regio toestaan:
+2. Als uw HDInsight-cluster zich in een van de volgende regio's hello, moet u verkeer van Hallo IP-adressen die worden vermeld voor Hallo regio toestaan:
 
     > [!IMPORTANT]
-    > Als de Azure-regio u niet wordt weergegeven, klikt u vervolgens gebruik alleen de vier IP-adressen uit stap 1.
+    > Als u gebruikmaakt van Azure-regio Hallo niet wordt weergegeven, klikt u vervolgens alleen gebruiken Hallo vier IP-adressen uit stap 1.
 
     | Land | Regio | Toegestane IP-adressen | Toegestane poort | Richting |
     | ---- | ---- | ---- | ---- | ----- |
@@ -297,15 +297,15 @@ Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes gebruikt, 
     | &nbsp; | West-centraal VS | 52.161.23.15</br>52.161.10.167 | 443 | Inkomend |
     | &nbsp; | VS - west 2 | 52.175.211.210</br>52.175.222.222 | 443 | Inkomend |
 
-    Zie voor informatie over de IP-adressen voor Azure Government, de [Azure Government Intelligence en analyse](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
+    Zie voor informatie over het Hallo-IP toouse voor Azure Government adressen, Hallo [Azure Government Intelligence en analyse](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
 
-3. Als u een aangepaste DNS-server met het virtuele netwerk gebruikt, moet u ook toegang vanaf toestaan __168.63.129.16__. Dit adres is van de Azure recursieve naamomzetting. Zie voor meer informatie de [naamomzetting voor VM's en rol exemplaren](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
+3. Als u een aangepaste DNS-server met het virtuele netwerk gebruikt, moet u ook toegang vanaf toestaan __168.63.129.16__. Dit adres is van de Azure recursieve naamomzetting. Zie voor meer informatie, Hallo [naamomzetting voor VM's en rol exemplaren](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
-Zie voor meer informatie de [netwerkverkeer beheren](#networktraffic) sectie.
+Zie voor meer informatie, Hallo [netwerkverkeer beheren](#networktraffic) sectie.
 
 ## <a id="hdinsight-ports"></a>Vereiste poorten
 
-Als u van plan bent met een netwerk **virtueel apparaat firewall** wilt beveiligen van het virtuele netwerk, moet u uitgaand verkeer op de volgende poorten toestaan:
+Als u van plan bent met een netwerk **virtueel apparaat firewall** toosecure Hallo virtueel netwerk, moet u uitgaand verkeer toestaan op Hallo poorten te volgen:
 
 * 53
 * 443
@@ -313,44 +313,44 @@ Als u van plan bent met een netwerk **virtueel apparaat firewall** wilt beveilig
 * 11000-11999
 * 14000-14999
 
-Zie voor een lijst met poorten voor specifieke services, de [poorten die worden gebruikt door de services van Hadoop op HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
+Zie voor een lijst met poorten voor specifieke services, Hallo [poorten die worden gebruikt door de services van Hadoop op HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
 
-Zie voor meer informatie over firewallregels voor virtuele apparaten de [virtueel apparaat scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) document.
+Zie voor meer informatie over firewallregels voor virtuele apparaten Hallo [virtueel apparaat scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) document.
 
 ## <a id="hdinsight-nsg"></a>Voorbeeld: netwerkbeveiligingsgroepen met HDInsight
 
-De voorbeelden in deze sectie laten zien hoe netwerkbeveiliging groep regels maken die HDInsight om te communiceren met de Azure management-services toestaan. Voordat u de voorbeelden gebruiken, pas de IP-adressen zodat deze overeenkomen met de waarden voor de Azure-regio die u gebruikt. U vindt deze informatie in de [HDInsight met netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes](#hdinsight-ip) sectie.
+Hallo-voorbeelden in deze sectie laten zien hoe de netwerkbeveiligingsgroep toocreate regels die HDInsight toocommunicate Hello Azure management-services toestaan. Voordat u Hallo voorbeelden, aanpassen Hallo IP-adressen toomatch Hallo waarden voor hello Azure-regio u gebruikt. U vindt deze informatie in Hallo [HDInsight met netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes](#hdinsight-ip) sectie.
 
 ### <a name="azure-resource-management-template"></a>Azure Resource Management-sjabloon
 
-De volgende Resource Management-sjabloon maakt u een virtueel netwerk dat binnenkomend verkeer wordt beperkt, maar wordt verkeer van de IP-adressen die door HDInsight vereist. Deze sjabloon maakt ook een HDInsight-cluster in het virtuele netwerk.
+Hallo maakt volgende Resource Management-sjabloon een virtueel netwerk dat binnenkomend verkeer wordt beperkt, maar wordt verkeer van Hallo IP-adressen vereist voor HDInsight. Deze sjabloon maakt ook een HDInsight-cluster in Hallo virtueel netwerk.
 
 * [Een beveiligde virtuele Azure-netwerk en een HDInsight Hadoop-cluster implementeren](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 > [!IMPORTANT]
-> Wijzig de IP-adressen die in dit voorbeeld overeenkomt met de Azure-regio die u gebruikt. U vindt deze informatie in de [HDInsight met netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes](#hdinsight-ip) sectie.
+> Hallo IP-adressen in dit voorbeeld toomatch hello Azure-regio u wijzigen. U vindt deze informatie in Hallo [HDInsight met netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes](#hdinsight-ip) sectie.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Gebruik de volgende PowerShell-script te maken van een virtueel netwerk waarmee binnenkomend verkeer beperkt en het verkeer van de IP-adressen voor de regio Noord-Europa.
+Hallo volgende PowerShell-script toocreate een virtueel netwerk dat binnenkomend verkeer beperkt en kunt verkeer van Hallo IP-adressen voor de regio Noord-Europa hello gebruiken.
 
 > [!IMPORTANT]
-> Wijzig de IP-adressen die in dit voorbeeld overeenkomt met de Azure-regio die u gebruikt. U vindt deze informatie in de [HDInsight met netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes](#hdinsight-ip) sectie.
+> Hallo IP-adressen in dit voorbeeld toomatch hello Azure-regio u wijzigen. U vindt deze informatie in Hallo [HDInsight met netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes](#hdinsight-ip) sectie.
 
 ```powershell
 $vnetName = "Replace with your virtual network name"
-$resourceGroupName = "Replace with the resource group the virtual network is in"
-$subnetName = "Replace with the name of the subnet that you plan to use for HDInsight"
-# Get the Virtual Network object
+$resourceGroupName = "Replace with hello resource group hello virtual network is in"
+$subnetName = "Replace with hello name of hello subnet that you plan toouse for HDInsight"
+# Get hello Virtual Network object
 $vnet = Get-AzureRmVirtualNetwork `
     -Name $vnetName `
     -ResourceGroupName $resourceGroupName
-# Get the region the Virtual network is in.
+# Get hello region hello Virtual network is in.
 $location = $vnet.Location
-# Get the subnet object
+# Get hello subnet object
 $subnet = $vnet.Subnets | Where-Object Name -eq $subnetName
 # Create a Network Security Group.
-# And add exemptions for the HDInsight health and management services.
+# And add exemptions for hello HDInsight health and management services.
 $nsg = New-AzureRmNetworkSecurityGroup `
     -Name "hdisecure" `
     -ResourceGroupName $resourceGroupName `
@@ -432,9 +432,9 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Access Deny `
         -Priority 500 `
         -Direction Inbound
-# Set the changes to the security group
+# Set hello changes toohello security group
 Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-# Apply the NSG to the subnet
+# Apply hello NSG toohello subnet
 Set-AzureRmVirtualNetworkSubnetConfig `
     -VirtualNetwork $vnet `
     -Name $subnetName `
@@ -443,9 +443,9 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 ```
 
 > [!IMPORTANT]
-> In dit voorbeeld laat zien hoe u regels voor binnenkomend verkeer op de vereiste IP-adressen toestaan toevoegt. Het bevat geen een regel voor het beperken van binnenkomende toegang uit andere bronnen.
+> In dit voorbeeld laat zien hoe tooadd regels tooallow binnenkomend verkeer op Hallo vereist IP-adressen. Het bevat geen een toorestrict regel binnenkomende toegang uit andere bronnen.
 >
-> Het volgende voorbeeld toont hoe u SSH toegang via Internet:
+> Hallo volgende voorbeeld laat zien hoe tooenable SSH vanaf Hallo Internet toegang tot:
 >
 > ```powershell
 > Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
@@ -453,20 +453,20 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Gebruik de volgende stappen voor het maken van een virtueel netwerk dat binnenkomend verkeer wordt beperkt, maar wordt verkeer van de IP-adressen die door HDInsight vereist.
+Hallo te volgen stappen toocreate een virtueel netwerk dat binnenkomend verkeer wordt beperkt, maar verkeer van Hallo IP-adressen vereist voor HDInsight kunt gebruiken.
 
-1. Gebruik de volgende opdracht voor het maken van een nieuwe netwerkbeveiligingsgroep met de naam `hdisecure`. Vervang **RESOURCEGROUPNAME** met de resourcegroep met de Azure Virtual Network. Vervang **locatie** met de locatie (regio) die in de groep is gemaakt.
+1. Gebruik Hallo na de opdracht toocreate een nieuwe netwerkbeveiligingsgroep met de naam `hdisecure`. Vervang **RESOURCEGROUPNAME** met de resourcegroep Hallo met hello Azure Virtual Network. Vervang **locatie** met Hallo locatie (regio) in die groep Hallo is gemaakt.
 
     ```azurecli
     az network nsg create -g RESOURCEGROUPNAME -n hdisecure -l LOCATION
     ```
 
-    Zodra de groep is gemaakt, krijgt u informatie over de nieuwe groep.
+    Zodra het Hallo-groep is gemaakt, krijgt u informatie over de nieuwe groep Hallo.
 
-2. Gebruik de volgende regels toevoegen aan de nieuwe netwerkbeveiligingsgroep waarmee binnenkomende communicatie op poort 443 van de status en management-service van Azure HDInsight. Vervang **RESOURCEGROUPNAME** met de naam van de resourcegroep met de Azure Virtual Network.
+2. Hallo na tooadd regels toohello nieuwe netwerkbeveiligingsgroep waarmee binnenkomende communicatie op poort 443 van hello Azure HDInsight-status en management-service gebruiken. Vervang **RESOURCEGROUPNAME** met Hallo-naam van resourcegroep Hallo met hello Azure Virtual Network.
 
     > [!IMPORTANT]
-    > Wijzig de IP-adressen die in dit voorbeeld overeenkomt met de Azure-regio die u gebruikt. U vindt deze informatie in de [HDInsight met netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes](#hdinsight-ip) sectie.
+    > Hallo IP-adressen in dit voorbeeld toomatch hello Azure-regio u wijzigen. U vindt deze informatie in Hallo [HDInsight met netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes](#hdinsight-ip) sectie.
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
@@ -478,30 +478,30 @@ Gebruik de volgende stappen voor het maken van een virtueel netwerk dat binnenko
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n block --protocol "*" --source-port-range "*" --destination-port-range "*" --source-address-prefix "Internet" --destination-address-prefix "VirtualNetwork" --access "Deny" --priority 500 --direction "Inbound"
     ```
 
-3. Gebruik de volgende opdracht voor het ophalen van de unieke id voor deze netwerkbeveiligingsgroep:
+3. tooretrieve unieke id voor deze netwerkbeveiligingsgroep hello, Hallo volgende opdracht gebruiken:
 
     ```azurecli
     az network nsg show -g RESOURCEGROUPNAME -n hdisecure --query 'id'
     ```
 
-    Met deze opdracht retourneert een waarde die vergelijkbaar is met de volgende tekst:
+    Met deze opdracht retourneert een waarde van een vergelijkbare toohello volgende tekst:
 
         "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
 
-    Gebruik dubbele aanhalingstekens rond id in de opdracht als u niet de verwachte resultaten krijgt.
+    Gebruik dubbele aanhalingstekens rond id in Hallo opdracht als u geen Hallo verwacht resultaten krijgt.
 
-4. Gebruik de volgende opdracht toe te passen van de netwerkbeveiligingsgroep aan een subnet. Vervang de __GUID__ en __RESOURCEGROUPNAME__ waarden met de resultaten worden geretourneerd van de vorige stap. Vervang __VNETNAME__ en __SUBNETNAME__ met de virtuele-netwerknaam en het subnet-naam die u wilt maken.
+4. Gebruik hello opdracht tooapply Hallo beveiliging groep tooa netwerksubnet te volgen. Vervang Hallo __GUID__ en __RESOURCEGROUPNAME__ waarden Hello die zijn geretourneerd door de vorige stap Hallo. Vervang __VNETNAME__ en __SUBNETNAME__ met virtuele-netwerknaam Hallo en subnetnaam die u toocreate wilt.
 
     ```azurecli
     az network vnet subnet update -g RESOURCEGROUPNAME --vnet-name VNETNAME --name SUBNETNAME --set networkSecurityGroup.id="/subscriptions/GUID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
     ```
 
-    Zodra deze opdracht is voltooid, kunt u HDInsight kunt installeren in het virtuele netwerk.
+    Zodra deze opdracht is voltooid, kunt u HDInsight kunt installeren in Hallo virtueel netwerk.
 
 > [!IMPORTANT]
-> Deze stappen alleen toegang tot de HDInsight-status en management service op de Azure-cloud geopend. Geen andere toegang hebben tot het HDInsight-cluster buiten het virtuele netwerk is geblokkeerd. Voor toegang van buiten het virtuele netwerk, moet u extra regels van de Netwerkbeveiligingsgroep toevoegen.
+> Deze stappen alleen openen access toohello HDInsight status en de management-service op Hallo Azure-cloud. Alle andere toegang toohello HDInsight-cluster van externe Hallo virtueel netwerk is geblokkeerd. tooenable toegang van buiten Hallo virtueel netwerk, moet u extra regels van de Netwerkbeveiligingsgroep toevoegen.
 >
-> Het volgende voorbeeld toont hoe u SSH toegang via Internet:
+> Hallo volgende voorbeeld laat zien hoe tooenable SSH vanaf Hallo Internet toegang tot:
 >
 > ```azurecli
 > az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
@@ -511,50 +511,50 @@ Gebruik de volgende stappen voor het maken van een virtueel netwerk dat binnenko
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>Naamomzetting tussen een virtueel netwerk en een netwerk verbonden on-premises
 
-In dit voorbeeld wordt de volgende veronderstellingen:
+In dit voorbeeld maakt Hallo veronderstellingen te volgen:
 
-* U hebt een virtueel netwerk van Azure die is verbonden met een on-premises netwerk via een VPN-gateway.
+* U hebt een Azure-netwerk dat is verbonden tooan on-premises netwerk via een VPN-gateway.
 
-* De aangepaste DNS-server in het virtuele netwerk wordt Linux of Unix worden uitgevoerd als het besturingssysteem.
+* aangepaste DNS-server in het virtuele netwerk Hallo Hallo wordt Linux of Unix als Hallo besturingssysteem uitgevoerd.
 
-* [BIND](https://www.isc.org/downloads/bind/) is geïnstalleerd op de aangepaste DNS-server.
+* [BIND](https://www.isc.org/downloads/bind/) op Hallo aangepaste DNS-server is geïnstalleerd.
 
-De aangepaste DNS-server in het virtuele netwerk:
+Op Hallo aangepaste DNS-server in het virtuele netwerk Hallo:
 
-1. Azure PowerShell of Azure CLI gebruiken het DNS-achtervoegsel van het virtuele netwerk te vinden:
+1. Azure PowerShell of Azure CLI toofind Hallo DNS-achtervoegsel van het virtuele netwerk hello gebruiken:
 
     ```powershell
-    $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
+    $resourceGroupName = Read-Input -Prompt "Enter hello resource group that contains hello virtual network used with HDInsight"
     $NICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
 
     ```azurecli-interactive
-    read -p "Enter the name of the resource group that contains the virtual network: " RESOURCEGROUP
+    read -p "Enter hello name of hello resource group that contains hello virtual network: " RESOURCEGROUP
     az network nic list --resource-group $RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. De aangepaste DNS-server voor het virtuele netwerk, gebruikt u de volgende tekst als de inhoud van de `/etc/bind/named.conf.local` bestand:
+2. Gebruik op Hallo aangepaste DNS-server voor het virtuele netwerk hello, na de tekst hello inhoud Hallo Hallo `/etc/bind/named.conf.local` bestand:
 
     ```
-    // Forward requests for the virtual network suffix to Azure recursive resolver
+    // Forward requests for hello virtual network suffix tooAzure recursive resolver
     zone "0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net" {
         type forward;
         forwarders {168.63.129.16;}; # Azure recursive resolver
     };
     ```
 
-    Vervang de `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` waarde met de DNS-achtervoegsel van het virtuele netwerk.
+    Vervang Hallo `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` waarde met de Hallo DNS-achtervoegsel van het virtuele netwerk.
 
-    Deze configuratie routeert alle DNS-aanvragen voor het DNS-achtervoegsel van het virtuele netwerk naar de Azure recursieve-resolver.
+    Deze configuratie alle DNS-aanvragen voor Hallo DNS-achtervoegsel van Hallo virtueel netwerk toohello Azure recursieve resolver gestuurd.
 
-2. De aangepaste DNS-server voor het virtuele netwerk, gebruikt u de volgende tekst als de inhoud van de `/etc/bind/named.conf.options` bestand:
+2. Gebruik op Hallo aangepaste DNS-server voor het virtuele netwerk hello, na de tekst hello inhoud Hallo Hallo `/etc/bind/named.conf.options` bestand:
 
     ```
-    // Clients to accept requests from
-    // TODO: Add the IP range of the joined network to this list
+    // Clients tooaccept requests from
+    // TODO: Add hello IP range of hello joined network toothis list
     acl goodclients {
-        10.0.0.0/16; # IP address range of the virtual network
+        10.0.0.0/16; # IP address range of hello virtual network
         localhost;
         localnets;
     };
@@ -566,75 +566,75 @@ De aangepaste DNS-server in het virtuele netwerk:
 
             allow-query { goodclients; };
 
-            # All other requests are sent to the following
+            # All other requests are sent toohello following
             forwarders {
-                192.168.0.1; # Replace with the IP address of your on-premises DNS server
+                192.168.0.1; # Replace with hello IP address of your on-premises DNS server
             };
 
             dnssec-validation auto;
 
-            auth-nxdomain no;    # conform to RFC1035
+            auth-nxdomain no;    # conform tooRFC1035
             listen-on { any; };
     };
     ```
     
-    * Vervang de `10.0.0.0/16` waarde met het IP-adresbereik van het virtuele netwerk. Deze vermelding kan name resolution aanvragen adressen binnen dit bereik.
+    * Vervang Hallo `10.0.0.0/16` waarde met de Hallo IP-adresbereik van het virtuele netwerk. Deze vermelding kan name resolution aanvragen adressen binnen dit bereik.
 
-    * Toevoegen van het IP-adresbereik van de on-premises netwerk naar de `acl goodclients { ... }` sectie.  vermelding kan aanvragen voor naamomzetting van resources in de on-premises netwerk.
+    * Hallo IP-adresbereik van Hallo lokale netwerk toohello `acl goodclients { ... }` sectie.  vermelding kan aanvragen voor naamomzetting van resources in Hallo on-premises netwerk.
     
-    * Vervang de waarde `192.168.0.1` met het IP-adres van uw lokale DNS-server. Deze vermelding routeert DNS-aanvragen naar de lokale DNS-server.
+    * Vervang de waarde Hallo `192.168.0.1` met Hallo IP-adres van uw lokale DNS-server. Deze vermelding routeert alle andere DNS-aanvragen toohello lokale DNS-server.
 
-3. Opnieuw opstarten binding voor het gebruik van de configuratie. Bijvoorbeeld `sudo service bind9 restart`.
+3. configuratie van toouse hello, binding opnieuw opstarten. Bijvoorbeeld `sudo service bind9 restart`.
 
-4. Een voorwaardelijke doorstuurserver toevoegen aan de lokale DNS-server. Configureer de voorwaardelijke doorstuurserver voor het verzenden van aanvragen voor het DNS-achtervoegsel uit stap 1 voor de aangepaste DNS-server.
+4. Een voorwaardelijke doorstuurserver toohello lokale DNS-server toevoegen. Hallo voorwaardelijke doorstuurserver toosend aanvragen voor Hallo DNS-achtervoegsel van stap 1 toohello aangepaste DNS-server configureren.
 
     > [!NOTE]
-    > Raadpleeg de documentatie bij uw DNS-software voor specifieke informatie over het toevoegen van een voorwaardelijke doorstuurserver.
+    > Raadpleeg Hallo documentatie bij uw DNS-software voor specifieke informatie over het tooadd een voorwaardelijke doorstuurserver.
 
-Na het voltooien van deze stappen kunt u verbinding maken met resources in een netwerk met behulp van de volledig gekwalificeerde domeinnamen (FQDN). U kunt nu HDInsight installeren in het virtuele netwerk.
+Na het voltooien van deze stappen kunt u tooresources in een netwerk met behulp van de volledig gekwalificeerde domeinnamen (FQDN). U kunt nu HDInsight installeren in Hallo virtueel netwerk.
 
 ### <a name="name-resolution-between-two-connected-virtual-networks"></a>Naamomzetting tussen de twee verbonden virtuele netwerken
 
-In dit voorbeeld wordt de volgende veronderstellingen:
+In dit voorbeeld maakt Hallo veronderstellingen te volgen:
 
 * U hebt twee virtuele netwerken van Azure die zijn verbonden via een VPN-gateway of -peering.
 
-* De aangepaste DNS-server in beide netwerken wordt Linux of Unix worden uitgevoerd als het besturingssysteem.
+* Hallo aangepaste DNS-server in beide netwerken wordt Linux of Unix als Hallo besturingssysteem uitgevoerd.
 
-* [BIND](https://www.isc.org/downloads/bind/) is geïnstalleerd op de aangepaste DNS-servers.
+* [BIND](https://www.isc.org/downloads/bind/) op Hallo aangepaste DNS-servers is geïnstalleerd.
 
-1. Azure PowerShell of Azure CLI gebruiken de DNS-achtervoegsel van beide virtuele netwerken vinden:
+1. Gebruik Azure PowerShell of Azure CLI toofind Hallo DNS-achtervoegsel van beide virtuele netwerken:
 
     ```powershell
-    $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
+    $resourceGroupName = Read-Input -Prompt "Enter hello resource group that contains hello virtual network used with HDInsight"
     $NICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
 
     ```azurecli-interactive
-    read -p "Enter the name of the resource group that contains the virtual network: " RESOURCEGROUP
+    read -p "Enter hello name of hello resource group that contains hello virtual network: " RESOURCEGROUP
     az network nic list --resource-group $RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. Gebruik de volgende tekst als de inhoud van de `/etc/bind/named.config.local` -bestand op de aangepaste DNS-server. Deze wijziging hebt aangebracht op de aangepaste DNS-server in beide virtuele netwerken.
+2. Gebruik Hallo na de tekst hello inhoud Hallo `/etc/bind/named.config.local` -bestand op Hallo aangepaste DNS-server. Deze wijziging hebt aangebracht op Hallo aangepaste DNS-server in beide virtuele netwerken.
 
     ```
-    // Forward requests for the virtual network suffix to Azure recursive resolver
+    // Forward requests for hello virtual network suffix tooAzure recursive resolver
     zone "0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net" {
         type forward;
-        forwarders {10.0.0.4;}; # The IP address of the DNS server in the other virtual network
+        forwarders {10.0.0.4;}; # hello IP address of hello DNS server in hello other virtual network
     };
     ```
 
-    Vervang de `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` waarde met de DNS-achtervoegsel van de __andere__ virtueel netwerk. Deze vermelding routeert aanvragen voor het DNS-achtervoegsel van het externe netwerk naar de aangepaste DNS-server in dat netwerk.
+    Vervang Hallo `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` waarde met de DNS-achtervoegsel Hallo Hallo __andere__ virtueel netwerk. Deze vermelding aanvragen voor Hallo DNS-achtervoegsel van Hallo extern netwerk toohello gestuurd aangepaste DNS-server in dat netwerk.
 
-3. Op de aangepaste DNS-servers in beide virtuele netwerken, gebruikt u de volgende tekst als de inhoud van de `/etc/bind/named.conf.options` bestand:
+3. Gebruik op Hallo aangepaste DNS-servers in beide virtuele netwerken, na de tekst hello inhoud Hallo Hallo `/etc/bind/named.conf.options` bestand:
 
     ```
-    // Clients to accept requests from
+    // Clients tooaccept requests from
     acl goodclients {
-        10.1.0.0/16; # The IP address range of one virtual network
-        10.0.0.0/16; # The IP address range of the other virtual network
+        10.1.0.0/16; # hello IP address range of one virtual network
+        10.0.0.0/16; # hello IP address range of hello other virtual network
         localhost;
         localnets;
     };
@@ -652,24 +652,24 @@ In dit voorbeeld wordt de volgende veronderstellingen:
 
             dnssec-validation auto;
 
-            auth-nxdomain no;    # conform to RFC1035
+            auth-nxdomain no;    # conform tooRFC1035
             listen-on { any; };
     };
     ```
     
-    * Vervang de `10.0.0.0/16` en `10.1.0.0/16` waarden met het IP-adresbereiken van uw virtuele netwerken. Deze vermelding kan resources in elk netwerk aanvragen van de DNS-servers.
+    * Vervang Hallo `10.0.0.0/16` en `10.1.0.0/16` waarden met Hallo IP-adresbereiken van uw virtuele netwerken. Deze vermelding kan resources in elke netwerk toomake aanvragen van Hallo DNS-servers.
 
-    Alle aanvragen die niet voor de DNS-achtervoegsels van de virtuele netwerken (bijvoorbeeld microsoft.com) wordt uitgevoerd door de Azure recursieve-resolver.
+    Alle aanvragen die niet voor DNS-achtervoegsels Hallo Hallo virtuele netwerken (bijvoorbeeld microsoft.com) wordt uitgevoerd door hello Azure recursieve resolver.
 
-4. Opnieuw opstarten binding voor het gebruik van de configuratie. Bijvoorbeeld: `sudo service bind9 restart` op beide DNS-servers.
+4. configuratie van toouse hello, binding opnieuw opstarten. Bijvoorbeeld: `sudo service bind9 restart` op beide DNS-servers.
 
-Na het voltooien van deze stappen kunt u verbinding maken met resources in het virtuele netwerk met behulp van de volledig gekwalificeerde domeinnamen (FQDN). U kunt nu HDInsight installeren in het virtuele netwerk.
+Na het voltooien van deze stappen kunt u tooresources in Hallo virtueel netwerk met behulp van de volledig gekwalificeerde domeinnamen (FQDN). U kunt nu HDInsight installeren in Hallo virtueel netwerk.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een voorbeeld van de end-to-end van de configuratie van HDInsight verbinding maken met een on-premises netwerk, [verbinding maken met HDInsight op een on-premises netwerk](./connect-on-premises-network.md).
+* Zie voor een voorbeeld van de end-to-end van de configuratie van HDInsight tooconnect tooan on-premises netwerk, [verbinding maken met HDInsight tooan on-premises netwerk](./connect-on-premises-network.md).
 
-* Zie voor meer informatie over virtuele netwerken in Azure, de [Azure Virtual Network-overzicht](../virtual-network/virtual-networks-overview.md).
+* Zie voor meer informatie over virtuele netwerken van Azure Hallo [Azure Virtual Network-overzicht](../virtual-network/virtual-networks-overview.md).
 
 * Zie voor meer informatie over netwerkbeveiligingsgroepen [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Een JSON-object doorgeven aan een Azure Automation-runbook | Microsoft Docs
-description: Hoe parameters doorgeven aan een runbook als een JSON-object
+title: aaaPass een JSON-object tooan Azure Automation-runbook | Microsoft Docs
+description: Hoe toopass parameters tooa runbook als een JSON-object
 services: automation
 documentationcenter: dev-center-name
 author: eslesar
@@ -13,32 +13,32 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
-ms.openlocfilehash: eac0e95a46731b9d396ea0590e629d61ca6a7d70
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8229a16015d549927ead5496c70e9fb391d35498
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Een JSON-object doorgeven aan een Azure Automation-runbook
+# <a name="pass-a-json-object-tooan-azure-automation-runbook"></a>Geeft een JSON-object tooan Azure Automation-runbook
 
-Dit kan nuttig zijn voor het opslaan van gegevens die u wilt doorgeven aan een runbook in een JSON-bestand zijn.
-U kunt bijvoorbeeld een JSON-bestand met alle van de parameters die u wilt doorgeven aan een runbook maken.
-U doet dit door die u moet de JSON converteren naar een tekenreeks en vervolgens de tekenreeks niet converteren naar een PowerShell-object voordat de inhoud wordt doorgegeven aan het runbook.
+Het kan nuttig toostore gegevens die u wilt dat toopass tooa runbook in een JSON-bestand zijn.
+U kunt bijvoorbeeld een JSON-bestand met alle parameters Hallo maken gewenste toopass tooa runbook.
+toodo dit u tooconvert Hallo JSON tooa tekenreeks hebben en deze vervolgens converteren Hallo tekenreeks tooa PowerShell-object voordat de inhoud toohello runbook doorgegeven.
 
-In dit voorbeeld maakt u een PowerShell-script aanroept [Start AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) een PowerShell-runbook, de inhoud van de JSON wordt doorgegeven aan het runbook starten.
-Het PowerShell-runbook start een Azure VM, het ophalen van de parameters voor de virtuele machine uit de JSON die is doorgegeven.
+In dit voorbeeld maakt u een PowerShell-script aanroept [Start AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) toostart een PowerShell-runbook Hallo inhoud van Hallo JSON toohello runbook wordt doorgegeven.
+Hallo PowerShell-runbook wordt gestart van een virtuele machine van Azure, Hallo parameters voor Hallo VM ophalen uit Hallo JSON die is doorgegeven.
 
 ## <a name="prerequisites"></a>Vereisten
-Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
+toocomplete in deze zelfstudie, moet u hello te volgen:
 
 * Azure-abonnement. Als u nog geen abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of <a href="/pricing/free-account/" target="_blank">[u aanmelden voor een gratis account](https://azure.microsoft.com/free/).
-* [Automation-account](automation-sec-configure-azure-runas-account.md) om het runbook te bevatten en te verifiëren voor Azure-resources.  Dit account moet machtigingen hebben om de virtuele machine te starten en stoppen.
+* [Automation-account](automation-sec-configure-azure-runas-account.md) toohold Hallo runbook en tooAzure bronnen te verifiëren.  Dit account moet hebben machtiging toostart en stop Hallo virtuele machine.
 * Een virtuele machine van Azure. We stoppen en starten deze machine, dus het mag geen productiemachine zijn.
-* Azure Powershell installeren op een lokale machine. Zie [installeren en configureren van Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) voor informatie over het ophalen van Azure PowerShell.
+* Azure Powershell installeren op een lokale machine. Zie [installeren en configureren van Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) voor informatie over het tooget Azure PowerShell.
 
-## <a name="create-the-json-file"></a>Het JSON-bestand maken
+## <a name="create-hello-json-file"></a>Hallo JSON-bestand maken
 
-Typ de volgende test in een tekstbestand en sla het bestand als `test.json` ergens op uw lokale computer.
+Type Hallo volgende testen in een tekstbestand en sla het bestand als `test.json` ergens op uw lokale computer.
 
 ```json
 {
@@ -47,14 +47,14 @@ Typ de volgende test in een tekstbestand en sla het bestand als `test.json` erge
 }
 ```
 
-## <a name="create-the-runbook"></a>Het runbook te maken
+## <a name="create-hello-runbook"></a>Hallo-runbook maken
 
 Maak een nieuw PowerShell-runbook met de naam 'Test-Json' in Azure Automation.
-Zie voor meer informatie over het maken van een nieuwe PowerShell-runbook, [Mijn eerste PowerShell-runbook](automation-first-runbook-textual-powershell.md).
+hoe een nieuwe PowerShell-runbook toocreate zien toolearn [Mijn eerste PowerShell-runbook](automation-first-runbook-textual-powershell.md).
 
-Het runbook moet een object nemen als invoerparameter voor het accepteren van de JSON-gegevens.
+tooaccept hello JSON-gegevens Hallo runbook moet rekening houden met een object als invoerparameter.
 
-De eigenschappen die zijn gedefinieerd in de JSON kan vervolgens worden gebruikt in het runbook.
+Hallo runbook kunt Hallo-eigenschappen die zijn gedefinieerd in Hallo JSON vervolgens gebruiken.
 
 ```powershell
 Param(
@@ -62,40 +62,40 @@ Param(
      [object]$json
 )
 
-# Connect to Azure account   
+# Connect tooAzure account   
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
 Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
     -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-# Convert object to actual JSON
+# Convert object tooactual JSON
 $json = $json | ConvertFrom-Json
 
-# Use the values from the JSON object as the parameters for your command
+# Use hello values from hello JSON object as hello parameters for your command
 Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
  ```
 
  Opslaan en dit runbook publiceren in uw Automation-account.
 
-## <a name="call-the-runbook-from-powershell"></a>Het runbook aanroepen vanuit PowerShell
+## <a name="call-hello-runbook-from-powershell"></a>Hallo runbook aanroepen vanuit PowerShell
 
-U kunt nu het runbook aanroepen vanuit uw lokale computer met behulp van Azure PowerShell.
-Voer de volgende PowerShell-opdrachten:
+U kunt nu Hallo runbook aanroepen vanuit uw lokale computer met behulp van Azure PowerShell.
+Voer Hallo volgende PowerShell-opdrachten:
 
-1. Aanmelden bij Azure:
+1. Meld u bij tooAzure:
    ```powershell
    Login-AzureRmAccount
    ```
-    U wordt gevraagd uw Azure-referenties invoeren.
-1. Ophalen van de inhoud van het JSON-bestand en converteren naar een tekenreeks:
+    U na vragen aan gebruiker tooenter worden uw Azure-referenties.
+1. Hallo-inhoud van de JSON-bestand Hallo ophalen en deze converteren tooa tekenreeks:
     ```powershell
     $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
     ```
-    `JsonPath`is het pad waar u het JSON-bestand opgeslagen.
-1. Converteren van de inhoud van de tekenreeks van `$json` naar een PowerShell-object:
+    `JsonPath`Hallo-pad waar u Hallo JSON-bestand hebt opgeslagen is.
+1. Hallo tekenreeks inhoud van converteren `$json` tooa PowerShell-object:
    ```powershell
    $JsonParams = @{"json"=$json}
    ```
-1. Maken van een hashtabel voor de parameters voor `Start-AzureRmAutomstionRunbook`:
+1. Maken van een hashtabel voor Hallo parameters voor `Start-AzureRmAutomstionRunbook`:
    ```powershell
    $RBParams = @{
         AutomationAccountName = 'AATest'
@@ -104,17 +104,17 @@ Voer de volgende PowerShell-opdrachten:
         Parameters = $JsonParams
    }
    ```
-   U ziet dat u de waarde van instelt `Parameters` naar het PowerShell-object dat de waarden van het JSON-bestand bevat. 
-1. Het runbook starten
+   U ziet dat u Hallo-waarde van instelt `Parameters` toohello PowerShell-object die Hallo waarden uit Hallo JSON-bestand bevat. 
+1. Hallo runbook starten
    ```powershell
    $job = Start-AzureRmAutomationRunbook @RBParams
    ```
 
-Het runbook maakt gebruik van de waarden van het JSON-bestand naar een virtuele machine start.
+Hallo runbook Hallo waarden van Hallo JSON-bestand toostart een virtuele machine gebruikt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over het bewerken van PowerShell en PowerShell Workflow-runbooks met een teksteditor, [tekstuele runbooks in Azure Automation bewerken](automation-edit-textual-runbook.md) 
-* Zie voor meer informatie over het maken en importeren van runbooks [maken of importeren van een runbook in Azure Automation](automation-creating-importing-runbook.md)
+* Zie toolearn meer informatie over het bewerken van PowerShell en PowerShell Workflow-runbooks met een teksteditor [tekstuele runbooks in Azure Automation bewerken](automation-edit-textual-runbook.md) 
+* toolearn meer informatie over het maken en importeren van runbooks, Zie [maken of importeren van een runbook in Azure Automation](automation-creating-importing-runbook.md)
 
 

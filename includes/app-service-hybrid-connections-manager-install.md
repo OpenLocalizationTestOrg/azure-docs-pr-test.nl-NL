@@ -1,22 +1,22 @@
 
-1. In de **hybride verbindingen** blade, klikt u op de hybride verbinding die u zojuist hebt gemaakt en klik op **Listener Setup**.
+1. In Hallo **hybride verbindingen** blade Hallo hybride verbinding die u zojuist hebt gemaakt, klik op **Listener Setup**.
    
     ![Klik op Listener Setup](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
-2. De **hybride verbindingseigenschappen** blade wordt geopend. Onder **On-premises hybride Verbindingsbeheer**, kies **handmatig downloaden en configureren**, sla het gedownloade pakket van HybridConnectionManager.msi en kopieer de verbindingsreeks voor de gateway.
+2. Hallo **hybride verbindingseigenschappen** blade wordt geopend. Onder **On-premises hybride Verbindingsbeheer**, kies **handmatig downloaden en configureren**Hallo gedownload HybridConnectionManager.msi pakket opslaan en kopieer Hallo gateway-verbindingsreeks.
    
-    ![Klik hier om te installeren](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
-3. Typ de volgende opdracht om het installatieprogramma starten vanaf een beheerdersopdrachtprompt:
+    ![Klik hier tooinstall](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
+3. Type Hallo volgende opdracht vanaf een beheerdersopdrachtprompt toostart Hallo installatieprogramma:
    
         start HybridConnectionManager.msi
-4. Nadat het installatieprogramma wordt uitgevoerd, klikt u op **niet nu**, bladert u naar de map %ProgramFiles%\Microsoft\HybridConnectionManager, HCMConfigWizard.exe uitvoeren en klik op **Ja** in de **gebruikersaccount Besturingselement** dialoogvenster.
-5. Plak de verbindingsreeks voor hybride die u eerder hebt gekopieerd en klik op **OK**. 
+4. Na het Hallo-installatieprogramma wordt uitgevoerd, klikt u op **niet nu**, bladert u toohello %ProgramFiles%\Microsoft\HybridConnectionManager map, HCMConfigWizard.exe uitvoeren en klik op **Ja** in Hallo **gebruiker Besturingselement account** dialoogvenster.
+5. Plak de verbindingsreeks van het Hallo-hybride die u eerder hebt gekopieerd en klik op **OK**. 
    
     ![Installeren](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
-6. Wanneer de installatie is voltooid, klikt u op **sluiten**.
+6. Wanneer het Hallo-installatie is voltooid, klikt u op **sluiten**.
    
     ![Klik op sluiten](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
    
-    Op de **hybride verbindingen** blade de **Status** kolom ziet u nu **verbonden**. 
+    Op Hallo **hybride verbindingen** blade, Hallo **Status** kolom ziet u nu **verbonden**. 
    
     ![Status verbonden](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
 

@@ -1,23 +1,23 @@
 ## <a name="route-tables"></a>Routetabellen
-Route tabel resources bevat routes die worden gebruikt om te definiëren hoe verkeer stroomt binnen uw Azure-infrastructuur. De gebruiker gedefinieerde routes (UDR) kunt u alle verkeer verzenden vanaf een bepaald subnet naar een virtueel apparaat zoals een firewall of inbraakdetectie detectie-systeem (id's). U kunt een routetabel aan subnetten koppelen. 
+Route tabel resources bevat routes gebruikt toodefine hoe verkeersstromen binnen uw Azure-infrastructuur. U kunt door de gebruiker gedefinieerde routes (UDR) toosend al het verkeer van een bepaald subnet tooa virtueel apparaat, zoals een firewall of inbraakdetectie detectie-systeem (id's) gebruiken. U kunt een route tabel toosubnets koppelen. 
 
-Routetabellen bevatten de volgende eigenschappen.
+Routetabellen bevatten Hallo volgende eigenschappen.
 
 | Eigenschap | Beschrijving | Voorbeeldwaarden |
 | --- | --- | --- |
-| **routes** |Verzameling van de gebruiker gedefinieerde routes in de routetabel |Zie [door de gebruiker gedefinieerde routes](#User-defined-routes) |
-| **subnetten** |Verzameling van de routetabel wordt toegepast op subnetten |Zie [subnetten](#Subnets) |
+| **routes** |Verzameling van de gebruiker gedefinieerde routes in de routetabel Hallo |Zie [door de gebruiker gedefinieerde routes](#User-defined-routes) |
+| **subnetten** |Verzameling van subnetten Hallo routetabel wordt te toegepast|Zie [subnetten](#Subnets) |
 
 ### <a name="user-defined-routes"></a>De gebruiker gedefinieerde routes
-U kunt udr's om op te geven waar verkeer moet worden gezonden, maken op basis van het doeladres. U kunt een route beschouwen als de standaard gateway-definitie op basis van het doeladres van een netwerkpakket.
+U kunt udr's toospecify waar verkeer moet worden gezonden, maken op basis van het doeladres. U kunt een route beschouwen als Hallo standaard gateway-definitie op basis van het doeladres Hallo van een netwerkpakket.
 
-Udr's bevatten de volgende eigenschappen. 
+Udr's bevatten de volgende eigenschappen Hallo. 
 
 | Eigenschap | Beschrijving | Voorbeeldwaarden |
 | --- | --- | --- |
-| **addressPrefix** |Adresvoorvoegsel of volledige IP-adres voor de bestemming |192.168.1.0/24, 192.168.1.101 |
-| **nextHopType** |Type apparaat dat het verkeer wordt verzonden naar |Internet VirtualAppliance, VPN-Gateway |
-| **nextHopIpAddress** |IP-adres voor de volgende hop |192.168.1.4 |
+| **addressPrefix** |Adresvoorvoegsel of volledige IP-adres voor de bestemming Hallo |192.168.1.0/24, 192.168.1.101 |
+| **nextHopType** |Type apparaat Hallo verkeer worden te verzonden|Internet VirtualAppliance, VPN-Gateway |
+| **nextHopIpAddress** |IP-adres voor de volgende hop Hallo |192.168.1.4 |
 
 Voorbeeld routetabel in JSON-indeling:
 
@@ -52,6 +52,6 @@ Voorbeeld routetabel in JSON-indeling:
 
 ### <a name="additional-resources"></a>Aanvullende bronnen
 * Vindt u meer informatie over [udr's](../articles/virtual-network/virtual-networks-udr-overview.md).
-* Lees de [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt502549.aspx) voor routetabellen.
-* Lees de [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt502539.aspx) voor de gebruiker gedefinieerde routes (udr's).
+* Lees Hallo [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt502549.aspx) voor routetabellen.
+* Lees Hallo [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt502539.aspx) voor de gebruiker gedefinieerde routes (udr's).
 

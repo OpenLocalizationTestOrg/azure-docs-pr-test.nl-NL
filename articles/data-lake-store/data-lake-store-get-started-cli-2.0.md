@@ -1,6 +1,6 @@
 ---
-title: De opdrachtregelinterface van Azure 2.0 gebruiken om aan de slag te gaan met Azure Data Lake Store | Microsoft Docs
-description: Een Data Lake Store-account maken en basisbewerkingen uitvoeren met de platformoverschrijdende opdrachtregelinterface van Azure 2.0
+title: aaaUse Azure opdrachtregelprogramma 2.0 interface tooget de slag met Azure Data Lake Store | Microsoft Docs
+description: Gebruik Azure platformoverschrijdende opdrachtregel 2.0 toocreate een Data Lake Store-account en basisbewerkingen uit te voeren
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: nitinme
-ms.openlocfilehash: ed78d25f2bac0a9996f1796ee503f31a36940977
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 374dcd6cdbc13ad19f6c65502329986ecae60ef2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Aan de slag met Azure Data Lake Store met Azure CLI 2.0
 > [!div class="op_single_selector"]
@@ -33,13 +33,13 @@ ms.lasthandoff: 07/11/2017
 >
 >
 
-Ontdek hoe u met de Azure CLI 2.0 een Azure Data Lake Store-account maakt en basisbewerkingen uitvoert, zoals het maken van mappen, uploaden en downloaden van gegevensbestanden, verwijderen van uw account enzovoort. Zie [Overzicht van Data Lake Store](data-lake-store-overview.md) voor meer informatie over Data Lake Store.
+Meer informatie over hoe Azure CLI 2.0 toouse toocreate een Azure Data Lake opslaan account en basisbewerkingen uitvoert, zoals maken van mappen, uploaden en downloaden van gegevensbestanden, verwijderen van uw account, enzovoort. Zie [Overzicht van Data Lake Store](data-lake-store-overview.md) voor meer informatie over Data Lake Store.
 
-De Azure CLI 2.0 is de nieuwe opdrachtregelervaring van Azure voor het beheer van Azure-resources. Deze kan worden gebruikt in Mac OS, Linux en Windows. Zie [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview) (Overzicht van Azure CLI 2.0) voor meer informatie. U kunt ook zoeken in de [Naslaggegevens van Azure Data Lake Store CLI 2.0](https://docs.microsoft.com/cli/azure/dls), voor een volledige lijst met opdrachten en syntaxis.
+Hello Azure CLI 2.0 is een nieuwe Azure opdrachtregelprogramma ervaring voor het beheren van Azure-resources. Deze kan worden gebruikt in Mac OS, Linux en Windows. Zie [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview) (Overzicht van Azure CLI 2.0) voor meer informatie. U kunt ook zoeken op Hallo [naslaginformatie over Azure Data Lake Store CLI 2.0](https://docs.microsoft.com/cli/azure/dls) voor een volledige lijst met opdrachten en syntaxis.
 
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
+Voordat u dit artikel, moet u de volgende Hallo hebben:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -47,10 +47,10 @@ Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
 
 ## <a name="authentication"></a>Verificatie
 
-In dit artikel wordt een eenvoudigere verificatiemethode voor Data Lake Store gebruikt waarbij u zich als een eindgebruiker aanmeldt. Het toegangsniveau voor het account en bestandssysteem van Data Lake Store wordt vervolgens bepaald door het toegangsniveau van de aangemelde gebruiker. Er zijn echter ook andere manieren om te verifiëren in Data Lake Store, zoals **verificatie door eindgebruikers** en **service-naar-serviceverificatie**. Zie [Eindgebruikersverificatie](data-lake-store-end-user-authenticate-using-active-directory.md) of [Service-to-serviceverificatie](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
+In dit artikel wordt een eenvoudigere verificatiemethode voor Data Lake Store gebruikt waarbij u zich als een eindgebruiker aanmeldt. Hallo toegang niveau tooData Lake Store-account en een nieuw bestandssysteem vervolgens beheerst door het toegangsniveau Hallo Hallo aangemelde gebruiker. Er zijn echter andere benaderingen als goed tooauthenticate met Data Lake Store, die zijn **eindgebruiker verificatie** of **authentication service-naar-serviceconnector**. Voor instructies en meer informatie over het tooauthenticate, Zie [eindgebruiker verificatie](data-lake-store-end-user-authenticate-using-active-directory.md) of [authentication Service-naar-serviceconnector](data-lake-store-authenticate-using-active-directory.md).
 
 
-## <a name="log-in-to-your-azure-subscription"></a>Aanmelden bij uw Azure-abonnement
+## <a name="log-in-tooyour-azure-subscription"></a>Meld u bij tooyour Azure-abonnement
 
 1. Meld u aan bij uw Azure-abonnement.
 
@@ -58,9 +58,9 @@ In dit artikel wordt een eenvoudigere verificatiemethode voor Data Lake Store ge
     az login
     ```
 
-    U ontvangt een code die u in de volgende stap nodig hebt. Gebruik een webbrowser om de pagina https://aka.ms/devicelogin te openen en voer de code in voor verificatie. U wordt gevraagd om u aan te melden met uw referenties.
+    U kunt een toouse code ophalen in de volgende stap Hallo. Gebruik een web browser tooopen Hallo pagina https://aka.ms/devicelogin en Hallo code tooauthenticate invoeren. U bent na vragen aan gebruiker toolog aan met uw referenties.
 
-2. Wanneer u bent aangemeld, wordt er een venster weergegeven met alle Azure-abonnementen die aan uw account zijn gekoppeld. Gebruik de volgende opdracht als u een specifiek abonnement wilt gebruiken.
+2. Zodra u zich aanmeldt, Hallo Hallo venster een lijst met alle Azure-abonnementen die gekoppeld aan uw account zijn. Hallo na de opdracht toouse een specifiek abonnement gebruiken.
    
     ```azurecli
     az account set --subscription <subscription id> 
@@ -68,13 +68,13 @@ In dit artikel wordt een eenvoudigere verificatiemethode voor Data Lake Store ge
 
 ## <a name="create-an-azure-data-lake-store-account"></a>Een Azure Data Lake Store-account maken
 
-1. Maak een nieuwe resourcegroep. Geef in de volgende opdracht de parameterwaarden op die u wilt gebruiken. Als de locatienaam spaties bevat, moet deze tussen dubbele aanhalingstekens worden geplaatst. Bijvoorbeeld “VS-oost 2”. 
+1. Maak een nieuwe resourcegroep. In Hallo volgende opdracht, bieden Hallo parameterwaarden die u wilt dat toouse. Als het Hallo-locatienaam spaties bevat, kunt u deze aanhalingstekens geplaatst. Bijvoorbeeld “VS-oost 2”. 
    
     ```azurecli
     az group create --location "East US 2" --name myresourcegroup
     ```
 
-2. Maak de Data Lake Store-account.
+2. Hallo Data Lake Store-account maken.
    
     ```azurecli
     az dls account create --account mydatalakestore --resource-group myresourcegroup
@@ -82,42 +82,42 @@ In dit artikel wordt een eenvoudigere verificatiemethode voor Data Lake Store ge
 
 ## <a name="create-folders-in-a-data-lake-store-account"></a>Mappen maken in een Data Lake Store-account
 
-U kunt mappen maken onder uw Azure Data Lake Store-account voor het beheren en opslaan van gegevens. Gebruik de volgende opdracht om in de hoofdmap van Data Lake Store een map te maken met de naam **mynewfolder**.
+U kunt mappen maken onder uw Azure Data Lake Store-account toomanage en opslaan van gegevens. Gebruik Hallo na de opdracht toocreate een map met de naam **mynewfolder** in de hoofdmap Hallo Hallo Data Lake Store.
 
 ```azurecli
 az dls fs create --account mydatalakestore --path /mynewfolder --folder
 ```
 
 > [!NOTE]
-> Met de parameter `--folder` geeft u aan dat u een map wilt maken. Zonder deze parameter maakt de opdracht een leeg bestand met de naam mynewfolder in de hoofdmap van het Data Lake Store-account.
+> Hallo `--folder` parameter zorgt ervoor dat Hallo opdracht maakt u een map. Als deze parameter niet aanwezig is, maakt Hallo opdracht u een leeg bestand met de naam van mynewfolder in de hoofdmap Hallo Hallo Data Lake Store-account.
 > 
 >
 
-## <a name="upload-data-to-a-data-lake-store-account"></a>Gegevens uploaden naar een Data Lake Store-account
+## <a name="upload-data-tooa-data-lake-store-account"></a>Uploaden van gegevens tooa Data Lake Store-account
 
-U kunt gegevens direct naar het hoogste niveau in Data Lake Store uploaden of naar een map die u in het account hebt gemaakt. De codefragmenten hieronder laten zien hoe u voorbeeldgegevens uploadt naar de map (**mynewfolder**) die u in de voorgaande sectie hebt gemaakt.
+U kunt gegevens tooData Lake Store rechtstreeks op Hallo niveau of tooa hoofdmap die u hebt gemaakt in Hallo account uploaden. Hallo codefragmenten hieronder laten zien hoe tooupload enkele map toohello met voorbeeldgegevens (**mynewfolder**) u hebt gemaakt in de vorige sectie Hallo.
 
-Als u nog geen voorbeeldgegevens hebt om te uploaden, kunt u de map **Ambulance Data** uit de [Azure Data Lake Git-opslagplaats](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData) gebruiken. Download het bestand en sla het in een lokale map op uw computer op, bijvoorbeeld C:\sampledata\.
+Als u een aantal gegevens voorbeeld tooupload zoekt, kunt u krijgen Hallo **Ambulance Data** map uit Hallo [Azure Data Lake Git-opslagplaats](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Hallo-bestand downloaden en opslaan in een lokale map op uw computer, zoals C:\sampledata\.
 
 ```azurecli
 az dls fs upload --account mydatalakestore --source-path "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" --destination-path "/mynewfolder/vehicle1_09142014.csv"
 ```
 
 > [!NOTE]
-> Als bestemming moet u het volledige pad inclusief de bestandsnaam opgeven.
+> U moet Hallo bestemming voor Hallo volledige pad inclusief Hallo-bestandsnaam opgeven.
 > 
 >
 
 
 ## <a name="list-files-in-a-data-lake-store-account"></a>Bestanden in een Data Lake Store-account weergeven
 
-Gebruik de volgende opdracht om de bestanden in een Data Lake Store-account weer te geven.
+Hallo volgende opdracht toolist Hallo bestanden in een Data Lake Store-account gebruiken.
 
 ```azurecli
 az dls fs list --account mydatalakestore --path /mynewfolder
 ```
 
-De uitvoer ziet er ongeveer als volgt uit:
+Hallo-uitvoer hiervan moet vergelijkbaar toohello volgende:
 
     [
         {
@@ -139,30 +139,30 @@ De uitvoer ziet er ongeveer als volgt uit:
 
 ## <a name="rename-download-and-delete-data-from-a-data-lake-store-account"></a>Gegevens in een Data Lake Store-account een nieuwe naam geven, downloaden en verwijderen 
 
-* **Als u de naam van een bestand wilt wijzigen**, gebruikt u de volgende opdracht:
+* **een bestand toorename**, Hallo volgende opdracht gebruiken:
   
     ```azurecli
     az dls fs move --account mydatalakestore --source-path /mynewfolder/vehicle1_09142014.csv --destination-path /mynewfolder/vehicle1_09142014_copy.csv
     ```
 
-* **Als u een bestand wilt downloaden**, gebruikt u de volgende opdracht: Zorg ervoor dat het doelpad dat u opgeeft al bestaat.
+* **een bestand toodownload**, Hallo volgende opdracht gebruiken. Zorg ervoor dat het doelpad Hallo die u al opgeeft bestaat.
   
     ```azurecli     
     az dls fs download --account mydatalakestore --source-path /mynewfolder/vehicle1_09142014_copy.csv --destination-path "C:\mysampledata\vehicle1_09142014_copy.csv"
     ```
 
     > [!NOTE]
-    > Met de opdracht wordt de doelmap gemaakt als deze niet bestaat.
+    > Hallo opdracht maakt u de doelmap Hallo als deze niet bestaat.
     > 
     >
 
-* **Als u een bestand wilt verwijderen**, gebruikt u de volgende opdracht:
+* **een bestand toodelete**, Hallo volgende opdracht gebruiken:
   
     ```azurecli
     az dls fs delete --account mydatalakestore --path /mynewfolder/vehicle1_09142014_copy.csv
     ```
 
-    Als u de map **mynewfolder** en het bestand **vehicle1_09142014_copy.csv** met één opdracht wilt verwijderen, gebruikt u de parameter --recurse
+    Als u toodelete Hallo map wilt **mynewfolder** en Hallo bestand **vehicle1_09142014_copy.csv** samen in één opdracht gebruik Hallo--recurse parameter
 
     ```azurecli
     az dls fs delete --account mydatalakestore --path /mynewfolder --recurse
@@ -170,27 +170,27 @@ De uitvoer ziet er ongeveer als volgt uit:
 
 ## <a name="work-with-permissions-and-acls-for-a-data-lake-store-account"></a>Machtigingen en ACL's gebruiken voor een Data Lake Store-account
 
-In deze sectie vindt u informatie over het beheer van ACL's en machtigingen met de Azure CLI 2.0. Zie [Toegangsbeheer in Azure Data Lake Store](data-lake-store-access-control.md) voor gedetailleerde informatie over de implementatie van ACL's in Azure Data Lake Store.
+In deze sectie leert u hoe u toomanage ACL's en -machtigingen met Azure CLI 2.0. Zie [Toegangsbeheer in Azure Data Lake Store](data-lake-store-access-control.md) voor gedetailleerde informatie over de implementatie van ACL's in Azure Data Lake Store.
 
-* Gebruik de volgende opdracht als u **de eigenaar van een bestand/map wilt bijwerken**:
+* **tooupdate hello eigenaar van een bestandsmap**, Hallo volgende opdracht gebruiken:
 
     ```azurecli
     az dls fs access set-owner --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv --group 80a3ed5f-959e-4696-ba3c-d3c8b2db6766 --owner 6361e05d-c381-4275-a932-5535806bb323
     ```
 
-* Gebruik de volgende opdracht als u **de machtigingen voor een bestand/map wilt bijwerken**:
+* **tooupdate hello machtigingen voor een bestandsmap**, Hallo volgende opdracht gebruiken:
 
     ```azurecli
     az dls fs access set-permission --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv --permission 777
     ```
     
-* Gebruik de volgende opdracht als u **de ACL's voor een gegeven pad wilt ophalen**:
+* **tooget hello ACL's voor een opgegeven pad**, Hallo volgende opdracht gebruiken:
 
     ```azurecli
     az dls fs access show --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv
     ```
 
-    De uitvoer moet er ongeveer als volgt uitzien:
+    Hallo-uitvoer moet vergelijkbaar toohello volgende:
 
         {
             "entries": [
@@ -204,38 +204,38 @@ In deze sectie vindt u informatie over het beheer van ACL's en machtigingen met 
           "stickyBit": false
         }
 
-* Gebruik de volgende opdracht als u **een item voor een ACL wilt instellen**:
+* **een vermelding voor een ACL tooset**, Hallo volgende opdracht gebruiken:
 
     ```azurecli
     az dls fs access set-entry --account mydatalakestore --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323:-w-
     ```
 
-* Gebruik de volgende opdracht als u **een item voor een ACL wilt verwijderen**:
+* **een vermelding voor een ACL tooremove**, Hallo volgende opdracht gebruiken:
 
     ```azurecli
     az dls fs access remove-entry --account mydatalakestore --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323
     ```
 
-* Gebruik de volgende opdracht als u **een complete standaard-ACL wilt verwijderen**:
+* **de standaardwaarde van een volledige ACL tooremove**, Hallo volgende opdracht gebruiken:
 
     ```azurecli
     az dls fs access remove-all --account mydatalakestore --path /mynewfolder --default-acl
     ```
 
-* Gebruik de volgende opdracht als u **een complete niet-standaard-ACL wilt verwijderen**:
+* **een hele niet-standaard ACL tooremove**, Hallo volgende opdracht gebruiken:
 
     ```azurecli
     az dls fs access remove-all --account mydatalakestore --path /mynewfolder
     ```
     
 ## <a name="delete-a-data-lake-store-account"></a>Een Data Lake Store-account verwijderen
-Gebruik de volgende opdracht om een Data Lake Store-account te verwijderen.
+Hallo na de opdracht toodelete een Data Lake Store-account gebruiken.
 
 ```azurecli
 az dls account delete --account mydatalakestore
 ```
 
-Wanneer dit wordt gevraagd, typt u **Y** om het account te verwijderen.
+Wanneer u wordt gevraagd, typt u **Y** toodelete Hallo-account.
 
 ## <a name="next-steps"></a>Volgende stappen
 

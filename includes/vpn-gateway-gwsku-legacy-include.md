@@ -1,14 +1,14 @@
-De verouderde (oude) VPN-gateway-SKU's zijn:
+Hallo oudere (oude) VPN-gateway SKU's zijn:
 
 * Basic
 * Standard
 * HighPerformance
 
-VPN Gateway maakt geen gebruik van de gateway-SKU UltraPerformance. Meer informatie over de SKU UltraPerformance vindt u in het document [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+VPN-Gateway gebruikt geen Hallo UltraPerformance gateway-SKU. Zie voor informatie over Hallo UltraPerformance SKU Hallo [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentatie.
 
-Als u werkt met de verouderde SKU's, kunt u het volgende overwegen:
+Als u werkt met Hallo verouderde SKU's, houd rekening met de volgende Hallo:
 
-* Als u een PolicyBased VPN-type gebruikt, moet u Basis-SKU gebruiken. PolicyBased VPN-verbindingen (voorheen statische routering) worden niet ondersteund op andere SKU's.
-* BGP wordt niet ondersteund op de basis-SKU.
-* ExpressRoute-VPN-Gateway-configuraties die naast elkaar bestaan, worden niet ondersteund in de basis-SKU.
-* Actief-actief S2S VPN-gatewayverbindingen kunnen alleen worden geconfigureerd op de HighPerformance SKU.
+* Als u toouse een PolicyBased VPN-type wilt, moet u Hallo basis-SKU. PolicyBased VPN-verbindingen (voorheen statische routering) worden niet ondersteund op andere SKU's.
+* BGP wordt niet ondersteund op Hallo basis-SKU.
+* ExpressRoute-VPN-Gateway worden gecombineerd configuraties worden niet ondersteund op Hallo basis-SKU.
+* Actieve S2S-VPN-gatewayverbindingen kunnen worden geconfigureerd op alleen Hallo HighPerformance SKU.

@@ -1,5 +1,5 @@
 ---
-title: Analyse van Java-web-apps met Azure Application Insights | Microsoft Docs
+title: aaaJava web app analytics met Azure Application Insights | Microsoft Docs
 description: 'Toepassingsprestaties bewaken met Application Insights voor Java-web-apps. '
 services: application-insights
 documentationcenter: java
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.openlocfilehash: a75815885d7ccd7cd56db3da2f3f92cae78fe033
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 6555ee53a44f937350e4fa296080f7dce4f45226
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Aan de slag met Application Insights in een Java-webproject
 
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) is een uitbreidbare analyseservice voor webontwikkelaars die u helpt de prestaties en het gebruik van uw live-toepassing te begrijpen. Gebruik Application Insights om [prestatieproblemen en uitzonderingen te detecteren en te onderzoeken](app-insights-detect-triage-diagnose.md) en om [code te schrijven][api] om bij te houden wat gebruikers met uw app doen.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) is een uitbreidbare Analyseservice voor webontwikkelaars die u helpt Hallo prestaties en gebruik van uw live-toepassing te begrijpen. Te gebruiken[detecteren en onderzoeken van prestatieproblemen en uitzonderingen](app-insights-detect-triage-diagnose.md), en [code schrijven] [ api] tootrack wat gebruikers met uw app doen.
 
 ![voorbeeldgegevens](./media/app-insights-java-get-started/5-results.png)
 
@@ -31,29 +31,29 @@ Application Insights biedt ondersteuning voor Java-apps die in Linux, Unix of Wi
 U hebt de volgende zaken nodig:
 
 * Oracle JRE 1.6 of hoger, of Zulu JRE 1.6 of hoger
-* Een abonnement op [Microsoft Azure](https://azure.microsoft.com/).
+* Een abonnement te[Microsoft Azure](https://azure.microsoft.com/).
 
-*Als u een web-app hebt die al is gepubliceerd, kunt u de alternatieve procedure volgen om [de SDK tijdens runtime toe te voegen in de webserver](app-insights-java-live.md). Met deze alternatieve procedure hoeft u de code niet helemaal aan te passen, maar hebt u niet de optie om code te schrijven voor het bijhouden van gebruikersactiviteit.*
+*Als u een web-app die al live hebt, kunt u volgen Hallo alternatieve procedure te[Hallo SDK tijdens runtime in Hallo webserver toevoegen](app-insights-java-live.md). Met deze alternatieve voorkomt Hallo code opnieuw samenstellen, maar er geen gebruikersactiviteit Hallo optie toowrite code tootrack.*
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Een Application Insights-instrumentatiesleutel ophalen
-1. Meld u aan bij de [Microsoft Azure Portal](https://portal.azure.com).
-2. Maak een Application Insights-resource. Stel het toepassingstype in op Java-webtoepassing.
+1. Meld u aan toohello [Microsoft Azure-portal](https://portal.azure.com).
+2. Maak een Application Insights-resource. Hallo toepassing type tooJava-webtoepassing instellen.
 
     ![Een naam invoeren, Java-web-app kiezen en op Maken klikken](./media/app-insights-java-get-started/02-create.png)
-3. Zoek de instrumentatiesleutel van de nieuwe resource. U moet deze sleutel zo dadelijk in de code van uw project plakken.
+3. Hallo-instrumentatiesleutel van Hallo nieuwe bron vinden. U moet toopaste deze sleutel in uw CodeProject binnenkort.
 
-    ![Op Eigenschappen klikken in het overzicht van de nieuwe resource en de instrumentatiesleutel kopiëren](./media/app-insights-java-get-started/03-key.png)
+    ![In de nieuwe resource overzicht Hallo, klikt u op eigenschappen en Hallo Instrumentatiesleutel kopiëren](./media/app-insights-java-get-started/03-key.png)
 
-## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. De Application Insights-SDK voor Java toevoegen aan uw project
-*Kies de juiste methode voor uw project.*
+## <a name="2-add-hello-application-insights-sdk-for-java-tooyour-project"></a>2. Hallo Application Insights-SDK voor Java tooyour project toevoegen
+*Kies de juiste manier Hallo voor uw project.*
 
-#### <a name="if-youre-using-eclipse-to-create-a-maven-or-dynamic-web-project-"></a>Als u Eclipse gebruikt om een Maven- of Dynamic Web-project te maken...
-Gebruik de [invoegtoepassing Application Insights-SDK voor Java][eclipse].
+#### <a name="if-youre-using-eclipse-toocreate-a-maven-or-dynamic-web-project-"></a>Als u een Maven- of Dynamic Web project Eclipse toocreate...
+Gebruik Hallo [Application Insights-SDK voor Java-invoegtoepassing][eclipse].
 
 #### <a name="if-youre-using-maven"></a>Als u Maven gebruikt...
-Als uw project al is ingesteld om voor de build Maven te gebruiken, voegt u de volgende code in uw pom.xml-bestand in.
+Als uw project is al ingesteld om toouse Maven voor build, foutcode samenvoegen Hallo volgende tooyour pom.xml-bestand.
 
-Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te downloaden.
+Vervolgens vernieuwen Hallo project afhankelijkheden tooget Hallo binaire bestanden worden gedownload.
 
 ```XML
 
@@ -75,13 +75,13 @@ Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te dow
     </dependencies>
 ```
 
-* *Validatiefouten in build of controlesom?* Probeer een specifieke versie te gebruiken, bijvoorbeeld: `<version>1.0.n</version>`. U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) of in onze [Maven-artefacten](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *Moet u bijwerken naar een nieuwe SDK?* Vernieuw de afhankelijkheden van uw project.
+* *Validatiefouten in build of controlesom?* Probeer een specifieke versie te gebruiken, bijvoorbeeld: `<version>1.0.n</version>`. U vindt de nieuwste versie Hallo in Hallo [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) of in onze [Maven-artefacten](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Tooupdate tooa nodig nieuwe SDK?* Vernieuw de afhankelijkheden van uw project.
 
 #### <a name="if-youre-using-gradle"></a>Als u Gradle gebruikt...
-Als uw project al is ingesteld om voor de build Gradle te gebruiken, voegt u de volgende code in uw build.gradle-bestand in.
+Als uw project is al ingesteld om toouse Gradle voor build, foutcode samenvoegen Hallo volgende tooyour build.gradle-bestand.
 
-Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te downloaden.
+Vervolgens vernieuwen Hallo project afhankelijkheden tooget Hallo binaire bestanden worden gedownload.
 
 ```JSON
 
@@ -95,30 +95,30 @@ Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te dow
     }
 ```
 
-* *Validatiefouten in build of controlesom? Probeer een specifieke versie te gebruiken, bijvoorbeeld:* `version:'1.0.n'`. *U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
-* *Bijwerken naar een nieuwe SDK*
+* *Validatiefouten in build of controlesom? Probeer een specifieke versie te gebruiken, bijvoorbeeld:* `version:'1.0.n'`. *U vindt de nieuwste versie Hallo in Hallo [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *tooupdate tooa nieuwe SDK*
   * Vernieuw de afhankelijkheden van uw project.
 
 #### <a name="otherwise-"></a>Of...
-Voeg de SDK handmatig toe:
+Handmatig toevoegen Hallo SDK:
 
-1. Download de [Application Insights-SDK voor Java](https://aka.ms/aijavasdk).
-2. Pak het zip-bestand uit en voeg de binaire bestanden toe aan uw project.
+1. Hallo downloaden [Application Insights-SDK voor Java](https://aka.ms/aijavasdk).
+2. Hallo binaire bestanden van Hallo zip-bestand extraheren en ze tooyour project toevoegen.
 
 ### <a name="questions"></a>Vragen...
-* *Wat is de relatie tussen de `-core`- en `-web`-onderdelen in het zip-bestand?*
+* *Wat is de relatie Hallo tussen Hallo `-core` en `-web` onderdelen in Hallo ZIP-bestand?*
 
-  * `applicationinsights-core` biedt u de bare-API. U hebt dit onderdeel altijd nodig.
-  * `applicationinsights-web` biedt u metrische gegevens waarin het aantal HTTP-aanvragen en -reactietijden worden bijhouden. U kunt dit onderdeel weglaten als u deze telemetrie niet automatisch wilt verzamelen. Bijvoorbeeld omdat u deze zelf wilt schrijven.
-* *De SDK bijwerken wanneer er wijzigingen worden gepubliceerd*
+  * `applicationinsights-core`biedt Hallo van bare-API. U hebt dit onderdeel altijd nodig.
+  * `applicationinsights-web` biedt u metrische gegevens waarin het aantal HTTP-aanvragen en -reactietijden worden bijhouden. U kunt dit onderdeel weglaten als u deze telemetrie niet automatisch wilt verzamelen. Bijvoorbeeld als u wilt dat toowrite zelf.
+* *tooupdate hello SDK wanneer we wijzigingen publiceren*
 
-  * Download de meest recente [Application Insights-SDK voor Java](https://aka.ms/qqkaq6) en vervang de oude versie.
-  * De wijzigingen worden beschreven in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
+  * Meest recente Hallo downloaden [Application Insights-SDK voor Java](https://aka.ms/qqkaq6) en vervang Hallo oude versie.
+  * Wijzigingen worden beschreven in Hallo [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## <a name="3-add-an-application-insights-xml-file"></a>3. Een Application Insights-.xml-bestand toevoegen
-Voeg ApplicationInsights.xml toe aan de resourcesmap in uw project of plaats het in het implementatieklassepad van uw project. Kopieer de volgende XML-code naar het bestand.
+ApplicationInsights.xml toohello resourcesmap in uw project toevoegen of zorg dat het implementatieklassepad van het project tooyour is toegevoegd. Hallo XML in het volgende kopiëren.
 
-Vervang de instrumentatiesleutel die u in de Azure Portal hebt verkregen.
+Vervang Hallo instrumentatiesleutel die u hebt gekregen hello Azure-portal.
 
 ```XML
 
@@ -126,7 +126,7 @@ Vervang de instrumentatiesleutel die u in de Azure Portal hebt verkregen.
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
 
 
-      <!-- The key from the portal: -->
+      <!-- hello key from hello portal: -->
 
       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
 
@@ -140,7 +140,7 @@ Vervang de instrumentatiesleutel die u in de Azure Portal hebt verkregen.
       </TelemetryModules>
 
       <!-- Events correlation (not required for bare API) -->
-      <!-- These initializers add context data to each event -->
+      <!-- These initializers add context data tooeach event -->
 
       <TelemetryInitializers>
         <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
@@ -154,13 +154,13 @@ Vervang de instrumentatiesleutel die u in de Azure Portal hebt verkregen.
 ```
 
 
-* De instrumentatiesleutel wordt samen met alle telemetrie-items verzonden en instrueert Application Insights om deze in de resource weer te geven.
-* Het onderdeel voor de HTTP-aanvraag is optioneel. Het verzendt automatisch telemetrie over aanvragen en reactietijden naar de portal.
-* Correlatie tussen gebeurtenissen is een aanvulling op het onderdeel voor de HTTP-aanvraag. Deze aanvulling wijst een id toe aan elke aanvraag die door de server wordt ontvangen en voegt deze id als de eigenschap 'Operation.Id' toe aan elk telemetrie-item. Op deze manier kunt u correlaties zichtbaar maken tussen de telemetrie die aan elke aanvraag is gekoppeld. Dit doet u door een filter in te stellen in [Diagnostische gegevens doorzoeken][diagnostic].
-* De Application Insights-sleutel kan vanuit de Azure Portal dynamisch worden doorgegeven als een systeemeigenschap (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). Als er geen eigenschap is gedefinieerd, wordt gecontroleerd op omgevingsvariabelen (APPLICATION_INSIGHTS_IKEY) in de Azure App-instellingen. Als beide eigenschappen niet zijn gedefinieerd, wordt de standaardwaarde van InstrumentationKey uit ApplicationInsights.xml gebruikt. Met deze reeks kunt u verschillende instrumentatiesleutels voor verschillende omgevingen dynamisch beheren.
+* Hallo-instrumentatiesleutel samen met elk telemetrie-item is verzonden en instrueert Application Insights toodisplay in de resource.
+* Hallo onderdeel HTTP-aanvraag is optioneel. Het verzendt automatisch telemetrie over aanvragen en -antwoord keren toohello portal.
+* Correlatie tussen gebeurtenissen is een onderdeel toevoeging toohello HTTP-aanvraag. Het wijst een id tooeach-aanvraag is ontvangen door Hallo-server en deze id wordt als een item van de eigenschap tooevery telemetrie als Hallo-eigenschap 'Operation.Id'. Hiermee kunt u toocorrelate Hallo telemetrie die is gekoppeld aan elke aanvraag door een filter in te stellen [diagnostische gegevens doorzoeken][diagnostic].
+* Hallo Application Insights-sleutel van kan worden doorgegeven dynamisch hello Azure-portal als een systeemeigenschap (-DAPPLICATION_INSIGHTS_IKEY = your_ikey). Als er geen eigenschap is gedefinieerd, wordt gecontroleerd op omgevingsvariabelen (APPLICATION_INSIGHTS_IKEY) in de Azure App-instellingen. Als beide Hallo-eigenschappen niet gedefinieerd zijn, wordt standaard Hallo InstrumentationKey van ApplicationInsights.xml gebruikt. Deze reeks helpt u bij toomanage verschillende InstrumentationKeys voor verschillende omgevingen dynamisch.
 
-### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Andere manieren om de instrumentatiesleutel in te stellen
-De Application Insights-SDK zoekt in deze volgorde naar de sleutel:
+### <a name="alternative-ways-tooset-hello-instrumentation-key"></a>Alternatieve manieren tooset hello instrumentatiesleutel
+Application Insights-SDK wordt gezocht naar Hallo-sleutel in deze volgorde:
 
 1. Systeemeigenschap: -DAPPLICATION_INSIGHTS_IKEY=your_ikey
 2. Omgevingsvariabele: APPLICATION_INSIGHTS_IKEY
@@ -174,11 +174,11 @@ U kunt de instrumentatiesleutel ook [instellen in code](app-insights-api-custom-
 ```
 
 ## <a name="4-add-an-http-filter"></a>4. Een HTTP-filter toevoegen
-De laatste configuratiestap stelt het onderdeel voor de HTTP-aanvraag in staat elke webaanvraag vast te leggen. (Niet vereist als u alleen de bare-API wilt.)
+de laatste configuratiestap Hallo kunt Hallo HTTP-aanvraag onderdeel toolog elke webaanvraag. (Niet vereist als u alleen Hallo bare-API wilt).
 
-Zoek en open het web.xml-bestand in uw project en voeg de volgende code samen onder het web-app-knooppunt, waar de toepassingsfilters zijn geconfigureerd.
+Zoek en open het web.xml-bestand Hallo in uw project en merge Hallo na de code onder Hallo web-app-knooppunt, waar de toepassingsfilters zijn geconfigureerd.
 
-Voor de nauwkeurigste resultaten moet het filter vóór alle andere filters worden toegewezen.
+tooget hello nauwkeurigste resultaten Hallo filter moeten vóór alle andere filters worden toegewezen.
 
 ```XML
 
@@ -195,7 +195,7 @@ Voor de nauwkeurigste resultaten moet het filter vóór alle andere filters word
 ```
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Als u Spring Web MVC 3.1 of hoger gebruikt
-Bewerk deze elementen in *-servlet.xml zodanig dat het Application Insights-pakket is opgenomen:
+Bewerk deze elementen in *-servlet.xml tooinclude Hallo Application Insights-pakket:
 
 ```XML
 
@@ -210,7 +210,7 @@ Bewerk deze elementen in *-servlet.xml zodanig dat het Application Insights-pakk
 ```
 
 #### <a name="if-youre-using-struts-2"></a>Als u Struts 2 gebruikt
-Voeg dit item toe aan het Struts-configuratiebestand (meestal struts.xml of struts-default.xml):
+Voeg dit item toohello Struts-configuratiebestand (meestal benoemde struts.xml of struts-default.xml):
 
 ```XML
 
@@ -220,46 +220,46 @@ Voeg dit item toe aan het Struts-configuratiebestand (meestal struts.xml of stru
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
 ```
 
-(Als u interceptors hebt gedefinieerd in een standaardstack, kan de interceptor gewoon worden toegevoegd aan die stack.)
+(Als u interceptors gedefinieerd in een standaardstack hebt, Hallo interceptor kan alleen worden toegevoegd toothat stack.)
 
 ## <a name="5-run-your-application"></a>5. Uw toepassing uitvoeren
-Voer uw app uit in de foutopsporingsmodus op uw ontwikkelcomputer of publiceer de app op uw server.
+Ofwel het uitvoeren in de foutopsporingsmodus op uw ontwikkelcomputer of publiceer tooyour server.
 
 ## <a name="6-view-your-telemetry-in-application-insights"></a>6. Uw telemetrie in Application Insights weergeven
-Ga terug naar uw Application Insights-resource in de [Microsoft Azure Portal](https://portal.azure.com).
+Application Insights-resource in tooyour retourneren [Microsoft Azure-portal](https://portal.azure.com).
 
-Gegevens van HTTP-aanvragen worden weergegeven op de overzichtsblade. (Als dit niet het geval is, wacht u een paar seconden en klikt u vervolgens op Vernieuwen.)
+HTTP-aanvragen gegevens worden weergegeven op de overzichtsblade Hallo. (Als dit niet het geval is, wacht u een paar seconden en klikt u vervolgens op Vernieuwen.)
 
 ![voorbeeldgegevens](./media/app-insights-java-get-started/5-results.png)
 
 [Meer informatie over metrische gegevens.][metrics]
 
-Klik in een grafiek voor gedetailleerdere cumulatieve metrische gegevens.
+Klik door elke grafiek toosee gedetailleerdere metrische gegevens geaggregeerd.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
-> Application Insights gaat uit van de volgende indeling van HTTP-aanvragen voor MVC-toepassingen: `VERB controller/action`. Bijvoorbeeld, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` en `GET Home/Product/sdf96vws` worden gegroepeerd in `GET Home/Product`. Door deze groepering kunnen er zinvolle sets van aanvragen worden samengesteld, zoals het aantal aanvragen en de gemiddelde runtime voor aanvragen.
+> Application Insights gaat uit Hallo-indeling van HTTP-aanvragen voor MVC-toepassingen: `VERB controller/action`. Bijvoorbeeld, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` en `GET Home/Product/sdf96vws` worden gegroepeerd in `GET Home/Product`. Door deze groepering kunnen er zinvolle sets van aanvragen worden samengesteld, zoals het aantal aanvragen en de gemiddelde runtime voor aanvragen.
 >
 >
 
 ### <a name="instance-data"></a>Gegevens van exemplaren
-Klik op een specifiek aanvraagtype om de afzonderlijke exemplaren weer te geven.
+Klik in een specifieke aanvraag type toosee afzonderlijke exemplaren.
 
 In Application Insights worden twee soorten gegevens weergegeven: cumulatieve gegevens (opgeslagen en weergegeven als gemiddelden, aantallen en sommen) en gegevens van exemplaren (afzonderlijke rapporten over HTTP-aanvragen, uitzonderingen, paginaweergaven of aangepaste gebeurtenissen).
 
-Wanneer u de eigenschappen van een aanvraag bekijkt, ziet u de bijbehorende telemetrische gebeurtenissen, zoals aanvragen en uitzonderingen.
+Wanneer u bekijkt hello eigenschappen van een aanvraag, ziet u Hallo telemetrische gebeurtenissen gekoppeld zoals aanvragen en uitzonderingen.
 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Analyse: krachtige querytaal
-Naarmate u meer gegevens verzamelt, kunt u query's uitvoeren voor zowel het samenvoegen van gegevens als het zoeken naar afzonderlijke exemplaren.  [Analyse](app-insights-analytics.md) is een krachtig hulpprogramma om inzicht te krijgen in prestaties en gebruik, en om diagnoses uit te voeren.
+Als u meer gegevens verzamelt, kunt u query's uitvoeren beide tooaggregate gegevens en toofind afzonderlijke exemplaren.  [Analyse](app-insights-analytics.md) is een krachtig hulpprogramma om inzicht te krijgen in prestaties en gebruik, en om diagnoses uit te voeren.
 
 ![Voorbeeld van het hulpprogramma Analyse](./media/app-insights-java-get-started/025.png)
 
-## <a name="7-install-your-app-on-the-server"></a>7. Uw app installeren op de server
-Publiceer nu uw app op de server, geef de app vrij voor gebruik en bekijk de telemetrische gegevens die in de portal binnenkomen.
+## <a name="7-install-your-app-on-hello-server"></a>7. Uw app op Hallo-server installeren
+Publiceer nu uw app toohello-server, kunnen gebruikers worden gebruikt en bekijkt hello telemetrie op Hallo portal weergegeven.
 
-* Controleer of de firewall het verzenden van telemetrie door uw app naar deze poorten toestaat:
+* Zorg ervoor dat uw firewall kunt uw toepassing toosend telemetrie toothese poorten:
 
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
@@ -278,21 +278,21 @@ Onverwerkte uitzonderingen worden automatisch verzameld:
 
 ![Open Instellingen, Fouten](./media/app-insights-java-get-started/21-exceptions.png)
 
-Voor het verzamelen van gegevens over andere uitzonderingen hebt u twee opties:
+toocollect gegevens over andere uitzonderingen, hebt u twee opties:
 
-* [Aanroepen naar trackException() invoegen in uw code][apiexceptions].
-* [De Java-agent installeren op uw server](app-insights-java-agent.md). U specificeert de methoden die u wilt bekijken.
+* [INSERT tootrackException() in uw code roept][apiexceptions].
+* [Hallo Java-Agent installeren op uw server](app-insights-java-agent.md). U opgeven Hallo-methoden die u wilt dat toowatch.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Methodeaanroepen en externe afhankelijkheden bewaken
-[Installeer de Java-agent](app-insights-java-agent.md) om gespecificeerde interne methoden en oproepen via JDBC vast te leggen, inclusief timinggegevens.
+[Hallo Java-Agent installeren](app-insights-java-agent.md) toolog opgegeven interne methoden en oproepen via JDBC vast, inclusief timinggegevens.
 
 ## <a name="performance-counters"></a>Prestatiemeteritems
-Open **Instellingen**, **Servers** om een aantal prestatiemeteritems weer te geven.
+Open **instellingen**, **Servers**, toosee een groot aantal prestatiemeteritems.
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Het verzamelen van prestatiemeteritems aanpassen
-Als u het verzamelen van de standaardset prestatiemeteritems wilt uitschakelen, voegt u de volgende code toe onder het hoofdknooppunt van het ApplicationInsights.xml-bestand:
+toodisable verzameling Hallo standaardset prestatiemeteritems toevoegen Hallo code onder de hoofdknooppunt Hallo van Hallo ApplicationInsights.xml-bestand te volgen:
 
 ```XML
     <PerformanceCounters>
@@ -301,9 +301,9 @@ Als u het verzamelen van de standaardset prestatiemeteritems wilt uitschakelen, 
 ```
 
 ### <a name="collect-additional-performance-counters"></a>Verzamelen van aanvullende prestatiemeteritems
-U kunt opgeven dat er aanvullende prestatiemeteritems moeten worden verzameld.
+U kunt aanvullende prestatie-items toobe verzamelde opgeven.
 
-#### <a name="jmx-counters-exposed-by-the-java-virtual-machine"></a>JMX-tellers (weergegeven door de virtuele Java-machine)
+#### <a name="jmx-counters-exposed-by-hello-java-virtual-machine"></a>JMX-tellers (weergegeven door Hallo virtuele Java-Machine)
 
 ```XML
     <PerformanceCounters>
@@ -314,16 +314,16 @@ U kunt opgeven dat er aanvullende prestatiemeteritems moeten worden verzameld.
     </PerformanceCounters>
 ```
 
-* `displayName` - De naam die wordt weergegeven in de Application Insights-portal.
-* `objectName` - De JMX-objectnaam.
-* `attribute` - Het kenmerk van de JMX-objectnaam dat moet worden opgehaald
-* `type` (optioneel) - Het type kenmerk van het JMX-object:
+* `displayName`– Hallo naam die wordt weergegeven in Hallo Application Insights-portal.
+* `objectName`– hello JMX-objectnaam.
+* `attribute`– Hallo-kenmerk van Hallo JMX-object naam toofetch
+* `type`(optioneel) - Hallo type van kenmerk JMX-object:
   * Standaard: een eenvoudig type, zoals int of long.
-  * `composite`: de gegevens van de prestatiemeteritems hebben de indeling 'Attribute.Data'
-  * `tabular`: de gegevens van de prestatiemeteritems hebben de vorm van een rij in een tabel
+  * `composite`: Hallo prestatiemetergegevens is Hallo indeling 'Attribute.Data'
+  * `tabular`: Hallo prestatiemetergegevens heeft Hallo-indeling van de rij in een tabel
 
 #### <a name="windows-performance-counters"></a>Windows-prestatiemeteritems
-Elk [Windows-prestatiemeteritem](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) maakt deel uit van een categorie (net zoals een veld deel uitmaakt van een klasse). Categorieën kunnen globaal zijn, maar ook genummerde of benoemde exemplaren hebben.
+Elke [Windows-prestatiemeteritem](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) lid is van een categorie (in Hallo dezelfde manier als een veld deel uitmaakt van een klasse). Categorieën kunnen globaal zijn, maar ook genummerde of benoemde exemplaren hebben.
 
 ```XML
     <PerformanceCounters>
@@ -334,35 +334,35 @@ Elk [Windows-prestatiemeteritem](https://msdn.microsoft.com/library/windows/desk
     </PerformanceCounters>
 ```
 
-* displayName: de naam die wordt weergegeven in de Application Insights-portal.
-* categorynaam: de prestatiemeteritemcategorie (prestatie-object) waaraan dit prestatiemeteritem is gekoppeld.
-* counterName: de naam van het prestatiemeteritem.
-* instanceName: de naam van het exemplaar van de prestatiemeteritemcategorie, of een lege tekenreeks ("") als de categorie slechts één exemplaar bevat. Als de categorienaam Process is en het prestatiemeteritem dat u wilt verzamelen, afkomstig is uit het huidige JVM-proces waarop uw app wordt uitgevoerd, specificeert u `"__SELF__"`.
+* displayName: Hallo naam weergegeven in Hallo Application Insights-portal.
+* Categorynaam: Hallo prestatiemeteritemcategorie (prestatie-object) waaraan dit prestatiemeteritem gekoppeld is.
+* counterName: de naam van het prestatiemeteritem Hallo Hallo.
+* instanceName: de naam van exemplaar categorie Hallo van prestatiemeteritem hello of een lege tekenreeks (""), als Hallo categorie slechts één exemplaar bevat. Als Hallo categorienaam Process, en Hallo prestatiemeteritem gewenst toocollect is uit de huidige JVM-proces Hallo op waarop uw app wordt uitgevoerd, specificeert `"__SELF__"`.
 
 De prestatiemeteritems zijn zichtbaar als aangepaste metrische gegevens in [Metrics Explorer][metrics].
 
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
 ### <a name="unix-performance-counters"></a>Unix-prestatiemeteritems
-* [Installeer collectd met de Application Insights-invoegtoepassing](app-insights-java-collectd.md) om een scala aan systeem- en netwerkgegevens op te halen.
+* [Installeer collectd met Application Insights-invoegtoepassing Hallo](app-insights-java-collectd.md) tooget een scala aan systeem- en netwerkbeveiliging.
 
 ## <a name="get-user-and-session-data"></a>Gebruikers- en sessiegegevens ophalen
-U verzendt nu telemetrie vanaf de webserver. Wilt u echt een volledig inzicht in uw toepassing, dan kunt u nog meer bewakingsopties toevoegen:
+U verzendt nu telemetrie vanaf de webserver. Nu Hallo tooget 360-graden weergave van uw toepassing, kunt u meer controle toevoegen:
 
-* [Voeg telemetrie toe aan uw webpagina's][usage] voor het bewaken van paginaweergaven en metrische gegevens over gebruikers.
-* [Stel webtests in][availability] om te controleren of de toepassing live en responsief blijft.
+* [Voeg telemetrie tooyour webpagina's] [ usage] toomonitor pagina weergaven en metrische gegevens over gebruikers.
+* [Webtests instellen] [ availability] toomake zorgen dat uw toepassing live en responsief blijft.
 
 ## <a name="capture-log-traces"></a>Logboektraceringen vastleggen
-U kunt Application Insights gebruiken om logboeken op te delen vanuit Log4J, Logback en andere frameworks voor logboekregistratie. U kunt de logboeken correleren met HTTP-aanvragen en andere telemetrie. [Meer informatie][javalogs].
+U kunt Application Insights tooslice gebruiken en te analyseren, logboeken van Log4J, Logback en andere frameworks voor logboekregistratie. U kunt Hallo logboeken correleren met HTTP-aanvragen en andere telemetrie. [Meer informatie][javalogs].
 
 ## <a name="send-your-own-telemetry"></a>Uw eigen telemetrie verzenden
-Nu u de SDK hebt geïnstalleerd, kunt u de API gebruiken voor het verzenden van uw eigen telemetrie.
+Nu dat u Hallo SDK hebt geïnstalleerd, kunt u uw eigen telemetrie Hallo API toosend gebruiken.
 
-* [Houd aangepaste gebeurtenissen en metrische gegevens bij][api] voor meer informatie over wat gebruikers met uw toepassing doen.
-* [Doorzoek gebeurtenissen en logboeken][diagnostic] om problemen beter te kunnen analyseren.
+* [Aangepaste gebeurtenissen en metrische gegevens bijhouden] [ api] toolearn wat gebruikers met uw toepassing doen.
+* [Zoek naar gebeurtenissen en logboeken] [ diagnostic] toohelp analyseren van problemen.
 
 ## <a name="availability-web-tests"></a>Webtests voor beschikbaarheid
-Application Insights kan uw website regelmatig testen om te controleren of deze actief is en goed reageert. [Voor het instellen][availability] klikt u op Webtests.
+Application Insights kunnen testen uw website op regelmatige intervallen toocheck of deze actief is en goed reageert. [tooset up][availability], klikt u op webtests.
 
 ![Klik op webtests en vervolgens op Webtest toevoegen.](./media/app-insights-java-get-started/31-config-web-test.png)
 
@@ -382,9 +382,9 @@ Er worden grafieken weergegeven met reactietijden en u ontvangt e-mailmeldingen 
 ## <a name="next-steps"></a>Volgende stappen
 * [Afhankelijkheidsaanroepen bewaken](app-insights-java-agent.md)
 * [Unix-prestatiemeteritems bewaken](app-insights-java-collectd.md)
-* Voeg [bewaking toe aan uw webpagina's](app-insights-javascript.md) om de laadtijden, AJAX-aanroepen en browseruitzonderingen te bewaken.
-* Typ [aangepaste telemetrie](app-insights-api-custom-events-metrics.md) om het gebruik in de browser of op de server bij te houden.
-* Maak [dashboards](app-insights-dashboards.md) om de belangrijkste grafieken voor het bewaken van uw systeem samen te brengen.
+* Voeg [tooyour webpagina's bewaken](app-insights-javascript.md) toomonitor laadtijd time-out, AJAX-aanroepen browseruitzonderingen.
+* Schrijven [aangepaste telemetrie](app-insights-api-custom-events-metrics.md) tootrack gebruik in Hallo browser of op Hallo-server.
+* Maak [dashboards](app-insights-dashboards.md) toobring samen Hallo sleutel grafieken voor het bewaken van uw systeem.
 * Gebruik [Analytics](app-insights-analytics.md) om vanuit uw app krachtige query's voor telemetrie uit te voeren
 * Voor meer informatie gaat u naar [Azure voor Java-ontwikkelaars](/java/azure).
 

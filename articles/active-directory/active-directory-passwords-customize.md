@@ -16,96 +16,96 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8b9c120815473b25140b8717f8fdd539c97ebb04
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4762fffef040f9b409355f9ee0e8cc593e3eea0d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>Azure AD-functionaliteit aanpassen voor selfservice voor wachtwoordherstel
 
-IT-Professionals zoeken voor het implementeren van de selfservice voor wachtwoordherstel kunnen aanpassen zodat deze overeenkomen met hun gebruikers.
+IT-Professionals die op zoek toodeploy selfservice wachtwoordherstel kunnen Hallo ervaring toomatch hun gebruikers aanpassen.
 
-## <a name="customize-the-contact-your-administrator-link"></a>De contact op met uw beheerder koppeling aanpassen
+## <a name="customize-hello-contact-your-administrator-link"></a>Hallo Neem contact op met uw beheerder koppeling aanpassen
 
-Zelfs als SSPR is niet ingeschakeld gebruikers nog steeds een 'contact op met uw beheerder' een koppeling in het wachtwoord portal opnieuw instellen.  Op deze koppeling klikt e-mails met uw beheerders om ondersteuning voor het wijzigen van het wachtwoord van de gebruiker vraagt. Dit e-mailbericht wordt verzonden naar de volgende ontvangers in de volgende volgorde:
+Zelfs als SSPR niet ingeschakelde gebruikers nog steeds een 'contact op met uw beheerder' koppeling op Hallo wachtwoord portal opnieuw instellen.  Uw aanvraag voor hulp bij het wijzigen van het wachtwoord van de gebruiker van het Hallo-beheerders op deze koppeling klikt e-mailberichten. Dit e-mailbericht wordt verzonden toohello geadresseerden in Hallo volgorde te volgen:
 
-1. Als de **wachtwoordbeheerder** rol wordt toegewezen, zijn een melding van beheerders met deze rol
-2. Als er geen wachtwoordbeheerders zijn toegewezen, klikt u vervolgens beheerders met de **beheerderrol** rol worden gewaarschuwd.
-3. Als geen van de vorige rollen zijn toegewezen, klikt u vervolgens **globale beheerders** worden gewaarschuwd
+1. Als hello **wachtwoordbeheerder** rol wordt toegewezen, zijn een melding van beheerders met deze rol
+2. Als geen wachtwoordbeheerders zijn toegewezen, klikt u vervolgens beheerders met Hallo **beheerderrol** rol worden gewaarschuwd.
+3. Als geen van de vorige rollen Hallo zijn toegewezen, klikt u vervolgens **globale beheerders** worden gewaarschuwd
 
 In alle gevallen maximaal 100 ontvangers worden gewaarschuwd.
 
-Raadpleeg het document voor meer informatie over de beheerder van de verschillende functies en hoe u ze toewijzen [beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles.md)
+toofind voor meer informatie over de verschillende beheerdersrollen Hallo en hoe ze Zie tooassign document Hallo [beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles.md)
 
 ### <a name="disable-contact-your-administrator-emails"></a>Schakel Neem contact op met uw beheerder e-mailberichten
 
-Als uw organisatie wil niet dat beheerders op de hoogte wachtwoord opnieuw instellen van aanvragen, kan de volgende configuratie worden ingeschakeld
+Als uw organisatie wil niet dat beheerders op de hoogte wachtwoord opnieuw instellen van aanvragen, kan hello volgende configuratie worden ingeschakeld
 
 * Selfservice voor wachtwoordherstel voor alle eindgebruikers inschakelen. Deze optie is onder **wachtwoordherstel > eigenschappen**.
-    * Als u niet dat gebruikers hun eigen wachtwoorden opnieuw kunnen instellen wenst, kunt u toegang tot een lege groep bereik **niet raadzaam deze optie**.
-* Aanpassen van de helpdesk-koppeling voor een web-URL of mailto: adres waarmee gebruikers kunt u hulp nodig hebt. Deze optie is onder **wachtwoordherstel > aanpassing > aangepaste helpdesk e-mail of URL**.
+    * Als u niet tooreset gebruikers hun eigen wachtwoorden wenst, kunt u het bereik leeg toegangsgroep tooan **niet raadzaam deze optie**.
+* Hallo helpdesk-koppeling tooprovide aanpassen een web-URL of mailto: adres dat gebruikers tooget hulp kunnen gebruiken. Deze optie is onder **wachtwoordherstel > aanpassing > aangepaste helpdesk e-mail of URL**.
 
 ## <a name="customize-adfs-sign-in-page-for-sspr"></a>AD FS-aanmeldingspagina voor SSPR aanpassen
 
-ADFS-beheerders kunnen een koppeling naar hun met behulp van de richtlijnen gevonden in het artikel aanmeldingspagina toevoegen [toevoegen aanmeldingspagina beschrijving](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/add-sign-in-page-description).
+ADFS-beheerders kunnen een koppeling tootheir aanmeldingspagina met Hallo richtlijnen Hallo-artikel toevoegen [toevoegen aanmeldingspagina beschrijving](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/add-sign-in-page-description).
 
-Met de opdracht die op uw ADFS-server volgt, voegt een koppeling naar de aanmeldingspagina van AD FS, zodat gebruikers kunnen invoeren van de selfservice voor wachtwoordherstel werkstroom rechtstreeks herstellen.
+Hallo-opdracht die op uw ADFS-server volgt, voegt een koppeling toohello aanmeldingspagina van AD FS zodat gebruikers tooenter Hallo zelf uw wachtwoord opnieuw instellen van werkstroom rechtstreeks.
 
 ``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
 
-## <a name="customize-the-sign-in-and-access-panel-look-and-feel"></a>Het aanmelden en toegang Configuratiescherm uiterlijk aanpassen
+## <a name="customize-hello-sign-in-and-access-panel-look-and-feel"></a>Hallo aanmelden en toegang Configuratiescherm uiterlijk aanpassen
 
-Wanneer uw gebruikers toegang krijgen de aanmeldingspagina tot, kunt u het logo dat wordt weergegeven samen met de aanmeldingspagina afbeelding aanpassen aan uw huisstijl aanpassen.
+Wanneer uw gebruikers toegang krijgen de aanmeldingspagina hello tot, kunt u Hallo-logo dat wordt weergegeven samen met de Hallo aanmeldingspagina installatiekopie toofit uw huisstijl aanpassen.
 
-Deze afbeeldingen worden weergegeven in de volgende omstandigheden:
+Deze afbeeldingen worden weergegeven in de volgende omstandigheden Hallo:
 
 * Nadat een gebruiker typt hun gebruikersnaam
 * Gebruiker heeft toegang tot de aangepaste url
-    * Door w '/' pagina, zoals 'https://login.microsoftonline.com/?whr=contoso.com'-parameter voor het wachtwoord opnieuw instellen
-    * Door het doorgeven van de 'gebruikersnaam'-parameter voor het wachtwoord opnieuw instellen pagina, zoals ' https://login.microsoftonline.com/?username=admin@contoso.com'
+    * Door doorgeven Hallo wachtwoordherstel 'w' parameter toohello pagina, zoals 'https://login.microsoftonline.com/?whr=contoso.com'
+    * Door het doorgeven van Hallo 'gebruikersnaam' parameter toohello wachtwoordherstel pagina, zoals ' https://login.microsoftonline.com/?username=admin@contoso.com'
 
 ### <a name="graphics-details"></a>Grafische details
 
-De volgende instellingen kunt u de visuele kenmerken van de aanmeldingspagina te wijzigen en kunt u vinden onder **Azure Active Directory**, **bedrijf huisstijl**, **huisstijl bewerken**
+Hallo volgende instellingen kunt u toochange Hallo visuele kenmerken van de aanmeldingspagina Hallo en kunt u vinden onder **Azure Active Directory**, **bedrijf huisstijl**, **bedrijf bewerken de huisstijl**
 
-* Aanmeldingspagina afbeelding moet een PNG- of JPG-bestand 1420 x 1200 pixels en niet groter zijn dan 500KB. We raden aan dat het ongeveer 200 KB voor de beste resultaten.
-* Achtergrondkleur van de aanmeldingspagina wordt gebruikt op de verbindingen met hoge latentie en moet de RGB-hexadecimale notatie.
+* Aanmeldingspagina afbeelding moet een PNG- of JPG-bestand 1420 x 1200 pixels en niet groter zijn dan 500KB. We raden toobe ongeveer 200 KB voor de beste resultaten.
+* Achtergrondkleur van de aanmeldingspagina wordt gebruikt op de verbindingen met hoge latentie en moet Hallo RGB-hexadecimale notatie.
 * Banner afbeelding moet een PNG- of JPG-bestand 60 x 280 pixels en niet groter zijn dan 10 KB.
 * Vierkante logo (normaal en donker thema) PNG- of JPG 240 x 240 (formaat) niet groter zijn dan 10 KB.
 
 ### <a name="sign-in-text-options"></a>Opties voor tekst van aanmeldingspagina
 
-De volgende instellingen kunnen u tekst toevoegen aan de aanmeldingspagina relevant zijn voor uw organisatie. Deze instellingen kunnen worden gevonden in het **Azure Active Directory**, **bedrijf huisstijl**, **huisstijl bewerken**
+Hallo na instellingen kunt u tooadd tekst toohello aanmeldingspagina relevante tooyour organisatie. Deze instellingen kunnen worden gevonden in het **Azure Active Directory**, **bedrijf huisstijl**, **huisstijl bewerken**
 
-* **Gebruiker naam hint** vervangt de voorbeeldtekst van someone@example.com met iets meer geschikt is voor uw gebruikers, de aanbevolen standaardwaarde blijven wanneer de ondersteuning van interne en externe gebruikers
-* **Tekst van aanmeldingspagina** maximaal 256 tekens lang is. Deze tekst verschijnt overal uw aanmelding voor gebruikers online en in de Azure AD Join-ervaring op Windows 10. Gebruik deze tekst voor voorwaarden van het gebruik, instructies en tips voor uw gebruikers. **Iedereen kunt uw aanmeldingspagina zodat bieden geen gevoelige informatie hier zien.**
+* **Gebruiker naam hint** vervangt Hallo voorbeeldtekst van someone@example.com met iets meer geschikt is voor uw gebruikers, aanbevolen toobe links standaard bij het ondersteunen van interne en externe gebruikers
+* **Tekst van aanmeldingspagina** maximaal 256 tekens lang is. Deze tekst verschijnt ergens uw aanmelding voor gebruikers online en in hello Azure AD Join-ervaring op Windows 10. Gebruik deze tekst voor voorwaarden van het gebruik, instructies en tips voor uw gebruikers. **Iedereen kunt uw aanmeldingspagina zodat bieden geen gevoelige informatie hier zien.**
 
 ### <a name="keep-me-signed-in-disabled"></a>Aangemeld blijven uitgeschakeld
 
-De optie kan 'Behouden mij uitgeschakeld aangemeld' gebruikers aangemeld blijven wanneer ze sluiten en opnieuw hun browservenster openen. Deze optie heeft geen gevolgen voor de levensduur van de sessie. Deze instelling te vinden onder **Azure Active Directory > bedrijf huisstijl > bewerken huisstijl**.
+Hallo-optie 'aangemeld blijven uitgeschakeld', kunt gebruikers tooremain is aangemeld wanneer ze sluiten en opnieuw hun browservenster openen. Deze optie heeft geen gevolgen voor de levensduur van de sessie. Deze instelling te vinden onder **Azure Active Directory > bedrijf huisstijl > bewerken huisstijl**.
 
-Sommige functies van Office 2010 en SharePoint Online hebben een afhankelijkheid op gebruikers kunnen dit selectievakje inschakelt. Als u deze optie verbergt, kunnen gebruikers meer en onverwachte aanmelden wordt u gevraagd krijgen.
+Sommige functies van Office 2010 en SharePoint Online hebben een afhankelijkheid op gebruikers kunnen toocheck wordt dit selectievakje in. Als u deze optie verbergt, kunnen gebruikers meer en onverwachte aanmelden wordt u gevraagd krijgen.
 
 ### <a name="directory-name"></a>Mapnaam
 
-U kunt het kenmerk name onder wijzigen **Azure Active Directory > eigenschappen** om weer te geven van een beschrijvende organisatienaam weergegeven in de portal en geautomatiseerde communicatie. Deze optie is zichtbaar zijn in de vorm van automatische e-mailberichten in de formulieren die volgen
+Kunt u het naamkenmerk Hallo onder **Azure Active Directory > eigenschappen** tooshow een beschrijvende organisatienaam weergegeven in de portal Hallo en geautomatiseerde communicatie. Deze optie is zichtbaar zijn in de vorm Hallo van automatische e-mailberichten in Hallo formulieren die volgen
 
 * Beschrijvende naam in e-mailbericht 'Microsoft namens de CONTOSO-demo'
 * Onderwerpregel in e-mailbericht 'CONTOSO-demo account e verificatiecode'
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met behulp van Azure AD
+Hallo volgende koppelingen vindt u aanvullende informatie met betrekking tot het wachtwoord opnieuw instellen met behulp van Azure AD
 
 * [**Snel starten**](active-directory-passwords-getting-started.md): aan de slag met self-service wachtwoordbeheer van Azure AD 
 * [**Licentieverlening**](active-directory-passwords-licensing.md): uw Azure AD-licentieverlening configureren
-* [**Gegevens**](active-directory-passwords-data.md): informatie over de gegevens die nodig zijn en hoe deze worden gebruikt voor wachtwoordbeheer
-* [**Implementatie**](active-directory-passwords-best-practices.md): SSPR plannen en implementeren voor uw gebruikers op basis van de hier gegeven informatie
+* [**Gegevens** ](active-directory-passwords-data.md) - begrijpen Hallo-gegevens die nodig is en hoe deze wordt gebruikt voor wachtwoordbeheer
+* [**Implementatie** ](active-directory-passwords-best-practices.md) -plannen en implementeren van SSPR tooyour gebruikers via Hallo richtlijnen hier gevonden
 * [**Beleid**](active-directory-passwords-policy.md): Azure AD-wachtwoordbeleid begrijpen en instellen
 * [**Write-back van wachtwoord**](active-directory-passwords-writeback.md): hoe werkt write-back van wachtwoord met uw on-premises directory
 * [**Rapportage**](active-directory-passwords-reporting.md): detecteren of, waar en wanneer uw gebruikers de functionaliteit voor self-service voor wachtwoordherstel gebruiken
-* [**Gedetailleerde technische informatie**](active-directory-passwords-how-it-works.md): neem een kijkje achter de schermen om te begrijpen hoe het werkt
-* [**Veelgestelde vragen**](active-directory-passwords-faq.md): hoe? Hoe komt dat? Wat? Waar? Wie? Wanneer? - Antwoorden op vragen die u altijd wilde stellen
-* [**Probleemoplossing**](active-directory-passwords-troubleshoot.md): informatie over het oplossen van algemene problemen die optreden bij de self-service voor wachtwoordherstel
+* [**Technische diepgaand** ](active-directory-passwords-how-it-works.md) -Ga achter Hallo gordijn toounderstand hoe het werkt
+* [**Veelgestelde vragen**](active-directory-passwords-faq.md): hoe? Hoe komt dat? Wat? Waar? Wie? Wanneer? -Beantwoordt tooquestions gewenste altijd tooask
+* [**Problemen met** ](active-directory-passwords-troubleshoot.md) -informatie over hoe tooresolve algemene problemen zien we met SSPR
 

@@ -1,28 +1,28 @@
 ## <a name="defining-a-backup-policy"></a>Een back-upbeleid definiëren
-Een back-upbeleid definieert een matrix met wanneer de momentopnamen van de gegevens zijn gemaakt en hoe lang deze momentopnamen worden bewaard. Bij het definiëren van een beleid voor het maken van een back-up van een virtuele machine, kunt u ervoor zorgen dat er *eenmaal per dag* een back-uptaak wordt uitgevoerd. Wanneer u een nieuw beleid maakt, wordt dit toegepast op de kluis. De interface voor het back-upbeleid ziet er als volgt uit:
+Een back-upbeleid definieert een matrix met wanneer Hallo momentopnamen worden gemaakt en hoe lang deze momentopnamen worden bewaard. Bij het definiëren van een beleid voor het maken van een back-up van een virtuele machine, kunt u ervoor zorgen dat er *eenmaal per dag* een back-uptaak wordt uitgevoerd. Wanneer u een nieuw beleid maakt, is het toegepaste toohello kluis. Hallo-interface voor back-upbeleid ziet er als volgt:
 
 ![Back-upbeleid](./media/backup-create-policy-for-vms/backup-policy.png)
 
-Ga als volgt te werk om een beleid te maken:
+een beleid toocreate:
 
-1. Voer een naam in voor de **beleidsnaam**.
-2. Momentopnamen van uw gegevens kunnen met tussenpozen van een dag of een week worden gemaakt. Gebruik de vervolgkeuzelijst **Back-upfrequentie** om te kiezen of u wilt dat er dagelijks of wekelijks momentopnamen worden gemaakt.
+1. Voer een naam voor Hallo **beleidsnaam**.
+2. Momentopnamen van uw gegevens kunnen met tussenpozen van een dag of een week worden gemaakt. Gebruik Hallo **back-upfrequentie** vervolgkeuzelijst toochoose of gegevens momentopnamen worden dagelijks of wekelijks.
    
-   * Als u voor een dagelijks interval kiest, moet u met het gemarkeerde besturingselement het tijdstip op de dag kiezen waarop de momentopname moet worden gemaakt. Als u het tijdstip wilt wijzigen, maakt u de selectie voor het huidige tijdstip ongedaan en selecteert u het nieuwe tijdstip.
+   * Als u een dagelijks interval kiest, moet u Hallo gemarkeerd besturingselement tooselect Hallo tijd van de dag hello gebruiken voor Hallo momentopname. toochange hello uur, schakelt u Hallo uur en selecteert u Hallo nieuwe tijdstip.
      
      ![Dagelijks back-upbeleid](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
-   * Als u voor een wekelijkse interval kiest, moet u met het gemarkeerde besturingselement de dag(en) van de week en het tijdstip op de dag kiezen waarop de momentopname moet worden gemaakt. Selecteer een of meer dagen in het menu met de dagen. Selecteer een tijdstip in het menu met de uren. Als u het tijdstip wilt wijzigen, maakt u de selectie voor het huidige tijdstip ongedaan en selecteert u het nieuwe tijdstip.
+   * Als u een wekelijkse interval kiest, gebruik Hallo besturingselementen gemarkeerde tooselect Hallo dag(en) van Hallo week en Hallo-tijd van dag tootake Hallo momentopname. Selecteer een of meer dagen in Hallo dag menu. Selecteer één uur in Hallo uur menu. toochange hello uur, schakelt u het huidige tijdstip Hallo en selecteert u Hallo nieuwe tijdstip.
      
      ![Wekelijks back-upbeleid](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
-3. Standaard zijn alle opties voor een **bewaartermijn** geselecteerd. Schakel de limieten voor de bewaartermijnen uit die u niet wilt gebruiken. Geef vervolgens een of meer intervallen op die moeten worden gebruikt.
+3. Standaard zijn alle opties voor een **bewaartermijn** geselecteerd. Schakelt u niet wilt dat toouse limieten voor de bewaartermijnen. Geef vervolgens Hallo interval(s) toouse.
    
-    Door bewaartermijnen van een maand en een jaar te gebruiken, kunt u opgeven dat momentopnamen met tussenstappen van een week of een dag worden gemaakt.
+    Maandelijkse en jaarlijkse bewaartermijnen kunnen u toospecify Hallo momentopnamen op basis van een wekelijks of dagelijks interval.
    
    > [!NOTE]
-   > Als u een virtuele machine beveiligt, wordt één keer per dag een back-uptaak uitgevoerd. Het tijdstip waarop de back-up wordt uitgevoerd, is voor elke bewaartermijn hetzelfde.
+   > Als u een virtuele machine beveiligt, wordt één keer per dag een back-uptaak uitgevoerd. Hallo tijd wanneer Hallo back-up wordt uitgevoerd is Hallo dezelfde voor elke bewaartermijn.
    > 
    > 
-4. Nadat u alle opties voor het beleid hebt ingesteld, klikt u boven in de blade op **Opslaan**.
+4. Na het instellen van alle opties voor Hallo beleid boven Hallo in Hallo-blade op **opslaan**.
    
-    Het nieuwe beleid wordt onmiddellijk op de kluis toegepast.
+    Hallo nieuwe beleid wordt onmiddellijk toegepaste toohello kluis.
 

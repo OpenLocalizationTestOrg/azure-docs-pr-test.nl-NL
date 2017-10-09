@@ -1,24 +1,24 @@
-## <a name="specify-the-behavior-of-the-iot-device"></a>Het gedrag van het IoT-apparaat opgeven
+## <a name="specify-hello-behavior-of-hello-iot-device"></a>Geef gedrag op Hallo van Hallo IoT-apparaat
 
-De clientbibliotheek van de IoT Hub-serialisatiefunctie maakt gebruik van een model om de opmaak op te geven van de berichten die het apparaat uitwisselt met IoT Hub.
+Hallo clientbibliotheek van IoT Hub serialisatiefunctie gebruikt een model toospecify Hallo Hallo berichten Hallo apparaat uitwisselingen met IoT Hub.
 
-1. Voeg de volgende variabelendeclaraties achter de `#include`-instructies toe. Vervang de waarden van de tijdelijke aanduidingen [apparaat-id] en [apparaatsleutel] door de waarden die u voor het apparaat hebt genoteerd in het dashboard van de oplossing voor externe controle. Gebruik de hostnaam van de IoT Hub uit het oplossingsdashboard om [IoTHub-naam] te vervangen. Als uw IoT Hub-hostnaam bijvoorbeeld **contoso.azure devices.net** is, vervangt u [IoTHub-naam] door **contoso**:
+1. Hallo variabelendeclaraties volgen na Hallo toevoegen `#include` instructies. Vervang de waarden van de tijdelijke aanduiding Hallo [apparaat-Id] en [apparaatsleutel] met waarden die u voor uw apparaat in Hallo dashboard externe controle oplossing hebt genoteerd. Hallo IoT Hub-hostnaam van Hallo oplossing dashboard tooreplace [IoTHub Name] gebruiken. Als uw IoT Hub-hostnaam bijvoorbeeld **contoso.azure devices.net** is, vervangt u [IoTHub-naam] door **contoso**:
    
     ```c
     static const char* deviceId = "[Device Id]";
     static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
     ```
 
-1. Voeg de volgende code toe om het model te definiëren dat het apparaat in staat stelt om met IoT Hub te communiceren. Dit model bepaalt dat het apparaat:
+1. Voeg Hallo code toodefine Hallo model waarmee Hallo apparaat toocommunicate met IoT Hub te volgen. Dit model geeft aan dat het Hallo-apparaat:
 
    - Temperatuur, externe temperatuur, vochtigheid en een apparaat-id als telemetrie kan verzenden.
-   - Metagegevens over het apparaat naar IoT Hub kan verzenden. Het apparaat verzendt bij het opstarten basismetagegevens in een **DeviceInfo**-object.
-   - Gerapporteerde eigenschappen naar de apparaatdubbel in IoT Hub kan verzenden. Deze gerapporteerde eigenschappen zijn gegroepeerd in configuratie-, apparaat- en systeemeigenschappen.
-   - Gewenste eigenschappen die in de apparaatdubbel in IoT Hub zijn ingesteld, kan ontvangen en hierop kan reageren.
-   - Kan reageren op de directe methoden **Reboot** en **InitiateFirmwareUpdate** die via de oplossingsportal worden aangeroepen. Met behulp van gerapporteerde eigenschappen stuurt het apparaat informatie over de ondersteunde directe methoden.
+   - Kan metagegevens over Hallo apparaat tooIoT Hub verzenden. Hallo apparaat verzendt basismetagegevens een **DeviceInfo** object tijdens het opstarten.
+   - Kan verzenden gemelde eigenschappen toohello apparaat twin in IoT-Hub. Deze gerapporteerde eigenschappen zijn gegroepeerd in configuratie-, apparaat- en systeemeigenschappen.
+   - Kan ontvangen van en reageren op de gewenste eigenschappen instellen in Hallo apparaat twin in IoT-Hub.
+   - Kan reageren toohello **opnieuw opstarten** en **InitiateFirmwareUpdate** methoden aangeroepen via de portal van de oplossing Hallo direct. Hallo apparaat verzendt informatie over Hallo rechtstreekse methoden ondersteunt met behulp van gerapporteerde eigenschappen.
    
     ```c
-    // Define the Model
+    // Define hello Model
     BEGIN_NAMESPACE(Contoso);
 
     /* Reported properties */
@@ -74,7 +74,7 @@ De clientbibliotheek van de IoT Hub-serialisatiefunctie maakt gebruik van een mo
       WITH_DESIRED_PROPERTY(double, TemperatureMeanValue, onDesiredTemperatureMeanValue),
       WITH_DESIRED_PROPERTY(uint8_t, TelemetryInterval, onDesiredTelemetryInterval),
 
-      /* Direct methods implemented by the device */
+      /* Direct methods implemented by hello device */
       WITH_METHOD(Reboot),
       WITH_METHOD(InitiateFirmwareUpdate, ascii_char_ptr, FwPackageURI),
 
@@ -85,15 +85,15 @@ De clientbibliotheek van de IoT Hub-serialisatiefunctie maakt gebruik van een mo
     END_NAMESPACE(Contoso);
     ```
 
-## <a name="implement-the-behavior-of-the-device"></a>Het gedrag van het apparaat implementeren
-Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd.
+## <a name="implement-hello-behavior-of-hello-device"></a>Hallo-gedrag van Hallo-apparaat implementeren
+Voeg nu code Hallo gedrag in Hallo model gedefinieerd implementeert.
 
-1. Voeg de volgende functies toe die de gewenste eigenschappen verwerken die in het oplossingsdashboard zijn ingesteld. De volgende gewenste eigenschappen zijn in het model gedefinieerd:
+1. Hallo functies dat gewenst Hallo-eigenschappen instellen in het dashboard van de oplossing Hallo verwerken na toevoegen. Deze gewenste eigenschappen zijn gedefinieerd in Hallo model:
 
     ```c
     void onDesiredTemperatureMeanValue(void* argument)
     {
-      /* By convention 'argument' is of the type of the MODEL */
+      /* By convention 'argument' is of hello type of hello MODEL */
       Thermostat* thermostat = argument;
       printf("Received a new desired_TemperatureMeanValue = %f\r\n", thermostat->TemperatureMeanValue);
 
@@ -101,13 +101,13 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
 
     void onDesiredTelemetryInterval(void* argument)
     {
-      /* By convention 'argument' is of the type of the MODEL */
+      /* By convention 'argument' is of hello type of hello MODEL */
       Thermostat* thermostat = argument;
       printf("Received a new desired_TelemetryInterval = %d\r\n", thermostat->TelemetryInterval);
     }
     ```
 
-1. Voeg de volgende functies toe die de directe methoden verwerken die via de IoT Hub worden aangeroepen. De volgende directe methoden zijn in het model gedefinieerd:
+1. Hallo functies waarmee Hallo rechtstreekse methoden aangeroepen via Hallo iothub worden verwerkt na toevoegen. Deze rechtstreekse methoden zijn gedefinieerd in Hallo model:
 
     ```c
     /* Handlers for direct methods */
@@ -130,26 +130,26 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
     }
     ```
 
-1. Voeg de volgende functie toe die een bericht naar de vooraf geconfigureerde oplossing verzendt:
+1. Hallo volgen functie die u een bericht toohello vooraf geconfigureerde oplossing verzendt toevoegen:
    
     ```c
-    /* Send data to IoT Hub */
+    /* Send data tooIoT Hub */
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
     {
       IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromByteArray(buffer, size);
       if (messageHandle == NULL)
       {
-        printf("unable to create a new IoTHubMessage\r\n");
+        printf("unable toocreate a new IoTHubMessage\r\n");
       }
       else
       {
         if (IoTHubClient_SendEventAsync(iotHubClientHandle, messageHandle, NULL, NULL) != IOTHUB_CLIENT_OK)
         {
-          printf("failed to hand over the message to IoTHubClient");
+          printf("failed toohand over hello message tooIoTHubClient");
         }
         else
         {
-          printf("IoTHubClient accepted the message for delivery\r\n");
+          printf("IoTHubClient accepted hello message for delivery\r\n");
         }
 
         IoTHubMessage_Destroy(messageHandle);
@@ -158,7 +158,7 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
     }
     ```
 
-1. Voeg de volgende callbackhandler toe die wordt uitgevoerd wanneer het apparaat nieuwe gerapporteerde eigenschapswaarden naar de vooraf geconfigureerde oplossing heeft verzonden:
+1. Voeg Hallo retouraanroep-handler die wordt uitgevoerd wanneer het Hallo-apparaat heeft verzonden nieuwe gemelde eigenschapswaarden toohello vooraf geconfigureerde oplossing te volgen:
 
     ```c
     /* Callback after sending reported properties */
@@ -169,15 +169,15 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
     }
     ```
 
-1. Voeg de volgende functie toe om het apparaat te verbinden met de vooraf geconfigureerde oplossing in de cloud, en gegevens uit te wisselen. Deze functie voert de volgende stappen uit:
+1. Hallo volgende tooconnect werken uw apparaat toohello vooraf geconfigureerde oplossing in de cloud Hallo en uitwisselen van gegevens toevoegen. Deze functie voert Hallo stappen te volgen:
 
-    - Initialiseert het platform.
-    - Registreert de Contoso-naamruimte bij de serialisatiebibliotheek.
-    - Initialiseert de client met de verbindingsreeks van het apparaat.
-    - Maakt een exemplaar van het **thermostaat**model.
+    - Initialiseert Hallo-platform.
+    - Registreert Hallo Contoso naamruimte met Hallo serialisatie-bibliotheek.
+    - Initialiseert Hallo-client met verbindingsreeks Hallo-apparaat.
+    - Maak een instantie van Hallo **thermostaat** model.
     - Maakt en verzendt gerapporteerde eigenschapswaarden.
     - Verzendt een **DeviceInfo**-object.
-    - Maakt een lus om elke seconde telemetrie te verzenden.
+    - Maakt een lus toosend telemetrie per seconde.
     - Deïnitialiseert alle resources.
 
       ```c
@@ -185,13 +185,13 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
       {
         if (platform_init() != 0)
         {
-          printf("Failed to initialize the platform.\n");
+          printf("Failed tooinitialize hello platform.\n");
         }
         else
         {
           if (SERIALIZER_REGISTER_NAMESPACE(Contoso) == NULL)
           {
-            printf("Unable to SERIALIZER_REGISTER_NAMESPACE\n");
+            printf("Unable tooSERIALIZER_REGISTER_NAMESPACE\n");
           }
           else
           {
@@ -203,10 +203,10 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
             else
             {
       #ifdef MBED_BUILD_TIMESTAMP
-              // For mbed add the certificate information
+              // For mbed add hello certificate information
               if (IoTHubClient_SetOption(iotHubClientHandle, "TrustedCerts", certificates) != IOTHUB_CLIENT_OK)
               {
-                  printf("Failed to set option \"TrustedCerts\"\n");
+                  printf("Failed tooset option \"TrustedCerts\"\n");
               }
       #endif // MBED_BUILD_TIMESTAMP
               Thermostat* thermostat = IoTHubDeviceTwin_CreateThermostat(iotHubClientHandle);
@@ -229,17 +229,17 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
                 thermostat->System.Platform = "Plat 9.75";
                 thermostat->System.Processor = "i3-7";
                 thermostat->System.SerialNumber = "SER21";
-                /* Specify the signatures of the supported direct methods */
-                thermostat->SupportedMethods = "{\"Reboot\": \"Reboot the device\", \"InitiateFirmwareUpdate--FwPackageURI-string\": \"Updates device Firmware. Use parameter FwPackageURI to specifiy the URI of the firmware file\"}";
+                /* Specify hello signatures of hello supported direct methods */
+                thermostat->SupportedMethods = "{\"Reboot\": \"Reboot hello device\", \"InitiateFirmwareUpdate--FwPackageURI-string\": \"Updates device Firmware. Use parameter FwPackageURI toospecifiy hello URI of hello firmware file\"}";
 
-                /* Send reported properties to IoT Hub */
+                /* Send reported properties tooIoT Hub */
                 if (IoTHubDeviceTwin_SendReportedStateThermostat(thermostat, deviceTwinCallback, NULL) != IOTHUB_CLIENT_OK)
                 {
                   printf("Failed sending serialized reported state\n");
                 }
                 else
                 {
-                  printf("Send DeviceInfo object to IoT Hub at startup\n");
+                  printf("Send DeviceInfo object tooIoT Hub at startup\n");
       
                   thermostat->ObjectType = "DeviceInfo";
                   thermostat->IsSimulatedDevice = 0;
@@ -296,7 +296,7 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
       }
     ```
    
-    Ter referentie volgt hier een voorbeeld van een **telemetrie**bericht dat naar de vooraf geconfigureerde oplossing is verzonden:
+    Ter referentie: Hier volgt een voorbeeld **telemetrie** verzonden bericht toohello vooraf geconfigureerde oplossing:
    
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}

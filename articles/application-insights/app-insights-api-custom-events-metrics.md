@@ -1,6 +1,6 @@
 ---
-title: Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens | Microsoft Docs
-description: Plaats een paar regels code in uw apparaat of een bureaublad-app, webpagina of service, gebruik bijhouden en analyseren van problemen.
+title: aaaApplication Insights-API voor aangepaste gebeurtenissen en metrische gegevens | Microsoft Docs
+description: Invoegen van een paar regels code in het gebruik van uw apparaat of bureaublad-app, een webpagina of service, tootrack en onderzoeken van problemen.
 services: application-insights
 documentationcenter: 
 author: CFreemanwa
@@ -13,35 +13,35 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: bwren
-ms.openlocfilehash: e94c50de51612243386d89c5e0b3178a4f9cbd38
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f3d207a47bb4825efda806a19dd0c26540db7bdd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
-Voeg een paar regels code in uw toepassing om erachter te komen wat gebruikers doen met het of om u te helpen bij het analyseren van problemen. U kunt telemetrie verzenden van apparaat- en bureaublad-apps, webserver en webclients en webservers. Gebruik de [Azure Application Insights](app-insights-overview.md) telemetrie-API voor het verzenden van aangepaste gebeurtenissen en metrische gegevens en uw eigen versies standaardtelemetrie core. Deze API is de dezelfde API die gebruikmaken van de standaard Application Insights gegevens collectors.
+Een paar regels code in uw toepassing toofind uit wat gebruikers met het doen invoegen of toohelp vaststellen van problemen. U kunt telemetrie verzenden van apparaat- en bureaublad-apps, webserver en webclients en webservers. Gebruik Hallo [Azure Application Insights](app-insights-overview.md) telemetrie-API toosend aangepaste gebeurtenissen en metrische gegevens en uw eigen versies standaardtelemetrie core. Deze API is Hallo dezelfde API die Hallo standaard Application Insights gegevens collectors gebruiken.
 
 ## <a name="api-summary"></a>API-overzicht
-De API is uniform op alle platforms, naast een paar kleine verschillen.
+Hallo API is uniform op alle platforms, naast een paar kleine verschillen.
 
 | Methode | Gebruikt voor |
 | --- | --- |
 | [`TrackPageView`](#page-views) |Pagina's, schermen, blades of formulieren. |
-| [`TrackEvent`](#trackevent) |Acties van gebruikers en andere gebeurtenissen. Gebruikt voor het gedrag van de gebruiker bijhouden of om prestaties te bewaken. |
-| [`TrackMetric`](#trackmetric) |Prestatiemetingen zoals wachtrij lengten niet gerelateerd aan specifieke gebeurtenissen. |
-| [`TrackException`](#trackexception) |Logboekregistratie uitzonderingen voor diagnose. Traceren waarbij ze ten opzichte van andere gebeurtenissen optreden en stack-traces onderzoeken. |
-| [`TrackRequest`](#trackrequest) |De frequentie en duur van serveraanvragen voor prestatieanalyse logboekregistratie. |
+| [`TrackEvent`](#trackevent) |Acties van gebruikers en andere gebeurtenissen. Tootrack gebruiker gedrag of toomonitor prestaties gebruikt. |
+| [`TrackMetric`](#trackmetric) |Prestatiemetingen zoals wachtrij lengten niet gerelateerd toospecific gebeurtenissen. |
+| [`TrackException`](#trackexception) |Logboekregistratie uitzonderingen voor diagnose. Traceren waarin ze in de relatie tooother gebeurtenissen optreden en stack-traces onderzoeken. |
+| [`TrackRequest`](#trackrequest) |Logboekregistratie Hallo frequentie en duur van serveraanvragen voor analyse van prestaties. |
 | [`TrackTrace`](#tracktrace) |Diagnostische logboeken-berichten. U kunt ook de logboeken van derden vastleggen. |
-| [`TrackDependency`](#trackdependency) |De duur en frequentie van aanroepen naar externe onderdelen die uw app afhankelijk van is logboekregistratie. |
+| [`TrackDependency`](#trackdependency) |Logboekregistratie Hallo duur en frequentie van aanroepen tooexternal onderdelen die afhankelijk van uw app. |
 
-U kunt [eigenschappen en metrische gegevens koppelen](#properties) tot de meeste van deze aanroepen telemetrie.
+U kunt [eigenschappen en metrische gegevens koppelen](#properties) toomost telemetrie aanroepen.
 
 ## <a name="prep"></a>Voordat u begint
 Als u nog een verwijzing op Application Insights-SDK hebt:
 
-* De Application Insights-SDK toevoegen aan uw project:
+* Hallo Application Insights-SDK tooyour project toevoegen:
 
   * [ASP.NET-project](app-insights-asp-net.md)
   * [Java-project](app-insights-java-get-started.md)
@@ -71,14 +71,14 @@ Maken van een exemplaar van `TelemetryClient` (behalve in JavaScript in webpagin
 
 TelemetryClient is thread-safe.
 
-Het is raadzaam om gebruik te maken van een instantie van TelemetryClient voor elke module van uw app. Bijvoorbeeld: mogelijk hebt u één exemplaar van TelemetryClient in uw webservice voor het rapporteren van binnenkomende HTTP-aanvragen en andere in een klasse middleware rapport zakelijke logica gebeurtenissen. U kunt eigenschappen instellen, zoals `TelemetryClient.Context.User.Id` voor het bijhouden van gebruikers en sessies, of `TelemetryClient.Context.Device.Id` om de machine te bepalen. Deze informatie is gekoppeld aan alle gebeurtenissen die door het exemplaar wordt verzonden.
+Het is raadzaam om gebruik te maken van een instantie van TelemetryClient voor elke module van uw app. Bijvoorbeeld: mogelijk hebt u één exemplaar van TelemetryClient in uw web-service tooreport binnenkomende HTTP-aanvragen en andere in een middleware klasse tooreport zakelijke logica gebeurtenissen. U kunt eigenschappen instellen, zoals `TelemetryClient.Context.User.Id` tootrack gebruikers en sessies, of `TelemetryClient.Context.Device.Id` tooidentify Hallo machine. Deze informatie is aangesloten tooall gebeurtenissen die Hallo exemplaar verzendt.
 
 ## <a name="trackevent"></a>TrackEvent
-In Application Insights, een *aangepaste gebeurtenis* is van een gegevenspunt geldt dat u kunt weergeven in [Metrics Explorer](app-insights-metrics-explorer.md) als een verzamelde aantal en in [diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md) als afzonderlijke exemplaren. (Deze wordt niet verwant zijn aan de MVC- of andere framework 'gebeurtenissen'.)
+In Application Insights, een *aangepaste gebeurtenis* is van een gegevenspunt geldt dat u kunt weergeven in [Metrics Explorer](app-insights-metrics-explorer.md) als een verzamelde aantal en in [diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md) als afzonderlijke exemplaren. (Niet verwant tooMVC of andere framework 'gebeurtenissen'.)
 
-Invoegen `TrackEvent` aanroepen in uw code te tellen van diverse gebeurtenissen. Hoe vaak gebruikers kiest voor een bepaalde functie, hoe vaak ze bepaalde doelen bereiken of zij mogelijk hoe vaak voor bepaalde soorten fouten.
+Invoegen `TrackEvent` roept in uw code toocount diverse gebeurtenissen. Hoe vaak gebruikers kiest voor een bepaalde functie, hoe vaak ze bepaalde doelen bereiken of zij mogelijk hoe vaak voor bepaalde soorten fouten.
 
-Bijvoorbeeld in een gameapps een gebeurtenis wanneer een gebruiker het spel wins verzenden:
+Bijvoorbeeld in een gameapps een gebeurtenis wanneer een gebruiker wins Hallo game verzenden:
 
 *JavaScript*
 
@@ -96,45 +96,45 @@ Bijvoorbeeld in een gameapps een gebeurtenis wanneer een gebruiker het spel wins
 
     telemetry.trackEvent("WinGame");
 
-### <a name="view-your-events-in-the-microsoft-azure-portal"></a>Gebeurtenissen weergeven in de Microsoft Azure-portal
-Open een aantal van uw gebeurtenissen vindt een [Metrics Explorer](app-insights-metrics-explorer.md) blade, Voeg een nieuwe grafiek toe en selecteer **gebeurtenissen**.  
+### <a name="view-your-events-in-hello-microsoft-azure-portal"></a>De gebeurtenissen in Microsoft Azure-portal Hallo weergeven
+toosee een aantal van uw gebeurtenissen, open een [Metrics Explorer](app-insights-metrics-explorer.md) blade, Voeg een nieuwe grafiek toe en selecteer **gebeurtenissen**.  
 
 ![Zie een aantal aangepaste gebeurtenissen](./media/app-insights-api-custom-events-metrics/01-custom.png)
 
-Als u wilt vergelijken de aantallen voor verschillende gebeurtenissen, stelt u het grafiektype naar **raster**, and -groep met de gebeurtenisnaam:
+toocompare hello tellingen van verschillende gebeurtenissen ingesteld Hallo grafiektype te**raster**, and -groep met de gebeurtenisnaam:
 
-![Het grafiektype en groepering instellen](./media/app-insights-api-custom-events-metrics/07-grid.png)
+![Hallo grafiektype en groepering instellen](./media/app-insights-api-custom-events-metrics/07-grid.png)
 
-Klik op het raster door de naam van een gebeurtenis om te zien van afzonderlijke exemplaren van deze gebeurtenis. Voor meer details - klikt u op elk exemplaar in de lijst.
+Klik op Hallo raster in een gebeurtenis naam toosee afzonderlijke exemplaren van deze gebeurtenis. toosee specifieke - klikt u op elk exemplaar in Hallo-lijst.
 
-![Drillthrough-gebeurtenissen](./media/app-insights-api-custom-events-metrics/03-instances.png)
+![Drillthrough-Hallo-gebeurtenissen](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
-Als u wilt richten op specifieke gebeurtenissen in de zoekopdracht of Metrics Explorer, stelt u de blade-filter op de gebeurtenisnamen van de die u geïnteresseerd bent in:
+toofocus van specifieke gebeurtenissen in de zoekopdracht of Metrics Explorer set Hallo blade filter toohello gebeurtenisnamen die u geïnteresseerd bent in:
 
 ![Open Filters, vouw de naam van de gebeurtenis en selecteer een of meer waarden](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
 ### <a name="custom-events-in-analytics"></a>Aangepaste gebeurtenissen in Analytics
 
-De telemetrie is beschikbaar in de `customEvents` in tabel [Application Insights Analytics](app-insights-analytics.md). Elke rij vertegenwoordigt een aanroep van `trackEvent(..)` in uw app. 
+Hallo telemetrie is beschikbaar in Hallo `customEvents` in tabel [Application Insights Analytics](app-insights-analytics.md). Elke rij vertegenwoordigt een gesprek te`trackEvent(..)` in uw app. 
 
-Als [steekproeven](app-insights-sampling.md) is uitgevoerd, de eigenschap itemCount geeft een waarde groter dan 1. Voor een voorbeeld itemCount == 10 betekent dat van 10 aanroepen van trackEvent(), het proces steekproeven alleen één van beide verzonden. Als u het juiste aantal aangepaste gebeurtenissen, moet u daarom code gebruiken zoals `customEvent | summarize sum(itemCount)`.
+Als [steekproeven](app-insights-sampling.md) is uitgevoerd, Hallo itemCount-eigenschap geeft een waarde groter dan 1. Voor een voorbeeld itemCount == 10 betekent dat van 10 aanroepen tootrackEvent(), Hallo steekproeven proces alleen één van beide verzonden. tooget het juiste aantal aangepaste gebeurtenissen, moet u daarom code gebruiken zoals `customEvent | summarize sum(itemCount)`.
 
 
 ## <a name="trackmetric"></a>TrackMetric
 
-Application Insights kunnen metrische gegevens die niet zijn gekoppeld aan bepaalde gebeurtenissen van grafiekgebied. U kan bijvoorbeeld een wachtrijlengte bewaken met regelmatige tussenpozen. Met metrische gegevens en de afzonderlijke metingen zijn van belang zijn kleiner dan de variaties en trends en dus statistische kolomdiagrammen zijn nuttig.
+Application Insights kunnen metrische gegevens die niet aangesloten tooparticular gebeurtenissen zijn van grafiekgebied. U kan bijvoorbeeld een wachtrijlengte bewaken met regelmatige tussenpozen. Hallo afzonderlijke metingen zijn minder interessant dan Hallo variaties en trends met metrische gegevens, en dus statistische kolomdiagrammen zijn nuttig.
 
-Om metrische gegevens naar Application Insights verzendt, kunt u de `TrackMetric(..)` API. Er zijn twee manieren een metriek verzenden: 
+In order toosend metrische gegevens tooApplication inzichten, kunt u Hallo `TrackMetric(..)` API. Er zijn twee manieren toosend metric: 
 
-* Enkele waarde. Telkens wanneer u een meting in uw toepassing uitvoert, kunt u de overeenkomstige waarde verzenden naar Application Insights. Bijvoorbeeld, wordt ervan uitgegaan dat u hebt een metriek met een beschrijving van het aantal items in een container. U voor het eerst drie items in de container plaatsen en verwijder vervolgens twee items gedurende een bepaalde periode. Dienovereenkomstig, roept u `TrackMetric` tweemaal: de waarde eerst doorgeven `3` en vervolgens de waarde `-2`. Application Insights worden beide waarden opgeslagen namens jou. 
+* Enkele waarde. Telkens wanneer u een meting in uw toepassing uitvoert, verzendt u overeenkomende waarde Hallo tooApplication Insights. Bijvoorbeeld, wordt ervan uitgegaan dat u hebt een metriek Hallo aantal items in een container te beschrijven. U voor het eerst drie items in Hallo container geplaatst en verwijder vervolgens twee items gedurende een bepaalde periode. Dienovereenkomstig, roept u `TrackMetric` tweemaal: eerst doorgegeven waarde Hallo `3` en vervolgens Hallo waarde `-2`. Application Insights worden beide waarden opgeslagen namens jou. 
 
-* Aggregatie. Als u werkt met metrische gegevens, wordt elke meting zelden is van belang. In plaats daarvan is een overzicht van wat er gebeurd gedurende een bepaalde periode is belangrijk. Dergelijke samenvatting heet _aggregatie_. In het bovenstaande voorbeeld wordt de som van het cumulatieve metrische gegevens voor deze periode is `1` en het aantal van de metrische waarden is `2`. Wanneer u de aggregatie-methode gebruikt, u alleen aanroepen `TrackMetric` eenmaal per periode en de verzamelde waarden te verzenden. Dit is de aanbevolen aanpak omdat deze de kosten en prestaties overhead door minder gegevenspunten verzenden naar Application Insights tijdens het verzamelen van alle relevante gegevens nog steeds aanzienlijk kan verminderen.
+* Aggregatie. Als u werkt met metrische gegevens, wordt elke meting zelden is van belang. In plaats daarvan is een overzicht van wat er gebeurd gedurende een bepaalde periode is belangrijk. Dergelijke samenvatting heet _aggregatie_. Hallo hierboven voorbeeld Hallo cumulatieve metrische som gedurende deze periode is `1` en Hallo Hallo metrische waarden aantal `2`. Wanneer u Hallo aggregatie benadering, u alleen aanroepen `TrackMetric` eenmaal per periode en verzenden Hallo geaggregeerde tijdwaarden. Dit is Hallo aanbevolen benadering omdat Hallo kosten aantasten kan en prestaties van de overhead door minder gegevens te verzenden tooApplication Insights, punten tijdens het verzamelen van nog steeds alle relevante informatie.
 
 ### <a name="examples"></a>Voorbeelden:
 
 #### <a name="single-values"></a>Enkele waarden
 
-Metrische waarde voor een enkele verzenden:
+toosend metrische waarde voor een enkele:
 
 *JavaScript*
 
@@ -153,7 +153,7 @@ Metrische waarde voor een enkele verzenden:
 
 #### <a name="aggregating-metrics"></a>Samenvoegen van metrische gegevens
 
-Het is raadzaam met cumulatieve metrische gegevens voordat ze worden verzonden vanuit uw app of als u bandbreedte, kosten en prestaties te verbeteren.
+Het verdient aanbeveling tooaggregate metrische gegevens voordat ze worden verzonden vanuit uw app, tooreduce bandbreedte, kosten en tooimprove prestaties.
 Hier volgt een voorbeeld van code verzamelen:
 
 *C#*
@@ -216,7 +216,7 @@ namespace MetricAggregationExample
     }   // internal class MetricAggregator
 
     /// <summary>
-    /// Accepts metric values and sends the aggregated values at 1-minute intervals.
+    /// Accepts metric values and sends hello aggregated values at 1-minute intervals.
     /// </summary>
     public sealed class Metric : IDisposable
     {
@@ -252,24 +252,24 @@ namespace MetricAggregationExample
             {
                 try
                 {
-                    // Wait for end end of the aggregation period:
+                    // Wait for end end of hello aggregation period:
                     await Task.Delay(AggregationPeriod).ConfigureAwait(continueOnCapturedContext: false);
 
-                    // Atomically snap the current aggregation:
+                    // Atomically snap hello current aggregation:
                     MetricAggregator nextAggregator = new MetricAggregator(DateTimeOffset.UtcNow);
                     MetricAggregator prevAggregator = Interlocked.Exchange(ref _aggregator, nextAggregator);
 
                     // Only send anything is at least one value was measured:
                     if (prevAggregator != null && prevAggregator.Count > 0)
                     {
-                        // Compute the actual aggregation period length:
+                        // Compute hello actual aggregation period length:
                         TimeSpan aggPeriod = nextAggregator.StartTimestamp - prevAggregator.StartTimestamp;
                         if (aggPeriod.TotalMilliseconds < 1)
                         {
                             aggPeriod = TimeSpan.FromMilliseconds(1);
                         }
 
-                        // Construct the metric telemetry item and send:
+                        // Construct hello metric telemetry item and send:
                         var aggregatedMetricTelemetry = new MetricTelemetry(
                                 Name,
                                 prevAggregator.Count,
@@ -300,26 +300,26 @@ namespace MetricAggregationExample
 
 ### <a name="custom-metrics-in-metrics-explorer"></a>Aangepaste metrische gegevens in Metrics Explorer
 
-U kunt de resultaten, open Metrics Explorer en voeg een nieuwe grafiek toe. De grafiek om weer te geven de metrische gegevens bewerken.
+toosee hello resultaten Metrics Explorer openen en een nieuwe grafiek toevoegen. Hallo grafiek tooshow uw metriek bewerken.
 
 > [!NOTE]
-> Uw aangepaste metrische gegevens kan enkele minuten worden weergegeven in de lijst met beschikbare metrische gegevens duren.
+> Uw aangepaste metric duurt enkele minuten tooappear in Hallo lijst met beschikbare metrische gegevens.
 >
 
 ![Voeg een nieuwe grafiek toe of Selecteer een grafiek en onder aangepast, selecteer uw metrische gegevens](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
 ### <a name="custom-metrics-in-analytics"></a>Aangepaste metrische gegevens in Analytics
 
-De telemetrie is beschikbaar in de `customMetrics` in tabel [Application Insights Analytics](app-insights-analytics.md). Elke rij vertegenwoordigt een aanroep van `trackMetric(..)` in uw app.
-* `valueSum`-Dit is de som van de metingen. Als u de gemiddelde waarde, wordt gedeeld door `valueCount`.
-* `valueCount`-Het aantal metingen die zijn samengevoegd in dit `trackMetric(..)` aanroepen.
+Hallo telemetrie is beschikbaar in Hallo `customMetrics` in tabel [Application Insights Analytics](app-insights-analytics.md). Elke rij vertegenwoordigt een gesprek te`trackMetric(..)` in uw app.
+* `valueSum`-Dit is de som Hallo Hallo metingen. tooget hello gemiddelde waarde delen door `valueCount`.
+* `valueCount`-aantal van de metingen die zijn samengevoegd in dit Hallo `trackMetric(..)` aanroepen.
 
 ## <a name="page-views"></a>Paginaweergaven
-In een app-apparaat of webpagina telemetrie van paginaweergaven standaard verzonden wanneer elke pagina of het scherm wordt geladen. Maar u kunt deze instelling wijzigen om bij te houden van paginaweergaven op aanvullende of verschillende tijdstippen. Bijvoorbeeld in een app die wordt weergegeven voor tabbladen of blades, raadzaam om bij te houden van een pagina wanneer de gebruiker een nieuwe blade opent.
+In een app-apparaat of webpagina telemetrie van paginaweergaven standaard verzonden wanneer elke pagina of het scherm wordt geladen. Maar u kunt deze paginaweergaven tootrack wijzigen op aanvullende of verschillende tijdstippen. Bijvoorbeeld in een app die wordt weergegeven voor tabbladen of blades, kunt u een pagina tootrack wanneer Hallo gebruiker een nieuwe blade opent.
 
 ![Gebruik lens op de blade overzicht](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
 
-Gebruikers- en sessiegegevens gegevens verzonden als eigenschappen samen met paginaweergaven, zodat de gebruikers- en sessiegegevens grafieken tot leven komen als er telemetrie van paginaweergaven.
+Gebruikers- en sessiegegevens gegevens verzonden zoals eigenschappen samen met paginaweergaven, zodat gebruikers- en sessiegegevens grafieken tot leven komen als er telemetrie van paginaweergaven Hallo.
 
 ### <a name="custom-page-views"></a>Aangepaste paginaweergaven
 *JavaScript*
@@ -335,68 +335,68 @@ Gebruikers- en sessiegegevens gegevens verzonden als eigenschappen samen met pag
     telemetry.TrackPageView("GameReviewPage")
 
 
-Als u meerdere tabbladen binnen andere HTML-pagina's hebt, kunt u de URL te opgeven:
+Als u meerdere tabbladen binnen andere HTML-pagina's hebt, kunt u Hallo-URL te opgeven:
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
 ### <a name="timing-page-views"></a>Timing van paginaweergaven
-Standaard worden de tijden gerapporteerd als **laadtijd voor paginaweergave** worden gemeten vanaf de browser de aanvraag verzendt totdat de browser-gebeurtenis voor het laden van pagina wordt aangeroepen.
+Standaard Hallo keren gerapporteerd als **laadtijd voor paginaweergave** worden gemeten vanuit de browser Hallo Hallo-aanvraag verzendt totdat van de browser van het Hallo-gebeurtenis voor het laden van pagina wordt aangeroepen.
 
 In plaats daarvan kunt u:
 
-* Stel een expliciete duur de [trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview) aanroepen: `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`.
-* Gebruik de paginaweergave timing aanroepen `startTrackPage` en `stopTrackPage`.
+* Instellen van een expliciete duur in Hallo [trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview) aanroepen: `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`.
+* Hallo pagina weergave timing aanroepen gebruiken `startTrackPage` en `stopTrackPage`.
 
 *JavaScript*
 
-    // To start timing a page:
+    // toostart timing a page:
     appInsights.startTrackPage("Page1");
 
 ...
 
-    // To stop timing and log the page:
+    // toostop timing and log hello page:
     appInsights.stopTrackPage("Page1", url, properties, measurements);
 
-De naam die u als de eerste parameter gebruikt wordt gekoppeld aan de aanroepen starten en stoppen. Wordt standaard de naam van de huidige pagina.
+Hallo naam die u gebruikt als de eerste parameter Hallo Hallo start koppelt en stop de aanroepen. Wordt standaard de naam van toohello huidige pagina.
 
-De resulterende pagina load duur weergegeven in Metrics Explorer zijn afgeleid van het interval tussen de aanroepen starten en stoppen. Het is aan u welke interval die u daadwerkelijk tijd.
+Hallo resulterende laadtijd weergegeven in Metrics Explorer duur zijn afgeleid van hello-interval tussen Hallo starten en stoppen van aanroepen. Is tooyou welke interval die u daadwerkelijk tijd.
 
 ### <a name="page-telemetry-in-analytics"></a>Pagina telemetrie in Analytics
 
 In [Analytics](app-insights-analytics.md) twee tabellen bevatten gegevens van de browser bewerkingen:
 
-* De `pageViews` tabel bevat gegevens over de URL- en -titel
-* De `browserTimings` tabel bevat gegevens over de prestaties van de client, zoals de tijd voor de inkomende gegevens
+* Hallo `pageViews` tabel bevat gegevens over de URL- en titel Hallo
+* Hallo `browserTimings` tabel bevat gegevens over de prestaties van de client, zoals Hallo tijd tooprocess Hallo binnenkomende gegevens
 
-Zoeken op hoe lang de browser nodig is om verschillende pagina's:
+toofind hoe lang Hallo browser duurt tooprocess verschillende pagina's:
 
 ```
 browserTimings | summarize avg(networkDuration), avg(processingDuration), avg(totalDuration) by name 
 ```
 
-Voor detectie van de popularities van verschillende browsers:
+toodiscover hello popularities van verschillende browsers:
 
 ```
 pageViews | summarize count() by client_Browser
 ```
 
-Om te koppelen van paginaweergaven voor AJAX-aanroepen, aanmelden met afhankelijkheden:
+aanmelden bij tooassociate pagina weergaven tooAJAX aanroepen met afhankelijkheden:
 
 ```
 pageViews | join (dependencies) on operation_Id 
 ```
 
 ## <a name="trackrequest"></a>TrackRequest
-De SDK-server gebruikt TrackRequest HTTP-aanvragen moeten worden geregistreerd.
+Hallo server SDK gebruikt TrackRequest toolog HTTP-aanvragen.
 
-U kunt deze zelf ook aanroepen als u verzoeken wilt simuleren in een context waarin er geen module van de web-service uitgevoerd.
+U kunt deze zelf ook aanroepen als u wilt dat toosimulate aanvragen in een context waarin er geen Hallo web service-module die wordt uitgevoerd.
 
-De aanbevolen manier om het verzenden van aanvraagtelemetrie is echter waar de aanvraag fungeert als een <a href="#operation-context">bewerking context</a>.
+Hallo wordt echter aanbevolen manier toosend aanvraagtelemetrie is waar Hallo aanvraag fungeert als een <a href="#operation-context">bewerking context</a>.
 
 ## <a name="operation-context"></a>Bewerking context
-U kunt telemetrie-items bij elkaar koppelen door te koppelen aan een algemene bewerking-ID. De standaard-bijhouden module doet dit voor uitzonderingen en andere gebeurtenissen die worden verzonden tijdens het verwerken van een HTTP-aanvraag. In [Search](app-insights-diagnostic-search.md) en [Analytics](app-insights-analytics.md), kunt u de ID gemakkelijk terugvinden alle gebeurtenissen die zijn gekoppeld aan de aanvraag.
+U kunt telemetrie-items bij elkaar koppelen door het koppelen van toothem een algemene bewerking-ID. Hallo standaard aanvraag bijhouden module doet dit voor uitzonderingen en andere gebeurtenissen die worden verzonden tijdens het verwerken van een HTTP-aanvraag. In [Search](app-insights-diagnostic-search.md) en [Analytics](app-insights-analytics.md), kunt u Hallo ID tooeasily zoeken naar alle gebeurtenissen die zijn gekoppeld aan het Hallo-aanvraag.
 
-De eenvoudigste manier om in te stellen van de ID is het instellen van de context van een bewerking met behulp van dit patroon:
+Hallo gemakkelijkste manier tooset Hallo-ID is tooset de context van een bewerking met behulp van dit patroon:
 
 *C#*
 
@@ -404,7 +404,7 @@ De eenvoudigste manier om in te stellen van de ID is het instellen van de contex
 // Establish an operation context and associated telemetry item:
 using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
 {
-    // Telemetry sent in here will use the same operation ID.
+    // Telemetry sent in here will use hello same operation ID.
     ...
     telemetry.TrackTrace(...); // or other Track* calls
     ...
@@ -417,11 +417,11 @@ using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName
 } // When operation is disposed, telemetry item is sent.
 ```
 
-Samen met het instellen van de context van een bewerking `StartOperation` maakt een telemetrie-item van het type dat u opgeeft. Het item telemetrie verzendt wanneer het verwijderen van de bewerking, of als u niet expliciet aanroepen `StopOperation`. Als u `RequestTelemetry` als de telemetrie-type, de duur is ingesteld op het getimed interval tussen starten en stoppen.
+Samen met het instellen van de context van een bewerking `StartOperation` maakt een telemetrie-item van het Hallo-type dat u opgeeft. Het Hallo telemetrie item verzendt wanneer buitengebruikstelling Hallo opnieuw, of als u niet expliciet aanroepen `StopOperation`. Als u `RequestTelemetry` als Hallo telemetrie type, de duur is een time-out opgetreden toohello interval tussen starten en stoppen is ingesteld.
 
-Bewerking contexten kunnen niet worden genest. Als er al een bewerking context bestaat, wordt de bijbehorende ID gekoppeld aan alle opgenomen items is, met inbegrip van het item dat is gemaakt met `StartOperation`.
+Bewerking contexten kunnen niet worden genest. Als er al een bewerking context bestaat, wordt de bijbehorende ID gekoppeld aan alle Hallo opgenomen items is, inclusief Hallo item dat is gemaakt met `StartOperation`.
 
-In de zoekopdracht op de context van de bewerking gebruikt voor het maken de **verwante Items** lijst:
+In de zoekopdracht op Hallo bewerking context is gebruikte toocreate Hallo **verwante Items** lijst:
 
 ![Verwante items](./media/app-insights-api-custom-events-metrics/21.png)
 
@@ -429,9 +429,9 @@ Zie [toepassing-insights-aangepaste-bewerkingen-tracking.md] voor meer informati
 
 ### <a name="requests-in-analytics"></a>Aanvragen in Analytics 
 
-In [Application Insights Analytics](app-insights-analytics.md), weergeven van aanvragen in de `requests` tabel.
+In [Application Insights Analytics](app-insights-analytics.md), weergeven van aanvragen in Hallo `requests` tabel.
 
-Als [steekproeven](app-insights-sampling.md) is uitgevoerd, de eigenschap itemCount ziet een waarde groter dan 1. Voor een voorbeeld itemCount == 10 betekent dat van 10 aanroepen naar trackRequest() het proces steekproeven alleen één van beide verzonden. Als u een juiste aantal aanvragen en gemiddelde duur gesegmenteerd op aanvraag namen, zoals code gebruiken:
+Als [steekproeven](app-insights-sampling.md) is uitgevoerd, Hallo itemCount eigenschap ziet een waarde groter dan 1. Voor een voorbeeld itemCount == 10 betekent dat van 10 aanroepen tootrackRequest(), Hallo steekproeven proces alleen één van beide verzonden. tooget het juiste aantal aanvragen en de gemiddelde duur gesegmenteerd op aanvraag namen, zoals code gebruiken:
 
 ```AIQL
 requests | summarize count = sum(itemCount), avgduration = avg(duration) by name
@@ -439,12 +439,12 @@ requests | summarize count = sum(itemCount), avgduration = avg(duration) by name
 
 
 ## <a name="trackexception"></a>TrackException
-Uitzonderingen naar Application Insights verzenden:
+Uitzonderingen tooApplication Insights verzenden:
 
-* Naar [tellen](app-insights-metrics-explorer.md), als een indicatie van de frequentie van een probleem.
-* Naar [onderzoeken van afzonderlijke exemplaren](app-insights-diagnostic-search.md).
+* te[tellen](app-insights-metrics-explorer.md), als een indicatie van Hallo frequentie van een probleem.
+* te[onderzoeken van afzonderlijke exemplaren](app-insights-diagnostic-search.md).
 
-De rapporten bevatten de stack-traces.
+Hallo-rapporten bevatten Hallo stack-traces.
 
 *C#*
 
@@ -468,11 +468,11 @@ De rapporten bevatten de stack-traces.
        appInsights.trackException(ex);
     }
 
-De SDK's catch veel uitzonderingen automatisch, dus u niet altijd hebt TrackException expliciet aanroepen.
+Hallo-SDK's catch veel uitzonderingen automatisch, dus u niet altijd toocall TrackException expliciet hebt.
 
-* ASP.NET: [schrijven van code voor het onderscheppen](app-insights-asp-net-exceptions.md).
+* ASP.NET: [code schrijven toocatch uitzonderingen](app-insights-asp-net-exceptions.md).
 * J2EE: [uitzonderingen worden aangetroffen, automatisch](app-insights-java-get-started.md#exceptions-and-request-failures).
-* JavaScript: Uitzonderingen worden automatisch aangetroffen. Als u uitschakelen van automatische verzameling wilt, moet u een regel toegevoegd aan het codefragment die u in uw webpagina's invoegt:
+* JavaScript: Uitzonderingen worden automatisch aangetroffen. Als u toodisable automatische verzameling wilt, voegt u een regel toohello codefragment waarmee u in uw webpagina's invoegen:
 
     ```
     ({
@@ -483,22 +483,22 @@ De SDK's catch veel uitzonderingen automatisch, dus u niet altijd hebt TrackExce
 
 ### <a name="exceptions-in-analytics"></a>Uitzonderingen in Analytics
 
-In [Application Insights Analytics](app-insights-analytics.md), uitzonderingen weergegeven in de `exceptions` tabel.
+In [Application Insights Analytics](app-insights-analytics.md), uitzonderingen weergegeven in Hallo `exceptions` tabel.
 
-Als [steekproeven](app-insights-sampling.md) is uitgevoerd, de `itemCount` eigenschap geeft een waarde groter dan 1. Voor een voorbeeld itemCount == 10 betekent dat van 10 aanroepen naar trackException() het proces steekproeven alleen één van beide verzonden. Als u een juiste aantal uitzonderingen gesegmenteerd op type uitzondering, zoals code gebruiken:
+Als [steekproeven](app-insights-sampling.md) is uitgevoerd, hello `itemCount` eigenschap geeft een waarde groter dan 1. Voor een voorbeeld itemCount == 10 betekent dat van 10 aanroepen tootrackException(), Hallo steekproeven proces alleen één van beide verzonden. tooget het juiste aantal uitzonderingen gesegmenteerd op type uitzondering, zoals code gebruiken:
 
 ```
 exceptions | summarize sum(itemCount) by type
 ```
 
-De meeste informatie belangrijk stack al wordt geëxtraheerd in verschillende variabelen, maar u kunt ophalen uit elkaar de `details` structuur om meer te halen. Aangezien deze structuur dynamisch is, moet u het resultaat dat het verwachte type converteren. Bijvoorbeeld:
+De meeste van belangrijke informatie over de stack al wordt geëxtraheerd in verschillende variabelen, maar u kunt pull-elkaar Hallo Hallo `details` structuur tooget meer. Aangezien deze structuur dynamisch is, moet u uitbrengt Hallo toohello resultaattype die u verwacht. Bijvoorbeeld:
 
 ```AIQL
 exceptions
 | extend method2 = tostring(details[0].parsedStack[1].method)
 ```
 
-Om te koppelen uitzonderingen met hun verwante aanvragen, gebruikt u een join:
+tooassociate uitzonderingen met hun verwante aanvragen, gebruikt u een join:
 
 ```
 exceptions
@@ -506,9 +506,9 @@ exceptions
 ```
 
 ## <a name="tracktrace"></a>TrackTrace
-Gebruik TrackTrace om u te helpen bij het analyseren van problemen door een spoor' breadcrumb' te sturen naar Application Insights. U kunt segmenten van diagnostische gegevens verzenden en controleren ze op in [diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md).
+Gebruik TrackTrace toohelp analyseren van problemen door een 'breadcrumb audittrail' tooApplication Insights verzenden. U kunt segmenten van diagnostische gegevens verzenden en controleren ze op in [diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md).
 
-[Meld u adapters](app-insights-asp-net-trace-logs.md) deze API gebruikt van derden om Logboeken te verzenden naar de portal.
+[Meld u adapters](app-insights-asp-net-trace-logs.md) deze API toosend van derden logboeken toohello portal gebruiken.
 
 *C#*
 
@@ -517,27 +517,27 @@ Gebruik TrackTrace om u te helpen bij het analyseren van problemen door een spoo
 
 U kunt zoeken op de inhoud van het bericht, maar (in tegenstelling tot eigenschapswaarden) u kunt niet filteren op het.
 
-De maximale grootte op `message` veel hoger is dan de limiet voor eigenschappen.
-U kunt relatief lange gegevens plaatsen in het bericht heeft als voordeel van TrackTrace. U kunt bijvoorbeeld er postgegevens coderen.  
+de maximumgrootte Hallo op `message` veel hoger is dan de limiet Hallo op Eigenschappen.
+U kunt relatief lange gegevens plaatsen in het Hallo-bericht heeft als voordeel van TrackTrace. U kunt bijvoorbeeld er postgegevens coderen.  
 
-U kunt bovendien een urgentieniveau toevoegen aan het bericht. En net als andere telemetrie u eigenschapswaarden om u te helpen filter of zoeken naar verschillende sets van traceringen kunt toevoegen. Bijvoorbeeld:
+Bovendien kunt u een bericht van ernst niveau tooyour toevoegen. En net als andere telemetrie u eigenschap waarden toohelp die u filteren of zoeken naar verschillende sets van traceringen kunt toevoegen. Bijvoorbeeld:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
                    SeverityLevel.Warning,
                    new Dictionary<string,string> { {"database", db.ID} });
 
-In [Search](app-insights-diagnostic-search.md), u kunt eenvoudig filteren vervolgens alle berichten van een specifieke ernst die betrekking op een bepaalde database hebben.
+In [Search](app-insights-diagnostic-search.md), u kunt eenvoudig filteren vervolgens alle Hallo-berichten van een bepaalde ernstniveau worden weergegeven die betrekking tooa bepaalde database hebben.
 
 
 ### <a name="traces-in-analytics"></a>Traceringen in Analytics
 
-In [Application Insights Analytics](app-insights-analytics.md), aanroepen naar TrackTrace weergegeven in de `traces` tabel.
+In [Application Insights Analytics](app-insights-analytics.md), belt tooTrackTrace weergeven in Hallo `traces` tabel.
 
-Als [steekproeven](app-insights-sampling.md) is uitgevoerd, de eigenschap itemCount geeft een waarde groter dan 1. Voor een voorbeeld itemCount == 10 betekent dat van 10 aanroepen naar `trackTrace()`, een van deze alleen in het proces steekproeven worden verzonden. Als u het juiste aantal traceringsaanroepen, moet u daarom code zoals `traces | summarize sum(itemCount)`.
+Als [steekproeven](app-insights-sampling.md) is uitgevoerd, Hallo itemCount-eigenschap geeft een waarde groter dan 1. Voor een voorbeeld itemCount == 10 betekent dat van 10 te aanroepen`trackTrace()`, Hallo steekproeven proces verzonden slechts één van beide. het juiste aantal traceringsaanroepen tooget, moet u daarom code zoals `traces | summarize sum(itemCount)`.
 
 ## <a name="trackdependency"></a>TrackDependency
-Gebruik de TrackDependency-aanroep voor het bijhouden van de responstijden en het succespercentage van aanroepen naar externe code. De resultaten worden weergegeven in de afhankelijkheidsgrafiek in de portal.
+Gebruik Hallo TrackDependency aanroepen tootrack Hallo responstijden en het succespercentage van aanroepen tooan externe stuk code. Hallo-resultaten verschijnen in de afhankelijkheidsgrafiek Hallo in Hallo-portal.
 
 ```C#
 var success = false;
@@ -554,21 +554,21 @@ finally
 }
 ```
 
-Houd er rekening mee dat de server SDK's bevatten een [afhankelijkheid module](app-insights-asp-net-dependencies.md) die worden gedetecteerd en bijgehouden bepaalde afhankelijkheidsaanroepen automatisch--bijvoorbeeld databases en REST-API's. U moet een agent installeren op uw server om te maken van de module werken. U kunt deze aanroep gebruiken als u wilt bijhouden van de oproepen die de geautomatiseerde tracering niet catch- of als u niet wilt dat de agent te installeren.
+Houd er rekening mee dat Hallo server SDK's bevatten een [afhankelijkheid module](app-insights-asp-net-dependencies.md) die worden gedetecteerd en bepaalde afhankelijkheidsaanroepen automatisch--bijgehouden bijvoorbeeld toodatabases en REST-API's. U hebt tooinstall een agent op uw server toomake Hallo module werken. U kunt deze aanroep gebruiken als u wilt dat tootrack aanroepen die geautomatiseerde bijhouden Hallo niet catch- of als u niet wilt tooinstall Hallo agent.
 
-Schakel uit de standaard afhankelijkheid bijhouden module bewerken [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) en verwijder de verwijzing naar `DependencyCollector.DependencyTrackingTelemetryModule`.
+tooturn uitschakelen Hallo standaard afhankelijkheid bijhouden module bewerken [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) en Hallo verwijzing te verwijderen`DependencyCollector.DependencyTrackingTelemetryModule`.
 
 ### <a name="dependencies-in-analytics"></a>Afhankelijkheden in Analytics
 
-In [Application Insights Analytics](app-insights-analytics.md), trackDependency belt weergeven de `dependencies` tabel.
+In [Application Insights Analytics](app-insights-analytics.md), trackDependency aanroepen weergegeven in Hallo `dependencies` tabel.
 
-Als [steekproeven](app-insights-sampling.md) is uitgevoerd, de eigenschap itemCount geeft een waarde groter dan 1. Voor een voorbeeld itemCount == 10 betekent dat van 10 aanroepen naar trackDependency() het proces steekproeven alleen één van beide verzonden. Als u een juiste aantal gesegmenteerd op doelonderdeel afhankelijkheden, zoals code gebruiken:
+Als [steekproeven](app-insights-sampling.md) is uitgevoerd, Hallo itemCount-eigenschap geeft een waarde groter dan 1. Voor een voorbeeld itemCount == 10 betekent dat van 10 aanroepen tootrackDependency(), Hallo steekproeven proces alleen één van beide verzonden. tooget het juiste aantal afhankelijkheden gesegmenteerd op target-component, zoals code gebruiken:
 
 ```
 dependencies | summarize sum(itemCount) by target
 ```
 
-Om te koppelen afhankelijkheden met hun verwante aanvragen, gebruikt u een join:
+tooassociate afhankelijkheden met hun verwante aanvragen, gebruikt u een join:
 
 ```
 dependencies
@@ -576,7 +576,7 @@ dependencies
 ```
 
 ## <a name="flushing-data"></a>Gegevens leegmaken
-Normaal gesproken verzendt de SDK op tijdstippen wilt minimaliseren, de gevolgen voor de gebruiker. Echter, in sommige gevallen u mogelijk wilt leegmaken van de buffer--bijvoorbeeld als u de SDK gebruikt in een toepassing die wordt afgesloten.
+Normaal gesproken verzendt Hallo SDK op tijdstippen toominimize Hallo impact op Hallo gebruiker gekozen. In sommige gevallen wilt u echter mogelijk tooflush Hallo buffer--bijvoorbeeld, als u gebruikmaakt van Hallo SDK in een toepassing die wordt afgesloten.
 
 *C#*
 
@@ -585,17 +585,17 @@ Normaal gesproken verzendt de SDK op tijdstippen wilt minimaliseren, de gevolgen
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Houd er rekening mee dat de functie asynchroon is voor de [telemetrie-serverkanaal](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
+Houd er rekening mee dat Hallo functie asynchrone voor Hallo [telemetrie-serverkanaal](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
 ## <a name="authenticated-users"></a>Geverifieerde gebruikers
 In een web-app, worden gebruikers (standaard) geïdentificeerd door cookies. Een gebruiker mogelijk meer dan één keer worden geteld als ze toegang krijgen tot uw app uit een andere computer of de browser, of als het verwijderen van cookies.
 
-Als gebruikers zich bij uw app aanmelden, kunt u een meer nauwkeurige telling krijgen door de geverifieerde gebruiker-ID in te stellen in de browser-code:
+Als gebruikers zich tooyour app, kunt u een meer nauwkeurige telling krijgen Hallo geverifieerde gebruikers-ID door in te stellen Hallo browser code:
 
 *JavaScript*
 
 ```JS
-// Called when my app has identified the user.
+// Called when my app has identified hello user.
 function Authenticated(signInId) {
     var validatedId = signInId.replace(/[,;=| ]+/g, "_");
     appInsights.setAuthenticatedUserContext(validatedId);
@@ -616,11 +616,11 @@ In een ASP.NET-webtoepassing MVC-toepassing, bijvoorbeeld:
             </script>
         }
 
-Het is niet nodig om werkelijke van de gebruiker aanmelden namen te gebruiken. Alleen er moet een ID die uniek is voor die gebruiker. Mag geen spaties of een van de tekens bevatten `,;=|`.
+Het is niet nodig toouse Hallo werkelijke aanmelden gebruikersnaam. Alleen heeft toobe een ID die unieke toothat gebruiker. Mag geen spaties of Hallo tekens bevatten `,;=|`.
 
-De gebruikers-ID is ook in een sessiecookie ingesteld en verzonden naar de server. Als de SDK-server is geïnstalleerd, wordt de geverifieerde gebruiker-ID verzonden als onderdeel van de contexteigenschappen van zowel client als server telemetrie. Vervolgens kunt u filteren en zoekt u erop.
+Hallo gebruikers-ID is ook in een sessiecookie ingesteld en toohello server verzonden. Als Hallo server SDK is geïnstalleerd, geverifieerd Hallo gebruiker-ID wordt verzonden als onderdeel van Hallo contexteigenschappen van zowel client als server telemetrie. Vervolgens kunt u filteren en zoekt u erop.
 
-Als uw app gebruikers naar accounts groepen, kunt u ook een id voor het account (met de tekenbeperkingen voor dezelfde) doorgeven.
+Als uw app gebruikers naar accounts groepen, kunt u ook een id voor Hallo account doorgeven (Hello teken dezelfde beperkingen).
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
@@ -629,17 +629,17 @@ In [Metrics Explorer](app-insights-metrics-explorer.md), kunt u een diagram waar
 U kunt ook [search](app-insights-diagnostic-search.md) voor client gegevenspunten met specifieke gebruikersnamen en accounts.
 
 ## <a name="properties"></a>Filteren, zoeken en segmenteren van uw gegevens met behulp van eigenschappen
-U kunt eigenschappen en metingen koppelen aan uw gebeurtenissen (en ook met metrische gegevens en pagina weergaven, uitzonderingen en andere telemetriegegevens).
+U kunt de eigenschappen en metingen tooyour gebeurtenissen (en ook toometrics, paginaweergaven, uitzonderingen en andere telemetriegegevens) koppelen.
 
-*Eigenschappen* tekenreekswaarden die u gebruiken kunt voor het filteren van uw telemetrie in de rapporten zijn. Bijvoorbeeld, als uw app verschillende games biedt, kunt u de naam van het spel aan koppelen elke gebeurtenis zodat u kunt zien welke games populairder zijn.
+*Eigenschappen* waarmee u toofilter uw telemetrie in gebruiksrapporten Hallo kunt tekenreekswaarden zijn. Bijvoorbeeld, als uw app verschillende games biedt, kunt u koppelen Hallo-naam van Hallo game tooeach gebeurtenis zodat u kunt zien welke games populairder zijn.
 
-Er is een limiet van 8192 op de string-lengte. (Als u grote reeksen gegevens verzenden wilt, gebruikt u de bericht-parameter van [TrackTrace](#track-trace).)
+Er is een limiet van 8192 op Hallo string-lengte. (Als u toosend grote reeksen gegevens wilt, gebruikt u Hallo-bericht parameter van [TrackTrace](#track-trace).)
 
-*Metrische gegevens* zijn numerieke waarden die kunnen worden weergegeven als geïllustreerd. U wilt zien of er een geleidelijke toename van de scores die uw gamers bereiken. De grafieken kunnen worden gesegmenteerd op de eigenschappen die worden verzonden met de gebeurtenis, zodat u kunt afzonderlijke ophalen of gestapeld grafieken voor verschillende games.
+*Metrische gegevens* zijn numerieke waarden die kunnen worden weergegeven als geïllustreerd. Bijvoorbeeld, kunt u toosee als er een geleidelijke toename van Hallo scores die uw gamers bereiken. Hallo grafieken kunnen worden gesegmenteerd op Hallo scheiden van de eigenschappen die worden verzonden met Hallo gebeurtenis, zodat u kunt ophalen of gestapelde grafieken voor verschillende games.
 
-Ze moeten groter zijn dan of gelijk zijn aan 0 zijn voor metrische waarden moet correct worden weergegeven.
+Voor metrische waarden toobe juist weergegeven, moeten ze too0 groter dan of gelijk zijn.
 
-Er zijn een aantal [beperkingen met betrekking tot het aantal eigenschappen en eigenschapswaarden metrische gegevens](#limits) die u kunt gebruiken.
+Er zijn een aantal [limieten op Hallo aantal eigenschappen en eigenschapswaarden metrische gegevens](#limits) die u kunt gebruiken.
 
 *JavaScript*
 
@@ -668,7 +668,7 @@ Er zijn een aantal [beperkingen met betrekking tot het aantal eigenschappen en e
     var metrics = new Dictionary <string, double>
        {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
 
-    // Send the event:
+    // Send hello event:
     telemetry.TrackEvent("WinGame", properties, metrics);
 
 
@@ -683,7 +683,7 @@ Er zijn een aantal [beperkingen met betrekking tot het aantal eigenschappen en e
     metrics.Add("Score", currentGame.Score)
     metrics.Add("Opponents", currentGame.OpponentCount)
 
-    ' Send the event:
+    ' Send hello event:
     telemetry.TrackEvent("WinGame", properties, metrics)
 
 
@@ -701,33 +701,33 @@ Er zijn een aantal [beperkingen met betrekking tot het aantal eigenschappen en e
 
 
 > [!NOTE]
-> Zorgt niet voor logboekregistratie van persoonsgegevens in de eigenschappen.
+> Wees voorzichtig niet toolog persoonlijk herleidbare informatie in de eigenschappen.
 >
 >
 
-*Als u metrische gegevens gebruikt*, Metrics Explorer openen en selecteer de metrische gegevens van de **aangepaste** groep:
+*Als u metrische gegevens gebruikt*, opent u Metrics Explorer en selecteer Hallo metric in Hallo **aangepaste** groep:
 
-![Openen van Metrics Explorer, selecteert u de grafiek en selecteer de metriek](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
+![Open van Metrics Explorer, selecteer Hallo grafiek, en selecteer Hallo metrische gegevens](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
 > [!NOTE]
-> Als uw metriek niet wordt weergegeven, of als de **aangepaste** kop niet het geval is, sluit de blade selectie en probeer het later opnieuw. Metrische gegevens kunt soms uur duren voordat de een aggregatie worden uitgevoerd via de pipeline.
+> Als uw metriek niet wordt weergegeven, of als hello **aangepaste** kop niet het geval is, sluit Hallo selectie blade en probeer het later opnieuw. Metrische gegevens kan soms een uur duren toobe via Hallo pipeline geaggregeerd.
 
-*Als u de eigenschappen en metrische gegevens gebruikt*, de metriek segmenteren door de eigenschap:
+*Als u de eigenschappen en metrische gegevens gebruikt*, Hallo metriek segmenteren door Hallo-eigenschap:
 
-![Stel groeperen en selecteer vervolgens de eigenschap onder groeperen op](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)
+![Ingesteld groeperen en selecteer vervolgens de eigenschap Hallo onder groeperen op](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)
 
-*In Diagnostic Search*, kunt u de eigenschappen en metrische gegevens van afzonderlijke instanties van een gebeurtenis bekijken.
+*In Diagnostic Search*, kunt u Hallo eigenschappen en metrische gegevens van afzonderlijke instanties van een gebeurtenis bekijken.
 
 ![Selecteer een exemplaar en selecteer vervolgens '...'](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-4.png)
 
-Gebruik de **Search** veld voor een overzicht van de gebeurtenis-instanties die een bepaalde eigenschappenwaarde hebben.
+Gebruik Hallo **Search** veld toosee gebeurtenis instanties die een bepaalde eigenschappenwaarde hebben.
 
 ![Typ een term in zoeken](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
 
 [Meer informatie over zoekopdracht expressies](app-insights-diagnostic-search.md).
 
-### <a name="alternative-way-to-set-properties-and-metrics"></a>Eigenschappen en metrische gegevens ook instellen
-Als het is eenvoudiger, kunt u de parameters van een gebeurtenis in een afzonderlijk object verzamelen:
+### <a name="alternative-way-tooset-properties-and-metrics"></a>Andere manier tooset eigenschappen en metrische gegevens
+Als het is eenvoudiger, kunt u Hallo parameters van een gebeurtenis in een afzonderlijk object verzamelen:
 
     var event = new EventTelemetry();
 
@@ -741,15 +741,15 @@ Als het is eenvoudiger, kunt u de parameters van een gebeurtenis in een afzonder
     telemetry.TrackEvent(event);
 
 > [!WARNING]
-> De hetzelfde exemplaar van de telemetrie-item niet hergebruiken (`event` in dit voorbeeld) Track*() meerdere keren aanroepen. Dit kan leiden tot telemetrie met onjuiste configuratie worden verzonden.
+> Hallo niet gebruiken hetzelfde exemplaar van de telemetrie-item (`event` in dit voorbeeld) toocall Track*() meerdere keren. Dit kan leiden tot telemetrie toobe verzonden met een onjuiste configuratie.
 >
 >
 
 ### <a name="custom-measurements-and-properties-in-analytics"></a>Aangepaste metingen en eigenschappen in Analytics
 
-In [Analytics](app-insights-analytics.md), eigenschappen en aangepaste metrische gegevens weergeven in de `customMeasurements` en `customDimensions` kenmerken van elke record telemetrie.
+In [Analytics](app-insights-analytics.md), eigenschappen en aangepaste metrische gegevens weergeven in Hallo `customMeasurements` en `customDimensions` kenmerken van elke record telemetrie.
 
-Bijvoorbeeld, als u een eigenschap genaamd 'spel' de aanvraagtelemetrie van uw hebt toegevoegd, deze query telt instanties van verschillende waarden van 'spel' en het gemiddelde van de aangepaste metrische 'score' weergeven:
+Bijvoorbeeld, als u een eigenschap genaamd 'spel' tooyour aanvraagtelemetrie hebt toegevoegd, deze query telt Hallo instanties van verschillende waarden van 'spel' en gemiddelde Hallo Hallo aangepaste metrische 'score' weergeven:
 
 ```
 requests
@@ -758,19 +758,19 @@ requests
 
 U ziet dat:
 
-* Wanneer u een waarde van de customDimensions of customMeasurements JSON uitpakt, hieraan dynamische type, en zodat u dit casten `tostring` of `todouble`.
-* Rekening te houden met de mogelijkheid van [steekproeven](app-insights-sampling.md), moet u `sum(itemCount)`, niet `count()`.
+* Wanneer u een waarde van Hallo customDimensions of customMeasurements JSON uitpakt, hieraan dynamische type, en zodat u dit casten `tostring` of `todouble`.
+* account van de mogelijkheid Hallo van tootake [steekproeven](app-insights-sampling.md), moet u `sum(itemCount)`, niet `count()`.
 
 
 
 ## <a name="timed"></a>Timing van gebeurtenissen
-Soms wilt u grafiek hoe lang het duurt om een actie uitvoert. Bijvoorbeeld, u wilt mogelijk weten hoe lang gebruikers nemen op in een spel te overwegen. Hiervoor kunt u de parameter meting.
+Soms wilt u toochart hoe lang het duurt tooperform een actie. U kunt bijvoorbeeld tooknow hoe lang gebruikers tooconsider opties worden in een spel. Hiervoor kunt u Hallo meting parameter.
 
 *C#*
 
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
-    // ... perform the timed action ...
+    // ... perform hello timed action ...
 
     stopwatch.Stop();
 
@@ -781,13 +781,13 @@ Soms wilt u grafiek hoe lang het duurt om een actie uitvoert. Bijvoorbeeld, u wi
     var properties = new Dictionary <string, string>
        {{"signalSource", currentSignalSource.Name}};
 
-    // Send the event:
+    // Send hello event:
     telemetry.TrackEvent("SignalProcessed", properties, metrics);
 
 
 
 ## <a name="defaults"></a>Standaard-eigenschappen voor aangepaste telemetrie
-Als u standaard eigenschapswaarden instellen voor een aantal aangepaste gebeurtenissen die u schrijft wilt, kunt u ze in een exemplaar van TelemetryClient instellen. Deze zijn gekoppeld aan elk telemetrie-item dat wordt verzonden door de client.
+Als u tooset eigenschap standaardwaarden voor een aantal aangepaste gebeurtenissen Hallo die u schrijft wilt, kunt u ze in een exemplaar van TelemetryClient instellen. Ze zijn aangesloten tooevery telemetrie-item dat wordt verzonden door de client.
 
 *C#*
 
@@ -795,14 +795,14 @@ Als u standaard eigenschapswaarden instellen voor een aantal aangepaste gebeurte
 
     var gameTelemetry = new TelemetryClient();
     gameTelemetry.Context.Properties["Game"] = currentGame.Name;
-    // Now all telemetry will automatically be sent with the context property:
+    // Now all telemetry will automatically be sent with hello context property:
     gameTelemetry.TrackEvent("WinGame");
 
 *Visual Basic*
 
     Dim gameTelemetry = New TelemetryClient()
     gameTelemetry.Context.Properties("Game") = currentGame.Name
-    ' Now all telemetry will automatically be sent with the context property:
+    ' Now all telemetry will automatically be sent with hello context property:
     gameTelemetry.TrackEvent("WinGame")
 
 *Java*
@@ -820,25 +820,25 @@ Als u standaard eigenschapswaarden instellen voor een aantal aangepaste gebeurte
 
 
 
-Afzonderlijke telemetrie aanroepen kunnen u de standaardwaarden in hun woordenlijsten eigenschap overschrijven.
+Afzonderlijke telemetrie aanroepen kunnen Hallo standaardwaarden in hun woordenlijsten eigenschap te overschrijven.
 
 *Web voor JavaScript-clients*, [gebruik van JavaScript telemetrie initalisatiefuncties](#js-initializer).
 
-*Eigenschappen toevoegen aan alle telemetrie*, met inbegrip van de gegevens van de standaardregel voor verzameling modules, [implementeren `ITelemetryInitializer` ](app-insights-api-filtering-sampling.md#add-properties).
+*tooadd eigenschappen tooall telemetrie*, met inbegrip van gegevens van de standaardregel voor verzameling modules, Hallo [implementeren `ITelemetryInitializer` ](app-insights-api-filtering-sampling.md#add-properties).
 
 ## <a name="sampling-filtering-and-processing-telemetry"></a>Steekproef nemen en verwerken van telemetrie filteren
-U kunt de code voor het verwerken van uw telemetrie voordat deze wordt verzonden van de SDK schrijven. De verwerking omvat gegevens dat wordt verzonden door de standaard telemetrie-modules, zoals de verzameling van de HTTP-aanvragen en afhankelijkheid verzameling.
+U kunt code tooprocess uw telemetrie schrijven voordat deze wordt verzonden van Hallo SDK. Hallo verwerking omvat gegevens dat wordt verzonden door Hallo standaard telemetrie modules, zoals de verzameling van de HTTP-aanvragen en afhankelijkheid verzameling.
 
-[Eigenschappen toevoegen](app-insights-api-filtering-sampling.md#add-properties) naar telemetrie door het implementeren van `ITelemetryInitializer`. U kunt bijvoorbeeld versienummers of berekende waarden toevoegen van andere eigenschappen.
+[Eigenschappen toevoegen](app-insights-api-filtering-sampling.md#add-properties) tootelemetry door het implementeren van `ITelemetryInitializer`. U kunt bijvoorbeeld versienummers of berekende waarden toevoegen van andere eigenschappen.
 
-[Filteren](app-insights-api-filtering-sampling.md#filtering) kunt wijzigen of verwijderen van telemetrie voordat het wordt verzonden door de SDK door het implementeren van `ITelemetryProcesor`. U bepaalt wat wordt verzonden naar of verwijderd, maar u moet voor het effect op de metrische gegevens over uw account. Afhankelijk van hoe u items negeren, kunt u de mogelijkheid om te navigeren tussen verwante items verliezen.
+[Filteren](app-insights-api-filtering-sampling.md#filtering) kunt wijzigen of verwijderen van telemetrie voordat het wordt verzonden door Hallo SDK door het implementeren van `ITelemetryProcesor`. U bepaalt wat wordt verzonden naar of verwijderd, maar u tooaccount voor Hallo effect op uw metrische gegevens hebben. Afhankelijk van hoe u items negeren, kunt u Hallo mogelijkheid toonavigate tussen verwante items verliezen.
 
-[Steekproef nemen](app-insights-api-filtering-sampling.md) is een ingepakte oplossing te verminderen de hoeveelheid gegevens die door uw app wordt verzonden naar de portal. Hierbij wordt zonder de weergegeven metrische gegevens. En zonder de mogelijkheid om te analyseren van problemen door te navigeren tussen verwante items zoals uitzonderingen, aanvragen en paginaweergaven beïnvloeden.
+[Steekproef nemen](app-insights-api-filtering-sampling.md) is een volume verpakte oplossing tooreduce Hallo van gegevens die worden verzonden vanuit uw app toohello-portal. Dit gebeurt zonder Hallo weergegeven metrische gegevens. En zonder die betrekking hebben op uw mogelijkheid toodiagnose problemen door te navigeren tussen verwante items zoals uitzonderingen, aanvragen en paginaweergaven.
 
 [Meer informatie](app-insights-api-filtering-sampling.md).
 
 ## <a name="disabling-telemetry"></a>Telemetrie uitschakelen
-Naar *dynamisch stoppen en starten* het verzamelen en verzenden van telemetrie:
+te*dynamisch stoppen en starten* Hallo verzamelen en verzenden van telemetrie:
 
 *C#*
 
@@ -849,10 +849,10 @@ Naar *dynamisch stoppen en starten* het verzamelen en verzenden van telemetrie:
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
-Naar *uitschakelen geselecteerde standaard collectors*--bijvoorbeeld, prestatiemeteritems, HTTP-aanvragen of afhankelijkheden--verwijderen of de relevante regels in uitcommentariëren [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). U kunt dit bijvoorbeeld doen als u wilt de gegevens van uw eigen TrackRequest verzenden.
+te*uitschakelen geselecteerde standaard collectors*--bijvoorbeeld, prestatiemeteritems, HTTP-aanvragen of afhankelijkheden--verwijderen of Hallo relevante regels in uitcommentariëren [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). U kunt dit bijvoorbeeld doen als u uw eigen gegevens TrackRequest toosend wilt.
 
 ## <a name="debug"></a>Modus voor ontwikkelaars
-Tijdens de foutopsporing, is het nuttig om uw telemetrie afgehandeld via de pipeline, zodat u resultaten onmiddellijk kunt zien. U ook get extra berichten sturen die u helpen traceren problemen met de telemetrie. Schakel deze uit in productie, omdat dit kan uw app vertragen.
+Tijdens de foutopsporing, is het nuttig toohave uw telemetrie doorgegeven Hallo pipeline, direct zodat u resultaten onmiddellijk kunt zien. U ook get extra berichten sturen die u helpen traceren problemen met Hallo telemetrie. Schakel deze uit in productie, omdat dit kan uw app vertragen.
 
 *C#*
 
@@ -863,7 +863,7 @@ Tijdens de foutopsporing, is het nuttig om uw telemetrie afgehandeld via de pipe
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 
-## <a name="ikey"></a>De instrumentatiesleutel voor de geselecteerde aangepaste telemetrie instellen
+## <a name="ikey"></a>De instrumentatiesleutel Hallo voor de geselecteerde aangepaste telemetrie instellen
 *C#*
 
     var telemetry = new TelemetryClient();
@@ -872,9 +872,9 @@ Tijdens de foutopsporing, is het nuttig om uw telemetrie afgehandeld via de pipe
 
 
 ## <a name="dynamic-ikey"></a>Dynamische instrumentatiesleutel
-Om te voorkomen dat de combinatie van telemetrie van ontwikkeling, testen en productieomgevingen, kunt u [afzonderlijke Application Insights-resources maken](app-insights-create-new-resource.md) en wijzigt u de sleutels, afhankelijk van de omgeving.
+tooavoid combinatie van telemetrie van ontwikkeling, testen en productieomgevingen, kunt u [afzonderlijke Application Insights-resources maken](app-insights-create-new-resource.md) en wijzigt u de sleutels, afhankelijk van het Hallo-omgeving.
 
-In plaats van de instrumentatiesleutel ophalen uit het configuratiebestand, kunt u dit instellen in uw code. Stel de sleutel in een initialiseringsmethode, zoals global.aspx.cs in een ASP.NET-beheerservice:
+In plaats van het Hallo-instrumentatiesleutel ophalen uit het Hallo-configuratiebestand en kunt u dit instellen in uw code. Hallo-sleutel in een initialiseringsmethode, zoals global.aspx.cs in een ASP.NET-beheerservice ingesteld:
 
 *C#*
 
@@ -892,7 +892,7 @@ In plaats van de instrumentatiesleutel ophalen uit het configuratiebestand, kunt
 
 
 
-In webpagina's, is het raadzaam om deze te stellen van de webserver status, in plaats van letterlijk coderen in het script. Bijvoorbeeld in een webpagina in een ASP.NET-app gegenereerd:
+In webpagina's, kunt u tooset op Hallo van de webserver status, in plaats van letterlijk coderen in Hallo-script. Bijvoorbeeld in een webpagina in een ASP.NET-app gegenereerd:
 
 *JavaScript in Razor*
 
@@ -908,30 +908,30 @@ In webpagina's, is het raadzaam om deze te stellen van de webserver status, in p
 
 
 ## <a name="telemetrycontext"></a>TelemetryContext
-TelemetryClient heeft een contexteigenschap die waarden bevat die samen met alle telemetriegegevens worden verzonden. Normaal gesproken zijn ingesteld door de standaard telemetrie-modules, maar u kunt ook instellen ze zelf. Bijvoorbeeld:
+TelemetryClient heeft een contexteigenschap die waarden bevat die samen met alle telemetriegegevens worden verzonden. Normaal gesproken zijn ingesteld door Hallo standaard telemetrie modules, maar u kunt ook instellen ze zelf. Bijvoorbeeld:
 
     telemetry.Context.Operation.Name = "MyOperationName";
 
-Als u een van deze waarden zelf instellen, kunt u overwegen verwijderen van de betreffende regel uit [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), zodat uw waarden en de standaard waarden niet veranderen.
+Als u een van deze waarden zelf, overweeg te verwijderen van de betreffende regel Hallo van [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), zodat uw en Hallo standaard waarden niet veranderen.
 
-* **Onderdeel**: de app en de versie ervan.
-* **Apparaat**: gegevens over het apparaat waarop de app wordt uitgevoerd. (In web-apps is dit de server of client-apparaat dat de telemetrie van wordt verzonden.)
-* **InstrumentationKey**: de Application Insights-resource in Azure waar de telemetrie worden weergegeven. Dit wordt gewoonlijk opgenomen in ApplicationInsights.config.
-* **Locatie**: de geografische locatie van het apparaat.
-* **Bewerking**: In web-apps, de huidige HTTP-aanvraag. In andere typen Apps die kunt u dit instellen op gebeurtenissen groeperen samen.
+* **Onderdeel**: Hallo-app en de versie ervan.
+* **Apparaat**: gegevens over het Hallo-apparaat waarop Hallo-app wordt uitgevoerd. (In web-apps is dit Hallo-server of client-apparaat dat Hallo telemetrie is verzonden vanaf.)
+* **InstrumentationKey**: Hallo Application Insights-resource in Azure waar Hallo telemetrie worden weergegeven. Dit wordt gewoonlijk opgenomen in ApplicationInsights.config.
+* **Locatie**: Hallo geografische locatie van Hallo-apparaat.
+* **Bewerking**: Hallo In web-apps, huidige HTTP-aanvraag. In andere typen Apps kunt u deze gebeurtenissen toogroup samen instellen.
   * **Id**: een gegenereerde waarde die verschillende gebeurtenissen, zodat wanneer u een gebeurtenis in Diagnostic Search inspecteert, u vindt verwante objecten.
-  * **Naam**: een meestal de URL van de HTTP-aanvraag-id.
-  * **SyntheticSource**: als dat niet null of leeg is, moet een tekenreeks die aangeeft dat de bron van de aanvraag is geïdentificeerd als een robot of web-test. Standaard wordt het uitgesloten van berekeningen in Metrics Explorer.
+  * **Naam**: een meestal Hallo URL van Hallo HTTP-aanvraag-id.
+  * **SyntheticSource**: als niet null of leeg is, een tekenreeks die of Hallo het bronbestand van Hallo-aanvraag aangeeft is geïdentificeerd als een robot of web-test. Standaard wordt het uitgesloten van berekeningen in Metrics Explorer.
 * **Eigenschappen**: eigenschappen die worden verzonden met alle telemetriegegevens. Deze kan worden genegeerd in afzonderlijke bijhouden * aanroepen.
-* **Sessie**: de gebruikerssessie. De ID wordt ingesteld op een gegenereerde waarde, die wordt gewijzigd wanneer de gebruiker niet actief is geweest even.
+* **Sessie**: Hallo gebruikerssessie. Hallo-ID is gegenereerd tooa waarde, die wordt gewijzigd wanneer het Hallo-gebruiker niet actief is geweest even ingesteld.
 * **Gebruiker**: gebruikersgegevens.
 
 ## <a name="limits"></a>Limieten
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
-Gebruiken om te voorkomen roept de frequentielimiet gegevens, [steekproeven](app-insights-sampling.md).
+Hallo limiet, gebruik roept tooavoid [steekproeven](app-insights-sampling.md).
 
-Om te bepalen hoe lang gegevens wordt opgeslagen, Zie [bewaren van gegevens en privacy](app-insights-data-retention-privacy.md).
+toodetermine hoe lang gegevens worden bewaard raadpleegt [bewaren van gegevens en privacy](app-insights-data-retention-privacy.md).
 
 ## <a name="reference-docs"></a>Referentiedocumenten
 * [ASP.NET-verwijzing](https://msdn.microsoft.com/library/dn817570.aspx)
@@ -951,10 +951,10 @@ Om te bepalen hoe lang gegevens wordt opgeslagen, Zie [bewaren van gegevens en p
 ## <a name="questions"></a>Vragen
 * *Welke uitzonderingen's Track_() aanroepen weggooien*
 
-    Geen. U hoeft niet laten teruglopen ze in trycatch-componenten. Als de SDK-problemen, wordt deze berichten aanmelden uitvoer van de console voor foutopsporing en--als de berichten via--in diagnostische gegevens doorzoeken ophalen.
-* *Is er een REST-API om gegevens te verkrijgen via de portal?*
+    Geen. U hoeft niet toowrap ze in trycatch-componenten. Als er problemen Hallo SDK, wordt deze berichten aanmelden Hallo foutopsporing console-uitvoer en--als hello berichten ophalen via--in diagnostische gegevens doorzoeken.
+* *Is er een REST-API tooget gegevens vanuit de portal Hallo?*
 
-    Ja, de [data access-API](https://dev.applicationinsights.io/). Andere manieren om gegevens te extraheren, bijvoorbeeld [van analytische gegevens exporteren naar Power BI](app-insights-export-power-bi.md) en [continue export](app-insights-export-telemetry.md).
+    Ja, Hallo [data access-API](https://dev.applicationinsights.io/). Andere manieren tooextract gegevens omvatten [exporteren vanuit Analytics tooPower BI](app-insights-export-power-bi.md) en [continue export](app-insights-export-telemetry.md).
 
 ## <a name="next"></a>Volgende stappen
 * [Zoekopdracht gebeurtenissen en Logboeken](app-insights-diagnostic-search.md)

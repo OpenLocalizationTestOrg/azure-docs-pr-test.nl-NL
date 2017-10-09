@@ -1,6 +1,6 @@
 ---
-title: Een interne load balancer maken - klassieke Azure CLI | Microsoft Docs
-description: Meer informatie over hoe u met de Azure CLI een interne load balancer maakt in het klassieke implementatiemodel
+title: klassieke Azure-CLI de load balancer - aaaCreate een intern | Microsoft Docs
+description: Meer informatie over hoe toocreate een interne load balancer met behulp van Azure CLI Hallo Hallo klassieke implementatiemodel
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: d24b95f75b5ffd1116b07cf9f8bac33767a9c835
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ef29dfda5f7a75a411bbabe8b688a31c6bf81113
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Aan de slag met het maken van een interne load balancer (klassiek) met behulp van de Azure CLI
+# <a name="get-started-creating-an-internal-load-balancer-classic-using-hello-azure-cli"></a>Maken van een interne load balancer (klassiek) met behulp van hello Azure CLI
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -31,24 +31,24 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md).  Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Lees [meer informatie over het uitvoeren van deze stappen met het Resource Manager-model](load-balancer-get-started-ilb-arm-cli.md).
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md).  In dit artikel wordt behandeld met het klassieke implementatiemodel Hallo. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken. Meer informatie over hoe te[u deze stappen uitvoert met behulp van de Resource Manager-model Hallo](load-balancer-get-started-ilb-arm-cli.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>Een interne load balancer-set maken voor virtuele machines
+## <a name="toocreate-an-internal-load-balancer-set-for-virtual-machines"></a>toocreate een interne load balancer voor virtuele machines instellen
 
-Ga als volgt te werk om een interne load balancer-set te maken, evenals de servers die hun verkeer naar deze load balancer verzenden:
+toocreate een interne load balancer ingesteld en Hallo servers die hun tooit verkeer wordt verzonden, moet u doen Hallo volgende:
 
-1. Maak een exemplaar van Interne taakverdeling dat het eindpunt wordt van binnenkomend verkeer dat gelijkmatig moet worden verdeeld over de servers van een set met gelijke taakverdeling.
-2. Voeg eindpunten toe die overeenkomen met de virtuele machines die het binnenkomende verkeer ontvangen.
-3. Configureer de servers die het verkeer voor gelijke taakverdeling verzenden, zodanig dat het verkeer wordt verzonden naar het VIP-adres (virtuele IP) van het exemplaar van Interne taakverdeling.
+1. Een instantie van de interne Load Balancing die Hallo-eindpunt van het binnenkomende verkeer toobe gelijkmatig verdeeld zijn over Hallo-servers van een set met gelijke taakverdeling maken.
+2. Het toevoegen van eindpunten overeenkomt toohello virtuele machines die Hallo binnenkomend verkeer ontvangt.
+3. Hallo-servers die worden verzonden hello verkeer toobe met gelijke taakverdeling toosend hun verkeer toohello virtuele IP-adres (VIP) van Hallo interne Load Balancing-exemplaar te configureren.
 
 ## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Stapsgewijze instructies voor het maken van een interne load balancer met behulp van CLI
 
-In deze handleiding wordt beschreven hoe u een interne load balancer maakt op basis van bovenstaand scenario.
+Deze handleiding wordt getoond hoe toocreate een interne load balancer op basis van Hallo bovenstaande scenario.
 
-1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../cli-install-nodejs.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
-2. Voer de opdracht **azure config mode** uit om over te schakelen naar de klassieke modus, zoals hieronder weergegeven.
+1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [installeren en configureren van Azure CLI Hallo](../cli-install-nodejs.md) en volg de instructies Hallo toohello punt waar u uw Azure-account en abonnement selecteren.
+2. Voer Hallo **azure config mode** opdracht tooswitch tooclassic modus, zoals hieronder wordt weergegeven.
 
     ```azurecli
     azure config mode asm
@@ -60,11 +60,11 @@ In deze handleiding wordt beschreven hoe u een interne load balancer maakt op ba
 
 ## <a name="create-endpoint-and-load-balancer-set"></a>Set met eindpunten en load balancer maken
 
-In dit scenario wordt ervan uitgegaan dat de virtuele machines DB1 en DB2 zich in een cloudservice met de naam 'mytestcloud' bevinden. Beide virtuele machines maken gebruik van het virtuele netwerk 'testvnet' met subnet 'subnet-1'.
+Hallo scenario veronderstelt Hallo virtuele machines 'DB1' en 'DB2' in een cloudservice 'mytestcloud' genoemd. Beide virtuele machines maken gebruik van het virtuele netwerk 'testvnet' met subnet 'subnet-1'.
 
 In deze handleiding wordt een interne load balancer-set gemaakt die poort 1433 als particuliere poort en 1433 als lokale poort gebruikt.
 
-Dit is een algemeen scenario met virtuele SQL-machines aan de back-end die een interne load balancer gebruiken om ervoor te zorgen dat de databaseservers niet direct worden blootgesteld via een openbaar IP-adres.
+Dit is een veelvoorkomend scenario waarin u virtuele machines van SQL op Hallo back-end met behulp van die een interne load balancer tooguarantee Hallo databaseservers won't worden blootgesteld rechtstreeks via een openbaar IP-adres hebben.
 
 ### <a name="step-1"></a>Stap 1
 
@@ -76,9 +76,9 @@ azure service internal-load-balancer add --serviceName mytestcloud --internalLBN
 
 Zie `azure service internal-load-balancer --help` voor meer informatie.
 
-U kunt de eigenschappen van de interne load balancer controleren met de opdracht `azure service internal-load-balancer list` *cloudservicenaam*.
+U kunt eigenschappen Hallo interne load balancer met de opdracht Hallo controleren `azure service internal-load-balancer list` *cloudservicenaam*.
 
-Hier volgt een voorbeeld van de uitvoer:
+Hier volgt een voorbeeld van uitvoer Hallo:
 
     azure service internal-load-balancer list my-testcloud
     info:    Executing command service internal-load-balancer list
@@ -91,7 +91,7 @@ Hier volgt een voorbeeld van de uitvoer:
 
 ### <a name="step-2"></a>Stap 2
 
-U configureert de interne load balancer-set wanneer u het eerste eindpunt toevoegt. In deze stap koppelt u het eindpunt, de virtuele machine en de testpoort aan de interne load balancer-set.
+U configureert Hallo interne load balancer ingesteld wanneer u het eerste eindpunt Hallo toevoegen. U koppelt Hallo eindpunt, de virtuele machine en de test poort toohello interne load balancer in deze stap hebt ingesteld.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -99,13 +99,13 @@ azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 
 
 ### <a name="step-3"></a>Stap 3
 
-Controleer de configuratie van de load balancer met behulp van `azure vm show` *naam van virtuele machine*
+Controleren of de Hallo load balancer configuratie `azure vm show` *naam virtuele machine*
 
 ```azurecli
 azure vm show DB1
 ```
 
-De uitvoer is:
+Hallo-uitvoer zijn:
 
     azure vm show DB1
     info:    Executing command vm show
@@ -156,7 +156,7 @@ De uitvoer is:
 
 ## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>Een eindpunt voor een extern bureaublad maken voor een virtuele machine
 
-U kunt met `azure vm endpoint create` een eindpunt voor een extern bureaublad maken om voor een bepaalde virtuele machine netwerkverkeer van een openbare poort door te sturen naar een lokale poort.
+U kunt een externe bureaublad eindpunt tooforward-netwerkverkeer maken van een openbare poort tooa lokale poort voor een specifieke virtuele machine met `azure vm endpoint create`.
 
 ```azurecli
 azure vm endpoint create web1 54580 -k 3389
@@ -164,9 +164,9 @@ azure vm endpoint create web1 54580 -k 3389
 
 ## <a name="remove-virtual-machine-from-load-balancer"></a>Virtuele machine verwijderen uit load balancer
 
-U kunt een virtuele machine verwijderen uit een interne load balancer-set door het bijbehorende eindpunt te verwijderen. Wanneer het eindpunt is verwijderd, maakt de virtuele machine geen deel meer uit van de load balancer-set.
+U kunt een virtuele machine verwijderen uit een interne load balancer ingesteld door het Hallo gekoppeld-eindpunt wordt verwijderd. Zodra Hallo-eindpunt is verwijderd, won't Hallo virtuele machine toohello load balancer meer ingesteld behoren.
 
-Op basis van bovenstaand voorbeeld kunt u het eindpunt dat is gemaakt voor de virtuele machine DB1, met de opdracht `azure vm endpoint delete` verwijderen uit interne load balancer ilbset.
+Hallo bovenstaande voorbeeld gebruikt, kunt u Hallo-eindpunt gemaakt voor de virtuele machine 'DB1' van de interne load balancer 'ilbset' verwijderen met behulp van de opdracht Hallo `azure vm endpoint delete`.
 
 ```azurecli
 azure vm endpoint delete DB1 tcp-1433-1433

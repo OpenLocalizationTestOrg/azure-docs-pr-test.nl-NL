@@ -1,6 +1,6 @@
 ---
-title: Een PHP- en MySQL web-app in Azure bouwen | Microsoft Docs
-description: Informatie over het ophalen van een PHP-app in Azure, met verbinding met een MySQL-database in Azure AD werkt.
+title: een PHP- en MySQL web-app in Azure aaaBuild | Microsoft Docs
+description: Meer informatie over hoe tooget een PHP-app in Azure AD werkt met verbinding tooa MySQL-database in Azure.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6e8d8962180f7534b0b9074f03ecc8ea431ae1a4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3c050b30e2e2c80d011bed989cd5f8cecac35d15
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Een PHP- en MySQL web-app in Azure bouwen
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze zelfstudie laat zien hoe een PHP-web-app in Azure maken en te verbinden met een MySQL-database. Wanneer u klaar bent, hebt u een [Laravel](https://laravel.com/) app uitgevoerd op Azure App Service Web Apps.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze zelfstudie laat zien hoe een PHP-toocreate web-app in Azure en verbindt u deze tooa MySQL-database. Wanneer u klaar bent, hebt u een [Laravel](https://laravel.com/) app uitgevoerd op Azure App Service Web Apps.
 
 ![PHP-app uitgevoerd in Azure App Service](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
@@ -31,20 +31,20 @@ In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een MySQL-database maken in Azure
-> * Een PHP-app verbinden met MySQL
-> * De app implementeren in Azure
-> * Bijwerken van het gegevensmodel en de app implementeren
+> * Verbinding maken met een PHP-app tooMySQL
+> * Hallo app tooAzure implementeren
+> * Hallo-gegevensmodel bijwerken en Hallo app implementeren
 > * Diagnostische logboeken van de stroom van Azure
-> * De app in de Azure portal beheren
+> * Hallo-app in hello Azure-portal beheren
 
 ## <a name="prerequisites"></a>Vereisten
 
-Vereisten voor het voltooien van deze zelfstudie:
+toocomplete in deze zelfstudie:
 
 * [Git installeren](https://git-scm.com/)
 * [Installeren van PHP 5.6.4 of hoger](http://php.net/downloads.php)
 * [Composer installeren](https://getcomposer.org/doc/00-intro.md)
-* De volgende Laravel behoeften van de PHP-uitbreidingen inschakelen: OpenSSL, PDO MySQL, Mbstring, Tokenizer, XML
+* Hallo na PHP-uitbreidingen Laravel moet inschakelen: OpenSSL, PDO MySQL, Mbstring, Tokenizer, XML
 * [Installeren en starten van MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -53,21 +53,21 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 In deze stap maakt u een database in uw lokale MySQL-server voor gebruik in deze zelfstudie.
 
-### <a name="connect-to-local-mysql-server"></a>Verbinding maken met lokale MySQL-server
+### <a name="connect-toolocal-mysql-server"></a>Verbinding maken met toolocal MySQL-server
 
-In een terminalvenster verbinding maken met uw lokale MySQL-server. Alle opdrachten kunt uitvoeren in deze zelfstudie kunt u deze terminalvenster.
+In een terminalvenster verbinding tooyour lokale MySQL-server. U kunt deze toorun terminalvenster alle Hallo-opdrachten gebruiken in deze zelfstudie.
 
 ```bash
 mysql -u root -p
 ```
 
-Als u wordt gevraagd om een wachtwoord, voert u het wachtwoord voor de `root` account. Als je het wachtwoord van je root-account, Zie [MySQL: het opnieuw instellen van het hoofdwachtwoord](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Als u wordt gevraagd om een wachtwoord, hello wachtwoord invoeren voor Hallo `root` account. Als je het wachtwoord van je root-account, Zie [MySQL: hoe tooReset hoofdwachtwoord Hallo](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
-Als uw opdracht is uitgevoerd, wordt uw MySQL-server uitgevoerd. Als dit niet het geval is, zorg ervoor dat de lokale MySQL-server is gestart door de [MySQL na de installatie stappen](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
+Als uw opdracht is uitgevoerd, wordt uw MySQL-server uitgevoerd. Als dit niet het geval is, zorg ervoor dat de lokale MySQL-server is gestart met de volgende Hallo [MySQL na de installatie stappen](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
 ### <a name="create-a-database-locally"></a>Lokaal een database maken
 
-Op de `mysql` vragen, maakt u een database.
+Op Hallo `mysql` vragen, maakt u een database.
 
 ```sql 
 CREATE DATABASE sampledb;
@@ -84,18 +84,18 @@ quit
 ## <a name="create-a-php-app-locally"></a>Een PHP-app lokaal maken
 In deze stap een voorbeeldtoepassing Laravel ophalen, de databaseverbinding configureren en het lokaal uitvoeren. 
 
-### <a name="clone-the-sample"></a>Klonen van de steekproef
+### <a name="clone-hello-sample"></a>Kloon Hallo-voorbeeld
 
-In het terminalvenster `cd` in een werkmap.
+In het terminalvenster hello, `cd` tooa werkmap.
 
-Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen.
+Hallo na de opdracht tooclone Hallo voorbeeld opslagplaats worden uitgevoerd.
 
 ```bash
 git clone https://github.com/Azure-Samples/laravel-tasks
 ```
 
-`cd`de gekloonde-adreslijst.
-Installeer de vereiste pakketten.
+`cd`tooyour gekloonde map.
+Vereist hello-pakketten installeren.
 
 ```bash
 cd laravel-tasks
@@ -104,7 +104,7 @@ composer install
 
 ### <a name="configure-mysql-connection"></a>MySQL-verbinding configureren
 
-Maak een bestand met de naam in de hoofdmap van de opslagplaats *.env*. Kopieer de volgende variabelen in de *.env* bestand. Vervang de  _&lt;root_password >_ aanduiding voor items met de MySQL-hoofdgebruiker wachtwoord.
+In de hoofdmap van de opslagplaats hello, maakt u een bestand met de naam *.env*. Kopiëren Hallo variabelen te volgen in Hallo *.env* bestand. Vervang Hallo  _&lt;root_password >_ aanduiding voor items met Hallo MySQL hoofdmap het wachtwoord van gebruiker.
 
 ```
 APP_ENV=local
@@ -118,11 +118,11 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-Voor informatie over hoe Laravel gebruikt de _.env_ bestand, Zie [Laravel omgeving configuratie](https://laravel.com/docs/5.4/configuration#environment-configuration).
+Voor informatie over hoe Laravel Hallo gebruikt _.env_ bestand, Zie [Laravel omgeving configuratie](https://laravel.com/docs/5.4/configuration#environment-configuration).
 
-### <a name="run-the-sample-locally"></a>Het voorbeeld lokaal uitvoeren
+### <a name="run-hello-sample-locally"></a>Hallo voorbeeld lokaal uitvoeren
 
-Voer [Laravel database migraties](https://laravel.com/docs/5.4/migrations) moeten de toepassing van de tabellen maken. Als u wilt zien welke tabellen worden gemaakt in de migratie, zoeken in de _database/migraties_ map in de Git-opslagplaats.
+Voer [Laravel database migraties](https://laravel.com/docs/5.4/migrations) toocreate Hallo behoeften van de toepassing hello tabellen. welke tabellen worden gemaakt in Hallo migraties, zoekt u naar in Hallo toosee _database/migraties_ map in Hallo Git-opslagplaats.
 
 ```bash
 php artisan migrate
@@ -134,23 +134,23 @@ Genereer een nieuwe sleutel van de Laravel-toepassing.
 php artisan key:generate
 ```
 
-Voer de toepassing uit.
+Hallo-toepassing uitvoeren.
 
 ```bash
 php artisan serve
 ```
 
-Ga naar `http://localhost:8000` in een browser. Een paar taken op de pagina toevoegen.
+Navigeer te`http://localhost:8000` in een browser. Een paar taken op Hallo pagina toevoegen.
 
-![PHP verbonden is met MySQL](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
+![PHP verbinding maakt met succes tooMySQL](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
-Typ om te stoppen PHP, `Ctrl + C` in de terminal.
+toostop PHP, typ `Ctrl + C` in Hallo terminal.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-mysql-in-azure"></a>MySQL in Azure maken
 
-In deze stap maakt u een MySQL-database in [Azure Database voor MySQL (Preview)](/azure/mysql). Later kunt configureren u de PHP-toepassing verbinding maken met deze database.
+In deze stap maakt u een MySQL-database in [Azure Database voor MySQL (Preview)](/azure/mysql). Later kunt configureren u Hallo PHP tooconnect toothis toepassingsdatabase.
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -158,9 +158,9 @@ In deze stap maakt u een MySQL-database in [Azure Database voor MySQL (Preview)]
 
 ### <a name="create-a-mysql-server"></a>Een MySQL-server maken
 
-Een server in Azure-Database voor MySQL (Preview) te maken met de [az mysql-server maken](/cli/azure/mysql/server#create) opdracht.
+Maken van een server in Azure-Database voor MySQL (Preview) Hello [az mysql-server maken](/cli/azure/mysql/server#create) opdracht.
 
-Vervang de naam van uw MySQL-server waarin u ziet in de volgende opdracht de  _&lt;mysql_server_name >_ tijdelijke aanduiding (geldige tekens zijn `a-z`, `0-9`, en `-`). Deze naam maakt deel uit van de MySQL-server de hostnaam (`<mysql_server_name>.database.windows.net`), moet worden globaal uniek zijn.
+In Hallo volgende opdracht, vervangt u de naam van uw MySQL-server waar u Hallo zien  _&lt;mysql_server_name >_ tijdelijke aanduiding (geldige tekens zijn `a-z`, `0-9`, en `-`). Deze naam maakt deel uit van de hostnaam van de Hallo MySQL synchronisatieserver (`<mysql_server_name>.database.windows.net`), moet u toobe globaal uniek zijn.
 
 ```azurecli-interactive
 az mysql server create \
@@ -171,7 +171,7 @@ az mysql server create \
     --admin-password MySQLAzure2017
 ```
 
-Wanneer de MySQL-server is gemaakt, toont de Azure CLI informatie vergelijkbaar met het volgende voorbeeld:
+Wanneer Hallo MySQL-server is gemaakt, ziet u hello Azure CLI informatie vergelijkbare toohello voorbeeld te volgen:
 
 ```json
 {
@@ -188,7 +188,7 @@ Wanneer de MySQL-server is gemaakt, toont de Azure CLI informatie vergelijkbaar 
 
 ### <a name="configure-server-firewall"></a>Een firewall configureren
 
-Maken van een firewallregel voor uw MySQL-server clientverbindingen toestaat met behulp van de [az mysql server-firewallregel maken](/cli/azure/mysql/server/firewall-rule#create) opdracht.
+Een firewallregel maken voor uw MySQL server tooallow client verbindingen via Hallo [az mysql server-firewallregel maken](/cli/azure/mysql/server/firewall-rule#create) opdracht.
 
 ```azurecli-interactive
 az mysql server firewall-rule create \
@@ -200,23 +200,23 @@ az mysql server firewall-rule create \
 ```
 
 > [!NOTE]
-> Azure-Database voor MySQL (Preview) biedt geen momenteel verbindingen alleen voor Azure-services beperken. Zoals IP-adressen in Azure dynamisch toegewezen worden, is het beter om te zorgen dat alle IP-adressen. De service zich in preview. Betere methoden voor het beveiligen van uw database zijn gepland.
+> Azure-Database voor MySQL (Preview) biedt geen verbindingen alleen tooAzure services momenteel beperkt. Zoals IP-adressen in Azure dynamisch toegewezen worden, is het beter tooenable alle IP-adressen. Hallo-service is een Preview-versie. Betere methoden voor het beveiligen van uw database zijn gepland.
 >
 >
 
-### <a name="connect-to-production-mysql-server-locally"></a>Verbinding maken met lokaal MySQL-server in productie
+### <a name="connect-tooproduction-mysql-server-locally"></a>Verbinding maken met lokaal tooproduction MySQL-server
 
-In het terminalvenster verbinding maken met de server MySQL in Azure. Gebruik de waarde die u eerder hebt opgegeven voor  _&lt;mysql_server_name >_.
+In het terminalvenster hello, toohello MySQL server in Azure te verbinden. Hallo-waarde die u eerder hebt opgegeven voor  _&lt;mysql_server_name >_.
 
 ```bash
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
 ```
 
-Wanneer u wordt gevraagd om een wachtwoord, gebruiken _tr0ngPa $$ w0rd!_, die u hebt opgegeven toen u de database hebt gemaakt.
+Wanneer u wordt gevraagd om een wachtwoord, gebruiken _tr0ngPa $$ w0rd!_, die u hebt opgegeven toen u het Hallo-database gemaakt.
 
 ### <a name="create-a-production-database"></a>Een productiedatabase maken
 
-Op de `mysql` vragen, maakt u een database.
+Op Hallo `mysql` vragen, maakt u een database.
 
 ```sql
 CREATE DATABASE sampledb;
@@ -224,28 +224,28 @@ CREATE DATABASE sampledb;
 
 ### <a name="create-a-user-with-permissions"></a>Een gebruiker met machtigingen maken
 
-Maken van een databasegebruiker aangeroepen _phpappuser_ en geef deze alle bevoegdheden in de `sampledb` database.
+Maken van een databasegebruiker aangeroepen _phpappuser_ en geef deze alle bevoegdheden in Hallo `sampledb` database.
 
 ```sql
 CREATE USER 'phpappuser' IDENTIFIED BY 'MySQLAzure2017'; 
-GRANT ALL PRIVILEGES ON sampledb.* TO 'phpappuser';
+GRANT ALL PRIVILEGES ON sampledb.* too'phpappuser';
 ```
 
-De verbinding met de sluiten door te typen `quit`.
+Hallo-serververbinding sluiten door te typen `quit`.
 
 ```sql
 quit
 ```
 
-## <a name="connect-app-to-azure-mysql"></a>App verbinden met Azure MySQL
+## <a name="connect-app-tooazure-mysql"></a>Verbinding maken met de app tooAzure MySQL
 
-In deze stap maakt u verbinding maakt het PHP-toepassing aan de MySQL-database die u hebt gemaakt in Azure-Database voor MySQL (Preview).
+In deze stap maakt verbinding u Hallo PHP-toepassing toohello MySQL-database die u hebt gemaakt in Azure-Database voor MySQL (Preview).
 
 <a name="devconfig"></a>
 
-### <a name="configure-the-database-connection"></a>Verbinding met de database configureren
+### <a name="configure-hello-database-connection"></a>Hallo-databaseverbinding configureren
 
-Maak in de hoofdmap van de opslagplaats een _. env.production_ -bestand en kopieer de volgende variabelen in de App. Vervang de tijdelijke aanduiding  _&lt;mysql_server_name >_.
+Maak in de hoofdmap van de opslagplaats hello, een _. env.production_ -bestand en kopieer Hallo variabelen in de App te volgen. Vervang Hallo tijdelijke aanduiding voor  _&lt;mysql_server_name >_.
 
 ```
 APP_ENV=production
@@ -260,17 +260,17 @@ DB_PASSWORD=MySQLAzure2017
 MYSQL_SSL=true
 ```
 
-Sla de wijzigingen op.
+Hallo wijzigingen opslaan.
 
 > [!TIP]
-> Dit bestand is voor het beveiligen van uw MySQL-verbindingsgegevens al uitgesloten van de Git-opslagplaats (Zie _.gitignore_ in de hoofdmap van de opslagplaats). Later kunt u informatie over het configureren van omgevingsvariabelen in App Service verbinding maken met uw database in Azure-Database voor MySQL (Preview). Met omgevingsvariabelen, hoeft u niet de *.env* bestand in App Service.
+> toosecure uw MySQL-verbindingsgegevens dit bestand al van Hallo Git-opslagplaats uitgesloten is (Zie _.gitignore_ in de hoofdmap van de opslagplaats Hallo). Later kunt u meer informatie over hoe tooconfigure omgevingsvariabelen in App Service tooconnect tooyour-database in Azure-Database voor MySQL (Preview). Met omgevingsvariabelen, hoeft u niet Hallo *.env* bestand in App Service.
 >
 
 ### <a name="configure-ssl-certificate"></a>SSL-certificaat configureren
 
-Azure-Database voor MySQL afgedwongen standaard SSL-verbindingen van clients. Voor verbinding met uw MySQL-database in Azure, moet u een _.pem_ SSL-certificaat.
+Azure-Database voor MySQL afgedwongen standaard SSL-verbindingen van clients. tooconnect tooyour MySQL-database in Azure, moet u een _.pem_ SSL-certificaat.
 
-Open _config/database.php_ en voeg de _sslmode_ en _opties_ parameters `connections.mysql`, zoals wordt weergegeven in de volgende code.
+Open _config/database.php_ en voeg Hallo _sslmode_ en _opties_ parameters te`connections.mysql`, zoals weergegeven in de volgende code Hallo.
 
 ```php
 'mysql' => [
@@ -282,54 +282,54 @@ Open _config/database.php_ en voeg de _sslmode_ en _opties_ parameters `connecti
 ],
 ```
 
-Voor informatie over het genereren van dit _certificate.pem_, Zie [configureren van SSL-verbindingen in uw toepassing veilig verbinding kunnen maken met Azure-Database voor MySQL](../mysql/howto-configure-ssl.md).
+toolearn hoe toogenerate dit _certificate.pem_, Zie [configureren van SSL-verbindingen in uw toepassing toosecurely tooAzure Database connect voor MySQL](../mysql/howto-configure-ssl.md).
 
 > [!TIP]
-> Het pad _/ssl/certificate.pem_ verwijst naar een bestaand _certificate.pem_ bestand in de Git-opslagplaats. Dit bestand is voor uw gemak geleverd in deze zelfstudie. Voor de beste praktijken, u moet niet worden doorgevoerd uw _.pem_ certificaten in broncodebeheer. 
+> Hallo pad _/ssl/certificate.pem_ verwijst tooan bestaande _certificate.pem_ bestand in Hallo Git-opslagplaats. Dit bestand is voor uw gemak geleverd in deze zelfstudie. Voor de beste praktijken, u moet niet worden doorgevoerd uw _.pem_ certificaten in broncodebeheer. 
 >
 
-### <a name="test-the-application-locally"></a>De toepassing lokaal testen
+### <a name="test-hello-application-locally"></a>Hallo-toepassing lokaal testen
 
-Voer Laravel database migraties met _. env.production_ als het bestand omgeving maken van de tabellen in uw MySQL-database in Azure-Database voor MySQL (Preview). Vergeet niet dat _. env.production_ heeft de verbindingsgegevens wilt toevoegen aan uw MySQL-database in Azure.
+Voer Laravel database migraties met _. env.production_ zoals hello omgeving bestand toocreate Hallo tabellen in uw MySQL-database in Azure-Database voor MySQL (Preview). Vergeet niet dat _. env.production_ heeft Hallo verbinding informatie tooyour MySQL-database in Azure.
 
 ```bash
 php artisan migrate --env=production --force
 ```
 
-_. env.production_ nog een geldige App-sleutel niet is voorzien. Een nieuw wachtwoord voor het genereren in de terminal.
+_. env.production_ nog een geldige App-sleutel niet is voorzien. Een nieuw wachtwoord voor het genereren in Hallo terminal.
 
 ```bash
 php artisan key:generate --env=production --force
 ```
 
-Uitvoeren van de voorbeeldtoepassing met _. env.production_ als het bestand omgeving.
+Uitvoeren van de voorbeeldtoepassing Hallo met _. env.production_ als Hallo omgeving-bestand.
 
 ```bash
 php artisan serve --env=production
 ```
 
-Navigeer naar `http://localhost:8000`. Als de pagina wordt geladen zonder fouten, wordt de PHP-toepassing maakt verbinding met de MySQL-database in Azure.
+Navigeer te`http://localhost:8000`. Als Hallo pagina wordt geladen zonder fouten, maakt de PHP-toepassing hello toohello MySQL-database in Azure verbinding.
 
-Een paar taken op de pagina toevoegen.
+Een paar taken op Hallo pagina toevoegen.
 
-![PHP wel verbinding kunt maken met Azure-Database voor MySQL (Preview)](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
+![PHP voor verbinding maakt met succes tooAzure Database MySQL (Preview)](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
-Typ om te stoppen PHP, `Ctrl + C` in de terminal.
+toostop PHP, typ `Ctrl + C` in Hallo terminal.
 
 ### <a name="commit-your-changes"></a>Uw wijzigingen
 
-Voer de volgende Git-opdrachten uw wijzigingen:
+Voer de volgende Hallo Git-opdrachten toocommit uw wijzigingen:
 
 ```bash
 git add .
 git commit -m "database.php updates"
 ```
 
-Uw app is gereed om te worden geïmplementeerd.
+Uw app is gereed toobe geïmplementeerd.
 
-## <a name="deploy-to-azure"></a>Implementeren in Azure
+## <a name="deploy-tooazure"></a>TooAzure implementeren
 
-In deze stap maakt implementeren u de MySQL verbonden PHP-toepassing in Azure App Service.
+In deze stap maakt implementeren u Hallo MySQL verbonden PHP-toepassing tooAzure App Service.
 
 ### <a name="create-an-app-service-plan"></a>Een App Service-plan maken
 
@@ -339,11 +339,11 @@ In deze stap maakt implementeren u de MySQL verbonden PHP-toepassing in Azure Ap
 
 [!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-no-h.md)]
 
-### <a name="set-the-php-version"></a>De versie PHP instellen
+### <a name="set-hello-php-version"></a>Set Hallo PHP-versie
 
-Stel de PHP-versie die vereist zijn voor de toepassing met behulp van de [az webapp configuratieset](/cli/azure/webapp/config#set) opdracht.
+Set Hallo PHP-versie die toepassing hello vereist via Hallo [az webapp configuratieset](/cli/azure/webapp/config#set) opdracht.
 
-De volgende opdracht stelt u de PHP-versie op _7.0_.
+Hallo stelt volgende opdracht Hallo PHP versie too_7.0_.
 
 ```azurecli-interactive
 az webapp config set \
@@ -354,11 +354,11 @@ az webapp config set \
 
 ### <a name="configure-database-settings"></a>Database-instellingen configureren
 
-Zoals eerder uiteengezet, kunt u verbinding met uw Azure-MySQL-database met omgevingsvariabelen in App Service.
+Zoals eerder uiteengezet, kunt u tooyour Azure MySQL-database met omgevingsvariabelen in App Service.
 
-In App Service, stelt u omgevingsvariabelen als _appinstellingen_ met behulp van de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) opdracht.
+In App Service, stelt u omgevingsvariabelen als _appinstellingen_ met behulp van Hallo [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) opdracht.
 
-De volgende opdracht uit de app-instellingen configureert `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, en `DB_PASSWORD`. Vervang de tijdelijke aanduidingen  _&lt;appname >_ en  _&lt;mysql_server_name >_.
+Hallo volgende opdracht configureert u instellingen van de app Hallo `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, en `DB_PASSWORD`. Vervang de tijdelijke aanduidingen Hallo  _&lt;appname >_ en  _&lt;mysql_server_name >_.
 
 ```azurecli-interactive
 az webapp config appsettings set \
@@ -367,7 +367,7 @@ az webapp config appsettings set \
     --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-U kunt de PHP [getenv](http://www.php.net/manual/function.getenv.php) methode voor toegang tot de instellingen. de code Laravel gebruikt een [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper boven de PHP `getenv`. Bijvoorbeeld, de MySQL-configuratie in _config/database.php_ vergelijkbaar is met de volgende code:
+U kunt PHP Hallo [getenv](http://www.php.net/manual/function.getenv.php) methode tooaccess Hallo instellingen. Hallo Laravel code maakt gebruik van een [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper boven Hallo PHP `getenv`. Bijvoorbeeld, Hallo MySQL configuratie in _config/database.php_ eruit Hallo code te volgen:
 
 ```php
 'mysql' => [
@@ -384,13 +384,13 @@ U kunt de PHP [getenv](http://www.php.net/manual/function.getenv.php) methode vo
 
 Laravel moet de sleutel van een toepassing in App Service. U kunt deze configureren met app-instellingen.
 
-Gebruik `php artisan` voor het genereren van een nieuwe Toepassingssleutel zonder op te slaan naar _.env_.
+Gebruik `php artisan` toogenerate een nieuwe Toepassingssleutel zonder op te slaan too_.env_.
 
 ```bash
 php artisan key:generate --show
 ```
 
-Stel de Toepassingssleutel in de App Service web-app met behulp van de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) opdracht. Vervang de tijdelijke aanduidingen  _&lt;appname >_ en  _&lt;outputofphpartisankey: genereren >_.
+Sleutel van de toepassing hello Hallo App Service web-app met instellen Hallo [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) opdracht. Vervang de tijdelijke aanduidingen Hallo  _&lt;appname >_ en  _&lt;outputofphpartisankey: genereren >_.
 
 ```azurecli-interactive
 az webapp config appsettings set \
@@ -399,13 +399,13 @@ az webapp config appsettings set \
     --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-`APP_DEBUG="true"`Hiermee geeft u Laravel foutopsporing om informatie te retourneren wanneer de geïmplementeerde web-app fouten optreden. Als een productietoepassing wordt uitgevoerd, stelt u deze naar `false`, die is veiliger.
+`APP_DEBUG="true"`Hiermee geeft u fouten optreden foutopsporingsgegevens van de tooreturn Laravel wanneer Hallo web-app geïmplementeerd. Als een productietoepassing wordt uitgevoerd, stelt deze te`false`, die is veiliger.
 
-### <a name="set-the-virtual-application-path"></a>Het pad van de virtuele toepassing instellen
+### <a name="set-hello-virtual-application-path"></a>Pad van virtuele toepassing hello instellen
 
-Het pad van de virtuele toepassing voor de web-app ingesteld. Deze stap is vereist omdat de [Laravel toepassing lifecycle](https://laravel.com/docs/5.4/lifecycle) begint in de _openbare_ map in plaats van de hoofdmap van de toepassing. Andere PHP-frameworks waarvan de levenscyclus van starten in de hoofdmap werken zonder handmatige configuratie van het pad van de virtuele toepassing.
+Hallo virtuele toepassingspad voor de web-app Hallo instellen. Deze stap is vereist omdat Hallo [Laravel toepassing lifecycle](https://laravel.com/docs/5.4/lifecycle) begint in Hallo _openbare_ in plaats van de hoofdmap van de toepassing hello map. Andere PHP-frameworks waarvan de levenscyclus van starten in de hoofdmap Hallo werken zonder handmatige configuratie van het pad van de virtuele toepassing hello.
 
-Pad van de virtuele toepassing instellen via de [az resource update](/cli/azure/resource#update) opdracht. Vervang de  _&lt;appname >_ tijdelijke aanduiding.
+Pad naar de virtuele toepassing set Hallo via Hallo [az resource update](/cli/azure/resource#update) opdracht. Vervang Hallo  _&lt;appname >_ tijdelijke aanduiding.
 
 ```azurecli-interactive
 az resource update \
@@ -418,7 +418,7 @@ az resource update \
     --api-version 2015-06-01
 ```
 
-Azure App Service wijst standaard het hoofdpad voor de virtuele toepassing (_/_) naar de hoofdmap van de geïmplementeerde toepassing-bestanden (_sites\wwwroot_).
+Azure App Service wijst standaard hoofdpad voor virtuele toepassing hello (_/_) toohello hoofdmap Hallo geïmplementeerd toepassingsbestanden (_sites\wwwroot_).
 
 ### <a name="configure-a-deployment-user"></a>Een implementatiegebruiker configureren
 
@@ -428,15 +428,15 @@ Azure App Service wijst standaard het hoofdpad voor de virtuele toepassing (_/_)
 
 [!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git-no-h.md)]
 
-### <a name="push-to-azure-from-git"></a>Pushen naar Azure vanaf Git
+### <a name="push-tooazure-from-git"></a>TooAzure van Git push
 
-Voeg een externe Azure-instantie toe aan uw lokale Git-opslagplaats.
+Een Azure externe tooyour lokale Git-opslagplaats toevoegen.
 
 ```bash
 git remote add azure <paste_copied_url_here>
 ```
 
-Push naar de Azure-externe voor het implementeren van de PHP-toepassing. U wordt gevraagd om het wachtwoord dat u eerder hebt opgegeven als onderdeel van het maken van de gebruiker voor de implementatie.
+Push-toohello Azure externe toodeploy Hallo PHP-toepassing. U wordt gevraagd om Hallo wachtwoord die u eerder hebt opgegeven als onderdeel van Hallo maken van Hallo implementatie gebruiker.
 
 ```bash
 git push azure master
@@ -446,7 +446,7 @@ Azure App Service communiceert tijdens de implementatie van de voortgang met Git
 
 ```bash
 Counting objects: 3, done.
-Delta compression using up to 8 threads.
+Delta compression using up too8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
@@ -460,18 +460,18 @@ remote: Running deployment command...
 ```
 
 > [!NOTE]
-> U merkt dat het implementatieproces installeert [Composer](https://getcomposer.org/) pakketten aan het einde. App Service kan niet worden uitgevoerd deze automatische tijdens de standaardimplementatie van de, zodat deze opslagplaats voorbeeld heeft drie extra bestanden in de hoofdmap in te schakelen:
+> Merkt u dat met het implementatieproces Hallo geïnstalleerd [Composer](https://getcomposer.org/) pakketten aan Hallo einde. App Service automatische van deze bewerking kan niet worden uitgevoerd tijdens de standaardimplementatie van de, zodat deze opslagplaats voorbeeld heeft drie extra bestanden in de hoofdmap directory tooenable:
 >
-> - `.deployment`-Dit bestand vertelt App Service om uit te voeren `bash deploy.sh` als het script voor aangepaste implementatie.
-> - `deploy.sh`-Het script voor aangepaste implementatie. Als u het bestand bekijkt, ziet u dat deze wordt uitgevoerd `php composer.phar install` nadat `npm install`.
-> - `composer.phar`-De Composer-Pakketbeheer.
+> - `.deployment`-Dit bestand vertelt App Service-toorun `bash deploy.sh` als Hallo aangepaste implementatiescript.
+> - `deploy.sh`-script voor aangepaste implementatie Hallo. Als u hello bestand bekijkt, ziet u dat deze wordt uitgevoerd `php composer.phar install` nadat `npm install`.
+> - `composer.phar`-Hallo Composer Pakketbeheer.
 >
-> Deze aanpak kunt u een stap toevoegen aan uw implementatie op basis van Git in App Service. Zie voor meer informatie [aangepaste implementatiescript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+> U kunt deze benadering tooadd elke stap tooyour implementatie op basis van Git tooApp Service gebruiken. Zie voor meer informatie [aangepaste implementatiescript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 >
 
-### <a name="browse-to-the-azure-web-app"></a>Blader naar de Azure-web-app
+### <a name="browse-toohello-azure-web-app"></a>Toohello Azure-web-app bladeren
 
-Blader naar `http://<app_name>.azurewebsites.net` en een paar taken toevoegen aan de lijst.
+Te bladeren`http://<app_name>.azurewebsites.net` en enkele taken toohello lijst toevoegen.
 
 ![PHP-app uitgevoerd in Azure App Service](./media/app-service-web-tutorial-php-mysql/php-mysql-in-azure.png)
 
@@ -479,23 +479,23 @@ Gefeliciteerd, u een PHP-gegevensgestuurde app in Azure App Service uitvoert.
 
 ## <a name="update-model-locally-and-redeploy"></a>Lokaal model bijwerken en implementeren
 
-In deze stap maakt u een eenvoudige wijziging in de `task` gegevensmodel en de Web-App en de update vervolgens publiceren naar Azure.
+In deze stap maakt u een eenvoudige wijziging toohello `task` gegevens model Hallo webapp en vervolgens publiceren Hallo update tooAzure.
 
-Voor het scenario taken wijzigen u de toepassing, zodat u kunt een taak als voltooid markeren.
+Hallo taken scenario wijzigt u Hallo toepassing, zodat u kunt een taak als voltooid markeren.
 
 ### <a name="add-a-column"></a>Een kolom toevoegen
 
-Ga in de terminal naar de hoofdmap van de Git-opslagplaats.
+Ga in de terminal hello, toohello hoofdmap van Hallo Git-opslagplaats.
 
-Genereren van de databasemigratie van een nieuwe voor de `tasks` tabel:
+Genereren van de databasemigratie van een nieuwe voor Hallo `tasks` tabel:
 
 ```bash
 php artisan make:migration add_complete_column --table=tasks
 ```
 
-Deze opdracht geeft u de naam van de migratiebestand dat wordt gegenereerd. Dit bestand in _database/migraties_ en open het bestand.
+Deze opdracht geeft Hallo van naam van Hallo migratie-bestand dat wordt gegenereerd. Dit bestand in _database/migraties_ en open het bestand.
 
-Vervang de `up` methode met de volgende code:
+Vervang Hallo `up` methode Hello code te volgen:
 
 ```php
 public function up()
@@ -506,9 +506,9 @@ public function up()
 }
 ```
 
-De bovenstaande code wordt toegevoegd een Booleaanse kolom in de `tasks` tabel met de naam `complete`.
+Hallo voorafgaande code Booleaanse voegt een kolom toe in Hallo `tasks` tabel met de naam `complete`.
 
-Vervang de `down` methode met de volgende code voor de actie ongedaan maken:
+Vervang Hallo `down` methode Hello code voor Hallo terugdraaien van de actie te volgen:
 
 ```php
 public function down()
@@ -519,19 +519,19 @@ public function down()
 }
 ```
 
-Voer in de terminal Laravel database migraties om de wijziging in de lokale database.
+In terminal Hallo, Laravel database migraties toomake Hallo wijzigen in de lokale database Hallo worden uitgevoerd.
 
 ```bash
 php artisan migrate
 ```
 
-Op basis van de [Laravel naamgevingsconventie](https://laravel.com/docs/5.4/eloquent#defining-models), het model `Task` (Zie _app/Task.php_) wordt toegewezen aan de `tasks` tabel standaard.
+Op basis van Hallo [Laravel naamgevingsconventie](https://laravel.com/docs/5.4/eloquent#defining-models), Hallo model `Task` (Zie _app/Task.php_) toegewezen toohello `tasks` tabel standaard.
 
 ### <a name="update-application-logic"></a>Logica van de toepassing bijwerken
 
-Open de *routes/web.php* bestand. De toepassing definieert de routes en zakelijke logica hier.
+Open Hallo *routes/web.php* bestand. Hallo toepassing definieert de routes en zakelijke logica hier.
 
-Toevoegen aan het einde van het bestand een route met de volgende code:
+Toevoegen aan het einde van de Hallo van Hallo-bestand, een route met de volgende code Hallo:
 
 ```php
 /**
@@ -548,25 +548,25 @@ Route::post('/task/{id}', function ($id) {
 });
 ```
 
-De bovenstaande code maakt een eenvoudige update naar het gegevensmodel door het uitschakelen van de waarde van `complete`.
+Hallo voorafgaande code maakt een eenvoudige update toohello-gegevensmodel door met de knop Hallo-waarde van `complete`.
 
-### <a name="update-the-view"></a>De weergave bijwerken
+### <a name="update-hello-view"></a>Hallo weergave bijwerken
 
-Open de *resources/views/tasks.blade.php* bestand. Zoek de `<tr>` tag te openen en vervang ze door:
+Open Hallo *resources/views/tasks.blade.php* bestand. Hallo zoeken `<tr>` tag te openen en vervang ze door:
 
 ```html
 <tr class="{{ $task->complete ? 'success' : 'active' }}" >
 ```
 
-De bovenstaande code wordt de rijkleur, afhankelijk van of de taak voltooid is.
+Hallo voorafgaand aan een andere code rijkleur hello, afhankelijk van of Hallo-taak voltooid is.
 
-U hebt de volgende code in de volgende regel:
+In de volgende regel hello hebt u Hallo code te volgen:
 
 ```html
 <td class="table-text"><div>{{ $task->name }}</div></td>
 ```
 
-Vervang de volledige regel door de volgende code:
+Volledige regel Hallo vervangen door Hallo code te volgen:
 
 ```html
 <td>
@@ -581,31 +581,31 @@ Vervang de volledige regel door de volgende code:
 </td>
 ```
 
-De bovenstaande code wordt toegevoegd voor de verzendknop die verwijst naar de route die u eerder hebt gedefinieerd.
+Hallo bovenstaande code wordt toegevoegd Hallo verzendknop die verwijst naar Hallo route die u eerder hebt gedefinieerd.
 
-### <a name="test-the-changes-locally"></a>De wijzigingen lokaal testen
+### <a name="test-hello-changes-locally"></a>Hallo wijzigingen lokaal testen
 
-Voer de ontwikkelaarsserver uit de hoofddirectory van de Git-opslagplaats.
+Uit de hoofddirectory Hallo van Hallo Git-opslagplaats, Hallo ontwikkelingsserver wordt uitgevoerd.
 
 ```bash
 php artisan serve
 ```
 
-Om te zien van de status van de taak wijzigen, gaat u naar `http://localhost:8000` en schakel het selectievakje.
+toosee hello statuswijziging taak, te navigeren`http://localhost:8000` en selecteer Hallo selectievakje in.
 
-![Toegevoegde selectievakje in als de taak](./media/app-service-web-tutorial-php-mysql/complete-checkbox.png)
+![Toegevoegde selectievakje tootask](./media/app-service-web-tutorial-php-mysql/complete-checkbox.png)
 
-Typ om te stoppen PHP, `Ctrl + C` in de terminal.
+toostop PHP, typ `Ctrl + C` in Hallo terminal.
 
-### <a name="publish-changes-to-azure"></a>Wijzigingen publiceren naar Azure
+### <a name="publish-changes-tooazure"></a>TooAzure wijzigingen publiceren
 
-Voer in de terminal Laravel database migraties met de productie-verbindingsreeks te maken van de wijziging in de Azure-database.
+Voer in terminal hello, Laravel database migraties met Hallo productie connection string toomake Hallo wijziging in hello Azure-database.
 
 ```bash
 php artisan migrate --env=production --force
 ```
 
-Voer de wijzigingen in Git en vervolgens de codewijzigingen pushen naar Azure.
+Alle Hallo wijzigingen in Git doorvoeren en vervolgens push Hallo code wijzigingen tooAzure.
 
 ```bash
 git add .
@@ -613,17 +613,17 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Eenmaal de `git push` is voltooid, gaat u naar de Azure-web-app en testen van de nieuwe functionaliteit.
+Eenmaal Hallo `git push` is voltooid, gaat u toohello Azure-web-app en test Hallo nieuwe functionaliteit.
 
-![Model en de database-wijzigingen die zijn gepubliceerd naar Azure](media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
+![Model en de database wijzigingen tooAzure gepubliceerd](media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
-Als u alle taken toegevoegd, worden ze in de database bewaard. Updates voor het schema van de laten bestaande gegevens intact.
+Als u alle taken toegevoegd, worden ze in de database Hallo bewaard. Updates toohello gegevensschema laat de bestaande gegevens intact.
 
 ## <a name="stream-diagnostic-logs"></a>Diagnostische logboeken
 
-Als de PHP-toepassing in Azure App Service wordt uitgevoerd, kunt u de logboeken van de console doorgesluisd naar uw terminal opvragen. Op die manier kunt u de dezelfde diagnostische berichten op te sporen toepassingsfouten ophalen.
+Tijdens het Hallo PHP-toepassing in Azure App Service wordt uitgevoerd, kunt u Hallo console logboeken doorgesluisd tooyour terminal ophalen. Op die manier kunt u Hallo dezelfde diagnostische ontvangt toohelp foutopsporing van toepassingsfouten.
 
-Gebruik voor het starten van de streaming-logboek de [az webapp logboek tail](/cli/azure/webapp/log#tail) opdracht.
+toostart logboek streaming gebruik Hallo [az webapp logboek tail](/cli/azure/webapp/log#tail) opdracht.
 
 ```azurecli-interactive
 az webapp log tail \
@@ -631,28 +631,28 @@ az webapp log tail \
     --resource-group myResourceGroup
 ```
 
-Eenmaal streaming-logboek is gestart, vernieuwt u de Azure-web-app in de browser sommige webverkeer ophalen. U ziet nu de logboeken van de console is doorgegeven naar de terminal. Als u de logboeken van console onmiddellijk niet ziet, controleert u opnieuw in 30 seconden.
+Eenmaal streaming-logboek is gestart, sommige webverkeer vernieuwen in Hallo browser tooget hello Azure-web-app. U ziet nu console logboeken doorgesluisd toohello terminal. Als u de logboeken van console onmiddellijk niet ziet, controleert u opnieuw in 30 seconden.
 
-Typ om te stoppen met het logboek op elk gewenst moment op streaming, `Ctrl` + `C`.
+toostop logboek streaming op elk gewenst moment, type `Ctrl` + `C`.
 
 > [!TIP]
-> Een PHP-toepassing kunt gebruiken de standaard [error_log()](http://php.net/manual/function.error-log.php) naar uitvoer naar de console. De voorbeeldtoepassing gebruikt deze benadering in _app/Http/routes.php_.
+> Een PHP-toepassing kunt Hallo standaard [error_log()](http://php.net/manual/function.error-log.php) toooutput toohello-console. Hallo-voorbeeldtoepassing gebruikt deze benadering in _app/Http/routes.php_.
 >
-> Als een kader web [Laravel gebruikt Monolog](https://laravel.com/docs/5.4/errors) als de provider voor logboekregistratie. Zie voor het ophalen van Monolog uitvoer berichten naar de console [PHP: het gebruik van monolog aan te melden console (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
+> Als een kader web [Laravel gebruikt Monolog](https://laravel.com/docs/5.4/errors) als Hallo logboekregistratie provider. toosee hoe tooget Monolog toooutput berichten toohello console raadpleegt [PHP: hoe toouse toolog tooconsole (php://out) monolog](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 >
 >
 
-## <a name="manage-the-azure-web-app"></a>De Azure-web-app beheren
+## <a name="manage-hello-azure-web-app"></a>Hello Azure-web-app beheren
 
-Ga naar [Azure Portal](https://portal.azure.com) om de web-app te beheren die u hebt gemaakt.
+Ga toohello [Azure-portal](https://portal.azure.com) toomanage Hallo web-app die u hebt gemaakt.
 
-Klik in het linkermenu op **App Services** en klik op de naam van uw Azure-web-app.
+In het linkermenu hello, klikt u op **App Services**, en klik vervolgens op Hallo-naam van uw Azure-web-app.
 
-![Navigatie in de portal naar de Azure-web-app](./media/app-service-web-tutorial-php-mysql/access-portal.png)
+![Navigatie in de portal tooAzure web-app](./media/app-service-web-tutorial-php-mysql/access-portal.png)
 
 De pagina Overzicht van uw web-app wordt weergegeven. Hier kunt u eenvoudige beheertaken zoals stoppen, starten, opnieuw opstarten, bladeren en verwijderen uitvoeren.
 
-Het menu links biedt pagina's voor het configureren van uw app.
+Hallo linkermenu biedt pagina's voor het configureren van uw app.
 
 ![App Service-pagina in Azure Portal](./media/app-service-web-tutorial-php-mysql/web-app-blade.png)
 
@@ -666,13 +666,13 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Een MySQL-database maken in Azure
-> * Een PHP-app verbinden met MySQL
-> * De app implementeren in Azure
-> * Bijwerken van het gegevensmodel en de app implementeren
+> * Verbinding maken met een PHP-app tooMySQL
+> * Hallo app tooAzure implementeren
+> * Hallo-gegevensmodel bijwerken en Hallo app implementeren
 > * Diagnostische logboeken van de stroom van Azure
-> * De app in de Azure portal beheren
+> * Hallo-app in hello Azure-portal beheren
 
-Ga naar de volgende zelfstudie voor informatie over het toewijzen van een aangepaste DNS-naam aan een web-app.
+De volgende zelfstudie toolearn toohello gaan hoe toomap een aangepaste DNS-Server name tooa web-app.
 
 > [!div class="nextstepaction"]
-> [Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Toewijzen van een bestaande aangepaste DNS-naam tooAzure Web-Apps](app-service-web-tutorial-custom-domain.md)

@@ -3,7 +3,7 @@ Azure DNS is een hosting service voor DNS-domeinen omzetten van namen met behulp
 
 | Eigenschap | Beschrijving | Voorbeeldwaarde |
 | --- | --- | --- |
-| **DNSzones** |Zone domeingegevens host DNS-records van een bepaald domein |/ subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com ' |
+| **DNSzones** |Domein zone informatie toohost DNS-records van een bepaald domein |/ subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com ' |
 
 ### <a name="dns-record-sets"></a>DNS-recordsets
 DNS-zones hebben een onderliggend object met de naam Recordset. Recordsets zijn een verzameling van hostrecords per voor een DNS-zone. Recordtypen worden A, AAAA, CNAME, MX, NS, SOA, SRV en TXT.
@@ -31,14 +31,14 @@ Voorbeeld van DNS-zone in Json-indeling:
         "newZoneName": {
           "type": "String",
           "metadata": {
-              "description": "The name of the DNS zone to be created."
+              "description": "hello name of hello DNS zone toobe created."
           }
         },
         "newRecordName": {
           "type": "String",
           "defaultValue": "www",
           "metadata": {
-              "description": "The name of the DNS record to be created.  The name is relative to the zone, not the FQDN."
+              "description": "hello name of hello DNS record toobe created.  hello name is relative toohello zone, not hello FQDN."
           }
         }
       },
@@ -78,7 +78,7 @@ Voorbeeld van DNS-zone in Json-indeling:
     }
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
-Lees de [REST API-documentatie voor DNS-zones ](https://msdn.microsoft.com/library/azure/mt130626.aspx) voor meer informatie.
+Lees Hallo [REST API-documentatie voor DNS-zones ](https://msdn.microsoft.com/library/azure/mt130626.aspx) voor meer informatie.
 
-Lees de [REST-API-documentatie voor DNS-recordsets](https://msdn.microsoft.com/library/azure/mt130627.aspx) voor meer informatie.
+Lees Hallo [REST-API-documentatie voor DNS-recordsets](https://msdn.microsoft.com/library/azure/mt130627.aspx) voor meer informatie.
 

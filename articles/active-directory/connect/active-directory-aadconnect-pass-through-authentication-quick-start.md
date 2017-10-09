@@ -1,6 +1,6 @@
 ---
 title: Azure AD Pass-through-verificatie - snel aan de slag | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u aan de slag met Azure Active Directory (Azure AD) Pass through-verificatie.
+description: Dit artikel wordt beschreven hoe tooget de slag met Azure Active Directory (Azure AD) Pass through-verificatie.
 services: active-directory
 keywords: Azure AD Connect Pass through-verificatie, install Active Directory onderdelen vereist voor Azure AD, SSO, Single Sign-on
 documentationcenter: 
@@ -14,123 +14,123 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: billmath
-ms.openlocfilehash: 07063ea53e96c6467e40e8a7ca70e5c03ce53284
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d6d0f85fe144cf36cc94676f6592d37988b20647
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory Pass-through-verificatie: Snel starten
 
-## <a name="how-to-deploy-azure-ad-pass-through-authentication"></a>Azure AD Pass-through-verificatie implementeren
+## <a name="how-toodeploy-azure-ad-pass-through-authentication"></a>Hoe toodeploy Azure AD Pass-through-verificatie
 
-Azure Active Directory (Azure AD)-Pass through-verificatie kunnen uw gebruikers zich aanmelden bij zowel on-premises en cloudtoepassingen met dezelfde wachtwoorden. Deze zich gebruikers aanmeldt door het valideren van hun wachtwoorden rechtstreeks op uw lokale Active Directory.
+Azure Active Directory (Azure AD)-Pass through-verificatie kunnen uw gebruikers toosign op tooboth on-premises en cloudtoepassingen met dezelfde wachtwoorden Hallo. Deze zich gebruikers aanmeldt door het valideren van hun wachtwoorden rechtstreeks op uw lokale Active Directory.
 
 >[!IMPORTANT]
->Azure AD Pass-through-verificatie is momenteel in preview. Als u deze functie via preview gebruikt hebt, moet u ervoor zorgen dat u de preview-versies van de verificatie-Agents upgraden met behulp van de instructies [hier](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
+>Azure AD Pass-through-verificatie is momenteel in preview. Als u deze functie via preview gebruikt hebt, moet u ervoor zorgen dat u de preview-versies van Hallo verificatie Agents upgraden met behulp van instructies Hallo [hier](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
 
-U moet de volgende instructies voor het implementeren van Pass through-verificatie:
+U moet deze instructies toodeploy Pass through-verificatie toofollow:
 
 ## <a name="step-1-check-prerequisites"></a>Stap 1: Controle van vereisten
 
-Zorg ervoor dat de volgende vereisten voldaan is:
+Zorg ervoor dat Hallo volgende vereisten wordt voldaan:
 
-### <a name="on-the-azure-active-directory-admin-center"></a>Op het Azure Active Directory-beheercentrum
+### <a name="on-hello-azure-active-directory-admin-center"></a>Op Hallo Azure Active Directory-beheercentrum
 
-1. Maak een account van de globale beheerder alleen in de cloud op uw Azure AD-tenant. Op deze manier kunt u de configuratie van uw tenant beheren moeten uw on-premises-services mislukt of niet meer beschikbaar. Meer informatie over [toevoegen van een cloudconfiguratie globale beheerdersaccount](../active-directory-users-create-azure-portal.md). Tijdens het doorzoeken van deze stap is het belangrijk om ervoor te zorgen dat u geen toegang buiten uw tenant.
-2. Voeg een of meer [aangepast domein namen](../active-directory-add-domain.md) naar uw Azure AD-tenant. Uw gebruikers zich aanmelden met een van deze domeinnamen.
+1. Maak een account van de globale beheerder alleen in de cloud op uw Azure AD-tenant. Op deze manier kunt u de configuratie van uw tenant Hallo beheren moeten uw on-premises-services mislukt of niet meer beschikbaar. Meer informatie over [toevoegen van een cloudconfiguratie globale beheerdersaccount](../active-directory-users-create-azure-portal.md). Tijdens het doorzoeken van deze stap is kritieke tooensure dat u geen toegang af van uw tenant.
+2. Voeg een of meer [aangepast domein namen](../active-directory-add-domain.md) tooyour Azure AD-tenant. Uw gebruikers zich aanmelden met een van deze domeinnamen.
 
 ### <a name="in-your-on-premises-environment"></a>In uw on-premises-omgeving
 
-1. Zoek een server met Windows Server 2012 R2 of hoger waarop Azure AD Connect uitgevoerd. De server toevoegen aan hetzelfde AD-forest als de gebruikers waarvan de wachtwoorden moeten worden gevalideerd.
-2. Installeer de [meest recente versie van Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) op de server die wordt geïdentificeerd in de vorige stap. Als u al Azure AD Connect uitgevoerd, ervoor zorgen dat de versie 1.1.557.0 of hoger.
-3. Identificeren van een extra server met Windows Server 2012 R2 of hoger waarop een zelfstandige verificatie-Agent wordt uitgevoerd. De verificatie-Agent-versie moet worden 1.5.193.0 of hoger. Deze server is nodig voor hoge beschikbaarheid van aanmeldingsaanvragen. De server toevoegen aan hetzelfde AD-forest als de gebruikers waarvan de wachtwoorden moeten worden gevalideerd.
-4. Als er een firewall tussen uw servers en Azure AD, moet u de volgende items configureren:
-   - Zorg ervoor dat de verificatie-Agents kunnen leveren **uitgaande** aanvragen naar Azure AD via de volgende poorten:
+1. Identificeer een server met Windows Server 2012 R2 of later op welke toorun Azure AD Connect. Hallo server toohello dezelfde AD-forest toevoegen als Hallo gebruikers waarvan de wachtwoorden toobe gevalideerd moeten.
+2. Hallo installeren [meest recente versie van Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) op Hallo server geïdentificeerd in de vorige stap. Als u al Azure AD Connect uitgevoerd, zorg ervoor dat versie Hallo 1.1.557.0 of hoger.
+3. Identificeren van een extra server met Windows Server 2012 R2 of later op welke toorun een zelfstandige verificatie-Agent. Hallo verificatie-Agent-versie moet toobe 1.5.193.0 of hoger. Deze server is de benodigde tooensure hoge beschikbaarheid van aanmeldingsaanvragen. Hallo server toohello dezelfde AD-forest toevoegen als Hallo gebruikers waarvan de wachtwoorden toobe gevalideerd moeten.
+4. Als er een firewall tussen uw servers en Azure AD, moet u tooconfigure Hallo volgende items:
+   - Zorg ervoor dat de verificatie-Agents kunnen leveren **uitgaande** tooAzure AD-aanvragen via de volgende poorten Hallo:
    
    | Poortnummer | Hoe deze wordt gebruikt |
    | --- | --- |
-   | **80** | Downloaden van certificaatintrekking (CRL's) worden tijdens het valideren van het SSL-certificaat |
+   | **80** | Downloaden van certificaatintrekking (CRL's) worden tijdens het valideren van Hallo SSL-certificaat |
    | **443** | Alle uitgaande communicatie met onze service |
    
-   Als uw firewall afdwingt regels op basis van de herkomst van gebruikers, opent u deze poorten voor verkeer van de Windows-services die worden uitgevoerd als een netwerkservice.
-   - Als uw firewall of proxyserver kan DNS-whitelisting, geaccepteerde verbindingen met  **\*. msappproxy.net** en  **\*. servicebus.windows.net**. Als dit niet het geval is, zodat u toegang hebben tot [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), die wekelijks worden bijgewerkt.
-   - De verificatie-Agents moet toegang hebben tot **login.windows.net** en **login.microsoftonline.com** voor initiële registratie, zodat uw firewall openen voor deze URL's ook.
-   - Deblokkeren om certificaten te valideren, de volgende URL's: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** en **www.microsoft.com:80**. Deze URL's worden gebruikt voor validatie van het servercertificaat met andere Microsoft-producten, dus u al deze URL's gedeblokkeerd hebt mogelijk.
+   Als uw firewall-regels op basis van gebruikers toooriginating afgedwongen, opent u deze poorten voor verkeer van de Windows-services die worden uitgevoerd als een netwerkservice.
+   - Als uw firewall of proxyserver kunt DNS-whitelisting, geaccepteerde verbindingen te**\*. msappproxy.net** en  **\*. servicebus.windows.net**. Als dit niet het geval is, kunt u toegang te[Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), die wekelijks worden bijgewerkt.
+   - De verificatie-Agents moet toegang hebben te**login.windows.net** en **login.microsoftonline.com** voor initiële registratie, zodat uw firewall openen voor deze URL's ook.
+   - Voor validatie van het servercertificaat deblokkeren Hallo volgende URL's: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** en  **www.Microsoft.com:80**. Deze URL's worden gebruikt voor validatie van het servercertificaat met andere Microsoft-producten, dus u al deze URL's gedeblokkeerd hebt mogelijk.
 
 ## <a name="step-2-enable-exchange-activesync-support-optional"></a>Stap 2: (Optioneel) Exchange ActiveSync-ondersteuning inschakelen
 
-Volg deze instructies voor het Exchange ActiveSync-ondersteuning inschakelen:
+Volg deze instructies tooenable Exchange ActiveSync-ondersteuning:
 
-1. Gebruik [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) de volgende opdracht uitvoeren:
+1. Gebruik [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) toorun Hallo volgende opdracht:
 ```
 Get-OrganizationConfig | fl per*
 ```
 
-2. Controleer de waarde van de `PerTenantSwitchToESTSEnabled` instelling. Als de waarde **true**, uw tenant is juist geconfigureerd - doorgaans is dit het geval is voor de meeste klanten. Als de waarde **false**, voer de volgende opdracht:
+2. Controleer de waarde van de Hallo Hallo `PerTenantSwitchToESTSEnabled` instelling. Als de waarde Hallo **true**, uw tenant is juist geconfigureerd - doorgaans is dit Hallo-aanvraag voor de meeste klanten. Als de waarde Hallo **false**, voert hello volgende opdracht:
 ```
 Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 ```
 
-3. Controleer de waarde van de `PerTenantSwitchToESTSEnabled` is nu ingesteld op **true**. Wacht een uur voordat u doorgaat met de volgende stap.
+3. Verifieer dat de waarde Hallo Hallo `PerTenantSwitchToESTSEnabled` nu ingesteld te**true**. Wacht een uur voordat bewegende toohello volgende stap.
 
 Als u problemen mee te tijdens deze stap maken, controleert u onze [probleemoplossingsgids](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#exchange-activesync-configuration-issues) voor meer informatie.
 
-## <a name="step-3-enable-the-feature"></a>Stap 3: De functie inschakelen
+## <a name="step-3-enable-hello-feature"></a>Stap 3: Hallo-functie inschakelen
 
 Pass through-verificatie kan worden ingeschakeld met [Azure AD Connect](active-directory-aadconnect.md).
 
 >[!IMPORTANT]
->Pass through-verificatie kan worden ingeschakeld op de primaire of staging-server van Azure AD Connect. Het is raadzaam dat u het inschakelen van de primaire server.
+>Pass through-verificatie kan worden ingeschakeld op Hallo Azure AD Connect primaire of staging-server. Het is raadzaam dat u het inschakelen van de primaire server Hallo.
 
-Als u Azure AD Connect voor het eerst installeert, kiest u de [aangepaste installatiepad](active-directory-aadconnect-get-started-custom.md). Op de **gebruikersaanmelding** pagina **Pass through-verificatie** als de aanmelding methode. Is gelukt, wordt een Pass through-verificatie-agent geïnstalleerd op dezelfde server als Azure AD Connect. Bovendien is de functie Pass through-verificatie ingeschakeld op uw tenant.
+Als u Azure AD Connect voor Hallo eerst installeert, kiest u Hallo [aangepaste installatiepad](active-directory-aadconnect-get-started-custom.md). Op Hallo **gebruikersaanmelding** pagina **Pass through-verificatie** zoals Hallo aanmelding op methode. Is gelukt, een Pass through-verificatie-agent is geïnstalleerd op Hallo dezelfde server als Azure AD Connect. Bovendien is Hallo Pass through-verificatie-functie ingeschakeld op uw tenant.
 
 ![Azure AD Connect - gebruiker aanmelden](./media/active-directory-aadconnect-sso/sso3.png)
 
-Als u Azure AD Connect al hebt geïnstalleerd (met behulp van de [snelle installatie](active-directory-aadconnect-get-started-express.md) of de [aangepaste installatie](active-directory-aadconnect-get-started-custom.md) pad), selecteer **wijziging gebruiker aanmeldingspagina** in Azure AD Connect en op **volgende**. Selecteer vervolgens **Pass through-verificatie** als de aanmelding methode. Een Pass through-verificatie-agent is geïnstalleerd op dezelfde server als Azure AD Connect is gelukt, en de functie is ingeschakeld op uw tenant.
+Als u Azure AD Connect al hebt geïnstalleerd (met behulp van Hallo [snelle installatie](active-directory-aadconnect-get-started-express.md) of Hallo [aangepaste installatie](active-directory-aadconnect-get-started-custom.md) pad), selecteer **wijziging gebruiker aanmeldingspagina** op Azure AD Verbinding maken en klikt u op **volgende**. Selecteer vervolgens **Pass through-verificatie** zoals Hallo aanmelding op methode. Is gelukt, een Pass through-verificatie-agent is geïnstalleerd op Hallo dezelfde server als Azure AD Connect en Hallo-functie is ingeschakeld op uw tenant.
 
 ![Azure AD Connect - wijziging gebruiker aanmelden](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
 >[!IMPORTANT]
->Pass through-verificatie is een functie op tenantniveau. Het inschakelen van invloed is op aanmeldingspagina voor gebruikers in _alle_ beheerde domeinen in uw tenant. Als u van de AD FS op Pass through-verificatie overschakelt, raden wij aan dat u ten minste 12 uur voordat het afsluiten van uw AD FS-infrastructuur wacht - wachttijd is om ervoor te zorgen dat gebruikers kunnen houden aanmelding bij Exchange ActiveSync tijdens de overgang.
+>Pass through-verificatie is een functie op tenantniveau. Het inschakelen van invloed is op aanmeldingspagina voor gebruikers in _alle_ Hallo beheerde domeinen in uw tenant. Als u van de AD FS tooPass-through-verificatie overschakelt, wordt aangeraden dat u ten minste 12 uur voordat het afsluiten van uw AD FS-infrastructuur wacht - wachttijd is tooensure die gebruikers kunnen tijdens de overgang in tooExchange ActiveSync houden ondertekenen.
 
-## <a name="step-4-test-the-feature"></a>Stap 4: De functie testen
+## <a name="step-4-test-hello-feature"></a>Stap 4: Hallo functie testen
 
-Volg deze instructies om te controleren of Pass through-verificatie correct ingeschakeld:
+Volg deze instructies tooverify Pass through-verificatie correct ingeschakeld:
 
-1. Aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met de referenties van de globale beheerder voor uw tenant.
-2. Selecteer **Azure Active Directory** op de linkernavigatiebalk.
+1. Meld u aan toohello [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met Hallo hoofdbeheerder referenties voor uw tenant.
+2. Selecteer **Azure Active Directory** op de linkernavigatiebalk Hallo.
 3. Selecteer **Azure AD Connect**.
-4. Controleer de **Pass through-verificatie** functie wordt weergegeven als **ingeschakeld**.
-5. Selecteer **Pass through-verificatie**. Deze blade worden de servers waarop de verificatie-Agents zijn geïnstalleerd.
+4. Controleer of deze Hallo **Pass through-verificatie** functie wordt weergegeven als **ingeschakeld**.
+5. Selecteer **Pass through-verificatie**. Deze blade worden Hallo servers weergegeven waarop de verificatie-Agents zijn geïnstalleerd.
 
 ![Azure Active Directory-beheercentrum - blade van Azure AD Connect](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
 
 ![Azure Active Directory-beheercentrum - blade Pass through-verificatie](./media/active-directory-aadconnect-pass-through-authentication/pta8.png)
 
-In deze fase, kunnen gebruikers van alle beheerde domeinen in uw tenant zich aanmelden bij het gebruik van Pass through-verificatie. Gebruikers van federatieve domeinen blijven echter aan te melden met behulp van Active Directory Federation Services (AD FS) of een andere federatieprovider die u eerder hebt geconfigureerd. Als u een domein via federatieve converteert beheerd, start alle gebruikers van dat domein automatisch aanmelden met behulp van Pass through-verificatie. Alleen in de cloud gebruikers worden niet beïnvloed door de functie Pass through-verificatie.
+In deze fase, kunnen gebruikers van alle beheerde domeinen in uw tenant zich aanmelden bij het gebruik van Pass through-verificatie. Gebruikers van federatieve domeinen blijven echter toosign in met behulp van Active Directory Federation Services (AD FS) of een andere federatieprovider die u eerder hebt geconfigureerd. Als u een domein van de federatieve toomanaged omzet, start alle gebruikers van dat domein automatisch aanmelden met behulp van Pass through-verificatie. Hallo Pass through-verificatie-functie is niet van invloed op gebruikers alleen in de cloud.
 
 ## <a name="step-5-ensure-high-availability"></a>Stap 5: Hoge beschikbaarheid garanderen
 
-Als u van plan bent een Pass through-verificatie implementeren in een productieomgeving, moet u een zelfstandige verificatie-Agent installeren. Deze tweede verificatie-Agent installeren op een server _andere_ dan de één actief Azure AD Connect en de eerste verificatie-Agent. Deze instelling biedt u hoge beschikbaarheid van aanmeldingsaanvragen. Volg deze instructies voor het implementeren van een zelfstandige verificatie-Agent:
+Als u van plan toodeploy Pass through-verificatie in een productieomgeving bent, moet u een zelfstandige verificatie-Agent installeren. Deze tweede verificatie-Agent installeren op een server _andere_ dan één actief Azure AD Connect Hallo en Hallo eerste verificatie-Agent. Deze instelling biedt u hoge beschikbaarheid van aanmeldingsaanvragen. Volg deze instructies toodeploy zelfstandige verificatie-Agent:
 
-1. **Download de nieuwste versie van de verificatie-Agent (versies 1.5.193.0 of hoger)**: aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met uw globale tenantbeheerderreferenties.
-2. Selecteer **Azure Active Directory** op de linkernavigatiebalk.
+1. **Download de nieuwste versie Hallo Hallo verificatie-Agent (versies 1.5.193.0 of hoger)**: aanmelden toohello [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met uw globale tenantbeheerderreferenties.
+2. Selecteer **Azure Active Directory** op de linkernavigatiebalk Hallo.
 3. Selecteer **Azure AD Connect** en vervolgens **Pass through-verificatie**. En selecteer **agent downloaden**.
-4. Klik op de **voorwaarden accepteren & downloaden** knop.
-5. **Installeer de nieuwste versie van de Agent verificatie**: uitvoeren van het uitvoerbare bestand in de vorige stap hebt gedownload. Geef uw tenant hoofdbeheerder referenties wanneer u wordt gevraagd.
+4. Klik op Hallo **voorwaarden accepteren & downloaden** knop.
+5. **Installeer de meest recente versie Hallo Hallo verificatie-Agent**: Voer Hallo uitvoerbare gedownload in de voorgaande stap Hallo. Geef uw tenant hoofdbeheerder referenties wanneer u wordt gevraagd.
 
 ![Azure Active Directory-beheercentrum - knop downloaden van de verificatie-Agent](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Azure Active Directory-beheercentrum - blade Agent downloaden](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->U kunt ook de verificatie-Agent van downloaden [hier](https://aka.ms/getauthagent). Zorg ervoor dat u lees en accepteer de verificatie-Agent [servicevoorwaarden](https://aka.ms/authagenteula) _voordat_ te installeren.
+>U kunt ook downloaden Hallo verificatie-Agent van [hier](https://aka.ms/getauthagent). Zorg ervoor dat u lees en accepteer van Hallo verificatie Agent [servicevoorwaarden](https://aka.ms/authagenteula) _voordat_ te installeren.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [**Huidige beperkingen** ](active-directory-aadconnect-pass-through-authentication-current-limitations.md) -met deze functie is momenteel in preview. Informatie over welke scenario's worden ondersteund en welke niet.
 - [**Technische diepgaand** ](active-directory-aadconnect-pass-through-authentication-how-it-works.md) -begrijpen hoe deze functie werkt.
-- [**Veelgestelde vragen** ](active-directory-aadconnect-pass-through-authentication-faq.md) -antwoorden op veelgestelde vragen.
-- [**Problemen met** ](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) -informatie over het oplossen van veelvoorkomende problemen met de functie.
+- [**Veelgestelde vragen** ](active-directory-aadconnect-pass-through-authentication-faq.md) -toofrequently vragen worden beantwoord.
+- [**Problemen met** ](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) -informatie over hoe tooresolve algemene problemen met een Hallo-functie.
 - [**Azure AD naadloze eenmalige aanmelding** ](active-directory-aadconnect-sso.md) -meer informatie over deze aanvullende functie.
 - [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - voor de nieuwe functieaanvragen indienen.

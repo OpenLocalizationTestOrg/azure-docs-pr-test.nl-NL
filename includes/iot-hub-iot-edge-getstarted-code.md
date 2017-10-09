@@ -1,6 +1,6 @@
 ## <a name="typical-output"></a>Typische uitvoer
 
-Het volgende voorbeeld ziet u de uitvoer naar het logboekbestand geschreven door de Hallo wereld-voorbeeld. De uitvoer is voor de leesbaarheid voorzien van opmaak:
+Hallo volgende voorbeeld ziet u Hallo uitvoer toohello logboekbestand geschreven door Hallo Hallo wereld-voorbeeld. Hallo-uitvoer is ingedeeld voor de leesbaarheid:
 
 ```json
 [{
@@ -32,13 +32,13 @@ Het volgende voorbeeld ziet u de uitvoer naar het logboekbestand geschreven door
 
 ## <a name="code-snippets"></a>Codefragmenten
 
-In deze sectie worden enkele belangrijke onderdelen van de code in het voorbeeldprogramma Hello\_World behandeld.
+In deze sectie worden enkele belangrijke secties Hallo-code in Hallo Hallo\_wereld-voorbeeld.
 
 ### <a name="iot-edge-gateway-creation"></a>Rand IoT gateway maken
 
-U moet implementeren een *gateway proces*. Dit programma maakt de interne infrastructuur (broker), wordt de rand van de IoT-modules geladen en het proces gateway configureert. IoT Edge biedt de functie **Gateway\_Create\_From\_JSON**, waarmee u een gateway vanuit een JSON-bestand kunt opstarten. Gebruik de **Gateway\_maken\_van\_JSON** werkt, het pad naar een JSON-bestand dat Hiermee geeft u aan de rand van de IoT-modules laden doorgeven.
+U moet implementeren een *gateway proces*. Dit programma Hallo interne infrastructuur (Hallo broker) maakt, wordt geladen Hallo IoT rand modules en configureert u Hallo gateway proces. IoT-Edge biedt Hallo **Gateway\_maken\_van\_JSON** werken tooenable toobootstrap een gateway vanuit een JSON-bestand. Hallo toouse **Gateway\_maken\_van\_JSON** werkt, Hallo pad tooa JSON-bestand waarmee Hallo IoT rand modules tooload doorgegeven.
 
-U vindt de code voor het gateway-proces in de *Hallo wereld* voorbeeld in de [main.c] [ lnk-main-c] bestand. Voor een betere leesbaarheid bevat het fragment hieronder een verkorte versie van de code voor het verwerken van de gateway. Het voorbeeldprogramma maakt een gateway en wacht dan tot de gebruiker op **Enter** drukt om de gateway weer te verwijderen.
+U vindt Hallo code Hallo gateway proces op Hallo *Hallo wereld* voorbeeld in Hallo [main.c] [ lnk-main-c] bestand. Voor de leesbaarheid, hello volgende fragment toont een verkorte versie van Hallo gateway procescode. Dit voorbeeldprogramma maakt u een gateway en vervolgens wordt gewacht op Hallo gebruiker toopress hello **ENTER** sleutel voordat deze omlaag Hallo-gateway breekt.
 
 ```c
 int main(int argc, char** argv)
@@ -46,7 +46,7 @@ int main(int argc, char** argv)
     GATEWAY_HANDLE gateway;
     if ((gateway = Gateway_Create_From_JSON(argv[1])) == NULL)
     {
-        printf("failed to create the gateway from JSON\n");
+        printf("failed toocreate hello gateway from JSON\n");
     }
     else
     {
@@ -59,16 +59,16 @@ int main(int argc, char** argv)
 }
 ```
 
-De instellingen voor JSON-bestand bevat een lijst van de rand van de IoT-modules laden en de koppelingen tussen de modules. Elke IoT rand module moet a: opgeven
+Hallo JSON-instellingen-bestand bevat een lijst van IoT rand modules tooload en Hallo koppelingen tussen Hallo-modules. Elke IoT rand module moet a: opgeven
 
-* **name**: een unieke naam voor de module.
-* **loader**: een laadprogramma dat de gewenste module kan laden. Laadprogramma's zijn een uitbreidingspunt voor het laden van verschillende soorten modules. IoT-Edge biedt laadprogramma's voor gebruik met modules die zijn geschreven in systeemeigen C, Node.js, Java en .NET. Het Hallo wereld-voorbeeld gebruikt alleen de lader van de systeemeigen C omdat alle modules in dit voorbeeld dynamische tapewisselaars die zijn geschreven in c zijn Zie voor meer informatie over het gebruik van de rand van de IoT-modules die zijn geschreven in verschillende talen de [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample), of [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample) voorbeelden.
-    * **naam**: de naam van het laadprogramma gebruikt voor het laden van de module.
-    * **entrypoint**: het pad naar de bibliotheek met de module. Voor Linux is deze bibliotheek een SO-bestand, voor Windows een DLL-bestand. Het toegangspunt is specifiek voor het type laadprogramma dat wordt gebruikt. Het toegangspunt voor Node.js-laadprogramma is een bestand .js. Het toegangspunt voor Java-laadprogramma is een klassepad en de naam van een klasse. Het toegangspunt voor .NET-laadprogramma is een assembly-naam en de naam van een klasse.
+* **naam**: een unieke naam voor het Hallo-module.
+* **laadprogramma**: een loader die weet hoe tooload Hallo module gewenst. Laadprogramma's zijn een uitbreidingspunt voor het laden van verschillende soorten modules. IoT-Edge biedt laadprogramma's voor gebruik met modules die zijn geschreven in systeemeigen C, Node.js, Java en .NET. Hallo Hallo wereld-voorbeeld gebruikt alleen Hallo systeemeigen C loader omdat alle Hallo-modules in dit voorbeeld dynamische tapewisselaars die zijn geschreven in c zijn Voor meer informatie over het toouse IoT rand modules geschreven in verschillende talen, Zie Hallo [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample), of [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample) voorbeelden.
+    * **naam**: Hallo-naam van Hallo loader tooload Hallo module gebruikt.
+    * **entrypoint**: Hallo pad toohello bibliotheek met Hallo-module. Voor Linux is deze bibliotheek een SO-bestand, voor Windows een DLL-bestand. Hallo-ingangspunt is specifiek toohello type loader wordt gebruikt. Hallo Node.js loader invoerpunt is een bestand .js. Hallo Java loader invoerpunt is een klassepad en naam van een klasse. Hallo .NET loader invoerpunt is een assembly-naam en de naam van een klasse.
 
-* **args**: alle configuratie-informatie die de module nodig heeft.
+* **argumenten**: configuratie informatie Hallo module moet.
 
-De volgende code toont de JSON die wordt gebruikt voor alle IoT-rand modules voor het Hallo wereld-voorbeeld declareren op Linux. Of een module argumenten nodig heeft, is afhankelijk van het ontwerp van de module. In dit voorbeeld wordt aan de loggermodule een argument doorgegeven dat bestaat uit het pad naar het uitvoerbestand. De module hello\_world heeft geen argumenten.
+Hallo volgende code toont Hallo JSON gebruikt toodeclare alle Hallo IoT Edge-modules voor Hallo Hallo wereld-voorbeeld op Linux. Of een module geen argumenten vereist, is afhankelijk van Hallo ontwerp van Hallo-module. In dit voorbeeld Hallo berichtenlogboek module vereist een argument dat is Hallo pad toohello uitvoerbestand en Hallo Hallo\_wereld-module heeft geen argumenten.
 
 ```json
 "modules" :
@@ -96,14 +96,14 @@ De volgende code toont de JSON die wordt gebruikt voor alle IoT-rand modules voo
 ]
 ```
 
-Het JSON-bestand bevat ook de koppelingen tussen de modules die worden doorgegeven aan de broker. Een koppeling heeft twee eigenschappen:
+Hallo JSON-bestand bevat ook Hallo koppelingen tussen Hallo-modules die zijn doorgegeven toohello broker. Een koppeling heeft twee eigenschappen:
 
-* **bron**: de naam van een module van de `modules` sectie of `\*`.
-* **sink**: de naam van een module van het gedeelte `modules`.
+* **bron**: de naam van een module van Hallo `modules` sectie of `\*`.
+* **sink**: de naam van een module van Hallo `modules` sectie.
 
-Elke koppeling definieert de route en richting van een bericht. Berichten van de **bron** module geleverd worden aan de **sink** module. U kunt instellen de **bron** module die u wilt `\*`, wat aangeeft dat de **sink** module berichten ontvangt van elke module.
+Elke koppeling definieert de route en richting van een bericht. Berichten van Hallo **bron** module geleverd toohello **sink** module. U kunt instellen Hallo **bron** module te`\*`, waarmee wordt aangegeven dat Hallo **sink** module berichten ontvangt van elke module.
 
-De volgende code toont de JSON die wordt gebruikt om koppelingen te configureren tussen de modules die worden gebruikt in het voorbeeld hello\_world op Linux. Elk bericht dat wordt gemaakt door de module `hello_world`, wordt gebruikt door de module `logger`.
+Hallo volgende code toont Hallo JSON gebruikt tooconfigure koppelingen tussen Hallo-modules die worden gebruikt in Hallo Hallo\_wereld-voorbeeld op Linux. Elk bericht wordt geproduceerd door Hallo `hello_world` module wordt gebruikt door Hallo `logger` module.
 
 ```json
 "links":
@@ -117,7 +117,7 @@ De volgende code toont de JSON die wordt gebruikt om koppelingen te configureren
 
 ### <a name="helloworld-module-message-publishing"></a>Publiceren van berichten door de module hello\_world
 
-U vindt de code die door de module hello\_world wordt gebruikt om berichten te publiceren, in het bestand [hello_world.c][lnk-helloworld-c]. Voor een betere leesbaarheid bevat het volgende fragment een gewijzigde versie van de code, waarbij opmerkingen zijn toegevoegd en code voor foutafhandeling is weggelaten:
+U vindt Hallo-code die wordt gebruikt door Hallo Hallo\_world module toopublish berichten in Hallo ['hello_world.c'] [ lnk-helloworld-c] bestand. Hallo volgende fragment toont een gewijzigde versie van Hallo code met opmerkingen toegevoegd en sommige foutafhandeling code voor de leesbaarheid verwijderd:
 
 ```c
 int helloWorldThread(void *param)
@@ -128,18 +128,18 @@ int helloWorldThread(void *param)
     MAP_HANDLE propertiesMap = Map_Create(NULL);
 
     // add a property named "helloWorld" with a value of "from Azure IoT
-    // Gateway SDK simple sample!" to a set of message properties that
-    // will be appended to the message before publishing it. 
+    // Gateway SDK simple sample!" tooa set of message properties that
+    // will be appended toohello message before publishing it. 
     Map_AddOrUpdate(propertiesMap, "helloWorld", "from Azure IoT Gateway SDK simple sample!")
 
-    // set the content for the message
+    // set hello content for hello message
     msgConfig.size = strlen(HELLOWORLD_MESSAGE);
     msgConfig.source = HELLOWORLD_MESSAGE;
 
-    // set the properties for the message
+    // set hello properties for hello message
     msgConfig.sourceProperties = propertiesMap;
 
-    // create a message based on the msgConfig structure
+    // create a message based on hello msgConfig structure
     MESSAGE_HANDLE helloWorldMessage = Message_Create(&msgConfig);
 
     while (1)
@@ -147,11 +147,11 @@ int helloWorldThread(void *param)
         if (handleData->stopThread)
         {
             (void)Unlock(handleData->lockHandle);
-            break; /*gets out of the thread*/
+            break; /*gets out of hello thread*/
         }
         else
         {
-            // publish the message to the broker
+            // publish hello message toohello broker
             (void)Broker_Publish(handleData->brokerHandle, helloWorldMessage);
             (void)Unlock(handleData->lockHandle);
         }
@@ -167,7 +167,7 @@ int helloWorldThread(void *param)
 
 ### <a name="helloworld-module-message-processing"></a>Berichtverwerking door de module hello\_world
 
-De Hallo\_world module nooit berichten verwerkt die andere modules IoT rand naar de broker publiceren. Om die reden is de implementatie van de bericht-callback in de module hello\_world een no-op-functie.
+Hallo Hallo\_world module verwerkt nooit berichten dat andere modules IoT rand toohello broker publiceren. Implementatie van Hallo-bericht retouraanroep in Hallo Hallo daarom Hallo\_wereld-module is geen functie.
 
 ```c
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -178,9 +178,9 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 
 ### <a name="logger-module-message-publishing-and-processing"></a>Loggermodule berichtpublicatie en -verwerking
 
-De loggermodule ontvangt berichten van de broker en schrijft deze weg naar een bestand. Deze module publiceert nooit berichten. Daarom roept de code van de loggermodule nooit de functie **Broker_Publish** aan.
+Hallo berichtenlogboek module berichten ontvangt van Hallo broker en schrijft ze tooa-bestand. Deze module publiceert nooit berichten. Daarom Hallo-code van Hallo berichtenlogboek module wordt nooit aangeroepen door Hallo **Broker_Publish** functie.
 
-De **Logger_Receive** werken in de [logger.c] [ lnk-logger-c] bestand is de callback van de broker wordt aangeroepen voor het leveren van berichten naar de module berichtenlogboek. Voor een betere leesbaarheid bevat het volgende fragment een gewijzigde versie, waarbij opmerkingen zijn toegevoegd en code voor foutafhandeling is weggelaten:
+Hallo **Logger_Receive** functie in Hallo [logger.c] [ lnk-logger-c] bestand is Hallo callback Hallo broker toodeliver berichten toohello berichtenlogboek module wordt aangeroepen. Hallo volgende fragment toont een gewijzigde versie met opmerkingen toegevoegd en sommige foutafhandeling code voor de leesbaarheid verwijderd:
 
 ```c
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -190,32 +190,32 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
     struct tm* t = localtime(&temp);
     char timetemp[80] = { 0 };
 
-    // Get the message properties from the message
+    // Get hello message properties from hello message
     CONSTMAP_HANDLE originalProperties = Message_GetProperties(messageHandle); 
     MAP_HANDLE propertiesAsMap = ConstMap_CloneWriteable(originalProperties);
 
-    // Convert the collection of properties into a JSON string
+    // Convert hello collection of properties into a JSON string
     STRING_HANDLE jsonProperties = Map_ToJSON(propertiesAsMap);
 
-    //  base64 encode the message content
+    //  base64 encode hello message content
     const CONSTBUFFER * content = Message_GetContent(messageHandle);
     STRING_HANDLE contentAsJSON = Base64_Encode_Bytes(content->buffer, content->size);
 
-    // Start the construction of the final string to be logged by adding
-    // the timestamp
+    // Start hello construction of hello final string toobe logged by adding
+    // hello timestamp
     STRING_HANDLE jsonToBeAppended = STRING_construct(",{\"time\":\"");
     STRING_concat(jsonToBeAppended, timetemp);
 
-    // Add the message properties
+    // Add hello message properties
     STRING_concat(jsonToBeAppended, "\",\"properties\":"); 
     STRING_concat_with_STRING(jsonToBeAppended, jsonProperties);
 
-    // Add the content
+    // Add hello content
     STRING_concat(jsonToBeAppended, ",\"content\":\"");
     STRING_concat_with_STRING(jsonToBeAppended, contentAsJSON);
     STRING_concat(jsonToBeAppended, "\"}]");
 
-    // Write the formatted string
+    // Write hello formatted string
     LOGGER_HANDLE_DATA *handleData = (LOGGER_HANDLE_DATA *)moduleHandle;
     addJSONString(handleData->fout, STRING_c_str(jsonToBeAppended);
 }
@@ -223,7 +223,7 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u een eenvoudige rand IoT gateway die berichten naar een logboekbestand schrijft uitgevoerd. Zie het uitvoeren van een steekproef die berichten naar IoT Hub verzendt [rand van de IoT-apparaat-naar-cloud-berichten verzenden met een gesimuleerd apparaat met Linux] [ lnk-gateway-simulated-linux] of [rand van de IoT-apparaat-naar-cloud-berichten verzenden met een gesimuleerde apparaat met Windows][lnk-gateway-simulated-windows].
+In dit artikel hebt u een eenvoudige rand IoT gateway die berichten tooa logboekbestand uitgevoerd. toorun een voorbeeldtoepassing die u berichten tooIoT Hub verzendt, Zie [rand van de IoT-apparaat-naar-cloud-berichten verzenden met een gesimuleerd apparaat met Linux] [ lnk-gateway-simulated-linux] of [rand van de IoT-apparaat-naar-cloud-berichten verzenden met een gesimuleerde apparaat met Windows][lnk-gateway-simulated-windows].
 
 
 <!-- Links -->

@@ -1,5 +1,5 @@
 ---
-title: Een Machine Learning-webservice vanuit Excel gebruiken | Microsoft Docs
+title: een Machine Learning-webservice vanuit Excel aaaConsume | Microsoft Docs
 description: Een Azure Machine Learning-webservice vanuit Excel gebruiken
 services: machine-learning
 documentationcenter: 
@@ -14,60 +14,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/13/2017
 ms.author: tedway
-ms.openlocfilehash: 9f1aac04d54221888ee9374317be339400dcf085
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e2e8bbf7ba75b6618a0285539555ce175ec03c1a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Een Azure Machine Learning-webservice gebruiken vanuit Excel
- Azure Machine Learning Studio kunt gemakkelijk aanroepen van webservices rechtstreeks vanuit Excel zonder code te schrijven.
+ Azure Machine Learning Studio maakt het eenvoudig toocall webservices rechtstreeks vanuit Excel zonder Hallo moet toowrite code.
 
-Als u Excel 2013 (of hoger) of Excel Online gebruikt, wordt aangeraden dat u de Excel [Excel-invoegtoepassing](machine-learning-excel-add-in-for-web-services.md).
+Als u Excel 2013 (of hoger) of Excel Online gebruikt, wordt aangeraden dat u Excel Hallo [Excel-invoegtoepassing](machine-learning-excel-add-in-for-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="steps"></a>Stappen
-Een webservice publiceert. [Deze pagina](machine-learning-walkthrough-5-publish-web-service.md) wordt uitgelegd hoe u dit doen. De functie van de Excel-werkmap is momenteel alleen ondersteund voor de aanvraag/antwoord-services die één uitvoer (dat wil zeggen, een enkel scoreprofiel label). 
+Een webservice publiceert. [Deze pagina](machine-learning-walkthrough-5-publish-web-service.md) wordt uitgelegd hoe toodo deze. Hallo Excel-werkmap functie is momenteel alleen ondersteund voor de aanvraag/antwoord-services die één uitvoer (dat wil zeggen, een enkel scoreprofiel label). 
 
-Zodra u een webservice hebt, klikt u op in de **WEBSERVICES** sectie aan de linkerkant van de studio en selecteer vervolgens de web-service gebruiken vanuit Excel.
+Zodra u een webservice hebt, klik op Hallo **WEBSERVICES** sectie aan de linkerkant Hallo van Hallo studio, en selecteer vervolgens Hallo web service tooconsume in Excel.
 
 **Klassieke webservice**
 
-1. Op de **DASHBOARD** tabblad voor de webservice is een rij voor de **aanvragen/reacties** service. Als deze service één uitvoer heeft, ziet u de **Excel-werkmap downloaden** koppeling in die rij.
+1. Op Hallo **DASHBOARD** tabblad voor Hallo-webservice een rij voor Hallo is **aanvragen/reacties** service. Als deze service één uitvoer heeft, ziet u Hallo **Excel-werkmap downloaden** koppeling in die rij.
    
     ![][1]
 2. Klik op **Excel-werkmap downloaden**.
 
 **Nieuwe webservice**
 
-1. Selecteer in de portal voor Azure Machine Learning-webservice **verbruiken**.
-2. Op de pagina verbruiken in de **Web-verbruik serviceopties** sectie, klikt u op het Excel-pictogram.
+1. Selecteer in hello Azure Machine Learning-webservice portal **verbruiken**.
+2. Hallo verbruiken in op pagina Hallo **Web-verbruik serviceopties** sectie, klikt u op Hallo Excel-pictogram.
 
-**Met behulp van de werkmap**
+**Hallo werkmap**
 
-1. Open de werkmap.
-2. Er verschijnt een beveiligingswaarschuwing; Klik op de **bewerken inschakelen** knop.
+1. Open Hallo-werkmap.
+2. Er verschijnt een beveiligingswaarschuwing; Klik op Hallo **bewerken inschakelen** knop.
    
     ![][2]
-3. Een beveiligingswaarschuwing weergegeven. Klik op de **inhoud inschakelen** knop voor het uitvoeren van macro's in het werkblad.
+3. Een beveiligingswaarschuwing weergegeven. Klik op Hallo **inhoud inschakelen** knop toorun macro's in het werkblad.
    
     ![][3]
-4. Zodra de macro's zijn ingeschakeld, wordt een tabel wordt gegenereerd. Kolommen in blauw zijn vereist als invoer in de webservice RRS of **PARAMETERS**. De uitvoer van de service RRS **VOORSPELDE waarden** in groen. Wanneer alle kolommen voor een bepaalde rij gevuld zijn, de werkmap automatisch de score API aanroept en de scored resultaten worden weergegeven.
+4. Zodra de macro's zijn ingeschakeld, wordt een tabel wordt gegenereerd. Kolommen in blauw zijn vereist als invoer in Hallo RRS-webservice of **PARAMETERS**. Houd er rekening mee Hallo uitvoer Hallo RRS-service, **VOORSPELDE waarden** in groen. Wanneer alle kolommen voor een bepaalde rij zijn ingevuld, Hallo werkmap automatisch Hallo score berekenen voor API-aanroepen en Hallo berekend resultaten worden weergegeven.
    
     ![][4]
-5. Als u wilt beoordelen meer dan één rij, opvulling van de tweede rij met gegevens en de voorspelde waarden worden geproduceerd. U kunt zelfs meerdere rijen in één keer plakken.
+5. tooscore meer dan een rij, voorspelde opvulling Hallo tweede rij met gegevens en Hallo waarden worden gegenereerd. U kunt zelfs meerdere rijen in één keer plakken.
 
-U kunt de Excel-functies (grafieken, power-kaart, voorwaardelijke opmaak, enz.) met de voorspelde waarden gebruiken om u te helpen de gegevens visualiseren.    
+U Hallo Excel-functies (grafieken, power-kaart, voorwaardelijke opmaak, enz.) kunt gebruiken met Hallo voorspelde waarden toohelp Hallo gegevens visualiseren.    
 
 ## <a name="sharing-your-workbook"></a>Delen van uw werkmap
-Voor de macro's werken, moet uw API-sleutel deel uitmaken van het werkblad. Dat betekent dat u de werkmap moet delen alleen met entiteiten/personen die u vertrouwt.
+Voor Hallo macro's toowork, moet uw API-sleutel deel uitmaken van Hallo werkblad. Dat betekent dat u alleen met entiteiten/personen die u vertrouwt Hallo werkmap moet delen.
 
 ## <a name="automatic-updates"></a>Automatische updates
 In deze situaties wordt een RRS-aanroep uitgevoerd:
 
-1. De eerste keer dat een rij bevat inhoud in alle bijbehorende **PARAMETERS**
-2. Telkens wanneer u een van de **PARAMETERS** wijzigingen in een rij die alle waren bijbehorende **PARAMETERS** ingevoerd.
+1. Hallo eerst een rij heeft de inhoud in alle bijbehorende **PARAMETERS**
+2. Telkens wanneer u een van de Hallo **PARAMETERS** wijzigingen in een rij die alle waren bijbehorende **PARAMETERS** ingevoerd.
 
 [1]: ./media/machine-learning-consuming-from-excel/excellink.png
 [2]: ./media/machine-learning-consuming-from-excel/enableeditting.png

@@ -42,7 +42,7 @@
 ## Configureren
 ### Azure
 #### [Profiler](app-insights-profiler.md)
-#### [Profiler inschakelen](enable-profiler-cloud-services.md)
+#### [Hallo Profiler inschakelen](enable-profiler-cloud-services.md)
 #### [Diagnostics](app-insights-azure-diagnostics.md)
 #### [Previews](app-insights-previews.md)
 
@@ -130,7 +130,7 @@
 ## Exporteren
 ### [Continue export](app-insights-export-telemetry.md)
 ### [Gegevensmodel exporteren](app-insights-export-data-model.md)
-### [Exporteren naar Power BI](app-insights-export-power-bi.md)
+### [TooPower BI exporteren](app-insights-export-power-bi.md)
 
 ## Beveiligen
 ### [Verzameling, retentie en opslag van gegevens](app-insights-data-retention-privacy.md)

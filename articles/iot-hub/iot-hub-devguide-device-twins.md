@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub apparaat horende begrijpen | Microsoft Docs
-description: Handleiding voor ontwikkelaars - gebruik apparaat horende status en configuratie van gegevens tussen IoT Hub en uw apparaten synchroniseren
+title: aaaUnderstand Azure IoT Hub apparaat horende | Microsoft Docs
+description: Handleiding voor ontwikkelaars - apparaat gebruiken horende toosynchronize status en de configuratie van gegevens tussen IoT Hub en uw apparaten
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,54 +15,54 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b316aa419d558547f90a914a22fb29935076de21
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7dade18665108ed352ff3d18e864dc34f451bbf6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Begrijpen en gebruiken van apparaat horende in IoT-Hub
 ## <a name="overview"></a>Overzicht
-*Apparaat horende* zijn JSON-documenten die apparaatgegevens van status (metagegevens, configuraties en voorwaarden) opslaan. IoT Hub gebruikt een apparaatdubbel voor elk apparaat dat u verbindt met IoT Hub. Dit artikel wordt beschreven:
+*Apparaat horende* zijn JSON-documenten die apparaatgegevens van status (metagegevens, configuraties en voorwaarden) opslaan. IoT Hub persistente een apparaat twin voor elk apparaat dat u verbinding tooIoT Hub maakt. Dit artikel wordt beschreven:
 
-* De structuur van het apparaat twin: *labels*, *gewenste* en *gerapporteerd eigenschappen*, en
-* De bewerkingen die apparaat-apps en back-ends op het apparaat horende kunnen uitvoeren.
+* structuur van Hallo apparaat twin Hallo: *labels*, *gewenste* en *gerapporteerd eigenschappen*, en
+* Hallo-bewerkingen die apparaat-apps en back-ends voor horende apparaten kunnen uitvoeren.
 
 > [!NOTE]
-> Apparaat horende zijn momenteel alleen toegankelijk vanaf apparaten die verbinding maken met behulp van het protocol MQTT IoT-Hub. Raadpleeg de [MQTT ondersteuning] [ lnk-devguide-mqtt] artikel voor instructies over het converteren van bestaande apparaattoepassing MQTT gebruiken.
+> Apparaat horende zijn momenteel alleen toegankelijk vanaf apparaten die verbinding tooIoT Hub maken met Hallo MQTT-protocol. Raadpleeg toohello [MQTT ondersteuning] [ lnk-devguide-mqtt] artikel voor instructies over het tooconvert bestaande apparaat app toouse MQTT.
 > 
 > 
 
-### <a name="when-to-use"></a>Wanneer gebruikt u dit?
+### <a name="when-toouse"></a>Wanneer toouse
 Apparaat horende te gebruiken:
 
-* Apparaatspecifieke metagegevens niet opslaan in de cloud. Bijvoorbeeld, de implementatielocatie van een snoep-machine.
-* Huidige status rapportgegevens zoals beschikbaar mogelijkheden en de voorwaarden van de app op uw apparaat. Bijvoorbeeld, een apparaat is verbonden met uw IoT-hub over mobiel of Wi-Fi.
-* De status van langlopende werkstromen tussen apparaattoepassing en back-endserver voor apps worden gesynchroniseerd. Wanneer de oplossing voor back-end geeft u de nieuwe firmwareversie voor het installeren en de apparaattoepassing rapporteert de verschillende stadia van het updateproces.
+* Apparaatspecifieke metagegevens opslaan in de cloud Hallo. Bijvoorbeeld, de implementatielocatie van de van een machine snoep Hallo.
+* Huidige status rapportgegevens zoals beschikbaar mogelijkheden en de voorwaarden van de app op uw apparaat. Bijvoorbeeld, een apparaat is verbonden tooyour IoT-hub over mobiel of Wi-Fi.
+* Hallo-status van langlopende werkstromen tussen apparaattoepassing en back-endserver voor apps worden gesynchroniseerd. Wanneer een back-Hallo oplossing einde geeft aan nieuwe firmware versie tooinstall Hallo en Hallo apparaat app rapporten verschillende fasen van het updateproces Hallo Hallo is.
 * De metagegevens van apparaten, de configuratie of de status opvragen.
 
-Raadpleeg [apparaat-naar-cloud communicatie richtlijnen] [ lnk-d2c-guidance] voor instructies over het gebruik van de gerapporteerde eigenschappen, apparaat-naar-cloud-berichten of bestand uploaden.
-Raadpleeg [Cloud-naar-apparaat communicatie richtlijnen] [ lnk-c2d-guidance] voor hulp bij het gebruik van eigenschappen van de gewenste rechtstreekse methoden of cloud-naar-apparaat-berichten.
+Raadpleeg te[apparaat-naar-cloud communicatie richtlijnen] [ lnk-d2c-guidance] voor instructies over het gebruik van de gerapporteerde eigenschappen, apparaat-naar-cloud-berichten of bestand uploaden.
+Raadpleeg te[Cloud-naar-apparaat communicatie richtlijnen] [ lnk-c2d-guidance] voor hulp bij het gebruik van eigenschappen van de gewenste rechtstreekse methoden of cloud-naar-apparaat-berichten.
 
 ## <a name="device-twins"></a>Apparaat horende
 Apparaat horende apparaatgerelateerde gegevens opslaan die:
 
-* Apparaat- en back-ends kunnen gebruiken om apparaat-voorwaarden en configuratie te synchroniseren.
-* De back-end oplossing kunt gebruiken voor query- en doel langlopende bewerkingen.
+* Apparaat- en back-ends kunnen toosynchronize apparaat voorwaarden en configuratie gebruiken.
+* Hallo back-end oplossing kunt tooquery gebruiken en langlopende bewerkingen zijn gericht.
 
-De levenscyclus van een apparaat-twin is gekoppeld aan de bijbehorende [apparaat-id][lnk-identity]. Apparaat horende worden impliciet gemaakt en verwijderd wanneer een nieuw apparaat-id is gemaakt of verwijderd uit IoT Hub.
+Hallo levenscyclus van een apparaat-twin is gekoppeld toohello overeenkomt [apparaat-id][lnk-identity]. Apparaat horende worden impliciet gemaakt en verwijderd wanneer een nieuw apparaat-id is gemaakt of verwijderd uit IoT Hub.
 
 Een apparaat-twin is een JSON-document met:
 
-* **Labels**. Een gedeelte van de JSON-document dat de back-end oplossing kunt lezen en schrijven naar. Labels zijn niet zichtbaar voor apparaat-apps.
-* **Eigenschappen van de gewenste**. Gebruikt samen met de eigenschappen van de gerapporteerde synchroniseren apparaatconfiguratie of voorwaarden. Gewenste eigenschappen kunnen alleen worden ingesteld door de oplossing terug einde en kunnen worden gelezen door de app voor het apparaat. De apparaat-app kan ook worden gewaarschuwd in realtime van wijzigingen in de gewenste eigenschappen.
-* **Eigenschappen gerapporteerd**. Gebruikt samen met de gewenste eigenschappen voor het synchroniseren van apparaatconfiguratie of voorwaarden. Eigenschappen van de gerapporteerde kunnen kan alleen worden ingesteld door de apparaat-app en worden gelezen en opgevraagd met de back-end oplossing.
+* **Labels**. Een gedeelte van Hallo JSON-document dat back-end oplossing Hallo kunt lezen van en schrijven naar. Labels zijn niet zichtbaar toodevice apps.
+* **Eigenschappen van de gewenste**. Gebruikt samen met de eigenschappen van de gerapporteerde toosynchronize apparaatconfiguratie of voorwaarden. Gewenste eigenschappen kunnen alleen worden ingesteld door Hallo oplossing terug einde en kunnen worden gelezen door Hallo apparaattoepassing. Hallo apparaattoepassing kan ook worden gewaarschuwd in realtime van wijzigingen in de eigenschappen van Hallo gewenst.
+* **Eigenschappen gerapporteerd**. Gebruikt samen met de gewenste eigenschappen toosynchronize apparaatconfiguratie of voorwaarden. Eigenschappen van de gerapporteerde kunnen Hallo apparaattoepassing kan alleen worden ingesteld en worden gelezen en opgevraagd door Hallo back-end oplossing.
 
-De hoofdmap van het apparaat twin JSON-document bevat tevens de alleen-lezen eigenschappen van de bijbehorende apparaat-id opgeslagen in de [identiteitsregister][lnk-identity].
+Hallo-hoofdmap van Hallo apparaat twin JSON-document bevat tevens Hallo alleen-lezen eigenschappen van Hallo bijbehorende apparaat-id opgeslagen in Hallo [identiteitsregister][lnk-identity].
 
 ![][img-twin]
 
-Het volgende voorbeeld ziet u een apparaat twin JSON-document:
+Hallo volgende voorbeeld ziet u een apparaat twin JSON-document:
 
         {
             "deviceId": "devA",
@@ -100,18 +100,18 @@ Het volgende voorbeeld ziet u een apparaat twin JSON-document:
             }
         }
 
-In het hoofdobject Systeemeigenschappen en containerobjecten voor `tags` en beide `reported` en `desired` eigenschappen. De `properties` container bevat sommige alleen-lezen-elementen (`$metadata`, `$etag`, en `$version`) dat wordt beschreven in de [twin Apparaatmetagegevens] [ lnk-twin-metadata] en [ Optimistische gelijktijdigheid] [ lnk-concurrency] secties.
+In het hoofdobject hello, Hallo Systeemeigenschappen en containerobjecten voor `tags` en beide `reported` en `desired` eigenschappen. Hallo `properties` container bevat sommige alleen-lezen-elementen (`$metadata`, `$etag`, en `$version`) dat wordt beschreven in Hallo [twin Apparaatmetagegevens] [ lnk-twin-metadata] en [ Optimistische gelijktijdigheid] [ lnk-concurrency] secties.
 
 ### <a name="reported-property-example"></a>Voorbeeld van de gerapporteerde eigenschap
-In het vorige voorbeeld de apparaat-twin bevat een `batteryLevel` eigenschap die is gerapporteerd door de app voor het apparaat. Deze eigenschap kan doorzoeken en op apparaten die zijn gebaseerd op het niveau van de laatste gemelde batterij werkt. Andere voorbeelden zijn de apparaat-app apparaat rapportagemogelijkheden of opties voor netwerkconnectiviteit.
+In het vorige voorbeeld Hallo Hallo apparaat twin bevat een `batteryLevel` eigenschap die is gerapporteerd door Hallo apparaattoepassing. Deze eigenschap maakt het mogelijk tooquery en werkt op apparaten die zijn gebaseerd op Hallo laatste gemelde accuniveau. Andere voorbeelden zijn Hallo apparaat app apparaat rapportagemogelijkheden of opties voor netwerkconnectiviteit.
 
 > [!NOTE]
-> Eigenschappen van de gerapporteerde vereenvoudigen scenario's waarin de back-end van de oplossing is geïnteresseerd in de laatst bekende waarde van een eigenschap. Gebruik [apparaat-naar-cloudberichten] [ lnk-d2c] als de back-end van de oplossing moet verwerken van telemetriegegevens in de vorm van reeksen voorzien van een tijdstempel gebeurtenissen, zoals een tijdreeks.
+> Eigenschappen van de gerapporteerde vereenvoudigen scenario's waarbij Hallo back-end oplossing is geïnteresseerd in de laatste bekende waarde van een eigenschap Hallo. Gebruik [apparaat-naar-cloudberichten] [ lnk-d2c] als Hallo back-end oplossing tooprocess apparaattelemetrie in de vorm Hallo van reeksen voorzien van een tijdstempel gebeurtenissen, zoals een tijdreeks moet.
 
 ### <a name="desired-property-example"></a>Voorbeeld van de gewenste eigenschap
-In het vorige voorbeeld de `telemetryConfig` apparaat twin gewenst en gemelde eigenschappen worden gebruikt door de back-end van de oplossing en de apparaat-app voor het synchroniseren van de telemetrie-configuratie voor dit apparaat. Bijvoorbeeld:
+In het vorige voorbeeld Hallo Hallo `telemetryConfig` apparaat twin gewenst en gerapporteerde eigenschappen worden gebruikt door Hallo back-end oplossing en Hallo app toosynchronize Hallo telemetrie apparaatconfiguratie voor dit apparaat. Bijvoorbeeld:
 
-1. De back-end oplossing stelt de gewenste eigenschap met de waarde van de gewenste configuratie. Dit is het gedeelte van het document met de gewenste eigenschap is ingesteld:
+1. Hallo back-end oplossing Hallo gewenst eigenschap met de Hallo desired configuratiewaarde ingesteld. Hier volgt Hallo-gedeelte van Hallo-document met Hallo gewenst eigenschap is ingesteld:
    
         ...
         "desired": {
@@ -121,7 +121,7 @@ In het vorige voorbeeld de `telemetryConfig` apparaat twin gewenst en gemelde ei
             ...
         },
         ...
-2. De apparaat-app ontvangt een melding van de wijziging onmiddellijk als verbonden of op de eerste opnieuw verbinding te maken. De apparaat-app vervolgens verslag uitbrengt de bijgewerkte configuratie (of een fout voorwaarde met behulp van de `status` eigenschap). Dit is het gedeelte van de gerapporteerde eigenschappen:
+2. Hallo apparaattoepassing ontvangt een melding van Hallo wijziging onmiddellijk als op Hallo eerst verbinding of geen verbinding. Hallo apparaattoepassing vervolgens verslag uitbrengt Hallo bijgewerkt configuration (of een foutconditie Hallo met `status` eigenschap). Hier volgt Hallo gedeelte Hallo gerapporteerd eigenschappen:
    
         ...
         "reported": {
@@ -132,20 +132,20 @@ In het vorige voorbeeld de `telemetryConfig` apparaat twin gewenst en gemelde ei
             ...
         }
         ...
-3. De back-end oplossing kunt volgen de resultaten van de configuratie-bewerking op veel apparaten door [opvragen] [ lnk-query] horende apparaten.
+3. Hallo back-end oplossing kunt bijhouden Hallo resultaten van de bewerking van de configuratie van Hallo op veel apparaten door [opvragen] [ lnk-query] horende apparaten.
 
 > [!NOTE]
-> De voorgaande codefragmenten zijn voorbeelden, geoptimaliseerd voor de leesbaarheid van een manier voor het coderen van de configuratie van een apparaat en de status ervan. IoT Hub legt een specifieke schema voor de apparaat-twin gewenst en eigenschappen in de horende apparaten gerapporteerd.
+> Hallo voorgaande codefragmenten zijn voorbeelden, geoptimaliseerd voor de leesbaarheid van eenrichtingssessie tooencode de configuratie van een apparaat en de status ervan. IoT Hub afdwingen voor Hallo apparaat twin gewenst en eigenschappen in Hallo apparaat horende gerapporteerd niet met een specifiek schema.
 > 
 > 
 
-U kunt horende langlopende bewerkingen zoals firmware-updates te synchroniseren. Zie voor meer informatie over het gebruik van eigenschappen om te synchroniseren en een langdurige bewerking bijhouden op apparaten [gebruik gewenst eigenschappen voor het configureren van apparaten][lnk-twin-properties].
+U kunt horende toosynchronize langlopende bewerkingen zoals firmware-updates. Voor meer informatie over hoe toouse eigenschappen toosynchronize en bijhouden een langdurige bewerking op apparaten, Zie [gebruik gewenst eigenschappen tooconfigure apparaten][lnk-twin-properties].
 
 ## <a name="back-end-operations"></a>Back-end-bewerkingen
-De back-end van de oplossing is van invloed op het apparaat twin met behulp van de volgende atomische bewerkingen, die toegankelijk is via HTTP:
+Hallo back-end oplossing is van invloed op Hallo apparaat twin Hallo volgt atomic bewerkingen, die toegankelijk is via HTTP met:
 
-1. **Apparaat-twin ophalen met id**. Deze bewerking retourneert het apparaat twin document, inclusief tags en gewenst, gerapporteerd, en Systeemeigenschappen.
-2. **Gedeeltelijk bijwerken apparaat twin**. Deze bewerking kunt de back-end oplossing gedeeltelijk de codes of de gewenste eigenschappen in een twin apparaat bijwerken. De gedeeltelijke update wordt uitgedrukt als een JSON-document dat wordt toegevoegd of updates van een eigenschap. Eigenschappen ingesteld op `null` worden verwijderd. Het volgende voorbeeld wordt een nieuwe gewenste eigenschap met de waarde `{"newProperty": "newValue"}`, overschrijft de bestaande waarde van `existingProperty` met `"otherNewValue"`, en verwijdert u `otherOldProperty`. Er zijn geen andere wijzigingen zijn aangebracht aan de bestaande gewenste eigenschappen of labels:
+1. **Apparaat-twin ophalen met id**. Deze bewerking retourneert Hallo apparaat twin document, inclusief tags en gewenst, gerapporteerd, en Systeemeigenschappen.
+2. **Gedeeltelijk bijwerken apparaat twin**. Deze bewerking kan Hallo oplossing voor back-end toopartially update Hallo tags of gewenste eigenschappen in een twin apparaat. Hallo gedeeltelijke update wordt uitgedrukt als een JSON-document dat wordt toegevoegd of updates van een eigenschap. Eigenschappen instellen te`null` worden verwijderd. Hallo volgende voorbeeld wordt een nieuwe gewenste eigenschap met de waarde `{"newProperty": "newValue"}`, overschrijft de bestaande waarde Hallo van `existingProperty` met `"otherNewValue"`, en verwijdert u `otherOldProperty`. Er worden geen andere wijzigingen aangebracht tooexisting gewenst eigenschappen of labels:
    
         {
             "properties": {
@@ -158,29 +158,29 @@ De back-end van de oplossing is van invloed op het apparaat twin met behulp van 
                 }
             }
         }
-3. **Gewenste eigenschappen vervangen**. Deze bewerking kunt u de back-end oplossing voor het volledig overschrijven alle bestaande gewenste eigenschappen en vervangen door een nieuwe JSON-document voor `properties/desired`.
-4. **Vervang labels**. Deze bewerking kunt u de back-end oplossing voor het volledig overschrijven alle bestaande tags en vervangen door een nieuwe JSON-document voor `tags`.
-5. **Dubbele meldingen ontvangen**. Deze bewerking kunt de back-end oplossing wilt worden gewaarschuwd als de twin is gewijzigd. Om dit te doen, moet uw IoT-oplossing het maken van een route en stelt u de gegevensbron op *twinChangeEvents*. Standaard geen twin meldingen worden verzonden, dat wil zeggen, geen dergelijke routes vooraf bestaan. Als de wijzigingssnelheid te hoog is, of om andere redenen, zoals interne fouten, kan de IoT-Hub slechts één melding waarin alle wijzigingen verzenden. Dus als uw toepassing moet betrouwbare voor controle en logboekregistratie van alle tussenliggende statussen, nog steeds aanbevolen wordt dat u D2C berichten. Het meldingsbericht twin bevat eigenschappen en hoofdtekst.
+3. **Gewenste eigenschappen vervangen**. Deze bewerking kunt Hallo oplossing voor back-end toocompletely overschrijven alle bestaande gewenste eigenschappen en vervangen door een nieuwe JSON-document voor `properties/desired`.
+4. **Vervang labels**. Deze bewerking kunt Hallo oplossing voor back-end toocompletely overschrijven alle bestaande codes en vervangen door een nieuwe JSON-document voor `tags`.
+5. **Dubbele meldingen ontvangen**. Deze bewerking kunt Hallo oplossing voor back-end toobe gewaarschuwd als Hallo twin is gewijzigd. toodo, uw IoT-oplossing moet een route toocreate en tooset Hallo gegevensbron gelijk te*twinChangeEvents*. Standaard geen twin meldingen worden verzonden, dat wil zeggen, geen dergelijke routes vooraf bestaan. Als wijzigingsratio Hallo te hoog is of om andere redenen, zoals interne fouten Hallo IoT Hub slechts één melding waarin alle wijzigingen kan verzenden. Dus als uw toepassing moet betrouwbare voor controle en logboekregistratie van alle tussenliggende statussen, nog steeds aanbevolen wordt dat u D2C berichten. Hallo twin Meldingsbericht bevat eigenschappen en hoofdtekst.
 
     - Eigenschappen
 
     | Naam | Waarde |
     | --- | --- |
     $content-type | application/json |
-    $iothub-enqueuedtime |  Tijd waarop de melding is verzonden |
+    $iothub-enqueuedtime |  Tijd waarop het Hallo-bericht is verzonden |
     $iothub-bericht-bron | twinChangeEvents |
     $content-codering | UTF-8 |
-    deviceId | Id van het apparaat |
+    deviceId | Hallo-apparaat-id |
     hubName | Naam van de IoT-Hub |
     operationTimestamp | [ISO8601] tijdstempel van bewerking |
     bericht-iothub-schema | deviceLifecycleNotification |
     opType | 'replaceTwin' of 'updateTwin' |
 
-    Bericht Systeemeigenschappen worden voorafgegaan door de `'$'` symbool.
+    Bericht Systeemeigenschappen worden voorafgegaan door Hallo `'$'` symbool.
 
     - Hoofdtekst
         
-    Deze sectie bevat alle twin wijzigingen in een JSON-indeling. Met het verschil dat deze alle twin secties kan bevatten, wordt dezelfde indeling als een patch: labels, properties.reported properties.desired en dat deze de elementen '$metadata bevat'. Bijvoorbeeld:
+    Deze sectie bevat alle Hallo twin wijzigingen in een JSON-indeling. Hallo verschil dat deze alle twin secties kan bevatten, wordt Hallo dezelfde notatie als een patch: labels, properties.reported properties.desired en dat het Hallo '$metadata' elementen bevat. Bijvoorbeeld:
     ```
     {
         "properties": {
@@ -200,38 +200,38 @@ De back-end van de oplossing is van invloed op het apparaat twin met behulp van 
     }
     ``` 
 
-Ondersteuning voor alle voorgaande bewerkingen [optimistische gelijktijdigheid] [ lnk-concurrency] en vereisen de **ServiceConnect** toestemming hebben, zoals gedefinieerd in de [beveiliging] [ lnk-security] artikel.
+Alle voorgaande operations ondersteuning Hallo [optimistische gelijktijdigheid] [ lnk-concurrency] en vereisen Hallo **ServiceConnect** toestemming hebben, zoals gedefinieerd in Hallo [beveiliging ] [ lnk-security] artikel.
 
-Naast deze bewerkingen kan de back-end oplossing:
+Bovendien toothese bewerkingen, Hallo oplossing een back-end kan:
 
-* De apparaat-horende met behulp van de SQL-achtige query [IoT Hub-querytaal][lnk-query].
+* Query uitvoeren op Hallo apparaat horende Hallo met SQL-achtige [IoT Hub-querytaal][lnk-query].
 * Bewerkingen uitvoeren op grote gegevenssets apparaat horende met [taken][lnk-jobs].
 
 ## <a name="device-operations"></a>Apparaatbewerkingen
-De app voor het apparaat is van invloed op het apparaat twin met behulp van de volgende atomische bewerkingen:
+Hallo apparaattoepassing is van invloed op Hallo apparaat twin met Hallo atomische bewerkingen te volgen:
 
-1. **Ophalen van apparaat twin**. Deze bewerking wordt het apparaat twin-document (inclusief tags en gewenste, gerapporteerd en Systeemeigenschappen) voor de momenteel verbonden apparaat.
-2. **De eigenschappen van de gerapporteerde gedeeltelijk bijwerken**. Deze bewerking kunt het gedeeltelijke bijwerken van de gerapporteerde eigenschappen van de momenteel verbonden apparaat. Deze bewerking wordt de dezelfde JSON-update-indeling dat de oplossing voor back-end gebruikt voor een gedeeltelijke update van de gewenste eigenschappen.
-3. **Houd rekening met de eigenschappen van de gewenste**. De momenteel verbonden apparaat kunt van updates voor de gewenste eigenschappen informeren wanneer ze zich voordoen. Het apparaat ontvangt de dezelfde vorm van update (gedeeltelijke of volledige vervanging) uitgevoerd door de back-end oplossing.
+1. **Ophalen van apparaat twin**. Deze bewerking retourneert Hallo apparaat twin document (inclusief tags en gewenste, gerapporteerd en Systeemeigenschappen) voor Hallo momenteel apparaat verbonden.
+2. **De eigenschappen van de gerapporteerde gedeeltelijk bijwerken**. Deze bewerking kunt Hallo gedeeltelijke update Hallo eigenschappen van de momenteel verbonden apparaat Hallo gerapporteerd. Deze bewerking gebruikt Hallo bijwerken van dezelfde JSON-indeling die Hallo oplossing back-end gebruikt voor een gedeeltelijke update van de gewenste eigenschappen.
+3. **Houd rekening met de eigenschappen van de gewenste**. Hallo momenteel aangesloten apparaat kunt toobe updates toohello gewenst eigenschappen van een melding krijgen wanneer ze zich voordoen. Hallo apparaat ontvangt Hallo hetzelfde formulier van update (gedeeltelijke of volledige vervanging) wordt uitgevoerd door Hallo back-end oplossing.
 
-De voorgaande bewerkingen vereist de **DeviceConnect** toestemming hebben, zoals gedefinieerd in de [beveiliging] [ lnk-security] artikel.
+Alle voorgaande bewerkingen Hallo Hallo vereisen **DeviceConnect** toestemming hebben, zoals gedefinieerd in Hallo [beveiliging] [ lnk-security] artikel.
 
-De [apparaat Azure IoT SDK's] [ lnk-sdks] gemakkelijk te gebruiken van de voorgaande bewerkingen uit veel talen en platforms. Meer informatie over de details van IoT Hub primitieven voor synchronisatie van de gewenste eigenschappen vindt u in [apparaat opnieuw verbinden stroom][lnk-reconnection].
+Hallo [apparaat Azure IoT SDK's] [ lnk-sdks] maken het gemakkelijk toouse Hallo voorafgaand aan de bewerkingen van veel talen en platforms. Meer informatie over het Hallo-details van IoT Hub primitieven voor synchronisatie van de gewenste eigenschappen vindt u in [apparaat opnieuw verbinden stroom][lnk-reconnection].
 
 > [!NOTE]
-> Apparaat horende zijn momenteel alleen toegankelijk vanaf apparaten die verbinding maken met behulp van het protocol MQTT IoT-Hub.
+> Apparaat horende zijn momenteel alleen toegankelijk vanaf apparaten die verbinding tooIoT Hub maken met Hallo MQTT-protocol.
 > 
 > 
 
 ## <a name="reference-topics"></a>De onderwerpen waarnaar wordt verwezen:
-De volgende onderwerpen met naslaginformatie bieden u meer informatie over het beheren van toegang tot uw IoT-hub.
+Hallo bieden volgende naslagonderwerpen u meer informatie over het beheren van toegang tooyour iothub.
 
 ## <a name="tags-and-properties-format"></a>Labels en eigenschappen indeling
-Labels, gewenste en gerapporteerde eigenschappen zijn JSON-objecten met de volgende beperkingen:
+Labels, gewenste en gerapporteerde eigenschappen zijn JSON-objecten met Hallo volgende beperkingen:
 
 * Alle sleutels in JSON-objecten zijn hoofdlettergevoelig 64 bytes UTF-8, UNICODE-tekenreeksen. Toegestane tekens Unicode-tekens (segmenten C0 en C1), uitsluiten en `'.'`, `' '`, en `'$'`.
-* Alle waarden in de JSON-objecten van de volgende JSON-typen kunnen zijn: boolean, getal, string, object. Matrices zijn niet toegestaan.
-* Alle JSON-objecten in tags, gewenste en gerapporteerde eigenschappen kunnen een maximale diepte van 5 hebben. De volgende object is bijvoorbeeld geldig:
+* Alle waarden in de JSON-objecten van de volgende JSON-typen Hallo kunnen zijn: boolean, getal, string, object. Matrices zijn niet toegestaan.
+* Alle JSON-objecten in tags, gewenste en gerapporteerde eigenschappen kunnen een maximale diepte van 5 hebben. Bijvoorbeeld: Hallo na-object is ongeldig:
 
         {
             ...
@@ -254,12 +254,12 @@ Labels, gewenste en gerapporteerde eigenschappen zijn JSON-objecten met de volge
 * Alle tekenreekswaarden mag hoogstens 512 bytes lang.
 
 ## <a name="device-twin-size"></a>De grootte van de apparaat-twin
-IoT Hub worden afgedwongen voor een beperking van 8KB grootte van de waarden van `tags`, `properties/desired`, en `properties/reported`, met uitzondering van alleen-lezen-elementen.
-De grootte wordt berekend door het tellen van alle tekens, met uitzondering van UNICODE-tekens (segmenten C0 en C1) en ruimte beheren `' '` wanneer deze buiten een tekenreeksconstante wordt weergegeven.
-IoT Hub worden alle bewerkingen die u wilt de grootte van deze documenten boven de limiet verhogen geweigerd met een fout.
+IoT Hub worden afgedwongen voor een beperking van de grootte van 8KB op Hallo van waarden van `tags`, `properties/desired`, en `properties/reported`, met uitzondering van alleen-lezen-elementen.
+Hallo grootte wordt berekend door het tellen van alle tekens, met uitzondering van UNICODE-tekens (segmenten C0 en C1) en ruimte beheren `' '` wanneer deze buiten een tekenreeksconstante wordt weergegeven.
+IoT Hub worden alle bewerkingen die Hallo van deze documenten boven hello vergroot zou geweigerd met een fout.
 
 ## <a name="device-twin-metadata"></a>Metagegevens van apparaten twin
-IoT Hub onderhoudt het tijdstempel van de laatste update voor elk JSON-object in de apparaat-twin gewenst en eigenschappen gerapporteerd. De tijdstempels in UTC en gecodeerd in de [ISO8601] indeling `YYYY-MM-DDTHH:MM:SS.mmmZ`.
+IoT Hub onderhoudt Hallo tijdstempel van de laatste update Hallo voor elk JSON-object in de apparaat-twin gewenst en eigenschappen gerapporteerd. Hallo tijdstempels in UTC en gecodeerd in Hallo [ISO8601] indeling `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 Bijvoorbeeld:
 
         {
@@ -305,49 +305,49 @@ Bijvoorbeeld:
             ...
         }
 
-Deze informatie wordt opgeslagen op elk niveau (niet alleen de knooppunten van de JSON-structuur)-updates die objectsleutels verwijderen moet worden bewaard.
+Deze informatie wordt opgeslagen op elk niveau (niet alleen Hallo leaves Hallo JSON-structuur) toopreserve updates objectsleutels te verwijderen.
 
 ## <a name="optimistic-concurrency"></a>Optimistische gelijktijdigheid
 Labels, gewenst en eigenschappen van alle ondersteuning optimistische gelijktijdigheid gerapporteerd.
-Labels hebben een ETag conform [RFC7232], die staat voor de JSON-weergave van de tag. U kunt ETags in voorwaardelijke bijwerkbewerkingen van de back-end oplossing gebruiken om consistentie te garanderen.
+Labels hebben een ETag conform [RFC7232], die staat voor de JSON-weergave Hallo-tag. U kunt ETags gebruiken in voorwaardelijke bijwerkbewerkingen van Hallo oplossing voor back-end tooensure consistentie.
 
-Apparaat twin gewenst en gerapporteerde eigenschappen zijn niet ETags, maar hebben een `$version` is gegarandeerd incrementele waarde. Op dezelfde manier naar een ETag, de versie kan worden gebruikt door de partij bijwerken om af te dwingen van de consistentie van updates. Bijvoorbeeld, een apparaat-app voor een eigenschap gemeld of de back-end oplossing voor een gewenste eigenschap.
+Apparaat-twin gewenst en gerapporteerde eigenschappen zijn niet ETags, maar hebben een `$version` waarde die kan worden gegarandeerd toobe incrementele. Tooan ETag, Hallo versie kan ook worden gebruikt door Hallo bijwerken van derden tooenforce consistentie van updates. Bijvoorbeeld, een apparaat-app voor een gerapporteerde eigenschap of Hallo back-end oplossing voor een gewenste eigenschap.
 
-Versies zijn ook handig wanneer een observing agent (zoals de apparaat-app de gewenste eigenschappen observeren) op elkaar races tussen het resultaat van een bewerking ophalen en een melding van updates afstemmen moet. De sectie [apparaat opnieuw verbinden stroom] [ lnk-reconnection] vindt u meer informatie.
+Versies zijn ook handig wanneer een observing agent (zoals Hallo apparaattoepassing Hallo gewenst eigenschappen observeren) op elkaar races tussen Hallo resultaat van een bewerking ophalen en een melding van updates afstemmen moet. sectie Hallo [apparaat opnieuw verbinden stroom] [ lnk-reconnection] vindt u meer informatie.
 
 ## <a name="device-reconnection-flow"></a>Opnieuw verbinden stroom van apparaat
-IoT Hub behoudt updatemeldingen gewenste eigenschappen voor niet-verbonden apparaten niet. Betekent dit dat het document volledige gewenste eigenschappen naast abonneren op updatemeldingen moet worden opgehaald door een apparaat dat verbinding maakt. Gezien de mogelijkheid van races tussen updatemeldingen en volledige ophalen, ervoor de volgende stroom wordt gezorgd
+IoT Hub behoudt updatemeldingen gewenste eigenschappen voor niet-verbonden apparaten niet. Hieruit volgt dat een apparaat dat verbinding maakt Hallo volledige gewenste eigenschappendocument in toevoeging toosubscribing voor updatemeldingen moet ophalen. Hallo races tussen updatemeldingen en volledige ophalen van de mogelijkheid gegeven, ervoor Hallo volgende stroom wordt gezorgd
 
-1. App voor het apparaat verbindt met een IoT-hub.
+1. App voor het apparaat verbindt tooan IoT-hub.
 2. App voor het apparaat is lid voor de gewenste eigenschappen updatemeldingen.
-3. Apparaattoepassing haalt het volledige document van de gewenste eigenschappen.
+3. Apparaattoepassing haalt Hallo volledige document voor gewenste eigenschappen.
 
-De apparaat-app kunt negeren alle meldingen met `$version` of minder zijn dan de versie van het volledige document opgehaald. Deze aanpak is mogelijk omdat IoT Hub wordt gegarandeerd dat versies altijd verhogen.
+Hallo apparaattoepassing kunt negeren alle meldingen met `$version` of minder zijn dan de versie van volledige opgehaalde document Hallo Hallo. Deze aanpak is mogelijk omdat IoT Hub wordt gegarandeerd dat versies altijd verhogen.
 
 > [!NOTE]
-> Deze logica wordt al geïmplementeerd de [apparaat Azure IoT SDK's][lnk-sdks]. Deze beschrijving is handig als de app voor het apparaat een apparaat met Azure IoT SDK's gebruiken kan en de protocollen MQTT-interface moet rechtstreeks programma.
+> Deze logica wordt al geïmplementeerd in Hallo [apparaat Azure IoT SDK's][lnk-sdks]. Deze beschrijving is handig als Hallo apparaattoepassing een apparaat met Azure IoT SDK's gebruiken kan en Hallo MQTT interface moet rechtstreeks programma.
 > 
 > 
 
 ## <a name="additional-reference-material"></a>Aanvullende referentiemateriaal
-Er zijn andere onderwerpen waarnaar wordt verwezen in de IoT Hub developer guide:
+Er zijn andere onderwerpen met naslaginformatie in Hallo Ontwikkelaarshandleiding voor IoT Hub:
 
-* De [IoT-hubeindpunten] [ lnk-endpoints] artikel beschrijft de verschillende eindpunten die elke IoT-hub voor runtime- en beheerbewerkingen toont.
-* De [bandbreedtebeperking en quota's] [ lnk-quotas] artikel beschrijft de quota die betrekking hebben op de IoT Hub-service en het gedrag bandbreedteregeling kunt verwachten wanneer u de service gebruiken.
-* De [apparaat en de service Azure IoT-SDK's] [ lnk-sdks] artikel bevat een overzicht van de verschillende SDK's kunt u bij het ontwikkelen van apps voor het apparaat en de service die communiceren met IoT Hub-taal.
-* De [querytaal IoT Hub voor apparaat horende, taken en berichtroutering] [ lnk-query] artikel beschrijft de IoT Hub-querytaal kunt u gegevens ophalen uit IoT Hub over uw apparaat horende en taken.
-* De [IoT Hub MQTT ondersteuning] [ lnk-devguide-mqtt] artikel vindt u meer informatie over ondersteuning voor het protocol MQTT IoT Hub.
+* Hallo [IoT-hubeindpunten] [ lnk-endpoints] beschreven Hallo verschillende eindpunten die elke IoT-hub voor runtime- en beheerbewerkingen toont.
+* Hallo [bandbreedtebeperking en quota's] [ lnk-quotas] Hallo quota's die van toepassing toohello service IoT Hub en bandbreedteregeling gedrag tooexpect Hallo wanneer u Hallo-service wordt beschreven.
+* Hallo [apparaat en de service Azure IoT-SDK's] [ lnk-sdks] artikel lijsten Hallo verschillende taal SDK's kunt u bij het ontwikkelen van apps voor het apparaat en de service die communiceren met IoT Hub.
+* Hallo [querytaal IoT Hub voor apparaat horende, taken en berichtroutering] [ lnk-query] beschreven Hallo querytaal IoT-Hub kunt u informatie van de tooretrieve uit IoT Hub over uw apparaat horende en taken .
+* Hallo [IoT Hub MQTT ondersteuning] [ lnk-devguide-mqtt] artikel vindt u meer informatie over ondersteuning voor Hallo MQTT protocol IoT Hub.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu hebt u geleerd over horende apparaat, hebt u mogelijk geïnteresseerd in de volgende onderwerpen van IoT Hub developer guide:
+Nu u over horende apparaten hebt geleerd, kunt u mogelijk geïnteresseerd in de volgende onderwerpen voor IoT Hub developer guide Hallo:
 
 * [Een directe methode aangeroepen voor een apparaat][lnk-methods]
 * [Taken plannen op meerdere apparaten][lnk-jobs]
 
-Als u wilt uitproberen enkele concepten die in dit artikel wordt beschreven, kunt u mogelijk geïnteresseerd in de volgende zelfstudies met IoT Hub:
+Als u tootry sommige Hallo concepten die in dit artikel wordt beschreven wilt, kunt u mogelijk geïnteresseerd in Hallo IoT Hub zelfstudies te volgen:
 
-* [Het gebruik van de apparaat-twin][lnk-twin-tutorial]
-* [Het gebruik van twin apparaateigenschappen][lnk-twin-properties]
+* [Hoe toouse Hallo apparaat twin][lnk-twin-tutorial]
+* [Hoe toouse apparaat eigenschappen twin][lnk-twin-properties]
 
 <!-- links and images -->
 

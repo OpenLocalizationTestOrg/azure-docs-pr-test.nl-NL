@@ -1,6 +1,6 @@
 ---
-title: "Failover van de voorbeeld-geo-replicatie PowerShell groep één Azure SQL Database | Microsoft Docs"
-description: Azure PowerShell-voorbeeldscript voor het instellen van actieve geo-replicatie voor een enkele Azure SQL database
+title: "failover van de voorbeeld-geo-replicatie aaaPowerShell groep één Azure SQL Database | Microsoft Docs"
+description: Azure PowerShell voorbeeld script tooset van actieve geo-replicatie voor een enkele Azure SQL database
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,25 +16,25 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: 8db8540d9c4caeb53ea8f34d45d9498496d2b8ac
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0ea7afb1125b95370811ef7f80cb9eb7391b2443
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>PowerShell gebruiken voor het configureren van een groep actieve geo-replicatie failover voor een enkele Azure SQL database
+# <a name="use-powershell-tooconfigure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>PowerShell tooconfigure een actieve geo-replicatie, failover-groep gebruiken voor één Azure SQL database
 
-Voorbeeld van deze PowerShell-script configureert u een groep actieve geo-replicatie failover voor een enkele Azure SQL database en failover naar een secundaire replica van de Azure SQL database.
+Voorbeeld van deze PowerShell-script configureert u een failover-groep van actieve geo-replicatie voor een enkele Azure SQL database en failover tooa secundaire replica van hello Azure SQL-database.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-scripts"></a>Voorbeeldscripts
 
-[!code-powershell[belangrijkste](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover-group.ps1?highlight=19-22 "failover-groep voor één database instellen")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover-group.ps1?highlight=19-22 "Set up failover group for single database")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
+Na het uitvoeren van het voorbeeldscript Hallo mag na de opdracht Hallo gebruikte tooremove Hallo-resourcegroep en alle resources die zijn gekoppeld.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
@@ -43,7 +43,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
 
 ## <a name="script-explanation"></a>Script uitleg
 
-Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+Dit script maakt gebruik van Hallo opdrachten te volgen. Elke opdracht in Hallo tabel koppelingen toocommand specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
@@ -53,14 +53,14 @@ Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel i
 | [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) | Database-eigenschappen-updates of een database verplaatst naar, uit of tussen elastische pools. |
 | [Nieuwe AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary)| Hiermee maakt u een secundaire database voor een bestaande database en start gegevensreplicatie. |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)| Hiermee haalt u een of meer databases. |
-| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary)| Een secundaire database als primaire initiëren failover verandert.|
-| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) | Hiermee haalt u de geo-replicatiekoppelingen tussen een Azure SQL Database en een resourcegroep of SQL Server. |
-| [Verwijder AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) | Beëindigt gegevensreplicatie tussen een SQL-Database en de opgegeven secundaire database. |
+| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary)| Een secundaire database toobe primaire tooinitiate failover verandert.|
+| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) | Hiermee haalt u Hallo geo-replicatiekoppelingen tussen een Azure SQL Database en een resourcegroep of SQL Server. |
+| [Verwijder AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) | Beëindigt gegevensreplicatie tussen een SQL-Database en het Hallo opgegeven secundaire database. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Hiermee verwijdert u een resourcegroep met inbegrip van alle ingesloten resources. |
 |||
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Azure PowerShell [documentatie van Azure PowerShell](/powershell/azure/overview).
+Zie voor meer informatie over hello Azure PowerShell [documentatie van Azure PowerShell](/powershell/azure/overview).
 
-Voorbeelden van aanvullende SQL Database PowerShell-script kunnen worden gevonden in de [Azure SQL Database PowerShell-scripts](../sql-database-powershell-samples.md).
+Voorbeelden van aanvullende SQL Database PowerShell-script kunnen worden gevonden in Hallo [Azure SQL Database PowerShell-scripts](../sql-database-powershell-samples.md).

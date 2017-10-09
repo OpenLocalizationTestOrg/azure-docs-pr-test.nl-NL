@@ -3,15 +3,15 @@
 > * [Apparaat: Node.js-Service: C#](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
 > * [Apparaat: Java-Service: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
 
-Back-end apps kunnen gebruiken Azure IoT Hub primitieven, zoals [apparaat twin] [ lnk-devtwin] en [methoden directe][lnk-c2dmethod], op afstand starten en bewaken van apparaat acties op apparaten. Deze zelfstudie laat zien hoe een back-end-app en een apparaat-app samenwerken kunnen om te starten en te bewaken van externe apparaten opnieuw worden opgestart met IoT Hub.
+Back-end apps kunnen gebruiken Azure IoT Hub primitieven, zoals [apparaat twin] [ lnk-devtwin] en [methoden directe][lnk-c2dmethod], tooremotely starten en te controleren Device management acties op apparaten. Deze zelfstudie leert u hoe een back-end-app en een apparaat-app kunnen samenwerken tooinitiate en controleren van externe apparaten opnieuw worden opgestart met IoT Hub.
 
-Een directe methode gebruiken om acties voor apparaat (zoals het opnieuw opstarten, Fabrieksinstellingen terugzetten en firmware-update) vanuit een back-end-app in de cloud. Het apparaat is verantwoordelijk voor:
+Een directe methode tooinitiate apparaatacties (zoals het opnieuw opstarten, Fabrieksinstellingen terugzetten en firmware-update) van een back-end-app in de cloud Hallo gebruiken. Hallo-apparaat is verantwoordelijk voor:
 
-* Verwerking van de methode-aanvraag die uit IoT Hub zijn verzonden.
-* Bezig met starten van de overeenkomstige apparaatspecifieke actie op het apparaat.
-* Van statusupdates via bieden *eigenschappen gerapporteerd* IoT-hub.
+* Verwerking Hallo methode aanvraag die uit IoT Hub zijn verzonden.
+* Hallo overeenkomstige apparaatspecifieke actie op Hallo-apparaat wordt gestart.
+* Van statusupdates via bieden *gerapporteerd eigenschappen* tooIoT Hub.
 
-U kunt een back-endserver voor apps in de cloud apparaat twin query's om te rapporteren over de voortgang van uw apparaat beheeracties uitvoeren.
+U kunt een back-endserver voor apps in Hallo cloud toorun apparaat twin query's tooreport op Hallo voortgang van de acties voor uw apparaat.
 
 [lnk-devtwin]: ../articles/iot-hub/iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md

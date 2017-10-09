@@ -1,6 +1,6 @@
 ---
-title: Miniatuurweergaven genereren met Media Encoder Standard met .NET
-description: Dit onderwerp leest hoe u .NET gebruikt voor een asset coderen en het genereren van miniaturen tegelijkertijd met Media Encoder Standard.
+title: aaaHow toogenerate miniaturen met Media Encoder Standard met .NET
+description: Dit onderwerp wordt beschreven hoe toouse .NET tooencode een asset en genereren van miniaturen op Hallo tegelijkertijd met Media Encoder Standard.
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: juliako
-ms.openlocfilehash: 89d15cbdf71a140e78f34e07ff208776b7d4cab3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 23d3e4d9bf64a688d45499c045f19d2792167990
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Miniatuurweergaven genereren met Media Encoder Standard met .NET
+# <a name="how-toogenerate-thumbnails-using-media-encoder-standard-with-net"></a>Hoe toogenerate miniaturen met Media Encoder Standard met .NET
 
-U kunt Media Encoder Standard voor het genereren van miniaturen voor een of meer van uw invoervideo in [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), of [BMP](https://en.wikipedia.org/wiki/BMP_file_format) installatiekopie bestandsindelingen. U kunt taken die alleen afbeeldingen produceren verzenden of u miniaturen generatie codering kunt combineren. In dit onderwerp biedt een paar voorbeeld XML en JSON miniaturen standaardinstellingen voor dergelijke scenario's. Aan het einde van het onderwerp, er is een [voorbeeldcode](#code_sample) die laat zien hoe de Media Services .NET SDK gebruiken de codering taak uit te voeren.
+U kunt Media Encoder Standard toogenerate miniaturen voor een of meer van uw invoervideo in [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), of [BMP](https://en.wikipedia.org/wiki/BMP_file_format) installatiekopie bestandsindelingen. U kunt taken die alleen afbeeldingen produceren verzenden of u miniaturen generatie codering kunt combineren. In dit onderwerp biedt een paar voorbeeld XML en JSON miniaturen standaardinstellingen voor dergelijke scenario's. Aan het einde van de Hallo van Hallo onderwerp, er is een [voorbeeldcode](#code_sample) die weergeeft hoe toouse Hallo Media Services .NET SDK tooaccomplish Hallo codering taak.
 
-Voor meer informatie over de elementen die worden gebruikt in de standaardinstellingen voorbeeld moet u nagaan [Media Encoder Standard schema](media-services-mes-schema.md).
+Voor meer informatie over het Hallo-elementen die worden gebruikt in als voorbeeld voorkeur, moet u nagaan [Media Encoder Standard schema](media-services-mes-schema.md).
 
-Leest de [overwegingen](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) sectie.
+Zorg ervoor dat tooreview hello [overwegingen](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) sectie.
 
 ## <a name="example--single-png-file"></a>Voorbeeld: één PNG-bestand
 
-De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van een één uitvoer PNG-bestand uit de eerste paar seconden van de video invoer waar het coderingsprogramma een poging best-effort is vinden van een 'interessante' frame. Let op: de afbeeldingsgrootte uitvoer zijn ingesteld op 100%, wat betekent dat deze komt overeen met de afmetingen van de invoer video. U ziet ook hoe de instelling 'Indeling' in 'Uitvoer' moet overeenkomen met het gebruik van 'PngLayers' in de sectie 'Codecs'. 
+Hallo volgende JSON en XML-definitie mag gebruikte tooproduce één uitvoer PNG eerst het bestand buiten Hallo enkele seconden van de invoervideo hello, waar Hallo codering een poging best-effort wordt vinden van een 'interessante' frame. Houd er rekening mee dat de afmetingen van de afbeelding uitvoer Hallo too100%, wat betekent dat deze wordt overeenkomen met de Hallo dimensies van Hallo invoervideo zijn ingesteld. U ziet ook hoe Hallo ' indeling' in 'Uitvoer' niet is vereist toomatch Hallo gebruik van 'PngLayers' Hallo 'Codecs' onder. 
 
 ### <a name="json-preset"></a>JSON-definitie
 
@@ -82,7 +82,7 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
 
 ## <a name="example--a-series-of-jpeg-images"></a>Voorbeeld: een reeks JPEG-afbeeldingen
 
-De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van een set 10 installatiekopieën op tijdstempels van 5% 15%,..., 95% van de invoer tijdlijn, waarbij de grootte van de installatiekopie is opgegeven voor een van de video invoer kwartaal.
+Hallo volgende JSON en XML-definitie mag gebruikte tooproduce een reeks 10 afbeeldingen op tijdstempels van 5% 15%,..., 95% van invoer tijdlijn hello, waarbij Hallo afbeeldingsgrootte is opgegeven toobe een vierde die Hallo video invoer.
 
 ### <a name="json-preset"></a>JSON-definitie
 
@@ -138,7 +138,7 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
 
 ## <a name="example--one-image-at-a-specific-timestamp"></a>Voorbeeld: een installatiekopie op een specifieke tijdstempel
 
-De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van een enkele JPEG-afbeelding op de 30 tweede beginpositie van de invoer video. Deze definitie verwacht de invoer moet meer dan 30 seconden duren (anders de taak mislukt).
+Hallo volgende JSON en XML-definitie mag gebruikte tooproduce JPEG-afbeelding op Hallo 30 seconden markeren van Hallo invoervideo. Deze definitie verwacht invoer toobe Hallo duurt langer dan 30 seconden (anders Hallo taak mislukt).
 
 ### <a name="json-preset"></a>JSON-definitie
 
@@ -194,21 +194,21 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
 
 ## <a id="code_sample"></a>Voorbeeld: video coderen en miniatuur maken
 
-Het volgende codevoorbeeld maakt gebruik van Media Services .NET SDK naar de volgende taken uitvoeren:
+Hallo volgende codevoorbeeld maakt gebruik van Media Services .NET SDK tooperform Hallo taken te volgen:
 
 * Maak een codeertaak.
-* Een verwijzing naar de Media Encoder Standard encoder ophalen.
-* Laden van de vooraf ingestelde [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) of [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) die de codering vooraf ingesteld en de benodigde informatie voor het genereren van miniaturen bevatten. U kunt dit opslaan [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) of [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) in bestands- en gebruik de volgende code om het bestand niet laden.
+* Een verwijzing toohello Media Encoder Standard encoder ophalen.
+* Load Hallo voorinstelling [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) of [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) die Hallo encoding preset evenals informatie nodig toogenerate miniaturen bevatten. U kunt dit opslaan [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) of [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) in een bestand en het gebruik Hallo codebestand tooload hello te volgen.
   
-        // Load the XML (or JSON) from the local file.
+        // Load hello XML (or JSON) from hello local file.
         string configuration = File.ReadAllText(fileName);  
-* Een enkele codering taak toevoegen aan de taak. 
-* Geef de invoer asset moeten worden gecodeerd.
-* Maak een uitvoerasset met de gecodeerde asset.
-* Een gebeurtenis-handler voor het controleren van de voortgang van de taak toevoegen.
-* Verzenden van de taak.
+* Een codering taak toohello van de taak niet toevoegen. 
+* Geef Hallo invoer asset toobe gecodeerd.
+* Maak een uitvoerasset met Hallo gecodeerde asset.
+* Toevoegen van een gebeurtenis-handler toocheck Hallo taak uitgevoerd.
+* Verzenden van Hallo-taak.
 
-Zie de [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md) onderwerp voor instructies over het instellen van uw Developer-omgeving.
+Zie Hallo [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md) onderwerp voor instructies over het tooset van uw Developer-omgeving.
 
         using System;
         using System.Configuration;
@@ -221,7 +221,7 @@ Zie de [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-us
         {
         class Program
         {
-            // Read values from the App.config file.
+            // Read values from hello App.config file.
             private static readonly string _AADTenantDomain =
             ConfigurationManager.AppSettings["AADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
@@ -245,7 +245,7 @@ Zie de [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-us
             // Get an uploaded asset.
             var asset = _context.Assets.FirstOrDefault();
 
-            // Encode and generate the thumbnails.
+            // Encode and generate hello thumbnails.
             EncodeToAdaptiveBitrateMP4Set(asset);
 
             Console.ReadLine();
@@ -255,11 +255,11 @@ Zie de [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-us
             {
             // Declare a new job.
             IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-            // Get a media processor reference, and pass to it the name of the 
-            // processor to use for the specific task.
+            // Get a media processor reference, and pass tooit hello name of hello 
+            // processor toouse for hello specific task.
             IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-            // Load the XML (or JSON) from the local file.
+            // Load hello XML (or JSON) from hello local file.
             string configuration = File.ReadAllText("ThumbnailPreset_JSON.json");
 
             // Create a task
@@ -268,11 +268,11 @@ Zie de [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-us
                 configuration,
                 TaskOptions.None);
 
-            // Specify the input asset to be encoded.
+            // Specify hello input asset toobe encoded.
             task.InputAssets.Add(asset);
-            // Add an output asset to contain the results of the job. 
+            // Add an output asset toocontain hello results of hello job. 
             // This output is specified as AssetCreationOptions.None, which 
-            // means the output asset is not encrypted. 
+            // means hello output asset is not encrypted. 
             task.OutputAssets.AddNew("Output asset",
                 AssetCreationOptions.None);
 
@@ -443,24 +443,24 @@ Zie voor meer informatie over schema [dit](https://msdn.microsoft.com/library/mt
     </Preset>
 
 ## <a name="considerations"></a>Overwegingen
-Het volgende letten:
+Hallo overwegingen volgende van toepassing:
 
-* Het gebruik van expliciete tijdstempels voor stap/beginbereik wordt ervan uitgegaan dat de invoerbron ten minste 1 minuut.
+* Hallo gebruik van expliciete tijdstempels voor stap/beginbereik wordt ervan uitgegaan dat Hallo-invoerbron is minimaal 1 minuut.
 * Png-jpg/BmpImage elementen hebben starten, stap en bereik kenmerken string: deze kunnen worden geïnterpreteerd als:
   
   * Framenummer als ze niet-negatieve gehele getallen zijn, bijv. 'Start': '120'
-  * Relatieve duur van de bron als uitgedrukt als % voorafgegaan, bijv. 'Start': '15% ', of
+  * Duur van de relatieve toosource uitgedrukt in % voorafgegaan, bijv. 'Start': '15% ', of
   * Tijdstempel als uitgedrukt als: mm: ss... de indeling. Bv. 'Start': ' 00: 01:00 '
     
     U kunt combineren en notaties als u moet overeenkomen.
     
-    Daarnaast ondersteunt Start ook een speciale Macro: {Best}, die probeert om te bepalen van het eerste 'interessante' frame van de inhoud-NOTITIE: (stap en bereik worden genegeerd tijdens het starten is ingesteld op {beste})
+    Daarnaast ondersteunt Start ook een speciale Macro: {Best}, die probeert toodetermine Hallo eerste 'interessante' frame van Hallo inhoud Opmerking: (stap en bereik worden genegeerd tijdens het starten is ingesteld, te {Best})
   * Standaardwaarden: Starten: {Best}
-* De indeling van uitvoer moet expliciet worden opgegeven voor elke afbeeldingsindeling: Png-Jpg/BmpFormat. Indien aanwezig, MES komt overeen met JpgVideo naar JpgFormat enzovoort. OutputFormat introduceert een nieuwe installatiekopie codec specifieke Macro: {Index}, welke moet aanwezig zijn (eenmaal en slechts één keer) voor de installatiekopie-uitvoerindelingen.
+* De indeling van uitvoer moet expliciet worden opgegeven voor elke afbeeldingsindeling toobe: Png-Jpg/BmpFormat. Indien aanwezig, MES komt overeen met JpgVideo tooJpgFormat enzovoort. OutputFormat introduceert een nieuwe installatiekopie codec specifieke Macro: {Index}, moeten toobe aanwezig (eenmaal en slechts één keer) voor de installatiekopie-uitvoerindelingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt controleren de [taak uitgevoerd](media-services-check-job-progress.md) wanneer de coderingstaak in behandeling is.
+U kunt controleren Hallo [taak uitgevoerd](media-services-check-job-progress.md) tijdens het Hallo coderingstaak in behandeling is.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

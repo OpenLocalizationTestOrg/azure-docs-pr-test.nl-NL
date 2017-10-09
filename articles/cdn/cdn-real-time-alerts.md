@@ -1,6 +1,6 @@
 ---
-title: Realtime waarschuwingen van Azure CDN | Microsoft Docs
-description: Realtime-waarschuwingen in Microsoft Azure CDN. Realtime waarschuwingen bevatten meldingen over de prestaties van de eindpunten in uw CDN-profiel.
+title: aaaAzure CDN realtime-waarschuwingen | Microsoft Docs
+description: Realtime-waarschuwingen in Microsoft Azure CDN. Realtime waarschuwingen bevatten meldingen over de prestaties van Hallo van Hallo-eindpunten in uw CDN-profiel.
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 6e66eb076ac7220823a848b5047f147d4101cd55
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 269c90437088bbc41bf899a8c02749e8e6f3006c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Realtime-waarschuwingen in Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Overzicht
-Dit document wordt uitgelegd in Microsoft Azure CDN realtime-waarschuwingen. Deze functionaliteit biedt realtime meldingen over de prestaties van de eindpunten in uw CDN-profiel.  U kunt e-mailadres of op basis van HTTP-waarschuwingen instellen:
+Dit document wordt uitgelegd in Microsoft Azure CDN realtime-waarschuwingen. Deze functionaliteit biedt realtime meldingen over de prestaties van Hallo van Hallo-eindpunten in uw CDN-profiel.  U kunt e-mailadres of op basis van HTTP-waarschuwingen instellen:
 
 * Bandbreedte
 * Statuscodes
@@ -32,67 +32,67 @@ Dit document wordt uitgelegd in Microsoft Azure CDN realtime-waarschuwingen. Dez
 * Verbindingen
 
 ## <a name="creating-a-real-time-alert"></a>Maken van een realtime waarschuwing
-1. In de [Azure Portal](https://portal.azure.com), blader naar uw CDN-profiel.
+1. In Hallo [Azure Portal](https://portal.azure.com), bladeren tooyour CDN-profiel.
    
     ![Blade CDN-profiel](./media/cdn-real-time-alerts/cdn-profile-blade.png)
-2. Klik in de blade CDN-profiel op de **beheren** knop.
+2. Blade voor Hallo CDN-profiel, klik op Hallo **beheren** knop.
    
     ![Knop blade CDN-profiel beheren](./media/cdn-real-time-alerts/cdn-manage-btn.png)
    
-    Hiermee opent u de CDN-beheerportal.
-3. Beweeg de muisaanwijzer over de **Analytics** tabblad en klik vervolgens Beweeg de muisaanwijzer over de **realtime statistieken** doel.  Klik op **realtime-waarschuwingen**.
+    Hallo CDN-beheerportal geopend.
+3. Houd de muis boven Hallo **Analytics** tabblad en houd de muis boven Hallo **realtime statistieken** doel.  Klik op **realtime-waarschuwingen**.
    
     ![CDN-beheerportal](./media/cdn-real-time-alerts/cdn-premium-portal.png)
    
-    De lijst met bestaande waarschuwing configuraties (indien aanwezig) wordt weergegeven.
-4. Klik op de **waarschuwing toevoegen** knop.
+    Hallo-lijst met bestaande waarschuwing configuraties (indien aanwezig) wordt weergegeven.
+4. Klik op Hallo **waarschuwing toevoegen** knop.
    
     ![Knop Waarschuwing toevoegen](./media/cdn-real-time-alerts/cdn-add-alert.png)
    
     Een formulier voor het maken van een nieuwe waarschuwing wordt weergegeven.
    
     ![Nieuwe waarschuwing formulier](./media/cdn-real-time-alerts/cdn-new-alert.png)
-5. Als u wilt dat deze waarschuwing geactiveerd wanneer u klikt op **opslaan**, Controleer de **waarschuwing ingeschakeld** selectievakje.
-6. Voer een beschrijvende naam voor de waarschuwing in de **naam** veld.
-7. In de **mediatype** vervolgkeuzelijst **HTTP Large Object**.
+5. Als u wilt dat deze waarschuwing toobe active wanneer u klikt op **opslaan**, Controleer Hallo **waarschuwing ingeschakeld** selectievakje.
+6. Voer een beschrijvende naam voor de waarschuwing in Hallo **naam** veld.
+7. In Hallo **mediatype** vervolgkeuzelijst **HTTP Large Object**.
    
     ![Het mediatype met HTTP-Large Object geselecteerd](./media/cdn-real-time-alerts/cdn-http-large.png)
    
    > [!IMPORTANT]
-   > U moet selecteren **HTTP Large Object** als de **mediatype**.  De andere opties worden niet gebruikt door **Azure CDN van Verizon**.  Fout bij selecteren **HTTP Large Object** , wordt de waarschuwing nooit worden geactiveerd.
+   > U moet selecteren **HTTP Large Object** als Hallo **mediatype**.  Hallo andere opties worden niet gebruikt door **Azure CDN van Verizon**.  Fout tooselect **HTTP Large Object** , wordt de waarschuwing toonever worden geactiveerd.
    > 
    > 
-8. Maak een **expressie** controleren door te selecteren een **metriek**, **Operator**, en **activeren waarde**.
+8. Maakt een **expressie** toomonitor door het selecteren van een **metriek**, **Operator**, en **activeren waarde**.
    
-   * Voor **metriek**, selecteer het type van de gewenste bewaakte voorwaarde.  **Mbps bandbreedte** is de hoeveelheid bandbreedte in megabits per seconde.  **Totaal aantal verbindingen** is het aantal gelijktijdige HTTP-verbindingen naar onze randservers.  Zie voor definities van de verschillende cache statussen en statuscodes [Azure CDN Cache statuscodes](https://msdn.microsoft.com/library/mt759237.aspx) en [Azure CDN HTTP-statuscodes](https://msdn.microsoft.com/library/mt759238.aspx)
-   * **Operator** is de rekenkundige operator die zorgt voor de relatie tussen de metrische gegevens en de trigger-waarde.
-   * **Activeren van de waarde** is de drempelwaarde in die moet worden voldaan voordat een melding wordt verzonden uit.
+   * Voor **metriek**, Hallo type bewaakte gewenste voorwaarde selecteren.  **Mbps bandbreedte** is Hallo hoeveelheid bandbreedtegebruik in megabits per seconde.  **Totaal aantal verbindingen** is het aantal gelijktijdige HTTP-verbindingen tooour Hallo edge-servers.  Zie voor definities van Hallo verschillende cache statussen en statuscodes, [Azure CDN Cache statuscodes](https://msdn.microsoft.com/library/mt759237.aspx) en [Azure CDN HTTP-statuscodes](https://msdn.microsoft.com/library/mt759238.aspx)
+   * **Operator** Hallo rekenkundige operator die zorgt voor de relatie tussen Hallo metriek en Hallo trigger waarde Hallo is.
+   * **Activeren van de waarde** is Hallo drempelwaarde in die moet worden voldaan voordat een melding wordt verzonden uit.
      
-     In het onderstaande voorbeeld geeft de expressie die ik heb gemaakt dat ik wil worden gewaarschuwd wanneer het aantal 404 statuscodes groter dan 25 is.
+     Hallo onderstaand voorbeeld wijst Hallo expressie die ik heb gemaakt dat ik wil een melding krijgen wanneer Hallo 404 statuscodes aantal groter dan 25 is toobe.
      
      ![Realtime waarschuwing voorbeeldexpressie](./media/cdn-real-time-alerts/cdn-expression.png)
-9. Voor **Interval**, opgeven hoe vaak u wilt de geëvalueerde expressie.
-10. In de **meldingen op basis van** vervolgkeuzelijst, selecteer deze optie als u een melding krijgen wilt wanneer de expressie waar is.
+9. Voor **Interval**, opgeven hoe vaak u graag Hallo expressie, geëvalueerd.
+10. In Hallo **meldingen op basis van** vervolgkeuzelijst, selecteer deze optie als u wilt toobe een melding krijgen wanneer hello expressie waar is.
     
-    * **Start-voorwaarde** geeft aan dat een melding wordt verzonden wanneer de opgegeven voorwaarde voor het eerst wordt gedetecteerd.
-    * **End-voorwaarde** geeft aan dat een melding wordt verzonden wanneer de opgegeven voorwaarde wordt niet meer gedetecteerd. Deze melding kan alleen worden geactiveerd nadat ons netwerk bewakingssysteem gedetecteerd dat de opgegeven voorwaarde opgetreden.
-    * **Continue** geeft aan dat een melding wordt verzonden elke keer dat het netwerk bewakingssysteem de opgegeven voorwaarde detecteert. Houd er rekening mee dat het netwerk bewakingssysteem alleen één keer per interval voor de opgegeven voorwaarde controleert.
-    * **Voorwaarde begin- en** geeft aan dat een melding wordt verzonden de eerste keer dat de opgegeven voorwaarde wordt gedetecteerd en nog een keer als de voorwaarde is niet meer gedetecteerd.
-11. Als u meldingen ontvangen via e-mail wilt, controleert u de **melden via E-mail** selectievakje.  
+    * **Start-voorwaarde** geeft aan dat een melding wordt verzonden wanneer Hallo opgegeven voorwaarde voor het eerst wordt gedetecteerd.
+    * **End-voorwaarde** geeft aan dat een melding wordt verzonden wanneer Hallo opgegeven voorwaarde wordt niet meer gedetecteerd. Deze melding kan alleen worden geactiveerd nadat ons netwerk bewakingssysteem gedetecteerd die Hallo opgegeven veroorzaakt.
+    * **Continue** geeft aan dat een melding wordt verzonden elke keer dat netwerk bewakingssysteem Hallo detecteert Hallo opgegeven voorwaarde. Houd er rekening mee dat Hallo netwerk bewaking van systeem wordt alleen controle eenmaal per interval voor Hallo voorwaarde opgegeven.
+    * **Voorwaarde begin- en** geeft aan dat een melding wordt verzonden hello eerste keer is dat Hallo opgegeven voorwaarde wordt gedetecteerd en nog een keer wanneer Hallo voorwaarde wordt niet meer gedetecteerd.
+11. Als u wilt dat tooreceive meldingen via e-mail, controleert u Hallo **melden via E-mail** selectievakje.  
     
     ![Delen per E-mail formulier](./media/cdn-real-time-alerts/cdn-notify-email.png)
     
-    In de **naar** en voer het e-mailadres dat u waar u meldingen verzonden. Voor **onderwerp** en **hoofdtekst**, mag u laat de standaardwaarde of kunt u aanpassen op het bericht met de **beschikbare trefwoorden** lijst dynamisch invoegen waarschuwingsgegevens wanneer het bericht Er wordt verzonden.
+    In Hallo **naar** Voer Hallo e-mailadres u waar u meldingen verzonden. Voor **onderwerp** en **hoofdtekst**, u Hallo standaard laten of kunt u aanpassen op het Hallo-bericht met Hallo **beschikbare trefwoorden** lijst toodynamically invoegen waarschuwingsgegevens wanneer Hallo-bericht is verzonden.
     
     > [!NOTE]
-    > U kunt de e-mailmelding testen door te klikken op de **testen melding** knop, maar alleen als de configuratie van de waarschuwing is opgeslagen.
+    > U kunt e-mailmelding Hallo testen door te klikken op Hallo **testen melding** knop, maar alleen als Hallo configuratie van de waarschuwing is opgeslagen.
     > 
     > 
-12. Als u wilt dat meldingen worden gepubliceerd op een webserver, controleert u de **hoogte door HTTP Post** selectievakje.
+12. Als u wilt dat meldingen toobe geboekt tooa webserver, controleert u Hallo **hoogte door HTTP Post** selectievakje.
     
     ![Melden door HTTP Post-formulier](./media/cdn-real-time-alerts/cdn-notify-http.png)
     
-    In de **Url** en voer de URL die u waar u het HTTP-bericht verzonden. In de **Headers** tekstvak de HTTP-headers worden verzonden in de aanvraag invoeren.  Voor **hoofdtekst** kunt u aanpassen op het bericht met de **beschikbare trefwoorden** lijst waarschuwingsgegevens dynamisch invoegen wanneer het bericht is verzonden.  **Headers** en **hoofdtekst** standaard naar een XML-nettolading vergelijkbaar met het onderstaande voorbeeld.
+    In Hallo **Url** Voer Hallo-URL die u waar u het Hallo HTTP-bericht verzonden. In Hallo **Headers** textbox Voer Hallo HTTP-headers toobe in Hallo-aanvraag verzonden.  Voor **hoofdtekst** kunt u aanpassen op het Hallo-bericht met Hallo **beschikbare trefwoorden** lijst toodynamically invoegen waarschuwingsgegevens wanneer het Hallo-bericht wordt verzonden.  **Headers** en **hoofdtekst** standaard tooan XML-nettolading vergelijkbare toohello onderstaand voorbeeld.
     
     ```
     <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
@@ -101,10 +101,10 @@ Dit document wordt uitgelegd in Microsoft Azure CDN realtime-waarschuwingen. Dez
     ```
     
     > [!NOTE]
-    > U kunt de melding HTTP Post testen door te klikken op de **testen melding** knop, maar alleen als de configuratie van de waarschuwing is opgeslagen.
+    > U kunt Hallo HTTP Post-melding testen door te klikken op Hallo **testen melding** knop, maar alleen als Hallo configuratie van de waarschuwing is opgeslagen.
     > 
     > 
-13. Klik op de **opslaan** om op te slaan van uw configuratie van de waarschuwing.  Als u dit selectievakje inschakelt **waarschuwing ingeschakeld** in stap 5, de waarschuwing is nu actief.
+13. Klik op Hallo **opslaan** knop toosave uw configuratie van de waarschuwing.  Als u dit selectievakje inschakelt **waarschuwing ingeschakeld** in stap 5, de waarschuwing is nu actief.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Analyseren [realtime statistieken in Azure CDN](cdn-real-time-stats.md)

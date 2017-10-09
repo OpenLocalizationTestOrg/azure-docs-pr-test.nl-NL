@@ -1,5 +1,5 @@
 ---
-title: Ontwerphandleiding voor Azure Storage-tabel | Microsoft Docs
+title: Gids voor opslag tabel aaaAzure | Microsoft Docs
 description: Ontwerp schaalbare en zodat tabellen in de Azure-tabelopslag
 services: cosmos-db
 documentationcenter: na
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 02/28/2017
 ms.author: mimig
-ms.openlocfilehash: fd34fb135c76eed4041c29e00e98dde330dfe3f3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 059f05a1d20e4d9537034b7ca133c5334bbefa04
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Ontwerphandleiding voor Azure Storage-tabel: Het ontwerpen van schaalbare en de zodat tabellen
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-Ontwerp schaalbare en zodat tabellen, moet u rekening houden met een aantal factoren, zoals prestaties, schaalbaarheid en kosten. Als u eerder schema's voor relationele databases hebt ontworpen, deze overwegingen u bekend zijn, maar er zijn een aantal overeenkomsten tussen de Azure Table storage servicemodel en relationele modellen, maar er zijn ook veel belangrijke verschillen. Deze verschillen worden doorgaans leiden tot zeer verschillende ontwerpen die lijkt erg intuïtief of onjuiste naar iemand bekend bent met relationele databases, maar maak die zinvol als u voor een NoSQL-sleutel/waarde-archief zoals de Azure Table-service ontwerpt. Veel van de verschillen in het ontwerp worden doorgevoerd in het feit dat de tabel-service is ontworpen ter ondersteuning van cloud-toepassingen met miljarden entiteiten (rijen in een relationele database-terminologie) van gegevens of voor gegevenssets die zeer hoge transactie volumes moet ondersteunen: daarom moet u anders nadenken over hoe u uw gegevens opslaat en u begrijpt hoe de tabelservice werkt. Uw oplossing voor het schalen van veel meer (en, tegen lagere kosten) kunt inschakelen door een goed ontworpen NoSQL-gegevensarchief dan een oplossing die gebruikmaakt van een relationele database. Deze handleiding helpt u met deze onderwerpen.  
+toodesign schaalbare en zodat tabellen moet u rekening houden met een aantal factoren, zoals prestaties, schaalbaarheid en kosten. Als u eerder schema's voor relationele databases hebt ontworpen, zijn deze overwegingen bekend tooyou, maar er zijn een aantal overeenkomsten tussen hello Azure Table storage servicemodel en relationele modellen, maar er zijn ook veel belangrijk de verschillen. Deze verschillen leiden doorgaans toovery verschillende ontwerpen die lijkt erg intuïtief of onjuiste toosomeone bekend bent met relationele databases, maar maak die zinvol als u voor een NoSQL-sleutel/waarde-archief zoals hello Azure Table-service ontwerpt. Veel van de verschillen in het ontwerp geeft Hallo feit dat de tabelservice Hallo ontworpen toosupport cloud-toepassingen met miljarden entiteiten (rijen in een relationele database-terminologie) van gegevens of voor gegevenssets die zeer hoge moet ondersteunen transactie-volumes: daarom moet toothink anders over hoe u uw gegevens opslaat en begrijpen hoe Hallo tabelservice werkt. Een goed ontworpen NoSQL-gegevensarchief kunt uw oplossing tooscale inschakelen veel meer (en, tegen lagere kosten) dan een oplossing die gebruikmaakt van een relationele database. Deze handleiding helpt u met deze onderwerpen.  
 
-## <a name="about-the-azure-table-service"></a>Over de Azure Table-service
-Deze sectie worden enkele van de belangrijkste functies van de tabel-service die vooral relevant voor ontwerpen voor prestaties en schaalbaarheid zijn. Als u niet bekend met Azure Storage en de tabelservice bent, eerst lezen [Inleiding tot Microsoft Azure Storage](../storage/common/storage-introduction.md) en [aan de slag met Azure Table Storage met .NET](table-storage-how-to-use-dotnet.md) voordat de rest van dit artikel wordt gelezen. Hoewel deze handleiding voor de tabel-service is, wordt het betekenen dat sommige bespreking van de Azure-wachtrij en de Blob-services, en hoe u ze samen met de tabel-service in een oplossing mogelijk gebruiken.  
+## <a name="about-hello-azure-table-service"></a>Over hello Azure Table-service
+Deze sectie worden enkele Hallo belangrijkste functies van de tabelservice Hallo die vooral relevant toodesigning voor prestaties en schaalbaarheid. Als u nieuwe tooAzure opslag en Hallo tabelservice, lees eerst [tooMicrosoft inleiding Azure Storage](../storage/common/storage-introduction.md) en [aan de slag met Azure Table Storage met .NET](table-storage-how-to-use-dotnet.md) voordat het lezen van de rest van dit Hallo artikel. Hoewel de focus Hallo van deze handleiding op Hallo tabelservice, bevat deze sommige bespreking van hello Azure Queue en services Blob, en hoe u ze samen met de Hallo service van de tabel in een oplossing mogelijk gebruiken.  
 
-Wat is de tabel-service? Als u van de naam verwacht, wordt in de tabel-service tabelvorm gebruikt voor het opslaan van gegevens. Elke rij van de tabel een entiteit vertegenwoordigt in de standaard terminologie en de kolommen opslaan van de verschillende eigenschappen van die entiteit. Elke entiteit heeft een paar sleutels om uniek te identificeren en een timestamp-kolom die de tabel-service gebruikt om bij te houden als de entiteit voor het laatst is bijgewerkt (dit gebeurt automatisch en u kunt handmatig de tijdstempel niet overschrijven met een willekeurige waarde). De tabel-service gebruikt deze tijdstempel laatst is gewijzigd (LMT) voor het beheren van optimistische gelijktijdigheid.  
+Wat is tabelservice Hallo? Zoals u van Hallo-naam verwachten zou, gebruikt Hallo tabelservice een tabelindeling toostore-gegevens. Elke rij van de tabel Hallo een entiteit vertegenwoordigt in standaard Hallo-terminologie en Hallo kolommen store Hallo verschillende eigenschappen van die entiteit. Elke entiteit heeft een paar sleutels toouniquely worden geïdentificeerd en een timestamp-kolom die de tabelservice Hallo tootrack gebruikt wanneer Hallo entiteit voor het laatst is bijgewerkt (dit gebeurt automatisch en Hallo tijdstempel kan niet handmatig worden overschreven met een willekeurige waarde). Hallo tabelservice maakt gebruik van deze optimistische gelijktijdigheid van laatste wijziging tijdstempel (LMT) toomanage.  
 
 > [!NOTE]
-> De tabel service REST-API-bewerkingen ook retourneren een **ETag** waarde die deze is afgeleid van de laatste wijziging tijdstempel (LMT). In dit document gebruiken we de termen ETag en LMT door elkaar omdat ze naar de onderliggende gegevens verwijzen.  
+> Hallo tabel servicebewerkingen REST API ook retourneren een **ETag** waarde die deze is afgeleid van Hallo last-modified tijdstempel (LMT). In dit document we gebruiken Hallo termen ETag en LMT door elkaar omdat ze toohello verwijzen dezelfde onderliggende gegevens.  
 > 
 > 
 
-Het volgende voorbeeld ziet een eenvoudige tabelontwerp voor het opslaan van entiteiten werknemer en afdeling. Veel van de voorbeelden die verderop in deze handleiding zijn gebaseerd op dit eenvoudige ontwerp.  
+Hallo volgende voorbeeld ziet u een eenvoudige tabel ontwerp toostore entiteiten werknemer en afdeling. Veel van Hallo voorbeelden die verderop in deze handleiding zijn gebaseerd op dit eenvoudige ontwerp.  
 
 <table>
 <tr>
@@ -125,82 +125,82 @@ Het volgende voorbeeld ziet een eenvoudige tabelontwerp voor het opslaan van ent
 </table>
 
 
-Tot nu toe lijkt dit erg op een tabel in een relationele database met de belangrijkste verschillen, wordt de verplichte kolommen en de mogelijkheid voor het opslaan van meerdere Entiteitstypen in dezelfde tabel. Bovendien elk van de gebruiker gedefinieerde eigenschappen zoals **FirstName** of **leeftijd** heeft een gegevenstype, zoals geheel getal of tekenreeks, net zoals een kolom in een relationele database. Hoewel in tegenstelling tot in een relationele database, de schema-minder aard van de tabel-service betekent dat een eigenschap moet niet hetzelfde gegevenstype voor elke entiteit. Complexe gegevenstypen opslaan in één eigenschap, moet u een zoals JSON of XML-serialisatie-indeling. Zie voor meer informatie over de tabel-service, zoals ondersteunde gegevenstypen, ondersteunde datumbereiken, naamgevingsregels en beperkingen voor [inzicht in de tabel Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Tot nu toe, ziet deze eruit vergelijkbaar tooa tabel in een relationele database met Hallo belangrijke verschillen wordt Hallo verplichte kolommen en hello mogelijkheid toostore meerdere entiteit van het type in Hallo dezelfde tabel. Bovendien elk van de gebruiker gedefinieerde eigenschappen zoals Hallo **FirstName** of **leeftijd** heeft een gegevenstype, zoals geheel getal of tekenreeks, net zoals een kolom in een relationele database. Hoewel in tegenstelling tot in een relationele database Hallo schema minder aard van Hallo tabel-service betekent dat een eigenschap moet geen Hallo hetzelfde gegevenstype voor elke entiteit. toostore complexe gegevenstypen in één eigenschap, moet u een zoals JSON of XML-serialisatie-indeling. Zie voor meer informatie over Hallo tabel-service, zoals ondersteunde gegevenstypen, ondersteunde datumbereiken naamgevingsregels en beperkingen voor [Understanding Hallo Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
-Zoals u ziet, uw keuze van **PartitionKey** en **RowKey** is van cruciaal belang goede tabelontwerp. Elke entiteit die is opgeslagen in een tabel moet een unieke combinatie van **PartitionKey** en **RowKey**. Als u met de sleutels in een relationele database, de **PartitionKey** en **RowKey** waarden worden geïndexeerd voor het maken van een geclusterde index waarmee u snel te zoeken; echter, de tabel-service maakt geen secundaire indexen zodat deze de slechts twee geïndexeerde eigenschappen (enkele van de patronen die verderop tonen hoe u deze duidelijk beperking kunt omzeilen).  
+Zoals u ziet, uw keuze van **PartitionKey** en **RowKey** fundamentele toogood tabelontwerp is. Elke entiteit die is opgeslagen in een tabel moet een unieke combinatie van **PartitionKey** en **RowKey**. Net als bij de sleutels in een relationele database, Hallo **PartitionKey** en **RowKey** waarden zijn geïndexeerde toocreate een geclusterde index waarmee u snel te zoeken; echter Hallo service tabel maakt geen een secundaire indexen, zodat deze Hallo slechts twee geïndexeerde eigenschappen (aantal Hallo patronen verderop tonen hoe u deze duidelijk beperking kunt omzeilen).  
 
-Een tabel bestaat uit een of meer partities en zoals u ziet, worden veel van de ontwerpbeslissingen die u aanbrengt rond het kiezen van een geschikte **PartitionKey** en **RowKey** optimaliseren van uw oplossing. Een oplossing kan bestaan uit slechts één tabel die de entiteiten die zijn onderverdeeld in partities bevat, maar doorgaans een oplossing heeft meerdere tabellen. Tabellen kunt u logisch ordenen van uw entiteiten, helpen bij het beheren van toegang tot de gegevens met behulp van toegangsbeheerlijsten en u kunt een hele tabel met een één opslag-bewerking neerzetten.  
+Een tabel bestaat uit een of meer partities en zoals u ziet, veel Hallo beslissingen die u zal worden rond het kiezen van een geschikte ontwerp **PartitionKey** en **RowKey** toooptimize uw oplossing. Een oplossing kan bestaan uit slechts één tabel die de entiteiten die zijn onderverdeeld in partities bevat, maar doorgaans een oplossing heeft meerdere tabellen. Tabellen kunt u toologically ordenen uw entiteiten, u helpt toegang toohello gegevens met toegangsbeheerlijsten en u kunt een hele tabel met een één opslag-bewerking neerzetten.  
 
 ### <a name="table-partitions"></a>Tabelpartities
-De accountnaam, de tabelnaam en **PartitionKey** samen bepalen de partitie in de storage-service waar de entiteit in de tabelservice worden opgeslagen. Onderdeel van het adresseringsschema voor entiteiten zijn, partities een bereik voor transacties definiëren (Zie [entiteit groepstransacties](#entity-group-transactions) hieronder), en de basis vormen van de manier waarop de tabelservice schaalt. Zie voor meer informatie over partities [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md).  
+Hallo-accountnaam, de tabelnaam en **PartitionKey** Hallo partitie in opslagservice Hallo waar tabelservice Hallo Hallo entiteit opgeslagen samen te identificeren. Onderdeel van Hallo adresschema voor entiteiten zijn, partities een bereik voor transacties definiëren (Zie [entiteit groepstransacties](#entity-group-transactions) hieronder), en formulier Hallo op basis van hoe Hallo tabelservice schaalt. Zie voor meer informatie over partities [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md).  
 
-Een afzonderlijke knooppunten services in de tabel-service, een of meer partities en de service kan worden geschaald voltooien door dynamisch taakverdeling partities over knooppunten. Als een knooppunt belast wordt, de tabelservice kunt *splitsen* het bereik van de partities onderhouden door dat knooppunt op verschillende knooppunten; wanneer verkeer subsidies, de service kan *samenvoegen* de partitie kan variëren van stille knooppunten back naar één knooppunt.  
+Een afzonderlijke knooppunten services in Hallo service tabel, een of meer partities voltooien en service schaalt door dynamisch taakverdeling Hallo partities over knooppunten. Als een knooppunt belast wordt, Hallo tabelservice kunt *splitsen* Hallo bereik van partities wordt onderhouden door dat knooppunt op verschillende knooppunten; wanneer verkeer subsidies, Hallo-service kan *samenvoegen* Hallo partitie variërend van stille knooppunten terug op één knooppunt.  
 
-Zie het artikel voor meer informatie over de interne details van de tabel-service en met name hoe de service partities beheert, [Microsoft Azure Storage: een maximaal beschikbare Cloudopslagservice met sterke consistentie](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Voor meer informatie over Hallo interne details van Hallo Tabelservice en in het bijzonder hoe Hallo service partities beheert, Zie Hallo papier [Microsoft Azure Storage: een maximaal beschikbare Cloudopslagservice met sterke consistentie](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ### <a name="entity-group-transactions"></a>Entiteit groep transacties
-Entiteit groepstransacties (EGTs) zijn in de tabel-service de enige ingebouwde mechanisme voor het uitvoeren van atomaire updates tussen meerdere entiteiten. EGTs worden ook aangeduid als *batch transacties* in sommige documentatie. EGTs werkt alleen voor entiteiten die zijn opgeslagen in dezelfde partitie (share dezelfde partitiesleutel in een bepaalde tabel), dus telkens wanneer u atomic transactionele gedrag tussen meerdere entiteiten moet, u ervoor zorgen moet dat deze entiteiten in dezelfde partitie zijn. Dit is vaak een reden voor meerdere tabellen niet gebruiken voor andere entiteitstypen en meerdere Entiteitstypen houden in dezelfde tabel (en de partitie). Een enkele EGT kan werken op maximaal 100 entiteiten.  Als u meerdere gelijktijdige EGTs voor de verwerking is het belangrijk om ervoor te zorgen dat die EGTs worden niet uitgevoerd op de entiteiten die voor EGTs gelden anders verwerken vertraging verzenden.
+In Hallo tabel-service zijn transacties entiteit (EGTs) Hallo alleen ingebouwde mechanisme voor het uitvoeren van atomaire updates tussen meerdere entiteiten. Er zijn ook EGTs waarnaar wordt verwezen tooas *batch transacties* in sommige documentatie. EGTs werkt alleen voor entiteiten die zijn opgeslagen in Hallo dezelfde partitie (share Hallo dezelfde partitiesleutel in een bepaalde tabel), telkens wanneer u atomic transactionele gedrag tussen meerdere entiteiten moet er daarom tooensure die deze entiteiten in Hallo dezelfde partitie. Dit is vaak een reden voor het behouden van meerdere Entiteitstypen in Hallo dezelfde tabel (en partitie) en meerdere tabellen voor verschillende Entiteitstypen niet gebruiken. Een enkele EGT kan werken op maximaal 100 entiteiten.  Als u meerdere gelijktijdige EGTs indienen voor verwerking van het is belangrijk tooensure werkt deze EGTs niet op de entiteiten die voor EGTs gelden zoals anders verwerking kan worden vertraagd.
 
-EGTs ook leiden tot een mogelijke waarde om te beoordelen in uw ontwerp: de schaalbaarheid van uw toepassing met behulp van meer partities wordt verhoogd omdat Azure heeft meer mogelijkheden voor aanvragen voor taakverdeling over de knooppunten, maar dit kan de mogelijkheid van uw toepassing uit te voeren atomische transacties sterke consistentie voor uw gegevens beperken. Bovendien, er zijn specifieke schaalbaarheidsdoelen op het niveau van een partitie die de doorvoer van transacties die u voor één knooppunt verwachten kunt kan beperken: Zie voor meer informatie over de schaalbaarheidsdoelen voor Azure storage-accounts en de tabelservice [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md). Latere secties van deze handleiding worden verschillende ontwerp strategieën die u helpen beheren zoals deze verschillen en bespreken het beste de partitiesleutel op basis van de specifieke vereisten van uw clienttoepassing kiezen.  
+EGTs ook een mogelijke waarde voor tooevaluate in uw ontwerp geïntroduceerd: Hallo schaalbaarheid van uw toepassing met behulp van meer partities wordt verhoogd omdat Azure heeft meer mogelijkheden voor aanvragen voor taakverdeling over de knooppunten, maar dit Hallo mogelijk beperken de mogelijkheid van uw toepassing tooperform-atomic transacties en sterke consistentie voor uw gegevens onderhouden. Bovendien de schaalbaarheidsdoelen van specifieke op Hallo niveau van een partitie die Hallo doorvoer van transacties die u voor één knooppunt verwachten kunt kan beperken er zijn: voor meer informatie over Hallo schaalbaarheidsdoelen voor Azure storage-accounts en Hallo tabel service, raadpleegt [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md). Latere secties van deze handleiding worden verschillende ontwerp strategieën die u helpen bij verschillen zoals deze beheren en optimale toochoose uw partitiesleutel op basis van specifieke vereisten van uw clienttoepassing hello bespreken.  
 
 ### <a name="capacity-considerations"></a>Overwegingen voor capaciteitsplanning
-De volgende tabel bevat enkele van de belangrijkste waarden moet denken bij het ontwerpen van een oplossing voor tabel-service:  
+Hallo bevat volgende tabel enkele Hallo sleutelwaarden toobe op de hoogte van tijdens het ontwerpen van een oplossing voor tabel-service:  
 
 | Totale capaciteit van een Azure storage-account | 500 TB |
 | --- | --- |
-| Aantal tabellen in een Azure storage-account |Alleen beperkt door de capaciteit van het storage-account |
-| Aantal partities in een tabel |Alleen beperkt door de capaciteit van het storage-account |
-| Aantal entiteiten in een partitie |Alleen beperkt door de capaciteit van het storage-account |
-| Grootte van een afzonderlijke entiteit |Maximaal 1 MB van maximaal 255 eigenschappen (inclusief de **PartitionKey**, **RowKey**, en **tijdstempel**) |
-| Grootte van de **PartitionKey** |Een tekenreeks maximaal 1 KB groot |
-| Grootte van de **RowKey** |Een tekenreeks maximaal 1 KB groot |
-| Grootte van een entiteit groep-transactie |Een transactie kan maximaal 100 entiteiten bevatten en de lading moet minder dan 4 MB groot. Een EGT kan slechts eenmaal bijwerken een entiteit. |
+| Aantal tabellen in een Azure storage-account |Alleen beperkt door het Hallo-capaciteit van Hallo storage-account |
+| Aantal partities in een tabel |Alleen beperkt door het Hallo-capaciteit van Hallo storage-account |
+| Aantal entiteiten in een partitie |Alleen beperkt door het Hallo-capaciteit van Hallo storage-account |
+| Grootte van een afzonderlijke entiteit |Omhoog too1 MB van maximaal 255 eigenschappen (inclusief Hallo **PartitionKey**, **RowKey**, en **tijdstempel**) |
+| Grootte van Hallo **PartitionKey** |Een tekenreeks van too1 KB groot |
+| Grootte van Hallo **RowKey** |Een tekenreeks van too1 KB groot |
+| Grootte van een entiteit groep-transactie |Een transactie kan maximaal 100 entiteiten bevatten en Hallo nettolading moet minder dan 4 MB groot. Een EGT kan slechts eenmaal bijwerken een entiteit. |
 
-Zie voor meer informatie [inzicht in de tabel Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx).  
+Zie voor meer informatie [Understanding Hallo Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx).  
 
 ### <a name="cost-considerations"></a>Kosten overwegingen
-Tabelopslag relatief goedkope is, maar moet u kosten maakt een schatting voor capaciteitsgebruik en het aantal transacties opnemen als onderdeel van de evaluatie van een oplossing die gebruikmaakt van de tabel-service. In veel scenario's voor het opslaan van gedenormaliseerd of dubbele gegevens om te verbeteren is de prestaties of de schaalbaarheid van uw oplossing echter een geldige benadering te laten worden. Zie voor meer informatie over prijzen [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
+Tabelopslag relatief goedkope is, maar moet u kosten maakt een schatting voor beide capaciteit gebruiks- en Hallo aantal transacties opnemen als onderdeel van de evaluatie van een oplossing die gebruikmaakt van Hallo tabel-service. In veel scenario's voor het opslaan van gedenormaliseerd of dubbele gegevens in de volgorde tooimprove Hallo is prestaties en schaalbaarheid van uw oplossing echter een tootake geldig benadering. Zie voor meer informatie over prijzen [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
 
 ## <a name="guidelines-for-table-design"></a>Richtlijnen voor het tabelontwerp van de
-Deze lijsten geven een overzicht van enkele van de belangrijkste richtlijnen die u rekening houden moet bij het ontwerpen van uw tabellen en deze handleiding los deze allemaal in meer detail later in. Deze richtlijnen zijn heel verschillend van de richtlijnen die u doorgaans als voor het ontwerp van relationele database volgt.  
+Deze lijsten samenvatten aantal Hallo sleutel richtlijnen die u rekening houden moet bij het ontwerpen van uw tabellen en deze handleiding los deze allemaal in meer detail later in. Deze richtlijnen zijn heel verschillend van Hallo richtlijnen die u doorgaans als voor het ontwerp van relationele database volgt.  
 
-Ontwerpen van uw oplossing tabel-service worden *lezen* efficiënt:
+Het ontwerpen van uw tabel-service-oplossing toobe *lezen* efficiënt:
 
-* ***Ontwerpen voor het uitvoeren van toepassingen waarin lezen veel query's.*** Tijdens het ontwerpen van uw tabellen nadenken over de query's (met name de latentie gevoelig die) die zal worden uitgevoerd voordat u nadenken over hoe u uw entiteiten wordt bijgewerkt. Dit leidt meestal tot een efficiënte en zodat oplossing.  
-* ***Geef zowel PartitionKey en RowKey in uw query's.*** *Query's wijst* zoals dit zijn de meest efficiënt query's een tabel-service.  
-* ***Houd rekening met dubbele exemplaren van entiteiten opslaan.*** Tabelopslag goedkope is dus overwegen bij het opslaan van dezelfde entiteit meerdere keren (met verschillende sleutels) om in te schakelen efficiënter query's.  
-* ***U kunt uw gegevens denormalizing.*** Tabelopslag goedkope is dus Overweeg denormalizing van uw gegevens. Samenvatting entiteiten bijvoorbeeld opslaan zodat query's voor statistische gegevens alleen hoeft toegang tot één entiteit.  
-* ***Gebruik de samengestelde sleutel komt.*** De enige sleutels die u hebt zijn **PartitionKey** en **RowKey**. Samengestelde sleutel komt bijvoorbeeld gebruiken om in te schakelen alternatieve sleutelhash Toegangspaden naar entiteiten.  
-* ***Query-projectie gebruiken.*** U kunt verminderen de hoeveelheid gegevens die u via het netwerk overdragen met behulp van query's die alleen de velden die u moet selecteren.  
+* ***Ontwerpen voor het uitvoeren van toepassingen waarin lezen veel query's.*** Tijdens het ontwerpen van uw tabellen nadenken over Hallo query's (met name Hallo latentie gevoelig die) die zal worden uitgevoerd voordat u nadenken over hoe u uw entiteiten wordt bijgewerkt. Dit leidt meestal tot een efficiënte en zodat oplossing.  
+* ***Geef zowel PartitionKey en RowKey in uw query's.*** *Query's wijst* zoals deze zijn Hallo meest efficiënt tabel service query's.  
+* ***Houd rekening met dubbele exemplaren van entiteiten opslaan.*** Tabelopslag is goedkope moet dezelfde entiteit meerdere keren (met verschillende sleutels) opslaan Hallo tooenable efficiënter query's.  
+* ***U kunt uw gegevens denormalizing.*** Tabelopslag goedkope is dus Overweeg denormalizing van uw gegevens. Samenvatting entiteiten bijvoorbeeld opslaan zodat query's voor statistische gegevens slechts één entiteit tooaccess hoeft.  
+* ***Gebruik de samengestelde sleutel komt.*** Hallo alleen sleutels die u hebt zijn **PartitionKey** en **RowKey**. Gebruik bijvoorbeeld samengestelde sleutelwaarden tooenable alternatieve sleutelhash toegang paden tooentities.  
+* ***Query-projectie gebruiken.*** U kunt verkleinen Hallo hoeveelheid gegevens die u via Hallo netwerk overbrengen met behulp van query's die alleen Hallo velden, u moet selecteert.  
 
-Ontwerpen van uw oplossing tabel-service worden *schrijven* efficiënt:  
+Het ontwerpen van uw tabel-service-oplossing toobe *schrijven* efficiënt:  
 
-* ***Maak geen hot partities.*** De optie sleutels waarmee u uw aanvragen verdeeld over meerdere partities op elk moment.  
-* ***Vermijd pieken in het verkeer.*** Het verkeer via een redelijke periode vloeiend en pieken in het verkeer worden vermeden.
-* ***Niet per se een afzonderlijke tabel voor elk type entiteit maken.*** Wanneer u atomische transacties op Entiteitstypen vereisen, slaat u deze meerdere Entiteitstypen in dezelfde partitie in dezelfde tabel.
-* ***U kunt de maximale doorvoer die moeten worden gerealiseerd.*** U moet rekening houden met de schaalbaarheidsdoelen voor de tabel-service en ervoor te zorgen dat uw ontwerp leidt niet tot u ze overschrijden.  
+* ***Maak geen hot partities.*** Kies toetsen waarmee u toospread uw aanvragen over meerdere partities op elk moment.  
+* ***Vermijd pieken in het verkeer.*** Hallo-verkeer via een redelijke periode vloeiend en pieken in het verkeer worden vermeden.
+* ***Niet per se een afzonderlijke tabel voor elk type entiteit maken.*** Wanneer u atomische transacties op Entiteitstypen vereisen, slaat u deze meerdere Entiteitstypen in dezelfde partitie in Hallo Hallo dezelfde tabel.
+* ***U kunt de maximale doorvoer Hallo die moeten worden gerealiseerd.*** U moet rekening houden met de Hallo schaalbaarheidsdoelen voor Hallo tabelservice en zorg ervoor dat uw ontwerp niet u tooexceed tot leidt ze.  
 
 Als u deze handleiding leest, ziet u voorbeelden die al deze principes in de praktijk geplaatst.  
 
 ## <a name="design-for-querying"></a>Ontwerp voor het uitvoeren van query 's
-Oplossingen voor tabel-service kunnen worden gelezen intensief schrijven intensief of een combinatie van beide. Deze sectie richt zich op de zaken op moet letten tijdens het ontwerpen van de service voor ondersteuning voor leesbewerkingen efficiënt uw tabel. Een ontwerp dat ondersteunt lees-en schrijfopdrachten efficiënt is meestal ook efficiënt voor schrijfbewerkingen. Er zijn echter aanvullende overwegingen op moet letten bij het ontwerpen van ondersteuning voor schrijfbewerkingen, die wordt besproken in de volgende sectie [ontwerp voor wijziging van gegevens](#design-for-data-modification).
+Oplossingen voor tabel-service kunnen worden gelezen intensief, schrijven intensief of een combinatie van Hallo twee. In deze sectie richt zich op Hallo dingen toobear in rekening wanneer u uw tabel service toosupport leesbewerkingen efficiënt ontwerpt. Een ontwerp dat ondersteunt lees-en schrijfopdrachten efficiënt is meestal ook efficiënt voor schrijfbewerkingen. Er zijn echter aanvullende overwegingen toobear in rekening wanneer ontwerpen toosupport schrijfbewerkingen, die wordt besproken in de volgende sectie hello, [ontwerp voor wijziging van gegevens](#design-for-data-modification).
 
-Een goed uitgangspunt voor het ontwerpen van uw tabel-service-oplossing kunt u gegevens efficiënt te lezen is vragen "welke query mijn toepassing moeten worden uitgevoerd voor het ophalen van de benodigde gegevens uit de tabelservice?"  
+Een goed uitgangspunt voor het ontwerpen van uw tooenable tabel-service-oplossing u tooread gegevens efficiënt is tooask "welke query wordt mijn nodig tooexecute tooretrieve Hallo toepassingsgegevens uit de tabelservice Hallo moet?"  
 
 > [!NOTE]
-> Met de tabel-service is het belangrijk dat u het ontwerp van de juiste vooraf omdat het is moeilijk en kostbaar later wijzigen. Bijvoorbeeld in een relationele database is het vaak mogelijk prestaties om problemen te verhelpen door indexen toe te voegen aan een bestaande database: dit kan niet worden gebruikt met de tabel-service.  
+> Met de Hallo tabelservice, is het belangrijk tooget Hallo ontwerp juiste vooraf omdat het is moeilijk en kostbaar proces toochange later. Bijvoorbeeld in een relationele database, is het vaak mogelijk tooaddress prestatieproblemen gewoon door toe te voegen de bestaande database tooan indexeert: dit is geen optie Hello tabel-service.  
 > 
 > 
 
-Deze sectie legt de nadruk op de belangrijkste die u houden moet bij het ontwerpen van uw tabellen voor het uitvoeren van query's. De onderwerpen in deze sectie beschreven, zijn onder andere:
+Deze sectie legt de nadruk op Hallo sleutel die u houden moet bij het ontwerpen van uw tabellen voor het uitvoeren van query's. Hallo-onderwerpen in deze sectie zijn onder andere:
 
 * [Hoe uw keuze van PartitionKey en RowKey van invloed is op prestaties van query 's](#how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance)
 * [Een juiste PartitionKey kiezen](#choosing-an-appropriate-partitionkey)
-* [Optimaliseren van query's voor de tabel-service](#optimizing-queries-for-the-table-service)
-* [Sorteren van gegevens in de tabel-service](#sorting-data-in-the-table-service)
+* [Query's voor Hallo tabelservice optimaliseren](#optimizing-queries-for-the-table-service)
+* [Sorteren van gegevens in Hallo tabelservice](#sorting-data-in-the-table-service)
 
 ### <a name="how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance"></a>Hoe uw keuze van PartitionKey en RowKey van invloed is op prestaties van query 's
-De volgende voorbeelden wordt ervan uitgegaan dat de tabelservice werknemer entiteiten met de volgende structuur wordt opgeslagen (de meeste van de voorbeelden weglaten de **tijdstempel** eigenschap voor de duidelijkheid):  
+Hallo volgende voorbeelden wordt ervan uitgegaan dat het opslaan van tabelservice Hallo is werknemer entiteiten met Hallo structuur te volgen (Hallo voorbeelden de meeste weglaten Hallo **tijdstempel** eigenschap voor de duidelijkheid):  
 
 | *Kolomnaam* | *Gegevenstype* |
 | --- | --- |
@@ -211,123 +211,123 @@ De volgende voorbeelden wordt ervan uitgegaan dat de tabelservice werknemer enti
 | **Leeftijd** |Geheel getal |
 | **EmailAddress** |Tekenreeks |
 
-De vorige sectie [overzicht van de service Azure Table](#overview) beschrijft een aantal van de belangrijkste functies van de service Azure Table waarvoor een directe invloed op ontwerpen voor query. Deze leiden tot de volgende algemene richtlijnen voor het ontwerpen van query's tabel-service. De filtersyntaxis gebruikt in de volgende voorbeelden wordt uit de tabelservice REST API, Zie voor meer informatie [Query entiteiten](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Hallo eerdere sectie [overzicht van de service Azure Table](#overview) beschrijft een aantal Hallo belangrijkste functies van hello Azure Table-service waarvoor een directe invloed op ontwerpen voor query. Deze leiden tot Hallo algemene richtlijnen voor het ontwerpen van query's tabel-service. Houd er rekening mee dat Hallo filtersyntaxis in onderstaande Hallo voorbeelden gebruikt uit Hallo tabelservice REST API, Zie voor meer informatie [Query entiteiten](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
-* Een ***punt Query*** is het meest efficiënt lookup te gebruiken en wordt aanbevolen voor grote zoekopdrachten of zoekacties laagste latentie vereisen moet worden gebruikt. Dergelijke query kunt de indexen gebruiken een afzonderlijke entiteit zeer efficiënt vinden door op te geven van zowel de **PartitionKey** en **RowKey** waarden. Bijvoorbeeld: $filter = (PartitionKey eq 'Sales') en (RowKey eq '2')  
-* Tweede in de rij is een ***Bereikquery*** die gebruikmaakt van de **PartitionKey** en filters op een reeks **RowKey** waarden te retourneren van meer dan één entiteit. De **PartitionKey** waarde identificeert een specifieke partitie en de **RowKey** waarden een subset van de entiteiten in de betreffende partitie identificeren. Bijvoorbeeld: $filter = PartitionKey eq 'Verkoop en de RowKey ge' en RowKey lt t '  
-* Derde beste is een ***partitie scannen*** die gebruikmaakt van de **PartitionKey** en filters op een andere niet-sleutelkenmerk eigenschap en die mogelijk meer dan één entiteit geretourneerd. De **PartitionKey** waarde identificeert een specifieke partitie en de eigenschap waarden selecteren voor een subset van de entiteiten in de betreffende partitie. Bijvoorbeeld: $filter = PartitionKey eq 'Verkoop' en LastName eq 'Smith'  
-* Een ***tabel scannen*** omvat niet de **PartitionKey** en zeer inefficiënte omdat alle van de partities die gezamenlijk uw tabel voor de overeenkomende entiteiten op zijn beurt wordt doorzocht. Wordt uitgevoerd om een tabelscan ongeacht of het filter gebruikt de **RowKey**. Bijvoorbeeld: $filter = LastName eq 'Jones'  
-* Query's die meerdere entiteiten retourneren retourneren ze gesorteerd **PartitionKey** en **RowKey** volgorde. Om te voorkomen de entiteiten in de client te sorteren, kies een **RowKey** de meest voorkomende sorteervolgorde te definiëren.  
+* Een ***punt Query*** Hallo meest efficiënt lookup toouse en wordt aanbevolen toobe gebruikt voor zoekopdrachten met hoog volume of zoekacties laagste latentie vereisen. Dergelijke query kan zeer efficiënt Hallo indexen toolocate een afzonderlijke entiteit gebruiken door op te geven beide Hallo **PartitionKey** en **RowKey** waarden. Bijvoorbeeld: $filter = (PartitionKey eq 'Sales') en (RowKey eq '2')  
+* Tweede in de rij is een ***Bereikquery*** die gebruikmaakt van Hallo **PartitionKey** en filters op een reeks **RowKey** waarden tooreturn meer dan één entiteit. Hallo **PartitionKey** waarde identificeert een specifieke partitie en Hallo **RowKey** waarden een subset van Hallo entiteiten in de betreffende partitie identificeren. Bijvoorbeeld: $filter = PartitionKey eq 'Verkoop en de RowKey ge' en RowKey lt t '  
+* Derde beste is een ***partitie scannen*** die gebruikmaakt van Hallo **PartitionKey** en filters op een andere niet-sleutelkenmerk eigenschap en die mogelijk meer dan één entiteit geretourneerd. Hallo **PartitionKey** waarde identificeert een specifieke partitie en Hallo eigenschap waarden selecteren voor een subset van Hallo entiteiten in de betreffende partitie. Bijvoorbeeld: $filter = PartitionKey eq 'Verkoop' en LastName eq 'Smith'  
+* Een ***tabel scannen*** omvat geen Hallo **PartitionKey** en zeer inefficiënte omdat alle partities Hallo die gezamenlijk uw tabel voor de overeenkomende entiteiten op zijn beurt wordt doorzocht. Wordt uitgevoerd om een tabelscan ongeacht of het filter Hallo gebruikt **RowKey**. Bijvoorbeeld: $filter = LastName eq 'Jones'  
+* Query's die meerdere entiteiten retourneren retourneren ze gesorteerd **PartitionKey** en **RowKey** volgorde. tooavoid sorteren Hallo entiteiten in Hallo-client, kies een **RowKey** Hallo meest voorkomende sorteervolgorde te definiëren.  
 
-Houd er rekening mee dat als u met een '**of**' om op te geven van een filter op basis van **RowKey** waarden resulteert in een partitie scan en wordt niet behandeld als een bereikquery. U moet daarom query's die worden gebruikt, zoals filters: $filter = PartitionKey eq 'Sales' (RowKey eq '121' of een RowKey eq '322')  
+Houd er rekening mee dat als u met een '**of**' toospecify een filter op basis van **RowKey** waarden resulteert in een partitie scan en wordt niet behandeld als een bereikquery. U moet daarom query's die worden gebruikt, zoals filters: $filter = PartitionKey eq 'Sales' (RowKey eq '121' of een RowKey eq '322')  
 
-Zie voor voorbeelden van clientcode die gebruikmaken van de Storage-clientbibliotheek efficiënt query's uitvoeren:  
+Zie voor voorbeelden van clientcode die gebruikmaken van Hallo Storage-clientbibliotheek tooexecute efficiënt query's:  
 
-* [Uitvoeren van een punt-query met behulp van de Storage-clientbibliotheek](#executing-a-point-query-using-the-storage-client-library)
+* [Uitvoeren van een punt-query Hallo Storage-clientbibliotheek](#executing-a-point-query-using-the-storage-client-library)
 * [Bij het ophalen van meerdere entiteiten met behulp van LINQ](#retrieving-multiple-entities-using-linq)
 * [Projectie-serverzijde](#server-side-projection)  
 
-Voor voorbeelden van clientcode dat meerdere Entiteitstypen die zijn opgeslagen in dezelfde tabel kan verwerken, Zie:  
+Voor voorbeelden van clientcode dat meerdere entiteit kan verwerken typen opgeslagen in Hallo dezelfde tabel, Zie:  
 
 * [Werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types)  
 
 ### <a name="choosing-an-appropriate-partitionkey"></a>Een juiste PartitionKey kiezen
-Uw keuze van **PartitionKey** moet worden verdeeld moet maakt het gebruik van EGTs (consistentie te garanderen) de vereiste voor de distributie van de entiteiten over meerdere partities (zodat een schaalbare oplossing).  
+Uw keuze van **PartitionKey** moeten worden verdeeld Hallo nodig tooenables Hallo gebruik van EGTs (consistentie van tooensure) tegen Hallo vereiste toodistribute uw entiteiten meerdere partities (tooensure schaalbare oplossing).  
 
-Op één extreme u alle entiteiten in uw kan opslaan in een enkele partitie, maar dit kan de schaalbaarheid van uw oplossing beperken en zou voorkomen dat de tabelservice kunnen verdelen aanvragen. Het andere uiterste, kunt u één entiteit per partitie, die wel uiterst schaalbare en waardoor de tabelservice op aanvragen voor taakverdeling, maar dat zou voorkomen dat u entiteitstransacties opslaan.  
+Aan één extreme u alle entiteiten in uw kan opslaan in een enkele partitie, maar dit Hallo schaalbaarheid van uw oplossing kan beperken en zou verhinderen Hallo tabelservice kunnen tooload-aanvragen. Op Hallo andere extreme, kunt u één entiteit per partitie, die wel uiterst schaalbare en waardoor Hallo tabel serviceaanvragen tooload saldo, maar dat zou voorkomen dat u entiteitstransacties opslaan.  
 
-Een ideaal **PartitionKey** is een die u kunt gebruiken efficiënt query's en met voldoende partities om te controleren of uw oplossing schaalbaar is. Normaal gesproken zult u merken dat uw entiteiten een geschikte eigenschap die de entiteiten over voldoende partities verdeelt hebben.
+Een ideaal **PartitionKey** is een waarmee u toouse efficiënt query's en die voldoende partities tooensure heeft uw oplossing schaalbaar is. Normaal gesproken zult u merken dat uw entiteiten een geschikte eigenschap die de entiteiten over voldoende partities verdeelt hebben.
 
 > [!NOTE]
-> Bijvoorbeeld in een systeem dat wordt informatie over gebruikers- of werknemers opgeslagen, gebruikers-id is mogelijk een goede PartitionKey. Mogelijk hebt u verschillende entiteiten die een opgegeven gebruikers-id als de partitiesleutel gebruiken. Elke entiteit die gegevens over een gebruiker opslaat in een enkele partitie worden gegroepeerd en dus deze entiteiten zijn toegankelijk via entiteit groepstransacties, terwijl u nog steeds zeer schaalbaar.
+> Bijvoorbeeld in een systeem dat wordt informatie over gebruikers- of werknemers opgeslagen, gebruikers-id is mogelijk een goede PartitionKey. Mogelijk hebt u verschillende entiteiten die een opgegeven gebruikers-id als partitiesleutel hello gebruiken. Elke entiteit die gegevens over een gebruiker opslaat in een enkele partitie worden gegroepeerd en dus deze entiteiten zijn toegankelijk via entiteit groepstransacties, terwijl u nog steeds zeer schaalbaar.
 > 
 > 
 
-Er zijn aanvullende overwegingen bij de keuze van **PartitionKey** die betrekking hebben op hoe u wilt invoegen, bijwerken en verwijderen van entiteiten: Zie de sectie [ontwerp voor wijziging van gegevens](#design-for-data-modification) hieronder.  
+Er zijn aanvullende overwegingen bij de keuze van **PartitionKey** die betrekking hebben toohow wordt u invoegen, bijwerken en verwijderen van entiteiten: Zie de sectie Hallo [ontwerp voor wijziging van gegevens](#design-for-data-modification) hieronder.  
 
-### <a name="optimizing-queries-for-the-table-service"></a>Optimaliseren van query's voor de tabel-service
-De tabelservice indexeert automatisch de entiteiten met behulp van de **PartitionKey** en **RowKey** waarden in een enkele geclusterde index, daarom de reden dat wijst u query's zijn het meest efficiënt te gebruiken. Er zijn echter geen indexen dan die op de geclusterde index op de **PartitionKey** en **RowKey**.
+### <a name="optimizing-queries-for-hello-table-service"></a>Query's voor Hallo tabelservice optimaliseren
+Hallo tabelservice indexeert automatisch de entiteiten met Hallo **PartitionKey** en **RowKey** waarden in een enkele geclusterde index daarom reden dat punt query's efficiëntste toouse zijn Hallo Hallo . Er zijn echter geen indexen dan die op een geclusterde index op Hallo Hallo **PartitionKey** en **RowKey**.
 
-Veel ontwerpen moeten voldoen aan de vereisten voor het opzoeken van de entiteiten die zijn gebaseerd op meerdere criteria inschakelen. Bijvoorbeeld zoeken naar werknemer entiteiten op basis van e-mailadres werknemer-id of achternaam op. De volgende patronen in de sectie [ontwerppatronen voor tabel](#table-design-patterns) deze typen vereiste op te lossen en beschrijven manieren van het feit dat de tabel-service biedt geen secundaire indexen te omzeilen:  
+Veel ontwerpen moeten voldoen aan vereisten tooenable lookup entiteiten op basis van meerdere criteria. Bijvoorbeeld zoeken naar werknemer entiteiten op basis van e-mailadres werknemer-id of achternaam op. Hallo volgende patronen in de sectie Hallo [ontwerppatronen voor tabel](#table-design-patterns) deze typen vereiste op te lossen en manieren om te werken om Hallo feit Hallo tabel-service biedt geen secundaire indexen te beschrijven:  
 
-* [Intra-partitie secundaire index patroon](#intra-partition-secondary-index-pattern) -opslaan meerdere exemplaren van elke entiteit met behulp van verschillende **RowKey** waarden (in dezelfde partitie) inschakelen snel en efficiënt zoekacties en alternatieve sorteervolgorde met behulp van verschillende **RowKey** waarden.  
-* [Secundaire tussen partitioneren van index patroon](#inter-partition-secondary-index-pattern) : opslaan van meerdere exemplaren van elke entiteit die gebruikmaken van verschillende waarden voor de RowKey in afzonderlijke partities of in afzonderlijke tabellen waarmee snel en efficiënt zoekacties en alternatieve sorteren orders met behulp van verschillende **RowKey** waarden.  
-* [Index entiteiten patroon](#index-entities-pattern) -onderhouden index entiteiten zodat efficiënte zoekopdrachten die lijsten van entiteiten retourneren.  
+* [Intra-partitie secundaire index patroon](#intra-partition-secondary-index-pattern) -opslaan meerdere exemplaren van elke entiteit met behulp van verschillende **RowKey** waarden (in Hallo dezelfde partitie) tooenable snelle en efficiënte zoekacties en alternatieve sorteren orders door gebruik te maken andere **RowKey** waarden.  
+* [Secundaire tussen partitioneren van index patroon](#inter-partition-secondary-index-pattern) : opslaan van meerdere exemplaren van elke entiteit met verschillende waarden voor de RowKey in afzonderlijke partities of afzonderlijke tabellen tooenable snel en efficiënt zoekacties en alternatieve sorteren orders met behulp van verschillende **RowKey** waarden.  
+* [Index entiteiten patroon](#index-entities-pattern) -onderhouden entiteiten tooenable efficiënt zoekacties in de index die lijsten van entiteiten retourneren.  
 
-### <a name="sorting-data-in-the-table-service"></a>Sorteren van gegevens in de tabel-service
-De tabel-service retourneert entiteiten in oplopende volgorde op basis van gesorteerd **PartitionKey** en vervolgens op **RowKey**. Deze sleutels worden tekenreekswaarden en om ervoor te zorgen dat numerieke waarden correct sorteren, moet u deze converteren naar een vaste lengte en ze worden opgevuld met nullen. Bijvoorbeeld, als de waarde van de werknemer-id die u gebruikt als de **RowKey** is een geheel getal, moet u de werknemer-id converteren **123** naar **00000123**.  
+### <a name="sorting-data-in-hello-table-service"></a>Sorteren van gegevens in Hallo tabelservice
+Hallo tabelservice retourneert entiteiten in oplopende volgorde op basis van gesorteerd **PartitionKey** en vervolgens op **RowKey**. Deze sleutels worden tekenreekswaarden en tooensure die numerieke waarden correct sorteren die u moet deze tooa vaste lengte converteren en ze worden opgevuld met nullen. Bijvoorbeeld, als hello werknemer-id-waarde u als Hallo **RowKey** is een geheel getal, moet u de werknemer-id converteren **123** te**00000123**.  
 
-Veel toepassingen hebben vereisten voor het gebruik van gegevens in verschillende volgorden gesorteerd: werknemers bijvoorbeeld sorteren op naam of door datum. De volgende patronen in de sectie [ontwerppatronen voor tabel](#table-design-patterns) hoe de sorteervolgorde voor uw entiteiten alternatieve adres:  
+Veel toepassingen hebben vereisten toouse gegevens gesorteerd in verschillende volgorden: werknemers bijvoorbeeld sorteren op naam of door datum. Hallo volgende patronen in de sectie Hallo [ontwerppatronen voor tabel](#table-design-patterns) adres hoe tooalternate sorteervolgorde van de entiteiten:  
 
-* [Intra-partitie secundaire index patroon](#intra-partition-secondary-index-pattern) : opslaan van meerdere exemplaren van elke entiteit die gebruikmaken van verschillende RowKey waarden (in dezelfde partitie) waarmee snel en efficiënt zoekacties en alternatieve sorteren orders met behulp van verschillende RowKey waarden.  
-* [Secundaire tussen partitioneren van index patroon](#inter-partition-secondary-index-pattern) : opslaan van meerdere exemplaren van elke entiteit met verschillende waarden voor de RowKey in afzonderlijke partities in afzonderlijke tabellen inschakelen snel en efficiënt zoekacties en alternatieve sorteren bestellingen met behulp van verschillende RowKey waarden.
-* [Logboek tail patroon](#log-tail-pattern) -ophalen van de  *n*  entiteiten die onlangs zijn toegevoegd aan een partitie met behulp van een **RowKey** waarde die in omgekeerde datum en tijd volgorde worden gesorteerd.  
+* [Intra-partitie secundaire index patroon](#intra-partition-secondary-index-pattern) -meerdere exemplaren van elke entiteit met verschillende waarden voor de RowKey opslaan (in Hallo dezelfde partitie) tooenable snelle en efficiënte zoekacties en alternatieve sorteren orders met behulp van verschillende RowKey waarden.  
+* [Secundaire tussen partitioneren van index patroon](#inter-partition-secondary-index-pattern) : opslaan van meerdere exemplaren van elke entiteit met behulp van verschillende waarden voor de RowKey in afzonderlijke partities in afzonderlijke tabellen tooenable snel en efficiënt zoekacties en alternatieve sorteren orders met behulp van verschillende RowKey waarden.
+* [Logboek tail patroon](#log-tail-pattern) -ophalen Hallo  *n*  tooa partitie entiteiten meest recent toegevoegd met behulp van een **RowKey** waarde die in omgekeerde datum en tijd volgorde worden gesorteerd.  
 
 ## <a name="design-for-data-modification"></a>Ontwerp voor wijziging van gegevens
-Deze sectie richt zich op de ontwerpoverwegingen voor het optimaliseren van toevoegingen, updates, en worden verwijderd. In sommige gevallen moet u de verhouding tussen ontwerpen die optimaliseren voor een query op modellen die voor wijziging van gegevens, optimaliseren net als in ontwerpen voor relationele databases (Hoewel de technieken voor het beheren van de ontwerp-en nadelen andere in een relationele database) evalueren. De sectie [ontwerppatronen voor tabel](#table-design-patterns) beschrijft een aantal gedetailleerde ontwerppatronen voor de tabel-service en worden enkele deze verschillen. In de praktijk vindt u veel ontwerpen die zijn geoptimaliseerd voor het uitvoeren van query's entiteiten ook geschikt voor entiteiten wijzigen.  
+Deze sectie richt zich op Hallo ontwerpoverwegingen voor het optimaliseren van toevoegingen, updates, en worden verwijderd. In sommige gevallen moet u tooevaluate Hallo compromis tussen ontwerpen die voor een query op modellen die voor wijziging van gegevens, optimaliseren net als in ontwerpen voor relationele databases (Hoewel Hallo technieken voor het beheren van ontwerp Hallo optimaliseren verschillen zijn verschillend in een relationele database). sectie Hallo [ontwerppatronen voor tabel](#table-design-patterns) sommige gedetailleerde ontwerppatronen voor Hallo service tabel wordt beschreven en worden enkele deze verschillen. In de praktijk vindt u veel ontwerpen die zijn geoptimaliseerd voor het uitvoeren van query's entiteiten ook geschikt voor entiteiten wijzigen.  
 
-### <a name="optimizing-the-performance-of-insert-update-and-delete-operations"></a>Optimaliseren van de prestaties van invoegen, bijwerken en verwijderen van bewerkingen
-Als u wilt bijwerken of verwijderen van een entiteit, moet u kunnen worden geïdentificeerd met behulp van de **PartitionKey** en **RowKey** waarden. In dit opzicht van uw keuze **PartitionKey** en **RowKey** voor entiteiten wijzigen dezelfde criteria voor uw keuze volgen moet voor de ondersteuning van punt query's omdat u wilt identificeren entiteiten zo efficiënt mogelijk. U niet wilt dat een entiteit Zoek om te detecteren met behulp van een inefficiënte partitie of tabel scan de **PartitionKey** en **RowKey** waarden die u wilt bijwerken of verwijderen.  
+### <a name="optimizing-hello-performance-of-insert-update-and-delete-operations"></a>Hallo prestaties optimaliseren van invoegen, bijwerken en verwijderen bewerkingen
+tooupdate of een entiteit verwijderen, moet u kunnen tooidentify deze met behulp van Hallo **PartitionKey** en **RowKey** waarden. In dit opzicht van uw keuze **PartitionKey** en **RowKey** voor het wijzigen van entiteiten moet volgen vergelijkbare criteria tooyour keuze toosupport wijst u query's omdat u wilt dat tooidentify entiteiten als efficiënt mogelijk. U niet wilt dat een inefficiënte partitie of tabel scan toolocate een entiteit in volgorde toodiscover hello toouse **PartitionKey** en **RowKey** waarden tooupdate of u deze verwijderen.  
 
-De volgende patronen in de sectie [ontwerppatronen voor tabel](#table-design-patterns) adres optimaliseert de prestaties of de insert, update en verwijderbewerkingen:  
+Hallo volgende patronen in de sectie Hallo [ontwerppatronen voor tabel](#table-design-patterns) adres optimaliseren Hallo prestaties of uw invoegen, bijwerken en verwijderen van bewerkingen:  
 
-* [Hoog volume patroon verwijderen](#high-volume-delete-pattern) -de verwijdering van een groot aantal entiteiten inschakelen door het opslaan van alle entiteiten voor gelijktijdige verwijdering in hun eigen afzonderlijke tabel; u de entiteiten verwijderen door de tabel verwijderen.  
-* [Patroon van de reeks gegevens](#data-series-pattern) -Store voltooid gegevensreeksen in één entiteit om te beperken het aantal aanvragen die u aanbrengt.  
-* [Wide entiteiten patroon](#wide-entities-pattern) -gebruik van meerdere fysieke entiteiten voor het opslaan van logische entiteiten met meer dan 252 eigenschappen.  
-* [Grote entiteiten patroon](#large-entities-pattern) -blob storage gebruiken voor het opslaan van grote eigenschapswaarden.  
+* [Hoog volume patroon verwijderen](#high-volume-delete-pattern) -Enable Hallo verwijdering van een groot aantal entiteiten doordat alle Hallo-entiteiten voor gelijktijdige verwijdering in hun eigen afzonderlijke tabel; u Hallo entiteiten verwijderen door Hallo tabel te verwijderen.  
+* [Patroon van de reeks gegevens](#data-series-pattern) -Store voltooid gegevensreeksen in een enkele entiteit toominimize Hallo aantal aanvragen die u aanbrengt.  
+* [Wide entiteiten patroon](#wide-entities-pattern) -gebruik van meerdere fysieke entiteiten toostore logische entiteiten met meer dan 252 eigenschappen.  
+* [Grote entiteiten patroon](#large-entities-pattern) -gebruik blob storage toostore grote eigenschapswaarden.  
 
 ### <a name="ensuring-consistency-in-your-stored-entities"></a>Uw opgeslagen entiteiten consistent te houden
-De andere belangrijke factoren die van invloed is op uw keuze van sleutels voor het optimaliseren van gegevenswijzigingen is hoe u de consistentie met behulp van atomische transacties. U kunt alleen een EGT bewerkingen uitvoeren op entiteiten die zijn opgeslagen in dezelfde partitie.  
+andere belangrijke factor waarmee uw keuze van sleutels voor het optimaliseren van gegevenswijzigingen is Hallo hoe tooensure consistentie met behulp van atomische transacties. U kunt alleen een toooperate EGT gebruiken voor entiteiten die zijn opgeslagen in Hallo dezelfde partitie.  
 
-De volgende patronen in de sectie [ontwerppatronen voor tabel](#table-design-patterns) adres consistentie beheren:  
+Hallo volgende patronen in de sectie Hallo [ontwerppatronen voor tabel](#table-design-patterns) adres consistentie beheren:  
 
-* [Intra-partitie secundaire index patroon](#intra-partition-secondary-index-pattern) -opslaan meerdere exemplaren van elke entiteit met behulp van verschillende **RowKey** waarden (in dezelfde partitie) inschakelen snel en efficiënt zoekacties en alternatieve sorteervolgorde met behulp van verschillende **RowKey** waarden.  
-* [Secundaire tussen partitioneren van index patroon](#inter-partition-secondary-index-pattern) : opslaan van meerdere exemplaren van elke entiteit die gebruikmaken van verschillende waarden voor de RowKey in afzonderlijke partities of in afzonderlijke tabellen waarmee snel en efficiënt zoekacties en alternatieve sorteren orders met behulp van verschillende **RowKey** waarden.  
+* [Intra-partitie secundaire index patroon](#intra-partition-secondary-index-pattern) -opslaan meerdere exemplaren van elke entiteit met behulp van verschillende **RowKey** waarden (in Hallo dezelfde partitie) tooenable snelle en efficiënte zoekacties en alternatieve sorteren orders door gebruik te maken andere **RowKey** waarden.  
+* [Secundaire tussen partitioneren van index patroon](#inter-partition-secondary-index-pattern) : opslaan van meerdere exemplaren van elke entiteit met verschillende waarden voor de RowKey in afzonderlijke partities of afzonderlijke tabellen tooenable snel en efficiënt zoekacties en alternatieve sorteren orders met behulp van verschillende **RowKey** waarden.  
 * [Uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern) -uiteindelijk consistent gedrag over grenzen van partities of opslag system grenzen inschakelen met behulp van Azure wachtrijen.
-* [Index entiteiten patroon](#index-entities-pattern) -onderhouden index entiteiten zodat efficiënte zoekopdrachten die lijsten van entiteiten retourneren.  
-* [Denormalization patroon](#denormalization-pattern) -combineren van de bijbehorende gegevens samen in één entiteit waarmee u kunt alle gegevens die u nodig hebt met een query één punt ophalen.  
-* [Patroon van de reeks gegevens](#data-series-pattern) -Store voltooid gegevensreeksen in één entiteit om te beperken het aantal aanvragen die u aanbrengt.  
+* [Index entiteiten patroon](#index-entities-pattern) -onderhouden entiteiten tooenable efficiënt zoekacties in de index die lijsten van entiteiten retourneren.  
+* [Denormalization patroon](#denormalization-pattern) -combineren van de bijbehorende gegevens samen in een enkele entiteit tooenable tooretrieve u alle gegevens die u met een query één punt moet Hallo.  
+* [Patroon van de reeks gegevens](#data-series-pattern) -Store voltooid gegevensreeksen in een enkele entiteit toominimize Hallo aantal aanvragen die u aanbrengt.  
 
-Zie de sectie voor informatie over entiteit groepstransacties [entiteit groepstransacties](#entity-group-transactions).  
+Zie voor informatie over entiteit groepstransacties Hallo sectie [entiteit groepstransacties](#entity-group-transactions).  
 
 ### <a name="ensuring-your-design-for-efficient-modifications-facilitates-efficient-queries"></a>Uw ontwerp voor efficiënte wijzigingen gezorgd vereenvoudigt efficiënt query 's
-Een ontwerp voor een efficiënte query resulteert in efficiënt wijzigingen, maar u moet altijd in veel gevallen evalueren of dit het geval is voor uw specifieke scenario. Sommige van de patronen in de sectie [ontwerppatronen voor tabel](#table-design-patterns) expliciet evalueren verschillen tussen het uitvoeren van query's en entiteiten wijzigen en u moet altijd rekening gehouden met het nummer van elk type bewerking.  
+Een ontwerp voor een efficiënte query resulteert in efficiënt wijzigingen, maar u moet altijd in veel gevallen evalueren of dit Hallo-aanvraag voor uw specifieke scenario. Aantal van patronen in de sectie Hallo Hallo [ontwerppatronen voor tabel](#table-design-patterns) expliciet evalueren verschillen tussen het uitvoeren van query's en entiteiten wijzigen en u moet altijd rekening gehouden Hallo het nummer van elk type bewerking.  
 
-De volgende patronen in de sectie [ontwerppatronen voor tabel](#table-design-patterns) adres verschillen tussen ontwerpen voor efficiënt query's en ontwerpen voor wijziging van efficiënte gegevens:  
+Hallo volgende patronen in de sectie Hallo [ontwerppatronen voor tabel](#table-design-patterns) adres verschillen tussen ontwerpen voor efficiënt query's en ontwerpen voor wijziging van efficiënte gegevens:  
 
-* [Samengestelde sleutelpatroon](#compound-key-pattern) -gebruik samengestelde **RowKey** waarden om in te schakelen van een client voor het opzoeken van gerelateerde gegevens met een query één punt.  
-* [Logboek tail patroon](#log-tail-pattern) -ophalen van de  *n*  entiteiten die onlangs zijn toegevoegd aan een partitie met behulp van een **RowKey** waarde die in omgekeerde datum en tijd volgorde worden gesorteerd.  
+* [Samengestelde sleutelpatroon](#compound-key-pattern) -gebruik samengestelde **RowKey** waarden tooenable een client toolookup gerelateerde gegevens met een query één punt.  
+* [Logboek tail patroon](#log-tail-pattern) -ophalen Hallo  *n*  tooa partitie entiteiten meest recent toegevoegd met behulp van een **RowKey** waarde die in omgekeerde datum en tijd volgorde worden gesorteerd.  
 
 ## <a name="encrypting-table-data"></a>Versleuteling van tabelgegevens
-De .NET Azure Storage-clientbibliotheek biedt ondersteuning voor versleuteling van entiteitseigenschappen tekenreeks voor invoegen en vervang bewerkingen. De versleutelde tekenreeksen worden opgeslagen op de service als binaire eigenschappen en ze worden geconverteerd naar tekenreeksen na de decodering.    
+Hallo .NET Azure Storage-clientbibliotheek ondersteunt de versleuteling van entiteitseigenschappen tekenreeks voor invoegen en vervang bewerkingen. Hallo versleutelde tekenreeksen op Hallo-service worden opgeslagen als binaire eigenschappen en ze back toostrings na de decodering worden omgezet.    
 
-Gebruikers moeten de eigenschappen moeten worden gecodeerd opgeven voor tabellen, naast het coderingsbeleid. Dit kan worden gedaan door een kenmerk [EncryptProperty] (voor POCO-entiteiten die zijn afgeleid van TableEntity) of een omzetter versleuteling in de aanvraag-opties. Een oplossing versleuteling is een gemachtigde die ervoor zorgt dat een partitiesleutel, rijsleutel en de naam van eigenschap retourneert een Booleaanse waarde die aangeeft of de eigenschap die moet worden versleuteld. Tijdens het versleutelen gebruik de clientbibliotheek van deze informatie om te bepalen of een eigenschap tijdens het schrijven naar de kabel moet worden versleuteld. De gemachtigde biedt ook de mogelijkheid van logica over hoe eigenschappen zijn gecodeerd. (Bijvoorbeeld als X, vervolgens versleutelen eigenschap A; anders versleutelen eigenschappen A en B.) Houd er rekening mee dat het is niet nodig om deze informatie tijdens het lezen of het uitvoeren van query's entiteiten te geven.
+Voor tabellen bovendien toohello versleutelingsbeleid, gebruikers moeten opgeven Hallo eigenschappen toobe versleuteld. Dit kan worden gedaan door een kenmerk [EncryptProperty] (voor POCO-entiteiten die zijn afgeleid van TableEntity) of een omzetter versleuteling in de aanvraag-opties. Een oplossing versleuteling is een gemachtigde die ervoor zorgt dat een partitiesleutel, rijsleutel en de naam van eigenschap retourneert een Booleaanse waarde die aangeeft of de eigenschap die moet worden versleuteld. Hallo-clientbibliotheek gebruiken tijdens het versleutelen kan deze informatie toodecide toe of een eigenschap tijdens het schrijven van toohello kabel moet worden versleuteld. Hallo gemachtigde biedt ook de mogelijkheid Hallo van logica over hoe eigenschappen zijn gecodeerd. (Bijvoorbeeld als X, vervolgens versleutelen eigenschap A; anders versleutelen eigenschappen A en B.) Houd er rekening mee dat deze is niet nodig tooprovide deze informatie tijdens het lezen of het uitvoeren van query's entiteiten.
 
-Houd er rekening mee dat samenvoegen wordt momenteel niet ondersteund. Omdat een subset van eigenschappen mogelijk zijn versleuteld eerder met een andere sleutel, leidt gewoon de nieuwe eigenschappen samenvoegen en bijwerken van de metagegevens tot verlies van gegevens. Samenvoegen van een vereist extra service aanroepen om te lezen van de vooraf bestaande entiteit van de service of met een nieuwe sleutel per eigenschap, die beide zijn niet geschikt voor betere prestaties.     
+Houd er rekening mee dat samenvoegen wordt momenteel niet ondersteund. Omdat een subset van eigenschappen mogelijk zijn versleuteld eerder met een andere sleutel, leidt gewoon samenvoegen Hallo nieuwe eigenschappen en bijwerken van Hallo metagegevens tot verlies van gegevens. Samenvoegen van een vereist extra service waardoor tooread Hallo vooraf bestaande entiteit aanroepen vanaf Hallo service of met een nieuwe sleutel per eigenschap, die beide zijn niet geschikt voor betere prestaties.     
 
 Zie voor meer informatie over het coderen van tabelgegevens [Client-Side-versleuteling en Azure Key Vault voor Microsoft Azure Storage](../storage/common/storage-client-side-encryption.md).  
 
 ## <a name="modelling-relationships"></a>Modellering van relaties
-Ontwikkelen van domeinmodellen is een belangrijke stap in het ontwerp van complexe systemen. U kunt gewoonlijk modellen proces gebruiken om entiteiten en de relaties tussen deze als een manier om te begrijpen van het domein voor bedrijven en informeren over het ontwerp van uw systeem te identificeren. Deze sectie richt zich op hoe Vertaal enkele van de algemene relatietypen gevonden in domeinmodellen ontwerpen voor de tabel-service. Het proces van toewijzing van een logische gegevensmodel aan een fysieke basis NoSQL-gegevensmodel is heel verschillend van die gebruikt bij het ontwerpen van een relationele database. Relationele databases ontwerp neemt doorgaans een gegevens-normalisatie-proces geoptimaliseerd voor het minimaliseren van redundantie – en een declaratieve opvragen capaciteit die isoleert hoe de uitvoering van hoe u de database werkt.  
+Ontwikkelen van domeinmodellen is een belangrijke stap in de ontwerp Hallo van complexe systemen. Normaal gesproken gebruikt u Hallo modellering proces tooidentify entiteiten en relaties tussen deze als een manier toounderstand Hallo Hallo business-domein en Hallo ontwerp van uw systeem te informeren. Deze sectie richt zich op hoe Vertaal Hallo voorkomende relatie typen gevonden in domein modellen toodesigns voor Hallo tabel-service. Hallo wordt-toewijzing van een logische-gegevensmodel tooa fysieke gebaseerd NoSQL-gegevensmodel sterk verschilt van die gebruikt bij het ontwerpen van een relationele database. Relationele databases ontwerp neemt doorgaans een gegevens-normalisatie-proces geoptimaliseerd voor het minimaliseren van redundantie – en een declaratieve opvragen capaciteit die samenvattingen Hallo hoe implementatie van de werking van Hallo-database.  
 
 ### <a name="one-to-many-relationships"></a>Een-op-veel-relaties
-Een-op-veel-relaties tussen bedrijven domeinobjecten heel vaak gebeuren: één afdeling heeft bijvoorbeeld veel werknemers. Er zijn verschillende manieren voor het implementeren van een-op-veel-relaties in de tabelservice elke met de voor- en nadelen die relevant voor een bepaald scenario zijn mogelijk.  
+Een-op-veel-relaties tussen bedrijven domeinobjecten heel vaak gebeuren: één afdeling heeft bijvoorbeeld veel werknemers. Er zijn verschillende manieren tooimplement een-op-veel-relaties in Hallo tabelservice, elk met de voor- en nadelen die mogelijk relevant toohello bepaald scenario.  
 
-Bekijk het voorbeeld van een grote onderneming met meerdere nationale met tienduizenden afdelingen en werknemer entiteiten waar elke afdeling heeft veel werknemers en elke werknemer die gekoppeld is aan een bepaalde afdeling. Een aanpak is het opslaan van afzonderlijke afdeling en entiteiten van de werknemer zoals deze:  
+Bekijk Hallo voorbeeld van een grote onderneming met meerdere nationale met tienduizenden afdelingen en werknemer entiteiten waar elke afdeling heeft veel werknemers en elke werknemer die gekoppeld is aan een bepaalde afdeling. Een aanpak is toostore afzonderlijke afdeling en entiteiten van de werknemer zoals deze:  
 
 ![][1]
 
-Dit voorbeeld ziet u een impliciete een-op-veel-relatie tussen de typen op basis van de **PartitionKey** waarde. Elke afdeling kan veel werknemers hebben.  
+Dit voorbeeld ziet u een impliciete een-op-veel-relatie tussen Hallo typen op basis van Hallo **PartitionKey** waarde. Elke afdeling kan veel werknemers hebben.  
 
-In dit voorbeeld toont ook een entiteit afdeling en de gerelateerde werknemer entiteiten in dezelfde partitie. U kunt verschillende partities, tabellen of zelfs storage-accounts gebruiken voor de verschillende entiteittypen.  
+In dit voorbeeld toont ook een entiteit afdeling en de gerelateerde werknemer entiteiten in dezelfde partitie Hallo. U kunt verschillende partities toouse, tabellen of zelfs storage-accounts voor de verschillende Entiteitstypen Hallo.  
 
-Er is een alternatieve methode denormalize van uw gegevens en store-alleen werknemer entiteiten met gedenormaliseerd afdelingsgegevens zoals weergegeven in het volgende voorbeeld. In dit specifieke scenario gedenormaliseerd hiervan mogelijk niet het beste als er een vereiste kunnen de details van een afdelingsmanager niet wijzigen omdat hiervoor moet u elke werknemer van de afdeling bijwerken.  
+Een alternatieve methode is toodenormalize zoals weergegeven in het volgende voorbeeld Hallo uw gegevens en store enige werknemer entiteiten met gedenormaliseerd afdelingsgegevens. In dit specifieke scenario gedenormaliseerd hiervan mogelijk niet Hallo aanbevolen als u een vereiste toobe kunnen toochange Hallo details van een afdelingsmanager hebt omdat toodo dit u tooupdate moet elke werknemer in het Hallo-afdeling.  
 
 ![][2]
 
-Zie voor meer informatie de [Denormalization patroon](#denormalization-pattern) verderop in deze handleiding.  
+Zie voor meer informatie, Hallo [Denormalization patroon](#denormalization-pattern) verderop in deze handleiding.  
 
-De volgende tabel geeft een overzicht van de voordelen en nadelen van elk van de methoden die hierboven worden beschreven voor het opslaan van de werknemer en afdeling entiteiten met een-op-veel-relatie een. U moet ook overwegen hoe vaak verwacht u dat kunt u verschillende bewerkingen uitvoeren: kan het zijn aanvaardbaar is voor een ontwerp waarin een dure bewerking als die voor deze bewerking alleen zelden gebeurt hebben.  
+Hallo volgende tabel ziet u Hallo-voor- en nadelen van elke Hallo benaderingen die hierboven worden beschreven voor het opslaan van de werknemer en afdeling entiteiten met een-op-veel-relatie een. U moet ook overwegen hoe vaak verwacht u dat tooperform verschillende bewerkingen: acceptabele toohave een ontwerp waarin een dure bewerking als die voor deze bewerking alleen zelden gebeurt kan zijn.  
 
 <table>
 <tr>
@@ -340,14 +340,14 @@ De volgende tabel geeft een overzicht van de voordelen en nadelen van elk van de
 <td>
 <ul>
 <li>U kunt een entiteit afdeling bijwerken met één bewerking.</li>
-<li>U kunt een EGT om consistentie te behouden als u een vereiste voor het wijzigen van een entiteit afdeling hebt wanneer u update, invoegen, verwijderen een werknemer entiteit. Bijvoorbeeld als u een aantal afdelingen medewerkers voor elke afdeling onderhouden.</li>
+<li>U kunt een EGT toomaintain consistentie als er een vereiste toomodify een entiteit afdeling wanneer u update, invoegen, verwijderen een werknemer entiteit. Bijvoorbeeld als u een aantal afdelingen medewerkers voor elke afdeling onderhouden.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Mogelijk moet u een entiteit van de afdeling voor sommige activiteiten van de client en een werknemer worden opgehaald.</li>
-<li>Opslagbewerkingen gebeuren op dezelfde partitie. Hoge transactie volumes, kan dit resulteren in een hotspot.</li>
-<li>U kunt een werknemer niet verplaatsen naar een nieuwe afdeling met behulp van een EGT.</li>
+<li>Mogelijk moet u tooretrieve een werknemer en een entiteit van de afdeling voor sommige activiteiten van de client.</li>
+<li>Opslagbewerkingen gebeuren in Hallo dezelfde partitie. Hoge transactie volumes, kan dit resulteren in een hotspot.</li>
+<li>U kunt het nieuwe afdeling van een werknemer tooa met behulp van een EGT niet verplaatsen.</li>
 </ul>
 </td>
 </tr>
@@ -356,14 +356,14 @@ De volgende tabel geeft een overzicht van de voordelen en nadelen van elk van de
 <td>
 <ul>
 <li>U kunt een entiteit van de afdeling of de werknemer entiteit bijwerken met één bewerking.</li>
-<li>Op hoog transactie volumes, kan dit helpen de werklast verdeeld over meer partities.</li>
+<li>Op hoog transactie volumes, kunnen hierdoor verspreiding Hallo load meerdere meer partities.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Mogelijk moet u een entiteit van de afdeling voor sommige activiteiten van de client en een werknemer worden opgehaald.</li>
-<li>U kunt EGTs niet gebruiken om consistentie te behouden wanneer u update, invoegen, verwijderen van een werknemer en update een afdeling. Een aantal werknemers in een entiteit afdeling bijvoorbeeld wordt bijgewerkt.</li>
-<li>U kunt een werknemer niet verplaatsen naar een nieuwe afdeling met behulp van een EGT.</li>
+<li>Mogelijk moet u tooretrieve een werknemer en een entiteit van de afdeling voor sommige activiteiten van de client.</li>
+<li>U kunt EGTs toomaintain consistentie niet gebruiken wanneer u update, invoegen, verwijderen van een werknemer en update een afdeling. Een aantal werknemers in een entiteit afdeling bijvoorbeeld wordt bijgewerkt.</li>
+<li>U kunt het nieuwe afdeling van een werknemer tooa met behulp van een EGT niet verplaatsen.</li>
 </ul>
 </td>
 </tr>
@@ -371,96 +371,96 @@ De volgende tabel geeft een overzicht van de voordelen en nadelen van elk van de
 <td>Denormalize in één entiteitstype</td>
 <td>
 <ul>
-<li>U kunt alle informatie die u nodig hebt met één aanvraag ophalen.</li>
+<li>U kunt alle met één aanvraag benodigde Hallo-gegevens ophalen.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Het is mogelijk dure om consistentie te behouden als u bijwerken afdelingsgegevens wilt (dit vereist bij te werken van alle werknemers in een afdeling).</li>
+<li>Consistentie van dure toomaintain kan zijn als u tooupdate afdeling informatie (Hiermee vereist u tooupdate alle Hallo werknemers in een afdeling).</li>
 </ul>
 </td>
 </tr>
 </table>
 
-Hoe u kiezen tussen deze opties en welke van de voor- en nadelen zijn de meest significante, is afhankelijk van uw specifieke toepassingsscenario's. Bijvoorbeeld, hoe vaak u Wijzig afdeling entiteiten; moeten alle werknemers-query's de afdelingen aanvullende informatie; hoe sluiten weet u de limieten voor schaalbaarheid van de partities of uw storage-account?  
+Hoe u kiezen tussen deze opties en welke van Hallo-professionals en nadelen van de meest significante zijn afhankelijk van uw specifieke toepassingsscenario's. Bijvoorbeeld, hoe vaak u Wijzig afdeling entiteiten; moeten alle werknemers-query's meer afdelingen informatie Hallo; hoe dicht weet u toohello limieten voor schaalbaarheid van de partities of uw storage-account?  
 
 ### <a name="one-to-one-relationships"></a>-Op-een-relaties
-Domeinmodellen kunnen-op-een-relaties tussen entiteiten bevatten. Als u nodig hebt voor het implementeren van een-op-een relatie in de tabel-service, moet u ook het koppelen van de twee gerelateerde entiteiten wanneer moet u beide ophalen. Deze koppeling kan impliciete, op basis van een overeenkomst in de sleutelwaarden of expliciete worden door het opslaan van een koppeling in de vorm van **PartitionKey** en **RowKey** waarden in elke entiteit naar de gerelateerde entiteit. Zie de sectie voor een bespreking van of moet u de gerelateerde entiteiten opslaan op dezelfde partitie [een-op-veel relaties](#one-to-many-relationships).  
+Domeinmodellen kunnen-op-een-relaties tussen entiteiten bevatten. Als u een-op-een relatie in service tabel Hallo tooimplement moet, moet u ook kiezen hoe toolink twee gerelateerde entiteiten Hallo wanneer u tooretrieve ze beide nodig. Deze koppeling kan impliciete, op basis van een conventie in Hallo sleutelwaarden of expliciete worden door het opslaan van een koppeling in de vorm van Hallo **PartitionKey** en **RowKey** waarden in elke entiteit tooits gerelateerde entiteit. Gerelateerde entiteiten voor een beschrijving van de of Hallo moeten worden opgeslagen in dezelfde partitie Hallo, Zie de sectie Hallo [een-op-veel relaties](#one-to-many-relationships).  
 
-Houd er rekening mee dat er zijn ook overwegingen bij de implementatie die kunnen leiden bij de implementatie-op-een-relaties in de tabel-service:  
+Houd er rekening mee dat er zijn ook overwegingen bij de implementatie die, u tooimplement-op-een-relaties in de tabelservice Hallo leiden kunnen:  
 
 * Verwerking van grote entiteiten (Zie voor meer informatie [grote entiteiten patroon](#large-entities-pattern)).  
 * Toegangsbeheer implementeren (Zie voor meer informatie [beheren van toegang met Shared Access Signatures](#controlling-access-with-shared-access-signatures)).  
 
-### <a name="join-in-the-client"></a>Deelnemen aan de client
-Hoewel er manieren om relaties in de tabel-service, moet u niet vergeet dat de twee belangrijkste redenen voor het gebruik van de tabelservice schaalbaarheid en prestaties zijn. Als u dat u veel-relaties die een bedreiging vormen van de prestaties en schaalbaarheid van uw oplossing zijn modellering vindt, vraagt u uzelf als het is nodig om alle gegevensrelaties in uw tabelontwerp samen te stellen. U kunt mogelijk het ontwerp te vereenvoudigen en verbeteren van de schaalbaarheid en prestaties van uw oplossing als u toestaat dat de clienttoepassing alle benodigde joins uitvoeren.  
+### <a name="join-in-hello-client"></a>Deelnemen aan Hallo-client
+Hoewel er manieren toomodel relaties in Hallo tabelservice zijn, moet u niet vergeet dat Hallo twee belangrijkste redenen voor het gebruik van de tabelservice Hallo schaalbaarheid en prestaties zijn. Als u dat u veel-relaties die een bedreiging Hallo prestaties en schaalbaarheid van uw oplossing vormen zijn modellering vindt, vraagt u uzelf dat als het benodigde toobuild Hallo alle relaties tussen gegevens in uw tabelontwerp voor een. U kunt kunnen toosimplify Hallo ontwerp worden en verbeteren Hallo schaalbaarheid en prestaties van uw oplossing als u toestaat dat de clienttoepassing alle benodigde joins uitvoeren.  
 
-Bijvoorbeeld, als er kleine tabellen die gegevens bevatten die niet vaak veranderen, kunt vervolgens u deze gegevens eenmaal ophalen en cache te plaatsen op de client. Dit kunt voorkomen dat herhaalde interactie om op te halen van dezelfde gegevens. In de voorbeelden die we in deze handleiding hebt bekeken, heeft de reeks afdelingen in een kleine organisatie waarschijnlijk klein en wijzig zelden waardoor het een goede kandidaat voor de gegevens eenmaal in client-toepassing kan worden gedownload en cache als opzoeken van gegevens.  
+Bijvoorbeeld, hebt u een kleine tabellen die gegevens bevatten die niet vaak veranderen, kunt vervolgens u deze gegevens eenmaal ophalen en cache te plaatsen op Hallo-client. Dit kan voorkomen herhaalde interactie tooretrieve Hallo dezelfde gegevens. In de voorbeelden Hallo die we in deze handleiding hebt bekeken, is hello reeks afdelingen in een kleine organisatie waarschijnlijk toobe klein en wijzig zelden waardoor het een goede kandidaat voor de gegevens eenmaal in client-toepassing kan worden gedownload en cache als opzoeken van gegevens.  
 
 ### <a name="inheritance-relationships"></a>Relaties voor overname
-Als u de clienttoepassing gebruikmaakt van een set klassen die deel uitmaken van een overnamerelatie bedrijfsentiteiten vertegenwoordigt, kunt u eenvoudig deze entiteiten in de tabel-service behouden. Bijvoorbeeld, u wellicht de volgende set van klassen die zijn gedefinieerd in uw clienttoepassing waar **persoon** is een abstracte klasse.
+Als u de clienttoepassing gebruikmaakt van een set klassen die deel van een relatie voor overname toorepresent bedrijfsentiteiten uitmaken, kunt u eenvoudig deze entiteiten in Hallo tabelservice bewaard. Bijvoorbeeld, u wellicht Hallo set klassen gedefinieerd in uw clienttoepassing te volgen waarbij **persoon** is een abstracte klasse.
 
 ![][3]
 
-U kunt deze persistent maken exemplaren van de twee concrete klassen in de tabel-service met één personentabel met entiteiten in die zijn opgemaakt als volgt:  
+U kunt deze persistent maken exemplaren van Hallo twee concrete klassen in Hallo service van de tabel met één personentabel met entiteiten in die zijn opgemaakt als volgt:  
 
 ![][4]
 
-Zie de sectie voor meer informatie over het werken met meerdere Entiteitstypen in dezelfde tabel in de clientcode [werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types) verderop in deze handleiding. Dit vindt u voorbeelden van het herkennen van het entiteitstype in de clientcode.  
+Zie voor meer informatie over het werken met meerdere Entiteitstypen in dezelfde tabel in de clientcode Hallo Hallo sectie [werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types) verderop in deze handleiding. Dit vindt u voorbeelden van hoe toorecognize Hallo entiteitstype in clientcode.  
 
 ## <a name="table-design-patterns"></a>Ontwerppatronen voor tabel
-U hebt gezien gedetailleerde discussies over het optimaliseren van uw tabelontwerp voor beide entiteitsgegevens op te halen met behulp van query's en voor het invoegen, bijwerken en verwijderen van entiteitsgegevens in de vorige secties. Deze sectie beschrijft een aantal patronen geschikt voor gebruik met oplossingen voor tabel-service. Bovendien ziet u hoe u enkele van de problemen en een afweging maken wat eerder in deze handleiding worden gegenereerd op vrijwel kunt oplossen. Het volgende diagram geeft een overzicht van de relaties tussen de verschillende patronen:  
+U hebt een aantal uitgebreide informatie over hoe toooptimize uw tabel ontwerpen voor beide entiteitsgegevens op te halen met behulp van query's en voor het invoegen, bijwerken en verwijderen van entiteitsgegevens gezien in de vorige secties. Deze sectie beschrijft een aantal patronen geschikt voor gebruik met oplossingen voor tabel-service. Bovendien ziet u hoe u bepaalde Hallo problemen en verschillen die eerder in deze handleiding wordt geactiveerd op vrijwel kunt oplossen. Hallo volgende diagram geeft een overzicht van Hallo relaties tussen de verschillende patronen Hallo:  
 
 ![][5]
 
-De kaart patroon hierboven licht sommige relaties tussen patronen (blauw) en anti patronen (oranje) die in deze handleiding worden beschreven. Er zijn natuurlijk veel andere patronen die moeten overwogen worden. Bijvoorbeeld, een van de belangrijkste scenario's voor tabel-Service is met de [gematerialiseerd weergave patroon](https://msdn.microsoft.com/library/azure/dn589782.aspx) van de [opdracht Query verantwoordelijkheid scheiding (CQRS)](https://msdn.microsoft.com/library/azure/jj554200.aspx) patroon.  
+Hallo patroon kaart hierboven licht sommige relaties tussen patronen (blauw) en anti patronen (oranje) die in deze handleiding worden beschreven. Er zijn natuurlijk veel andere patronen die moeten overwogen worden. Een van de Hallo belangrijke scenario's voor tabel-Service is bijvoorbeeld toouse hello [gematerialiseerd weergave patroon](https://msdn.microsoft.com/library/azure/dn589782.aspx) van Hallo [opdracht Query verantwoordelijkheid scheiding (CQRS)](https://msdn.microsoft.com/library/azure/jj554200.aspx) patroon.  
 
 ### <a name="intra-partition-secondary-index-pattern"></a>Intra-partitie secundaire index patroon
-Opslaan van meerdere exemplaren van elke entiteit met behulp van verschillende **RowKey** waarden (in dezelfde partitie) inschakelen snel en efficiënt zoekacties en alternatieve sorteervolgorde met behulp van verschillende **RowKey** waarden. Updates tussen kopieën consistent kunnen worden gehouden met behulp van EGT.  
+Opslaan van meerdere exemplaren van elke entiteit met behulp van verschillende **RowKey** waarden (in Hallo dezelfde partitie) tooenable snelle en efficiënte zoekacties en alternatieve sorteren orders met behulp van verschillende **RowKey** waarden. Updates tussen kopieën consistent kunnen worden gehouden met behulp van EGT.  
 
 #### <a name="context-and-problem"></a>Context en probleem
-De tabelservice indexeert automatisch entiteiten met behulp van de **PartitionKey** en **RowKey** waarden. Dit kan een clienttoepassing voor het ophalen van een entiteit efficiënt gebruik maakt van deze waarden. Bijvoorbeeld, met de structuur van de tabel hieronder wordt weergegeven, een clienttoepassing kunt gebruiken een punt-query voor een afzonderlijke werknemer entiteit ophalen met de afdelingsnaam van de en de werknemer-id (de **PartitionKey** en **RowKey** waarden). Een client kan ook gesorteerd op werknemer-id binnen elke afdeling entiteiten ophalen.
+Hallo tabelservice indexeert automatisch entiteiten met Hallo **PartitionKey** en **RowKey** waarden. Hierdoor kan een client toepassing tooretrieve een entiteit efficiënt gebruik maakt van deze waarden. Bijvoorbeeld, met Hallo tabelstructuur hieronder wordt weergegeven, een clienttoepassing kunt gebruiken een punt query tooretrieve een afzonderlijke werknemer entiteit met behulp van de naam van de afdeling Hallo en Hallo werknemer-id (Hallo **PartitionKey** en  **RowKey** waarden). Een client kan ook gesorteerd op werknemer-id binnen elke afdeling entiteiten ophalen.
 
 ![][6]
 
-Als u ook kunnen wilt vinden van een werknemer entiteit op basis van de waarde van een andere eigenschap, zoals e-mailadres, moet u een minder efficiënte partitie scan te vinden. Dit is omdat de tabelservice geen secundaire indexen biedt. Er is bovendien geen optie voor het aanvragen van een lijst met werknemers gesorteerd in een andere volgorde dan **RowKey** volgorde.  
+Als u wilt dat ook toobe kunnen toofind een werknemer entiteit gebaseerd op Hallo-waarde van een andere eigenschap, zoals e-mailadres, moet u een minder efficiënte partitie scan toofind een overeenkomst. Dit is omdat Hallo tabel-service geen secundaire indexen biedt. Er is bovendien geen optie toorequest een lijst met werknemers gesorteerd in een andere volgorde dan **RowKey** volgorde.  
 
 #### <a name="solution"></a>Oplossing
-U kunt het ontbreken van een secundaire indexen omzeilen, kunt u meerdere exemplaren van elke entiteit bij elk exemplaar met een andere opslaan **RowKey** waarde. Als u een entiteit met de onderstaande structuren opslaat, kunt u efficiënt werknemer entiteiten op basis van e-adres of de werknemer-id ophalen. Het voorvoegsel waarden voor de **RowKey**, 'empid_' en 'email_', kunt u zoeken naar één werknemer of een bereik van werknemers met behulp van een bereik van e-mailadressen of werknemer-id's.  
+toowork rond Hallo gebrek aan secundaire indexen, kunt u meerdere exemplaren van elke entiteit bij elk exemplaar met een andere opslaan **RowKey** waarde. Als u een entiteit met Hallo structuren hieronder opslaat, kunt u efficiënt werknemer entiteiten op basis van e-adres of de werknemer-id ophalen. voorvoegsel waarden voor Hallo Hallo **RowKey**, 'empid_' en 'email_' kunt u tooquery voor één werknemer of een bereik van werknemers met behulp van een bereik van e-mailadressen of werknemer-id's.  
 
 ![][7]
 
-De volgende twee filtercriteria (één opzoeken op basis van de werknemer-id en een opzoeken op basis van e-mailadres) Geef beide punt query's:  
+Hallo na twee filtercriteria (één opzoeken op basis van de werknemer-id en een opzoeken op basis van e-mailadres) Geef beide punt query's:  
 
 * $filter = (PartitionKey eq 'Sales') en (RowKey eq 'empid_000223')  
 * $filter = (PartitionKey eq 'Sales') en (RowKey eq 'email_jonesj@contoso.com')  
 
-Als u een query voor een bereik van de werknemer entiteiten uitvoert, kunt u een bereik gesorteerd in volgorde van de werknemer-id of een bereik in e-mailadres volgorde gesorteerd op basis van een query uitvoert voor entiteiten met het juiste voorvoegsel op in de **RowKey**.  
+Als u een query voor een bereik van de werknemer entiteiten uitvoert, kunt u een bereik gesorteerd in volgorde van de werknemer-id of een bereik in e-mailadres volgorde gesorteerd op basis van een query uitvoert voor entiteiten met het juiste voorvoegsel in Hallo Hallo **RowKey**.  
 
-* Alle medewerkers vinden in de afdeling verkoop met een werknemer-id in het bereik 000100-000199 gebruik: $filter = (PartitionKey eq 'Sales') en (RowKey ge 'empid_000100') en (RowKey RP 'empid_000199')  
-* Alle medewerkers van de verkoopafdeling vinden met een e-mailadres begint met de letter "a" gebruik: $filter = (PartitionKey eq 'Sales') en (RowKey ge 'email_a') en (RowKey lt 'email_b')  
+* toofind alle Hallo werknemers in de afdeling verkoop Hallo met een werknemer-id in Hallo bereik 000100 too000199 gebruiken: $filter = (PartitionKey eq 'Sales') en (RowKey ge 'empid_000100') en (RowKey RP 'empid_000199')  
+* alle werknemers in de afdeling verkoop Hallo Hallo met een e-mailadres begint met de Hallo toofind letter "a" gebruik: $filter = (PartitionKey eq 'Sales') en (RowKey ge 'email_a') en (RowKey lt 'email_b')  
   
-  Opmerking: de filtersyntaxis gebruikt in de bovenstaande voorbeelden uit de tabelservice REST API, Zie voor meer informatie is [Query entiteiten](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  Houd er rekening mee dat Hallo filtersyntaxis gebruikt in de bovenstaande voorbeelden van Hallo uit Hallo tabelservice REST API, Zie voor meer informatie [Query entiteiten](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Overweeg de volgende punten wanneer u beslist Hallo hoe tooimplement dit patroon:  
 
-* Table storage is relatief goedkope gebruiken zodat de overhead van de kosten voor het opslaan van dubbele gegevens mag geen groot belang. U moet echter altijd de kosten van het ontwerp op basis van de verwachte opslagvereisten geëvalueerd en alleen toevoegen dubbele entiteiten ter ondersteuning van de query's die de clienttoepassing wordt uitgevoerd.  
-* Omdat de secundaire index entiteiten worden opgeslagen in dezelfde partitie als de oorspronkelijke entiteiten, moet u ervoor zorgen dat u de schaalbaarheidsdoelen voor een afzonderlijke partitie niet overschrijden.  
-* U kunt uw dubbele entiteiten consistent zijn met elkaar houden met behulp van EGTs moment bijwerken van de twee kopieën van de entiteit. Dit betekent dat alle exemplaren van een entiteit in dezelfde partitie moeten worden opgeslagen. Zie voor meer informatie de sectie [entiteitstransacties met behulp van](#entity-group-transactions).  
-* De waarde voor de **RowKey** moet uniek zijn voor elke entiteit. Overweeg het gebruik van de samengestelde sleutel komt.  
-* Opvulling numerieke waarden in de **RowKey** (bijvoorbeeld de werknemer-id 000223), kunt sorteren en filteren op basis van hoofdletters en de ondergrenzen corrigeren.  
-* U hoeft hoeft niet te dupliceren van de eigenschappen van de entiteit. Bijvoorbeeld, als de query's die lookup de entiteiten die u het e-adres in de **RowKey** nooit moet de leeftijd van de werknemer, deze entiteiten kunnen de volgende structuur:
+* Table storage is relatief goedkope toouse Hallo kosten overhead voor het opslaan van dubbele gegevens mag geen groot belang. U moet echter altijd geëvalueerd Hallo kosten van het ontwerp op basis van de vereisten van uw verwachting benodigde opslag en alleen toevoegen dubbele entiteiten toosupport Hallo query's die de clienttoepassing wordt uitgevoerd.  
+* Omdat Hallo secundaire index entiteiten worden opgeslagen in dezelfde partitie als de oorspronkelijke entiteiten Hallo hello, moet u ervoor zorgen dat u de schaalbaarheidsdoelen Hallo voor een afzonderlijke partitie niet overschrijden.  
+* U kunt uw dubbele entiteiten consistent zijn met elkaar houden met behulp van EGTs tooupdate Hallo twee exemplaren van de entiteit Hallo moment. Dit betekent dat u alle exemplaren van een entiteit moet opslaan in Hallo dezelfde partitie. Zie voor meer informatie, Hallo sectie [entiteitstransacties met behulp van](#entity-group-transactions).  
+* waarde die wordt gebruikt voor Hallo Hallo **RowKey** moet uniek zijn voor elke entiteit. Overweeg het gebruik van de samengestelde sleutel komt.  
+* Numerieke waarden Hallo opvulling **RowKey** (bijvoorbeeld Hallo werknemer-id 000223), kunt sorteren en filteren op basis van hoofdletters en de ondergrenzen corrigeren.  
+* Hoeft u niet per se tooduplicate alle Hallo-eigenschappen van uw entiteit. Bijvoorbeeld, als hello query's die e-lookup Hallo entiteiten met Hallo adres uit Hallo **RowKey** nooit moet de leeftijd van de werknemer hello, deze entiteiten kunnen Hallo structuur te volgen:
 
 ![][8]
 
-* Is het doorgaans beter dubbele gegevens opslaan en ervoor te zorgen dat u alle gegevens die u nodig hebt met een enkele query kunt ophalen dan het gebruik van een query naar een entiteit en een andere voor het opzoeken van de vereiste gegevens.  
+* Het is doorgaans beter toostore dubbele gegevens en ervoor te zorgen dat u alle Hallo-gegevens die u nodig hebt met één query kunt ophalen, dan toouse één query toolocate een entiteit en een andere toolookup Hallo gegevens vereist.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
-Gebruik dit patroon wanneer uw clienttoepassing moet met een aantal verschillende sleutels wanneer de client hoeft op te halen van entiteiten in een andere sorteervolgorde entiteiten ophalen en waar u elke entiteit met een aantal unieke waarden kunt identificeren. U moet echter zeker van te zijn dat de limieten voor schaalbaarheid van partitie niet te overschrijden wanneer u de entiteit zoekacties met behulp van de verschillende uitvoert **RowKey** waarden.  
+#### <a name="when-toouse-this-pattern"></a>Wanneer toouse dit patroon
+Dit patroon gebruiken wanneer u de clienttoepassing moet tooretrieve entiteiten met een aantal verschillende sleutels wanneer de client tooretrieve entiteiten in verschillende sorteervolgorde moet en waar u elke entiteit met een aantal unieke waarden kunt identificeren. U moet echter zeker limieten voor schaalbaarheid van Hallo partitie niet te overschrijden wanneer u de entiteit zoekacties met behulp van verschillende Hallo uitvoert **RowKey** waarden.  
 
 #### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+Hallo volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
 
 * [Secundaire tussen partitioneren van index patroon](#inter-partition-secondary-index-pattern)
 * [Samengestelde sleutel patroon](#compound-key-pattern)
@@ -468,51 +468,51 @@ De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren
 * [Werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types)
 
 ### <a name="inter-partition-secondary-index-pattern"></a>Secundaire tussen partitioneren van index patroon
-Opslaan van meerdere exemplaren van elke entiteit met behulp van verschillende **RowKey** waarden in afzonderlijke partities of in afzonderlijke tabellen inschakelen snel en efficiënt zoekacties en alternatieve sorteervolgorde met behulp van verschillende **RowKey** waarden.  
+Opslaan van meerdere exemplaren van elke entiteit met behulp van verschillende **RowKey** waarden in afzonderlijke partities of in afzonderlijke tabellen tooenable snelle en efficiënte zoekacties en alternatieve sorteervolgorde met behulp van verschillende **RowKey**waarden.  
 
 #### <a name="context-and-problem"></a>Context en probleem
-De tabelservice indexeert automatisch entiteiten met behulp van de **PartitionKey** en **RowKey** waarden. Dit kan een clienttoepassing voor het ophalen van een entiteit efficiënt gebruik maakt van deze waarden. Bijvoorbeeld, met de structuur van de tabel hieronder wordt weergegeven, een clienttoepassing kunt gebruiken een punt-query voor een afzonderlijke werknemer entiteit ophalen met de afdelingsnaam van de en de werknemer-id (de **PartitionKey** en **RowKey** waarden). Een client kan ook gesorteerd op werknemer-id binnen elke afdeling entiteiten ophalen.  
+Hallo tabelservice indexeert automatisch entiteiten met Hallo **PartitionKey** en **RowKey** waarden. Hierdoor kan een client toepassing tooretrieve een entiteit efficiënt gebruik maakt van deze waarden. Bijvoorbeeld, met Hallo tabelstructuur hieronder wordt weergegeven, een clienttoepassing kunt gebruiken een punt query tooretrieve een afzonderlijke werknemer entiteit met behulp van de naam van de afdeling Hallo en Hallo werknemer-id (Hallo **PartitionKey** en  **RowKey** waarden). Een client kan ook gesorteerd op werknemer-id binnen elke afdeling entiteiten ophalen.  
 
 ![][9]
 
-Als u ook kunnen wilt vinden van een werknemer entiteit op basis van de waarde van een andere eigenschap, zoals e-mailadres, moet u een minder efficiënte partitie scan te vinden. Dit is omdat de tabelservice geen secundaire indexen biedt. Er is bovendien geen optie voor het aanvragen van een lijst met werknemers gesorteerd in een andere volgorde dan **RowKey** volgorde.  
+Als u wilt dat ook toobe kunnen toofind een werknemer entiteit gebaseerd op Hallo-waarde van een andere eigenschap, zoals e-mailadres, moet u een minder efficiënte partitie scan toofind een overeenkomst. Dit is omdat Hallo tabel-service geen secundaire indexen biedt. Er is bovendien geen optie toorequest een lijst met werknemers gesorteerd in een andere volgorde dan **RowKey** volgorde.  
 
-U bent anticiperen op een zeer groot aantal transacties tegen deze entiteiten en wilt de risico's van de tabelservice beperking van de client.  
+U bent anticiperen op een zeer groot aantal transacties tegen deze entiteiten en toominimize Hallo risico Hallo tabelservice beperking van de client wilt.  
 
 #### <a name="solution"></a>Oplossing
-U kunt het ontbreken van een secundaire indexen omzeilen, kunt u meerdere exemplaren van elke entiteit met het gebruik van elk exemplaar andere opslaan **PartitionKey** en **RowKey** waarden. Als u een entiteit met de onderstaande structuren opslaat, kunt u efficiënt werknemer entiteiten op basis van e-adres of de werknemer-id ophalen. Het voorvoegsel waarden voor de **PartitionKey**, 'empid_' en 'email_' kunt u bepalen welke index die u wilt gebruiken voor een query.  
+toowork rond Hallo gebrek aan secundaire indexen, kunt u meerdere exemplaren van elke entiteit met het gebruik van elk exemplaar andere opslaan **PartitionKey** en **RowKey** waarden. Als u een entiteit met Hallo structuren hieronder opslaat, kunt u efficiënt werknemer entiteiten op basis van e-adres of de werknemer-id ophalen. voorvoegsel waarden voor Hallo Hallo **PartitionKey**, 'empid_' en 'email_', kunt u tooidentify die index die u wilt dat toouse voor een query.  
 
 ![][10]
 
-De volgende twee filtercriteria (één opzoeken op basis van de werknemer-id en een opzoeken op basis van e-mailadres) Geef beide punt query's:  
+Hallo na twee filtercriteria (één opzoeken op basis van de werknemer-id en een opzoeken op basis van e-mailadres) Geef beide punt query's:  
 
 * $filter = (PartitionKey eq ' empid_Sales') en (RowKey eq '000223')
 * $filter = (PartitionKey eq ' email_Sales') en (RowKey eq 'jonesj@contoso.com')  
 
-Als u een query voor een bereik van de werknemer entiteiten uitvoert, kunt u een bereik gesorteerd in volgorde van de werknemer-id of een bereik in e-mailadres volgorde gesorteerd op basis van een query uitvoert voor entiteiten met het juiste voorvoegsel op in de **RowKey**.  
+Als u een query voor een bereik van de werknemer entiteiten uitvoert, kunt u een bereik gesorteerd in volgorde van de werknemer-id of een bereik in e-mailadres volgorde gesorteerd op basis van een query uitvoert voor entiteiten met het juiste voorvoegsel in Hallo Hallo **RowKey**.  
 
-* Alle medewerkers vinden in de afdeling verkoop met een werknemer-id in het bereik **000100** naar **000199** in gebruik door werknemers-id volgorde gesorteerd: $filter = (PartitionKey eq ' empid_Sales') en (RowKey ge '000100') en (RowKey RP '000199')  
-* Alle medewerkers vinden in de afdeling verkoop met een e-mailadres dat met "a" gesorteerde e-mailadres volgorde gebruikt begint: $filter = (PartitionKey eq ' email_Sales') en (RowKey ge "a") en (RowKey lt "b")  
+* alle werknemers in Hallo toofind Hallo verkoopafdeling met een werknemer-id in Hallo bereik **000100** te**000199** in gebruik door werknemers-id volgorde gesorteerd: $filter = (PartitionKey eq ' empid_Sales') en (RowKey ge ' 000100') en (RowKey RP '000199')  
+* toofind alle Hallo werknemers in Hallo verkoopafdeling met een e-mailadres dat begint met "a" gesorteerde in e-mailadres volgorde van gebruik: $filter = (PartitionKey eq ' email_Sales') en (RowKey ge "a") en (RowKey lt "b")  
 
-Opmerking: de filtersyntaxis gebruikt in de bovenstaande voorbeelden uit de tabelservice REST API, Zie voor meer informatie is [Query entiteiten](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Houd er rekening mee dat Hallo filtersyntaxis gebruikt in de bovenstaande voorbeelden van Hallo uit Hallo tabelservice REST API, Zie voor meer informatie [Query entiteiten](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Overweeg de volgende punten wanneer u beslist Hallo hoe tooimplement dit patroon:  
 
-* U uw dubbele entiteiten uiteindelijk consistent is met elkaar kunt houden met behulp van de [uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern) onderhouden van de primaire en secundaire index-entiteiten.  
-* Table storage is relatief goedkope gebruiken zodat de overhead van de kosten voor het opslaan van dubbele gegevens mag geen groot belang. U moet echter altijd de kosten van het ontwerp op basis van de verwachte opslagvereisten geëvalueerd en alleen toevoegen dubbele entiteiten ter ondersteuning van de query's die de clienttoepassing wordt uitgevoerd.  
-* De waarde voor de **RowKey** moet uniek zijn voor elke entiteit. Overweeg het gebruik van de samengestelde sleutel komt.  
-* Opvulling numerieke waarden in de **RowKey** (bijvoorbeeld de werknemer-id 000223), kunt sorteren en filteren op basis van hoofdletters en de ondergrenzen corrigeren.  
-* U hoeft hoeft niet te dupliceren van de eigenschappen van de entiteit. Bijvoorbeeld, als de query's die lookup de entiteiten die u het e-adres in de **RowKey** nooit moet de leeftijd van de werknemer, deze entiteiten kunnen de volgende structuur:
+* Kunt u uw dubbele entiteiten uiteindelijk consistent is met elkaar via Hallo [uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern) toomaintain Hallo primaire en secundaire index entiteiten.  
+* Table storage is relatief goedkope toouse Hallo kosten overhead voor het opslaan van dubbele gegevens mag geen groot belang. U moet echter altijd geëvalueerd Hallo kosten van het ontwerp op basis van de vereisten van uw verwachting benodigde opslag en alleen toevoegen dubbele entiteiten toosupport Hallo query's die de clienttoepassing wordt uitgevoerd.  
+* waarde die wordt gebruikt voor Hallo Hallo **RowKey** moet uniek zijn voor elke entiteit. Overweeg het gebruik van de samengestelde sleutel komt.  
+* Numerieke waarden Hallo opvulling **RowKey** (bijvoorbeeld Hallo werknemer-id 000223), kunt sorteren en filteren op basis van hoofdletters en de ondergrenzen corrigeren.  
+* Hoeft u niet per se tooduplicate alle Hallo-eigenschappen van uw entiteit. Bijvoorbeeld, als hello query's die e-lookup Hallo entiteiten met Hallo adres uit Hallo **RowKey** nooit moet de leeftijd van de werknemer hello, deze entiteiten kunnen Hallo structuur te volgen:
   
   ![][11]
-* Is het doorgaans beter dubbele gegevens opslaan en ervoor te zorgen dat u alle gegevens die u nodig hebt met één query dan te gebruiken één query vinden van een entiteit met behulp van de secundaire index en een andere lookup de vereiste gegevens in de primaire index kunt ophalen.  
+* Is het doorgaans beter toostore dubbele gegevens en ervoor te zorgen dat u alle Hallo-gegevens die u nodig hebt met één query dan een entiteit met behulp van toouse één query toolocate Hallo secundaire index kunt ophalen en een andere toolookup vereiste gegevens in de primaire index Hallo Hallo.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
-Gebruik dit patroon wanneer uw clienttoepassing moet met een aantal verschillende sleutels wanneer de client hoeft op te halen van entiteiten in een andere sorteervolgorde entiteiten ophalen en waar u elke entiteit met een aantal unieke waarden kunt identificeren. Dit patroon gebruiken wanneer u voorkomen dat de partitie-limieten voor schaalbaarheid dan wilt wanneer u de entiteit zoekacties met behulp van de verschillende uitvoert **RowKey** waarden.  
+#### <a name="when-toouse-this-pattern"></a>Wanneer toouse dit patroon
+Dit patroon gebruiken wanneer u de clienttoepassing moet tooretrieve entiteiten met een aantal verschillende sleutels wanneer de client tooretrieve entiteiten in verschillende sorteervolgorde moet en waar u elke entiteit met een aantal unieke waarden kunt identificeren. Dit patroon gebruiken als u wilt dat tooavoid Hallo partitie schaalbaarheidslimieten van meer dan wanneer u de entiteit zoekacties met behulp van verschillende Hallo uitvoert **RowKey** waarden.  
 
 #### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+Hallo volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
 
 * [Uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern)  
 * [Intra-partitie secundaire index patroon](#intra-partition-secondary-index-pattern)  
@@ -524,118 +524,118 @@ De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren
 Uiteindelijk consistent gedrag over grenzen van partities of opslag system grenzen inschakelen met behulp van Azure wachtrijen.  
 
 #### <a name="context-and-problem"></a>Context en probleem
-EGTs inschakelen atomische transacties tussen meerdere entiteiten die dezelfde partitiesleutel delen. Voor betere prestaties en schaalbaarheid u besluiten voor het opslaan van entiteiten met vereisten voor consistentie in afzonderlijke partities of in een afzonderlijke opslagsysteem: in een dergelijk scenario u EGTs niet gebruiken voor het handhaven van de consistentie. Zo mogelijk een vereiste uiteindelijke consistentie tussen onderhouden:  
+EGTs inschakelen atomische transacties tussen meerdere entiteiten die Hallo delen dezelfde partitiesleutel. Voor betere prestaties en schaalbaarheid u besluiten toostore entiteiten met vereisten voor consistentie in afzonderlijke partities of in een afzonderlijke opslagsysteem: in een dergelijk scenario u EGTs toomaintain consistentie niet gebruiken. Stel, hebt u een vereiste toomaintain uiteindelijke consistentie tussen:  
 
-* Entiteiten in opgeslagen in twee verschillende partities in dezelfde tabel in verschillende tabellen in verschillende opslagaccounts.  
-* Een entiteit die is opgeslagen in de tabel-service en een blob die is opgeslagen in de Blob-service.  
-* Een entiteit in de tabel-service en een bestand opgeslagen in een bestandssysteem.  
-* Een entiteit store in de tabel-service nog geïndexeerd met de Azure Search-service.  
+* Entiteiten die zijn opgeslagen in twee verschillende partities in dezelfde tabel in verschillende tabellen in verschillende opslagaccounts Hallo.  
+* Een entiteit die zijn opgeslagen in Hallo tabel-service en een blob in Hallo opgeslagen Blob-service.  
+* Een entiteit in de tabelservice hello en een bestand opgeslagen in een bestandssysteem.  
+* Een entiteit opslaan in Hallo tabelservice nog geïndexeerd met hello Azure Search-service.  
 
 #### <a name="solution"></a>Oplossing
 U kunt een oplossing die zorgt voor uiteindelijke consistentie tussen twee of meer partities of opslagsystemen implementeren met behulp van Azure wachtrijen.
-Ter illustratie van deze benadering wordt ervan uitgegaan dat u hebt een vereiste kunnen archiveren oude werknemer entiteiten. Oude werknemer entiteiten zelden worden opgevraagd en van alle activiteiten die betrekking op de huidige werknemers hebben moeten worden uitgesloten. Voor het implementeren van deze vereiste actieve werknemers op te slaan de **huidige** tabel en oude werknemers in de **archief** tabel. Een werknemer archiveren, moet u verwijderen van de entiteit van de **huidige** tabel en het toevoegen van de entiteit de **archief** tabel, maar u een EGT niet gebruiken voor het uitvoeren van deze twee bewerkingen. Om te voorkomen dat het risico dat een fout een entiteit veroorzaakt moet worden weergegeven in beide of geen van beide tabellen, moet de archiveringsbewerking uiteindelijk consistent is. Het volgende diagram van de takenreeks bevat de stappen in deze bewerking. Meer details wordt uitzondering paden in de volgende tekst geleverd.  
+tooillustrate dit benadert, wordt ervan uitgegaan dat u hebt een vereiste toobe kunnen tooarchive oude werknemer entiteiten. Oude werknemer entiteiten zelden worden opgevraagd en van alle activiteiten die betrekking op de huidige werknemers hebben moeten worden uitgesloten. tooimplement deze vereiste voor het opslaan van de actieve werknemers in Hallo **huidige** tabel en oude werknemers in Hallo **archief** tabel. Een werknemer wilt archiveren, moet u toodelete Hallo entiteit van de Hallo **huidige** tabel en voeg Hallo entiteit toohello **archief** tabel, maar niet gebruiken een tooperform EGT deze twee bewerkingen. tooavoid hello risico dat een fout zorgt ervoor een entiteit tooappear in beide of geen van beide tabellen dat, Hallo archiveringsbewerking moet uiteindelijk consistent zijn. Hallo volgende reeksdiagram geeft een overzicht van Hallo stappen in deze bewerking. Meer details is opgegeven voor de uitzondering paden in Hallo tekst na.  
 
 ![][12]
 
-Een client initieert de archiveringsbewerking door het plaatsen van een bericht op een Azure-wachtrij in dit voorbeeld voor het archiveren van de werknemer #456. Een werkrol, peilt de wachtrij voor nieuwe berichten; Wanneer er een is gevonden, leest het bericht en wordt een verborgen kopie in de wachtrij. De werkrol een kopie van de entiteit van de volgende haalt de **huidige** tabel, voegt u een kopie in het **archief** tabel en verwijdert u vervolgens de oorspronkelijke uit de **huidige** tabel. Ten slotte, als er geen fouten uit de vorige stap zijn, de werkrol verborgen wordt het bericht verwijderd uit de wachtrij.  
+Een client initieert Hallo archiveringsbewerking door het plaatsen van een bericht op een Azure-wachtrij in dit voorbeeld tooarchive werknemer #456. Een werkrol worden opgevraagd Hallo wachtrij voor nieuwe berichten; Wanneer er een is gevonden, wordt het Hallo-bericht gelezen en wordt een verborgen kopie op Hallo wachtrij. een kopie van de entiteit Hallo Hallo werkrol vervolgens haalt uit Hallo **huidige** tabel, voegt u een kopie in Hallo **archief** tabel en verwijderingen Hallo oorspronkelijke van Hallo **huidige**tabel. Ten slotte, als er geen fouten uit de vorige stappen Hallo zijn, verwijdert Hallo werkrol verborgen het Hallo-bericht uit Hallo wachtrij.  
 
-In dit voorbeeld voegt stap 4 van de werknemer in het **archief** tabel. Dit kan de werknemer toevoegen aan een blob in de Blob-service of een bestand in een bestandssysteem.  
+Stap 4 wordt in dit voorbeeld Hallo werknemer ingevoegd in Hallo **archief** tabel. Het kan Hallo werknemer tooa blob in Hallo Blob-service of een bestand toevoegen in een bestandssysteem.  
 
 #### <a name="recovering-from-failures"></a>Herstellen van fouten
-Het is belangrijk dat de bewerkingen in stappen **4** en **5** moet *idempotent* voor het geval de werkrol opnieuw opstarten van de archiveringsbewerking. Als u de tabelservice voor stap **4** moet u een bewerking "invoegen of vervangen"; voor de stap **5** moet u een ' verwijderen als bestaat ' bewerking in de clientbibliotheek die u gebruikt. Als u een andere opslagsysteem gebruikt, moet u een geschikte idempotent-bewerking.  
+Het is belangrijk dat bewerkingen in stappen Hallo **4** en **5** moet *idempotent* voor het geval de werkrol hello toorestart Hallo archiveringsbewerking. Als u de tabelservice Hallo voor stap **4** moet u een bewerking "invoegen of vervangen"; voor de stap **5** moet u een ' verwijderen als bestaat ' bewerking in Hallo-clientbibliotheek die u gebruikt. Als u een andere opslagsysteem gebruikt, moet u een geschikte idempotent-bewerking.  
 
-Als de werkrol nooit stap voltooit **6**, en vervolgens verschijnt het bericht opnieuw na een time-out voor de wachtrij gereed is voor de werkrol proberen te deze opnieuw te verwerken. De werkrol kunt controleren hoe vaak een bericht in de wachtrij is gelezen en, indien nodig, markeren is een 'poison'-bericht voor onderzoek door ze naar een afzonderlijke wachtrij. Zie voor meer informatie over het lezen van berichten in wachtrij plaatsen en het controleren van de wachtrij halen telling [berichten ophalen](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
+Als de werkrol Hallo nooit stap voltooit **6**, vervolgens nadat er een time-out voor het Hallo-bericht opnieuw wordt weergegeven in de wachtrij Hallo klaar te maken voor Hallo worker-rol tootry tooreprocess deze. Hallo-werkrol kunt controleren hoe vaak een bericht op Hallo wachtrij is gelezen en, indien nodig, is een 'poison'-bericht voor onderzoek door ze tooa vlag wachtrij scheiden. Voor meer informatie over het lezen van berichten in wachtrij plaatsen en het controleren van Hallo in wachtrij count, Zie [berichten ophalen](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
 
-Er zijn fouten van de tabel en Queue-services zijn tijdelijke fouten en uw clienttoepassing bevatten geschikte Pogingslogica om deze te verwerken.  
+Er zijn fouten van Hallo Table en Queue-services zijn tijdelijke fouten en uw clienttoepassing geschikte opnieuw logica toohandle bevatten ze.  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Overweeg de volgende punten wanneer u beslist Hallo hoe tooimplement dit patroon:  
 
-* Deze oplossing biedt geen voor het isoleren van de transactie. Bijvoorbeeld, een client kan lezen de **huidige** en **archief** tabellen wanneer de werkrol werd tussen stappen **4** en **5**, en een inconsistente weergave van de gegevens ziet. Houd er rekening mee dat de gegevens zal consistent uiteindelijk.  
-* U moet ervoor dat de stappen 4 en 5 idempotent zijn om de uiteindelijke consistentie te garanderen.  
-* U kunt de oplossing met behulp van meerdere wachtrijen en rolinstanties worker schalen.  
+* Deze oplossing biedt geen voor het isoleren van de transactie. Een client kan bijvoorbeeld de Hallo lezen **huidige** en **archief** tabellen wanneer de werkrol Hallo werd tussen stappen **4** en **5**, en zien een inconsistente weergave van Hallo-gegevens. Houd er rekening mee dat Hallo gegevens zal consistent uiteindelijk.  
+* U moet ervoor dat de stappen 4 en 5 idempotent in volgorde tooensure uiteindelijke consistentie.  
+* Hallo-oplossing kunt u met behulp van meerdere wachtrijen en rolinstanties worker schalen.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
-Gebruik dit patroon als u wilt garanderen uiteindelijke consistentie tussen entiteiten die aanwezig zijn in verschillende partities of tabellen. U kunt dit patroon om ervoor te zorgen uiteindelijke consistentie voor bewerkingen in de tabel-service en de Blob-service en andere Azure Storage gegevensbronnen zoals database of het bestandssysteem uitbreiden.  
+#### <a name="when-toouse-this-pattern"></a>Wanneer toouse dit patroon
+Gebruik dit patroon als u wilt tooguarantee uiteindelijke consistentie tussen entiteiten die aanwezig zijn in verschillende partities of tabellen. U kunt dit patroon tooensure uiteindelijke consistentie voor bewerkingen Hallo tabelservice als Hallo Blob-service en andere Azure Storage-gegevensbronnen zoals database of Hallo bestandssysteem uitbreiden.  
 
 #### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+Hallo volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
 
 * [Entiteit groep transacties](#entity-group-transactions)  
 * [Samenvoegen of vervangen](#merge-or-replace)  
 
 > [!NOTE]
-> Als de transactie-isolatieniveau is belangrijk dat uw oplossing, kunt u overwegen opnieuw ontwerpen van uw tabellen zodat u EGTs gebruiken.  
+> Als de isolatie van de transactie belangrijk tooyour oplossing is, moet u opnieuw ontwerpen van uw tooenable tabellen u toouse EGTs.  
 > 
 > 
 
 ### <a name="index-entities-pattern"></a>Index entiteiten patroon
-Onderhouden index entiteiten zodat efficiënte zoekopdrachten die lijsten van entiteiten retourneren.  
+Onderhouden entiteiten tooenable efficiënt zoekacties in de index die lijsten van entiteiten retourneren.  
 
 #### <a name="context-and-problem"></a>Context en probleem
-De tabelservice indexeert automatisch entiteiten met behulp van de **PartitionKey** en **RowKey** waarden. Hierdoor wordt een clienttoepassing voor het ophalen van een entiteit efficiënt gebruik maakt van een punt-query. Bijvoorbeeld, met behulp van de structuur van de tabel hieronder wordt weergegeven, een clienttoepassing kunt efficiënt een afzonderlijke werknemer entiteit ophalen met behulp van de naam van de afdeling en de werknemer-id (de **PartitionKey** en **RowKey**).  
+Hallo tabelservice indexeert automatisch entiteiten met Hallo **PartitionKey** en **RowKey** waarden. Hierdoor kan een client toepassing tooretrieve een entiteit efficiënt gebruik maakt van een punt-query. Bijvoorbeeld met behulp van Hallo tabelstructuur hieronder wordt weergegeven, een clienttoepassing kunt efficiënt een afzonderlijke werknemer entiteit ophalen met behulp van de naam van de afdeling Hallo en Hallo werknemer-id (Hallo **PartitionKey** en **RowKey** ).  
 
 ![][13]
 
-Als u ook kunnen wilt ophalen van een lijst van de werknemer entiteiten op basis van de waarde van een andere niet-unieke eigenschap, zoals hun achternaam, moet u een minder efficiënte partitie scan om te zoeken naar overeenkomsten in plaats van een index met ze rechtstreeks opzoeken. Dit is omdat de tabelservice geen secundaire indexen biedt.  
+Als u wilt ook toobe kunnen tooretrieve een lijst met entiteiten van de werknemer op basis van Hallo-waarde van een ander niet-unieke eigenschap, zoals hun achternaam, moet u een minder efficiënte partitie toofind komt overeen met scan in plaats van met behulp van een index toolook ze rechtstreeks omhoog. Dit is omdat Hallo tabel-service geen secundaire indexen biedt.  
 
 #### <a name="solution"></a>Oplossing
-Als u wilt zoeken op naam inschakelen met de structuur van de entiteit hierboven weergegeven, moet u een lijst met werknemer-id's onderhouden. Als u wilt ophalen van de werknemer entiteiten met een bepaalde achternaam, zoals Peeters, moet u eerst de lijst met werknemer-id vinden voor werknemers met Jones als hun achternaam en vervolgens deze werknemer entiteiten worden opgehaald. Er zijn drie manieren voor het opslaan van de lijsten met werknemer-id's:  
+tooenable lookup op achternaam met de structuur van de entiteit Hallo hierboven, moet u een lijst met werknemer-id's onderhouden. Als u wilt dat tooretrieve Hallo werknemer entiteiten met een bepaalde achternaam, zoals Peeters, moet u eerst Hallo lijst met werknemer-id vinden voor werknemers met Jones als hun achternaam en vervolgens deze werknemer entiteiten worden opgehaald. Er zijn drie manieren voor het opslaan van Hallo lijsten met werknemer-id's:  
 
 * Blob storage gebruiken.  
-* Index entiteiten in dezelfde partitie als de werknemer-entiteiten maken.  
+* Maak index entiteiten in dezelfde partitie als Hallo werknemer entiteiten Hallo.  
 * Maak index entiteiten in een afzonderlijke partitie of de tabel.  
 
 <u>Optie #1: Gebruik blob storage</u>  
 
-Voor de eerste optie, u een blob voor elke unieke achternaam en in elke blob-store een lijst maken van de **PartitionKey** (afdeling) en **RowKey** (werknemer-id) waarden voor werknemers die die achternaam hebben. Bij het toevoegen of verwijderen van een werknemer moet u ervoor zorgen dat de inhoud van de relevante blob uiteindelijk consistent is met de werknemer entiteiten is.  
+Voor de eerste optie hello, u een blob voor elke unieke achternaam en in elke blob-store een lijst maken van Hallo **PartitionKey** (afdeling) en **RowKey** waarden voor werknemers die in dat laatste hebben (werknemer-id) de naam. Bij het toevoegen of verwijderen van een werknemer moet u ervoor zorgen dat Hallo-inhoud van de relevante Hallo-blob uiteindelijk consistent is met de Hallo werknemer entiteiten is.  
 
-<u>Optie #2:</u> index entiteiten in dezelfde partitie maken  
+<u>Optie #2:</u> Create index entiteiten in dezelfde partitie Hallo  
 
-Gebruik voor de tweede optie, index-entiteiten die de volgende gegevens worden opgeslagen:  
+Gebruik voor Hallo tweede optie, index-entiteiten die Hallo volgt gegevens opslaan:  
 
 ![][14]
 
-De **EmployeeIDs** eigenschap bevat een lijst van de werknemer-id's voor werknemers met de achternaam opgeslagen in de **RowKey**.  
+Hallo **EmployeeIDs** eigenschap bevat een lijst van de werknemer-id's voor werknemers met Hallo achternaam opgeslagen in Hallo **RowKey**.  
 
-De volgende stappen wordt beschreven hoe die u volgen moet wanneer u een nieuwe werknemer toevoegen wilt als u de tweede optie. In dit voorbeeld toevoegen we een werknemer met Id 000152 en een achternaam Jones van de verkoopafdeling:  
+Hallo volgende stappen wordt uitgelegd u volgen moet wanneer u een nieuwe werknemer toevoegen wilt als u van de tweede optie Hallo gebruikmaakt Hallo-proces. In dit voorbeeld toevoegen we een werknemer met Id 000152 en een achternaam Jones in de afdeling verkoop Hallo:  
 
-1. Ophalen van de entiteit index met een **PartitionKey** waarde 'Verkoop' en de **RowKey** waarde "Jones." Sla de ETag van deze entiteit moet worden gebruikt in stap 2.  
-2. Maken van een entiteit groep transactie (dat wil zeggen, een batchbewerking) die de nieuwe werknemer entiteit ingevoegd (**PartitionKey** waarde 'Verkoop' en **RowKey** waarde '000152'), en updates van de entiteit index (**PartitionKey** waarde 'Verkoop' en **RowKey** waarde 'Jones') door de nieuwe werknemers-id toe te voegen aan de lijst in het veld EmployeeIDs. Zie voor meer informatie over entiteit groepstransacties [entiteit groepstransacties](#entity-group-transactions).  
-3. Als de entiteit groep transactie is mislukt vanwege een optimistische gelijktijdigheid-fout (iemand anders heeft alleen de entiteit index gewijzigd), moet u opnieuw beginnen bij stap 1.  
+1. Ophalen van Hallo index entiteit met een **PartitionKey** waarde 'Verkoop' en Hallo **RowKey** waarde "Jones." Hallo ETag van deze entiteit toouse opslaan in stap 2.  
+2. Maken van een entiteit groep transactie (dat wil zeggen, een batchbewerking) dat wordt ingevoegd Hallo nieuwe werknemer entiteit (**PartitionKey** waarde 'Verkoop' en **RowKey** waarde '000152'), en updates Hallo index entiteit ( **PartitionKey** waarde 'Verkoop' en **RowKey** waarde 'Jones') door toe te voegen Hallo id toohello lijst met nieuwe werknemers in Hallo EmployeeIDs veld. Zie voor meer informatie over entiteit groepstransacties [entiteit groepstransacties](#entity-group-transactions).  
+3. Als Hallo entiteit groep transactie mislukt vanwege een optimistische gelijktijdigheid-fout (iemand anders is zojuist gewijzigd Hallo index entiteit), moet u toostart via bij stap 1 opnieuw.  
 
-U kunt een soortgelijke benadering van een werknemer verwijderen als u de tweede optie gebruiken. Wijzigen van de achternaam van een werknemer is iets ingewikkelder omdat u moet uitvoeren van een entiteit groep transactie die drie entiteiten worden bijgewerkt: de entiteit van de werknemer, de entiteit van de index voor de achternaam van de oude en de entiteit van de index voor de nieuwe achternaam. Voordat u wijzigingen aanbrengt in om op te halen van de ETag-waarden die u vervolgens gebruiken kunt voor het uitvoeren van de updates gebruikt optimistische gelijktijdigheid, moet u elke entiteit ophalen.  
+U kunt een soortgelijke benadering toodeleting een werknemer gebruiken als u van de tweede optie Hallo gebruikmaakt. Wijzigen van de achternaam van een werknemer is iets ingewikkelder omdat moet u een entiteit groep transactie die updates drie entiteiten tooexecute: werknemer entiteit en Hallo index entiteit voor de oude achternaam Hallo Hallo index entiteit voor de nieuwe achternaam Hallo Hallo. Voordat u wijzigingen aanbrengt in volgorde tooretrieve Hallo ETag waarden die u gebruikt optimistische gelijktijdigheid van tooperform Hallo updates vervolgens kunt gebruiken, moet u elke entiteit ophalen.  
 
-De volgende stappen wordt beschreven hoe die u volgen moet wanneer u alle werknemers met een bepaalde achternaam in een afdeling opzoeken moet, als u de tweede optie. In dit voorbeeld zijn er opzoeken van alle werknemers met een achternaam Jones in de afdeling verkoop:  
+Hallo volgende stappen wordt uitgelegd u volgen moet wanneer u toolook van alle Hallo werknemers met een bepaalde achternaam in een afdeling nodig als u van de tweede optie Hallo gebruikmaakt Hallo-proces. In dit voorbeeld zijn er alle Hallo werknemers met achternaam Jones in de afdeling verkoop Hallo opzoeken:  
 
-1. Ophalen van de entiteit index met een **PartitionKey** waarde 'Verkoop' en de **RowKey** waarde "Jones."  
-2. De lijst met werknemer-id's in het veld EmployeeIDs parseren.  
-3. Als u meer informatie over elk van deze werknemers (zoals hun e-mailadressen), ophalen van elk van de werknemer entiteiten met **PartitionKey** waarde 'Verkoop' en **RowKey** waarden uit de lijst met werknemers die u hebt verkregen in stap 2.  
+1. Ophalen van Hallo index entiteit met een **PartitionKey** waarde 'Verkoop' en Hallo **RowKey** waarde "Jones."  
+2. Hallo-lijst van de werknemer-id's in Hallo EmployeeIDs veld parseren.  
+3. Als u meer informatie over elk van deze werknemers (zoals hun e-mailadressen), ophalen elk Hallo werknemer entiteiten met **PartitionKey** waarde 'Verkoop' en **RowKey** waarden van Hallo-lijst van werknemers die u hebt verkregen in stap 2.  
 
 <u>Optie #3:</u> index entiteiten in een afzonderlijke partitie of een tabel maken  
 
-Gebruik voor de derde optie, index-entiteiten die opslaan van de volgende gegevens:  
+Gebruik voor Hallo derde optie, index-entiteiten die Hallo volgt gegevens opslaan:  
 
 ![][15]
 
-De **EmployeeIDs** eigenschap bevat een lijst van de werknemer-id's voor werknemers met de achternaam opgeslagen in de **RowKey**.  
+Hallo **EmployeeIDs** eigenschap bevat een lijst van de werknemer-id's voor werknemers met Hallo achternaam opgeslagen in Hallo **RowKey**.  
 
-Met de derde optie, kunt u EGTs niet gebruiken om consistentie te behouden omdat de index-entiteiten in een afzonderlijke partitie van de werknemer entiteiten. U moet ervoor zorgen dat de index entiteiten uiteindelijk consistent is met de werknemer entiteiten.  
+Hallo derde optie, u EGTs toomaintain consistentie niet gebruiken omdat Hallo index entiteiten in een afzonderlijke partitie van Hallo werknemer entiteiten. U moet ervoor zorgen dat Hallo index entiteiten uiteindelijk consistent is met de Hallo werknemer entiteiten.  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Overweeg de volgende punten wanneer u beslist Hallo hoe tooimplement dit patroon:  
 
-* Deze oplossing vereist ten minste twee query's naar het overeenkomende entiteiten ophalen: een query uitvoeren op de index-entiteiten voor de lijst van **RowKey** waarden en query's voor het ophalen van elke entiteit in de lijst.  
-* Gezien het feit dat een afzonderlijke entiteit een maximale grootte van 1 MB heeft, optie #2 en de optie #3 in de oplossing wordt ervan uitgegaan dat de lijst met werknemer-id's voor een bepaalde achternaam nooit groter dan 1 MB is. Als de lijst met werknemer-id's kunnen niet groter zijn dan 1 MB groot is, gebruik van optie #1 en opslaan van de indexgegevens in de blob-opslag.  
-* Als u de optie #2 gebruikt moet (met EGTs om af te handelen toevoegen en verwijderen van werknemers en het wijzigen van de achternaam van een werknemer) u nagaan of het volume van transacties worden de limieten voor schaalbaarheid in een bepaalde partitie benaderen. Als dit het geval is, moet u rekening houden met een uiteindelijk consistent oplossing (optie &#1; of optie #3) die gebruikmaakt van wachtrijen om de updateaanvragen te verwerken en kunt u uw index entiteiten opslaan op een afzonderlijke partitie van de werknemer entiteiten.  
-* Optie #2 in deze oplossing wordt ervan uitgegaan dat u wilt zoeken op achternaam binnen een afdeling: bijvoorbeeld, u wilt ophalen van een lijst met werknemers met een achternaam Jones van de verkoopafdeling. Als u zoeken naar alle werknemers met een achternaam Jones over de hele organisatie wilt, optie #1 of optie #3 gebruiken.
-* U kunt een oplossing op basis van wachtrijen die zorgt voor uiteindelijke consistentie implementeren (Zie de [uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern) voor meer informatie).  
+* Deze oplossing vereist ten minste twee query's tooretrieve overeenkomende entiteiten: één tooquery Hallo index entiteiten tooobtain Hallo lijst met **RowKey** waarden en vervolgens een query tooretrieve elke entiteit in de lijst Hallo.  
+* Gezien het feit dat een afzonderlijke entiteit heeft een maximale grootte van 1 MB, optie #2 en de optie #3 in Hallo oplossing wordt ervan uitgegaan dat Hallo lijst met werknemer-id's voor een bepaalde achternaam is nooit groter dan 1 MB. Als Hallo-lijst van de werknemer-id's waarschijnlijk toobe groter is dan 1 MB groot is, gebruik van optie #1 en Hallo indexgegevens opslaan in blob-opslag.  
+* Als u de optie #2 gebruikt moet (met behulp van EGTs toohandle toevoegen en verwijderen van werknemers en het wijzigen van de achternaam van een werknemer) u nagaan of Hallo volume van transacties Hallo limieten voor schaalbaarheid in een bepaalde partitie wordt benaderen. Als dit Hallo geval is, moet u rekening houden met een uiteindelijk consistent oplossing (optie &#1; of optie #3) die gebruikmaakt van wachtrijen toohandle Hallo update aanvraagt en kunt u toostore uw index entiteiten in een afzonderlijke partitie van Hallo werknemer entiteiten.  
+* Optie #2 in deze oplossing wordt ervan uitgegaan dat u toolook binnen een afdeling op achternaam wilt: u kunt bijvoorbeeld tooretrieve een lijst met werknemers met een achternaam Jones in de afdeling verkoop Hallo. Als u kunnen toolook toobe van alle Hallo werknemers met een achternaam Jones binnen de hele organisatie hello wilt, optie #1 of optie #3 gebruiken.
+* U kunt een oplossing op basis van wachtrijen die zorgt voor uiteindelijke consistentie implementeren (Zie Hallo [uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern) voor meer informatie).  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
-Gebruik dit patroon als u wilt voor het opzoeken van een set van entiteiten met algemene waarde van een eigenschap, zoals alle werknemers die over de achternaam Jones dezelfde.  
+#### <a name="when-toouse-this-pattern"></a>Wanneer toouse dit patroon
+Gebruik dit patroon als u wilt dat een aantal entiteiten dat alle een gemeenschappelijke eigenschapswaarde, zoals alle werknemers met Hallo achternaam Jones delen toolookup.  
 
 #### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+Hallo volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
 
 * [Samengestelde sleutel patroon](#compound-key-pattern)  
 * [Uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern)  
@@ -643,230 +643,230 @@ De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren
 * [Werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types)  
 
 ### <a name="denormalization-pattern"></a>Denormalization patroon
-Verwante gegevens samen combineren in één entiteit waarmee u kunt alle gegevens die u nodig hebt met een query één punt ophalen.  
+Gerelateerde gegevens samen in een enkele entiteit tooenable combineren tooretrieve u alle gegevens die u met een query één punt moet Hallo.  
 
 #### <a name="context-and-problem"></a>Context en probleem
-In een relationele database, moet u doorgaans gegevens als u wilt verwijderen, wat resulteert in query's die gegevens uit meerdere tabellen ophalen worden gedupliceerd normaliseren. Als u uw gegevens in Azure-tabellen normaliseren, moet u meerdere retouren van de client naar de server voor het ophalen van de bijbehorende gegevens. Bijvoorbeeld met de structuur van de tabel hieronder u moet twee retouren naar de details voor een afdeling ophalen: één voor het ophalen van de afdeling entiteit met id van de manager en vervolgens een andere aanvraag voor het ophalen van de manager details in een entiteit van de werknemer.  
+In een relationele database, moet u doorgaans tooremove gegevensontdubbeling, wat resulteert in query's die gegevens uit meerdere tabellen ophalen normaliseren. Als u uw gegevens in Azure-tabellen normaliseren, moet u meerdere retouren van Hallo client toohello server tooretrieve uw gerelateerde gegevens maken. Bijvoorbeeld, met de structuur van de tabel Hallo hieronder u moet twee afronden reizen tooretrieve Hallo details voor een afdeling: één toofetch Hallo afdeling entiteit die van de manager van het Hallo-id en vervolgens een andere aanvraag toofetch Hallo van manager details in een werknemer bevat de entiteit.  
 
 ![][16]
 
 #### <a name="solution"></a>Oplossing
-In plaats van de gegevens worden opgeslagen in twee afzonderlijke entiteiten, denormalize van de gegevens en een kopie van de details van de manager in de entiteit afdeling houden. Bijvoorbeeld:  
+In plaats van het Hallo-gegevens worden opgeslagen in twee afzonderlijke entiteiten, denormalize Hallo gegevens en bewaar een kopie van de details van Hallo manager op Hallo afdeling entiteit. Bijvoorbeeld:  
 
 ![][17]
 
-Met de afdeling entiteiten met deze eigenschappen worden opgeslagen, kunt u nu alle gegevens die u moet over een afdeling in een query punt ophalen.  
+Met de afdeling entiteiten met deze eigenschappen worden opgeslagen, kunt u nu alle Hallo details, moet u over een afdeling in een query punt ophalen.  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Overweeg de volgende punten wanneer u beslist Hallo hoe tooimplement dit patroon:  
 
-* Er is enige kosten overhead die is gekoppeld aan twee keer sommige gegevens op te slaan. De prestatievoordelen (die voortvloeien uit minder aanvragen aan de storage-service) doorgaans belangrijker is dan de marginale toename van de kosten voor opslag (en deze kosten is gedeeltelijk gecompenseerd door een vermindering van het aantal transacties die u nodig hebt voor het ophalen van de details van een afdeling).  
-* U moet de consistentie van de twee entiteiten die voor het opslaan van informatie over beheerders onderhouden. U kunt het probleem consistentiecontrole verwerkt met behulp van EGTs meerdere entiteiten in één transactie atomic bijwerken: in dit geval wordt de entiteit afdeling en de werknemer entiteit voor de afdelingsmanager worden opgeslagen in dezelfde partitie.  
+* Er is enige kosten overhead die is gekoppeld aan twee keer sommige gegevens op te slaan. Hallo prestatievoordelen (die voortvloeien uit minder aanvragen toohello storage-service) doorgaans belangrijker is dan Hallo marginale toename opslagkosten (en deze kosten is gedeeltelijk gecompenseerd door een vermindering van het aantal transacties Hallo u toofetch Hallo informatie is vereist van een afdeling).  
+* Hallo consistentie van Hallo twee entiteiten die informatie over managers opslaat, moet u onderhouden. U kunt verwerkt Hallo consistentie probleem met behulp van EGTs tooupdate meerdere entiteiten in één transactie atomic: in dit geval Hallo afdeling entiteits- en Hallo werknemer entiteit voor Hallo afdelingsmanager worden opgeslagen in Hallo dezelfde partitie.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
-Dit patroon gebruikt als u regelmatig om verwante informatie te zoeken. Dit patroon vermindert het aantal query's die de client aanbrengen moet in de gegevens die vereist worden opgehaald.  
+#### <a name="when-toouse-this-pattern"></a>Wanneer toouse dit patroon
+U kunt dit patroon vaak toolook gerelateerde informatie. Dit patroon vermindert Hallo aantal query's voor die de client moet aanbrengen tooretrieve Hallo gegevens vereist.  
 
 #### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+Hallo volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
 
 * [Samengestelde sleutel patroon](#compound-key-pattern)  
 * [Entiteit groep transacties](#entity-group-transactions)  
 * [Werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types)
 
 ### <a name="compound-key-pattern"></a>Samengestelde sleutel patroon
-Gebruik samengestelde **RowKey** waarden om in te schakelen van een client voor het opzoeken van gerelateerde gegevens met een query één punt.  
+Gebruik samengestelde **RowKey** waarden tooenable een client toolookup gerelateerde gegevens met een query één punt.  
 
 #### <a name="context-and-problem"></a>Context en probleem
-In een relationele database is het erg natuurlijke joins in query's gebruiken om te retourneren van gerelateerde delen van gegevens naar de client in één query op. Bijvoorbeeld, kunt u de werknemer-id te zoeken om een overzicht van gerelateerde entiteiten die prestaties bevatten en gegevens voor die werknemer bekijken.  
+In een relationele database, is het erg natuurlijke toouse joins in query's tooreturn soorten gegevens toohello client in één query gerelateerd. U kunt bijvoorbeeld Hallo werknemer-id toolook van een lijst van gerelateerde entiteiten die prestaties bevatten en gegevens voor die werknemer bekijken.  
 
-Stel dat u bij het opslaan van entiteiten van de werknemer in de tabel-service met behulp van de volgende structuur:  
+Stel dat u bij het opslaan van entiteiten van de werknemer in service Hallo-tabel met Hallo structuur te volgen:  
 
 ![][18]
 
-U moet er ook voor het opslaan van historische gegevens met betrekking tot beoordelingen en prestaties voor elk jaar die de werknemer heeft gewerkt voor uw organisatie en moet u toegang tot deze informatie per jaar. Een mogelijkheid is het maken van een andere tabel die wordt opgeslagen entiteiten met de volgende structuur:  
+Moet u ook toostore historische gegevens over tooreviews en prestaties voor elk jaar Hallo werknemer heeft gewerkt voor uw organisatie en u toobe kunnen tooaccess moet deze informatie per jaar. Een optie toocreate is een andere tabel waarmee entiteiten worden opgeslagen met Hallo structuur te volgen:  
 
 ![][19]
 
-U ziet dat met deze methode wilt u misschien dubbele bepaalde gegevens (zoals de voornaam en achternaam) in de nieuwe entiteit waarmee u uw gegevens met één aanvraag ophalen. U moet echter sterke consistentie kan niet onderhouden omdat u niet een EGT gebruiken voor het bijwerken van de twee entiteiten moment.  
+Merk op dat met deze benadering u besluiten tooduplicate sommige gegevens (zoals de voornaam en achternaam) in de nieuwe entiteit tooenable hello tooretrieve u uw gegevens met één aanvraag. U kan niet echter sterke consistentie onderhouden omdat u een EGT tooupdate Hallo twee entiteiten moment niet kan gebruiken.  
 
 #### <a name="solution"></a>Oplossing
-Een nieuwe entiteitstype opslaan in de oorspronkelijke tabel met behulp van de entiteiten met de volgende structuur:  
+Een nieuwe entiteitstype opslaan in de oorspronkelijke tabel met behulp van de entiteiten met Hallo structuur te volgen:  
 
 ![][20]
 
-U ziet hoe de **RowKey** is nu een samengestelde sleutel bestaat uit de werknemer-id en het jaar van de evaluatie-gegevens waarmee u de prestaties van de werknemer ophalen en gegevens met één aanvraag voor een enkele entiteit te controleren.  
+U ziet hoe Hallo **RowKey** nu een samengestelde sleutel bestaat uit Hallo werknemer-id en het Hallo jaar van Hallo revisie gegevens waarmee u tooretrieve Hallo van werknemer prestaties en het controleren van gegevens met één aanvraag voor één entiteit.  
 
-Het volgende voorbeeld ziet hoe u alle controle-gegevens kunt ophalen voor een bepaalde werknemer (zoals werknemer 000123 van de verkoopafdeling):  
+Hallo volgende voorbeeld bevat een overzicht van hoe u alle Hallo revisie gegevens kunt ophalen voor een bepaalde werknemer (zoals werknemer 000123 in de afdeling verkoop Hallo):  
 
 $filter = (PartitionKey eq 'Sales') en (RowKey ge 'empid_000123') en (RowKey lt 'empid_000124') & $select = RowKey, beoordeling door Manager, beoordeling van de Peer, opmerkingen  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Overweeg de volgende punten wanneer u beslist Hallo hoe tooimplement dit patroon:  
 
-* U moet een geschikte scheidingsteken waarmee u gemakkelijk parseren gebruiken de **RowKey** waarde: bijvoorbeeld **000123_2012**.  
-* U ook opslaat deze entiteit in dezelfde partitie als andere entiteiten die gerelateerde gegevens bevatten voor dezelfde werknemer, wat betekent dat u kunt EGTs sterke consistentie.
-* U moet overwegen hoe vaak u een query uit op de gegevens om te bepalen of dit patroon geschikt is.  Bijvoorbeeld, als u toegang hebben tot de gegevens van revisie zelden en vaak de belangrijkste werknemersgegevens bewaar ze als afzonderlijke entiteiten.  
+* Moet u een geschikte scheidingsteken dat het eenvoudig tooparse hello maakt **RowKey** waarde: bijvoorbeeld **000123_2012**.  
+* U ook deze entiteit opslaat in dezelfde partitie als andere entiteiten met verwante gegevens voor Hallo Hallo dezelfde werknemer, wat betekent dat u sterke consistentie voor EGTs toomaintain kunt gebruiken.
+* U moet overwegen hoe vaak u een query uit op Hallo gegevens toodetermine of dit patroon geschikt is.  Bijvoorbeeld als u toegang tot gegevens controleren zelden Hallo en Hallo belangrijkste werknemersgegevens vaak die u ze als afzonderlijke entiteiten houden moet.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
-Gebruik dit patroon wanneer u wilt opslaan op een of meer entiteiten die query u vaak gerelateerde.  
+#### <a name="when-toouse-this-pattern"></a>Wanneer toouse dit patroon
+Gebruik dit patroon wanneer u toostore een moet of meer entiteiten die query u vaak gerelateerde.  
 
 #### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+Hallo volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
 
 * [Entiteit groep transacties](#entity-group-transactions)  
 * [Werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types)  
 * [Uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern)  
 
 ### <a name="log-tail-pattern"></a>Patroon voor logboekbestand staart
-Ophalen van de  *n*  entiteiten die onlangs zijn toegevoegd aan een partitie met behulp van een **RowKey** waarde die in omgekeerde datum en tijd volgorde worden gesorteerd.  
+Hallo ophalen  *n*  tooa partitie entiteiten meest recent toegevoegd met behulp van een **RowKey** waarde die in omgekeerde datum en tijd volgorde worden gesorteerd.  
 
 #### <a name="context-and-problem"></a>Context en probleem
-Een algemene vereiste is mogelijk het meest recent gemaakte entiteiten ophalen, bijvoorbeeld de meest recente tien claims die zijn ingediend door een werknemer onkosten. Tabel ondersteuning vraagt een **$top** querybewerking te retourneren van de eerste  *n*  entiteiten uit een set: Er is geen equivalent querybewerking te retourneren van de laatste n entiteiten in een set.  
+Een algemene vereiste is niet kunnen tooretrieve Hallo meest recent gemaakte entiteiten, bijvoorbeeld Hallo tien meest recente onkosten claims ingediend door een werknemer zijn. Tabel ondersteuning vraagt een **$top** bewerking tooreturn Hallo eerst query  *n*  entiteiten uit een set: Er is geen equivalent query bewerking tooreturn Hallo laatste n entiteiten in een set.  
 
 #### <a name="solution"></a>Oplossing
-Opslaan van de entiteiten met een **RowKey** dat natuurlijk sorteren in volgorde van de omgekeerde datum/tijd met behulp van zodat de meest recente vermelding is altijd de eerste rij in de tabel.  
+Store Hallo entiteiten met een **RowKey** dat natuurlijk sorteren in omgekeerde volgorde datum/tijd volgorde door gebruik te maken zodat de meest recente item Hallo altijd Hallo eerste certificaat in het Hallo-tabel.  
 
-Bijvoorbeeld, om te kunnen ophalen van de tien meest recente onkosten claims ingediend door een werknemer, kunt u een omgekeerde maatstreepjes-waarde die is afgeleid van de huidige datum en tijd. De volgende C#-codevoorbeeld ziet u een manier om u te maken van een geschikte waarde 'omgekeerde ticks' voor een **RowKey** die sorteren van de meest recente naar oud:  
+Bijvoorbeeld: toobe kunnen tooretrieve Hallo tien meest recente onkosten claims die zijn ingediend door een werknemer, kunt u de waarde van een omgekeerde maatstreepjes afgeleid van Hallo huidige datum en tijd. Hallo volgende C# codevoorbeeld ziet eenrichtingssessie toocreate een geschikte waarde 'omgekeerde ticks' voor een **RowKey** die sorteren van de meest recente toohello Hallo oudste:  
 
 `string invertedTicks = string.Format("{0:D19}", DateTime.MaxValue.Ticks - DateTime.UtcNow.Ticks);`  
 
-U kunt teruggaan naar de datum-tijdwaarde met de volgende code:  
+U kunt terug met behulp van de volgende code Hallo datum-tijdwaarde voor toohello krijgen:  
 
 `DateTime dt = new DateTime(DateTime.MaxValue.Ticks - Int64.Parse(invertedTicks));`  
 
-De tabelquery ziet er als volgt:  
+Hallo tabelquery ziet er als volgt:  
 
 `https://myaccount.table.core.windows.net/EmployeeExpense(PartitionKey='empid')?$top=10`  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Overweeg de volgende punten wanneer u beslist Hallo hoe tooimplement dit patroon:  
 
-* U moet de waarde van de omgekeerde maatstreepjes met nullen om te controleren of dat de tekenreekswaarde sorteert zoals verwacht toonaangevende opgevuld.  
-* U moet rekening houden met de schaalbaarheidsdoelen op het niveau van een partitie. Wees voorzichtig hotspot partities niet maken.  
+* U krijgt een Hallo omgekeerde maatstreepjes waarde met nullen toonaangevende tooensure Hallo tekenreekswaarde sorteert zoals verwacht.  
+* U moet rekening houden met de schaalbaarheidsdoelen Hallo op Hallo niveau van een partitie. Wees voorzichtig hotspot partities niet maken.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
-Dit patroon gebruikt als u toegang tot entiteiten in volgorde van de omgekeerde datum/tijd- of wanneer u toegang wilt tot de meest recent toegevoegde entiteiten.  
+#### <a name="when-toouse-this-pattern"></a>Wanneer toouse dit patroon
+Gebruik dit patroon wanneer moet u tooaccess entiteiten in volgorde van de omgekeerde datum/tijd of wanneer u tooaccess Hallo meest recent moet toegevoegd entiteiten.  
 
 #### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+Hallo volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
 
 * [Toevoegen / antivirusprogramma patroon toevoegen](#prepend-append-anti-pattern)  
 * [Entiteiten ophalen](#retrieving-entities)  
 
 ### <a name="high-volume-delete-pattern"></a>Patroon voor grote volumes verwijderen
-Het verwijderen van een groot aantal entiteiten inschakelen door het opslaan van alle entiteiten voor gelijktijdige verwijdering in hun eigen afzonderlijke tabel. u kunt de entiteiten verwijderen door de tabel verwijderen.  
+Hallo verwijderen van een groot aantal entiteiten inschakelen door het opslaan van alle Hallo-entiteiten voor gelijktijdige verwijdering in hun eigen afzonderlijke tabel. u verwijderen Hallo entiteiten door Hallo tabel te verwijderen.  
 
 #### <a name="context-and-problem"></a>Context en probleem
-Veel toepassingen verwijderen oude gegevens die niet langer beschikbaar zijn voor een clienttoepassing of de toepassing naar een ander opslagmedium is gearchiveerd. U doorgaans dergelijke gegevens identificeren met een datum: bijvoorbeeld: u hebt een vereiste om records van alle aanmeldingsaanvragen voor die meer dan 60 dagen te verwijderen.  
+Veel toepassingen Verwijder oude gegevens die niet langer de toepassing van de client beschikbare tooa toobe moet of die toepassing hello tooanother opslagmedium is gearchiveerd. U doorgaans dergelijke gegevens identificeren met een datum: er bijvoorbeeld voor een vereiste toodelete-records van alle aanmeldingsaanvragen voor die meer dan 60 dagen oud.  
 
-Een mogelijke ontwerp is het gebruik van de datum en tijd van de aanmeldingsaanvraag in de **RowKey**:  
+Een mogelijke ontwerp is toouse Hallo datum en tijd van Hallo aanmeldingsaanvraag in Hallo **RowKey**:  
 
 ![][21]
 
-Deze aanpak voorkomt partitie hotspots omdat de toepassing kunt invoegen en verwijderen van aanmelding entiteiten voor elke gebruiker in een afzonderlijke partitie. Deze aanpak kan echter kostbaar en tijd in beslag nemen als u een groot aantal entiteiten hebt omdat u eerst een tabelscan uitvoeren om te kunnen identificeren van de entiteiten moet te verwijderen en vervolgens moet u elke oude entiteit verwijderen zijn. Houd er rekening mee dat u het aantal retouren naar de server vereist voor het verwijderen van de oude entiteiten met meerdere delete-aanvragen in EGTs batchverwerking kunt verkleinen.  
+Deze aanpak voorkomt partitie hotspots omdat de toepassing hello kan invoegen en verwijderen van aanmelding entiteiten voor elke gebruiker in een afzonderlijke partitie. Echter mogelijk is deze benadering kostbare tijd in beslag nemen als u een groot aantal entiteiten hebt omdat u eerst tooperform moet een tabel scannen in volgorde tooidentify alle Hallo entiteiten toodelete en vervolgens moet u elke oude entiteit verwijderen. Houd er rekening mee dat u het aantal retouren toohello server vereist toodelete Hallo oude entiteiten Hallo verkleinen kunt door meerdere delete-aanvragen in EGTs batchverwerking.  
 
 #### <a name="solution"></a>Oplossing
-Een afzonderlijke tabel gebruiken voor elke dag van aanmeldingspogingen. U kunt het ontwerp van de entiteit bovenstaande hotspots voorkomen wanneer entiteiten invoegen en verwijderen van oude entiteiten nu gewoon een vraag is van het verwijderen van één tabel elke dag (een enkele opslagbewerking) in plaats van zoeken en verwijderen van honderden en duizenden afzonderlijke aanmelding entiteiten elke dag.  
+Een afzonderlijke tabel gebruiken voor elke dag van aanmeldingspogingen. U kunt Hallo entiteit ontwerp hierboven tooavoid hotspots entiteiten invoegen en verwijderen van oude entiteiten is nu gewoon een vraag van het verwijderen van één tabel elke dag (een enkele opslagbewerking) in plaats van zoeken en verwijderen van honderden of duizenden afzonderlijke aanmelding entiteiten elke dag.  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Overweeg de volgende punten wanneer u beslist Hallo hoe tooimplement dit patroon:  
 
-* Uw ontwerp biedt ondersteuning voor andere manieren de gegevens zoals het opzoeken van specifieke entiteiten, koppelen aan andere gegevens of genereren verzamelde gegevens zullen worden gebruikt door uw toepassing?  
+* Uw ontwerp biedt ondersteuning voor andere manieren Hallo gegevens zoals het opzoeken van specifieke entiteiten, koppelen aan andere gegevens of genereren verzamelde gegevens zullen worden gebruikt door uw toepassing?  
 * Uw ontwerp hotspots voorkomen tijdens het invoegen van nieuwe entiteiten  
-* Een vertraging verwachten als u gebruiken als de naam van de dezelfde tabel wilt na het verwijderen. Het is beter gebruik altijd uniek tabelnamen.  
-* Verwachten dat sommige beperking wanneer u eerst een nieuwe tabel terwijl de tabelservice de toegangspatronen leert en distributie van de partities over knooppunten. U moet rekening houden hoe vaak moet u nieuwe tabellen maken.  
+* Verwacht een vertraging optreden als u wilt dat tooreuse Hallo dezelfde tabelnaam na het verwijderen. Het is beter tooalways unieke Tabelnamen gebruiken.  
+* Verwachten dat sommige beperking wanneer u eerst een nieuwe tabel terwijl Hallo tabelservice hello toegangspatronen leert en Hallo partities over knooppunten verdeelt. U moet bepalen hoe vaak toocreate nieuwe tabellen.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
-Dit patroon gebruiken wanneer u een groot aantal entiteiten die op hetzelfde moment moet u verwijderen.  
+#### <a name="when-toouse-this-pattern"></a>Wanneer toouse dit patroon
+Dit patroon gebruiken wanneer u een groot aantal entiteiten die u op Hallo verwijderen moet hetzelfde moment.  
 
 #### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+Hallo volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
 
 * [Entiteit groep transacties](#entity-group-transactions)
 * [Entiteiten wijzigen](#modifying-entities)  
 
 ### <a name="data-series-pattern"></a>Patroon van de reeks gegevens
-Store voltooid gegevensreeksen in één entiteit om te beperken het aantal aanvragen die u aanbrengt.  
+Store voltooid gegevensreeksen in een enkele entiteit toominimize Hallo aantal aanvragen die u aanbrengt.  
 
 #### <a name="context-and-problem"></a>Context en probleem
-Er is een veelvoorkomend scenario voor een toepassing voor het opslaan van een reeks met gegevens die normaal gesproken nodig is om op te halen in één keer. Uw toepassing kan bijvoorbeeld opname hoeveel IM-berichten elke werknemer elk uur en vervolgens deze informatie gebruiken om te tekenen hoeveel berichten elke gebruiker die is verzonden via de voorgaande 24 uur. Een ontwerp kan voor het opslaan van 24 entiteiten voor elke werknemer zijn:  
+Een gebruikelijk scenario is voor een toepassing toostore een reeks vereiste gegevens dat doorgaans tooretrieve in één keer. Uw toepassing kan bijvoorbeeld hoeveel elke werknemer elk uur IM-berichten vastleggen en gebruik vervolgens deze informatie tooplot hoeveel berichten elke gebruiker worden verzonden via Hallo voorgaande 24 uur. Een ontwerp mogelijk toostore 24 entiteiten voor elke werknemer:  
 
 ![][22]
 
-Bij dit ontwerp kunt u eenvoudig zoeken en bijwerken van de entiteit voor elke werknemer bijwerken wanneer de toepassing moet de waarde voor aantal bijwerken. Voor het ophalen van de informatie voor het tekenen van een grafiek van de activiteit voor de voorgaande 24 uur, moet u echter 24 entiteiten ophalen.  
+Bij dit ontwerp kunt u eenvoudig vinden en Hallo entiteit tooupdate voor elke werknemer bijwerken als de toepassing hello aantalwaarde voor tooupdate Hallo-bericht moet. Echter tooretrieve Hallo informatie tooplot een grafiek van de activiteit Hallo voor Hallo voorafgaande 24 uur, moet u 24 entiteiten ophalen.  
 
 #### <a name="solution"></a>Oplossing
-Het ontwerp van de volgende voor het opslaan van het aantal berichten voor elk uur een afzonderlijke eigenschap gebruiken:  
+Ontwerp met een aantal afzonderlijke eigenschap toostore Hallo-berichten te volgen voor elk uur hello gebruiken:  
 
 ![][23]
 
-Bij dit ontwerp kunt u een samenvoegbewerking voor het aantal berichten voor een werknemer bijwerken voor een specifiek uur. U kunt nu alle informatie die u nodig hebt om het gebruik van een aanvraag voor een enkele entiteit diagram te tekenen ophalen.  
+Bij dit ontwerp kunt u een aantal samenvoegen bewerking tooupdate Hallo berichten voor een werknemer voor een specifiek uur. U kunt nu alle benodigde tooplot Hallo grafiek met behulp van een aanvraag voor een enkele entiteit Hallo-gegevens ophalen.  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Overweeg de volgende punten wanneer u beslist Hallo hoe tooimplement dit patroon:  
 
-* Als de volledige reeks past niet in één entiteit (een entiteit kan maximaal 252 eigenschappen hebben), gebruikt u een alternatieve gegevensarchief, zoals een blob.  
-* Als u meerdere clients tegelijkertijd bijwerken van een entiteit hebt, moet u gebruik van de **ETag** optimistische gelijktijdigheid implementeren. Als u veel clients hebt, kunt u hoge conflicten ondervinden.  
+* Als de volledige reeks past niet in één entiteit (een entiteit kan hebben eigenschappen too252), gebruikt u een alternatieve gegevensarchief, zoals een blob.  
+* Als u meerdere clients tegelijkertijd bijwerken van een entiteit hebt, moet u toouse hello **ETag** tooimplement optimistische gelijktijdigheid. Als u veel clients hebt, kunt u hoge conflicten ondervinden.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
-Dit patroon gebruiken als u wilt bijwerken en ophalen van een reeks die is gekoppeld aan een afzonderlijke entiteit.  
+#### <a name="when-toouse-this-pattern"></a>Wanneer toouse dit patroon
+Gebruik dit patroon wanneer u tooupdate nodig hebt en een gegevensreeks die zijn gekoppeld aan een afzonderlijke entiteit ophalen.  
 
 #### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+Hallo volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
 
 * [Grote entiteiten patroon](#large-entities-pattern)  
 * [Samenvoegen of vervangen](#merge-or-replace)  
-* [Uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern) (als u de gegevensreeks in een blob opslaat)  
+* [Uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern) (als u Hallo gegevensreeks in een blob opslaat)  
 
 ### <a name="wide-entities-pattern"></a>Wide entiteiten patroon
-Gebruik van meerdere fysieke entiteiten voor het opslaan van logische entiteiten met meer dan 252 eigenschappen.  
+Gebruik van meerdere fysieke entiteiten toostore logische entiteiten met meer dan 252 eigenschappen.  
 
 #### <a name="context-and-problem"></a>Context en probleem
-Een afzonderlijke entiteit kan maximaal 252 eigenschappen (met uitzondering van de verplichte eigenschappen) en kan niet meer dan 1 MB aan gegevens opslaan in totaal. In een relationele database, doorgaans krijgt u ronde beperkingen met betrekking tot de grootte van een rij bij het toevoegen van een nieuwe tabel en een 1-op-1-relatie tussen deze twee afdwingen.  
+Een afzonderlijke entiteit kan maximaal 252 eigenschappen (met uitzondering van de verplichte Systeemeigenschappen Hallo) en kan niet meer dan 1 MB aan gegevens opslaan in totaal. In een relationele database, doorgaans krijgt u ronde beperkingen met betrekking tot Hallo grootte van een rij bij het toevoegen van een nieuwe tabel en een 1-op-1-relatie tussen deze twee afdwingen.  
 
 #### <a name="solution"></a>Oplossing
-De tabel-service gebruikt, kunt u meerdere entiteiten ter vertegenwoordiging van een object één grote bedrijven met meer dan 252 eigenschappen opslaan. Bijvoorbeeld, als u een telling van het aantal IM-berichten is verzonden door elke werknemer voor de afgelopen 365 dagen opslaan wilt, kunt u het ontwerp van de volgende die gebruikmaakt van twee entiteiten met verschillende schema's:  
+Hallo tabel-service gebruikt, kunt u meerdere entiteiten toorepresent een object één grote bedrijven met meer dan 252 eigenschappen opslaan. Bijvoorbeeld, als u wilt dat een aantal Hallo IM berichten die worden verzonden door elke werknemer voor Hallo afgelopen 365 dagen toostore, kunt u gebruiken Hallo ontwerp die gebruikmaakt van twee entiteiten met verschillende schema's te volgen:  
 
 ![][24]
 
-U kunt een EGT gebruiken als u een wijziging aanbrengt die is vereist voor het bijwerken van beide entiteiten wilt zodat ze zijn gesynchroniseerd met elkaar. Anders kunt u één samenvoegbewerking bijwerken van het aantal berichten voor een specifieke dag. Alle gegevens ophalen voor een afzonderlijke werknemer moet u beide entiteiten, kunt u doen met twee efficiënte aanvragen die gebruikmaken van beide ophalen een **PartitionKey** en een **RowKey** waarde.  
+U kunt een EGT gebruiken als u een wijziging die moet worden bijgewerkt beide entiteiten tookeep ze met elkaar gesynchroniseerd toomake nodig. Anders kunt u een aantal van één samenvoegen bewerking tooupdate Hallo berichten voor een specifieke dag. alle gegevens voor een afzonderlijke werknemer moet u beide entiteiten, kunt u doen met twee efficiënte aanvragen die gebruikmaken van beide ophalen Hallo tooretrieve een **PartitionKey** en een **RowKey** waarde.  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Overweeg de volgende punten wanneer u beslist Hallo hoe tooimplement dit patroon:  
 
-* Bij het ophalen van een volledige logische entiteit ten minste twee opslagtransacties omvat: een voor elke fysieke entiteit ophalen.  
+* Bij het ophalen van een volledige logische entiteit ten minste twee opslagtransacties omvat: één tooretrieve fysieke entiteit.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
-Gebruik dit patroon wanneer nodig voor het opslaan van entiteiten waarvan de grootte van of het aantal eigenschappen de grenzen voor een afzonderlijke entiteit in de tabel-service overschrijdt.  
+#### <a name="when-toouse-this-pattern"></a>Wanneer toouse dit patroon
+Gebruik dit patroon wanneer nodig toostore entiteiten waarvan de grootte van of het aantal eigenschappen overschrijdt de Hallo limieten voor een afzonderlijke entiteit in Hallo Tabelservice.  
 
 #### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+Hallo volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
 
 * [Entiteit groep transacties](#entity-group-transactions)
 * [Samenvoegen of vervangen](#merge-or-replace)
 
 ### <a name="large-entities-pattern"></a>Grote entiteiten patroon
-Blob storage gebruiken voor het opslaan van grote eigenschapswaarden.  
+Gebruik blob storage toostore grote eigenschapswaarden.  
 
 #### <a name="context-and-problem"></a>Context en probleem
-Een afzonderlijke entiteit kan niet meer dan 1 MB aan gegevens opslaan in totaal. Als een of meer van de eigenschappen van uw waarden die ertoe leiden dat de totale grootte van uw entiteit zijn dan deze waarde kunt opslaan, kunt u het geheel niet opslaan in de tabel-service.  
+Een afzonderlijke entiteit kan niet meer dan 1 MB aan gegevens opslaan in totaal. Als een of meer van de eigenschappen van uw waarden zijn waardoor de totale grootte van uw entiteit tooexceed Hallo deze waarde opslaat, kunt u niet geheel Hallo opslaan in Hallo tabel-service.  
 
 #### <a name="solution"></a>Oplossing
-Als uw entiteit 1 MB groot overschrijdt omdat een of meer eigenschappen een grote hoeveelheid gegevens bevatten, kunt u gegevens opslaan in de Blob-service en het adres van de blob op te slaan in een eigenschap in de entiteit. Bijvoorbeeld, u kunt de foto van een werknemer opslaan in blob-opslag en opslaan van een koppeling naar de foto in de **Photo** eigenschap van de werknemer entiteit:  
+Als uw entiteit 1 MB groot overschrijdt omdat een of meer eigenschappen een grote hoeveelheid gegevens bevatten, kunt u gegevens opslaan op Hallo Blob-service en Hallo-adres van de blob Hallo op te slaan in een eigenschap in Hallo entiteit. Bijvoorbeeld Hallo foto van een werknemer opslaan in blob-opslag en een koppeling toohello foto opslaan in Hallo **Photo** eigenschap van de werknemer entiteit:  
 
 ![][25]
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Overweeg de volgende punten wanneer u beslist Hallo hoe tooimplement dit patroon:  
 
-* Gebruiken om te blijven uiteindelijke consistentie tussen de entiteit in de tabel-service en de gegevens in de Blob-service, de [uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern) uw entiteiten onderhouden.
-* Bij het ophalen van een volledige entiteit ten minste twee opslagtransacties omvat: één voor het ophalen van de entiteit en één voor het ophalen van de blob-gegevens.  
+* toomaintain uiteindelijke consistentie tussen Hallo entiteit in Hallo tabelservice en Hallo-gegevens in Hallo Blob-service gebruiken Hallo [uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern) toomaintain uw entiteiten.
+* Bij het ophalen van een volledige entiteit ten minste twee opslagtransacties omvat: één tooretrieve Hallo entiteit en één tooretrieve Hallo blob-gegevens.  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
-Dit patroon gebruikt als u voor het opslaan van entiteiten waarvan de grootte de grenzen voor een afzonderlijke entiteit in de tabel-service overschrijdt.  
+#### <a name="when-toouse-this-pattern"></a>Wanneer toouse dit patroon
+Dit patroon gebruikt als u toostore entiteiten waarvan de grootte overschrijdt de Hallo limieten voor een afzonderlijke entiteit in de tabelservice Hallo.  
 
 #### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+Hallo volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
 
 * [Uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern)  
 * [Wide entiteiten patroon](#wide-entities-pattern)
@@ -874,80 +874,80 @@ De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren
 <a name="prepend-append-anti-pattern"></a>
 
 ### <a name="prependappend-anti-pattern"></a>Antivirusprogramma patroon toevoegen/toevoegen
-Schaalbaarheid vergroten wanneer u een groot aantal invoegingen hebt met de invoegt verspreid over meerdere partities.  
+Schaalbaarheid vergroten wanneer u een groot aantal invoegingen hebt met het Hallo voegt verspreid over meerdere partities.  
 
 #### <a name="context-and-problem"></a>Context en probleem
-Voorafgaand of entiteiten doorgaans in te voegen aan uw opgeslagen entiteiten resulteert in de toepassing nieuwe entiteiten toe te voegen aan de eerste of laatste partitie van een reeks van partities. In dit geval plaatsvinden alle van de invoegt op elk moment in dezelfde partitie maken van een hotspot waarmee wordt voorkomen de tabelservice van load voegt te verdelen over meerdere knooppunten en mogelijk veroorzaakt door uw toepassing dat om de schaalbaarheidsdoelen voor partitie. Bijvoorbeeld, als u een toepassing hebt die netwerk logboeken en toegang tot bedrijfsbronnen door werknemers, klikt u vervolgens een entiteit structuur zoals hieronder wordt weergegeven in het huidige uur partitie een hotspot is als het volume van transacties het doel van de schaalbaarheid van een afzonderlijke partitie bereikt kan leiden:  
+Voorafgaand of entiteiten tooyour opgeslagen entiteiten doorgaans voegen resulteert in het Hallo-toepassing eerst toe te voegen nieuwe entiteiten toohello of laatste partitie van een reeks van partities. In dit geval worden alle Hallo ingevoegd op elk moment plaatsvinden in dezelfde partitie, het maken van een hotspot dat verhindert dat de tabelservice Hallo taakverdeling wordt ingevoegd op meerdere knooppunten Hallo en mogelijk veroorzaakt door uw toepassing toohit Hallo schaalbaarheid doelen voor de partitie. Bijvoorbeeld, als u een toepassing hebt die Logboeken netwerk- en resource door werknemers openen, en vervolgens de structuur van een entiteit zoals hieronder wordt weergegeven, tot leiden kan Hallo huidige uur partitie steeds een hotspot als Hallo volume van transacties Hallo schaalbaarheid doel voor bereikt een afzonderlijke partitie:  
 
 ![][26]
 
 #### <a name="solution"></a>Oplossing
-De volgende alternatieve entiteit structuur voorkomt een hotspot op een bepaalde partitie als de toepassing Logboeken gebeurtenissen:  
+Hallo voorkomt volgende alternatieve entiteit structuur een hotspot op een bepaalde partitie als Hallo toepassing Logboeken gebeurtenissen:  
 
 ![][27]
 
-Kennisgeving met dit voorbeeld van hoe beide de **PartitionKey** en **RowKey** samengestelde sleutels. De **PartitionKey** gebruikt de afdeling en de werknemer-id om de logboekregistratie verdelen over meerdere partities.  
+Met dit voorbeeld ziet hoe beide Hallo **PartitionKey** en **RowKey** samengestelde sleutels. Hallo **PartitionKey** gebruikt zowel Hallo afdeling en werknemer-id toodistribute Hallo logboekregistratie op meerdere partities.  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten bij het bepalen van het implementeren van dit patroon:  
+Overweeg de volgende punten wanneer u beslist Hallo hoe tooimplement dit patroon:  
 
-* Ondersteunt de alternatieve sleutelstructuur die voorkomt efficiënt hot partities maken op voegt de query's kunt u de clienttoepassing?  
-* Het verwachte volume van transacties betekent dat u waarschijnlijk de schaalbaarheidsdoelen voor een afzonderlijke partitie bereiken en worden beperkt door de storage-service?  
+* Biedt Hallo alternatieve sleutelstructuur die voorkomt hot partities maken voor de ondersteuning Hallo-query's op voegt efficiënt maakt voor uw clienttoepassing?  
+* Betekent het verwachte aantal transacties dat u waarschijnlijk tooreach hello schaalbaarheidsdoelen voor een afzonderlijke partitie en worden beperkt door Hallo storage-service?  
 
-#### <a name="when-to-use-this-pattern"></a>Het gebruik van dit patroon
-Vermijd het prepend/append anti-patroon wanneer het volume van transacties kunnen ertoe leiden dat door de storage-service beperken wanneer u een hot partitie is.  
+#### <a name="when-toouse-this-pattern"></a>Wanneer toouse dit patroon
+Vermijd antivirusprogramma patroon Hallo toevoegen/toevoegen als het volume van transacties waarschijnlijk tooresult is in beperkingen door Hallo storage-service wanneer u een hot partitie.  
 
 #### <a name="related-patterns-and-guidance"></a>Verwante patronen en richtlijnen
-De volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
+Hallo volgende patronen en richtlijnen mogelijk ook relevante bij het implementeren van dit patroon:  
 
 * [Samengestelde sleutel patroon](#compound-key-pattern)  
 * [Patroon voor logboekbestand staart](#log-tail-pattern)  
 * [Entiteiten wijzigen](#modifying-entities)  
 
 ### <a name="log-data-anti-pattern"></a>Antivirusprogramma patroon voor logboekbestand gegevens
-Normaal gesproken moet u de Blob-service in plaats van de tabel-service voor het opslaan van gegevens aan het logboek.  
+Normaal gesproken moet u Hallo Blob-service in plaats van Hallo tabel service toostore logboekgegevens.  
 
 #### <a name="context-and-problem"></a>Context en probleem
-Als u een algemeen gebruiksvoorbeeld voor logboekgegevens is voor het ophalen van een selectie van vermeldingen in het logboek voor een specifieke datum/tijd-bereik: bijvoorbeeld wordt gezocht naar alle fout en kritieke berichten die uw toepassing vastgelegd tussen 15:04 en 15:06 op een bepaalde datum. U niet wilt dat de datum en tijd van het logboekbericht gebruiken om te bepalen van de partitie opslaan van entiteiten logboek: die resulteert in een hot partitie omdat er op elk gewenst alle entiteiten in het logboek wordt delen dezelfde **PartitionKey** waarde (Zie de sectie [antivirusprogramma patroon Prepend/append](#prepend-append-anti-pattern)). Het volgende schema van de entiteit voor een logboekbericht resulteert bijvoorbeeld in een hot partitie omdat de toepassing alle berichten in het logboek voor de partitie voor de huidige datum en het uur schrijft:  
+Als u een algemeen gebruiksvoorbeeld voor logboekgegevens tooretrieve een selectie van vermeldingen in het logboek voor een specifieke datum/tijd-bereik is: u kunt bijvoorbeeld toofind alle fout- en kritieke berichten die uw toepassing vastgelegd tussen 15:04 en 15:06 op een specifieke datum Hallo. U niet wilt dat toouse Hallo datum en tijd van Hallo logboek bericht toodetermine Hallo partitie opslaan van entiteiten logboek: dat resulteert in een hot partitie omdat op elk gewenst alle Hallo logboek entiteiten delen Hallo dezelfde **PartitionKey** waarde (Zie de sectie Hallo [antivirusprogramma patroon Prepend/append](#prepend-append-anti-pattern)). Hallo entiteit schema voor een logboekbericht na resulteert bijvoorbeeld in een hot partitie omdat Hallo-toepassing alle logboekberichten toohello partitie voor Hallo huidige datum en uur schrijft:  
 
 ![][28]
 
-In dit voorbeeld wordt de **RowKey** bevat de datum en tijd van het logboekbericht om ervoor te zorgen dat logboekberichten worden opgeslagen in datum/tijd-volgorde gesorteerd en bevat een bericht-id als meerdere logboekberichten de dezelfde datum en tijd delen.  
+In dit voorbeeld Hallo **RowKey** bevat Hallo datum en tijd van Hallo logboek bericht tooensure dat logboekberichten worden opgeslagen in datum/tijd-volgorde gesorteerd en bevat een bericht-id als meerdere logboekberichten delen Hallo dezelfde datum en tijd.  
 
-Een andere manier is het gebruik van een **PartitionKey** die ervoor zorgt dat de toepassing berichten over een reeks partities schrijft. Als de bron van het logboekbericht een manier biedt voor de distributie van berichten over veel partities, kan u bijvoorbeeld het volgende schema voor de entiteit gebruiken:  
+Een andere benadering toouse is een **PartitionKey** die ervoor zorgt dat de toepassing hello berichten over een reeks partities schrijft. Bijvoorbeeld, als Hallo bron van het logboek Hallo-bericht een manier toodistribute berichten over veel partities biedt, kan u Hallo entiteit schema te volgen:  
 
 ![][29]
 
-Het probleem met dit schema is echter voor het ophalen van de logboekberichten voor een bepaalde periode moet u elke partitie zoeken in de tabel.
+Hallo probleem met dit schema is echter dat alle berichten in het logboek voor een bepaalde periode moet u zoeken Hallo tooretrieve elke partitie in de tabel Hallo.
 
 #### <a name="solution"></a>Oplossing
-De vorige sectie het probleem van de tabel-service gebruiken voor het opslaan van logboekvermeldingen en voorgestelde twee onvoldoende, ontwerpen probeert gemarkeerd. Een oplossing heeft geleid tot een hot partitie met het risico van slechte prestaties schrijven logboekberichten; de andere oplossing heeft geresulteerd in slechte queryprestaties vanwege de vereisten voor het scannen van elke partitie in de tabel voor het ophalen van berichten in het logboek voor een bepaalde periode. BLOB storage biedt een betere oplossing voor dit soort scenario en dit is hoe Azure Storage Analytics slaat de logboekgegevens worden verzameld.  
+Hallo vorige sectie gemarkeerde Hallo probleem van toouse probeert tabel service toostore logboekvermeldingen Hallo en twee onvoldoende voorgesteld, ontwerpen. Een oplossing geleid tooa hot partitie met Hallo risico slechte prestaties schrijven logboekberichten; Hallo andere oplossing heeft geresulteerd in slechte queryprestaties vanwege Hallo vereiste tooscan elke partitie in Hallo tabel tooretrieve berichten in het logboek voor een bepaalde periode. BLOB storage biedt een betere oplossing voor dit soort scenario en dit is hoe Azure Storage Analytics winkels Hallo logboekgegevens worden verzameld.  
 
-Deze sectie geeft een overzicht van hoe opslag Analytics logboekgegevens opslaat in de blob-opslag ter illustratie van deze benadering voor het opslaan van gegevens die u doorgaans een query voor het bereik.  
+Deze sectie geeft een overzicht van hoe opslag Analytics logboekgegevens opslaat in de blob-opslag ter illustratie van deze benadering toostoring gegevens die u doorgaans een query voor het bereik.  
 
-Storage Analytics slaat logboekberichten in een indeling met scheidingstekens in meerdere blobs. De indeling gescheiden eenvoudig een clienttoepassing parseren van de gegevens in het logboekbericht.  
+Storage Analytics slaat logboekberichten in een indeling met scheidingstekens in meerdere blobs. Hallo gescheiden indeling kunt u gemakkelijk voor een client toepassingsgegevens tooparse Hallo in logboek het Hallo-bericht.  
 
-Storage Analytics maakt gebruik van een naamgevingsconventie voor blobs die kunt u de blob vinden (of BLOB's) die de berichten in het logboek waarnaar u zoekt bevatten. Een blob met de naam 'queue/2014/07/31/1800/000001.log' bevat bijvoorbeeld logboekberichten die betrekking hebben op de queue-service voor het uur om 18:00 uur op 31 juli 2014 wordt gestart. De '000001' geeft aan dat dit het eerste logboekbestand voor deze periode. Storage Analytics registreert ook de tijdstempel van de eerste en laatste logboekberichten opgeslagen in het bestand als onderdeel van de blob-metagegevens. De API voor blob-opslag kunt u blobs niet in een container op basis van een voorvoegsel vinden: om te zoeken in alle blobs die wachtrij logboekgegevens bevatten voor het beginnen bij 18:00 uur, kunt u het voorvoegsel "wachtrij/2014/07/31/1800."  
+Storage Analytics maakt gebruik van een naamgevingsconventie voor blobs waarmee u toolocate Hallo-blob (of BLOB's) die bevatten Hallo logboekberichten die u zoekt. Een blob met de naam 'queue/2014/07/31/1800/000001.log' bevat bijvoorbeeld logboekberichten die betrekking hebben toohello queue-service voor Hallo uur om 18:00 uur op 31 juli 2014 wordt gestart. Hallo '000001' geeft aan dat dit de eerste logboekbestand Hallo voor deze periode. Storage Analytics registreert ook eerst Hallo tijdstempels Hallo en meld u laatste berichten die in Hallo-bestand wordt opgeslagen als onderdeel van de metagegevens van het Hallo-blob. Hallo API voor blob-opslag kunt u blobs niet in een container op basis van een voorvoegsel vinden: toolocate alle Hallo blobs die wachtrij bevatten meld gegevens voor Hallo uur om 18:00 uur wordt gestart, kunt u Hallo voorvoegsel 'wachtrij/2014/07/31/1800."  
 
-Storage Analytics buffers Meld berichten intern en vervolgens regelmatig updates van de juiste blob of maakt u een nieuw bestand met de meest recente batch van logboekvermeldingen. Dit vermindert het aantal schrijft die deze naar de blob-service moet uitvoeren.  
+Storage Analytics logboekberichten intern buffert en werkt de juiste blob Hallo periodiek of maakt een nieuw bestand met de meest recente batch Hallo van logboekvermeldingen. Hierdoor Hallo aantal schrijfbewerkingen deze toohello blob-service moet uitvoeren.  
 
-Als u een vergelijkbare oplossing in uw eigen toepassing implementeert, moet u rekening houden met het beheren van de verhouding tussen betrouwbaarheid (elke logboekvermelding schrijven naar de blob-opslag als dit gebeurt) en de kosten en schaalbaarheid (buffer updates in uw toepassing en worden geschreven naar blob storage in batches).  
+Als u een vergelijkbare oplossing in uw eigen toepassing implementeert, moet u overwegen hoe toomanage compromis tussen betrouwbaarheid (elke opslag voor toepassingslogboeken vermelding tooblob schrijven als dit gebeurt) en de kosten en schaalbaarheid Hallo (buffer updates in uw toepassing en schrijven van deze tooblob opslag in batches).  
 
 #### <a name="issues-and-considerations"></a>Problemen en overwegingen
-Houd rekening met de volgende punten wanneer u beslist het opslaan van gegevens aan het logboek:  
+Overweeg de volgende punten bij het bepalen hoe de gegevens voor het vastleggen van toostore Hallo:  
 
 * Als u een tabelontwerp dat potentiële hot partities voorkomt maakt, merkt u dat u geen toegang uw logboekgegevens efficiënt tot.  
-* Voor het verwerken van gegevens aan het logboek moet een client vaak veel records laden.  
+* tooprocess gegevens vastleggen, een client moet vaak tooload veel records.  
 * Hoewel logboekgegevens is vaak opgebouwd, kan de blob-opslag een betere oplossing zijn.  
 
 ### <a name="implementation-considerations"></a>Overwegingen bij de implementatie
-Deze sectie worden enkele van de overwegingen op moet letten wanneer u de patronen die zijn beschreven in de vorige secties implementeert beschreven. De meeste van deze sectie bevat voorbeelden geschreven in C# en die gebruikmaken van de Storage-clientbibliotheek (versie 4.3.0 op het moment van schrijven).  
+Deze sectie worden enkele Hallo overwegingen toobear rekening besproken wanneer u Hallo patronen die zijn beschreven in de vorige secties Hallo implementeert. De meeste van deze sectie bevat voorbeelden geschreven in C# en die gebruikmaken van Hallo Storage-clientbibliotheek (versie 4.3.0 op Hallo moment van schrijven).  
 
 ### <a name="retrieving-entities"></a>Entiteiten ophalen
-Zoals beschreven in de sectie [ontwerp voor het uitvoeren van query's](#design-for-querying), de meest efficiënte query is een punt-query. In sommige scenario's moet u mogelijk echter meerdere entiteiten ophalen. Deze sectie beschrijft een aantal algemene benaderingen bij het ophalen van entiteiten met behulp van de Storage-clientbibliotheek.  
+Zoals beschreven in de sectie Hallo [ontwerp voor het uitvoeren van query's](#design-for-querying), Hallo meest efficiënt query is een punt-query. Echter, in sommige gevallen moet u mogelijk tooretrieve meerdere entiteiten. Deze sectie beschrijft een aantal algemene benaderingen tooretrieving entiteiten Hallo Storage-clientbibliotheek gebruiken.  
 
-#### <a name="executing-a-point-query-using-the-storage-client-library"></a>Uitvoeren van een punt-query met behulp van de Storage-clientbibliotheek
-De eenvoudigste manier om het uitvoeren van een punt-query is met de **ophalen** bewerking tabel, zoals wordt weergegeven in het volgende C# codefragment die ophaalt van een entity met een **PartitionKey** van de waarde 'Verkoop' en een **RowKey** van de waarde '212':  
+#### <a name="executing-a-point-query-using-hello-storage-client-library"></a>Uitvoeren van een punt-query Hallo Storage-clientbibliotheek
+Hallo gemakkelijkste manier tooexecute een punt-query is toouse hello **ophalen** bewerking tabel, zoals wordt weergegeven in de volgende C#-codefragment Hallo die ophaalt van een entity met een **PartitionKey** van de waarde 'verkoop' en een  **RowKey** van de waarde '212':  
 
 ```csharp
 TableOperation retrieveOperation = TableOperation.Retrieve<EmployeeEntity>("Sales", "212");
@@ -959,10 +959,10 @@ if (retrieveResult.Result != null)
 }  
 ```
 
-U ziet hoe de entiteit in dit voorbeeld worden verwacht opgehaald om te worden van het type **EmployeeEntity**.  
+U ziet hoe in dit voorbeeld Hallo entiteit verwacht het ophalen van toobe van het type **EmployeeEntity**.  
 
 #### <a name="retrieving-multiple-entities-using-linq"></a>Bij het ophalen van meerdere entiteiten met behulp van LINQ
-U kunt meerdere entiteiten ophalen met behulp van LINQ met Storage-clientbibliotheek en het opgeven van een query met een **waar** component. Om te voorkomen dat een tabelscan, moet u altijd opnemen de **PartitionKey** waarde in de where-component, en indien mogelijk de **RowKey** waarde om te voorkomen dat de tabel en partitie scans. De tabelservice ondersteunt een beperkte set vergelijkingsoperators (groter dan groter dan of gelijk is, minder dan, kleiner dan of gelijk zijn, gelijk en niet gelijk) te gebruiken in de where component. De volgende C#-codefragment vindt alle werknemers waarvan de laatste naam begint met "B" (ervan uitgaande dat de **RowKey** slaat de achternaam) in de afdeling verkoop (ervan uitgaande dat de **PartitionKey** slaat de afdelingsnaam):  
+U kunt meerdere entiteiten ophalen met behulp van LINQ met Storage-clientbibliotheek en het opgeven van een query met een **waar** component. een tabelscan tooavoid, moet u altijd Hallo opnemen **PartitionKey** waarde in Hallo waar component, en indien mogelijk Hallo **RowKey** tooavoid tabel en partitie scans waarde. Hallo tabelservice ondersteunt een beperkte set vergelijking operators (groter dan groter dan of gelijk is, minder dan, kleiner dan of gelijk zijn, gelijk en niet gelijk) toouse in Hallo waar component. Hallo volgende C#-codefragment vindt alle Hallo werknemers waarvan de laatste naam begint met "B" (ervan uitgaande dat Hallo **RowKey** winkels Hallo achternaam) van de verkoopafdeling Hallo (ervan uitgaande dat Hallo **PartitionKey** slaat de naam van de afdeling Hallo):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();
@@ -974,9 +974,9 @@ var query = (from employee in employeeQuery
 var employees = query.Execute();  
 ```
 
-U ziet hoe de query is zowel een **RowKey** en een **PartitionKey** betere prestaties te garanderen.  
+U ziet hoe Hallo-query is zowel een **RowKey** en een **PartitionKey** tooensure betere prestaties.  
 
-Het volgende codevoorbeeld toont dezelfde functionaliteit beheersen API gebruiken (Zie voor meer informatie over beheersen API's in het algemeen [aanbevolen procedures voor het ontwerpen van een beheersen API](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
+Hallo volgende codevoorbeeld toont dezelfde functionaliteit Hallo beheersen API gebruiken (Zie voor meer informatie over beheersen API's in het algemeen [aanbevolen procedures voor het ontwerpen van een beheersen API](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(
@@ -996,18 +996,18 @@ var employees = employeeTable.ExecuteQuery(employeeQuery);
 ```
 
 > [!NOTE]
-> Het voorbeeld worden genest meerdere **CombineFilters** methoden voor het opnemen van de drie filtervoorwaarden.  
+> Hallo voorbeeld worden genest meerdere **CombineFilters** methoden tooinclude Hallo drie filtervoorwaarden.  
 > 
 > 
 
 #### <a name="retrieving-large-numbers-of-entities-from-a-query"></a>Groot aantal entiteiten ophalen uit een query
-Een optimale query retourneert een afzonderlijke entiteit op basis van een **PartitionKey** waarde en een **RowKey** waarde. In sommige scenario's hebben u echter een vereiste is te groot aantal entiteiten retourneren vanuit dezelfde partitie of zelfs via veel partities.  
+Een optimale query retourneert een afzonderlijke entiteit op basis van een **PartitionKey** waarde en een **RowKey** waarde. Echter, in sommige scenario's wellicht hebt u een vereiste tooreturn veel entiteiten van Hallo dezelfde partitie of zelfs van veel partities.  
 
-In dergelijke gevallen moet u altijd volledig de prestaties van uw toepassing testen.  
+In dergelijke gevallen moet u altijd volledig Hallo prestaties van uw toepassing testen.  
 
-Een query op de tabelservice kan maximaal 1000 entiteiten in één keer worden geretourneerd en wordt uitgevoerd voor een maximum van vijf seconden. Als de resultatenset bevat meer dan 1000 entiteiten, als de query is niet voltooid binnen vijf seconden, of als de query overschrijdt de grens van de partitie is, retourneert de tabel-service een vervolgtoken zodat de clienttoepassing om aan te vragen van de volgende set van entiteiten. Zie voor meer informatie over hoe voortzetting werk tokens [querytime-out en paginering](http://msdn.microsoft.com/library/azure/dd135718.aspx).  
+Een query op Hallo tabelservice kan maximaal 1000 entiteiten in één keer worden geretourneerd en wordt uitgevoerd voor een maximum van vijf seconden. Als hello resultatenset bevat meer dan 1000 entiteiten, als Hallo-query is niet voltooid binnen vijf seconden, of als Hallo query grens van de partitie hello overschrijdt, Hallo tabel-service retourneert een voortzetting token tooenable toorequest Hallo van client-toepassing hello volgende set van entiteiten. Zie voor meer informatie over hoe voortzetting werk tokens [querytime-out en paginering](http://msdn.microsoft.com/library/azure/dd135718.aspx).  
 
-Als u de Storage-clientbibliotheek gebruikt, kan deze automatisch voortzetting tokens voor u verwerken als deze entiteiten uit de tabelservice retourneert. De volgende C# voorbeeldcode met behulp van de Storage-clientbibliotheek automatisch verwerkt voortzetting tokens als de tabelservice die in een antwoord retourneert:  
+Als u Hallo Storage-clientbibliotheek gebruikt, kan automatisch verwerken voortzetting tokens voor u als deze entiteiten van Hallo tabel-service retourneert. Hallo verwerkt C# codevoorbeeld Hallo Storage-clientbibliotheek automatisch met voortzetting tokens als Hallo tabelservice ze in een antwoord geretourneerd:  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition(
@@ -1022,7 +1022,7 @@ foreach (var emp in employees)
 }  
 ```
 
-De volgende C#-code voortzetting tokens expliciet worden verwerkt:  
+Hallo volgende C#-code voortzetting tokens expliciet worden verwerkt:  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition(
@@ -1044,25 +1044,25 @@ do
 } while (continuationToken != null);  
 ```
 
-Voortzetting tokens expliciet gebruikt, kunt u bepalen wanneer de toepassing wordt het volgende segment van gegevens wordt opgehaald. Bijvoorbeeld, als uw clienttoepassing kan gebruikers op de pagina via de entiteiten die zijn opgeslagen in een tabel, een gebruiker kan niet meer wilt pagina via de entiteiten die zijn opgehaald door de query zodat uw toepassing een vervolgtoken alleen gebruiken zou voor het ophalen van het volgende segment wanneer de gebruiker had voltooid paging via alle entiteiten in het huidige segment. Deze methode biedt verschillende voordelen:  
+Voortzetting tokens expliciet gebruikt, kunt u bepalen wanneer uw toepassing hello volgende segment van de gegevens opgehaald. Bijvoorbeeld, als u de clienttoepassing kan gebruikers toopage via Hallo entiteiten die zijn opgeslagen in een tabel, kan een gebruiker besluiten niet toopage via alle Hallo entiteiten opgehaald door Hallo query zodat uw toepassing zou een voortzetting token tooretrieve Hallo alleen naast gebruiken segment wanneer Hallo gebruiker paging via alle Hallo entiteiten in het huidige segment Hallo was voltooid. Deze methode biedt verschillende voordelen:  
 
-* Hiermee kunt u de hoeveelheid gegevens op te halen uit de tabel-service beperken en die u via het netwerk verplaatst.  
-* Hiermee kunt u het uitvoeren van asynchrone IO in .NET.  
-* Hiermee kunt u voor het serialiseren van het vervolgtoken naar de permanente opslag zodat u kunt doorgaan in het geval van een toepassing is vastgelopen.  
+* Hiermee kunt u toolimit Hallo hoeveelheid gegevens tooretrieve van Hallo tabelservice en via Hallo netwerk te verplaatsen.  
+* Hiermee kunt u tooperform asynchrone i/o in .NET.  
+* Hiermee kunt u tooserialize Hallo voortzetting token toopersistent opslag zodat u kunt doorgaan in Hallo-gebeurtenis van een toepassing is vastgelopen.  
 
 > [!NOTE]
-> Een vervolgtoken retourneert doorgaans een segment met 1000 entiteiten, hoewel deze mogelijk minder. Dit is ook het geval als u het aantal vermeldingen met behulp van een query retourneert beperken **nemen** te retourneren van de eerste n entiteiten die voldoen aan uw criteria lookup: de tabelservice kan een segment met minder dan n entiteiten samen met een vervolgtoken waarmee u kunt de resterende entiteiten ophalen geretourneerd.  
+> Een vervolgtoken retourneert doorgaans een segment met 1000 entiteiten, hoewel deze mogelijk minder. Dit is ook Hallo geval als u het aantal vermeldingen met behulp van een query retourneert Hallo beperken **nemen** tooreturn Hallo eerste n entiteiten die voldoen aan uw criteria lookup: Hallo tabel-service kan een segment met minder dan n entiteiten langs retourneren met een token tooenable voortzetting Hallo u tooretrieve resterende entiteiten.  
 > 
 > 
 
-De volgende C#-code wordt getoond hoe u het aantal entiteiten die zijn geretourneerd binnen een segment wijzigen:  
+Hallo ziet volgende C#-code u hoe toomodify Hallo aantal entiteiten dat is geretourneerd binnen een segment:  
 
 ```csharp
 employeeQuery.TakeCount = 50;  
 ```
 
 #### <a name="server-side-projection"></a>Projectie-serverzijde
-Één entiteit kan maximaal 255 eigenschappen hebben en maximaal 1 MB groot zijn. Wanneer u een query uitvoeren op de tabel en entiteiten ophalen, moet u wellicht niet alle eigenschappen en ervaren onnodig (als u wilt verminderen en de kosten van latentie) kunt voorkomen. U kunt serverzijde projectie gebruiken om over te dragen alleen de eigenschappen die u nodig hebt. Het volgende voorbeeld is haalt alleen de **e** eigenschap (samen met **PartitionKey**, **RowKey**, **tijdstempel**, en **ETag**) van de entiteiten die zijn geselecteerd door de query.  
+Één entiteit kunt too255 eigenschappen en too1 MB groot zijn. Wanneer u een query uitvoeren op tabel Hallo en entiteiten ophalen, u niet alle Hallo eigenschappen nodig en kunt voorkomen dat de gegevensoverdracht onnodig (toohelp verminderen en de kosten van latentie). U kunt serverzijde projectie tootransfer alleen Hallo-eigenschappen die u nodig hebt. Hallo volgende voorbeeld is er Hallo NET haalt **e** eigenschap (samen met **PartitionKey**, **RowKey**, **tijdstempel**, en  **ETag**) van Hallo entiteiten die zijn geselecteerd door Hallo-query.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition(
@@ -1078,30 +1078,30 @@ foreach (var e in entities)
 }  
 ```
 
-U ziet hoe de **RowKey** waarde is beschikbaar, zelfs als deze niet is opgenomen in de lijst met eigenschappen om op te halen.  
+U ziet hoe Hallo **RowKey** waarde is beschikbaar, zelfs als deze niet is opgenomen in de lijst van eigenschappen tooretrieve Hallo.  
 
 ### <a name="modifying-entities"></a>Entiteiten wijzigen
-De Storage-clientbibliotheek kunt u de entiteiten die zijn opgeslagen in de tabelservice door invoegen, verwijderen en bijwerken van entiteiten wijzigen. U kunt EGTs batch meerdere insert, update en delete-bewerkingen samen in Verminder het aantal retouren vereist en de prestaties van uw oplossing verbeteren.  
+Hallo Storage-clientbibliotheek kunt u toomodify uw entiteiten in de tabelservice Hallo door invoegen opgeslagen, verwijderen en bijwerken entiteiten. U kunt EGTs toobatch meerdere insert, update en delete-bewerkingen samen tooreduce Hallo aantal retouren vereist en de prestaties van uw oplossing Hallo verbeteren.  
 
-Rekening mee dat uitzonderingen die worden gegenereerd wanneer de Opslagclientbibliotheek wordt uitgevoerd een EGT doorgaans de index van de entiteit die de batch mislukken veroorzaakt. Dit is handig wanneer u code die gebruikmaakt van EGTs foutopsporing.  
+Rekening mee dat uitzonderingen wanneer Hallo Storage-clientbibliotheek wordt uitgevoerd een EGT doorgaans Hallo index van Hallo-entiteit die Hallo batch toofail veroorzaakt. Dit is handig wanneer u code die gebruikmaakt van EGTs foutopsporing.  
 
 U moet ook overwegen hoe uw ontwerp is van invloed op hoe de clienttoepassing gelijktijdigheid van taken en updatebewerkingen verwerkt.  
 
 #### <a name="managing-concurrency"></a>Gelijktijdigheid van taken beheren
-Standaard implementeert de tabelservice optimistische gelijktijdigheid controleert op het niveau van afzonderlijke entiteiten voor **invoegen**, **samenvoegen**, en **verwijderen** bewerkingen, hoewel het mogelijk voor een client om af te dwingen van de tabelservice voor het overslaan van deze controles. Zie voor meer informatie over hoe de tabelservice gelijktijdigheid beheert [gelijktijdigheid beheren in Microsoft Azure Storage](../storage/common/storage-concurrency.md).  
+Standaard Hallo tabelservice implementeert optimistische gelijktijdigheid controleert op Hallo niveau van afzonderlijke entiteiten voor de **invoegen**, **samenvoegen**, en **verwijderen** -bewerkingen Hoewel het mogelijk voor een client tooforce Hallo tabel service toobypass deze controles. Zie voor meer informatie over hoe de tabelservice Hallo gelijktijdigheid beheert [gelijktijdigheid beheren in Microsoft Azure Storage](../storage/common/storage-concurrency.md).  
 
 #### <a name="merge-or-replace"></a>Samenvoegen of vervangen
-De **vervangen** methode van de **TableOperation** klasse altijd vervangen door de volledige entiteit in de tabel-service. Als u geen een eigenschap in de aanvraag wanneer deze eigenschap in de opgeslagen entiteit bestaat, wordt in de aanvraag die eigenschap verwijdert uit de opgeslagen entiteit. Tenzij u een eigenschap expliciet verwijderen uit een opgeslagen entiteit wilt, moet u elke eigenschap opnemen in de aanvraag.  
+Hallo **vervangen** methode Hallo **TableOperation** klasse altijd Hallo volledige entiteit in Hallo tabelservice vervangt. Als u geen een eigenschap in Hallo aanvraag wanneer deze eigenschap in Hallo opgeslagen entiteit bestaat, verwijdert Hallo aanvraag dat eigenschap uit Hallo entiteit opgeslagen. Tenzij u een eigenschap van een opgeslagen entiteit expliciet tooremove wilt, moet u elke eigenschap opnemen in Hallo-aanvraag.  
 
-U kunt de **samenvoegen** methode van de **TableOperation** klasse om te verminderen de hoeveelheid gegevens die u naar de tabel-service verzendt wanneer u wilt bijwerken van een entiteit. De **samenvoegen** methode alle eigenschappen in de opgeslagen entiteit vervangen door waarden van eigenschappen van de entiteit die is opgenomen in de aanvraag, maar blijft behouden alle eigenschappen in de opgeslagen entiteit die niet zijn opgenomen in de aanvraag. Dit is handig als u grote entiteiten en hoeft slechts een klein aantal eigenschappen in een aanvraag bijwerken.  
+U kunt Hallo **samenvoegen** methode Hallo **TableOperation** klasse tooreduce Hallo hoeveelheid gegevens die u toohello tabelservice verzendt als u wilt dat tooupdate een entiteit. Hallo **samenvoegen** methode vervangt alle eigenschappen in Hallo opgeslagen entiteit met eigenschapswaarden van Hallo entiteit in Hallo aanvraag opgenomen, maar blijft intact alle eigenschappen in Hallo opgeslagen entiteit die niet zijn opgenomen in het Hallo-aanvraag. Dit is handig als u grote entiteiten en hoeft alleen tooupdate een klein aantal eigenschappen in een aanvraag.  
 
 > [!NOTE]
-> De **vervangen** en **samenvoegen** twee methoden mislukken als de entiteit niet bestaat. Als alternatief kunt u de **InsertOrReplace** en **InsertOrMerge** methoden die nieuwe entiteit maken als deze niet bestaat.  
+> Hallo **vervangen** en **samenvoegen** twee methoden mislukken als Hallo entiteit niet bestaat. Als alternatief kunt u Hallo **InsertOrReplace** en **InsertOrMerge** methoden die nieuwe entiteit maken als deze niet bestaat.  
 > 
 > 
 
 ### <a name="working-with-heterogeneous-entity-types"></a>Werken met heterogene Entiteitstypen
-De tabel-service is een *schema minder* tabel archief dat betekent dat één tabel entiteiten van meerdere typen bieden geweldige flexibiliteit in uw ontwerp kunt opslaan. Het volgende voorbeeld wordt een tabel die het opslaan van zowel werknemer en entiteiten van de afdeling:  
+Hallo tabel-service is een *schema minder* tabel archief dat betekent dat één tabel entiteiten van meerdere typen bieden geweldige flexibiliteit in uw ontwerp kunt opslaan. Hallo wordt volgende voorbeeld een tabel die het opslaan van zowel werknemer en entiteiten van de afdeling:  
 
 <table>
 <tr>
@@ -1190,10 +1190,10 @@ De tabel-service is een *schema minder* tabel archief dat betekent dat één tab
 </tr>
 </table>
 
-Denk eraan dat elke entiteit moet nog steeds **PartitionKey**, **RowKey**, en **tijdstempel** waarden, maar mogelijk elke gewenste set eigenschappen. Bovendien, er is niets om aan te geven van het type van een entiteit, tenzij u ervoor kiest die gegevens ergens op te slaan. Er zijn twee opties voor het identificeren van het entiteitstype:  
+Denk eraan dat elke entiteit moet nog steeds **PartitionKey**, **RowKey**, en **tijdstempel** waarden, maar mogelijk elke gewenste set eigenschappen. Bovendien, er is niets tooindicate Hallo Typ van een entiteit, tenzij u toostore ergens die informatie. Er zijn twee opties voor het entiteitstype Hallo identificeren:  
 
-* Toevoegen van het entiteitstype voor de **RowKey** (of mogelijk de **PartitionKey**). Bijvoorbeeld: **EMPLOYEE_000123** of **DEPARTMENT_SALES** als **RowKey** waarden.  
-* Gebruik een afzonderlijke eigenschap voor het vastleggen van het entiteitstype, zoals wordt weergegeven in de onderstaande tabel.  
+* Toevoegen van Hallo entiteit type toohello **RowKey** (of mogelijk Hallo **PartitionKey**). Bijvoorbeeld: **EMPLOYEE_000123** of **DEPARTMENT_SALES** als **RowKey** waarden.  
+* Gebruik een afzonderlijke eigenschap toorecord Hallo entiteitstype zoals weergegeven in onderstaande tabel voor Hallo.  
 
 <table>
 <tr>
@@ -1290,23 +1290,23 @@ Denk eraan dat elke entiteit moet nog steeds **PartitionKey**, **RowKey**, en **
 </tr>
 </table>
 
-De eerste optie, de entiteit prepending type de **RowKey**, is handig als er een kans bestaat dat twee entiteiten met verschillende typen wellicht dezelfde sleutelwaarde. Deze groepen ook entiteiten van hetzelfde type samen in de partitie.  
+Hallo eerste optie voorafgaand Hallo entiteit type toohello **RowKey**, is handig als er twee entiteiten met verschillende typen wellicht Hallo mogelijkheid dezelfde sleutelwaarde. Deze groepen ook entiteiten van het Hallo dezelfde Typ samen in Hallo-partitie.  
 
-De technieken beschreven in deze sectie zijn vooral relevant zijn voor de bespreking van de [relaties voor overname](#inheritance-relationships) eerder in deze handleiding in de sectie [modellering relaties](#modelling-relationships).  
+Hallo technieken die worden besproken in deze sectie zijn vooral van belang toohello discussie [relaties voor overname](#inheritance-relationships) eerder in deze handleiding in de sectie Hallo [modellering relaties](#modelling-relationships).  
 
 > [!NOTE]
-> U moet rekening houden met inbegrip van een uniek versienummer op in de waarde van het type entiteit zodat clienttoepassingen ontwikkelen POCO-objecten en werken met verschillende versies.  
+> U moet overwegen een versienummer in Hallo entiteit waarde tooenable client toepassingen tooevolve POCO objecten van het type en werken met verschillende versies.  
 > 
 > 
 
-De rest van deze sectie beschrijft een aantal van de functies in de Storage-clientbibliotheek die werken met meerdere Entiteitstypen in dezelfde tabel vergemakkelijken.  
+Hallo rest van deze sectie beschrijft een aantal van Hallo-functies in Hallo Storage-clientbibliotheek waarmee u eenvoudiger werken met meerdere Entiteitstypen in Hallo dezelfde tabel.  
 
 #### <a name="retrieving-heterogeneous-entity-types"></a>Heterogene Entiteitstypen ophalen
-Als u van de Storage-clientbibliotheek gebruikmaakt, hebt u drie opties voor het werken met meerdere Entiteitstypen.  
+Als u van Hallo Storage-clientbibliotheek gebruikmaakt, hebt u drie opties voor het werken met meerdere Entiteitstypen.  
 
-Als u welk type van de entiteit die is opgeslagen met een specifieke weet **RowKey** en **PartitionKey** waarden, daarna u het entiteitstype opgeven kunt wanneer u de entiteit ophalen, zoals wordt weergegeven in de vorige twee voorbeelden die entiteiten van het type ophalen **EmployeeEntity**: [uitvoeren van een punt-query met behulp van de Storage-clientbibliotheek](#executing-a-point-query-using-the-storage-client-library) en [bij het ophalen van meerdere entiteiten met behulp van LINQ](#retrieving-multiple-entities-using-linq).  
+Als u Hallo type Hallo entiteit opgeslagen met een specifieke weet **RowKey** en **PartitionKey** waarden, daarna u het entiteitstype Hallo opgeven kunt wanneer u Hallo entiteit ophalen, zoals wordt weergegeven in de vorige twee Hallo voorbeelden waarmee entiteiten van het type opgehaald **EmployeeEntity**: [uitvoeren van een punt-query Hallo Storage-clientbibliotheek](#executing-a-point-query-using-the-storage-client-library) en [bij het ophalen van meerdere entiteiten met behulp van LINQ](#retrieving-multiple-entities-using-linq).  
 
-De tweede optie is met de **DynamicTableEntity** type (een eigenschappenverzameling) in plaats van een concreet POCO entiteitstype (deze optie ook de prestaties mogelijk verbeterd omdat het is niet nodig voor het serialiseren en deserialiseren van de entiteit .NET-typen). De volgende C#-code mogelijk meerdere entiteiten met verschillende typen opgehaald uit de tabel, maar retourneert alle entiteiten als **DynamicTableEntity** exemplaren. Vervolgens wordt de **EntityType** eigenschap om te bepalen van het type van elke entiteit:  
+de tweede optie Hallo is toouse hello **DynamicTableEntity** type (een eigenschappenverzameling) in plaats van een concreet type zijn POCO entiteit (deze optie kan ook de prestaties verbeteren omdat er geen noodzaak tooserialize en Hallo entiteit te deserialiseren. NET typen). Hallo C#-code mogelijk na meerdere entiteiten met verschillende typen opgehaald uit de tabel hello, maar retourneert alle entiteiten als **DynamicTableEntity** exemplaren. Vervolgens wordt Hallo **EntityType** toodetermine Hallo eigenschapstype van elke entiteit:  
 
 ```csharp
 string filter = TableQuery.CombineFilters(
@@ -1339,9 +1339,9 @@ if (e.Properties.TryGetValue("EntityType", out entityTypeProperty))
 }  
 ```
 
-Houd er rekening mee dat voor het ophalen van andere eigenschappen moet u de **TryGetValue** methode op de **eigenschappen** eigenschap van de **DynamicTableEntity** klasse.  
+Houd er rekening mee dat tooretrieve andere eigenschappen moet u Hallo **TryGetValue** methode op Hallo **eigenschappen** eigenschap Hallo **DynamicTableEntity** klasse.  
 
-Een derde optie is om te combineren met behulp van de **DynamicTableEntity** type en een **EntityResolver** exemplaar. Hiermee kunt u omzetten in meerdere POCO-typen in dezelfde query. In dit voorbeeld wordt de **EntityResolver** gemachtigde maakt gebruik van de **EntityType** eigenschap onderscheid maken tussen de twee typen entiteit die de query retourneert. De **los** methode gebruikt de **resolver** gemachtigde om op te lossen **DynamicTableEntity** exemplaren te **TableEntity** exemplaren.  
+Een derde optie is toocombine met Hallo **DynamicTableEntity** type en een **EntityResolver** exemplaar. Hiermee kunt u tooresolve toomultiple POCO typen in Hallo dezelfde query. In dit voorbeeld Hallo **EntityResolver** gemachtigde met behulp van Hallo **EntityType** eigenschap toodistinguish tussen Hallo twee soorten entiteit die Hallo query retourneert. Hallo **los** methode maakt gebruik van Hallo **resolver** delegeren tooresolve **DynamicTableEntity** exemplaren te**TableEntity** exemplaren.  
 
 ```csharp
 EntityResolver<TableEntity> resolver = (pk, rk, ts, props, etag) =>
@@ -1386,7 +1386,7 @@ foreach (var e in entities)
 ```
 
 #### <a name="modifying-heterogeneous-entity-types"></a>Heterogene Entiteitstypen wijzigen
-U hoeft niet te weten van het type van een entiteit wilt verwijderen en u het type van een entiteit altijd weet wanneer u het invoegen. U kunt echter **DynamicTableEntity** type zonder te weten van het type en zonder gebruik van een POCO-entiteitsklasse bijwerken van een entiteit. Het volgende codevoorbeeld één entiteit worden opgehaald en controleert de **EmployeeCount** eigenschap bestaat voordat u het bijwerkt.  
+U hoeft niet tooknow Hallo-type van een entiteit toodelete en u altijd weet Hallo-type van een entiteit wanneer u het invoegen. U kunt echter **DynamicTableEntity** typt u een entiteit tooupdate zonder te weten van het type en zonder gebruik van een POCO-entiteitsklasse. Hallo codevoorbeeld één entiteit worden opgehaald en wordt gecontroleerd Hallo **EmployeeCount** eigenschap bestaat voordat u het bijwerkt.  
 
 ```csharp
 TableResult result =
@@ -1405,23 +1405,23 @@ employeeTable.Execute(TableOperation.Merge(department));
 ```
 
 ### <a name="controlling-access-with-shared-access-signatures"></a>Beheren van toegang met handtekeningen voor gedeelde toegang
-Shared Access Signature (SAS)-tokens kunt u toepassingen die client te wijzigen (en een query) tabelentiteiten rechtstreeks zonder de noodzaak om te verifiëren rechtstreeks met de tabelservice. Er zijn in principe drie belangrijke voordelen bij SAS gebruiken in uw toepassing:  
+U kunt gebruikt Shared Access Signature (SAS) tokens tooenable client toepassingen toomodify (en query's) tabelentiteiten rechtstreeks zonder Hallo nodig tooauthenticate rechtstreeks met de service Hallo-tabel. Er zijn in principe drie belangrijke voordelen toousing SAS in uw toepassing:  
 
-* U hoeft niet te distribueren naar een onbeveiligde platform (zoals een mobiel apparaat) sleutel van uw opslagaccount als u wilt toestaan dat het apparaat te openen en te wijzigen van de entiteiten in de tabel-service.  
-* U kunt offload deel van het werk die web-en werkrollen uitvoeren bij het beheren van uw entiteiten op clientapparaten zoals eindgebruikers, computers en mobiele apparaten.  
-* U kunt een beperkte toewijzen en tijd beperkt set machtigingen voor een client (zoals alleen-lezen toegang tot specifieke bronnen toe te staan).  
+* U hoeft geen toodistribute uw opslag rekening sleutel tooan onbeveiligde platform (zoals een mobiel apparaat) in de volgorde tooallow die tooaccess apparaat en entiteiten in Hallo service tabel wijzigen.  
+* U kunt offload Hallo werk dat web en werkrollen uitvoeren bij het beheren van uw apparaten entiteiten tooclient zoals eindgebruikers, computers en mobiele apparaten.  
+* U kunt een beperkte toewijzen en tijd beperkt set machtigingen tooa client (zoals het toestaan van alleen-lezen toegang toospecific resources).  
 
-Zie voor meer informatie over het gebruik van SAS-tokens met de tabelservice [met behulp van Shared Access Signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
+Zie voor meer informatie over het gebruik van SAS-tokens met Hallo tabelservice [met behulp van Shared Access Signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
 
-Echter, moet u nog steeds de SAS-tokens die de entiteiten in de tabelservice een clienttoepassing verlenen genereren: u moet dit doen in een omgeving met veilige toegang tot uw toegangscodes voor opslag. Normaal, gebruikt u een web- of worker-rol voor het genereren van de SAS-tokens en ervoor zorgen dat ze de clienttoepassingen die toegang nodig tot de entiteiten. Omdat er nog steeds een overhead voor het genereren en leveren van SAS-tokens op clients, moet u het beste aan deze overhead, met name in grootschalige scenario's verminderen.  
+Echter, moet u nog steeds Hallo SAS-tokens die een client toepassing toohello entiteiten in de tabelservice Hallo verlenen genereren: u moet dit doen in een omgeving die toegang tot de opslagaccountsleutels tooyour heeft beveiligde. Meestal gebruikt u een web- of worker-rol toogenerate Hallo SAS-tokens en bieden ze toohello clienttoepassingen die toegang moeten hebben tot tooyour entiteiten. Omdat er nog steeds een overhead voor het genereren en SAS-tokens tooclients leveren, moet u het beste tooreduce deze overhead, met name in grootschalige scenario's.  
 
-Het is mogelijk om een SAS-token die toegang tot een subset van de entiteiten in een tabel verleent te genereren. U maakt standaard een SAS-token voor een hele tabel, maar het is ook mogelijk om op te geven dat het SAS-token toegang verlenen tot een bereik van **PartitionKey** waarden of een bereik van **PartitionKey** en **RowKey** waarden. U kunt selecteren voor het genereren van SAS-tokens voor afzonderlijke gebruikers van uw systeem dat de SAS-token van elke gebruiker kan alleen ze toegang tot hun eigen entiteiten in de tabelservice.  
+Het is mogelijk toogenerate een SAS-token dat verleent toegang tooa subset van Hallo entiteiten in een tabel tot. U maakt standaard een SAS-token voor een hele tabel, maar het is ook mogelijk toospecify die Hallo SAS-token verlenen toegang tooeither een reeks **PartitionKey** waarden of een bereik van **PartitionKey** en  **RowKey** waarden. U kunt ervoor kiezen toogenerate SAS-tokens voor afzonderlijke gebruikers van uw systeem dat elke gebruiker SAS-token kan ze alleen toegang tootheir eigen entiteiten in Hallo tabelservice.  
 
 ### <a name="asynchronous-and-parallel-operations"></a>Asynchrone en parallelle bewerkingen
 Mits u kunt uw verzoeken om te worden verspreid over meerdere partities, kunt u de doorvoer en client reactiesnelheid verbeteren met behulp van asynchrone of parallelle query's.
-U wellicht bijvoorbeeld twee of meer werkprocessen rolinstanties toegang krijgen tot uw tabellen parallel. U kunt afzonderlijke werkrollen die verantwoordelijk zijn voor bepaalde sets van partities hebben of gewoon hebben meerdere worker rolinstanties, elke toegang kunnen krijgen tot alle partities in een tabel.  
+U wellicht bijvoorbeeld twee of meer werkprocessen rolinstanties toegang krijgen tot uw tabellen parallel. U kunt afzonderlijke werkrollen die verantwoordelijk zijn voor bepaalde sets van partities hebben of hoeven er meerdere exemplaren van worker-rol, elke kunnen tooaccess alle partities in een tabel Hallo.  
 
-U kunt binnen een clientexemplaar doorvoer verbeteren door opslagbewerkingen asynchroon uitgevoerd. De Storage-clientbibliotheek kunt eenvoudig schrijven van asynchrone query's en wijzigingen. Bijvoorbeeld, kunt u bijvoorbeeld starten met de synchrone methode die alle entiteiten in een partitie haalt zoals weergegeven in de volgende C#-code:  
+U kunt binnen een clientexemplaar doorvoer verbeteren door opslagbewerkingen asynchroon uitgevoerd. Hallo Storage-clientbibliotheek kunt u eenvoudig toowrite asynchrone query's en wijzigingen. U kunt bijvoorbeeld beginnen met Hallo de synchrone methode die alle Hallo entiteiten in een partitie ophalen, zoals wordt weergegeven in de volgende C#-code Hallo:  
 
 ```csharp
 private static void ManyEntitiesQuery(CloudTable employeeTable, string department)
@@ -1446,7 +1446,7 @@ private static void ManyEntitiesQuery(CloudTable employeeTable, string departmen
 }  
 ```
 
-U kunt deze code eenvoudig wijzigen zodat de query wordt asynchroon als volgt uitgevoerd:  
+U kunt deze code eenvoudig wijzigen zodat deze query hello wordt asynchroon als volgt uitgevoerd:  
 
 ```csharp
 private static async Task ManyEntitiesQueryAsync(CloudTable employeeTable, string department)
@@ -1470,16 +1470,16 @@ private static async Task ManyEntitiesQueryAsync(CloudTable employeeTable, strin
 }  
 ```
 
-In dit voorbeeld asynchrone ziet u de volgende wijzigingen van de synchrone versie:  
+In dit voorbeeld asynchrone ziet u Hallo volgende wijzigingen uit Hallo synchrone versie:  
 
-* Handtekening van de methode bevat nu de **asynchrone** aanpassingsfunctie en retourneert een **taak** exemplaar.  
-* In plaats van aanroepen de **ExecuteSegmented** methode voor het ophalen van de resultaten van de methode nu roept de **ExecuteSegmentedAsync** methode en gebruikt de **await** aanpassingsfunctie resultaten asynchroon ophalen.  
+* Hallo methodehandtekening bevat nu Hallo **asynchrone** aanpassingsfunctie en retourneert een **taak** exemplaar.  
+* In plaats van aanroepen Hallo **ExecuteSegmented** methode tooretrieve resultaten, Hallo methode nu aanroepen Hallo **ExecuteSegmentedAsync** methode en maakt gebruik van Hallo **await** Wijzigingsfunctie tooretrieve asynchroon resulteert.  
 
-De clienttoepassing kan deze methode niet aanroepen meerdere keren (met verschillende waarden voor de **afdeling** parameter), en elke query wordt uitgevoerd op een afzonderlijke thread.  
+Hallo-clienttoepassing kan deze methode niet aanroepen meerdere keren (met verschillende waarden voor Hallo **afdeling** parameter), en elke query wordt uitgevoerd op een afzonderlijke thread.  
 
-Houd er rekening mee dat er geen asynchrone versie van is de **Execute** methode in de **TableQuery** klasse omdat de **IEnumerable** interface ondersteunt geen asynchrone opsomming.  
+Houd er rekening mee dat er geen asynchrone versie Hallo is **Execute** methode in Hallo **TableQuery** klasse omdat Hallo **IEnumerable** interface ondersteunt geen asynchrone opsomming.  
 
-U kunt invoegen, bijwerken en verwijderen van entiteiten asynchroon. De volgende C#-voorbeeld ziet u een eenvoudige, synchrone methode invoegen of vervangen van een werknemer entiteit:  
+U kunt invoegen, bijwerken en verwijderen van entiteiten asynchroon. Hallo volgende C#-voorbeeld ziet u een eenvoudige, synchrone methode tooinsert of vervangen van een werknemer entiteit:  
 
 ```csharp
 private static void SimpleEmployeeUpsert(CloudTable employeeTable,
@@ -1491,7 +1491,7 @@ private static void SimpleEmployeeUpsert(CloudTable employeeTable,
 }  
 ```
 
-U kunt deze code eenvoudig wijzigen zodat de update wordt asynchroon als volgt uitgevoerd:  
+U kunt deze code eenvoudig wijzigen zodat Hallo update wordt asynchroon als volgt uitgevoerd:  
 
 ```csharp
 private static async Task SimpleEmployeeUpsertAsync(CloudTable employeeTable,
@@ -1503,17 +1503,17 @@ private static async Task SimpleEmployeeUpsertAsync(CloudTable employeeTable,
 }  
 ```
 
-In dit voorbeeld asynchrone ziet u de volgende wijzigingen van de synchrone versie:  
+In dit voorbeeld asynchrone ziet u Hallo volgende wijzigingen uit Hallo synchrone versie:  
 
-* Handtekening van de methode bevat nu de **asynchrone** aanpassingsfunctie en retourneert een **taak** exemplaar.  
-* In plaats van aanroepen de **Execute** methode voor het bijwerken van de entiteit, de methode nu roept de **ExecuteAsync** methode en gebruikt de **await** aanpassingsfunctie resultaten asynchroon ophalen.  
+* Hallo methodehandtekening bevat nu Hallo **asynchrone** aanpassingsfunctie en retourneert een **taak** exemplaar.  
+* In plaats van aanroepen Hallo **Execute** methode tooupdate Hallo entiteit, Hallo methode nu aanroepen Hallo **ExecuteAsync** methode en maakt gebruik van Hallo **await** aanpassingsfunctie tooretrieve asynchroon resultaat.  
 
-De clienttoepassing kan meerdere asynchrone methoden zoals deze aanroepen en elke methodeaanroep wordt uitgevoerd op een afzonderlijke thread.  
+Hallo-clienttoepassing kan meerdere asynchrone methoden zoals deze aanroepen en elke methodeaanroep wordt uitgevoerd op een afzonderlijke thread.  
 
 ### <a name="credits"></a>Tegoed
-Wij willen graag Bedankt dat de volgende leden van het team van Azure voor hun bijdragen: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah en Serdar Ozler evenals Tom Hollander van Microsoft DX. 
+Willen we graag toothank Hallo volgende leden van het team van Azure voor hun bijdragen Hallo: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah en Serdar Ozler evenals Tom Hollander van Microsoft DX. 
 
-We willen ook graag Bedankt dat de volgende Microsoft MVP van voor hun waardevolle feedback in revisie runs: Igor Papirov en Edward Bakker.
+Willen we graag ook toothank Hallo volgende Microsoft-MVP voor hun waardevolle feedback in revisie runs: Igor Papirov en Edward Bakker.
 
 [1]: ./media/storage-table-design-guide/storage-table-design-IMAGE01.png
 [2]: ./media/storage-table-design-guide/storage-table-design-IMAGE02.png

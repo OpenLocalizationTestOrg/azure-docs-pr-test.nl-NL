@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager-sjabloonfuncties - numerieke | Microsoft Docs
-description: Beschrijft de functies in een Azure Resource Manager-sjabloon gebruiken om te werken met getallen.
+title: aaaAzure Resource Manager-sjabloonfuncties - numerieke | Microsoft Docs
+description: Beschrijft Hallo functies toouse in een Azure Resource Manager-sjabloon toowork met getallen.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: ae0261134b8d4a934048f58d6c679a48a904950b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 855d5b354d094b9815edc160e3d72efbfd36ba77
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Numerieke functies voor Azure Resource Manager-sjablonen
 
-Resource Manager biedt de volgende functies voor het werken met gehele getallen zijn:
+Resource Manager biedt Hallo functies voor het werken met gehele getallen te volgen:
 
 * [toevoegen](#add)
 * [copyIndex](#copyindex)
@@ -40,22 +40,22 @@ Resource Manager biedt de volgende functies voor het werken met gehele getallen 
 ## <a name="add"></a>toevoegen
 `add(operand1, operand2)`
 
-Retourneert de som van de twee opgegeven getallen.
+Retourneert Hallo de som van de twee opgegeven getallen Hallo.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- | 
-|operand1 |Ja |int |Eerste nummer om toe te voegen. |
-|operand2 |Ja |int |Tweede getal om toe te voegen. |
+|operand1 |Ja |int |Eerste nummer tooadd. |
+|operand2 |Ja |int |Het tweede nummer tooadd. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal dat de som van de parameters bevat.
+Een geheel getal dat Hallo som van Hallo parameters bevat.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld voegt twee parameters.
+Hallo volgende voorbeeld voegt twee parameters.
 
 ```json
 {
@@ -66,14 +66,14 @@ Het volgende voorbeeld voegt twee parameters.
             "type": "int",
             "defaultValue": 5,
             "metadata": {
-                "description": "First integer to add"
+                "description": "First integer tooadd"
             }
         },
         "second": {
             "type": "int",
             "defaultValue": 3,
             "metadata": {
-                "description": "Second integer to add"
+                "description": "Second integer tooadd"
             }
         }
     },
@@ -88,7 +88,7 @@ Het volgende voorbeeld voegt twee parameters.
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -99,26 +99,26 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="copyindex"></a>copyIndex
 `copyIndex(loopName, offset)`
 
-Retourneert de index van een lus herhaling. 
+Retourneert Hallo index van een lus herhaling. 
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| loopName | Nee | Tekenreeks | De naam van de lus voor het ophalen van de herhaling. |
-| offset |Nee |int |Het aantal toevoegen aan de op nul gebaseerde herhaling-waarde. |
+| loopName | Nee | Tekenreeks | Hallo de naam van de lus Hallo voor het ophalen van Hallo herhaling. |
+| offset |Nee |int |Hallo tooadd toohello op nul gebaseerde herhaling getalwaarde. |
 
 ### <a name="remarks"></a>Opmerkingen
 
-Deze functie wordt altijd gebruikt met een **kopie** object. Als geen waarde is opgegeven voor **offset**, de huidige waarde van de herhaling wordt geretourneerd. De waarde van de herhaling start bij nul.
+Deze functie wordt altijd gebruikt met een **kopie** object. Als geen waarde is opgegeven voor **offset**, Hallo huidige herhaling waarde geretourneerd. Hallo herhaling waarde begint bij nul.
 
-De **loopName** eigenschap kunt u opgeven of copyIndex naar een resource herhaling of eigenschap iteratie verwijst. Als geen waarde is opgegeven voor **loopName**, de huidige herhaling van de resource-type wordt gebruikt. Geef een waarde voor **loopName** wanneer voor een eigenschap. 
+Hallo **loopName** eigenschap kunt u toospecify of copyIndex tooa resource herhaling of eigenschap iteratie verwijst. Als geen waarde is opgegeven voor **loopName**, Hallo huidige resource type herhaling wordt gebruikt. Geef een waarde voor **loopName** wanneer voor een eigenschap. 
  
 Voor een volledige beschrijving van het gebruik van **copyIndex**, Zie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md).
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet een lus kopiëren en opgenomen in de naam van de waarde voor de index. 
+Hallo volgende voorbeeld ziet u een kopie lus Hallo indexwaarde en opgenomen in het Hallo-naam. 
 
 ```json
 "resources": [ 
@@ -136,29 +136,29 @@ Het volgende voorbeeld ziet een lus kopiëren en opgenomen in de naam van de waa
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal dat de huidige index van de herhaling.
+Een geheel getal dat Hallo huidige index van Hallo herhaling.
 
 <a id="div" />
 
 ## <a name="div"></a>div
 `div(operand1, operand2)`
 
-Retourneert het gehele getal van de twee opgegeven getallen.
+Retourneert Hallo gehele getal van de twee opgegeven getallen Hallo.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| operand1 |Ja |int |Het getal wordt verdeeld. |
-| operand2 |Ja |int |Het nummer dat wordt gebruikt om te delen. Mag niet 0 zijn. |
+| operand1 |Ja |int |Hallo-nummer wordt verdeeld. |
+| operand2 |Ja |int |Hallo-nummer dat is gebruikt toodivide. Mag niet 0 zijn. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal dat de afdeling.
+Deling van een geheel getal dat Hallo getal.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld wordt één parameter door een andere parameter verdeeld.
+Hallo volgende voorbeeld wordt één parameter door een andere parameter verdeeld.
 
 ```json
 {
@@ -176,7 +176,7 @@ Het volgende voorbeeld wordt één parameter door een andere parameter verdeeld.
             "type": "int",
             "defaultValue": 3,
             "metadata": {
-                "description": "Integer used to divide"
+                "description": "Integer used toodivide"
             }
         }
     },
@@ -191,7 +191,7 @@ Het volgende voorbeeld wordt één parameter door een andere parameter verdeeld.
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -202,20 +202,20 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="float"></a>Float
 `float(arg1)`
 
-De waarde omgezet in een drijvende komma. U deze functie alleen gebruiken als aangepaste parameters wordt doorgegeven aan een toepassing, zoals een logische App.
+Hallo waarde tooa Drijvendekommagetal converteert. U deze functie alleen gebruiken als aangepaste parameters doorgegeven tooan toepassing, zoals een logische App.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |String of int. |De waarde converteren naar een drijvende komma. |
+| Arg1 |Ja |String of int. |Hallo waarde tooconvert tooa Drijvendekommagetal. |
 
 ### <a name="return-value"></a>Retourwaarde
 Een drijvende komma.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet hoe u float parameters doorgeven aan een logische App:
+Hallo volgende voorbeeld ziet u hoe toouse float toopass parameters tooa logische App:
 
 ```json
 {
@@ -236,21 +236,21 @@ Het volgende voorbeeld ziet hoe u float parameters doorgeven aan een logische Ap
 ## <a name="int"></a>int
 `int(valueToConvert)`
 
-De opgegeven waarde converteert naar een geheel getal.
+Converteert Hallo opgegeven waarde tooan geheel getal.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Ja |String of int. |De waarde te converteren naar een geheel getal. |
+| valueToConvert |Ja |String of int. |Hallo waarde tooconvert tooan geheel getal. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal van de geconverteerde waarde.
+Een geheel getal van Hallo geconverteerd-waarde.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld wordt de gebruiker opgegeven parameterwaarde converteert naar geheel getal.
+Hallo volgende voorbeeld wordt geconverteerd Hallo gebruiker opgegeven parameter waarde toointeger.
 
 ```json
 {
@@ -273,7 +273,7 @@ Het volgende voorbeeld wordt de gebruiker opgegeven parameterwaarde converteert 
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -285,21 +285,21 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="min"></a>min.
 `min (arg1)`
 
-Retourneert de minimumwaarde van een matrix van gehele getallen of een door komma's gescheiden lijst met gehele getallen zijn.
+Retourneert Hallo minimumwaarde van een matrix van gehele getallen of een door komma's gescheiden lijst met gehele getallen zijn.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |matrix van gehele getallen of door komma's gescheiden lijst met gehele getallen |De verzameling voor de minimumwaarde. |
+| Arg1 |Ja |matrix van gehele getallen of door komma's gescheiden lijst met gehele getallen |Hallo verzameling tooget Hallo minimumwaarde. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal voor de minimale waarde uit de verzameling.
+Een geheel getal dat minimumwaarde uit Hallo-verzameling.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet u hoe min. gebruik met een matrix en een lijst met gehele getallen zijn:
+Hallo volgende voorbeeld wordt getoond hoe toouse min met een matrix en een lijst met gehele getallen zijn:
 
 ```json
 {
@@ -325,7 +325,7 @@ Het volgende voorbeeld ziet u hoe min. gebruik met een matrix en een lijst met g
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -337,21 +337,21 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="max"></a>Maximum aantal
 `max (arg1)`
 
-Retourneert de maximumwaarde van een matrix van gehele getallen of een door komma's gescheiden lijst met gehele getallen zijn.
+Retourneert Hallo de maximumwaarde van een matrix van gehele getallen of een door komma's gescheiden lijst met gehele getallen.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |matrix van gehele getallen of door komma's gescheiden lijst met gehele getallen |De verzameling die de maximale waarde op te halen. |
+| Arg1 |Ja |matrix van gehele getallen of door komma's gescheiden lijst met gehele getallen |Hallo verzameling tooget Hallo maximale waarde. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal dat de maximale waarde uit de verzameling.
+Een geheel getal dat de maximale waarde Hallo uit Hallo-verzameling.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet u hoe max gebruiken met een matrix en een lijst met gehele getallen zijn:
+Hallo volgende voorbeeld wordt getoond hoe toouse max met een matrix en een lijst met gehele getallen zijn:
 
 ```json
 {
@@ -377,7 +377,7 @@ Het volgende voorbeeld ziet u hoe max gebruiken met een matrix en een lijst met 
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -389,21 +389,21 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="mod"></a>Mod
 `mod(operand1, operand2)`
 
-Retourneert de rest van de deling van geheel getal met behulp van de twee opgegeven getallen.
+Hallo rest van de deling van Hallo geheel getal met behulp van twee opgegeven getallen Hallo retourneert.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| operand1 |Ja |int |Het getal wordt verdeeld. |
-| operand2 |Ja |int |Het getal dat wordt gebruikt om te delen, mag niet 0 zijn. |
+| operand1 |Ja |int |Hallo-nummer wordt verdeeld. |
+| operand2 |Ja |int |Hallo-nummer dat is gebruikt toodivide mag niet 0 zijn. |
 
 ### <a name="return-value"></a>Retourwaarde
-Een geheel getal dat de rest.
+Een geheel getal dat Hallo resterende hoeveelheid.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld retourneert het restgetal één parameter door een andere parameter.
+Hallo retourneert volgende voorbeeld Hallo restgetal één parameter door een andere parameter.
 
 ```json
 {
@@ -421,7 +421,7 @@ Het volgende voorbeeld retourneert het restgetal één parameter door een andere
             "type": "int",
             "defaultValue": 3,
             "metadata": {
-                "description": "Integer used to divide"
+                "description": "Integer used toodivide"
             }
         }
     },
@@ -436,7 +436,7 @@ Het volgende voorbeeld retourneert het restgetal één parameter door een andere
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -447,22 +447,22 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="mul"></a>mul
 `mul(operand1, operand2)`
 
-Retourneert de vermeerdering van de twee opgegeven getallen.
+Retourneert Hallo vermeerdering van Hallo twee opgegeven getallen.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| operand1 |Ja |int |Eerste nummer wilt vermenigvuldigen. |
-| operand2 |Ja |int |Tweede getal wilt vermenigvuldigen. |
+| operand1 |Ja |int |Eerste nummer toomultiply. |
+| operand2 |Ja |int |Het tweede nummer toomultiply. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal dat de vermenigvuldiging.
+Een Hallo van geheel getal dat vermenigvuldigen.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld vermenigvuldigen één parameter door een andere parameter.
+Hallo volgt vermenigvuldigen één parameter door een andere parameter.
 
 ```json
 {
@@ -473,14 +473,14 @@ Het volgende voorbeeld vermenigvuldigen één parameter door een andere paramete
             "type": "int",
             "defaultValue": 5,
             "metadata": {
-                "description": "First integer to multiply"
+                "description": "First integer toomultiply"
             }
         },
         "second": {
             "type": "int",
             "defaultValue": 3,
             "metadata": {
-                "description": "Second integer to multiply"
+                "description": "Second integer toomultiply"
             }
         }
     },
@@ -495,7 +495,7 @@ Het volgende voorbeeld vermenigvuldigen één parameter door een andere paramete
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -506,21 +506,21 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="sub"></a>Sub
 `sub(operand1, operand2)`
 
-Retourneert de aftrekken van de twee opgegeven getallen.
+Retourneert Hallo aftrekken van Hallo twee opgegeven getallen.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| operand1 |Ja |int |Het nummer dat wordt afgetrokken van. |
-| operand2 |Ja |int |Het nummer dat wordt afgetrokken. |
+| operand1 |Ja |int |Hallo-nummer dat wordt afgetrokken van. |
+| operand2 |Ja |int |Hallo-nummer dat wordt afgetrokken. |
 
 ### <a name="return-value"></a>Retourwaarde
-Een geheel getal dat de aftrekken.
+Een Hallo van geheel getal dat aftrekken.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld wordt één parameter van een andere parameter afgetrokken.
+Hallo volgende voorbeeld wordt één parameter van een andere parameter afgetrokken.
 
 ```json
 {
@@ -538,7 +538,7 @@ Het volgende voorbeeld wordt één parameter van een andere parameter afgetrokke
             "type": "int",
             "defaultValue": 3,
             "metadata": {
-                "description": "Integer to subtract"
+                "description": "Integer toosubtract"
             }
         }
     },
@@ -553,15 +553,15 @@ Het volgende voorbeeld wordt één parameter van een andere parameter afgetrokke
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een beschrijving van de secties in een Azure Resource Manager-sjabloon [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md).
-* U kunt meerdere sjablonen samenvoegen, Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
-* Voor een opgegeven aantal keer herhalen bij het maken van een type resource, Zie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md).
-* Zie voor het implementeren van de sjabloon die u hebt gemaakt, [Implementeer een toepassing met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
+* Zie voor een beschrijving van de secties Hallo in een Azure Resource Manager-sjabloon [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md).
+* toomerge meerdere sjablonen Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
+* een opgegeven aantal keren tooiterate bij het maken van een type resource, Zie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md).
+* toosee hoe toodeploy Hallo sjabloon die u hebt gemaakt, Zie [Implementeer een toepassing met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
 

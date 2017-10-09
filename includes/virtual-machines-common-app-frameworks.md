@@ -1,9 +1,9 @@
 
 
 ## <a name="applications"></a>Toepassingen
-De volgende tabel worden enkele van de meest populaire application framework-sjablonen. Kies een sjabloon Zie voor meer informatie, de sjabloon weergeven in GitHub of rechtstreeks via de Azure portal implementeren.
+Hallo volgende tabel vindt u enkele van Hallo populairste application framework-sjablonen. Kies een sjabloon toosee Hallo-sjabloon in GitHub, weergeven met meer informatie of rechtstreeks via hello Azure-portal implementeren.
 
-| Toepassing | Meer informatie | De sjabloon weergeven | Nu implementeren |
+| Toepassing | Meer informatie | Hallo-sjabloon weergeven | Nu implementeren |
 |:--- |:---:|:---:|:---:|
 | Active Directory |[Galerie](https://azure.microsoft.com/documentation/templates/active-directory-new-domain-ha-2-dc/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Apache |[Galerie](https://azure.microsoft.com/documentation/templates/apache2-on-ubuntu-vm/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/apache2-on-ubuntu-vm) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapache2-on-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
@@ -23,13 +23,13 @@ De volgende tabel worden enkele van de meest populaire application framework-sja
 | WordPress |[Galerie](https://azure.microsoft.com/documentation/templates/wordpress-single-vm-ubuntu/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/wordpress-single-vm-ubuntu) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | ZooKeeper |[Galerie](https://azure.microsoft.com/documentation/templates/zookeeper-cluster-ubuntu-vm/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/zookeeper-cluster-ubuntu-vm) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fzookeeper-cluster-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 
-Naast deze sjablonen kunt u zoeken via de [met galeriesjablonen](https://azure.microsoft.com/documentation/templates/).
+Bovendien toothese sjablonen, kunt u zoeken via Hallo [met galeriesjablonen](https://azure.microsoft.com/documentation/templates/).
 
 
 ## <a name="azure-cli-20"></a>Azure CLI 2.0
-Deze stappen moet de Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Deze stappen vereisen hello Azure CLI versie 2.0.4 of hoger. Voer `az --version` toofind Hallo versie. Als u tooupgrade moet, Zie [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli).
 
-Maak eerst een resourcegroep met [az groep maken](/cli/azure/group#create). Maak vervolgens uw implementatie van een sjabloon met [az implementatie maken](/cli/azure/group/deployment#create). Geeft u de volledige URI naar de sjabloon met de `--template-uri` parameter en alle vereiste parameters in sjabloon `--parameters` als volgt:
+Maak eerst een resourcegroep met [az groep maken](/cli/azure/group#create). Maak vervolgens uw implementatie van een sjabloon met [az implementatie maken](/cli/azure/group/deployment#create). Hallo volledige URI tooyour sjabloon voorzien van Hallo `--template-uri` parameter en alle vereiste parameters in sjabloon `--parameters` als volgt:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -38,13 +38,13 @@ az group deployment create --resource-group myResourceGroup \
     --parameters '{"sshKeyData": {"value": "ssh-rsa AAAAB3N{snip}B9eIgoZ"}}'
 ```
 
-Afhankelijk van de sjabloon, kan het even duren voor Azure voor het implementeren van de resources.
+Afhankelijk van de sjabloon hello, kan het even duren voor Azure toodeploy Hallo bronnen.
 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Deze stappen moet Azure PowerShell moduleversie 3,6 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u upgraden wilt, Zie [Installeer Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
+Deze stappen vereist hello Azure PowerShell-moduleversie 3,6 of hoger. Voer `Get-Module -ListAvailable AzureRM` toofind Hallo versie. Als u tooupgrade moet, Zie [Installeer Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
 
-Maak eerst een resourcegroep met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Maak vervolgens uw implementatie van een sjabloon met [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Geeft u de volledige URI naar de sjabloon met de `-TemplateURI` parameter als volgt:
+Maak eerst een resourcegroep met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Maak vervolgens uw implementatie van een sjabloon met [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Hallo volledige URI tooyour sjabloon voorzien van Hallo `-TemplateURI` parameter als volgt:
 
 ```powershell
 New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
@@ -52,10 +52,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" `
      -TemplateUri "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/{template-name}/azuredeploy.json"
 ```
 
-Bij het uitvoeren van de [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) opdracht, wordt u mogelijk gevraagd waarden op te geven voor de parameters in de sjabloon. Afhankelijk van de sjabloon, kan het even duren voor Azure voor het implementeren van de resources.
+Bij het uitvoeren van Hallo [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) opdracht, hebt u mogelijk na vragen aan gebruiker tooenter waarden voor Hallo-parameters in Hallo-sjabloon. Afhankelijk van de sjabloon hello, kan het even duren voor Azure toodeploy Hallo bronnen.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-De sjablonen tot uw beschikking staan detecteren op [GitHub](https://github.com/Azure/azure-quickstart-templates).
+Detecteren van alle Hallo sjablonen tot uw beschikking staan op [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
 Meer informatie over [Azure Resource Manager](../articles/resource-group-template-deploy.md).

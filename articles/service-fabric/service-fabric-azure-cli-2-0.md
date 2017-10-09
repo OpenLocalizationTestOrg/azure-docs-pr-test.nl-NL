@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure Service Fabric en Azure CLI 2.0
-description: Informatie over het gebruik van de Azure Service Fabric-opdrachtenmodule in Azure CLI versie 2.0. Informatie over verbinding maken met een cluster en het beheren van toepassingen.
+title: de slag met Azure Service Fabric en Azure CLI 2.0 aaaGet
+description: Meer informatie over hoe toouse hello Azure Service Fabric-module in versie 2.0 van Azure CLI-opdrachten. Meer informatie over hoe tooconnect tooa cluster, en hoe toomanage toepassingen.
 services: service-fabric
 author: samedder
 manager: timlt
@@ -8,25 +8,25 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: edwardsa
-ms.openlocfilehash: ee3302b984ca2f5509755dc17b0a5fd06ace0afe
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ddbd0ef503dd3fff61494cc2cfa7c9a2e8d0a9a7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-service-fabric-and-azure-cli-20"></a>Azure Service Fabric en Azure CLI 2.0
 
-Het Azure-opdrachtregelprogramma (Azure CLI) versie 2.0 bevat opdrachten voor het beheren van Azure Service Fabric-clusters. Lees hoe u aan de slag kunt gaan met Azure Service Fabric en Azure CLI 2.0.
+Hello Azure-opdrachtregelprogramma (Azure CLI) versie 2.0 bevat opdrachten toohelp beheren van Azure Service Fabric-clusters. Meer informatie over hoe tooget de slag met Azure CLI en Service Fabric.
 
 ## <a name="install-azure-cli-20"></a>Azure CLI 2.0 installeren
 
-U kunt Azure CLI 2.0-opdrachten gebruiken voor het beheren en manipuleren van Service Fabric-clusters. Volg voor de nieuwste versie van Azure CLI het [standaardinstallatieproces van Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+U kunt Azure CLI 2.0 opdrachten toointeract met gebruiken en beheren van Service Fabric-clusters. tooget hello meest recente versie van Azure CLI, volg Hallo [standaard Azure CLI 2.0-installatieproces](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
-Zie [Overzicht van Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview) voor meer informatie.
+Zie voor meer informatie, Hallo [overzicht van Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview).
 
 ## <a name="azure-cli-syntax"></a>De syntaxis van de Azure CLI
 
-Alle Service Fabric-opdrachten worden voorafgegaan door `az sf` in de Azure CLI. Voor algemene informatie over de opdrachten die u kunt gebruiken, gebruikt u `az sf -h`. Gebruik `az sf <command> -h` voor hulp bij één opdracht.
+Alle Service Fabric-opdrachten worden voorafgegaan door `az sf` in de Azure CLI. Gebruik voor algemene informatie over Hallo opdrachten kunt u `az sf -h`. Gebruik `az sf <command> -h` voor hulp bij één opdracht.
 
 Service Fabric-opdrachten in de Azure CLI volgen dit naamgevingspatroon:
 
@@ -34,11 +34,11 @@ Service Fabric-opdrachten in de Azure CLI volgen dit naamgevingspatroon:
 az sf <object> <action>
 ```
 
-`<object>` is het doel voor `<action>`.
+`<object>`Hallo-doel voor `<action>`.
 
 ## <a name="select-a-cluster"></a>Een cluster selecteren
 
-U kunt pas bewerkingen uitvoeren nadat u een cluster hebt geselecteerd waarmee u verbinding wilt maken. Zie de volgende code voor een voorbeeld. De code maakt verbinding met een niet-beveiligd cluster.
+Voordat u bewerkingen uitvoert, moet u een cluster tooconnect te selecteren. Zie voor een voorbeeld Hallo code te volgen. Hallo code verbindt tooan onbeveiligde cluster.
 
 > [!WARNING]
 > Gebruik geen niet-beveiligde Service Fabric-clusters in een productieomgeving.
@@ -47,7 +47,7 @@ U kunt pas bewerkingen uitvoeren nadat u een cluster hebt geselecteerd waarmee u
 az sf cluster select --endpoint http://testcluster.com:19080
 ```
 
-Het clustereindpunt moet worden voorafgegaan door `http` of `https`. Het moet de poort voor de HTTP-gateway bevatten. De poort en het adres komen overeen met de Service Fabric Explorer-URL.
+Hallo clustereindpunt moet worden voorafgegaan door `http` of `https`. Hallo-poort voor Hallo http-gateway moet bevatten. Hallo-poort en adres zijn hetzelfde zijn als de URL van de Service Fabric Explorer Hallo Hallo.
 
 Voor clusters die zijn beveiligd met een certificaat, kunt u niet-versleutelde .pem-bestanden of .crt- en .key-bestanden gebruiken. Bijvoorbeeld:
 
@@ -55,22 +55,22 @@ Voor clusters die zijn beveiligd met een certificaat, kunt u niet-versleutelde .
 az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-Zie [Verbinding maken met een beveiligd Azure Service Fabric-cluster](service-fabric-connect-to-secure-cluster.md) voor meer informatie.
+Zie voor meer informatie [Connect tooa beveiligde Azure Service Fabric-cluster](service-fabric-connect-to-secure-cluster.md).
 
 > [!NOTE]
-> De `select`-opdracht reageert niet op aanvragen voordat deze wordt geretourneerd. Gebruik een opdracht als `az sf cluster health` om te controleren of u een cluster correct hebt opgegeven. Controleer of de opdracht niet eventuele fouten retourneert.
+> Hallo `select` opdracht niet reageren op alle aanvragen voordat deze wordt geretourneerd. tooverify u een cluster correct hebt opgegeven een opdracht zoals gebruiken `az sf cluster health`. Controleer of Hallo opdracht retourneert niet eventuele fouten.
 
 ## <a name="basic-operations"></a>Basisbewerkingen
 
-De gegevens van een clusterverbinding blijven behouden tussen meerdere Azure CLI-sessies. Nadat u een Service Fabric-cluster hebt geselecteerd, kunt u elke Service Fabric-opdracht in het cluster uitvoeren.
+De gegevens van een clusterverbinding blijven behouden tussen meerdere Azure CLI-sessies. Nadat u een Service Fabric-cluster selecteert, kunt u een Service Fabric-opdracht kunt uitvoeren op Hallo-cluster.
 
-Als u bijvoorbeeld de status van het Service Fabric-cluster wilt weten, voert u de volgende opdracht uit:
+Bijvoorbeeld tooget Hallo status voor Service Fabric-cluster, Hallo volgende opdracht gebruiken:
 
 ```azurecli
 az sf cluster health
 ```
 
-De opdracht levert de volgende uitvoer op (ervan uitgaande dat JSON-uitvoer is opgegeven in de configuratie van de Azure CLI):
+Hallo opdracht resulteert in Hallo volgende uitvoer (ervan uitgaande dat JSON-uitvoer is opgegeven in de configuratie van hello Azure CLI):
 
 ```json
 {
@@ -97,33 +97,33 @@ De opdracht levert de volgende uitvoer op (ervan uitgaande dat JSON-uitvoer is o
 
 ## <a name="tips-and-troubleshooting"></a>Tips en probleemoplossing
 
-U kunt de volgende informatie handig vinden als u problemen ondervindt tijdens het gebruik van Service Fabric-opdrachten in de Azure CLI.
+Mogelijk vindt u nuttige informatie te volgen als u problemen ondervindt tijdens het gebruik van Service Fabric-opdrachten in de Azure CLI Hallo.
 
-### <a name="convert-a-certificate-from-pfx-to-pem-format"></a>Een certificaat converteren van PFX- naar PEM-indeling
+### <a name="convert-a-certificate-from-pfx-toopem-format"></a>Een certificaat van PFX tooPEM-indeling converteren
 
-De Azure CLI ondersteunt clientcertificaten als PEM-bestanden (extensie .pem). Als u PFX-bestanden van Windows gebruikt, moet u deze certificaten converteren naar PEM-indeling. Gebruik de volgende opdracht om een PFX-bestand te converteren naar een PEM-bestand:
+De Azure CLI ondersteunt clientcertificaten als PEM-bestanden (extensie .pem). Als u PFX-bestanden van Windows gebruikt, moet u deze certificaten tooPEM-indeling converteren. tooconvert een PFX-bestand tooa PEM-bestand Hallo volgende opdracht gebruiken:
 
 ```bash
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
-Voor meer informatie raadpleegt u de [OpenSSL-documentatie](https://www.openssl.org/docs/).
+Zie voor meer informatie, Hallo [OpenSSL documentatie](https://www.openssl.org/docs/).
 
 ### <a name="connection-issues"></a>Verbindingsproblemen
 
-Bepaalde bewerkingen genereren mogelijk het volgende bericht:
+Bepaalde bewerkingen mogelijk Hallo volgende bericht te genereren:
 
-`Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
+`Failed tooestablish a new connection: [Errno 8] nodename nor servname provided, or not known`
 
-Controleer of het opgegeven clustereindpunt beschikbaar is en luistert. Controleer ook of de gebruikersinterface van Service Fabric Explorer beschikbaar is op die host en poort. Gebruik `az sf cluster select` om het eindpunt bij te werken.
+Controleer of dat deze Hallo opgegeven clustereindpunt is beschikbaar is en luistert. Controleer ook of die Hallo Service Fabric Explorer UI is beschikbaar op die als host en poort. tooupdate hello eindpunt, gebruik `az sf cluster select`.
 
 ### <a name="detailed-logs"></a>Gedetailleerde logboeken
 
-Gedetailleerde logboeken zijn vaak nuttig zijn wanneer u fouten opspoort of een probleem meldt. De Azure CLI bevat een algemene `--debug`-vlag waarmee het detailniveau van logboeken wordt verhoogd.
+Gedetailleerde logboeken zijn vaak nuttig zijn wanneer u fouten opspoort of een probleem meldt. Azure CLI biedt een algemene `--debug` vlag die wordt verhoogd Hallo uitgebreidheid van logboekbestanden.
 
 ### <a name="command-help-and-syntax"></a>Syntaxis van Help-opdracht
 
-De Service Fabric-opdrachten volgen dezelfde conventie als de Azure CLI. Als u hulp nodig hebt met een specifieke opdracht of een groep opdrachten, gebruikt u de `-h`-vlag:
+Service Fabric-opdrachten Volg Hallo dezelfde conventies als Azure CLI. Gebruik voor hulp bij een bepaalde opdracht of een groep opdrachten, Hallo `-h` vlag:
 
 ```azurecli
 az sf application -h

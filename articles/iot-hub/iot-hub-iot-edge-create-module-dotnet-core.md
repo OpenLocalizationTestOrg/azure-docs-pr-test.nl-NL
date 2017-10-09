@@ -1,6 +1,6 @@
 ---
-title: Een Azure IoT-Edge-Module maken met C# | Microsoft Docs
-description: Deze zelfstudie gepresenteerd het schrijven van een Aanmeldingsprompt gegevens converter module met behulp van de meest recente Azure IoT rand NuGet-pakketten, Visual Studio Code en C#.
+title: aaaCreate een Azure IoT Edge-Module met C# | Microsoft Docs
+description: Deze zelfstudie wordt gepresenteerd hoe toowrite een Aanmeldingsprompt gegevens converter module met de meest recente Azure IoT rand NuGet-pakketten, Visual Studio Code en C# Hallo.
 services: iot-hub
 author: jeffreyCline
 manager: timlt
@@ -12,32 +12,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: jcline
-ms.openlocfilehash: 7175ffc8de2c043593d61143b402484d33e4a8cc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b104609c05d1613e21acc7d7bed547f311179151
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-cx23"></a>Een Azure IoT-Edge-Module maken met C & #x23;
 
-Deze zelfstudie voor het maken van een module voor gepresenteerd `Azure IoT Edge` met `Visual Studio Code` en `C#`.
+Deze zelfstudie gepresenteerd hoe toocreate een module voor `Azure IoT Edge` met `Visual Studio Code` en `C#`.
 
-In deze zelfstudie we doorlopen omgeving instellen en het schrijven van een [uitschakelen](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) gegevens converter module met behulp van de meest recente `Azure IoT Edge NuGet` pakketten. 
+In deze zelfstudie we omgeving opzet hebt doorlopen en hoe toowrite een [uitschakelen](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) meest recente gegevens converter module met Hallo `Azure IoT Edge NuGet` pakketten. 
 
 >[!NOTE]
-Deze zelfstudie maakt gebruik van de `.NET Core SDK`, die ondersteuning biedt voor meerdere platforms compatibiliteit. De volgende zelfstudie is geschreven met behulp van de `Windows 10` besturingssysteem. Sommige van de opdrachten in deze zelfstudie kan afwijken afhankelijk van uw `development environment`. 
+Deze zelfstudie maakt gebruik van Hallo `.NET Core SDK`, die ondersteuning biedt voor meerdere platforms compatibiliteit. Hallo volgende zelfstudie is geschreven met behulp van Hallo `Windows 10` besturingssysteem. Bepaalde Hallo-opdrachten in deze zelfstudie kan afwijken afhankelijk van uw `development environment`. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-In deze sectie we set-up uw omgeving voor `Azure IoT Edge` module ontwikkeling. Van toepassing op beide **64-bits Windows** en **64-bits Linux (8 Ubuntu/Debian)** besturingssystemen.
+In deze sectie we set-up uw omgeving voor `Azure IoT Edge` module ontwikkeling. Toepassing tooboth **64-bits Windows** en **64-bits Linux (8 Ubuntu/Debian)** besturingssystemen.
 
-De volgende software is vereist:
+Hallo volgende software is vereist:
 
 - [GIT-Client](https://git-scm.com/downloads)
 - [.NET Core-SDK](https://www.microsoft.com/net/core#windowscmd)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-U hoeft niet voor het klonen van de opslagplaats voor dit voorbeeld, maar alle van de voorbeeldcode besproken in deze zelfstudie bevindt zich in de volgende opslagplaats:
+U hoeft geen tooclone Hallo opslagplaats voor dit voorbeeld, maar alle Hallo voorbeeldcode besproken in deze zelfstudie bevindt zich in Hallo opslagplaats te volgen:
 
 - `git clone https://github.com/Azure-Samples/iot-edge-samples.git`.
 - `cd iot-edge-samples/dotnetcore/simulated_ble`
@@ -45,24 +45,24 @@ U hoeft niet voor het klonen van de opslagplaats voor dit voorbeeld, maar alle v
 ## <a name="getting-started"></a>Aan de slag
 
 1. Installeer `.NET Core SDK`.
-2. Installeer `Visual Studio Code` en de `C# extension` vanuit Visual Studio Code Marketplace.
+2. Installeer `Visual Studio Code` en Hallo `C# extension` van Hallo Visual Studio Code Marketplace.
 
-Bekijk waarvoor [snelle zelfstudie](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows) over het aan de slag met `Visual Studio Code` en de `.NET Core SDK`.
+Bekijk waarvoor [snelle zelfstudie](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows) over hoe tooget met behulp van gestart `Visual Studio Code` en Hallo `.NET Core SDK`.
 
-## <a name="creating-the-azure-iot-edge-converter-module"></a>Maken van de rand van Azure IoT converter-module
+## <a name="creating-hello-azure-iot-edge-converter-module"></a>Hello Azure IoT rand converter module maken
 
 1. Een nieuwe initialisatie `.NET Core` class library C#-project:
     - Open een opdrachtprompt (`Windows + R` -> `cmd` -> `enter`).
-    - Navigeer naar de map waarin u wilt maken van de `C#` project.
+    - Navigeer toohello map waar u toocreate hello wilt `C#` project.
     - Type **dotnet nieuwe classlib -o IoTEdgeConverterModule -f netstandard1.3**. 
     - Deze opdracht maakt u een lege klasse aangeroepen `Class1.cs` in uw projectdirectory.
-2. Navigeer naar de map waar we zojuist hebben gemaakt de class library-project door te typen **cd IoTEdgeConverterModule**.
-3. Open het project in `Visual Studio Code` door **code.**.
-4. Nadat het project is geopend `Visual Studio Code`, klikt u op de **IoTEdgeConverterModule.csproj** het bestand te openen zoals weergegeven in de volgende afbeelding:
+2. Navigeer toohello map waar we zojuist hebben gemaakt Hallo class library-project door te typen **cd IoTEdgeConverterModule**.
+3. Open Hallo-project in `Visual Studio Code` door **code.**.
+4. Zodra het Hallo-project wordt geopend in `Visual Studio Code`, klikt u op Hallo **IoTEdgeConverterModule.csproj** tooopen Hallo bestand, zoals weergegeven in Hallo installatiekopie te volgen:
 
     ![Venster van Visual Studio Code bewerken](media/iot-hub-iot-edge-create-module/vscode-edit-csproj.png)
 
-5. Plaats de `XML` blob wordt weergegeven in het volgende codefragment tussen de afsluitende `PropertyGroup` code en de afsluitcode `Project` tag; regel zes in de voorgaande afbeelding en sla het bestand door te drukken `Ctrl`  +  `S`.
+5. Hallo invoegen `XML` blob wordt weergegeven in het codefragment na tussen Hallo sluiten Hallo `PropertyGroup` labelen en Hallo sluiten `Project` tag; regel zes in Hallo voorafgaand aan de installatiekopie van bestand en sla Hallo door te drukken `Ctrl`  +  `S`.
 
    ```xml
      <ItemGroup>
@@ -72,29 +72,29 @@ Bekijk waarvoor [snelle zelfstudie](https://channel9.msdn.com/Blogs/dotnet/Get-s
      </ItemGroup> 
    ```
 
-6. Nadat u hebt opgeslagen de `.csproj` bestand `Visual Studio Code` moet worden gevraagd met een `unresolved dependencies` dialoogvenster zoals te zien is in de volgende afbeelding: 
+6. Nadat u hebt opgeslagen Hallo `.csproj` bestand `Visual Studio Code` moet worden gevraagd met een `unresolved dependencies` dialoogvenster zoals gezien in Hallo installatiekopie te volgen: 
 
     ![Visual Studio Code terugzetten afhankelijkheden dialoogvenster](media/iot-hub-iot-edge-create-module/vscode-restore.png)
 
-    een) Klik op `Restore` alle verwijzingen naar de in de projecten te herstellen `.csproj` bestand inclusief de `PackageReferences` toegevoegd. 
+    een) Klik op `Restore` toorestore alle Hallo verwijzingen in Hallo projecten `.csproj` bestand inclusief Hallo `PackageReferences` toegevoegd. 
 
-    b) `Visual Studio Code` maakt automatisch het `project.assets.json` bestand in uw projecten `obj` map. Dit bestand bevat informatie over de afhankelijkheden van uw project om toekomstige herstelbewerkingen sneller.
+    b) `Visual Studio Code` maakt automatisch Hallo `project.assets.json` bestand in uw projecten `obj` map. Dit bestand bevat informatie over uw project afhankelijkheden toomake daaropvolgende herstelacties sneller.
  
     >[!NOTE]
     `.NET Core Tools`zijn nu MSBuild-systemen. Wat betekent dat een `.csproj` projectbestand is gemaakt in plaats van een `project.json`.
 
-    - Als `Visual Studio Code` vraagt u die in orde is niet kunt we dit handmatig doen. Open de `Visual Studio Code` geïntegreerde terminalvenster door op de `Ctrl`  +  `backtick` sleutels of via de menu's `View`  ->  `Integrated Terminal`.
-    - In de `Integrated Terminal` venstertype **dotnet terugzetten**.
+    - Als `Visual Studio Code` vraagt u die in orde is niet kunt we dit handmatig doen. Open Hallo `Visual Studio Code` geïntegreerde terminalvenster door Hallo drukken `Ctrl`  +  `backtick` sleutels of met behulp van menu's Hallo `View`  ->  `Integrated Terminal`.
+    - In Hallo `Integrated Terminal` venstertype **dotnet terugzetten**.
     
-7. Wijzig de naam van de `Class1.cs` van het bestand in `BleConverterModule.cs`. 
+7. Wijzig de naam van Hallo `Class1.cs` bestand te`BleConverterModule.cs`. 
 
-    a) te Wijzig de naam van het bestand eerst Klik op het bestand vervolgens drukt u op de `F2` sleutel.
+    een) toorename Hallo bestand eerst klikt u op Hallo-bestand en druk op Hallo `F2` sleutel.
     
-    b) type in de nieuwe naam **BleConverterModule**, zoals in de volgende afbeelding:
+    b) type in de nieuwe naam Hallo **BleConverterModule**, zoals in Hallo installatiekopie te volgen:
 
     ![Visual Studio Code naam van een klasse](media/iot-hub-iot-edge-create-module/vscode-rename.png)
 
-8. Vervang de bestaande code in de `BleConverterModule.cs` bestand kopiëren en plakken van het volgende codefragment in uw `BleConverterModule.cs` bestand.
+8. Vervang de bestaande code Hallo in Hallo `BleConverterModule.cs` bestand door te kopiëren en plakken Hallo volgende codefragment in uw `BleConverterModule.cs` bestand.
 
    ```csharp
    using System;
@@ -151,13 +151,13 @@ Bekijk waarvoor [snelle zelfstudie](https://channel9.msdn.com/Blogs/dotnet/Get-s
    }
    ```
 
-9. Sla het bestand door te drukken `Ctrl`  +  `S`.
+9. Hallo-bestand opslaan door te drukken `Ctrl`  +  `S`.
 
-10. Maak een nieuw bestand genaamd `Untitled-1` door op de `Ctrl`  +  `N` sleutels zoals te zien is in de volgende afbeelding:
+10. Maak een nieuw bestand genaamd `Untitled-1` door Hallo drukken `Ctrl`  +  `N` sleutels zoals gezien in Hallo installatiekopie te volgen:
 
     ![Visual Studio Code nieuw bestand](media/iot-hub-iot-edge-create-module/vscode-new-file.png)
 
-11. Deserialiseren van de `JSON` -object dat we van de gesimuleerde ontvangen `BLE` apparaat, Kopieer de volgende code in de `Untitled-1` venster bestand code-editor. 
+11. toodeserialize hello `JSON` -object dat we van Hallo gesimuleerde ontvangen `BLE` apparaat, kopie Hallo na de code in Hallo `Untitled-1` venster bestand code-editor. 
 
    ```csharp
    using System;
@@ -173,14 +173,14 @@ Bekijk waarvoor [snelle zelfstudie](https://channel9.msdn.com/Blogs/dotnet/Get-s
    }
    ```
 
-12. Sla het bestand als `BleData.cs` door te drukken `Ctrl`  +  `Shift`  +  `S` sleutels.
-    - In het dialoogvenster Opslaan als, in de `Save as Type` Selecteer vervolgkeuzemenu `C# (*.cs;*.csx)` zoals te zien is in de volgende afbeelding:
+12. Hallo bestand opslaan als `BleData.cs` door te drukken `Ctrl`  +  `Shift`  +  `S` sleutels.
+    - Op Hallo opslaan als in het dialoogvenster in Hallo `Save as Type` Selecteer vervolgkeuzemenu `C# (*.cs;*.csx)` zoals gezien in Hallo installatiekopie te volgen:
 
     ![Visual Studio Code opslaan als een dialoogvenster](media/iot-hub-iot-edge-create-module/vscode-save-as.png)
 
-13. Maak een nieuw bestand genaamd `Untitled-1` door op de `Ctrl`  +  `N` sleutels.
+13. Maak een nieuw bestand genaamd `Untitled-1` door Hallo drukken `Ctrl`  +  `N` sleutels.
 
-14. Kopieer en plak het volgende codefragment in de `Untitled-1` bestand. Deze klasse is een `Azure IoT Edge` module waarmee we gebruiken de gegevens ontvangen van onze `BleConverterModule`.
+14. Kopieer en plak de volgende codefragment in Hallo Hallo `Untitled-1` bestand. Deze klasse is een `Azure IoT Edge` module waarmee we toooutput Hallo gegevens ontvangen gebruiken van onze `BleConverterModule`.
 
    ```csharp
    using System;
@@ -233,12 +233,12 @@ Bekijk waarvoor [snelle zelfstudie](https://channel9.msdn.com/Blogs/dotnet/Get-s
    }
    ```
 
-15. Sla het bestand als `DotNetPrinterModule.cs` door te drukken `Ctrl`  +  `Shift`  +  `S`.
-    - In het dialoogvenster Opslaan als, in de `Save as Type` vervolgkeuzemenu Selecteer `C# (*.cs;*.csx)`.
+15. Hallo bestand opslaan als `DotNetPrinterModule.cs` door te drukken `Ctrl`  +  `Shift`  +  `S`.
+    - Op Hallo opslaan als in het dialoogvenster in Hallo `Save as Type` vervolgkeuzemenu Selecteer `C# (*.cs;*.csx)`.
 
-16. Maak een nieuw bestand genaamd `Untitled-1` door op de `Ctrl`  +  `N` sleutels.
+16. Maak een nieuw bestand genaamd `Untitled-1` door Hallo drukken `Ctrl`  +  `N` sleutels.
 
-17. Deserialiseren van de `JSON` -object dat we van ontvangen de `BleConverterModule`, kopiëren en plak de volgende code codefragment in de `Untitled-1` bestand. 
+17. Hallo toodeserialize `JSON` -object dat we van Hallo ontvangen `BleConverterModule`, kopiëren en plakken Hallo volgende codefragment in Hallo `Untitled-1` bestand. 
 
    ```csharp
    using System;
@@ -260,12 +260,12 @@ Bekijk waarvoor [snelle zelfstudie](https://channel9.msdn.com/Blogs/dotnet/Get-s
    }
    ```
 
-18. Sla het bestand als `BleConverterData.cs` door te drukken `Ctrl`  +  `Shift`  +  `S`.
-    - In het dialoogvenster Opslaan als, in de `Save as Type` vervolgkeuzemenu Selecteer `C# (*.cs;*.csx)`.
+18. Hallo bestand opslaan als `BleConverterData.cs` door te drukken `Ctrl`  +  `Shift`  +  `S`.
+    - Op Hallo opslaan als in het dialoogvenster in Hallo `Save as Type` vervolgkeuzemenu Selecteer `C# (*.cs;*.csx)`.
 
-19. Maak een nieuw bestand genaamd `Untitled-1` door op de `Ctrl`  +  `N` sleutels.
+19. Maak een nieuw bestand genaamd `Untitled-1` door Hallo drukken `Ctrl`  +  `N` sleutels.
 
-20. Kopieer en plak het volgende codefragment in de `Untitled-1` bestand.
+20. Kopieer en plak de volgende codefragment in Hallo Hallo `Untitled-1` bestand.
 
    ```json
    {
@@ -328,10 +328,10 @@ Bekijk waarvoor [snelle zelfstudie](https://channel9.msdn.com/Blogs/dotnet/Get-s
    }
    ```
 
-21. Sla het bestand als `gw-config.json` door te drukken `Ctrl`  +  `Shift`  +  `S`.
-    - In het dialoogvenster Opslaan als, in de `Save as Type` vervolgkeuzemenu Selecteer `JSON (*.json;*.bowerrc;*.jshintrc;*.jscsrc;*.eslintrc;*.babelrc;*webmanifest)`.
+21. Hallo bestand opslaan als `gw-config.json` door te drukken `Ctrl`  +  `Shift`  +  `S`.
+    - Op Hallo opslaan als in het dialoogvenster in Hallo `Save as Type` vervolgkeuzemenu Selecteer `JSON (*.json;*.bowerrc;*.jshintrc;*.jscsrc;*.eslintrc;*.babelrc;*webmanifest)`.
 
-22. Om in te schakelen van het configuratiebestand kopiëren naar de uitvoermap, werken de `IoTEdgeConverterModule.csproj` met de volgende XML-blob:
+22. directory, update Hallo tooenable kopiëren van Hallo configuration file toohello uitvoer `IoTEdgeConverterModule.csproj` Hello XML-blob te volgen:
 
    ```xml
      <ItemGroup>
@@ -339,13 +339,13 @@ Bekijk waarvoor [snelle zelfstudie](https://channel9.msdn.com/Blogs/dotnet/Get-s
      </ItemGroup>
    ```
     
-   - De bijgewerkte `IoTEdgeConverterModule.csproj` moet eruitzien als in de volgende afbeelding:
+   - Hallo bijgewerkt `IoTEdgeConverterModule.csproj` moet eruit Hallo de volgende afbeelding:
 
     ![Visual Studio Code bijgewerkt .csproj-bestand](media/iot-hub-iot-edge-create-module/vscode-update-csproj.png)
 
-23. Maak een nieuw bestand genaamd `Untitled-1` door op de `Ctrl`  +  `N` sleutels.
+23. Maak een nieuw bestand genaamd `Untitled-1` door Hallo drukken `Ctrl`  +  `N` sleutels.
 
-24. Kopieer en plak het volgende codefragment in de `Untitled-1` bestand.
+24. Kopieer en plak de volgende codefragment in Hallo Hallo `Untitled-1` bestand.
 
    ```powershell
    Copy-Item -Path $env:userprofile\.nuget\packages\microsoft.azure.devices.gateway.native.windows.x64\1.1.3\runtimes\win-x64\native\* -Destination .\bin\Debug\netstandard1.3
@@ -357,32 +357,32 @@ Bekijk waarvoor [snelle zelfstudie](https://channel9.msdn.com/Blogs/dotnet/Get-s
    Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.specialized\4.3.0\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
    ```
 
-25. Sla het bestand als `binplace.ps1` door te drukken `Ctrl`  +  `Shift`  +  `S`.
-    - In het dialoogvenster Opslaan als, in de `Save as Type` vervolgkeuzemenu Selecteer `PowerShell (*.ps1;*.psm1;*.psd1;*.pssc;*.psrc)`.
+25. Hallo bestand opslaan als `binplace.ps1` door te drukken `Ctrl`  +  `Shift`  +  `S`.
+    - Op Hallo opslaan als in het dialoogvenster in Hallo `Save as Type` vervolgkeuzemenu Selecteer `PowerShell (*.ps1;*.psm1;*.psd1;*.pssc;*.psrc)`.
 
-26. Bouw het project door op de `Ctrl`  +  `Shift`  +  `B` sleutels. Als u het project voor het eerst bouwen `Visual Studio Code` vraagt u met de `No build task defined.` dialoogvenster zoals te zien is in de volgende afbeelding:
+26. Hallo-project te bouwen door Hallo drukken `Ctrl`  +  `Shift`  +  `B` sleutels. Als u de eerste keer voor Hallo-project voor Hallo bouwen `Visual Studio Code` vraagt u Hello `No build task defined.` dialoogvenster zoals gezien in Hallo installatiekopie te volgen:
 
     ![Dialoogvenster voor Visual Studio Code build-taak](media/iot-hub-iot-edge-create-module/vscode-build-task.png)
 
-    een) Klik op de `Configure Build Task` knop.
+    een) Klik op Hallo `Configure Build Task` knop.
 
-    b) in de `Select a Task Runner` vervolgkeuzemenu in het dialoogvenster. Selecteer `.NET Core` zoals te zien is in de volgende afbeelding: 
+    b) in Hallo `Select a Task Runner` vervolgkeuzemenu in het dialoogvenster. Selecteer `.NET Core` zoals gezien in Hallo installatiekopie te volgen: 
 
     ![Visual Studio Code selecteren een dialoogvenster taak](media/iot-hub-iot-edge-create-module/vscode-build-task-runner.png)
 
-    c) op de `.NET Core` artikel maakt de `tasks.json` bestand uw `.vscode` directory en opent u het bestand in de `code editor` venster. Er is niet nodig om te wijzigen van dit bestand, het tabblad sluit.
+    c) op Hallo `.NET Core` artikel maakt Hallo `tasks.json` bestand uw `.vscode` directory en wordt geopend bestand in Hallo Hallo `code editor` venster. Er is geen toomodify moet dit bestand, sluiten Hallo tabblad.
 
-27.  Open de `Visual Studio Code` geïntegreerde terminalvenster door op de `Ctrl`  +  `backtick` sleutels of via de menu's `View`  ->  `Integrated Terminal` en het type **.\binplace.ps1** in de `PowerShell` opdrachtprompt. Met deze opdracht wordt alle afhankelijkheden van onze gekopieerd naar de uitvoermap.
+27.  Open Hallo `Visual Studio Code` geïntegreerde terminalvenster door Hallo drukken `Ctrl`  +  `backtick` sleutels of met behulp van menu's Hallo `View`  ->  `Integrated Terminal` en het type **.\binplace.ps1**in Hallo `PowerShell` opdrachtprompt. Met deze opdracht worden alle onze afhankelijkheden toohello uitvoermap gekopieerd.
 
-28. Navigeer naar de uitvoermap projecten in de `Integrated Terminal` venster door op te geven **cd.\bin\Debug\netstandard1.3**.
+28. Navigeer toohello projecten uitvoermap in Hallo `Integrated Terminal` venster door op te geven **cd.\bin\Debug\netstandard1.3**.
 
-29. Het voorbeeldproject uitvoeren door te typen **. \gw.exe gw-config.json** in de `Integrated Terminal` venster prompt. 
-    - Als u nauw de stappen in deze zelfstudie hebt gevolgd, u moet nu worden uitgevoerd de `Azure IoT Edge BLE Data Converter Module` voorbeeldproject zoals te zien is in de volgende afbeelding:
+29. Hallo-voorbeeldproject uitvoeren door te typen **. \gw.exe gw-config.json** in Hallo `Integrated Terminal` venster prompt. 
+    - Als u nauw Hallo stappen in deze zelfstudie hebt gevolgd, u moet nu worden uitgevoerd Hallo `Azure IoT Edge BLE Data Converter Module` voorbeeldproject zoals gezien in Hallo installatiekopie te volgen:
     
         ![Voorbeeld van het gesimuleerde apparaat uitgevoerd in Visual Studio Code](media/iot-hub-iot-edge-create-module/vscode-run.png)
     
-    - Als u wilt dat de toepassing beëindigt, drukt u op de `<Enter>` sleutel.
+    - Als u tooterminate Hallo toepassing wilt, drukt u op Hallo `<Enter>` sleutel.
 
 >[!IMPORTANT]
-Het wordt niet aangeraden om te gebruiken `Ctrl`  +  `C` worden beëindigd of dat de `IoT Edge` application gateway (dat wil zeggen, **gw.exe**). Als u deze actie kan ertoe leiden dat het proces abnormaal beëindigd.
+Het wordt niet aangeraden toouse `Ctrl`  +  `C` tooterminate hello `IoT Edge` application gateway (dat wil zeggen, **gw.exe**). Als u deze actie kan Hallo proces tooterminate abnormaal veroorzaken.
 

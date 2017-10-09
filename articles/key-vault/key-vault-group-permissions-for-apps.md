@@ -1,6 +1,6 @@
 ---
-title: Machtiging verlenen om te veel toepassingen voor toegang tot een Azure sleutelkluis | Microsoft Docs
-description: Meer informatie over het machtiging verlenen om te veel toepassingen voor toegang tot een sleutelkluis
+title: aaaGrant machtiging toomany toepassingen tooaccess een Azure sleutelkluis | Microsoft Docs
+description: Meer informatie over hoe toogrant machtiging toomany toepassingen tooaccess een sleutel-kluis
 services: key-vault
 documentationcenter: 
 author: amitbapat
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
-ms.openlocfilehash: f58b633de2e4b5702ff2df9b3722662b09510200
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5258149f939856f91b3848fc50399e58e5894f0d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Machtiging verlenen om te veel toepassingen voor toegang tot een sleutelkluis
+# <a name="grant-permission-toomany-applications-tooaccess-a-key-vault"></a>Een sleutelkluis voor machtiging toomany toepassingen tooaccess verlenen
 
-## <a name="q-i-have-several-over-16-applications-that-need-to-access-a-key-vault-since-key-vault-only-allows-16-access-control-entries-how-can-i-achieve-that"></a>V: ik heb meerdere (meer dan 16) toepassingen die toegang moeten krijgen tot een sleutelkluis. Omdat Sleutelkluis mag uit maximaal 16 vermeldingen voor toegangsbeheer, hoe kan ik bereikt die?
+## <a name="q-i-have-several-over-16-applications-that-need-tooaccess-a-key-vault-since-key-vault-only-allows-16-access-control-entries-how-can-i-achieve-that"></a>V: ik heb meerdere (meer dan 16) toepassingen die tooaccess een sleutelkluis moeten. Omdat Sleutelkluis mag uit maximaal 16 vermeldingen voor toegangsbeheer, hoe kan ik bereikt die?
 
-Beleid voor toegangsbeheer Sleutelkluis biedt alleen ondersteuning voor 16 vermeldingen. U kunt echter een Azure Active Directory-beveiligingsgroep maken. Alle gekoppelde service-principals toevoegen aan deze beveiligingsgroep en vervolgens toegang verlenen aan deze beveiligingsgroep voor Sleutelkluis.
+Beleid voor toegangsbeheer Sleutelkluis biedt alleen ondersteuning voor 16 vermeldingen. U kunt echter een Azure Active Directory-beveiligingsgroep maken. Voeg alle Hallo service-principals toothis beveiligingsgroep die is gekoppeld en Verleen toegang toothis beveiliging groep tooKey kluis.
 
-Hier volgen de vereisten:
+Hier volgen Hallo-vereisten:
 * [Installeer Azure Active Directory V2 PowerShell-module](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
 * [Installeer Azure PowerShell](/powershell/azure/overview).
-* Als u wilt de volgende opdrachten uitvoeren, moet u machtigingen voor groepen in de Azure Active Directory-tenant maken/bewerken. Als u geen machtigingen hebt, moet u mogelijk contact opnemen met uw Azure Active Directory-beheerder.
+* toorun hello volgende opdrachten, moet u machtigingen toocreate/bewerken groepen in hello Azure Active Directory-tenant. Als u geen machtigingen hebt, moet u mogelijk toocontact uw Azure Active Directory-beheerder.
 
-Voer nu de volgende opdrachten in PowerShell.
+Voer nu Hallo volgende opdrachten in PowerShell.
 
 ```powershell
-# Connect to Azure AD 
+# Connect tooAzure AD 
 Connect-AzureAD 
  
 # Create Azure Active Directory Security Group 
 $aadGroup = New-AzureADGroup -Description "Contoso App Group" -DisplayName "ContosoAppGroup" -MailEnabled 0 -MailNickName none -SecurityEnabled 1 
  
-# Find and add your applications (ServicePrincipal ObjectID) as members to this group 
+# Find and add your applications (ServicePrincipal ObjectID) as members toothis group 
 $spn = Get-AzureADServicePrincipal –SearchString "ContosoApp1" 
 Add-AzureADGroupMember –ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId 
  
-# You can add several members to this group, in this fashion. 
+# You can add several members toothis group, in this fashion. 
  
-# Set the Key Vault ACLs 
+# Set hello Key Vault ACLs 
 Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId -PermissionToKeys all –PermissionToSecrets all –PermissionToCertificates all 
  
-# Of course you can adjust the permissions as required 
+# Of course you can adjust hello permissions as required 
 ```
 
-Als u een andere set machtigingen aan een groep van toepassingen te verlenen moet, maakt u een afzonderlijke Azure Active Directory-beveiligingsgroep voor dergelijke toepassingen.
+Als u een andere set machtigingen tooa groep van toepassingen toogrant moet, maakt u een afzonderlijke Azure Active Directory-beveiligingsgroep voor dergelijke toepassingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het [beveiligen van uw sleutelkluis](key-vault-secure-your-key-vault.md).
+Meer informatie over het te[beveiligen van uw sleutelkluis](key-vault-secure-your-key-vault.md).

@@ -1,6 +1,6 @@
 ---
-title: Beveiligen van persoonlijke gegevens die onderweg met versleuteling in Azure | Microsoft Docs
-description: Met behulp van versleuteling persoonlijke gegevens te beveiligen in Azure
+title: aaaProtect persoonlijke gegevens die onderweg met versleuteling in Azure | Microsoft Docs
+description: Met behulp van versleuteling in Azure tooprotect persoonlijke gegevens
 services: security
 documentationcenter: na
 author: Barclayn
@@ -15,133 +15,133 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 99e40b8a09a2f151e7f83fbb58bdfc00ae4b1268
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 218ad3f49326e8dec299a6d92b18116da65eae71
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-in-transit-with-encryption"></a>Azure versleutelingstechnologieën: beveiligen van persoonlijke gegevens die onderweg met versleuteling
 
-In dit artikel helpt u begrijpen en gebruiken van Azure versleutelingstechnologieën beveiligen van gegevens die worden verzonden. 
+In dit artikel helpt u begrijpen en gebruiken van Azure versleuteling technologieën toosecure gegevens onderweg. 
 
-De privacy van persoonlijke gegevens te beveiligen als ze via het netwerk is een essentieel onderdeel van een meerlaagse beveiliging van defense-in-depth-strategie. Versleuteling onderweg is ontworpen om te voorkomen dat een aanvaller die gegevensoverdrachten te geven of de gegevens kunnen worden onderschept.
+Beschermen Hallo privacy van persoonlijke gegevens is als ze via Hallo-netwerk een essentieel onderdeel van een meerlaagse defense-in-depth beveiligingsstrategie. Versleuteling onderweg is ontworpen tooprevent een aanvaller die gegevensoverdrachten kunnen tooview of gebruik Hallo gegevens wordt onderschept.
 
 ## <a name="scenario"></a>Scenario
 
-Een bedrijf grote cruise, gevestigd in de Verenigde Staten, aanvullende bewerkingen voor het bieden van routes in de Middellandse, Adriatische, Baltische veiligheid ook Florida. Ter ondersteuning van deze inspanningen is die is verkregen meerdere kleinere cruise regels op basis van Italië, Duitsland, Denemarken en het Verenigd Koninkrijk 
+Een grote cruise bedrijf, gevestigd in Hallo Verenigde Staten, wordt de bewerkingen toooffer routes in Hallo Middellandse, Adriatische, Baltische veiligheid ook Hallo Florida uitbreiden. toosupport deze inspanningen, heeft deze meerdere kleinere cruise regels op basis van Italië, verkregen Duitsland, Denemarken en Hallo Verenigd Koninkrijk 
 
-Het bedrijf gebruikmaakt van Microsoft Azure voor het opslaan van bedrijfsgegevens in de cloud. Dit omvat persoonlijk gegevens zoals namen, adressen, telefoonnummers en creditcardgegevens van globale klantendatabase. Dit omvat ook traditionele Human Resource informatie zoals adressen, telefoonnummers, BTW-id's en medische informatie over de werknemers van het bedrijf op alle locaties. De regel cruise onderhoudt ook een grote database van derden en loyaliteit programma leden met persoonlijke gegevens voor de relaties met de huidige en eerdere klanten bijhouden.
+Hallo bedrijf maakt gebruik van Microsoft Azure toostore bedrijfsgegevens Hallo cloud. Dit omvat persoonlijk gegevens zoals namen, adressen, telefoonnummers en creditcardgegevens van globale klantendatabase. Dit omvat ook traditionele Human Resource informatie zoals adressen, telefoonnummers, BTW-id's en medische informatie over de werknemers van het bedrijf op alle locaties. Hallo cruise regel onderhoudt ook een grote database van derden en loyaliteit voor leden die persoonlijke gegevens tootrack relaties met de huidige en eerdere klanten bevat.
 
-Persoonlijke gegevens van klanten is ingevoerd in de database uit van het bedrijf externe kantoren en reizen agents over de hele wereld. Documenten met klantgegevens worden overgebracht via het netwerk naar Azure-opslag.
+Persoonlijke gegevens van klanten wordt ingevoerd in de database Hallo uit van het bedrijf Hallo externe kantoren en reizen agents zich Hallo wereld. Documenten met klantgegevens overgebracht over Hallo tooAzure netwerkopslag.
 
 ## <a name="problem-statement"></a>Probleemformulering
 
-Het bedrijf moet de privacy van klanten en werknemers persoonlijke gegevens beveiligen terwijl het onderweg en naar Azure-services.
+Hallo bedrijf dient Hallo privacy van klanten te beschermen en persoonlijke gegevens van de werknemers terwijl het onderweg tooand van Azure-services is.
 
 ## <a name="company-goal"></a>Bedrijf-doel
 
-Het doel van het bedrijf om ervoor te zorgen dat de persoonlijke gegevens van de harde schijf worden versleuteld. Als niet-geautoriseerde personen de persoonlijke gegevens buiten de schijf Intercept, moet deze in een formulier dat het onleesbaar verschijnt. Versleuteling toepassen, moet eenvoudig of volledig transparant voor gebruikers en beheerders.
+Hallo bedrijf doel tooensure dat persoonlijke gegevens van de harde schijf worden versleuteld. Als niet-geautoriseerde personen Hallo uitschakelen schijf persoonlijke gegevens Intercept, moet deze in een formulier dat het onleesbaar verschijnt. Versleuteling toepassen, moet eenvoudig of volledig transparant voor gebruikers en beheerders.
 
 ## <a name="solutions"></a>Oplossingen
 
-Azure-services bieden meerdere hulpprogramma's en technologieën voor het persoonlijke gegevens onderweg te beschermen.
+Azure-services bieden meerdere hulpprogramma's en technologieën toohelp beveiligen van persoonlijke gegevens die onderweg.
 
 ### <a name="azure-storage"></a>Azure Storage
 
-Gegevens die zijn opgeslagen in de cloud moet van de client, die zich fysiek overal ter wereld, naar het Azure Datacenter gaan. Wanneer er gegevens worden opgehaald door gebruikers, overdracht opnieuw in de tegengestelde richting. Gegevens die via het openbare Internet onderweg is altijd risico worden onderschept door kwaadwillende personen. Het is belangrijk om de privacy van persoonlijke gegevens beschermen met behulp van transportniveau versleuteling te beveiligen als u deze verplaatst tussen locaties.
+Gegevens die zijn opgeslagen in de cloud Hallo moet getransporteerd van Hallo-client, die zich fysiek bevinden overal op kan Hallo wereld, toohello Azure-Datacenter. Wanneer er gegevens worden opgehaald door gebruikers, overdracht opnieuw in Hallo tegengestelde richting. Gegevens die onderweg via Hallo openbare Internet is altijd risico worden onderschept door kwaadwillende personen. Het is belangrijk tooprotect Hallo privacy van persoonlijke gegevens met behulp van versleuteling transportniveau toosecure zoals deze tussen locaties verplaatst.
 
-Het HTTPS-protocol biedt een kanaal beveiligde, gecodeerde communicatie via Internet. HTTPS moet worden gebruikt voor toegang tot objecten in Azure Storage en bij het aanroepen van REST-API's. U gebruik van het HTTPS-protocol afdwingen wanneer u [Shared Access Signatures](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) (SAS) te delegeren van toegang tot Azure Storage-objecten. Er zijn twee soorten SAS: Service-SAS en Account-SAS.
+Hallo HTTPS-protocol biedt een kanaal beveiligde, gecodeerde communicatie via Internet Hallo. HTTPS moet gebruikte tooaccess objecten in Azure Storage en bij het aanroepen van REST-API's. U gebruik van HTTPS-protocol Hallo afdwingen wanneer u [Shared Access Signatures](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) (SAS) toodelegate access tooAzure opslag-objecten. Er zijn twee soorten SAS: Service-SAS en Account-SAS.
 
 #### <a name="how-do-i-construct-a-service-sas"></a>Hoe ik een Service-SAS maken?
 
-Een Service-SAS delegeert toegang tot een resource in slechts één van de storage-services (blob, queue, tabel of file-service). Kan een Service-SAS, het volgende doen:
+Een Service-SAS gemachtigden toegang tooa resource in slechts één van de opslagservices hello (blob, queue, tabel of file-service). een Service-SAS tooconstruct Hallo te volgen:
 
-1. Het veld ondertekende versie opgeven
+1. Hallo ondertekend Versieveld opgeven
 
-2. Geef de ondertekende Resource (Blob en File-Service)
+2. Geef Hallo ondertekend Resource (Blob en alleen File-Service)
 
-3. Geef queryparameters op om te overschrijven antwoordheaders (Blob-Service en File-Service)
+3. Geef de queryparameters tooOverride antwoordheaders (Blob-Service en alleen File-Service)
 
-4. Geef de naam van de tabel (alleen voor Tabelservice)
+4. Geef Hallo tabelnaam (alleen tabel-Service)
 
-5. Geef het beleid voor toegang
+5. Hallo toegangsbeleid opgeven
 
-6. Geef het geldigheidsinterval van de handtekening
+6. Hallo handtekening geldigheidsinterval opgeven
 
 8. Machtigingen opgeven
 
 9. IP-adres of IP-bereik opgeven
 
-10. Geef de HTTP-Protocol
+10. Hallo HTTP-Protocol opgeven
 
 11. Tabel toegang adresbereiken opgeven
 
-12. Hiermee geeft u de ondertekende id
+12. Hallo ondertekend-id opgeven
 
-13. Geef de handtekening
+13. Hallo handtekening opgeven
 
 Zie voor meer instructies, [samenstellen van een Service-SAS](https://docs.microsoft.com/rest/api/storageservices/Constructing-a-Service-SAS?redirectedfrom=MSDN).
 
 #### <a name="how-do-i-construct-an-account-sas"></a>Hoe ik een SAS-Account maken?
 
-Een Account-SAS delegeert toegang tot bronnen in een of meer van de storage-services. U kunt ook toegang tot het lezen, schrijven en verwijderen van bewerkingen delegeren voor blobcontainers, tabellen, wachtrijen en bestandsshares die niet zijn toegestaan bij een service-SAS. Bouw van een SAS-Account is vergelijkbaar met die van een Service-SAS. Zie voor gedetailleerde instructies [samenstellen van een SAS-Account.](https://docs.microsoft.com/rest/api/storageservices/Constructing-an-Account-SAS?redirectedfrom=MSDN)
+Een Account-SAS delegeert toegang tooresources in een of meer van de opslagservices Hallo. U kunt ook toegang tooread-, schrijf- en delete-bewerkingen op de blob-containers, tabellen, wachtrijen en bestandsshares die niet zijn toegestaan als een service-SAS delegeren. Bouw van een SAS-Account is vergelijkbaar toothat van een Service-SAS. Zie voor gedetailleerde instructies [samenstellen van een SAS-Account.](https://docs.microsoft.com/rest/api/storageservices/Constructing-an-Account-SAS?redirectedfrom=MSDN)
 
 #### <a name="how-do-i-enforce-https-when-calling-rest-apis"></a>Hoe ik HTTPS afdwingen bij het aanroepen van REST-API's?
 
-Het gebruik van HTTPS afdwingen bij het aanroepen van REST-API's voor toegang tot objecten in de storage-accounts, kunt u beveiligde overdracht vereist voor het opslagaccount. 
+tooenforce hello gebruik van HTTPS bij het aanroepen van REST-API's tooaccess objecten in de storage-accounts, kunt u beveiligde overdracht vereist voor het Hallo-opslagaccount. 
 
-1. Selecteer in de Azure-portal **Storage-Account maken**, of Selecteer voor een bestaand opslagaccount **instellingen** en vervolgens **configuratie**.
+1. Selecteer in de Azure-portal Hallo, **Storage-Account maken**, of Selecteer voor een bestaand opslagaccount **instellingen** en vervolgens **configuratie**.
 
 2. Onder **beveiligde overdracht vereist**, selecteer **ingeschakeld**.
 
 ![Een opslagaccount maken](media/protect-personal-data-in-transit-encryption/create-storage-account.png)
 
-Voor instructies gedetailleerde, met inbegrip van beveiligde overdracht vereist programmatisch inschakelen, Raadpleeg [vereisen Secure Transfer](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer).
+Voor instructies gedetailleerde, inclusief hoe tooenable beveiligde overdracht vereist via een programma, Zie [vereisen Secure Transfer](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer).
 
 #### <a name="how-do-i-encrypt-data-in-azure-file-storage"></a>Versleutelen gegevens in Azure File Storage?
 
-Voor het versleutelen van gegevens tijdens de overdracht met [Azure File Storage](https://docs.microsoft.com/azure/storage/storage-file-how-to-use-files-portal), kunt u SMB 3.x met Windows 8, 8.1 en 10 en Windows Server 2012 R2 en Windows Server 2016. Wanneer u de service Azure-bestanden gebruikt, wordt er een verbinding zonder versleuteling mislukt wanneer "Veilig vereiste gegevensoverdracht" is ingeschakeld. Dit geldt ook voor scenario's die gebruikmaken van SMB 2.1, SMB 3.0 zonder versleuteling en bepaalde versies van de Linux SMB-client.
+gegevens die onderweg met tooencrypt [Azure File Storage](https://docs.microsoft.com/azure/storage/storage-file-how-to-use-files-portal), kunt u SMB 3.x met Windows 8, 8.1 en 10 en Windows Server 2012 R2 en Windows Server 2016. Wanneer u hello Azure Files service gebruikt, wordt een verbinding zonder versleuteling mislukt wanneer "Veilig vereiste gegevensoverdracht" is ingeschakeld. Dit geldt ook voor scenario's die gebruikmaken van SMB 2.1, SMB 3.0 zonder versleuteling en bepaalde versies van het Hallo Linux SMB-client.
 
 #### <a name="azure-client-side-encryption"></a>Azure-Client-side '-versleuteling
 
-Een andere optie voor het beveiligen van persoonlijke gegevens, terwijl deze wordt overgebracht tussen een client-toepassing en een Azure Storage is [clientzijde versleuteling](https://docs.microsoft.com/azure/storage/storage-client-side-encryption). De gegevens worden versleuteld voordat ze worden overgedragen naar de Azure-opslag en wanneer u de gegevens uit Azure Storage ophaalt, de gegevens worden ontsleuteld nadat het is ontvangen op de client.
+Een andere optie voor het beveiligen van persoonlijke gegevens, terwijl deze wordt overgebracht tussen een client-toepassing en een Azure Storage is [clientzijde versleuteling](https://docs.microsoft.com/azure/storage/storage-client-side-encryption). Hallo-gegevens worden versleuteld voordat ze worden overgedragen naar de Azure-opslag en wanneer u de Hallo-gegevens uit Azure Storage ophalen, Hallo gegevens worden ontsleuteld nadat het is ontvangen op Hallo-client.
 
 ### <a name="azure-site-to-site-vpn"></a>Azure Site-naar-Site-VPN
 
-Een effectieve manier om persoonlijke gegevens onderweg tussen een bedrijfsnetwerk of de gebruiker en de virtuele Azure-netwerk te beveiligen is met een [site-naar-site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) of [punt-naar-site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal) virtuele particuliere netwerk (VPN). Een VPN-verbinding wordt gemaakt van een beveiligde tunnel versleutelde via Internet.
+Een effectieve manier tooprotect persoonlijke gegevens onderweg tussen een bedrijfsnetwerk of de gebruiker en het Hallo virtuele Azure-netwerk is toouse een [site-naar-site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) of [punt-naar-site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal) virtuele particuliere netwerk (VPN). Een VPN-verbinding wordt gemaakt van een beveiligde tunnel versleutelde via Internet Hallo.
 
 #### <a name="how-do-i-create-a-site-to-site-vpn-connection"></a>Hoe maak ik een site-naar-site VPN-verbinding
 
-Meerdere gebruikers op het bedrijfsnetwerk verbinding een site-naar-site-VPN-met Azure. Een site-naar-site om verbinding te maken in de Azure portal, het volgende doen:
+Een site-naar-site-VPN-verbinding maakt meerdere gebruikers op Hallo bedrijfsnetwerk tooAzure. een site-naar-site-verbinding in hello Azure-portal toocreate Hallo te volgen:
 
 1. Een virtueel netwerk maken.
 
 2. Geef een DNS-server.
 
-3. Maak het gatewaysubnet.
+3. Hallo gatewaysubnet maken.
 
-4. Maak de VPN-gateway. 
+4. Hallo VPN-gateway maken. 
 
     ![](media/protect-personal-data-in-transit-encryption/vpn-step-01.png)
 
-5. De lokale netwerkgateway maken.
+5. Hallo lokale netwerkgateway maken.
 
     ![](media/protect-personal-data-in-transit-encryption/vpn-step-02.png)
 
 6. Configureer het VPN-apparaat.
 
-7. Maak de VPN-verbinding.
+7. Hallo VPN-verbinding maken.
 
     ![](media/protect-personal-data-in-transit-encryption/vpn-step-03.png)
 
-8. Controleer of de VPN-verbinding.
+8. Hallo VPN-verbinding controleren.
 
-Zie voor meer gedetailleerde instructies voor het maken van een site-naar-site-verbinding in de Azure portal [verbinding met Site-naar-Site in de Azure Portal maken]. (https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+Voor gedetailleerde instructies over hoe toocreate een site-naar-site-verbinding in hello Azure portal, Zie [maken van een Site-naar-Site-verbinding in hello Azure-Portal.] (https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
 
 #### <a name="how-do-i-create-a-point-to-site-vpn-connection"></a>Hoe maak ik een punt-naar-site VPN-verbinding
 
-Een punt-naar-Site VPN maakt een beveiligde verbinding van een afzonderlijke clientcomputer met een virtueel netwerk. Dit is handig als u verbinding maken met Azure vanaf een externe locatie wilt, zoals vanaf thuis of een hotel of conferentie center. Een punt-naar-site om verbinding te maken in de Azure portal
+Een punt-naar-Site VPN maakt een beveiligde verbinding van een individuele client computer tooa virtueel netwerk. Dit is handig als u tooconnect tooAzure vanaf een externe locatie, zoals vanaf thuis of een hotel of conferentie center. toocreate een punt-naar-site-verbinding in hello Azure-portal
 
 1. Een virtueel netwerk maken.
 
@@ -153,37 +153,37 @@ Een punt-naar-Site VPN maakt een beveiligde verbinding van een afzonderlijke cli
 
 5. Genereren van certificaten.
 
-6. Toevoegen van de client-adresgroep.
+6. Hallo-clientadresgroep toevoegen.
 
-7. De openbare certificaatgegevens van het root-certificaat uploaden.
+7. Hallo root certificate openbaar certificaatgegevens uploaden.
 
-8. Genereren en de configuratie van VPN-clientpakket installeren.
+8. Genereren en Hallo VPN-clientpakket configuratie installeren.
 
 9. Een geëxporteerde certificaat installeren.
 
-10. Verbinding maken met Azure.
+10. Verbinding maken met tooAzure.
 
 11. Controleer de verbinding.
 
-Zie voor meer instructies, [een punt-naar-Site-verbinding met een VNet met behulp van verificatie via certificaat configureren: Azure Portal.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
+Zie voor meer instructies, [een punt-naar-Site-verbinding tooa VNet configureren met behulp van verificatie via certificaat: Azure Portal.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
 
 ### <a name="ssltls"></a>SSL/TLS
 
-Microsoft raadt aan dat u altijd SSL/TLS-protocollen gebruiken voor het uitwisselen van gegevens op verschillende locaties. Organisaties die gebruiken [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) grote gegevenssets verplaatsen via een speciale snelle WAN koppeling ook de gegevens op toepassingsniveau kunt versleutelen met behulp van SSL/TLS- of andere protocollen voor extra beveiliging.
+Microsoft raadt aan dat u altijd SSL/TLS-protocollen tooexchange gegevens op verschillende locaties gebruiken. Organisaties die ervoor toouse kiezen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) toomove grote gegevenssets toegewezen snelle WAN-koppeling kunt Hallo gegevens op Hallo op toepassingsniveau met SSL/TLS- of andere protocollen voor extra beveiliging ook versleutelen.
 
 ### <a name="encryption-by-default"></a>Codering standaard
 
-Microsoft maakt gebruik van versleuteling om gegevens onderweg tussen Azure-cloudservices en klanten te beschermen. Als u met Azure Storage via de Azure-Portal communiceert, worden alle transacties plaatsvinden via HTTPS.
+Microsoft gebruikt codering tooprotect gegevens onderweg tussen klanten en Azure-cloudservices. Als u met Azure Storage via hello Azure Portal communiceert, worden alle transacties plaatsvinden via HTTPS.
 
-[Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) is het protocol dat Microsoft-datacenters probeert te onderhandelen met clientsystemen die verbinding met Microsoft-cloudservices maken. TLS bevat sterke verificatie, privacy van berichten en integriteit (schakelt u het detecteren van bericht knoeien, onderschept en kunnen worden vervalst), interoperabiliteit, algoritmeflexibiliteit, gebruiksgemak en gebruik.
+[Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) is dat Microsoft-datacenters toonegotiate met clientsystemen die verbinding met cloudservices tooMicrosoft zal proberen Hallo-protocol. TLS bevat sterke verificatie, privacy van berichten en integriteit (schakelt u het detecteren van bericht knoeien, onderschept en kunnen worden vervalst), interoperabiliteit, algoritmeflexibiliteit, gebruiksgemak en gebruik.
 
-[Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) wordt ook gebruikt zodat elke verbinding tussen clientsystemen klanten en cloudservices van Microsoft gebruiken unieke sleutels. Verbindingen met Microsoft cloud-services ook te profiteren van op basis van RSA 2048-bits versleuteling sleutellengten. De combinatie van TLS, sleutellengtes RSA 2048-bits, en PFS maakt het moeilijker voor iemand om te onderscheppen en toegang tot gegevens die onderweg tussen Microsoft-cloudservices en -klanten.
+[Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) wordt ook gebruikt zodat elke verbinding tussen clientsystemen klanten en cloudservices van Microsoft gebruiken unieke sleutels. Verbindingen tooMicrosoft cloudservices ook te profiteren van op basis van RSA 2048-bits versleuteling sleutellengten. Hallo combinatie van TLS, sleutellengtes RSA 2048-bits, en PFS maakt het moeilijker voor iemand toointercept en toegang tot gegevens die onderweg tussen Microsoft-cloudservices en -klanten.
 
-Gegevens die onderweg is altijd versleuteld in [Data Lake Store] (https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview). Naast het versleutelen van gegevens voorafgaand aan het opslaan op permanente media, worden de gegevens tijdens overdracht ook altijd beveiligd met behulp van HTTPS. HTTPS is het enige protocol dat wordt ondersteund voor de Data Lake Store REST-interfaces.
+Gegevens die onderweg is altijd versleuteld in [Data Lake Store] (https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview). Bovendien tooencrypting gegevens voorafgaande toostoring toopersistent media Hallo gegevens is ook altijd onderweg via HTTPS beveiligd. HTTPS is alleen Hallo-protocol dat wordt ondersteund voor Hallo die Data Lake Store REST-interfaces.
 
 ## <a name="summary"></a>Samenvatting
 
-Het bedrijf kan het doel van persoonlijke gegevens en de privacy van dergelijke gegevens beveiligen met HTTPS-verbindingen naar Azure Storage afdwingen, met behulp van handtekeningen voor gedeelde toegang en inschakelen van beveiligde overdracht vereist op de storage-accounts kunt uitvoeren. Ze kunnen ook persoonlijke gegevens beveiligen met behulp van SMB 3.0-verbindingen en clientzijde codering implementeren. Site-naar-site VPN-verbindingen met het bedrijfsnetwerk naar het Azure-netwerk en punt-naar-site VPN-verbindingen van afzonderlijke gebruikers maakt een beveiligde tunnel via welke persoonlijke gegevens kan veilig worden verzonden. Procedures voor versleuteling van Microsoft-standaard wordt de privacy van persoonlijke gegevens verder beschermen.
+Hallo bedrijf kan het doel van persoonlijke gegevens en Hallo privacy van dergelijke gegevens beveiligen met HTTPS-verbindingen tooAzure opslag afdwingen, met behulp van handtekeningen voor gedeelde toegang en inschakelen van beveiligde overdracht vereist op Hallo storage-accounts kunt uitvoeren. Ze kunnen ook persoonlijke gegevens beveiligen met behulp van SMB 3.0-verbindingen en clientzijde codering implementeren. Site-naar-site VPN-verbindingen van Hallo bedrijfsnetwerk toohello virtuele Azure-netwerk en punt-naar-site VPN-verbindingen van afzonderlijke gebruikers maakt een beveiligde tunnel via welke persoonlijke gegevens kan veilig worden verzonden. Microsoft standaard versleuteling procedures nog beter beschermd Hallo privacy van persoonlijke gegevens.
 
 ## <a name="next-steps"></a>Volgende stappen
 

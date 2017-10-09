@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure Virtual Machine Scale Sets - zelfstudies, API-verwijzing | Microsoft Docs
-description: Leer hoe u virtuele-machineschaalsets kunt gebruiken om virtuele Windows- of Linux-machines met automatisch schalen te maken voor big compute, big data en beperkte oplossingen.
+title: aaaAzure documentatie in de virtuele Machine Scale-Sets - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Meer informatie over hoe toouse virtuele-Machineschaalsets toocreate automatisch schalen Windows of Linux-machines voor big compute, big data en beperkte oplossingen.
 services: virtual-machine-scale-sets
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c03fc321082b8be9044faf0e57e2f26ddc22c243
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7f4a4812e2ba44cabfd54bc25fa3b66a04c5bbe8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Documentatie over virtuele-machineschaalsets
 
-Leer hoe u virtuele-machineschaalsets kunt gebruiken om een reeks identieke virtuele Windows- of Linux-machines met automatisch schalen te implementeren en beheren. Documentatie laat zien hoe u schaalsets kunt gebruiken om services te ondersteunen die zijn gericht op big compute, big data en beperkte oplossingen.
+Meer informatie over hoe de schaal van de virtuele Machine toouse toodeploy instellen en beheren van een reeks identiek zijn, automatisch schalen Windows of Linux-machines. Documentatie ziet u hoe toouse Schaalsets toosupport die doel big compute, big data en oplossingen voor beperkte services.
 
 <ul class="panelContent cardsFTitle">
     <li>

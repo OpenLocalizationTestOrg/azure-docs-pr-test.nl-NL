@@ -1,10 +1,10 @@
-U kunt verbinding maken met een VM die op uw VNet is geïmplementeerd door een verbinding met extern bureaublad te maken voor uw VM. De beste manier om eerst te controleren of u verbinding met uw VM kunt maken is door verbinding te maken met behulp van het privé-IP-adres in plaats van de computernaam. Op die manier test u of u verbinding kunt maken, niet of naamomzetting correct is geconfigureerd.
+U kunt virtuele machine die door het maken van een verbinding met extern bureaublad-tooyour VM geïmplementeerde tooyour VNet tooa verbinden. Hallo aanbevolen manier tooinitially controleren of u kunt verbinding maken tooyour VM is tooconnect door met de persoonlijke IP-adres in plaats van de computernaam. Op die manier u test toosee als u verbinding kunt maken, niet of naamomzetting correct is geconfigureerd.
 
-1. Zoek het privé-IP-adres. U vindt het privé-IP-adres van een VM door naar de eigenschappen voor de VM te kijken in Azure Portal of door PowerShell te gebruiken.
+1. Hallo privé IP-adres vinden. U vindt Hallo privé IP-adres van een virtuele machine door beide bekijkt hello eigenschappen voor de virtuele machine in Azure-portal Hallo Hallo of met behulp van PowerShell.
 
-  - Azure Portal: vind uw virtuele machine in Azure Portal. Bekijk de eigenschappen voor de VM. Het privé-IP-adres wordt vermeld.
+  - Azure-portal - de virtuele machine niet vinden in hello Azure-portal. Hallo-eigenschappen voor Hallo VM weergeven. Hallo privé IP-adres wordt vermeld.
 
-  - PowerShell: gebruik het voorbeeld om een lijst met VM's en privé-IP-adressen uit uw resourcegroepen weer te geven. U hoeft het voorbeeld niet te wijzigen voordat u het gebruikt.
+  - PowerShell - gebruik Hallo voorbeeld tooview een lijst met virtuele machines en privé IP-adressen van uw resourcegroepen. U hoeft niet toomodify in dit voorbeeld voordat u deze gebruikt.
 
     ```powershell
     $VMs = Get-AzureRmVM
@@ -19,17 +19,17 @@ U kunt verbinding maken met een VM die op uw VNet is geïmplementeerd door een v
     }
     ```
 
-2. Controleer of u met uw VNet bent verbonden met behulp van de punt-naar-site-VPN-verbinding.
-3. Open **Verbinding met extern bureaublad door** 'RDP' of 'Verbinding met extern bureaublad' te typen in het zoekvak in de taakbalk en selecteer vervolgens Verbinding met extern bureaublad. U kunt Verbinding met extern bureaublad ook openen met behulp van de opdracht 'mstsc' in PowerShell. 
-4. Voer het privé-IP-adres van de VM in Verbinding met extern bureaublad in. U kunt op Opties weergeven klikken om aanvullende instellingen aan te passen en vervolgens verbinding maken.
+2. Controleer of u verbonden tooyour VNet met Hallo punt-naar-Site VPN verbinding.
+3. Open **verbinding met extern bureaublad** getypt 'RDP' of 'Verbinding met extern bureaublad' in het zoekvak Hallo op Hallo taakbalk, selecteer vervolgens verbinding met extern bureaublad. U kunt ook de verbinding met extern bureaublad met behulp van de opdracht 'mstsc' hello in PowerShell openen. 
+4. Voer Hallo privé IP-adres van VM Hallo in verbinding met extern bureaublad. U kunt extra instellingen van 'Weergeven Options' tooadjust Klik op verbinding maken.
 
-### <a name="to-troubleshoot-an-rdp-connection-to-a-vm"></a>Problemen met de RDP-verbinding met een VM oplossen
+### <a name="tootroubleshoot-an-rdp-connection-tooa-vm"></a>tootroubleshoot een RDP-verbinding tooa VM
 
-Als u problemen ondervindt bij het verbinding maken met een virtuele machine via de VPN-verbinding, controleert u het volgende:
+Als u problemen bij het verbinden van tooa virtuele machine via de VPN-verbinding ondervindt, controleert u Hallo volgende:
 
 - Controleer of uw VPN-verbinding tot stand is gebracht.
-- Controleer of u verbinding maakt met het privé-IP-adres voor de VM.
-- Gebruik de opdracht 'ipconfig' om het IPv4-adres te controleren dat is toegewezen aan de ethernetadapter op de computer waarmee u de verbinding tot stand brengt. Als het IP-adres zich binnen het adresbereik bevindt van het VNet waarmee u verbinding maakt of binnen het adresbereik van uw VPNClientAddressPool, wordt dit een overlappende adresruimte genoemd. Als uw adresruimte op deze manier overlapt, kan het netwerkverkeer Azure niet bereiken en blijft het in het lokale netwerk.
-- Als u verbinding met de VM kunt maken met behulp van het privé-IP-adres, maar niet met de computernaam, controleert u of DNS correct is geconfigureerd. Zie [Naamomzetting voor VM's](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) voor meer informatie over de werking van naamomzetting voor VM's.
-- Controleer of het configuratiepakket voor de VPN-client is gegenereerd nadat de IP-adressen van de DNS-server zijn opgegeven voor het VNet. Als u de IP-adressen van de DNS-server hebt bijgewerkt, genereert en installeert u een nieuw configuratiepakket voor de VPN-client.
-- Zie [Problemen met Extern-bureaubladverbindingen met een VM oplossen](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md) voor meer informatie over Extern-bureaubladverbindingen.
+- Controleer of u verbinding maken met toohello privé IP-adres voor Hallo VM.
+- Gebruik 'ipconfig' toocheck Hallo IPv4-adres toegewezen toohello Ethernet-adapter op Hallo computer van waaruit u de verbinding maakt. Als Hallo IP-adres binnen het adresbereik Hallo Hallo VNet waarmee u verbinding maakt of binnen het adresbereik Hallo van uw VPNClientAddressPool, wordt deze aangeduid tooas een overlappende adresruimte. Wanneer uw adresruimte overlapt op deze manier, netwerkverkeer hello Azure niet bereiken, blijft deze op Hallo lokale netwerk.
+- Als u verbinding met toohello VM maken kunt gebruik Hallo persoonlijke IP-adres, maar niet Hallo computernaam, Controleer of DNS juist geconfigureerd. Zie [Naamomzetting voor VM's](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) voor meer informatie over de werking van naamomzetting voor VM's.
+- Controleer of dat Hallo VPN-clientpakket configuratie is gegenereerd nadat Hallo DNS-server IP-adressen zijn opgegeven voor Hallo VNet. Als u IP-adressen van Hallo DNS-server wordt bijgewerkt, genereren en een nieuwe VPN-client-configuratiepakket installeren.
+- Zie voor meer informatie over RDP-verbindingen [problemen met extern bureaublad-verbindingen tooa VM](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md).

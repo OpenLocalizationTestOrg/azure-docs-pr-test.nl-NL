@@ -4,34 +4,34 @@
 > 
 > 
 
-Dit artikel bevat een gedetailleerd overzicht van de [Hallo wereld-voorbeeldcode][lnk-helloworld-sample] om de fundamentele onderdelen van de architectuur van [Azure IoT Edge][lnk-iot-edge] te illustreren. In het voorbeeld wordt Azure IoT Edge gebruikt om een eenvoudige gateway te maken die om de vijf seconden een 'Hallo wereld'-bericht vastlegt in een bestand.
+Dit artikel bevat een gedetailleerd overzicht van Hallo [Hallo wereld voorbeeldcode] [ lnk-helloworld-sample] tooillustrate Hallo fundamentele onderdelen van Hallo [Azure IoT rand] [ lnk-iot-edge] architectuur. Hallo voorbeeld maakt gebruik van hello Azure IoT rand toobuild een eenvoudige gateway die u een "Hallo wereld" tooa berichtbestand elke vijf seconden registreert.
 
 Dit overzicht omvat:
 
-* **Hallo wereld voorbeeldarchitectuur**: hierin wordt beschreven hoe [Azure IoT rand architectuur concepten] [ lnk-edge-concepts] van toepassing op het Hallo wereld-voorbeeld en hoe de onderdelen in elkaar passen.
-* **Het voorbeeld maken**: de stappen die nodig zijn om het voorbeeld te maken.
-* **Het voorbeeld uitvoeren**: de stappen die nodig zijn om het voorbeeld uit te voeren. 
-* **Typische uitvoer**: een voorbeeld van de uitvoer die u kunt verwachten wanneer u het voorbeeld uitvoert.
-* **Codefragmenten**: een verzameling van codefragmenten om weer te geven hoe het Hallo wereld-voorbeeld belangrijke onderdelen van de rand van de IoT gateway implementeert.
+* **Hallo wereld voorbeeldarchitectuur**: hierin wordt beschreven hoe [Azure IoT rand architectuur concepten] [ lnk-edge-concepts] toohello Hallo wereld-voorbeeld en hoe Hallo-onderdelen in elkaar passen toepassen.
+* **Hoe toobuild voorbeeld Hallo**: Hallo stappen vereist toobuild Hallo voorbeeld.
+* **Hoe toorun voorbeeld Hallo**: Hallo stappen vereist toorun Hallo voorbeeld. 
+* **Typische uitvoer**: een voorbeeld van Hallo tooexpect uitvoer wanneer u Hallo voorbeeld uitvoert.
+* **Codefragmenten**: een verzameling van code codefragmenten tooshow hoe Hallo Hallo wereld-voorbeeld implementeert sleutel rand IoT gateway-onderdelen.
 
 
 ## <a name="hello-world-sample-architecture"></a>Architectuur van het 'Hallo wereld'-voorbeeld
-Het 'Hallo wereld'-voorbeeld illustreert de concepten die in de vorige sectie zijn beschreven. Het Hallo wereld-voorbeeld implementeert een IoT-Edge-gateway met een pijplijn die bestaat uit twee IoT Edge-modules:
+Hallo Hallo wereld-voorbeeld illustreert Hallo concepten beschreven in de vorige sectie Hallo. Hallo Hallo wereld-voorbeeld implementeert een IoT-Edge-gateway met een pijplijn die bestaat uit twee IoT Edge-modules:
 
-* De *Hallo wereld*-module maakt om de vijf seconden een bericht en geeft dit door aan de logboekregistratiemodule.
-* De *logboekregistratie*module schrijft de ontvangen berichten naar een bestand.
+* Hallo *Hallo wereld* module elke vijf seconden een bericht wordt gemaakt en wordt doorgegeven toohello berichtenlogboek module.
+* Hallo *berichtenlogboek* module schrijfbewerkingen Hallo-berichten ontvangen tooa-bestand.
 
 ![Architectuur van 'Hallo wereld'-voorbeeld gebouwd met Azure IoT Edge][4]
 
-Zoals in de vorige sectie is beschreven, geeft de module 'Hallo wereld' niet elke vijf seconden berichten rechtstreeks aan de logboekregistratiemodule door. In plaats daarvan wordt het bericht elke vijf seconden naar de broker gepubliceerd.
+Zoals beschreven in de vorige sectie hello, Hallo Hallo wereld module niet geeft-berichten rechtstreeks toohello berichtenlogboek module elke vijf seconden. Het publiceert in plaats daarvan elke vijf seconden een bericht toohello broker.
 
-De loggermodule ontvangt het bericht van de broker en reageert erop door de inhoud van het bericht naar een bestand te schrijven.
+Hallo berichtenlogboek module Hallo-bericht ontvangt van Hallo broker en fungeert daarvan Hallo inhoud van Hallo-bericht tooa bestand schrijven.
 
-De loggermodule verwerkt alleen berichten van de broker en publiceert nooit nieuwe berichten naar de broker.
+Hallo berichtenlogboek module alleen berichten van Hallo broker verbruikt, nieuwe berichten toohello broker nooit wordt gepubliceerd.
 
-![Hoe de broker berichten routeert tussen modules in Azure IoT Edge][5]
+![Hoe Hallo broker routeert berichten tussen de modules in Azure IoT rand][5]
 
-In de bovenstaande afbeelding ziet u de architectuur van het 'Hello World'-voorbeeld en de relatieve paden naar de bronbestanden die verschillende delen van het voorbeeld implementeren in de [opslagplaats][lnk-iot-edge]. Verken zelf de code of gebruik de codefragmenten hieronder als richtlijn.
+Hallo bovenstaande afbeelding ziet u Hallo-architectuur van Hallo Hallo wereld-voorbeeld en relatieve paden Hallo toohello bronbestanden die andere gedeelten van Hallo voorbeeld in Hallo implementeren [opslagplaats][lnk-iot-edge]. Verken Hallo code in uw eigen of Hallo codefragmenten hieronder als richtlijn gebruiken.
 
 <!-- Images -->
 [4]: media/iot-hub-iot-edge-getstarted-selector/high_level_architecture.png

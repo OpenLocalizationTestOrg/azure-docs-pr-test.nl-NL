@@ -1,20 +1,20 @@
 ## <a name="public-ip-address"></a>Openbaar IP-adres
-Een openbare IP-adres resource biedt ofwel een gereserveerde of dynamische Internetgericht IP-adres. Hoewel u een openbaar IP-adres als zelfstandige object maken kunt, moet u deze koppelen aan een ander object daadwerkelijk het adres te gebruiken. U kunt een openbare IP-adres aan een load balancer, toepassingsgateway of een NIC die toegang tot het Internet op deze resources koppelen.  
+Een openbare IP-adres resource biedt ofwel een gereserveerde of dynamische Internetgericht IP-adres. Hoewel u een openbaar IP-adres als zelfstandige object maken kunt, moet u tooassociate deze tooanother object tooactually Hallo-adres gebruiken. U kunt een openbare IP-adres tooa load balancer, toepassingsgateway of een NIC tooprovide toegang toothose internetbronnen koppelen.  
 
 | Eigenschap | Beschrijving | Voorbeeldwaarden |
 | --- | --- | --- |
-| **publicIPAllocationMethod** |Hiermee wordt aangegeven of het IP-adres *statische* of *dynamische*. |statisch, dynamische |
-| **idleTimeoutInMinutes** |Hiermee definieert u de niet-actieve time-out met een standaardwaarde van vier minuten. Als er geen meer pakketten voor een bepaalde sessie binnen deze tijd wordt ontvangen, wordt de sessie wordt beëindigd. |een waarde tussen 4 en 30 in |
-| **IP-adres** |IP-adres is toegewezen aan een object. Dit is een alleen-lezen eigenschap. |104.42.233.77 |
+| **publicIPAllocationMethod** |Hiermee worden gedefinieerd als Hallo IP-adres *statische* of *dynamische*. |statisch, dynamische |
+| **idleTimeoutInMinutes** |Hiermee definieert u Hallo niet-actieve time-out, met een standaardwaarde van vier minuten. Als er geen meer pakketten voor een bepaalde sessie binnen deze tijd wordt ontvangen, worden Hallo-sessie wordt beëindigd. |een waarde tussen 4 en 30 in |
+| **IP-adres** |IP-adres toegewezen tooobject. Dit is een alleen-lezen eigenschap. |104.42.233.77 |
 
 ### <a name="dns-settings"></a>DNS-instellingen
-Openbare IP-adressen hebben een onderliggend object met de naam **dnsSettings** met de volgende eigenschappen:
+Openbare IP-adressen hebben een onderliggend object met de naam **dnsSettings** met Hallo volgende eigenschappen:
 
 | Eigenschap | Beschrijving | Voorbeeldwaarden |
 | --- | --- | --- |
 | **domainNameLabel** |Host met de naam gebruikt voor naamomzetting. |www-, ftp, vm1 |
-| **FQDN-naam** |Volledig gekwalificeerde naam voor het openbare IP-adres. |www.westus.cloudapp.Azure.com |
-| **reverseFqdn** |FQDN-naam die wordt omgezet naar het IP-adres en is geregistreerd in DNS als een PTR-record. |www.contoso.com. |
+| **FQDN-naam** |Volledig gekwalificeerde naam voor Hallo openbare IP-adres. |www.westus.cloudapp.Azure.com |
+| **reverseFqdn** |FQDN-naam die wordt omgezet toohello IP-adres en is geregistreerd in DNS als een PTR-record. |www.contoso.com. |
 
 Voorbeeld openbare IP-adres in JSON-indeling:
 
@@ -37,5 +37,5 @@ Voorbeeld openbare IP-adres in JSON-indeling:
 ### <a name="additional-resources"></a>Aanvullende bronnen
 * Vindt u meer informatie over [openbare IP-adressen](../articles/virtual-network/virtual-networks-reserved-public-ip.md).
 * Meer informatie over [exemplaar niveau openbare IP-adressen](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
-* Lees de [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt163638.aspx) voor de openbare IP-adressen.
+* Lees Hallo [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt163638.aspx) voor de openbare IP-adressen.
 

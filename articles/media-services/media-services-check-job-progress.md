@@ -1,6 +1,6 @@
 ---
-title: De voortgang van de taak bewaken met .NET
-description: Informatie over het gebruik van gebeurtenis-handlercode te taak voortgang volgen en statusupdates. Het codevoorbeeld is geschreven in C# en maakt gebruik van de Media Services SDK voor .NET.
+title: aaaMonitor taak uitgevoerd met .NET
+description: Ontdek hoe toouse gebeurtenis-handler code tootrack taak voortgang en statusupdates worden verzonden. Hallo-codevoorbeeld is geschreven in C# en Hallo Media Services SDK voor .NET gebruikt.
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 851981b291115ba31dc40535f8bcc71cdb475717
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 530aa1d78437cd7c41b4d9a895f9a0e9de0ad49d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-job-progress-using-net"></a>De voortgang van de taak bewaken met .NET
 > [!div class="op_single_selector"]
@@ -28,10 +28,10 @@ ms.lasthandoff: 08/29/2017
 > 
 > 
 
-Wanneer u taken uitvoert, moet u vaak een manier om de voortgang van de taak volgen. U kunt de voortgang controleren door het definiëren van een gebeurtenis-handler StateChanged (zoals beschreven in dit onderwerp) of Azure Queue storage gebruiken om te controleren van Media Services taak meldingen (zoals beschreven in [dit](media-services-dotnet-check-job-progress-with-queues.md) onderwerp).
+Wanneer u taken uitvoert, moet u vaak een manier tootrack taak uitgevoerd. U kunt Hallo voortgang controleren door het definiëren van een gebeurtenis-handler StateChanged (zoals beschreven in dit onderwerp) of met behulp van Azure Queue storage toomonitor Media Services taak meldingen (zoals beschreven in [dit](media-services-dotnet-check-job-progress-with-queues.md) onderwerp).
 
-## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Gebeurtenis-handler om de voortgang taak StateChanged definiëren
-Het volgende voorbeeld definieert de StateChanged gebeurtenis-handler. Deze gebeurtenis-handler houdt de voortgang van de taak en bevat informatie over bijgewerkte status, afhankelijk van de status. De code definieert ook de methode LogJobStop. Deze Help-methode logboeken foutgegevens.
+## <a name="define-statechanged-event-handler-toomonitor-job-progress"></a>Voortgang van StateChanged gebeurtenis-handler toomonitor taak definiëren
+Hallo volgende codevoorbeeld definieert Hallo StateChanged gebeurtenis-handler. Deze gebeurtenis-handler houdt de voortgang van de taak en bijgewerkte status, afhankelijk van de status Hallo biedt. Hallo code definieert ook Hallo LogJobStop methode. Deze Help-methode logboeken foutgegevens.
 
     private static void StateChanged(object sender, JobStateChangedEventArgs e)
     {
@@ -73,7 +73,7 @@ Het volgende voorbeeld definieert de StateChanged gebeurtenis-handler. Deze gebe
         StringBuilder builder = new StringBuilder();
         IJob job = GetJob(jobId);
 
-        builder.AppendLine("\nThe job stopped due to cancellation or an error.");
+        builder.AppendLine("\nThe job stopped due toocancellation or an error.");
         builder.AppendLine("***************************");
         builder.AppendLine("Job ID: " + job.Id);
         builder.AppendLine("Job Name: " + job.Name);
@@ -96,7 +96,7 @@ Het volgende voorbeeld definieert de StateChanged gebeurtenis-handler. Deze gebe
             }
         }
         builder.AppendLine("***************************\n");
-        // Write the output to a local file and to the console. The template 
+        // Write hello output tooa local file and toohello console. hello template 
         // for an error output file is:  JobStop-{JobId}.txt
         string outputFile = _outputFilesFolder + @"\JobStop-" + JobIdAsFileName(job.Id) + ".txt";
         WriteToFile(outputFile, builder.ToString());

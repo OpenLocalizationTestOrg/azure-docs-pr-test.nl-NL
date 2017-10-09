@@ -1,6 +1,6 @@
 ---
-title: Controle en logboekregistratie van Azure - Microsoft Threat Modeling hulpprogramma - | Microsoft Docs
-description: oplossingen voor bedreigingen die worden weergegeven in het hulpprogramma Threat Modeling
+title: aaaAuditing en logboekregistratie - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: oplossingen voor bedreigingen die worden weergegeven in Hallo Threat Modeling hulpprogramma
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 3f1933fc59862eca7ae6ee40bbd5136e449e5cf1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f28988833eba251b6ceb8bbd47cde37e871af609
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Beveiliging Frame: Controle en logboekregistratie | Oplossingen 
 | Product/Service | Artikel |
 | --------------- | ------- |
 | **Dynamics CRM**    | <ul><li>[Gevoelige entiteiten in uw oplossing voor het identificeren en te implementeren controle van wijzigingen](#sensitive-entities)</li></ul> |
-| **Webtoepassing** | <ul><li>[Zorg ervoor dat de controle en logboekregistratie wordt afgedwongen voor de toepassing](#auditing)</li><li>[Zorg ervoor dat logrotatie en scheiding aanwezig zijn](#log-rotation)</li><li>[Zorg ervoor dat de toepassing wordt niet geregistreerd voor gevoelige gebruikersgegevens](#log-sensitive-data)</li><li>[Zorg ervoor dat u controle- en logboekbestanden beperkte toegang hebben](#log-restricted-access)</li><li>[Zorg ervoor dat de gebruiker Management gebeurtenissen worden geregistreerd](#user-management)</li><li>[Zorg ervoor dat het systeem heeft ingebouwde beveiliging tegen misbruik](#inbuilt-defenses)</li><li>[Logboekregistratie van diagnostische gegevens van web-apps in Azure App Service](#diagnostics-logging)</li></ul> |
+| **Webtoepassing** | <ul><li>[Zorg ervoor dat voor controle en logboekregistratie wordt afgedwongen op Hallo-toepassing](#auditing)</li><li>[Zorg ervoor dat logrotatie en scheiding aanwezig zijn](#log-rotation)</li><li>[Zorg ervoor dat de toepassing hello registreert niet gevoelige gebruikersgegevens](#log-sensitive-data)</li><li>[Zorg ervoor dat u controle- en logboekbestanden beperkte toegang hebben](#log-restricted-access)</li><li>[Zorg ervoor dat de gebruiker Management gebeurtenissen worden geregistreerd](#user-management)</li><li>[Zorg ervoor dat de systeem Hallo ingebouwde beveiliging tegen misbruik](#inbuilt-defenses)</li><li>[Logboekregistratie van diagnostische gegevens van web-apps in Azure App Service](#diagnostics-logging)</li></ul> |
 | **Database** | <ul><li>[Zorg ervoor dat de controle van de aanmelding is ingeschakeld op SQL Server](#identify-sensitive-entities)</li><li>[Detectie van dreigingen in Azure SQL inschakelen](#threat-detection)</li></ul> |
-| **Azure Storage** | <ul><li>[Azure Storage Analytics gebruiken voor het controleren van de toegang van Azure Storage](#analytics)</li></ul> |
+| **Azure Storage** | <ul><li>[Gebruik Azure Storage Analytics tooaudit toegang van Azure Storage](#analytics)</li></ul> |
 | **WCF** | <ul><li>[Voldoende logboekregistratie implementeren](#sufficient-logging)</li><li>[Afhandeling van voldoende Audit fout implementeren](#audit-failure-handling)</li></ul> |
 | **Web-API** | <ul><li>[Zorg ervoor dat de controle en logboekregistratie wordt afgedwongen voor Web-API](#logging-web-api)</li></ul> |
 | **Veld IoT Gateway** | <ul><li>[Zorg ervoor dat de juiste voor controle en logboekregistratie wordt afgedwongen voor Veldgateway](#logging-field-gateway)</li></ul> |
@@ -43,7 +43,7 @@ ms.lasthandoff: 08/29/2017
 | **Verwijzingen**              | N.v.t.  |
 | **Stappen**                   | Entiteiten in uw oplossing met gevoelige gegevens identificeren en te implementeren op deze entiteiten en velden controle van wijzigingen |
 
-## <a id="auditing"></a>Zorg ervoor dat de controle en logboekregistratie wordt afgedwongen voor de toepassing
+## <a id="auditing"></a>Zorg ervoor dat voor controle en logboekregistratie wordt afgedwongen op Hallo-toepassing
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -63,9 +63,9 @@ ms.lasthandoff: 08/29/2017
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen**                   | <p>Logrotatie is een geautomatiseerd proces gebruikt in Systeembeheer waarin datum logboekbestanden worden gearchiveerd. Servers die vaak grote toepassingen uitvoeren Meld elke aanvraag: met betrekking tot zware logboeken logrotatie is een manier om te beperken van de totale grootte van de logboeken terwijl u nog steeds analyse van recente gebeurtenissen. </p><p>Meld u scheiding in feite betekent dat u hebt voor het opslaan van uw logboek bestanden op een andere partitie als waar uw OS/toepassing om te sluiten van een Denial of service-aanval of het downgraden van uw toepassing wordt uitgevoerd op de prestaties</p>|
+| **Stappen**                   | <p>Logrotatie is een geautomatiseerd proces gebruikt in Systeembeheer waarin datum logboekbestanden worden gearchiveerd. Servers die vaak grote toepassingen uitvoeren Meld elke aanvraag: Hallo gezicht van zware Logboeken, logrotatie is een manier toolimit Hallo totale grootte van Hallo logboeken terwijl u nog steeds analyse van recente gebeurtenissen. </p><p>Logboek scheiding in feite betekent dat u toostore uw logboekbestanden op een andere partitie als waar uw OS/toepassing wordt uitgevoerd op in de volgorde tooavert Denial of service aanvallen of Hallo downgraden van de prestaties van uw toepassing</p>|
 
-## <a id="log-sensitive-data"></a>Zorg ervoor dat de toepassing wordt niet geregistreerd voor gevoelige gebruikersgegevens
+## <a id="log-sensitive-data"></a>Zorg ervoor dat de toepassing hello registreert niet gevoelige gebruikersgegevens
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -74,7 +74,7 @@ ms.lasthandoff: 08/29/2017
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen**                   | <p>Controleer of u zich geen gevoelige gegevens die een gebruiker verzendt niet aanmelden bij uw site. Controleer of opzettelijk logboekregistratie, evenals bijwerkingen veroorzaakt door problemen van ontwerp. Voorbeelden van gevoelige gegevens omvatten:</p><ul><li>De referenties van gebruiker</li><li>Sociaal-fiscaal nummer of andere identiteitsgegevens</li><li>Creditcardnummers of andere financiële gegevens</li><li>Statusgegevens</li><li>Persoonlijke sleutels of andere gegevens die kunnen worden gebruikt om versleutelde gegevens te ontsleutelen</li><li>Informatie van systemen of toepassingen die kan worden gebruikt voor de toepassing effectiever aanvallen</li></ul>|
+| **Stappen**                   | <p>U kunt geen gevoelige gegevens dat een gebruiker tooyour site verzendt zich niet aanmelden controleren Controleer of opzettelijk logboekregistratie, evenals bijwerkingen veroorzaakt door problemen van ontwerp. Voorbeelden van gevoelige gegevens omvatten:</p><ul><li>De referenties van gebruiker</li><li>Sociaal-fiscaal nummer of andere identiteitsgegevens</li><li>Creditcardnummers of andere financiële gegevens</li><li>Statusgegevens</li><li>Persoonlijke sleutels of andere gegevens die gebruikt toodecrypt versleutelde gegevens worden kan</li><li>Informatie van systemen of toepassingen die kan worden gebruikt toomore aanvallen effectief Hallo-toepassing</li></ul>|
 
 ## <a id="log-restricted-access"></a>Zorg ervoor dat u controle- en logboekbestanden beperkte toegang hebben
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 08/29/2017
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen**                   | <p>Controleer of de rechten voor de logboekbestanden op de juiste wijze zijn ingesteld. Toepassing accounts moeten alleen-schrijven toegang en operators en ondersteuningspersoneel alleen-lezen toegang moeten hebben, indien nodig.</p><p>Administrators-accounts zijn de enige accounts die volledige toegang moeten hebben. Controleer Windows ACL voor logboekbestanden om te controleren of dat ze goed beperkte zijn:</p><ul><li>Accounts van de toepassing moeten alleen-schrijven toegang hebben</li><li>Operators en iemand van ondersteuning moeten alleen-lezen toegang hebben indien nodig</li><li>Beheerders zijn de enige accounts volledige toegang hebben</li></ul>|
+| **Stappen**                   | <p>Controleer tooensure toegang rechten toolog bestanden op de juiste wijze zijn ingesteld. Toepassing accounts moeten alleen-schrijven toegang en operators en ondersteuningspersoneel alleen-lezen toegang moeten hebben, indien nodig.</p><p>Administrators-accounts zijn alleen Hallo-accounts die volledige toegang moeten hebben. Controleer dat Windows ACL voor logboek bestanden tooensure ze zijn correct beperkt:</p><ul><li>Accounts van de toepassing moeten alleen-schrijven toegang hebben</li><li>Operators en iemand van ondersteuning moeten alleen-lezen toegang hebben indien nodig</li><li>Beheerders zijn Hallo alleen accounts volledige toegang hebben</li></ul>|
 
 ## <a id="user-management"></a>Zorg ervoor dat de gebruiker Management gebeurtenissen worden geregistreerd
 
@@ -96,9 +96,9 @@ ms.lasthandoff: 08/29/2017
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen**                   | <p>Zorg dat de toepassing wordt bewaakt gebeurtenissen voor het beheer van gebruikers zoals geslaagde en mislukte aanmeldingen, wachtwoorden opnieuw instellen, wijzigen van wachtwoorden, accountvergrendeling, gebruikersregistratie. Dit helpt om te detecteren en reageren op mogelijk verdacht gedrag doet. Bovendien kunnen voor het verzamelen van operationele gegevens; bijvoorbeeld, om bij te houden wie toegang heeft tot de toepassing</p>|
+| **Stappen**                   | <p>Zorg dat de toepassing hello bewaakt gebeurtenissen voor het beheer van gebruikers zoals geslaagde en mislukte aanmeldingen, wachtwoorden opnieuw instellen, wijzigen van wachtwoorden, accountvergrendeling, gebruikersregistratie. Hierdoor helpt toodetect en toopotentially verdacht gedrag reageren. Deze kan gegevens ook toogather operations; bijvoorbeeld: tootrack wie toegang heeft tot de toepassing hello</p>|
 
-## <a id="inbuilt-defenses"></a>Zorg ervoor dat het systeem heeft ingebouwde beveiliging tegen misbruik
+## <a id="inbuilt-defenses"></a>Zorg ervoor dat de systeem Hallo ingebouwde beveiliging tegen misbruik
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -107,7 +107,7 @@ ms.lasthandoff: 08/29/2017
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen**                   | <p>Besturingselementen moeten aanwezig zijn die beveiligingsuitzondering in geval van een toepassing misbruik genereert. Bijvoorbeeld, als validatie voor invoer geïmplementeerd is en een aanvaller probeert te injecteren schadelijke code die komt niet overeen met de reguliere expressie, een beveiligingsuitzondering kan worden gegenereerd die een aanduiden system misbruik kan zijn</p><p>Bijvoorbeeld: u wordt aangeraden beveiligingsuitzonderingen vastgelegd en acties die worden uitgevoerd voor de volgende problemen:</p><ul><li>Validatie voor invoer</li><li>CSRF schendingen</li><li>Beveiligingsaanvallen (bovengrens voor het aantal aanvragen per gebruiker per resource)</li><li>Bestand uploaden schendingen</li><ul>|
+| **Stappen**                   | <p>Besturingselementen moeten aanwezig zijn die beveiligingsuitzondering in geval van een toepassing misbruik genereert. Bijvoorbeeld, als validatie voor invoer geïmplementeerd is en een hacker probeert tooinject schadelijke code die komt niet overeen met reguliere expressie hello, een beveiligingsuitzondering kan worden gegenereerd die een aanduiden system misbruik kan zijn</p><p>Bijvoorbeeld: u wordt aangeraden toohave beveiligingsuitzonderingen vastgelegd en acties die worden uitgevoerd voor Hallo problemen te volgen:</p><ul><li>Validatie voor invoer</li><li>CSRF schendingen</li><li>Beveiligingsaanvallen (bovengrens voor het aantal aanvragen per gebruiker per resource)</li><li>Bestand uploaden schendingen</li><ul>|
 
 ## <a id="diagnostics-logging"></a>Logboekregistratie van diagnostische gegevens van web-apps in Azure App Service
 
@@ -118,7 +118,7 @@ ms.lasthandoff: 08/29/2017
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | EnvironmentType - Azure |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen** | <p>Azure biedt ingebouwde diagnostische gegevens om te helpen bij foutopsporing van een App Service-web-app. Dit geldt ook voor de API-apps en mobiele apps. App Service-web-apps bieden diagnostische functionaliteit voor logboekregistratie informatie van de webserver en de webtoepassing.</p><p>Deze zijn logisch verdeeld in de web server diagnostics en application diagnostics</p>|
+| **Stappen** | <p>Azure biedt ingebouwde diagnostics tooassist met foutopsporing van een App Service-web-app. Dit geldt ook tooAPI apps en mobiele apps. App Service-web-apps bieden diagnostische functionaliteit voor logboekinformatie van zowel Hallo-webserver en Hallo-webtoepassing.</p><p>Deze zijn logisch verdeeld in de web server diagnostics en application diagnostics</p>|
 
 ## <a id="identify-sensitive-entities"></a>Zorg ervoor dat de controle van de aanmelding is ingeschakeld op SQL Server
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 08/29/2017
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | [Aanmelding controle configureren](https://msdn.microsoft.com/library/ms175850.aspx) |
-| **Stappen** | <p>Server aanmelding Databasecontrole moet zijn ingeschakeld voor aanvallen te detecteren/Bevestig het wachtwoord. Het is belangrijk om vast te leggen mislukte aanmeldingspogingen. Vastleggen van beide geslaagde en mislukte aanmeldingspogingen biedt een extra voordeel tijdens forensische onderzoeken</p>|
+| **Stappen** | <p>Server aanmelding Databasecontrole moet zijn ingeschakeld toodetect/Bevestig het wachtwoord raden aanvallen. Het is belangrijk toocapture mislukte aanmeldingspogingen. Vastleggen van beide geslaagde en mislukte aanmeldingspogingen biedt een extra voordeel tijdens forensische onderzoeken</p>|
 
 ## <a id="threat-detection"></a>Detectie van dreigingen in Azure SQL inschakelen
 
@@ -140,9 +140,9 @@ ms.lasthandoff: 08/29/2017
 | **Van toepassing technologieën** | SQL Azure |
 | **Kenmerken**              | SQL-versie - V12 |
 | **Verwijzingen**              | [Aan de slag met detectie van dreigingen van SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
-| **Stappen** |<p>Detectie van dreigingen detecteert afwijkende databaseactiviteiten die wijzen op beveiligingsdreigingen voor de database. Het biedt een nieuwe laag van beveiliging, waarmee klanten om te detecteren en op mogelijke bedreigingen reageert wanneer deze zich voordoen doordat beveiligingswaarschuwingen op vreemde activiteiten worden gedetecteerd.</p><p>Gebruikers kunnen de verdachte gebeurtenissen om te bepalen of ze het gevolg zijn van een poging om te openen, inbreuk of misbruik van gegevens in de database met behulp van Azure SQL Database Auditing verkennen.</p><p>Detectie van dreigingen kunt u eenvoudig op mogelijke bedreigingen adres met de database hoeft te worden van een deskundige beveiliging of systemen bewaking van de geavanceerde beveiliging beheren</p>|
+| **Stappen** |<p>Detectie van dreigingen detecteert afwijkende databaseactiviteiten die wijzen op mogelijke bedreigingen toohello database met. Het biedt een nieuwe laag van beveiliging, waarbij kan klanten toodetect en hierop reageren toopotential bedreigingen wanneer deze zich voordoen doordat beveiligingswaarschuwingen op vreemde activiteiten worden gedetecteerd.</p><p>Gebruikers kunnen verkennen Hallo verdachte gebeurtenissen met Azure SQL Database Auditing toodetermine als ze het gevolg zijn van een tooaccess poging schenden of misbruik van gegevens in Hallo-database.</p><p>Detectie van dreigingen maakt het eenvoudig tooaddress potentiële bedreigingen toohello database zonder Hallo nodig toobe een expert beveiliging of systemen bewaking van de geavanceerde beveiliging beheren</p>|
 
-## <a id="analytics"></a>Azure Storage Analytics gebruiken voor het controleren van de toegang van Azure Storage
+## <a id="analytics"></a>Gebruik Azure Storage Analytics tooaudit toegang van Azure Storage
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -150,8 +150,8 @@ ms.lasthandoff: 08/29/2017
 | **SDL-fase**               | Implementatie |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t. |
-| **Verwijzingen**              | [Met behulp van Storage Analytics autorisatie type bewaken](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
-| **Stappen** | <p>Voor elk opslagaccount kan een Azure Storage Analytics logboekregistratie uitvoeren en metrische gegevens opslaan inschakelen. De logboeken van storage analytics bieden belangrijke informatie zoals de verificatiemethode die door iemand wordt gebruikt wanneer ze toegang hebben tot opslag.</p><p>Dit is heel nuttig als u toegang tot opslag nauw zijn beveiligen. Bijvoorbeeld in Blob Storage kunt u alle van de containers ingesteld op persoonlijke en het gebruik van een SAS-service implementeren in uw toepassingen. Vervolgens kunt u de logboeken regelmatig om te zien als uw blobs worden geopend met behulp van de opslagaccountsleutels, dit kunnen duiden op een schending van beveiliging, of als de blobs openbaar zijn, maar ze mag niet controleren.</p>|
+| **Verwijzingen**              | [Met behulp van Storage Analytics toomonitor autorisatie type](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
+| **Stappen** | <p>Voor elke storage-account kan een Azure Storage Analytics tooperform logboekregistratie inschakelen en metrische gegevens opslaan. Hallo storage analytics logboeken bieden belangrijke informatie zoals de verificatiemethode die door iemand wordt gebruikt wanneer ze toegang hebben tot opslag.</p><p>Dit is heel nuttig als u toegang toostorage nauw zijn beveiligen. Bijvoorbeeld in Blob Storage kunt u alle Hallo containers tooprivate instellen en implementeren van Hallo gebruik van een SAS-service in uw toepassingen. U kunt vervolgens controleren Hallo Logboeken regelmatig toosee als uw blobs worden geopend met behulp van Hallo toegangscodes voor opslag, dit kunnen duiden op een schending van beveiliging, of als Hallo blobs openbaar zijn, maar ze mag niet.</p>|
 
 ## <a id="sufficient-logging"></a>Voldoende logboekregistratie implementeren
 
@@ -162,10 +162,10 @@ ms.lasthandoff: 08/29/2017
 | **Van toepassing technologieën** | .NET framework |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg Koninkrijk](https://vulncat.fortify.com/en/vulncat/index.html) |
-| **Stappen** | <p>Het ontbreken van een juiste audittrail na een beveiligingsincident kunt forensische inspanningen belemmeren. Windows Communication Foundation (WCF) biedt de mogelijkheid aan te melden geslaagd en/of mislukte verificatiepogingen.</p><p>Logboekregistratie van mislukte verificatiepogingen kan beheerders van mogelijke aanvallen met brute kracht waarschuwing. Op deze manier kunt vastleggen van gebeurtenissen voor geslaagde verificatie bieden een handig audittrail bij een legitieme account is geknoeid. Inschakelen van WCF-service-onderdeel voor controle van beveiliging |
+| **Stappen** | <p>Hallo gebrek aan een juiste audittrail na een beveiligingsincident kunt forensische inspanningen belemmeren. Windows Communication Foundation (WCF) biedt Hallo mogelijkheid toolog geslaagd en/of mislukte verificatiepogingen.</p><p>Logboekregistratie van mislukte verificatiepogingen kan beheerders van mogelijke aanvallen met brute kracht waarschuwing. Op deze manier kunt vastleggen van gebeurtenissen voor geslaagde verificatie bieden een handig audittrail bij een legitieme account is geknoeid. Inschakelen van WCF-service-onderdeel voor controle van beveiliging |
 
 ### <a name="example"></a>Voorbeeld
-Hier volgt een voorbeeldconfiguratie met de controle is ingeschakeld
+Hallo Hier volgt een voorbeeldconfiguratie met de controle is ingeschakeld
 ```
 <system.serviceModel>
     <behaviors>
@@ -191,10 +191,10 @@ Hier volgt een voorbeeldconfiguratie met de controle is ingeschakeld
 | **Van toepassing technologieën** | .NET framework |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg Koninkrijk](https://vulncat.fortify.com/en/vulncat/index.html) |
-| **Stappen** | <p>Ontwikkelde oplossing is geconfigureerd niet voor het genereren van een uitzondering om te schrijven naar een controlelogboek is mislukt. Als WCF is geconfigureerd niet voor een uitzondering te genereren wanneer deze kan niet schrijven naar een controlelogboek, het programma wordt niet gewaarschuwd van de fout en de controle van kritieke beveiligingsgebeurtenissen mogelijk niet plaatsvinden.</p>|
+| **Stappen** | <p>Ontwikkelde oplossing is geconfigureerd niet toogenerate een uitzondering toowrite tooan controlelogboek is mislukt. Als WCF is geconfigureerd niet toothrow een uitzondering opgeleverd bij dit niet kan toowrite tooan controlelogboek, Hallo programma wordt niet gewaarschuwd voor Hallo mislukt en de controle van kritieke beveiligingsgebeurtenissen mogelijk niet plaatsvinden.</p>|
 
 ### <a name="example"></a>Voorbeeld
-De `<behavior/>` element van het configuratiebestand WCF Hiermee geeft u WCF de toepassing niet melden als WCF om te schrijven naar een controlelogboek is mislukt.
+Hallo `<behavior/>` element van Hallo WCF-configuratiebestand onderstaande Hiermee geeft u WCF toonot toepassing hello waarschuwen als WCF toowrite tooan controlelogboek is mislukt.
 ````
 <behaviors>
     <serviceBehaviors>
@@ -207,7 +207,7 @@ De `<behavior/>` element van het configuratiebestand WCF Hiermee geeft u WCF de 
     </serviceBehaviors>
 </behaviors>
 ````
-WCF om de hoogte van het programma wanneer deze kan niet schrijven naar een controlelogboek te configureren. Het programma moet beschikken over een alternatieve notification-schema te waarschuwen dat de organisatie die audittrails niet worden nageleefd. 
+Configureer WCF toonotify Hallo programma wanneer u het controlelogboek voor niet kan toowrite tooan is. Hallo programma heeft een alternatieve notification-schema in place tooalert Hallo organisatie audittrails niet wordt behouden. 
 
 ## <a id="logging-web-api"></a>Zorg ervoor dat de controle en logboekregistratie wordt afgedwongen voor Web-API
 
@@ -229,7 +229,7 @@ WCF om de hoogte van het programma wanneer deze kan niet schrijven naar een cont
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen** | <p>Als meerdere apparaten verbinding met een Veldgateway, zorg ervoor dat de verbindingspogingen en de status van verificatie (slagen of mislukken) voor afzonderlijke apparaten geregistreerd en beheerd op de Gateway veld.</p><p>Controleer ook de controle wordt uitgevoerd, wanneer deze referenties worden opgehaald in gevallen waar Veldgateway voor het onderhoud van de referenties van de IoT Hub voor afzonderlijke apparaten. Ontwikkel een proces voor het periodiek de logboeken te uploaden naar Azure IoT Hub/storage voor het bewaren van lange termijn.</p> |
+| **Stappen** | <p>Als meerdere apparaten verbinding tooa Veldgateway, zorg ervoor dat verbindingspogingen en verificatiestatus (slagen of mislukken) voor afzonderlijke apparaten zijn geregistreerd en beheerd op Hallo Veldgateway.</p><p>Ook in gevallen waar Veldgateway is het bijhouden van Hallo IoT Hub-referenties voor afzonderlijke apparaten, zorg ervoor dat de controle wordt uitgevoerd wanneer deze referenties worden opgehaald. Ontwikkel een proces tooperiodically uploaden Hallo logboeken tooAzure IoT Hub/opslag voor het bewaren van de lange termijn.</p> |
 
 ## <a id="logging-cloud-gateway"></a>Zorg ervoor dat de juiste voor controle en logboekregistratie wordt afgedwongen voor Cloudgateway
 
@@ -239,5 +239,5 @@ WCF om de hoogte van het programma wanneer deze kan niet schrijven naar een cont
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
-| **Verwijzingen**              | [Inleiding tot IoT Hub bewerkingen controleren](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
-| **Stappen** | <p>Ontwerpen voor het verzamelen en opslaan van controlegegevens die zijn verzameld via IoT Hub Operations Monitoring. De volgende categorieën bewaking inschakelen:</p><ul><li>Bewerkingen voor apparaat-id</li><li>Apparaat-naar-cloud-communicatie</li><li>Cloud-naar-apparaat communicatie</li><li>Verbindingen</li><li>Uploaden van bestanden</li></ul>|
+| **Verwijzingen**              | [Inleiding tooIoT Hub bewerkingen controleren](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
+| **Stappen** | <p>Ontwerpen voor het verzamelen en opslaan van controlegegevens die zijn verzameld via IoT Hub Operations Monitoring. Hallo na controle categorieën inschakelen:</p><ul><li>Bewerkingen voor apparaat-id</li><li>Apparaat-naar-cloud-communicatie</li><li>Cloud-naar-apparaat communicatie</li><li>Verbindingen</li><li>Uploaden van bestanden</li></ul>|

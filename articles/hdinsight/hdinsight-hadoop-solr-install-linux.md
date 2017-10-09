@@ -1,6 +1,6 @@
 ---
-title: Gebruik scriptactie Solr installeren op Linux gebaseerde HDInsight - Azure | Microsoft Docs
-description: Informatie over het installeren van Solr op Linux gebaseerde HDInsight Hadoop-clusters met behulp van scriptacties.
+title: aaaUse scriptactie tooinstall Solr op Linux gebaseerde HDInsight - Azure | Microsoft Docs
+description: Meer informatie over hoe tooinstall Solr op Linux gebaseerde HDInsight Hadoop-clusters met behulp van scriptacties.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,71 +16,71 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: larryfr
-ms.openlocfilehash: ad930ca023a36fa5874483873c82fdba11d117c7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4c179032b95ae187f1830d8927f8796372fa8ebe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Installeren en gebruiken van Solr op HDInsight Hadoop-clusters
 
-Informatie over het installeren van Solr in Azure HDInsight met behulp van de scriptactie. Solr is een krachtige search-platform en biedt zoekmogelijkheden op bedrijfsniveau op gegevens die worden beheerd door Hadoop.
+Meer informatie over hoe tooinstall Solr in Azure HDInsight met behulp van de scriptactie. Solr is een krachtige search-platform en biedt zoekmogelijkheden op bedrijfsniveau op gegevens die worden beheerd door Hadoop.
 
 > [!IMPORTANT]
-    > De stappen in dit document moet een HDInsight-cluster dat gebruik maakt van Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+    > Hallo stappen in dit document moet een HDInsight-cluster dat gebruik maakt van Linux. Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 > [!IMPORTANT]
-> Het voorbeeldscript in dit document gebruikt installeert Solr 4.9 met een specifieke configuratie. Als u wilt configureren van het cluster Solr met verschillende verzamelingen, shards, schema's, replica's, enz., moet u het script en Solr binaire bestanden wijzigen.
+> Solr 4.9 installeert Hallo voorbeeldscript in dit document gebruikt met een specifieke configuratie. Als u wilt tooconfigure hello Solr cluster met verschillende verzamelingen, shards, schema's, replica's, enz., moet u Hallo script en Solr binaire bestanden wijzigen.
 
 ## <a name="whatis"></a>Wat is Solr
 
-[Apache Solr](http://lucene.apache.org/solr/features.html) is een platform voor het zoeken van enterprise waarmee krachtige zoekopdracht in volledige tekst van gegevens. Hadoop kunt opslaan en beheren van de enorme hoeveelheden gegevens, biedt Apache Solr de zoekmogelijkheden snel gegevens ophalen.
+[Apache Solr](http://lucene.apache.org/solr/features.html) is een platform voor het zoeken van enterprise waarmee krachtige zoekopdracht in volledige tekst van gegevens. Hadoop kunt opslaan en beheren van de enorme hoeveelheden gegevens, biedt Apache Solr zoekmogelijkheden Hallo tooquickly ophalen Hallo gegevens.
 
 > [!WARNING]
-> Onderdelen van het HDInsight-cluster worden volledig ondersteund door Microsoft.
+> Onderdelen van Hallo HDInsight-cluster worden volledig ondersteund door Microsoft.
 >
-> Aangepaste onderdelen, zoals Solr, ontvangt binnen commercieel redelijke ondersteuning u helpen het probleem verder op te lossen. Ondersteuning van Microsoft zijn mogelijk niet kunnen oplossen van problemen met aangepaste onderdelen. U moet mogelijk de community's van de open-source benaderen voor hulp. Bijvoorbeeld: Er zijn veel community-sites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Ook hebben Apache projecten project-sites op [http://apache.org](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/).
+> Aangepaste onderdelen, zoals Solr, ontvangen binnen commercieel redelijke ondersteuning toohelp u toofurther Hallo probleem op te lossen. Microsoft ondersteuning mogelijk niet kunnen tooresolve problemen met aangepaste onderdelen. U moet mogelijk tooengage Hallo open-source community's voor ondersteuning. Bijvoorbeeld: Er zijn veel community-sites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Ook hebben Apache projecten project-sites op [http://apache.org](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/).
 
-## <a name="what-the-script-does"></a>Wat het script doet
+## <a name="what-hello-script-does"></a>Welke Hallo script doet
 
-Dit script maakt de volgende wijzigingen aan het HDInsight-cluster:
+Dit script maakt Hallo wijzigingen toohello HDInsight-cluster te volgen:
 
 * Solr 4.9 in geïnstalleerd`/usr/hdp/current/solr`
-* Hiermee maakt u een gebruiker **solrusr**, dat wordt gebruikt voor het uitvoeren van de service Solr
-* Sets **solruser** als eigenaar van`/usr/hdp/current/solr`
+* Hiermee maakt u een gebruiker **solrusr**, namelijk gebruikte toorun hello Solr service
+* Sets **solruser** als eigenaar van Hallo`/usr/hdp/current/solr`
 * Voegt een [Upstart](http://upstart.ubuntu.com/) configuratie die Solr automatisch wordt gestart.
 
 ## <a name="install"></a>Installeren met behulp van scriptacties Solr
 
-Een voorbeeld van een script Solr installeren op een HDInsight-cluster is beschikbaar op de volgende locatie:
+Een voorbeeld script tooinstall Solr op een HDInsight-cluster is beschikbaar op Hallo locatie te volgen:
 
     https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
 
-Voor het maken van een cluster met Solr geïnstalleerd gebruikt u de stappen in de [HDInsight-clusters maken](hdinsight-hadoop-create-linux-clusters-portal.md) document. Gebruik de volgende stappen voor het installeren van Solr tijdens het maken:
+een cluster met Solr geïnstalleerd toocreate, gebruik Hallo stappen in Hallo [HDInsight-clusters maken](hdinsight-hadoop-create-linux-clusters-portal.md) document. Gebruik tijdens het Hallo maken, Hallo stappen tooinstall Solr te volgen:
 
-1. Van de __Cluster samenvatting__ blade, select__Advanced settings__, klikt u vervolgens __acties Script__. Gebruik de volgende informatie voor het vullen van het formulier:
+1. Van Hallo __Cluster samenvatting__ blade, select__Advanced settings__, klikt u vervolgens __acties Script__. Hallo toopopulate Hallo formulier volgende gebruiken:
 
-   * **NAAM**: een beschrijvende naam voor de scriptactie.
+   * **NAAM**: Voer een beschrijvende naam voor de scriptactie Hallo.
    * **SCRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**: Schakel deze optie
    * **WERKNEMER**: Schakel deze optie
-   * **ZOOKEEPER**: Schakel deze optie om te installeren op het knooppunt Zookeeper
+   * **ZOOKEEPER**: Schakel deze optie tooinstall op Hallo Zookeeper knooppunt
    * **PARAMETERS**: dit veld leeg laten
 
-2. Aan de onderkant van de **acties Script** blade, gebruik de **Selecteer** om op te slaan van de configuratie. Gebruik tot slot de **volgende** terug te keren naar de __Cluster samenvatting__
+2. Hallo Hallo onderaan in **acties Script** blade, gebruik Hallo **Selecteer** knop toosave Hallo configuratie. Gebruik tot slot Hallo **volgende** knop tooreturn toohello __Cluster samenvatting__
 
-3. Van de __Cluster samenvatting__ pagina __maken__ om het cluster te maken.
+3. Van Hallo __Cluster samenvatting__ pagina __maken__ toocreate Hallo-cluster.
 
 ## <a name="usesolr"></a>Hoe gebruik Solr in HDInsight
 
 > [!IMPORTANT]
-> De stappen in deze sectie laten zien basisfunctionaliteit Solr. Zie voor meer informatie over het gebruik van Solr de [Apache Solr site](http://lucene.apache.org/solr/).
+> Hallo stappen in deze sectie laten zien basisfunctionaliteit Solr. Zie voor meer informatie over het gebruik van Solr hello [Apache Solr site](http://lucene.apache.org/solr/).
 
 ### <a name="index-data"></a>Indexgegevens
 
-Gebruik de volgende stappen bijvoorbeeld gegevens toevoegen aan Solr en deze vervolgens een query:
+Hallo te volgen stappen tooadd voorbeeld gegevens tooSolr gebruiken en deze vervolgens een query:
 
-1. Maak verbinding met het HDInsight-cluster via SSH:
+1. Verbinding maken met toohello HDInsight-cluster via SSH:
 
     ```bash
     ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
@@ -89,34 +89,34 @@ Gebruik de volgende stappen bijvoorbeeld gegevens toevoegen aan Solr en deze ver
     Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
      > [!IMPORTANT]
-     > Stappen verderop in dit document wordt een SSL-tunnel verbinding maken met de webgebruikersinterface Solr gebruikt. Voor het gebruik van deze stappen, moet u een SSL-tunnel maakt en configureer vervolgens uw browser om het te gebruiken.
+     > Stappen verderop in dit document wordt een SSL-tunnel tooconnect toohello Solr webgebruikersinterface gebruikt. toouse deze stappen, moet u een met SSL maken tunnel en configureer vervolgens uw browser toouse deze.
      >
-     > Zie voor meer informatie de [SSH-Tunneling gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) document.
+     > Zie voor meer informatie, Hallo [SSH-Tunneling gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) document.
 
-2. Gebruik de volgende opdrachten om Solr index voorbeeldgegevens:
+2. Gebruik Hallo opdrachten toohave Solr index-voorbeeldgegevens te volgen:
 
     ```bash
     cd /usr/hdp/current/solr/example/exampledocs
     java -jar post.jar solr.xml monitor.xml
     ```
 
-    De volgende uitvoer wordt geretourneerd naar de console:
+    Hallo volgende uitvoergegevens toohello console:
 
         POSTing file solr.xml
         POSTing file monitor.xml
         2 files indexed.
-        COMMITting Solr index changes to http://localhost:8983/solr/update..
+        COMMITting Solr index changes toohttp://localhost:8983/solr/update..
         Time spent: 0:00:01.624
 
-    De `post.jar` hulpprogramma voegt de **solr.xml** en **monitor.xml** documenten naar de index.
+    Hallo `post.jar` hulpprogramma voegt Hallo **solr.xml** en **monitor.xml** documenten toohello index.
   
-3. Gebruik de volgende opdracht om op te vragen van de Solr REST-API:
+3. Gebruik Hallo opdracht tooquery hello Solr REST-API te volgen:
 
     ```bash
     curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
     ```
 
-    Met deze opdracht wordt gezocht **collection1** voor documenten die overeenkomen met  **\*:\***  (gecodeerd als \*% 3A\* in de query-tekenreeks). Het volgende JSON-document is een voorbeeld van het antwoord:
+    Met deze opdracht wordt gezocht **collection1** voor documenten die overeenkomen met  **\*:\***  (gecodeerd als \*% 3A\* in de queryreeks Hallo). Hallo volgende JSON-document is een voorbeeld van een antwoord Hallo:
 
             "response": {
                 "numFound": 2,
@@ -125,7 +125,7 @@ Gebruik de volgende stappen bijvoorbeeld gegevens toevoegen aan Solr en deze ver
                 "docs": [
                   {
                     "id": "SOLR1000",
-                    "name": "Solr, the Enterprise Search Server",
+                    "name": "Solr, hello Enterprise Search Server",
                     "manu": "Apache Software Foundation",
                     "cat": [
                       "software",
@@ -136,9 +136,9 @@ Gebruik de volgende stappen bijvoorbeeld gegevens toevoegen aan Solr en deze ver
                       "Optimized for High Volume Web Traffic",
                       "Standards Based Open Interfaces - XML and HTTP",
                       "Comprehensive HTML Administration Interfaces",
-                      "Scalability - Efficient Replication to other Solr Search Servers",
+                      "Scalability - Efficient Replication tooother Solr Search Servers",
                       "Flexible and Adaptable with XML configuration and Schema",
-                      "Good unicode support: héllo (hello with an accent over the e)"
+                      "Good unicode support: héllo (hello with an accent over hello e)"
                     ],
                     "price": 0,
                     "price_c": "0,USD",
@@ -170,48 +170,48 @@ Gebruik de volgende stappen bijvoorbeeld gegevens toevoegen aan Solr en deze ver
                 ]
               }
 
-### <a name="using-the-solr-dashboard"></a>Met behulp van het dashboard Solr
+### <a name="using-hello-solr-dashboard"></a>Met behulp van Hallo Solr dashboard
 
-Het dashboard Solr is een webgebruikersinterface waarmee u werkt met Solr via uw webbrowser. Het dashboard Solr rechtstreeks op het Internet van uw HDInsight-cluster niet wordt weergegeven. U kunt een SSH-tunnel gebruiken om deze te openen. Zie voor meer informatie over het gebruik van een SSH-tunnel de [SSH-Tunneling gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) document.
+Hallo Solr dashboard is een webgebruikersinterface waarmee u toowork met Solr via uw webbrowser. Hallo Solr dashboard is niet beschikbaar gemaakt rechtstreeks op Hallo Internet van uw HDInsight-cluster. U kunt een SSH-tunnel tooaccess deze. Zie voor meer informatie over het gebruik van een SSH-tunnel Hallo [SSH-Tunneling gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) document.
 
-Wanneer u een SSH-tunnel hebt gemaakt, gebruik de volgende stappen uit om het dashboard Solr:
+Wanneer u een SSH-tunnel hebt ingesteld, gebruikt u Hallo stappen toouse hello Solr dashboard te volgen:
 
-1. De hostnaam voor de primaire headnode bepalen:
+1. Hallo-hostnaam voor de primaire headnode Hallo bepalen:
 
-   1. SSH gebruiken voor verbinding met het hoofdknooppunt van het cluster. Bijvoorbeeld `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+   1. Gebruik SSH tooconnect toohello cluster hoofdknooppunt. Bijvoorbeeld `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
-       Zie voor meer informatie over het gebruik van SSH, het [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+       Zie voor meer informatie over het gebruik van SSH Hallo [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-   2. Gebruik de volgende opdracht om de volledig gekwalificeerde hostnaam:
+   2. Gebruik Hallo opdracht tooget Hallo volledig gekwalificeerde hostnaam te volgen:
 
         ```bash
         hostname -f
         ```
 
-        Met deze opdracht retourneert een waarde die vergelijkbaar is met de naam van de volgende:
+        Met deze opdracht retourneert een waarde van een vergelijkbare toohello hostnaam te volgen:
 
             hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
-        De waarde die is geretourneerd, niet opslaan omdat het wordt later gebruikt.
+        Hallo-waarde geretourneerd, niet opslaan omdat het wordt later gebruikt.
 
-2. Verbinding maken met in uw browser **solr-http://HOSTNAME:8983 / #/**, waarbij **hostnaam** is de naam die u in de vorige stappen hebt bepaald.
+2. In uw browser te verbinden**solr-http://HOSTNAME:8983 / #/**, waarbij **hostnaam** is Hallo-naam die u in de vorige stappen Hallo bepaald.
 
-    De aanvraag wordt doorgestuurd via de SSH-tunnel naar de Solr webgebruikersinterface op uw cluster. De pagina lijkt op de volgende afbeelding:
+    Hallo-aanvraag wordt doorgestuurd via Hallo SSH-tunnel toohello Solr webgebruikersinterface op uw cluster. Hallo-pagina wordt weergegeven vergelijkbaar toohello installatiekopie te volgen:
 
     ![Afbeelding van Solr dashboard](./media/hdinsight-hadoop-solr-install-linux/solrdashboard.png)
 
-3. Vanuit het linkerdeelvenster met de **Core Selector** vervolgkeuzelijst selecteren **collection1**. Meerdere vermeldingen moeten ze worden weergegeven onder **collection1**.
+3. Gebruik vanuit het linkerdeelvenster Hallo Hallo **Core Selector** vervolgkeuzelijst tooselect **collection1**. Meerdere vermeldingen moeten ze worden weergegeven onder **collection1**.
 
-4. De onderstaande vermeldingen **collection1**, selecteer **Query**. Gebruik de volgende waarden voor het vullen van de zoekpagina:
+4. Hallo vermeldingen onderstaande **collection1**, selecteer **Query**. Hallo waarden toopopulate Hallo zoekpagina volgende gebruiken:
 
-   * In de **q** tekst Voer  **\*:**\*. Deze query retourneert de documenten die zijn geïndexeerd in Solr. Als u zoeken naar een specifieke tekenreeks binnen de documenten wilt, kunt u deze tekenreeks hier invoeren.
-   * In de **wt** tekst Selecteer indeling van de uitvoer. Standaard is **json**.
+   * In Hallo **q** tekst Voer  **\*:**\*. Deze query retourneert alle Hallo-documenten die zijn geïndexeerd in Solr. Als u toosearch voor een specifieke tekenreeks binnen Hallo documenten wilt, kunt u hier die tekenreeks.
+   * In Hallo **wt** tekstvak, selecteer Hallo uitvoerindeling. Standaard is **json**.
 
-     Tot slot selecteert u de **zoekopdracht uitvoeren** knop onder aan de pate zoeken.
+     Tot slot selecteert Hallo **zoekopdracht uitvoeren** knop Hallo Hallo zoeken pate onderaan in.
 
-     ![Scriptactie gebruiken voor het aanpassen van een cluster](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
+     ![Gebruik scriptactie toocustomize een cluster](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
 
-     De uitvoer retourneert twee documenten die u eerder naar de index hebt toegevoegd. De uitvoer is vergelijkbaar met het volgende JSON-document:
+     Hallo uitvoer retourneert Hallo twee documenten dat u toohello toegevoegd eerder index. Hallo uitvoer is vergelijkbaar toohello volgende JSON-document:
 
            "response": {
                "numFound": 2,
@@ -220,7 +220,7 @@ Wanneer u een SSH-tunnel hebt gemaakt, gebruik de volgende stappen uit om het da
                "docs": [
                  {
                    "id": "SOLR1000",
-                   "name": "Solr, the Enterprise Search Server",
+                   "name": "Solr, hello Enterprise Search Server",
                    "manu": "Apache Software Foundation",
                    "cat": [
                      "software",
@@ -231,9 +231,9 @@ Wanneer u een SSH-tunnel hebt gemaakt, gebruik de volgende stappen uit om het da
                      "Optimized for High Volume Web Traffic",
                      "Standards Based Open Interfaces - XML and HTTP",
                      "Comprehensive HTML Administration Interfaces",
-                     "Scalability - Efficient Replication to other Solr Search Servers",
+                     "Scalability - Efficient Replication tooother Solr Search Servers",
                      "Flexible and Adaptable with XML configuration and Schema",
-                     "Good unicode support: héllo (hello with an accent over the e)"
+                     "Good unicode support: héllo (hello with an accent over hello e)"
                    ],
                    "price": 0,
                    "price_c": "0,USD",
@@ -267,7 +267,7 @@ Wanneer u een SSH-tunnel hebt gemaakt, gebruik de volgende stappen uit om het da
 
 ### <a name="starting-and-stopping-solr"></a>Starten en stoppen Solr
 
-Gebruik de volgende opdrachten om handmatig te stoppen en starten Solr:
+Hallo opdrachten toomanually stoppen en starten Solr volgende gebruiken:
 
 ```bash
 sudo stop solr
@@ -276,21 +276,21 @@ sudo start solr
 
 ## <a name="backup-indexed-data"></a>Back-upgegevens van de geïndexeerde
 
-Gebruik de volgende stappen uit voor de back-ups Solr naar de standaard-opslag voor uw cluster:
+Gebruik Hallo tooback up Solr toohello standaard gegevensopslag voor uw cluster stappen te volgen:
 
-1. Verbinding maken met het cluster via SSH en voer vervolgens de volgende opdracht gebruiken om op te halen van de hostnaam voor het hoofdknooppunt:
+1. Toohello-cluster via SSH verbinding en voer vervolgens Hallo opdracht tooget Hallo-hostnaam voor het hoofdknooppunt Hallo volgende gebruiken:
 
     ```bash
     hostname -f
     ```
 
-2. Gebruik de volgende opdracht om een momentopname van de geïndexeerde gegevens te maken. Vervang **hostnaam** met de naam die is geretourneerd door de vorige opdracht:
+2. Gebruik Hallo opdracht toocreate een momentopname van Hallo geïndexeerde gegevens te volgen. Vervang **hostnaam** met geretourneerd van de vorige opdracht Hallo Hallo-naam:
 
     ```bash
     curl http://HOSTNAME:8983/solr/replication?command=backup
     ```
 
-    Het antwoord is vergelijkbaar met de volgende XML-code:
+    Hallo-antwoord is vergelijkbaar toohello XML te volgen:
 
         <?xml version="1.0" encoding="UTF-8"?>
         <response>
@@ -301,19 +301,19 @@ Gebruik de volgende stappen uit voor de back-ups Solr naar de standaard-opslag v
           <str name="status">OK</str>
         </response>
 
-3. Wijzig de mappen te `/usr/hdp/current/solr/example/solr`. Er is een submap voor elke verzameling. De map voor elke verzameling bevat een `data` map waarin de momentopname voor de verzameling.
+3. Wijzig de mappen te`/usr/hdp/current/solr/example/solr`. Er is een submap voor elke verzameling. De map voor elke verzameling bevat een `data` directory met Hallo-momentopname voor Hallo-verzameling.
 
-4. Gebruik de volgende opdracht voor het maken van een gecomprimeerd archief van de momentopnamemap:
+4. toocreate een gecomprimeerd archief van snapshotmap hello, gebruik Hallo volgende opdracht:
 
     ```bash
     tar -zcf snapshot.20150806185338855.tgz snapshot.20150806185338855
     ```
 
-    Vervang de `snapshot.20150806185338855` waarden met de naam van de momentopname voor uw verzameling.
+    Vervang Hallo `snapshot.20150806185338855` waarden met de naam van de Hallo van Hallo-momentopname voor uw verzameling.
 
-    Deze opdracht maakt u een archief met de naam **snapshot.20150806185338855.tgz**, waarin de inhoud van de **snapshot.20150806185338855** directory.
+    Deze opdracht maakt u een archief met de naam **snapshot.20150806185338855.tgz**, die inhoud Hallo Hallo bevat **snapshot.20150806185338855** directory.
 
-5. Vervolgens kunt u opslaan van het archief met van het cluster primaire opslag met de volgende opdracht:
+5. U kunt vervolgens Hallo archief toohello van primaire clusteropslag met behulp van de volgende opdracht Hallo opslaan:
 
     ```bash
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
@@ -323,8 +323,8 @@ Zie voor meer informatie over het werken met Solr back-up en herstelbewerkingen 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Giraph installeren op HDInsight-clusters](hdinsight-hadoop-giraph-install-linux.md). Aanpassing van de cluster Giraph installeren op HDInsight Hadoop-clusters gebruiken. Giraph Hiermee kunt u grafiek verwerken met behulp van Hadoop en kan worden gebruikt met Azure HDInsight.
+* [Giraph installeren op HDInsight-clusters](hdinsight-hadoop-giraph-install-linux.md). Cluster aanpassing tooinstall die giraph op HDInsight Hadoop-clusters gebruiken. Giraph kunt u tooperform grafiek verwerken met behulp van Hadoop, en kan worden gebruikt met Azure HDInsight.
 
-* [Hue installeren op HDInsight-clusters](hdinsight-hadoop-hue-linux.md). Aanpassing van de cluster Hue installeren op HDInsight Hadoop-clusters gebruiken. HUE is een set van webtoepassingen die worden gebruikt om te communiceren met een Hadoop-cluster.
+* [Hue installeren op HDInsight-clusters](hdinsight-hadoop-hue-linux.md). Cluster aanpassing tooinstall Hue op HDInsight Hadoop-clusters gebruiken. HUE is dat een set van webtoepassingen toointeract gebruikt met een Hadoop-cluster.
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

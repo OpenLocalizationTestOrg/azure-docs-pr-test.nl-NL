@@ -1,12 +1,12 @@
 ---
-title: 'Frambozen Pi (knooppunt) verbinden met Azure IoT - les 1: apparaat configureren | Microsoft Docs'
-description: Configure Raspberry Pi 3 for first-time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware.
+title: 'Verbinding maken met frambozen Pi (knooppunt) tooAzure IoT - les 1: apparaat configureren | Microsoft Docs'
+description: Frambozen Pi 3 configureren voor gebruik van de eerste keer en Hallo Raspbian OS een gratis besturingssysteem dat is geoptimaliseerd voor Hallo frambozen Pi hardware installeren.
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timlt
 tags: 
-keywords: installatie raspbian, raspbian downloaden waarop voor het installeren van raspbian, raspbian setup, raspberry pi installeren raspbian, raspberry pi installeren os, raspberry pi sd-kaart installeren, frambozen pi verbinding maken, verbinding maken met raspberry pi raspberry pi connectiviteit
+keywords: installatie raspbian, raspbian downloaden waarop tooinstall raspbian, raspbian setup raspberry pi installeren raspbian raspberry pi installeren os raspberry pi sd-kaart installeren, raspberry pi verbinding maken, verbinding tooraspberry pi raspberry pi connectiviteit
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
 ms.assetid: 43f7c2cf-f1a5-4dd5-93f0-7e546c6dc91e
@@ -17,105 +17,105 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: b848c48157a2310f0eb1d6398f8b9aaa4395d47f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 504a4d2a3f29717f955530812442cce2a78a6448
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-your-device"></a>Uw apparaat configureren
 ## <a name="what-you-will-do"></a>Wat u doet
-Pi configureren voor het eerste gebruik en het besturingssysteem Raspbian installeren. Raspbian is een gratis besturingssysteem die is geoptimaliseerd voor de hardware frambozen Pi. Als u problemen hebt, kunt u oplossingen proberen op de [probleemoplossing pagina](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Pi configureren voor gebruik van de eerste keer en Hallo Raspbian besturingssysteem installeren. Raspbian is een gratis besturingssysteem die is geoptimaliseerd voor Hallo frambozen Pi hardware. Als u problemen hebt, kunt u proberen oplossingen op Hallo [probleemoplossing pagina](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Wat u leert
 In dit artikel leert u het:
 
-* Het installeren van Raspbian op Pi.
-* Klik hier voor meer informatie over het opstarten van Pi via een USB-kabel.
-* Klik hier voor meer informatie over het Pi verbinding met het netwerk met behulp van een Ethernet-kabel of draadloze netwerk.
-* Hoe een LED toevoegen aan de breadboard en te verbinden met Pi.
+* Hoe tooinstall Raspbian met Pi.
+* Hoe toopower up Pi via een USB-kabel.
+* Hoe tooconnect Pi toohello netwerk met behulp van een Ethernet-kabel of draadloze netwerk.
+* Hoe een LED toohello tooadd breadboard en verbind deze tooPi.
 
 ## <a name="what-you-will-need"></a>Wat u nodig hebt
-Om deze bewerking niet voltooien, moet u de volgende onderdelen van uw frambozen Pi 3 Starter Kit:
+toocomplete deze bewerking moet u volgende onderdelen van uw frambozen Pi 3 Starter Kit Hallo:
 
-* De kaart frambozen Pi 3
-* De 16 GB microSD-kaart
-* De 5-v 2 amp power supply met 6 mond micro USB-kabel
-* De breadboard
+* Hallo frambozen Pi 3 mededelingenbord
+* Hallo 16 GB microSD-kaart
+* Hallo 5 v 2 amp voeding met Hallo 6 mond micro USB-kabel
+* Hallo breadboard
 * Connector-kabels
 * Een weerstand 560 ohm
 * Een gedempt 10 mm LED
-* De Ethernet-kabel
+* Hallo Ethernet-kabel
 
 ![Dingen in uw starterskit](media/iot-hub-raspberry-pi-lessons/lesson1/starter_kit.jpg)
 
 U hebt ook het volgende nodig:
 
-* Een bekabelde of draadloze verbinding voor Pi verbinding maken met.
-* Een USB-SD adapter of miniSD kaart branden van de installatiekopie van het besturingssysteem op de microSD-kaart.
-* Een computer met Windows, Mac of Linux. De computer wordt gebruikt voor het installeren van Raspbian op de microSD-kaart.
-* Een internetverbinding beschikken om het downloaden van de benodigde hulpprogramma's en software.
+* Een bekabelde of draadloze verbinding voor Pi tooconnect aan.
+* Een USB-SD adapter of miniSD kaart tooburn Hallo besturingssysteeminstallatiekopie op Hallo microSD-kaart.
+* Een computer met Windows, Mac of Linux. Hallo-computer is gebruikte tooinstall Raspbian op Hallo microSD-kaart.
+* Een Internet verbinding toodownload Hallo benodigde hulpprogramma's en software.
 
-## <a name="install-raspbian-on-the-microsd-card"></a>Raspbian installeren op de microSD-kaart
-Bereid de microSD-kaart voor de installatie van de installatiekopie van het Raspbian.
+## <a name="install-raspbian-on-hello-microsd-card"></a>Raspbian installeren op Hallo microSD-kaart
+Hallo microSD-kaart voor de installatie van Hallo Raspbian afbeelding voorbereiden.
 
 1. Raspbian downloaden.
-   1. [Download](https://www.raspberrypi.org/downloads/raspbian/) het ZIP-bestand voor Raspbian Jessie met Pixel.
-   2. Pak de installatiekopie van het Raspbian naar een map op uw computer.
-2. Installeer Raspbian naar de microSD-kaart.
-   1. [Download](https://www.etcher.io) en installeer het hulpprogramma Etcher SD-kaart brander.
-   2. Voer Etcher en selecteer de installatiekopie van het Raspbian die u hebt opgehaald in stap 1.
-   3. Selecteer het station microSD-kaart.
-      Houd er rekening mee dat Etcher mogelijk al hebt geselecteerd de juiste station.
-   4. Klik op **Flash** Raspbian installeren op de microSD-kaart.
-   5. Verwijder de microSD-kaart van uw computer wanneer de installatie voltooid is.
-      Het is veilig worden verwijderd, de microSD-kaart rechtstreeks omdat Etcher automatisch uitwerpen of ontkoppelt de microSD-kaart is voltooid.
-   6. Plaats de microSD-kaart in Pi.
+   1. [Download](https://www.raspberrypi.org/downloads/raspbian/) Hallo ZIP-bestand voor Raspbian Jessie met Pixel.
+   2. Pak Hallo Raspbian installatiekopie tooa map op uw computer.
+2. Installeer Raspbian toohello microSD-kaart.
+   1. [Download](https://www.etcher.io) en Hallo Etcher SD-kaart brander hulpprogramma installeren.
+   2. Voer Etcher en Hallo Raspbian installatiekopie die u hebt opgehaald in stap 1.
+   3. Selecteer Hallo microSD-kaart station.
+      Houd er rekening mee dat Etcher mogelijk al hebt geselecteerd Hallo juiste station.
+   4. Klik op **Flash** tooinstall Raspbian toohello microSD-kaart.
+   5. Hallo microSD-kaart van uw computer verwijderen wanneer de installatie voltooid is.
+      Het is veilig tooremove hello microSD-kaart rechtstreeks omdat Etcher automatisch uitwerpen of Hallo microSD-kaart is voltooid ontkoppelt.
+   6. Hallo microSD-kaart invoegen in Pi.
 
-![Invoegen van de SD-kaart](media/iot-hub-raspberry-pi-lessons/lesson1/insert_sdcard.jpg)
+![Plaats Hallo SD-kaart](media/iot-hub-raspberry-pi-lessons/lesson1/insert_sdcard.jpg)
 
 ## <a name="turn-on-pi"></a>Pi inschakelen
-Pi inschakelen met behulp van het micro USB-kabel en de voeding.
+Pi inschakelen met behulp van Hallo micro USB-kabel en Hallo voeding.
 
 ![Inschakelen](media/iot-hub-raspberry-pi-lessons/lesson1/micro_usb_power_on.jpg)
 
 > [!NOTE]
-> Het is belangrijk dat u de voeding in de kit ten minste 2A om ervoor te zorgen dat uw frambozen heeft onvoldoende stroom correct te laten werken.
+> Het is belangrijk toouse Hallo voeding in Hallo kit ten minste 2A toomake ervoor dat uw frambozen voldoende toowork power correct heeft.
 
 ## <a name="enable-ssh"></a>SSH inschakelen
-Vanaf de release van November 2016 heeft Raspbian de SSH-server standaard uitgeschakeld. U moet handmatig inschakelen. U kunt verwijzen naar de [officiële instructies](https://www.raspberrypi.org/documentation/remote-access/ssh/) of verbinding maken met een monitor en Ga naar **Voorkeuren -> frambozen Pi configuratie** SSH inschakelen.
+Vanaf de release van November 2016 Hallo heeft Raspbian Hallo SSH-server is standaard uitgeschakeld. U moet tooenable deze handmatig. U kunt verwijzen toohello [officiële instructies](https://www.raspberrypi.org/documentation/remote-access/ssh/) of verbinding maken met een monitor en gaat u te**voorkeuren-frambozen Pi Configuration >** tooenable SSH.
 
-## <a name="connect-raspberry-pi-3-to-the-network"></a>Frambozen Pi 3 verbinding met het netwerk
-U kunt Pi verbinding maken met een bekabeld netwerk of een draadloos netwerk. Zorg ervoor dat Pi is verbonden met hetzelfde netwerk bevindt als uw computer. U kunt bijvoorbeeld Pi verbinden met dezelfde switch waarmee uw computer is verbonden.
+## <a name="connect-raspberry-pi-3-toohello-network"></a>Frambozen Pi 3 toohello netwerk verbinden
+U kunt Pi tooa bekabeld netwerk of tooa draadloze netwerk verbinding maken. Zorg ervoor dat Pi verbonden toohello netwerk als de computer is. U kunt bijvoorbeeld Pi toohello die dezelfde switch dat uw computer is verbonden met verbinden.
 
-### <a name="connect-to-a-wired-network"></a>Verbinding maken met een bekabeld netwerk
-Via het Ethernet-kabel Pi verbinden met het bekabelde netwerk. De twee LED's met Pi inschakelen als de verbinding tot stand is gebracht.
+### <a name="connect-tooa-wired-network"></a>Verbinding maken met tooa bekabelde netwerk
+Gebruik Hallo Ethernet-kabel tooconnect Pi tooyour bekabelde netwerk. Hallo inschakelen twee LED's op Pi als Hallo-verbinding tot stand is gebracht.
 
 ![Verbinding maken met behulp van een Ethernet-kabel](media/iot-hub-raspberry-pi-lessons/lesson1/connect_ethernet.jpg)
 
-### <a name="connect-to-a-wireless-network"></a>Verbinding maken met een draadloos netwerk
-Ga als volgt de [instructies](https://www.raspberrypi.org/learning/software-guide/wifi/) van de Stichting frambozen Pi Pi verbinding met uw draadloze netwerk. Deze instructies, moet u eerst een verbinding tussen een monitor en een toetsenbord tot Pi.
+### <a name="connect-tooa-wireless-network"></a>Verbinding maken met het draadloze netwerk tooa
+Ga als volgt Hallo [instructies](https://www.raspberrypi.org/learning/software-guide/wifi/) van Hallo frambozen Pi Foundation tooconnect Pi tooyour draadloos netwerk. Deze instructies, moet u toofirst verbinding maken met een monitor en een toetsenbord tooPi.
 
-## <a name="connect-the-led-to-pi"></a>Verbinding maken met de LED Pi
-Gebruik voor het voltooien van deze taak de [breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard), de kabels connector, de LED en de weerstand. Verbind ze naar de [voor algemene doeleinden input/output](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO)-poorten van Pi.
+## <a name="connect-hello-led-toopi"></a>Hallo LED tooPi verbinding
+toocomplete deze taak, gebruik Hallo [breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard), connector kabels Hallo Hallo LED en Hallo weerstand. Verbind ze toohello [voor algemene doeleinden input/output](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO)-poorten van Pi.
 
 ![Breadboard LED en weerstand](media/iot-hub-raspberry-pi-lessons/lesson1/breadboard_led_resistor.jpg)
 
-1. Verbinding maken met de kortere zijde van de LED naar **GPIO GND (pincode 6)**.
-2. Verbinding maken met de langer zijde van de LED één arm van de weerstand.
-3. Verbinding maken met de andere zijde van de weerstand naar **GPIO 4 (7 pincode)**.
+1. Hallo korter arm van Hallo LED te verbinden**GPIO GND (pincode 6)**.
+2. Verbinding maken met Hallo langer arm van Hallo LED tooone arm van Hallo weerstand.
+3. Verbinding maken met andere arm van Hallo weerstand te Hallo**GPIO 4 (7 pincode)**.
 
-Houd er rekening mee dat de polariteit LED belangrijk is. Deze instelling polariteit staat bekend als actief laag.
+Houd er rekening mee dat Hallo LED polariteit belangrijk is. Deze instelling polariteit staat bekend als actief laag.
 
 ![Pin-out](media/iot-hub-raspberry-pi-lessons/lesson1/pinout_breadboard.png)
 
 Gefeliciteerd. U hebt geconfigureerd Pi.
 
 ## <a name="summary"></a>Samenvatting
-In dit artikel hebt u geleerd hoe Pi configureren met Raspbian installeren en verbinding maken met een LED Pi Pi verbinden met een netwerk. Houd er rekening mee dat de LED nog niet branden. De volgende taak is het installeren van de benodigde hulpprogramma's en software in voorbereiding voor het uitvoeren van een voorbeeldtoepassing met Pi.
+In dit artikel hebt u geleerd hoe tooconfigure door Raspbian, verbindende Pi tooa netwerk, installeren en verbinding maken met een tooPi LED Pi. Houd er rekening mee dat Hallo die LED nog niet branden. de volgende taak Hallo is tooinstall Hallo vereiste hulpprogramma's en software in voorbereiding voor het uitvoeren van een voorbeeldtoepassing met Pi.
 
 ![Hardware is gereed](media/iot-hub-raspberry-pi-lessons/lesson1/hardware_ready.jpg)
 
 ## <a name="next-steps"></a>Volgende stappen
-[Download de hulpprogramma 's](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
+[Hallo-hulpprogramma's ophalen](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
 

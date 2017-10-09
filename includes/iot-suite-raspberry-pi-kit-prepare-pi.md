@@ -2,26 +2,26 @@
 
 ### <a name="install-raspbian"></a>Raspbian installeren
 
-Als dit de eerste keer dat u uw Pi frambozen gebruikt, moet u het Raspbian-besturingssysteem met behulp van NOOBS op de SD-kaart die is opgenomen in de kit installeren. De [frambozen Pi Software handleiding] [ lnk-install-raspbian] wordt beschreven hoe u een besturingssysteem installeren op uw frambozen Pi. Deze zelfstudie wordt ervan uitgegaan dat u het besturingssysteem Raspbian op uw Pi frambozen hebt geïnstalleerd.
+Als dit Hallo eerste keer dat u uw Pi frambozen gebruikt, moet u tooinstall hello Raspbian besturingssysteem via NOOBS op Hallo SD-kaart is opgenomen in het Hallo-pakket. Hallo [frambozen Pi Software handleiding] [ lnk-install-raspbian] beschrijft hoe een besturingssysteem op uw Pi frambozen tooinstall. Deze zelfstudie wordt ervan uitgegaan dat u hebt Hallo Raspbian-besturingssysteem geïnstalleerd op uw frambozen Pi.
 
 > [!NOTE]
-> De SD-kaart die is opgenomen in de [Microsoft Azure IoT Starter Kit voor frambozen Pi 3] [ lnk-starter-kits] al NOOBS geïnstalleerd. U kunt de Pi frambozen van deze kaart opstart en installeren van het besturingssysteem Raspbian.
+> Hallo SD-kaart is opgenomen in Hallo [Microsoft Azure IoT Starter Kit voor frambozen Pi 3] [ lnk-starter-kits] al NOOBS geïnstalleerd. U kunt opstarten Hallo frambozen Pi van deze kaart en tooinstall hello Raspbian OS kiezen.
 
-### <a name="set-up-the-hardware"></a>De hardware instellen
+### <a name="set-up-hello-hardware"></a>Hallo hardware instellen
 
-Deze zelfstudie wordt gebruikgemaakt van de sensor BME280 is opgenomen in de [Microsoft Azure IoT Starter Kit voor frambozen Pi 3] [ lnk-starter-kits] telemetrische gegevens genereren. Een LED wordt gebruikt om aan te geven wanneer de Pi frambozen verwerkt een methodeaanroep vanuit het dashboard van oplossing.
+Deze zelfstudie wordt gebruikgemaakt van Hallo BME280 sensor opgenomen in Hallo [Microsoft Azure IoT Starter Kit voor frambozen Pi 3] [ lnk-starter-kits] toogenerate telemetrische gegevens. Een tooindicate LED wordt gebruikt wanneer Hallo frambozen Pi een methodeaanroep vanuit Hallo oplossing dashboard verwerkt.
 
-De onderdelen op het mededelingenbord brood zijn:
+Hallo-onderdelen op Hallo brood mededelingenbord zijn:
 
 - Rode LED
 - 220 Ohm weerstand (rood, rood, bruine)
 - BME280-temperatuursensor
 
-Het volgende diagram toont hoe u verbinding maakt van uw hardware:
+Hallo volgende diagram toont hoe tooconnect uw hardware:
 
 ![Hardware-instellingen voor frambozen Pi][img-connection-diagram]
 
-De volgende tabel geeft een overzicht van de verbindingen van de Pi frambozen aan de onderdelen op de breadboard:
+Hallo volgende tabel ziet u Hallo verbindingen van Hallo frambozen Pi toohello onderdelen op Hallo breadboard:
 
 | Raspberry Pi            | Breadboard             |Kleur         |
 | ----------------------- | ---------------------- | ------------- |
@@ -34,52 +34,52 @@ De volgende tabel geeft een overzicht van de verbindingen van de Pi frambozen aa
 | GND (pincode 6)             | GND (35A)              | Zwart         |
 | 3.3 V (pincode 1)           | 3Vo (34 bis)              | Rood           |
 
-U voltooit de installatie van de hardware, moet u:
+toocomplete hello hardware-installatie, moet u:
 
-- Verbinding maken met uw frambozen-Pi de voeding die is opgenomen in het pakket.
-- Verbinding maken met uw Pi frambozen via de Ethernet-kabel in uw kit opgenomen met het netwerk. U kunt ook kunt u instellen [draadloze netwerkverbinding] [ lnk-pi-wireless] voor uw frambozen Pi.
+- Verbinding maken met uw frambozen Pi toohello voeding opgenomen in het Hallo-pakket.
+- Verbinding maken met uw frambozen Pi tooyour netwerk met Hallo Ethernet-kabel is opgenomen in de kit. U kunt ook kunt u instellen [draadloze netwerkverbinding] [ lnk-pi-wireless] voor uw frambozen Pi.
 
-U hebt nu de hardware-instellingen van uw Pi frambozen voltooid.
+U hebt nu Hallo hardware-instellingen van uw Pi frambozen voltooid.
 
-### <a name="sign-in-and-access-the-terminal"></a>Aanmelden en toegang tot de terminal
+### <a name="sign-in-and-access-hello-terminal"></a>Aanmelden en Hallo terminal
 
-U hebt twee opties voor toegang tot een terminal omgeving op uw Pi frambozen:
+U hebt twee opties tooaccess een terminal-omgeving op uw Pi frambozen:
 
-- Als u een toetsenbord en de monitor die zijn verbonden met uw Pi frambozen hebt, kunt u de gebruikersinterface van Raspbian voor toegang tot een terminalvenster.
+- Als u een toetsenbord hebt en verbonden tooyour frambozen Pi bewaken, kunt u Hallo Raspbian GUI tooaccess een terminalvenster gebruiken.
 
-- Toegang tot de opdrachtregel op uw frambozen Pi gebruik van SSH op uw computer.
+- Hallo opdrachtregel toegang op uw frambozen Pi gebruik van SSH op uw computer.
 
-#### <a name="use-a-terminal-window-in-the-gui"></a>Gebruik een terminalvenster in de gebruikersinterface
+#### <a name="use-a-terminal-window-in-hello-gui"></a>Een terminalvenster in Hallo GUI gebruiken
 
-De standaardreferenties voor Raspbian zijn gebruikersnaam **pi** en het wachtwoord **frambozen**. U kunt starten in de taakbalk in de gebruikersinterface van de **Terminal** hulpprogramma met het pictogram dat op een monitor lijkt.
+Hallo standaardreferenties voor Raspbian zijn gebruikersnaam **pi** en het wachtwoord **frambozen**. In de taakbalk Hallo in Hallo GUI, kunt u Hallo starten **Terminal** hulpprogramma Hallo-pictogram dat op een monitor lijkt.
 
 #### <a name="sign-in-with-ssh"></a>Meld u aan met SSH
 
-U kunt SSH gebruiken voor vanaf de opdrachtregel toegang tot uw frambozen Pi. Het artikel [SSH (Secure Shell)] [ lnk-pi-ssh] wordt beschreven hoe SSH configureren op uw Pi frambozen en verbinding maken van [Windows] [ lnk-ssh-windows] of [Linux en Mac OS][lnk-ssh-linux].
+U kunt SSH gebruiken voor toegang tot opdrachtregel tooyour frambozen Pi. Hallo artikel [SSH (Secure Shell)] [ lnk-pi-ssh] wordt beschreven hoe tooconfigure SSH op uw Pi frambozen en hoe tooconnect van [Windows] [ lnk-ssh-windows] of [Linux en Mac OS][lnk-ssh-linux].
 
 Aanmelden met gebruikersnaam **pi** en het wachtwoord **frambozen**.
 
 #### <a name="optional-share-a-folder-on-your-raspberry-pi"></a>Optioneel: Een map op uw Pi frambozen delen
 
-U kunt desgewenst een map op uw Pi frambozen delen met uw bureaublad omgeving. Delen van een map, kunt u gebruikmaken van uw voorkeur bureaublad teksteditor (zoals [Visual Studio Code](https://code.visualstudio.com/) of [Sublime Text](http://www.sublimetext.com/)) voor het bewerken van bestanden op uw Pi frambozen in plaats van `nano` of `vi`.
+Desgewenst kunt u tooshare een map op uw frambozen Pi met uw bureaublad omgeving. U toouse uw voorkeur bureaublad teksteditor delen van een map kunt (zoals [Visual Studio Code](https://code.visualstudio.com/) of [Sublime Text](http://www.sublimetext.com/)) tooedit bestanden op uw Pi frambozen in plaats van `nano` of `vi`.
 
-Als u wilt delen een map met Windows, configureert u een Samba-server op de frambozen Pi. U kunt ook gebruik van de ingebouwde [SFTP](https://www.raspberrypi.org/documentation/remote-access/) server met een SFTP-client op het bureaublad.
+tooshare een map met Windows, configureert een Samba-server op Hallo frambozen Pi. Ook gebruiken Hallo ingebouwde [SFTP](https://www.raspberrypi.org/documentation/remote-access/) server met een SFTP-client op het bureaublad.
 
 ### <a name="enable-spi"></a>SPI inschakelen
 
-Voordat u de voorbeeldtoepassing uitvoeren kunt, moet u de seriële randapparatuur Interface (SPI)-bus van de Pi frambozen inschakelen. De Pi frambozen communiceert met het apparaat van de sensor BME280 via de SPI-bus. Gebruik de volgende opdracht in het configuratiebestand bewerken:
+Voordat u de voorbeeldtoepassing Hallo uitvoeren kunt, moet u Hallo seriële randapparatuur Interface (SPI)-bus op Hallo frambozen Pi inschakelen. Hallo frambozen Pi communiceert met de Hallo BME280 sensor apparaat via Hallo SPI-bus. Gebruik Hallo opdracht tooedit Hallo-configuratiebestand te volgen:
 
 ```sh
 sudo nano /boot/config.txt
 ```
 
-Zoek de regel:
+Hallo regel zoeken:
 
 `#dtparam=spi=on`
 
-- Om de opmerkingen bij de regel, verwijder de `#` aan het begin.
-- Sla de wijzigingen (**Ctrl-O**, **Enter**) en sluit de editor af (**Ctrl X**).
-- Start opnieuw op de frambozen Pi zodat SPI. Opnieuw wordt opgestart nadat de verbinding verbreekt de terminal, moet u aan te melden opnieuw wanneer de Pi frambozen opnieuw wordt gestart:
+- toouncomment hello regel verwijderen Hallo `#` aan Hallo begin.
+- Sla de wijzigingen (**Ctrl-O**, **Enter**) en sluit de editor af hello (**Ctrl X**).
+- tooenable SPI, opnieuw opstarten Hallo frambozen Pi. Opnieuw wordt opgestart nadat de verbinding verbreekt Hallo terminal, moet u toosign in opnieuw wanneer Hallo frambozen Pi opnieuw wordt gestart:
 
   ```sh
   sudo reboot

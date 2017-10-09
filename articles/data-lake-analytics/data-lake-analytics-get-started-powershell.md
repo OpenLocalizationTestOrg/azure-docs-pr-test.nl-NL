@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure Data Lake Analytics met Azure PowerShell | Microsoft Docs
-description: 'Gebruik Azure PowerShell om een Data Lake Analytics-account te maken, een Data Lake Analytics-taak te maken met U-SQL en de taak te verzenden. '
+title: aaaGet de slag met Azure Data Lake Analytics met Azure PowerShell | Microsoft Docs
+description: 'Azure PowerShell toocreate een Data Lake Analytics-account gebruiken, maken van een Data Lake Analytics-taak met U-SQL en verzenden van Hallo-taak. '
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: edmaca
-ms.openlocfilehash: 4f73e27c733edae658d1ea3bdabe48076328279b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cb9b35352d1cc9a78337448b1d6835875a212e08
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Aan de slag met Azure Data Lake Analytics met Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Informatie over het gebruik van Azure PowerShell om Azure Data Lake Analytics-accounts te maken en vervolgens U SQL-taken te verzenden en uit te voeren. Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor meer informatie over Data Lake Analytics.
+Informatie over hoe toouse Azure PowerShell toocreate Azure Data Lake Analytics-accounts en vervolgens verzenden en U-SQL-taken uitvoeren. Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor meer informatie over Data Lake Analytics.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u met deze zelfstudie begint, moet u beschikken over de volgende informatie:
+Voordat u deze zelfstudie begint, hebt u de volgende informatie Hallo:
 
 * **Een Azure Data Lake Analytics-account**. Zie [Aan de slag met Data Lake Analytics](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
-* **Een werkstation met Azure PowerShell**. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview).
+* **Een werkstation met Azure PowerShell**. Zie [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview).
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="log-in-tooazure"></a>Meld u bij tooAzure
 
-In deze zelfstudie wordt ervan uitgegaan dat u al bekend bent met het gebruik van Azure PowerShell. Het is voornamelijk belangrijk dat u weet hoe u zich aanmeldt bij Azure. Zie [Aan de slag met Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps) als u hulp nodig hebt.
+In deze zelfstudie wordt ervan uitgegaan dat u al bekend bent met het gebruik van Azure PowerShell. In het bijzonder, moet u tooknow hoe toolog in tooAzure. Zie Hallo [aan de slag met Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps) als u hulp nodig hebt.
 
-Aanmelden met de naam van een abonnement:
+toolog met de abonnementsnaam van een:
 
 ```
 Login-AzureRmAccount -SubscriptionName "ContosoSubscription"
 ```
 
-In plaats van de abonnementsnaam, kunt u ook een abonnements-id gebruiken om u aan te melden:
+U kunt ook een abonnement-id toolog in gebruiken in plaats van de naam van Hallo abonnement:
 
 ```
 Login-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-Als dit lukt, ziet de uitvoer van deze opdracht er  uit als de volgende tekst:
+Als dit lukt, ziet er Hallo-uitvoer van deze opdracht Hallo volgende tekst:
 
 ```
 Environment           : AzureCloud
@@ -59,9 +59,9 @@ SubscriptionName      : ContosoSubscription
 CurrentStorageAccount :
 ```
 
-## <a name="preparing-for-the-tutorial"></a>Voorbereiding voor de zelfstudie
+## <a name="preparing-for-hello-tutorial"></a>Hallo-zelfstudie voorbereiden
 
-De PowerShell-fragmenten in deze zelfstudie gebruiken deze variabelen om deze informatie op te slaan:
+Hallo PowerShell codefragmenten in deze zelfstudie gebruikt u deze variabelen toostore deze informatie:
 
 ```
 $rg = "<ResourceGroupName>"
@@ -78,7 +78,7 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla
 
 ## <a name="submit-a-u-sql-job"></a>Een U-SQL-taak verzenden
 
-Maak een PowerShell-variabele om het U-SQL-script op te slaan.
+Maak een PowerShell-script variabele toohold Hallo U-SQL.
 
 ```
 $script = @"
@@ -90,19 +90,19 @@ $script = @"
         ) AS 
               D( customer, amount );
 OUTPUT @a
-    TO "/data.csv"
+    too"/data.csv"
     USING Outputters.Csv();
 
 "@
 ```
 
-Verzend het script.
+Hallo script verzenden.
 
 ```
 $job = Submit-AdlJob -AccountName $adla –Script $script
 ```
 
-U kunt het script ook opslaan als een bestand en verzenden met de volgende opdracht:
+U kunt ook Hallo script als een bestand opslaan en verzenden met de volgende opdracht Hallo:
 
 ```
 $filename = "d:\test.usql"
@@ -111,25 +111,25 @@ $job = Submit-AdlJob -AccountName $adla –ScriptPath $filename
 ```
 
 
-Haal de status van een bepaalde taak op. Blijf deze cmdlet gebruiken totdat de taak is voltooid.
+Hallo-status van een bepaalde taak ophalen. Deze cmdlet blijven worden gebruiken totdat er Hallo-taak wordt uitgevoerd.
 
 ```
 $job = Get-AdlJob -AccountName $adla -JobId $job.JobId
 ```
 
-U hoeft niet steeds Get-AdlAnalyticsJob aan te roepen tot een taak is voltooid als u de cmdlet Wait-AdlJob gebruikt.
+In plaats van het aanroepen van Get-AdlAnalyticsJob steeds totdat een taak is voltooid, kunt u Hallo wacht AdlJob cmdlet gebruiken.
 
 ```
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-Download het uitvoerbestand.
+Hallo-uitvoerbestand downloaden.
 
 ```
 Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
 ## <a name="see-also"></a>Zie ook
-* Als u dezelfde zelfstudie wilt bekijken met een ander hulpprogramma, klikt u op de tabselectors boven aan de pagina.
-* Zie [Aan de slag met de Azure Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md) om U-SQL te leren.
+* toosee Hallo dezelfde zelfstudie met een ander hulpprogramma, klikt u op Hallo-tabselectors op Hallo Hallo pagina bovenaan.
+* toolearn U-SQL, Zie [aan de slag met Azure Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md).
 * Zie [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) voor informatie over beheertaken.

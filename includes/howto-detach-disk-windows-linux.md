@@ -1,39 +1,39 @@
-Wanneer u een gegevensschijf die is gekoppeld aan een virtuele machine niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Als u een schijf loskoppelt, wordt de schijf van de virtuele machine verwijderd, maar wordt de schijf niet verwijderd uit het Azure-opslagaccount.
+Wanneer u een gegevensschijf die is aangesloten tooa virtuele machine niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Een schijf wordt losgekoppeld Hallo schijf verwijdert uit Hallo virtuele machine, maar niet Hallo schijf verwijderen uit hello Azure storage-account.
 
-Als u de bestaande gegevens op de schijf opnieuw wilt gebruiken, kunt u de schijf opnieuw koppelen aan dezelfde of een andere virtuele machine.  
+Als u toouse Hallo bestaande gegevens op Hallo schijf opnieuw wilt, u kunt opnieuw het toohello dezelfde virtuele machine of een andere naam.  
 
 > [!NOTE]
-> Als u de schijf van een besturingssysteem wilt loskoppelen, moet u eerst de virtuele machine verwijderen.
+> toodetach schijf van een besturingssysteem, moet u eerst toodelete Hallo virtuele machine.
 >
 
-## <a name="find-the-disk"></a>De schijf vinden
-Als u de naam van de schijf niet weet of de schijf wilt controleren voordat u deze loskoppelt, volgt u deze stappen.
+## <a name="find-hello-disk"></a>Hallo schijf gevonden
+Als u de naam van de Hallo van schijf Hallo of tooverify wilt niet weet het voordat u deze loskoppelen, als volgt te werk.
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com).
 
-2. Klik op **Virtuele machines** en selecteer vervolgens de toepasselijke VM.
+2. Klik op **virtuele Machines**, en vervolgens selecteert Hallo juiste VM.
 
-3. Klik onder **Instellingen** op **Schijven** aan de linkerkant van het dashboard van de virtuele machine.
+3. Klik op **schijven** langs Hallo de linkerrand van dashboard van de virtuele machine hello, onder **instellingen**.
 
- Het dashboard van de virtuele machine bevat de naam en het type van alle gekoppelde schijven. Op dit scherm wordt bijvoorbeeld een virtuele machine weergegeven met een besturingssysteemschijf en een gegevensschijf:
+ Hallo virtuele machine dashboard geeft een lijst Hallo naam en type van alle gekoppelde schijven. Op dit scherm wordt bijvoorbeeld een virtuele machine weergegeven met een besturingssysteemschijf en een gegevensschijf:
 
     ![Gegevensschijf vinden](./media/howto-detach-disk-windows-linux/vmwithdisklist.png)
 
-## <a name="detach-the-disk"></a>De schijf loskoppelen
-1. Klik in Azure Portal op **Virtuele machines** en klik vervolgens op de naam van de virtuele machine die de gegevensschijf heeft die u wilt loskoppelen.
+## <a name="detach-hello-disk"></a>Ontkoppel de schijf Hallo
+1. Hallo Azure-portal, klik op **virtuele Machines**, en klik vervolgens op Hallo-naam van Hallo virtuele machine die Hallo gegevensschijf gewenste toodetach heeft.
 
-2. Klik onder **Instellingen** op **Schijven** aan de linkerkant van het dashboard van de virtuele machine.
+2. Klik op **schijven** langs Hallo de linkerrand van dashboard van de virtuele machine hello, onder **instellingen**.
 
-3. Klik op de schijf die u wilt loskoppelen.
+3. Klik op de gewenste toodetach Hallo-schijf.
 
-  ![De schijf zoeken die u wilt loskoppelen](./media/howto-detach-disk-windows-linux/disklist.png)
+  ![Hallo schijf toodetach identificeren](./media/howto-detach-disk-windows-linux/disklist.png)
 
-4. Klik vanuit de opdrachtbalk op **Loskoppelen**.
+4. Hallo opdrachtbalk en klik op **Detach**.
 
-  ![De opdracht Loskoppelen vinden](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
+  ![Zoek Hallo loskoppelen van de opdracht](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
 
-5. Klik in het bevestigingsvenster op **Ja** om de schijf los te koppelen.
+5. Klik in het bevestigingsvenster hello, **Ja** toodetach Hallo schijf.
 
-  ![Het loskoppelen van de schijf bevestigen](./media/howto-detach-disk-windows-linux/confirmdetach.png)
+  ![Loskoppelen Hallo schijf bevestigen](./media/howto-detach-disk-windows-linux/confirmdetach.png)
 
-De schijf blijft in de opslag, maar is niet meer gekoppeld aan een virtuele machine.
+Hallo schijf blijft in de opslag, maar is niet langer gekoppelde tooa virtuele machine.

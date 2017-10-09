@@ -1,6 +1,6 @@
 ---
-title: Elementen van de SQL Data Warehouse Transact-SQL-taal | Microsoft Docs
-description: Lijst met koppelingen naar referentie-inhoud voor de elementen van de Transact-SQL-taal gebruikt voor SQL Data Warehouse.
+title: aaaSQL Data Warehouse Transact-SQL-taalelementen | Microsoft Docs
+description: Lijst met koppelingen tooreference inhoud voor Hallo Transact-SQL elementen van de taal gebruikt voor SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: 7a20cd8f3c2f304d12a49755dbe6e04f9b1d36df
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: db7500b2a1f69a9e3dccddafd27a9cd0d95f9baf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="language-elements"></a>Taalelementen
 ## <a name="core-elements"></a>Core-elementen
@@ -57,7 +57,7 @@ ms.lasthandoff: 07/11/2017
 * [/ (Delen)](https://msdn.microsoft.com/library/ms175009.aspx)
 * [Modulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
-## <a name="wildcard-characters-to-match"></a>Jokertekens teken (s) moet worden gezocht
+## <a name="wildcard-characters-toomatch"></a>Jokertekens teken (s) toomatch
 * [= (Gelijk aan)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [> (Groter dan)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [< (Minder dan)](https://msdn.microsoft.com/library/ms179873.aspx)

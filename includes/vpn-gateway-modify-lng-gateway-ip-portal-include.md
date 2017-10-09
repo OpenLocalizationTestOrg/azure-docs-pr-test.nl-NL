@@ -1,32 +1,32 @@
-### <a name="gwipnoconnection"></a>Wijzigen van het lokale netwerk gateway IP-adres - er is geen gatewayverbinding
+### <a name="gwipnoconnection"></a>toomodify hello lokale netwerk gateway IP-adres - er is geen gatewayverbinding
 
-Gebruik het voorbeeld om een lokale netwerkgateway die geen gatewayverbinding heeft te wijzigen. Wanneer u deze waarde wijzigt, kunt u tegelijkertijd ook de adresvoorvoegsels wijzigen.
+Hallo voorbeeld toomodify een lokale netwerkgateway die geen een gatewayverbinding gebruiken. Als u deze waarde wijzigt, kunt u ook Hallo adresvoorvoegsels op Hallo wijzigen hetzelfde moment.
 
-1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
-2. In de **IP-adres** wijzigt u het IP-adres.
-3. Klik op **opslaan** de instellingen op te slaan.
+1. Op de lokale netwerkgateway bron, in Hallo Hallo **instellingen** sectie, klikt u op **configuratie**.
+2. In Hallo **IP-adres** Hallo IP-adres wijzigt.
+3. Klik op **opslaan** toosave Hallo instellingen.
 
-### <a name="gwipwithconnection"></a>Het lokale netwerk gateway gateway IP-adres - gatewayverbinding bestaande wijzigen
+### <a name="gwipwithconnection"></a>toomodify hello lokale netwerk gateway gateway IP-adres - gatewayverbinding bestaande
 
-Voor het wijzigen van een lokale netwerkgateway een verbinding heeft, moet u eerst de verbinding verwijderen. Nadat de verbinding is verwijderd, kunt u het IP-adres van de gateway wijzigen en een nieuwe verbinding maken. U kunt tegelijkertijd ook de adresvoorvoegsels wijzigen. Dit veroorzaakt enige downtime in uw VPN-verbinding. Als u het IP-adres van de gateway wijzigt, hoeft u de VPN-gateway niet te verwijderen. U hoeft alleen de verbinding te verwijderen.
+toomodify een lokale netwerkgateway een verbinding heeft, moet u toofirst verwijderen Hallo verbinding. Nadat Hallo verbinding is verwijderd, kunt u Hallo gateway IP-adres wijzigen en maak een nieuwe verbinding. U kunt ook de adresvoorvoegsels Hallo op Hallo wijzigen hetzelfde moment. Dit veroorzaakt enige downtime in uw VPN-verbinding. Als u IP-adres van Hallo gateway wijzigt, hoeft u geen toodelete Hallo VPN-gateway. U hoeft alleen tooremove Hallo verbinding.
  
-#### <a name="1-remove-the-connection"></a>1. Verwijder de verbinding.
+#### <a name="1-remove-hello-connection"></a>1. Hallo-verbinding verwijderen.
 
-1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **verbindingen**.
-2. Klik op de **...**  op de regel voor de verbinding en klik vervolgens op **verwijderen**.
-3. Klik op **opslaan** uw instellingen op te slaan.
+1. Op de lokale netwerkgateway bron, in Hallo Hallo **instellingen** sectie, klikt u op **verbindingen**.
+2. Klik op Hallo **...**  op Hallo-regel voor Hallo verbinding en klik vervolgens op **verwijderen**.
+3. Klik op **opslaan** toosave uw instellingen.
 
-#### <a name="2-modify-the-ip-address"></a>2. Wijzig het IP-adres.
+#### <a name="2-modify-hello-ip-address"></a>2. Hallo IP-adres wijzigen.
 
-U kunt tegelijkertijd ook de adresvoorvoegsels wijzigen.
+U kunt ook de adresvoorvoegsels Hallo op Hallo wijzigen hetzelfde moment.
 
-1. In de **IP-adres** wijzigt u het IP-adres.
-2. Klik op **opslaan** de instellingen op te slaan.
+1. In Hallo **IP-adres** Hallo IP-adres wijzigt.
+2. Klik op **opslaan** toosave Hallo instellingen.
 
-#### <a name="3-recreate-the-connection"></a>3. Maak de verbinding opnieuw.
+#### <a name="3-recreate-hello-connection"></a>3. Maak opnieuw verbinding Hallo.
 
-1. Navigeer naar de virtuele netwerkgateway voor uw VNet. (Niet de lokale netwerkgateway.)
-2. Op de virtuele netwerkgateway in de **instellingen** sectie, klikt u op **verbindingen**.
-3. Klik op de **+ toevoegen** openen de **verbinding toevoegen** blade.
+1. Navigeer toohello virtuele netwerkgateway voor uw VNet. (Geen hello lokale netwerkgateway.)
+2. Op de virtuele-netwerkgateway Hallo in Hallo **instellingen** sectie, klikt u op **verbindingen**.
+3. Klik op Hallo **+ toevoegen** tooopen hello **verbinding toevoegen** blade.
 4. Maak opnieuw een verbinding.
-5. Klik op **OK** om de verbinding te maken.
+5. Klik op **OK** toocreate Hallo verbinding.

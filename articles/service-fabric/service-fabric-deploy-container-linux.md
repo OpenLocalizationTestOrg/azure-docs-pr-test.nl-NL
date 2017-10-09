@@ -1,6 +1,6 @@
 ---
-title: Service Fabric en implementatie Containers in Linux | Microsoft Docs
-description: Service Fabric en het gebruik van Linux-containers microservice toepassingen implementeren. In dit artikel beschrijft de mogelijkheden met Service Fabric voor containers en hoe u een installatiekopie van de container Linux implementeert in een cluster
+title: aaaService Fabric en Containers implementeren in Linux | Microsoft Docs
+description: Service Fabric en Hallo gebruik van Linux containers toodeploy microservice-toepassingen. In dit artikel beschrijft Hallo mogelijkheden waarmee u het Service Fabric-containers en hoe toodeploy een Linux-container installatiekopie in een cluster
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/29/2017
 ms.author: msfussell
-ms.openlocfilehash: 9dcec753e5f999a1bac07276373c0c25f89ec58d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e28f99a145b0594d871b0ec0566233a7ad235ce8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-a-linux-container-to-service-fabric"></a>Implementeren van een Linux-container voor Service Fabric
+# <a name="deploy-a-linux-container-tooservice-fabric"></a>Implementeren van een Linux-container tooService Fabric
 > [!div class="op_single_selector"]
 > * [Windows-Container implementeren](service-fabric-deploy-container.md)
 > * [Linux-Container implementeren](service-fabric-deploy-container-linux.md)
@@ -31,57 +31,57 @@ Dit artikel begeleidt u bij het ontwikkelen van beperkte services in Docker-cont
 
 Service Fabric heeft verschillende mogelijkheden voor de container die u helpen bij het bouwen van toepassingen die zijn samengesteld van microservices die beperkte zijn. Deze services worden beperkte services genoemd.
 
-De mogelijkheden omvatten;
+Hallo-mogelijkheden zijn onder andere;
 
 * Implementatie van de container en activeren
 * Resource governance
 * Verificatie van de opslagplaats
-* Poort van de container voor poorttoewijzing host
+* Container toohost poort poorttoewijzing
 * Container voor container detectie en communicatie
-* Mogelijkheid om te configureren en de omgevingsvariabelen instellen
+* Mogelijkheid tooconfigure en omgevingsvariabelen worden ingesteld
 
 ## <a name="packaging-a-docker-container-with-yeoman"></a>Een docker-container verpakking met yeoman
-Als een container op Linux verpakking, kunt u ofwel een sjabloon yeoman gebruiken of [handmatig maken van het toepassingspakket](#manually).
+Als een container op Linux verpakking, kunt u beide toouse een sjabloon yeoman of [handmatig maken van het toepassingspakket Hallo](#manually).
 
-Een Service Fabric-toepassing kan een of meer containers, elk met een specifieke functie in het leveren van de functionaliteit van de toepassing bevatten. De Service Fabric-SDK voor Linux bevat een [Yeoman](http://yeoman.io/)-generator waarmee u gemakkelijk uw eerste toepassing kunt maken en een containerinstallatiekopie kunt toevoegen. We gebruiken Yeoman om een toepassing te maken met een enkele Docker-container genaamd *SimpleContainerApp*. U kunt toevoegen om dat meer services die zich later door te bewerken van de gegenereerde manifest bestanden.
+Een Service Fabric-toepassing kan een of meer containers, elk met een specifieke functie in het leveren van de functionaliteit van de toepassing hello bevatten. Hallo Service Fabric SDK voor Linux bevat een [Yeoman](http://yeoman.io/) generator waardoor u eenvoudig toocreate uw toepassing en een installatiekopie van de container toevoegen. We gebruiken Yeoman toocreate aangeroepen voor een toepassing met een enkele Docker-container *SimpleContainerApp*. U kunt later meer services toevoegen door Hallo gegenereerd manifest-bestanden te bewerken.
 
 ## <a name="install-docker-on-your-development-box"></a>Docker installeren op de box ontwikkeling
 
-Voer de volgende opdrachten voor het installeren van docker op de box Linux-ontwikkeling (als u de installatiekopie van het vagrant in OSX gebruikt, docker is al geïnstalleerd):
+Voer Hallo deze opdrachten tooinstall docker op de box Linux-ontwikkeling (als u Hallo vagrant installatiekopie in OSX gebruikt, docker is al geïnstalleerd):
 
 ```bash
     sudo apt-get install wget
     wget -qO- https://get.docker.io/ | sh
 ```
 
-## <a name="create-the-application"></a>De toepassing maken
+## <a name="create-hello-application"></a>Hallo-toepassing maken
 1. Typ in een terminal `yo azuresfcontainer`.
 2. Naam van uw toepassing - bijvoorbeeld mycontainerap
-3. Geef de URL voor de container-installatiekopie uit een DockerHub-opslagplaats. De parameter van de installatiekopie heeft de vorm [opslagplaats] / [naam afbeelding]
-4. Als de installatiekopie geen een werkbelasting-toegangspunt gedefinieerd, heeft moet u opdrachten invoer expliciet opgeven met een door komma's gescheiden reeks opdrachten in de container, zodat de container uitgevoerd na het opstarten wordt behouden.
+3. Hallo-URL opgeven voor Hallo container afbeelding uit een DockerHub-opslagplaats. Hallo installatiekopie parameter vergt Hallo formulier [opslagplaats] / [naam afbeelding]
+4. Als Hallo installatiekopie beschikt niet over een werkbelasting-toegangspunt gedefinieerd, moet u tooexplicitly invoer-opdrachten opgeven met een door komma's gescheiden reeks opdrachten toorun binnen Hallo-container die behoudt Hallo container uitgevoerd na het opstarten.
 
 ![Service Fabric Yeoman-generator voor containers][sf-yeoman]
 
-## <a name="deploy-the-application"></a>De toepassing implementeren
+## <a name="deploy-hello-application"></a>Hallo-toepassing implementeren
 
 ### <a name="using-xplat-cli"></a>Met XPlat CLI
-Als de toepassing is gemaakt, kunt u deze kunt implementeren in het lokale cluster met behulp van de Azure CLI.
+Als de toepassing hello is gebouwd, kunt u deze toohello lokale cluster met behulp van Azure CLI Hallo implementeren.
 
-1. Maak verbinding met het lokale cluster van Service Fabric.
+1. Verbinding maken met toohello lokale Service Fabric-cluster.
 
     ```bash
     azure servicefabric cluster connect
     ```
 
-2. Gebruik het installatiescript dat is opgegeven in de sjabloon om het toepassingspakket te kopiëren naar de installatiekopieopslag van het cluster, het toepassingstype te registreren en een exemplaar van de toepassing te maken.
+2. Gebruik Hallo installatiescript geleverd in Hallo sjabloon toocopy toepassing hello archief van de installatiekopie van het cluster toohello van het pakket, registratie van toepassingstype Hallo en op een exemplaar van de toepassing hello maken.
 
     ```bash
     ./install.sh
     ```
 
-3. Open een browser en navigeer naar de Service Fabric Explorer op http://localhost:19080/Explorer (vervang localhost door het privé IP-adres van de virtuele machine als u Vagrant in Mac OS X gebruikt).
-4. Vouw het knooppunt Toepassingen uit. U ziet dat er nu een vermelding is voor uw toepassingstype en nog een voor het eerste exemplaar van dat type.
-5. Het uninstall-script dat is opgegeven in de sjabloon gebruiken om te verwijderen van exemplaar van de toepassing en registratie van het toepassingstype.
+3. Open een browser en ga tooService Fabric Explorer op http://localhost: 19080/Explorer (localhost vervangen met particuliere IP-Hallo Hallo VM als Vagrant op Mac OS X).
+4. Hallo toepassingen knooppunt uitvouwen en er is nu een vermelding voor het toepassingstype van uw en een andere voor Hallo eerste exemplaar van dat type.
+5. Gebruik Hallo uninstall-script in Hallo toodelete Hallo toepassing sjabloonexemplaar en registratie van toepassingstype Hallo.
 
     ```bash
     ./uninstall.sh
@@ -89,31 +89,31 @@ Als de toepassing is gemaakt, kunt u deze kunt implementeren in het lokale clust
 
 ### <a name="using-azure-cli-20"></a>Met Azure CLI 2.0
 
-Zie het document naslaginformatie over het beheren van een [levenscyclus van de toepassing met de Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
+Zie Hallo verwijzing document over het beheren van een [gebruik van de levenscyclus van de toepassing hello Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
 
-Voor een voorbeeldtoepassing [afhandeling van de code van de container Service Fabric-voorbeelden op GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+Voor een voorbeeldtoepassing [afhandeling Hallo Service Fabric-containercode voorbeelden op GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
-## <a name="adding-more-services-to-an-existing-application"></a>Meer services toevoegen aan een bestaande toepassing
+## <a name="adding-more-services-tooan-existing-application"></a>Meer services tooan bestaande toepassing toe te voegen
 
-Een andere containerservice toevoegen aan een toepassing die al is gemaakt met behulp van `yo`, voer de volgende stappen uit:
+tooadd een andere container servicetoepassing tooan al gemaakt met behulp van `yo`, Hallo volgende stappen uit te voeren:
 
-1. Stel de directory in op de hoofdmap van de bestaande toepassing.  Bijvoorbeeld `cd ~/YeomanSamples/MyApplication` als `MyApplication` de toepassing is die is gemaakt door Yeoman.
+1. Toohello hoofdmap van de bestaande toepassing hello wijzigen.  Bijvoorbeeld: `cd ~/YeomanSamples/MyApplication`als `MyApplication` is gemaakt door Yeoman Hallo-toepassing.
 2. Voer `yo azuresfcontainer:AddService` uit.
 
 <a id="manually"></a>
 
 ## <a name="manually-package-and-deploy-a-container-image"></a>Handmatig van het pakket en een installatiekopie van een container implementeren
-Het proces van het verpakken van handmatig een beperkte service is gebaseerd op de volgende stappen uit:
+Hallo-proces handmatig een beperkte service verpakt is gebaseerd op Hallo stappen te volgen:
 
-1. Publiceer de containers naar uw opslagplaats.
-2. De mapstructuur pakket maken.
-3. Bewerk het manifestbestand van de service.
-4. Bewerk het manifestbestand van de toepassing.
+1. Hallo containers tooyour opslagplaats publiceren.
+2. Mapstructuur Hallo-pakket maken.
+3. Servicemanifest Hallo bewerken.
+4. Manifestbestand van de toepassing hello bewerken.
 
 ## <a name="deploy-and-activate-a-container-image"></a>Implementeren en activeren van een installatiekopie van een container
-In de Service Fabric [toepassingsmodel](service-fabric-application-model.md), een container vertegenwoordigt een toepassingshost welke service meerdere replica's worden geplaatst. Als u wilt implementeren en activeren van een container, plaatst u de naam van de container-installatiekopie in een `ContainerHost` element in het servicemanifest.
+In Service Fabric Hallo [toepassingsmodel](service-fabric-application-model.md), een container vertegenwoordigt een toepassingshost welke service meerdere replica's worden geplaatst. toodeploy en activeren van een container, put Hallo-naam van Hallo container installatiekopie in een `ContainerHost` -element in Hallo servicemanifest.
 
-Voeg in het servicemanifest een `ContainerHost` voor het toegangspunt. Stel de `ImageName` moet de naam van de container-opslagplaats en de installatiekopie. Het volgende gedeeltelijke manifest toont een voorbeeld van het implementeren van de container aangeroepen `myimage:v1` vanuit een opslagplaats aangeroepen `myrepo`:
+Hallo servicemanifest, Voeg een `ContainerHost` voor Hallo toegangspunt. Vervolgens set Hallo `ImageName` toobe Hallo-naam van Hallo container opslagplaats en de installatiekopie. Hallo volgende gedeeltelijke manifest toont een voorbeeld van hoe toodeploy Hallo container aangeroepen `myimage:v1` vanuit een opslagplaats aangeroepen `myrepo`:
 
 ```xml
     <CodePackage Name="Code" Version="1.0">
@@ -126,13 +126,13 @@ Voeg in het servicemanifest een `ContainerHost` voor het toegangspunt. Stel de `
     </CodePackage>
 ```
 
-U kunt de opdrachten invoer opgeven door te geven de optionele `Commands` element met een door komma's gescheiden reeks opdrachten uitvoeren in de container.
+Kunt u opdrachten invoer bieden door te geven Hallo optionele `Commands` element met een door komma's gescheiden reeks opdrachten toorun binnen Hallo-container.
 
 > [!NOTE]
-> Als de installatiekopie beschikt niet over een werkbelasting-toegangspunt gedefinieerd, moet u expliciet opgeven van de opdrachten binnen invoer `Commands` element met een door komma's gescheiden reeks opdrachten uitvoeren in de container, zodat de container uitgevoerd na het opstarten wordt behouden.
+> Als Hallo installatiekopie beschikt niet over een werkbelasting-toegangspunt gedefinieerd, moet u tooexplicitly invoer-opdrachten binnen opgeven `Commands` element met een door komma's gescheiden reeks opdrachten toorun binnen Hallo-container die uitgevoerd behoudt na het Hallo-container opstarten.
 
 ## <a name="understand-resource-governance"></a>Resource governance begrijpen
-Resource governance is een functie van de container die beperkt de resources die de container op de host gebruiken kunt. De `ResourceGovernancePolicy`, die is opgegeven in het toepassingsmanifest wordt gebruikt om te declareren limieten voor een service code-pakket. Limieten kunnen worden ingesteld voor de volgende bronnen:
+Resource governance is een functie van Hallo-container die beperkt Hallo-resources die container Hallo kunt gebruiken op Hallo host. Hallo `ResourceGovernancePolicy`, die is opgegeven in het toepassingsmanifest Hallo gebruikte toodeclare limieten voor een service-codepakket is. Limieten kunnen worden ingesteld voor Hallo resources te volgen:
 
 * Geheugen
 * MemorySwap
@@ -156,7 +156,7 @@ Resource governance is een functie van de container die beperkt de resources die
 ```
 
 ## <a name="authenticate-a-repository"></a>Een opslagplaats verifiëren
-Voor het downloaden van een container, kunt u wellicht aanmelden referenties aan de container-opslagplaats op te geven. De aanmeldingsreferenties, opgegeven in het toepassingsmanifest worden gebruikt om op te geven van de aanmeldingsgegevens of SSH-sleutel voor het downloaden van de container-installatiekopie uit de opslagplaats voor installatiekopieën. Het volgende voorbeeld ziet u een account met de naam *testgebruiker* samen met het wachtwoord in ongecodeerde tekst (*niet* aanbevolen):
+toodownload een container, moet u wellicht tooprovide aanmeldingsreferenties toohello container opslagplaats. Hallo aanmeldingsreferenties, opgegeven in het toepassingsmanifest hello, zijn gebruikte toospecify Hallo aanmelden informatie of SSH-sleutel voor het downloaden van Hallo container installatiekopie van het Hallo-opslagplaats voor installatiekopieën. Hallo volgende voorbeeld ziet u een account met de naam *testgebruiker* samen met het wachtwoord in ongecodeerde tekst hello (*niet* aanbevolen):
 
 ```xml
     <ServiceManifestImport>
@@ -169,11 +169,11 @@ Voor het downloaden van een container, kunt u wellicht aanmelden referenties aan
     </ServiceManifestImport>
 ```
 
-Het is raadzaam dat u het wachtwoord versleutelen met behulp van een certificaat dat geïmplementeerd op de machine.
+Het is raadzaam dat u Hallo wachtwoord versleutelen met behulp van een certificaat dat is geïmplementeerd toohello machine.
 
-Het volgende voorbeeld ziet u een account met de naam *testgebruiker*, waar het wachtwoord is versleuteld met behulp van een certificaat genaamd *MyCert*. U kunt de `Invoke-ServiceFabricEncryptText` PowerShell-opdracht voor het maken van de geheime gecodeerde tekst voor het wachtwoord. Zie voor meer informatie het artikel [geheimen in Service Fabric-toepassingen beheren](service-fabric-application-secret-management.md).
+Hallo volgende voorbeeld ziet u een account met de naam *testgebruiker*, waarbij Hallo wachtwoord is versleuteld met behulp van een certificaat genaamd *MyCert*. U kunt Hallo `Invoke-ServiceFabricEncryptText` PowerShell-opdracht toocreate Hallo geheime gecodeerde tekst hello wachtwoord. Zie voor meer informatie artikel Hallo [geheimen in Service Fabric-toepassingen beheren](service-fabric-application-secret-management.md).
 
-De persoonlijke sleutel van het certificaat dat wordt gebruikt voor het ontsleutelen van het wachtwoord moet worden geïmplementeerd op de lokale computer in een out-of-band-methode. (In Azure is deze methode Azure Resource Manager.) Wanneer het Service Fabric pakket met de service op de machine implementeert, kan deze het geheim decoderen. Met behulp van het geheim samen met de accountnaam vervolgens verificatie met de container-opslagplaats.
+Hallo persoonlijke sleutel van het Hallo-certificaat dat is gebruikt toodecrypt Hallo wachtwoord moet geïmplementeerde toohello lokale computer in een out-of-band-methode. (In Azure is deze methode Azure Resource Manager.) Wanneer het Service Fabric Hallo service pakket toohello machine implementeert, kan het Hallo-geheim decoderen. Met behulp van Hallo geheim samen met de accountnaam Hallo vervolgens verificatie met Hallo container opslagplaats.
 
 ```xml
     <ServiceManifestImport>
@@ -187,7 +187,7 @@ De persoonlijke sleutel van het certificaat dat wordt gebruikt voor het ontsleut
 ```
 
 ## <a name="configure-container-port-to-host-port-mapping"></a>Poorttoewijzing container poort-naar-host configureren
-U kunt een hostpoort gebruikt voor communicatie met de container door te geven een `PortBinding` in het toepassingsmanifest. De poortbinding wijst de poort waarnaar de service binnen de container voor een poort op de host luistert.
+U kunt een host gebruikt poort toocommunicate configureren met Hallo-container door te geven een `PortBinding` Hallo-toepassingsmanifest. Hallo poort binding maps Hallo poort toowhich Hallo service luistert binnen Hallo container tooa poort op Hallo host.
 
 ```xml
     <ServiceManifestImport>
@@ -201,9 +201,9 @@ U kunt een hostpoort gebruikt voor communicatie met de container door te geven e
 ```
 
 ## <a name="configure-container-to-container-discovery-and-communication"></a>Container voor container detectie en communicatie configureren
-Met behulp van de `PortBinding` beleid, kunt u een poort van de container voor toewijzen een `Endpoint` in het servicemanifest. Het eindpunt `Endpoint1` een vaste poort (bijvoorbeeld poort 80) kunt opgeven. Ook u kunt opgeven geen poort op alle in dat geval een willekeurige poort van het cluster toepassingspoortbereik voor u is gekozen.
+Met behulp van Hallo `PortBinding` beleid, kunt u een container poort tooan toewijzen `Endpoint` in Hallo servicemanifest. Hallo eindpunt `Endpoint1` een vaste poort (bijvoorbeeld poort 80) kunt opgeven. Ook u kunt opgeven geen poort op alle in dat geval een willekeurige poort van toepassingspoortbereik Hallo-cluster wordt gekozen voor u.
 
-Als u een eindpunt opgeven, gebruikt de `Endpoint` -tag in het servicemanifest van een gast-container, Service Fabric automatisch dit eindpunt kunt publiceren naar de Naming service. Deze container met de REST-query's voor het oplossen van kunnen dus detecteren door andere services die worden uitgevoerd in het cluster.
+Als u een eindpunt opgeeft, met behulp van Hallo `Endpoint` tag op in Hallo servicemanifest van een gast-container, Service Fabric kan automatisch publiceren van dit eindpunt toohello Naming service. Andere services die worden uitgevoerd in de cluster Hallo kunnen dus deze container Hallo REST-query's gebruiken voor het oplossen van detecteren.
 
 ```xml
     <ServiceManifestImport>
@@ -216,12 +216,12 @@ Als u een eindpunt opgeven, gebruikt de `Endpoint` -tag in het servicemanifest v
     </ServiceManifestImport>
 ```
 
-Registreert met de service Naming, hoeft u container-container-communicatie in de code in de container met behulp van de [omgekeerde proxy](service-fabric-reverseproxy.md). Communicatie wordt uitgevoerd door de http-luisterpoort omgekeerde proxy en de naam van de services die u communiceren wilt met als omgevingsvariabelen. Zie de volgende sectie voor meer informatie.
+Registreert Hello Naming service, hoeft u container-container-communicatie in Hallo code in de container met behulp van Hallo [omgekeerde proxy](service-fabric-reverseproxy.md). Communicatie wordt uitgevoerd door Hallo omgekeerde proxy http-luisterpoort en Hallo-naam van het Hallo-services die u toocommunicate met als omgevingsvariabelen wilt. Zie de volgende sectie Hallo voor meer informatie.
 
 ## <a name="configure-and-set-environment-variables"></a>Omgevingsvariabelen configureren en instellen
-Omgevingsvariabelen kunnen worden opgegeven voor elk codepakket in het servicemanifest van de, zowel voor services die worden geïmplementeerd in containers of voor services die worden geïmplementeerd als gast-processen uitvoerbare bestanden. Deze variabele waarden voor omgevingsvariabelen worden genegeerd in het bijzonder in het toepassingsmanifest of opgegeven tijdens de implementatie als toepassingsparameters.
+Omgevingsvariabelen kunnen worden opgegeven voor elk codepakket in servicemanifest hello, zowel voor services die worden geïmplementeerd in containers of voor services die worden geïmplementeerd als gast-processen uitvoerbare bestanden. Deze variabele waarden voor omgevingsvariabelen worden genegeerd in het bijzonder in het toepassingsmanifest Hallo of opgegeven tijdens de implementatie als toepassingsparameters.
 
-Het volgende XML-fragment voor het servicemanifest toont een voorbeeld van het opgeven van omgevingsvariabelen voor een codepakket:
+Hallo volgende service manifest XML-fragment toont een voorbeeld van hoe de omgevingsvariabelen toospecify voor een codepakket:
 
 ```xml
     <ServiceManifest Name="FrontendServicePackage" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -244,7 +244,7 @@ Het volgende XML-fragment voor het servicemanifest toont een voorbeeld van het o
     </ServiceManifest>
 ```
 
-Deze omgevingsvariabelen kunnen worden genegeerd op het niveau van manifest:
+Deze omgevingsvariabelen kunnen worden genegeerd op toepassingsniveau voor Hallo-manifest:
 
 ```xml
     <ServiceManifestImport>
@@ -256,7 +256,7 @@ Deze omgevingsvariabelen kunnen worden genegeerd op het niveau van manifest:
     </ServiceManifestImport>
 ```
 
-In het vorige voorbeeld wordt een expliciete waarde opgegeven voor de `HttpGateway` omgevingsvariabele (19000), terwijl op de waarde voor `BackendServiceName` parameter via de `[BackendSvc]` parameter van de toepassing. Deze instellingen kunt u de waarde voor `BackendServiceName`waarde wanneer u de toepassing implementeren en geen vaste waarde in het manifest.
+In het vorige voorbeeld hello, we een expliciete waarde opgegeven voor Hallo `HttpGateway` omgevingsvariabele (19000), terwijl op Hallo-waarde voor `BackendServiceName` parameter via Hallo `[BackendSvc]` parameter van de toepassing. Deze instellingen kunt u toospecify Hallo waarde voor `BackendServiceName`wanneer u Hallo-toepassing implementeren en geen vaste waarde in het manifest Hallo waarde.
 
 ## <a name="complete-examples-for-application-and-service-manifest"></a>Voorbeelden voor de toepassing en servicemanifest voltooien
 
@@ -286,7 +286,7 @@ Hier volgt een voorbeeld-toepassingsmanifest:
     </ApplicationManifest>
 ```
 
-Hier volgt een voorbeeld van de servicemanifest (opgegeven in het voorgaande toepassingsmanifest):
+Hier volgt een voorbeeld van de servicemanifest (opgegeven in Hallo voorafgaand aan het toepassingsmanifest):
 
 ```xml
     <ServiceManifest Name="FrontendServicePackage" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -317,10 +317,10 @@ Hier volgt een voorbeeld van de servicemanifest (opgegeven in het voorgaande toe
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u een beperkte service hebt geïmplementeerd, informatie over het beheren van de levenscyclus door te lezen [Service Fabric-toepassing lifecycle](service-fabric-application-lifecycle.md).
+Nu u een beperkte service hebt geïmplementeerd, kunt u nagaan hoe toomanage levenscyclus door te lezen [Service Fabric-toepassing lifecycle](service-fabric-application-lifecycle.md).
 
 * [Overzicht van Service Fabric en containers](service-fabric-containers-overview.md)
-* [Interactie aangaan met Service Fabric-clusters met de Azure-CLI](service-fabric-azure-cli.md)
+* [Interactie met Service Fabric-clusters met hello Azure CLI](service-fabric-azure-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman1.png

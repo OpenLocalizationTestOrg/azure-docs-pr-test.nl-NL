@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database connectivity-architectuur | Microsoft Docs
-description: Dit document wordt uitgelegd dat de Azure SQLDB connectiviteit architectuur van Azure of vanuit buiten Azure.
+title: aaaAzure SQL Database connectivity-architectuur | Microsoft Docs
+description: Dit document wordt uitgelegd hello Azure SQLDB connectiviteit-architectuur van Azure of vanuit buiten Azure.
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -15,51 +15,51 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 8a1dd89c9e82483184ceb5d767190a5a5044265d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 917df6d88a16f1b841b617fb2a53025b4d14d034
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-architectuur 
 
-Dit artikel wordt uitgelegd van de Azure SQL Database connectivity-architectuur en wordt uitgelegd hoe de andere onderdelen functie voor het verkeer naar uw Azure SQL Database-exemplaar. Deze Azure SQL Database connectivity onderdelen functie om netwerkverkeer te regelen met de Azure-database met clients die verbinding maken vanuit Azure en clients die verbinding maakt vanaf buiten Azure. In dit artikel biedt ook scriptvoorbeelden wijzigen hoe de verbinding plaatsvindt, evenals de overwegingen die betrekking hebben op de standaardinstellingen van de verbinding wijzigen. Als er vragen na het lezen van dit artikel, neem contact op met Dhruv op dmalik@microsoft.com. 
+In dit artikel wordt uitgelegd hello Azure SQL Database connectivity-architectuur en wordt uitgelegd hoe de verschillende onderdelen Hallo toodirect verkeer tooyour exemplaar van Azure SQL Database werken. Deze Azure SQL Database connectivity-componenten werken toodirect netwerkverkeer toohello Azure-database met clients die verbinding maken vanuit Azure en clients die verbinding maakt vanaf buiten Azure. In dit artikel biedt ook script voorbeelden toochange hoe connectiviteit plaatsvindt en Hallo overwegingen gerelateerd toochanging Hallo connectivity standaardinstellingen. Als er vragen na het lezen van dit artikel, neem contact op met Dhruv op dmalik@microsoft.com. 
 
 ## <a name="connectivity-architecture"></a>Connectiviteitsarchitectuur
 
-Het volgende diagram biedt een overzicht van de Azure SQL Database connectivity-architectuur. 
+Hallo volgende diagram biedt een overzicht van hello Azure SQL Database connectivity-architectuur. 
 
 ![overzicht van de architectuur](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
 
-De volgende stappen wordt beschreven hoe een verbinding is gemaakt met een Azure SQL database via de Azure SQL Database software load balancer (SLB) en de Azure SQL Database-gateway.
+Hallo volgende stappen wordt beschreven hoe een verbinding tot stand gebrachte tooan Azure SQL database via hello Azure SQL Database software load balancer (SLB) en hello Azure SQL Database-gateway is.
 
-- Clients in Azure of buiten Azure verbinding met de SLB dat een openbare IP-adres en luistert op poort 1433.
-- De SLB stuurt het verkeer naar de Azure SQL Database-gateway.
-- De gateway stuurt het verkeer naar de juiste proxy-middleware.
-- De proxy-middleware leidt het verkeer naar de juiste Azure SQL-database.
+- Clients in Azure of buiten Azure verbinding toohello SLB dat een openbare IP-adres en luistert op poort 1433.
+- Hallo SLB stuurt verkeer toohello Azure SQL Database-gateway.
+- Hallo-gateway wordt omgeleid Hallo verkeer toohello juiste proxy middleware.
+- Hallo proxy middleware leidt Hallo verkeer toohello juiste Azure SQL database.
 
 > [!IMPORTANT]
-> Elk van deze componenten heeft gedistribueerde denial-of-service (DDoS) beveiliging ingebouwde op het netwerk en de app-laag.
+> Elk van deze onderdelen is denial of service (DDoS) beveiliging ingebouwde op Hallo netwerk- en app-laag Hallo gedistribueerd.
 >
 
 ## <a name="connectivity-from-within-azure"></a>Verbinding tussen in Azure
 
-Als u verbinding vanaf in Azure maakt, uw verbindingen hebben een beleid van **omleiden** standaard. Een beleid van **omleiden** betekent dat verbindingen nadat de TCP-sessie tot stand is gebracht met de Azure SQL database, de clientsessie wordt vervolgens omgeleid naar de proxy-middleware met een wijziging in het virtuele IP-adres voor doel van die van de Azure SQL Database-gateway met die van de proxy-middleware. Daarna alle latere pakketten stromen rechtstreeks via de proxy-middleware voor het omzeilen van de Azure SQL Database-gateway. Het volgende diagram illustreert dit netwerkverkeer.
+Als u verbinding vanaf in Azure maakt, uw verbindingen hebben een beleid van **omleiden** standaard. Een beleid van **omleiden** betekent dat verbindingen nadat Hallo TCP-sessie tot stand gebrachte toohello Azure SQL-database is, Hallo clientsessie vervolgens omgeleid toohello proxy middleware met een wijziging toohello bestemming virtuele IP-adres uit die van hello Azure SQL Database gateway toothat van Hallo proxy middleware. Daarna alle latere pakketten stromen rechtstreeks via Hallo proxy middleware, omzeilen hello Azure SQL Database-gateway. Hallo volgende diagram illustreert dit netwerkverkeer.
 
 ![overzicht van de architectuur](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
 
 ## <a name="connectivity-from-outside-of-azure"></a>Connectiviteit van buiten Azure
 
-Als u verbinding vanaf buiten Azure maakt, uw verbindingen hebben een beleid van **Proxy** standaard. Een beleid van **Proxy** betekent dat de TCP-sessie tot stand is gebracht via de Azure SQL Database-gateway en alle latere pakketten stromen via de gateway. Het volgende diagram illustreert dit netwerkverkeer.
+Als u verbinding vanaf buiten Azure maakt, uw verbindingen hebben een beleid van **Proxy** standaard. Een beleid van **Proxy** betekent dat dat Hallo TCP-sessie tot stand is gebracht via hello Azure SQL Database-gateway en alle latere pakketten via stromen Hallo gateway. Hallo volgende diagram illustreert dit netwerkverkeer.
 
 ![overzicht van de architectuur](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>IP-adressen van Azure SQL Database-gateway
 
-Voor verbinding met een Azure SQL database van de lokale bronnen, moet u uitgaand netwerkverkeer naar de Azure SQL Database-gateway voor uw Azure-regio toestaan. Uw verbindingen gaat alleen via de gateway om verbinding te maken in de Proxy-modus de standaardinstelling is bij het verbinden van lokale bronnen.
+tooconnect tooan Azure SQL-database van lokale bronnen, moet u tooallow uitgaand verkeer toohello Azure SQL Database netwerkgateway voor uw Azure-regio. Uw verbindingen gaat alleen via Hallo gateway om verbinding te maken in de Proxy-modus, die de standaardeigenschap hello om verbinding te maken van lokale bronnen.
 
-De volgende tabel bevat de primaire en secundaire IP-adressen van de Azure SQL Database-gateway voor alle regio's van gegevens. Er zijn twee IP-adressen voor bepaalde gebieden. In deze regio's, de primaire IP-adres is het huidige IP-adres van de gateway en het tweede IP-adres is een failover-IP-adres. De failover-adres is het adres waarop we uw server te houden van hoge beschikbaarheid van de service mogelijk verplaatsen. Voor deze regio's, is het raadzaam dat u uitgaand verkeer naar de IP-adressen toestaan. Het tweede IP-adres is het eigendom van Microsoft en luistert niet op alle services totdat deze is geactiveerd door Azure SQL Database om verbindingen te accepteren.
+Hallo volgende Tabellijsten Hallo primaire en secundaire IP-adressen van hello Azure SQL Database-gateway voor alle regio's van gegevens. Er zijn twee IP-adressen voor bepaalde gebieden. In deze regio's, Hallo primaire IP-adres is het huidige IP-adres Hallo van Hallo gateway en Hallo tweede IP-adres is een failover-IP-adres. Hallo failover-adres is Hallo adres toowhich kunnen we uw server tookeep Hallo servicebeschikbaarheid hoge verplaatsen. Voor deze regio's, is het raadzaam dat u uitgaande tooboth Hallo IP-adressen toestaat. Hallo tweede IP-adres is het eigendom van Microsoft en luistert niet op alle services totdat deze is geactiveerd door Azure SQL Database tooaccept verbindingen.
 
 | Naam regio | Primaire IP-adres | Secundaire IP-adres |
 | --- | --- |--- |
@@ -95,18 +95,18 @@ De volgende tabel bevat de primaire en secundaire IP-adressen van de Azure SQL D
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Azure SQL Database verbindingsbeleid wijzigen
 
-Om te wijzigen van het beleid van de Azure SQL Database-verbinding voor een Azure SQL Database-server, gebruiken de [REST-API](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
+toochange hello verbindingsbeleid Azure SQL Database voor een Azure SQL Database-server, gebruik Hallo [REST-API](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
 
-- Als uw verbindingsbeleid voor de is ingesteld op **Proxy**, alle netwerkapparaten stroom van pakketten via de Azure SQL Database-gateway. Voor deze instelling moet u uitgaand verkeer op alleen de Azure SQL Database gateway IP toestaan. Met behulp van een instelling van **Proxy** heeft latentie van meer dan een instelling van **omleiden**. 
-- Als uw verbindingsbeleid voor de tot stand **omleiden**, alle pakketten stroom rechtstreeks naar de proxy middleware netwerkapparaten. Voor deze instelling moet u uitgaand verkeer naar meerdere IP-adressen toestaan. 
+- Als uw verbindingsbeleid voor de is ingesteld, te**Proxy**, alle netwerkapparaten stroom van pakketten via hello Azure SQL Database-gateway. Voor deze instelling moet u tooallow uitgaande tooonly hello Azure SQL Database gateway IP. Met behulp van een instelling van **Proxy** heeft latentie van meer dan een instelling van **omleiden**. 
+- Als uw verbindingsbeleid voor de tot stand **omleiden**, alle netwerkpakketten stromen rechtstreeks toohello middleware proxy. Voor deze instelling moet u tooallow uitgaande toomultiple IP-adressen. 
 
-## <a name="script-to-change-connection-settings"></a>Script verbindingsinstellingen wijzigen
+## <a name="script-toochange-connection-settings"></a>Script toochange verbindingsinstellingen
 
 > [!IMPORTANT]
-> Dit script vereist de [Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
+> Dit script vereist Hallo [Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
 >
 
-De volgende PowerShell-script laat zien hoe het verbindingsbeleid wijzigen.
+Hallo volgende PowerShell-script toont hoe toochange verbindingsbeleid Hallo.
 
 ```powershell
 import-module azureRm
@@ -130,10 +130,10 @@ $authHeader = @{
 'Authorization'=$result.CreateAuthorizationHeader()
 }
 
-#getting the current connection property
+#getting hello current connection property
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method GET -Headers $authHeader
 
-#setting the property to ‘Proxy’
+#setting hello property too‘Proxy’
 $connectionType=”Proxy” <#Redirect / Default are other options#>
 $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 
@@ -142,6 +142,6 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over het wijzigen van het beleid van de Azure SQL Database-verbinding voor een Azure SQL Database-server [maken of bijwerken Server verbindingsbeleid met de REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+- Zie voor informatie over hoe toochange Hallo verbindingsbeleid Azure SQL Database voor een Azure SQL Database-server, [REST-API met behulp van maken of Update Server verbindingsbeleid Hallo](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 - Zie voor informatie over de werking van Azure SQL Database-verbinding voor clients die gebruikmaken van ADO.NET 4.5 of hoger, [poorten buiten 1433 ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Zie voor informatie over algemene toepassing ontwikkeling overzicht, [SQL Database ontwikkelen-overzicht](sql-database-develop-overview.md).

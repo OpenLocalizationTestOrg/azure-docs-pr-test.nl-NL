@@ -1,5 +1,5 @@
 ---
-title: Azure Diagnostics 1.2 configuratieschema | Microsoft Docs
+title: aaaAzure Diagnostics 1.2 configuratieschema | Microsoft Docs
 description: ALLEEN relevant als u van Azure SDK 2.5 met Azure Virtual Machines, virtuele-Machineschaalsets, Service Fabric of Cloud Services gebruikmaakt.
 services: monitoring-and-diagnostics
 documentationcenter: .net
@@ -14,23 +14,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 1e9cc6d0950945df8c4fba74d8e1f6196be224f0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 31559317b696556a64b51b58800b176ade9a4679
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure Diagnostics 1.2 configuratieschema
 > [!NOTE]
-> Azure Diagnostics is het onderdeel dat wordt gebruikt voor het verzamelen van prestatiemeteritems en andere statistieken van Azure Virtual Machines, virtuele-Machineschaalsets, Service Fabric en Cloud-Services.  Deze pagina is alleen relevant als u een van deze services.
+> Azure Diagnostics is Hallo onderdeel dat wordt gebruikt toocollect prestatiemeteritems en andere statistieken van Azure Virtual Machines, virtuele-Machineschaalsets, Service Fabric en Cloud-Services.  Deze pagina is alleen relevant als u een van deze services.
 >
 
 Azure Diagnostics wordt gebruikt met andere Microsoft-producten voor diagnostische gegevens zoals Azure Monitor, Application Insights en Log Analytics.
 
-Dit schema definieert de mogelijke waarden die u gebruiken kunt voor het initialiseren van diagnostische configuratie-instellingen als de monitor diagnostics wordt gestart.  
+Dit schema definieert Hallo mogelijke waarden kunt u tooinitialize diagnostische configuratie-instellingen wanneer Hallo diagnostische monitor wordt gestart.  
 
 
- De schemadefinitie van de openbare configuratie bestand downloaden door het uitvoeren van de volgende PowerShell-opdracht:  
+ Hallo openbare configuratie bestand schemadefinitie downloaden door het uitvoeren van Hallo volgende PowerShell-opdracht:  
 
 ```PowerShell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
@@ -38,8 +38,8 @@ Dit schema definieert de mogelijke waarden die u gebruiken kunt voor het initial
 
  Zie voor meer informatie over het gebruik van Azure Diagnostics [diagnostische gegevens inschakelen in Azure Cloud Services](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/).  
 
-## <a name="example-of-the-diagnostics-configuration-file"></a>Voorbeeld van het configuratiebestand van de diagnostische gegevens  
- Het volgende voorbeeld ziet u een configuratiebestand typische diagnostische gegevens:  
+## <a name="example-of-hello-diagnostics-configuration-file"></a>Voorbeeld van een configuratiebestand voor Hallo diagnostische gegevens  
+ Hallo volgende voorbeeld ziet u een configuratiebestand typische diagnostische gegevens:  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -91,116 +91,116 @@ Dit schema definieert de mogelijke waarden die u gebruiken kunt voor het initial
 ```  
 
 ## <a name="diagnostics-configuration-namespace"></a>Diagnostische configuratie Namespace  
- De XML-naamruimte voor de diagnostics-configuratiebestand is:  
+ Hallo XML-naamruimte voor Hallo diagnostics-configuratiebestand is:  
 
 ```  
 http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 ```  
 
 ## <a name="publicconfig-element"></a>PublicConfig Element  
- Element op het hoogste niveau van het configuratiebestand van de diagnostische gegevens. De volgende tabel beschrijft de elementen van het configuratiebestand.  
+ Element op het hoogste niveau van Hallo diagnostics-configuratiebestand. Hallo beschrijft volgende tabel Hallo elementen van Hallo-configuratiebestand.  
 
 |Elementnaam|Beschrijving|  
 |------------------|-----------------|  
-|**WadCfg**|Vereist. Configuratie-instellingen voor de telemetriegegevens te verzamelen.|  
-|**StorageAccount**|De naam van de Azure Storage-account voor het opslaan van de gegevens in. Dit kan ook worden opgegeven als parameter bij het uitvoeren van de cmdlet Set-AzureServiceDiagnosticsExtension.|  
-|**LocalResourceDirectory**|De map op de virtuele machine moet worden gebruikt door de Monitoring Agent voor het opslaan van gegevens van gebeurtenissen. Als dat niet is ingesteld, de standaardmap wordt gebruikt:<br /><br /> Voor een functie Worker/webservice:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Voor een virtuele Machine:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Vereiste kenmerken zijn:<br /><br /> -                      **pad** -de map op het systeem moet worden gebruikt door Azure Diagnostics.<br /><br /> -                      **expandEnvironment** -Hiermee wordt bepaald of omgevingsvariabelen in de padnaam worden uitgevouwen.|  
+|**WadCfg**|Vereist. Configuratie-instellingen voor Hallo telemetrie gegevens toobe verzameld.|  
+|**StorageAccount**|Hallo-naam van hello Azure Storage-account toostore Hallo gegevens in. Dit kan ook worden opgegeven als parameter bij het uitvoeren van de cmdlet Set-AzureServiceDiagnosticsExtension Hallo.|  
+|**LocalResourceDirectory**|Hallo-map op Hallo virtuele machine toobe gebruikt door Hallo Monitoring Agent toostore gebeurtenisgegevens. Als dat niet is ingesteld, Hallo standaarddirectory wordt gebruikt:<br /><br /> Voor een functie Worker/webservice:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Voor een virtuele Machine:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Vereiste kenmerken zijn:<br /><br /> -                      **pad** - hello directory op Hallo system toobe die wordt gebruikt door Azure Diagnostics.<br /><br /> -                      **expandEnvironment** -Hiermee wordt bepaald of omgevingsvariabelen in de padnaam Hallo worden uitgevouwen.|  
 
 ## <a name="wadcfg-element"></a>WadCFG Element  
-Hiermee definieert u configuratie-instellingen voor de telemetriegegevens te verzamelen. De volgende tabel beschrijft de onderliggende elementen:  
+Hiermee definieert u configuratie-instellingen voor Hallo telemetrie gegevens toobe verzameld. Hallo volgende tabel beschrijft de onderliggende elementen:  
 
 |Elementnaam|Beschrijving|  
 |------------------|-----------------|  
-|**DiagnosticMonitorConfiguration**|Vereist. Optionele kenmerken zijn:<br /><br /> -                     **overallQuotaInMB** -de maximale hoeveelheid ruimte op lokale schijf die kan worden gebruikt door de verschillende typen diagnostische gegevens verzameld door Azure Diagnostics. De standaardinstelling is 5120MB.<br /><br /> -                     **useProxyServer** -om de proxyserverinstellingen gebruikt zoals in de instellingen van Internet Explorer configureren Azure Diagnostics.|  
-|**CrashDumps**|Verzameling van crashdumps inschakelen. Optionele kenmerken zijn:<br /><br /> -                     **containerName** -de naam van de blob-container in uw Azure Storage-account moet worden gebruikt voor het opslaan van crashdumps.<br /><br /> -                     **crashDumpType** -dumpbestanden voor Azure Diagnostics configureert voor het verzamelen van Mini of volledige vastlopen.<br /><br /> -                     **directoryQuotaPercentage**-Hiermee configureert u het percentage **overallQuotaInMB** moet worden gereserveerd voor crashdumps op de virtuele machine.|  
-|**DiagnosticInfrastructureLogs**|Inschakelen van verzamelen van logboeken die worden gegenereerd door Azure Diagnostics. De infrastructuur voor diagnostische logboeken zijn nuttig voor het oplossen van het systeem diagnostische gegevens zelf. Optionele kenmerken zijn:<br /><br /> -                     **scheduledTransferLogLevelFilter** -configureert u de minimale ernst van de logboeken die worden verzameld.<br /><br /> -                     **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
-|**Mappen**|Kan de verzameling van de inhoud van een map, logboeken van IIS is mislukt toegang aanvragen en/of IIS-logboeken. Het optionele kenmerk:<br /><br /> **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**DiagnosticMonitorConfiguration**|Vereist. Optionele kenmerken zijn:<br /><br /> -                     **overallQuotaInMB** -maximale hoeveelheid lokale schijfruimte die kan worden gebruikt door Hallo Hallo verschillende soorten diagnostische gegevens verzameld door Azure Diagnostics. de standaardinstelling Hallo is 5120MB.<br /><br /> -                     **useProxyServer** -Configureer Azure Diagnostics toouse Hallo proxyserverinstellingen zoals in de instellingen van Internet Explorer.|  
+|**CrashDumps**|Verzameling van crashdumps inschakelen. Optionele kenmerken zijn:<br /><br /> -                     **containerName** -Hallo-naam van blob-container in uw Azure Storage-account toobe hello toostore crashdumps gebruikt.<br /><br /> -                     **crashDumpType** -configureert Azure Diagnostics toocollect Mini of volledige crash dumpbestanden.<br /><br /> -                     **directoryQuotaPercentage**-Hiermee configureert u Hallo percentage **overallQuotaInMB** toobe gereserveerd voor crashdumps op Hallo VM.|  
+|**DiagnosticInfrastructureLogs**|Inschakelen van verzamelen van logboeken die worden gegenereerd door Azure Diagnostics. Hallo infrastructuur diagnostische logboeken zijn handig voor het oplossen van Hallo diagnostics systeem zelf. Optionele kenmerken zijn:<br /><br /> -                     **scheduledTransferLogLevelFilter** -configureert Hallo minimale ernstniveau Hallo-logboeken die worden verzameld.<br /><br /> -                     **scheduledTransferPeriod** -hello-interval tussen geplande overdrachten toostorage toohello dichtstbijzijnde minuut afgerond. Hallo-waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**Mappen**|Hiermee Hallo verzameling Hallo inhoud van een map, IIS kan de logboeken voor het aanvragen van toegang en/of de IIS-logboeken. Het optionele kenmerk:<br /><br /> **scheduledTransferPeriod** -hello-interval tussen geplande overdrachten toostorage toohello dichtstbijzijnde minuut afgerond. Hallo-waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
 |**EtwProviders**|Hiermee configureert u de verzameling van ETW-gebeurtenissen van EventSource en/of ETW Manifest op basis van providers.|  
-|**Metrische gegevens**|Dit element kunt u voor het genereren van een tabel van prestaties teller die is geoptimaliseerd voor snelle query's. Elk prestatiemeteritem dat is gedefinieerd in de **PerformanceCounters** element is opgeslagen in de tabel metrische gegevens naast het prestatiemeteritem-tabel. Vereist kenmerk:<br /><br /> **resourceId** -dit is de resource-ID van de virtuele Machine die u om Azure Diagnostics implementeert. Ophalen van de **resourceID** van de [Azure-portal](https://portal.azure.com). Selecteer **Bladeren** -> **resourcegroepen** -> **< naam\>**. Klik op de **eigenschappen** tegel en kopieer de waarde van de **ID** veld.|  
-|**PerformanceCounters**|Hiermee kunt het verzamelen van prestatiemeteritems. Het optionele kenmerk:<br /><br /> **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML 'Duur gegevenstype'.](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
-|**WindowsEventLog**|Kan de verzameling van het Windows-gebeurtenislogboeken. Het optionele kenmerk:<br /><br /> **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML 'Duur gegevenstype'.](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**Metrische gegevens**|Dit element kunt u toogenerate een prestaties teller tabel die is geoptimaliseerd voor snelle query's. Elk prestatiemeteritem dat is gedefinieerd in Hallo **PerformanceCounters** element in Hallo metrische gegevens tabel in de toevoeging toohello prestatiemeteritem is opgeslagen. Vereist kenmerk:<br /><br /> **resourceId** -dit is de resource-ID Hallo Hallo virtuele Machine die u om Azure Diagnostics implementeert. Hallo ophalen **resourceID** van Hallo [Azure-portal](https://portal.azure.com). Selecteer **Bladeren** -> **resourcegroepen** -> **< naam\>**. Klik op Hallo **eigenschappen** tegel en Hallo-waarde van de Hallo kopiëren **ID** veld.|  
+|**PerformanceCounters**|Hiermee bepaalt u Hallo van prestatiemeteritems. Het optionele kenmerk:<br /><br /> **scheduledTransferPeriod** -hello-interval tussen geplande overdrachten toostorage toohello dichtstbijzijnde minuut afgerond. De waarde is een [XML 'Duur gegevenstype'.](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**WindowsEventLog**|Hallo-verzameling van het Windows-gebeurtenislogboeken kunt. Het optionele kenmerk:<br /><br /> **scheduledTransferPeriod** -hello-interval tussen geplande overdrachten toostorage toohello dichtstbijzijnde minuut afgerond. De waarde is een [XML 'Duur gegevenstype'.](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
 
 ## <a name="crashdumps-element"></a>CrashDumps Element  
- Verzameling van crashdumps kunt. De volgende tabel beschrijft de onderliggende elementen:  
+ Verzameling van crashdumps kunt. Hallo volgende tabel beschrijft de onderliggende elementen:  
 
 |Elementnaam|Beschrijving|  
 |------------------|-----------------|  
-|**CrashDumpConfiguration**|Vereist. Vereist kenmerk:<br /><br /> **Procesnaam** -de naam van het proces wilt u diagnostische Azure-gegevens voor het verzamelen van een crashdump voor.|  
-|**crashDumpType**|Hiermee configureert u Azure Diagnostics voor het verzamelen van dumpbestanden voor mini of volledige loopt vast.|  
-|**directoryQuotaPercentage**|Hiermee configureert u het percentage **overallQuotaInMB** moet worden gereserveerd voor crashdumps op de virtuele machine.|  
+|**CrashDumpConfiguration**|Vereist. Vereist kenmerk:<br /><br /> **Procesnaam** - hello naam van het gewenste Azure Diagnostics toocollect een crashdump voor Hallo-proces.|  
+|**crashDumpType**|Azure Diagnostics toocollect mini of volledige crashdumps configureert.|  
+|**directoryQuotaPercentage**|Hiermee configureert u Hallo percentage **overallQuotaInMB** toobe gereserveerd voor crashdumps op Hallo VM.|  
 
 ## <a name="directories-element"></a>Mappen Element  
- Kan de verzameling van de inhoud van een map, logboeken van IIS is mislukt toegang aanvragen en/of IIS-logboeken. De volgende tabel beschrijft de onderliggende elementen:  
+ Hiermee Hallo verzameling Hallo inhoud van een map, IIS kan de logboeken voor het aanvragen van toegang en/of de IIS-logboeken. Hallo volgende tabel beschrijft de onderliggende elementen:  
 
 |Elementnaam|Beschrijving|  
 |------------------|-----------------|  
-|**Gegevensbronnen**|Een lijst met mappen om te controleren.|  
-|**FailedRequestLogs**|Met inbegrip van dit element in de configuratie kunt verzamelen van logboeken over mislukte aanvragen voor een IIS-site of toepassing. U moet ook de traceringsopties onder inschakelen **system. WebServer** in **Web.config**.|  
-|**IISLogs**|Met inbegrip van dit element in de configuratie, kunt de verzameling van IIS-logboeken:<br /><br /> **containerName** -de naam van de blob-container in uw Azure Storage-account moet worden gebruikt voor het opslaan van de IIS-logboeken.|  
+|**Gegevensbronnen**|Een lijst met mappen toomonitor.|  
+|**FailedRequestLogs**|Dit element in configuratie Hallo inclusief kunt verzamelen van logboeken over mislukte aanvragen tooan ISS-site of toepassing. U moet ook de traceringsopties onder inschakelen **system. WebServer** in **Web.config**.|  
+|**IISLogs**|Dit element in configuratie Hallo inclusief kunt Hallo-verzameling van IIS-logboeken:<br /><br /> **containerName** -Hallo-naam van blob-container in uw Azure Storage-account toobe hello toostore Hallo IIS-logboeken gebruikt.|  
 
 ## <a name="datasources-element"></a>Gegevensbronnen Element  
- Een lijst met mappen om te controleren. De volgende tabel beschrijft de onderliggende elementen:  
+ Een lijst met mappen toomonitor. Hallo volgende tabel beschrijft de onderliggende elementen:  
 
 |Elementnaam|Beschrijving|  
 |------------------|-----------------|  
-|**DirectoryConfiguration**|Vereist. Vereist kenmerk:<br /><br /> **containerName** -de naam van de blob-container in uw Azure Storage-account moet worden gebruikt voor het opslaan van de logboekbestanden.|  
+|**DirectoryConfiguration**|Vereist. Vereist kenmerk:<br /><br /> **containerName** -Hallo-naam van Hallo blob-container in uw Azure Storage-account toobe gebruikt toostore Hallo-logboekbestanden.|  
 
 ## <a name="directoryconfiguration-element"></a>DirectoryConfiguration Element  
- **DirectoryConfiguration** mogelijk bevat de **Absolute** of **LocalResource** element, maar niet beide. De volgende tabel beschrijft de onderliggende elementen:  
+ **DirectoryConfiguration** omvat mogelijk een Hallo **Absolute** of **LocalResource** element, maar niet beide. Hallo volgende tabel beschrijft de onderliggende elementen:  
 
 |Elementnaam|Beschrijving|  
 |------------------|-----------------|  
-|**Absolute**|Het absolute pad naar de map bewaken. De volgende kenmerken zijn vereist:<br /><br /> -                     **Pad** -het absolute pad naar de map bewaken.<br /><br /> -                      **expandEnvironment** -configureert u of omgevingsvariabelen in pad worden uitgevouwen.|  
-|**LocalResource**|Het pad ten opzichte van een lokale bron om te controleren. Vereiste kenmerken zijn:<br /><br /> -                     **Naam** -de lokale resource die de map voor het bewaken van bevat<br /><br /> -                     **relativePath** -het pad ten opzichte van de naam die de map voor het bewaken van bevat|  
+|**Absolute**|Hallo absoluut pad toohello directory toomonitor. Hallo na kenmerken zijn vereist:<br /><br /> -                     **Pad** -Hallo absoluut pad toohello directory toomonitor.<br /><br /> -                      **expandEnvironment** -configureert u of omgevingsvariabelen in pad worden uitgevouwen.|  
+|**LocalResource**|Hallo pad relatief tooa lokale resource toomonitor. Vereiste kenmerken zijn:<br /><br /> -                     **Naam** -Hallo lokale resource die Hallo directory toomonitor bevat<br /><br /> -                     **relativePath** -pad relatief tooName met Hallo directory toomonitor Hallo|  
 
 ## <a name="etwproviders-element"></a>EtwProviders Element  
- Hiermee configureert u de verzameling van ETW-gebeurtenissen van EventSource en/of ETW Manifest op basis van providers. De volgende tabel beschrijft de onderliggende elementen:  
+ Hiermee configureert u de verzameling van ETW-gebeurtenissen van EventSource en/of ETW Manifest op basis van providers. Hallo volgende tabel beschrijft de onderliggende elementen:  
 
 |Elementnaam|Beschrijving|  
 |------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Hiermee configureert u de verzameling van gebeurtenissen die worden gegenereerd op basis van [EventSource klasse](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Vereist kenmerk:<br /><br /> **provider** -de naam van de klasse van de gebeurtenis EventSource.<br /><br /> Optionele kenmerken zijn:<br /><br /> -                     **scheduledTransferLogLevelFilter** -de minimum ernst om over te dragen naar uw opslagaccount.<br /><br /> -                     **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [duur van het gegevenstype XML](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
-|**EtwManifestProviderConfiguration**|Vereist kenmerk:<br /><br /> **provider** -de GUID van de gebeurtenisprovider<br /><br /> Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -de minimum ernst om over te dragen naar uw opslagaccount.<br /><br /> -                     **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [duur van het gegevenstype XML](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
+|**EtwEventSourceProviderConfiguration**|Hiermee configureert u de verzameling van gebeurtenissen die worden gegenereerd op basis van [EventSource klasse](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Vereist kenmerk:<br /><br /> **provider** -Hallo klassenaam van Hallo EventSource gebeurtenis.<br /><br /> Optionele kenmerken zijn:<br /><br /> -                     **scheduledTransferLogLevelFilter** -Hallo minimale ernst niveau tootransfer tooyour storage-account.<br /><br /> -                     **scheduledTransferPeriod** -hello-interval tussen geplande overdrachten toostorage toohello dichtstbijzijnde minuut afgerond. De waarde is een [duur van het gegevenstype XML](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
+|**EtwManifestProviderConfiguration**|Vereist kenmerk:<br /><br /> **provider** -GUID van het Hallo-gebeurtenisprovider Hallo<br /><br /> Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -Hallo minimale ernst niveau tootransfer tooyour storage-account.<br /><br /> -                     **scheduledTransferPeriod** -hello-interval tussen geplande overdrachten toostorage toohello dichtstbijzijnde minuut afgerond. De waarde is een [duur van het gegevenstype XML](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
- Hiermee configureert u de verzameling van gebeurtenissen die worden gegenereerd op basis van [EventSource klasse](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). De volgende tabel beschrijft de onderliggende elementen:  
+ Hiermee configureert u de verzameling van gebeurtenissen die worden gegenereerd op basis van [EventSource klasse](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Hallo volgende tabel beschrijft de onderliggende elementen:  
 
 |Elementnaam|Beschrijving|  
 |------------------|-----------------|  
-|**DefaultEvents**|Het optionele kenmerk:<br /><br /> **eventDestination** -de naam van de tabel voor het opslaan van de gebeurtenissen in|  
-|**Gebeurtenis**|Vereist kenmerk:<br /><br /> **id** -de id van de gebeurtenis.<br /><br /> Het optionele kenmerk:<br /><br /> **eventDestination** -de naam van de tabel voor het opslaan van de gebeurtenissen in|  
+|**DefaultEvents**|Het optionele kenmerk:<br /><br /> **eventDestination** - hello naam van het Hallo tabel toostore Hallo gebeurtenissen in|  
+|**Gebeurtenis**|Vereist kenmerk:<br /><br /> **id** -Hallo Hallo-gebeurtenis-id.<br /><br /> Het optionele kenmerk:<br /><br /> **eventDestination** - hello naam van het Hallo tabel toostore Hallo gebeurtenissen in|  
 
 ## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration Element  
- De volgende tabel beschrijft de onderliggende elementen:  
+ Hallo volgende tabel beschrijft de onderliggende elementen:  
 
 |Elementnaam|Beschrijving|  
 |------------------|-----------------|  
-|**DefaultEvents**|Het optionele kenmerk:<br /><br /> **eventDestination** -de naam van de tabel voor het opslaan van de gebeurtenissen in|  
-|**Gebeurtenis**|Vereist kenmerk:<br /><br /> **id** -de id van de gebeurtenis.<br /><br /> Het optionele kenmerk:<br /><br /> **eventDestination** -de naam van de tabel voor het opslaan van de gebeurtenissen in|  
+|**DefaultEvents**|Het optionele kenmerk:<br /><br /> **eventDestination** - hello naam van het Hallo tabel toostore Hallo gebeurtenissen in|  
+|**Gebeurtenis**|Vereist kenmerk:<br /><br /> **id** -Hallo Hallo-gebeurtenis-id.<br /><br /> Het optionele kenmerk:<br /><br /> **eventDestination** - hello naam van het Hallo tabel toostore Hallo gebeurtenissen in|  
 
 ## <a name="metrics-element"></a>Element van de metrische gegevens  
- Hiermee kunt u voor het genereren van een tabel van prestaties teller die is geoptimaliseerd voor snelle query's. De volgende tabel beschrijft de onderliggende elementen:  
+ Hiermee kunt u toogenerate een prestaties teller tabel die is geoptimaliseerd voor snelle query's. Hallo volgende tabel beschrijft de onderliggende elementen:  
 
 |Elementnaam|Beschrijving|  
 |------------------|-----------------|  
-|**MetricAggregation**|Vereist kenmerk:<br /><br /> **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [duur van het gegevenstype XML](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
+|**MetricAggregation**|Vereist kenmerk:<br /><br /> **scheduledTransferPeriod** -hello-interval tussen geplande overdrachten toostorage toohello dichtstbijzijnde minuut afgerond. De waarde is een [duur van het gegevenstype XML](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters Element  
- Hiermee kunt het verzamelen van prestatiemeteritems. De volgende tabel beschrijft de onderliggende elementen:  
+ Hiermee bepaalt u Hallo van prestatiemeteritems. Hallo volgende tabel beschrijft de onderliggende elementen:  
 
 |Elementnaam|Beschrijving|  
 |------------------|-----------------|  
-|**PerformanceCounterConfiguration**|De volgende kenmerken zijn vereist:<br /><br /> -                     **counterSpecifier** -de naam van het prestatiemeteritem. Bijvoorbeeld `\Processor(_Total)\% Processor Time`. Voor een lijst van de prestaties van de prestatiemeteritems op uw host de opdracht uitvoert `typeperf`.<br /><br /> -                     **sampleRate** -hoe vaak de teller moet actieve.<br /><br /> Het optionele kenmerk:<br /><br /> **eenheid** -de eenheid van de teller.|  
+|**PerformanceCounterConfiguration**|Hallo na kenmerken zijn vereist:<br /><br /> -                     **counterSpecifier** - hello naam van het prestatiemeteritem Hallo. Bijvoorbeeld `\Processor(_Total)\% Processor Time`. een lijst met prestatiemeteritems op uw host Hallo-opdracht uitvoeren tooget `typeperf`.<br /><br /> -                     **sampleRate** -hoe vaak hello teller moet actieve.<br /><br /> Het optionele kenmerk:<br /><br /> **eenheid** -eenheid Hallo van Hallo teller.|  
 
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration Element  
- De volgende tabel beschrijft de onderliggende elementen:  
+ Hallo volgende tabel beschrijft de onderliggende elementen:  
 
 |Elementnaam|Beschrijving|  
 |------------------|-----------------|  
-|**aantekening**|Vereist kenmerk:<br /><br /> **displayName** -de weergavenaam voor de teller<br /><br /> Het optionele kenmerk:<br /><br /> **landinstelling** -de landinstellingen te gebruiken bij het weergeven van de naam van het meteritem|  
+|**aantekening**|Vereist kenmerk:<br /><br /> **displayName** -Hallo weergavenaam voor de teller Hallo<br /><br /> Het optionele kenmerk:<br /><br /> **landinstelling** -landinstelling toouse Hallo Hallo tellernaam om weer te geven|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog Element  
- De volgende tabel beschrijft de onderliggende elementen:  
+ Hallo volgende tabel beschrijft de onderliggende elementen:  
 
 |Elementnaam|Beschrijving|  
 |------------------|-----------------|  
-|**Gegevensbron**|De Windows-gebeurtenislogboeken te verzamelen. Vereist kenmerk:<br /><br /> **naam** : de XPath-query met een beschrijving van de windows-gebeurtenissen te verzamelen. Bijvoorbeeld:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Geef voor het verzamelen van alle gebeurtenissen, ' * '.|
+|**Gegevensbron**|Hallo Windows-gebeurtenislogboeken toocollect. Vereist kenmerk:<br /><br /> **naam** -Hallo XPath-query met een beschrijving van Hallo windows gebeurtenissen toobe verzameld. Bijvoorbeeld:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> toocollect alle gebeurtenissen opgeven ' * '.|

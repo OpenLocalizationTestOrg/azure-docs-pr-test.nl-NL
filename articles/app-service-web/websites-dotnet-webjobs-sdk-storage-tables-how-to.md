@@ -1,6 +1,6 @@
 ---
-title: Azure Table Storage gebruiken met de WebJobs SDK
-description: Informatie over het Azure table storage gebruiken met de WebJobs SDK. Tabellen maken en bestaande tabellen lezen entiteiten toevoegen aan tabellen.
+title: aaaHow toouse Azure-tabelopslag Hello WebJobs SDK
+description: Meer informatie over hoe toouse Azure table storage Hello WebJobs SDK. Tabellen maken en bestaande tabellen lezen entiteiten tootables toevoegen.
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
-ms.openlocfilehash: 13cfc788c14d714df7022ce003d34691cf73d121
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8e28c69df4a934646add9e50c6de28e76dca1636
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-table-storage-with-the-webjobs-sdk"></a>Azure Table Storage gebruiken met de WebJobs SDK
+# <a name="how-toouse-azure-table-storage-with-hello-webjobs-sdk"></a>Hoe toouse Azure table storage Hello WebJobs SDK
 ## <a name="overview"></a>Overzicht
-De C#-codevoorbeelden die laten hoe zien te lezen en schrijven van Azure storage-tabellen met behulp van deze handleiding [WebJobs SDK](websites-dotnet-webjobs-sdk.md) versie 1.x.
+In deze handleiding vindt u voorbeelden van C#-code die tonen hoe tooread en write Azure-opslag met behulp van tabellen [WebJobs SDK](websites-dotnet-webjobs-sdk.md) versie 1.x.
 
-De handleiding wordt ervan uitgegaan dat u weet [tekenreeksen dat punt naar uw opslagaccount, het maken van een webtaak-project in Visual Studio met verbinding](websites-dotnet-webjobs-sdk-get-started.md) of [meerdere opslagaccounts](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
+Hallo handleiding wordt ervan uitgegaan dat u weet [hoe een webtaak-project in Visual Studio met verbinding toocreate dat punt tooyour storage-account tekenreeksen](websites-dotnet-webjobs-sdk-get-started.md) of te[meerdere opslagaccounts](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 
-Sommige van de code codefragmenten weergeven de `Table` kenmerk wordt gebruikt in de functies die zijn [handmatig wordt aangeroepen](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), dat wil zeggen, niet met behulp van een van de trigger-kenmerken. 
+Een aantal codefragmenten Hallo Hallo weergeven `Table` kenmerk wordt gebruikt in de functies die zijn [handmatig wordt aangeroepen](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), dat wil zeggen, niet met behulp van een Hallo trigger kenmerken. 
 
-## <a id="ingress"></a>Entiteiten toevoegen aan een tabel
-U kunt entiteiten toevoegen aan een tabel met de `Table` kenmerk met een `ICollector<T>` of `IAsyncCollector<T>` parameter waar `T` Hiermee geeft u het schema van de entiteiten die u wilt toevoegen. De kenmerkconstructor heeft een tekenreeksparameter gebruikt met de naam van de tabel. 
+## <a id="ingress"></a>Hoe tooadd entiteiten tooa tabel
+tooadd entiteiten tooa tabel, gebruik Hallo `Table` kenmerk met een `ICollector<T>` of `IAsyncCollector<T>` parameter waar `T` Hallo schema geeft Hallo entiteiten gewenste tooadd. Hallo kenmerkconstructor tekenreeksparameter een waarmee Hallo-naam van het Hallo-tabel. 
 
-Het volgende codevoorbeeld wordt toegevoegd `Person` entiteiten aan een tabel met de naam *inkomend*.
+Hallo codevoorbeeld voegt `Person` entiteiten tooa tabel met de naam *inkomend*.
 
         [NoAutomaticTrigger]
         public static void IngressDemo(
@@ -48,7 +48,7 @@ Het volgende codevoorbeeld wordt toegevoegd `Person` entiteiten aan een tabel me
             }
         }
 
-Meestal het type u gebruiken met `ICollector` is afgeleid van `TableEntity` of implementeert `ITableEntity`, maar heeft geen aan. Een van de volgende `Person` werk klassen met de code die wordt weergegeven in de voorgaande `Ingress` methode.
+Doorgaans Hallo type die u met gebruikt `ICollector` is afgeleid van `TableEntity` of implementeert `ITableEntity`, maar heeft geen aan. Een van de volgende Hallo `Person` werk klassen met Hallo-code die wordt weergegeven in de voorgaande Hallo `Ingress` methode.
 
         public class Person : TableEntity
         {
@@ -62,25 +62,25 @@ Meestal het type u gebruiken met `ICollector` is afgeleid van `TableEntity` of i
             public string Name { get; set; }
         }
 
-Als u samenwerken met de Azure storage-API wilt, kunt u toevoegen een `CloudStorageAccount` -parameter voor de methodehandtekening.
+Als u wilt dat toowork rechtstreeks met hello Azure storage-API, kunt u toevoegen een `CloudStorageAccount` parameter toohello methodehandtekening.
 
 ## <a id="monitor"></a>Realtime-controle
-Omdat ingress-functies te vaak grote hoeveelheden gegevens verwerken, kunt het dashboard WebJobs SDK u realtime controlegegevens. De **aanroep logboek** gedeelte wordt uitgelegd of de functie nog steeds wordt uitgevoerd.
+Omdat ingress-functies worden vaak grote hoeveelheden gegevens verwerken, biedt Hallo WebJobs SDK dashboard realtime controlegegevens. Hallo **aanroep logboek** gedeelte wordt uitgelegd of Hallo-functie nog steeds wordt uitgevoerd.
 
 ![Inkomend functie uitgevoerd](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
 
-De **aanroep Details** pagina rapporten van de functie voortgang (aantal entiteiten dat is geschreven) wanneer deze actief is en hebt u de mogelijkheid om af te breken deze. 
+Hallo **aanroep Details** pagina rapporten Hallo van functie voortgang (aantal entiteiten dat is geschreven) wanneer deze actief is en u een kans tooabort biedt deze. 
 
 ![Inkomend functie uitgevoerd](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressprogress.png)
 
-Wanneer de functie is voltooid, de **aanroep Details** pagina rapporteert het aantal rijen dat is geschreven.
+Wanneer de functie Hallo is voltooid, hello **aanroep Details** pagina rapporten Hallo aantal geschreven rijen.
 
 ![Inkomend functie is voltooid](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingresssuccess.png)
 
-## <a id="multiple"></a>Het lezen van meerdere entiteiten uit een tabel
-Als u wilt lezen van een tabel, gebruikt u de `Table` kenmerk met een `IQueryable<T>` parameter waarin typen `T` is afgeleid van `TableEntity` of implementeert `ITableEntity`.
+## <a id="multiple"></a>Hoe tooread meerdere entiteiten uit een tabel
+een tabel tooread gebruiken Hallo `Table` kenmerk met een `IQueryable<T>` parameter waarin typen `T` is afgeleid van `TableEntity` of implementeert `ITableEntity`.
 
-Het volgende codevoorbeeld leest en registreert alle rijen uit de `Ingress` tabel:
+Hallo codevoorbeeld leest en registreert alle rijen van Hallo `Ingress` tabel:
 
         public static void ReadTable(
             [Table("Ingress")] IQueryable<Person> tableBinding,
@@ -94,10 +94,10 @@ Het volgende codevoorbeeld leest en registreert alle rijen uit de `Ingress` tabe
             }
         }
 
-### <a id="readone"></a>Het lezen van één entiteit uit een tabel
-Er is een `Table` kenmerkconstructor met twee aanvullende parameters u de partitiesleutel en de rijsleutel opgeven kunt wanneer u wilt binden aan een met één Tabelentiteit.
+### <a id="readone"></a>Hoe tooread één entiteit uit een tabel
+Er is een `Table` kenmerkconstructor met twee extra parameters die u Hallo partitiesleutel en rijsleutel opgeven wanneer u toobind tooa één Tabelentiteit wilt laten.
 
-Het volgende codevoorbeeld leest de rij in een tabel voor een `Person` entiteit op basis van partitie sleutel- en sleutelwaarden in een wachtrijbericht ontvangen:  
+Hallo codevoorbeeld leest de rij in een tabel voor een `Person` entiteit op basis van partitie sleutel- en sleutelwaarden in een wachtrijbericht ontvangen:  
 
         public static void ReadTableEntity(
             [QueueTrigger("inputqueue")] Person personInQueue,
@@ -117,12 +117,12 @@ Het volgende codevoorbeeld leest de rij in een tabel voor een `Person` entiteit 
         }
 
 
-De `Person` klasse in dit voorbeeld heeft geen voor het implementeren van `ITableEntity`.
+Hallo `Person` klasse in dit voorbeeld heeft geen tooimplement `ITableEntity`.
 
-## <a id="storageapi"></a>Het gebruik van de API van de .NET-opslag rechtstreeks aan het werken met een tabel
-U kunt ook de `Table` kenmerk met een `CloudTable` -object voor meer flexibiliteit bij het werken met een tabel.
+## <a id="storageapi"></a>Hoe toouse .NET opslag API Hallo rechtstreeks toowork met een tabel
+U kunt ook Hallo `Table` kenmerk met een `CloudTable` -object voor meer flexibiliteit bij het werken met een tabel.
 
-De volgende code voorbeeld wordt een `CloudTable` object toevoegen aan één entiteit de *inkomend* tabel. 
+Hallo volgende code voorbeeld wordt een `CloudTable` object tooadd een enkele entiteit toohello *inkomend* tabel. 
 
         public static void UseStorageAPI(
             [Table("Ingress")] CloudTable tableBinding,
@@ -138,22 +138,22 @@ De volgende code voorbeeld wordt een `CloudTable` object toevoegen aan één ent
             tableBinding.Execute(insertOperation);
         }
 
-Voor meer informatie over het gebruik van de `CloudTable` object, Zie [hoe Table Storage gebruiken met .NET](../cosmos-db/table-storage-how-to-use-dotnet.md). 
+Voor meer informatie over het toouse hello `CloudTable` object, Zie [hoe toouse Table Storage uit het .NET](../cosmos-db/table-storage-how-to-use-dotnet.md). 
 
-## <a id="queues"></a>Verwante onderwerpen gedekt door het wachtrijen how-to artikel
-Zie voor meer informatie over het afhandelen van de tabel verwerking geactiveerd door een wachtrijbericht of voor WebJobs SDK scenario's die niet specifiek zijn voor de verwerking van de tabel [Azure queue storage gebruiken met de WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+## <a id="queues"></a>Verwante onderwerpen Hallo wachtrijen hoe-tooarticle vallen
+Zie voor informatie over hoe toohandle tabellen verwerken geactiveerd door een wachtrijbericht of voor de WebJobs SDK scenario's geen specifieke tootable verwerking, [hoe toouse Azure queue storage Hello WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
-Onderwerpen in dit artikel omvatten het volgende:
+Onderwerpen in dit artikel zijn Hallo volgende:
 
 * Async-functies
 * Meerdere exemplaren
 * Correct afsluiten
-* Kenmerken in de hoofdtekst van een functie WebJobs SDK gebruiken
-* De SDK-verbindingsreeksen instellen in code
+* Kenmerken in de hoofdtekst van een functie Hallo WebJobs SDK gebruiken
+* Hallo SDK verbindingsreeksen instellen in code
 * Waarden instellen voor de WebJobs SDK constructorparameters in code
 * Een functie handmatig activeren
 * Schrijven Logboeken
 
 ## <a id="nextsteps"></a> Volgende stappen
-Deze handleiding is opgegeven codevoorbeelden die laten hoe u algemene scenario's zien voor het werken met Azure-tabellen te verwerken. Zie voor meer informatie over het gebruik van Azure WebJobs en de WebJobs SDK [Azure WebJobs aanbevolen Resources](http://go.microsoft.com/fwlink/?linkid=390226).
+Deze handleiding hebt gekregen code voorbeelden die tonen hoe toohandle algemene scenario's voor het werken met Azure-tabellen. Voor meer informatie over hoe toouse Azure WebJobs en Hallo WebJobs SDK zien [Azure WebJobs aanbevolen Resources](http://go.microsoft.com/fwlink/?linkid=390226).
 

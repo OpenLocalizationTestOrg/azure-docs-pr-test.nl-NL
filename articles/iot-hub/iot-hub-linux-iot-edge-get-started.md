@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure IoT rand (Linux) | Microsoft Docs
-description: Kom meer te weten over het bouwen van een gateway op een Linux-computer en over belangrijke concepten in de Azure IoT Edge, zoals modules en JSON-configuratiebestanden.
+title: aaaGet de slag met Azure IoT rand (Linux) | Microsoft Docs
+description: Hoe een gateway op een Linux toobuild machine en meer informatie over belangrijke concepten in Azure IoT rand zoals modules en JSON-configuratiebestanden.
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/07/2017
 ms.author: andbuc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b02d79fcd9cd2a2ef0041aac4e85528263c8d58a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 40aa9c8ddca6a974c361cbb0b453c7d0ddc71b8d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="explore-azure-iot-edge-architecture-on-linux"></a>Azure IoT Edge-architectuur in Linux verkennen
 
@@ -27,16 +27,16 @@ ms.lasthandoff: 07/11/2017
 
 [!INCLUDE [iot-hub-iot-edge-install-build-linux](../../includes/iot-hub-iot-edge-install-build-linux.md)]
 
-## <a name="how-to-run-the-sample"></a>Het voorbeeld uitvoeren
+## <a name="how-toorun-hello-sample"></a>Hoe toorun voorbeeld Hallo
 
-De uitvoer van het script **build.sh** wordt gegenereerd in de map **build** in de lokale kopie van de **iot-edge**-opslagplaats. Deze uitvoer bevat de twee IoT Edge-modules die in dit voorbeeld worden gebruikt.
+Hallo **build.sh** script genereert de uitvoer in Hallo **bouwen** map in het lokale exemplaar van Hallo **iot-edge** opslagplaats. Deze uitvoer bevat Hallo twee IoT Edge-modules die in dit voorbeeld worden gebruikt.
 
-Het bouwscript plaatst **liblogger.so** in de map **build/modules/logger/** en **libhello\_world.so** in de map **build/modules/hello_world/**. Deze paden voor de **pad module** waarden zoals weergegeven in het volgende voorbeeld JSON-instellingenbestand.
+Hallo build script plaatsen **liblogger.so** in Hallo **modules-build-logboekregistratie/** map en **libhello\_world.so** in Hallo **bouwen / modules/hello_world/** map. Gebruik deze paden voor Hallo **pad module** waarden zoals weergegeven in Hallo voorbeeld JSON-bestand met instellingen te volgen.
 
-In het voorbeeldproces hello\_world\_ wordt het pad naar een JSON-configuratiebestand gebruikt als een argument op de opdrachtregel. Het volgende voorbeeld van een JSON-bestand maakt deel uit van de SDK-opslagplaats op **samples/hello\_world/src/hello\_world\_lin.json**. Dit configuratiebestand werkt zoals tenzij u het build script wijzigen voor de rand van de IoT-modules of voorbeeld uitvoerbare bestanden in niet-standaardlocaties plaatsen.
+Hallo Hallo\_world\_voorbeeld duurt Hallo pad tooa JSON-configuratiebestand opdrachtregelargumenten. Hallo volgende voorbeeld van JSON-bestand vindt u in Hallo SDK opslagplaats op **samples/Hallo\_world/src/Hallo\_world\_lin.json**. Deze configuratie bestand werkt zoals tenzij u Hallo wijzigen build script tooplace Hallo IoT rand modules of uitvoerbare bestanden in niet-standaardlocaties steekproef.
 
 > [!NOTE]
-> De modulepaden zijn relatief aan de huidige werkmap vanwaaruit het uitvoerbare bestand hello\_world\_sample wordt gestart, niet aan de map waarin het uitvoerbare bestand zich bevindt. Het voorbeeld-JSON-configuratiebestand schrijft standaard 'log.txt' in uw huidige werkmap.
+> Hallo module paden zijn huidige werkmap relatieve toohello waar Hallo Hallo\_world\_voorbeeld uitvoerbaar bestand wordt gestart, wordt niet Hallo map waar Hallo uitvoerbare bevindt. Hallo voorbeeld JSON configuratie bestand standaardwaarden toowriting 'log.txt' in de huidige werkmap.
 
 ```json
 {
@@ -73,9 +73,9 @@ In het voorbeeldproces hello\_world\_ wordt het pad naar een JSON-configuratiebe
 }
 ```
 
-1. Navigeer naar de **bouwen** map in de hoofdmap van uw lokale exemplaar van de **iot-edge** opslagplaats.
+1. Navigeer toohello **bouwen** map in de hoofdmap van uw lokale exemplaar van Hallo Hallo **iot-edge** opslagplaats.
 
-1. Voer de volgende opdracht uit:
+1. Hallo volgende opdracht uitvoeren:
 
     ```sh
     ./samples/hello_world/hello_world_sample ../samples/hello_world/src/hello_world_lin.json`

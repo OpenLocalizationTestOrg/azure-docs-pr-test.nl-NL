@@ -1,5 +1,5 @@
 ---
-title: Analyse van de klant verloop met behulp van Machine Learning | Microsoft Docs
+title: aaaAnalyzing klant verloop met behulp van Machine Learning | Microsoft Docs
 description: "Casestudy van een geïntegreerde model voor het analyseren en score berekenen voor verloop van de klant te ontwikkelen"
 services: machine-learning
 documentationcenter: 
@@ -14,90 +14,90 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeannt
-ms.openlocfilehash: 84916fc86fd731b3544a0d389325d9a1d14e1a39
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 070e6a2ebe4f2fe439a42ffe1a3fa9d6d3788d62
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Traject van de klant analyseren met Azure Machine Learning
 ## <a name="overview"></a>Overzicht
-Dit artikel bevat een verwijzing implementatie van een klant verloop analysis project is gebouwd met behulp van Azure Machine Learning. In dit artikel wordt besproken gekoppelde algemene modellen voor het oplossen van het probleem van industriële customer verloop holistische. We ook de nauwkeurigheid van modellen die zijn gebouwd met behulp van Machine Learning meten en we routebeschrijving voor verdere ontwikkeling beoordelen.  
+Dit artikel bevat een verwijzing implementatie van een klant verloop analysis project is gebouwd met behulp van Azure Machine Learning. In dit artikel wordt besproken gekoppelde algemene modellen voor het oplossen van holistische Hallo probleem van industriële customer verloop. We ook Hallo nauwkeurigheid van modellen die zijn gebouwd met behulp van Machine Learning meten en we routebeschrijving voor verdere ontwikkeling beoordelen.  
 
 ### <a name="acknowledgements"></a>Bevestigingen
-Dit experiment is ontwikkeld en getest door Serge Berger, Principal gegevens wetenschappelijk bij Microsoft en Roger Barga, voorheen Product Manager van Microsoft Azure Machine Learning. Het team van Azure-documentatie dank erkent hun expertise en ze Bedankt voor het delen van dit document.
+Dit experiment is ontwikkeld en getest door Serge Berger, Principal gegevens wetenschappelijk bij Microsoft en Roger Barga, voorheen Product Manager van Microsoft Azure Machine Learning. Hello Azure documentatieteam dank erkent hun expertise en ze Bedankt voor het delen van dit document.
 
 > [!NOTE]
-> De gegevens die worden gebruikt voor dit experiment is niet openbaar beschikbaar. Zie voor een voorbeeld van het bouwen van een machine learning-model voor verloop analyse: [Retail verloop model sjabloon](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
+> Hallo-gegevens die worden gebruikt voor dit experiment is niet openbaar beschikbaar. Zie voor een voorbeeld van hoe een machine learning toobuild model voor verloop analyse: [Retail verloop model sjabloon](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="the-problem-of-customer-churn"></a>Het probleem van klanten verloop
-Bedrijven in de markt consumer en in alle sectoren voor ondernemingen hebben om te gaan met het verloop. Soms verloop uitzonderlijk veel en beleidsbeslissingen beïnvloedt. De traditionele oplossing is te hoog investeringsneiging churners voorspellen en hun behoeften via een service concierge marketingcampagnes, of door het toepassen van speciale dispensaties. Deze methoden kunnen variëren op branche bedrijfstak en zelfs op een bepaalde consumer-cluster naar een andere binnen één industry (bijvoorbeeld telecommunicatie).
+## <a name="hello-problem-of-customer-churn"></a>Hallo probleem van klanten verloop
+Bedrijven in Hallo consumer markt en in alle sectoren voor ondernemingen hebben toodeal met verloop. Soms verloop uitzonderlijk veel en beleidsbeslissingen beïnvloedt. Hallo traditionele oplossing is toopredict investeringsneiging van hoge churners en hun behoeften via een service concierge marketingcampagnes, of door het toepassen van speciale dispensaties. Deze methoden kunnen variëren op branche tooindustry en zelfs op een bepaalde consumer cluster tooanother binnen één industry (bijvoorbeeld telecommunicatie).
 
-De algemene factor is dat bedrijven moeten deze speciale klant bewaren inspanningen minimaliseren. Dus kan een natuurlijke methodologie worden score van elke klant met de waarschijnlijkheid van verloop en los van de bovenste N die zijn. De belangrijkste klanten mogelijk het meest winstgevend die zijn; bijvoorbeeld, meer geavanceerde scenario's, een functie winst in dienst is tijdens de selectie van kandidaten voor speciale dispensatie. Deze overwegingen zijn echter slechts een deel van de holistische strategie voor het omgaan met verloop. Bedrijven hebben ook rekening account risico (en bijbehorende risicotolerantie), wordt het niveau en de kosten van de tussenkomst en aannemelijke klant segmentering.  
+Hallo gemeenschappelijke factor is dat bedrijven toominimize deze inspanningen van speciale klant bewaren moeten. Een natuurlijke methodologie zou worden tooscore elke klant met Hallo kans van verloop en dus adres Hallo bovenste N die zijn. Hallo belangrijkste klanten mogelijk de Hallo meest winstgevend die zijn; bijvoorbeeld, meer geavanceerde scenario's, een functie winst in dienst is tijdens het Hallo-selectie van kandidaten voor speciale dispensatie. Deze overwegingen zijn echter slechts een deel van Hallo holistische strategie voor het omgaan met verloop. Bedrijven hebben ook tootake in account risico (en bijbehorende risicotolerantie) Hallo niveau en de kosten van Hallo tussenkomst en aannemelijke klant segmentering.  
 
 ## <a name="industry-outlook-and-approaches"></a>Bedrijfstak outlook en methoden
-Geavanceerde verwerking van verloop is een teken van een goed ontwikkelde industrie. Het klassieke voorbeeld is de branche telecommunicatie waar abonnees bekend is dat ze vaak overschakelen van één provider naar het andere. Deze vrijwillige verloop zijn de belangrijkste zorgen. Bovendien providers aanzienlijke kennis hebben verzameld over *verloop van stuurprogramma's*, zijn de factoren die van station klanten om over te schakelen.
+Geavanceerde verwerking van verloop is een teken van een goed ontwikkelde industrie. Hallo klassiek voorbeeld is Hallo telecommunicatie branche waarin abonnees bekende toofrequently overschakelen van één provider tooanother zijn. Deze vrijwillige verloop zijn de belangrijkste zorgen. Bovendien providers aanzienlijke kennis hebben verzameld over *verloop van stuurprogramma's*, die zijn Hallo factoren die klanten station tooswitch.
 
-Telefoon- of apparaat keuze is voor het exemplaar een bekende stuurprogramma van het verloop in het bedrijf mobiele telefoon. Als gevolg hiervan is een populair beleid voor de prijs van een toestel subsidize voor nieuwe abonnees en een volledige prijs voor bestaande klanten voor een upgrade in rekening gebracht. Dit beleid heeft in het verleden hebben geleid tot klanten hopping van één provider naar een andere nieuwe korting die op zijn beurt is gevraagd om hun strategieën verfijnen te krijgen.
+Telefoon of apparaat keuze is voor het exemplaar een bekende stuurprogramma van het verloop in Hallo mobiele telefoon bedrijven. Als gevolg hiervan is een populair beleid toosubsidize Hallo prijs van een toestel voor nieuwe abonnees en klanten voor een upgrade voor een volledige prijs tooexisting kostenberekening. Dit beleid heeft in het verleden hebben toocustomers hopping van één provider tooanother tooget een nieuwe korting die op zijn beurt is gevraagd providers toorefine hun strategieën geleid.
 
-Hoge volatiliteit in de offerings telefoon is een factor waardoor zeer snel modellen van het verloop op basis van huidige telefoon-modellen. Mobiele telefoons zijn bovendien niet alleen de apparaten telecommunicatie; ze zijn ook wijze instructies (Overweeg de iPhone) en deze sociale variabelen zijn buiten het bereik van reguliere telecommunicatie gegevenssets.
+Hoge volatiliteit in de offerings telefoon is een factor waardoor zeer snel modellen van het verloop op basis van huidige telefoon-modellen. Mobiele telefoons zijn bovendien niet alleen de apparaten telecommunicatie; ze zijn ook wijze instructies (Overweeg het Hallo iPhone) en deze sociale variabelen zijn buiten Hallo bereik van reguliere telecommunicatie gegevenssets.
 
-Het resultaat voor modellering is dat u een geluid beleid kan niet ontwerpen gewoon doordat bekende redenen voor het verloop. Een strategie voor een continue modellering, met inbegrip van klassieke modellen die categorische variabelen (zoals beslissingsstructuren kwantificeren) is in feite **verplichte**.
+Hallo resultaat voor modellering is dat u een geluid beleid kan niet ontwerpen gewoon doordat bekende redenen voor het verloop. Een strategie voor een continue modellering, met inbegrip van klassieke modellen die categorische variabelen (zoals beslissingsstructuren kwantificeren) is in feite **verplichte**.
 
-Met behulp van grote gegevenssets op hun klanten, uitvoert organisaties big data-analyses (met name verloop detectie op basis van big data) als een doeltreffende methode om het probleem. U vindt meer informatie over de big data-aanpak voor het probleem van het verloop in de aanbevelingen voor ETL-sectie.  
+Met behulp van grote gegevenssets op hun klanten, uitvoert organisaties big data-analyses (met name verloop detectie op basis van big data) als een effectieve manier toohello probleem. U vindt meer informatie over Hallo big data benadering toohello probleem van het verloop in Hallo aanbevelingen voor ETL-sectie.  
 
-## <a name="methodology-to-model-customer-churn"></a>Methodologie voor het model klant verloop
-Een algemene proces oplossen van problemen voor het oplossen van de klant verloop wordt beschreven in cijfers 1-3:  
+## <a name="methodology-toomodel-customer-churn"></a>Methodologie toomodel klant verloop
+Een algemene probleemoplossing proces toosolve klant verloop wordt beschreven in cijfers 1-3:  
 
-1. Een risicomodel kunt u overwegen hoe acties invloed op kans en risico's.
-2. Een model tussenkomst kunt u rekening houden met het niveau van tussenkomst kan invloed van de waarschijnlijkheid van verloop en de hoeveelheid klant verlooptijd (CLV).
-3. Deze analyse gepaard met een kwalitatieve-analyse wordt doorverwezen naar een proactieve marketingcampagne die gericht is op klantsegmenten voor het leveren van de optimale aanbieding.  
+1. Een risicomodel kunt u tooconsider invloed van acties kans en risico's.
+2. Een model tussenkomst, kunt u tooconsider Hallo niveau van tussenkomst kan invloed kans op Hallo van verloop en Hallo bedrag van de waarde van de klant-levensduur (CLV).
+3. Deze analyse gepaard tooa kwalitatieve analyse die geëscaleerde tooa proactieve marketingcampagne die gericht is op de klant segmenten toodeliver Hallo optimale aanbieding.  
 
 ![][1]
 
-Deze aanpak sturen ogende is de beste manier om het verloop behandelen, maar wordt geleverd met complexiteit: we hebben een meerdere model archetype en tracering afhankelijkheden tussen de modellen te ontwikkelen. De interactie tussen modellen kunt worden ingekapseld, zoals wordt weergegeven in het volgende diagram:  
+Deze aanpak sturen ogende Hallo aanbevolen manier tootreat verloop is, maar wordt geleverd met complexiteit: we hebben toodevelop een meerdere model archetype en tracering afhankelijkheden tussen Hallo-modellen. Hallo interactie tussen modellen kunt worden ingekapseld, zoals wordt weergegeven in het volgende diagram Hallo:  
 
 ![][2]
 
 *Afbeelding 4: Unified met meerdere modellen archetype*  
 
-Interactie tussen de modellen is sleutel als we een holistische benadering om aan te leveren klant bewaren. Elk model vermindert noodzakelijkerwijs gedurende een bepaalde periode; de architectuur is daarom een impliciete lus (vergelijkbaar met de archetype ingesteld door de standaard heldere DM gegevens voor analysemodel [***3***]).  
+Interactie tussen Hallo modellen is sleutel als we toodeliver een holistische aanpak toocustomer bewaren. Elk model vermindert noodzakelijkerwijs gedurende een bepaalde periode; Hallo-architectuur is daarom een impliciete lus (vergelijkbaar toohello archetype ingesteld door Hallo heldere DM datamining standaard [***3***]).  
 
-De algehele cyclus van de risico-besluit-marketing segmentering/afbreken is nog steeds een algemene structuur, die van toepassing op veel zakelijke problemen is. Verloop analyse is gewoon een sterke vertegenwoordiger van deze groep van problemen, omdat deze de kenmerken van complexe zakelijke problemen die niet in een vereenvoudigde voorspellende oplossing staat vertoont. De sociale aspecten van de moderne aanpak voor het verloop in vooral niet in de aanpak zijn gemarkeerd, maar de sociale aspecten worden ingekapseld in de archetype modelleren als ze in een model zou worden.  
+Hallo is algehele cyclus van de risico-besluit-marketing segmentering/afbreken nog steeds een algemene structuur, van toepassing toomany zakelijke problemen is. Verloop analyse is gewoon een sterke vertegenwoordiger van deze groep van problemen, omdat deze alle Hallo-eigenschappen van complexe zakelijke problemen die niet in een vereenvoudigde voorspellende oplossing staat vertoont. Hallo sociale aspecten van Hallo benadering van moderne toochurn vooral niet in Hallo benadering zijn gemarkeerd, maar Hallo sociale aspecten worden ingekapseld in Hallo modellering archetype, zoals in een model.  
 
-Hier een interessante toevoeging is big data-analyses. De hedendaagse telecommunicatie en retail bedrijven volledig worden gegevens verzameld over hun klanten en we kunnen eenvoudig voorzien dat de noodzaak voor meerdere model connectiviteit een algemene trend, bepaalde trends zoals het Internet der dingen opkomende en alomtegenwoordige zal worden apparaten, waardoor business alvast smart-oplossingen met meerdere lagen.  
+Hier een interessante toevoeging is big data-analyses. De hedendaagse telecommunicatie en retail bedrijven volledig worden gegevens verzameld over hun klanten en we kunnen eenvoudig voorzien die Hallo nodig voor meerdere model connectiviteit is een algemene trend, opgegeven trends zoals opkomende in de toekomst Hallo Internet der dingen en de alomtegenwoordige apparaten, waardoor business tooemploy smart-oplossingen met meerdere lagen.  
 
  
 
-## <a name="implementing-the-modeling-archetype-in-machine-learning-studio"></a>Implementatie van de archetype modelleren in Machine Learning Studio
-Gezien het probleem dat hierboven wordt beschreven, wat is de beste manier om een geïntegreerde model en score berekenen benadering implementeren? In deze sectie wordt gedemonstreerd hoe we dit doen met behulp van Azure Machine Learning Studio.  
+## <a name="implementing-hello-modeling-archetype-in-machine-learning-studio"></a>Hallo modelleren archetype in Machine Learning Studio implementeren
+Opgegeven Hallo probleem hierboven wordt beschreven, wat is Hallo aanbevolen manier tooimplement een geïntegreerde modellen en scoreprofiel benadering? In deze sectie wordt gedemonstreerd hoe we dit doen met behulp van Azure Machine Learning Studio.  
 
-De aanpak van meerdere model is een moet bij het ontwerpen van een globale archetype voor verloop. Zelfs het scoreprofiel (voorspellende) deel van de aanpak moet met meerdere modellen.  
+Hallo met meerdere modellen aanpak is een moet bij het ontwerpen van een globale archetype voor verloop. Zelfs Hallo score berekenen (voorspellende) deel uit van Hallo benadering moet met meerdere modellen.  
 
-Het volgende diagram toont het model dat wordt gemaakt, die de veiligheidsmaatregelen voor vier scoreprofiel algoritmen in Machine Learning Studio te voorspellen verloop. De reden voor het gebruik van een benadering van meerdere model is niet alleen een ensemble-classificatie te maken voor betere nauwkeurigheid, maar ook als bescherming tegen te veel aanpassen en verbeteren prescriptieve Functieselectie.  
+Hallo volgende diagram toont Hallo prototype dat wordt gemaakt, die de veiligheidsmaatregelen voor vier scoreprofiel algoritmen in Machine Learning Studio toopredict verloop. Hallo reden voor het gebruik van een benadering van meerdere model is niet alleen toocreate ensemble classificatie tooincrease nauwkeurig, maar ook tooprotect tegen te veel aanpassen en tooimprove prescriptieve Functieselectie.  
 
 ![][3]
 
 *Afbeelding 5: Prototype van een benadering modelleren verloop*  
 
-De volgende secties bevatten meer informatie over het prototype score model dat wordt geïmplementeerd met behulp van Machine Learning Studio.  
+Hallo bevatten volgende secties meer informatie over Hallo prototype score model dat wordt geïmplementeerd met behulp van Machine Learning Studio.  
 
 ### <a name="data-selection-and-preparation"></a>Gegevensselectie en voorbereiding
-De gegevens worden gebruikt voor het bouwen van modellen en score klanten is verkregen van een verticale CRM-oplossing met de gegevens die verborgen ter bescherming van de privacy van klanten. De gegevens bevat informatie over 8.000 abonnementen in de Verenigde Staten en worden drie bronnen gecombineerd: inrichting gegevens (abonnement metagegevens), gegevens over de activiteit (informatie over het gebruik van het systeem) en klantgegevens voor ondersteuning. De gegevens omvat niet alle zakelijke gerelateerde gegevens over de klanten; bijvoorbeeld, omvat het geen loyaliteit metagegevens of een tegoed scores.  
+Hallo gegevens gebruikt toobuild Hallo modellen en score klanten is verkregen van een verticale CRM-oplossing met Hallo verborgen tooprotect klant gegevensprivacy. Hallo gegevens bevat informatie over 8.000 abonnementen in Hallo VS, en worden drie bronnen gecombineerd: inrichting gegevens (abonnement metagegevens), activiteitsgegevens (informatie over het gebruik van Hallo system) en klantgegevens voor ondersteuning. Hallo gegevens omvat niet alle zakelijke gerelateerde gegevens over Hallo klanten; bijvoorbeeld, omvat het geen loyaliteit metagegevens of een tegoed scores.  
 
 Ter vereenvoudiging zijn ETL en processen voor opschonen van gegevens buiten het bereik omdat we ervan uitgaan dat het voorbereiden van gegevens is al is gedaan elders.   
 
-Functieselectie voor modellering is gebaseerd op de significantie voorlopige score berekenen van de reeks variabelen, opgenomen in het proces dat gebruikmaakt van de module willekeurige forest. Voor de implementatie in Machine Learning Studio berekend we het gemiddelde, de mediaan en de bereiken voor representatieve functies. Bijvoorbeeld, hebben we aggregaties voor de kwalitatieve gegevens, zoals de minimale en maximale waarden voor gebruikersactiviteit toegevoegd.    
+Functieselectie voor modellering is gebaseerd op voorlopige significante scoren van Hallo reeks variabelen, opgenomen in het Hallo-proces dat wordt gebruikt Hallo willekeurige forest module. Voor de implementatie van de Hallo in Machine Learning Studio berekend we Hallo gemiddelde, de mediaan en de bereiken voor representatieve functies. Bijvoorbeeld, hebben we statistische functies voor Hallo kwalitatieve gegevens, zoals de minimale en maximale waarden voor gebruikersactiviteit toegevoegd.    
 
-We vastgelegd tijdelijke informatie voor de meest recente zes maanden ook. Gegevens van één jaar geanalyseerd en we tot stand gebracht zelfs als er sprake statistisch aanzienlijke trends was, wordt de gevolgen zijn voor verloop aanzienlijk verminderd na zes maanden.  
+We vastgelegd tijdelijke informatie voor Hallo meest recente zes maanden ook. Gegevens van één jaar geanalyseerd en we tot stand gebracht zelfs als er sprake statistisch aanzienlijke trends was, wordt Hallo effect op verloop aanzienlijk verminderd na zes maanden.  
 
-Het belangrijkste is dat het hele proces, inclusief ETL, feature selection en modelleren in Machine Learning Studio, met behulp van gegevensbronnen in Microsoft Azure is geïmplementeerd.   
+Hallo belangrijkste is dat Hallo hele proces, inclusief ETL, feature selection en modelleren in Machine Learning Studio, met behulp van gegevensbronnen in Microsoft Azure is geïmplementeerd.   
 
-De volgende afbeeldingen laten zien dat de gegevens die is gebruikt.  
+Hallo volgende afbeeldingen laten zien Hallo gegevens dat is gebruikt.  
 
 ![][4]
 
@@ -108,123 +108,123 @@ De volgende afbeeldingen laten zien dat de gegevens die is gebruikt.
 *Afbeelding 7: Functies opgehaald uit de gegevensbron*
  
 
-> Houd er rekening mee dat deze gegevens persoonlijke zijn en daarom het model en gegevens kunnen niet worden gedeeld.
-> Er wordt echter in dit voorbeeld experimenteren voor een vergelijkbaar model met openbaar beschikbare gegevens, de [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/): [Telco klant verloop](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Houd er rekening mee dat deze gegevens persoonlijke zijn en daarom Hallo model en gegevens kunnen niet worden gedeeld.
+> Voor een vergelijkbaar model met openbaar beschikbare gegevens, ziet in dit voorbeeld experimenteren in Hallo [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/): [Telco klant verloop](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
-> Voor meer informatie over hoe u een verloop Analytics-model met behulp van Cortana Intelligence Suite kunt implementeren, wordt ook aangeraden [in deze video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) door Senior Program Manager Westerse Hyong Tok. 
+> toolearn meer informatie over hoe u een verloop Analytics-model met behulp van Cortana Intelligence Suite kunt implementeren, wordt ook aangeraden [in deze video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) door Senior Program Manager Westerse Hyong Tok. 
 > 
 > 
 
-### <a name="algorithms-used-in-the-prototype"></a>Die worden gebruikt in het model
-We de volgende vier machine learning-algoritmen gebruikt voor het bouwen van de prototype (geen aanpassing):  
+### <a name="algorithms-used-in-hello-prototype"></a>Die worden gebruikt in het Hallo-prototype
+We Hallo na vier machine learning-algoritmen gebruikt toobuild Hallo prototype (geen aanpassing):  
 
 1. Logistic regression (LR)
 2. Gestimuleerd beslissingsstructuur (BT)
 3. Gemiddelde perceptron (AP)
 4. Ondersteuning voor vectormachine (SVM)  
 
-Het volgende diagram wordt een deel van het ontwerpoppervlak experiment waarmee wordt aangegeven van de volgorde waarin de modellen zijn gemaakt:  
+Hallo wordt volgende diagram een deel van Hallo experiment ontwerpoppervlak, waarmee wordt aangegeven Hallo-reeks in welke Hallo modellen zijn gemaakt:  
 
 ![][6]  
 
 *Afbeelding 8: Modellen maken in Machine Learning Studio*  
 
 ### <a name="scoring-methods"></a>Score berekenen voor methoden
-We berekend de vier modellen met behulp van een gegevensset gelabelde training.  
+We berekend Hallo vier modellen met behulp van een gegevensset gelabelde training.  
 
-De score gegevensset naar een vergelijkbare model gebouwd met behulp van de desktop editie van SAS Enterprise mijnwerkers 12 ook verzonden. We de nauwkeurigheid van de SAS-model en alle vier Machine Learning Studio modellen gemeten.  
+Score berekenen voor gegevensset tooa vergelijkbare model gebouwd met behulp van de desktop edition Hallo van SAS Enterprise mijnwerkers 12 Hallo ook verzonden. We gemeten Hallo nauwkeurig Hallo SAS-model en alle vier Machine Learning Studio-modellen.  
 
 ## <a name="results"></a>Resultaten
-In deze sectie geven we onze bevindingen over de nauwkeurigheid van de modellen, op basis van de score gegevensset.  
+In deze sectie geven we onze bevindingen over Hallo nauwkeurig Hallo modellen, gebaseerd op Hallo score berekenen voor gegevensset.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>Nauwkeurigheid en precisie van score berekenen
-De implementatie in Azure Machine Learning is over het algemeen achter SAS nauwkeurig ongeveer 10-15% (gebied onder Curve of AUC).  
+Hallo-implementatie in Azure Machine Learning is over het algemeen achter SAS nauwkeurig ongeveer 10-15% (gebied onder Curve of AUC).  
 
-De belangrijkste metrische gegevens in verloop is echter de snelheid misclassification: dat wil zeggen, van de bovenste N churners als voorspelde door de classificatie, wie daadwerkelijk heeft **niet** verloop en nog speciale behandeling ontvangen? Het volgende diagram worden de frequentie van deze misclassification voor alle modellen vergeleken:  
+Hallo belangrijkste metrische gegevens in verloop is echter Hallo misclassification frequentie: dat wil zeggen van Hallo bovenste N churners als voorspelde door Hallo classificatie, wie daadwerkelijk heeft **niet** verloop en nog ontvangen speciale behandeling? Hallo volgende diagram worden de frequentie van deze misclassification voor alle Hallo modellen vergeleken:  
 
 ![][7]
 
 *Afbeelding 9: Passau prototype gebied onder curve*
 
-### <a name="using-auc-to-compare-results"></a>Met behulp van AUC om resultaten te vergelijken
-Gebied onder Curve (AUC) is een waarde die staat voor een globale meting van *Afscheidbaarheid* tussen de verdeling van scores voor positieve en negatieve populaties. Het is vergelijkbaar met de traditionele ontvanger Operator kenmerk (ROC)-grafiek, maar één belangrijk verschil is dat de metriek AUC vereist niet dat u een waarde voor drempel kiezen. In plaats daarvan de resultaten worden samengevat via **alle** keuzemogelijkheden. Daarentegen is de traditionele ROC-grafiek toont de positieve frequentie op de verticale as en de waarde false positief snelheid op de horizontale as en de classificatie-drempelwaarde varieert.   
+### <a name="using-auc-toocompare-results"></a>Met behulp van AUC toocompare resultaten
+Gebied onder Curve (AUC) is een waarde die staat voor een globale meting van *Afscheidbaarheid* tussen scores voor positieve en negatieve populaties Hallo-distributies. Het is vergelijkbaar toohello traditionele ontvanger Operator kenmerk (ROC) grafiek, maar één belangrijk verschil is dat Hallo AUC metriek vereist niet dat u een drempelwaarde toochoose. In plaats daarvan Hallo resultaten worden samengevat via **alle** keuzemogelijkheden. Daarentegen Hallo traditionele ROC grafiek toont Hallo positief frequentie op Hallo verticale as en Hallo false positief tarief op Hallo horizontale as en Hallo classificatie drempelwaarde varieert.   
 
-AUC wordt doorgaans gebruikt als een maatstaf voor waard voor verschillende algoritmen (of andere systemen) omdat deze modellen moet worden vergeleken met behulp van hun AUC-waarden toestaat. Dit is een populair benadering in sectoren zoals meteorologie en biosciences. Dus vertegenwoordigt AUC een populaire hulpprogramma voor beoordeling van de prestaties van de classificatie.  
+AUC wordt doorgaans gebruikt als een maatstaf voor waard voor verschillende algoritmen (of andere systemen) omdat deze modellen toobe vergeleken met behulp van hun AUC-waarden toestaat. Dit is een populair benadering in sectoren zoals meteorologie en biosciences. Dus vertegenwoordigt AUC een populaire hulpprogramma voor beoordeling van de prestaties van de classificatie.  
 
 ### <a name="comparing-misclassification-rates"></a>Misclassification tarieven vergelijken
-We vergeleken de tarieven misclassification op de desbetreffende gegevensset met behulp van de CRM-gegevens van ongeveer 8000 abonnementen.  
+We vergeleken Hallo misclassification tarieven op Hallo gegevensset betrokken met behulp van Hallo CRM-gegevens van ongeveer 8000 abonnementen.  
 
-* De snelheid van de misclassification SAS is 10-15%.
-* De snelheid van Machine Learning Studio misclassification is 15-20% voor de top 200 en 300 churners.  
+* Hallo SAS misclassification snelheid is 10-15%.
+* Hallo Machine Learning Studio misclassification snelheid is 15-20% voor Hallo top 200 en 300 churners.  
 
-In de branche telecommunicatie is het belangrijk om klanten die het hoogste risico voor het verloop in door het aanbieden van deze een service concierge of andere speciale behandeling hebben. In dat opzicht bereikt de implementatie van de Machine Learning Studio resultaten één lijn met het SAS-model.  
+In Hallo telecommunicatie industrie is het belangrijk tooaddress alleen klanten die hebben Hallo hoogste risico toochurn door het aanbieden van deze een service concierge of andere speciale behandeling. In dat opzicht realiseert Hallo Machine Learning Studio implementatie resultaten één lijn met Hallo SAS-model.  
 
-Evenzo, is nauwkeurigheid belangrijker dan de precisie omdat we voornamelijk geïnteresseerd bent in de potentiële churners correct te classificeren.  
+Door Hallo token dezelfde, nauwkeurigheid belangrijker dan de precisie is omdat we voornamelijk geïnteresseerd bent in de potentiële churners correct te classificeren.  
 
-Het volgende diagram van Wikipedia (Engelstalig) ziet u de relatie in een afbeelding levendige, gemakkelijk te begrijpen:  
+Hallo volgende diagram uit Wikipedia (Engelstalig) ziet Hallo relatie in een afbeelding levendige, gemakkelijk te begrijpen:  
 
 ![][8]
 
 *Afbeelding 10: Afweging tussen nauwkeurigheid en juistheid*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Nauwkeurigheid en juistheid resultaten voor gestimuleerd decision tree model
-Het volgende diagram toont de onbewerkte resultaten van score berekenen met behulp van de Machine Learning-model voor het model van de boomstructuur gestimuleerd besluit, die worden de meest nauwkeurige tussen de vier modellen wordt uitgevoerd:  
+Hallo volgende diagram geeft Hallo onbewerkte resultaat is van een score berekenen met behulp van Machine Learning-prototype Hallo voor Hallo boosted decision tree model die toobe Hallo nauwkeurigste tussen Hallo vier modellen wordt uitgevoerd:  
 
 ![][9]
 
 *Afbeelding 11: Gestimuleerd decision tree model kenmerken*
 
 ## <a name="performance-comparison"></a>Vergelijking van de prestaties
-We vergeleken de snelheid waarmee gegevens is berekend met behulp van de Machine Learning Studio-modellen en een vergelijkbare model dat is gemaakt met behulp van de desktop editie van SAS Enterprise mijnwerkers 12.1.  
+We vergeleken Hallo snelheid waarmee gegevens is berekend met behulp van Hallo Machine Learning Studio modellen en een vergelijkbare model dat is gemaakt met behulp van bureaublad Hallo-editie van SAS Enterprise mijnwerkers 12.1.  
 
-De volgende tabel geeft een overzicht van de prestaties van de algoritmen:  
+Hallo volgende tabel geeft een overzicht van de prestaties Hallo Hallo algoritmen:  
 
-*Tabel 1. Algemene prestaties (nauwkeurigheid) van de algoritmen*
+*Tabel 1. Algemene prestaties (nauwkeurigheid) Hallo-algoritmen*
 
 | LR | BT | AP | SVM |
 | --- | --- | --- | --- |
-| Gemiddelde Model |Het beste Model |Attenderen |Gemiddelde Model |
+| Gemiddelde Model |Hallo Best Model |Attenderen |Gemiddelde Model |
 
-De modellen in Machine Learning Studio ver-loop SAS met 15-25% voor snelheid van kan worden uitgevoerd, maar de nauwkeurigheid grotendeels op nominaal werd gehost.  
+Hallo-modellen in Machine Learning Studio ver-loop SAS met 15-25% voor snelheid van kan worden uitgevoerd, maar de nauwkeurigheid grotendeels op nominaal werd gehost.  
 
 ## <a name="discussion-and-recommendations"></a>Discussie en aanbevelingen
-In de branche telecommunicatie verschillende procedures hebben voorgedaan analyseren verloop, met inbegrip van:  
+In Hallo telecommunicatie industrie verschillende procedures tooanalyze is ontstaan verloop, met inbegrip van:  
 
 * Afgeleid metrische gegevens voor vier fundamentele categorieën:
-  * **Entiteit (bijvoorbeeld een abonnement)**. Algemene informatie over het abonnement en/of de klant die het onderwerp van het verloop inrichten.
-  * **Activiteit**. Alle informatie over het gebruik mogelijk die is gerelateerd aan de entiteit, bijvoorbeeld het aantal aanmeldingen verkrijgen.
-  * **Klantondersteuning**. Verzamelt gegevens uit logboeken van de klant ondersteuning om aan te geven of het abonnement problemen of interactie met de klantondersteuning heeft.
-  * **Concurrerende en zakelijke gegevens**. Verkrijgen van mogelijk informatie over de klant (bijvoorbeeld kunnen zijn niet beschikbaar of moeilijk om).
-* Belang zijn voor Functieselectie station gebruiken. Dit betekent dat het model van de boomstructuur gestimuleerd besluit altijd een ordertoezegging benadering is.  
+  * **Entiteit (bijvoorbeeld een abonnement)**. Algemene informatie over het Hallo-abonnement en/of de klant die Hallo onderwerp is van het verloop inrichten.
+  * **Activiteit**. Alle informatie over het gebruik mogelijk die is gerelateerd toohello entiteit, bijvoorbeeld Hallo aantal aanmeldingen verkrijgen.
+  * **Klantondersteuning**. Verzamelt gegevens van de klant ondersteuning logboeken tooindicate of Hallo abonnement heeft problemen of interacties met klant ondersteunen.
+  * **Concurrerende en zakelijke gegevens**. Verkrijgen van mogelijk informatie over de klant hello (bijvoorbeeld kunnen zijn niet beschikbaar of harde tootrack).
+* Urgentie toodrive Functieselectie gebruiken. Dit betekent dat Hallo boosted decision tree model is altijd een ordertoezegging benadering.  
 
-Het gebruik van de volgende vier categorieën de illusie die een eenvoudige *deterministische* benadering, op basis van indexen notatie op redelijke factoren per categorie, moet voldoende om te bepalen welke klanten bestaat het risico op verloop. Helaas, hoewel dit begrip aannemelijke lijkt, is een false begrip. De reden is dat verloop een tijdelijke effect is en de factoren die bijdragen voor verloop meestal tijdelijke status zijn. Wat kunt u vandaag de dag van een klant leidt kan afwijken morgen en zeker moeten verschillende zes maanden vanaf nu. Daarom een *probabilistische* model is noodzakelijk.  
+Hallo gebruik van de volgende vier categorieën maakt Hallo illusie die een eenvoudige *deterministische* benadering, op basis van indexen notatie op redelijke factoren per categorie, moet klanten tooidentify risico voor verloop voldoende. Helaas, hoewel dit begrip aannemelijke lijkt, is een false begrip. Hallo reden is dat verloop is een tijdelijke effect Hallo factoren bijdragen toochurn zijn meestal tijdelijke status. Wat een klant tooconsider verlaten vandaag leidt kan afwijken morgen en zeker moeten verschillende zes maanden vanaf nu. Daarom een *probabilistische* model is noodzakelijk.  
 
-Deze belangrijke observatie wordt vaak vergeten in bedrijf, die doorgaans in analytics liever een business intelligence gerichte benadering, voornamelijk omdat deze een eenvoudiger verkopen en admits eenvoudige automation.  
+Deze belangrijke observatie wordt vaak vergeten in bedrijf, in het algemeen een tooanalytics van business intelligence gebaseerde methode de voorkeur, voornamelijk omdat deze een eenvoudiger verkopen en admits eenvoudige automation.  
 
-De belofte van analyses met zelfservice met behulp van Machine Learning Studio is echter dat de vier categorieën van informatie, ingedeeld in de afdeling een waardevolle bron voor machine learning over verloop geworden.  
+Echter, Hallo belofte van analyses met zelfservice met behulp van Machine Learning Studio is dat het Hallo vier categorieën van informatie, ingedeeld in de afdeling een waardevolle bron voor machine learning over verloop.  
 
-Een andere interessante mogelijkheid binnenkort in Azure Machine Learning is de mogelijkheid een aangepaste module toevoegen aan de opslagplaats van vooraf gedefinieerde modules die al beschikbaar zijn. Deze mogelijkheid wordt in wezen een kans om bibliotheken selecteren en sjablonen maken voor verticale markten maakt. Het is een belangrijk kenmerk van Azure Machine Learning op de markt.  
+Een andere interessante mogelijkheid binnenkort in Azure Machine Learning is Hallo mogelijkheid tooadd een aangepaste module toohello opslagplaats van vooraf gedefinieerde modules die al beschikbaar zijn. Deze mogelijkheid wordt in wezen maakt een kans tooselect bibliotheken en sjablonen maken voor verticale markten. Het is een belangrijk kenmerk van Azure Machine Learning op Hallo markt.  
 
-We hopen dat naar dit onderwerp in de toekomst, met name betrekking hebben op big data-analyses.
+We hopen dat toocontinue in dit onderwerp in Hallo toekomstige, met name gerelateerde toobig gegevensanalyse.
   
 
 ## <a name="conclusion"></a>Conclusie
-Dit artikel beschrijft een praktische strategie om het aanpakken van het algemene probleem van klanten verloop met behulp van een algemene framework. We beschouwd als een prototype voor score berekenen voor modellen en geïmplementeerd met Azure Machine Learning. Ten slotte wordt de nauwkeurigheid en prestaties van de oplossing prototype met betrekking tot vergelijkbare algoritmen in SAS beoordeeld.  
+Dit artikel beschrijft een verstandig tootackling Hallo veelvoorkomend probleem van klanten verloop met behulp van een algemene framework. We beschouwd als een prototype voor score berekenen voor modellen en geïmplementeerd met Azure Machine Learning. Ten slotte beoordeeld wij Hallo nauwkeurigheid en prestaties van Hallo prototype oplossing met inachtneming van toocomparable algoritmen in SAS.  
 
 **Voor meer informatie:**  
 
-Dit artikel kunt u? Geef ons uw feedback. Vertel ons op een schaal van 1 (slecht) tot en met 5 (uitstekend), welke beoordeling zou u dit artikel worden en waarom hebt u het deze classificatie? Bijvoorbeeld:  
+Dit artikel kunt u? Geef ons uw feedback. Laat ons weten op een schaal van 1 (slecht) too5 (uitstekend), welke beoordeling zou u dit artikel worden en waarom hebt u het deze classificatie? Bijvoorbeeld:  
 
-* Zijn u classificatie het hoge vanwege de goede voorbeelden, uitstekende schermafdrukken, schakelt u schrijft, of een andere reden hebben?
-* Weet u classificatie het lage wegens slechte voorbeelden, fuzzy schermopnamen of onduidelijk schrijven?  
+* Zijn u classificatie het hoge vervaldatum toohaving goede voorbeelden, uitstekende schermafdrukken, schakelt u schrijft, of een andere reden?
+* Zijn u classificatie het lage vervaldatum toopoor voorbeelden, fuzzy schermopnamen of onduidelijk schrijven?  
 
-Deze feedback helpt ons de kwaliteit van whitepapers we brengen verbeteren.   
+Deze feedback helpt ons Hallo kwaliteit van whitepapers we brengen verbeteren.   
 
 [Feedback verzenden](mailto:sqlfback@microsoft.com).
  
 
 ## <a name="references"></a>Verwijzingen
-[1] predictive Analytics: buiten de voorspellingen, West McKnight informatiebeheer, 2011, p.18-20 juli/augustus.  
+[1] predictive Analytics: buiten Hallo-voorspellingen W. McKnight, informatiebeheer juli augustus 2011 p.18-20.  
 
 [2] Wikipedia artikel: [nauwkeurigheid en juistheid](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 

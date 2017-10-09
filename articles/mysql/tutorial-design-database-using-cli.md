@@ -1,6 +1,6 @@
 ---
-title: Ontwerp van uw eerste Azure-Database voor de MySQL-database. Azure CLI | Microsoft Docs
-description: Deze zelfstudie wordt uitgelegd hoe maken en beheren van Azure-Database voor MySQL-server en database met behulp van Azure CLI 2.0 vanaf de opdrachtregel.
+title: uw eerste Azure-Database voor de MySQL-database. Azure CLI aaaDesign | Microsoft Docs
+description: Deze zelfstudie wordt uitgelegd hoe toocreate en beheren van Azure-Database voor de MySQL-server en database gebruiken met Azure CLI 2.0 vanaf de opdrachtregel Hallo.
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -10,32 +10,32 @@ ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/13/2017
 ms.custom: mvc
-ms.openlocfilehash: 590cba6cb58d0c0eaedb9f122ac048c33988004d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6339913c2af58e0e4c4eabb69097a5c9c245781c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Ontwerp van uw eerste Azure-Database voor de MySQL-database
 
-Azure MySQL-Database is een relationele database-service in de Microsoft-cloud op basis van de database-engine MySQL Community Edition. In deze zelfstudie maakt u Azure CLI (opdrachtregelinterface) en andere hulpprogramma's voor meer informatie over hoe:
+Azure MySQL-Database is een relationele database-service in Hallo Microsoft-cloud op basis van de database-engine MySQL Community Edition. In deze zelfstudie gebruikt u Azure CLI (opdrachtregelinterface) en andere hulpprogramma's toolearn hoe naar:
 
 > [!div class="checklist"]
 > * Een Azure-Database maken voor MySQL
-> * De serverfirewall configureren
-> * Gebruik [mysql-opdrachtregelprogramma](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) om een database te maken
+> * Hallo serverfirewall configureren
+> * Gebruik [mysql-opdrachtregelprogramma](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) toocreate een database
 > * Voorbeeldgegevens laden
 > * Querygegevens
 > * Gegevens bijwerken
 > * Gegevens terugzetten
 
-U kunt de Azure-Cloud-Shell gebruiken in de browser of [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli) op uw eigen computer uitvoeren van de codeblokken in deze zelfstudie.
+U hello Azure Cloud Shell in Hallo browser of [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli) op uw eigen computer toorun Hallo codeblokken in deze zelfstudie.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, wordt in dit onderwerp vereist dat u hello Azure CLI versie 2.0 of hoger worden uitgevoerd. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). 
 
-Als u meerdere abonnementen hebt, kiest u het abonnement waarin de resource is opgenomen of wordt gefactureerd. Selecteer een specifiek abonnements-ID in uw account met de opdracht [az account set](/cli/azure/account#set).
+Als u meerdere abonnementen hebt, kies Hallo in de juiste abonnement waarin Hallo resource bestaat en of wordt gefactureerd voor. Selecteer een specifiek abonnements-ID in uw account met de opdracht [az account set](/cli/azure/account#set).
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
@@ -43,16 +43,16 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 Maak een [Azure-resourcegroep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) met [az groep maken](https://docs.microsoft.com/cli/azure/group#create) opdracht. Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd.
 
-In het volgende voorbeeld wordt een resourcegroep met de naam `mycliresource` gemaakt op de locatie `westus`.
+Hallo volgende voorbeeld maakt u een resourcegroep met de naam `mycliresource` in Hallo `westus` locatie.
 
 ```azurecli-interactive
 az group create --name mycliresource --location westus
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Een Azure-database voor MySQL-server maken
-Een Azure-Database maken voor MySQL-server met de server van de mysql az opdracht maken. Een server kan meerdere databases beheren. Een aparte database wordt doorgaans gebruikt voor elk project of voor elke gebruiker.
+Een Azure-Database maken voor MySQL-server met Hallo az mysql-server de opdracht maken. Een server kan meerdere databases beheren. Een aparte database wordt doorgaans gebruikt voor elk project of voor elke gebruiker.
 
-In het volgende voorbeeld wordt een Azure-database voor MySQL-server gemaakt die zich in `westus` bevindt in de resourcegroep `mycliresource` met de naam `mycliserver`. De server heeft aanmeldgegevens voor de beheerder met de naam `myadmin` en het wachtwoord `Password01!`. De server wordt gemaakt met de **Basic**-prestatielaag en **50** rekeneenheden die tussen alle databases op de server worden gedeeld. U kunt berekeningen en opslag omhoog of omlaag schalen afhankelijk van de behoeften van de toepassing.
+Hallo volgende voorbeeld wordt een Azure-Database voor de MySQL-server zich bevindt `westus` in de resourcegroep Hallo `mycliresource` met de naam `mycliserver`. Hallo-server heeft een aanmelden als administrator in de naam `myadmin` en het wachtwoord `Password01!`. Hallo-server is gemaakt met **Basic** prestatielaag en **50** compute eenheden gedeeld tussen alle Hallo-databases in Hallo-server. U kunt berekeningen en opslag omhoog of omlaag schalen, afhankelijk van de behoeften van de toepassing hello.
 
 ```azurecli-interactive
 az mysql server create --resource-group mycliresource --name mycliserver
@@ -61,22 +61,22 @@ az mysql server create --resource-group mycliresource --name mycliserver
 ```
 
 ## <a name="configure-firewall-rule"></a>Firewallregel configureren
-Een Azure-Database maken voor MySQL serverniveau firewallregel met de az mysql-serverfirewallregel opdracht maken. Een firewallregel op serverniveau kan een externe toepassing, zoals **mysql** opdrachtregelprogramma of MySQL Workbench verbinding maken met uw server via de firewall van de service Azure MySQL. 
+Een Azure-Database maken voor MySQL serverniveau firewallregel met Hallo az mysql-serverfirewallregel opdracht maken. Een firewallregel op serverniveau kan een externe toepassing, zoals **mysql** opdrachtregelprogramma of MySQL Workbench tooconnect tooyour server via hello Azure MySQL service firewall. 
 
-Het volgende voorbeeld wordt een firewallregel voor een vooraf gedefinieerde-adresbereik. Dit voorbeeld toont de hele mogelijke bereik van IP-adressen.
+Hallo volgende voorbeeld wordt een firewallregel gemaakt voor een vooraf gedefinieerde-adresbereik. Dit voorbeeld toont Hallo gehele mogelijke bereik van IP-adressen.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group mycliresource --server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
-## <a name="get-the-connection-information"></a>De verbindingsgegevens ophalen
+## <a name="get-hello-connection-information"></a>Hallo-verbindingsgegevens ophalen
 
-Als u verbinding met uw server wilt maken, moet u hostgegevens en toegangsreferenties opgeven.
+tooconnect tooyour server, moet u tooprovide host informatie en toegang referenties.
 ```azurecli-interactive
 az mysql server show --resource-group mycliresource --name mycliserver
 ```
 
-Het resultaat wordt in JSON-indeling weergegeven. Noteer de **fullyQualifiedDomainName** en de **administratorLogin**.
+Hallo-resultaat is in JSON-indeling. Maak een notitie van Hallo **FQDN** en **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -101,25 +101,25 @@ Het resultaat wordt in JSON-indeling weergegeven. Noteer de **fullyQualifiedDoma
 }
 ```
 
-## <a name="connect-to-the-server-using-mysql"></a>Verbinding maken met de server met behulp van mysql
-Gebruik [mysql-opdrachtregelprogramma](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) geen verbinding met uw Azure-Database voor de MySQL-server. In dit voorbeeld is de opdracht:
+## <a name="connect-toohello-server-using-mysql"></a>Verbinding maken met behulp van mysql toohello-server
+Gebruik [mysql-opdrachtregelprogramma](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) tooestablish een verbinding tooyour Azure Database voor de MySQL-server. In dit voorbeeld is de Hallo-opdracht:
 ```cmd
 mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
 ```
 
 ## <a name="create-a-blank-database"></a>Een lege database maken
-Als u met de server verbonden bent, moet u een lege database maken.
+Als u verbonden toohello server bent, moet u een lege database maken.
 ```sql
 mysql> CREATE DATABASE mysampledb;
 ```
 
-Voer de volgende opdracht om de verbinding overschakelen naar de nieuwe database bij de opdrachtprompt:
+Voer bij Hallo-prompt Hallo opdracht tooswitch Hallo verbinding toothis nieuw gemaakte database te volgen:
 ```sql
 mysql> USE mysampledb;
 ```
 
-## <a name="create-tables-in-the-database"></a>Tabellen maken in de database
-Nu dat u hoe u verbinding maken met de Azure-Database voor de MySQL-database weet, kunnen we gaan over hoe u enkele eenvoudige taken uitvoeren.
+## <a name="create-tables-in-hello-database"></a>Tabellen maken in Hallo-database
+Als u weet hoe tooconnect toohello Azure Database voor de MySQL-database, we kunt gaan om de manier waarop toocomplete sommige basistaken uitvoeren.
 
 We kunnen eerst een tabel maken en deze met enkele gegevens te laden. We maken een tabel met inventarisatie-informatie.
 ```sql
@@ -130,53 +130,53 @@ CREATE TABLE inventory (
 );
 ```
 
-## <a name="load-data-into-the-tables"></a>Gegevens laden in de tabellen
-Nu dat we een tabel hebben, kunnen we sommige gegevens invoegen in het. Voer de volgende query voor het invoegen van een aantal rijen van de gegevens in het venster opdrachtprompt openen.
+## <a name="load-data-into-hello-tables"></a>Gegevens laden in Hallo tabellen
+Nu dat we een tabel hebben, kunnen we sommige gegevens invoegen in het. Op Hallo open opdrachtpromptvenster, typt u Hallo query tooinsert volgen een aantal rijen van gegevens.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-U hebt nu twee rijen van de voorbeeldgegevens in de tabel die u eerder hebt gemaakt.
+U hebt nu twee rijen van de voorbeeldgegevens in Hallo tabel die u eerder hebt gemaakt.
 
-## <a name="query-and-update-the-data-in-the-tables"></a>Vragen en de gegevens in de tabellen bijwerken
-De volgende query om informatie te halen uit de databasetabel.
+## <a name="query-and-update-hello-data-in-hello-tables"></a>Vragen en het Hallo-gegevens in het Hallo-tabellen bijwerken
+Hallo volgende tooretrieve querygegevens uit Hallo-databasetabel worden uitgevoerd.
 ```sql
 SELECT * FROM inventory;
 ```
 
-U kunt ook de gegevens in de tabellen bijwerken.
+U kunt ook Hallo-gegevens in Hallo-tabellen bijwerken.
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-De rij wordt dienovereenkomstig bijgewerkt wanneer u gegevens ophaalt.
+Hallo rij opgehaald dienovereenkomstig bijgewerkt wanneer u gegevens ophaalt.
 ```sql
 SELECT * FROM inventory;
 ```
 
-## <a name="restore-a-database-to-a-previous-point-in-time"></a>Een database herstellen naar een eerder tijdstip
-Stel dat u deze tabel per ongeluk hebt verwijderd. Dit is iets dat die u eenvoudig niet vanuit herstellen. Azure MySQL-Database kunt u teruggaan naar een willekeurig punt in tijd in het laatste tot 35 dagen en dit punt in tijd naar een nieuwe server herstellen. U kunt deze nieuwe server gebruiken om uw verwijderde gegevens te herstellen. Voordat u de tabel is toegevoegd, de volgende stappen uit de voorbeeldserver herstellen naar een punt.
+## <a name="restore-a-database-tooa-previous-point-in-time"></a>Een database tooa eerder punt herstellen in-time
+Stel dat u deze tabel per ongeluk hebt verwijderd. Dit is iets dat die u eenvoudig niet vanuit herstellen. Azure MySQL-Database kunt u toogo back tooany punt in tijd in Hallo laatste too35 dagen en dit punt in tijd tooa nieuwe server herstellen. U kunt deze nieuwe server toorecover uw verwijderde gegevens te gebruiken. Hallo na stappen Hallo voorbeeld server tooa herstelpunt voordat Hallo tabel toegevoegd.
 
-Voor het herstel moet u de volgende informatie:
+Hallo herstellen moet u voor Hallo volgende informatie:
 
-- Herstelpunt: Selecteer een point-in-time die deze gebeurtenis treedt op voordat de server is gewijzigd. Moet groter zijn dan of gelijk zijn aan de oudste back-waarde van de brondatabase.
-- Doelserver: Geef een nieuwe servernaam die u terugzetten wilt naar
-- Bronserver: Geef de naam van de server die u terugzetten wilt vanaf
-- Locatie: U kunt de regio niet selecteren, standaard is dit hetzelfde als de bronserver
+- Herstelpunt: Selecteer een point-in-time die deze gebeurtenis treedt op voordat het Hallo-server is gewijzigd. Moet groter zijn dan of gelijk zijn aan de oudste back-waarde toohello bron van de database.
+- Doelserver: Geef een nieuwe naam van een server toorestore naar gewenste
+- Bronserver: Hallo-naam van de gewenste toorestore van Hallo-server opgeven
+- Locatie: U kunt geen Hallo regio selecteren, standaard is dit hetzelfde als de bronserver Hallo
 
 ```azurecli-interactive
 az mysql server restore --resource-group mycliresource --name mycliserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mycliserver
 ```
 
-Om de server te herstellen en [terugzetten naar punt in tijd](./howto-restore-server-portal.md) voordat de tabel is verwijderd. Herstellen van een server naar een ander punt in tijd maakt een dubbele nieuwe server als de oorspronkelijke server vanaf het punt in tijd die u opgeeft, mits dit binnen de bewaarperiode voor uw [servicelaag](./concepts-service-tiers.md).
+toorestore Hallo-server en [tooa punt in tijd herstellen](./howto-restore-server-portal.md) voordat het Hallo-tabel is verwijderd. Herstellen van een andere server tooa-punt in tijd maakt een dubbele nieuwe server als de oorspronkelijke server Hallo als u van Hallo punt in tijd opgeeft, mits dit binnen de bewaarperiode Hallo voor uw [servicelaag](./concepts-service-tiers.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u geleerd:
 > [!div class="checklist"]
 > * Een Azure-Database maken voor MySQL
-> * De serverfirewall configureren
-> * Gebruik [mysql-opdrachtregelprogramma](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) om een database te maken
+> * Hallo serverfirewall configureren
+> * Gebruik [mysql-opdrachtregelprogramma](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) toocreate een database
 > * Voorbeeldgegevens laden
 > * Querygegevens
 > * Gegevens bijwerken

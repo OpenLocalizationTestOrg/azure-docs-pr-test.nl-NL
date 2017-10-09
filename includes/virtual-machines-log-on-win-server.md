@@ -1,15 +1,15 @@
-1. Als u op **Verbinden** klikt, wordt een Remote Desktop Protocol-bestand (.rdp) gemaakt en gedownload. Klik op **Openen** om dit bestand te gebruiken.
-2. U ontvangt een waarschuwing dat het RDP-bestand van een onbekende uitgever is. Dit is normaal. Klik in het venster Extern bureaublad op **Verbinden** om door te gaan.
+1. Als u op **Verbinden** klikt, wordt een Remote Desktop Protocol-bestand (.rdp) gemaakt en gedownload. Klik op **Open** toouse dit bestand.
+2. U ontvangt een waarschuwing dat .rdp Hallo van een onbekende uitgever is. Dit is normaal. Klik in het venster extern bureaublad Hallo op **Connect** toocontinue.
    
     ![Schermafbeelding met waarschuwing over een onbekende uitgever](./media/virtual-machines-log-on-win-server/rdp-warn.png)
-3. Typ in het venster **Windows-beveiliging** de referenties voor een account op de virtuele machine en klik vervolgens op **OK**.
+3. In Hallo **Windows-beveiliging** venster Hallo referenties voor een account op Hallo virtuele machine en klik vervolgens op **OK**.
    
-     **Lokaal account** - Dit is meestal de gebruikersnaam en het wachtwoord van het lokaal account dat u hebt opgegeven toen u de virtuele machine hebt gemaakt. In dit geval is het domein de naam van de virtuele machine en het is ingevoerd als *vmname*&#92;*gebruikersnaam*.  
+     **Lokaal account** -dit is meestal Hallo lokale account, gebruikersnaam en wachtwoord die u hebt opgegeven tijdens het maken van de virtuele machine Hallo. In dit geval Hallo domein Hallo-naam van Hallo virtuele machine en het is ingevoerd als *vmname*&#92; *gebruikersnaam*.  
    
-    **In het domein opgenomen VM** - Als de virtuele machine deel uitmaakt van een domein, voert u de gebruikersnaam in met de volgende indeling: *Domein*&#92;*Gebruikersnaam*. Het account moet bovendien in de groep Administrators staan of er moet een machtiging voor externe toegang zijn verleend aan de VM.
+    **Domein opgenomen VM** - als Hallo VM tooa domein behoort, gebruikersnaam Hallo Hallo indeling *domein*&#92; *Gebruikersnaam*. Hallo-account moet ook tooeither worden in de groep beheerders Hallo groep of externe toegang bevoegdheden toohello VM hebben gekregen.
    
-    **Domeincontroller** - Als de VM een domeincontroller is, gebruikt u de gebruikersnaam en het wachtwoord van een domeinbeheerdersaccount voor het domein.
-4. Klik op **Ja** om de identiteit van de virtuele machine te controleren en het aanmelden te voltooien.
+    **Domeincontroller** - als Hallo VM een domeincontroller, het type Hallo-gebruikersnaam en het wachtwoord van een domeinbeheerdersaccount voor dat domein is.
+4. Klik op **Ja** tooverify Hallo identiteit van Hallo virtuele machine en aanmelden te voltooien.
    
-   ![Schermafbeelding met een bericht over het verifiëren van de identiteit van de virtuele machine](./media/virtual-machines-log-on-win-server/cert-warning.png)
+   ![Schermafbeelding met een bericht over het verifiëren van identiteit Hallo Hallo VM.](./media/virtual-machines-log-on-win-server/cert-warning.png)
 

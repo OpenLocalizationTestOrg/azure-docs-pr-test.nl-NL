@@ -1,6 +1,6 @@
 ---
-title: Azure API's van Enterprise - Marketplace-kosten facturering | Microsoft Docs
-description: Meer informatie over de rapportage-API's waarmee Azure Enterprise-klanten voor het ophalen van gegevens over het verbruik programmatisch.
+title: aaaAzure facturering Enterprise-API's - Marketplace-kosten | Microsoft Docs
+description: Meer informatie over Hallo rapportage-API's waarmee Azure Enterprise-klanten toopull verbruiksgegevens programmatisch.
 services: 
 documentationcenter: 
 author: aedwin
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 5539623f7ae35e14b6dafe6fdf9efe4bcaba4fd3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: cdf2836b52df06a4bf5ed71a476fe33662c5363c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reporting-apis-for-enterprise-customers---marketplace-store-charge"></a>Rapportage-API's voor Enterprise-klanten - Marketplace Store kosten
 
-De Marketplace Store kosten-API retourneert de uitsplitsing op gebruik gebaseerde marketplace-kosten per dag voor de opgegeven periode facturering of de begin- en einddatums (één keer kosten zijn niet opgenomen).
+Hallo Marketplace Store kosten API retourneert Hallo marketplace op gebruik gebaseerde kosten uitsplitsing per dag voor Hallo opgegeven facturering periode of begin- en einddatums (één keer kosten zijn niet opgenomen).
 
 ##<a name="request"></a>Aanvraag 
-Algemene Kopteksteigenschappen voor die moeten worden toegevoegd, zijn opgegeven [hier](billing-enterprise-api.md). Als een factureringsperiode niet is opgegeven, wordt de gegevens voor de huidige factureringsperiode geretourneerd. Aangepaste tijdsbereik kunnen worden opgegeven met het begin en einde datumparameters die zich in de indeling JJJJ-MM-dd, is het maximum aantal ondersteunde tijdsbereik 36 maanden.  
+Algemene Kopteksteigenschappen voor die toobe toegevoegd moeten zijn opgegeven [hier](billing-enterprise-api.md). Als een factureringsperiode niet is opgegeven, klikt u vervolgens gegevens voor de huidige facturering Hallo periode geretourneerd. Aangepaste tijdsbereik kunnen worden opgegeven met Hallo gestart en datumparameters die tijdig Hallo indeling JJJJ-MM-dd Hallo maximale ondersteund bereik 36 maanden is eindigen.  
 
 |Methode | Aanvraag-URI|
 |-|-|
@@ -35,7 +35,7 @@ Algemene Kopteksteigenschappen voor die moeten worden toegevoegd, zijn opgegeven
 |TOEVOEGEN|https://consumption.Azure.com/v2/enrollments/ {enrollmentNumber} / marketplacechargesbycustomdate? startTime = 01-01-2017 & endTime = 2017-01-10|
 
 > [!Note]
-> Voor het gebruik van de preview-versie van de API v1 in de bovenstaande URL vervangen v2.
+> toouse hello preview-versie van de API, v2 vervangen door v1 in Hallo bovenstaande URL.
 >
 
 ## <a name="response"></a>Antwoord
@@ -76,29 +76,29 @@ Algemene Kopteksteigenschappen voor die moeten worden toegevoegd, zijn opgegeven
 
 |De naam van eigenschap| Type| Beschrijving
 |-|-|-|
-|id|Tekenreeks|Unieke Id voor de marketplace-kosten-item|
-|subscriptionGuid|GUID|De abonnement-Guid|
-|SubscriptionName|Tekenreeks|Naam van het abonnement|
-|meterId|Tekenreeks|ID voor de Meter verzonden|
-|usageStartDate|Datum/tijd|De begintijd voor de record gebruik|
-|usageEndDate|Datum/tijd|De eindtijd voor de record gebruik|
-|offerName|Tekenreeks|De naam van de aanbieding|
-|resourceGroup|Tekenreeks|De resource-groep|
+|id|Tekenreeks|Unieke Id voor Hallo marketplace-kosten item|
+|subscriptionGuid|GUID|Hallo abonnement-Guid|
+|SubscriptionName|Tekenreeks|Hallo naam abonnement|
+|meterId|Tekenreeks|ID voor Hallo verzonden Meter|
+|usageStartDate|Datum/tijd|De begintijd voor Hallo gebruik record|
+|usageEndDate|Datum/tijd|Eindtijd van de Hallo gebruik record|
+|offerName|Tekenreeks|de naam van de aanbieding Hallo|
+|resourceGroup|Tekenreeks|Hallo resource groep|
 |Exemplaar-id|Tekenreeks|Exemplaar-Id|
 |aanvullende informatie|Tekenreeks|Aanvullende informatie JSON-tekenreeks|
 |tags|Tekenreeks|Tag JSON-tekenreeks|
-|orderNumber|Tekenreeks|Het nummer van de|
-|unitOfMeasure|Tekenreeks|Eenheid voor de meter|
-|CostCenter|Tekenreeks|De kostenplaats|
-|accountId|int|De account-Id|
-|Accountnaam|Tekenreeks |De accountnaam|
-|accountOwnerId|Tekenreeks|De Account eigenaar-Id|
-|DepartmentID gemeenschappelijk hebben|int|De Id van de afdeling|
-|DepartmentName|Tekenreeks|Naam van de afdeling|
-|publisherName|Tekenreeks|Naam van de uitgever|
-|planName|Tekenreeks|Naam van het abonnement|
+|orderNumber|Tekenreeks|Hallo volgordenummer|
+|unitOfMeasure|Tekenreeks|Eenheid voor Hallo meter|
+|CostCenter|Tekenreeks|Hallo kosten center|
+|accountId|int|Hallo account-Id|
+|Accountnaam|Tekenreeks |Hallo-accountnaam|
+|accountOwnerId|Tekenreeks|Hallo Account eigenaar-Id|
+|DepartmentID gemeenschappelijk hebben|int|Hallo afdeling Id|
+|DepartmentName|Tekenreeks|de naam van de afdeling Hallo|
+|publisherName|Tekenreeks|naam van de uitgever Hallo|
+|planName|Tekenreeks|de naam van de Hallo-abonnement|
 |consumedQuantity|Decimale|Verbruikt aantal tijdens deze periode|
-|resourceRate|Decimale|Prijs per eenheid voor de meter|
+|resourceRate|Decimale|Prijs per eenheid voor Hallo meter|
 |extendedCost|Decimale|Geschatte kosten op basis van de hoeveelheid verbruikte en Extended kosten|
 <br/>
 ## <a name="see-also"></a>Zie ook

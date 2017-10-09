@@ -1,16 +1,16 @@
-### <a name="to-add-additional-address-space"></a>Extra adresruimte toevoegen
+### <a name="tooadd-additional-address-space"></a>de extra adresruimte tooadd
 
-1. Als u extra adresruimte wilt toevoegen, gaat u naar de sectie **Instellingen** op de pagina van het virtuele netwerk en klikt u op **Adresruimte** om de gelijknamige pagina te openen.
-2. Voeg de extra adresruimte toe en klik vervolgens boven aan de pagina op **Opslaan**.
+1. tooadd extra adresruimte, onder Hallo **instellingen** sectie op de pagina virtuele netwerk, klikt u op **adresruimte** pagina ruimte tooopen Hallo-adres.
+2. Hallo extra adresruimte toevoegen en klik vervolgens op **opslaan** bovenaan Hallo Hallo pagina.
 
   ![Adresruimte toevoegen](./media/vpn-gateway-additional-address-space-include/address_space.png)
 
-### <a name="to-create-additional-subnets"></a>Extra subnetten maken
+### <a name="toocreate-additional-subnets"></a>toocreate extra subnetten
 
-1. Als u subnetten wilt maken, gaat u naar de sectie **Instellingen** op de pagina van het virtuele netwerk en klikt u op **Subnetten** om de**** gelijknamige pagina te openen. 
-2. Klik op de pagina Subnetten op **+Subnet** om de pagina **Subnet toevoegen** te openen. Geef uw subnet een naam en geef het adresbereik op.
+1. toocreate subnetten, in Hallo **instellingen** gedeelte van uw virtuele netwerk pagina, klikt u op **subnetten** tooopen hello **subnetten** pagina. 
+2. Klik op Hallo subnetten pagina op **+ Subnet** tooopen hello **subnet toevoegen** pagina. Uw nieuwe subnet een naam en geef Hallo-adresbereik.
 
   ![Subnetinstellingen](./media/vpn-gateway-additional-address-space-include/add_subnet.png)
-3. Klik onder aan de pagina op **OK** om de wijzigingen op te slaan.
+3. Klik op toosave uw wijzigingen **OK** Hallo Hallo pagina onderaan in.
 
   ![Subnetinstellingen](./media/vpn-gateway-additional-address-space-include/ok.png)

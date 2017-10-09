@@ -1,6 +1,6 @@
 ---
-title: Autorisatiebeleid voor inhoudssleutels configureren met REST - Azure | Microsoft Docs
-description: Informatie over het configureren van een verificatiebeleid voor een inhoudssleutel met Media Services REST-API.
+title: aaaConfigure autorisatiebeleid voor inhoudssleutels met REST - Azure | Microsoft Docs
+description: Meer informatie over hoe tooconfigure een verificatiebeleid voor een inhoudssleutel met Media Services REST-API.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako
-ms.openlocfilehash: ed20fca35070c190bb63925d0a57cf919bcdd96c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c058b7682bcbfb736faba18ec7fce33f2f2acb49
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Dynamische versleuteling: autorisatiebeleid voor Inhoudssleutels configureren
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Overzicht
-Microsoft Azure Media Services kunt u uw inhoud (dynamisch) worden versleuteld met Advanced Encryption Standard (AES) (met behulp van 128-bits coderingssleutels) en PlayReady of Widevine DRM leveren. Media Services biedt ook een service voor het leveren van sleutels en PlayReady/Widevine-licenties naar geautoriseerde clients.
+Microsoft Azure Media Services kunt u toodeliver uw inhoud (dynamisch) worden versleuteld met Advanced Encryption Standard (AES) (met behulp van 128-bits coderingssleutels) en PlayReady of Widevine DRM. Media Services biedt ook een service voor het leveren van sleutels en PlayReady/Widevine-licenties tooauthorized clients.
 
-Als u voor Media Services wilt voor het versleutelen van een asset, moet u een versleutelingssleutel koppelen (**CommonEncryption** of **EnvelopeEncryption**) aan de asset (zoals beschreven [hier](media-services-rest-create-contentkey.md)) en het autorisatiebeleid voor de sleutel ook configureren (zoals beschreven in dit artikel).
+Als u voor Media Services tooencrypt een asset wilt, moet u een versleutelingssleutel tooassociate (**CommonEncryption** of **EnvelopeEncryption**) aan Hallo asset (zoals beschreven [hier](media-services-rest-create-contentkey.md)) en ook configureren autorisatiebeleid voor Hallo-sleutel (zoals beschreven in dit artikel).
 
-Wanneer een stream is aangevraagd door een speler, gebruikt Media Services de opgegeven sleutel voor het dynamisch versleutelen van uw inhoud met behulp van AES of PlayReady-versleuteling. Voor het ontsleutelen van de stroom, Windows media player vraagt om de sleutel van de service sleutellevering. De service beoordeelt om te bepalen of de gebruiker is gemachtigd om op te halen van de sleutel, de autorisatie-beleidsregels die u hebt opgegeven voor de sleutel.
+Wanneer een stream is aangevraagd door een speler, Media Services gebruikt Hallo opgegeven sleutel toodynamically versleutelen van uw inhoud met behulp van AES of PlayReady-versleuteling. toodecrypt hello stream, Hallo player vraagt de Hallo sleutel van Hallo sleutellevering-service. toodecide of Hallo gebruiker is gemachtigd tooget Hallo sleutel, Hallo service beoordeelt Hallo autorisatiebeleid die u hebt opgegeven voor Hallo-sleutel.
 
-Media Services ondersteunt meerdere manieren om gebruikers te verifiëren die sleutels aanvragen. Het autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen hebben: **openen** of **token** beperking. Het beleid met de tokenbeperking moet vergezeld gaan van een token dat is uitgegeven door Secure Token Service (STS). Media Services ondersteunt tokens in de **Simple Web Tokens** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) indeling en ** JSON Web Token **(JWT)-indeling.
+Media Services ondersteunt meerdere manieren om gebruikers te verifiëren die sleutels aanvragen. Hallo autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen hebben: **openen** of **token** beperking. Hallo token beleid voor de beperkte vergezeld van een token dat is uitgegeven door een Secure Token Service (STS). Media Services ondersteunt tokens in Hallo **Simple Web Tokens** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) indeling en ** JSON Web Token **(JWT)-indeling.
 
-Media Services biedt geen Token Services beveiligen. U kunt een aangepaste STS maken of gebruikmaken van Microsoft Azure ACS voor het probleem van tokens. De STS moeten worden geconfigureerd voor het maken van een token dat is ondertekend met de opgegeven sleutel- en claims die u hebt opgegeven in de configuratie van de tokenbeperking (zoals beschreven in dit artikel). De sleutellevering van Media Services wordt de versleutelingssleutel geretourneerd naar de client als het token geldig is en de claims in het token overeenkomen met die zijn geconfigureerd voor de inhoudssleutel.
+Media Services biedt geen Token Services beveiligen. U kunt een aangepaste STS maken of gebruikmaken van Microsoft Azure ACS tooissue tokens. Hallo STS moet geconfigureerde toocreate token van een ondertekend met de opgegeven sleutel Hallo en claims uitgeven dat u hebt opgegeven in configuratie van de tokenbeperking hello (zoals beschreven in dit artikel). Hallo retourneert Media Services sleutellevering-service Hallo encryption key toohello client als Hallo token geldig is en hello claims in Hallo token overeenkomen met die zijn geconfigureerd voor de inhoudssleutel Hallo.
 
 Zie voor meer informatie
 
@@ -40,31 +40,31 @@ Zie voor meer informatie
 
 [Azure Media Services OWIN MVC op basis van app integreren met Azure Active Directory en beperken van de belangrijkste inhouddistributie op basis van claims JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-[Azure ACS gebruiken voor het probleem van tokens](http://mingfeiy.com/acs-with-key-services).
+[Gebruik Azure ACS tooissue tokens](http://mingfeiy.com/acs-with-key-services).
 
 ### <a name="some-considerations-apply"></a>Hierbij geldt het volgende:
-* Als u dynamische pakketten en dynamische versleuteling gebruiken, zorg ervoor dat het streaming-eindpunt van waaruit u wilt de inhoud streamen is in de **met** status.
+* toobe kunnen toouse dynamische pakketten en dynamische versleuteling, zorg ervoor dat Hallo streaming-eindpunt van waaruit u wilt dat toostream uw inhoud wordt Hallo **met** status.
 * Uw asset moet een set adaptive bitrate MP4s of adaptive bitrate Smooth Streaming-bestanden bevatten. Zie voor meer informatie [een asset coderen](media-services-encode-asset.md).
 * Uploaden en uw met behulp van assets coderen **AssetCreationOptions.StorageEncrypted** optie.
-* Als u van plan bent om meerdere inhoudssleutels waarvoor de dezelfde configuratie van beleid, moet het is raadzaam een enkel verificatiebeleid maken en deze opnieuw te gebruiken met meerdere inhoudssleutels.
-* De service voor het leveren van de sleutel in de cache opgeslagen ContentKeyAuthorizationPolicy en de verwante objecten (beleidsopties en beperkingen) gedurende 15 minuten.  Als u een ContentKeyAuthorizationPolicy maken en geef voor het gebruik van een '' tokenbeperking, test deze, en werk vervolgens het beleid op 'Open' beperking, duurt het ongeveer 15 minuten voordat het beleid wordt overgeschakeld naar de 'Geopende' versie van het beleid.
+* Als u van plan toohave bent meerdere inhoudssleutels waarvoor dezelfde Hallo-beleidsconfiguratie, het wordt ten zeerste aanbevolen toocreate een enkel verificatiebeleid en het opnieuw te gebruiken met meerdere inhoudssleutels.
+* Hallo service voor het leveren van de sleutel in de cache opgeslagen ContentKeyAuthorizationPolicy en de verwante objecten (beleidsopties en beperkingen) gedurende 15 minuten.  Als u een ContentKeyAuthorizationPolicy maakt en toouse '' tokenbeperking opgeven en vervolgens testen en werk vervolgens Hallo beleid te 'Open' beperking, duurt het ongeveer 15 minuten voordat Hallo beleid switches toohello 'Open' versie van Hallo-beleid.
 * Als u het leveringsbeleid voor uw asset toevoegt of bijwerkt, moet u een bestaande locator (indien aanwezig) verwijderen en een nieuwe locator maken.
 * U kunt progressief downloaden op dit moment niet coderen.
 
 ## <a name="aes-128-dynamic-encryption"></a>Dynamische AES-128-versleuteling
 > [!NOTE]
-> Als u werkt met de REST-API van Media Services, past u de volgende overwegingen:
+> Bij het werken met Media Services REST API, Hallo Hallo letten volgende:
 > 
 > Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie [Setup voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md).
 > 
-> Na het correct verbinding maakt met https://media.windows.net, ontvangt u een 301 omleiding opgeven van een andere URI van de Media Services. U moet de volgende aanroepen naar de nieuwe URI. Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
+> Nadat de verbinding tot stand toohttps://media.windows.net, ontvangt u een 301 omleiding opgeven van een andere URI van de Media Services. U moet de volgende aanroepen toohello ervoor nieuwe URI. Voor informatie over hoe tooconnect toohello AMS API, Zie [toegang hello Azure Media Services-API met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
 > 
 > 
 
 ### <a name="open-restriction"></a>Open beperking
-Open beperking betekent dat het systeem levert de sleutel voor iedereen die een sleutel aanvraag indient. Deze beperking kan handig zijn voor testdoeleinden.
+Open beperking betekent Hallo system levert sleutel tooanyone Hallo die sleutels aanvragen. Deze beperking kan handig zijn voor testdoeleinden.
 
-Het volgende voorbeeld maakt een open autorisatiebeleid en voegt het toe aan de inhoudssleutel.
+Hallo volgende voorbeeld maakt u een open autorisatiebeleid en toohello inhoudssleutel toegevoegd.
 
 #### <a id="ContentKeyAuthorizationPolicies"></a>ContentKeyAuthorizationPolicies maken
 Aanvraag:
@@ -159,7 +159,7 @@ Antwoord:
 
     HTTP/1.1 204 No Content
 
-#### <a id="AddAuthorizationPolicyToKey"></a>Autorisatiebeleid toevoegen aan de inhoudssleutel
+#### <a id="AddAuthorizationPolicyToKey"></a>Autorisatie beleid toohello inhoudssleutel toevoegen
 Aanvraag:
 
     PUT https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A2e6d36a7-a17c-4e9a-830d-eca23ad1a6f9') HTTP/1.1
@@ -181,9 +181,9 @@ Antwoord:
     HTTP/1.1 204 No Content
 
 ### <a name="token-restriction"></a>Tokenbeperking
-Deze sectie wordt beschreven hoe een autorisatiebeleid voor inhoudssleutels maken en deze koppelen aan de inhoudssleutel. Het verificatiebeleid wordt beschreven welke autorisatievereisten moeten worden voldaan om te bepalen of de gebruiker is gemachtigd voor het ontvangen van de sleutel (heeft bijvoorbeeld de lijst 'verificatie sleutel' bevatten de sleutel die het token is ondertekend met).
+Deze sectie beschrijft hoe een inhoud toocreate autorisatiebeleid voor de sleutel en deze koppelen aan Hallo inhoudssleutel. Hallo-autorisatiebeleid wordt beschreven welke autorisatievereisten moet voldaan toodetermine als Hallo gebruiker geautoriseerde tooreceive Hallo sleutel (bijvoorbeeld Hallo 'verificatie sleutel' lijst bevat Hallo sleutel dat Hallo-token is ondertekend met).
 
-Voor het configureren van de tokenbeperking-optie, moet u een XML-tekenreeks gebruiken om te beschrijven van autorisatievereisten van het token. De configuratie-XML van de tokenbeperking moet voldoen aan de volgende XML-schema.
+tooconfigure hello tokenbeperking optie, moet u een XML-toouse autorisatievereisten toodescribe Hallo token. Hallo tokenbeperking configuratie-XML moet voldoen toohello XML-schema te volgen.
 
 #### <a id="schema"></a>Tokenbeperking schema
     <?xml version="1.0" encoding="utf-8"?>
@@ -233,12 +233,12 @@ Voor het configureren van de tokenbeperking-optie, moet u een XML-tekenreeks geb
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-Bij het configureren van de **token** beperkt beleid, moet u de primaire ** verificatie sleutel **, **verlener** en **doelgroep** parameters. De ** verificatie van de primaire sleutel ** bevat de sleutel die het token is ondertekend, **verlener** is de secure token service die de token uitgeeft. De **doelgroep** (ook wel genoemd **bereik**) beschrijft de intentie van het token of de resource die is gemachtigd voor toegang tot het token. De Media Services-service sleutellevering valideert dat deze waarden in het token overeenkomen met de waarden in de sjabloon. 
+Bij het configureren van Hallo **token** beperkt beleid, moet u Hallo primaire ** verificatie sleutel **, **verlener** en **doelgroep** parameters. Hallo ** verificatie van de primaire sleutel ** bevat Hallo-sleutel die Hallo token is ondertekend, **verlener** Hallo secure token-service is dat problemen Hallo-token. Hallo **doelgroep** (wel **bereik**) beschrijft Hallo bedoeling van Hallo token of Hallo resource Hallo token gemachtigd voor toegang tot. Hallo Media Services-service voor sleutellevering valideert dat deze waarden in Hallo token Hallo-waarden in de sjabloon Hallo overeenkomen. 
 
-Het volgende voorbeeld wordt een verificatiebeleid met een beperking van de token. In dit voorbeeld wordt de client zou moeten een token dat bevat aanwezig: ondertekening sleutel (VerificationKey), de uitgever van een token en vereiste claims.
+een autorisatiebeleid maakt Hallo volgende voorbeeld met een beperking van de token. In dit voorbeeld Hallo client zou hebben toopresent een token dat bevat: ondertekening sleutel (VerificationKey), de uitgever van een token en vereiste claims.
 
 ### <a name="create-contentkeyauthorizationpolicies"></a>ContentKeyAuthorizationPolicies maken
-'Token restrictiebeleid' maken, zoals [hier](#ContentKeyAuthorizationPolicies).
+Hallo 'Token restrictiebeleid' maken, zoals [hier](#ContentKeyAuthorizationPolicies).
 
 ### <a name="create-contentkeyauthorizationpolicyoptions"></a>ContentKeyAuthorizationPolicyOptions maken
 Aanvraag:
@@ -279,18 +279,18 @@ Antwoord:
 #### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Koppeling ContentKeyAuthorizationPolicies met opties
 Koppeling ContentKeyAuthorizationPolicies met opties, zoals [hier](#ContentKeyAuthorizationPolicies).
 
-#### <a name="add-authorization-policy-to-the-content-key"></a>Autorisatiebeleid toevoegen aan de inhoudssleutel
-Voeg AuthorizationPolicy toe aan de ContentKey zoals [hier](#AddAuthorizationPolicyToKey).
+#### <a name="add-authorization-policy-toohello-content-key"></a>Autorisatie beleid toohello inhoudssleutel toevoegen
+AuthorizationPolicy toohello ContentKey toevoegen zoals [hier](#AddAuthorizationPolicyToKey).
 
 ## <a name="playready-dynamic-encryption"></a>Dynamische PlayReady-versleuteling
-Media Services kunt u voor het configureren van de rechten en beperkingen die u voor de runtime PlayReady DRM afdwingen wilt wanneer een gebruiker probeert te beveiligde inhoud af te spelen. 
+U kunt Media Services tooconfigure Hallo rechten en beperkingen dat u voor Hallo PlayReady DRM runtime tooenforce wilt wanneer een gebruiker probeert tooplay terug beveiligde inhoud. 
 
-Bij het beveiligen van uw inhoud met PlayReady een van de dingen die u wilt opgeven in het autorisatiebeleid is een XML-tekenreeks die definieert de [PlayReady-licentiesjabloon](media-services-playready-license-template-overview.md). 
+Bij het beveiligen van uw inhoud met PlayReady Hallo-bewerkingen moet u toospecify in uw verificatiebeleid is een XML-tekenreeks die Hallo definieert [PlayReady-licentiesjabloon](media-services-playready-license-template-overview.md). 
 
 ### <a name="open-restriction"></a>Open beperking
-Open beperking betekent dat het systeem levert de sleutel voor iedereen die een sleutel aanvraag indient. Deze beperking kan handig zijn voor testdoeleinden.
+Open beperking betekent Hallo system levert sleutel tooanyone Hallo die sleutels aanvragen. Deze beperking kan handig zijn voor testdoeleinden.
 
-Het volgende voorbeeld maakt een open autorisatiebeleid en voegt het toe aan de inhoudssleutel.
+Hallo volgende voorbeeld maakt u een open autorisatiebeleid en toohello inhoudssleutel toegevoegd.
 
 #### <a id="ContentKeyAuthorizationPolicies2"></a>ContentKeyAuthorizationPolicies maken
 Aanvraag:
@@ -368,11 +368,11 @@ Antwoord:
 #### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Koppeling ContentKeyAuthorizationPolicies met opties
 Koppeling ContentKeyAuthorizationPolicies met opties, zoals [hier](#ContentKeyAuthorizationPolicies).
 
-#### <a name="add-authorization-policy-to-the-content-key"></a>Autorisatiebeleid toevoegen aan de inhoudssleutel
-Voeg AuthorizationPolicy toe aan de ContentKey zoals [hier](#AddAuthorizationPolicyToKey).
+#### <a name="add-authorization-policy-toohello-content-key"></a>Autorisatie beleid toohello inhoudssleutel toevoegen
+AuthorizationPolicy toohello ContentKey toevoegen zoals [hier](#AddAuthorizationPolicyToKey).
 
 ### <a name="token-restriction"></a>Tokenbeperking
-Voor het configureren van de tokenbeperking-optie, moet u een XML-tekenreeks gebruiken om te beschrijven van autorisatievereisten van het token. De XML aan het XML-schema wordt weergegeven voldoen moet in configuratie van de tokenbeperking [dit](#schema) sectie.
+tooconfigure hello tokenbeperking optie, moet u een XML-toouse autorisatievereisten toodescribe Hallo token. Hallo tokenbeperking configuratie-XML toohello XML-schema wordt weergegeven in moet voldoen [dit](#schema) sectie.
 
 #### <a name="create-contentkeyauthorizationpolicies"></a>ContentKeyAuthorizationPolicies maken
 ContentKeyAuthorizationPolicies maken zoals [hier](#ContentKeyAuthorizationPolicies2).
@@ -416,8 +416,8 @@ Antwoord:
 #### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Koppeling ContentKeyAuthorizationPolicies met opties
 Koppeling ContentKeyAuthorizationPolicies met opties, zoals [hier](#ContentKeyAuthorizationPolicies).
 
-#### <a name="add-authorization-policy-to-the-content-key"></a>Autorisatiebeleid toevoegen aan de inhoudssleutel
-Voeg AuthorizationPolicy toe aan de ContentKey zoals [hier](#AddAuthorizationPolicyToKey).
+#### <a name="add-authorization-policy-toohello-content-key"></a>Autorisatie beleid toohello inhoudssleutel toevoegen
+AuthorizationPolicy toohello ContentKey toevoegen zoals [hier](#AddAuthorizationPolicyToKey).
 
 ## <a id="types"></a>Typen die worden gebruikt bij het definiëren van ContentKeyAuthorizationPolicy
 ### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
@@ -445,5 +445,5 @@ Voeg AuthorizationPolicy toe aan de ContentKey zoals [hier](#AddAuthorizationPol
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u de inhoudssleutel autorisatiebeleid hebt geconfigureerd, gaat u naar de [leveringsbeleid voor Assets configureren](media-services-rest-configure-asset-delivery-policy.md) onderwerp.
+Nu dat u de inhoudssleutel autorisatiebeleid hebt geconfigureerd, gaat u toohello [hoe tooconfigure-leveringsbeleid voor Assets](media-services-rest-configure-asset-delivery-policy.md) onderwerp.
 

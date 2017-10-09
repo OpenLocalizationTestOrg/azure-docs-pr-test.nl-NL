@@ -1,5 +1,5 @@
 ---
-title: 'Azure PowerShell-Script voorbeeld: een web-app handmatig schalen | Microsoft Docs'
+title: PowerShell-voorbeeldscript - aaaAzure een web-app handmatig schalen | Microsoft Docs
 description: 'Azure PowerShell-Script voorbeeld: een web-app handmatig schalen'
 services: app-service\web
 documentationcenter: 
@@ -16,25 +16,25 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: e99dfc02b6ab4123cd5f95997285dca5cb686380
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c749031fbe6c6bcbb25395387b4f32b2ba75cef4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scale-a-web-app-manually"></a>Een web-app handmatig schalen
 
-In dit scenario leert u een resourcegroep, de app service-plan en web-app maakt. U wordt vervolgens de schaal de App Service-abonnement van één exemplaar naar meerdere exemplaren.
+In dit scenario leert u een resourcegroep toocreate app service-plan en web-app. U wordt vervolgens Hallo App Service-Plan van een enkele instantie toomultiple exemplaren te schalen.
 
-Installeer zo nodig de Azure PowerShell met de instructie gevonden in de [Azure PowerShell handleiding](/powershell/azure/overview), en voer vervolgens `Login-AzureRmAccount` geen verbinding maken met Azure.
+Installeer zo nodig hello Azure PowerShell met de instructie Hallo in Hallo gevonden [Azure PowerShell handleiding](/powershell/azure/overview), en voer vervolgens `Login-AzureRmAccount` toocreate een verbinding met Azure.
 
 ## <a name="sample-script"></a>Voorbeeld van een script
 
-[!code-powershell[belangrijkste](../../../powershell_scripts/app-service/scale-manual/scale-manual.ps1 "handmatig schalen van een web-app")]
+[!code-powershell[main](../../../powershell_scripts/app-service/scale-manual/scale-manual.ps1 "Scale a web app manually")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie 
 
-Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om de resourcegroep, web-app en alle gerelateerde resources te verwijderen.
+Na het uitvoeren van het voorbeeldscript Hallo mag na de opdracht Hallo gebruikte tooremove Hallo-resourcegroep, web-app en alle gerelateerde resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -42,7 +42,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="script-explanation"></a>Script uitleg
 
-Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+Dit script maakt gebruik van Hallo opdrachten te volgen. Elke opdracht in Hallo tabel koppelingen toocommand specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
@@ -53,6 +53,6 @@ Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel i
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure PowerShell-module [documentatie van Azure PowerShell](/powershell/azure/overview).
+Zie voor meer informatie over hello Azure PowerShell-module [documentatie van Azure PowerShell](/powershell/azure/overview).
 
-Aanvullende voorbeelden van de Azure Powershell voor Azure App Service Web Apps kunnen worden gevonden in de [voorbeelden van Azure PowerShell](../app-service-powershell-samples.md).
+Aanvullende voorbeelden van de Azure Powershell voor Azure App Service Web Apps kunnen worden gevonden in Hallo [voorbeelden van Azure PowerShell](../app-service-powershell-samples.md).

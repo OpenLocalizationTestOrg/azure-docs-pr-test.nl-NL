@@ -1,80 +1,80 @@
-### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>TCP-poorten in de Windows-firewall openen voor het standaardexemplaar van de database-engine
-1. Maak verbinding met de virtuele machine via Extern bureaublad. Zie [De virtuele machine openen via Extern bureaublad](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop) voor gedetailleerde instructies voor het verbinden met de virtuele machine.
-2. Nadat u bent aangemeld, typt u **WF.msc** op het startscherm en drukt u op ENTER.
+### <a name="open-tcp-ports-in-hello-windows-firewall-for-hello-default-instance-of-hello-database-engine"></a>TCP-poorten openen in Hallo Windows firewall voor het standaardexemplaar Hallo Hallo Database-Engine
+1. Toohello virtuele machine verbinding met extern bureaublad. Zie voor gedetailleerde instructies voor het verbinden van toohello VM [een VM SQL met extern bureaublad openen](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
+2. Zodra aangemeld, op het startscherm hello, typ **WF.msc**, en druk op ENTER.
    
-    ![Het firewallprogramma starten](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
-3. Open **Windows Firewall met geavanceerde beveiliging**, klik in het linkerdeelvenster met de rechtermuisknop op **Regels voor binnenkomende verkeer** en klik vervolgens in het actievenster op **Nieuwe regel**.
+    ![Hallo firewallprogramma starten](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
+3. In Hallo **Windows Firewall met geavanceerde beveiliging**, in linkerdeelvenster hello, met de rechtermuisknop op **regels voor binnenkomende verbindingen**, en klik vervolgens op **nieuwe regel** in het actievenster Hallo.
    
     ![Nieuwe regel](./media/virtual-machines-sql-server-connection-steps/13New-FW-Rule.png)
-4. In het dialoogvenster **Wizard Nieuwe regel voor binnenkomende verbindingen** selecteert u **Poort** onder **Regeltype**. Klik vervolgens op **Volgende**.
-5. Gebruik in het dialoogvenster **Protocol en poorten** de standaardinstelling **TCP**. Typ in het vak **Specifieke lokale poorten** het poortnummer van het exemplaar van de database-engine (**1433** voor het standaardexemplaar of uw waarde voor de particuliere poort in de eindpuntstap).
+4. In Hallo **nieuwe Wizard regel voor binnenkomende** dialoogvenster onder **regeltype**, selecteer **poort**, en klik vervolgens op **volgende**.
+5. In Hallo **protocollen en poorten** dialoogvenster, de standaard hello gebruiken **TCP**. In Hallo **specifieke lokale poorten** vak en klik vervolgens type Hallo poortnummer van Hallo exemplaar van Database-Engine hello (**1433** voor Hallo-standaardexemplaar of uw keuze voor Hallo particuliere poort in Hallo eindpunt stap).
    
     ![TCP-poort 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
 6. Klik op **Volgende**.
-7. Selecteer **De verbinding toestaan** in het dialoogvenster **Actie** en klik vervolgens op **Volgende**.
+7. In Hallo **actie** dialoogvenster, **Hallo verbinding toestaan**, en klik vervolgens op **volgende**.
    
-    **Opmerking over de beveiliging:** de optie **De verbinding toestaan als deze veilig is** kan extra beveiliging bieden. Selecteer deze optie als u aanvullende beveiligingsopties wilt configureren in uw omgeving.
+    **Opmerking over beveiliging:** Selecting **Hallo verbinding toestaan als het is veilig** kan bijkomende beveiliging bieden. Selecteer deze optie als u wilt dat de extra beveiligingsopties tooconfigure in uw omgeving.
    
     ![Verbindingen toestaan](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
-8. Selecteer **Openbaar**, **Particulier**, en **Domein** in het dialoogvenster **Profiel**. Klik op **Volgende**.
+8. In Hallo **profiel** dialoogvenster, **openbare**, **persoonlijke**, en **domein**. Klik op **Volgende**.
    
-    **Opmerking over de beveiliging:** de optie **Openbaar** biedt toegang via internet. Selecteer een meer beperkend profiel indien mogelijk.
+    **Opmerking over beveiliging:** Selecting **openbare** kan toegang via internet Hallo. Selecteer een meer beperkend profiel indien mogelijk.
    
     ![Openbaar profiel](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
-9. Typ een naam en beschrijving voor deze regel in het dialoogvenster **Naam** en klik vervolgens op **Voltooien**.
+9. In Hallo **naam** in het dialoogvenster Typ een naam en beschrijving voor deze regel en klik vervolgens op **voltooien**.
    
     ![Regelnaam](./media/virtual-machines-sql-server-connection-steps/17Rule-Name.png)
 
-Open naar behoefte aanvullende poorten voor andere onderdelen. Zie [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/library/cc646023.aspx) (De Windows-firewall configureren voor toegang tot SQL Server) voor meer informatie.
+Open naar behoefte aanvullende poorten voor andere onderdelen. Zie voor meer informatie [Hallo Windows Firewall tooAllow toegang tot de SQL-Server configureren](http://msdn.microsoft.com/library/cc646023.aspx).
 
-### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>SQL Server configureren om te luisteren naar het TCP-protocol
+### <a name="configure-sql-server-toolisten-on-hello-tcp-protocol"></a>Configureren van SQL Server-toolisten op Hallo TCP-protocol
 
 [!INCLUDE [Enable TCP](virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ### <a name="configure-sql-server-for-mixed-mode-authentication"></a>SQL Server configureren voor verificatie in gemengde modus
-De database-engine van SQL Server kan Windows-verificatie niet gebruiken zonder domeinomgeving. Als u vanaf een andere computer verbinding wilt maken met de database-engine, moet u SQL Server configureren voor verificatie in gemengde modus. Verificatie in gemengde modus maakt zowel SQL Server-verificatie als Windows-verificatie mogelijk.
+Hallo SQL Server Database Engine kan geen Windows-verificatie gebruiken zonder domeinomgeving. SQL Server tooconnect toohello Database-Engine vanaf een andere computer configureren voor verificatie in gemengde modus. Verificatie in gemengde modus maakt zowel SQL Server-verificatie als Windows-verificatie mogelijk.
 
 > [!NOTE]
 > U hoeft verificatie in gemengde modus mogelijk niet te configureren als u een virtueel netwerk van Azure hebt ingesteld met een geconfigureerde domeinomgeving.
 > 
 > 
 
-1. Terwijl u verbinding hebt met de virtuele machine, typt u **SQL Server Management Studio** op de startpagina en klikt u op het geselecteerde pictogram.
+1. Tijdens het verbonden toohello virtuele machine op de startpagina hello, typ **SQL Server Management Studio** en klik op de geselecteerde pictogram Hallo.
    
-    Wanneer u Management Studio voor het eerst opent, moet de gebruikersomgeving van Management Studio worden gemaakt. Dit kan even duren.
-2. Het dialoogvenster **Verbinding maken met server** in Management Studio wordt geopend. Typ de naam van de virtuele machine in het vak **Servernaam** om verbinding te maken met de database-engine via Objectverkenner. U kunt in plaats van de naam van de virtuele machine ook **(lokaal)** of een punt gebruiken als de **servernaam**. Selecteer **Windows-verificatie** en laat ***uw_VM_naam*\uw_lokale_beheerder** in het vak **Gebruikersnaam**. Klik op **Verbinden**.
+    Hallo eerste keer openen van Management Studio het Hallo gebruikers Management Studio omgeving moet maken. Dit kan even duren.
+2. Management Studio geeft Hallo **tooServer verbinding** in het dialoogvenster. In Hallo **servernaam** vak, Hallo-typenaam van Hallo virtuele machine tooconnect toohello Database-Engine Hello Object Explorer (in plaats van de naam van de virtuele machine Hallo ook u kunt **(lokaal)** of een enkele periode als Hallo **servernaam**). Selecteer **Windows-verificatie**, en laat  ***your_VM_name*\your_local_administrator** in Hallo **gebruikersnaam** vak. Klik op **Verbinden**.
    
-    ![Verbinding maken met server](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
-3. Klik in de SQL Server Management Studio-objectverkenner met de rechtermuisknop op de naam van het SQL Server-exemplaar (de naam van de virtuele machine) en klik vervolgens op **Eigenschappen**.
+    ![Verbinding maken met tooServer](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
+3. In SQL Server Management Studio Object Explorer met de rechtermuisknop op het Hallo-naam van het Hallo-exemplaar van SQL Server (Hallo virtuele machine-naam) en klik vervolgens op **eigenschappen**.
    
     ![Servereigenschappen](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
-4. Ga naar **Serververificatie** op de pagina **Beveiliging**, selecteer **SQL Server- en Windows-verificatiemodus** en klik vervolgens op **OK**.
+4. Op Hallo **beveiliging** pagina onder **serververificatie**, selecteer **modus van SQL Server en Windows-verificatie**, en klik vervolgens op **OK** .
    
     ![Verificatiemodus selecteren](./media/virtual-machines-sql-server-connection-steps/21Mixed-Mode.png)
-5. Klik in het dialoogvenster SQL Server Management Studio op **OK** om te erkennen dat SQL Server opnieuw moet worden gestart.
+5. Hallo SQL Server Management Studio in het dialoogvenster klikt u op **OK** tooacknowledge Hallo vereiste toorestart SQL Server.
 6. Klik in Objectverkenner met de rechtermuisknop op **Opnieuw starten**. (Als SQL Server Agent actief is, moet deze ook opnieuw worden gestart.)
    
     ![Opnieuw starten](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
-7. Klik in het dialoogvenster SQL Server Management Studio op **Ja** om te bevestigen dat u SQL Server opnieuw wilt starten.
+7. Hallo SQL Server Management Studio in het dialoogvenster klikt u op **Ja** tooagree dat u wilt dat toorestart SQL Server.
 
 ### <a name="create-sql-server-authentication-logins"></a>Aanmelding voor SQL Server-verificatie maken
-Als u vanaf een andere computer verbinding wilt maken met de database-engine, moet u ten minste één aanmelding voor SQL Server-verificatie maken.
+tooconnect toohello Database-Engine vanaf een andere computer, moet u ten minste één aanmelding voor SQL Server-verificatie.
 
-1. Open de SQL Server Management Studio-objectverkenner en breid de map uit van het serverexemplaar waarvoor u de nieuwe aanmelding wilt maken.
-2. Klik met de rechtermuisknop op de map **Beveiliging**, wijs **Nieuw** aan en selecteer **Aanmelding...**.
+1. Vouw in SQL Server Management Studio Object Explorer Hallo-map van Hallo server-exemplaar waarin wordt gezocht toocreate Hallo nieuwe aanmelding.
+2. Met de rechtermuisknop op Hallo **beveiliging** map, wijs te**nieuw**, en selecteer **aanmelding...** .
    
     ![Nieuwe aanmelding](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
-3. Het dialoogvenster **Aanmelding - nieuw** wordt geopend. Geef op de pagina **Algemeen** de naam van de nieuwe gebruiker op in het vak **Aanmeldingsnaam**.
+3. In Hallo **Login - nieuwe** op Hallo van het dialoogvenster **algemene** pagina, voert u Hallo-naam van de nieuwe gebruiker Hallo in Hallo **aanmeldingsnaam** vak.
 4. Selecteer **SQL Server-verificatie**.
-5. Geef in het vak **Wachtwoord** een wachtwoord op voor de nieuwe gebruiker. Typ dit wachtwoord opnieuw in het vak **Wachtwoord bevestigen**.
-6. Selecteer de vereiste opties voor het afdwingen van wachtwoorden (**Afdwingbeleid voor wachtwoorden**, **Vervaldatum afdwingbeleid** en **De gebruiker moet het wachtwoord bij de volgende aanmelding wijzigen**). Als u deze aanmelding zelf gebruikt, hoeft u niet te vereisen dat het wachtwoord bij de volgende aanmelding wordt gewijzigd.
-7. Selecteer een standaarddatabase voor de aanmelding in de lijst **Standaarddatabase**. **master** is de standaardwaarde voor deze optie. Als u nog geen gebruikersdatabase hebt gemaakt, laat u de instelling op **master**.
+5. In Hallo **wachtwoord** Voer een wachtwoord voor de nieuwe gebruiker Hallo. Dit wachtwoord opnieuw invoeren in Hallo **wachtwoord bevestigen** vak.
+6. Selecteer Hallo afdwinging wachtwoordopties vereist (**wachtwoordbeleid afdwingen**, **afdwingen Wachtwoordverlooptijd**, en **gebruiker moet wachtwoord bij volgende aanmelding wijzigen**). Als u van deze aanmelding voor uzelf gebruikmaakt, hoeft u geen toorequire een wachtwoord op Hallo volgende aanmelding wijzigen.
+7. Van Hallo **standaarddatabase** , selecteert u een standaarddatabase voor Hallo aanmelding. **master** Hallo standaardwaarde voor deze optie is. Als u een gebruikersdatabase nog geen hebt gemaakt, laat u deze set te**master**.
    
     ![Aanmeldingseigenschappen](./media/virtual-machines-sql-server-connection-steps/24Test-Login.png)
-8. Als dit de eerste aanmelding is die u maakt, kunt u deze aanwijzen als SQL Server-beheerder. Schakel hiervoor het selectievakje **sysadmin** in op de pagina **Serverrollen**.
+8. Als dit de eerste aanmelding Hallo die u maakt is, kunt u toodesignate deze aanmelding als een SQL Server-beheerder. Zo ja, op Hallo **serverfuncties** pagina selectievakje **sysadmin**.
    
    > [!NOTE]
-   > Gebruikers met de vaste serverrol sysadmin hebben volledige controle over de database-engine. Beperk deze rol daarom tot gebruikers die volledige controle nodig hebben.
+   > Leden van de vaste serverrol sysadmin voor Hallo hebben volledige controle over Hallo Database-Engine. Beperk deze rol daarom tot gebruikers die volledige controle nodig hebben.
    > 
    > 
    

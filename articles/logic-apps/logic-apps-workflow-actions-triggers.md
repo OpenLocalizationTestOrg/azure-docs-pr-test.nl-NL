@@ -1,5 +1,5 @@
 ---
-title: Werkstroomacties en triggers - Azure Logic Apps | Microsoft Docs
+title: aaaWorkflow acties en de triggers - Azure Logic Apps | Microsoft Docs
 description: 
 services: logic-apps
 author: MandiOhlinger
@@ -14,25 +14,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: bd3f1d225b974ebde889738bb435825658d1e1e0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 857927b7d7df3fc9cdc4931ffdb613efde0db9f9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="workflow-actions-and-triggers-for-azure-logic-apps"></a>Werkstroomacties en triggers voor Azure Logic Apps
 
-Logische apps bestaan uit het triggers en acties. Er zijn zes soorten triggers. Elk type heeft een andere interface en ander gedrag. U kunt ook meer informatie over andere gegevens door te kijken in de details van de [werkstroom Definition Language](logic-apps-workflow-definition-language.md).  
+Logische apps bestaan uit het triggers en acties. Er zijn zes soorten triggers. Elk type heeft een andere interface en ander gedrag. U kunt ook andere details leren door te kijken Hallo details van Hallo [werkstroom Definition Language](logic-apps-workflow-definition-language.md).  
   
-Lees verder voor meer informatie over triggers en acties en hoe u ze kunt gebruiken voor het bouwen van logic apps om uw bedrijfsprocessen en werkstromen te verbeteren.  
+Lees verder toolearn meer informatie over triggers en acties en hoe u kunt ze gebruiken toobuild logic apps tooimprove uw bedrijfsprocessen en werkstromen.  
   
 ### <a name="triggers"></a>Triggers  
 
-Een trigger geeft de oproepen die een uitvoering van uw logische app werkstroom kunnen initiëren. Hier volgen de twee verschillende manieren een uitvoering van uw werkstroom te starten:  
+Een trigger geeft Hallo-aanroepen die een uitvoering van uw logische app werkstroom kunnen initiëren. Hier volgen Hallo twee verschillende manieren tooinitiate een uitvoering van uw werkstroom:  
   
 -   Een polling-trigger  
 
--   Een push-signaal - door het aanroepen van de [REST-API van Workflow](https://docs.microsoft.com/rest/api/logic/workflows)  
+-   Een push-signaal - door de aanroepende Hallo [REST-API van Workflow](https://docs.microsoft.com/rest/api/logic/workflows)  
   
 Alle triggers bevatten deze op het hoogste niveau elementen:  
   
@@ -45,8 +45,8 @@ Alle triggers bevatten deze op het hoogste niveau elementen:
         "interval": "<recurrence interval in units of frequency>"
     },
     "conditions": [ <array-of-required-conditions > ],
-    "splitOn" : "<property to create runs for>",
-    "operationOptions": "<operation options on the trigger>"
+    "splitOn" : "<property toocreate runs for>",
+    "operationOptions": "<operation options on hello trigger>"
 }
 ```
 
@@ -54,22 +54,22 @@ Alle triggers bevatten deze op het hoogste niveau elementen:
 
 U kunt deze typen triggers:
   
--   **Aanvraag** \- de logische app maakt een eindpunt voor u aan te roepen  
+-   **Aanvraag** \- Hallo logische app maakt een eindpunt voor u toocall  
   
 -   **Terugkeerpatroon** \- deze gebeurtenis wordt gestart op basis van een gedefinieerde planning  
   
--   **HTTP** \- een HTTP-web-eindpunt worden opgevraagd. Het HTTP-eindpunt moet voldoen aan een specifieke activerende contract \- met behulp van een 202\-asynchrone patroon, of door te retourneren van een matrix  
+-   **HTTP** \- een HTTP-web-eindpunt worden opgevraagd. Hallo HTTP-eindpunt moet voldoen tooa specifieke activerende contract \- met behulp van een 202\-asynchrone patroon, of door te retourneren van een matrix  
   
--   **ApiConnection** \- Polls zoals HTTP is geactiveerd, maar deze wordt gebruikgemaakt van de [door Microsoft beheerde API's](https://docs.microsoft.com/azure/connectors/apis-list)  
+-   **ApiConnection** \- Polls zoals Hallo HTTP is geactiveerd, maar deze wordt gebruikgemaakt van Hallo [door Microsoft beheerde API's](https://docs.microsoft.com/azure/connectors/apis-list)  
   
--   **HTTPWebhook** \- opent een eindpunt, vergelijkbaar met de handmatige trigger echter ook roept uit met een opgegeven URL registreren en ongedaan maken  
+-   **HTTPWebhook** \- opent een eindpunt, vergelijkbare toohello handmatige worden geactiveerd, maar deze ook illustreert tooa opgegeven URL tooregister en ongedaan maken  
   
--   **ApiConnectionWebhook** \- werkt zoals de trigger HTTPWebhook door gebruik te maken van de API door Microsoft beheerd       
+-   **ApiConnectionWebhook** \- fungeert als HTTPWebhook trigger Hallo door gebruik te maken van Hallo door Microsoft beheerde API's       
     Elk triggertype heeft een andere set **invoer** het gedrag te definiëren.  
   
 ## <a name="request-trigger"></a>Aanvraag trigger  
 
-Deze trigger fungeert als een eindpunt dat u via een HTTP-aanvraag om aan te roepen uw logische app aanroepen. Een aanvraag-trigger ziet er in dit voorbeeld:  
+Deze trigger fungeert als een eindpunt dat u via een HTTP-aanvraag tooinvoke uw logische app aanroepen. Een aanvraag-trigger ziet er in dit voorbeeld:  
   
 ```json
 "<name-of-the-trigger>" : {
@@ -92,9 +92,9 @@ Er is ook een optionele eigenschap aangeroepen **schema**:
   
 |Elementnaam|Vereist|Beschrijving|  
 |----------------|------------|---------------|  
-|Schema|Nee|Een JSON-schema te valideren en de binnenkomende aanvraag. Handig voor het helpen werkstroomstappen van de volgende weten welke eigenschappen om te verwijzen.|
+|Schema|Nee|Een JSON-schema waarmee inkomende hello-aanvraag wordt gevalideerd. Is handig voor het volgende werkstroomstappen weten welke tooreference eigenschappen.|
 
-Om aan te roepen dit eindpunt, moet u aan te roepen de *listCallbackUrl* API. Zie [REST-API van werkstroom](https://docs.microsoft.com/rest/api/logic/workflows).  
+tooinvoke dit eindpunt, moet u toocall hello *listCallbackUrl* API. Zie [REST-API van werkstroom](https://docs.microsoft.com/rest/api/logic/workflows).  
   
 ## <a name="recurrence-trigger"></a>Terugkeerpatroon trigger  
 
@@ -110,16 +110,16 @@ Een terugkeerpatroon trigger is die wordt uitgevoerd op basis volgens een ingest
 }
 ```
 
-Zoals u ziet, is een eenvoudige manier voor het uitvoeren van een werkstroom.  
+Zoals u ziet, is een eenvoudige manier toorun een werkstroom.  
   
 |Elementnaam|Vereist|Beschrijving|  
 |----------------|------------|---------------|  
-|Frequentie|Ja|Hoe vaak de trigger wordt uitgevoerd. Gebruik slechts één van deze mogelijke waarden: seconde, minuut, uur, dag, week, maand of jaar|  
-|Interval|Ja|Interval van de opgegeven frequentie voor het terugkeerpatroon|  
+|frequency|Ja|Hoe vaak hello trigger wordt uitgevoerd. Gebruik slechts één van deze mogelijke waarden: seconde, minuut, uur, dag, week, maand of jaar|  
+|interval|Ja|Het interval van Hallo opgegeven frequentie voor Hallo terugkeerpatroon|  
 |startTime|Nee|Als een startTime zonder een UTC-offset is opgegeven, wordt deze tijdzone gebruikt.|  
 |Tijdzone|Er is geen|Als een startTime zonder een UTC-offset is opgegeven, wordt deze tijdzone gebruikt.|  
   
-U kunt ook een trigger worden gestart in de toekomst wordt uitgevoerd op een bepaald moment plannen. Als u wilt een wekelijks rapport elke maandag starten kunt u bijvoorbeeld de logische app aan elke maandag begint met het maken van de volgende trigger plannen:  
+U kunt ook een trigger toostart uitvoeren op een bepaald moment in toekomstige Hallo plannen. Bijvoorbeeld, als u wilt dat een wekelijkse rapporteren elke maandag toostart kunt u plannen Hallo logic app toostart elke maandag door het maken van Hallo trigger te volgen:  
 
 ```json
 "dailyReport" : {
@@ -134,46 +134,46 @@ U kunt ook een trigger worden gestart in de toekomst wordt uitgevoerd op een bep
 
 ## <a name="http-trigger"></a>HTTP-trigger  
 
-HTTP-triggers peilen op een opgegeven eindpunt en controleert u het antwoord om te bepalen of de werkstroom moet worden uitgevoerd. De invoer-object wordt gebruikt in de set parameters die zijn vereist om een HTTP-aanroep samen te stellen:  
+HTTP-triggers peilen op een opgegeven eindpunt en Hallo antwoord toodetermine controleren of er Hallo werkstroom moet worden uitgevoerd. Hallo invoer object heeft Hallo set parameters vereist tooconstruct een HTTP-aanroep:  
   
 |Elementnaam|Vereist|Beschrijving|Type|  
 |----------------|------------|---------------|--------|  
-|Methode|Ja|Kan een van de volgende HTTP-methoden zijn: GET, POST, PUT, DELETE, PATCH of HEAD|Tekenreeks|  
-|URI|Ja|Het http of https-eindpunt dat wordt genoemd. Maximum van 2 kB.|Tekenreeks|  
-|Query 's|Nee|Een object dat de queryparameters toevoegen aan de URL vertegenwoordigt. Bijvoorbeeld: `"queries" : { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL.|Object|  
-|Headers|Nee|Object voor elk van de headers die aan de aanvraag is verzonden. Als u bijvoorbeeld de taal instellen en typt u op een aanvraag:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|Object|  
-|Hoofdtekst|Nee|Een object dat de nettolading dat wordt verzonden naar het eindpunt vertegenwoordigt.|Object|  
-|retryPolicy|Nee|Een object dat u kunt het gedrag voor opnieuw proberen voor 4xx of 5xx-fouten aanpassen.|Object|  
-|Verificatie|Nee|Hiermee geeft u de methode die de aanvraag moet worden geverifieerd. Zie voor meer informatie over dit object, [Scheduler uitgaande verificatie](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Afgezien van scheduler, er is een meer ondersteunde eigenschap: `authority` deze waarde is standaard `https://login.windows.net` wanneer niet wordt opgegeven, maar u kunt een andere doelgroep zoals gebruiken`https://login.windows\-ppe.net`|Object|  
+|Methode|Ja|Een van de volgende HTTP-methoden Hallo: GET, POST, PUT, DELETE, PATCH of HEAD|Tekenreeks|  
+|URI|Ja|Hallo http of https-eindpunt dat wordt aangeroepen. Maximum van 2 kB.|Tekenreeks|  
+|Query 's|Nee|Een object die Hallo query parameters tooadd toohello URL vertegenwoordigt. Bijvoorbeeld: `"queries" : { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` toohello URL.|Object|  
+|Headers|Nee|Object voor elk van de Hallo headers die toohello-aanvraag is verzonden. Bijvoorbeeld: tooset Hallo taal en het type voor een aanvraag:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|Object|  
+|Hoofdtekst|Nee|Een object dat vertegenwoordigt Hallo nettolading dat toohello eindpunt wordt verzonden.|Object|  
+|retryPolicy|Nee|Een object dat u kunt aanpassen Hallo gedrag voor het opnieuw op 4xx of 5xx-fouten.|Object|  
+|Verificatie|Nee|Hallo-methode voor vertegenwoordigt die aanvraag Hallo moet worden geverifieerd. Zie voor meer informatie over dit object, [Scheduler uitgaande verificatie](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Afgezien van scheduler, er is een meer ondersteunde eigenschap: `authority` deze waarde is standaard `https://login.windows.net` wanneer niet wordt opgegeven, maar u kunt een andere doelgroep zoals gebruiken`https://login.windows\-ppe.net`|Object|  
   
-De HTTP-trigger is vereist voor de HTTP-API om te voldoen aan een specifiek patroon voor gebruik met uw logische app. Hiervoor de volgende velden:  
+de HTTP-trigger Hallo vereist Hallo HTTP API tooconform met een specifiek patroon toowork goed met uw logische app. Hiervoor Hallo velden te volgen:  
   
 |Antwoord|Beschrijving|  
 |------------|---------------|  
-|Statuscode|Statuscode 200 \(OK\) run veroorzaken. Andere statuscode niet leiden tot een uitvoering.|  
-|Probeer\-na header|Het aantal seconden tot de logische app het eindpunt opnieuw worden opgevraagd.|  
-|Locatieheader|De URL aan te roepen voor de volgende pollinginterval. Als niet wordt opgegeven, wordt de oorspronkelijke URL gebruikt.|  
+|Statuscode|Statuscode 200 \(OK\) toocause-run. Andere statuscode niet leiden tot een uitvoering.|  
+|Probeer\-na header|Het aantal seconden tot Hallo logische app Hallo eindpunt opnieuw worden opgevraagd.|  
+|Locatieheader|Hallo URL toocall op Hallo volgende polling-interval. Als niet wordt opgegeven, wordt de oorspronkelijke URL Hallo gebruikt.|  
   
 Hier volgen enkele voorbeelden van andere problemen voor verschillende soorten aanvragen:  
   
 |Reactiecode|Probeer\-na|Gedrag|  
 |-----------------|----------------|------------|  
-|200|\(geen\)|Niet een geldig worden geactiveerd, opnieuw proberen\-na is vereist, of anders de engine nooit worden opgevraagd voor de volgende aanvraag.|  
-|202|60|De werkstroom niet activeren. De volgende poging gebeurt in een minuut.|  
-|200|10|De werkstroom uitvoert, en opnieuw controleren voor meer informatie over 10 seconden.|  
-|400|\(geen\)|Onjuiste aanvraag, de werkstroom niet uitgevoerd. Als er geen **beleid voor opnieuw proberen** gedefinieerd, wordt het standaardbeleid gebruikt. Nadat u het aantal nieuwe pogingen is bereikt, is de trigger niet meer geldig.|  
-|500|\(geen\)|Fout-server, worden de werkstroom niet uitgevoerd.  Als er geen **beleid voor opnieuw proberen** gedefinieerd, wordt het standaardbeleid gebruikt. Nadat u het aantal nieuwe pogingen is bereikt, is de trigger niet meer geldig.|  
+|200|\(geen\)|Niet een geldig worden geactiveerd, opnieuw proberen\-na is vereist of anders Hallo-engine nooit polls voor volgende Hallo-aanvraag.|  
+|202|60|Hallo-werkstroom niet activeren. Hallo opnieuw probeert gebeurt in een minuut.|  
+|200|10|Hallo-werkstroom uitvoert, en opnieuw controleren voor meer informatie over 10 seconden.|  
+|400|\(geen\)|Onjuiste aanvraag, Hallo-werkstroom niet uitgevoerd. Als er geen **beleid voor opnieuw proberen** gedefinieerd, wordt het standaardbeleid Hallo gebruikt. Nadat het Hallo aantal nieuwe pogingen is bereikt, is Hallo trigger niet meer geldig.|  
+|500|\(geen\)|Fout-server, worden niet uitgevoerd Hallo-werkstroom.  Als er geen **beleid voor opnieuw proberen** gedefinieerd, wordt het standaardbeleid Hallo gebruikt. Nadat het Hallo aantal nieuwe pogingen is bereikt, is Hallo trigger niet meer geldig.|  
   
-De uitvoer van een HTTP-trigger eruitzien als in dit voorbeeld:  
+Hallo uitvoerwaarden van een HTTP-trigger eruitzien als in dit voorbeeld:  
   
 |Elementnaam|Beschrijving|Type|  
 |----------------|---------------|--------|  
-|Headers|De headers van de http-antwoord.|Object|  
-|Hoofdtekst|De hoofdtekst van het http-antwoord.|Object|  
+|Headers|Hallo-headers van Hallo http-antwoord.|Object|  
+|Hoofdtekst|Hallo-hoofdtekst van Hallo http-antwoord.|Object|  
   
 ## <a name="api-connection-trigger"></a>API-verbinding activeren  
 
-De API verbinding trigger is vergelijkbaar met de HTTP-trigger in de basisfunctionaliteit. De parameters voor het identificeren van de actie zijn echter verschillend. Hier volgt een voorbeeld:  
+Hallo API verbinding trigger is vergelijkbaar toohello HTTP-trigger in de basisfunctionaliteit. Hallo-parameters voor het identificeren van Hallo actie zijn echter verschillend. Hier volgt een voorbeeld:  
   
 ```json
 "dailyReport" : {
@@ -197,31 +197,31 @@ De API verbinding trigger is vergelijkbaar met de HTTP-trigger in de basisfuncti
 
 |Elementnaam|Vereist|Type|Beschrijving|  
 |----------------|------------|--------|---------------|  
-|host|Ja||De ApiApp gehost gateway en -id.|  
-|Methode|Ja|Tekenreeks|Kan een van de volgende HTTP-methoden zijn: **ophalen**, **POST**, **plaatsen**, **verwijderen**, **PATCH**, of  **HEAD**|  
-|Query 's|Nee|Object|Vertegenwoordigt de queryparameters worden toegevoegd aan de URL. Bijvoorbeeld: `"queries" : { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL.|  
-|Headers|Nee|Object|Hiermee geeft u elk van de headers die aan de aanvraag is verzonden. Als u bijvoorbeeld de taal instellen en typt u op een aanvraag:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
-|Hoofdtekst|Nee|Object|Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt.|  
-|retryPolicy|Nee|Object|Hiermee kunt u aanpassen van het gedrag voor opnieuw proberen voor 4xx of 5xx-fouten.|  
-|Verificatie|Nee|Object|Hiermee geeft u de methode die de aanvraag moet worden geverifieerd. Zie voor meer informatie over dit object [Scheduler uitgaande verificatie](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication)|  
+|host|Ja||Hallo ApiApp gehost gateway en -id.|  
+|Methode|Ja|Tekenreeks|Een van de volgende HTTP-methoden Hallo: **ophalen**, **POST**, **plaatsen**, **verwijderen**, **PATCH**, of  **HEAD**|  
+|Query 's|Nee|Object|Vertegenwoordigt Hallo query parameters toobe toohello URL toegevoegd. Bijvoorbeeld: `"queries" : { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` toohello URL.|  
+|Headers|Nee|Object|Hiermee geeft u elk Hallo headers die toohello-aanvraag is verzonden. Bijvoorbeeld: tooset Hallo taal en het type voor een aanvraag:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
+|Hoofdtekst|Nee|Object|Hiermee geeft u Hallo nettolading dat toohello eindpunt wordt verzonden.|  
+|retryPolicy|Nee|Object|Hiermee kunt u toocustomize Hallo gedrag voor het opnieuw op 4xx of 5xx-fouten.|  
+|Verificatie|Nee|Object|Hallo-methode voor vertegenwoordigt die aanvraag Hallo moet worden geverifieerd. Zie voor meer informatie over dit object [Scheduler uitgaande verificatie](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication)|  
   
-De eigenschappen voor de host zijn:  
+Hallo-eigenschappen voor de host zijn:  
   
 |Elementnaam|Vereist|Beschrijving|  
 |----------------|------------|---------------|  
-|API-runtimeUrl|Ja|Het eindpunt van de beheerde API.|  
-|Verbindingsnaam||Moet een verwijzing naar een parameter met de naam `$connection` en de naam van de beheerde API-verbinding die gebruikmaakt van de werkstroom.|
+|API-runtimeUrl|Ja|Hallo-eindpunt van Hallo beheerde API.|  
+|Verbindingsnaam||Moet worden verwijzing tooa parameter aangeroepen `$connection` en de naam Hallo Hallo managed API verbinding dat Hallo werkstroom gebruikt.|
   
-De uitvoer van een trigger API-verbinding zijn:
+Hallo uitvoerwaarden van een API-trigger verbinding zijn:
   
 |Elementnaam|Type|Beschrijving|  
 |----------------|--------|---------------|  
-|Headers|Object|De headers van de http-antwoord.|  
-|Hoofdtekst|Object|De hoofdtekst van het http-antwoord.|  
+|Headers|Object|Hallo-headers van Hallo http-antwoord.|  
+|Hoofdtekst|Object|Hallo-hoofdtekst van Hallo http-antwoord.|  
   
 ## <a name="httpwebhook-trigger"></a>HTTPWebhook trigger  
 
-De trigger HTTPWebhook opent een eindpunt, vergelijkbaar met de handmatige worden geactiveerd, maar de trigger HTTPWebhook roept ook uit op een opgegeven URL registreren en ongedaan maken. Hier volgt een voorbeeld van wat een trigger HTTPWebhook als volgt uitzien:  
+Hallo HTTPWebhook trigger opent een eindpunt, vergelijkbare toohello handmatige trigger, maar Hallo HTTPWebhook trigger ook illustreert tooa opgegeven URL tooregister en ongedaan maken. Hier volgt een voorbeeld van wat een trigger HTTPWebhook als volgt uitzien:  
 
 ```json
 "myappspottrigger": {
@@ -254,41 +254,41 @@ De trigger HTTPWebhook opent een eindpunt, vergelijkbaar met de handmatige worde
     }
 ```
 
-Veel van deze gedeelten zijn optioneel en het gedrag van de Webhook is afhankelijk van welke gedeelten wordt geleverd of wordt weggelaten.  
-De eigenschappen van een Webhook zijn als volgt:  
+Veel van deze gedeelten zijn optioneel en Hallo gedrag van Hallo Webhook is afhankelijk van welke gedeelten wordt geleverd of wordt weggelaten.  
+Hallo-eigenschappen van een Webhook zijn als volgt:  
   
 |Elementnaam|Vereist|Beschrijving|  
 |----------------|------------|---------------|  
-|abonneren|Nee|De uitgaande aanvraag die wordt aangeroepen wanneer de trigger wordt gemaakt en de initiële registratie voert.|  
-|afmelden|Nee|De uitgaande aanvraag wanneer de trigger wordt verwijderd.|  
+|abonneren|Nee|Hallo uitgaande aanvraag die wordt aangeroepen wanneer het Hallo-trigger wordt gemaakt en voert de initiële registratie Hallo.|  
+|afmelden|Nee|Hallo uitgaande aanvraag wanneer Hallo trigger wordt verwijderd.|  
   
--   **Abonneren** is de uitgaande aanroep die beginnen met luisteren op gebeurtenissen heeft gemaakt. Deze aanroep begint met dezelfde set parameters die de normale HTTP-acties uitvoeren. Deze uitgaande wordt aanroep een wanneer de werkstroom wordt gewijzigd op elke manier, bijvoorbeeld wanneer de referenties worden hersteld of de trigger invoerparameters wijzigen.
+-   **Abonneren** Hallo uitgaand aanroep die toostart luisterende tooevents heeft gemaakt. Deze aanroep begint met het Hallo dezelfde set parameters die normale HTTP acties Hallo doen. Deze uitgaande aanroep uitgevoerd elke keer Hallo wijzigingen voor de workflow op elke manier, bijvoorbeeld wanneer Hallo referenties worden hersteld of Hallo trigger parameters wijzigen de invoer.
   
-    Ter ondersteuning van deze aanroep is een nieuwe functie: `@listCallbackUrl()`. Deze functie retourneert een unieke URL voor deze specifieke trigger in deze workflow. Hiermee geeft u de unieke id voor de eindpunten die gebruikmaken van de REST van de Service.  
+    toosupport dit aanroepen, er is een nieuwe functie: `@listCallbackUrl()`. Deze functie retourneert een unieke URL voor deze specifieke trigger in deze workflow. Deze vertegenwoordigt unieke id voor Hallo-eindpunten die gebruikmaken van Hallo Service REST Hallo.  
   
 -   **Afmelden** wordt aangeroepen wanneer een bewerking renders deze trigger ongeldig, met inbegrip van:  
   
-    -   Het verwijderen of uitschakelen van de trigger  
+    -   Het verwijderen of Hallo trigger uitschakelen  
   
-    -   Het verwijderen of uitschakelen van de werkstroom  
+    -   Het verwijderen of uitschakelen van Hallo-werkstroom  
   
-    -   Het verwijderen of uitschakelen van het abonnement  
+    -   Het verwijderen of uitschakelen van Hallo-abonnement  
   
-    De logische app roept automatisch de actie afmelden. De parameters voor deze functie zijn hetzelfde als de HTTP-trigger.  
+    Hallo logic app roept automatisch Hallo actie opzeggen. Hallo-parameters zijn van de functie toothis Hallo dezelfde als Hallo HTTP-trigger.  
   
-    De uitvoer van de trigger HTTPWebhook zijn de inhoud van de binnenkomende aanvraag:  
+    Hallo zijn uitvoerwaarden van Hallo HTTPWebhook trigger Hallo-inhoud voor inkomende hello-aanvraag:  
   
 |Elementnaam|Type|Beschrijving|  
 |-----------------|--------|---------------|  
-|Headers|Object|De headers van de http-aanvraag.|  
-|Hoofdtekst|Object|De hoofdtekst van de http-aanvraag.|  
+|Headers|Object|Hallo-headers van Hallo HTTP-aanvraag.|  
+|Hoofdtekst|Object|Hallo-hoofdtekst van Hallo HTTP-aanvraag.|  
 
-Limieten van een webhook-actie kunnen worden opgegeven op dezelfde manier als [HTTP asynchrone limieten](#asynchronous-limits).
+Limieten van een webhook-actie kunnen worden opgegeven in Hallo dezelfde manier als [HTTP asynchrone limieten](#asynchronous-limits).
   
 
 ## <a name="conditions"></a>Voorwaarden  
 
-U kunt een of meer voorwaarden om te bepalen of de werkstroom moet worden uitgevoerd of niet gebruiken voor een trigger. Bijvoorbeeld:  
+Voor een trigger, kunt u een of meer voorwaarden toodetermine of Hallo werkstroom moet worden uitgevoerd of niet. Bijvoorbeeld:  
 
 ```json
 "dailyReport" : {
@@ -303,7 +303,7 @@ U kunt een of meer voorwaarden om te bepalen of de werkstroom moet worden uitgev
 }
 ```
 
-In dit geval wordt het rapport alleen triggers terwijl de werkstroom `sendReports` parameter is ingesteld op true. Ten slotte voorwaarden kunnen verwijzen naar de statuscode van de trigger. U kan bijvoorbeeld ere van een werkstroom alleen als uw website een statuscode 500, als volgt retourneert:
+In dit geval Hallo rapport alleen triggers tijdens het Hallo-werkstroom `sendReports` parameter tootrue is ingesteld. Ten slotte voorwaarden kunnen verwijzen naar Hallo statuscode Hallo-trigger. U kan bijvoorbeeld ere van een werkstroom alleen als uw website een statuscode 500, als volgt retourneert:
   
 ```  
 "conditions": [  
@@ -314,13 +314,13 @@ In dit geval wordt het rapport alleen triggers terwijl de werkstroom `sendReport
 ```  
   
 > [!NOTE]  
-> Wanneer een expressie verwijst naar de statuscode van de trigger \(op elke manier\), het standaardgedrag \(trigger alleen op 200 \(OK\) \) wordt vervangen. Bijvoorbeeld, als u activeren op zowel de statuscode 200 als de statuscode 201 wilt, hebt u omvatten: `@or(equals(triggers().code, 200),equals(triggers().code,201))` als de voorwaarde.  
+> Wanneer een expressie verwijst naar het Hallo-statuscode van Hallo trigger \(op elke manier\), Hallo standaardgedrag \(trigger alleen op 200 \(OK\) \) wordt vervangen. Bijvoorbeeld, als u tootrigger op zowel de statuscode 200 als de statuscode 201 wilt, hebt u tooinclude: `@or(equals(triggers().code, 200),equals(triggers().code,201))` als de voorwaarde.  
   
 ## <a name="start-multiple-runs-for-a-request"></a>Meerdere wordt uitgevoerd voor een aanvraag starten
 
-Activeer meerdere wordt uitgevoerd voor een enkele aanvraag `splitOn` is nuttig, bijvoorbeeld wanneer u wilt pollen een eindpunt dat meerdere nieuwe items tussen polling-intervallen kan hebben.
+tookick uit meerdere wordt uitgevoerd voor een enkele aanvraag `splitOn` is handig, bijvoorbeeld, als u wilt toopoll een eindpunt dat meerdere nieuwe items tussen polling-intervallen kan hebben.
   
-Met `splitOn`, geeft u de eigenschap binnen de nettolading van antwoord met de matrix van items die u gebruiken wilt voor het starten van een uitvoering van de trigger. Stel dat u hebt een API waarmee het volgende antwoord geretourneerd:  
+Met `splitOn`, geeft u de eigenschap Hallo binnen Hallo antwoord nettolading met Hallo-matrix van items die u wilt dat toouse toostart een uitvoering van het Hallo-trigger. Stel dat u hebt een API waarmee Hallo volgende antwoord geretourneerd:  
   
 ```json
 {
@@ -338,7 +338,7 @@ Met `splitOn`, geeft u de eigenschap binnen de nettolading van antwoord met de m
 }
 ```
   
-Uw logische app moet alleen de inhoud van de rijen, zodat u de trigger zoals in dit voorbeeld kunt maken:  
+Uw logische app moet alleen inhoud van de rijen hello, zodat u de trigger zoals in dit voorbeeld kunt maken:  
   
 ```json
 "mysplitter" : {
@@ -355,7 +355,7 @@ Uw logische app moet alleen de inhoud van de rijen, zodat u de trigger zoals in 
 }
 ```
   
-Klik in de werkstroomdefinitie `@triggerBody().name` retourneert `mycoolrow` voor het eerst wordt uitgevoerd, en `another row` voor de tweede uitvoeren. De trigger uitvoer eruit zien in dit voorbeeld:  
+Klik in de workflowdefinitie Hallo `@triggerBody().name` retourneert `mycoolrow` voor Hallo eerst uitvoert, en `another row` voor de tweede run Hallo. Hallo trigger uitvoer eruit zien in dit voorbeeld:  
   
 ```json
 {
@@ -366,16 +366,16 @@ Klik in de werkstroomdefinitie `@triggerBody().name` retourneert `mycoolrow` voo
 }
 ```
 
-Als u in dat geval `SplitOn`, u de eigenschappen die in dit geval buiten de matrix zijn geen krijgt de `Status` veld.  
+Als u in dat geval `SplitOn`, je geen toegang hebt Hallo-eigenschappen die buiten het Hallo-matrix in dit geval Hallo `Status` veld.  
   
 > [!NOTE]  
-> In dit voorbeeld gebruiken we de `?` operator om te voorkomen dat een fout als de `Rows` eigenschap is niet aanwezig. 
+> In dit voorbeeld gebruiken we Hallo `?` operator toobe kunnen tooavoid een fout als hello `Rows` eigenschap is niet aanwezig. 
   
 ## <a name="single-run-instance"></a>SIS uitvoeren
 
-Triggers die een terugkeerpatroon-eigenschap moet worden alleen gestart als alle actieve sessies hebt voltooid, kunt u configureren. Als een geplande terugkeer optreedt terwijl er een uitgevoerd in voortgang is, wordt de trigger wordt overgeslagen en wacht tot het volgende geplande terugkeerpatroon opnieuw te controleren.
+Triggers die een terugkeerpatroon eigenschap tooonly brand hebben als alle actieve sessies hebt voltooid, kunt u configureren. Als een geplande terugkeer optreedt terwijl er een uitgevoerd in voortgang is, wordt Hallo trigger wordt overgeslagen en wordt gewacht tot Hallo volgende geplande terugkeerpatroon interval toocheck opnieuw.
 
-U kunt deze instelling door de bewerking-opties configureren:
+U kunt deze instelling door Hallo bewerking opties configureren:
 
 ```json
 "triggers": {
@@ -396,9 +396,9 @@ Er zijn veel verschillende soorten acties, elk met unieke gedrag. Verzameling ac
 
 -   **HTTP** deze actie wordt een HTTP-web-eindpunt.  
   
--   **ApiConnection** \- deze bewerking gedraagt zich als de HTTP-actie, maar gebruikt de door Microsoft beheerd-API's.  
+-   **ApiConnection** \- deze bewerking gedraagt zich alsof Hallo HTTP-actie, maar gebruikt Hallo door Microsoft beheerde API's.  
   
--   **ApiConnectionWebhook** \- zoals HTTPWebhook hierbij wordt gebruikgemaakt van de Microsoft-beheerde API's.  
+-   **ApiConnectionWebhook** \- zoals HTTPWebhook, maar gebruikt Hallo door Microsoft beheerde API's.  
   
 -   **Antwoord** \- deze actie wordt een antwoord voor een inkomend gesprek gedefinieerd.  
   
@@ -412,30 +412,30 @@ Er zijn veel verschillende soorten acties, elk met unieke gedrag. Verzameling ac
 
 -   **Bereik** \- deze actie is een logische groepering van andere acties.
 
--   **Voorwaarde** \- met deze actie evalueert een expressie en de bijbehorende resultaat vertakking wordt uitgevoerd.
+-   **Voorwaarde** \- met deze actie evalueert een expressie en het bijbehorende resultaat vertakking hello wordt uitgevoerd.
 
 -   **ForEach** \- samenvoegartikel hierdoor een matrix doorlopen en interne acties uitvoert voor elk item.
 
--   **Pas** \- deze samenvoegartikel actie binnenste acties worden uitgevoerd totdat een voorwaarde in waar resulteert.
+-   **Pas** \- binnenste acties van deze samenvoegartikel actie wordt uitgevoerd totdat een voorwaarde tootrue resulteert.
   
 Elk type actie heeft een andere set **invoer** die een actie gedrag definiëren.  
   
 ## <a name="http-action"></a>HTTP-actie  
 
-Acties voor HTTP-aanroepen van een opgegeven eindpunt en controleren van het antwoord om te bepalen of de werkstroom moet worden uitgevoerd. De **invoer** object neemt de set parameters die zijn vereist om de HTTP-aanroep samen te stellen:  
+HTTP-acties aanroepen van een opgegeven eindpunt en Hallo antwoord toodetermine controleren of er Hallo werkstroom moet worden uitgevoerd. Hallo **invoer** object Hallo set parameters vereist tooconstruct Hallo HTTP-aanroep heeft:  
   
 |Elementnaam|Vereist|Type|Beschrijving|  
 |----------------|------------|--------|---------------|  
-|Methode|Ja|Tekenreeks|Kan een van de volgende HTTP-methoden zijn: **ophalen**, **POST**, **plaatsen**, **verwijderen**, **PATCH**, of  **HEAD**|  
-|URI|Ja|Tekenreeks|Het http of https-eindpunt dat wordt genoemd. Maximale lengte is 2 kB.|  
-|Query 's|Nee|Object|Vertegenwoordigt de queryparameters toevoegen aan de URL. Bijvoorbeeld: `"queries" : { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL.|  
-|Headers|Nee|Object|Hiermee geeft u elk van de headers die aan de aanvraag is verzonden. Als u bijvoorbeeld de taal instellen en typt u op een aanvraag:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
-|Hoofdtekst|Nee|Object|Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt.|  
-|retryPolicy|Nee|Object|Hiermee kunt u het gedrag voor opnieuw proberen voor 4xx of 5xx-fouten aanpassen.|  
-|operationsOptions|Nee|Tekenreeks|Definieert de set met speciaal gedrag negeren.|  
-|Verificatie|Nee|Object|Hiermee geeft u de methode die de aanvraag moet worden geverifieerd. Zie voor meer informatie over dit object, [Scheduler uitgaande verificatie](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Afgezien van scheduler, er is een meer ondersteunde eigenschap: `authority`. Dit is standaard `https://login.windows.net` wanneer niet wordt opgegeven, maar u kunt een andere doelgroep zoals gebruiken`https://login.windows\-ppe.net`|  
+|Methode|Ja|Tekenreeks|Een van de volgende HTTP-methoden Hallo: **ophalen**, **POST**, **plaatsen**, **verwijderen**, **PATCH**, of  **HEAD**|  
+|URI|Ja|Tekenreeks|Hallo http of https-eindpunt dat wordt aangeroepen. Maximale lengte is 2 kB.|  
+|Query 's|Nee|Object|Hallo query parameters tooadd toohello URL vertegenwoordigt. Bijvoorbeeld: `"queries" : { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` toohello URL.|  
+|Headers|Nee|Object|Hiermee geeft u elk Hallo headers die toohello-aanvraag is verzonden. Bijvoorbeeld: tooset Hallo taal en het type voor een aanvraag:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
+|Hoofdtekst|Nee|Object|Hiermee geeft u Hallo nettolading dat toohello eindpunt wordt verzonden.|  
+|retryPolicy|Nee|Object|Hiermee kunt u aanpassen Hallo opnieuw gedrag voor 4xx of 5xx-fouten.|  
+|operationsOptions|Nee|Tekenreeks|Hallo set speciaal gedrag toooverride gedefinieerd.|  
+|Verificatie|Nee|Object|Hallo-methode voor vertegenwoordigt die aanvraag Hallo moet worden geverifieerd. Zie voor meer informatie over dit object, [Scheduler uitgaande verificatie](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Afgezien van scheduler, er is een meer ondersteunde eigenschap: `authority`. Dit is standaard `https://login.windows.net` wanneer niet wordt opgegeven, maar u kunt een andere doelgroep zoals gebruiken`https://login.windows\-ppe.net`|  
   
-HTTP-acties \(en API-verbinding\) acties ondersteuning beleid voor opnieuw proberen. Een beleid voor opnieuw proberen is van toepassing op onregelmatige problemen, gekenmerkt als HTTP-statuscodes 408 429 en 5xx, naast eventuele uitzonderingen connectiviteit. Dit beleid wordt beschreven met behulp van de *retryPolicy* object dat is gedefinieerd als volgt te werk:
+HTTP-acties \(en API-verbinding\) acties ondersteuning beleid voor opnieuw proberen. Een beleid voor opnieuw proberen is van toepassing toointermittent fouten, gekenmerkt als HTTP-status 408 429 en 5xx in toevoeging tooany verbindingsuitzonderingen-codes. Dit beleid wordt beschreven met Hallo *retryPolicy* object dat is gedefinieerd als volgt te werk:
   
 ```json
 "retryPolicy" : {
@@ -445,9 +445,9 @@ HTTP-acties \(en API-verbinding\) acties ondersteuning beleid voor opnieuw probe
 }
 ```
   
-Het interval voor opnieuw proberen is opgegeven in de ISO 8601-notatie. Dit interval heeft een waarde standaard en een minimum van 20 seconden, terwijl de maximale waarde een uur is. Het standaard- en maximum aantal is gelijk aan vier uur. Als de beleidsdefinitie voor nieuwe pogingen niet is opgegeven, een `fixed` strategie met een standaardwaarde opnieuw telling en het interval wordt gebruikt. Als wilt uitschakelen in het beleid voor opnieuw proberen, stelt u het type in op `None`.  
+Hallo-interval voor opnieuw proberen is opgegeven in Hallo ISO 8601-notatie. Dit interval heeft een standaard en de minimumwaarde van 20 seconden terwijl Hallo maximale waarde een uur is. Hallo standaard en maximum aantal pogingen een waarde is gelijk aan vier uur. Als de definitie voor nieuwe pogingen voor Hallo niet is opgegeven, een `fixed` strategie met een standaardwaarde opnieuw telling en het interval wordt gebruikt. beleid voor opnieuw proberen van toodisable hello, stel het type te`None`.  
   
-Bijvoorbeeld de volgende actie pogingen ophalen van het laatste nieuws twee keer als er onregelmatige problemen, voor een totaal van drie uitvoeringen, met een vertraging 30 seconden tussen elke poging:  
+Bijvoorbeeld hello volgende actie probeert opnieuw ophalen Hallo laatste nieuws twee keer als er onregelmatige problemen, voor een totaal van drie uitvoeringen, met een vertraging 30 seconden tussen elke poging:  
   
 ```json
 "latestNews" : {
@@ -465,9 +465,9 @@ Bijvoorbeeld de volgende actie pogingen ophalen van het laatste nieuws twee keer
 ```
 ### <a name="asynchronous-patterns"></a>Asynchrone patronen
 
-Standaard ondersteunt alle HTTP-gebaseerde acties het patroon standaard asynchrone bewerking. Als de externe server geeft aan dat de aanvraag is geaccepteerd voor verwerking met een 202 \(geaccepteerde\) antwoord wordt de Logic Apps-engine houdt de URL die is opgegeven in de antwoordheader locatie tot het bereiken van een definitieve status polling\(niet\-202 antwoord\).  
+Standaard ondersteunt alle HTTP-gebaseerde acties Hallo standaard asynchrone bewerking patroon. Dus als de externe server Hallo die Hallo-aanvraag aangeeft is geaccepteerd voor verwerking met een 202 \(geaccepteerde\) antwoord Hallo Logic Apps-engine houdt polling Hallo URL die is opgegeven in de locatie-header van het antwoord Hallo tot het bereiken van een terminal status \(niet\-202 antwoord\).  
   
-Instellen als wilt uitschakelen in het asynchrone gedrag die eerder is beschreven, een `DisableAsyncPattern` optie in de invoer in te grijpen. In dit geval wordt is de uitvoer van de actie gebaseerd op de eerste 202 reactie van de server.  
+toodisable hello asynchrone gedrag ingesteld eerder beschreven, een `DisableAsyncPattern` optie in Hallo actie invoer. In dit geval is Hallo-uitvoer van Hallo actie gebaseerd op Hallo initiële 202 reactie van Hallo-server.  
   
 ```json
 "invokeLongRunningOperation" : {
@@ -482,7 +482,7 @@ Instellen als wilt uitschakelen in het asynchrone gedrag die eerder is beschreve
 
 #### <a name="asynchronous-limits"></a>Asynchrone limieten
 
-Een asynchrone patroon worden beperkt de duur van een bepaald tijdsinterval.  Als het tijdsinterval is verstreken zonder dat een definitieve status bereikt, wordt de status van de actie gemarkeerd `Cancelled` met de code `ActionTimedOut`.  De time-out voor de limiet is opgegeven in de ISO 8601-notatie.  Limieten kunnen worden opgegeven met de volgende syntaxis:
+Een asynchrone patroon worden de tijdsinterval duur tooa specifieke beperkt.  Als Hallo tijdsinterval is verstreken zonder dat een definitieve status bereikt, Hallo status van Hallo actie gemarkeerd `Cancelled` met de code `ActionTimedOut`.  Hallo limiet time-out is opgegeven in de ISO 8601-notatie.  Limieten kunnen worden opgegeven met de Hallo de volgende syntaxis:
 
 ``` json
 "<action-name>": {
@@ -497,18 +497,18 @@ Een asynchrone patroon worden beperkt de duur van een bepaald tijdsinterval.  Al
 ## <a name="api-connection"></a>API-verbinding  
 
 API-verbinding is een actie die verwijst naar een connector door Microsoft beheerd.
-Deze actie vereist een verwijzing naar een geldige verbinding en informatie over de API en de parameters die zijn vereist.
+Deze actie vereist een geldige verwijzing tooa-verbinding en informatie over het Hallo API en de vereiste parameters.
 
 |Elementnaam|Vereist|Type|Beschrijving|  
 |----------------|------------|--------|---------------|  
-|host|Ja|Object|Hiermee geeft u de connector informatie zoals de runtimeUrl en de verwijzing naar het verbindingsobject|
-|Methode|Ja|Tekenreeks|Kan een van de volgende HTTP-methoden zijn: **ophalen**, **POST**, **plaatsen**, **verwijderen**, **PATCH**, of  **HEAD**|  
-|Pad|Ja|Tekenreeks|Het pad van de API-bewerking.|  
-|Query 's|Nee|Object|Vertegenwoordigt de queryparameters toevoegen aan de URL. Bijvoorbeeld: `"queries" : { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL.|  
-|Headers|Nee|Object|Hiermee geeft u elk van de headers die aan de aanvraag is verzonden. Als u bijvoorbeeld de taal instellen en typt u op een aanvraag:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
-|Hoofdtekst|Nee|Object|Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt.|  
-|retryPolicy|Nee|Object|Hiermee kunt u het gedrag voor opnieuw proberen voor 4xx of 5xx-fouten aanpassen.|  
-|operationsOptions|Nee|Tekenreeks|Definieert de set met speciaal gedrag negeren.|  
+|host|Ja|Object|Hiermee geeft u Hallo connector informatie zoals Hallo runtimeUrl en verwijzing toohello connection-object|
+|Methode|Ja|Tekenreeks|Een van de volgende HTTP-methoden Hallo: **ophalen**, **POST**, **plaatsen**, **verwijderen**, **PATCH**, of  **HEAD**|  
+|Pad|Ja|Tekenreeks|Hallo-pad van Hallo API-bewerking.|  
+|Query 's|Nee|Object|Hallo query parameters tooadd toohello URL vertegenwoordigt. Bijvoorbeeld: `"queries" : { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` toohello URL.|  
+|Headers|Nee|Object|Hiermee geeft u elk Hallo headers die toohello-aanvraag is verzonden. Bijvoorbeeld: tooset Hallo taal en het type voor een aanvraag:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
+|Hoofdtekst|Nee|Object|Hiermee geeft u Hallo nettolading dat toohello eindpunt wordt verzonden.|  
+|retryPolicy|Nee|Object|Hiermee kunt u aanpassen Hallo opnieuw gedrag voor 4xx of 5xx-fouten.|  
+|operationsOptions|Nee|Tekenreeks|Hallo set speciaal gedrag toooverride gedefinieerd.|  
 
 ```json
 "Send_Email": {
@@ -563,11 +563,11 @@ Deze actie vereist een verwijzing naar een geldige verbinding en informatie over
 }
 ```
 
-Limieten van een webhook-actie kunnen worden opgegeven op dezelfde manier als [HTTP asynchrone limieten](#asynchronous-limits).
+Limieten van een webhook-actie kunnen worden opgegeven in Hallo dezelfde manier als [HTTP asynchrone limieten](#asynchronous-limits).
   
 ## <a name="response-action"></a>Antwoord actie  
 
-Dit actietype de nettolading van het volledige antwoord van een HTTP-aanvraag bevat en een statusCode, hoofdtekst en headers omvat:  
+Dit actietype Hallo volledige antwoord nettolading van een HTTP-aanvraag bevat en een statusCode, hoofdtekst en headers omvat:  
   
 ```json
 "myresponse" : {
@@ -587,17 +587,17 @@ Dit actietype de nettolading van het volledige antwoord van een HTTP-aanvraag be
 }
 ```
   
-De actie antwoord heeft speciale beperkingen die niet van toepassing op andere acties. Specifiek:  
+Hallo antwoord actie heeft speciale beperkingen die niet van toepassing tooother acties. Specifiek:  
   
--   Reacties kunnen niet in een definitie van een parallelle omdat een deterministische antwoord aan de binnenkomende aanvraag vereist is.  
+-   Reacties kunnen niet in een definitie van een parallelle omdat een deterministische antwoord toohello binnenkomende aanvraag vereist is.  
   
--   Als een antwoord-actie is bereikt, nadat de binnenkomende aanvraag heeft een antwoord ontvangen, de actie wordt beschouwd als mislukt \(conflict\), en als gevolg hiervan, het uitvoeren is `Failed`.  
+-   Als een antwoord-actie is bereikt nadat inkomende hello-aanvraag heeft een antwoord ontvangen, Hallo actie wordt beschouwd als mislukt \(conflict\), en als gevolg hiervan Hallo uitvoeren `Failed`.  
   
--   Een werkstroom met reacties kan geen `splitOn` in de trigger omdat één aanroep ervoor zorgt veel wordt uitgevoerd dat. Dit moet als gevolg hiervan worden gevalideerd wanneer de stroom PUT en oorzaak is een ongeldige aanvraag is.  
+-   Een werkstroom met reacties kan geen `splitOn` in de trigger omdat één aanroep ervoor zorgt veel wordt uitgevoerd dat. Dit moet als gevolg hiervan worden gevalideerd wanneer het Hallo-stroom is PUT en oorzaak is een ongeldige aanvraag.  
   
 ## <a name="wait-action"></a>Actie wachten  
 
-De `wait` actie onderbreekt de uitvoering van de werkstroom voor het opgegeven interval. Bijvoorbeeld, om de 15 minuten wachten, kunt u in dit fragment:  
+Hallo `wait` actie onderbreekt de uitvoering van de werkstroom voor Hallo opgegeven interval. Bijvoorbeeld, toowait 15 minuten kunt u in dit fragment:  
   
 ```json
 "waitForFifteenMinutes" : {
@@ -611,7 +611,7 @@ De `wait` actie onderbreekt de uitvoering van de werkstroom voor het opgegeven i
 }
 ```  
   
-Als u wilt wachten tot een bepaald moment, kunt u ook in dit voorbeeld gebruiken:  
+U kunt ook toowait tot een bepaald moment, kunt u dit voorbeeld:  
   
 ```json
 "waitUntilOctober" : {
@@ -625,19 +625,19 @@ Als u wilt wachten tot een bepaald moment, kunt u ook in dit voorbeeld gebruiken
 ```
   
 > [!NOTE]  
-> De duur van de wachttijd ofwel kan worden opgegeven met de **interval** object of de **totdat** , maar niet beide.  
+> Hallo wacht duur ofwel kan worden opgegeven met de Hallo **interval** object of Hallo **totdat** , maar niet beide.  
   
 |Naam|Vereist|Type|Beschrijving|  
 |--------|------------|--------|---------------|  
-|Interval|Nee|Object|De duur van de wachttijd op basis van tijd.|  
+|interval|Nee|Object|Hallo wacht duur op basis van tijd.|  
 |intervaleenheid|Ja|Tekenreeks|Een van deze intervallen: seconde, minuut, uur, dag, week, maand, jaar.|  
-|interval aantal|Ja|Tekenreeks|De duur op basis van de opgegeven interne eenheid.|  
-|pas|Nee|Object|De duur van de wachttijd op basis van een punt in tijd.|  
-|Pas de timestamp|Ja|Tekenreeks|Tekenreeks &#124; Het punt in tijd in UTC wanneer de wachttijd is verlopen.|  
+|interval aantal|Ja|Tekenreeks|De duur op basis van Hallo opgegeven interne eenheid.|  
+|pas|Nee|Object|Hallo wacht duur op basis van een punt in tijd.|  
+|Pas de timestamp|Ja|Tekenreeks|Tekenreeks &#124; Hallo punt in tijd in UTC wanneer Hallo wachttijd is verlopen.|  
 
 ## <a name="query-action"></a>Queryactie
 
-De `query` actie kunt u filteren op basis van een voorwaarde matrix. Bijvoorbeeld, om te selecteren getallen die groter zijn dan 2, kunt u gebruiken:
+Hallo `query` actie kunt u filteren op basis van een voorwaarde matrix. Bijvoorbeeld: tooselect getallen die groter zijn dan 2, u kunt gebruiken:
 
 ```json
 "FilterNumbers" : {
@@ -649,20 +649,20 @@ De `query` actie kunt u filteren op basis van een voorwaarde matrix. Bijvoorbeel
 }
 ```
 
-De uitvoer van de `query` actie is een matrix met elementen van de invoermatrix die voldoen aan de voorwaarde.
+de uitvoer van Hallo Hallo `query` actie is een matrix met elementen van de invoermatrix Hallo die voldoen aan de voorwaarde Hallo.
 
 > [!NOTE]
-> Als geen waarden voldoen aan de `where` voorwaarde, het resultaat is een lege matrix.
+> Als geen waarden voldoen aan Hallo `where` voorwaarde, hello resultaat is een lege matrix.
 
 |Naam|Vereist|Type|Beschrijving|
 |--------|------------|--------|---------------|
-|Van|Ja|matrix|De bronmatrix.|
-|waar|Ja|Tekenreeks|De voorwaarde van toepassing op elk element van de bronmatrix.|
+|Van|Ja|Matrix|Hallo bronmatrix.|
+|waar|Ja|Tekenreeks|Hallo voorwaarde tooapply tooeach element van de bronmatrix Hallo.|
 
 ## <a name="select-action"></a>Selecteer actie
 
-De `select` actie kunt u elk element van een matrix project in een nieuwe waarde.
-Bijvoorbeeld, als u wilt converteren van een matrix van getallen in een matrix met objecten, kunt u gebruiken:
+Hallo `select` actie kunt u elk element van een matrix project in een nieuwe waarde.
+Bijvoorbeeld, tooconvert een matrix van getallen in een matrix met objecten, kunt u het volgende gebruiken:
 
 ```json
 "SelectNumbers" : {
@@ -674,16 +674,16 @@ Bijvoorbeeld, als u wilt converteren van een matrix van getallen in een matrix m
 }
 ```
 
-De uitvoer van de `select` actie is een matrix met de dezelfde kardinaliteit als de invoermatrix met elk element getransformeerd zoals gedefinieerd door de `select` eigenschap. Als de invoer een lege matrix is, wordt de uitvoer is ook een lege matrix.
+uitvoer van Hallo Hallo `select` actie is een matrix met Hallo dezelfde kardinaliteit zoals Hallo invoermatrix, waarbij elk element omgezet als gedefinieerd door Hallo `select` eigenschap. Als het Hallo-invoer is een lege matrix, is Hallo uitvoer ook een lege matrix.
 
 |Naam|Vereist|Type|Beschrijving|
 |--------|------------|--------|---------------|
-|Van|Ja|matrix|De bronmatrix.|
-|Selecteer|Ja|Alle|De projectie toepassen op elk element van de bronmatrix.|
+|Van|Ja|Matrix|Hallo bronmatrix.|
+|Selecteer|Ja|Alle|Hallo projectie tooapply tooeach element van de bronmatrix Hallo.|
 
 ## <a name="terminate-action"></a>Actie beëindigen
 
-De actie beëindigen stopt u de uitvoering van de werkstroom uitvoeren, wordt afgebroken onderweg acties en eventuele resterende acties wordt overgeslagen. Bijvoorbeeld, een reeks met de status afgebroken **mislukt**, kunt u het volgende fragment:
+Hallo actie beëindigen stopt u de uitvoering van Hallo werkstroom uitvoert, wordt afgebroken onderweg acties en eventuele resterende acties wordt overgeslagen. Bijvoorbeeld, een reeks met de status tooterminate **mislukt**, kunt u Hallo volgende codefragment:
 
 ```json
 "HandleUnexpectedResponse" : {
@@ -699,18 +699,18 @@ De actie beëindigen stopt u de uitvoering van de werkstroom uitvoeren, wordt af
 ```
 
 > [!NOTE]
-> Reeds voltooide acties worden niet beïnvloed door de actie beëindigen.
+> Reeds voltooide acties worden niet beïnvloed door Hallo actie beëindigen.
 
 |Naam|Vereist|Type|Beschrijving|
 |--------|------------|--------|---------------|
-|runStatus|Ja|Tekenreeks|Het doel status uitvoeren. Beide **mislukt** of **geannuleerd**.|
-|runError|Nee|Object|De details van de fout. Alleen ondersteund wanneer **runStatus** is ingesteld op **mislukt**.|
-|runError code|Nee|Tekenreeks|De uitvoering van de foutcode.|
-|runError bericht|Nee|Tekenreeks|Het foutbericht voor uitvoeren.|
+|runStatus|Ja|Tekenreeks|Hallo-doel status uitvoeren. Beide **mislukt** of **geannuleerd**.|
+|runError|Nee|Object|Hallo foutgegevens. Alleen ondersteund wanneer **runStatus** te is ingesteld,**mislukt**.|
+|runError code|Nee|Tekenreeks|Hallo foutcode uitvoeren.|
+|runError bericht|Nee|Tekenreeks|Hallo foutbericht uitvoeren.|
 
 ## <a name="compose-action"></a>Actie opstellen
 
-De actie opstellen kunt u een willekeurig object samenstellen. De uitvoer van de actie compose is het resultaat van evaluatie van de invoer. Bijvoorbeeld, kunt u de actie opstellen om samen te voegen uitvoerwaarden van meerdere acties:
+Hallo opstellen actie kunt u een willekeurig object samenstellen. Hallo-uitvoer van Hallo opstellen actie Hallo resultaat van evaluatie van de invoer is. Bijvoorbeeld, kunt u Hallo opstellen actie toomerge uitvoerwaarden van meerdere acties:
 
 ```json
 "composeUserRecord" : {
@@ -725,11 +725,11 @@ De actie opstellen kunt u een willekeurig object samenstellen. De uitvoer van de
 ```
 
 > [!NOTE]
-> De **opstellen** actie kan worden gebruikt om eventuele uitvoer, met inbegrip van objecten, matrices en een ander type systeemeigen worden ondersteund door logische apps zoals XML en binaire samen te stellen.
+> Hallo **opstellen** actie gebruikte tooconstruct uitvoer, met inbegrip van objecten, matrices en een ander type systeemeigen worden ondersteund door logische apps zoals XML en binaire kan zijn.
 
 ## <a name="table-action"></a>Tabel actie
 
-De `table` kunt u converteren van een matrix van items in een **CSV** of **HTML** tabel.
+Hallo `table` kunt u tooconvert een matrix van items in een **CSV** of **HTML** tabel.
 
 Stel @triggerBody() is
 
@@ -743,7 +743,7 @@ Stel @triggerBody() is
 }]
 ```
 
-En kunt u de actie die worden gedefinieerd als
+En laat Hallo actie worden gedefinieerd als
 
 ```json
 "ConvertToTable" : {
@@ -755,11 +755,11 @@ En kunt u de actie die worden gedefinieerd als
 }
 ```
 
-De bovenstaande geeft als resultaat
+Hallo bovenstaande geeft als resultaat
 
 <table><thead><tr><th>id</th><th>naam</th></tr></thead><tbody><tr><td>0</td><td>appels</td></tr><tr><td>1</td><td>appels</td></tr></tbody></table>"
 
-Als u wilt aanpassen in de tabel, kunt u de kolommen expliciet opgeven. Bijvoorbeeld:
+In de volgorde toocustomize Hallo tabel kunt u expliciet Hallo kolommen opgeven. Bijvoorbeeld:
 
 ```json
 "ConvertToTable" : {
@@ -778,29 +778,29 @@ Als u wilt aanpassen in de tabel, kunt u de kolommen expliciet opgeven. Bijvoorb
 }
 ```
 
-De bovenstaande geeft als resultaat
+Hallo bovenstaande geeft als resultaat
 
-<table><thead><tr><th>id maken</th><th>Beschrijving</th></tr></thead><tbody><tr><td>0</td><td>nieuwe appels</td></tr><tr><td>1</td><td>nieuwe appels</td></tr></tbody></table>"
+<table><thead><tr><th>id maken</th><th>description</th></tr></thead><tbody><tr><td>0</td><td>nieuwe appels</td></tr><tr><td>1</td><td>nieuwe appels</td></tr></tbody></table>"
 
-Als de `from` waarde van de eigenschap is een lege matrix, de uitvoer is een lege tabel.
+Als hello `from` eigenschapswaarde is een lege matrix, Hallo uitvoer is een lege tabel.
 
 |Naam|Vereist|Type|Beschrijving|
 |--------|------------|--------|---------------|
-|Van|Ja|matrix|De bronmatrix.|
-|Indeling|Ja|Tekenreeks|De indeling beide **CSV** of **HTML**.|
-|Kolommen|Nee|matrix|De kolommen. Kan de standaardvorm van de tabel overschrijven.|
-|kolomkop|Nee|Tekenreeks|De koptekst van de kolom.|
-|waarde in de kolom|Ja|Tekenreeks|De waarde van de kolom.|
+|Van|Ja|Matrix|Hallo bronmatrix.|
+|Indeling|Ja|Tekenreeks|Hallo-indeling, ofwel **CSV** of **HTML**.|
+|Kolommen|Nee|Matrix|Hallo-kolommen. Hiermee kunt toooverride Hallo standaardvorm van Hallo tabel.|
+|kolomkop|Nee|Tekenreeks|Hallo-header van Hallo-kolom.|
+|waarde in de kolom|Ja|Tekenreeks|Hallo-waarde van Hallo-kolom.|
 
 ## <a name="workflow-action"></a>Werkstroomactie   
 
 |Naam|Vereist|Type|Beschrijving|  
 |--------|------------|--------|---------------|  
-|host-id|Ja|Tekenreeks|De resource-ID van de werkstroom die u wilt aanroepen.|  
-|host triggernaam|Ja|Tekenreeks|De naam van de trigger die u wilt aanroepen.|  
-|Query 's|Nee|Object|Vertegenwoordigt de queryparameters toevoegen aan de URL. Bijvoorbeeld: `"queries" : { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL.|  
-|Headers|Nee|Object|Hiermee geeft u elk van de headers die aan de aanvraag is verzonden. Als u bijvoorbeeld de taal instellen en typt u op een aanvraag:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
-|Hoofdtekst|Nee|Object|Hiermee geeft u de nettolading van de verzonden naar het eindpunt.|  
+|host-id|Ja|Tekenreeks|Hallo-bron-ID van dat u wilt dat toocall Hallo-werkstroom.|  
+|host triggernaam|Ja|Tekenreeks|Hallo-naam van dat u wilt dat tooinvoke Hallo-trigger.|  
+|Query 's|Nee|Object|Hallo query parameters tooadd toohello URL vertegenwoordigt. Bijvoorbeeld: `"queries" : { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` toohello URL.|  
+|Headers|Nee|Object|Hiermee geeft u elk Hallo headers die toohello-aanvraag is verzonden. Bijvoorbeeld: tooset Hallo taal en het type voor een aanvraag:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
+|Hoofdtekst|Nee|Object|Hiermee geeft u Hallo nettolading toohello eindpunt verzonden.|  
   
 ```json
 "mynestedwf" : {
@@ -826,19 +826,19 @@ Als de `from` waarde van de eigenschap is een lege matrix, de uitvoer is een leg
     }
 ```
   
-Een toegangscontrole wordt gemaakt op de werkstroom \(meer specifiek, de trigger\), wat betekent dat u moet toegang hebben tot de workflow.  
+Een toegangscontrole wordt gemaakt op Hallo werkstroom \(meer specifiek, Hallo trigger\), wat betekent dat u moet toegang tot toohello werkstroom.  
   
-De uitvoer van de `workflow` actie zijn gebaseerd op wat u hebt gedefinieerd in de `response` bewerking in de onderliggende werkstroom. Als u nog geen gedefinieerd een `response` actie wordt de uitvoer is leeg.  
+Hallo levert van Hallo `workflow` actie zijn gebaseerd op wat u hebt gedefinieerd in Hallo `response` actie in Hallo onderliggende werkstroom. Als u nog geen gedefinieerd een `response` actie en klik vervolgens Hallo uitvoer leeg zijn.  
 
 ## <a name="function-action"></a>Functie actie   
 
 |Naam|Vereist|Type|Beschrijving|  
 |--------|------------|--------|---------------|  
-|functie-id|Ja|Tekenreeks|De resource-ID van de functie die u wilt aanroepen.|  
-|Methode|Nee|Tekenreeks|De HTTP-methode die wordt gebruikt voor het aanroepen van de functie. Dit is standaard `POST` als niet is opgegeven.|  
-|Query 's|Nee|Object|Vertegenwoordigt de queryparameters toevoegen aan de URL. Bijvoorbeeld: `"queries" : { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL.|  
-|Headers|Nee|Object|Hiermee geeft u elk van de headers die aan de aanvraag is verzonden. Bijvoorbeeld, om de taal en type ingesteld op een aanvraag: `"headers" : { "Accept-Language": "en-us" }`.|  
-|Hoofdtekst|Nee|Object|Hiermee geeft u de nettolading van de verzonden naar het eindpunt.|  
+|functie-id|Ja|Tekenreeks|Hallo resource-ID van de gewenste tooinvoke Hallo-functie.|  
+|Methode|Nee|Tekenreeks|Hallo HTTP-methode tooinvoke Hallo functie gebruikt. Dit is standaard `POST` als niet is opgegeven.|  
+|Query 's|Nee|Object|Hallo query parameters tooadd toohello URL vertegenwoordigt. Bijvoorbeeld: `"queries" : { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` toohello URL.|  
+|Headers|Nee|Object|Hiermee geeft u elk Hallo headers die toohello-aanvraag is verzonden. Bijvoorbeeld: tooset Hallo taal en het type voor een aanvraag: `"headers" : { "Accept-Language": "en-us" }`.|  
+|Hoofdtekst|Nee|Object|Hiermee geeft u Hallo nettolading toohello eindpunt verzonden.|  
 
 ```json
 "myfunc" : {
@@ -863,25 +863,25 @@ De uitvoer van de `workflow` actie zijn gebaseerd op wat u hebt gedefinieerd in 
 }
 ```
 
-Wanneer u de logische app opslaat, voeren we enkele controles op de functie waarnaar wordt verwezen:
--   U moet toegang hebben tot de functie.
+Wanneer u Hallo logische app opslaat, voer we enkele controles van de functie Hallo waarnaar wordt verwezen:
+-   U moet de functie voor toegang tot toohello toohave.
 -   Alleen de standaard HTTP-trigger of algemene JSON webhook trigger is toegestaan.
 -   Er mogen geen enkele route gedefinieerd.
 -   Alleen 'functioneren' en 'anonymous' autorisatieniveau is toegestaan.
 
-De URL van de trigger is opgehaald, in de cache opgeslagen en gebruikt tijdens runtime. Dus als een bewerking wordt ongeldig gemaakt van de URL in de cache, mislukt de actie tijdens runtime. Om dit te voorkomen, slaat u de logische app opnieuw, waardoor de logische app op te halen en de trigger-URL opnieuw in de cache.
+Hallo trigger-URL is opgehaald, in de cache opgeslagen en gebruikt tijdens runtime. Dus als een bewerking wordt ongeldig in de cache opgeslagen Hallo-URL gemaakt, mislukt de Hallo actie tijdens runtime. toowork dit, Hallo logische app opnieuw, waarmee u logic app tooretrieve veroorzaken en Hallo trigger URL opnieuw in de cache opslaan.
 
 ## <a name="collection-actions-scopes-and-loops"></a>Verzameling acties (bereiken en lussen)
 
-Sommige actietypen kunnen acties in zichzelf bevatten. Verwijzing acties binnen een verzameling kunnen worden verwezen rechtstreeks buiten de verzameling. Als u hebt gedefinieerd `http` in een bereik `@body('http')` nog geldig overal in een werkstroom. Acties binnen een verzameling kunnen `runAfter` alleen andere acties in dezelfde verzameling.
+Sommige actietypen kunnen acties in zichzelf bevatten. Verwijzing acties binnen een verzameling kunnen worden verwezen rechtstreeks buiten Hallo-verzameling. Als u hebt gedefinieerd `http` in een bereik `@body('http')` nog geldig overal in een werkstroom. Acties binnen een verzameling kunnen `runAfter` alleen andere acties in Hallo dezelfde verzameling.
 
 ## <a name="scope-action"></a>Bereikactie
 
-De `scope` actie kunt u logische groep acties in een werkstroom.
+Hallo `scope` actie kunt u logische groep acties in een werkstroom.
 
 |Naam|Vereist|Type|Beschrijving|  
 |--------|------------|--------|---------------|  
-|acties|Ja|Object|Interne acties worden uitgevoerd binnen het bereik|
+|acties|Ja|Object|Interne acties tooexecute binnen Hallo bereik|
 
 ```json
 {
@@ -901,13 +901,13 @@ De `scope` actie kunt u logische groep acties in een werkstroom.
 
 ## <a name="foreach-action"></a>ForEach-actie
 
-Deze actie samenvoegartikel een matrix doorlopen en interne acties uitvoert voor elk item. Standaard voert de lus foreach parallel (20 uitvoeringen parallel tegelijk). U kunt instellen dat uitvoering regels die gebruikmaken van de `operationOptions` parameter.
+Deze actie samenvoegartikel een matrix doorlopen en interne acties uitvoert voor elk item. Hallo foreach lus wordt standaard uitgevoerd parallel (20 uitvoeringen parallel tegelijk). U kunt uitvoering regels met behulp van Hallo instellen `operationOptions` parameter.
 
 |Naam|Vereist|Type|Beschrijving|  
 |--------|------------|--------|---------------|  
-|acties|Ja|Object|Interne acties worden uitgevoerd binnen de lus|
-|foreach|Ja|Tekenreeks|De matrix te herhalen|
-|operationOptions|Er is geen|Tekenreeks|Bewerking opties voor het gedrag. Ondersteunt momenteel alleen `sequential` iteraties sequentieel uitvoeren (standaardgedrag is parallelle)|
+|acties|Ja|Object|Interne acties tooexecute binnen de lus Hallo|
+|foreach|Ja|Tekenreeks|Hallo matrix tooiterate via|
+|operationOptions|Er is geen|Tekenreeks|Bewerking opties voor het gedrag. Momenteel ondersteunt alleen `sequential` tooexecute iteraties sequentieel (standaardgedrag is parallelle)|
 
 ```json
 "forEach_email": {
@@ -938,15 +938,15 @@ Deze actie samenvoegartikel een matrix doorlopen en interne acties uitvoert voor
 
 ## <a name="until-action"></a>Totdat de actie
 
-Deze samenvoegartikel actie uitgevoerd binnenste acties totdat een voorwaarde in waar resulteert.
+Deze samenvoegartikel actie uitgevoerd binnenste acties totdat een voorwaarde tootrue resulteert.
 
 |Naam|Vereist|Type|Beschrijving|  
 |--------|------------|--------|---------------|  
-|acties|Ja|Object|Interne acties worden uitgevoerd binnen de lus|
-|expressie|Ja|Tekenreeks|De expressie na elke iteratie evalueren|
-|Limiet|Ja|Object|De limieten voor de lus - ten minste één limiet moeten worden gedefinieerd.|
-|Aantal|Er is geen|int|De limiet voor het aantal iteraties die kunnen worden uitgevoerd|
-|Time-out|Er is geen|Tekenreeks|De time-out voor hoe lang deze moet worden herhaald.  ISO 8601-notatie|
+|acties|Ja|Object|Interne acties tooexecute binnen de lus Hallo|
+|expressie|Ja|Tekenreeks|Hallo expressie tooevaluate na elke iteratie|
+|Limiet|Ja|Object|Hallo-limieten voor het Hallo-lus - ten minste één limiet moeten worden gedefinieerd.|
+|Aantal|Er is geen|int|Hallo limiet toohello aantal iteraties die kunnen worden uitgevoerd|
+|timeout|Er is geen|Tekenreeks|Hallo-out voor hoe lang deze moet worden herhaald.  ISO 8601-notatie|
 
 
 ```json
@@ -973,13 +973,13 @@ Deze samenvoegartikel actie uitgevoerd binnenste acties totdat een voorwaarde in
 
 ## <a name="conditions---if-action"></a>Voorwaarden - als actie
 
-De `If` actie kunt u een voorwaarde evalueren en uitvoeren van een vertakking op basis van of de expressie resulteert in `true`.
+Hallo `If` actie kunt u een voorwaarde evalueren en uitvoeren van een vertakking op basis van of Hallo expressie wordt geëvalueerd te`true`.
 
 |Naam|Vereist|Type|Beschrijving|  
 |--------|------------|--------|---------------|  
-|acties|Ja|Object|Interne acties uit te voeren wanneer expressie resulteert in`true`|
-|expressie|Ja|Tekenreeks|De expressie om te evalueren|
-|anders|Er is geen|Object|Interne acties uit te voeren wanneer expressie resulteert in`false`|
+|acties|Ja|Object|Interne acties tooexecute wanneer expressie te evalueert.`true`|
+|expressie|Ja|Tekenreeks|Hallo expressie tooevaluate|
+|anders|Er is geen|Object|Interne acties tooexecute wanneer expressie te evalueert.`false`|
   
 ```json
 "My_condition": {
@@ -1011,17 +1011,17 @@ De `If` actie kunt u een voorwaarde evalueren en uitvoeren van een vertakking op
 }
 ```  
   
-De volgende tabel ziet u voorbeelden van hoe voorwaarden expressies in een actie kunnen gebruiken:  
+Hallo ziet volgende tabel u voorbeelden van hoe voorwaarden expressies in een actie kunnen gebruiken:  
   
 |JSON-waarde|Resultaat|  
 |--------------|----------|  
-|`"expression": "@parameters('hasSpecialAction')"`|De waarde die als waar evalueren verbindingspogingen, wordt dit probleem op te geven. Alleen Booleaanse expressies worden ondersteund. Functies gebruiken om andere typen converteren naar Booleaanse waarde, `empty`, `equals`.|  
-|`"expression": "@greater(actions('act1').output.value, parameters('threshold'))"`|Vergelijking van functies worden ondersteund. In het voorbeeld hier de actie alleen wordt uitgevoerd wanneer de uitvoer van act1 groter dan de drempelwaarde is.|  
-|`"expression": "@or(greater(actions('act1').output.value, parameters('threshold')), less(actions('act1').output.value, 100))"`|Bedrijfslogica-functies worden ook ondersteund voor het maken van geneste Booleaanse expressies. In dit geval wordt de actie uitgevoerd wanneer de uitvoer van act1 boven de drempelwaarde of onder de 100.|  
-|`"expression": "@equals(length(actions('act1').outputs.errors), 0))"`|Matrixfuncties kunt u controleren of een matrix alle items heeft. In dit geval wordt de actie uitgevoerd wanneer de fouten matrix leeg is.| 
+|`"expression": "@parameters('hasSpecialAction')"`|De waarde die tootrue evalueren verbindingspogingen wordt deze voorwaarde toopass. Alleen Booleaanse expressies worden ondersteund. tooconvert andere typen tooBoolean, gebruik functies `empty`, `equals`.|  
+|`"expression": "@greater(actions('act1').output.value, parameters('threshold'))"`|Vergelijking van functies worden ondersteund. Hallo bijvoorbeeld hier Hallo handeling alleen uitgevoerd wanneer het Hallo-uitvoer van act1 is groter dan de drempelwaarde Hallo.|  
+|`"expression": "@or(greater(actions('act1').output.value, parameters('threshold')), less(actions('act1').output.value, 100))"`|Bedrijfslogica-functies zijn ook ondersteunde toocreate genest Booleaanse expressies. In dit geval Hallo actie worden uitgevoerd wanneer het Hallo-uitvoer van act1 is hoger dan drempelwaarde Hallo of onder de 100.|  
+|`"expression": "@equals(length(actions('act1').outputs.errors), 0))"`|U kunt matrix functies toocheck gebruiken als een matrix alle items heeft. In dit geval Hallo actie worden uitgevoerd wanneer Hallo fouten matrix leeg is.| 
 |`"expression": "parameters('hasSpecialAction')"`|Fout: geen geldige voorwaarde omdat @ is vereist voor voorwaarden.|  
   
-Als een voorwaarde is geëvalueerd, de voorwaarde is gemarkeerd als `Succeeded`. Acties in ofwel de `actions` of `else` objecten worden geëvalueerd tot `Succeeded` wanneer die wordt uitgevoerd en is voltooid, `Failed` wanneer die wordt uitgevoerd en is mislukt, of `Skipped` wanneer dat filiaal niet is uitgevoerd.
+Als een voorwaarde is geëvalueerd, Hallo-voorwaarde is gemarkeerd als `Succeeded`. Acties in beide Hallo `actions` of `else` objecten te evalueren`Succeeded` wanneer die wordt uitgevoerd en is voltooid, `Failed` wanneer die wordt uitgevoerd en is mislukt, of `Skipped` wanneer dat filiaal niet is uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

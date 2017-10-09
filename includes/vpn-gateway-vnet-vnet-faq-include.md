@@ -1,26 +1,26 @@
-De veelgestelde vragen voor VNet-naar-VNet zijn van toepassing op VPN Gateway-verbindingen. Zie [Peering op virtueel netwerk](../articles/virtual-network/virtual-network-peering-overview.md) voor VNet-peering
+Hallo Veelgestelde vragen over VNet-naar-VNet is van toepassing tooVPN gatewayverbindingen. Zie [Peering op virtueel netwerk](../articles/virtual-network/virtual-network-peering-overview.md) voor VNet-peering
 
 ### <a name="does-azure-charge-for-traffic-between-vnets"></a>Worden er door Azure kosten in rekening gebracht voor verkeer tussen VNets?
 
-VNet-naar-VNet-verkeer binnen dezelfde regio is gratis in beide richtingen wanneer u een VPN Gateway-verbinding gebruikt. Voor uitgaand VNet-naar-VNet-verkeer tussen regio's gelden de tarieven voor uitgaande gegevensoverdracht tussen VNets op basis van de bronregio's. Raadpleeg de [pagina met VPN Gateway-prijzen](https://azure.microsoft.com/pricing/details/vpn-gateway/) voor meer informatie. Zie de [pagina met prijzen voor virtuele netwerken](https://azure.microsoft.com/pricing/details/virtual-network/) als u uw VNets verbindt op basis van VNet-peering in plaats van VPN Gateway.
+VNet-naar-VNet-verkeer binnen Hallo dezelfde regio is gratis voor beide richtingen wanneer u een VPN-gatewayverbinding. Cross-regio VNet-naar-VNet uitgaande verkeer wordt in rekening gebracht met Hallo uitgaande inter-VNet tarieven voor gegevensoverdracht op basis van regio's Hallo-bron. Raadpleeg toohello [VPN-Gateway pagina met prijzen](https://azure.microsoft.com/pricing/details/vpn-gateway/) voor meer informatie. Als u verbinding van uw vnet's met behulp van de VNet-Peering, in plaats van VPN-Gateway maakt, Zie Hallo [virtueel netwerk pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-network/).
 
-### <a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>Verloopt VNet-naar-VNet-verkeer via internet?
+### <a name="does-vnet-to-vnet-traffic-travel-across-hello-internet"></a>VNet-naar-VNet-verkeer passeren Hallo Internet?
 
-Nee. Voor VNet-naar-VNet-verkeer wordt het Microsoft-netwerk gebruikt in plaats van internet.
+Nee. VNet-naar-VNet-verkeer via Hallo Microsoft Azure-backbone niet Hallo Internet wordt verzonden.
 
 ### <a name="is-vnet-to-vnet-traffic-secure"></a>Is het VNet-naar-VNet-verkeer beveiligd?
 
 Ja, het is beveiligd met IPsec/IKE-versleuteling.
 
-### <a name="do-i-need-a-vpn-device-to-connect-vnets-together"></a>Heb ik een VPN-apparaat nodig om VNets met elkaar te verbinden?
+### <a name="do-i-need-a-vpn-device-tooconnect-vnets-together"></a>Heb ik een VPN-apparaat tooconnect VNets samen nodig?
 
 Nee. Om meerdere virtuele netwerken van Azure met elkaar te verbinden, hebt u geen VPN-apparaat nodig, tenzij cross-premises connectiviteit is vereist.
 
-### <a name="do-my-vnets-need-to-be-in-the-same-region"></a>Moeten mijn VNets zich in dezelfde regio bevinden?
+### <a name="do-my-vnets-need-toobe-in-hello-same-region"></a>Hoeft mijn VNets toobe in Hallo dezelfde regio?
 
-Nee. De virtuele netwerken kunnen zich in dezelfde of verschillende Azure-regio's (locaties) bevinden.
+Nee. Hallo virtuele netwerken kunnen zich in Hallo dezelfde of verschillende Azure-regio's (locaties).
 
-### <a name="if-the-vnets-are-not-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-ad-tenant"></a>Als de VNets niet tot hetzelfde abonnement behoren, moeten de abonnementen dan aan dezelfde AD-tenant zijn gekoppeld?
+### <a name="if-hello-vnets-are-not-in-hello-same-subscription-do-hello-subscriptions-need-toobe-associated-with-hello-same-ad-tenant"></a>Als Hallo VNets zich niet op dezelfde Hallo abonnement, Hallo abonnementen hoeft toobe gekoppeld aan Hallo dezelfde AD-tenant?
 
 Nee.
 
@@ -32,7 +32,7 @@ Ja. U kunt virtuele-netwerkverbindingen tegelijk gebruiken met multi-site-VPN’
 
 Zie de tabel [Gatewayvereisten](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#requirements).
 
-### <a name="can-i-use-vnet-to-vnet-to-connect-vms-or-cloud-services-outside-of-a-vnet"></a>Kan ik VNet-naar-VNet gebruiken om virtuele machines of cloudservices met elkaar te verbinden buiten een VNet?
+### <a name="can-i-use-vnet-to-vnet-tooconnect-vms-or-cloud-services-outside-of-a-vnet"></a>Kan ik een VNet-naar-VNet tooconnect VM's gebruiken of cloudservices buiten een VNet?
 
 Nee. VNet naar VNet ondersteunt het verbinden van virtuele netwerken. Er is geen ondersteuning voor het verbinden van virtuele machines of cloudservices die geen deel uitmaken van een virtueel netwerk.
 
@@ -44,13 +44,13 @@ Nee. Een cloudservice of een taakverdelingseindpunt kan geen virtuele netwerken 
 
 Nee. VNet-naar-VNet- en multi-site-verbindingen vereisen Azure VPN-gateways met op route gebaseerde VPN-typen (voorheen dynamische routering genoemd).
 
-### <a name="can-i-connect-a-vnet-with-a-routebased-vpn-type-to-another-vnet-with-a-policybased-vpn-type"></a>Kan ik een VNet met een op route gebaseerd VPN-type verbinden met een op beleid gebaseerd VPN-type?
+### <a name="can-i-connect-a-vnet-with-a-routebased-vpn-type-tooanother-vnet-with-a-policybased-vpn-type"></a>Kan ik een VNet met een op route gebaseerd VPN-Type tooanother VNet met een PolicyBased VPN-type verbinden?
 
 Nee, voor beide virtuele netwerken MOET gebruik worden gemaakt van op route gebaseerde VPN's (voorheen dynamische routering genoemd).
 
 ### <a name="do-vpn-tunnels-share-bandwidth"></a>Delen VPN-tunnels bandbreedte?
 
-Ja. Alle VPN-tunnels van het virtuele netwerk delen de beschikbare bandbreedte op de Azure VPN-gateway en dezelfde SLA voor VPN-gatewaybedrijfstijd in Azure.
+Ja. Alle VPN-tunnels van het virtuele netwerk Hallo delen Hallo beschikbare bandbreedte op Hallo Azure VPN-gateway en dezelfde SLA voor VPN-gateway bedrijfstijd in Azure Hallo.
 
 ### <a name="are-redundant-tunnels-supported"></a>Worden redundante tunnels ondersteund?
 

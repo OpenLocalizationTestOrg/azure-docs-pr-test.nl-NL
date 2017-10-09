@@ -1,6 +1,6 @@
 ---
-title: De Azure IoT SDK's begrijpen | Microsoft Docs
-description: Handleiding voor ontwikkelaars - informatie over en koppelingen naar de verschillende Azure IoT-apparaat en de service SDK's die u gebruiken kunt om apps op apparaten en back-end-apps te ontwikkelen.
+title: aaaUnderstand hello Azure IoT SDK's | Microsoft Docs
+description: Handleiding voor ontwikkelaars - informatie over en koppelingen toohello verschillende Azure IoT-apparaat en de service SDK's waarmee u toobuild apparaat-apps en apps van de back-end kunt.
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -15,50 +15,50 @@ ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bcbf4b9633f58293edb19aeb33dec6602ac4ec8f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e319451ca97876666e1c011ee0e1a73d0a0f1ed1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understand-and-use-azure-iot-sdks"></a>Begrijpen en gebruiken van Azure IoT SDK 's
 
 Er zijn drie categorieën van de SDK voor het werken met IoT Hub:
 
-* **Apparaat-SDK's** kunt u voor het bouwen van apps die worden uitgevoerd op uw IoT-apparaten. Deze apps verzenden van telemetrie naar uw IoT-hub en eventueel berichten ontvangen van uw IoT-hub.
+* **Apparaat-SDK's** u toobuild-apps die worden uitgevoerd op uw IoT-apparaten inschakelen. Deze apps verzenden van telemetrie tooyour IoT-hub en eventueel berichten ontvangen van uw IoT-hub.
 
-* **Service-SDK's** helpen u voor het beheren van uw IoT-hub en, desgewenst berichten verzenden naar uw IoT-apparaten.
+* **Service-SDK's** inschakelen toomanage u uw IoT-hub en eventueel berichten verzenden tooyour IoT-apparaten.
 
-* **Azure IoT-rand** kunt u gateways als apparaten die niet een van de ondersteunde protocollen, of wanneer u moet voor het verwerken van berichten op de rand wilt laten maken.
+* **Azure IoT-rand** kunt u toobuild gateways tooenable apparaten die niet gebruikmaken van een van de protocollen hello wordt ondersteund, of wanneer u tooprocess berichten op het Hallo-rand nodig hebt.
 
-SDK's zijn beschikbaar voor de ondersteuning van meerdere programmeertalen.
+SDK's zijn opgegeven toosupport meerdere programmeertalen.
 
 ## <a name="azure-iot-device-sdks"></a>Apparaat met Azure IoT SDK 's
 
-Het apparaat met Microsoft Azure IoT SDK's bevatten code voor gebouw apparaten en toepassingen die verbinding maken met en worden beheerd door de services van Azure IoT Hub.
+Hallo Microsoft Azure IoT-apparaat-SDK's bevatten code voor gebouw apparaten en toepassingen die verbinding tooand maken worden beheerd door Azure IoT Hub-services.
 
-Het volgende apparaat met Azure IoT SDK's kunnen worden gedownload van GitHub:
+Hallo zijn volgende Azure IoT-apparaat-SDK's beschikbaar toodownload vanuit GitHub:
 
-* [Azure IoT-apparaat SDK voor C] [ lnk-c-device-sdk] geschreven in C ANSI (C99) voor brede platformcompatibiliteit en draagbaarheid. Er zijn twee apparaat clientbibliotheken voor de laag niveau C **iothub_client** en de **serialisatiefunctie**.
+* [Azure IoT-apparaat SDK voor C] [ lnk-c-device-sdk] geschreven in C ANSI (C99) voor brede platformcompatibiliteit en draagbaarheid. Er zijn twee apparaat clientbibliotheken voor C hello op laag niveau **iothub_client** en Hallo **serialisatiefunctie**.
 * [Azure IoT-apparaat SDK voor .NET][lnk-dotnet-device-sdk]
 * [Azure IoT-apparaat SDK voor Java][lnk-java-device-sdk]
 * [Azure IoT-apparaat SDK voor Node.js][lnk-node-device-sdk]
 * [Azure IoT-apparaat SDK voor Python][lnk-python-device-sdk]
 
 > [!NOTE]
-> Zie het Leesmij-bestanden in de GitHub-opslagplaatsen voor informatie over het gebruik van taal en managers pakket platform-specifieke binaire bestanden en afhankelijkheden te installeren op uw ontwikkelcomputer.
+> Zie Hallo Leesmij-bestanden in de GitHub-opslagplaatsen Hallo voor informatie over het gebruik van taal en platform-specifieke pakket managers tooinstall binaire bestanden en afhankelijkheden op uw ontwikkelcomputer.
 > 
 > 
 
 ### <a name="os-platform-and-hardware-compatibility"></a>Compatibiliteit met besturingssystemen platform en hardware
 
-Zie voor meer informatie over de SDK compatibiliteit met bepaalde hardware-apparaten, de [Azure gecertificeerd voor IoT-apparaat catalogus][lnk-certified].
+Zie voor meer informatie over de compatibiliteit van de SDK met de specifieke hardware Hallo [Azure gecertificeerd voor IoT-apparaat catalogus][lnk-certified].
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT service SDK 's
 
-De Azure IoT service SDK's bevatten code om het te bevorderen toepassingen maken die communiceren rechtstreeks met IoT Hub voor het beheren van apparaten en beveiliging.
+Hello Azure IoT service SDK's bevatten code toofacilitate bouwen van toepassingen die rechtstreeks met de IoT Hub toomanage apparaten en beveiliging communiceren.
 
-De volgende Azure IoT service SDK's kunnen worden gedownload van GitHub:
+Hallo zijn volgende Azure IoT service SDK's beschikbaar toodownload vanuit GitHub:
 
 * [Azure IoT service SDK voor .NET][lnk-dotnet-service-sdk]
 * [Azure IoT service SDK voor Node.js][lnk-node-service-sdk]
@@ -67,17 +67,17 @@ De volgende Azure IoT service SDK's kunnen worden gedownload van GitHub:
 * [Azure IoT service SDK voor C][lnk-c-service-sdk]
 
 > [!NOTE]
-> Zie het Leesmij-bestanden in de GitHub-opslagplaatsen voor informatie over het gebruik van taal en managers pakket platform-specifieke binaire bestanden en afhankelijkheden te installeren op uw ontwikkelcomputer.
+> Zie Hallo Leesmij-bestanden in de GitHub-opslagplaatsen Hallo voor informatie over het gebruik van taal en platform-specifieke pakket managers tooinstall binaire bestanden en afhankelijkheden op uw ontwikkelcomputer.
 
 ## <a name="azure-iot-edge"></a>Azure IoT Edge
 
-Azure IoT-rand bevat de volgende infrastructuur en modules om oplossingen van IoT gateway te maken. U kunt IoT rand voor het maken van gateways die zijn afgestemd op een end-to-end-scenario uitbreiden.
+Azure IoT-rand bevat Hallo-infrastructuur en -modules toocreate IoT gateway-oplossingen. U kunt IoT rand toocreate gateways op maat gemaakte tooany end-to-end scenario uitbreiden.
 
 U kunt downloaden [Azure IoT rand] [ lnk-iot-edge] vanuit GitHub.
 
 ## <a name="online-api-reference-documentation"></a>Online documentatie voor API-verwijzing
 
-De volgende lijst bevat koppelingen naar online API-naslagdocumentatie voor Azure IoT-apparaat, service en bibliotheken van de gateway:
+Hallo bevat volgende lijst koppelingen tooonline API-naslagdocumentatie voor Azure IoT-apparaat, service en bibliotheken van de gateway:
 
 * [Internet der dingen (IoT) .NET][lnk-dotnet-ref]
 * [IoT-Hub REST][lnk-rest-ref]

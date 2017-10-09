@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud-Shell prijzen (Preview) | Microsoft Docs
+title: aaaAzure Cloud Shell prijzen (Preview) | Microsoft Docs
 description: Overzicht van de prijzen van Azure Cloud Shell
 services: 
 documentationcenter: 
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
-ms.openlocfilehash: aacb7173392b1903b39b82fabb152d076b142ce9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ca88b43de5fe416e9d0f2f5e4095c6d0318186e5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="pricing"></a>Prijzen
 
 ## <a name="compute-cost"></a>COMPUTE-kosten
-Azure Cloud-Shell wordt uitgevoerd op een machine gratis opgegeven, maar vereist een gekoppelde Azure-bestandsshare te gebruiken. 
+Azure Cloud-Shell op een vrije opgegeven machine wordt uitgevoerd, maar een gekoppelde Azure file share toouse vereist. 
 
 ## <a name="storage-cost"></a>Opslagkosten
-Cloud-Shell maakt een standaard 5GB-installatiekopie in de bestandsshare voor het persistent maken van uw directory $HOME. Azure-bestandsshares geregelde kosten in rekening gebracht.
+Cloud-Shell maakt een standaardinstallatiekopie van 5GB in uw bestandsshare toopersist uw directory $HOME. Azure-bestandsshares geregelde kosten in rekening gebracht.
 
 Controleer [hier voor meer informatie over Azure Files kosten](https://azure.microsoft.com/pricing/details/storage/files/). 

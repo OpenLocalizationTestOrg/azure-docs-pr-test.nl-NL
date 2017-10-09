@@ -1,6 +1,6 @@
 ---
-title: Java-web-appprestaties op Linux - Azure controleren | Microsoft Docs
-description: Uitgebreide bewaking van toepassingsprestaties van uw Java-website met de invoegtoepassing CollectD voor Application Insights.
+title: Java-web-appprestaties op Linux - Azure aaaMonitor | Microsoft Docs
+description: Uitgebreid application performance monitoring van uw Java-website met de Hallo CollectD invoegtoepassing Application Insights.
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -13,39 +13,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: bwren
-ms.openlocfilehash: 4ea917b068e0242bfb88d7357eca032607a43a3f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f783e8607a83b2b43f67d3a2fc20f100aa2f75ec
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Linux maatstaven voor prestaties in Application Insights
 
 
-Om te verkennen systeemprestaties in Linux [Application Insights](app-insights-overview.md), installeren [collectd](http://collectd.org/), samen met de Application Insights-invoegtoepassing. Deze oplossing open source worden verschillende statistieken voor systeem- en netwerkgegevens verzameld.
+tooexplore systeemprestaties van Linux in [Application Insights](app-insights-overview.md), installeren [collectd](http://collectd.org/), samen met de Application Insights-invoegtoepassing. Deze oplossing open source worden verschillende statistieken voor systeem- en netwerkgegevens verzameld.
 
-Doorgaans kunt u collectd als u al hebt [uw Java-webservice met Application Insights geïnstrumenteerd][java]. Dit biedt u meer gegevens kunt verbeteren de prestaties van uw app of het analyseren van problemen. 
+Doorgaans kunt u collectd als u al hebt [uw Java-webservice met Application Insights geïnstrumenteerd][java]. Dit biedt u meer gegevens toohelp tooenhance u de prestaties van uw app of het analyseren van problemen. 
 
 ![voorbeeldgrafieken](./media/app-insights-java-collectd/sample.png)
 
 ## <a name="get-your-instrumentation-key"></a>De instrumentatiesleutel ophalen
-In de [Microsoft Azure-portal](https://portal.azure.com), open de [Application Insights](app-insights-overview.md) resource waar u de gegevens wilt weergeven. (Of [Maak een nieuwe resource](app-insights-create-new-resource.md).)
+In Hallo [Microsoft Azure-portal](https://portal.azure.com)Open Hallo [Application Insights](app-insights-overview.md) resource waar u Hallo gegevens tooappear. (Of [Maak een nieuwe resource](app-insights-create-new-resource.md).)
 
-Duren voordat u een kopie van de instrumentatiesleutel die de resource identificeert.
+Een kopie van de instrumentatiesleutel hello, waarmee Hallo resource in beslag nemen.
 
-![Alles bekijken, opent u de bron en klik vervolgens in de vervolgkeuzelijst Essentials selecteren en de Instrumentatiesleutel kopiëren](./media/app-insights-java-collectd/02-props.png)
+![Alles bekijken, opent u de resource en vervolgens in Hallo Essentials vervolgkeuzelijst, selecteer en kopieer Hallo Instrumentatiesleutel](./media/app-insights-java-collectd/02-props.png)
 
-## <a name="install-collectd-and-the-plug-in"></a>Installeer collectd en de invoegtoepassing
+## <a name="install-collectd-and-hello-plug-in"></a>Installeer collectd en Hallo invoegtoepassing
 Op de Linux-servers:
 
 1. Installeer [collectd](http://collectd.org/) versie 5.4.0 of hoger.
-2. Download de [Application Insights-invoegtoepassing voor collectd writer](https://aka.ms/aijavasdk). Noteer het versienummer.
-3. Kopieer de invoegtoepassing JAR in `/usr/share/collectd/java`.
+2. Hallo downloaden [Application Insights-invoegtoepassing voor collectd writer](https://aka.ms/aijavasdk). Houd er rekening mee Hallo versienummer.
+3. Hallo-invoegtoepassing JAR kopiëren naar `/usr/share/collectd/java`.
 4. Bewerken `/etc/collectd/collectd.conf`:
-   * Zorg ervoor dat [de Java-invoegtoepassing](https://collectd.org/wiki/index.php/Plugin:Java) is ingeschakeld.
-   * De JVMArg voor de java.class.path zodanig dat de volgende JAR bijwerken. Update het versienummer overeenkomen met de naam die u hebt gedownload:
+   * Zorg ervoor dat [Hallo Java-invoegtoepassing](https://collectd.org/wiki/index.php/Plugin:Java) is ingeschakeld.
+   * Update hello JVMArg voor Hallo java.class.path tooinclude Hallo JAR te volgen. Hallo versie nummer toomatch Hallo die één gedownloade bijwerken:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
-   * In dit fragment, met behulp van de Instrumentatiesleutel van uw resource toevoegen:
+   * In dit fragment, met behulp van Hallo Instrumentatiesleutel van uw resource toevoegen:
 
 ```XML
 
@@ -90,47 +90,47 @@ Dit is onderdeel van een voorbeeldconfiguratiebestand:
 
 Configureer andere [collectd plugins](https://collectd.org/wiki/index.php/Table_of_Plugins), dat kan verschillende gegevens verzamelen van verschillende gegevensbronnen.
 
-Opnieuw opstarten collectd volgens de [handmatige](https://collectd.org/wiki/index.php/First_steps).
+Start opnieuw op op basis van tooits collectd [handmatige](https://collectd.org/wiki/index.php/First_steps).
 
-## <a name="view-the-data-in-application-insights"></a>De gegevens in Application Insights weergeven
-Open in uw Application Insights-resource [Metrics Explorer en grafieken toe te voegen][metrics], de metrische gegevens die u wilt zien, uit de categorie Aangepast selecteren.
+## <a name="view-hello-data-in-application-insights"></a>Hallo-gegevens weergeven in Application Insights
+Open in uw Application Insights-resource [Metrics Explorer en grafieken toe te voegen][metrics], selecteren Hallo metrische gegevens wilt toosee van Hallo aangepaste categorie.
 
 ![](./media/app-insights-java-collectd/result.png)
 
-Standaard worden de metrische gegevens geaggregeerd alle host machines waaruit de metrische gegevens zijn verzameld. Om weer te geven de metrische gegevens per host in de grafiek details blade, schakelt u Grouping en kies vervolgens groeperen op CollectD-Host.
+Standaard worden Hallo metrische gegevens geaggregeerd alle host machines waaruit de Hallo metrische gegevens zijn verzameld. tooview hello metrische gegevens per host Hallo grafiek details blade, schakelt u Grouping en kies vervolgens toogroup door CollectD-Host.
 
-## <a name="to-exclude-upload-of-specific-statistics"></a>Uploaden van specifieke statistieken uitsluiten
-De Application Insights-invoegtoepassing verzendt standaard alle gegevens die door de ingeschakelde collectd lezen plugins verzameld. 
+## <a name="tooexclude-upload-of-specific-statistics"></a>uploaden van specifieke statistieken tooexclude
+Hallo Application Insights-invoegtoepassing verzendt standaard alle Hallo gegevens verzameld door alle Hallo ingeschakeld collectd 'read' invoegtoepassingen gebruikt. 
 
-Gegevens uitsluiten van specifieke invoegtoepassingen of gegevensbronnen:
+tooexclude gegevens van specifieke invoegtoepassingen of gegevensbronnen:
 
-* Het configuratiebestand bewerken. 
+* Hallo-configuratiebestand bewerken. 
 * In `<Plugin ApplicationInsightsWriter>`, richtlijn regels als volgt toevoegen:
 
 | Richtlijn | Effect |
 | --- | --- |
-| `Exclude disk` |Uitsluiten van alle gegevens die worden verzameld door de `disk` invoegtoepassing |
-| `Exclude disk:read,write` |Uitsluiten van de bronnen met de naam `read` en `write` van de `disk` invoegtoepassing. |
+| `Exclude disk` |Alle gegevens die worden verzameld door Hallo uitsluiten `disk` invoegtoepassing |
+| `Exclude disk:read,write` |Hallo-bronnen met de naam uitsluiten `read` en `write` van Hallo `disk` invoegtoepassing. |
 
 Afzonderlijke richtlijnen met een nieuwe regel.
 
 ## <a name="problems"></a>Problemen?
-*Gegevens in de portal weergegeven niet*
+*Gegevens in de portal Hallo weergegeven niet*
 
-* Open [Search] [ diagnostic] om te zien als de onbewerkte gebeurtenissen zijn ontvangen. Soms duurt langer in metrics explorer wordt weergegeven.
-* Mogelijk moet u [firewalluitzonderingen voor uitgaande gegevens instellen](app-insights-ip-addresses.md)
-* Tracering in de Application Insights-invoegtoepassing inschakelen. Deze regel in te voegen `<Plugin ApplicationInsightsWriter>`:
+* Open [Search] [ diagnostic] toosee als Hallo onbewerkte gebeurtenissen zijn ontvangen. Soms worden ze langer tooappear in metrics explorer.
+* U moet mogelijk te[firewalluitzonderingen voor uitgaande gegevens instellen](app-insights-ip-addresses.md)
+* Tracering in Application Insights-invoegtoepassing Hallo inschakelen. Deze regel in te voegen `<Plugin ApplicationInsightsWriter>`:
   * `SDKLogger true`
-* Open een terminal en collectd starten in de uitgebreide modus om te zien of er problemen zijn meldt:
+* Open een terminal en collectd starten in de uitgebreide modus toosee meldt problemen:
   * `sudo collectd -f`
 
 ## <a name="known-issue"></a>Bekende problemen
 
-Het schrijven van Application Insights-invoegtoepassing is niet compatibel met bepaalde invoegtoepassingen lezen. Sommige invoegtoepassingen verzenden soms 'NaN', waarbij de Application Insights-invoegtoepassing een getal met drijvende komma verwacht.
+Hallo schrijven van Application Insights-invoegtoepassing is niet compatibel met bepaalde invoegtoepassingen lezen. Sommige invoegtoepassingen verzenden soms 'NaN', waarbij Hallo Application Insights-invoegtoepassing een getal met drijvende komma verwacht.
 
-Symptoom: Het logboek collectd bevat fouten die zijn 'AI:... SyntaxError: onverwacht token N ".
+Symptoom: Hallo collectd logboek bevat fouten die zijn 'AI:... SyntaxError: onverwacht token N ".
 
-Tijdelijke oplossing: Uitsluiten gegevens die door het probleem schrijven plugins verzameld. 
+Tijdelijke oplossing: Uitsluiten door Hallo probleem schrijven plugins verzamelde gegevens. 
 
 <!--Link references-->
 

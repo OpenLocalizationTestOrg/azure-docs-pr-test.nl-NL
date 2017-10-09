@@ -1,6 +1,6 @@
 ---
-title: Een claimable virtuele machine toevoegen aan een lab in Azure DevTest Labs | Microsoft Docs
-description: Meer informatie over het toevoegen van een claimable virtuele machine aan een lab in Azure DevTest Labs
+title: aaaAdd een claimable VM tooa lab in Azure DevTest Labs | Microsoft Docs
+description: Meer informatie over hoe tooadd een lab dat is tooa claimable virtuele machine in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,57 +14,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: tarcher
-ms.openlocfilehash: 98950d72e90b0e178bae2fffa7644fd824a25eea
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fe6385ae2e59b9636b82aec250dc3a1f8a40ba5d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Een claimable virtuele machine toevoegen aan een lab in Azure DevTest Labs
-U een claimable virtuele machine toevoegen aan een lab op een vergelijkbare manier met de manier waarop u [toevoegen van een standaard virtuele machine](devtest-lab-add-vm.md) – Selecteer in een *base* dat ofwel een [aangepaste installatiekopie](devtest-lab-create-template.md), [formule](devtest-lab-manage-formulas.md), of [Marketplace-installatiekopie](devtest-lab-configure-marketplace-images.md). Deze zelfstudie wordt u begeleid bij met de Azure portal een claimable virtuele machine toevoegen aan een lab in DevTest Labs en ziet u dat een gebruiker om de virtuele machine via het proces.
+# <a name="add-a-claimable-vm-tooa-lab-in-azure-devtest-labs"></a>Toevoegen van een claimable tooa lab voor virtuele machine in Azure DevTest Labs
+U een claimable VM tooa lab toevoegen in een vergelijkbare manier toohow u [toevoegen van een standaard virtuele machine](devtest-lab-add-vm.md) – Selecteer in een *base* dat ofwel een [aangepaste installatiekopie](devtest-lab-create-template.md), [formule](devtest-lab-manage-formulas.md), of [Marketplace-installatiekopie](devtest-lab-configure-marketplace-images.md). In deze zelfstudie wordt u begeleid bij gebruik van Azure portal tooadd Hallo een claimable VM tooa lab in DevTest Labs en ziet u Hallo proces dat een gebruiker via tooclaim Hallo VM.
 
 > [!NOTE]
-> Als u virtuele machines lab via implementeert [Azure Resource Manager-sjablonen](devtest-lab-create-environment-from-arm.md), kunt u claimable virtuele machines maken door in te stellen de **allowClaim** eigenschap op true in de sectie met eigenschappen.
+> Als u virtuele machines lab via implementeert [Azure Resource Manager-sjablonen](devtest-lab-create-environment-from-arm.md), kunt u claimable virtuele machines maken met de instelling Hallo **allowClaim** eigenschap tootrue in de sectie eigenschappen Hallo.
 >
 >
 
-## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Stappen voor het toevoegen van een claimable VM aan een lab in Azure DevTest Labs
-1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
-1. Selecteer in de lijst van labs in het lab waarin u wilt maken van de claimable VM.  
-1. Op de testomgeving **overzicht** blade Selecteer **+ toevoegen**.  
+## <a name="steps-tooadd-a-claimable-vm-tooa-lab-in-azure-devtest-labs"></a>Stappen tooadd een claimable VM tooa lab in Azure DevTest Labs
+1. Meld u aan toohello [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit Hallo-lijst.
+1. Selecteer in lijst Hallo van labs Hallo lab in die u wilt dat Hallo toocreate claimable VM.  
+1. Op de Hallo lab **overzicht** blade Selecteer **+ toevoegen**.  
 
     ![VM-knop toevoegen](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 
-1. Op de **kiezen een base** blade, selecteert u een basis voor de virtuele machine.
-1. Op de **virtuele machine** blade een naam voor de nieuwe virtuele machine in de **virtuele-machinenaam** in het tekstvak.
+1. Op Hallo **kiezen een base** blade, selecteert u een basis voor Hallo VM.
+1. Op Hallo **virtuele machine** blade, voer een naam voor de nieuwe virtuele machine Hallo in Hallo **virtuele-machinenaam** in het tekstvak.
 
     ![VM-labblade](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
-1. Voer een **gebruikersnaam** die administrator-bevoegdheden op de virtuele machine wordt verleend.  
-1. Als u gebruiken van een wachtwoord opgeslagen wilt in uw [geheime store](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store), selecteer **een opgeslagen geheim**, en geef de waarde van een sleutel die overeenkomt met uw geheime (wachtwoord). Anders, voer een wachtwoord in het veld met het label **typt u een waarde**.
-1. De **virtuele machine schijftype** wordt bepaald welk type opslagschijf is toegestaan voor de virtuele machines in de testomgeving.
-1. Selecteer **grootte van virtuele machine** en selecteer een van de vooraf gedefinieerde items die de processor-cores, RAM-geheugen en de grootte van de vaste schijf van de virtuele machine maken opgeven.
-1. Selecteer **artefacten** uit de lijst van artefacten en selecteer de artefacten die u wilt toevoegen aan de basisinstallatiekopie configureren. Als u niet vertrouwd met DevTest Labs bent of configureren van artefacten, naar verwijzen de [een bestaande artefact toevoegen aan een virtuele machine](devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) sectie en ga vervolgens terug hier na voltooiing.
-1. Selecteer **geavanceerde instellingen** om de netwerkopties en opties van de virtuele machine te configureren. Onder **opties Claim**, kies **Ja** op de machine claimable maken.
+1. Voer een **gebruikersnaam** die administrator-bevoegdheden op Hallo virtuele machine wordt verleend.  
+1. Als u wilt dat toouse een wachtwoord opgeslagen in uw [geheime store](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store), selecteer **een opgeslagen geheim**, en geef de waarde van een sleutel die overeenkomt met tooyour geheim (wachtwoord). Anders een wachtwoord opgeven in Hallo tekstveld met het label **typt u een waarde**.
+1. Hallo **virtuele machine schijftype** wordt bepaald welk type opslagschijf is toegestaan voor Hallo virtuele machines in Hallo lab.
+1. Selecteer **grootte van virtuele machine** en selecteer een van de Hallo vooraf gedefinieerde items die Hallo processorcores, RAM-geheugen en grootte van de vaste schijf Hallo van Hallo VM toocreate opgeven.
+1. Selecteer **artefacten** in lijst Hallo van artefacten en selecteer Hallo artefacten die u tooadd toohello basisinstallatiekopie wilt configureren. Als u nieuwe tooDevTest Labs of configureren van artefacten, Raadpleeg toohello [toevoegen van een bestaande artefact tooa VM](devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) sectie en ga vervolgens terug hier na voltooiing.
+1. Selecteer **geavanceerde instellingen** opties opties en verlopen een tooconfigure Hallo VM-netwerk. Onder **opties Claim**, kies **Ja** claimable toomake Hallo-machine.
 
-  ![Wilt u de VM claimable maken.](./media/devtest-lab-add-vm/devtestlab-claim-VM-option.png)
+  ![Kies toomake hello claimable VM.](./media/devtest-lab-add-vm/devtestlab-claim-VM-option.png)
 
-1. Als u wilt weergeven of kopiëren van de Azure Resource Manager-sjabloon, raadpleegt u de [opslaan Azure Resource Manager-sjabloon](devtest-lab-add-vm.md#save-azure-resource-manager-template) sectie en hier terug wanneer voltooid.
-1. Selecteer **maken** opgegeven virtuele machine toevoegen aan het lab.
-1. De blade testlab toont de status van het maken van de VM - eerst als **maken**, klikt u vervolgens als **met** nadat de virtuele machine is gestart.
+1. Als u wilt dat tooview of hello Azure Resource Manager-sjabloon kopieert, raadpleeg dan toohello [opslaan Azure Resource Manager-sjabloon](devtest-lab-add-vm.md#save-azure-resource-manager-template) sectie en hier terug wanneer voltooid.
+1. Selecteer **maken** tooadd Hallo VM toohello lab opgegeven.
+1. Hallo-status van Hallo van de virtuele machine maken: Hallo labblade eerst weergegeven als **maken**, klikt u vervolgens als **met** na Hallo VM is gestart.
 
 
 ## <a name="using-a-claimable-vm"></a>Met behulp van een claimable VM
 
-Een gebruiker kan een virtuele machine uit de lijst met 'Claimable virtuele machines' claim op een van de volgende stappen uit:
+Een gebruiker kan VM van de lijst van 'Claimable virtuele machines' Hallo claim op een van de volgende stappen uit:
 
-* In de lijst met 'Claimable virtuele machines' onderaan de blade overzicht van de testomgeving, met de rechtermuisknop op een van de virtuele machines in de lijst en kies **Claim machine**.
+* Met de rechtermuisknop op een van de Hallo virtuele machines in de lijst Hallo vanuit Hallo lijst met 'Claimable virtuele machines' Hallo onderaan de blade overzicht van het lab Hallo in, en kies **Claim machine**.
 
  ![Aanvragen van een specifieke claimable virtuele machine.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
 
 
-* Aan de bovenkant van de **overzicht** blade kiezen **een Claim**. Een willekeurige virtuele machine wordt toegewezen uit de lijst met claimable virtuele machines.
+* Hallo boven aan het Hallo **overzicht** blade kiezen **een Claim**. Een willekeurige virtuele machine wordt toegewezen uit Hallo lijst met claimable VM's.
 
  ![Aanvraag geen claimable VM.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
@@ -72,5 +72,5 @@ Een gebruiker kan een virtuele machine uit de lijst met 'Claimable virtuele mach
 Nadat een gebruiker claims van een virtuele machine, omhoog verplaatst naar hun lijst met 'Mijn virtuele machines' en is niet langer claimable door een andere gebruiker.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Wanneer de virtuele machine is gemaakt, kunt u verbinden met de virtuele machine door te selecteren **Connect** op de blade van de VM.
-* Verken de [sjablonengalerie DevTest Labs Azure Resource Manager QuickStart](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
+* Eenmaal Hallo VM is gemaakt, kunt u toohello VM door te selecteren **Connect** op Hallo van de virtuele machine-blade.
+* Hallo verkennen [sjablonengalerie DevTest Labs Azure Resource Manager QuickStart](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)

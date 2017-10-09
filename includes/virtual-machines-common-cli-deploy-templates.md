@@ -4,27 +4,27 @@
 * [Een virtuele machine vanuit een aangepaste installatiekopie maken](#create-a-custom-vm-image)
 * [Een virtuele machine implementeren die gebruikmaakt van een virtueel netwerk en een load balancer](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
 * [Een resourcegroep verwijderen](#remove-a-resource-group)
-* [Het logboek voor de implementatie van een resourcegroep weergeven](#show-the-log-for-a-resource-group-deployment)
+* [Hallo-logboek voor een implementatie van de groep resource weergeven](#show-the-log-for-a-resource-group-deployment)
 * [Informatie weergeven over een virtuele machine](#display-information-about-a-virtual-machine)
-* [Verbinding maken met een virtuele machine op basis van Linux](#log-on-to-a-linux-based-virtual-machine)
+* [Verbinding maken met tooa op basis van Linux virtuele machine](#log-on-to-a-linux-based-virtual-machine)
 * [Een virtuele machine stoppen](#stop-a-virtual-machine)
 * [Een virtuele machine starten](#start-a-virtual-machine)
 * [Een gegevensschijf koppelen](#attach-a-data-disk)
 
 ## <a name="getting-ready"></a>Voorbereiding
-Voordat u de Azure CLI met Azure-resourcegroepen kunt gebruiken, moet u de juiste Azure CLI-versie en een Azure-account hebben. Als u niet beschikt over de Azure CLI, moet u deze [installeren](../articles/cli-install-nodejs.md).
+Voordat u hello Azure CLI met Azure-resourcegroepen gebruiken kunt, moet u toohave Hallo rechts Azure CLI versie en een Azure-account. Als u geen hello Azure CLI [installeren](../articles/cli-install-nodejs.md).
 
-### <a name="update-your-azure-cli-version-to-090-or-later"></a>Werk uw versie van Azure CLI bij naar 0.9.0 of hoger
-Type `azure --version` om te zien of u versie 0.9.0 of hoger al hebt geïnstalleerd.
+### <a name="update-your-azure-cli-version-too090-or-later"></a>Bijwerken van uw Azure CLI versie too0.9.0 of hoger
+Type `azure --version` toosee versie 0.9.0 of u al hebt geïnstalleerd of hoger.
 
 ```azurecli
 azure --version
 0.9.0 (node: 0.10.25)
 ```
 
-Als uw versie niet 0.9.0 of hoger is, moet u de CLI bijwerken via een van de native installatieprogramma's of via **npm** door `npm update -g azure-cli` te typen.
+Als uw versie is niet 0.9.0 of hoger, moet u tooupdate Hallo deze met behulp van een van de systeemeigen installatieprogramma's of via **npm** door `npm update -g azure-cli`.
 
-U kunt Azure CLI ook als een Docker-container uitvoeren met behulp van de volgende [Docker-installatiekopie](https://registry.hub.docker.com/u/microsoft/azure-cli/). Voer de volgende opdracht uit vanaf een Docker-host:
+U kunt ook Azure CLI uitvoeren als een Docker-container met behulp van de volgende Hallo [Docker-afbeelding](https://registry.hub.docker.com/u/microsoft/azure-cli/). Voer vanaf een Docker-host, Hallo volgende opdracht:
 
 ```bash
 docker run -it microsoft/azure-cli
@@ -33,10 +33,10 @@ docker run -it microsoft/azure-cli
 ### <a name="set-your-azure-account-and-subscription"></a>Uw Azure-account en -abonnement instellen
 Als u nog geen Azure-abonnement hebt, maar wel een MSDM-abonnement, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). U kunt zich ook aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 
-[Meld u nu interactief aan bij uw Azure-account](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login) door `azure login` te typen en de aanwijzingen voor een interactieve aanmeldingservaring bij uw Azure-account te volgen. 
+Nu [tooyour Azure-account interactief aanmelden](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login) door `azure login` en hello wordt u gevraagd om een interactieve aanmelding ervaring tooyour Azure-account te volgen. 
 
 > [!NOTE]
-> Als u een werk- of school-ID hebt en weet dat u geen tweeledige verificatie hebt ingeschakeld, kunt u **ook** `azure login -u` gebruiken samen met de werk- of school-ID om u aan te melden *zonder* een interactieve sessie. Als u geen werk- of school-ID hebt, kunt u [een werk- of school-ID maken via uw persoonlijke Microsoft-account](../articles/virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) om u op dezelfde manier aan te melden.
+> Als u hebt een werk- of schoolaccount ID en u weet dat u hebt geen tweeledige verificatie is ingeschakeld, kunt u **ook** gebruiken `azure login -u` samen met de Hallo werk of school ID toolog in *zonder* een interactieve sessie. Als u niet een werk- of schoolaccount ID hebt, kunt u [maakt u een werk- of schoolaccount-id van uw persoonlijke Microsoft-account](../articles/virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) toolog in Hallo dezelfde manier.
 >
 >
 
@@ -53,35 +53,35 @@ data:    Fabrikam test                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
 data:    Contoso production                xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 ```
 
-U kunt het huidige Azure-abonnement instellen door het volgende te typen. Gebruik de naam van het abonnement of de ID waarin zich de resources bevinden die u wilt beheren.
+Hallo huidige Azure-abonnement kunt u instellen door Hallo volgende te typen. Hallo abonnement naam of het Hallo-ID gebruiken met de gewenste toomanage Hallo-resources.
 
 ```azurecli
 azure account set <subscription name or ID> true
 ```
 
-### <a name="switch-to-the-azure-cli-resource-group-mode"></a>Overschakelen naar de modus voor Azure CLI-resourcegroep
-De Azure CLI wordt standaard gestart in de modus servicebeheer (**asm**-modus). Typ het volgende om over te schakelen naar de resourcegroepmodus.
+### <a name="switch-toohello-azure-cli-resource-group-mode"></a>Toohello Azure CLI resource group-modus schakelen
+Standaard hello Azure CLI in beheermodus Hallo-service wordt gestart (**asm** modus). Type hello tooswitch tooresource groepmodus te volgen.
 
 ```azurecli
 azure config mode arm
 ```
 
 ## <a name="understanding-azure-resource-templates-and-resource-groups"></a>Informatie over resourcesjablonen en resourcegroepen in Azure
-De meeste toepassingen worden gebouwd met een combinatie van verschillende resourcetypen (zoals een of meer virtuele machines en opslagaccounts, een SQL-database, een virtueel netwerk of een netwerk voor contentlevering). De standaard Azure Service Management-API en de klassieke Azure-portal gaven deze items weer met een service-by-service-benadering. Met deze aanpak moet u services afzonderlijk implementeren en beheren (of andere hulpprogramma's installeren die dit doen), en niet als één logische implementatie-eenheid.
+De meeste toepassingen worden gebouwd met een combinatie van verschillende resourcetypen (zoals een of meer virtuele machines en opslagaccounts, een SQL-database, een virtueel netwerk of een netwerk voor contentlevering). Hallo standaard Azure service management API en hello klassieke Azure-portal weergegeven deze items met een service door de service-benadering. Deze aanpak toodeploy, moet u Hallo afzonderlijke services afzonderlijk te beheren (of andere hulpprogramma's die doen vinden), en niet als één logische eenheid van de implementatie.
 
-*Azure Resource Manager-sjablonen* maken het echter mogelijk om deze verschillende resources op een declaratieve manier te implementeren en te beheren als één logische implementatie-eenheid. U hoeft Azure niet meer met afzonderlijke opdrachten te vertellen wat er moet worden geïmplementeerd, maar beschrijft uw volledige implementatie in een JSON-bestand met alle resources en bijbehorende configuratie- en implementatieparameters. U geeft Azure daarna de instructie om al deze resources als een groep te implementeren.
+*Azure Resource Manager-sjablonen*, echter maken het mogelijk dat u toodeploy en deze verschillende resources beheren als één implementatie van de logische eenheid in een declaratieve manier. In plaats van imperatively waarin Azure welke toodeploy één opdracht na de andere, u uw hele implementatie in een JSON-bestand--alle Hallo bronnen en bijbehorende configuratie en implementatieparameters--beschrijven en u deze resources als een vertelt Azure toodeploy groep.
 
-Vervolgens kunt u de volledige levenscyclus van de resources in de groep beheren met behulp van opdrachten voor Azure CLI-resourcemanagement. U kunt dan:
+U kunt beheren Hallo algehele levenscyclus van resources met behulp van Azure CLI resource management-opdrachten voor het Hallo-groep:
 
-* Alle resources in de groep tegelijkertijd stoppen, starten of verwijderen.
-* Regels voor op rollen gebaseerd toegangsbeheer (RBAC) toepassen om er beveiligingsmachtigingen op te vergrendelen.
+* Stoppen, starten of alle resources binnen de groep Hallo Hallo tegelijk verwijderen.
+* Op rollen gebaseerde toegangsbeheer (RBAC) regels toolock omlaag beveiligingsmachtigingen op deze toepassing.
 * Controlebewerkingen uitvoeren.
 * Aanvullende metagegevens toevoegen aan resources om ze beter bij te houden.
 
-Uitgebreide informatie over Azure-resourcegroepen en over wat ze voor u kunnen betekenen, vindt u in het [Overzicht van Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). Als u geïnteresseerd bent in het ontwerpen van sjablonen, raadpleegt u [Azure Resource Manager-sjablonen maken](../articles/resource-group-authoring-templates.md).
+Ontdek meer over Azure-resourcegroepen en wat ze kunnen voor u doen in Hallo veel [overzicht van Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). Als u geïnteresseerd bent in het ontwerpen van sjablonen, raadpleegt u [Azure Resource Manager-sjablonen maken](../articles/resource-group-authoring-templates.md).
 
 ## <a id="quick-create-a-vm-in-azure"></a>Taak: Snel een virtuele machine maken in Azure
-Soms weet u welke installatiekopie u nodig hebt en hebt u direct een virtuele machine van die installatiekopie nodig. De infrastructuur is niet zo belangrijk; wellicht moet u gewoon snel iets testen op een nieuwe virtuele machine. In dit geval kunt u de opdracht `azure vm quick-create` gebruiken en de benodigde argumenten doorgeven om een virtuele machine en de bijbehorende infrastructuur te maken.
+Soms weet u welke installatiekopie die u nodig hebt, en moet u een virtuele machine vanuit die installatiekopie nu en u hebt geen belang te veel over Hallo infrastructuur--misschien hebt u tootest iets op een nieuwe virtuele machine. Als u wilt dat toouse hello `azure vm quick-create` opdracht en een virtuele machine en de infrastructuur Hallo argumenten nodig toocreate doorgeven.
 
 Eerst maakt u een resourcegroep.
 
@@ -100,10 +100,10 @@ data:
 info:    group create command OK
 ```
 
-Daarna hebt u een installatiekopie nodig. Zie [Naar installatiekopieën van virtuele machine navigeren en deze selecteren met PowerShell en de Azure CLI](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) om een installatiekopie te vinden met de Azure CLI. Voor dit artikel vindt u hier een korte lijst met populaire installatiekopieën. Voor deze quick-create gebruiken we de installatiekopie Stable van CoreOS.
+Daarna hebt u een installatiekopie nodig. Zie toofind een afbeelding met hello Azure CLI [navigeren en het selecteren van installatiekopieën van virtuele machine van Azure met PowerShell en Azure CLI Hallo](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Voor dit artikel vindt u hier een korte lijst met populaire installatiekopieën. Voor deze quick-create gebruiken we de installatiekopie Stable van CoreOS.
 
 > [!NOTE]
-> Voor ComputeImageVersion kunt u ook gewoon 'latest' opgeven als de parameter in de sjabloontaal en in de Azure CLI. Zo kunt u altijd de meest recente versie van de installatiekopie met de nieuwste patches gebruiken zonder dat u de scripts of sjablonen hoeft te wijzigen. Dit wordt hieronder weergegeven.
+> Voor ComputeImageVersion, kunt u ook gewoon opgeven 'nieuwste' zoals Hallo parameter in beide sjabloontaal hello en in hello Azure CLI. Hierdoor kunt dat u tooalways Hallo meest recente patches en -versie op van de installatiekopie hello gebruiken zonder toomodify uw scripts of sjablonen. Dit wordt hieronder weergegeven.
 >
 >
 
@@ -127,7 +127,7 @@ Daarna hebt u een installatiekopie nodig. Zie [Naar installatiekopieën van virt
 | MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |1.0.141204 |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |4.3.4665 |
 
-U maakt uw virtuele machine door de opdracht `azure vm quick-create` in te voeren en te wachten op de vragen. Het ziet er ongeveer als volgt uit:
+Maak uw virtuele machine door te voeren Hallo `azure vm quick-create` opdracht en gereed voor wordt Hallo prompts. Het ziet er ongeveer als volgt uit:
 
 ```azurecli
 azure vm quick-create
@@ -140,31 +140,31 @@ ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:late
 User name: ops
 Password: *********
 Confirm password: *********
-+ Looking up the VM "coreos"
-info:    Using the VM Size "Standard_A1"
-info:    The [OS, Data] Disk or image configuration requires storage account
++ Looking up hello VM "coreos"
+info:    Using hello VM Size "Standard_A1"
+info:    hello [OS, Data] Disk or image configuration requires storage account
 + Retrieving storage accounts
-info:    Could not find any storage accounts in the region "westus", trying to create new one
+info:    Could not find any storage accounts in hello region "westus", trying toocreate new one
 + Creating storage account "cli9fd3fce49e9a9b3d14302" in "westus"
-+ Looking up the storage account cli9fd3fce49e9a9b3d14302
-+ Looking up the NIC "coreo-westu-1430261891570-nic"
++ Looking up hello storage account cli9fd3fce49e9a9b3d14302
++ Looking up hello NIC "coreo-westu-1430261891570-nic"
 info:    An nic with given name "coreo-westu-1430261891570-nic" not found, creating a new one
-+ Looking up the virtual network "coreo-westu-1430261891570-vnet"
-info:    Preparing to create new virtual network and subnet
++ Looking up hello virtual network "coreo-westu-1430261891570-vnet"
+info:    Preparing toocreate new virtual network and subnet
 / Creating a new virtual network "coreo-westu-1430261891570-vnet" [address prefix: "10.0.0.0/16"] with subnet "coreo-westu-1430261891570-sne+" [address prefix: "10.0.1.0/24"]
-+ Looking up the virtual network "coreo-westu-1430261891570-vnet"
-+ Looking up the subnet "coreo-westu-1430261891570-snet" under the virtual network "coreo-westu-1430261891570-vnet"
-info:    Found public ip parameters, trying to setup PublicIP profile
-+ Looking up the public ip "coreo-westu-1430261891570-pip"
++ Looking up hello virtual network "coreo-westu-1430261891570-vnet"
++ Looking up hello subnet "coreo-westu-1430261891570-snet" under hello virtual network "coreo-westu-1430261891570-vnet"
+info:    Found public ip parameters, trying toosetup PublicIP profile
++ Looking up hello public ip "coreo-westu-1430261891570-pip"
 info:    PublicIP with given name "coreo-westu-1430261891570-pip" not found, creating a new one
 + Creating public ip "coreo-westu-1430261891570-pip"
-+ Looking up the public ip "coreo-westu-1430261891570-pip"
++ Looking up hello public ip "coreo-westu-1430261891570-pip"
 + Creating NIC "coreo-westu-1430261891570-nic"
-+ Looking up the NIC "coreo-westu-1430261891570-nic"
++ Looking up hello NIC "coreo-westu-1430261891570-nic"
 + Creating VM "coreos"
-+ Looking up the VM "coreos"
-+ Looking up the NIC "coreo-westu-1430261891570-nic"
-+ Looking up the public ip "coreo-westu-1430261891570-pip"
++ Looking up hello VM "coreos"
++ Looking up hello NIC "coreo-westu-1430261891570-nic"
++ Looking up hello public ip "coreo-westu-1430261891570-pip"
 data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/coreos-quick/providers/Microsoft.Compute/virtualMachines/coreos
 data:    ProvisioningState               :Succeeded
 data:    Name                            :coreos
@@ -215,26 +215,26 @@ info:    vm quick-create command OK
 U kunt nu verdergaan met de nieuwe virtuele machine.
 
 ## <a id="deploy-a-vm-in-azure-from-a-template"></a>Taak: Een virtuele machine in Azure implementeren vanuit een sjabloon
-Volg de instructies in dit gedeelte om met de Azure CLI een nieuwe virtuele Azure-machine te implementeren op basis van een sjabloon. Deze sjabloon maakt een enkele virtuele machine in een nieuw virtueel netwerk met één subnet en stelt u, in tegenstelling tot `azure vm quick-create`, in staat om precies te beschrijven wat u wilt en het proces te herhalen zonder fouten. Dit is wat deze sjabloon maakt:
+Gebruik Hallo-instructies in deze secties toodeploy een nieuwe virtuele machine in Azure met behulp van een sjabloon met hello Azure CLI. Deze sjabloon maakt u één virtuele machine in een nieuw virtueel netwerk met één subnet en in tegenstelling tot `azure vm quick-create`, kunt u toodescribe wilt nauwkeurig en Herhaal deze zonder fouten. Dit is wat deze sjabloon maakt:
 
 ![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)
 
-### <a name="step-1-examine-the-json-file-for-the-template-parameters"></a>Stap 1: controleer het JSON-bestand voor de sjabloonparameters
-Hier vindt u de inhoud van het JSON-bestand voor de sjabloon. (De sjabloon bevindt zich ook in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json).)
+### <a name="step-1-examine-hello-json-file-for-hello-template-parameters"></a>Stap 1: Controleer Hallo JSON-bestand op Hallo Sjabloonparameters
+Hier volgen Hallo inhoud van Hallo JSON-bestand voor Hallo-sjabloon. (Hallo-sjabloon bevindt zich ook in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json).)
 
-Sjablonen zijn flexibel, dus de ontwerper kan u veel parameters geven of slechts een paar om een vastere sjabloon te maken. U moet de sjabloon doorgeven als parameters om de informatie te verzamelen die u nodig hebt. Open het sjabloonbestand (in dit onderwerp gebruikt u het inlinesjabloon hieronder) en bekijk de **parameterwaarden**.
+Sjablonen zijn flexibele, dus Hallo designer hebt gekozen toogive veel van de parameters of worden gekozen toooffer slechts enkele door het maken van een sjabloon die meer kan worden opgelost. Open Hallo sjabloonbestand (in dit onderwerp heeft een inline sjabloon hieronder) in volgorde toocollect Hallo informatie moet u toopass Hallo sjabloon als parameters en onderzoeken Hallo **parameters** waarden.
 
-In dit geval vraagt de onderstaande sjabloon om:
+In dit geval vraagt naar Hallo sjabloon hieronder:
 
 * Een unieke naam voor het opslagaccount.
-* Ee beheerdersnaam voor de virtuele machine.
+* De gebruikersnaam van een beheerder voor Hallo VM.
 * Een wachtwoord.
-* Een domeinnaam die externe gebruikers kunnen gebruiken.
+* Een domeinnaam voor Hallo buiten world toouse.
 * Een versienummer van Ubuntu Server. Er wordt slechts één nummer uit een lijst geaccepteerd.
 
 Zie meer informatie over [vereisten voor gebruikersnaam en wachtwoord](../articles/virtual-machines/linux/faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
-Wanneer u de te gebruiken waarden hebt bepaald, bent u klaar om een groep te maken en deze sjabloon te implementeren in uw Azure-abonnement.
+Als u op deze waarden besluit, kunt u bent klaar toocreate voor een groep en deze sjabloon implementeren in uw Azure-abonnement.
 
 ```json
 {
@@ -244,25 +244,25 @@ Wanneer u de te gebruiken waarden hebt bepaald, bent u klaar om een groep te mak
     "newStorageAccountName": {
     "type": "string",
     "metadata": {
-        "description": "Unique DNS name for the storage account where the virtual machine's disks will be placed."
+        "description": "Unique DNS name for hello storage account where hello virtual machine's disks will be placed."
     }
     },
     "adminUsername": {
     "type": "string",
     "metadata": {
-        "description": "User name for the virtual machine."
+        "description": "User name for hello virtual machine."
     }
     },
     "adminPassword": {
     "type": "securestring",
     "metadata": {
-        "description": "Password for the virtual machine."
+        "description": "Password for hello virtual machine."
     }
     },
     "dnsNameForPublicIP": {
     "type": "string",
     "metadata": {
-        "description": "Unique DNS name for the public IP used to access the virtual machine."
+        "description": "Unique DNS name for hello public IP used tooaccess hello virtual machine."
     }
     },
     "ubuntuOSVersion": {
@@ -274,7 +274,7 @@ Wanneer u de te gebruiken waarden hebt bepaald, bent u klaar om een groep te mak
         "15.04"
     ],
     "metadata": {
-        "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.5-LTS, 14.04.2-LTS, 15.04."
+        "description": "hello Ubuntu version for hello VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.5-LTS, 14.04.2-LTS, 15.04."
     }
     }
 },
@@ -413,10 +413,10 @@ Wanneer u de te gebruiken waarden hebt bepaald, bent u klaar om een groep te mak
 }
 ```
 
-### <a name="step-2-create-the-virtual-machine-by-using-the-template"></a>Stap 2: maak de virtuele machine met de sjabloon
-Als uw parameterwaarden definitief zijn, moet u een resourcegroep maken voor de sjabloonimplementatie en vervolgens de sjabloon implementeren.
+### <a name="step-2-create-hello-virtual-machine-by-using-hello-template"></a>Stap 2: Hallo virtuele machine met behulp van Hallo-sjabloon maken
+Zodra u de parameterwaarden gereed hebt, moet u een resourcegroep maken voor de sjabloonimplementatie van uw en implementeer vervolgens Hallo-sjabloon.
 
-Typ voor het maken van de resourcegroep `azure group create <group name> <location>` met de naam van de gewenste groep en de locatie van het datacenter waarin u de implementatie wilt uitvoeren. Dit gebeurt snel:
+toocreate Hallo-resourcegroep, type `azure group create <group name> <location>` Hallo-naam van Hallo-groep die u wilt en Hallo datacenter locatie waarin u toodeploy. Dit gebeurt snel:
 
 ```azurecli
 azure group create myResourceGroup westus
@@ -433,28 +433,28 @@ data:
 info:    group create command OK
 ```
 
-Maak vervolgens de implementatie door `azure group deployment create` aan te roepen en door te geven:
+Nu toocreate Hallo implementatie, aanroep `azure group deployment create` en doorgeven:
 
-* Het sjabloonbestand (als u de bovenstaande JSON-sjabloon hebt opgeslagen in een lokaal bestand).
-* Een URI-sjabloon (als u wilt verwijzen naar het bestand in GitHub of een ander webadres).
-* De resourcegroep waarnaar u wilt implementeren.
+* Hallo-sjabloonbestand (als u Hallo hierboven JSON tooa lokale sjabloonbestand opgeslagen).
+* Een sjabloon URI (als u toopoint op Hallo-bestand in GitHub of enige andere webadres wilt).
+* Hallo resourcegroep waarin u wilt dat toodeploy.
 * Een optionele implementatienaam.
 
-U wordt gevraagd de waarden van de parameters in het gedeelte 'parameters' van het JSON-bestand op te geven. Wanneer u de parameterwaarden hebt opgegeven, begint uw implementatie.
+U zult na vragen aan gebruiker toosupply Hallo waarden van parameters in Hallo 'parameters' sectie van Hallo JSON-bestand. Wanneer u alle Hallo parameterwaarden hebt opgegeven, wordt uw implementatie begint.
 
 Hier volgt een voorbeeld:
 
 ```azurecli
 azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json myResourceGroup firstDeployment
 info:    Executing command group deployment create
-info:    Supply values for the following parameters
+info:    Supply values for hello following parameters
 newStorageAccountName: storageaccount
 adminUsername: ops
 adminPassword: password
 dnsNameForPublicIP: newdomainname
 ```
 
-U ontvangt het volgende type informatie:
+U ontvangt Hallo type informatie op te volgen:
 
 ```azurecli
 + Initializing template configurations and parameters
@@ -464,7 +464,7 @@ info:    Created template deployment "firstDeployment"
 info:    Registering provider microsoft.storage
 info:    Registering provider microsoft.network
 info:    Registering provider microsoft.compute
-+ Waiting for deployment to complete
++ Waiting for deployment toocomplete
 data:    DeploymentName     : firstDeployment
 data:    ResourceGroupName  : myResourceGroup
 data:    ProvisioningState  : Succeeded
@@ -484,12 +484,12 @@ info:    group deployment create command OK
 
 
 ## <a id="create-a-custom-vm-image"></a>Taak: Een aangepaste VM-installatiekopie maken
-U hebt het basisgebruik van sjablonen hierboven al gezien, zodat we soortgelijke instructies kunnen gebruiken om via de Azure CLI met behulp van een sjabloon een aangepaste virtuele machine te maken van een specifiek .VHD-bestand in Azure. Het verschil is dat deze sjabloon één virtuele machine maakt vanaf een opgegeven virtuele harde schijf (VHD).
+U hebt gezien Hallo basisgebruik van sjablonen bovenstaande, dus Hallo nu kunnen we gebruiken vergelijkbaar instructies toocreate een aangepaste virtuele machine uit een specifieke VHD-bestand in Azure met behulp van een sjabloon via Azure CLI. Hier Hallo verschil is dat deze sjabloon maakt u één virtuele machine van een opgegeven virtuele harde schijf (VHD).
 
-### <a name="step-1-examine-the-json-file-for-the-template"></a>Stap 1: controleer het JSON-bestand voor de sjabloon
-Hier vindt u de inhoud van het JSON-bestand voor de sjabloon die in dit gedeelte als voorbeeld wordt gebruikt. (De sjabloon bevindt zich ook in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).)
+### <a name="step-1-examine-hello-json-file-for-hello-template"></a>Stap 1: Controleer Hallo JSON-bestand voor Hallo-sjabloon
+Hier volgen Hallo inhoud van Hallo JSON-bestand voor Hallo-sjabloon die in deze sectie als voorbeeld wordt. (Hallo-sjabloon bevindt zich ook in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).)
 
-Ook hier moet u de waarden bepalen die u wilt opgeven voor de parameters waarvoor geen standaardwaarden zijn. Bij het uitvoeren van de opdracht `azure group deployment create` vraagt de Azure CLI u om de waarden in te voeren.
+U moet opnieuw toofind Hallo gewenste waarden tooenter voor Hallo parameters waarvoor geen standaardwaarden. Bij het uitvoeren van Hallo `azure group deployment create` opdracht hello Azure CLI vraagt u tooenter die waarden.
 
 ```json
 {
@@ -674,15 +674,15 @@ Ook hier moet u de waarden bepalen die u wilt opgeven voor de parameters waarvoo
 }
 ```
 
-### <a name="step-2-obtain-the-vhd"></a>Stap 2: de VHD verkrijgen
+### <a name="step-2-obtain-hello-vhd"></a>Stap 2: Hallo VHD verkrijgen
 Uiteraard hebt u hier een .VHD-bestand voor nodig. U kunt een bestand gebruiken dat zich al in Azure bevindt, maar u kunt er ook een uploaden.
 
-Zie [Een Windows Server-VHD voor Azure maken en uploaden](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) voor een op Windows gebaseerde virtuele machine.
+Zie voor een Windows-virtuele machine, [maken en uploaden van een Windows Server-VHD tooAzure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Zie [Een virtuele harde schijf met het Linux-besturingssysteem maken en uploaden](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) voor een op Linux gebaseerde virtuele machine.
+Zie voor een op basis van Linux virtuele machine, [maken en uploaden van een virtuele harde schijf waarop Linux-besturingssysteem Hallo](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-### <a name="step-3-create-the-virtual-machine-by-using-the-template"></a>Stap 3: maak de virtuele machine met de sjabloon
-U bent nu klaar om de nieuwe virtuele machine te maken op basis van het .VHD-bestand. Maak de groep waarin u de implementatie wilt uitvoeren. Dit doet u met `azure group create <location>`:
+### <a name="step-3-create-hello-virtual-machine-by-using-hello-template"></a>Stap 3: Hallo virtuele machine met behulp van Hallo-sjabloon maken
+Nu bent u klaar toocreate een nieuwe virtuele machine op basis van Hallo VHD. Maken van een groep toodeploy in, met behulp van `azure group create <location>`:
 
 ```azurecli
 azure group create myResourceGroupUser eastus
@@ -699,7 +699,7 @@ data:
 info:    group create command OK
 ```
 
-Maak vervolgens de implementatie met behulp van de optie `--template-uri` om de sjabloon rechtstreeks aan te roepen (of gebruik de optie `--template-file` om een bestand te gebruiken dat u lokaal hebt opgeslagen). U wordt slechts om enkele items gevraagd, omdat de sjabloon standaardinstellingen bevat. Als u de sjabloon op verschillende plaatsen implementeert, kan het gebeuren dat er naamconflicten optreden bij de standaardwaarden (met name de DNS-naam die u maakt).
+Hallo-implementatie maakt met behulp van Hallo `--template-uri` optie toocall in rechtstreeks Hallo-sjabloon (of kunt u Hallo `--template-file` optie toouse een bestand dat u lokaal hebt opgeslagen). Houd er rekening mee dat omdat Hallo sjabloon de standaardinstellingen heeft, u wordt gevraagd om slechts een paar dingen. Als u de sjabloon Hallo op verschillende plaatsen implementeert, kunt u wellicht dat sommige naming conflicten optreden met standaardwaarden hello (Hallo met name een u maken van DNS-naam).
 
 ```azurecli
 azure group deployment create \
@@ -707,14 +707,14 @@ azure group deployment create \
 > myResourceGroup \
 > customVhdDeployment
 info:    Executing command group deployment create
-info:    Supply values for the following parameters
+info:    Supply values for hello following parameters
 adminUserName: ops
 adminPassword: password
 osType: linux
 subscriptionId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-De uitvoer ziet er ongeveer als volgt uit:
+Uitvoer ziet er ongeveer als volgt Hallo volgende uit:
 
 ```azurecli
 + Initializing template configurations and parameters
@@ -723,7 +723,7 @@ info:    Created template deployment "customVhdDeployment"
 + Registering providers
 info:    Registering provider microsoft.network
 info:    Registering provider microsoft.compute
-+ Waiting for deployment to complete
++ Waiting for deployment toocomplete
 error:   Deployment provisioning state was not successful
 data:    DeploymentName     : customVhdDeployment
 data:    ResourceGroupName  : myResourceGroupUser
@@ -752,14 +752,14 @@ info:    group deployment create command OK
 ```
 
 ## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Taak: Een multi-VM-toepassing implementeren die gebruikmaakt van een virtueel netwerk en een externe load balancer
-Met deze sjabloon kunt u twee virtuele machines onder een load balancer maken en een taakverdelingsregel configureren op poort 80. Deze sjabloon implementeert ook een opslagaccount, een virtueel netwerk, een openbaar IP-adres, een beschikbaarheidsset en netwerkinterfaces.
+Deze sjabloon kunt u twee virtuele machines onder een load balancer toocreate en configureren van een regel voor load balancing op poort 80. Deze sjabloon implementeert ook een opslagaccount, een virtueel netwerk, een openbaar IP-adres, een beschikbaarheidsset en netwerkinterfaces.
 
 ![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
 
-Volg deze stappen om een multi-VM-toepassing die gebruikmaakt van een virtueel netwerk en een load balancer, te implementeren met een Resource Manager-sjabloon in de GitHub-opslagplaats voor sjablonen via Azure PowerShell-opdrachten.
+Volg deze stappen toodeploy een multi-VM-toepassing die gebruikmaakt van een virtueel netwerk en een load balancer met een Resource Manager-sjabloon in Hallo GitHub-opslagplaats voor sjabloon via Azure PowerShell-opdrachten.
 
-### <a name="step-1-examine-the-json-file-for-the-template"></a>Stap 1: controleer het JSON-bestand voor de sjabloon
-Hier vindt u de inhoud van het JSON-bestand voor de sjabloon. Als u wilt dat de meest recente versie er heeft zich [in de GitHub-opslagplaats voor sjablonen](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). In dit onderwerp wordt de switch `--template-uri` gebruikt om de sjabloon aan te roepen, maar u kunt ook de switch `--template-file` gebruiken om over te schakelen op een lokale versie.
+### <a name="step-1-examine-hello-json-file-for-hello-template"></a>Stap 1: Controleer Hallo JSON-bestand voor Hallo-sjabloon
+Hier volgen Hallo inhoud van Hallo JSON-bestand voor Hallo-sjabloon. Als u wilt dat de meest recente versie hello, het gevonden [in GitHub-opslagplaats voor sjablonen Hallo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). In dit onderwerp maakt gebruik van Hallo `--template-uri` switch toocall in Hallo-sjabloon, maar u kunt ook Hallo `--template-file` overschakelen toopass een lokale versie.
 
 ```json
 {
@@ -807,7 +807,7 @@ Hier vindt u de inhoud van het JSON-bestand voor de sjabloon. Als u wilt dat de 
             "type": "string",
             "defaultValue": "myVM",
             "metadata": {
-                "description": "Prefix to use for VM names"
+                "description": "Prefix toouse for VM names"
             }
         },
         "vmSourceImageName": {
@@ -846,7 +846,7 @@ Hier vindt u de inhoud van het JSON-bestand voor de sjabloon. Als u wilt dat de 
             "type": "string",
             "defaultValue": "Standard_A1",
             "metadata": {
-                "description": "Size of the VM"
+                "description": "Size of hello VM"
             }
         }
     },
@@ -1094,8 +1094,8 @@ Hier vindt u de inhoud van het JSON-bestand voor de sjabloon. Als u wilt dat de 
 }
 ```
 
-### <a name="step-2-create-the-deployment-by-using-the-template"></a>Stap 2: voer de implementatie uit met de sjabloon
-Maak een resourcegroep voor de sjabloon met `azure group create <location>`. Maak vervolgens met `azure group deployment create` een implementatie in die resourcegroep, en geef de resourcegroep en de implementatienaam door. Beantwoord vervolgens de vragen voor parameters in de sjabloon die geen standaardwaarden hebben.
+### <a name="step-2-create-hello-deployment-by-using-hello-template"></a>Stap 2: Hallo-implementatie met behulp van Hallo-sjabloon maken
+Een resourcegroep voor Hallo-sjabloon maken met behulp van `azure group create <location>`. Maak vervolgens een implementatie in die resourcegroep via `azure group deployment create` en resourcegroep hello wordt doorgegeven, de naam van een toepassingsimplementatie wordt doorgegeven en Hallo vragen beantwoorden voor parameters in Hallo-sjabloon die geen standaardwaarden.
 
 ```azurecli
 azure group create lbgroup westus
@@ -1112,7 +1112,7 @@ data:
 info:    group create command OK
 ```
 
-Gebruik nu de opdracht `azure group deployment create` en de optie `--template-uri` om de sjabloon te implementeren. Geef uw parameterwaarden op wanneer hierom wordt gevraagd, zoals hieronder weergegeven.
+Gebruik nu Hallo `azure group deployment create` opdracht en Hallo `--template-uri` optie toodeploy Hallo sjabloon. Geef uw parameterwaarden op wanneer hierom wordt gevraagd, zoals hieronder weergegeven.
 
 ```azurecli
 azure group deployment create \
@@ -1120,7 +1120,7 @@ azure group deployment create \
 > lbgroup \
 > newdeployment
 info:    Executing command group deployment create
-info:    Supply values for the following parameters
+info:    Supply values for hello following parameters
 location: westus
 newStorageAccountName: storagename
 adminUsername: ops
@@ -1133,7 +1133,7 @@ info:    Created template deployment "newdeployment"
 info:    Registering provider microsoft.storage
 info:    Registering provider microsoft.compute
 info:    Registering provider microsoft.network
-+ Waiting for deployment to complete
++ Waiting for deployment toocomplete
 data:    DeploymentName     : newdeployment
 data:    ResourceGroupName  : lbgroup
 data:    ProvisioningState  : Succeeded
@@ -1161,10 +1161,10 @@ data:    vmSize                 String        Standard_A1
 info:    group deployment create command OK
 ```
 
-Met deze sjabloon implementeert u een installatiekopie van Windows Server. Deze kan echter eenvoudig worden vervangen door een installatiekopie van Linux. Wilt u een Docker-cluster maken met meerdere swarm-managers? [Ook dat is mogelijk](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
+Met deze sjabloon implementeert u een installatiekopie van Windows Server. Deze kan echter eenvoudig worden vervangen door een installatiekopie van Linux. Wilt u toocreate een Docker-cluster met meerdere swarm managers? [Ook dat is mogelijk](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
 ## <a id="remove-a-resource-group"></a>Taak: Een resourcegroep verwijderen
-U kunt een implementatie opnieuw uitvoeren in een resourcegroep. Als u hier klaar mee bent, kunt u deze verwijderen met `azure group delete <group name>`.
+Houd er rekening mee dat u de resourcegroep tooa kunt implementeren, maar als u klaar bent met een, u deze verwijderen met behulp van kunt `azure group delete <group name>`.
 
 ```azurecli
 azure group delete myResourceGroup
@@ -1174,25 +1174,25 @@ Delete resource group myResourceGroup? [y/n] y
 info:    group delete command OK
 ```
 
-## <a id="show-the-log-for-a-resource-group-deployment"></a>Taak: Het logboek voor de implementatie van een resourcegroep weergeven
-Dit is een veelvoorkomende bewerking wanneer u sjablonen maakt of gebruikt. De aanroep om de logboeken van de implementatie voor een groep weer te geven, is `azure group log show <groupname>`. Hiermee wordt veel informatie weergegeven die u helpt te begrijpen waarom iets wel of niet is gebeurd. (Zie [Veelvoorkomende fouten bij de Azure-implementatie oplossen met Azure Resource Manager](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md) voor meer informatie over het oplossen van problemen met uw implementaties, evenals andere informatie over problemen.)
+## <a id="show-the-log-for-a-resource-group-deployment"></a>Taak: Hallo-logboek voor een implementatie van de groep resource weergeven
+Dit is een veelvoorkomende bewerking wanneer u sjablonen maakt of gebruikt. Hallo aanroep toodisplay Hallo implementatie-logboeken voor een groep is `azure group log show <groupname>`, die heel wat informatie die nuttig zijn om te begrijpen waarom iets is er gebeurd-- of niet wordt weergegeven. (Zie [Veelvoorkomende fouten bij de Azure-implementatie oplossen met Azure Resource Manager](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md) voor meer informatie over het oplossen van problemen met uw implementaties, evenals andere informatie over problemen.)
 
-Voor het oplossen van specifieke problemen kunt u bijvoorbeeld **jq** gebruiken om zaken nauwkeuriger te bekijken, zoals welke afzonderlijke fouten u moet oplossen. In het volgende voorbeeld wordt **jq** gebruikt om een implementatielogboek voor **lbgroup** te parseren en te zoeken naar fouten.
+specifieke problemen met tootarget bijvoorbeeld, kunt u hulpprogramma's zoals **jq** tooquery dingen iets meer nauwkeurig, zoals welke afzonderlijke fouten u toocorrect nodig. Hallo volgende voorbeeld wordt **jq** tooparse Meld u een implementatie voor **lbgroup**zoek zijn naar fouten.
 
 ```azurecli
 azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties'
 ```
-U kunt zeer snel ontdekken wat er mis ging, het probleem herstellen en het opnieuw proberen. In het volgende geval heeft de sjabloon twee virtuele machines tegelijk gemaakt, waardoor er een vergrendeling op de .VHD is gemaakt. (Na wijziging van de sjabloon wordt de implementatie snel voltooid.)
+U kunt zeer snel ontdekken wat er mis ging, het probleem herstellen en het opnieuw proberen. Hallo geval te volgen, Hallo sjabloon had is maakt in twee virtuele machines op Hallo hetzelfde moment die een vergrendeling op Hallo VHD gemaakt. (Nadat we Hallo sjabloon hebt gewijzigd, Hallo implementatie is voltooid snel.)
 
 ```json
 {
     "statusCode": "Conflict",
-    "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"AcquireDiskLeaseFailed\",\"message\":\"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd.\"}]}}"
+    "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"hello resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"AcquireDiskLeaseFailed\",\"message\":\"Failed tooacquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd.\"}]}}"
 }
 ```
 
 ## <a id="display-information-about-a-virtual-machine"></a>Taak: Informatie weergeven over een virtuele machine
-U kunt informatie over specifieke virtuele machines in de resourcegroep bekijken met de opdracht `azure vm show <groupname> <vmname>`. Als uw groep meer dan één virtuele machine bevat, moet u de virtuele machines in uw groep mogelijk eerst weergeven met `azure vm list <groupname>`.
+U kunt informatie over specifieke virtuele machines in de resourcegroep zien door middel van Hallo `azure vm show <groupname> <vmname>` opdracht. Als u meer dan één VM in uw groep hebt, moet u mogelijk eerst toolist hello, virtuele machines in een groep met behulp van `azure vm list <groupname>`.
 
 ```azurecli
 azure vm list zoo
@@ -1209,8 +1209,8 @@ Vervolgens zoekt u myVM1 op:
 ```azurecli
 azure vm show zoo myVM1
 info:    Executing command vm show
-+ Looking up the VM "myVM1"
-+ Looking up the NIC "nic1"
++ Looking up hello VM "myVM1"
++ Looking up hello NIC "nic1"
 data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
 data:    ProvisioningState               :Failed
 data:    Name                            :myVM1
@@ -1259,12 +1259,12 @@ info:    vm show command OK
 ```
 
 > [!NOTE]
-> Als u de uitvoer van de consoleopdrachten programmatisch wilt opslaan en manipuleren, moet u mogelijk een hulpprogramma voor het parseren van JSON gebruiken, zoals  **[jq](https://github.com/stedolan/jq)**  of  **[jsawk](https://github.com/micha/jsawk)**. U kunt ook taalbibliotheken gebruiken die geschikt zijn voor de taak.
+> Als u tooprogrammatically store wilt en Hallo-uitvoer van de consoleopdrachten manipuleren, kunt u, zoals een JSON-parseren hulpprogramma toouse  **[jq](https://github.com/stedolan/jq)**  of  **[jsawk](https://github.com/micha/jsawk)** , of taal bibliotheken die geschikt voor het Hallo-taak zijn.
 >
 >
 
-## <a id="log-on-to-a-linux-based-virtual-machine"></a>Taak: Verbinding maken met een virtuele machine op basis van Linux
-Doorgaans zijn Linux-machines verbonden via SSH. Zie voor meer informatie [SSH gebruiken met Linux op Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>Taak: Meld u aan tooa op basis van Linux virtuele machine
+Linux-machines zijn meestal verbonden toothrough SSH. Zie voor meer informatie [hoe toouse SSH met Linux op Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a id="stop-a-virtual-machine"></a>Taak: Een virtuele machine stoppen
 Voer deze opdracht uit:
@@ -1274,7 +1274,7 @@ azure vm stop <group name> <virtual machine name>
 ```
 
 > [!IMPORTANT]
-> Gebruik deze parameter om het virtuele IP-adres (VIP) van het VNet te behouden als het om de laatste virtuele machine in dat VNet gaat. <br><br> Als u de parameter `StayProvisioned` gebruikt, wordt de virtuele machine alsnog in rekening gebracht.
+> Gebruik deze parameter tookeep Hallo virtueel IP-adres (VIP) van Hallo vnet, mocht dat Hallo laatste VM in dit vnet. <br><br> Als u Hallo `StayProvisioned` parameter, zult u nog steeds worden gefactureerd voor Hallo VM.
 >
 >
 
@@ -1286,23 +1286,23 @@ azure vm start <group name> <virtual machine name>
 ```
 
 ## <a id="attach-a-data-disk"></a>Taak: Een gegevensschijf koppelen
-U moet ook beslissen of u een nieuwe schijf wilt koppelen of een schijf die al gegevens bevat. Voor een nieuwe schijf maakt de opdracht het .VHD-bestand en wordt dit in dezelfde opdracht gekoppeld.
+U moet ook toodecide of tooattach een nieuwe schijf of een die bevat gegevens. Voor een nieuwe schijf Hallo opdracht maakt u Hallo .vhd-bestand en koppelt u deze in Hallo dezelfde opdracht.
 
-Als u een nieuwe schijf wilt koppelen, voert u deze opdracht uit:
+een nieuwe schijf tooattach deze opdracht uitvoeren:
 
 ```azurecli
     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb>
 ```
 
-Als u een bestaande gegevensschijf wilt koppelen, voert u deze opdracht uit:
+een bestaande gegevensschijf tooattach deze opdracht uitvoeren:
 
 ```azurecli
 azure vm disk attach <resource-group> <vm-name> [vhd-url]
 ```
 
-Vervolgens koppelt u de schijf zoals u in Linux gewend bent.
+Vervolgens moet u toomount Hallo schijf, zoals u dat gewend in Linux bent.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer voorbeelden van het gebruik van de Azure CLI met de modus **arm** [De Azure CLI voor Mac, Linux en Windows gebruiken met Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md). Zie voor meer informatie over Azure-resources en de achterliggende concepten [Overzicht van Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
+Voor veel meer voorbeelden van Azure CLI gebruik Hello **arm** modus, Zie [Using hello Azure CLI voor Mac, Linux en Windows Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md). Zie toolearn meer informatie over Azure-resources en hun concepten [overzicht van Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
 
 Zie voor meer sjablonen die u kunt gebruiken, [Azure Quickstart-sjablonen](https://azure.microsoft.com/documentation/templates/) en [Toepassingsframeworks met sjablonen](../articles/virtual-machines/linux/app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

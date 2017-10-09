@@ -1,6 +1,6 @@
 ---
-title: VHD-bestand uploaden naar Azure DevTest Labs met behulp van Microsoft Azure Storage Explorer | Microsoft Docs
-description: VHD-bestand uploaden naar het lab storage-account met behulp van Microsoft Azure Storage Explorer
+title: aaaUpload VHD-bestand met behulp van Microsoft Azure Storage Explorer van tooAzure DevTest Labs | Microsoft Docs
+description: VHD-bestand toolab storage-account met behulp van Microsoft Azure Storage Explorer uploaden
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,55 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.openlocfilehash: 502e2536fb0fd2e9dfc4c7b85a6fb4e18202f38f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 686691e3676cea4b2d7cd8bf045bc43a792c667e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>VHD-bestand uploaden naar het lab storage-account met behulp van Microsoft Azure Storage Explorer
+# <a name="upload-vhd-file-toolabs-storage-account-using-microsoft-azure-storage-explorer"></a>VHD-bestand toolab storage-account met behulp van Microsoft Azure Storage Explorer uploaden
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-In Azure DevTest Labs kunnen VHD-bestanden worden gebruikt voor het maken van aangepaste installatiekopieën die worden gebruikt voor het inrichten van virtuele machines. In dit artikel laat zien hoe u [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) een VHD-bestand uploaden naar een lab-opslagaccount. Nadat u uw VHD-bestand hebt geüpload de [Vervolgstappen sectie](#next-steps) geeft een lijst van sommige artikelen die laten zien hoe u een aangepaste installatiekopie van het geüploade VHD-bestand. Zie voor meer informatie over schijven en VHD's in Azure [over schijven en virtuele harde schijven voor virtuele machines](../virtual-machines/linux/about-disks-and-vhds.md)
+VHD-bestanden kunnen gebruikte toocreate aangepaste installatiekopieën die gebruikt tooprovision virtuele machines zijn worden in Azure DevTest Labs. Dit artikel wordt beschreven hoe toouse [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) tooupload een VHD-bestand van tooa lab-opslagaccount. Nadat u uw VHD-bestand hebt geüpload, Hallo [Vervolgstappen sectie](#next-steps) bevat enkele artikelen die aangeven hoe een aangepaste installatiekopie van Hallo toocreate VHD-bestand geüpload. Zie voor meer informatie over schijven en VHD's in Azure [over schijven en virtuele harde schijven voor virtuele machines](../virtual-machines/linux/about-disks-and-vhds.md)
 
 ## <a name="step-by-step-instructions"></a>Stapsgewijze instructies
 
-De volgende stappen helpt u bij het uploaden van een VHD-bestand voor het gebruik van DevTest Labs [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+volgende stappen walk u via een VHD uploaden bestand tooDevTest Labs met Hallo [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-1. [Download en installeer de nieuwste versie van Microsoft Azure Storage Explorer](http://www.storageexplorer.com).
+1. [Download en installeer de meest recente versie van Microsoft Azure Storage Explorer Hallo Hallo](http://www.storageexplorer.com).
 
-1. Haal de naam van het lab-opslagaccount met de Azure portal:
+1. Hallo-naam van de storage-account van het lab Hallo hello Azure-portal met opvragen:
 
-    1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+    1. Meld u aan toohello [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
     
-    1. Selecteer **Meer services** en selecteer in de lijst vervolgens **DevTest Labs**.
+    1. Selecteer **meer services**, en selecteer vervolgens **DevTest Labs** uit Hallo-lijst.
     
-    1. Selecteer de gewenste testomgeving uit de lijst van labs.  
+    1. Selecteer de gewenste lab Hallo in lijst Hallo van labs.  
     
-    1. Selecteer op de labblade **configuratie**. 
+    1. Selecteer op Hallo van labblade, **configuratie**. 
     
-    1. Op de testomgeving **configuratie** blade Selecteer **aangepaste installatiekopieën (VHD's)**.
+    1. Op Hallo lab **configuratie** blade Selecteer **aangepaste installatiekopieën (VHD's)**.
     
-    1. Op de **aangepaste installatiekopieën** blade Selecteer **+ toevoegen**. 
+    1. Op Hallo **aangepaste installatiekopieën** blade Selecteer **+ toevoegen**. 
     
-    1. Op de **aangepaste installatiekopie** blade Selecteer **VHD**.
+    1. Op Hallo **aangepaste installatiekopie** blade Selecteer **VHD**.
     
-    1. Op de **VHD** blade Selecteer **een VHD uploaden met PowerShell**.
+    1. Op Hallo **VHD** blade Selecteer **een VHD uploaden met PowerShell**.
     
         ![Virtuele harde schijf met behulp van PowerShell geüpload][0]
     
-    1. De **een installatiekopie uploaden met PowerShell** blade wordt een aanroep van de **Add-AzureVhd** cmdlet. De eerste parameter (*bestemming*) bevat de naam van het opslagaccount voor de testomgeving in de volgende indeling:
+    1. Hallo **een installatiekopie uploaden met PowerShell** blade wordt een aanroep van toohello **Add-AzureVhd** cmdlet. de eerste parameter Hallo (*bestemming*) opslagaccountnaam voor Hallo lab in de volgende indeling Hallo Hallo bevat:
     
         https://<STORAGE-account-name>.BLOB.Core.Windows.NET/uploads/... 
 
-    1. Noteer de opslagaccountnaam omdat deze wordt gebruikt in latere stappen.
+    1. Noteer de opslagaccountnaam Hallo omdat deze wordt gebruikt in latere stappen.
     
-1. Verbinding maken met een Azure-abonnementsrekening met Opslagverkenner.
+1. Verbinding maken met Azure-abonnementsrekening met Opslagverkenner tooan.
 
     > [!TIP] 
     > 
-    > Opslagverkenner ondersteunt verschillende verbindingsopties. Deze sectie ziet u verbinding maakt met een opslagaccount die is gekoppeld aan uw Azure-abonnement. Overzicht van de andere verbindingsopties ondersteund door Opslagverkenner verwijzen naar het artikel [aan de slag met Opslagverkenner](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+    > Opslagverkenner ondersteunt verschillende verbindingsopties. Deze sectie ziet u verbindende tooa storage-account die is gekoppeld aan uw Azure-abonnement. toosee andere verbindingsopties ondersteund door Opslagverkenner hello, raadpleeg dan toohello artikel [aan de slag met Opslagverkenner](../vs-azure-tools-storage-manage-with-storage-explorer.md).
  
     1. Open Opslagverkenner.
     
@@ -70,59 +70,59 @@ De volgende stappen helpt u bij het uploaden van een VHD-bestand voor het gebrui
     
         ![Azure-accountinstellingen][1]
     
-    1. Het linkerdeelvenster geeft de Microsoft-accounts die u hebt aangemeld. Selecteer **Een account toevoegen** om verbinding te maken met een ander account en volg de dialoogvensters om aan te melden met een Microsoft-account dat is gekoppeld aan ten minste één actief Azure-abonnement.
+    1. Hallo linkerdeelvenster geeft Hallo hebt aangemeld bij Microsoft-accounts. tooconnect tooanother account, selecteer **account toevoegen**, en volgt u Hallo dialoogvensters toosign met een Microsoft-account dat is gekoppeld aan ten minste één actief Azure-abonnement.
     
         ![Een account toevoegen][2]
     
-    1. Wanneer u bent aangemeld met een Microsoft-account, worden in het linkerdeelvenster de Azure-abonnementen weergegeven die aan dat account zijn gekoppeld. Selecteer de Azure-abonnementen waarmee u wilt werken en selecteer vervolgens **Toepassen**. (Selecteren **alle abonnementen** Hiermee wordt de selectie van alle of geen van de vermelde Azure-abonnementen.)
+    1. Zodra u zich hebt aangemeld met een Microsoft-account, het linkerdeelvenster Hallo gevuld met hello Azure-abonnementen die zijn gekoppeld aan dat account. Selecteer hello Azure-abonnementen die u wilt toowork en selecteer vervolgens **toepassen**. (Selecteren **alle abonnementen** Schakelknoppen Hallo selectie van alle of geen van hello Azure-abonnementen vermeld.)
     
         ![Selecteer Azure-abonnementen][3]
     
-    1. In het linkerdeelvenster worden de opslagaccounts weergegeven die aan de geselecteerde Azure-abonnementen zijn gekoppeld.
+    1. Hallo linkerdeelvenster geeft Hallo storage-accounts die zijn gekoppeld aan Azure-abonnementen Hallo geselecteerd.
     
         ![Geselecteerde Azure-abonnementen][4]
 
-1. Zoek in het lab-opslagaccount:
+1. Zoek de Hallo lab-opslagaccount:
 
-    1. Zoek in het linkerdeelvenster van Opslagverkenner en vouw het knooppunt voor de Azure-abonnement dat eigenaar is van de testomgeving.
+    1. In Hallo Opslagverkenner linkerdeelvenster vinden en Hallo knooppunt voor hello Azure-abonnement dat eigenaar is van Hallo lab.
     
-    1. Vouw onder het knooppunt van het abonnement, **Opslagaccounts**.
+    1. Vouw onder het knooppunt van het abonnement hello, **Opslagaccounts**.
 
-    1. De testomgeving storage accountknooppunt uitvouwen om te onthullen knooppunten voor **Blob-Containers**, **bestandsshares**, **wachtrijen**, en **tabellen**.
+    1. Vouw Hallo van storage account knooppunt tooreveal knooppunten van het testlab voor **Blob-Containers**, **bestandsshares**, **wachtrijen**, en **tabellen**.
     
-    1. Vouw de **Blob-Containers** knooppunt.
+    1. Vouw Hallo **Blob-Containers** knooppunt.
     
-    1. Selecteer de blob-container uploads aan de inhoud in het rechterdeelvenster.
+    1. Hallo uploads blob-container toodisplay van de inhoud in het rechterdeelvenster Hallo selecteren.
         
         ![Directory uploaden][5]
 
-1. Het VHD-bestand met Opslagverkenner uploaden:
+1. Hallo VHD-bestand met Opslagverkenner uploaden:
 
-    1. In het rechterdeelvenster Opslagverkenner ziet u een overzicht van de blobs in de **uploadt** blob-container van het lab-opslagaccount. Selecteer op de werkbalk van de editor blob **uploaden** 
+    1. In Hallo Opslagverkenner rechterdeelvenster, ziet u een overzicht van de blobs in Hallo Hallo **uploadt** blob-container van het Hallo lab-opslagaccount. Selecteer op de werkbalk van Hallo blob editor **uploaden** 
         
         ![Knop uploaden][6]
     
-    1. Van de **uploaden** vervolgkeuzelijst, selecteer **bestanden uploaden...** .
+    1. Van Hallo **uploaden** vervolgkeuzelijst, selecteer **bestanden uploaden...** .
     
-    1. Op de **bestanden uploaden** dialoogvenster, selecteer het weglatingsteken.
+    1. Op Hallo **bestanden uploaden** dialoogvenster, selecteer Hallo weglatingsteken.
         
         ![Bestand selecteren][8]  
 
-    1. Op de **Selecteer bestanden uploaden** dialoogvenster, blader naar het gewenste VHD-bestand en selecteer vervolgens selecteert u het **Open**.
+    1. Op Hallo **Selecteer bestanden tooupload** dialoogvenster Bladeren toohello gewenst VHD-bestand en selecteer vervolgens selecteert u het **Open**.
     
-    1. Wanneer u keert terug naar de **bestanden uploaden** dialoogvenster wijziging **Blob-type** naar **pagina-Blob**.
+    1. Wanneer geretourneerd toohello **bestanden uploaden** dialoogvenster wijziging **type Blob** te**pagina-Blob**.
     
     1. Selecteer **Uploaden**.
 
         ![Bestand selecteren][9]  
     
-    1. Opslagverkenner **activiteitenlogboek** deelvenster toont de downloadstatus (samen met koppelingen naar de upload geannuleerd). Het proces van het uploaden van een VHD-bestand kan worden langdurige, afhankelijk van de grootte van het VHD-bestand en de verbindingssnelheid. 
+    1. Hallo Opslagverkenner **activiteitenlogboek** deelvenster Hallo downloadstatus (samen met het uploaden van koppelingen toocancel Hallo) bevat. Hallo-proces van het uploaden van een VHD-bestand kan worden langdurige, afhankelijk van de grootte van de Hallo van Hallo VHD-bestand en de verbindingssnelheid. 
 
         ![Uploadbestand status][10]  
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een aangepaste installatiekopie maken in Azure DevTest Labs van een VHD-bestand met de Azure portal](devtest-lab-create-template.md)
+- [Een aangepaste installatiekopie maken in Azure DevTest Labs van een VHD-bestand met behulp van hello Azure-portal](devtest-lab-create-template.md)
 - [Een aangepaste installatiekopie maken in Azure DevTest Labs van een VHD-bestand met behulp van PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
 
 [0]: ./media/devtest-lab-upload-vhd-using-storage-explorer/upload-image-using-psh.png

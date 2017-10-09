@@ -1,6 +1,6 @@
 ---
-title: Een referentiegegevensset toevoegen aan uw Azure Time Series Insights-omgeving | Microsoft Docs
-description: In deze zelfstudie koppelt u een referentiegegevensset aan uw Time Series Insights-omgeving
+title: aaaAdd verwijzing gegevensset tooyour Azure Time Series Insights omgeving | Microsoft Docs
+description: In deze zelfstudie maakt u een verwijzing gegevensset tooyour Time Series Insights omgeving toevoegen
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -15,36 +15,36 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: venkatja
-ms.openlocfilehash: 23444297b5231e6a026bcd9ce3ee9f943bf05867
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 05e626ed81a22f2a8710b23a931ccd17c0f38ca5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Een referentiegegevensset voor uw Time Series Insights-omgeving maken met Ibiza-portal
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-hello-ibiza-portal"></a>Een verwijzing gegevensset voor uw Time Series Insights-omgeving met behulp van de portal Ibiza Hallo maken
 
-Een referentiegegevensset is een verzameling items die is uitgebreid met de gebeurtenissen uit uw gebeurtenisbron. De engine voor inkomende gebeurtenissen van Time Series Insights koppelt een gebeurtenis van uw gebeurtenisbron aan een item in uw referentiegegevensset. Deze uitgebreide gebeurtenis is vervolgens beschikbaar voor query’s. Deze koppeling is gebaseerd op de sleutels die zijn gedefinieerd in uw referentiegegevensset.
+Een gegevensset verwijzing is een verzameling van items die zijn uitgebreid met Hallo gebeurtenissen van de gebeurtenisbron. De engine voor inkomende gebeurtenissen van Time Series Insights koppelt een gebeurtenis van uw gebeurtenisbron aan een item in uw referentiegegevensset. Deze uitgebreide gebeurtenis is vervolgens beschikbaar voor query’s. Deze koppeling is gebaseerd op Hallo sleutels die zijn gedefinieerd in uw gegevensset verwijzing.
 
-## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>Stappen voor het toevoegen van een referentiegegevensset aan uw omgeving
+## <a name="steps-tooadd-a-reference-data-set-tooyour-environment"></a>Stappen tooadd een verwijzing gegevensset tooyour omgeving
 
-1. Meld u aan bij [Ibiza-portal](https://portal.azure.com).
-2. Klik op Alle resources in het menu aan de linkerkant van de Ibiza-portal.
+1. Meld u aan toohello [portal Ibiza](https://portal.azure.com).
+2. Klik op 'Alle resources' in hello menu aan de linkerkant van de portal Ibiza Hallo Hallo.
 3. Selecteer uw Time Series Insights-omgeving.
 
-    ![De Time Series Insights-referentiegegevensset maken](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
+    ![Hallo Time Series Insights verwijzing gegevensset maken](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
 
 4. Selecteer 'Referentiegegevensset', klik op '+ Toevoegen.'
 
-    ![De Time Series Insights-referentiegegevensset maken - details](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
+    ![Hallo Time Series Insights verwijzing gegevensset maken - details](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
 
-5. Geef de naam van de referentiegegevensset op.
-6. Geef de sleutelnaam en het bijbehorende type op. Deze naam en dit type worden gebruikt om de juiste eigenschap van de gebeurtenis in de gebeurtenisbron te kiezen. Als u bijvoorbeeld de sleutelnaam 'DeviceId' en het type 'Tekenreeks' opgeeft, zoekt de Time Series Insights-engine naar een eigenschap met de naam 'DeviceId' van het type 'Tekenreeks' in de inkomende gebeurtenis. U kunt meer meerdere sleutels opgeven om samen te voegen met de gebeurtenis. De naamsovereenkomst van de eigenschap is hoofdlettergevoelig.
+5. Geef de naam Hallo van gegevensset Hallo-verwijzing.
+6. Hallo-sleutelnaam en het type opgeven. Deze naam en type is gebruikte toopick Hallo de juiste eigenschap van Hallo-gebeurtenis in de bron van de gebeurtenis. Hallo bijvoorbeeld tijd reeks Insights ingress-engine wordt gezocht naar een eigenschap met de naam van de Hallo 'DeviceId' van het type 'Tekenreeks' in inkomende hello-gebeurtenis op als u de sleutelnaam als 'DeviceId' en type als 'Tekenreeks' opgeeft, klikt u vervolgens. U kunt meer dan één sleutel toojoin met Hallo gebeurtenis opgeven. Hallo eigenschap naam overeenkomst is hoofdlettergevoelig.
 
-     ![De Time Series Insights-referentiegegevensset maken - details](media/add-reference-data-set/getstarted-create-reference-data-set-3.png)
+     ![Hallo Time Series Insights verwijzing gegevensset maken - details](media/add-reference-data-set/getstarted-create-reference-data-set-3.png)
 
 7. Klik op Maken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Programmatisch [referentiegegevens beheren](time-series-insights-manage-reference-data-csharp.md).
-* Zie voor de volledige API-verwijzing het document [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
+* Zie voor volledige API-verwijzing hello, [API van Data-verwijzing](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) document.

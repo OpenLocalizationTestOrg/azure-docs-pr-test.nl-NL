@@ -1,6 +1,6 @@
 ---
-title: Microsoft cognitieve Toolkit met Azure HDInsight Spark voor grondige learning | Microsoft Docs
-description: Meer informatie over hoe een getraind Microsoft cognitieve Toolkit grondige learning-model kan worden toegepast op een gegevensset met de API van de Python Spark in Azure HDInsight Spark-cluster.
+title: aaaMicrosoft cognitieve Toolkit met Azure HDInsight Spark voor grondige learning | Microsoft Docs
+description: Meer informatie over hoe een getraind Microsoft cognitieve Toolkit grondige learning-model kan worden toegepast tooa gegevensset met Hallo Spark Python API in een Azure HDInsight Spark-cluster.
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: nitinme
-ms.openlocfilehash: fafd738f782660b824732bab8cc3bec8405947e7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c296d4697f16d4ef6a958fdb55289807d745ea40
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Gebruik Microsoft cognitieve Toolkit grondige learning-model met Azure HDInsight Spark-cluster
 
-In dit artikel leert uitvoeren u de volgende stappen.
+In dit artikel, u Hallo volgende stappen.
 
-1. Voer een aangepast script voor het installeren van Microsoft cognitieve Toolkit op een Azure HDInsight Spark-cluster.
+1. Een aangepast script tooinstall Microsoft cognitieve Toolkit uitvoeren op een Azure HDInsight Spark-cluster.
 
-2. Een Jupyter-notebook uploaden naar het Spark-cluster om te zien hoe een getraind Microsoft cognitieve Toolkit grondige learning-model toepassen op bestanden in een Azure Blob Storage-Account met behulp van de [Spark Python-API (PySpark)](https://spark.apache.org/docs/0.9.0/python-programming-guide.html)
+2. Het uploaden van een Jupyter-notebook toohello Spark-cluster toosee tooapply een getraind Microsoft cognitieve Toolkit grondige learning-model toofiles in een Azure Blob Storage-Account met behulp van Hallo [Spark Python-API (PySpark)](https://spark.apache.org/docs/0.9.0/python-programming-guide.html)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -37,59 +37,59 @@ In dit artikel leert uitvoeren u de volgende stappen.
 
 ## <a name="how-does-this-solution-flow"></a>Hoe deze oplossing stromen
 
-Deze oplossing wordt verdeeld over dit artikel en een Jupyter-notebook die u als onderdeel van deze zelfstudie uploadt. In dit artikel leert uitvoeren u de volgende stappen:
+Deze oplossing wordt verdeeld over dit artikel en een Jupyter-notebook die u als onderdeel van deze zelfstudie uploadt. In dit artikel kunt u Hallo stappen uitvoeren:
 
-* Een scriptactie uitgevoerd op een HDInsight Spark-cluster om Microsoft cognitieve Toolkit en Python-pakketten te installeren.
-* Upload de Jupyter-notebook dat wordt uitgevoerd van de oplossing met HDInsight Spark-cluster.
+* Een scriptactie uitvoeren op een HDInsight Spark-cluster tooinstall Microsoft cognitieve Toolkit en Python-pakketten.
+* Upload Hallo Jupyter-notebook die Hallo oplossing toohello HDInsight Spark-cluster wordt uitgevoerd.
 
-De volgende overige stappen worden in de Jupyter-notebook besproken.
+Hallo worden volgende resterende stappen behandeld in Hallo Jupyter-notebook.
 
 - Installatiekopieën van het voorbeeld in een Spark Resiliant gedistribueerd gegevensset of RDD geladen
    - Laden van modules en standaardinstellingen definiëren
-   - Downloaden van de gegevensset lokaal op het Spark-cluster
-   - De gegevensset converteren naar een RDD
-- De afbeeldingen met een getraind cognitieve Toolkit model beoordelen
-   - Het getrainde model voor cognitieve Toolkit downloaden naar het Spark-cluster
-   - Definieer functies kunnen worden gebruikt door de worker-knooppunten
-   - Score van de installatiekopieën op de worker-knooppunten
+   - Hallo gegevensset lokaal op Hallo Spark-cluster downloaden
+   - Hallo gegevensset converteren naar een RDD
+- Hallo afbeeldingen met een getraind cognitieve Toolkit model beoordelen
+   - Hallo getraind cognitieve Toolkit model toohello Spark-cluster downloaden
+   - Functies toobe die wordt gebruikt door de worker-knooppunten definiëren
+   - Score Hallo afbeeldingen op de worker-knooppunten
    - De nauwkeurigheid model evalueren
 
 
 ## <a name="install-microsoft-cognitive-toolkit"></a>Microsoft cognitieve Toolkit installeren
 
-U kunt Microsoft cognitieve Toolkit installeren op een Spark-cluster met behulp van de scriptactie. Scriptactie maakt gebruik van aangepaste scripts om onderdelen te installeren op het cluster die niet standaard beschikbaar. U kunt de aangepaste scripts vanuit de Azure-Portal met behulp van HDInsight .NET SDK of met behulp van Azure PowerShell. U kunt het script ook gebruiken voor het installeren van de toolkit als onderdeel van het maken van het cluster, of nadat het cluster actief is. 
+U kunt Microsoft cognitieve Toolkit installeren op een Spark-cluster met behulp van de scriptactie. Scriptactie gebruikmaakt van aangepaste scripts tooinstall onderdelen op Hallo cluster die niet standaard beschikbaar. Kunt u aangepast script Hallo van hello Azure-Portal met behulp van HDInsight .NET SDK of met behulp van Azure PowerShell. U kunt ook als onderdeel van het maken van het cluster, of nadat Hallo-cluster is actief en werkend Hallo script tooinstall Hallo toolkit gebruiken. 
 
-In dit artikel gebruiken we de portal voor het installeren van de toolkit nadat het cluster is gemaakt. Zie voor andere manieren om uit te voeren van het aangepaste script [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster-linux.md).
+In dit artikel gebruiken we Hallo portal tooinstall Hallo toolkit nadat Hallo-cluster is gemaakt. Zie voor andere manieren toorun Hallo aangepast script, [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster-linux.md).
 
-### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
+### <a name="using-hello-azure-portal"></a>Met behulp van hello Azure Portal
 
-Zie voor instructies over het gebruik van de Azure Portal om uit te voeren scriptactie [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation). Zorg ervoor dat u het volgende invoeren voor het installeren van Microsoft cognitieve Toolkit opgeven.
+Zie voor instructies over hoe toouse hello Azure Portal toorun actie script, [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation). Zorg ervoor dat u na invoer tooinstall Microsoft cognitieve Toolkit Hallo opgeven.
 
-* Geef een waarde voor de naam van de scriptactie.
+* Geef een waarde voor actienaam Hallo-script.
 
 * Voor **Bash script URI**, voer `https://raw.githubusercontent.com/Azure-Samples/hdinsight-pyspark-cntk-integration/master/cntk-install.sh`.
 
-* Zorg ervoor dat u het script uitvoert op de hoofd- en werkrollen knooppunten alleen en schakel de selectievakjes.
+* Controleer of u Hallo script alleen uitvoeren op Hallo hoofd- en werkrollen knooppunten en wis alle andere selectievakjes Hallo.
 
 * Klik op **Create**.
 
-## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>De Jupyter-notebook uploaden naar Azure HDInsight Spark-cluster
+## <a name="upload-hello-jupyter-notebook-tooazure-hdinsight-spark-cluster"></a>Hallo Jupyter-notebook tooAzure HDInsight Spark-cluster uploaden
 
-Voor het gebruik van de Microsoft cognitieve Toolkit met het Azure HDInsight Spark-cluster, moet u de Jupyter-notebook laden **CNTK_model_scoring_on_Spark_walkthrough.ipynb** aan het Azure HDInsight Spark-cluster. Deze laptop is beschikbaar op GitHub op [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
+toouse hello Microsoft cognitieve Toolkit met hello Azure HDInsight Spark-cluster, moet u de Jupyter-notebook Hallo laden **CNTK_model_scoring_on_Spark_walkthrough.ipynb** toohello Azure HDInsight Spark-cluster. Deze laptop is beschikbaar op GitHub op [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
 
-1. Kloon de GitHub-opslagplaats [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration). Zie voor instructies voor het klonen [een opslagplaats klonen](https://help.github.com/articles/cloning-a-repository/).
+1. Kloon Hallo GitHub-opslagplaats [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration). Zie voor instructies tooclone, [een opslagplaats klonen](https://help.github.com/articles/cloning-a-repository/).
 
-2. Open de blade Spark-cluster dat u al ingericht, klikt u op in de Azure-Portal **Cluster-Dashboard**, en klik vervolgens op **Jupyter-notebook**.
+2. Open in hello Azure Portal, Hallo blade Spark-cluster dat u al ingericht, klikt u op **Cluster-Dashboard**, en klik vervolgens op **Jupyter-notebook**.
 
-    U kunt ook de Jupyter-notebook starten door te gaan naar de URL `https://<clustername>.azurehdinsight.net/jupyter/`. Vervang \<clustername > met de naam van uw HDInsight-cluster.
+    U kunt ook Hallo Jupyter-notebook starten door te gaan toohello URL `https://<clustername>.azurehdinsight.net/jupyter/`. Vervang \<clustername > Hallo-naam van uw HDInsight-cluster.
 
-3. Klik op de Jupyter-notebook **uploaden** in de rechterbovenhoek hoek en navigeer vervolgens naar de locatie waar u de GitHub-opslagplaats gekloond.
+3. Hallo Jupyter-notebook, klik op **uploaden** in Hallo rechterbovenhoek en navigeer vervolgens toohello locatie waar u de GitHub-opslagplaats Hallo gekloond.
 
-    ![Jupyter-notebook uploaden naar Azure HDInsight Spark-cluster](./media/hdinsight-apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "uploaden Jupyter-notebook met Azure HDInsight Spark-cluster")
+    ![Uploaden van Jupyter-notebook tooAzure HDInsight Spark-cluster](./media/hdinsight-apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "uploaden Jupyter-notebook tooAzure HDInsight Spark-cluster")
 
 4. Klik op **uploaden** opnieuw.
 
-5. Nadat de laptop is geüpload, klikt u op de naam van de notebook en volg de instructies in de notebook zelf voor het laden van de gegevensset en het uitvoeren van de zelfstudie.
+5. Nadat de notebook Hallo is geüpload, klikt u op de naam Hallo van Hallo laptop en volg Hallo-instructies in het Hallo-notebook zelf op hoe tooload Hallo gegevensset en Hallo zelfstudie uit te voeren.
 
 ## <a name="see-also"></a>Zie ook
 * [Overzicht: Apache Spark in Azure HDInsight](hdinsight-apache-spark-overview.md)
@@ -97,7 +97,7 @@ Voor het gebruik van de Microsoft cognitieve Toolkit met het Azure HDInsight Spa
 ### <a name="scenarios"></a>Scenario's
 * [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark met Machine Learning: Spark in HDInsight toopredict voedselinspectieresultaten gebruiken](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark-streaming: Spark in HDInsight gebruiken voor het bouwen van realtime streamingtoepassingen](hdinsight-apache-spark-eventhub-streaming.md)
 * [Websitelogboekanalyse met Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 * [Analyse van Application Insights-telemetriegegevens met behulp van Spark in HDInsight](hdinsight-spark-analyze-application-insight-logs.md)
@@ -107,15 +107,15 @@ Voor het gebruik van de Microsoft cognitieve Toolkit met het Azure HDInsight Spa
 * [Taken op afstand uitvoeren in een Spark-cluster met behulp van Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
-* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om Spark Scala-toepassingen te maken en in te dienen](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om op afstand fouten in Spark Scala-toepassingen op te lossen](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [De invoegtoepassing HDInsight Tools voor IntelliJ IDEA toocreate en verzenden van Spark Scala-toepassingen](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA toodebug Spark applications op afstand gebruiken](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Zeppelin-notebooks gebruiken met een Spark-cluster in HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Beschikbare kernels voor Jupyter-notebook in Spark-cluster voor HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Externe pakketten gebruiken met Jupyter-notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Jupyter op uw computer installeren en verbinding maken met een HDInsight Spark-cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Jupyter op uw computer installeren en verbinding maken met tooan HDInsight Spark-cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Resources beheren
-* [Resources beheren voor het Apache Spark-cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Resources beheren voor Hallo Apache Spark-cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Taken die worden uitgevoerd in een Apache Spark-cluster in HDInsight, traceren en er fouten in oplossen](hdinsight-apache-spark-job-debugging.md)
 
 [hdinsight-versions]: hdinsight-component-versioning.md

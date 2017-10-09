@@ -1,6 +1,6 @@
 ---
-title: 'Het configureren van routering (peering) voor een ExpressRoute-circuit: Resource Manager: Azure | Microsoft Docs'
-description: Dit artikel begeleidt u stapsgewijs door de procedure voor het maken en inrichten van de persoonlijke, openbare en Microsoft-peering van een ExpressRoute-circuit. In dit artikel leest u hoe u de status controleert en peerings voor uw circuit bijwerkt of verwijdert.
+title: 'Hoe tooconfigure routering (peering) voor een ExpressRoute-circuit: Resource Manager: Azure | Microsoft Docs'
+description: Dit artikel begeleidt u bij Hallo stappen voor het maken en inrichten Hallo persoonlijke, openbare en Microsoft-peering van een ExpressRoute-circuit. Dit artikel leest u hoe de status van toocheck hello, bijwerken of verwijderen van peerings voor uw circuit.
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -15,186 +15,186 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: cherylmc
-ms.openlocfilehash: 55ccadfea55b8098ee58dcaef942f6ba54093665
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: a8ca25f488dde728cb3b06cd2c91873f3069feaf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Maken en wijzigen van de peering voor een ExpressRoute-circuit
 
-In dit artikel helpt u bij het maken en beheren van routeringsconfiguratie voor een ExpressRoute-circuit in het Resource Manager-implementatiemodel met de Azure portal. U kunt ook controleren van de status, update of delete en inrichting ervan ongedaan peerings voor een ExpressRoute-circuit. Als u een andere methode gebruiken om te werken met uw circuit wilt, selecteert u een artikel uit de volgende lijst:
+In dit artikel helpt u bij het maken en beheren van routeringsconfiguratie voor een ExpressRoute-circuit in Hallo Resource Manager-implementatiemodel met hello Azure-portal. U kunt ook controleren Hallo status, update of delete en inrichting ervan ongedaan peerings voor een ExpressRoute-circuit. Als u wilt dat een andere methode toowork toouse met uw circuit, selecteert u een artikel in Hallo volgende lijst:
 
 
 ## <a name="configuration-prerequisites"></a>Configuratievereisten
 
-* Zorg dat u de pagina met [vereisten](expressroute-prerequisites.md), de pagina over [routeringsvereisten](expressroute-routing.md) en de pagina over [werkstromen](expressroute-workflows.md) hebt gelezen voordat u begint met de configuratie.
-* U moet een actief ExpressRoute-circuit hebben. Volg de instructies voor het [maken van een ExpressRoute-circuit](expressroute-howto-circuit-portal-resource-manager.md) en laat het circuit inschakelen door de connectiviteitsprovider voordat u verder gaat. Het ExpressRoute-circuit moet zich in een status ingericht en zijn ingeschakeld om te kunnen uitvoeren van de cmdlets in de volgende secties.
-* Als u van plan bent te gebruiken van een gedeelde sleutel/MD5-hash, moet u dit gebruikt op beide zijden van de tunnel en beperkt het aantal tekens tot maximaal 25.
+* Zorg ervoor dat u Hallo hebt bekeken [vereisten](expressroute-prerequisites.md) pagina hello [routeringsvereisten](expressroute-routing.md) pagina en Hallo [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
+* U moet een actief ExpressRoute-circuit hebben. Hallo-instructies te volgen[maken van een ExpressRoute-circuit](expressroute-howto-circuit-portal-resource-manager.md) en Hallo circuit inschakelen door de connectiviteitsprovider voordat u verder gaat. Hallo ExpressRoute-circuit moet zich in een status ingericht en zijn ingeschakeld voor u toobe kunnen toorun Hallo cmdlets in de volgende secties Hallo.
+* Als u van plan toouse een gedeelde sleutel/MD5-hash bent, worden toouse ervoor dat dit aan beide zijden van Hallo tunnel- en limit Hallo aantal tekens tooa maximaal 25.
 
-Deze instructies zijn alleen van toepassing op circuits die zijn gemaakt met serviceproviders die services met Laag-2-connectiviteit aanbieden. Als u gebruikmaakt van een serviceprovider die beheerde laag-3-services (meestal een IPVPN, zoals MPLS), uw connectiviteitsprovider configureert en beheert routering voor u. 
+Deze instructies zijn alleen van toepassing toocircuits gemaakt met serviceproviders die services voor Layer 2-connectiviteit aanbieden. Als u gebruikmaakt van een serviceprovider die beheerde laag-3-services (meestal een IPVPN, zoals MPLS), uw connectiviteitsprovider configureert en beheert routering voor u. 
 
 > [!IMPORTANT]
-> Op dit moment bieden we nog geen peerings aan die door serviceproviders worden geconfigureerd via de beheerportal van de service. Deze mogelijkheid zal binnenkort worden ingeschakeld. Neem contact op met uw serviceprovider voordat u BGP-peerings configureert.
+> We momenteel doen nog geen peerings geconfigureerd door serviceproviders via Hallo service management portal. Deze mogelijkheid zal binnenkort worden ingeschakeld. Neem contact op met uw serviceprovider voordat u BGP-peerings configureert.
 > 
 > 
 
-U kunt een, twee of alle drie de peerings (Azure privé, Azure openbaar en Microsoft) voor een ExpressRoute-circuit configureren. U kunt peerings configureren in elke gewenste volgorde. U moet er echter wel voor zorgen dat u de configuratie van elke peering een voor een voltooit.
+U kunt een, twee of alle drie de peerings (Azure privé, Azure openbaar en Microsoft) voor een ExpressRoute-circuit configureren. U kunt peerings configureren in elke gewenste volgorde. Echter, moet u ervoor zorgen dat Hallo configuratie van elke peering een tegelijk te voltooien.
 
 ## <a name="azure-private-peering"></a>Persoonlijke Azure-peering
 
-Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van de Azure persoonlijke peering configuratie voor een ExpressRoute-circuit.
+Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van hello Azure configuratie van persoonlijke peering voor een ExpressRoute-circuit.
 
-### <a name="to-create-azure-private-peering"></a>Persoonlijke Azure-peering maken
+### <a name="toocreate-azure-private-peering"></a>toocreate persoonlijke Azure-peering
 
-1. Configureer het ExpressRoute-circuit. Zorg dat het circuit volledig is ingericht door de connectiviteitsprovider voordat u verder gaat.
+1. Hallo ExpressRoute-circuit configureren. Zorg ervoor dat Hallo circuit volledig is ingericht door de connectiviteitsprovider Hallo voordat u doorgaat.
 
   ![lijst](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
-2. Configureer persoonlijke Azure-peering voor het circuit. Zorg ervoor dat u de volgende items hebt voordat u verdergaat met de volgende stappen:
+2. Configureer persoonlijke Azure-peering voor Hallo circuit. Zorg ervoor dat u de volgende items voordat u met de volgende stappen Hallo verdergaat Hallo hebt:
 
-  * Een /30-subnet voor de primaire koppeling. Het subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet.
-  * Een /30-subnet voor de secundaire koppeling. Het subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet.
-  * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt.
+  * Een/30 subnet voor de primaire koppeling Hallo. Hallo-subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet.
+  * Een/30 subnet voor de secundaire koppeling Hallo. Hallo-subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet.
+  * Een geldige VLAN-ID tooestablish deze peering. Zorg ervoor dat er geen andere peering in Hallo circuit Hallo maakt gebruik van dezelfde VLAN-ID.
   * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken. U kunt een persoonlijk AS-nummer voor deze peering gebruiken. Zorg dat u niet 65515 gebruikt.
-  * **Optionele -** een MD5-hash, als u ervoor kiest een te gebruiken.
-3. Selecteer de rij van het Azure persoonlijke peering, zoals wordt weergegeven in het volgende voorbeeld:
+  * **Optionele -** een MD5-hash, als u ervoor toouse een kiest.
+3. Selecteer Hallo persoonlijke Azure rij voor peering, zoals weergegeven in het volgende voorbeeld Hallo:
 
   ![Persoonlijke](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
-4. Configureer persoonlijke Azure-peering. De volgende afbeelding toont een configuratievoorbeeld van een:
+4. Configureer persoonlijke Azure-peering. Hallo volgende afbeelding toont een configuratievoorbeeld van een:
 
   ![Configureer persoonlijke peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
-5. Sla de configuratie op wanneer u alle parameters hebt opgegeven. Nadat de configuratie is geaccepteerd, ziet u iets soortgelijks als in het volgende voorbeeld:
+5. Hallo-configuratie op te slaan wanneer u alle parameters hebt opgegeven. Nadat het Hallo-configuratie is geaccepteerd, ziet u iets dergelijks toohello voorbeeld te volgen:
 
   ![persoonlijke peering opslaan](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
-### <a name="to-view-azure-private-peering-details"></a>De details van persoonlijke Azure-peering weergeven
+### <a name="tooview-azure-private-peering-details"></a>tooview Azure persoonlijke peering details
 
-U kunt de eigenschappen van persoonlijke Azure-peering weergeven door de peering te selecteren.
+U kunt weergeven Hallo eigenschappen van persoonlijke Azure-peering door Hallo peering te selecteren.
 
 ![persoonlijke peering weergeven](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
-### <a name="to-update-azure-private-peering-configuration"></a>De configuratie van persoonlijke Azure-peering bijwerken
+### <a name="tooupdate-azure-private-peering-configuration"></a>tooupdate Azure configuratie van persoonlijke peering
 
-U kunt de rij voor peering selecteren en de eigenschappen van de peering wijzigen.
+U kunt Hallo rij voor peering selecteren en aanpassen van eigenschappen Hallo-peering.
 
 ![persoonlijke peering bijwerken](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
 
-### <a name="to-delete-azure-private-peering"></a>Persoonlijke Azure-peering verwijderen
+### <a name="toodelete-azure-private-peering"></a>toodelete persoonlijke Azure-peering
 
-U kunt de peeringconfiguratie verwijderen door het verwijderingspictogram, zoals wordt weergegeven in de volgende afbeelding:
+U kunt een peeringconfiguratie verwijderen door het verwijderingspictogram Hallo, zoals weergegeven in Hallo installatiekopie te volgen:
 
 ![persoonlijke peering verwijderen](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
 
 ## <a name="azure-public-peering"></a>Openbare Azure-peering
 
-Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van de Azure openbare peering configuratie voor een ExpressRoute-circuit.
+Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van hello Azure configuratie van openbare peering voor een ExpressRoute-circuit.
 
-### <a name="to-create-azure-public-peering"></a>Openbare Azure-peering maken
+### <a name="toocreate-azure-public-peering"></a>toocreate openbare Azure-peering
 
-1. Configureer het ExpressRoute-circuit. Zorg dat het circuit volledig is ingericht door de connectiviteitsprovider voordat u verder gaat.
+1. Configureer het ExpressRoute-circuit. Zorg ervoor dat Hallo circuit volledig is ingericht door de connectiviteitsprovider Hallo voordat u verder.
 
   ![openbare peering weergeven](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
-2. Configureer openbare Azure-peering voor het circuit. Zorg ervoor dat u de volgende items hebt voordat u verdergaat met de volgende stappen:
+2. Configureer openbare Azure-peering voor Hallo circuit. Zorg ervoor dat u de volgende items voordat u met de volgende stappen Hallo verdergaat Hallo hebt:
 
-  * Een /30-subnet voor de primaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn.
-  * Een /30-subnet voor de secundaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn.
-  * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt.
+  * Een/30 subnet voor de primaire koppeling Hallo. Dit moet een geldig openbaar IPv4-voorvoegsel zijn.
+  * Een/30 subnet voor de secundaire koppeling Hallo. Dit moet een geldig openbaar IPv4-voorvoegsel zijn.
+  * Een geldige VLAN-ID tooestablish deze peering. Zorg ervoor dat er geen andere peering in Hallo circuit Hallo maakt gebruik van dezelfde VLAN-ID.
   * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken.
-  * **Optionele -** een MD5-hash, als u ervoor kiest een te gebruiken.
-3. Selecteer de Azure rij openbare peering, zoals weergegeven in de volgende afbeelding:
+  * **Optionele -** een MD5-hash, als u ervoor toouse een kiest.
+3. Selecteer hello Azure rij voor openbare peering, zoals wordt weergegeven in Hallo installatiekopie te volgen:
 
   ![Selecteer de rij voor openbare peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
-4. Configureer openbare Azure-peering. De volgende afbeelding toont een configuratievoorbeeld van een:
+4. Configureer openbare Azure-peering. Hallo volgende afbeelding toont een configuratievoorbeeld van een:
 
   ![Configureer openbare peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
-5. Sla de configuratie op wanneer u alle parameters hebt opgegeven. Nadat de configuratie is geaccepteerd, ziet u iets soortgelijks als in het volgende voorbeeld:
+5. Hallo-configuratie op te slaan wanneer u alle parameters hebt opgegeven. Nadat het Hallo-configuratie is geaccepteerd, ziet u iets dergelijks toohello voorbeeld te volgen:
 
   ![Configuratie van openbare peering opslaan](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
-### <a name="to-view-azure-public-peering-details"></a>De details van openbare Azure-peering weergeven
+### <a name="tooview-azure-public-peering-details"></a>tooview Azure openbare peering details
 
-U kunt de eigenschappen van openbare Azure-peering weergeven door de peering te selecteren.
+U kunt weergeven Hallo eigenschappen van openbare Azure-peering door Hallo peering te selecteren.
 
 ![de eigenschappen van openbare peering weergeven](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
-### <a name="to-update-azure-public-peering-configuration"></a>De configuratie van openbare Azure-peering bijwerken
+### <a name="tooupdate-azure-public-peering-configuration"></a>configuratie van openbare peering Azure tooupdate
 
-U kunt de rij voor peering selecteren en de eigenschappen van de peering wijzigen.
+U kunt Hallo rij voor peering selecteren en aanpassen van eigenschappen Hallo-peering.
 
 ![Selecteer de rij voor openbare peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
 
-### <a name="to-delete-azure-public-peering"></a>Openbare Azure-peering verwijderen
+### <a name="toodelete-azure-public-peering"></a>toodelete openbare Azure-peering
 
-U kunt de peeringconfiguratie verwijderen door het verwijderingspictogram, zoals wordt weergegeven in het volgende voorbeeld:
+U kunt de peeringconfiguratie verwijderen door het verwijderingspictogram hello, zoals wordt weergegeven in het volgende voorbeeld Hallo:
 
 ![openbare peering verwijderen](./media/expressroute-howto-routing-portal-resource-manager/rpublic4.png)
 
 ## <a name="microsoft-peering"></a>Microsoft-peering
 
-Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van de configuratie voor de Microsoft-peering voor een ExpressRoute-circuit.
+Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen configuratie Hallo Microsoft-peering gebruiken voor een ExpressRoute-circuit.
 
 > [!IMPORTANT]
-> Microsoft-peering van ExpressRoute-circuits die zijn geconfigureerd, voordat u 1 augustus 2017 hebben alle service voorvoegsels die worden geadverteerd via de Microsoft-peering, zelfs als routefilters zijn niet gedefinieerd. Microsoft-peering van ExpressRoute-circuits die zijn geconfigureerd op of na 1 augustus 2017 geen geen voorvoegsels aangekondigd totdat een routefilter is gekoppeld aan het circuit. Zie voor meer informatie [configureren van een routefilter voor Microsoft-peering](how-to-routefilter-powershell.md).
+> Eerdere tooAugust 1 Microsoft-peering van ExpressRoute-circuits die zijn geconfigureerd, 2017 hebben alle service voorvoegsels die worden geadverteerd via Hallo Microsoft-peering, zelfs als routefilters zijn niet gedefinieerd. Microsoft-peering van ExpressRoute-circuits die zijn geconfigureerd op of na 1 augustus 2017 geen geen voorvoegsels aangekondigd totdat een routefilter wordt aangesloten toohello circuit. Zie voor meer informatie [configureren van een routefilter voor Microsoft-peering](how-to-routefilter-powershell.md).
 > 
 > 
 
-### <a name="to-create-microsoft-peering"></a>Microsoft-peering maken
+### <a name="toocreate-microsoft-peering"></a>toocreate Microsoft-peering
 
-1. Configureer het ExpressRoute-circuit. Zorg dat het circuit volledig is ingericht door de connectiviteitsprovider voordat u verder gaat.
+1. Configureer het ExpressRoute-circuit. Zorg ervoor dat Hallo circuit volledig is ingericht door de connectiviteitsprovider Hallo voordat u verder.
 
   ![Microsoft-peering weergeven](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
-2. Configureer Microsoft-peering voor het circuit. Zorg ervoor dat u over de volgende informatie beschikt voordat u verder gaat.
+2. Configureer Microsoft-peering voor Hallo circuit. Zorg ervoor dat er Hallo volgende informatie voordat u verder.
 
-  * Een /30-subnet voor de primaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR.
-  * Een /30-subnet voor de secundaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR.
-  * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt.
+  * Een/30 subnet voor de primaire koppeling Hallo. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR.
+  * Een/30 subnet voor de secundaire koppeling Hallo. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR.
+  * Een geldige VLAN-ID tooestablish deze peering. Zorg ervoor dat er geen andere peering in Hallo circuit Hallo maakt gebruik van dezelfde VLAN-ID.
   * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken.
-  * Geadverteerde voorvoegsels: u moet een lijst verstrekken van alle voorvoegsels die u via de BGP-sessie wilt adverteren. Alleen openbare IP-adresvoorvoegsels worden geaccepteerd. Als u van plan bent een reeks voorvoegsels verzenden, kunt u een door komma's gescheiden lijst verzenden. Deze voorvoegsels moeten voor u zijn geregistreerd in een RIR/IRR.
-  * **Optionele -** klant-ASN: als u voorvoegsels adverteert die niet zijn geregistreerd op de AS-nummer peering, kunt u het AS-nummer waaraan ze zijn geregistreerd.
-  * Naam van routeringsregister: u kunt het RIR/IRR opgeven waarbij het AS-nummer en de voorvoegsels zijn geregistreerd.
-  * **Optionele -** een MD5-hash, als u ervoor kiest een te gebruiken.
-3. U kunt de peering die u configureren, wilt zoals wordt weergegeven in het volgende voorbeeld. Selecteer de rij voor Microsoft-peering.
+  * Geadverteerde voorvoegsels: U moet een lijst verstrekken van alle voorvoegsels die u van plan bent tooadvertise via Hallo BGP-sessie. Alleen openbare IP-adresvoorvoegsels worden geaccepteerd. Als u een reeks voorvoegsels toosend plant, kunt u een door komma's gescheiden lijst verzenden. Deze voorvoegsels moeten geregistreerde tooyou in een RIR / IRR.
+  * **Optionele -** klant-ASN: als u voorvoegsels adverteert die niet zijn ingeschreven toohello peering als getal, kunt u Hallo opgeven als getal toowhich ze zijn geregistreerd.
+  * Naam van Routeringsregister: Kunt u Hallo RIR / IRR met betrekking tot welke Hallo als number en prefixes zijn geregistreerd.
+  * **Optionele -** een MD5-hash, als u ervoor toouse een kiest.
+3. U kunt selecteren Hallo peering tooconfigure gewenst, zoals wordt weergegeven in de volgende Hallo voorbeeld. Selecteer Hallo rij voor Microsoft-peering.
 
   ![Selecteer de rij voor Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft1.png)
-4. Configureer Microsoft-peering. De volgende afbeelding toont een configuratievoorbeeld van een:
+4. Configureer Microsoft-peering. Hallo volgende afbeelding toont een configuratievoorbeeld van een:
 
   ![Configureer Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
-5. Sla de configuratie op wanneer u alle parameters hebt opgegeven.
+5. Hallo-configuratie op te slaan wanneer u alle parameters hebt opgegeven.
 
-  Als het circuit moet worden van een 'validatie nodig' status (zoals weergegeven in de afbeelding), moet u een ondersteuningsticket om aan te tonen dat u eigenaar bent van de voorvoegsels aan ons ondersteuningsteam aan openen.
+  Als het circuit tooa 'Validatie nodig' status (zoals in afbeelding Hallo), moet u een bewijs van eigendom van Hallo voorvoegsels tooour ondersteuningsteam ondersteuning ticket tooshow openen.
 
   ![Microsoft-peeringconfiguratie opslaan](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
 
-  U kunt een ondersteuningsticket rechtstreeks vanuit de portal openen, zoals wordt weergegeven in het volgende voorbeeld:
+  U kunt een ondersteuningsticket openen rechtstreeks vanuit de portal hello, zoals wordt weergegeven in Hallo voorbeeld te volgen:
 
   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
 
 
-1. Nadat de configuratie is geaccepteerd, ziet u iets soortgelijks als in de volgende afbeelding:
+1. Nadat het Hallo-configuratie is geaccepteerd, ziet u iets dergelijks toohello installatiekopie te volgen:
 
   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
-### <a name="to-view-microsoft-peering-details"></a>De details van Microsoft-peering weergeven
+### <a name="tooview-microsoft-peering-details"></a>details van tooview Microsoft-peering
 
-U kunt de eigenschappen van openbare Azure-peering weergeven door de peering te selecteren.
+U kunt weergeven Hallo eigenschappen van openbare Azure-peering door Hallo peering te selecteren.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
 
-### <a name="to-update-microsoft-peering-configuration"></a>Configuratie van Microsoft-peering bijwerken
+### <a name="tooupdate-microsoft-peering-configuration"></a>configuratie van tooupdate Microsoft-peering
 
-U kunt de rij voor peering selecteren en de eigenschappen van de peering wijzigen.
+U kunt Hallo rij voor peering selecteren en aanpassen van eigenschappen Hallo-peering.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
-### <a name="to-delete-microsoft-peering"></a>Microsoft-peering verwijderen
+### <a name="toodelete-microsoft-peering"></a>toodelete Microsoft-peering
 
-U kunt de peeringconfiguratie verwijderen door het verwijderingspictogram, zoals wordt weergegeven in de volgende afbeelding:
+U kunt een peeringconfiguratie verwijderen door het verwijderingspictogram Hallo, zoals weergegeven in Hallo installatiekopie te volgen:
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft4.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Volgende stap, [een VNet koppelen aan een ExpressRoute-circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
+Volgende stap, [koppelen van een VNet tooan ExpressRoute-circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
 * Voor meer informatie over ExpressRoute-werkstromen raadpleegt u [ExpressRoute workflows](expressroute-workflows.md) (ExpressRoute-werkstromen).
 * Voor meer informatie over circuitpeering raadpleegt u [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) (ExpressRoute-circuits en -routeringsdomeinen).
 * Bekijk het [Virtual network overview](../virtual-network/virtual-networks-overview.md) (Virtual Network-overzicht) voor meer informatie over het gebruik van virtuele netwerken.

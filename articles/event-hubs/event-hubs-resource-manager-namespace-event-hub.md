@@ -1,5 +1,5 @@
 ---
-title: Een Azure Event Hubs-naamruimte en de consumer-groep met een sjabloon maken | Microsoft Docs
+title: een Azure Event Hubs-naamruimte en de consument een groep met een sjabloon aaaCreate | Microsoft Docs
 description: Een Event Hubs-naamruimte maken met een event hub en een consumergroep met behulp van Azure Resource Manager-sjablonen
 services: event-hubs
 documentationcenter: .net
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 06/12/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: eb9a80eec0326aaa605cb8b21aecbaeec94ff212
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 74b0d6b3fbe848705e2c20e628aa4e5269b53edb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Een naamruimte Event Hubs met event hub- en groep met een Azure Resource Manager-sjabloon maken
 
-Dit artikel laat zien hoe u een Azure Resource Manager-sjabloon die wordt gemaakt van een naamruimte van het type Event Hubs met een event hub en een consumergroep. Het artikel ziet u hoe om te definiëren welke bronnen worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen
+Dit artikel laat zien hoe toouse een Azure Resource Manager-sjabloon die wordt gemaakt een naamruimte van het type Event Hubs met een event hub en een consumergroep. Hallo toont hoe artikel toodefine welke resources zijn geïmplementeerd en hoe toodefine parameters die zijn opgegeven wanneer het Hallo-implementatie wordt uitgevoerd. U kunt deze sjabloon voor uw eigen implementaties gebruiken of aanpassen toomeet uw vereisten
 
 Zie [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates] voor meer informatie over het maken van sjablonen.
 
-Zie voor de volledige sjabloon, het [Event hub- en groep sjabloon] [ Event Hub and consumer group template] op GitHub.
+Zie voor de volledige sjabloon hello, Hallo [Event hub- en groep sjabloon] [ Event Hub and consumer group template] op GitHub.
 
 > [!NOTE]
-> Om te controleren op de meest recente sjablonen, gaat u naar de galerie [Azure-snelstartsjablonen][Azure Quickstart Templates] en zoekt u naar Event Hubs.
+> toocheck voor de meest recente sjablonen hello, gaat u naar Hallo [Azure-Snelstartsjablonen] [ Azure Quickstart Templates] galerie en zoek naar Event Hubs.
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>Wat wilt u implementeren?
 Met deze sjabloon implementeert u een Event Hubs-naamruimte met een event hub en een consumergroep.
 
-[Event Hubs](event-hubs-what-is-event-hubs.md) is een verwerkingsservice van gebeurtenissen, die wordt gebruikt om zeer grote hoeveelheden gebeurtenissen en telemetriegegevens verzamelt in Azure met een lage latentie en hoge betrouwbaarheid.
+[Event Hubs](event-hubs-what-is-event-hubs.md) is een service die wordt gebruikt tooprovide gebeurtenissen en telemetriegegevens inkomend tooAzure op grote schaal met weinig latentie en hoge betrouwbaarheid.
 
-Klik op de volgende knop om de implementatie automatisch uit te voeren:
+toorun implementatie automatisch Hallo, klikt u op de knop volgende Hallo:
 
-[![Implementeren in Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+[![TooAzure implementeren](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parameters
-Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam `Parameters` die alle parameterwaarden bevat. Een parameter voor de waarden die variëren, op basis van het project dat u wilt implementeren of op basis van de omgeving waarnaar u implementeert, moet u definiëren. Definieer geen parameters voor waarden die altijd hetzelfde blijven. De parameterwaarde van elke in de sjabloon definieert de resources die zijn geïmplementeerd.
+Met Azure Resource Manager u parameters definiëren voor waarden gewenste toospecify wanneer Hallo sjabloon wordt geïmplementeerd. Hallo-sjabloon bevat een sectie met de naam `Parameters` die alle Hallo parameterwaarden bevat. Een parameter voor de waarden die variëren, op basis van Hallo-project die u implementeert of op basis van Hallo omgeving toowhich die u implementeert, moet u definiëren. Definieer parameters niet voor waarden die altijd blijven Hallo dezelfde. Elke parameterwaarde in Hallo sjabloon definieert Hallo-resources die zijn geïmplementeerd.
 
-De sjabloon definieert de volgende parameters:
+Hallo sjabloon definieert Hallo volgende parameters:
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
-De naam van de Event Hubs-naamruimte die wordt gemaakt.
+Hallo-naam van Hallo Event Hubs naamruimte toocreate.
 
 ```json
 "eventHubNamespaceName": {
@@ -57,7 +57,7 @@ De naam van de Event Hubs-naamruimte die wordt gemaakt.
 ```
 
 ### <a name="eventhubname"></a>eventHubName
-De naam van de gebeurtenishub die in de Event Hubs-naamruimte wordt gemaakt.
+Hallo-naam van Hallo event hub in Hallo Event Hubs-naamruimte gemaakt.
 
 ```json
 "eventHubName": {
@@ -66,7 +66,7 @@ De naam van de gebeurtenishub die in de Event Hubs-naamruimte wordt gemaakt.
 ```
 
 ### <a name="eventhubconsumergroupname"></a>eventHubConsumerGroupName
-De naam van de consumergroep gemaakt voor de event hub.
+Hallo-naam van consumentengroep Hallo voor Hallo event hub is gemaakt.
 
 ```json
 "eventHubConsumerGroupName": {
@@ -75,7 +75,7 @@ De naam van de consumergroep gemaakt voor de event hub.
 ```
 
 ### <a name="apiversion"></a>apiVersion
-De API-versie van de sjabloon.
+Hallo API-versie van Hallo-sjabloon.
 
 ```json
 "apiVersion": {
@@ -83,7 +83,7 @@ De API-versie van de sjabloon.
 }
 ```
 
-## <a name="resources-to-deploy"></a>Resources om te implementeren
+## <a name="resources-toodeploy"></a>Resources toodeploy
 Hiermee maakt u een naamruimte van het type **EventHubs**, met een event hub en een consumergroep.
 
 ```json
@@ -127,7 +127,7 @@ Hiermee maakt u een naamruimte van het type **EventHubs**, met een event hub en 
    ],
 ```
 
-## <a name="commands-to-run-deployment"></a>Opdrachten om implementatie uit te voeren
+## <a name="commands-toorun-deployment"></a>Opdrachten toorun implementatie
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
@@ -143,7 +143,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
+U meer informatie over Event Hubs via Hallo koppelingen te volgen:
 
 * [Event Hubs-overzicht](event-hubs-what-is-event-hubs.md)
 * [Een Event Hub maken](event-hubs-create.md)
@@ -152,5 +152,5 @@ U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
 [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
+[Using hello Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 [Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/

@@ -1,6 +1,6 @@
 ---
-title: Inleiding tot Azure Queue storage | Microsoft Docs
-description: Inleiding tot Azure Queue storage
+title: aaaIntroduction tooAzure Queue storage | Microsoft Docs
+description: Inleiding tooAzure Queue storage
 services: storage
 documentationcenter: 
 author: robinsh
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: robinsh
-ms.openlocfilehash: 4db7552a1b76c89151405c55c8682abbb5326bb6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 669effedff7beedde8a119c350a2a70edafedcf0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-queues"></a>Inleiding tot wachtrijen
+# <a name="introduction-tooqueues"></a>Inleiding tooQueues
 
-Azure Queue Storage is een service voor de opslag van grote aantallen berichten die via HTTP of HTTPS overal vandaan kunnen worden opgevraagd met geverifieerde aanroepen. Een enkel wachtrijbericht mag maximaal 64 KB groot zijn en een wachtrij kan miljoenen berichten bevatten, tot de totale capaciteitslimiet van een opslagaccount.
+Azure Queue storage is een service voor het opslaan van grote aantallen berichten die toegankelijk zijn vanaf een willekeurige plaats in Hallo wereld via geverifieerde aanroepen via HTTP of HTTPS. Een enkel wachtrijbericht mag up too64 KB groot en een wachtrij kan miljoenen berichten up toohello totale capaciteitslimiet van een opslagaccount bevatten.
 
 ## <a name="common-uses"></a>Veelvoorkomende toepassingen
 
 Veelvoorkomende toepassingen van Queue Storage zijn onder andere:
 
-* Het maken van een voorraad werk dat asynchroon moet worden verwerkt
-* Het doorgeven van berichten van een Azure-webrol aan een Azure-werkrol
+* Een achterstand van werk tooprocess maken asynchroon
+* Doorgeven van berichten van een Azure-web-rol tooan Azure-werkrol
 
 ## <a name="queue-service-concepts"></a>Concepten van Queue-service
 
-De Queue-service bevat de volgende onderdelen:
+Hallo Queue-service bevat Hallo volgende onderdelen:
 
 ![Wachtrij-concepten](./media/storage-queues-introduction/queue1.png)
 
-* **URL-indeling:** Wachtrijen kunnen worden opgevraagd met de volgende URL-indeling:   
+* **URL-indeling:** wachtrijen worden opgevraagd met Hallo URL-indeling te volgen:   
     http://`<storage account>`.queue.core.windows.net/`<queue>` 
   
-    Met de volgende URL wordt een wachtrij in het diagram opgevraagd:  
+    URL na Hello wordt een wachtrij in Hallo diagram:  
   
     `http://myaccount.queue.core.windows.net/images-to-download`
 
-* **Storage-account:** alle toegang tot Azure Storage vindt plaats via een opslagaccount. Zie [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) (Schaalbaarheids- en prestatiedoelen in Azure Storage) voor meer informatie over opslagaccountcapaciteit.
+* **Storage-account:** alle toegang tot tooAzure opslag wordt gedaan via een opslagaccount. Zie [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) (Schaalbaarheids- en prestatiedoelen in Azure Storage) voor meer informatie over opslagaccountcapaciteit.
 
-* **Wachtrij:** Een wachtrij bevat een set berichten. Alle berichten moeten zich in een wachtrij bevinden. De naam van een wachtrij mag alleen kleine letters bevatten. Zie [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx) (Wachtrijen en metagegevens een naam geven) voor informatie over de naamgeving van wachtrijen.
+* **Wachtrij:** Een wachtrij bevat een set berichten. Alle berichten moeten zich in een wachtrij bevinden. Houd er rekening mee dat Hallo wachtrijnaam moet alleen kleine letters bevatten. Zie [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx) (Wachtrijen en metagegevens een naam geven) voor informatie over de naamgeving van wachtrijen.
 
-* **Bericht:** Een bericht in een willekeurige indeling, van maximaal 64 KB. De maximale tijdsduur dat een bericht in de wachtrij blijven kan is zeven dagen.
+* **Bericht:** A-bericht, in een willekeurige indeling van up too64 KB. Hallo maximale tijd aan dat een bericht in de wachtrij Hallo blijven kan is zeven dagen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

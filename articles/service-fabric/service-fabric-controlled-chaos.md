@@ -1,6 +1,6 @@
 ---
-title: Chaos veroorzaken in Service Fabric-clusters | Microsoft Docs
-description: Fout injectie en Cluster Analysis Service-API's gebruiken voor het beheren van Chaos in het cluster.
+title: aaaInduce Chaos in Service Fabric-clusters | Microsoft Docs
+description: Met behulp van fouttolerantie injectie en Cluster Analysis Service-API's toomanage Chaos in Hallo-cluster.
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/09/2017
 ms.author: motanv
-ms.openlocfilehash: 3b3b93bc9ec5ecdcfc289e5b62e84de6aa4172ed
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 7e87cae22645fc4ba52e258471d8f3a4ffdb1cce
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Veroorzaken gecontroleerde Chaos in Service Fabric-clusters
-Grote gedistribueerde systemen zoals cloudinfrastructuren inherent onbetrouwbaar worden. Azure Service Fabric kunnen ontwikkelaars schrijven betrouwbare gedistribueerde services op een onbetrouwbaar-infrastructuur. Ontwikkelaars moeten kunnen testen van de stabiliteit van hun services terwijl de onderliggende infrastructuur onbetrouwbaar wordt verzonden via ingewikkeld statusovergangen als gevolg van fouten voor het schrijven van robuuste gedistribueerde services op een onbetrouwbaar-infrastructuur.
+Grote gedistribueerde systemen zoals cloudinfrastructuren inherent onbetrouwbaar worden. Azure Service Fabric kunnen ontwikkelaars toowrite betrouwbare gedistribueerde services op een onbetrouwbaar-infrastructuur. toowrite robuuste gedistribueerde services op een onbetrouwbaar-infrastructuur, ontwikkelaars moeten toobe kunnen tootest Hallo stabiliteit van hun services terwijl Hallo onderliggende onbetrouwbaar infrastructuur wordt verzonden via ingewikkeld statusovergangen vanwege toofaults.
 
-De [fout injectie en analyse van de clusterservice](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-testability-overview) (ook wel bekend als de fout Analysis Service) biedt ontwikkelaars de mogelijkheid om te veroorzaken fouten voor het testen van hun services. Deze gericht fouten, zoals gesimuleerde [opnieuw starten van een partitie](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), kunt u de meest voorkomende statusovergangen uitoefenen. Echter fouten gerichte gesimuleerde fouten per definitie zijn gericht en dus mist mogelijk die weergeven van alleen in moeilijk te voorspellen, lang en gecompliceerd reeks statusovergangen. Voor een zuivere testen, kunt u Chaos.
+Hallo [fout injectie en analyse van de clusterservice](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-testability-overview) (ook wel bekend als hello veroorzaakt Analysis Service) biedt ontwikkelaars de mogelijkheid Hallo tooinduce bedrijfsstoringen tootest hun services. Deze gericht fouten, zoals gesimuleerde [opnieuw starten van een partitie](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), kunt u de meest voorkomende statusovergangen Hallo uitoefenen. Echter fouten gerichte gesimuleerde fouten per definitie zijn gericht en dus mist mogelijk die weergeven van alleen in moeilijk te voorspellen, lang en gecompliceerd reeks statusovergangen. Voor een zuivere testen, kunt u Chaos.
 
-Chaos simuleert periodieke, interleaved fouten (correcte en geforceerde afsluiting) in het cluster gedurende langere perioden. Wanneer u Chaos met de frequentie en het soort fouten hebt geconfigureerd, kunt u beginnen Chaos via C# of Powershell API om te beginnen met het genereren van fouten in het cluster en in uw services. U kunt Chaos om uit te voeren voor een opgegeven periode (bijvoorbeeld: voor één uur) automatisch na waarbij stopt Chaos configureren of u StopChaos API (C# of Powershell) om deze te stoppen op elk gewenst moment kunt aanroepen.
+Periodieke, interleaved fouten (correcte en geforceerde afsluiting) in de cluster Hallo simuleert chaos gedurende langere perioden. Nadat u Chaos met Hallo frequentie en het soort fouten Hallo hebt geconfigureerd, kunt u Chaos starten via de C# of Powershell API toostart genereren van fouten in de cluster hello en in uw services. U kunt Chaos toorun configureren voor een opgegeven periode (bijvoorbeeld: voor één uur), waarna Chaos automatisch wordt gestopt, of u kunt StopChaos API (C# of Powershell) toostop aanroepen op elk gewenst moment.
 
 > [!NOTE]
-> In de huidige vorm induceert Chaos alleen veilige fouten die impliceert dat bij gebrek aan externe fouten een quorumverlies of verlies van gegevens nooit plaatsvindt.
+> In de huidige vorm induceert Chaos alleen veilige fouten, wat betekent dat dat Hallo ontbreken van een externe fouten een quorumverlies of verlies van gegevens nooit plaatsvindt.
 >
 
-Terwijl Chaos wordt uitgevoerd, is het resultaat van andere gebeurtenissen die de status van de uitvoeren op het moment dat vastleggen. Een ExecutingFaultsEvent bevat bijvoorbeeld de fouten die Chaos heeft besloten uit te voeren in die iteratie. Een ValidationFailedEvent bevat de details van een mislukte validatie (health of stabiliteit problemen) die tijdens de validatie van het cluster is gevonden. U kunt de API GetChaosReport (C# of Powershell) als u het rapport over de uitgevoerde Chaos aanroepen. Deze gebeurtenissen ophalen permanent in een [betrouwbare woordenlijst](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), heeft een beleid moet worden afgekapt is bepaald door twee configuraties: **MaxStoredChaosEventCount** (de standaardwaarde is 25000) en  **StoredActionCleanupIntervalInSeconds** (de standaardwaarde is 3600). Elke *StoredActionCleanupIntervalInSeconds* Chaos controles en alle maar het meest recente *MaxStoredChaosEventCount* gebeurtenissen, permanent worden verwijderd van het betrouwbare woordenboek.
+Terwijl Chaos wordt uitgevoerd, is het resultaat van andere gebeurtenissen die status Hallo Hallo uitgevoerd op moment Hallo vastleggen. Een ExecutingFaultsEvent bevat bijvoorbeeld alle Hallo gebreken Chaos besloten tooexecute in die iteratie. Een ValidationFailedEvent bevat Hallo details van een mislukte validatie (health of stabiliteit problemen) die tijdens de validatie van de cluster Hallo Hallo is gevonden. U kunt aanroepen Hallo GetChaosReport API (C# of Powershell) tooget Hallo rapport van Chaos wordt uitgevoerd. Deze gebeurtenissen ophalen permanent in een [betrouwbare woordenlijst](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), heeft een beleid moet worden afgekapt is bepaald door twee configuraties: **MaxStoredChaosEventCount** (de standaardwaarde is 25000) en  **StoredActionCleanupIntervalInSeconds** (de standaardwaarde is 3600). Elke *StoredActionCleanupIntervalInSeconds* Chaos controles en alle maar Hallo meest recente *MaxStoredChaosEventCount* gebeurtenissen van betrouwbare woordenboek Hallo worden opgeschoond.
 
 ## <a name="faults-induced-in-chaos"></a>Fouten worden bewerkstelligd in Chaos
-Chaos genereert fouten over de hele Service Fabric-cluster en comprimeert fouten die zijn zichtbaar in maanden of jaren in een paar uur. De combinatie van interleaved fouten met de snelheid van hoge fouttolerantie vindt hoek aanvragen die mogelijk anders worden overgeslagen. In deze oefening dank leidt tot een aanzienlijke verbetering van de kwaliteit van de code van de service.
+Chaos fouten over de hele Service Fabric-cluster Hallo genereert en comprimeert fouten die zijn zichtbaar in maanden of jaren in een paar uur. Hallo combinatie van interleaved fouten met Hallo hoge fouttolerantie tarief vindt hoek aanvragen die mogelijk anders worden overgeslagen. In deze oefening dank leidt tooa aanzienlijke verbetering in Hallo code servicekwaliteit Hallo.
 
-Chaos induceert fouten uit de volgende categorieën:
+Chaos induceert fouten van Hallo volgende categorieën:
 
 * Een knooppunt opnieuw opstarten
 * Een geïmplementeerde codepakket niet opnieuw starten
@@ -45,31 +45,31 @@ Chaos induceert fouten uit de volgende categorieën:
 * Verplaatsen van een primaire replica (configureren)
 * Verplaatsen van een secundaire replica (configureren)
 
-Chaos in meerdere pogingen uitgevoerd. Elke herhaling bestaat uit de fouten en clustervalidatie voor de opgegeven periode. De tijd voor het cluster stabiel en voor de validatie mislukt, kunt u configureren. Als een fout in validatie wordt gevonden, wordt Chaos genereert en een ValidationFailedEvent met de UTC-timestamp en de foutdetails zich blijft voordoen. Neem bijvoorbeeld een exemplaar dank dat is ingesteld op een uur worden uitgevoerd met een maximum van drie gelijktijdige fouten. Chaos induceert drie fouten en vervolgens valideert de status van het cluster. Doorlopen de vorige stap totdat deze expliciet gestopt via de API StopChaosAsync of één uur wordt doorgegeven. Als het cluster in elke iteratie slecht (dat wil zeggen, het heeft geen regulering binnen de MaxClusterStabilizationTimeout doorgegeven), Chaos genereert een ValidationFailedEvent. Deze gebeurtenis geeft aan dat er iets een opgetreden fout is en verder onderzoek moet mogelijk.
+Chaos in meerdere pogingen uitgevoerd. Elke herhaling bestaat uit de fouten en clustervalidatie voor Hallo opgegeven periode. U kunt Hallo tijd voor Hallo cluster toostabilize en voor validatie toosucceed configureren. Als een fout in validatie wordt gevonden, wordt Chaos genereert en een ValidationFailedEvent met de UTC-timestamp Hallo en foutdetails Hallo zich blijft voordoen. Neem bijvoorbeeld een exemplaar dank die toorun is ingesteld voor een uur met een maximum van drie gelijktijdige fouten. Chaos induceert drie fouten en controleert vervolgens Hallo cluster health. Doorlopen Hallo vorige stap totdat deze expliciet gestopt via Hallo StopChaosAsync API of één uur wordt doorgegeven. Als het cluster Hallo slecht in elke iteratie (dat wil zeggen, het heeft geen regulering binnen Hallo doorgegeven in MaxClusterStabilizationTimeout), Chaos genereert een ValidationFailedEvent. Deze gebeurtenis geeft aan dat er iets een opgetreden fout is en verder onderzoek moet mogelijk.
 
-Als u welke fouten Chaos wordt veroorzaakt, kunt u GetChaosReport API (powershell of C#). De API Hiermee haalt u het volgende segment van het Chaos rapport op basis van de doorgegeven vervolgtoken of doorgegeven in een tijd-bereik. Kunt u de ContinuationToken als u het volgende segment van het rapport Chaos opgeven of u kunt het tijdsbereik via StartTimeUtc en EndTimeUtc opgeven, maar u niet zowel de ContinuationToken als het tijdsbereik opgeven in dezelfde aanroep. Wanneer er meer dan 100 Chaos gebeurtenissen, wordt het rapport Chaos geretourneerd in segmenten waarbij een segment niet meer dan 100 Chaos gebeurtenissen bevat.
+tooget die Chaos wordt veroorzaakt bedrijfsstoringen, kunt u GetChaosReport API (powershell of C#). Hallo API opgehaald Hallo volgende segment van Hallo Chaos rapport op basis van Hallo doorgegeven vervolgtoken of Hallo doorgegeven-tijdsbereik. Kunt u opgeven ContinuationToken tooget Hallo volgende segment van Hallo Chaos rapport Hallo of kunt u Hallo-tijdsbereik via StartTimeUtc en EndTimeUtc opgeven, maar u niet zowel Hallo ContinuationToken Hallo tijdsbereik opgeven in Hallo dezelfde aanroep. Wanneer er meer dan 100 Chaos gebeurtenissen, wordt Hallo Chaos rapport geretourneerd in segmenten waarbij een segment niet meer dan 100 Chaos gebeurtenissen bevat.
 
 ## <a name="important-configuration-options"></a>Belangrijke configuratie-opties
-* **TimeToRun**: totale tijd die Chaos wordt uitgevoerd voordat het met succes is voltooid. U kunt Chaos stoppen voordat deze is uitgevoerd voor de periode TimeToRun via de API StopChaos.
+* **TimeToRun**: totale tijd die Chaos wordt uitgevoerd voordat het met succes is voltooid. U kunt Chaos stoppen voordat deze is uitgevoerd gedurende TimeToRun Hallo via Hallo StopChaos API.
 
-* **MaxClusterStabilizationTimeout**: de maximale hoeveelheid wachttijd voor het cluster wordt omgezet in orde voordat het opstellen van een ValidationFailedEvent. Deze wachttijd is het verminderen van de belasting op het cluster, terwijl deze wordt hersteld. De controles uitgevoerd worden:
-  * Als de status van het cluster OK is
-  * Als de servicestatus van de OK is
-  * Als de doelreplica grootte ingesteld wordt voor de partitie van de service bereikt
+* **MaxClusterStabilizationTimeout**: Hallo maximale hoeveelheid tijd toowait voor Hallo cluster toobecome voordat het opstellen van een ValidationFailedEvent in orde. Deze wachttijd is de tooreduce Hallo belasting op Hallo cluster terwijl deze wordt hersteld. Hallo-controles uitgevoerd worden:
+  * Als de status van de cluster Hallo is OK
+  * Als het Hallo-service de status is OK
+  * Als Hallo doelreplica grootte ingesteld wordt voor Hallo service partitie bereikt
   * Dat er geen InBuild-replica's bestaan
-* **MaxConcurrentFaults**: het maximum aantal gelijktijdige fouten die in elke iteratie veroorzaakt. De hoger het getal, hoe meer agressieve Chaos is en de failovers en de status overgang combinaties die het cluster doorloopt zijn ook complexere. 
+* **MaxConcurrentFaults**: Hallo maximum aantal gelijktijdige fouten die in elke iteratie veroorzaakt. Hallo hoger Hallo getal, Hallo agressievere Chaos is en Hallo failovers en Hallo status overgang combinaties van die cluster Hallo doorloopt NTDS zijn ook complexere. 
 
 > [!NOTE]
-> Ongeacht hoe hoge waarde *MaxConcurrentFaults* heeft, Chaos garandeert - bij gebrek aan externe fouten - er is geen quorumverlies of verlies van gegevens.
+> Ongeacht hoe hoge waarde *MaxConcurrentFaults* heeft, Chaos garandeert - Hallo ontbreken van een externe fouten - er is geen quorumverlies of verlies van gegevens.
 >
 
-* **EnableMoveReplicaFaults**: Hiermee schakelt u de fouten die ertoe leiden de primaire of secundaire replica's dat te verplaatsen of uit. Deze fouten worden standaard uitgeschakeld.
-* **WaitTimeBetweenIterations**: de hoeveelheid tijd moet worden gewacht tussen pogingen. Dat wil zeggen, wordt de hoeveelheid tijd Chaos onderbroken na het uitvoeren van een ronde van fouten en de bijbehorende validatie van de status van het cluster hebben voltooid. Hoe hoger de waarde des te lager is de frequentie van de gemiddelde paginafouten injectie.
-* **WaitTimeBetweenFaults**: de hoeveelheid tijd moet worden gewacht tussen twee opeenvolgende fouten in een enkel iteratie. Hoe hoger de waarde, hoe lager de gelijktijdigheid van (of de overlapping tussen) bedrijfsstoringen.
-* **ClusterHealthPolicy**: Cluster statusbeleid wordt gebruikt voor het valideren van de status van het cluster Between Chaos iteraties. Als de status van het cluster onjuist is of als een onverwachte uitzondering tijdens het uitvoeren van de fout gebeurt, wacht u totdat 30 minuten voordat de volgende-statuscontrole - om te voorzien van het cluster enige tijd recuperate Chaos.
-* **Context**: een verzameling van (string, string) typt u sleutel-waardeparen. De kaart kan worden gebruikt voor het vastleggen van informatie over het Chaos-run. Er mag niet meer dan 100 dergelijke paren en elke tekenreeks (sleutel of waarde) mag hoogstens 4095 tekens bevatten. Deze kaart is ingesteld door de starter de dank uitvoeren voor het opslaan van de context over de specifieke uitvoeren (optioneel).
+* **EnableMoveReplicaFaults**: Hiermee schakelt u Hallo fouten waardoor Hallo primaire of secundaire replica's toomove of uit. Deze fouten worden standaard uitgeschakeld.
+* **WaitTimeBetweenIterations**: Hallo hoeveelheid tijd toowait tussen iteraties. Dat wil zeggen, Hallo tijdsduur die chaos onderbroken na het uitvoeren van een ronde van fouten en de bijbehorende validatie Hallo Hallo gezondheidstoestand van Hallo cluster hebben voltooid. hogere Hallo waarde Hallo Hallo lager is Hallo gemiddelde veroorzaakt injectie snelheid.
+* **WaitTimeBetweenFaults**: Hallo hoeveelheid tijd toowait tussen twee opeenvolgende fouten in een enkel iteratie. Hallo hogere Hallo-waarde, lagere Hallo gelijktijdigheid van hello (of Hallo overlapping tussen) fouten.
+* **ClusterHealthPolicy**: Cluster statusbeleid is gebruikte toovalidate Hallo status van de cluster Hallo Between Chaos iteraties. Als Hallo cluster health onjuist is of als een onverwachte uitzondering tijdens het uitvoeren van de fout gebeurt, Chaos gedurende 30 minuten Hallo volgende-statuscontrole - tooprovide Hallo cluster met een aantal toorecuperate tijd wacht.
+* **Context**: een verzameling van (string, string) typt u sleutel-waardeparen. Hallo-kaart kan worden gebruikt toorecord informatie over Hallo Chaos uitvoeren. Er mag niet meer dan 100 dergelijke paren en elke tekenreeks (sleutel of waarde) mag hoogstens 4095 tekens bevatten. Deze kaart is ingesteld door Hallo starter van Hallo Chaos uitvoeren toooptionally store Hallo context over Hallo specifieke uitvoeren.
 
-## <a name="how-to-run-chaos"></a>Het uitvoeren van Chaos
+## <a name="how-toorun-chaos"></a>Hoe toorun Chaos
 
 ```csharp
 using System;
@@ -117,7 +117,7 @@ class Program
             }
             catch (FabricChaosAlreadyRunningException)
             {
-                Console.WriteLine("An instance of Chaos is already running in the cluster.");
+                Console.WriteLine("An instance of Chaos is already running in hello cluster.");
             }
 
             var filter = new ChaosReportFilter(startTimeUtc, DateTime.MaxValue);
@@ -137,7 +137,7 @@ class Program
                 }
 
                 // When Chaos stops, a StoppedEvent is created.
-                // If a StoppedEvent is found, exit the loop.
+                // If a StoppedEvent is found, exit hello loop.
                 var lastEvent = report.History.LastOrDefault();
 
                 if (lastEvent is StoppedEvent)

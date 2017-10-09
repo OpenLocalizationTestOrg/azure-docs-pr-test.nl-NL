@@ -1,6 +1,6 @@
 ---
-title: Uw eerste virtuele machine maken in een testomgeving in Azure DevTest Labs | Microsoft Docs
-description: Informatie over het maken van uw eerste virtuele machine in een testomgeving in Azure DevTest Labs
+title: aaaCreate uw eerste virtuele machine in een testomgeving in Azure DevTest Labs | Microsoft Docs
+description: Meer informatie over hoe toocreate uw eerste virtuele machine in een testomgeving in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,42 +14,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: tarcher
-ms.openlocfilehash: aa6b60b799e1e98815cf288d5612f98cd77cc00e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4c3257efca9be6fdd190eaac1db731464e07fcfd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-your-first-vm-in-a-lab-in-azure-devtest-labs"></a>Uw eerste virtuele machine maken in een testomgeving in Azure DevTest Labs
 
-Wanneer u in eerste instantie DevTest Labs openen en u wilt maken van uw eerste virtuele machine, wordt waarschijnlijk hiervoor met behulp van een vooraf geladen [base marketplace-installatiekopie](devtest-lab-configure-marketplace-images.md). Later in het moet ook mogelijk om te kiezen uit een [aangepaste installatiekopie en een formule](devtest-lab-add-vm.md) bij het maken van meer virtuele machines. 
+Wanneer u in eerste instantie DevTest Labs toegang en toocreate uw eerste virtuele machine, wordt waarschijnlijk hiervoor met behulp van een vooraf geladen [base marketplace-installatiekopie](devtest-lab-configure-marketplace-images.md). Later ook, moet u kunnen toochoose van een [aangepaste installatiekopie en een formule](devtest-lab-add-vm.md) bij het maken van meer virtuele machines. 
 
-Deze zelfstudie leert u met de Azure portal uw eerste virtuele machine toevoegen aan een lab in DevTest Labs.
+Deze zelfstudie leert u met behulp van Azure portal tooadd Hallo uw eerste VM tooa lab in DevTest Labs.
 
-## <a name="steps-to-add-your-first-vm-to-a-lab-in-azure-devtest-labs"></a>Stappen voor het toevoegen van uw eerste virtuele machine aan een lab in Azure DevTest Labs
-1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
-1. Selecteer in de lijst van labs in het lab waarin u wilt maken van de virtuele machine.  
-1. Op de testomgeving **overzicht** blade Selecteer **+ toevoegen**.  
+## <a name="steps-tooadd-your-first-vm-tooa-lab-in-azure-devtest-labs"></a>Stappen tooadd uw eerste VM tooa lab in Azure DevTest Labs
+1. Meld u aan toohello [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit Hallo-lijst.
+1. Selecteer in lijst Hallo van labs Hallo lab waarin wordt gezocht toocreate Hallo VM.  
+1. Op de Hallo lab **overzicht** blade Selecteer **+ toevoegen**.  
 
     ![VM-knop toevoegen](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 
-1. Op de **kiezen een base** blade, selecteer een marketplace-installatiekopie voor de virtuele machine.
-1. Op de **virtuele machine** blade een naam voor de nieuwe virtuele machine in de **virtuele-machinenaam** in het tekstvak.
+1. Op Hallo **kiezen een base** blade, selecteer een marketplace-installatiekopie voor Hallo VM.
+1. Op Hallo **virtuele machine** blade, voer een naam voor de nieuwe virtuele machine Hallo in Hallo **virtuele-machinenaam** in het tekstvak.
 
     ![VM-labblade](./media/devtest-lab-add-vm/devtestlab-lab-add-first-vm.png)
 
-1. Voer een **gebruikersnaam** die administrator-bevoegdheden op de virtuele machine wordt verleend.  
-1. Voer een wachtwoord in het veld met het label **typt u een waarde**.
-1. De **virtuele machine schijftype** wordt bepaald welk type opslagschijf is toegestaan voor de virtuele machines in de testomgeving.
-1. Selecteer **grootte van virtuele machine** en selecteer een van de vooraf gedefinieerde items die de processor-cores, RAM-geheugen en de grootte van de vaste schijf van de virtuele machine maken opgeven.
-1. Selecteer **artefacten** - uit de lijst met artefacten - en selecteer de artefacten die u wilt toevoegen aan de basisinstallatiekopie configureren.
-    **Opmerking:** als u niet vertrouwd met DevTest Labs bent of configureren van artefacten, naar verwijzen de [een bestaande artefact toevoegen aan een virtuele machine](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) sectie en ga vervolgens terug hier na voltooiing.
-1. Selecteer **maken** opgegeven virtuele machine toevoegen aan het lab.
+1. Voer een **gebruikersnaam** die administrator-bevoegdheden op Hallo virtuele machine wordt verleend.  
+1. Voer een wachtwoord in Hallo tekstveld met het label **typt u een waarde**.
+1. Hallo **virtuele machine schijftype** wordt bepaald welk type opslagschijf is toegestaan voor Hallo virtuele machines in Hallo lab.
+1. Selecteer **grootte van virtuele machine** en selecteer een van de Hallo vooraf gedefinieerde items die Hallo processorcores, RAM-geheugen en grootte van de vaste schijf Hallo van Hallo VM toocreate opgeven.
+1. Selecteer **artefacten** - in de lijst Hallo van artefacten - en selecteer Hallo artefacten die u tooadd toohello basisinstallatiekopie wilt configureren.
+    **Opmerking:** als u nieuwe tooDevTest Labs of configureren van artefacten, Raadpleeg toohello [toevoegen van een bestaande artefact tooa VM](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) sectie en ga vervolgens terug hier na voltooiing.
+1. Selecteer **maken** tooadd Hallo VM toohello lab opgegeven.
 
-   De blade testlab toont de status van het maken van de VM - eerst als **maken**, klikt u vervolgens als **met** nadat de virtuele machine is gestart.
+   Hallo-status van Hallo van de virtuele machine maken: Hallo labblade eerst weergegeven als **maken**, klikt u vervolgens als **met** na Hallo VM is gestart.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Wanneer de virtuele machine is gemaakt, kunt u verbinden met de virtuele machine door te selecteren **Connect** op de blade van de VM.
-* Bekijk [een virtuele machine toevoegen aan een lab](devtest-lab-add-vm.md) voor gedetailleerde informatie over het toevoegen van de volgende virtuele machines in uw testomgeving.
-* Verken de [DevTest Labs Azure Resource Manager QuickStart sjablonengalerie](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).
+* Eenmaal Hallo VM is gemaakt, kunt u toohello VM door te selecteren **Connect** op Hallo van de virtuele machine-blade.
+* Bekijk [toevoegen van een VM tooa lab](devtest-lab-add-vm.md) voor gedetailleerde informatie over het toevoegen van de volgende virtuele machines in uw testomgeving.
+* Hallo verkennen [DevTest Labs Azure Resource Manager QuickStart sjablonengalerie](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).

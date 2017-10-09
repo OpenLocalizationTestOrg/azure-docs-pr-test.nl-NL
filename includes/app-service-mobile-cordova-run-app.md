@@ -1,15 +1,15 @@
 
-1. Ga naar [Azure Portal].
-2. Klik op **App Services** > de back-end die u hebt gemaakt.
-3. Klik in de instellingen van de mobiele app op **Snelstartgids** > **Cordova**.
+1. Ga naar Hallo [Azure-portal].
+2. Klik op **App Services** > Hallo back-end die u hebt gemaakt.
+3. Klik in de instellingen voor mobiele app hello, **Quick Start** > **Cordova**.
 ![Azure Portal met Quick Start voor Mobile Apps gemarkeerd][quickstart]
 4. Selecteer onder **Uw clienttoepassing configureren** de optie **Een nieuwe app maken** en klik vervolgens op **Downloaden**.
-2. Pak het gedownloade zip-bestand uit in een map op uw harde schijf, navigeer naar het oplossingsbestand (.sln) en open dit met Visual Studio.
-3. Kies in Visual Studio het oplossingsplatform (Android, iOS of Windows) in de vervolgkeuzelijst naast de begin-pijl. Selecteer een specifiek implementatieapparaat of een emulator door op de vervolgkeuzelijst op de groene pijl te klikken. U kunt het standaard-Android-platform en de standaard-Ripple-emulator gebruiken. Voor geavanceerdere zelfstudies (bijv. over pushmeldingen) moet u een ondersteund apparaat of ondersteunde emulator selecteren.
-4. Druk op F5 of klik op de groene pijl om uw Cordova-app te bouwen en uit te voeren. Accepteer het beveiligingsdialoogvenster in de emulator waarin om toegang tot het netwerk wordt gevraagd, als dit wordt weergegeven.
-5. Nadat de app is gestart op het apparaat of in de emulator typt u zinvolle tekst in via **Voer nieuwe tekst in**, zoals *Voltooi de zelfstudie* en u klikt dan op de knop **Toevoegen**.
+2. Uitpakken Hallo gedownloade ZIP-bestand tooa directory op de harde schijf, navigeer toohello oplossingsbestand (.sln) en opent u het gebruik van Visual Studio.
+3. Hallo volgende toothe start vervolgkeuzepijl in Visual Studio kiest Hallo oplossing platform (Android, iOS of Windows). Selecteer een specifieke implementatie-apparaat of emulator door te klikken op Hallo vervolgkeuzelijst op Hallo groene pijl. U kunt Hallo standaard Android-platform en Rimpel emulator gebruiken. Meer geavanceerde zelfstudies (bijvoorbeeld pushmeldingen) moeten tooselect een ondersteund apparaat of emulator.
+4. toobuild en uitvoeren van uw Cordova-app, druk op F5 of klik op Hallo groene pijl. Als er een dialoogvenster beveiliging in Hallo emulator aanvragende toegang toohello netwerk, accepteert u deze.
+5. Nadat het Hallo-app wordt gestart op Hallo-apparaat of emulator, typt u zinvolle tekst in **Voer nieuwe tekst**, zoals *voltooid Hallo zelfstudie* en klik vervolgens op Hallo **toevoegen** knop.
 
-De back-end voegt gegevens van de aanvraag toe aan de TodoItem-tabel in de SQL Database en stuurt informatie over de nieuw opgeslagen items terug naar de mobiele app. Deze gegevens worden in de lijst in de mobiele app weergegeven.
+Hallo back-end voegt gegevens van Hallo-aanvraag in de takentabel Hallo in Hallo SQL-Database en stuurt informatie over Hallo nieuw opgeslagen items terug toohello mobiele app. Hallo mobiele app deze gegevens in Hallo lijst worden weergegeven.
 
 U kunt stap 3 t/m 5 herhalen voor andere platforms.
 
@@ -17,4 +17,4 @@ U kunt stap 3 t/m 5 herhalen voor andere platforms.
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
 
 <!-- URLs -->
-[Azure Portal]: https://portal.azure.com/
+[Azure-portal]: https://portal.azure.com/

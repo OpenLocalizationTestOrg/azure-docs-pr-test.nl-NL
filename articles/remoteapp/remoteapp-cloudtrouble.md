@@ -1,6 +1,6 @@
 ---
-title: Problemen met RemoteApp-collecties voor cloud - maken | Microsoft Docs
-description: Meer informatie over het oplossen van fouten bij RemoteApp cloud verzameling maken
+title: 'aaaTroubleshoot RemoteApp cloudverzamelingen: maken | Microsoft Docs'
+description: Meer informatie over hoe tootroubleshoot RemoteApp cloud fouten bij het maken van de verzameling
 services: remoteapp
 documentationcenter: 
 author: vkbucha
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 304ba7c5057b27c459bccbb75d3a711567757675
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9484ecbdb048ede8df725215b313e049cc7648f0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-creating-remoteapp-cloud-collections"></a>Verzamelingen van de cloud maken RemoteApp oplossen
 > [!IMPORTANT]
-> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees Hallo [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
 > 
 
-Als u hebt met het maken van een cloudverzameling problemen, Raadpleeg de volgende informatie.
+Als u hebt met het maken van een cloudverzameling problemen, Raadpleeg Hallo informatie te volgen.
 
 ## <a name="your-image-is-invalid"></a>Uw installatiekopie is ongeldig
-Als u een bericht zoals 'GoldImageInvalid' ziet wanneer u Azure voor het inrichten van uw verzameling wacht, betekent dit dat de installatiekopie van uw sjabloon voldoet niet aan de [installatiekopie vereisten gedefinieerd](remoteapp-imagereqs.md). Ja, Ga lezen die [vereisten](remoteapp-imagereqs.md). Corrigeer de afbeelding, en probeer uw verzameling opnieuw maken.
+Als u een bericht zoals 'GoldImageInvalid' ziet wanneer u Azure tooprovision uw verzameling wacht, betekent dit dat de installatiekopie van uw sjabloon Hallo voldoet niet aan [installatiekopie vereisten gedefinieerd](remoteapp-imagereqs.md). Ja, Ga lezen die [vereisten](remoteapp-imagereqs.md). Corrigeer de afbeelding, en probeer toocreate uw verzameling opnieuw.
 
-## <a name="common-errors-seen-in-the-azure-management-portal"></a>Veelvoorkomende fouten in de Azure Management portal weergegeven.
+## <a name="common-errors-seen-in-hello-azure-management-portal"></a>Veelvoorkomende fouten in hello Azure Management portal weergegeven.
     DNS server could not be reached
     ProvisioningTimeout
 
-Verzamelingen vaak cloud is mislukt tijdens het maken van vanwege u gebruikmaakt van aangepaste installatiekopieën.  Als u een van de bovenstaande fouten ziet en u een aangepaste installatiekopie gebruikt om de verzameling te maken, controleert u de volgende zaken:
+Verzamelingen vaak cloud is mislukt tijdens het maken van vanwege u gebruikmaakt van aangepaste installatiekopieën.  Als u een Hallo hierboven fouten ziet en u een aangepaste installatiekopie toocreate Hallo verzameling gebruikt, controleert u Hallo dingen te volgen:
 
-* Zorg ervoor dat de aangepaste installatiekopie die u hebt geüpload voldoet aan de installatiekopie.
-* Meestal is het algemene probleem dat de installatiekopie niet goed syspreped is.  
-* Controleer of de installatiekopie kunt opstarten in Hyper-V of proberen te maken van een IAAS VM rechtstreeks in uw Azure-abonnement met behulp van de installatiekopie. Als de virtuele machine niet kan worden opgestart en wordt niet gestart, klikt u vervolgens dit geeft meestal aan dat de aangepaste installatiekopie niet juist is voorbereid.  Controleer of de aangepaste installatiekopie is gemaakt met het volgende op de manier waarop de installatiekopie van een aangepaste sjabloon maken voor RemoteApp
+* Zorg ervoor dat Hallo aangepaste installatiekopie die u hebt geüpload voldoet aan de installatiekopie.
+* Meest voorkomende Hallo probleem is dat die Hallo-installatiekopie is niet goed syspreped.  
+* Controleer of Hallo installatiekopie kunt opstarten in Hyper-V of proberen te maken van een IAAS VM rechtstreeks in uw Azure-abonnement met Hallo-installatiekopie. Als Hallo VM tooboot en niet starten mislukt, klikt u vervolgens duidt dit meestal dat die Hallo aangepaste installatiekopie is niet correct voorbereid.  Controleer of de aangepaste installatiekopie Hallo is opgebouwd na Hallo hoe toocreate een aangepaste sjablooninstallatiekopie voor RemoteApp
 
-Als u van een van de Microsoft-installatiekopieën die deel uitmaakt van uw abonnement gebruikmaakt, kunt u de verzameling opnieuw maken. Als het probleem zich blijft voordoen vervolgens Neem contact op met Microsoft ondersteuning.
+Als u van een van Hallo Microsoft installatiekopieën zijn opgenomen in uw abonnement gebruikmaakt, probeert u opnieuw toocreate Hallo-verzameling. Als Hallo probleem zich blijft voordoen vervolgens Neem contact op met Microsoft ondersteuning.
 
     PlatformImageTrialModeOnly
 
-Als u deze fout ziet dit betekent meestal dat die u naar een betaald account is bijgewerkt, maar u probeert een afbeelding van Microsoft die geldig alleen tijdens de proefmodus van de service te gebruiken. In dit geval probeert te maken van uw cloudverzameling opnieuw, maar zorg ervoor dat u de juiste installatiekopie.
+Als u deze fout ziet dit betekent meestal dat u bijgewerkt tooa betaald account en u probeert een installatiekopie van Microsoft die geldig is tijdens de proefmodus van Hallo service Hallo toouse. In dit geval probeert toocreate uw cloudverzameling opnieuw worden echter zeker toospecify Hallo juiste installatiekopie.
 

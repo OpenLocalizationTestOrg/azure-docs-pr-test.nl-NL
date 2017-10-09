@@ -1,6 +1,6 @@
 ---
-title: Verbinding maken met een Pi frambozen Azure IoT Suite-ondersteuning voor firmware-updates met behulp van Node.js | Microsoft Docs
-description: Gebruik de Microsoft Azure IoT Starter Kit voor de Raspberry Pi 3 en Azure IoT Suite. Gebruik Node.js verbinding maken met uw frambozen-Pi de oplossing voor externe controle verzenden van telemetrie van sensoren naar de cloud en uitvoeren van een externe firmware-update.
+title: een tooAzure frambozen Pi aaaConnect IoT-Suite met behulp van Node.js toosupport firmware-updates | Microsoft Docs
+description: Gebruik Microsoft Azure IoT Starter Kit Hallo voor Hallo frambozen Pi 3 en Azure IoT Suite. Gebruik van Node.js tooconnect uw oplossing voor externe controle frambozen Pi toohello, verzenden van telemetrie van sensoren toohello cloud en voert u een externe firmware-update.
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -14,164 +14,164 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 54503d5d6a636239d240509d7d09cf334234bac7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 43bd3f16ee3d292cd9cffa8bfe7d4ca721e5c39c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-nodejs"></a>Verbinding maken met uw frambozen Pi 3 van de oplossing voor externe controle en het inschakelen van externe firmware-updates met behulp van Node.js
+# <a name="connect-your-raspberry-pi-3-toohello-remote-monitoring-solution-and-enable-remote-firmware-updates-using-nodejs"></a>Verbinding maken met uw oplossing voor externe controle frambozen Pi 3 toohello en inschakelen van externe firmware-updates met behulp van Node.js
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-selector](../../includes/iot-suite-raspberry-pi-kit-selector.md)]
 
-Deze zelfstudie laat zien hoe u de Microsoft Azure IoT Starter Kit voor frambozen Pi 3 te gebruiken:
+Deze zelfstudie leert u hoe toouse Microsoft Azure IoT Starter Kit Hallo voor frambozen Pi 3:
 
-* Ontwikkel een temperatuur en vochtigheid lezer die met de cloud communiceren kan.
-* Inschakelen en voer een externe firmware update bijwerken de clienttoepassing op de frambozen Pi.
+* Ontwikkel een temperatuur en vochtigheid lezer die met de Hallo cloud communiceren kan.
+* Inschakelen en het uitvoeren van een externe firmware-update tooupdate Hallo-clienttoepassing op Hallo frambozen Pi.
 
-De zelfstudie wordt gebruikt:
+Hallo-zelfstudie wordt gebruikt:
 
-- Raspbian OS, de programmeertaal Node.js en Microsoft Azure IoT SDK voor Node.js voor het implementeren van een voorbeeld-apparaat.
-- IoT Suite remote monitoring vooraf geconfigureerde oplossing als de cloud-gebaseerde back-end.
+- Raspbian OS Node.js programmeertaal Hallo en hello van Microsoft Azure IoT SDK voor Node.js tooimplement een voorbeeld-apparaat.
+- Hallo IoT Suite remote monitoring vooraf geconfigureerde oplossing als Hallo cloud-gebaseerde back-end.
 
 ## <a name="overview"></a>Overzicht
 
-In deze zelfstudie maakt uitvoeren u de volgende stappen:
+In deze zelfstudie maakt uitvoeren u Hallo stappen:
 
-- Implementeer een exemplaar van de vooraf geconfigureerde oplossing voor externe controle op uw Azure-abonnement. Deze stap implementeert automatisch en meerdere Azure-services configureert.
-- Instellen van het apparaat en de sensoren om te communiceren met uw computer en de oplossing voor externe controle.
-- Werk de voorbeeldcode van de apparaten verbinding maken met de oplossing voor externe controle en verzenden van telemetrie die u op het dashboard van de oplossing weergeven kunt.
-- Met de voorbeeldcode van het apparaat kunt bijwerken van de clienttoepassing.
+- Implementeer een exemplaar van Hallo externe controle vooraf geconfigureerde oplossing tooyour Azure-abonnement. Deze stap implementeert automatisch en meerdere Azure-services configureert.
+- Stel uw apparaat en sensoren toocommunicate met uw computer en het Hallo oplossing voor externe controle.
+- Hallo voorbeeld apparaat code tooconnect toohello oplossing voor externe controle bijwerken en verzenden van telemetrie die u op Hallo oplossing dashboard weergeven kunt.
+- Hallo voorbeeld apparaat code tooupdate Hallo-clienttoepassing gebruiken.
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-prerequisites](../../includes/iot-suite-raspberry-pi-kit-prerequisites.md)]
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 > [!WARNING]
-> De oplossing voor externe controle levert een set van Azure-services in uw Azure-abonnement. De implementatie duidt op een echte enterprise-architectuur. Om te voorkomen dat een Azure-verbruik onnodige kosten, verwijdert u uw exemplaar van de vooraf geconfigureerde oplossing op azureiotsuite.com wanneer u klaar bent met het. Als u de vooraf geconfigureerde oplossing meer nodig hebt, kunt u het eenvoudig opnieuw. Zie voor meer informatie over het verbruik verminderen terwijl de oplossing voor externe controle wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor demonstratiedoeleinden][lnk-demo-config].
+> Hallo externe controle van de bepalingen van de oplossing voor een verzameling Azure-services in uw Azure-abonnement. Hallo implementatie duidt op een echte enterprise-architectuur. tooavoid onnodige Azure-verbruik kosten, verwijderen van uw exemplaar van Hallo vooraf geconfigureerde oplossing op azureiotsuite.com wanneer u klaar bent met het. Als u moet de vooraf geconfigureerde oplossing opnieuw hello, u kunt gemakkelijk het opnieuw maken. Zie voor meer informatie over het verminderen van verbruik tijdens het Hallo voor externe controle van de oplossing wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor demonstratiedoeleinden][lnk-demo-config].
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-solution](../../includes/iot-suite-raspberry-pi-kit-view-solution.md)]
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-prepare-pi](../../includes/iot-suite-raspberry-pi-kit-prepare-pi.md)]
 
-## <a name="download-and-configure-the-sample"></a>Downloaden en configureren van de steekproef
+## <a name="download-and-configure-hello-sample"></a>Downloaden en configureren van Hallo-voorbeeld
 
-U kunt nu downloaden en configureren van de externe clienttoepassing bewaking op uw frambozen Pi.
+U kunt nu downloaden en Hallo-bewaking externe clienttoepassing configureren op uw frambozen Pi.
 
 ### <a name="install-nodejs"></a>Node.js installeren
 
-Als u dit nog niet hebt gedaan, installeert u Node.js op uw frambozen Pi. De IoT-SDK voor Node.js vereist versie 0.11.5 van Node.js of hoger. De volgende stappen ziet u hoe Node.js v6.10.2 installeren op uw Pi frambozen:
+Als u dit nog niet hebt gedaan, installeert u Node.js op uw frambozen Pi. Hallo IoT SDK voor Node.js vereist versie 0.11.5 van Node.js of hoger. Hallo volgende stappen ziet u hoe tooinstall Node.js v6.10.2 op uw Pi frambozen:
 
-1. Gebruik de volgende opdracht om bij te werken uw Pi frambozen:
+1. Hallo opdracht tooupdate na uw frambozen-Pi gebruiken:
 
     ```sh
     sudo apt-get update
     ```
 
-1. Gebruik de volgende opdracht voor het downloaden van de Node.js-binaire bestanden naar uw Pi frambozen:
+1. Hallo opdracht toodownload hello Node.js binaire bestanden tooyour frambozen Pi volgende gebruiken:
 
     ```sh
     wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz
     ```
 
-1. Gebruik de volgende opdracht voor het installeren van de binaire bestanden:
+1. Gebruik Hallo opdracht tooinstall Hallo binaire bestanden te volgen:
 
     ```sh
     sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz
     ```
 
-1. Gebruik de volgende opdracht om te controleren of dat u hebt de Node.js-v6.10.2 is geïnstalleerd:
+1. Gebruik Hallo volgende opdracht tooverify die u hebt de Node.js-v6.10.2 is geïnstalleerd:
 
     ```sh
     node --version
     ```
 
-### <a name="clone-the-repositories"></a>De opslagplaatsen klonen
+### <a name="clone-hello-repositories"></a>Hallo-opslagplaatsen klonen
 
-Als u dit nog niet hebt gedaan, moet u de vereiste opslagplaatsen klonen door de volgende opdrachten uitvoeren op uw Pi:
+Als u dit nog niet hebt gedaan, vereist kloon Hallo opslagplaatsen door te voeren Hallo opdrachten op uw Pi volgen:
 
 ```sh
 cd ~
 git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git
 ```
 
-### <a name="update-the-device-connection-string"></a>De verbindingsreeks apparaat bijwerken
+### <a name="update-hello-device-connection-string"></a>Verbindingsreeks Hallo-apparaat bijwerken
 
-Open het voorbeeldconfiguratiebestand in de **nano** editor met de volgende opdracht:
+Open Hallo voorbeeldconfiguratiebestand in Hallo **nano** editor met behulp van de volgende opdracht Hallo:
 
 ```sh
 nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/config/deviceinfo
 ```
 
-Vervang de tijdelijke aanduiding voor waarden met de apparaat-id en IoT Hub gegevens u gemaakt en opgeslagen aan het begin van deze zelfstudie.
+Hallo tijdelijke aanduiding voor waarden vervangt door Hallo apparaat-id en IoT Hub informatie u gemaakt en opgeslagen op Hallo begin van deze zelfstudie.
 
-Wanneer u klaar bent, wordt de inhoud van het bestand deviceinfo moeten eruitzien als in het volgende voorbeeld:
+Wanneer u klaar bent, ziet er als volgt Hallo Hallo inhoud van Hallo deviceinfo bestand:
 
 ```conf
 yourdeviceid
 HostName=youriothubname.azure-devices.net;DeviceId=yourdeviceid;SharedAccessKey=yourdevicekey
 ```
 
-Sla de wijzigingen (**Ctrl-O**, **Enter**) en sluit de editor af (**Ctrl X**).
+Sla de wijzigingen (**Ctrl-O**, **Enter**) en sluit de editor af hello (**Ctrl X**).
 
-## <a name="run-the-sample"></a>Het voorbeeld uitvoert
+## <a name="run-hello-sample"></a>Hallo-voorbeeld uitvoeren
 
-Voer de volgende opdrachten voor het installeren van de vereiste pakketten voor de steekproef:
+Voer Hallo deze opdrachten tooinstall Hallo vereiste pakketten voor Hallo-voorbeeld:
 
 ```sh
 cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advance/1.0
 npm install
 ```
 
-U kunt nu het voorbeeldprogramma uitvoeren op de frambozen Pi. Voer de opdracht:
+U kunt nu Hallo voorbeeld programma uitvoeren op Hallo frambozen Pi. Voer Hallo-opdracht:
 
 ```sh
 sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/1.0/remote_monitoring.js
 ```
 
-De volgende voorbeelduitvoer volgt een voorbeeld van de uitvoer die u bij de opdrachtprompt op de Pi frambozen zien:
+Hallo is volgende voorbeelduitvoer een voorbeeld van uitvoer van Hallo die u achter de opdrachtprompt Hallo op Hallo frambozen Pi zien:
 
 ![De uitvoer van de app Raspberry Pi][img-raspberry-output]
 
-Druk op **Ctrl-C** om af te sluiten van het programma op elk gewenst moment.
+Druk op **Ctrl-C** tooexit Hallo programma op elk gewenst moment.
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-telemetry-advanced](../../includes/iot-suite-raspberry-pi-kit-view-telemetry-advanced.md)]
 
-1. Klik in het dashboard van de oplossing op **apparaten** bezoeken de **apparaten** pagina. Selecteer uw Raspberry Pi in de **lijst met apparaten**. Kies vervolgens **methoden**:
+1. Klik in het dashboard van de oplossing hello, **apparaten** toovisit hello **apparaten** pagina. Selecteer uw Pi frambozen in Hallo **lijst met apparaten**. Kies vervolgens **methoden**:
 
     ![Lijst met apparaten in het dashboard][img-list-devices]
 
-1. Op de **methode Invoke** pagina **InitiateFirmwareUpdate** in de **methode** vervolgkeuzelijst.
+1. Op Hallo **methode Invoke** pagina **InitiateFirmwareUpdate** in Hallo **methode** vervolgkeuzelijst.
 
-1. In de **FWPackageURI** veld **https://raw.githubusercontent.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**. Dit bestand bevat de implementatie van versie 2.0 van de firmware.
+1. In Hallo **FWPackageURI** veld **https://raw.githubusercontent.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**. Dit bestand bevat Hallo-implementatie van versie 2.0 van Hallo firmware.
 
-1. Kies **InvokeMethod**. De app op de Pi frambozen stuurt een bevestiging terug naar het dashboard van de oplossing. Vervolgens wordt het updateproces firmware gestart door de nieuwe versie van de firmware te downloaden:
+1. Kies **InvokeMethod**. Hallo-app op Hallo frambozen Pi verzendt een dashboard van de bevestiging terug toohello oplossing. Vervolgens wordt de procedure Hallo firmware-update gestart door nieuwe versie van de firmware Hallo Hallo te downloaden:
 
     ![Overzicht van de methode weergeven][img-method-history]
 
-## <a name="observe-the-firmware-update-process"></a>Houd rekening met de firmware proces niet bijwerken
+## <a name="observe-hello-firmware-update-process"></a>Hallo firmware updateproces observeren
 
-U kunt zien dat de firmware proces niet bijwerken omdat deze wordt uitgevoerd op het apparaat en de gerapporteerde door eigenschappen te bekijken in het dashboard van oplossing:
+U kunt Hallo firmware updateproces zien terwijl deze wordt uitgevoerd op Hallo apparaat en gerapporteerd door het bekijken van Hallo eigenschappen in het dashboard van de oplossing Hallo:
 
-1. U kunt de voortgang op van het updateproces bekijken op de Pi frambozen:
+1. U kunt Hallo voortgang in van het updateproces Hallo op Hallo frambozen Pi bekijken:
 
     ![Voortgang van bijwerken weergeven][img-update-progress]
 
     > [!NOTE]
-    > De externe controle app achtergrond opnieuw opgestart wanneer de update is voltooid. Gebruik de opdracht `ps -ef` om te controleren of deze wordt uitgevoerd. Als u het proces is beëindigd wilt, gebruikt u de `kill` opdracht met de proces-id.
+    > Hallo-app voor externe controle opnieuw is opgestart achtergrond bij Hallo-update is voltooid. Gebruik de opdracht Hallo `ps -ef` tooverify wordt uitgevoerd. Als u tooterminate Hallo proces wilt, gebruikt u Hallo `kill` opdracht met Hallo proces-id.
 
-1. U kunt de status van de firmware-update weergeven, zoals gemeld door het apparaat, in de portal van de oplossing. De volgende schermafbeelding ziet u de status en de duur van elke fase van het updateproces kan controleren en de nieuwe firmwareversie:
+1. U kunt Hallo status van de firmware-update hello, weergeven, zoals gemeld door het Hallo-apparaat in de oplossingsportal Hallo. Hallo volgende schermafbeelding ziet Hallo status en de duur van elke fase van het updateproces Hallo en nieuwe firmwareversie Hallo:
 
     ![De status van de taak weergeven][img-job-status]
 
-    Als u terug naar het dashboard navigeert, kunt u controleren of dat het apparaat is nog steeds verzenden van telemetrie na de firmware-update.
+    Als u back-toohello dashboard navigeert, kunt u controleren Hallo apparaat verzendt nog steeds telemetrie Hallo firmware-update te volgen.
 
 > [!WARNING]
-> Als u de oplossing voor externe controle uitgevoerd in uw Azure-account laat, wordt u gefactureerd voor de tijd die wordt uitgevoerd. Zie voor meer informatie over het verbruik verminderen terwijl de oplossing voor externe controle wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor demonstratiedoeleinden][lnk-demo-config]. De vooraf geconfigureerde oplossing verwijderen uit uw Azure-account wanneer u klaar bent met het gebruik van maken.
+> Als u Hallo oplossing uitgevoerd in uw Azure-account voor externe controle laat, wordt u gefactureerd voor Hallo keer die wordt uitgevoerd. Zie voor meer informatie over het verminderen van verbruik tijdens het Hallo voor externe controle van de oplossing wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor demonstratiedoeleinden][lnk-demo-config]. Hallo vooraf geconfigureerde oplossing uit uw Azure-account verwijderen wanneer u klaar bent met het gebruik van maken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar de [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) voor meer voorbeelden en documentatie over Azure IoT.
+Ga naar Hallo [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) voor meer voorbeelden en documentatie over Azure IoT.
 
 
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-node-get-started-advanced/app-output.png

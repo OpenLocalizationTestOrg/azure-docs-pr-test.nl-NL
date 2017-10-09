@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van de Azure Mobile Apps SDK voor Android | Microsoft Docs
-description: Het gebruik van de Azure Mobile Apps SDK voor Android
+title: aaaHow toouse hello Azure Mobile Apps SDK voor Android | Microsoft Docs
+description: Hoe toouse Azure Mobile Apps SDK Hallo voor Android
 services: app-service\mobile
 documentationcenter: android
 author: ggailey777
@@ -13,46 +13,46 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: glenga
-ms.openlocfilehash: 4b15d024ca6d5bbafe83d321a64021aecd78c4a8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 56eb73c4e1703d69877be499a09fc2130f1d68e0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Het gebruik van de Azure Mobile Apps SDK voor Android
+# <a name="how-toouse-hello-azure-mobile-apps-sdk-for-android"></a>Hoe toouse Azure Mobile Apps SDK Hallo voor Android
 
-Deze handleiding wordt beschreven hoe u de Android SDK voor Mobile Apps-client gebruiken voor het implementeren van algemene scenario's, zoals:
+Deze handleiding wordt getoond hoe Hallo toouse Android client SDK voor Mobile Apps tooimplement algemene scenario's, zoals:
 
 * Opvragen van gegevens (invoegen, bijwerken en verwijderen).
 * -Verificatie.
 * Foutafhandeling.
-* Aanpassing van de client.
+* Hallo-client aanpassen.
 
-Deze handleiding is gericht op de client-side Android SDK.  Zie voor meer informatie over de serverzijde SDK's voor mobiele Apps, [werken met .NET back-end SDK] [ 10] of [het gebruik van de SDK back-end Node.js][11].
+Deze handleiding is gericht op Hallo clientzijde Android SDK.  informatie over hello serverzijde SDK's voor mobiele Apps, Zie toolearn [werken met .NET back-end SDK] [ 10] of [hoe toouse back-end voor Node.js SDK Hallo] [ 11].
 
 ## <a name="reference-documentation"></a>Naslagdocumentatie
 
-U vindt de [Javadocs API-referentiemateriaal] [ 12] voor de Android-clientbibliotheek op GitHub.
+U vindt Hallo [Javadocs API-referentiemateriaal] [ 12] voor Android clientbibliotheek Hallo op GitHub.
 
 ## <a name="supported-platforms"></a>Ondersteunde Platforms
 
-De Azure Mobile Apps SDK voor Android ondersteunt API niveaus 19 tot en met 24 (KitKat via deze) voor de telefoon en tablet vormfactoren.  Verificatie, met name maakt gebruik van een benadering van de algemene framework voor het verzamelen van referenties.  Server-flow-verificatie werkt niet met kleine formulier factor apparaten zoals kijkt naar.
+Hello Azure Mobile Apps SDK voor Android ondersteunt API niveaus 19 tot en met 24 (KitKat via deze) voor de telefoon en tablet vormfactoren.  Verificatie, met name maakt gebruik van een algemene web framework benadering toogather gebruikersreferenties.  Server-flow-verificatie werkt niet met kleine formulier factor apparaten zoals kijkt naar.
 
 ## <a name="setup-and-prerequisites"></a>Het installatieprogramma en vereisten
 
-Voltooi de [Mobile Apps Quick Start](app-service-mobile-android-get-started.md) zelfstudie.  Deze taak zorgt ervoor dat alle vereisten voor het ontwikkelen van Azure Mobile Apps is voldaan.  De Quick Start helpt u bij het configureren van uw account en uw eerste back-end voor mobiele apps te maken.
+Volledige Hallo [Mobile Apps Quick Start](app-service-mobile-android-get-started.md) zelfstudie.  Deze taak zorgt ervoor dat alle vereisten voor het ontwikkelen van Azure Mobile Apps is voldaan.  Hallo Quick Start helpt u bij het configureren van uw account en uw eerste back-end voor mobiele apps te maken.
 
-Als u besluit niet op de Quick Start-zelfstudie hebt voltooid, kunt u de volgende taken uitvoeren:
+Als u geen toocomplete Hallo Quick Start-zelfstudie besluit, voltooit u Hallo taken te volgen:
 
-* [Maak een back-end voor de mobiele App] [ 13] voor gebruik met uw Android-app.
-* In Android Studio [update de Gradle bouwen bestanden](#gradle-build).
+* [Maak een back-end voor de mobiele App] [ 13] toouse met uw Android-app.
+* In Android Studio [update Hallo Gradle bouwen bestanden](#gradle-build).
 * [Internet-machtiging wordt ingeschakeld](#enable-internet).
 
-### <a name="gradle-build"></a>Het bestand van de build Gradle bijwerken
+### <a name="gradle-build"></a>Update Hallo Gradle-bestand maken
 
 Beide wijzigen **build.gradle** bestanden:
 
-1. Deze code toevoegen aan de *Project* niveau **build.gradle** bestand binnen de *buildscript* tag:
+1. Voeg deze code toohello *Project* niveau **build.gradle** bestand in de Hallo *buildscript* tag:
 
     ```text
     buildscript {
@@ -62,17 +62,17 @@ Beide wijzigen **build.gradle** bestanden:
     }
     ```
 
-2. Deze code toevoegen aan de *Module app* niveau **build.gradle** bestand binnen de *afhankelijkheden* tag:
+2. Voeg deze code toohello *Module app* niveau **build.gradle** bestand in de Hallo *afhankelijkheden* tag:
 
     ```text
     compile 'com.microsoft.azure:azure-mobile-android:3.3.0'
     ```
 
-    De meest recente versie is momenteel 3.3.0. De ondersteunde versies zijn vermeld [op bintray][14].
+    De meest recente versie Hallo is momenteel 3.3.0. Hallo ondersteund versies worden weergegeven [op bintray][14].
 
 ### <a name="enable-internet"></a>Internet-machtiging wordt ingeschakeld
 
-Voor toegang tot Azure, moet uw app de INTERNET-machtiging ingeschakeld hebben. Als deze nog niet is ingeschakeld, voeg de volgende regel code naar uw **AndroidManifest.xml** bestand:
+tooaccess Azure, uw app moet gemachtigd Hallo INTERNET ingeschakeld. Als deze nog niet is ingeschakeld, toevoegen Hallo volgende regel code tooyour **AndroidManifest.xml** bestand:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -80,26 +80,26 @@ Voor toegang tot Azure, moet uw app de INTERNET-machtiging ingeschakeld hebben. 
 
 ## <a name="create-a-client-connection"></a>Een clientverbinding maken
 
-Mobiele Apps van Azure biedt vier functies voor uw mobiele App:
+Mobiele Apps van Azure biedt vier functies tooyour mobiele toepassing:
 
 * Toegang tot gegevens en Offline synchronisatie met een Azure Mobile Apps-Service.
-* Aangepaste API's die zijn geschreven met de Azure Mobile Apps Server SDK-aanroep.
+* Aangepaste API's die zijn geschreven met hello Azure Mobile Apps Server SDK-aanroep.
 * Verificatie met Azure App Service-verificatie en autorisatie.
 * Registratie bij Notification Hubs voor pushmeldingen.
 
-Elk van deze functies, moet u eerst dat u maakt een `MobileServiceClient` object.  Slechts één `MobileServiceClient` object moet worden gemaakt binnen uw mobiele clients (dat wil zeggen, deze moet een Singleton-patroon).  Maken van een `MobileServiceClient` object:
+Elk van deze functies, moet u eerst dat u maakt een `MobileServiceClient` object.  Slechts één `MobileServiceClient` object moet worden gemaakt binnen uw mobiele clients (dat wil zeggen, deze moet een Singleton-patroon).  toocreate een `MobileServiceClient` object:
 
 ```java
 MobileServiceClient mClient = new MobileServiceClient(
-    "<MobileAppUrl>",       // Replace with the Site URL
+    "<MobileAppUrl>",       // Replace with hello Site URL
     this);                  // Your application Context
 ```
 
-De `<MobileAppUrl>` is een tekenreeks of een URL-object dat naar uw mobiele back-end verwijst.  Als u van Azure App Service gebruikmaakt voor het hosten van uw mobiele back-end, klikt u vervolgens te zorgen dat u de beveiligde `https://` versie van de URL.
+Hallo `<MobileAppUrl>` is een tekenreeks of een URL-object dat tooyour mobiele back-end wijst.  Als u van Azure App Service-toohost uw mobiele back-end gebruikmaakt, zorgt u beveiligde Hallo `https://` versie van het Hallo-URL.
 
-De client vereist ook toegang tot de activiteit of Context - de `this` parameter in het voorbeeld.  De constructie MobileServiceClient moet gebeuren binnen de `onCreate()` methode van de activiteit waarnaar wordt verwezen in de `AndroidManifest.xml` bestand.
+Hallo-client vereist ook toegang toohello activiteit of Context - hello `this` parameter in Hallo-voorbeeld.  Hallo MobileServiceClient bouw moet gebeuren binnen Hallo `onCreate()` methode van de activiteit waarnaar wordt verwezen in Hallo Hallo `AndroidManifest.xml` bestand.
 
-Als een best practice moet u communicatie tussen de server in een eigen (singleton-pattern)-klasse als abstract.  In dit geval moet u de activiteit in de constructor voor het configureren van de service op de juiste wijze doorgeven.  Bijvoorbeeld:
+Als een best practice moet u communicatie tussen de server in een eigen (singleton-pattern)-klasse als abstract.  In dit geval moet u doorgeven Hallo activiteit binnen Hallo constructor tooappropriately Hallo service configureren.  Bijvoorbeeld:
 
 ```java
 package com.example.appname.services;
@@ -141,21 +141,21 @@ public AzureServiceAdapter {
 }
 ```
 
-U kunt nu aanroepen `AzureServiceAdapter.Initialize(this);` in de `onCreate()` methode van uw belangrijkste activiteit.  Alle andere methoden die behoefte hebben toegang tot het gebruik van de client `AzureServiceAdapter.getInstance();` verkrijgen van een verwijzing naar de service-adapter.
+U kunt nu aanroepen `AzureServiceAdapter.Initialize(this);` in Hallo `onCreate()` methode van uw belangrijkste activiteit.  Alle andere methoden hoeven toohello toegangsclient gebruiken `AzureServiceAdapter.getInstance();` tooobtain een verwijzing naar een toohello adapter.
 
 ## <a name="data-operations"></a>Gegevensbewerkingen
 
-De kern van de Azure Mobile Apps SDK is voor toegang tot gegevens die in SQL Azure worden opgeslagen op de back-end voor de mobiele App.  U kunt toegang tot deze gegevens met behulp van sterk getypeerde klassen (aanbevolen) of getypeerde query's (niet aanbevolen).  Het merendeel van deze sectie behandelt sterk getypeerde klassen gebruiken.
+Hallo-kern van hello Azure Mobile Apps SDK is tooprovide toegang toodata opgeslagen in SQL Azure op Hallo-backend voor mobiele Apps.  U kunt toegang tot deze gegevens met behulp van sterk getypeerde klassen (aanbevolen) of getypeerde query's (niet aanbevolen).  Hallo bulksgewijs van deze sectie behandelt sterk getypeerde klassen gebruiken.
 
 ### <a name="define-client-data-classes"></a>Definiëren van gegevensklassen client
 
-Toegang tot gegevens uit SQL Azure-tabellen definiëren van client gegevensklassen die overeenkomen met de tabellen in de back-end voor de mobiele App. Voorbeelden in dit onderwerp wordt ervan uitgegaan dat een tabel met de naam **MyDataTable**, heeft de volgende kolommen:
+tooaccess gegevens uit SQL Azure-tabellen, definiëren van gegevensklassen client die overeenkomen met toohello tabellen in de back-end van Hallo mobiele App. Voorbeelden in dit onderwerp wordt ervan uitgegaan dat een tabel met de naam **MyDataTable**, heeft Hallo kolommen te volgen:
 
 * id
 * Tekst
 * Voltooien
 
-Het bijbehorende getypte client-side '-object bevindt zich in een bestand met de naam **MyDataTable.java**:
+Hallo bijbehorende getypte client-side '-object bevindt zich in een bestand met de naam **MyDataTable.java**:
 
 ```java
 public class ToDoItem {
@@ -165,40 +165,40 @@ public class ToDoItem {
 }
 ```
 
-Voeg de getter en setter methoden voor elk veld dat u toevoegt.  Als uw Azure SQL-tabel meer kolommen bevat, zou u de overeenkomende velden toevoegen aan deze klasse.  Bijvoorbeeld, als de DTO (object data transfer) was een kolom met gehele getallen prioriteit en u kunt dit veld samen met de methoden getter en setter toevoegen:
+Voeg de getter en setter methoden voor elk veld dat u toevoegt.  Als uw Azure SQL-tabel meer kolommen bevat, zou u Hallo overeenkomende velden toothis klasse toevoegen.  Bijvoorbeeld, als hello DTO (object data transfer) was een kolom met gehele getallen prioriteit en u kunt dit veld samen met de methoden getter en setter toevoegen:
 
 ```java
 private Integer priority;
 
 /**
-* Returns the item priority
+* Returns hello item priority
 */
 public Integer getPriority() {
     return mPriority;
 }
 
 /**
-* Sets the item priority
+* Sets hello item priority
 *
 * @param priority
-*            priority to set
+*            priority tooset
 */
 public final void setPriority(Integer priority) {
     mPriority = priority;
 }
 ```
 
-Zie voor meer informatie over het maken van aanvullende tabellen in uw back-end van Mobile Apps, [hoe: definiëren van een domeincontroller tabel] [ 15] (.NET-backend) of [definiëren tabellen met behulp van een dynamische Schema] [ 16] (Node.js back-end).
+toolearn hoe toocreate aanvullende tabellen in uw Mobile Apps back-end, Zie [hoe: Definieer een controller tabel] [ 15] (.NET-backend) of [definiëren tabellen met behulp van een dynamische Schema] [ 16] (Node.js back-end).
 
-Een tabel van de back-end van Azure Mobile Apps definieert vijf speciale velden vier die beschikbaar voor clients zijn:
+Een tabel van de back-end van Azure Mobile Apps definieert vijf speciale velden waarvan vier tooclients beschikbaar zijn:
 
-* `String id`: De globaal unieke ID voor de record.  Als een best practice, maakt u de-id de tekenreeksweergave van een [UUID] [ 17] object.
-* `DateTimeOffset updatedAt`: De datum/tijd van de laatste update.  Het veld updatedAt is ingesteld door de server en nooit door uw clientcode moet worden ingesteld.
-* `DateTimeOffset createdAt`: De datum/tijd die het object is gemaakt.  Het veld createdAt is ingesteld door de server en nooit door uw clientcode moet worden ingesteld.
-* `byte[] version`: Normaal weergegeven als een tekenreeks, is de versie ook ingesteld door de server.
-* `boolean deleted`: Dit geeft aan dat de record is verwijderd, maar nog niet is verwijderd.  Gebruik geen `deleted` als in uw klasse-eigenschap.
+* `String id`: globaal unieke ID voor de record Hallo Hallo.  Als een best practice maken Hallo id Hallo tekenreeksweergave van een [UUID] [ 17] object.
+* `DateTimeOffset updatedAt`: datum/tijd van laatste update van Hallo Hallo.  Hallo updatedAt veld is ingesteld door de server Hallo en nooit door uw clientcode moet worden ingesteld.
+* `DateTimeOffset createdAt`: Hallo datum/tijd dat Hallo-object is gemaakt.  Hallo createdAt veld is ingesteld door de server Hallo en nooit door uw clientcode moet worden ingesteld.
+* `byte[] version`: Normaal weergegeven als een tekenreeks, is Hallo-versie ook ingesteld door Hallo-server.
+* `boolean deleted`: Hiermee wordt aangegeven Hallo-record verwijderd maar nog niet is verwijderd.  Gebruik geen `deleted` als in uw klasse-eigenschap.
 
-De `id` veld is vereist.  De `updatedAt` veld en `version` veld worden gebruikt voor offlinesynchronisatie (voor incrementele synchronisatie en conflict respectievelijk).  De `createdAt` veld is een verwijzingsveld en wordt niet gebruikt door de client.  De namen zijn namen van de eigenschappen 'in-the-wire' en niet aanpasbaar.  U kunt echter een toewijzing maken tussen uw object en de namen van de 'in-the-wire' met behulp van de [gson] [ 3] bibliotheek.  Bijvoorbeeld:
+Hallo `id` veld is vereist.  Hallo `updatedAt` veld en `version` veld worden gebruikt voor offlinesynchronisatie (voor incrementele synchronisatie en conflict respectievelijk).  Hallo `createdAt` veld is een verwijzingsveld en niet wordt gebruikt door het Hallo-client.  Hallo-namen zijn 'in-the-wire' namen van eigenschappen Hallo en zijn niet aanpasbaar.  Echter kunt u een toewijzing tussen uw object en het Hallo 'in-the-wire' namen maken met behulp van Hallo [gson] [ 3] bibliotheek.  Bijvoorbeeld:
 
 ```java
 package com.example.zumoappname;
@@ -258,7 +258,7 @@ public class ToDoItem
 
 ### <a name="create-a-table-reference"></a>De tabelverwijzing van een maken
 
-Als u een tabel, maakt u eerst een [MobileServiceTable] [ 8] object door het aanroepen van de **getTable** methode op de [MobileServiceClient][9].  Deze methode heeft twee overloads:
+tooaccess een tabel, maakt u eerst een [MobileServiceTable] [ 8] object door de aanroepende Hallo **getTable** methode op Hallo [MobileServiceClient][9].  Deze methode heeft twee overloads:
 
 ```java
 public class MobileServiceClient {
@@ -267,13 +267,13 @@ public class MobileServiceClient {
 }
 ```
 
-In de volgende code **mClient** is een verwijzing naar uw MobileServiceClient-object.  De eerste overbelasting wordt gebruikt voor naam van de klasse en de naam van de tabel hetzelfde zijn waarbij de in de Snelstartgids wordt gebruikt:
+In de volgende code, Hallo **mClient** tooyour MobileServiceClient referentieobject is.  Hallo eerste overbelasting wordt gebruikt waarbij Hallo klassenaam en tabelnaam Hallo zijn Hallo dezelfde en hello een worden in het Hallo Quick Start:
 
 ```java
 MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 ```
 
-De tweede overbelasting wordt gebruikt wanneer de tabelnaam die van de naam van de klasse afwijkt: de eerste parameter is de naam van de tabel.
+Hallo tweede overbelasting wordt gebruikt wanneer Hallo tabelnaam van de naam van de klasse Hallo afwijkt: de eerste parameter Hallo Hallo tabelnaam is.
 
 ```java
 MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
@@ -281,31 +281,31 @@ MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToD
 
 ## <a name="query"></a>Een tabel met back-end
 
-Eerst moet u een tabelverwijzing.  Vervolgens wordt een query uitgevoerd op de tabelverwijzing.  Een query is een combinatie van:
+Eerst moet u een tabelverwijzing.  Vervolgens moet u een query uitvoeren op Hallo tabelverwijzing.  Een query is een combinatie van:
 
 * Een `.where()` [filter-component](#filtering).
 * Een `.orderBy()` [ordening component](#sorting).
 * Een `.select()` [veld selectiecomponent](#selection).
 * Een `.skip()` en `.top()` voor [wisselbare resultaten](#paging).
 
-De componenten moeten worden opgenomen in de voorgaande bewerkingsvolgorde.
+Hallo-componenten moeten worden opgenomen in het Hallo voorafgaand aan de volgorde.
 
 ### <a name="filter"></a>Filteren van resultaten
 
-De algemene vorm van een query is:
+Hallo algemene vorm van een query is:
 
 ```java
 List<MyDataTable> results = mDataTable
     // More filters here
     .execute()          // Returns a ListenableFuture<E>
-    .get()              // Converts the async into a sync result
+    .get()              // Converts hello async into a sync result
 ```
 
-Het vorige voorbeeld retourneert alle resultaten (maximaal de maximale paginagrootte ingesteld door de server).  De `.execute()` methode voert u de query op de back-end.  De query wordt geconverteerd naar een [OData v3] [ 19] query voor verzending naar de back-end van Mobile Apps.  Hebben ontvangen converteert de back-end voor mobiele Apps van de query naar een SQL-instructie voordat deze wordt uitgevoerd op de SQL Azure-instantie.  Aangezien netwerkactiviteit enige tijd neemt de `.execute()` methode retourneert een [ `ListenableFuture<E>` ] [ 18].
+Hallo retourneert voorgaande voorbeeld alle resultaten (omhoog toohello maximale paginagrootte ingesteld door Hallo server).  Hallo `.execute()` methode Hallo query uitgevoerd op Hallo back-end.  Hallo-query is geconverteerde tooan [OData v3] [ 19] query vóór verzending toohello Mobile Apps back-end.  Ontvangen converteert Hallo Mobile Apps-back-end Hallo-query naar een SQL-instructie voordat deze wordt uitgevoerd op Hallo Azure SQL-exemplaar.  Aangezien netwerkactiviteit enige tijd neemt, Hallo `.execute()` methode retourneert een [ `ListenableFuture<E>` ] [ 18].
 
 ### <a name="filtering"></a>Geretourneerde gegevens filteren
 
-De uitvoering van de volgende query retourneert alle items uit de **ToDoItem** tabel waar **voltooid** gelijk is aan **false**.
+Hallo na uitvoering van de query retourneert alle items van Hallo **ToDoItem** tabel waar **voltooid** gelijk is aan **false**.
 
 ```java
 List<ToDoItem> result = mToDoTable
@@ -315,11 +315,11 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-**mToDoTable** is de verwijzing naar de tabel van de mobiele service die we eerder hebben gemaakt.
+**mToDoTable** is Hallo toohello mobiele service verwijzingstabel die we eerder hebben gemaakt.
 
-Definieer een filter met de **waar** methodeaanroep op de tabelverwijzing. De **waar** methode wordt gevolgd door een **veld** methode gevolgd door een methode die het predicaat logische aangeeft. Mogelijke predikaat methoden omvatten **eq** (is gelijk aan), **ne** (niet gelijk) **gt** (groter dan) **ge** (groter dan of gelijk zijn aan), **lt** (minder dan,) **RP** (kleiner dan of gelijk aan). Deze methoden kunnen u velden en de tekenreeks op specifieke waarden te vergelijken.
+Definieer een filter met de Hallo **waar** methodeaanroep op Hallo tabelverwijzing. Hallo **waar** methode wordt gevolgd door een **veld** methode gevolgd door een methode waarmee Hallo logische predikaat. Mogelijke predikaat methoden omvatten **eq** (is gelijk aan), **ne** (niet gelijk) **gt** (groter dan) **ge** (groter dan of gelijk zijn aan), **lt** (minder dan,) **RP** (kleiner dan of gelijk aan). Deze methoden kunnen u vergelijken en tekenreeks velden toospecific waarden.
 
-U kunt filteren op datums. De volgende methoden kunnen u de volledige datumveld of delen van de datum vergelijken: **jaar**, **maand**, **dag**, **uur**, **minuut**, en **tweede**. Het volgende voorbeeld wordt een filter voor artikelen waarvan *vervaldatum* gelijk is aan 2013.
+U kunt filteren op datums. Hallo volgende methoden kunnen u de hele datumveld Hallo of onderdelen van Hallo datum vergelijken: **jaar**, **maand**, **dag**, **uur**, **minuut**, en **tweede**. Hallo volgende voorbeeld wordt een filter toegevoegd voor artikelen waarvan *vervaldatum* gelijk is aan 2013.
 
 ```java
 List<ToDoItem> results = MToDoTable
@@ -329,7 +329,7 @@ List<ToDoItem> results = MToDoTable
     .get();
 ```
 
-De volgende methoden ondersteuning voor complexe filters op tekenreeksvelden: **startsWith**, **endsWith**, **concat**, **subtekenreeks**, **indexOf**, **vervangen**, **toLower**, **toUpper**, **trim**, en **lengte**. Het volgende voorbeeld-filters voor de tabel rijen waar de *tekst* kolom begint met "PRI0."
+Hallo volgt ondersteuning voor complexe filters op tekenreeksvelden: **startsWith**, **endsWith**, **concat**, **subtekenreeks**, **indexOf**, **vervangen**, **toLower**, **toUpper**, **trim**, en  **lengte**. Hallo na voorbeeld filters voor de tabel rijen waar hello *tekst* kolom begint met "PRI0."
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -339,7 +339,7 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-De volgende methoden van de operator worden ondersteund op numerieke velden: **toevoegen**, **sub**, **mul**, **div**, **mod**, **floor**, **maximum**, en **afronden**. Het volgende voorbeeld-filters voor de tabel rijen waar de **duur** een even getal is.
+Hallo volgende operator methoden worden ondersteund op numerieke velden: **toevoegen**, **sub**, **mul**, **div**, **mod**, **floor**, **maximum**, en **afronden**. Hallo na voorbeeld filters voor de tabel rijen waar hello **duur** een even getal is.
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -349,7 +349,7 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-U kunt predikaten met deze logische methoden combineren: **en**, **of** en **niet**. Twee van de voorgaande voorbeelden worden gecombineerd voor het volgende voorbeeld.
+U kunt predikaten met deze logische methoden combineren: **en**, **of** en **niet**. Hallo volgt combineert twee van de voorgaande voorbeelden Hallo.
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -373,11 +373,11 @@ List<ToDoItem> results = mToDoTable
     .execute().get();
 ```
 
-Zie voor meer gedetailleerde discussie en voorbeelden van filteren, [verkennen van de uitgebreide functionaliteit van het model van de query Android client][20].
+Zie voor meer gedetailleerde discussie en voorbeelden van filteren, [verkennen Hallo rijke van Hallo Android client querymodel][20].
 
 ### <a name="sorting"></a>Geretourneerde gegevens sorteren
 
-De volgende code retourneert alle items uit een tabel met **taken** gesorteerd oplopende door de *tekst* veld. *mToDoTable* is de verwijzing naar de back-end-tabel die u eerder hebt gemaakt:
+Hallo volgende code retourneert alle items uit een tabel met **taken** gesorteerd door Hallo oplopende *tekst* veld. *mToDoTable* is Hallo toohello back-end verwijzingstabel die u eerder hebt gemaakt:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -386,11 +386,11 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-De eerste parameter van de **orderBy** methode is een tekenreeks die gelijk is aan de naam van het veld op waarop u wilt sorteren. De tweede parameter gebruikt de **QueryOrder** opsomming om op te geven of u wilt sorteren oplopende of aflopende.  Als u filtert met behulp van de ***waar*** methode, de ***waar*** methode moet worden aangeroepen voordat de ***orderBy*** methode.
+de eerste parameter van Hallo Hallo **orderBy** methode is de naam van een tekenreeks gelijk toohello van Hallo veld op welke toosort. Hallo maakt gebruik van de tweede parameter Hallo **QueryOrder** opsomming toospecify of toosort oplopende of aflopende.  Als u filtert met behulp van Hallo ***waar*** methode, Hallo ***waar*** methode moet worden aangeroepen voordat Hallo ***orderBy*** methode.
 
 ### <a name="selection"></a>Selecteer specifieke kolommen
 
-De volgende code laat zien hoe het retourneren van alle items van een tabel met **taken**, maar worden alleen de **voltooid** en **tekst** velden. **mToDoTable** is de verwijzing naar de back-end-tabel die we eerder hebben gemaakt.
+Hallo volgende code laat zien hoe tooreturn alle items uit een tabel met **taken**, maar alleen toont Hallo **voltooid** en **tekst** velden. **mToDoTable** is Hallo toohello back-end verwijzingstabel die we eerder hebben gemaakt.
 
 ```java
 List<ToDoItemNarrow> result = mToDoTable
@@ -399,13 +399,13 @@ List<ToDoItemNarrow> result = mToDoTable
     .get();
 ```
 
-De parameters voor de functie select zijn de tekenreeksnamen van de van de tabel kolommen die u wilt retourneren.  De **Selecteer** methode moet volgen methoden zoals **waar** en **orderBy**. Het kan worden gevolgd door methoden zoals paginering **overslaan** en **boven**.
+functie van Hallo parameters toohello select zijn Hallo tekenreeksnamen van Hallo tabelkolommen die u tooreturn wilt.  Hallo **Selecteer** methode moet toofollow methoden zoals **waar** en **orderBy**. Het kan worden gevolgd door methoden zoals paginering **overslaan** en **boven**.
 
 ### <a name="paging"></a>Gegevens weergeven op pagina 's
 
-Gegevens **altijd** geretourneerd op pagina's.  Het maximum aantal records dat wordt geretourneerd is door de server ingesteld.  Als de client meer records vraagt, retourneert de server het maximum aantal records.  De maximale grootte op de server is standaard 50 records.
+Gegevens **altijd** geretourneerd op pagina's.  Hallo kunt u het maximum aantal records dat wordt geretourneerd is door Hallo-server ingesteld.  Als de client Hallo meer records vraagt, retourneert Hallo server Hallo kunt u het maximum aantal records.  Standaard is de maximale paginagrootte Hallo op Hallo server 50 records.
 
-Het eerste voorbeeld laat zien hoe de bovenste vijf items selecteren uit een tabel. De query retourneert de items van een tabel met **taken**. **mToDoTable** is de verwijzing naar de back-end-tabel die u eerder hebt gemaakt:
+Hallo eerste voorbeeld laat zien hoe tooselect Hallo bovenste vijf items uit een tabel. Hallo query retourneert Hallo items van een tabel met **taken**. **mToDoTable** is Hallo toohello back-end verwijzingstabel die u eerder hebt gemaakt:
 
 ```java
 List<ToDoItem> result = mToDoTable
@@ -414,7 +414,7 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-Hier volgt een query die de eerste vijf items wordt overgeslagen en retourneert vervolgens de volgende vijf:
+Hier volgt een query of slaat het Hallo eerste vijf items en vervolgens retourneert de volgende vijf Hallo:
 
 ```java
 List<ToDoItem> result = mToDoTable
@@ -423,7 +423,7 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-Als u ophalen van alle records in een tabel wilt, implementeert u code worden herhaald voor alle pagina's:
+Als u tooget alle records in een tabel wenst, moet u code tooiterate implementeren via alle pagina's:
 
 ```java
 List<MyDataModel> results = new List<MyDataModel>();
@@ -440,14 +440,14 @@ do {
 } while (nResults > 0);
 ```
 
-Een aanvraag voor alle records met deze methode maakt een minimum van twee aanvragen voor de back-end van Mobile Apps.
+Een aanvraag voor alle records met deze methode maakt een minimum van twee aanvragen toohello Mobile Apps back-end.
 
 > [!TIP]
-> Het formaat van de juiste kiezen een evenwicht tussen geheugengebruik terwijl de aanvraag er gebeurt, bandbreedtegebruik en vertraging bij het ontvangen van de gegevens volledig is.  De standaardwaarde (50 records) is geschikt voor alle apparaten.  Als u alleen op geheugenapparaten met grotere werkt, verhoogt u maximaal 500.  We hebben vastgesteld dat de pagina vergroten dan 500 registreert resultaten in onaanvaardbaar vertragingen en grote geheugenproblemen.
+> Kiezen Hallo rechts paginagrootte is een evenwicht tussen geheugengebruik tijdens het Hallo-aanvraag gebeurt er, bandbreedtegebruik en vertraging bij het ontvangen van gegevens Hallo volledig.  Hallo-standaard (50 records) is geschikt voor alle apparaten.  Als u alleen op geheugenapparaten met grotere werkt, verhoogt u up too500.  We hebben die toenemende Hallo paginaformaat dan 500 registreert resultaten gevonden in onaanvaardbaar vertragingen en grote geheugenproblemen.
 
 ### <a name="chaining"></a>Hoe: querymethoden samenvoegen
 
-De methoden die worden gebruikt in het opvragen van de back-end-tabellen kunnen worden samengevoegd. Methoden voor het query-koppeling kunt u specifieke kolommen met gefilterde rijen die worden gesorteerd en wisselbare selecteren. U kunt complexe logische filters maken.  Elke querymethode retourneert een Query-object. Aanroepen om te beëindigen van de reeks methoden en daadwerkelijk uitvoeren van de query, het **uitvoeren** methode. Bijvoorbeeld:
+Hallo-methoden die worden gebruikt bij het zoeken van back-end-tabellen kunnen worden samengevoegd. Query methoden kunt u specifieke kolommen tooselect gefilterde rijen die worden gesorteerd en wisselbaar geheugen: chaining. U kunt complexe logische filters maken.  Elke querymethode retourneert een Query-object. tooend hello reeks methoden en daadwerkelijk uitvoeren Hallo query, aanroep Hallo **uitvoeren** methode. Bijvoorbeeld:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -463,26 +463,26 @@ List<ToDoItem> results = mToDoTable
         .get();
 ```
 
-De keten querymethoden moeten als volgt worden gerangschikt:
+Hallo teruggekoppeld query methoden moeten als volgt zijn gerangschikt:
 
 1. Filteren (**waar**) methoden.
 2. Sorteren (**orderBy**) methoden.
 3. Selectie (**Selecteer**) methoden.
 4. wisselgeheugengebruik (**overslaan** en **boven**) methoden.
 
-## <a name="binding"></a>Gegevens binden aan de gebruikersinterface
+## <a name="binding"></a>Gebruikersinterface van data toohello binden
 
 Gegevensbinding omvat drie onderdelen:
 
-* De gegevensbron
-* De indeling startscherm
-* De adapter die de twee elkaar verbindt.
+* Hallo-gegevensbron
+* de indeling startscherm Hallo
+* Hallo-adapter dat ties Hallo twee samen.
 
-In onze voorbeeldcode we de gegevens retourneert uit de tabel Mobile Apps SQL Azure **ToDoItem** in een matrix. Deze activiteit is een algemene patroon voor toepassingen van gegevens.  Databasequery's retourneren vaak een verzameling rijen die de client in een lijst of matrix opgehaald. De matrix is in dit voorbeeld wordt de gegevensbron.  De code wordt een schermindeling die de weergave van de gegevens die wordt weergegeven op het apparaat wordt gedefinieerd.  Afhankelijk van de twee samen met een netwerkadapter, die in deze code een uitbreiding is van de **ArrayAdapter&lt;ToDoItem&gt;**  klasse.
+In onze voorbeeldcode we Hallo gegevens worden geretourneerd uit Hallo Mobile Apps SQL Azure-tabel **ToDoItem** in een matrix. Deze activiteit is een algemene patroon voor toepassingen van gegevens.  Databasequery's retourneren vaak een verzameling rijen die Hallo van client opgehaald in een lijst of een matrix. In dit voorbeeld is de matrix Hallo Hallo-gegevensbron.  Hallo-code bevat een indeling startscherm die Hallo-weergave van Hallo-gegevens die wordt weergegeven op Hallo apparaat definieert.  Hallo twee zijn gebonden samen met een netwerkadapter, die in deze code een uitbreiding van Hallo is **ArrayAdapter&lt;ToDoItem&gt;**  klasse.
 
-#### <a name="layout"></a>De indeling definiëren
+#### <a name="layout"></a>Hallo indeling definiëren
 
-De indeling wordt gedefinieerd door verschillende codefragmenten van XML-code. Uitgaande van een bestaande indeling, het volgende codevoorbeeld geeft de **ListView** wilt vullen met onze gegevens van de server.
+Hallo-indeling wordt gedefinieerd door verschillende codefragmenten van XML-code. Uitgaande van een bestaande indeling, Hallo na code vertegenwoordigt Hallo **ListView** willen we toopopulate met onze gegevens van de server.
 
 ```xml
     <ListView
@@ -493,7 +493,7 @@ De indeling wordt gedefinieerd door verschillende codefragmenten van XML-code. U
     </ListView>
 ```
 
-In de vorige code de *listitem* kenmerk geeft de id van de indeling voor een afzonderlijke rij in de lijst. Deze code geeft een selectievakje en de bijbehorende tekst en eenmaal voor elk item in de lijst wordt geïnstantieerd. Deze indeling niet wordt weergegeven de **id** veld en een complexere indeling aanvullende velden in de weergave wilt opgeven. Deze code is in de **row_list_to_do.xml** bestand.
+Hallo in Hallo voorafgaand aan code, *listitem* kenmerk bevat Hallo id Hallo lay-out voor een afzonderlijke rij in de lijst Hallo. Deze code geeft een selectievakje en de bijbehorende tekst en eenmaal voor elk item in de lijst Hallo opgehaald geïnstantieerd. Deze indeling wordt niet weergegeven Hallo **id** veld en een complexere indeling aanvullende velden geeft in Hallo weergeven. Deze code wordt Hallo **row_list_to_do.xml** bestand.
 
 ```java
 <?xml version="1.0" encoding="utf-8"?>
@@ -509,15 +509,15 @@ In de vorige code de *listitem* kenmerk geeft de id van de indeling voor een afz
 </LinearLayout>
 ```
 
-#### <a name="adapter"></a>De adapter definiëren
-Omdat de gegevensbron van onze weergave een matrix met is **ToDoItem**, we subklasse onze-adapter van een **ArrayAdapter&lt;ToDoItem&gt;**  klasse. Deze subklasse produceert een weergave voor elke **ToDoItem** met behulp van de **row_list_to_do** lay-out.  In onze code definiëren we de volgende klasse die is een uitbreiding van de **ArrayAdapter&lt;E&gt;**  klasse:
+#### <a name="adapter"></a>Hallo adapter definiëren
+Omdat de gegevensbron Hallo van onze weergave een matrix met is **ToDoItem**, we subklasse onze-adapter van een **ArrayAdapter&lt;ToDoItem&gt;**  klasse. Deze subklasse produceert een weergave voor elke **ToDoItem** met Hallo **row_list_to_do** lay-out.  In onze code definiëren we de volgende klasse die is een uitbreiding van Hallo Hallo **ArrayAdapter&lt;E&gt;**  klasse:
 
 ```java
 public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-Onderdrukking van de adapters **getView** methode. Bijvoorbeeld:
+Hallo adapters overschrijven **getView** methode. Bijvoorbeeld:
 
 ```
     @Override
@@ -560,16 +560,16 @@ We geen exemplaar maken van deze klasse in onze activiteit als volgt:
     mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 ```
 
-De tweede parameter voor de constructor ToDoItemAdapter is een verwijzing naar de indeling. We kunnen nu exemplaar maken van de **ListView** en toewijzen van de adapter in de **ListView**.
+Hallo tweede parameter toohello ToDoItemAdapter constructor is een verwijzing toohello-indeling. We kunnen nu Hallo instantiëren **ListView** en toewijzen van Hallo adapter toohello **ListView**.
 
 ```java
     ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
     listViewToDo.setAdapter(mAdapter);
 ```
 
-#### <a name="use-adapter"></a>Gebruik de Adapter moet worden gebonden aan de gebruikersinterface
+#### <a name="use-adapter"></a>Hallo Adapter tooBind toohello gebruikersinterface gebruiken
 
-U bent nu klaar voor gebruik van de gegevensbinding. De volgende code laat zien hoe het ophalen van items in de tabel en wordt de lokale adapter gevuld met de geretourneerde artikelen.
+U bent nu klaar toouse gegevensbinding. Hallo volgende code toont hoe tooget items in de tabel Hallo en opvulling lokale adapter Hallo Hello items geretourneerd.
 
 ```java
     public void showAll(View view) {
@@ -598,13 +598,13 @@ U bent nu klaar voor gebruik van de gegevensbinding. De volgende code laat zien 
     }
 ```
 
-Aanroepen van de adapter elk gewenst moment u wijzigt de **ToDoItem** tabel. Omdat wijzigingen op basis van door een andere record klaar bent, kunt u een enkele rij in plaats van een verzameling verwerken. Wanneer u een item invoegt, roept de **toevoegen** methode op de adapter; wanneer te verwijderen, roept de **verwijderen** methode.
+Roep Hallo adapter elk gewenst moment wijzigen van Hallo **ToDoItem** tabel. Omdat wijzigingen op basis van door een andere record klaar bent, kunt u een enkele rij in plaats van een verzameling verwerken. Wanneer u een item invoegt, roept Hallo **toevoegen** methode op Hallo adapter; wanneer te verwijderen, roept u Hallo **verwijderen** methode.
 
-U vindt een compleet voorbeeld in de [Android Quick Start-Project][21].
+U vindt een compleet voorbeeld in Hallo [Android Quick Start-Project][21].
 
-## <a name="inserting"></a>Gegevens invoegen in de back-end
+## <a name="inserting"></a>Gegevens invoegen in Hallo back-end
 
-Een instantie van de *ToDoItem* klasse en stel de eigenschappen.
+Een instantie van Hallo *ToDoItem* klasse en stel de eigenschappen.
 
 ```java
 ToDoItem item = new ToDoItem();
@@ -612,7 +612,7 @@ item.text = "Test Program";
 item.complete = false;
 ```
 
-Gebruik vervolgens **insert()** een object in te voegen:
+Gebruik vervolgens **insert()** tooinsert een object:
 
 ```java
 ToDoItem entity = mToDoTable
@@ -620,21 +620,21 @@ ToDoItem entity = mToDoTable
     .get();
 ```
 
-Het geretourneerde entiteit overeenkomt met de gegevens ingevoegd in de tabel back-end van de ID en andere waarden opgenomen (zoals de `createdAt`, `updatedAt`, en `version` velden) ingesteld voor de back-end.
+Hallo resultaatgegevens entiteit komt overeen met Hallo ingevoegd in de back-end-tabel hello, opgenomen Hallo-ID en andere waarden (zoals Hallo `createdAt`, `updatedAt`, en `version` velden) ingesteld op Hallo back-end.
 
-Mobile Apps-tabellen vereisen een primaire sleutelkolom met de naam **id**. In deze kolom moet een tekenreeks zijn. De standaardwaarde van de kolom-ID is een GUID.  U kunt andere unieke waarden, zoals e-mailadressen of gebruikersnamen op te geven. Wanneer de waarde van een tekenreeks-ID niet voor een ingevoegde record opgegeven is, genereert de back-end een nieuwe GUID.
+Mobile Apps-tabellen vereisen een primaire sleutelkolom met de naam **id**. In deze kolom moet een tekenreeks zijn. de standaardwaarde Hallo van Hallo-ID-kolom is een GUID.  U kunt andere unieke waarden, zoals e-mailadressen of gebruikersnamen op te geven. Wanneer de waarde van een tekenreeks-ID niet voor een ingevoegde record opgegeven is, genereert Hallo back-end van een nieuwe GUID.
 
-ID van tekenreekswaarden bieden de volgende voordelen:
+ID tekenreekswaarden bieden Hallo volgende voordelen:
 
-* Id's kunnen worden gegenereerd zonder dat een retouren naar de database.
-* Records zijn gemakkelijker te samenvoegen uit verschillende tabellen of databases.
+* Id's kunnen worden gegenereerd zonder dat een round trip toohello-database.
+* Records zijn eenvoudiger toomerge uit verschillende tabellen of databases.
 * Id-waarden worden geïntegreerd beter met een toepassing logica.
 
-Tekenreeks-ID-waarden zijn **REQUIRED** voor offlinesynchronisatie ondersteuning.  U kunt een Id niet wijzigen zodra deze is opgeslagen in de back-end-database.
+Tekenreeks-ID-waarden zijn **REQUIRED** voor offlinesynchronisatie ondersteuning.  U kunt een Id niet wijzigen zodra deze is opgeslagen in Hallo back-end-database.
 
 ## <a name="updating"></a>Gegevens bijwerken in een mobiele app
 
-Voor het bijwerken van gegevens in een tabel, geeft u het nieuwe object wilt de **update()** methode.
+tooupdate gegevens in een tabel, geeft het nieuwe object toohello hello **update()** methode.
 
 ```java
 mToDoTable
@@ -642,18 +642,18 @@ mToDoTable
     .get();
 ```
 
-In dit voorbeeld *item* is een verwijzing naar een rij in de *ToDoItem* tabel een aantal wijzigingen aangebracht heeft.  De rij met dezelfde **id** wordt bijgewerkt.
+In dit voorbeeld *item* is een verwijzing tooa rij in Hallo *ToDoItem* tabel, die een aantal wijzigingen aangebracht tooit heeft gehad.  Hallo rij Hello dezelfde **id** wordt bijgewerkt.
 
 ## <a name="deleting"></a>Gegevens in een mobiele app verwijderen
 
-De volgende code laat zien hoe om gegevens te verwijderen uit een tabel door te geven van het gegevensobject.
+Hallo volgende code toont hoe toodelete gegevens uit een tabel door te geven Hallo gegevensobject.
 
 ```java
 mToDoTable
     .delete(item);
 ```
 
-U kunt ook een item verwijderen door op te geven de **id** veld van de rij te verwijderen.
+U kunt ook een item verwijderen door op te geven Hallo **id** Hallo rij toodelete veld.
 
 ```java
 String myRowId = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
@@ -663,7 +663,7 @@ mToDoTable
 
 ## <a name="lookup"></a>Een specifiek item door-Id niet opzoeken
 
-Opzoeken van een item met een specifieke **id** veld met de **lookUp()** methode:
+Opzoeken van een item met een specifieke **id** veld Hello **lookUp()** methode:
 
 ```java
 ToDoItem result = mToDoTable
@@ -673,11 +673,11 @@ ToDoItem result = mToDoTable
 
 ## <a name="untyped"></a>Procedure: werken met niet-getypeerde gegevens
 
-De niet-getypeerde programmeermodel biedt u de precieze controle over de JSON-serialisatie.  Er zijn enkele algemene scenario's waar u kunt desgewenst een niet-getypeerde programmeermodel gebruiken. Als bijvoorbeeld uw back-end-tabel veel kolommen bevat en u hoeft alleen te verwijzen naar een subset van de kolommen.  De getypte model, moet u de kolommen die zijn gedefinieerd in de back-end voor mobiele Apps in uw gegevensklasse definiëren.  De meeste van de API-aanroepen voor toegang tot gegevens zijn vergelijkbaar met de getypte programming aanroepen. Het belangrijkste verschil is dat in het model niet-getypeerde u methoden aanroepen op de **MobileServiceJsonTable** object, in plaats van de **MobileServiceTable** object.
+niet-getypeerde programmeermodel Hallo biedt u de precieze controle over de JSON-serialisatie.  Er zijn enkele algemene scenario's waarin u toouse een niet-getypeerde programmeermodel desgewenst kunt. Als bijvoorbeeld uw back-end-tabel veel kolommen bevat en u hoeft alleen een subset kolommen Hallo tooreference.  Hallo getypte model vereist toodefine alle Hallo kolommen gedefinieerd in Hallo Mobile Apps back-end in de gegevensklasse van uw.  De meeste Hallo API-aanroepen voor toegang tot gegevens lijken toohello getypt programming aanroepen. Hallo belangrijkste verschil is dat in de niet-getypeerde model Hallo u methoden niet voor Hallo aanroepen **MobileServiceJsonTable** object, in plaats van Hallo **MobileServiceTable** object.
 
 ### <a name="json_instance"></a>Geen exemplaar maken van een niet-getypeerde tabel
 
-Net als bij de getypte model kunt u beginnen met het ophalen van een tabelverwijzing, maar in dit geval is een **MobileServicesJsonTable** object. De verwijzing verkrijgen door het aanroepen van de **getTable** methode op een exemplaar van de client:
+Vergelijkbare toohello model hebt getypt, u beginnen met het ophalen van een tabelverwijzing, maar in dit geval is een **MobileServicesJsonTable** object. Hallo verwijzing verkrijgen door de aanroepende Hallo **getTable** methode op een exemplaar van het Hallo-client:
 
 ```java
 private MobileServiceJsonTable mJsonToDoTable;
@@ -685,10 +685,10 @@ private MobileServiceJsonTable mJsonToDoTable;
 mJsonToDoTable = mClient.getTable("ToDoItem");
 ```
 
-Nadat u hebt gemaakt dat een exemplaar van de **MobileServiceJsonTable**, heeft bijna de dezelfde API beschikbaar als met de getypte programmeermodel. In sommige gevallen kan de methoden maken gebruik van een niet-getypeerde parameter in plaats van een type parameter.
+Nadat u hebt gemaakt dat een exemplaar van Hallo **MobileServiceJsonTable**, het is vrijwel dezelfde API beschikbaar als met getypte programmeermodel Hallo Hallo. Hallo methoden maken gebruik van een niet-getypeerde parameter in plaats van een type parameter in sommige gevallen.
 
 ### <a name="json_insert"></a>Invoegen in een niet-getypeerde tabel
-De volgende code laat zien hoe een INSERT-bewerking uitvoeren. De eerste stap is het maken van een [JsonObject][1], die deel uitmaakt van de [gson] [ 3] bibliotheek.
+Hallo van de volgende code wordt getoond hoe toodo een INSERT-bewerking. Hallo eerste stap is toocreate een [JsonObject][1], die deel uitmaakt van Hallo [gson] [ 3] bibliotheek.
 
 ```java
 JsonObject jsonItem = new JsonObject();
@@ -696,7 +696,7 @@ jsonItem.addProperty("text", "Wake up");
 jsonItem.addProperty("complete", false);
 ```
 
-Vervolgens gebruikt u **insert()** het niet-getypeerde object in de tabel invoegen.
+Vervolgens gebruikt u **insert()** tooinsert Hallo niet-getypeerde object in de tabel Hallo.
 
 ```java
 JsonObject insertedItem = mJsonToDoTable
@@ -704,13 +704,13 @@ JsonObject insertedItem = mJsonToDoTable
     .get();
 ```
 
-Als u de ID van het ingevoegde object niet ophalen moet, gebruikt u de **getAsJsonPrimitive()** methode.
+Als u tooget Hallo-ID van Hallo ingevoegd object moet, gebruikt u Hallo **getAsJsonPrimitive()** methode.
 
 ```java
 String id = insertedItem.getAsJsonPrimitive("id").getAsString();
 ```
 ### <a name="json_delete"></a>Verwijderen uit een niet-getypeerde tabel
-De volgende code toont hoe u verwijdert een exemplaar, in dit geval hetzelfde exemplaar van een **JsonObject** die is gemaakt in de voorafgaande *invoegen* voorbeeld. De code is hetzelfde als bij de getypte letters, maar de methode heeft een andere handtekening omdat deze verwijst naar een **JsonObject**.
+Hallo volgende code toont hoe toodelete een instantie, in dit geval Hallo hetzelfde exemplaar van een **JsonObject** die is gemaakt in de voorafgaande Hallo *invoegen* voorbeeld. Hallo code Hallo is hetzelfde als bij Hallo aanvraag opgegeven, maar Hallo-methode heeft een andere handtekening omdat deze verwijst naar een **JsonObject**.
 
 ```java
 mToDoTable
@@ -724,7 +724,7 @@ mToDoTable.delete(ID);
 ```
 
 ### <a name="json_get"></a>Retourneert alle rijen uit een niet-getypeerde tabel
-De volgende code laat zien hoe een hele tabel ophalen. Omdat u een tabel JSON gebruikt, kunt u slechts een deel van de tabelkolommen selectief ophalen.
+Hallo van de volgende code wordt getoond hoe tooretrieve een hele tabel. Omdat u een tabel JSON gebruikt, kunt u slechts enkele Hallo tabelkolommen selectief ophalen.
 
 ```java
 public void showAllUntyped(View view) {
@@ -760,20 +760,20 @@ public void showAllUntyped(View view) {
 }
 ```
 
-Dezelfde set voor het filteren van filteren en methoden die beschikbaar voor het model getypte zijn paging beschikbaar zijn voor de niet-getypeerde model.
+Hallo dezelfde set filteren, filteren en methoden die beschikbaar voor de getypte model Hallo zijn paging zijn beschikbaar voor niet-getypeerde Hallo-model.
 
 ## <a name="offline-sync"></a>Offlinesynchronisatie implementeren
 
-Offline synchronisatie van gegevens van implementeert de Client-SDK van Azure Mobile Apps ook met behulp van een SQLite-database voor het opslaan van een kopie van de servergegevens lokaal.  Bewerkingen die worden uitgevoerd op een offline tabel vereisen geen mobiele connectiviteit te werken.  Offline synchronisatie helpt prestaties ten koste van de complexere logica voor conflictoplossing en herstelmogelijkheden.  De Client-SDK van Azure Mobile Apps implementeert de volgende functies:
+offline synchronisatie van gegevens van implementeert Hello Azure Mobile Apps Client SDK ook met behulp van een SQLite-database toostore een kopie van servergegevens Hallo lokaal.  Bewerkingen die worden uitgevoerd op een offline tabel vereisen geen toowork mobiele connectiviteit.  Offline synchronisatie helpt prestaties op Hallo kosten van complexere logica voor conflictoplossing en herstelmogelijkheden.  Hallo Client-SDK van Azure Mobile Apps implementeert Hallo volgende kenmerken:
 
 * Incrementele synchronisatie: Alleen bijgewerkt en nieuwe records worden gedownload verbruik van bandbreedte en geheugen.
-* Optimistische gelijktijdigheid: Operations wordt aangenomen dat slagen.  Conflictoplossing wordt uitgesteld totdat de updates worden uitgevoerd op de server.
-* Conflictoplossing: De SDK detecteert wanneer een conflicterende wijziging heeft aangebracht op de server en hooks biedt Waarschuw de gebruiker.
-* Voorlopig verwijderen: Verwijderde records zijn gemarkeerd als verwijderd, zodat andere apparaten hun offline configuratiecache bij te werken.
+* Optimistische gelijktijdigheid: Operations wordt aangenomen dat toosucceed.  Conflictoplossing wordt uitgesteld totdat de updates worden uitgevoerd op Hallo-server.
+* Conflictoplossing: Hallo die SDK detecteert wanneer een wijziging in de conflicterende op Hallo-server is gemaakt en biedt Hiermee tooalert Hallo gebruiker.
+* Voorlopig verwijderen: Verwijderde records zijn gemarkeerd als verwijderd, zodat andere apparaten tooupdate hun offline-cache.
 
 ### <a name="initialize-offline-sync"></a>Offlinesynchronisatie initialiseren
 
-Elke tabel offline moet worden gedefinieerd in de cache offline vóór gebruik.  Normaal gesproken tabeldefinitie gebeurt onmiddellijk na het maken van de client:
+Elke tabel offline moet worden gedefinieerd in de offline cache Hallo vóór gebruik.  Normaal gesproken wordt tabeldefinitie uitgevoerd onmiddellijk nadat het maken van de Hallo van client Hallo:
 
 ```java
 AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
@@ -789,7 +789,7 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
                 }
                 SQLiteLocalStore localStore = new SQLiteLocalStore(mClient.getContext(), "offlineStore", null, 1);
 
-                // Create a table definition.  As a best practice, store this with the model definition and return it via
+                // Create a table definition.  As a best practice, store this with hello model definition and return it via
                 // a static method
                 Map<String, ColumnDataType> toDoItemDefinition = new HashMap<String, ColumnDataType>();
                 toDoItemDefinition.put("id", ColumnDataType.String);
@@ -798,13 +798,13 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
                 toDoItemDefinition.put("version", ColumnDataType.String);
                 toDoItemDefinition.put("updatedAt", ColumnDataType.DateTimeOffset);
 
-                // Now define the table in the local store
+                // Now define hello table in hello local store
                 localStore.defineTable("ToDoItem", toDoItemDefinition);
 
                 // Specify a sync handler for conflict resolution
                 SimpleSyncHandler handler = new SimpleSyncHandler();
 
-                // Initialize the local store
+                // Initialize hello local store
                 syncContext.initialize(localStore, handler).get();
             } catch (final Exception e) {
                 createAndShowDialogFromTask(e, "Error");
@@ -816,7 +816,7 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
 }
 ```
 
-### <a name="obtain-a-reference-to-the-offline-cache-table"></a>Een verwijzing naar de tabel Offline Cache
+### <a name="obtain-a-reference-toohello-offline-cache-table"></a>Een verwijzing toohello Offline cachetabel verkrijgen
 
 Voor een online tabel, gebruikt u `.getTable()`.  Gebruik voor een offline tabel `.getSyncTable()`:
 
@@ -824,11 +824,11 @@ Voor een online tabel, gebruikt u `.getTable()`.  Gebruik voor een offline tabel
 MobileServiceTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
 ```
 
-De methoden die beschikbaar voor online-tabellen zijn (inclusief filteren, sorteren, paging, gegevens invoegen, bijwerken van gegevens en verwijderen van gegevens) werkt goed in online als offline tabellen.
+Alle methoden die beschikbaar zijn voor online-tabellen (inclusief filteren, sorteren, paging, gegevens invoegen, bijwerken van gegevens en verwijderen van gegevens) evenveel werken Hallo goed in online als offline tabellen.
 
-### <a name="synchronize-the-local-offline-cache"></a>De lokale Cache voor het Offline synchroniseren
+### <a name="synchronize-hello-local-offline-cache"></a>Hallo lokale Offline Cache synchroniseren
 
-Synchronisatie is binnen het besturingselement van uw app.  Hier volgt een voorbeeld van de synchronisatie-methode:
+Synchronisatie is in het Hallo-besturingselement van uw app.  Hier volgt een voorbeeld van de synchronisatie-methode:
 
 ```java
 private AsyncTask<Void, Void, Void> sync(MobileServiceClient mClient) {
@@ -849,23 +849,23 @@ private AsyncTask<Void, Void, Void> sync(MobileServiceClient mClient) {
 }
 ```
 
-Als de naam van de query is opgegeven voor de `.pull(query, queryname)` methode en vervolgens incrementele synchronisatie wordt gebruikt om terug te keren alleen de records die zijn gemaakt of gewijzigd sinds de laatste pull voltooid.
+Als de naam van een query is opgegeven, toohello `.pull(query, queryname)` methode en vervolgens incrementele synchronisatie alleen gebruikte tooreturn de records die zijn gemaakt of gewijzigd sinds de laatste voltooid Hallo pull is.
 
 ### <a name="handle-conflicts-during-offline-synchronization"></a>Afhandeling van conflicten tijdens het Offline synchroniseren
 
-Als een conflict zich tijdens voordoet een `.push()` bewerking, een `MobileServiceConflictException` gegenereerd.   Het item server uitgegeven is ingesloten in de uitzondering en kan worden opgehaald door `.getItem()` op de uitzondering.  De push-bewerking door het aanroepen van de volgende items op het object MobileServiceSyncContext aanpassen:
+Als een conflict zich tijdens voordoet een `.push()` bewerking, een `MobileServiceConflictException` gegenereerd.   Hallo server uitgegeven item is ingesloten in Hallo uitzondering en kan worden opgehaald door `.getItem()` op Hallo-uitzondering.  Hallo push door aanroepen Hallo volgende items op Hallo MobileServiceSyncContext object aan te passen:
 
 *  `.cancelAndDiscardItem()`
 *  `.cancelAndUpdateItem()`
 *  `.updateOperationAndItem()`
 
-Wanneer alle conflicten zijn gemarkeerd als u wilt, aanroepen `.push()` om opnieuw op te lossen alle conflicten.
+Wanneer alle conflicten zijn gemarkeerd als u wilt, aanroepen `.push()` opnieuw tooresolve alle conflicten Hallo.
 
 ## <a name="custom-api"></a>Een aangepaste API aanroepen
 
-Een aangepaste API kunt u aangepaste eindpunten die serverfunctionaliteit weergeven die niet worden toegewezen aan een invoegen, bijwerken, verwijderen of leesbewerking definiëren. Met behulp van een aangepaste API gebruiken, kunt u meer controle over messaging, hebben waaronder lezen en HTTP-bericht headers instellen en definiëren van een berichttekst de indeling dan JSON.
+Een aangepaste API kunt u toodefine aangepaste eindpunten die serverfunctionaliteit weergeven die geen toewijzen tooan invoegen, bijwerken, verwijderen of leesbewerking. Met behulp van een aangepaste API gebruiken, kunt u meer controle over messaging, hebben waaronder lezen en HTTP-bericht headers instellen en definiëren van een berichttekst de indeling dan JSON.
 
-U aanroepen in een Android-client de **invokeApi** methode voor het eindpunt van de aangepaste API aanroepen. Het volgende voorbeeld toont het aanroepen van een API-eindpunt met de naam **completeAll**, die de klasse van een verzameling met de naam retourneert **MarkAllResult**.
+In een Android-client u Hallo aanroepen **invokeApi** methode toocall Hallo aangepaste API-eindpunt. Hallo volgende voorbeeld laat zien hoe toocall een API-eindpunt met de naam **completeAll**, die de klasse van een verzameling met de naam retourneert **MarkAllResult**.
 
 ```java
 public void completeItem(View view) {
@@ -885,46 +885,46 @@ public void completeItem(View view) {
 }
 ```
 
-De **invokeApi** methode wordt aangeroepen op de client, die een POST-aanvraag naar de nieuwe aangepaste API verzendt. Het resultaat geretourneerd door de aangepaste API wordt weergegeven in een dialoogvenster weergegeven als er fouten zijn. Andere versies van **invokeApi** kunt u eventueel het verzenden van een object in de aanvraagtekst, geeft u de HTTP-methode en queryparameters aan de aanvraag te verzenden. Versies van getypeerde **invokeApi** ook worden geleverd.
+Hallo **invokeApi** methode wordt aangeroepen op Hallo client verzendt een POST-aanvraag toohello nieuwe aangepaste API. Hallo-resultaat geretourneerd door de aangepaste API hello wordt weergegeven in een dialoogvenster weergegeven als er fouten zijn. Andere versies van **invokeApi** kunt u eventueel het verzenden van een object in de aanvraagtekst hello, Hallo HTTP-methode opgeven en queryparameters met Hallo aanvraag verzenden. Versies van getypeerde **invokeApi** ook worden geleverd.
 
-## <a name="authentication"></a>Verificatie toevoegen aan uw app
+## <a name="authentication"></a>Verificatie tooyour app toevoegen
 
-Het toevoegen van deze functies beschrijven zelfstudies al in detail.
+Zelfstudies al in detail beschrijven hoe tooadd deze functies.
 
-App Service ondersteunt [verifiëren van gebruikers van de app](app-service-mobile-android-get-started-users.md) met behulp van verschillende externe id-providers: Facebook, Google, Microsoft-Account, Twitter en Azure Active Directory. U kunt machtigingen instellen voor tabellen toegang voor specifieke bewerkingen voor alleen geverifieerde gebruikers te beperken. U kunt ook de identiteit van de geverifieerde gebruikers gebruiken voor het implementeren van autorisatieregels in uw back-end.
+App Service ondersteunt [verifiëren van gebruikers van de app](app-service-mobile-android-get-started-users.md) met behulp van verschillende externe id-providers: Facebook, Google, Microsoft-Account, Twitter en Azure Active Directory. U kunt machtigingen instellen voor tabellen toorestrict toegang voor specifieke bewerkingen tooonly geverifieerde gebruikers. U kunt ook Hallo identiteit van de geverifieerde gebruikers tooimplement autorisatieregels gebruiken in uw back-end.
 
-Twee verificatie stromen worden ondersteund: een **server** stroom en een **client** stroom. De stroom van de server biedt de eenvoudigste verificatie-ervaring, is afhankelijk van de identiteit providers webinterface.  Er zijn geen extra SDK's zijn vereist voor het implementeren van verificatie van de stroom. Verificatie van de stroom biedt geen een diepe integratie in het mobiele apparaat en wordt alleen aanbevolen voor bewijs van concept scenario's.
+Twee verificatie stromen worden ondersteund: een **server** stroom en een **client** stroom. Hallo server stroom biedt Hallo eenvoudigste verificatie-ervaring, is afhankelijk van Hallo identiteit providers webinterface.  Er zijn geen extra SDK's zijn vereist tooimplement stroom serververificatie. Verificatie van de stroom biedt geen een diepe integratie op Hallo mobiel apparaat en wordt alleen aanbevolen voor bewijs van concept scenario's.
 
-De stroom kunt voor een betere integratie met apparaatspecifieke mogelijkheden, zoals het eenmalige aanmelding is afhankelijk van de SDK's die worden geleverd door de identiteitsprovider.  U kunt bijvoorbeeld de Facebook SDK integreren in uw mobiele App.  Mobiele clients worden omgewisseld in de Facebook-app en bevestigt de aanmelding voordat wisselen terug naar uw mobiele app.
+Hallo stroom kunt voor een betere integratie met apparaatspecifieke mogelijkheden, zoals het eenmalige aanmelding is afhankelijk van de SDK's die worden geleverd door de identiteitsprovider Hallo.  U kunt bijvoorbeeld Hallo Facebook SDK integreren in uw mobiele App.  Hallo mobiele clients worden omgewisseld in Hallo Facebook-app en bevestigt uw aanmelding voordat het wisselen van de mobiele app back tooyour.
 
-Vier stappen zijn vereist voor verificatie in uw app inschakelen:
+Vier stappen zijn vereist tooenable verificatie in uw app:
 
 * Uw app registreren voor verificatie met een id-provider.
 * Configureer uw App Service-back-end.
-* Tabelmachtigingen beperken voor geverifieerde gebruikers alleen op de App Service-back-end.
-* Verificatiecode toevoegen aan uw app.
+* Tabel machtigingen tooauthenticated gebruikers alleen op Hallo App Service-back-end beperken.
+* Verificatie code tooyour app toevoegen.
 
-U kunt machtigingen instellen voor tabellen toegang voor specifieke bewerkingen voor alleen geverifieerde gebruikers te beperken. U kunt ook de SID van een geverifieerde gebruiker te wijzigen van aanvragen.  Raadpleeg voor meer informatie [aan de slag met verificatie] en de procedure voor Server SDK-documentatie.
+U kunt machtigingen instellen voor tabellen toorestrict toegang voor specifieke bewerkingen tooonly geverifieerde gebruikers. U kunt ook Hallo SID van een geverifieerde gebruiker toomodify aanvragen.  Raadpleeg voor meer informatie [aan de slag met verificatie] en Hallo procedure van Server SDK-documentatie.
 
 ### <a name="caching"></a>: Verificatiestroom Server
 
-De volgende code start een server stroom aanmelding met de Google-provider.  Aanvullende configuratie is vereist vanwege de beveiligingsvereisten voor de Google-provider:
+Hallo start volgende code een server stroom aanmelding met Hallo Google-provider.  Aanvullende configuratie is vereist vanwege Hallo beveiligingsvereisten voor Hallo Google-provider:
 
 ```java
 MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.Google, "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
 ```
 
-Voeg bovendien de volgende methode toe aan de hoofdklasse van de activiteit:
+Daarnaast toevoegen Hallo methode toohello activiteit hoofdklasse te volgen:
 
 ```java
-// You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
+// You can choose any unique number here toodifferentiate auth providers from each other. Note this is hello same code at login() and onActivityResult().
 public static final int GOOGLE_LOGIN_REQUEST_CODE = 1;
 
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     // When request completes
     if (resultCode == RESULT_OK) {
-        // Check the request code matches the one we send in the login request
+        // Check hello request code matches hello one we send in hello login request
         if (requestCode == GOOGLE_LOGIN_REQUEST_CODE) {
             MobileServiceActivityResult result = mClient.onActivityResult(data);
             if (result.isLoggedIn()) {
@@ -932,7 +932,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
                 createAndShowDialog(String.format("You are now logged in - %1$2s", mClient.getCurrentUser().getUserId()), "Success");
                 createTable();
             } else {
-                // login failed, check the error message
+                // login failed, check hello error message
                 String errorMessage = result.getErrorMessage();
                 createAndShowDialog(errorMessage, "Error");
             }
@@ -941,9 +941,9 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-De `GOOGLE_LOGIN_REQUEST_CODE` gedefinieerd in uw belangrijkste activiteit wordt gebruikt voor de `login()` methode en binnen de `onActivityResult()` methode.  U kunt een uniek nummer, zolang de hetzelfde nummer wordt gebruikt binnen de `login()` methode en de `onActivityResult()` methode.  Als u de clientcode abstracte in een service-adapter (zoals eerder is weergegeven), moet u de juiste methoden aanroepen op de adapter van de service.
+Hallo `GOOGLE_LOGIN_REQUEST_CODE` gedefinieerd in uw belangrijkste activiteit wordt gebruikt voor Hallo `login()` methode en binnen Hallo `onActivityResult()` methode.  U kunt een uniek nummer, zolang hello hetzelfde nummer wordt gebruikt binnen Hallo `login()` methode en Hallo `onActivityResult()` methode.  Als u clientcode Hallo abstracte in een service-adapter (zoals eerder is weergegeven), moet u Hallo geschikte methoden aanroepen op Hallo service adapter.
 
-Ook moet u het project voor customtabs configureren.  Eerst een Omleidings-URL opgeven.  Voeg het volgende codefragment aan `AndroidManifest.xml`:
+U moet ook tooconfigure Hallo project voor customtabs.  Eerst een Omleidings-URL opgeven.  Hallo codefragment te volgen toevoegen`AndroidManifest.xml`:
 
 ```xml
 <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
@@ -956,7 +956,7 @@ Ook moet u het project voor customtabs configureren.  Eerst een Omleidings-URL o
 </activity>
 ```
 
-Voeg de **redirectUriScheme** naar de `build.gradle` bestand voor uw toepassing:
+Hallo toevoegen **redirectUriScheme** toohello `build.gradle` bestand voor uw toepassing:
 
 ```text
 android {
@@ -973,7 +973,7 @@ android {
 }
 ```
 
-Voeg `com.android.support:customtabs:23.0.1` aan de lijst met afhankelijkheden in de `build.gradle` bestand:
+Voeg `com.android.support:customtabs:23.0.1` toohello toepassingsafhankelijkheden in Hallo `build.gradle` bestand:
 
 ```text
 dependencies {
@@ -987,24 +987,24 @@ dependencies {
 }
 ```
 
-Verkrijgen van de ID van de aangemelde gebruiker van een **MobileServiceUser** met behulp van de **getUserId** methode. Zie voor een voorbeeld van het gebruik van Futures aanroepen van de asynchrone aanmelding API's [aan de slag met verificatie].
+Hallo-ID van Hallo aangemelde gebruiker van opvragen een **MobileServiceUser** met Hallo **getUserId** methode. Zie voor een voorbeeld van hoe toouse Futures toocall Hallo asynchrone aanmelding API's, [aan de slag met verificatie].
 
 > [!WARNING]
-> Het URL-schema vermeld is hoofdlettergevoelig.  Zorg ervoor dat alle instanties van `{url_scheme_of_you_app}` hoofdlettergevoelig.
+> Hallo vermeld URL-schema is hoofdlettergevoelig.  Zorg ervoor dat alle instanties van `{url_scheme_of_you_app}` hoofdlettergevoelig.
 
 ### <a name="caching"></a>Verificatietokens cache
 
-Verificatietokens caching, moet u de gebruikers-ID en -verificatietoken lokaal opslaan op het apparaat. De volgende keer dat de app wordt gestart, controleren van de cache, en als deze waarden aanwezig zijn, kunt u het logboek in procedure overslaan en de client bij deze gegevens rehydrate. Deze gegevens is echter gevoelige en moeten worden opgeslagen voor de veiligheid versleuteld als de telefoon wordt gestolen.  Ziet u een compleet voorbeeld van hoe u aan de cache verificatietokens in [verificatiesectie tokens in de Cache][7].
+Verificatietokens caching, moet u toostore Hallo gebruikers-ID en -verificatietoken lokaal op Hallo-apparaat. Hallo Hallo-app wordt gestart, zodra u Controleer Hallo-cache, en als deze waarden aanwezig zijn, kunt u overslaan Hallo-logboek in de procedure en rehydrate Hallo-client met deze gegevens. Deze gegevens is echter gevoelige en moeten worden opgeslagen voor de veiligheid versleuteld als Hallo telefoon wordt gestolen.  Ziet u een compleet voorbeeld van hoe toocache verificatie tokens in [verificatiesectie tokens in de Cache][7].
 
-Wanneer u een verlopen token gebruiken probeert, krijgt u een *401-niet-geautoriseerde* antwoord. U kunt met behulp van filters verificatiefouten verwerken.  Filters onderscheppen aanvragen voor de App Service-back-end. De filtercode test van het antwoord op een 401, activeert het proces aanmelden en hervat vervolgens de aanvraag die de 401 gegenereerd.
+Wanneer u een verlopen token toouse probeert, krijgt u een *401-niet-geautoriseerde* antwoord. U kunt met behulp van filters verificatiefouten verwerken.  Filters onderscheppen aanvragen toohello back-end van App Service. Hallo filtercode test antwoord Hallo voor een 401, Hallo aanmelden proces wordt geactiveerd en wordt hervat Hallo-aanvraag die Hallo 401 gegenereerd.
 
 ### <a name="refresh"></a>Vernieuwen van Tokens gebruiken
 
-Het token dat is geretourneerd door de Azure App Service-verificatie en autorisatie heeft een gedefinieerde levensduur van een uur.  Na deze periode, moet u de gebruiker te verifiëren.  Als u een lange levensduur token die u hebt ontvangen via client-flow-verificatie gebruikt, kunt u andere referenties met Azure App Service-verificatie en autorisatie met hetzelfde token.  Een andere Azure App Service-token wordt gegenereerd met een nieuwe levensduur.
+Hallo-token geretourneerd door de Azure App Service-verificatie en autorisatie heeft een gedefinieerde levensduur van een uur.  Na deze periode, moet u Hallo gebruiker te verifiëren.  Als u Hallo met een lange levensduur token dat u hebt ontvangen via client-flow-verificatie en u kunt verifiëren met Azure App Service-verificatie en autorisatie hetzelfde token.  Een andere Azure App Service-token wordt gegenereerd met een nieuwe levensduur.
 
-U kunt ook de provider voor het gebruik van Tokens vernieuwen registreren.  Een Token voor vernieuwen is niet altijd beschikbaar.  Er is aanvullende configuratie vereist:
+U kunt ook Hallo provider toouse vernieuwen Tokens registreren.  Een Token voor vernieuwen is niet altijd beschikbaar.  Er is aanvullende configuratie vereist:
 
-* Voor **Azure Active Directory**, een clientgeheim configureren voor Azure Active Directory-App.  Geef het clientgeheim in de Azure App Service bij het configureren van Azure Active Directory-verificatie.  Bij het aanroepen van `.login()`, doorgeven `response_type=code id_token` als een parameter:
+* Voor **Azure Active Directory**, een clientgeheim voor hello Azure Active Directory-App configureren.  Geef Hallo clientgeheim in hello Azure App Service bij het configureren van Azure Active Directory-verificatie.  Bij het aanroepen van `.login()`, doorgeven `response_type=code id_token` als een parameter:
 
     ```java
     HashMap<String, String> parameters = new HashMap<String, String>();
@@ -1016,7 +1016,7 @@ U kunt ook de provider voor het gebruik van Tokens vernieuwen registreren.  Een 
         parameters);
     ```
 
-* Voor **Google**, geven de `access_type=offline` als een parameter:
+* Voor **Google**, Hallo doorgeven `access_type=offline` als een parameter:
 
     ```java
     HashMap<String, String> parameters = new HashMap<String, String>();
@@ -1028,9 +1028,9 @@ U kunt ook de provider voor het gebruik van Tokens vernieuwen registreren.  Een 
         parameters);
     ```
 
-* Voor **Microsoft-Account**, selecteer de `wl.offline_access` bereik.
+* Voor **Microsoft-Account**, selecteer Hallo `wl.offline_access` bereik.
 
-Als u wilt vernieuwen van een token, aanroepen `.refreshUser()`:
+aanroepen van een token toorefresh `.refreshUser()`:
 
 ```java
 MobileServiceUser user = mClient
@@ -1038,15 +1038,15 @@ MobileServiceUser user = mClient
     .get();
 ```
 
-Als een best practice een filter maken waarmee een 401-respons van de server detecteert en probeert het gebruikerstoken te vernieuwen.
+Als een best practice een filter die een 401-respons van Hallo-server detecteert en toorefresh Hallo gebruikerstoken probeert te maken.
 
 ## <a name="log-in-with-client-flow-authentication"></a>Meld u aan met Client-flow-verificatie
 
-Het algemene proces voor aangemeld met client-flow-verificatie is als volgt:
+Hallo algemene proces voor aangemeld met client-flow-verificatie is als volgt:
 
 * Azure App Service-verificatie en autorisatie configureert als server-flow-verificatie.
-* De verificatieprovider SDK voor verificatie voor het produceren van een toegangstoken integreren.
-* Roep de `.login()` methode als volgt:
+* Hallo-verificatieprovider SDK voor verificatie tooproduce een toegangstoken integreren.
+* Hallo aanroepen `.login()` methode als volgt:
 
     ```java
     JSONObject payload = new JSONObject();
@@ -1064,14 +1064,14 @@ Het algemene proces voor aangemeld met client-flow-verificatie is als volgt:
     });
     ```
 
-Vervang de `onSuccess()` methode met wat u code wilt gebruiken op een geslaagde aanmelding.  De `{provider}` tekenreeks is een geldige provider: **aad** (Azure Active Directory), **facebook**, **google**, **microsoftaccount**, of **twitter**.  Als u aangepaste verificatie hebt geïmplementeerd, kunt u ook de code van de provider aangepaste verificatie gebruiken.
+Vervang Hallo `onSuccess()` methode met wat u code wilt toouse op een geslaagde aanmelding.  Hallo `{provider}` tekenreeks is een geldige provider: **aad** (Azure Active Directory), **facebook**, **google**, **microsoftaccount**, of **twitter**.  Als u aangepaste verificatie hebt geïmplementeerd, kunt u ook aangepaste verificatiecode provider hello gebruiken.
 
-### <a name="adal"></a>Verificatie van gebruikers met de Active Directory Authentication Library (ADAL)
+### <a name="adal"></a>Verificatie van gebruikers met Hallo Active Directory Authentication Library (ADAL)
 
-U kunt de Active Directory Authentication Library (ADAL) gebruiken voor het ondertekenen van gebruikers in uw toepassing met Azure Active Directory. Met behulp van de aanmelding van een client stroom is het handiger voor het gebruik van de `loginAsync()` methoden zoals deze biedt een meer systeemeigen UX idee en kunt u extra aanpassingen.
+U kunt Hallo Active Directory Authentication Library (ADAL) toosign gebruikers in uw toepassing met Azure Active Directory. Met behulp van de aanmelding van een client stroom is vaak beter toousing hello `loginAsync()` methoden zoals deze biedt een meer systeemeigen UX idee en kunt u extra aanpassingen.
 
-1. Uw mobiele app back-end voor aanmelding bij de AAD instellen door de [App Service configureren voor Active Directory-aanmelding] [ 22] zelfstudie. Zorg ervoor dat de optionele stap voor het registreren van een systeemeigen clienttoepassing van voltooien.
-2. ADAL installeren door uw build.gradle-bestand om op te nemen van de volgende definities te wijzigen:
+1. Uw mobiele app back-end voor aanmelding bij de AAD configureren door de volgende Hallo [hoe tooconfigure App Service voor Active Directory-aanmelding] [ 22] zelfstudie. Zorg ervoor dat toocomplete Hallo optionele stap voor het registreren van een systeemeigen clienttoepassing van.
+2. ADAL installeren door het wijzigen van uw build.gradle-bestand tooinclude Hallo definities te volgen:
 
 ```
 repositories {
@@ -1096,12 +1096,12 @@ dependencies {
 }
 ```
 
-1. De volgende code toevoegen aan uw toepassing, waardoor de volgende vervangingen:
+1. Hallo code tooyour toepassing te volgen, waardoor Hallo vervangingen volgende toevoegen:
 
-* Vervang **INSERT-instantie-hier** met de naam van de tenant waarin u uw toepassing hebt ingericht. De indeling moet https://login.microsoftonline.com/contoso.onmicrosoft.com.
-* Vervang **INSERT RESOURCE-ID hier** met de client-ID voor uw back-end voor de mobiele app. U vindt de client-ID van de **Geavanceerd** tabblad onder **Azure Active Directory-instellingen** in de portal.
-* Vervang **INSERT-CLIENT-ID-hier** met de client-ID die u hebt gekopieerd uit de native client-toepassing.
-* Vervang **INSERT-OMLEIDINGS-URI-hier** aan uw site */.auth/login/done* eindpunt, met behulp van het HTTPS-schema. Deze waarde moet er ongeveer als *https://contoso.azurewebsites.net/.auth/login/done*.
+* Vervang **INSERT-instantie-hier** met de naam van de Hallo van Hallo tenant waarin u uw toepassing hebt ingericht. Hallo-indeling moet https://login.microsoftonline.com/contoso.onmicrosoft.com.
+* Vervang **INSERT RESOURCE-ID hier** met Hallo client-ID voor uw back-end voor de mobiele app. U kunt Hallo client-ID verkrijgen van Hallo **Geavanceerd** tabblad onder **Azure Active Directory-instellingen** in Hallo-portal.
+* Vervang **INSERT-CLIENT-ID-hier** met client-ID Hallo u hebt gekopieerd uit Hallo native client-toepassing.
+* Vervang **INSERT-OMLEIDINGS-URI-hier** aan uw site */.auth/login/done* eindpunt, met Hallo HTTPS-schema. Deze waarde moet er ongeveer te*https://contoso.azurewebsites.net/.auth/login/done*.
 
 ```java
 private AuthenticationContext mContext;
@@ -1166,19 +1166,19 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-## <a name="filters"></a>De Client-servercommunicatie aanpassen
+## <a name="filters"></a>Hallo Client-servercommunicatie aanpassen
 
-De clientverbinding is normaal gesproken een eenvoudige HTTP-verbinding met de onderliggende HTTP-bibliotheek geleverd met de Android-SDK.  Er zijn diverse redenen waarom u deze instelling wijzigen zou willen:
+Hallo clientverbinding is doorgaans een eenvoudige HTTP-verbinding met behulp van de onderliggende HTTP-bibliotheek geleverd met Hallo Android SDK Hallo.  Er zijn diverse redenen waarom u toochange zou willen die:
 
-* Wilt u een alternatieve HTTP-bibliotheek gebruiken om aan te passen time-outs.
-* Wilt u een voortgangsbalk bieden.
-* U wilt toevoegen van een aangepaste header ter ondersteuning van API management-functionaliteit.
-* Wilt u een mislukte reactie intercept zodat u herauthenticatie kunt implementeren.
-* Wilt u back-end-aanvragen met een analytics-service aanmelden.
+* U desgewenst een andere HTTP-bibliotheek tooadjust time-outs toouse.
+* U wilt een voortgangsbalk tooprovide.
+* U wilt tooadd een aangepaste header toosupport API management-functionaliteit.
+* U wilt toointercept een mislukte reactie zodat u herauthenticatie kunt implementeren.
+* Gewenste toolog back-end aanvragen tooan analytics-service.
 
 ### <a name="using-an-alternate-http-library"></a>Met behulp van een andere HTTP-bibliotheek
 
-Roep de `.setAndroidHttpClientFactory()` methode onmiddellijk na het maken van uw client-verwijzing.  Als u bijvoorbeeld de verbindingstime-out ingesteld op 60 seconden (in plaats van de standaard 10 seconden):
+Hallo aanroepen `.setAndroidHttpClientFactory()` methode onmiddellijk na het maken van uw client-verwijzing.  In dit voorbeeld tooset Hallo verbinding time-out too60 seconden (in plaats van Hallo standaard 10 seconden):
 
 ```java
 mClient = new MobileServiceClient("https://myappname.azurewebsites.net");
@@ -1195,7 +1195,7 @@ mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
 
 ### <a name="implement-a-progress-filter"></a>Een Filter voortgang implementeren
 
-U kunt een intercept van elke aanvraag implementeren door het implementeren van een `ServiceFilter`.  Bijvoorbeeld updates de volgende van een vooraf gemaakte voortgangsbalk:
+U kunt een intercept van elke aanvraag implementeren door het implementeren van een `ServiceFilter`.  Bijvoorbeeld, updates Hallo volgende van een vooraf gemaakte voortgangsbalk:
 
 ```java
 private class ProgressFilter implements ServiceFilter {
@@ -1232,7 +1232,7 @@ private class ProgressFilter implements ServiceFilter {
 }
 ```
 
-U kunt dit filter koppelen aan de client als volgt:
+U kunt dit filter toohello client als volgt toevoegen:
 
 ```java
 mClient = new MobileServiceClient(applicationUrl).withFilter(new ProgressFilter());
@@ -1240,7 +1240,7 @@ mClient = new MobileServiceClient(applicationUrl).withFilter(new ProgressFilter(
 
 ### <a name="customize-request-headers"></a>Aanvraagheaders aanpassen
 
-Gebruik de volgende `ServiceFilter` en koppelt u het filter op dezelfde manier als de `ProgressFilter`:
+Gebruik de volgende Hallo `ServiceFilter` en koppelt u Hallo-filter in Hallo dezelfde manier als Hallo `ProgressFilter`:
 
 ```java
 private class CustomHeaderFilter implements ServiceFilter {
@@ -1265,7 +1265,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 
 ### <a name="conversions"></a>Automatische serialisatie configureren
 
-U kunt opgeven dat een strategie voor een conversie die wordt toegepast op elke kolom met de [gson] [ 3] API. Maakt gebruik van de Android-clientbibliotheek [gson] [ 3] achter de schermen Java om objecten te serialiseren naar JSON-gegevens voordat de gegevens worden verzonden naar Azure App Service.  De volgende code gebruikt de **setFieldNamingStrategy()** methode voor het instellen van de strategie. In dit voorbeeld wordt het eerste teken (een ' m'), verwijderen en vervolgens kleine het volgende teken, voor elke veldnaam. Bijvoorbeeld, zou het veranderen 'mId' in 'id'.  Een strategie voor conversie zodat de noodzaak van implementeren `SerializedName()` aantekeningen in de meeste velden.
+U kunt opgeven dat een strategie voor een conversie die van toepassing tooevery kolom is met behulp van Hallo [gson] [ 3] API. maakt gebruik van de Android clientbibliotheek Hallo [gson] [ 3] achter de schermen Hallo tooserialize Java objecten tooJSON gegevens voordat Hallo gegevens tooAzure App Service worden verzonden.  Hallo volgende code gebruikt Hallo **setFieldNamingStrategy()** methode tooset Hallo-strategie. In dit voorbeeld worden Hallo eerste teken (een ' m') en vervolgens kleine Hallo volgende teken voor elke veldnaam verwijderd. Bijvoorbeeld, zou het veranderen 'mId' in 'id'.  Implementeer een conversie strategie tooreduce Hallo nodig voor `SerializedName()` aantekeningen in de meeste velden.
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {
@@ -1282,7 +1282,7 @@ client.setGsonBuilder(
 );
 ```
 
-Deze code moet worden uitgevoerd voordat het maken van een mobiele clients verwijzing met de **MobileServiceClient**.
+Deze code moet worden uitgevoerd voordat het maken van een mobiele client-verwijzing met Hallo **MobileServiceClient**.
 
 <!-- URLs. -->
 [Get started with Azure Mobile Apps]: app-service-mobile-android-get-started.md

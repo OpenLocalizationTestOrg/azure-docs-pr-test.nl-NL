@@ -1,3 +1,3 @@
 > [!IMPORTANT]
-> De IoT-hub kan openbaar worden gedetecteerd als DNS-eindpunt. Zorg er dus voor dat wordt voorkomen dat gevoelige informatie wordt vermeld.
+> Hallo IoT-hub openbaar kunnen worden gedetecteerd als een DNS-eindpunt zijn, dus zorg ervoor dat tooavoid gevoelige informatie bij naam.
 >

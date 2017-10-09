@@ -1,5 +1,5 @@
 ---
-title: Veelgestelde vragen over Azure Data Lake Store | Microsoft Docs
+title: aaaFrequently vragen voor Azure Data Lake Store | Microsoft Docs
 description: Hulp bij het oplossen en voorkomen van problemen met Azure Data Lake Store
 services: data-lake-store
 documentationcenter: 
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.openlocfilehash: 44aaec9dc145b47b809a3ad4bc244eb9dfead24c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: eeabdeef18f3b72901bd1a14283f85dd9c0ead44
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="frequently-asked-questions-for-azure-data-lake-store"></a>Veelgestelde vragen over Azure Data Lake Store
-In dit artikel komt u meer te weten over veelgestelde vragen met betrekking tot Azure Data Lake Store.
+In dit artikel leert u over veelgestelde vragen over verwante tooAzure Data Lake Store.
 
 ## <a name="how-can-i-further-protect-my-data-from-region-wide-disasters-or-accidental-deletions"></a>Hoe kan ik mijn gegevens beter beschermen tegen regiobrede noodgevallen of onbedoelde verwijderingen?
-De gegevens op uw Azure Data Lake Store-account zijn beschermd tegen tijdelijke hardwarefouten in een regio door automatische replica's. Dit garandeert duurzaamheid en een hoge beschikbaarheid, waarmee wordt voldaan aan de SLA van Azure Data Lake Store. Hier volgen een aantal richtlijnen voor het verder beschermen van uw gegevens tegen zeldzame regiobrede storingen of onbedoelde verwijderingen.
+Hallo-gegevens in uw Azure Data Lake Store-account is een robuuste tootransient hardwarefouten binnen een regio via geautomatiseerde replica's. Dit zorgt ervoor duurzaamheid en hoge beschikbaarheid, vergadering Hallo SERVICEOVEREENKOMST van Azure Data Lake Store. Hier vindt u enkele richtlijnen op hoe toofurther uw gegevens beschermen tegen zeldzame regio hele uitval of onopzettelijke verwijderingen.
 
 ### <a name="disaster-recovery-guidance"></a>Richtlijnen voor herstel na noodgevallen
-Het is essentieel dat elke klant een eigen plan voor herstel na noodgevallen voorbereidt. Raadpleeg onderstaande Azure-documentatie voor het opstellen van uw eigen plan voor herstel na noodgevallen. Hier volgen enkele bronnen waarmee u uw eigen plan kunt maken.
+Het is essentieel voor elke klant tooprepare hun eigen noodherstelplan. Raadpleeg de documentatie voor Azure hieronder toobuild toohello het noodherstelplan. Hier volgen enkele bronnen waarmee u uw eigen plan kunt maken.
 
 * [Herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 * [Technische richtlijnen voor flexibiliteit van Azure](../resiliency/resiliency-technical-guidance.md)
 
 #### <a name="best-practices"></a>Aanbevolen procedures
-We raden u aan uw kritieke gegevens naar een ander Data Lake Store-account in een andere regio te kopiëren volgens een frequentie in lijn met uw plan voor herstel na noodgevallen. Er zijn verschillende methoden om gegevens te kopiëren, waaronder [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) en [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md). Azure Data Factory is een handige service voor het regelmatig maken en implementeren van pijplijnen voor gegevensverplaatsing.
+Het is raadzaam dat u uw kritieke gegevens tooanother Data Lake Store-account in een andere regio met een frequentie uitgelijnd toohello behoeften van uw noodherstelplan kopieert. Er zijn verschillende methoden toocopy gegevens zoals [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) of [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md). Azure Data Factory is een handige service voor het regelmatig maken en implementeren van pijplijnen voor gegevensverplaatsing.
 
-In het geval van een regionale storing kunt u uw gegevens openen vanuit de regio waarnaar u ze hebt gekopieerd. U kunt het [Azure Service Health Dashboard](https://azure.microsoft.com/status/) in de gaten houden voor de wereldwijde servicestatus van Azure.
+Als een regionale uitval, kunt u vervolgens toegang tot uw gegevens in Hallo regio waar Hallo gegevens is gekopieerd. U kunt bewaken Hallo [Azure Service Health Dashboard](https://azure.microsoft.com/status/) toodetermine hello Azure servicestatus over Hallo wereld.
 
 ### <a name="data-corruption-or-accidental-deletion-recovery-guidance"></a>Herstelrichtlijnen voor gegevensbeschadiging en onbedoelde verwijdering
 Hoewel Azure Data Lake Store gegevensflexibiliteit biedt door middel van automatische replica's, sluit dit niet uit dat de gegevens door uw toepassing (of door ontwikkelaars/gebruikers) worden beschadigd of onbedoeld worden verwijderd.
 
 #### <a name="best-practices"></a>Aanbevolen procedures
-Om onbedoelde verwijdering te voorkomen, is het raadzaam dat u eerst het juiste toegangsbeleid instelt voor uw Data Lake Store-account.  Dit omvat het vergrendelen van belangrijke resources met [Azure-resourcevergrendelingen](../azure-resource-manager/resource-group-lock-resources.md) en het instellen van toegangsbeheer op account- en bestandsniveau met behulp van de beschikbare [beveiligingsfuncties van Data Lake Store](data-lake-store-security-overview.md). We raden u ook aan regelmatig kopieën van uw kritieke gegevens te maken met [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) of [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) naar een ander Data Lake Store-account, een andere map of een ander Azure-abonnement.  Dit kan worden gebruikt om gegevens te herstellen nadat ze beschadigd zijn geraakt of per ongeluk zijn verwijderd. Azure Data Factory is een handige service voor het regelmatig maken en implementeren van pijplijnen voor gegevensverplaatsing.
+tooprevent per ongeluk verwijderen, wordt aangeraden dat u eerst de juiste toegangsbeleid Hallo ingesteld voor uw Data Lake Store-account.  Dit omvat het toepassen van [Azure-resource vergrendelingen](../azure-resource-manager/resource-group-lock-resources.md) toolock omlaag belangrijke bronnen, evenals toepassen en de bestandsnaam niveau van toegangsbeheer met Hallo beschikbaar [Data Lake Store-beveiligingsfuncties](data-lake-store-security-overview.md). We raden u ook aan regelmatig kopieën van uw kritieke gegevens te maken met [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) of [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) naar een ander Data Lake Store-account, een andere map of een ander Azure-abonnement.  Dit kan gebruikte toorecover vanuit een gegevens-beschadiging of verwijderen van een incident zijn. Azure Data Factory is een handige service voor het regelmatig maken en implementeren van pijplijnen voor gegevensverplaatsing.
 
-Bedrijven kunnen ook [Diagnostische gegevens vastleggen](data-lake-store-diagnostic-logs.md) inschakelen voor hun Azure Data Lake Store-account om audittrails voor gegevenstoegang te verzamelen. Deze bieden informatie over wie mogelijk een bestand heeft verwijderd of bijgewerkt.
+Organisaties kunnen ook inschakelen [Diagnostische logboekregistratie](data-lake-store-diagnostic-logs.md) voor hun Azure Data Lake Store-account toocollect gegevens toegang audittrails die informatie biedt over die mogelijk verwijderd of een bestand wordt bijgewerkt.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Aan de slag met Azure Data Lake Store](data-lake-store-get-started-portal.md)

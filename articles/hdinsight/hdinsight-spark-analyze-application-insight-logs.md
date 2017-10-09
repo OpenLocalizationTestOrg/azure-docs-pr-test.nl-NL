@@ -1,6 +1,6 @@
 ---
-title: Logboeken van de toepassing inzicht te analyseren met Spark - Azure HDInsight | Microsoft Docs
-description: Informatie over het exporteren van Application Insight Logboeken om de blob-opslag en vervolgens de logboeken met Spark in HDInsight analyseren.
+title: aaaAnalyze Application Insight logboeken met Spark - Azure HDInsight | Microsoft Docs
+description: Informatie over hoe toepassing inzicht tooexport tooblob opslag registreert en vervolgens Hallo logboeken met Spark in HDInsight analyseren.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,85 +15,85 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/15/2017
 ms.author: larryfr
-ms.openlocfilehash: d98e403683618ef6115372f99e4949af87af4490
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 11ed8cf68dba8d5f9d6e4a65eba0d2b5a950cd00
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Application Insights telemetrie logboeken met Spark in HDInsight analyseren
 
-Informatie over het gebruik van Spark in HDInsight voor het analyseren van Application Insight telemetrische gegevens.
+Meer informatie over hoe toouse Spark in HDInsight tooanalyze toepassing inzicht telemetrische gegevens.
 
-[Visual Studio Application Insights](../application-insights/app-insights-overview.md) is een Analyseservice die uw webtoepassingen bewaakt. Telemetriegegevens die zijn gegenereerd door de Application Insights kunnen worden geëxporteerd naar Azure Storage. Nadat de gegevens Azure Storage is, kan de HDInsight worden gebruikt voor het analyseren van het.
+[Visual Studio Application Insights](../application-insights/app-insights-overview.md) is een Analyseservice die uw webtoepassingen bewaakt. Telemetriegegevens die zijn gegenereerd door de Application Insights kan geëxporteerde tooAzure opslag zijn. Zodra Hallo gegevens zich in Azure Storage, HDInsight gebruikte tooanalyze mag deze.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een toepassing die is geconfigureerd voor gebruik van Application Insights.
+* Een toepassing die is geconfigureerd toouse Application Insights.
 
 * Als u bekend bent met het maken van een Linux gebaseerde HDInsight-cluster. Zie voor meer informatie [maken Spark in HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
   > [!IMPORTANT]
-  > De stappen in dit document moet een HDInsight-cluster dat gebruik maakt van Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+  > Hallo stappen in dit document moet een HDInsight-cluster dat gebruik maakt van Linux. Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * Een webbrowser.
 
-De volgende bronnen werden gebruikt in ontwikkelen en testen van dit document:
+Hallo zijn volgende resources gebruikt in ontwikkelen en testen van dit document:
 
-* Application Insights-telemetriegegevens is gegenereerd met een [Node.js-web-app geconfigureerd voor het gebruik van Application Insights](../application-insights/app-insights-nodejs.md).
+* Application Insights-telemetriegegevens is gegenereerd met een [Node.js-web-app geconfigureerd toouse Application Insights](../application-insights/app-insights-nodejs.md).
 
-* Een Spark op basis van Linux in HDInsight-cluster versie 3.5 is gebruikt om de gegevens te analyseren.
+* Een Spark op basis van Linux in HDInsight-cluster versie 3.5 is gebruikte tooanalyze Hallo gegevens.
 
 ## <a name="architecture-and-planning"></a>Architectuur en planning
 
-Het volgende diagram illustreert de service-architectuur van dit voorbeeld:
+Hallo volgende diagram illustreert Hallo service architectuur van dit voorbeeld:
 
-![diagram van de gegevens die binnenkomen in Application Insights naar blob storage en vervolgens wordt verwerkt door Spark in HDInsight](./media/hdinsight-spark-analyze-application-insight-logs/appinsightshdinsight.png)
+![diagram van de gegevens van Application Insights tooblob opslag, en vervolgens wordt verwerkt door Spark in HDInsight](./media/hdinsight-spark-analyze-application-insight-logs/appinsightshdinsight.png)
 
 ### <a name="azure-storage"></a>Azure-opslag
 
-Application Insights kunnen worden geconfigureerd voor het continu telemetrie gegevens exporteren naar blobs. Gegevens opgeslagen in de blobs kan vervolgens door HDInsight worden gelezen. Er zijn echter enkele vereisten die u moet volgen:
+Application Insights kunnen geconfigureerde toocontinuously export telemetrie informatie tooblobs zijn. HDInsight kan vervolgens lezen gegevens opgeslagen in Hallo blobs. Er zijn echter enkele vereisten die u moet volgen:
 
-* **Locatie**: als de Storage-Account en HDInsight zich in verschillende locaties, kan deze latentie toenemen. Het verhoogt kosten, ook als uitgaande kosten worden toegepast op gegevens verplaatsen tussen regio's.
+* **Locatie**: als Hallo Storage-Account en HDInsight zich in verschillende locaties, deze latentie mogelijk verhogen. Het verhoogt ook de kosten, zoals kosten voor uitgaande toegepaste toodata verplaatsen tussen regio's zijn.
 
     > [!WARNING]
     > Met behulp van een Opslagaccount in een andere locatie dan HDInsight wordt niet ondersteund.
 
-* **BLOB-type**: HDInsight ondersteunt alleen blok-blobs. Application Insights standaardinstellingen voor het gebruik van blok-blobs, moet dus samenwerken met HDInsight standaard.
+* **BLOB-type**: HDInsight ondersteunt alleen blok-blobs. Application Insights standaard toousing blok-blobs, dus moet werken met HDInsight standaard.
 
-Zie voor meer informatie over het toevoegen van extra opslagruimte aan een bestaand HDInsight-cluster de [extra opslagaccounts toevoegen](hdinsight-hadoop-add-storage.md) document.
+Zie voor informatie over het toevoegen van extra opslagruimte tooan bestaande HDInsight-cluster Hallo [extra opslagaccounts toevoegen](hdinsight-hadoop-add-storage.md) document.
 
 ### <a name="data-schema"></a>Gegevensschema
 
-Application Insights biedt [exporteren gegevensmodel](../application-insights/app-insights-export-data-model.md) informatie voor de indeling van de telemetrie geëxporteerd naar blobs. De stappen in dit document Spark SQL gebruiken om te werken met de gegevens. Spark SQL kan automatisch genereren van een schema voor de structuur van de JSON-gegevens vastgelegd door Application Insights.
+Application Insights biedt [exporteren gegevensmodel](../application-insights/app-insights-export-data-model.md) informatie voor Hallo telemetrie gegevensindeling tooblobs geëxporteerd. Hallo stappen in dit document Spark SQL toowork met Hallo gegevens gebruiken. Spark SQL kan automatisch genereren van een schema voor Hallo JSON-gegevensstructuur is vastgelegd door Application Insights.
 
 ## <a name="export-telemetry-data"></a>Exporteren van telemetriegegevens
 
-Volg de stappen in [configureren met continue Export](../application-insights/app-insights-export-telemetry.md) voor het configureren van uw Application Insights om te exporteren van telemetrie informatie naar een Azure storage-blob.
+Volg de stappen Hallo in [configureren met continue Export](../application-insights/app-insights-export-telemetry.md) tooconfigure uw Application Insights tooexport telemetrie informatie tooan Azure storage-blob.
 
-## <a name="configure-hdinsight-to-access-the-data"></a>HDInsight toegang tot de gegevens configureren
+## <a name="configure-hdinsight-tooaccess-hello-data"></a>HDInsight tooaccess Hallo gegevens configureren
 
-Als u een HDInsight-cluster maakt, moet u de storage-account toevoegen tijdens het maken van het cluster.
+Als u een HDInsight-cluster maakt, moet u Hallo-opslagaccount toevoegen tijdens het maken van het cluster.
 
-Als de Azure Storage-Account toevoegen aan een bestaand cluster, kunt u de informatie in de [extra Opslagaccounts toevoegen](hdinsight-hadoop-add-storage.md) document.
+tooadd hello Azure Storage-Account tooan bestaande cluster, gebruik Hallo informatie in Hallo [extra Opslagaccounts toevoegen](hdinsight-hadoop-add-storage.md) document.
 
-## <a name="analyze-the-data-pyspark"></a>De gegevens analyseren: PySpark
+## <a name="analyze-hello-data-pyspark"></a>Hallo gegevens analyseren: PySpark
 
-1. Van de [Azure-portal](https://portal.azure.com), selecteer uw Spark in HDInsight-cluster. Van de **snelkoppelingen** sectie **Clusterdashboards**, en selecteer vervolgens **Jupyter-Notebook** uit de Cluster Dashboard__-blade.
+1. Van Hallo [Azure-portal](https://portal.azure.com), selecteer uw Spark in HDInsight-cluster. Van Hallo **snelkoppelingen** sectie **Clusterdashboards**, en selecteer vervolgens **Jupyter-Notebook** Hallo Cluster Dashboard__ blade.
 
-    ![De clusterdashboards](./media/hdinsight-spark-analyze-application-insight-logs/clusterdashboards.png)
+    ![Hallo clusterdashboards](./media/hdinsight-spark-analyze-application-insight-logs/clusterdashboards.png)
 
-2. Selecteer in de rechterbovenhoek van de pagina Jupyter **nieuw**, en vervolgens **PySpark**. Hiermee opent u een nieuw browsertabblad met een Jupyter-Notebook voor op basis van Python.
+2. Selecteer in de Hallo rechtsboven Hallo Jupyter pagina, **nieuw**, en vervolgens **PySpark**. Hiermee opent u een nieuw browsertabblad met een Jupyter-Notebook voor op basis van Python.
 
-3. In het eerste veld (aangeroepen een **cel**) op de pagina, voer de volgende tekst:
+3. In het eerste veld hello (aangeroepen een **cel**) op pagina Hallo voert u na de tekst hello:
 
    ```python
    sc._jsc.hadoopConfiguration().set('mapreduce.input.fileinputformat.input.dir.recursive', 'true')
    ```
 
-    Deze code configureert Spark op recursief toegang de mapstructuur voor de invoergegevens. Application Insights telemetry wordt vastgelegd in een directory-structuur die vergelijkbaar is met de `/{telemetry type}/YYYY-MM-DD/{##}/`.
+    Deze code configureert Spark toorecursively toegang Hallo-mapstructuur voor Hallo invoergegevens. Application Insights telemetry is vastgelegd tooa directory-structuur lijkt toohello `/{telemetry type}/YYYY-MM-DD/{##}/`.
 
-4. Gebruik **SHIFT + ENTER** de code uit te voeren. Aan de linkerkant van de cel een '\*' wordt weergegeven tussen de haakjes om aan te geven dat de code in deze cel wordt uitgevoerd. Nadat deze is voltooid, de '\*' wijzigingen in een aantal en de uitvoer ziet er als de volgende tekst onder de cel wordt weergegeven:
+4. Gebruik **SHIFT + ENTER** toorun Hallo code. Op de linkerkant van de cel Hallo Hallo een '\*' wordt weergegeven tussen vierkante haken-tooindicate Hallo Hallo-code in deze cel wordt uitgevoerd. Nadat deze is voltooid, Hallo '\*' tooa getal en uitvoer vergelijkbare toohello na de tekst wordt weergegeven onder Hallo cel wordt gewijzigd:
 
         Creating SparkContext as 'sc'
 
@@ -102,38 +102,38 @@ Als de Azure Storage-Account toevoegen aan een bestaand cluster, kunt u de infor
 
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
-5. Een nieuwe cel wordt gemaakt onder het eerste item. Voer de volgende tekst in de nieuwe cel. Vervang `CONTAINER` en `STORAGEACCOUNT` met de naam van het Azure-opslagaccount en containernaam blob met Application Insights-gegevens.
+5. Een nieuwe cel wordt gemaakt onder Hallo eerst een. Voer Hallo tekst in de nieuwe cel hello te volgen. Vervang `CONTAINER` en `STORAGEACCOUNT` met hello Azure storage-account en containernaam blob met Application Insights-gegevens.
 
    ```python
    %%bash
    hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
    ```
 
-    Gebruik **SHIFT + ENTER** uitvoeren van deze cel. Er is een resultaat vergelijkbaar met de volgende tekst:
+    Gebruik **SHIFT + ENTER** tooexecute deze cel. Er is een resultaat vergelijkbaar toohello volgende tekst:
 
         Found 1 items
         drwxrwxrwx   -          0 1970-01-01 00:00 wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
 
-    Het geretourneerde wasb pad is de locatie van de telemetriegegevens Application Insights. Wijzig de `hdfs dfs -ls` regel in de cel in het wasb pad geretourneerd en gebruik vervolgens **SHIFT + ENTER** opnieuw uitvoeren van de cel. Deze tijd de resultaten moeten de mappen met telemetrische gegevens worden weergegeven.
+    Hallo wasb pad geretourneerd is de locatie Hallo Hallo telemetriegegevens Application Insights. Wijziging Hallo `hdfs dfs -ls` regel in Hallo cel toouse hello wasb pad geretourneerd en gebruik vervolgens **SHIFT + ENTER** toorun Hallo cel opnieuw. Deze tijd Hallo resultaten moeten Hallo mappen met telemetrische gegevens worden weergegeven.
 
    > [!NOTE]
-   > Voor het restant van de stappen in deze sectie de `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` directory gebruikt. De directorystructuur van uw zijn anders.
+   > Voor Hallo Hallo overige in deze sectie stappen, Hallo `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` directory gebruikt. De directorystructuur van uw zijn anders.
 
-6. Voer de volgende code in de volgende cel: Vervang `WASB_PATH` met het pad van de vorige stap.
+6. Voer in de volgende cel Hallo Hallo code te volgen: Vervang `WASB_PATH` met het pad van de vorige stap Hallo Hallo.
 
    ```python
    jsonFiles = sc.textFile('WASB_PATH')
    jsonData = sqlContext.read.json(jsonFiles)
    ```
 
-    Deze code maakt een dataframe van de JSON-bestanden dat is geëxporteerd door de continue export-proces. Gebruik **SHIFT + ENTER** om uit te voeren deze cel.
-7. Voer in de volgende cel en voer de volgende om het schema dat Spark voor de JSON-bestanden gemaakt:
+    Deze code maakt een dataframe van Hallo JSON-bestanden is geëxporteerd door Hallo continue exportproces. Gebruik **SHIFT + ENTER** toorun deze cel.
+7. In de volgende cel hello, en voert u Hallo na tooview Hallo schema die Spark voor Hallo JSON-bestanden gemaakt uit:
 
    ```python
    jsonData.printSchema()
    ```
 
-    Het schema voor elk type telemetrie verschilt. Het volgende voorbeeld wordt het schema dat is gegenereerd voor webaanvragen (gegevens die zijn opgeslagen de `Requests` submap):
+    Hallo-schema voor elk type telemetrie verschilt. Hallo volgende voorbeeld is Hallo-schema dat is gegenereerd voor webaanvragen (opgeslagen gegevens in Hallo `Requests` submap):
 
         root
         |-- context: struct (nullable = true)
@@ -195,7 +195,7 @@ Als de Azure Storage-Account toevoegen aan een bestaand cluster, kunt u de infor
         |    |    |    |-- hashTag: string (nullable = true)
         |    |    |    |-- host: string (nullable = true)
         |    |    |    |-- protocol: string (nullable = true)
-8. Gebruik de volgende de dataframe registreren als een tijdelijke tabel en een query uitvoert op de gegevens:
+8. Gebruik Hallo tooregister hello dataframe als een tijdelijke tabel te volgen en een query uitvoert op Hallo gegevens:
 
    ```python
    jsonData.registerTempTable("requests")
@@ -203,12 +203,12 @@ Als de Azure Storage-Account toevoegen aan een bestaand cluster, kunt u de infor
    df.show()
    ```
 
-    Deze query retourneert de stad-gegevens voor de top 20 records waar context.location.city niet null is.
+    Deze query retourneert Hallo stad informatie voor de top 20 records Hallo waar context.location.city niet null is.
 
    > [!NOTE]
-   > De structuur van de context is aanwezig in alle telemetrie vastgelegd door Application Insights. Het element stad kan niet worden gevuld in de logboeken. Het schema gebruiken om andere elementen die u kunt een query die gegevens voor uw logboeken bevatten mogelijk te identificeren.
+   > Hallo context structuur is aanwezig in alle telemetrie vastgelegd door Application Insights. Hallo stad element kan niet worden gevuld in de logboeken. Gebruik Hallo schema tooidentify andere elementen die u kunt een query die gegevens voor uw logboeken kunnen bevatten.
 
-    Deze query retourneert informatie vergelijkbaar met de volgende tekst:
+    Deze query retourneert informatie vergelijkbare toohello volgende tekst:
 
         +---------+
         |     city|
@@ -220,21 +220,21 @@ Als de Azure Storage-Account toevoegen aan een bestaand cluster, kunt u de infor
         ...
         +---------+
 
-## <a name="analyze-the-data-scala"></a>De gegevens analyseren: Scala
+## <a name="analyze-hello-data-scala"></a>Hallo gegevens analyseren: Scala
 
-1. Van de [Azure-portal](https://portal.azure.com), selecteer uw Spark in HDInsight-cluster. Van de **snelkoppelingen** sectie **Clusterdashboards**, en selecteer vervolgens **Jupyter-Notebook** uit de Cluster Dashboard__-blade.
+1. Van Hallo [Azure-portal](https://portal.azure.com), selecteer uw Spark in HDInsight-cluster. Van Hallo **snelkoppelingen** sectie **Clusterdashboards**, en selecteer vervolgens **Jupyter-Notebook** Hallo Cluster Dashboard__ blade.
 
-    ![De clusterdashboards](./media/hdinsight-spark-analyze-application-insight-logs/clusterdashboards.png)
-2. Selecteer in de rechterbovenhoek van de pagina Jupyter **nieuw**, en vervolgens **Scala**. Een nieuw browsertabblad met een Scala gebaseerde Jupyter-Notebook wordt weergegeven.
-3. In het eerste veld (aangeroepen een **cel**) op de pagina, voer de volgende tekst:
+    ![Hallo clusterdashboards](./media/hdinsight-spark-analyze-application-insight-logs/clusterdashboards.png)
+2. Selecteer in de Hallo rechtsboven Hallo Jupyter pagina, **nieuw**, en vervolgens **Scala**. Een nieuw browsertabblad met een Scala gebaseerde Jupyter-Notebook wordt weergegeven.
+3. In het eerste veld hello (aangeroepen een **cel**) op pagina Hallo voert u na de tekst hello:
 
    ```scala
    sc.hadoopConfiguration.set("mapreduce.input.fileinputformat.input.dir.recursive", "true")
    ```
 
-    Deze code configureert Spark op recursief toegang de mapstructuur voor de invoergegevens. Application Insights telemetry wordt vastgelegd in een mapstructuur lijkt op `/{telemetry type}/YYYY-MM-DD/{##}/`.
+    Deze code configureert Spark toorecursively toegang Hallo-mapstructuur voor Hallo invoergegevens. Application Insights telemetrie is vastgelegd tooa directory-structuur lijkt te`/{telemetry type}/YYYY-MM-DD/{##}/`.
 
-4. Gebruik **SHIFT + ENTER** de code uit te voeren. Aan de linkerkant van de cel een '\*' wordt weergegeven tussen de haakjes om aan te geven dat de code in deze cel wordt uitgevoerd. Nadat deze is voltooid, de '\*' wijzigingen in een aantal en de uitvoer ziet er als de volgende tekst onder de cel wordt weergegeven:
+4. Gebruik **SHIFT + ENTER** toorun Hallo code. Op de linkerkant van de cel Hallo Hallo een '\*' wordt weergegeven tussen vierkante haken-tooindicate Hallo Hallo-code in deze cel wordt uitgevoerd. Nadat deze is voltooid, Hallo '\*' tooa getal en uitvoer vergelijkbare toohello na de tekst wordt weergegeven onder Hallo cel wordt gewijzigd:
 
         Creating SparkContext as 'sc'
 
@@ -243,24 +243,24 @@ Als de Azure Storage-Account toevoegen aan een bestaand cluster, kunt u de infor
 
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
-5. Een nieuwe cel wordt gemaakt onder het eerste item. Voer de volgende tekst in de nieuwe cel. Vervang `CONTAINER` en `STORAGEACCOUNT` registreert met de Azure-opslag-accountnaam en de naam van de blob-container met Application Insights.
+5. Een nieuwe cel wordt gemaakt onder Hallo eerst een. Voer Hallo tekst in de nieuwe cel hello te volgen. Vervang `CONTAINER` en `STORAGEACCOUNT` met hello Azure storage-accountnaam en de naam van de blob-container met Application Insights-Logboeken.
 
    ```scala
    %%bash
    hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
    ```
 
-    Gebruik **SHIFT + ENTER** uitvoeren van deze cel. Er is een resultaat vergelijkbaar met de volgende tekst:
+    Gebruik **SHIFT + ENTER** tooexecute deze cel. Er is een resultaat vergelijkbaar toohello volgende tekst:
 
         Found 1 items
         drwxrwxrwx   -          0 1970-01-01 00:00 wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
 
-    Het geretourneerde wasb pad is de locatie van de telemetriegegevens Application Insights. Wijzig de `hdfs dfs -ls` regel in de cel in het wasb pad geretourneerd en gebruik vervolgens **SHIFT + ENTER** opnieuw uitvoeren van de cel. Deze tijd de resultaten moeten de mappen met telemetrische gegevens worden weergegeven.
+    Hallo wasb pad geretourneerd is de locatie Hallo Hallo telemetriegegevens Application Insights. Wijziging Hallo `hdfs dfs -ls` regel in Hallo cel toouse hello wasb pad geretourneerd en gebruik vervolgens **SHIFT + ENTER** toorun Hallo cel opnieuw. Deze tijd Hallo resultaten moeten Hallo mappen met telemetrische gegevens worden weergegeven.
 
    > [!NOTE]
-   > Voor het restant van de stappen in deze sectie de `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` directory gebruikt. Deze map bestaat niet, tenzij de telemetriegegevens voor een web-app.
+   > Voor Hallo Hallo overige in deze sectie stappen, Hallo `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` directory gebruikt. Deze map bestaat niet, tenzij de telemetriegegevens voor een web-app.
 
-6. Voer de volgende code in de volgende cel: Vervang `WASB\_PATH` met het pad van de vorige stap.
+6. Voer in de volgende cel Hallo Hallo code te volgen: Vervang `WASB\_PATH` met het pad van de vorige stap Hallo Hallo.
 
    ```scala
    var jsonFiles = sc.textFile('WASB_PATH')
@@ -268,15 +268,15 @@ Als de Azure Storage-Account toevoegen aan een bestaand cluster, kunt u de infor
    var jsonData = sqlContext.read.json(jsonFiles)
    ```
 
-    Deze code maakt een dataframe van de JSON-bestanden dat is geëxporteerd door de continue export-proces. Gebruik **SHIFT + ENTER** om uit te voeren deze cel.
+    Deze code maakt een dataframe van Hallo JSON-bestanden is geëxporteerd door Hallo continue exportproces. Gebruik **SHIFT + ENTER** toorun deze cel.
 
-7. Voer in de volgende cel en voer de volgende om het schema dat Spark voor de JSON-bestanden gemaakt:
+7. In de volgende cel hello, en voert u Hallo na tooview Hallo schema die Spark voor Hallo JSON-bestanden gemaakt uit:
 
    ```scala
    jsonData.printSchema
    ```
 
-    Het schema voor elk type telemetrie verschilt. Het volgende voorbeeld wordt het schema dat is gegenereerd voor webaanvragen (gegevens die zijn opgeslagen de `Requests` submap):
+    Hallo-schema voor elk type telemetrie verschilt. Hallo volgende voorbeeld is Hallo-schema dat is gegenereerd voor webaanvragen (opgeslagen gegevens in Hallo `Requests` submap):
 
         root
         |-- context: struct (nullable = true)
@@ -339,21 +339,21 @@ Als de Azure Storage-Account toevoegen aan een bestaand cluster, kunt u de infor
         |    |    |    |-- host: string (nullable = true)
         |    |    |    |-- protocol: string (nullable = true)
 
-8. Gebruik de volgende de dataframe registreren als een tijdelijke tabel en een query uitvoert op de gegevens:
+8. Gebruik Hallo tooregister hello dataframe als een tijdelijke tabel te volgen en een query uitvoert op Hallo gegevens:
 
    ```scala
    jsonData.registerTempTable("requests")
    var city = sqlContext.sql("select context.location.city from requests where context.location.city is not null limit 10").show()
    ```
 
-    Deze query retourneert de stad-gegevens voor de top 20 records waar context.location.city niet null is.
+    Deze query retourneert Hallo stad informatie voor de top 20 records Hallo waar context.location.city niet null is.
 
    > [!NOTE]
-   > De structuur van de context is aanwezig in alle telemetrie vastgelegd door Application Insights. Het element stad kan niet worden gevuld in de logboeken. Het schema gebruiken om andere elementen die u kunt een query die gegevens voor uw logboeken bevatten mogelijk te identificeren.
+   > Hallo context structuur is aanwezig in alle telemetrie vastgelegd door Application Insights. Hallo stad element kan niet worden gevuld in de logboeken. Gebruik Hallo schema tooidentify andere elementen die u kunt een query die gegevens voor uw logboeken kunnen bevatten.
    >
    >
 
-    Deze query retourneert informatie vergelijkbaar met de volgende tekst:
+    Deze query retourneert informatie vergelijkbare toohello volgende tekst:
 
         +---------+
         |     city|
@@ -367,15 +367,15 @@ Als de Azure Storage-Account toevoegen aan een bestaand cluster, kunt u de infor
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende documenten voor meer voorbeelden van het gebruik van Spark werken met gegevens en services in Azure:
+Zie voor meer voorbeelden van het gebruik van Spark toowork met gegevens en services in Azure Hallo documenten te volgen:
 
 * [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark met Machine Learning: Spark in HDInsight toopredict voedselinspectieresultaten gebruiken](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark-Streaming: Spark in HDInsight voor het bouwen van streamingtoepassingen gebruiken](hdinsight-apache-spark-eventhub-streaming.md)
 * [Websitelogboekanalyse met Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-Zie de volgende documenten voor meer informatie over het maken en uitvoeren van Spark-toepassingen:
+Zie voor informatie over het maken en uitvoeren van Spark toepassingen Hallo documenten te volgen:
 
 * [Een zelfstandige toepassing maken met behulp van Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Taken op afstand uitvoeren in een Spark-cluster met behulp van Livy](hdinsight-apache-spark-livy-rest-interface.md)

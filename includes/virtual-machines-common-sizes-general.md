@@ -1,19 +1,19 @@
 
 <!-- A-series, Av2-series, D-series, Dv2-series, DS-series*, DSv2-series* -->
 
-- Virtuele machines uit de A- en Av2-serie kunnen worden geïmplementeerd op diverse hardwaretypen en processors. De grootte is afhankelijk van de hardware, zodat er consistente processorprestaties voor het actieve exemplaar kunnen worden geboden, ongeacht de hardware waarop deze is geïmplementeerd. Om de fysieke hardware te bepalen waarop deze grootte is geïmplementeerd, vraagt u vanuit de virtuele machine gegevens over de virtuele hardware op.
+- Hallo A-serie en Av2-serie virtuele machines kunnen worden geïmplementeerd op verschillende hardwaretypen en processors. Hallo-grootte is beperkt, op basis van hardware hello, consistente processorprestaties toooffer voor Hallo met een exemplaar, ongeacht deze is geïmplementeerd op Hallo-hardware. toodetermine hello fysieke hardware waarop deze grootte is geïmplementeerd, query Hallo virtuele hardware uit binnen Hallo virtuele Machine.
 
-- Virtuele machines uit de D-serie zijn ontworpen voor het uitvoeren van toepassingen die meer rekenvermogen en tijdelijke schijfprestaties vereisen. Virtuele machines uit de D-serie hebben snellere processors, een hogere geheugen-naar-vCPU-snelheid en een SSD (solid-state drive) voor de tijdelijke schijf. Voor meer informatie leest u de aankondiging in de Azure-blog [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (Nieuwe grootten van virtuele machines uit de D-serie).
+- D-reeks VM's zijn ontworpen toorun toepassingen die hoger rekencapaciteit en prestaties van de tijdelijke schijf. D-reeks virtuele machines bieden snellere processors, een hogere ratio van geheugen voor vCPU en een SSD-station (SSD) voor de tijdelijke schijf Hallo. Zie voor meer informatie Hallo aankondiging op hello Azure blog [nieuwe D-reeks voor de grootte van virtuele machines](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-- De Dv2-serie, de opvolger van de oorspronkelijke D-serie, heeft een krachtigere CPU. De CPU van de Dv2-serie is ongeveer 35% sneller dan de CPU van de D-serie. Deze is gebaseerd op de nieuwste generatie Intel Xeon® E5-2673 v3-processor van 2,4 GHz (Haswell). Met Intel Turbo Boost Technology 2.0 kunnen ze maar liefst 3,1 GHz bereiken. De Dv2-serie heeft dezelfde geheugen- en schijfconfiguraties als de D-serie.
+- Dv2-serie, een vervolgcontrole op het vlak toohello oorspronkelijke D-reeks biedt een krachtige CPU. Hallo CPU Dv2-serie is ongeveer 35% sneller dan Hallo D-reeks CPU. Is gebaseerd op Hallo nieuwste 2,4 GHz Intel Xeon® E5-2673 v3-processor (Haswell), en met Hallo Intel Turbo versterking Technology 2.0, up too3.1 GHz kunt gaan. Hallo Dv2-serie heeft dezelfde configuraties voor geheugen en schijfruimte Hallo zoals Hallo D-reeks.
 
-- De basislaaggrootten zijn met name bedoeld voor ontwikkelworkloads en andere toepassingen waarvoor geen taakverdeling, automatische schaling of geheugenintensieve virtuele machines zijn vereist. Zie [Prijzen van virtuele machines](https://azure.microsoft.com/pricing/details/virtual-machines/) voor informatie over de VM-grootten die geschikter zijn voor productietoepassingen (grootten voor virtuele machines) [virtual-machines-size-specs.md] en voor informatie over prijzen van virtuele machines.
+- Hallo basisstaffel grootten zijn voornamelijk voor werkbelastingen voor ontwikkeling en andere toepassingen waarvoor geen taakverdeling, automatisch schalen of geheugenintensieve virtuele machines. Zie [Prijzen van virtuele machines](https://azure.microsoft.com/pricing/details/virtual-machines/) voor informatie over de VM-grootten die geschikter zijn voor productietoepassingen (grootten voor virtuele machines) [virtual-machines-size-specs.md] en voor informatie over prijzen van virtuele machines.
 
 ## <a name="dsv3-series"></a>Dsv3-serie
 
 ACU: 160-190
 
-Grootten uit de Dsv3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processors van 2,3 GHz (Broadwell) en kunnen maar liefst 3,5 GHz bereiken door de Intel Turbo Boost Technology 2.0 en maken gebruik van Premium Storage. De Dsv3-serie biedt een combinatie van vCPU, geheugen en tijdelijke opslag voor de meeste productieworkloads.
+Dsv3-serie grootten zijn gebaseerd op Hallo 2.3 GHz Intel XEON® E5-2673 v4-processor (Broadwell) en kunnen bereiken 3.5GHz met Intel Turbo versterking technologie 2.0 en premium-opslag gebruiken. Hallo Dsv3-serie grootten bieden een combinatie van vCPU, geheugen en tijdelijke opslag voor de meeste productieworkloads.
 
 
 | Grootte             | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
@@ -28,9 +28,9 @@ Grootten uit de Dsv3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processors
 
 ACU: 160-190
 
-Grootten uit de Dv3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processors van 2,3 GHz (Broadwell) en kunnen maar liefst 3,5 GHz bereiken door de Intel Turbo Boost Technology 2.0. De Dv3-serie biedt een combinatie van vCPU, geheugen en tijdelijke opslag voor de meeste productieworkloads.
+Dv3-serie grootten zijn gebaseerd op Hallo 2.3 GHz Intel XEON® E5-2673 v4-processor (Broadwell) 3.5GHz met Intel Turbo versterking technologie 2.0 kan worden bereikt. Hallo Dv3-serie grootten bieden een combinatie van vCPU, geheugen en tijdelijke opslag voor de meeste productieworkloads.
 
-Gegevensschijfopslag wordt apart van virtuele machines in rekening gebracht. Als u Premium Storage-schijven wilt gebruiken, gebruik dan de Dsv3-grootten. De prijs- en factureringsmeters voor de Dsv3-grootten zijn gelijk aan die van de Dv3-serie. 
+Gegevensschijfopslag wordt apart van virtuele machines in rekening gebracht. toouse premium-opslag-schijven gebruiken Hallo Dsv3 grootten. Hallo-prijzen en facturering meters voor Dsv3 grootten zijn hetzelfde als Dv3-serie Hallo. 
 
 
 | Grootte            | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Max. aantal NIC's/netwerkbandbreedte |
@@ -129,10 +129,10 @@ ACU: 50-100
 | Standard_A7 |8 |56 |605 |16 |16 x 500 |4 / 2000 |
 <br>
 
-*De A0-grootte wordt overgeschreven naar de fysieke hardware. Alleen bij deze specifieke grootte kunnen implementaties van andere klanten invloed hebben op de prestaties van uw uitgevoerde workload. De relatieve prestaties worden hieronder beschreven, zoals de verwachte basislijn, met een variabiliteit van ongeveer 15 procent.
+* Hallo A0 grootte is te veel geabonneerde op Hallo fysieke hardware. Voor deze specifieke grootte alleen andere implementaties van de klant kunnen invloed hebben op prestaties van Hallo van uw workload uitgevoerd. Hallo relatieve prestaties worden hieronder beschreven als basislijn Hallo verwacht, onderwerp tooan geschatte variabiliteit van 15 procent.
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard A0 - A4 met CLI en PowerShell
-In het klassieke implementatiemodel verschillen sommige namen van VM-grootten enigszins in CLI en in PowerShell:
+In het klassieke implementatiemodel hello zijn sommige namen van de VM-grootte enigszins verschillen in de CLI en PowerShell:
 
 * Standard_A0 is ExtraSmall 
 * Standard_A1 is Small

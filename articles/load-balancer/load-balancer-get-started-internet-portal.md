@@ -1,6 +1,6 @@
 ---
-title: Een internetgerichte load balancer maken - Azure Portal| Microsoft Docs
-description: Meer informatie over hoe u met de Azure Portal een internetgerichte load balancer maakt in Resource Manager
+title: aaaCreate een internetgerichte load balancer - Azure-portal | Microsoft Docs
+description: Meer informatie over hoe een internetgerichte toocreate load balancer met behulp van Resource Manager hello Azure-portal
 services: load-balancer
 documentationcenter: na
 author: anavinahar
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: annahar
-ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 390ba8ec1474c54cf2c0022c4a3c219d21b1a659
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Een internetgerichte load balancer maken met behulp van de Azure Portal
+# <a name="creating-an-internet-facing-load-balancer-using-hello-azure-portal"></a>Maken van een Internet gerichte load balancer met hello Azure-portal
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -33,77 +33,77 @@ ms.lasthandoff: 07/11/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Dit artikel is van toepassing op het Resource Manager-implementatiemodel. Hier vindt u [meer informatie over hoe u een internetgerichte load balancer maakt met de klassieke implementatie](load-balancer-get-started-internet-classic-portal.md)
+In dit artikel bevat informatie over Hallo Resource Manager-implementatiemodel. U kunt ook [meer informatie over hoe een internetgerichte toocreate netwerktaakverdeler via de klassieke implementatie](load-balancer-get-started-internet-classic-portal.md)
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-Hierin wordt de volgorde van de afzonderlijke taken behandeld die moeten worden uitgevoerd voor het maken van een load balancer. Ook worden de handelingen om tot dit doel te komen in detail uitgelegd.
+Dit heeft betrekking op Hallo volgorde van de afzonderlijke taken die zijn gedaan toobe toocreate een load balancer en in detail uitgelegd wat tooaccomplish Hallo doel wordt uitgevoerd.
 
-## <a name="what-is-required-to-create-an-internet-facing-load-balancer"></a>Wat zijn de vereisten om een internetgerichte load balancer te maken?
+## <a name="what-is-required-toocreate-an-internet-facing-load-balancer"></a>Wat is vereist toocreate een internetgerichte load balancer?
 
-U moet de volgende objecten maken en configureren om een load balancer te implementeren.
+U moet toocreate en configureer Hallo objecten toodeploy een load balancer te volgen.
 
 * Front-end-IP-configuratie: bevat openbare IP-adressen voor inkomend netwerkverkeer.
-* Back-endadresgroep: bevat netwerkinterfaces (NIC's) waardoor de virtuele machines netwerkverkeer kunnen ontvangen van de load balancer.
-* Regels voor taakverdeling: bevat regels die een openbare poort op de load balancer toewijzen aan een poort in de back-endadresgroep.
-* NAT-regels voor binnenkomende verbindingen: bevat regels die een openbare poort op de load balancer toewijzen aan een poort voor een specifieke virtuele machine in de back-endadresgroep.
-* Tests: bevat statustests die worden gebruikt om de beschikbaarheid van exemplaren van virtuele machines in de back-endadresgroep te controleren.
+* Back-end-adresgroep - bevat netwerkinterfaces (NIC's) voor virtuele machines tooreceive-netwerkverkeer Hallo van Hallo load balancer.
+* Taakverdeling regels - bevat regels voor toewijzing van een openbare poort op Hallo load balancer tooport in Hallo back-end-adresgroep.
+* Binnenkomende NAT-regels: regels voor toewijzing van een openbare poort op Hallo load balancer tooa poort voor een specifieke virtuele machine in het back-end-adresgroep Hallo bevat.
+* Tests - beschikbaarheid van health-tests gebruikt toocheck van exemplaren van virtuele machines in het back-end-adresgroep Hallo bevat.
 
 Meer informatie over de load balancer-onderdelen in Azure Resource Manager vindt u op [Ondersteuning van Azure Resource Manager voor Azure Load Balancer](load-balancer-arm.md).
 
 ## <a name="set-up-a-load-balancer-in-azure-portal"></a>Een load balancer instellen in Azure Portal
 
 > [!IMPORTANT]
-> In dit voorbeeld wordt ervan uitgegaan dat u een virtueel netwerk hebt met de naam **myVNet**. Bekijk [Virtueel netwerk maken](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) voor instructies. Er wordt ook verondersteld dat **myVNet** een subnet bevat met de naam **LB-Subnet-BE**, evenals twee virtuele machines met de naam **web1** en **web2** die zich respectievelijk binnen dezelfde beschikbaarheidsset met de naam **myAvailSet** in **myVNet** bevinden. Raadpleeg [deze koppeling](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor instructies voor het maken van virtuele machines.
+> In dit voorbeeld wordt ervan uitgegaan dat u een virtueel netwerk hebt met de naam **myVNet**. Raadpleeg te[virtueel netwerk maken](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) toodo dit. Ook wordt ervan uitgegaan er is een subnet binnen **myVNet** aangeroepen **LB Subnet worden** en twee virtuele machines genoemd **web1** en **web2** respectievelijk binnen Hallo dezelfde beschikbaarheidsset aangeroepen **myAvailSet** in **myVNet**. Raadpleeg te[deze koppeling](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) toocreate virtuele machines.
 
-1. Navigeer via een browser naar Azure Portal: [http://portal.azure.com](http://portal.azure.com). Meld u vervolgens aan met uw Azure-account.
-2. Selecteer linksboven in het scherm **Nieuw** > **Netwerken** > **Load balancer**.
-3. Voer op de blade **Load balancer maken** een naam in voor de load balancer. Hier wordt deze **myLoadBalancer** genoemd.
+1. Ga vanuit een browser toohello Azure-portal: [http://portal.azure.com](http://portal.azure.com) en meld u aan met uw Azure-account.
+2. Selecteer op de bovenste linkerkant met Hallo van welkomstscherm **nieuw** > **Networking** > **Load Balancer.**
+3. In Hallo **maken load balancer** blade, typ een naam voor de load balancer. Hier wordt deze **myLoadBalancer** genoemd.
 4. Selecteer onder **Type** de optie **Openbaar**.
 5. Maak onder **Openbaar IP-adres** een nieuw openbaar IP-adres met de naam **myPublicIP**.
-6. Selecteer onder Resourcegroep de optie **myRG**. Selecteer een geschikte **Locatie** en klik vervolgens op **OK**. De load balancer wordt nu geïmplementeerd. Dit proces duurt enkele minuten.
+6. Selecteer onder Resourcegroep de optie **myRG**. Selecteer een geschikte **Locatie** en klik vervolgens op **OK**. Hallo load balancer wordt toodeploy start en duurt een paar minuten toosuccessfully volledige implementatie.
 
     ![Resourcegroep voor load balancer bijwerken](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
 ## <a name="create-a-back-end-address-pool"></a>Een back-endadresgroep maken
 
-1. Zodra de load balancer is geïmplementeerd, selecteert u deze in uw resources. Selecteer in de instellingen Back-endgroepen. Voer een naam voor uw back-endgroep in. Klik vervolgens op de knop **Toevoegen** boven aan de blade die wordt weergegeven.
-2. Klik op **Een virtuele machine toevoegen** op de blade **Back-endgroep toevoegen**.  Selecteer **Een beschikbaarheidsset kiezen** onder **Beschikbaarheidsset** en selecteer **myAvailSet**. Selecteer vervolgens **De virtuele machines kiezen** in de sectie Virtuele machines op de blade, en klik op **web1** en **web2**, de twee VM’s die u hebt gemaakt voor taakverdeling. Zorg ervoor dat er links van beide VM’s blauwe vinkjes staan, zoals wordt weergegeven in de onderstaande afbeelding. Klik vervolgens op **Selecteren** op de blade en vervolgens op OK op de blade **Virtuele machines kiezen**. Klik daarna op **OK** op de blade **Back-endgroep toevoegen**.
+1. Zodra de load balancer is geïmplementeerd, selecteert u deze in uw resources. Selecteer in de instellingen Back-endgroepen. Voer een naam voor uw back-endgroep in. Klik vervolgens op Hallo **toevoegen** knop naar de bovenkant Hallo van Hallo-blade die wordt weergegeven.
+2. Klik op **toevoegen van een virtuele machine** in Hallo **toevoegen van de back-endpool** blade.  Selecteer **Een beschikbaarheidsset kiezen** onder **Beschikbaarheidsset** en selecteer **myAvailSet**. Selecteer vervolgens **Hallo virtuele machines kiezen** onder sectie voor virtuele Machines in de blade Hallo Hallo en klik op **web1** en **web2**, Hallo twee virtuele machines die zijn gemaakt voor taakverdeling. Zorg ervoor dat beide selectievakjes in blauw toohello links zoals weergegeven in onderstaande afbeelding voor Hallo. Klik vervolgens op **Selecteer** op die blade gevolgd door OK in Hallo **kiezen virtuele machines** blade en vervolgens **OK** in Hallo **toevoegen van de back-endpool** blade.
 
-    ![Toevoegingen doen aan de back-endadresgroep ](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
+    ![Toohello back-endadresgroep - toevoegen ](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
 
-3. Controleer of uw vervolgkeuzelijst met meldingen een update heeft met betrekking tot het opslaan van de back-endgroep voor de load balancer en werk de netwerkinterface bij voor de virtuele machines **web1** en **web2**.
+3. Controleer of uw meldingen vervolgkeuzelijst toomake is een update met betrekking tot opgeslagen Hallo load balancer back-endpool in toevoeging tooupdating Hallo netwerkinterface voor zowel virtuele machines Hallo **web1** en **web2**.
 
 ## <a name="create-a-probe-lb-rule-and-nat-rules"></a>Een test, LB-regel en NAT-regels maken
 
 1. Maak een statustest.
 
-    Selecteer Testen in de instellingen van de load balancer. Klik vervolgens op **Toevoegen** boven aan de blade.
+    Selecteer Testen in de instellingen van de load balancer. Klik vervolgens op **toevoegen** Hallo boven aan de blade Hallo.
 
-    Er zijn twee manieren om een test te configureren: HTTP of TCP. In dit voorbeeld wordt HTTP gebruikt, maar TCP kan op een vergelijkbare manier worden geconfigureerd.
-    Werk de nodige informatie bij. Zoals is vermeld, verdeelt **myLoadBalancer** het verkeer op poort 80. Het geselecteerde pad is HealthProbe.aspx, het interval is 15 seconden en de drempelwaarde voor een slechte status is twee. Klik wanneer u klaar bent, op **OK** om de test te maken.
+    Er zijn twee manieren tooconfigure een test: HTTP of TCP. In dit voorbeeld wordt HTTP gebruikt, maar TCP kan op een vergelijkbare manier worden geconfigureerd.
+    De benodigde informatie Hallo bijwerken. Zoals is vermeld, verdeelt **myLoadBalancer** het verkeer op poort 80. geselecteerde Hallo-pad is HealthProbe.aspx, Interval is 15 seconden en drempelwaarde voor onjuiste status 2 is. Wanneer u klaar bent, klikt u op **OK** toocreate Hallo test.
 
-    Beweeg de muisaanwijzer boven het pictogram 'i' voor meer informatie over deze afzonderlijke configuraties en over hoe u ze zodanig kunt wijzigen dat ze aan uw eisen voldoen.
+    Laat de aanwijzer op Hallo 'i' pictogram toolearn meer over deze afzonderlijke configuraties en hoe deze gewijzigde toocater tooyour vereisten kunnen zijn.
 
     ![Een test toevoegen](./media/load-balancer-get-started-internet-portal/4-load-balancer-probes.png)
 
 2. Maak een load balancer-regel.
 
-    Klik op de taakverdelingsregels in het gedeelte Instellingen van de load balancer. Klik op de nieuwe blade op **Toevoegen**. Geef uw regel een naam. Hier gebruiken we HTTP. Kies de front-endpoort en de back-endpoort. Hier is 80 gekozen voor beide. Kies **LB-backend** als uw back-endgroep en de eerder gemaakte **HealthProbe** als de test. Andere configuraties kunnen worden ingesteld op basis van uw vereisten. Klik vervolgens op OK om de taakverdelingsregel op te slaan.
+    Klik op de Load-balancingregels in Hallo sectie instellingen van de load balancer. Klik in de nieuwe blade hello, op **toevoegen**. Geef uw regel een naam. Hier gebruiken we HTTP. Kies Hallo frontend-poort en back-end. Hier is 80 gekozen voor beide. Kies **LB-back-end** als uw back-endpool en de eerder gemaakte Hallo **HealthProbe** zoals Hallo test. Andere configuraties kunnen worden ingesteld op basis van tooyour vereisten. Klik vervolgens op OK toosave hello taakverdelingsregel.
 
     ![Een taakverdelingsregel toevoegen](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 3. Inkomende NAT-regels maken
 
-    Klik op Inkomende NAT-regels in het gedeelte Instellingen van de load balancer. Klik op de nieuwe blade op **Toevoegen**. Geef uw inkomende NAT-regel een naam. Hier gebruiken we de naam **inboundNATrule1**. De bestemming moet het openbare IP-adres zijn dat u eerder hebt gemaakt. Selecteer Aangepast onder Service. Selecteer vervolgens het protocol dat u wilt gebruiken. Hier is TCP geselecteerd. Voer de poort in (3441) en de doelpoort. Dat is in dit geval 3389. Klik vervolgens op OK om deze regel op te slaan.
+    Klik op de binnenkomende NAT-regels onder de sectie settings Hallo van de load balancer. Hallo nieuwe blade die, klikt u op **toevoegen**. Geef uw inkomende NAT-regel een naam. Hier gebruiken we de naam **inboundNATrule1**. Hallo-doel moet Hallo die openbare IP-adres eerder hebt gemaakt. Selecteer aangepast onder Service en selecteert u graag toouse Hallo-protocol. Hier is TCP geselecteerd. Hallo-poort, voer 3441 en Hallo doelpoort, in dit geval 3389. Klik vervolgens op OK toosave met deze regel.
 
-    Nadat de eerste regel is gemaakt, herhaalt u deze stap voor de tweede inkomende NAT-regel met de naam inboundNATrule2 vanaf poort 3442 naar doelpoort 3389.
+    Zodra de eerste regel Hallo is gemaakt, kunt u deze stap herhalen voor Hallo tweede binnenkomende NAT-regel inboundNATrule2 aangeroepen vanuit poort 3442 tooTarget poort 3389.
 
     ![Een inkomende NAT-regel toevoegen](./media/load-balancer-get-started-internet-portal/6-load-balancer-inbound-nat-rules.png)
 
 ## <a name="remove-a-load-balancer"></a>Een load balancer verwijderen
 
-Als u een load balancer wilt verwijderen, selecteert u de load balancer die u wilt verwijderen. Klik op de blade *Load balancer* op **Verwijderen** boven aan de blade. Selecteer **Ja** wanneer dit wordt gevraagd.
+een load balancer, selecteer Hallo toodelete netwerktaakverdeler gewenste tooremove. In Hallo *Load Balancer* blade, klik op **verwijderen** Hallo boven aan de blade Hallo. Selecteer **Ja** wanneer dit wordt gevraagd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

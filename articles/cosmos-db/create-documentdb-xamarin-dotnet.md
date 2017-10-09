@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: een web-app ontwikkelen met Xamarin en Facebook-authenticatie | Microsoft-documenten'
-description: Is een .NET-codevoorbeeld dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit Azure Cosmos DB
+description: Geeft het voorbeeld van een .NET-code kunt u tooconnect tooand query uitvoeren op Azure Cosmos-DB
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -15,21 +15,21 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 4ea97c2aca6769843d0210ffeae6f95531a21f10
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5f71dddd2b2f5bd117e481c96c17915fc58d2119
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Azure Cosmos DB: een web-app ontwikkelen met .NET, Xamarin, en Facebook-authenticatie
 
-Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
+Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel maken en query document, de sleutel/waarde en de grafiek databases, die allemaal van Hallo wereldwijde distributie en mogelijkheden van de horizontale schaal Hallo kern van Azure Cosmos DB profiteren. 
 
-Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdatabase en een verzameling kunt maken met behulp van Azure Portal. Vervolgens ontwikkelt en implementeert u een web-app voor een takenlijst op basis van de [DocumentDB .NET API](documentdb-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/), en de Azure Cosmos DB-autorisatie-engine. De web-app voor een takenlijst implementeert een gegevenspatroon per gebruiker waarmee gebruikers zich kunnen aanmelden met Facebook Auth en hun eigen to-do-items kunnen beheren.
+Deze snel starten laat zien hoe Hallo toocreate een Cosmos-DB Azure-account, documentdatabase en verzameling met behulp van Azure-portal. U moet vervolgens bouwen en implementeren van een WebApp voor takenlijstjes gebouwd op Hallo [DocumentDB .NET API](documentdb-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/), en hello Azure Cosmos DB autorisatie-engine. Hallo todo lijst web-app implementeert een per gebruiker gegevenspatroon waarmee gebruikers toologin met Facebook Auth en beheren hun eigen toodo-items.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
+Als u Visual Studio 2017 geïnstalleerd nog geen hebt, kunt u downloaden en gebruiken van Hallo **gratis** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Zorg ervoor dat u inschakelt **ontwikkelen van Azure** tijdens de installatie van Visual Studio Hallo.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,89 +41,89 @@ Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en 
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
+## <a name="clone-hello-sample-application"></a>Hallo-voorbeeldtoepassing klonen
 
-We gaan nu een DocumentDB API-app klonen vanuit GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
+Nu we de kloon een DocumentDB-API-app vanuit github Hallo verbindingsreeks instellen en uitvoeren. U ziet hoe eenvoudig het is toowork met gegevens via een programma. 
 
-1. Open een venster in een git-terminal zoals git bash en `cd` naar een werkmap.  
+1. Open een git-terminalvenster zoals git bash en en `cd` tooa werkmap.  
 
-2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. 
+2. Hallo na de opdracht tooclone Hallo voorbeeld opslagplaats worden uitgevoerd. 
 
     ```bash
     git clone https://github.com/Azure/azure-documentdb-dotnet.git
     ```
 
-3. Open vervolgens het bestand DocumentDBTodo.sln in de map samples/xamarin/UserItems/xamarin.forms in Visual Studio. 
+3. Open vervolgens Hallo DocumentDBTodo.sln bestand uit Hallo samples/xamarin/UserItems/xamarin.forms map in Visual Studio. 
 
-## <a name="review-the-code"></a>De code bekijken
+## <a name="review-hello-code"></a>Hallo code bekijken
 
-De code in de map Xamarin bevat het volgende:
+Hallo-code in Hallo Xamarin map bevat:
 
-* Xamarin-app. De app slaat de to-do-items van de gebruiker op in een gepartitioneerde verzameling met de naam UserItems.
-* Resourcetokenbroker-API. Een eenvoudige ASP.NET Web-API om Azure Cosmos DB-resourcetokens ter beschikking te stellen aan de aangemelde gebruikers van de app. Resourcetokens zijn kortdurende toegangstokens die de app voorzien van toegang tot de gegevens van de aangemelde gebruiker.
+* Xamarin-app. Hallo app slaat van Hallo gebruiker todo-items in een gepartitioneerde verzameling met de naam UserItems.
+* Resourcetokenbroker-API. Een eenvoudige ASP.NET Web API toobroker Azure Cosmos DB resource tokens toohello aangemelde gebruikers van Hallo-app. Resource-tokens zijn tijdelijke toegangstokens waarmee Hallo app Hallo toegang toohello gegevens van een gebruiker aangemeld.
 
-De authenticatie- en gegevenstroom wordt afgebeeld in onderstaand diagram.
+Hallo-verificatie en de gegevensstroom wordt weergegeven in Hallo diagram hieronder.
 
-* De verzameling UserItems wordt gemaakt met de partitiesleutel '/userid'. Door een partitiesleutel op te geven voor een verzameling kan Azure Cosmos DB oneindig worden geschaald naarmate het aantal gebruikers en items toeneemt.
-* Met de Xamarin-app zijn gebruikers in staat om aan te melden met hun Facebook-referenties.
-* De Xamarin-app gebruikt Facebook-toegangstokens om te authenticeren met de ResourceTokenBroker-API
-* De resourcetokenbroker-API authenticeert het verzoek met behulp van de functie App Service Auth en verzoekt om een Azure Cosmos DB-resourcetoken met lees-/schrijftoegang tot alle documenten die de geauthenticeerde partitiesleutel van de gebruiker delen.
-* Resourcetokenbroker retourneert de resourcetoken naar de client-app.
-* De app gebruikt de resourcetoken om toegang te krijgen tot de to-do-items van de gebruiker.
+* Hallo UserItems verzameling is gemaakt met de partitiesleutel Hallo ' / userid'. Het opgeven van dat een partitiesleutel voor een verzameling kunt u Azure Cosmos DB tooscale oneindig als Hallo aantal gebruikers en items groeit.
+* Hallo Xamarin-app kan gebruikers toologin met Facebook-referenties.
+* Hallo Xamarin-app maakt gebruik van Facebook access token tooauthenticate met ResourceTokenBroker API
+* Hallo resource token broker API verifieert Hallo-aanvraag met de App Service Auth-functie en vraagt een token van de resource Azure Cosmos DB met lezen/schrijven toegang tooall documenten delen partitiesleutel Hallo geverifieerde gebruiker.
+* Resource token broker retourneert Hallo resource token toohello client-app.
+* Hallo-app heeft toegang tot van Hallo gebruiker todo-items met Hallo resource-token.
 
 ![Taken-app met voorbeeldgegevens](./media/create-documentdb-xamarin-dotnet/tokenbroker.png)
     
 ## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
 
-Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
+Nu gaat u terug toohello Azure portal tooget verbindingsreeksgegevens en kopieer dit naar Hallo-app.
 
-1. Klik in [Azure Portal](http://portal.azure.com/), in uw Azure Cosmos DB-account, in het linker navigatiegedeelte op **Sleutels** en klik vervolgens op **Sleutels voor lezen/schrijven**. In de volgende stap gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de URI en primaire sleutel in het bestand web.config te kopiëren.
+1. In Hallo [Azure-portal](http://portal.azure.com/), in uw Azure DB-Cosmos-account, klik op in de linkernavigatiebalk Hallo **sleutels**, en klik vervolgens op **lezen-schrijven sleutels**. U gebruikt in Web.config-bestand in de volgende stap Hallo HALLO hallo kopie knoppen aan de rechterkant Hallo Hallo scherm toocopy Hallo URI en primaire sleutel.
 
-    ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-documentdb-xamarin-dotnet/keys.png)
+    ![Bekijken en kopiëren van een toegangssleutel in hello Azure-portal, de blade sleutels](./media/create-documentdb-xamarin-dotnet/keys.png)
 
-2. Open het bestand Web.config in de map azure-documentdb-dotnet/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker in Visual Studio 2017. 
+2. Open in Visual Studio-2017 Hallo Web.config-bestand in hello azure-documentdb-dotnet/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker map. 
 
-3. Kopieer uw URI-waarde vanaf de portal (met de kopieerknop) en geef deze als waarde aan de accountUrl in Web.config. 
+3. Kopieer de waarde van de URI van Hallo-portal (met behulp van de knop kopiëren Hallo), waardoor het Hallo-waarde van Hallo accountUrl in Web.config. 
 
     `<add key="accountUrl" value="{Azure Cosmos DB account URL}"/>`
 
-4. Kopieer vervolgens de waarde van uw PRIMAIRE SLEUTEL vanaf de portal en geef deze waarde aan accountKey in web.config. 
+4. Vervolgens kopieert u de waarde van de primaire sleutel van Hallo-portal en maken het Hallo-waarde van Hallo accountKey in Web.congif. 
 
     `<add key="accountKey" value="{Azure Cosmos DB secret}"/>`
 
-U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
+U hebt nu uw app bijgewerkt met alle Hallo info moet toocommunicate met Azure Cosmos DB. 
 
-## <a name="build-and-deploy-the-web-app"></a>De web-app ontwikkelen en implementeren
+## <a name="build-and-deploy-hello-web-app"></a>Hallo-web-app bouwen en implementeren
 
-1. Maak een App Service-website in de Azure Portal om de Resourcetokenbroker-API te hosten.
-2. Open in de Azure Portal de blade App Settings van de website van de Resourcetokenbroker-API. Vul de volgende instellingen in voor de app:
+1. In hello Azure-portal, maakt u een App Service-website toohost Hallo Resource token broker API.
+2. Open in hello Azure-portal, Hallo App-instellingen blade van Hallo Resource token broker API-website. Vul Hallo volgende app-instellingen:
 
-    * accountUrl - de URL van het Azure Cosmos DB-account van het tabblad Sleutels van uw Azure Cosmos DB-account.
-    * accountKey - de hoofdsleutel van het Azure Cosmos DB-account van het tabblad Sleutels van uw Azure Cosmos DB-account.
+    * accountUrl - hello Azure Cosmos DB account-URL op Hallo sleutels tabblad van uw Azure DB die Cosmos-account.
+    * accountKey - hello Azure Cosmos DB account hoofdsleutel Hallo sleutels tabblad van uw Azure DB die Cosmos-account.
     * databaseId en collectionId van de database en verzameling die u hebt gemaakt
 
-3. Publiceer de ResourceTokenBroker-oplossing op de website die u hebt gemaakt.
+3. Publiceer Hallo ResourceTokenBroker oplossing tooyour website gemaakt.
 
-4. Open het Xamarin-project en ga naar TodoItemManager.cs. Vul de waarden in voor accountURL, collectionId, databaseId, en voor resourceTokenBrokerURL als de basis https-url voor de website van de resourcetokenbroker.
+4. Open Hallo Xamarin-project en tooTodoItemManager.cs navigeren. Hallo-waarden voor accountURL, collectionId, databaseId, evenals resourceTokenBrokerURL vult als Hallo base https-url voor Hallo resource token broker website.
 
-5. Voltooi de zelfstudie [Hoe u uw App Service-toepassing moet configureren om aanmelding via Facebook te gebruiken](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md) om Facebook-authenticatie in te stellen en de ResourceTokenBroker-website te configureren.
+5. Volledige Hallo [hoe tooconfigure uw App Service-toepassing toouse Facebook aanmelding](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md) zelfstudie toosetup Facebook verificatie Hallo ResourceTokenBroker-website configureert.
 
-    Voer de Xamarin-app uit.
+    Hallo Xamarin-app uitvoeren.
 
-## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
+## <a name="review-slas-in-hello-azure-portal"></a>Sla's bekijken in hello Azure-portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die door deze Quick Start zijn aangemaakt door onderstaande stappen te volgen in Azure Portal: 
+Als u deze app niet toocontinue toouse gaat, verwijdert u alle resources die zijn gemaakt door deze snelstartgids in hello Azure-portal met Hallo stappen te volgen: 
 
-1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de naam van de resource die u hebt gemaakt. 
-2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ de naam van de resource die u wilt verwijderen in het tekstvak en klik vervolgens op **Verwijderen**.
+1. Hallo links menu in hello Azure-portal en klik op **resourcegroepen** en klik vervolgens op Hallo-naam van Hallo-resource die u zojuist hebt gemaakt. 
+2. Klik op de pagina van de groep resource **verwijderen**, typ de naam Hallo van Hallo resource toodelete in Hallo tekstvak en klik op **verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken en hebt u een verzameling gemaakt met de Data Explorer en een Xamarin-app ontwikkeld en geïmplementeerd. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren. 
+In deze snelstartgids hebt u geleerd hoe toocreate een Cosmos-DB Azure-account, een verzameling met Hallo Data Explorer maken en bouwen en implementeren van een Xamarin-app. U kunt nu aanvullende gegevens tooyour Cosmos DB account importeren. 
 
 > [!div class="nextstepaction"]
 > [Gegevens importeren in Azure Cosmos DB](import-data.md)

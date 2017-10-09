@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure IoT Hub apparaat horende (.NET/knooppunt) | Microsoft Docs
-description: Het gebruik van Azure IoT Hub apparaat horende labels toevoegen en vervolgens met de query voor een IoT Hub. U het apparaat met Azure IoT SDK voor Node.js gebruiken voor het implementeren van de gesimuleerde apparaattoepassing en de Azure IoT service SDK voor .NET voor het implementeren van een service-app die de labels worden toegevoegd en de IoT Hub-query wordt uitgevoerd.
+title: aaaGet de slag met Azure IoT Hub apparaat horende (.NET/knooppunt) | Microsoft Docs
+description: Hoe toouse Azure IoT Hub apparaat horende tooadd tags en gebruik vervolgens een IoT Hub-query. U hello Azure IoT-device SDK voor Node.js tooimplement Hallo gesimuleerde apparaattoepassing en hello Azure IoT service SDK voor .NET tooimplement een service-app die Hallo-labels toegevoegd en Hallo IoT Hub-query wordt uitgevoerd.
 services: iot-hub
 documentationcenter: node
 author: fsautomata
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: elioda
-ms.openlocfilehash: 07797b9159c9b926e9eb47d8864c63048951931a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1cec082ebddc19c9b87998a5fd0159d32b07acd8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-device-twins-netnode"></a>Aan de slag met apparaat horende (.NET/knooppunt)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-Aan het einde van deze zelfstudie hebt u een .NET- en Node.js-consoletoepassing:
+Aan het einde van de Hallo van deze zelfstudie hebt u een .NET- en Node.js-consoletoepassing:
 
 * **AddTagsAndQuery.sln**, een .NET back-end-app, die labels toegevoegd en wordt opgevraagd horende apparaten.
-* **TwinSimulatedDevice.js**, een Node.js-app dat een apparaat simuleert dat verbinding met uw IoT-hub aan de apparaat-id eerder hebt gemaakt maakt, en rapporteert de voorwaarde van de verbinding.
+* **TwinSimulatedDevice.js**, een Node.js-app dat een apparaat simuleert dat tooyour IoT-hub is verbonden met de apparaat-id Hallo eerder hebt gemaakt, en rapporteert de voorwaarde van de verbinding.
 
 > [!NOTE]
-> Het artikel [Azure IoT SDK's] [ lnk-hub-sdks] bevat informatie over de Azure IoT SDK's dat u gebruiken kunt om zowel apparaatgegevens als back-end-apps te bouwen.
+> Hallo artikel [Azure IoT SDK's] [ lnk-hub-sdks] bevat informatie over hello Azure IoT SDK's waarmee u toobuild kunt apparaat- en back-end-apps.
 > 
 > 
 
-Voor deze zelfstudie hebt u het volgende nodig:
+toocomplete in deze zelfstudie hebt u Hallo volgende nodig:
 
 * Visual Studio 2015 of Visual Studio 2017.
 * Node.js versie 0.10.x of hoger.
@@ -43,24 +43,24 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="create-the-service-app"></a>De service-app maken
-In deze sectie maakt u een .NET-consoletoepassing maken (met C#) waarmee de metagegevens van de locatie wordt toegevoegd aan de apparaat-twin gekoppeld **myDeviceId**. Deze vervolgens het apparaat horende opgeslagen in de IoT-hub te selecteren van de apparaten die zich in de Verenigde Staten en de waarden die gerapporteerd van een mobiele verbinding een query.
+## <a name="create-hello-service-app"></a>Hallo-service-app maken
+In deze sectie maakt u een .NET-consoletoepassing maken (met C#) die wordt toegevoegd locatie metagegevens toohello apparaat twin die zijn gekoppeld aan **myDeviceId**. Vervolgens query's Hallo apparaat horende opgeslagen ons in IoT-hub Hallo Hallo apparaten zich in Hallo selecteren en vervolgens Hallo die een mobiele verbinding gerapporteerd.
 
-1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan de huidige oplossing met behulp van de projectsjabloon **Console Application**. Noem het project **AddTagsAndQuery**.
+1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toohello huidige oplossing met behulp van Hallo **consoletoepassing** projectsjabloon. Naam Hallo project **AddTagsAndQuery**.
    
     ![Nieuw Windows Classic Desktop-project in Visual C#][img-createapp]
-1. Klik in Solution Explorer met de rechtermuisknop op de **AddTagsAndQuery** project en klik vervolgens op **NuGet-pakketten beheren...** .
-1. In de **NuGet Package Manager** Selecteer **Bladeren** en zoek naar **microsoft.azure.devices**. Selecteer **installeren** voor het installeren van de **Microsoft.Azure.Devices** Inpakken en accepteer de gebruiksvoorwaarden. Met deze procedure worden de [Azure IoT-service-SDK][lnk-nuget-service-sdk], het NuGet-pakket en de bijbehorende afhankelijkheden gedownload en geïnstalleerd. Ook worden verwijzingen hiernaar toegevoegd.
+1. Klik in Solution Explorer met de rechtermuisknop op Hallo **AddTagsAndQuery** project en klik vervolgens op **NuGet-pakketten beheren...** .
+1. In Hallo **NuGet Package Manager** Selecteer **Bladeren** en zoek naar **microsoft.azure.devices**. Selecteer **installeren** tooinstall hello **Microsoft.Azure.Devices** Inpakken en accepteer de gebruiksvoorwaarden Hallo. Deze procedure downloadt, installeert en voegt u een verwijzing toohello [Azure IoT service SDK] [ lnk-nuget-service-sdk] NuGet-pakket en de bijbehorende afhankelijkheden.
    
     ![Sluit het venster Nuget Package Manager.][img-servicenuget]
-1. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
+1. Voeg de volgende Hallo `using` instructies boven Hallo Hallo **Program.cs** bestand:
    
         using Microsoft.Azure.Devices;
-1. Voeg de volgende velden toe aan de klasse **Program**: Vervang de tijdelijke aanduidingswaarde met de IoT Hub-verbindingsreeks voor de hub die u hebt gemaakt in de vorige sectie.
+1. Hallo na toohello velden toevoegen **programma** klasse. Vervang Hallo tijdelijke aanduidingswaarde met IoT Hub-verbindingsreeks voor Hallo-hub die u hebt gemaakt in de vorige sectie Hallo Hallo.
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
-1. Voeg de volgende methode toe aan de klasse **Program**:
+1. Hallo na methode toohello toevoegen **programma** klasse:
    
         public static async Task AddTagsAndQuery()
         {
@@ -85,40 +85,40 @@ In deze sectie maakt u een .NET-consoletoepassing maken (met C#) waarmee de meta
             Console.WriteLine("Devices in Redmond43 using cellular network: {0}", string.Join(", ", twinsInRedmond43UsingCellular.Select(t => t.DeviceId)));
         }
    
-    De **RegistryManager** klasse bevat alle methoden die zijn vereist voor interactie met horende apparaten van de service. De vorige code eerst initialiseert de **registryManager** object en vervolgens haalt de apparaat-twin voor **myDeviceId**, en ten slotte de labels bijgewerkt met informatie over de gewenste locatie.
+    Hallo **RegistryManager** klasse beschrijft alle Hallo methoden vereist toointeract met apparaat horende van Hallo-service. Hallo vorige code initialiseert eerst Hallo **registryManager** object, en vervolgens haalt Hallo apparaat twin voor **myDeviceId**, en ten slotte de labels bijgewerkt met informatie over de locatie van de gewenste Hallo.
    
-    Na het bijwerken, deze twee query's uitvoert: de eerste selecteert alleen de apparaat-horende apparaten zich in de **Redmond43** plant en de tweede verfijning de query voor het selecteren van alleen de apparaten die ook via het mobiele netwerk zijn verbonden.
+    Na het bijwerken, deze twee query's uitvoert: Hallo selecteert eerst alleen Hallo apparaat horende apparaten zich in Hallo **Redmond43** installaties en Hallo tweede verfijning Hallo query tooselect alleen Hallo apparaten die ook zijn verbonden via mobiel netwerk.
    
-    Houd er rekening mee dat de vorige code bij het maken van de **query** object, geeft u een maximum aantal geretourneerde documenten. De **query** object bevat een **HasMoreResults** Boole-eigenschap die u gebruiken kunt om aan te roepen de **GetNextAsTwinAsync** methoden meerdere keren voor het ophalen van alle resultaten. Een methode aangeroepen **GetNextAsJson** is beschikbaar voor de resultaten die bijvoorbeeld niet apparaat horende zijn resultaten van query's voor aggregatie.
-1. Voeg tot slot de volgende regels toe aan de methode **Main**:
+    Houd er rekening mee dat vorige code Hallo bij het maken van Hallo **query** object, geeft u een maximum aantal geretourneerde documenten. Hallo **query** object bevat een **HasMoreResults** Boole-eigenschap waarmee u tooinvoke hello kunt **GetNextAsTwinAsync** methoden meerdere keren tooretrieve alle resultaten. Een methode aangeroepen **GetNextAsJson** is beschikbaar voor de resultaten die bijvoorbeeld niet apparaat horende zijn resultaten van query's voor aggregatie.
+1. Voeg regels toohello na Hallo **Main** methode:
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
         AddTagsAndQuery().Wait();
-        Console.WriteLine("Press Enter to exit.");
+        Console.WriteLine("Press Enter tooexit.");
         Console.ReadLine();
 
-1. Open in Solution Explorer de **opstartprojecten instellen...**  en zorg ervoor dat de **actie** voor **AddTagsAndQuery** project **Start**. De oplossing bouwen.
-1. Deze toepassing uitvoeren door met de rechtermuisknop op de **AddTagsAndQuery** project en selecteer **Debug**, gevolgd door **nieuw exemplaar gestart**. U ziet één apparaat in de resultaten van de query wordt gevraagd voor alle apparaten vinden in **Redmond43** en er is geen voor de query die de resultaten beperkt tot apparaten die gebruikmaken van een mobiel netwerk.
+1. Open in Solution Explorer hello, Hallo **opstartprojecten instellen...**  en zorg ervoor dat Hallo **actie** voor **AddTagsAndQuery** project **Start**. Hallo-oplossing bouwen.
+1. Deze toepassing uitvoeren door met de rechtermuisknop op Hallo **AddTagsAndQuery** project en selecteer **Debug**, gevolgd door **nieuw exemplaar gestart**. U ziet één apparaat in Hallo resultaten voor Hallo query vragen voor alle apparaten vinden in **Redmond43** en geen voor de Hallo-query die Hallo beperkt resultaten toodevices die gebruikmaken van een mobiel netwerk.
    
     ![De resultaten van de query-venster][img-addtagapp]
 
-In de volgende sectie maakt u een apparaat-app die rapporten de informatie over de connectiviteit en het resultaat van de query in de vorige sectie wordt gewijzigd.
+In de volgende sectie Hallo, maakt u een apparaat-app die Hallo connectiviteit informatie rapporteert en wijzigingen resultaat van query in de vorige sectie Hallo HALLO hallo.
 
-## <a name="create-the-device-app"></a>De apparaat-app maken
-In deze sectie maakt u een Node.js-consoletoepassing die is verbonden met uw hub als **myDeviceId**, en werkt vervolgens de gerapporteerde eigenschappen bevatten informatie die is verbonden met een mobiel netwerk.
+## <a name="create-hello-device-app"></a>Hallo apparaattoepassing maken
+In deze sectie maakt u een Node.js-consoletoepassing die verbinding tooyour hub als maakt **myDeviceId**, en werkt vervolgens de gerapporteerde toocontain Hallo eigenschapsgegevens dat is verbonden met een mobiel netwerk.
 
-1. Maak een nieuwe lege map genaamd **reportconnectivity**. In de **reportconnectivity** map, maak een nieuw package.json-bestand met de volgende opdracht achter de opdrachtprompt. Accepteer alle standaardwaarden.
+1. Maak een nieuwe lege map genaamd **reportconnectivity**. In Hallo **reportconnectivity** map, een nieuw package.json-bestand met behulp van de volgende opdracht achter de opdrachtprompt Hallo maken. Accepteer alle Hallo standaardwaarden.
    
     ```
     npm init
     ```
-1. Bij de opdrachtprompt in de **reportconnectivity** map, voer de volgende opdracht voor het installeren van de **azure-iot-device**, en **azure-iot-device-mqtt** pakket:
+1. Bij de opdrachtprompt in Hallo **reportconnectivity** map na de opdracht tooinstall Hallo Hallo **azure-iot-device**, en **azure-iot-device-mqtt** pakket :
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-1. Start een teksteditor en maak een nieuwe **ReportConnectivity.js** bestand de **reportconnectivity** map.
-1. Voeg de volgende code naar de **ReportConnectivity.js** -bestand en vervang de tijdelijke aanduiding voor de verbindingsreeks apparaat met de categorie die u hebt gekopieerd tijdens het maken van de **myDeviceId** apparaat-id:
+1. Start een teksteditor en maak een nieuwe **ReportConnectivity.js** bestand in Hallo **reportconnectivity** map.
+1. Hallo na code toohello toevoegen **ReportConnectivity.js** -bestand en vervang Hallo tijdelijke aanduiding voor de verbindingsreeks apparaat Hello een u tijdens het maken van Hallo gekopieerd **myDeviceId** apparaat identiteit:
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -156,24 +156,24 @@ In deze sectie maakt u een Node.js-consoletoepassing die is verbonden met uw hub
         }
         });
    
-    De **Client** object bevat de methoden die u nodig hebt om te communiceren met horende apparaten van het apparaat. De vorige code nadat het initialiseren van de **Client** object, haalt de apparaat-twin voor **myDeviceId** en de bijbehorende eigenschap gerapporteerde verbindingsgegevens bijgewerkt door de.
-1. De apparaat-app uitvoeren
+    Hallo **Client** object bevat alle Hallo-methoden die u nodig hebt toointeract met apparaat horende van Hallo-apparaat. vorige code Hallo nadat het Hallo initialiseert **Client** -object is opgehaald Hallo apparaat twin voor **myDeviceId** en de bijbehorende gemelde eigenschap bijgewerkt met informatie over Hallo-connectiviteit.
+1. Hallo apparaat app uitvoeren
    
         node ReportConnectivity.js
    
-    U ziet het bericht `twin state reported`.
-1. Nu dat het apparaat heeft gemeld dat de gegevens over de connectiviteit, moet deze worden weergegeven in beide query's. Uitvoeren van de .NET **AddTagsAndQuery** app opnieuw uit te voeren de query's. Deze tijd **myDeviceId** moet worden weergegeven in beide queryresultaten.
+    U ziet het Hallo-bericht `twin state reported`.
+1. Nu dat hello apparaat de connectiviteit informatie gerapporteerd, moet deze worden weergegeven in beide query's. Voer Hallo .NET **AddTagsAndQuery** app toorun Hallo query opnieuw. Deze tijd **myDeviceId** moet worden weergegeven in beide queryresultaten.
    
     ![][img-addtagapp2]
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U metagegevens van apparaten als labels toegevoegd vanuit een back-end-app en een gesimuleerde apparaattoepassing geschreven naar apparaten connectiviteit rapportgegevens in de apparaat-twin. Ook hebt u geleerd hoe deze gegevens met behulp van de SQL-achtige IoT Hub-querytaal opvragen.
+In deze zelfstudie maakt u een nieuwe iothub geconfigureerd in hello Azure-portal en vervolgens een apparaat-id in de id-register Hallo iothub hebt gemaakt. U metagegevens van apparaten als labels toegevoegd vanuit een back-end-app en een gesimuleerd apparaat app tooreport-apparaatgegevens connectiviteit in Hallo apparaat twin geschreven. U hebt ook geleerd hoe tooquery deze informatie Hallo IoT-Hub SQL-achtige query language gebruiken.
 
-Gebruik de volgende bronnen voor meer informatie over hoe:
+Gebruik Hallo resources toolearn hoe volgende aan:
 
-* verzenden van telemetrie vanaf apparaten met de [aan de slag met IoT Hub] [ lnk-iothub-getstarted] zelfstudie
-* apparaten configureren met de gewenste eigenschappen van apparaat twin met de [gebruik gewenst eigenschappen voor het configureren van apparaten] [ lnk-twin-how-to-configure] zelfstudie
-* beheren van apparaten interactief (zoals het inschakelen van een ventilator van een gebruiker beheerde app) met de [direct methoden gebruiken] [ lnk-methods-tutorial] zelfstudie.
+* verzenden van telemetrie vanaf apparaten Hello [aan de slag met IoT Hub] [ lnk-iothub-getstarted] zelfstudie
+* apparaten configureren met de gewenste eigenschappen van apparaat twin Hello [gebruik gewenst eigenschappen tooconfigure apparaten] [ lnk-twin-how-to-configure] zelfstudie
+* beheren van apparaten interactief (zoals het inschakelen van een ventilator van een gebruiker beheerde app) met Hallo [direct methoden gebruiken] [ lnk-methods-tutorial] zelfstudie.
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-twin-getstarted/servicesdknuget.png

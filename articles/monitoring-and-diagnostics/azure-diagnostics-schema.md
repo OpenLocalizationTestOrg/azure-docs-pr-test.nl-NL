@@ -1,6 +1,6 @@
 ---
-title: En geschiedenis van Azure Diagnostics extensie schema configuratieversies | Microsoft Docs
-description: Relevant zijn voor het verzamelen van prestatiemeteritems in Azure Virtual Machines, VM-Schaalsets, Service Fabric en Cloud-Services.
+title: aaaAzure diagnostische gegevens en geschiedenis van extensie schema configuratieversies | Microsoft Docs
+description: Relevante toocollecting-prestatiemeteritems in Azure Virtual Machines, VM-Schaalsets, Service Fabric en Cloud-Services.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: robb
-ms.openlocfilehash: 119e8a237f24cdc80a1ab8e376f2b308c9eada05
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 854ad118f660810aa38703670284794d658142c7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-diagnostics-extention-configuration-schema-versions-and-history"></a>Azure Diagnostics extensie schema configuratieversies en geschiedenis
-Deze pagina indexen Azure Diagnostics extensie schema versies geleverd als onderdeel van de Microsoft Azure SDK.  
+Deze pagina indexen Azure Diagnostics extensie schema versies geleverd als onderdeel van Hallo Microsoft Azure SDK.  
 
 > [!NOTE]
-> De extensie Azure Diagnostics is het onderdeel dat wordt gebruikt voor het verzamelen van prestatiemeteritems en andere statistieken van:
+> Hello Azure Diagnostics-extensie is Hallo onderdeel gebruikt toocollect prestatiemeteritems en andere statistieken van:
 > - Azure Virtual Machines 
 > - Schaalsets voor virtuele machines
 > - Service Fabric 
@@ -33,7 +33,7 @@ Deze pagina indexen Azure Diagnostics extensie schema versies geleverd als onder
 > 
 > Deze pagina is alleen relevant als u een van deze services.
 
-De extensie Azure Diagnostics wordt gebruikt met andere Microsoft-producten voor diagnostische gegevens zoals Azure Monitor, Application Insights en Log Analytics. Zie voor meer informatie [hulpprogramma's van Microsoft Bewakingsoverzicht](monitoring-overview.md).
+Hallo-extensie voor diagnostische gegevens van Azure wordt gebruikt met andere Microsoft-producten voor diagnostische gegevens zoals Azure Monitor, Application Insights en Log Analytics. Zie voor meer informatie [hulpprogramma's van Microsoft Bewakingsoverzicht](monitoring-overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Azure SDK en diagnostische gegevens versies back-upfunctie grafiek  
 
@@ -53,9 +53,9 @@ De extensie Azure Diagnostics wordt gebruikt met andere Microsoft-producten voor
 
 
 
- Azure Diagnostics-versie 1.0 eerst verzonden met een invoegtoepassingsmodel--wat betekent dat u de versie van Azure diagnostics mogelijk wanneer u de Azure SDK geïnstalleerd, is geleverd aan.  
+ Azure Diagnostics versie 1.0 eerst in een invoegtoepassingsmodel--wat betekent dat wanneer u hello Azure SDK geïnstalleerd, u hebt verkregen Hallo-versie van Azure diagnostics verzonden met het hebt verzonden.  
 
- Beginnen met de SDK 2.5 (diagnostics versie 1.2), Azure diagnostics is verzonden naar een extensiemodel. De hulpprogramma's voor gebruik maken van nieuwe functies zijn alleen beschikbaar in de nieuwere Azure-SDK's, maar alle services die gebruikmaken van Azure diagnostics zou kunnen worden opgepikt de meest recente versie van de back-ups rechtstreeks uit Azure. Bijvoorbeeld iemand anders die nog steeds SDK 2.5 zou worden bij het laden van de meest recente versie die wordt weergegeven in de vorige tabel ongeacht als ze de nieuwer functies gebruiken.  
+ Beginnen met de SDK 2.5 (diagnostics versie 1.2), Azure diagnostics is gegaan tooan extensiemodel. Hallo extra tooutilize nieuwe functies zijn alleen beschikbaar in de nieuwere Azure-SDK's, maar alle services die gebruikmaken van Azure diagnostics zou kunnen worden opgepikt Hallo van de meest recente back-upfunctie versie rechtstreeks uit Azure. Bijvoorbeeld zou iemand anders die nog steeds SDK 2.5 worden geladen Hallo van de meest recente versie die wordt weergegeven in de vorige tabel hello, ongeacht als ze Hallo nieuwere functies gebruiken.  
 
 ## <a name="schemas-index"></a>Index van de schema 's  
 Verschillende versies van Azure diagnostics andere configuratie-schema's gebruiken. 
@@ -74,7 +74,7 @@ Docker-ondersteuning is toegevoegd.
 
 
 ### <a name="diagnostics-extension-181"></a>Extensie voor diagnostische gegevens 1.8.1 
-Kan een SAS-token in plaats van de sleutel van een opslagaccount opgeven in de persoonlijke configuratie. Als een SAS-token is opgegeven, wordt de sleutel van het opslagaccount wordt genegeerd.
+Kan een SAS-token in plaats van de sleutel van een opslagaccount opgeven in Hallo persoonlijke configuratie. Als een SAS-token is opgegeven, wordt de opslagaccountsleutel Hallo genegeerd.
 
 
 ```json
@@ -105,7 +105,7 @@ Kan een SAS-token in plaats van de sleutel van een opslagaccount opgeven in de p
 
 
 ### <a name="diagnostics-extension-18"></a>Extensie voor diagnostische gegevens 1.8 
-Toegevoegde opslagtype moet PublicConfig. StorageType mag *tabel*, *Blob*, *TableAndBlob*. *Tabel* is de standaardinstelling.
+Toegevoegde opslagtype tooPublicConfig. StorageType mag *tabel*, *Blob*, *TableAndBlob*. *Tabel* Hallo standaard is.
 
 
 ```json
@@ -127,42 +127,42 @@ Toegevoegde opslagtype moet PublicConfig. StorageType mag *tabel*, *Blob*, *Tabl
 
 
 ### <a name="diagnostics-extension-17"></a>Extensie voor diagnostische gegevens 1.7 
-De mogelijkheid om te routeren naar EventHub toegevoegd.
+Hallo toegevoegde mogelijkheid tooroute tooEventHub.
 
 ### <a name="diagnostics-extension-15"></a>1.5-extensie voor diagnostische gegevens
-De PUT-element en de mogelijkheid om diagnostische gegevens verzenden toegevoegd [Application Insights](../application-insights/app-insights-cloudservices.md) waardoor het gemakkelijker wordt om problemen te diagnosticeren via uw toepassing, evenals het niveau van systeem en infrastructuur.
+Hallo-element en Hallo mogelijkheid toosend diagnostics-gegevens te sinks toegevoegd[Application Insights](../application-insights/app-insights-cloudservices.md) waardoor het gemakkelijker toodiagnose problemen in uw toepassing, evenals de Hallo system en infrastructuur niveau.
 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 en diagnostische gegevens van de extensie 1.3 
-Voor Cloud Service-projecten in Visual Studio, zijn de volgende wijzigingen aangebracht. (Deze wijzigingen ook van toepassing op latere versies van Azure SDK.)
+Voor Cloud Service-projecten in Visual Studio, zijn Hallo volgende wijzigingen aangebracht. (Deze wijzigingen gelden ook toolater versies van Azure SDK.)
 
-* De lokale emulator ondersteunt nu de diagnostische gegevens. Dit betekent dat u kunt het verzamelen van diagnostische gegevens en zorg ervoor dat uw toepassing wordt gemaakt door de juiste traceringen tijdens het ontwikkelen en testen in Visual Studio. De verbindingsreeks `UseDevelopmentStorage=true` kunt verzamelen van diagnostische gegevens, terwijl u uw cloudserviceproject in Visual Studio uitvoert met behulp van de Azure-opslagemulator. Alle diagnostische gegevens worden verzameld in het opslagaccount (ontwikkeling opslag).
-* De verbindingsreeks van diagnostische gegevens storage-account (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) wordt nog een keer opgeslagen in het service-configuratiebestand (.cscfg). In de Azure SDK 2.5 is de opslagaccount voor diagnostische gegevens opgegeven in het bestand diagnostics.wadcfgx.
+* Hallo lokale emulator ondersteunt nu de diagnostische gegevens. Dit betekent dat u kunt het verzamelen van diagnostische gegevens en zorg ervoor dat uw toepassing maakt Hallo rechts traceringen tijdens het ontwikkelen en testen in Visual Studio. Hallo verbindingsreeks `UseDevelopmentStorage=true` kunt verzamelen van diagnostische gegevens, terwijl u uw cloudserviceproject in Visual Studio uitvoert met behulp van hello Azure-opslagemulator. Alle diagnostische gegevens worden verzameld in opslagaccount hello (ontwikkeling opslag).
+* Hallo diagnostics account verbindingsreeks voor opslag (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) wordt nog een keer opgeslagen in hello (.cscfg) serviceconfiguratiebestand. In de Azure SDK 2.5 is Hallo diagnostics storage-account opgegeven in Hallo diagnostics.wadcfgx bestand.
 
-Er zijn enkele belangrijke verschillen tussen hoe de verbindingsreeks in de Azure SDK 2.4 en eerder heeft gewerkt, en hoe het werkt in de Azure SDK 2.6 en hoger.
+Er zijn enkele belangrijke verschillen tussen hoe Hallo-verbindingsreeks in de Azure SDK 2.4 en eerder gegaan en hoe het werkt in de Azure SDK 2.6 en hoger.
 
-* In Azure SDK 2.4 en eerdere versies, is de verbindingsreeks gebruikt als een runtime door de invoegtoepassing diagnostische gegevens ophalen van de accountgegevens voor de opslag voor het overdragen van diagnostische logboeken.
-* In Azure SDK 2.6 en hoger, wordt de verbindingsreeks van de diagnostische gegevens door Visual Studio gebruikt voor het configureren van de extensie voor diagnostische gegevens met de juiste opslag gegevens tijdens de publicatie. De verbindingsreeks kunt u verschillende opslagaccounts voor verschillende configuraties die door Visual Studio wordt gebruikt bij het publiceren van definiëren. Omdat de diagnostics-invoegtoepassing (na de Azure SDK 2,5) niet langer beschikbaar is, kan niet het cscfg-bestand zelf echter de extensie voor diagnostische gegevens inschakelen. U moet de extensie afzonderlijk via hulpprogramma's zoals Visual Studio of PowerShell inschakelen.
-* De uitvoer van het pakket van Visual Studio bevat ook de openbare configuratie-XML voor de extensie voor diagnostische gegevens voor elke rol voor het vereenvoudigen van de extensie voor diagnostische gegevens configureren met PowerShell. De verbindingsreeks diagnostics Visual Studio gebruikt voor het vullen van de opslag-accountgegevens die aanwezig zijn in de openbare configuratie. De openbare configuratiebestanden worden gemaakt in de map extensies en volg het patroon PaaSDiagnostics. <RoleName>. PubConfig.xml. Alle implementaties op basis van PowerShell kunnen dit patroon gebruiken voor elke configuratie worden toegewezen aan een rol.
-* De verbindingsreeks in het .cscfg-bestand wordt ook gebruikt door de Azure-portal om diagnostische gegevens zodat het kan worden weergegeven de **bewaking** tabblad. De verbindingsreeks is nodig voor de service configureren voor het uitgebreide bewakingsgegevens weergeven in de portal.
+* In de Azure SDK 2.4 en eerder is Hallo-verbindingsreeks gebruikt als een runtime door Hallo diagnostics tooget Hallo storage account informatie over de invoegtoepassing voor het overdragen van diagnostische logboeken.
+* In Azure SDK 2.6 en hoger worden Hallo diagnostics verbindingsreeks wordt gebruikt door de extensie voor Visual Studio tooconfigure Hallo diagnostische gegevens met gegevens van de juiste opslag Hallo tijdens de publicatie. Hallo-verbindingsreeks kunt u verschillende opslagaccounts voor verschillende configuraties die door Visual Studio wordt gebruikt bij het publiceren van definiëren. Omdat Hallo diagnostics-invoegtoepassing (na de Azure SDK 2,5) niet langer beschikbaar is, kan niet Hallo cscfg-bestand zelf echter Hallo extensie voor diagnostische gegevens inschakelen. U hebt tooenable Hallo extensie afzonderlijk via hulpprogramma's zoals Visual Studio of PowerShell.
+* toosimplify hello proces van het Hallo-extensie voor diagnostische gegevens configureren met PowerShell, Hallo pakket uitvoer vanuit Visual Studio bevat ook Hallo openbare configuratie-XML voor Hallo-extensie voor diagnostische gegevens voor elke rol. Visual Studio gebruikt Hallo diagnostics toopopulate Hallo storage account verbindingsinformatie aanwezig is in de openbare configuratie Hallo. Hallo openbare config-bestanden worden gemaakt in de map extensies Hallo en Hallo patroon PaaSDiagnostics volgen. <RoleName>. PubConfig.xml. Alle implementaties op basis van PowerShell kunnen gebruiken dit patroon toomap elke configuratie tooa rol.
+* Hallo verbindingsreeks in Hallo .cscfg-bestand wordt ook gebruikt door Hallo Hallo diagnostics-gegevens van Azure portal tooaccess zodat het kan worden weergegeven in Hallo **bewaking** tabblad Hallo-verbindingsreeks is benodigde tooconfigure Hallo service tooshow uitgebreide het bewaken van gegevens in Hallo-portal.
 
-#### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migreren projecten op Azure SDK 2.6 en hoger
-Wanneer u migreert van Azure SDK 2.5 naar Azure SDK 2.6 of hoger, als u een opslagaccount voor diagnostische gegevens opgegeven in het bestand .wadcfgx had, vervolgens blijft er. Als u wilt profiteren van de flexibiliteit van het gebruik van verschillende storage-accounts voor opslagconfiguraties verschillende, hebt u de verbindingsreeks handmatig toevoegen aan uw project. Als u een project waarnaar u migreert van Azure SDK 2.4 of eerder in Azure SDK 2.6, blijven de verbindingsreeksen van diagnostische gegevens behouden. Let echter de wijzigingen in hoe verbindingsreeksen worden behandeld in de Azure SDK 2.6 zoals opgegeven in de vorige sectie.
+#### <a name="migrating-projects-tooazure-sdk-26-and-later"></a>Migreren projecten tooAzure SDK 2.6 en hoger
+Bij het migreren van Azure SDK 2.5 tooAzure SDK 2.6 of hoger, als u een opslagaccount voor diagnostische gegevens opgegeven in Hallo .wadcfgx bestand had vervolgens blijft er. tootake profiteren van Hallo flexibiliteit voor het gebruik van andere opslag van accounts voor opslagconfiguraties verschillende, hebt u toomanually Hallo connection string tooyour project toevoegen. Als u een project waarnaar u migreert van Azure SDK 2.4 of eerdere tooAzure SDK 2.6, Hallo vervolgens diagnostics verbindingsreeksen behouden blijven. Let echter Hallo wijzigingen in hoe verbindingsreeksen worden behandeld in de Azure SDK 2.6 zoals opgegeven in de vorige sectie Hallo.
 
-#### <a name="how-visual-studio-determines-the-diagnostics-storage-account"></a>Hoe de opslagaccount voor diagnostische gegevens in Visual Studio wordt bepaald
-* Als een verbindingsreeks diagnostische gegevens in het .cscfg-bestand is opgegeven, wordt het in Visual Studio gebruikt voor het configureren van de extensie voor diagnostische gegevens bij het publiceren en bij het genereren van de openbare configuratie-xml-bestanden tijdens pakketten.
-* Als geen diagnostische gegevens verbindingsreeks is opgegeven in het .cscfg-bestand, klikt u vervolgens terugvalt Visual Studio op het storage-account opgegeven in het bestand .wadcfgx met de extensie voor diagnostische gegevens bij het publiceren van en het genereren van de openbare configuratie-xml-bestanden configureren Wanneer verpakken.
-* De verbindingsreeks voor diagnostische gegevens in het .cscfg-bestand heeft voorrang op de storage-account in het bestand .wadcfgx. Als een verbindingsreeks diagnostics is opgegeven in het .cscfg-bestand, Visual Studio die wordt gebruikt en het opslagaccount in .wadcfgx worden genegeerd.
+#### <a name="how-visual-studio-determines-hello-diagnostics-storage-account"></a>Hoe Visual Studio bepaalt Hallo opslagaccount voor diagnostische gegevens
+* Als een verbindingsreeks diagnostische gegevens is opgegeven in het .cscfg-bestand hello, Visual Studio gebruikt deze extensie voor diagnostische gegevens van tooconfigure Hallo bij het publiceren en bij het genereren van Hallo openbare configuratie voor XML-bestanden tijdens de verpakking.
+* Als geen verbindingsreeks diagnostics is opgegeven in het .cscfg-bestand hello, klikt u vervolgens terugvalt Visual Studio toousing Hallo storage-account opgegeven in Hallo .wadcfgx bestand tooconfigure Hallo extensie voor diagnostische gegevens bij het publiceren en Hallo openbare genereren XML-configuratiebestanden wanneer verpakken.
+* Hallo diagnostics verbindingsreeks in Hallo .cscfg-bestand heeft voorrang op Hallo storage-account in Hallo .wadcfgx bestand. Als u een verbindingsreeks diagnostics is opgegeven in Hallo cscfg-bestand, vervolgens Visual Studio wordt gebruikt, wordt en Hallo storage-account in .wadcfgx worden genegeerd.
 
-#### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>Wat doet de 'Update ontwikkeling storage-verbindingsreeksen..." selectievakje doen?
-Het selectievakje voor **bijwerken van ontwikkeling storage-verbindingsreeksen voor diagnostische gegevens en opslaan in cache met Microsoft Azure storage-accountreferenties bij het publiceren van Microsoft Azure** biedt u een handige manier om bij te werken van alle ontwikkeling opslagaccountverbindingsreeksen met de Azure storage-account dat is opgegeven tijdens de publicatie.
+#### <a name="what-does-hello-update-development-storage-connection-strings-checkbox-do"></a>Wat Hallo 'Bijwerken ontwikkeling storage-verbindingsreeksen...' selectievakje doen?
+selectievakje voor Hallo **bijwerken van ontwikkeling storage-verbindingsreeksen voor diagnostische gegevens en opslaan in cache met Microsoft Azure storage-accountreferenties bij het publiceren van tooMicrosoft Azure** beschikt u over een handige manier tooupdate ieder ontwikkeling opslagaccountverbindingsreeksen met hello Azure storage-account is opgegeven tijdens de publicatie.
 
-Stel bijvoorbeeld dat u dit selectievakje inschakelt en de verbindingsreeks voor diagnostische gegevens `UseDevelopmentStorage=true`. Wanneer u het project naar Azure publiceert, wordt Visual Studio de verbindingsreeks van diagnostische gegevens automatisch bijgewerkt met de storage-account dat u hebt opgegeven in de wizard publiceren. Echter, als een echte storage-account is opgegeven als de verbindingsreeks van diagnostische gegevens, klikt u vervolgens dat account wordt gebruikt in plaats daarvan.
+Stel bijvoorbeeld dat u dit selectievakje inschakelt en Hallo diagnostics verbindingsreeks `UseDevelopmentStorage=true`. Wanneer u Hallo project tooAzure publiceert, wordt Visual Studio Hallo diagnostics verbindingsreeks automatisch bijgewerkt met de Hallo storage-account die u hebt opgegeven in de wizard Publiceren Hallo. Echter, als een echte storage-account is opgegeven als Hallo diagnostische gegevens van de verbindingsreeks, vervolgens dat account wordt gebruikt in plaats daarvan.
 
 ### <a name="diagnostics-functionality-differences-between-azure-sdk-24-and-earlier-and-azure-sdk-25-and-later"></a>Diagnostische functionaliteit verschillen tussen Azure SDK 2.4 en eerder en Azure SDK 2,5 en hoger
-Als u een uw project van Azure SDK 2.4 naar Azure SDK 2.5 of hoger upgrade uitvoert, moet u vergeet de volgende verschillen van de diagnostics-functionaliteit.
+Als u een uw project van Azure SDK 2.4 tooAzure SDK 2.5 of hoger upgrade uitvoert, moet u er rekening mee Hallo volgende diagnostische functionaliteit verschillen vergeet.
 
-* **Configuratie-API's zijn afgeschaft** – programmatische configuratie van diagnostische gegevens is beschikbaar in de Azure SDK 2.4 of eerdere versies, maar is afgeschaft in Azure SDK 2.5 en hoger. Als uw configuratie van diagnostische momenteel in de code is gedefinieerd, moet u die instellingen vanaf het begin in het gemigreerde project in de volgorde voor diagnostische gegevens blijven werken opnieuw configureren. Het configuratiebestand van de diagnostische gegevens voor Azure SDK 2.4 is diagnostics.wadcfg en diagnostics.wadcfgx voor Azure SDK 2.5 of hoger.
-* **Diagnostische gegevens voor cloud-servicetoepassingen kan alleen worden geconfigureerd op het niveau van de functie niet op het niveau van het exemplaar.**
-* **Telkens wanneer u uw app implementeert, wordt de configuratie van diagnostische bijgewerkt** : dit kan pariteit problemen veroorzaken als u de configuratie van de diagnostische gegevens in Server Explorer te wijzigen en vervolgens uw app te implementeren.
-* **In de Azure SDK 2.5 en hoger crashdumps zijn geconfigureerd in het configuratiebestand van de diagnostische gegevens niet in de code** – als u geconfigureerd in de code crashdumps hebt, hebt u de configuratie van code handmatig te zetten naar het configuratiebestand, omdat de crashdumps worden niet tijdens de migratie naar Azure SDK 2.6 overgedragen.
+* **Configuratie-API's zijn afgeschaft** – programmatische configuratie van diagnostische gegevens is beschikbaar in de Azure SDK 2.4 of eerdere versies, maar is afgeschaft in Azure SDK 2.5 en hoger. Als uw configuratie van diagnostische momenteel in de code is gedefinieerd, moet u tooreconfigure die instellingen vanaf het begin in gemigreerde Hallo-project in volgorde van diagnostische gegevens tookeep werken. Hallo diagnostics-configuratiebestand voor de Azure SDK 2.4 is diagnostics.wadcfg en diagnostics.wadcfgx voor Azure SDK 2.5 of hoger.
+* **Diagnostische gegevens voor cloud-servicetoepassingen kan alleen worden geconfigureerd op Hallo rolniveau, niet op instantieniveau Hallo.**
+* **Telkens wanneer u uw app implementeert, configuratie van diagnostische hello wordt bijgewerkt** : dit kan pariteit problemen veroorzaken als u de configuratie van de diagnostische gegevens in Server Explorer te wijzigen en vervolgens uw app te implementeren.
+* **In de Azure SDK 2.5 en hoger crashdumps zijn geconfigureerd in Hallo diagnostics-configuratiebestand niet in de code** – als u geconfigureerd in de code crashdumps hebt, hebt u toomanually overdracht Hallo configuratie uit het configuratiebestand van de code toohello, omdat Hallo crashdumps worden niet overgedragen tijdens Hallo migratie tooAzure SDK 2.6.
 

@@ -1,6 +1,6 @@
 ---
-title: Dezelfde Office 365-ervaring op elk apparaat met Azure RemoteApp | Microsoft Docs
-description: Lees hoe u een Office 365-app deelt met uw gebruikers met behulp van Azure RemoteApp.
+title: aaaGet Hallo dezelfde Office 365-ervaring op elk apparaat met Azure RemoteApp | Microsoft Docs
+description: Meer informatie over hoe tooshare elke Office 365-app met uw gebruikers met behulp van Azure RemoteApp.
 services: remoteapp
 documentationcenter: 
 author: guscatalano
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 11/23/2016
 ms.author: guscatal;elizapo
-ms.openlocfilehash: 584c781c97097cda3c1455ade05cba8659f11073
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 140056c22c8c69b9ec605318e35a72b144da07eb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-the-same-office-365-experience-on-any-device-with-azure-remoteapp"></a>Dezelfde Office 365-ervaring op elk apparaat met Azure RemoteApp
+# <a name="get-hello-same-office-365-experience-on-any-device-with-azure-remoteapp"></a>Get Hallo dezelfde Office 365-ervaring op elk apparaat met Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees Hallo [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
 > 
 
-In dit artikel wordt uitgelegd hoe u Office 365 implementeert op elk apparaat in uw bedrijf. Uw gebruikers beschikken op Android, Apple en Windows over dezelfde mogelijkheden en gebruikersinterface.
+Dit artikel wordt uitgelegd hoe toodeploy Office 365 op elk apparaat in uw bedrijf. Uw gebruikers toegang krijgen Hallo dezelfde mogelijkheden en gebruikersinterface ervaring voor Android, Apple en Windows.
 
 We kunnen dit met Azure RemoteApp bewerkstelligen door Office 365 te hosten op schaalbare virtuele machines in Azure, waarmee gebruikers verbinding kunnen maken. Deze set van virtuele machines noemen we een 'cloudverzameling'.
 
 ## <a name="create-a-cloud-collection"></a>Een cloudverzameling maken
-Ga nadat u een Azure-account hebt gemaakt eerst naar **RemoteApp** door op de koppeling aan de linkerkant te klikken.
-![Azure RemoteApp in Azure Portal](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
+Eerst nadat u een Azure-account hebt gemaakt, gaat u te**RemoteApp** door te klikken op Hallo-koppeling op Hallo linkerkant.
+![Azure RemoteApp wordt weergegeven op Hallo Azure Portal](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
 
-Klik vervolgens onderaan op **Nieuw** en kies voor het 'snel maken' van een verzameling. Geef een naam, de regio, het abonnement, het plan en de 'Office Proffesional 2013'-installatiekopie die wij verstrekken op.
+Ga verder door te klikken op **nieuwe** op Hallo onder en 'snel maken' een verzameling. Geef een naam, Hallo regio, Hallo abonnement, Hallo-plan en Hallo installatiekopie 'Office Proffesional 2013' die wij verstrekken.
 ![Dialoogvenster Maken](./media/remoteapp-tutorial-o365anywhere/2-quickcreate.png)
 
-Wanneer u het formulier hebt ingevuld, wordt het proces voor het maken van de verzameling gestart. Dit duurt ongeveer een uur.
+Hallo formulier Hallo verzameling maken van het proces moet worden gestart wanneer u klaar bent. Dit kan tooan uur duren.
 
 ![Wachten](./media/remoteapp-tutorial-o365anywhere/3-waiting.png)
 
-Als dit proces is voltooid, ziet dit er ongeveer als volgt uit. Als u op **Publiceren** klikt, ziet u dat de meeste Office-toepassingen al zijn gepubliceerd.
+Zodra het Hallo-proces is voltooid, er ongeveer als volgt. Als u op **Publiceren** klikt, ziet u dat de meeste Office-toepassingen al zijn gepubliceerd.
 ![Verzameling gemaakt](./media/remoteapp-tutorial-o365anywhere/4-done.png)
 
 ![Gepubliceerde apps](./media/remoteapp-tutorial-o365anywhere/5-publish.png)
 
-Nu kunt u ook op **Gebruikerstoegang** klikken om meer gebruikers toe te voegen die toegang hebben tot deze verzameling.
+Op dit moment kunt u ook meer gebruikers die toegang toothis verzameling hebben door te klikken op toevoegen **gebruikerstoegang**.
 ![Gebruikerstoegang configureren](./media/remoteapp-tutorial-o365anywhere/6-user.png)
 
-Nu gaan we proberen verbinding te maken met Office 365.
+Nu gaan we proberen verbinding te maken tooOffice 365!
 
-## <a name="connect-to-office-365"></a>Verbinding maken met Office 365
-Ga naar [https://www.remoteapp.windowsazure.com/](https://www.remoteapp.windowsazure.com/), schuif naar beneden en klik op **Clients downloaden** om de Azure RemoteApp-client op uw apparaat te installeren. De onderstaande schermafbeeldingen zijn voor Windows.
+## <a name="connect-toooffice-365"></a>Verbinding maken met tooOffice 365
+We je head via te[https://www.remoteapp.windowsazure.com/](https://www.remoteapp.windowsazure.com/), schuif naar beneden en klik op **clients downloaden** tooinstall hello Azure RemoteApp-client op Hallo apparaat. Hallo onderstaande schermafbeeldingen zijn voor Windows.
 
-Zodra de toepassing wordt gestart, wordt u gevraagd om u aan te melden met uw Microsoft-account (voorheen een 'Live-ID'). Gebruik nu uw Azure-account. Wanneer u bent aangemeld, ziet u een melding over nieuwe uitnodigingen. Klik op de melding, waarna een lijst zoals hieronder wordt weergegeven. Accepteer de uitnodiging die overeenkomt met het e-mailadres de eigenaar van uw Azure-account.
+Zodra de toepassing hello Start wordt u gevraagd toosign met uw Microsoft-account (voorheen een 'Live-ID'), gebruik Hallo dezelfde die uw Azure-account nu. Wanneer u bent aangemeld, ziet u een melding over nieuwe uitnodigingen. Klik op de melding, waarna een lijst zoals hieronder wordt weergegeven. Hallo-uitnodiging die overeenkomt met uw e-mailadres Azure-account eigenaar accepteren.
 
 ![Nieuwe uitnodiging](./media/remoteapp-tutorial-o365anywhere/7-araclient.png)
 
@@ -62,11 +62,11 @@ Zo ziet het eruit wanneer er nieuwe uitnodigingen zijn.
 
 ![Een toepassing accepteren](./media/remoteapp-tutorial-o365anywhere/8-invitation.png)
 
-Wanneer u de uitnodiging hebt geaccepteerd, worden alle Office-apps weergegeven in de Azure RemoteApp-client.
+U ziet alle Hallo Office-apps in Azure RemoteApp-client Hallo zodra u Hallo uitnodiging accepteren.
 
 ![Lijst met apps](./media/remoteapp-tutorial-o365anywhere/9-work.png)
 
-Wanneer u op een van deze toepassing klikt, wordt deze gestart op de virtuele machine van Azure en kunt u ermee aan de slag. Veel plezier!
+Wanneer u klikt op een van deze toepassing hello moeten worden gestart op Hallo virtuele machine van Azure en u moet alle! Veel plezier!
 
 ![starten](./media/remoteapp-tutorial-o365anywhere/10-arastart.png)
 

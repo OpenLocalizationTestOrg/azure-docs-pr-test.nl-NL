@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service Quick Start - DC/OS-Cluster implementeren | Microsoft Docs
+title: aaaAzure Container Service Quick Start - DC/OS-Cluster implementeren | Microsoft Docs
 description: Azure Container Service Quick Start - DC/OS-Cluster implementeren
 services: container-service
 documentationcenter: 
@@ -17,23 +17,23 @@ ms.workload: na
 ms.date: 08/04/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a31170369de9bc1ddcddb97171281b0014af95f9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: b961f15bd73deeafda5a3fc25ab53c839195219b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-a-dcos-cluster"></a>Een DC/OS-cluster implementeren
 
-DC/OS biedt een gedistribueerde platform voor lopende moderne en beperkte toepassingen. Met Azure Container Service is het inrichten van een productie gereed DC/OS-cluster snel en eenvoudig. Deze informatie snel starten de eenvoudige stappen die nodig zijn voor het implementeren van een DC/OS-cluster en basic werkbelasting uitvoeren.
+DC/OS biedt een gedistribueerde platform voor lopende moderne en beperkte toepassingen. Met Azure Container Service is het inrichten van een productie gereed DC/OS-cluster snel en eenvoudig. Deze eenvoudige stappen voor snel starten details Hallo nodig toodeploy een DC/OS-cluster en voer basic werkbelasting.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Voor deze zelfstudie is versie 2.0.4 of hoger van de Azure CLI vereist. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Deze zelfstudie vereist hello Azure CLI versie 2.0.4 of hoger. Voer `az --version` toofind Hallo versie. Als u tooupgrade moet, Zie [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). 
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure. 
+## <a name="log-in-tooazure"></a>Meld u bij tooAzure 
 
-Meld u aan bij uw Azure-abonnement met de opdracht [az login](/cli/azure/#login) en volg de instructies op het scherm.
+Meld u bij de Azure-abonnement met Hallo tooyour [az aanmelding](/cli/azure/#login) opdracht in en volg Hallo op het scherm instructies.
 
 ```azurecli
 az login
@@ -41,9 +41,9 @@ az login
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
+Een resourcegroep maken met de Hallo [az groep maken](/cli/azure/group#create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
-In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
+Hallo volgende voorbeeld maakt u een resourcegroep met de naam *myResourceGroup* in Hallo *eastus* locatie.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -51,9 +51,9 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-dcos-cluster"></a>DC/OS-cluster maken
 
-Maken van een DC/OS-cluster met de [az acs maken](/cli/azure/acs#create) opdracht.
+Maken van een DC/OS-cluster met Hallo [az acs maken](/cli/azure/acs#create) opdracht.
 
-Het volgende voorbeeld wordt een DC/OS-cluster met de naam *myDCOSCluster* en SSH-sleutels gemaakt als deze niet al bestaan. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  
+Hallo volgende voorbeeld maakt u een DC/OS-cluster met de naam *myDCOSCluster* en SSH-sleutels gemaakt als deze niet al bestaan. toouse een specifieke verzameling van sleutels, gebruikt u Hallo `--ssh-key-value` optie.  
 
 ```azurecli
 az acs create \
@@ -63,39 +63,39 @@ az acs create \
   --generate-ssh-keys
 ```
 
-Na enkele minuten, de opdracht is voltooid en retourneert informatie over de implementatie.
+Hallo-opdracht is voltooid en retourneert informatie over de implementatie van Hallo na enkele minuten.
 
-## <a name="connect-to-dcos-cluster"></a>Verbinding maken met DC/OS-cluster
+## <a name="connect-toodcos-cluster"></a>Verbinding maken met tooDC/OS-cluster
 
-Zodra een DC/OS-cluster is gemaakt, kan het zijn toegang tot en met een SSH-tunnel. Voer de volgende opdracht om te retourneren van het openbare IP-adres van de DC/OS-master. Dit IP-adres is opgeslagen in een variabele en gebruikt in de volgende stap.
+Zodra een DC/OS-cluster is gemaakt, kan het zijn toegang tot en met een SSH-tunnel. Hallo volgende opdracht tooreturn Hallo openbare IP-adres van de DC/OS-master Hallo worden uitgevoerd. Dit IP-adres is opgeslagen in een variabele en gebruikt in de volgende stap Hallo.
 
 ```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
-De SSH-tunnel maken, voert de volgende opdracht uit en volg de aanwijzingen op het scherm instructies. Als poort 80 al in gebruik is is, mislukt de opdracht. De via een tunnel poort naar een niet in gebruik, zoals bijwerken `85:localhost:80`. 
+toocreate Hallo SSH-tunnel, Hallo volgende opdracht uitvoeren en volg Hallo op het scherm instructies. Als poort 80 al in gebruik is is, mislukt de Hallo-opdracht. Update Hallo via een tunnel tooone poort niet in gebruik, zoals `85:localhost:80`. 
 
 ```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
-De SSH-tunnel kan worden getest door te bladeren naar `http://localhost`. Als een poort andere 80 is bereikt, de locatie moet worden gezocht aanpassen. 
+Hallo SSH-tunnel kan worden getest door te bladeren`http://localhost`. Als een poort andere 80 is bereikt, Hallo locatie toomatch aanpassen. 
 
-Als de SSH-tunnel is gemaakt, wordt de DC/OS-portal geretourneerd.
+Als de SSH-tunnel Hallo is gemaakt, wordt Hallo DC/OS-portal geretourneerd.
 
 ![DCOS GEBRUIKERSINTERFACE](./media/container-service-dcos-quickstart/dcos-ui.png)
 
 ## <a name="install-dcos-cli"></a>DC/OS CLI installeren
 
-De DC/OS-opdrachtregelinterface wordt gebruikt voor het beheren van een DC/OS-cluster vanaf de opdrachtregel. Installeer de DC/OS cli met de [az acs dcos install-cli](/azure/acs/dcos#install-cli) opdracht. Als u Azure CloudShell gebruikt, wordt de DC/OS CLI is al geïnstalleerd. 
+Hallo-opdrachtregelinterface voor DC/OS is gebruikte toomanage een DC/OS-cluster met Hallo vanaf de opdrachtregel. Hallo DC/OS cli met Hallo installeren [az acs dcos install-cli](/azure/acs/dcos#install-cli) opdracht. Als u Azure CloudShell, Hallo DC/OS CLI is al geïnstalleerd. 
 
-Als u de Azure CLI voor Mac OS- of Linux uitvoert, moet u mogelijk de opdracht uitvoert met sudo.
+Als u hello Azure CLI voor Mac OS- of Linux uitvoert, moet u mogelijk toorun Hallo opdracht met sudo.
 
 ```azurecli
 az acs dcos install-cli
 ```
 
-Voordat de CLI kan worden gebruikt met het cluster, moet deze worden geconfigureerd voor het gebruik van de SSH-tunnel. Voer de volgende opdracht, de poort aan te passen, indien nodig om dit te doen.
+Voordat u Hallo die CLI kan worden gebruikt met Hallo-cluster, moet dit geconfigureerde toouse Hallo SSH-tunnel. toodo uitgevoerd dus Hallo de volgende opdracht, Hallo-poort aan te passen, indien nodig.
 
 ```azurecli
 dcos config set core.dcos_url http://localhost
@@ -103,7 +103,7 @@ dcos config set core.dcos_url http://localhost
 
 ## <a name="run-an-application"></a>Een toepassing uitvoeren
 
-De standaardwaarde planning mechanisme voor een ACS-DC/OS-cluster is Marathon. Marathon wordt gebruikt om een toepassing starten en beheren van de status van de toepassing op de DC/OS-cluster. Als u een toepassing via Marathon plannen, maakt u een bestand met de naam *marathon app.json*, en kopieer de volgende inhoud in de App. 
+Hallo-standaardwaarde planning mechanisme voor een ACS-DC/OS-cluster is Marathon. Marathon gebruikte toostart is een toepassing en status van toepassing op de DC/OS-cluster Hallo HALLO hallo beheren. tooschedule een toepassing via Marathon, maak een bestand met de naam *marathon app.json*, en kopiëren Hallo inhoud in de App. 
 
 ```json
 {
@@ -135,38 +135,38 @@ De standaardwaarde planning mechanisme voor een ACS-DC/OS-cluster is Marathon. M
 }
 ```
 
-Voer de volgende opdracht om te plannen van de toepassing uit te voeren op de DC/OS-cluster.
+Hallo opdracht tooschedule Hallo toepassing toorun volgen op Hallo DC/OS-cluster worden uitgevoerd.
 
 ```azurecli
 dcos marathon app add marathon-app.json
 ```
 
-Overzicht van de implementatiestatus voor de app, voer de volgende opdracht.
+Hallo Implementatiestatus toosee voor Hallo-app Hallo volgende opdracht uitvoeren.
 
 ```azurecli
 dcos marathon app list
 ```
 
-Wanneer de **WACHTEN** kolomwaarde verandert van *True* naar *False*, implementatie van toepassing is voltooid.
+Wanneer Hallo **WACHTEN** kolomwaarde verandert van *True* te*False*, implementatie van toepassing is voltooid.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
 
-Haal het openbare IP-adres van de agents DC/OS-cluster.
+Hallo openbare IP-adres van Hallo DC/OS-cluster agents worden opgehaald.
 
 ```azurecli
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
-Bladeren naar dit adres retourneert de standaard NGINX-site.
+Bladeren door toothis adres retourneert Hallo standaard NGINX-site.
 
 ![NGINX](./media/container-service-dcos-quickstart/nginx.png)
 
 ## <a name="delete-dcos-cluster"></a>DC/OS-cluster verwijderen
 
-Wanneer deze niet langer nodig is, kunt u de [az groep verwijderen](/cli/azure/group#delete) opdracht voor het verwijderen van de resourcegroep, DC/OS-cluster, en alle bijbehorende resources.
+Wanneer deze niet langer nodig is, kunt u Hallo [az groep verwijderen](/cli/azure/group#delete) opdracht tooremove Hallo-resourcegroep, DC/OS-cluster en alle gerelateerde resources.
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait
@@ -174,7 +174,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snel starten moet u een DC/OS-cluster hebt geïmplementeerd en een eenvoudige Docker-container hebt uitgevoerd op het cluster. Blijven de ACS-zelfstudies voor meer informatie over Azure Container Service.
+In deze snel starten een DC/OS-cluster hebt geïmplementeerd en een eenvoudige Docker-container op Hallo cluster hebt uitgevoerd. toolearn meer informatie over Azure Container Service blijven toohello ACS zelfstudies.
 
 > [!div class="nextstepaction"]
 > [Een ACS-DC/OS-Cluster beheren](container-service-dcos-manage-tutorial.md)

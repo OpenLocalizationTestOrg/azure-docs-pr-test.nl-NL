@@ -1,26 +1,26 @@
-## <a name="install-the-prerequisites"></a>De vereiste software installeren
+## <a name="install-hello-prerequisites"></a>Hallo vereisten installeren
 
-1. Installeer [Visual Studio 2015 of 2017](https://www.visualstudio.com). U kunt de editie free-Community gebruiken als u voldoet aan de licentievereisten. Zorg dat u Visual C++ en NuGet Package Manager bevatten.
+1. Installeer [Visual Studio 2015 of 2017](https://www.visualstudio.com). U kunt Hallo Community Edition gratis als u voldoen aan de licentievereisten Hallo. Worden ervoor tooinclude Visual C++ en NuGet Package Manager.
 
-1. Installeer [git](http://www.git-scm.com) en zorg ervoor dat u kunt git.exe uitvoeren vanaf de opdrachtregel.
+1. Installeer [git](http://www.git-scm.com) en zorg ervoor dat u kunt git.exe uitvoeren vanaf de opdrachtregel Hallo.
 
-1. Installeer [CMake](https://cmake.org/download/) en zorg ervoor dat u kunt cmake.exe uitvoeren vanaf de opdrachtregel. CMake versie 3.7.2 of later wordt aanbevolen. De **.msi** installatieprogramma is de eenvoudigste optie in Windows. Voeg ten minste CMake toe aan het pad voor de huidige gebruiker wanneer het installatieprogramma wordt u gevraagd.
+1. Installeer [CMake](https://cmake.org/download/) en zorg ervoor dat u kunt cmake.exe uitvoeren vanaf de opdrachtregel Hallo. CMake versie 3.7.2 of later wordt aanbevolen. Hallo **.msi** installatieprogramma is de eenvoudigste optie Hallo in Windows. Toevoegen van CMake toohello pad voor de huidige gebruiker ten minste Hallo wanneer u vraagt Hallo-installatieprogramma.
 
-1. Installeer [Python 2.7](https://www.python.org/downloads/release/python-27). Zorg ervoor dat u bij het toevoegen van Python die moet worden uw `PATH` omgevingsvariabele in **Configuratiescherm -> systeem -> Advanced systeeminstellingen -> omgevingsvariabelen**.
+1. Installeer [Python 2.7](https://www.python.org/downloads/release/python-27). Zorg ervoor dat u toevoegt Python tooyour `PATH` omgevingsvariabele in **Configuratiescherm -> systeem -> Advanced systeeminstellingen -> omgevingsvariabelen**.
 
-1. Voer bij een opdrachtprompt de volgende opdracht voor het klonen van de Azure IoT rand GitHub-opslagplaats met uw lokale machine:
+1. Voer bij een opdrachtprompt Hallo opdracht tooclone hello Azure IoT rand GitHub-opslagplaats tooyour lokale computer te volgen:
 
     ```cmd
     git clone https://github.com/Azure/iot-edge.git
     ```
 
-## <a name="how-to-build-the-sample"></a>Het voorbeeld maken
+## <a name="how-toobuild-hello-sample"></a>Hoe toobuild voorbeeld Hallo
 
-Nu kunt u de rand van de IoT-runtime en voorbeelden bouwen op uw lokale machine:
+U kunt nu opbouwen Hallo IoT rand runtime en voorbeelden op uw lokale machine:
 
 1. Open een **opdrachtprompt voor ontwikkelaars voor VS 2015** of **opdrachtprompt voor ontwikkelaars voor VS 2017** opdrachtprompt.
 
-1. Navigeer naar de hoofdmap van uw lokale exemplaar van de **iot-edge**-opslagplaats.
+1. Navigeer toohello hoofdmap in de lokale kopie van Hallo **iot-edge** opslagplaats.
 
 1. Voer het build-script als volgt:
 
@@ -28,7 +28,7 @@ Nu kunt u de rand van de IoT-runtime en voorbeelden bouwen op uw lokale machine:
     tools\build.cmd --disable-native-remote-modules
     ```
 
-Dit script maakt een bestand van Visual Studio-oplossing en de oplossing is gebaseerd. U vindt de Visual Studio-oplossing in de **bouwen** map in de lokale kopie van de **iot-edge** opslagplaats. Als u wilt bouwen en de eenheidstests uitvoeren, voegt de `--run-unittests` parameter. Als u wilt bouwen en de end-to-end-tests uitvoeren, voegt de `--run-e2e-tests`.
+Dit script maakt een bestand van Visual Studio-oplossing en bouwt Hallo-oplossing. U vindt Hallo Visual Studio-oplossing in Hallo **bouwen** map in het lokale exemplaar van Hallo **iot-edge** opslagplaats. Als u wilt dat toobuild en Hallo eenheidstests uitvoeren, toevoegen Hallo `--run-unittests` parameter. Als u wilt dat toobuild en Hallo end tooend tests uitvoeren, toevoegen Hallo `--run-e2e-tests`.
 
 > [!NOTE]
-> Telkens wanneer u uitvoert het **build.cmd** script, op het worden verwijderd en vervolgens opnieuw de **bouwen** map in de hoofdmap van uw lokale exemplaar van de **iot-edge** opslagplaats.
+> Telkens wanneer u Hallo uitvoert **build.cmd** -script wordt verwijderd en vervolgens opnieuw gemaakt Hallo **bouwen** map in de hoofdmap Hallo van uw lokale exemplaar van Hallo **iot-edge** opslagplaats.

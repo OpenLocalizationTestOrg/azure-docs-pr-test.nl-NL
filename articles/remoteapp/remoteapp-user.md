@@ -1,6 +1,6 @@
 ---
-title: Een gebruiker toevoegen aan uw Azure RemoteApp-collectie | Microsoft Docs
-description: Informatie over het toevoegen van gebruikers aan uw Azure RemoteApp-verzameling
+title: een gebruiker tooyour Azure RemoteApp-verzameling aaaAdd | Microsoft Docs
+description: Meer informatie over hoe tooadd gebruikers tooyour Azure RemoteApp-verzameling
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,32 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 281e74c7941c42d8a3e4351953391229e54ce0a8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0ae88e04c8bfc2ed55dc963945ed7e9ff687b603
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-add-a-user-to-your-azure-remoteapp-collection"></a>Een gebruiker toevoegen aan uw Azure RemoteApp-verzameling
+# <a name="how-tooadd-a-user-tooyour-azure-remoteapp-collection"></a>Hoe tooadd een gebruiker tooyour Azure RemoteApp-verzameling
 > [!IMPORTANT]
-> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees Hallo [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
 > 
 
-Voordat u uw gebruikers kunnen zien en gebruiken van uw apps in Azure RemoteApp, die u moet ze toegang verlenen tot uw verzameling. Dit is het eenvoudig gedeelte: op de **gebruikerstoegang** tabblad, voer de accountgegevens voor de gebruiker en klik vervolgens op het vinkje.
+Voordat u uw gebruikers kunnen zien en gebruiken van uw apps in Azure RemoteApp, hebben ze toegang krijgen tot tooyour verzameling toogrant. Dit is een eenvoudig onderdeel Hallo: op Hallo **gebruikerstoegang** tabblad, Voer Hallo accountgegevens voor de gebruiker Hallo en klik vervolgens op het vinkje Hallo.
 
-Welke accountgegevens hebt u nodig? Die afhankelijk is van het type van verzameling u hebt gemaakt (cloud of hybride) en of u gebruikmaakt van Office 365 ProPlus in die verzameling.
+Welke accountgegevens hebt u nodig? Dat hangt Hallo type verzameling u hebt gemaakt (cloud of hybride) en of u gebruikmaakt van Office 365 ProPlus in die verzameling.
 
 ## <a name="supported-user-identities"></a>Ondersteunde gebruikers-id 's
-De van verschillende verzamelingtypen (cloud versus hybride) ondersteuning voor het gebruik van andere gebruikers-id's voor toegang tot toepassingen.  
+Hallo verschillende verzamelingtypen (cloud versus hybride) ondersteuning voor het gebruik van andere gebruikers-id's voor toegang tot tooapplications.  
 
-Voor een hybride verzameling van RemoteApp moet u een Active Directory-domein-infrastructuur lokale en een Azure Active Directory-tenant met Active Directory-integratie instellen (en desgewenst eenmalige aanmelding). Bovendien moet u enkele Active Directory-objecten maken in de on-premises directory.  
+Voor een hybride verzameling van RemoteApp, u moet tooset van een infrastructuur voor Active Directory-domein lokale en een Azure Active Directory-tenant met Active Directory-integratie (en desgewenst eenmalige aanmelding). Bovendien moet u toocreate sommige Active Directory-objecten in Hallo on-premises adreslijst.  
 
-Voor een cloudverzameling van RemoteApp, kan elke gebruiker met Azure Active Directory ondersteuning voor identiteiten gebruikerstoegang worden toegekend aan RemoteApp om op te nemen van Microsoft-Accounts.  Zie de onderstaande tabel.
+Voor een cloudverzameling van RemoteApp, kan elke gebruiker met Azure Active Directory ondersteuning voor identiteiten gebruiker toegang tooRemoteApp tooinclude Microsoft-Accounts worden verleend.  Zie de onderstaande tabel voor Hallo.
 
 Office 365-gebruikers zijn Azure Active Directory-gebruikers. Als ze hybride Azure Active Directory hebt, kunnen Directory-accounts gesynchroniseerd ze gebruikerstoegang krijgen in een hybride implementatie van RemoteApp.   
 
-U kunt deze tabel gebruiken als naslag waarvoor de identiteit die wordt ondersteund in de verzameling en wat de vereisten voor Active Directory zijn.
+U kunt deze tabel gebruiken als naslag waarvoor de identiteit die wordt ondersteund in de verzameling en wat Hallo Active Directory-vereisten zijn.
 
 | Gebruikersaccounts | Cloud | Hybride |
 | --- | --- | --- |
@@ -54,10 +54,10 @@ U kunt deze tabel gebruiken als naslag waarvoor de identiteit die wordt onderste
 Bekijk [meer informatie](remoteapp-ad.md) over het configureren van Active Directory voor RemoteApp.
 
 > [!NOTE]
-> De Azure Active Directory-gebruikers moeten afkomstig zijn van de tenant die aan uw abonnement is gekoppeld. (U kunt uw abonnement bekijken en wijzigen op het tabblad **Instellingen** in de portal. Zie [De Azure Active Directory-tenant wijzigen die wordt gebruikt door RemoteApp](remoteapp-changetenant.md) voor meer informatie.)
+> Hello Azure Active Directory-gebruikers moeten uit Hallo-tenant die gekoppeld is aan uw abonnement. (U kunt bekijken en wijzigen van uw abonnement op Hallo **instellingen** tabblad in Hallo-portal. Zie [wijziging hello Azure Active Directory-tenant die wordt gebruikt door RemoteApp](remoteapp-changetenant.md) voor meer informatie.)
 > 
 > 
 
 ## <a name="office-365-proplus-user-account-information"></a>Informatie over Office 365 ProPlus gebruikersaccount
-Als u de Office 365 ProPlus-sjablooninstallatiekopie in uw verzameling gebruikt *of* als u een aangepaste installatiekopie die gebruikmaakt van Office 365 hebt gemaakt, mogen u alleen Azure Active Directory-gebruikers met Office 365-abonnementen voor het standaarddomein van uw abonnement toe te voegen. Zie [Office 365 gebruiken met Azure RemoteApp](remoteapp-o365.md) voor meer informatie.
+Als u Office 365 ProPlus Hallo-sjablooninstallatiekopie in uw verzameling gebruikt *of* als u een aangepaste installatiekopie die gebruikmaakt van Office 365 hebt gemaakt, u mogen alleen tooadd Azure Active Directory-gebruikers die Office 365-abonnementen voor Hallo hebben standaarddomein van uw abonnement. Zie [Office 365 gebruiken met Azure RemoteApp](remoteapp-o365.md) voor meer informatie.
 

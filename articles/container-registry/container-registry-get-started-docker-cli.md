@@ -1,6 +1,6 @@
 ---
-title: "Een Docker-installatiekopie pushen naar uw privé-Azure-register | Microsoft Docs"
-description: "Docker-installatiekopieën pushen naar en ophalen van een privécontainerregister in Azure met de Docker-CLI"
+title: aaaPush Docker installatiekopie tooprivate Azure register | Microsoft Docs
+description: "Push als pull Docker installatiekopieën tooa privé-container register in Azure met behulp van Docker CLI Hallo"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -17,102 +17,102 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07d4d72e94eda02e8594dfddb0e911eb0e63012d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a81a6f4bfcb23642a89ac7631348d40e2f4911a8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Uw eerste installatiekopie naar een Docker-containerregister pushen met de Docker-CLI
-Een Azure-containerregister slaat persoonlijke [Docker](http://hub.docker.com)-containerinstallatiekopieën op en beheert ze, vergelijkbaar met de manier waarop [Docker Hub](https://hub.docker.com/) openbare Docker-installatiekopieën opslaat. U gebruikt de [Docker-Command-Line Interface](https://docs.docker.com/engine/reference/commandline/cli/) (Docker-CLI) voor [aanmelden](https://docs.docker.com/engine/reference/commandline/login/), [pushen](https://docs.docker.com/engine/reference/commandline/push/), [ophalen](https://docs.docker.com/engine/reference/commandline/pull/) en andere bewerkingen voor uw containerregister.
+# <a name="push-your-first-image-tooa-private-docker-container-registry-using-hello-docker-cli"></a>Uw eerste afbeelding tooa persoonlijke Docker-container register met Hallo Docker CLI push
+Een Azure container-register worden opgeslagen en beheerd persoonlijke [Docker](http://hub.docker.com) container afbeeldingen, vergelijkbare toohello manier [Docker Hub](https://hub.docker.com/) openbare Docker-installatiekopieën worden opgeslagen. Gebruik van Hallo [Docker-opdrachtregelinterface](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) voor [aanmelding](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/), en andere bewerkingen op de container het register.
 
-Zie [het overzicht](container-registry-intro.md) voor meer achtergrondinformatie en concepten
+Zie voor meer informatie over de achtergrond en concepten [Hallo overzicht](container-registry-intro.md)
 
 
 
 ## <a name="prerequisites"></a>Vereisten
-* **Azure-containerregister**: maak een containerregister in uw Azure-abonnement. Gebruik bijvoorbeeld [Azure Portal](container-registry-get-started-portal.md) of de [Azure-CLI 2.0](container-registry-get-started-azure-cli.md).
-* **Docker-CLI**: installeer de [Docker-engine](https://docs.docker.com/engine/installation/) om uw lokale computer als een Docker-host in te stellen en de Docker-CLI-opdrachten te gebruiken.
+* **Azure-containerregister**: maak een containerregister in uw Azure-abonnement. Gebruik bijvoorbeeld Hallo [Azure-portal](container-registry-get-started-portal.md) of Hallo [Azure CLI 2.0](container-registry-get-started-azure-cli.md).
+* **Docker CLI** -tooset van uw lokale computer als een Docker-host en toegang Hallo Docker CLI-opdrachten, installeren [Docker-Engine](https://docs.docker.com/engine/installation/).
 
-## <a name="log-in-to-a-registry"></a>Aanmelden bij een register
-Voer `docker login` uit om u bij uw containerregister aan te melden met uw [registerreferenties](container-registry-authentication.md).
+## <a name="log-in-tooa-registry"></a>Meld u bij tooa register
+Voer `docker login` toolog in tooyour container register met uw [register referenties](container-registry-authentication.md).
 
-In het volgende voorbeeld worden de id en het wachtwoord van een [service-principal](../active-directory/active-directory-application-objects.md) van Azure Active Directory doorgegeven. U hebt bijvoorbeeld een service-principal aan uw register toegewezen voor een automatiseringsscenario.
+Hallo volgende voorbeeld wordt doorgegeven Hallo-ID en wachtwoord van een Azure Active Directory [service-principal](../active-directory/active-directory-application-objects.md). Bijvoorbeeld, u mogelijk hebt toegewezen een register van de service principal tooyour voor een scenario voor automatisering.
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
 > [!TIP]
-> Geef de registernaam op die aan alle vereisten voldoet (zonder hoofdletters). In dit voorbeeld is het `myregistry.azurecr.io`.
+> Zorg ervoor dat toospecify Hallo register volledig gekwalificeerde naam (alle kleine letters). In dit voorbeeld is het `myregistry.azurecr.io`.
 
-## <a name="steps-to-pull-and-push-an-image"></a>Stappen voor ophalen en pushen van een installatiekopie
-In het volgende voorbeeld wordt de Nginx-installatiekopie gedownload uit het openbare Docker Hub-register, getagd voor uw persoonlijke Azure-containerregister, gepusht naar uw register en vervolgens weer opgehaald.
+## <a name="steps-toopull-and-push-an-image"></a>Stappen toopull en een installatiekopie van een push
+Hallo volgen downloads Hallo Nginx-installatiekopie uit Hallo openbare Docker Hub register, tags voor uw register persoonlijke Azure-container duwt deze tooyour register vervolgens opnieuw ophaalt.
 
-**1. De officiële Docker-installatiekopie ophalen voor Nginx**
+**1. Pull-hallo Docker officiële installatiekopie voor Nginx**
 
-Haal eerst de openbare Nginx-installatiekopie op naar uw lokale computer.
+Eerste pull hallo openbare Nginx-image tooyour lokale computer.
 
 ```
 docker pull nginx
 ```
-**2. De Nginx-container starten**
+**2. Hallo Nginx-container starten**
 
-Met de volgende opdracht wordt de lokale Nginx-container interactief gestart via poort 8080, zodat u uitvoer van Nginx kunt zien. De container die wordt uitgevoerd, wordt verwijderd zodra deze is gestopt.
+Hallo volgende opdracht start Hallo lokale Nginx-container interactief op poort 8080, zodat u toosee uitvoer van Nginx. Verwijdert deze container één keer gestopt met Hallo.
 
 ```
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Ga naar [http://localhost:8080](http://localhost:8080) om de container die wordt uitgevoerd, weer te geven. Er wordt een venster zoals het volgende weergegeven.
+Te bladeren[http://localhost: 8080](http://localhost:8080) tooview Hallo container uitgevoerd. U ziet een scherm vergelijkbare toohello volgt.
 
 ![Nginx op lokale computer](./media/container-registry-get-started-docker-cli/nginx.png)
 
-Druk op [CTRL]+[C] om de container die wordt uitgevoerd, te stoppen.
+toostop Hallo actieve container, drukt u op [CTRL] + [C].
 
-**3. Een alias van de installatiekopie in uw register maken**
+**3. Een alias van Hallo afbeelding maken in het register**
 
-Met de volgende opdracht maakt u een alias van de installatiekopie met een volledig gekwalificeerd pad naar uw register. In dit voorbeeld wordt de naamruimte `samples` gespecificeerd om overbodige items in de hoofdmap van het register te voorkomen.
+Hallo volgende opdracht maakt u een alias van de afbeelding hello, met een volledig gekwalificeerde pad tooyour-register. In dit voorbeeld geeft Hallo `samples` naamruimte tooavoid vol in de hoofdmap Hallo van Hallo-register.
 
 ```
 docker tag nginx myregistry.azurecr.io/samples/nginx
 ```  
 
-**4. De installatiekopie naar uw register pushen**
+**4. Push Hallo installatiekopie tooyour register**
 
 ```
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
-**5. De installatiekopie vanuit uw register ophalen**
+**5. Pull-hallo-installatiekopie uit het register**
 
 ```
 docker pull myregistry.azurecr.io/samples/nginx
 ```
 
-**6. De Nginx-container vanuit uw register starten**
+**6. Hallo Nginx-container starten vanuit het register**
 
 ```
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Ga naar [http://localhost:8080](http://localhost:8080) om de container die wordt uitgevoerd, weer te geven.
+Te bladeren[http://localhost: 8080](http://localhost:8080) tooview Hallo container uitgevoerd.
 
-Druk op [CTRL]+[C] om de container die wordt uitgevoerd, te stoppen.
+toostop Hallo actieve container, drukt u op [CTRL] + [C].
 
-**7. (optioneel) De installatiekopie verwijderen**
+**7. (Optioneel) Hallo afbeelding verwijderen**
 
 ```
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
 ##<a name="concurrent-limits"></a>Gelijktijdige limieten
-In sommige gevallen kan het gelijktijdig uitvoeren van aanroepen leiden tot fouten. De volgende tabel bevat de limieten voor gelijktijdige aanroepen met Push- en Pull-bewerkingen in Azure Container Registry:
+In sommige gevallen kan het gelijktijdig uitvoeren van aanroepen leiden tot fouten. Hallo volgende tabel bevat Hallo limieten van gelijktijdige aanroepen met 'Push' en 'Pull' bewerkingen op Azure-container registersleutel:
 
 | Bewerking  | Limiet                                  |
 | ---------- | -------------------------------------- |
-| PULL       | Maximaal 10 gelijktijdige bewerkingen per register |
-| PUSH       | Maximaal 5 gelijktijdige bewerkingen per register |
+| PULL       | Haalt up too10 gelijktijdige per register |
+| PUSH       | Up too5 gelijktijdige pushes per register |
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u de basisprincipes kent, kunt u uw register gaan gebruiken. Begin bijvoorbeeld met het implementeren van containerinstallatiekopieën op een [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/)-cluster.
+Nu u weet Hallo basisbeginselen, bent u klaar toostart met behulp van het register! Bijvoorbeeld, beginnen met het implementeren van de container installatiekopieën tooan [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/) cluster.

@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met de opslag van de wachtrij en Visual Studio verbonden services (webtaak projecten) | Microsoft Docs
-description: Hoe u aan de slag met Azure Queue storage in een project webtaak nadat u verbinding met een opslagaccount met Visual Studio hebt verbonden services.
+title: aaaGetting gestart met de opslag van de wachtrij en Visual Studio verbonden services (webtaak projecten) | Microsoft Docs
+description: Hoe tooget gestart met Azure Queue storage in een project webtaak nadat tooa storage-account met Visual Studio verbinding services verbonden.
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
-ms.openlocfilehash: abd4814c099620345e04833e14dafd38432064e4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 720e96fda734c31e1b1d68d4f95aa9531a20a3f8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Aan de slag met Azure Queue storage en Visual Studio verbonden services (webtaak projecten)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Overzicht
-Dit artikel wordt beschreven hoe aan de slag met Azure Queue storage in een project voor Visual Studio Azure webtaak nadat u hebt gemaakt of een Azure storage-account waarnaar wordt verwezen door het gebruik van de Visual Studio **verbonden Services toevoegen** in het dialoogvenster. Wanneer u een opslagaccount toevoegt aan een project webtaak met behulp van de Visual Studio **verbonden Services toevoegen** dialoogvenster de juiste Azure Storage NuGet-pakketten zijn geïnstalleerd, de juiste .NET-verwijzingen worden toegevoegd aan het project en verbindingsreeksen voor het opslagaccount worden bijgewerkt in het bestand App.config.  
+Dit artikel wordt beschreven hoe de slag met Azure Queue storage in een project voor Visual Studio Azure webtaak nadat u hebt gemaakt of waarnaar wordt verwezen Azure storage-account met behulp van Visual Studio Hallo **verbonden Services toevoegen** in het dialoogvenster. Wanneer u een project storage account tooa webtaak toevoegen met behulp van Visual Studio Hallo **verbonden Services toevoegen** dialoogvenster Hallo juiste Azure Storage NuGet-pakketten zijn geïnstalleerd, Hallo juiste .NET verwijzingen worden toegevoegd toohello Project en verbindingsreeksen voor Hallo storage-account worden bijgewerkt in Hallo App.config-bestand.  
 
-Dit artikel vindt u C#-codevoorbeelden die laten zien hoe de Azure WebJobs SDK-versie 1.x met de Azure Queue storage-service.
+Dit artikel vindt u C#-codevoorbeelden die laten zien hoe toouse hello Azure WebJobs SDK versie 1.x Hello Azure Queue storage-service.
 
-Azure Queue Storage is een service voor de opslag van grote aantallen berichten die via HTTP of HTTPS overal vandaan kunnen worden opgevraagd met geverifieerde aanroepen. Een enkel wachtrijbericht mag maximaal 64 KB groot zijn en een wachtrij kan miljoenen berichten bevatten, tot de totale capaciteitslimiet van een opslagaccount. Zie [aan de slag met Azure Queue Storage met .NET](storage-dotnet-how-to-use-queues.md) voor meer informatie. Zie voor meer informatie over ASP.NET [ASP.NET](http://www.asp.net).
+Azure Queue storage is een service voor het opslaan van grote aantallen berichten die toegankelijk zijn vanaf een willekeurige plaats in Hallo wereld via geverifieerde aanroepen via HTTP of HTTPS. Een enkel wachtrijbericht mag up too64 KB groot en een wachtrij kan miljoenen berichten up toohello totale capaciteitslimiet van een opslagaccount bevatten. Zie [aan de slag met Azure Queue Storage met .NET](storage-dotnet-how-to-use-queues.md) voor meer informatie. Zie voor meer informatie over ASP.NET [ASP.NET](http://www.asp.net).
 
-## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>Het activeren van een functie wanneer er een wachtrijbericht wordt ontvangen
-Voor het schrijven van een functie waarmee de WebJobs SDK wordt aangeroepen wanneer een wachtrijbericht wordt ontvangen, gebruik de **QueueTrigger** kenmerk. De kenmerkconstructor tekenreeksparameter een waarmee de naam van de wachtrij om te pollen. Bekijk informatie over het instellen van de wachtrijnaam dynamisch, [het instellen van configuratie-opties](#how-to-set-configuration-options).
+## <a name="how-tootrigger-a-function-when-a-queue-message-is-received"></a>Hoe tootrigger een functie wanneer er een wachtrijbericht wordt ontvangen
+toowrite een functie die Hallo WebJobs SDK wordt aangeroepen wanneer een wachtrijbericht wordt ontvangen, gebruikt u Hallo **QueueTrigger** kenmerk. Hallo kenmerkconstructor tekenreeksparameter een waarmee Hallo-naam van Hallo wachtrij toopoll. toosee hoe tooset Hallo wachtrijnaam dynamisch, Bekijk [hoe tooset configuratieopties](#how-to-set-configuration-options).
 
 ### <a name="string-queue-messages"></a>String, Wachtrijberichten
-In het volgende voorbeeld bevat de wachtrij een string-bericht, dus **QueueTrigger** wordt toegepast op een tekenreeksparameter gebruikt met de naam **logMessage** die de inhoud van het bericht uit de wachtrij bevat. De functie [een logboekbericht schrijft naar het Dashboard](#how-to-write-logs).
+Hallo voorbeeld te volgen, Hallo wachtrij bevat een Tekenreeksbericht voor de dus **QueueTrigger** toegepaste tooa tekenreeksparameter met de naam is **logMessage** die Hallo inhoud van de wachtrij het Hallo-bericht bevat. Hallo functie [schrijft een logboek bericht toohello Dashboard](#how-to-write-logs).
 
         public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
         {
             logger.WriteLine(logMessage);
         }
 
-Naast **tekenreeks**, de parameter is mogelijk een bytematrix een **CloudQueueMessage** object of een POCO die u definieert.
+Naast **tekenreeks**, Hallo is mogelijk een bytematrix een **CloudQueueMessage** object of een POCO die u definieert.
 
 ### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(Plain oude CLR-Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) berichten in de wachtrij
-In het volgende voorbeeld bevat de wachtrijbericht JSON voor een **BlobInformation** object waaronder een **BlobName** eigenschap. De SDK deserializes automatisch het object.
+Hallo voorbeeld te volgen, wachtrij het Hallo-bericht bevat JSON voor een **BlobInformation** object waaronder een **BlobName** eigenschap. Hallo SDK deserializes automatisch Hallo-object.
 
         public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
         {
-            logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
+            logger.WriteLine("Queue message refers tooblob: " + blobInfo.BlobName);
         }
 
-De SDK gebruikt de [Newtonsoft.Json NuGet-pakket](http://www.nuget.org/packages/Newtonsoft.Json) voor het serialiseren en deserialiseren van berichten. Als u berichten in wachtrij plaatsen in een programma dat geen gebruik maakt van de WebJobs SDK maakt, kunt u code op het volgende voorbeeld voor het maken van een wachtrijbericht POCO die kan worden geparseerd met de SDK schrijven.
+Hallo SDK maakt gebruik van Hallo [Newtonsoft.Json NuGet-pakket](http://www.nuget.org/packages/Newtonsoft.Json) tooserialize en deserialiseren van berichten. Als u berichten in wachtrij plaatsen in een programma dat Hallo WebJobs SDK maakt geen gebruik maakt, kunt u code zoals het volgende voorbeeld toocreate een wachtrijbericht POCO Hallo schrijven die Hallo die SDK kan worden geparseerd.
 
         BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
         var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
         logQueue.AddMessage(queueMessage);
 
 ### <a name="async-functions"></a>Async-functies
-De volgende async-functie [een logboek wordt geschreven naar het Dashboard](#how-to-write-logs).
+Hallo async-functie na [schrijft een logboek toohello Dashboard](#how-to-write-logs).
 
         public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
         {
             await logger.WriteLineAsync(logMessage);
         }
 
-Async-functies kunnen duren voordat een [annulering token](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), zoals wordt weergegeven in het volgende voorbeeld die een blob kopieert. (Voor een uitleg van de **queueTrigger** tijdelijke aanduiding, Zie de [Blobs](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) sectie.)
+Async-functies kunnen duren voordat een [annulering token](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), zoals weergegeven in het volgende voorbeeld die een blob kopieert Hallo. (Voor een uitleg van Hallo **queueTrigger** tijdelijke aanduiding, Zie Hallo [Blobs](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) sectie.)
 
         public async static Task ProcessQueueMessageAsyncCancellationToken(
             [QueueTrigger("blobcopyqueue")] string blobName,
@@ -76,8 +76,8 @@ Async-functies kunnen duren voordat een [annulering token](http://www.asp.net/mv
             await blobInput.CopyToAsync(blobOutput, 4096, token);
         }
 
-## <a name="types-the-queuetrigger-attribute-works-with"></a>Het kenmerk QueueTrigger met werkt typen
-U kunt **QueueTrigger** met de volgende typen:
+## <a name="types-hello-queuetrigger-attribute-works-with"></a>Typen Hallo QueueTrigger kenmerk werkt met
+U kunt **QueueTrigger** Hello volgende typen:
 
 * **tekenreeks**
 * Een POCO-type dat geserialiseerd als JSON
@@ -85,18 +85,18 @@ U kunt **QueueTrigger** met de volgende typen:
 * **CloudQueueMessage**
 
 ## <a name="polling-algorithm"></a>Polling-algoritme
-De SDK implementeert een willekeurige exponentiële back-off-algoritme het effect van niet-actieve wachtrij op de opslagkosten transaction polling beperkt.  Wanneer een bericht is gevonden, de SDK Wacht twee seconden en wordt er gecontroleerd of een ander bericht; Wanneer er geen bericht is gevonden wacht ongeveer vier seconden alvorens het opnieuw proberen. Na meerdere mislukte pogingen om op te halen van een wachtrijbericht blijft de wachttijd verhogen totdat het de maximale wachttijd, die standaard één minuut bereikt. [De maximale wachttijd is configureerbaar](#how-to-set-configuration-options).
+Hallo SDK implementeert een willekeurige exponentiële back-off algoritme tooreduce Hallo effect van niet-actieve wachtrij polling op de opslagkosten voor transactie.  Wanneer een bericht is gevonden, Hallo SDK Wacht twee seconden en wordt er gecontroleerd of een ander bericht; Wanneer er geen bericht is gevonden wacht ongeveer vier seconden alvorens het opnieuw proberen. Na meerdere mislukte pogingen tooget een wachtrijbericht, wachttijd Hallo tooincrease voortgezet totdat het Hallo maximale wachttijd, bereikt welke standaardwaarden tooone minuut. [Hallo maximale wachttijd is configureerbaar](#how-to-set-configuration-options).
 
 ## <a name="multiple-instances"></a>Meerdere exemplaren
-Als uw web-app wordt uitgevoerd op meerdere exemplaren, een doorlopende webtaken uitvoert op elke machine en elke computer wordt gewacht op triggers en probeert uit te voeren van functies. In sommige gevallen is die dit kan leiden tot sommige functies die twee keer dezelfde gegevens verwerken, dus functies moet idempotent (geschreven zodat meerdere keren aanroepen met de dezelfde invoergegevens geen dubbele resultaten levert).  
+Als uw web-app wordt uitgevoerd op meerdere exemplaren, een doorlopende webtaken uitvoert op elke machine en elke machine wordt gewacht op triggers en probeert toorun functies. In sommige gevallen die kan dit leiden toosome functies verwerken Hallo dezelfde gegevens tweemaal functies moeten dus van idempotent (zodat die herhaaldelijk aanroepen Hello dezelfde invoergegevens levert geen resultaten dubbele geschreven).  
 
 ## <a name="parallel-execution"></a>Parallelle uitvoering
-Als er meerdere functies luistert naar verschillende wachtrijen, wordt de SDK aangeroepen ze parallel wanneer berichten tegelijkertijd worden ontvangen.
+Als er meerdere functies luistert naar verschillende wachtrijen, wordt Hallo SDK aangeroepen ze parallel wanneer berichten tegelijkertijd worden ontvangen.
 
-Hetzelfde geldt wanneer meerdere berichten worden ontvangen voor een enkele wachtrij. Standaard is de SDK opgehaald van een batch van 16 Wachtrijberichten tegelijk, en voert de functie die parallel worden verwerkt. [De batchgrootte is configureerbaar](#how-to-set-configuration-options). Wanneer het aantal verwerkte opgehaald omlaag naar de helft van de batchgrootte van de, wordt de SDK opgehaald van een andere batch en begint met de verwerking van deze berichten. Daarom is het maximum aantal gelijktijdige berichten worden verwerkt per functie en een half keer de batchgrootte. Deze limiet is van toepassing afzonderlijk op elke functie die een **QueueTrigger** kenmerk. Als u geen parallelle uitvoering voor berichten ontvangen voor een wachtrij wilt, moet u de batchgrootte ingesteld op 1.
+Hallo geldt ook wanneer meerdere berichten worden ontvangen voor een enkele wachtrij. Standaard Hallo SDK een batch van 16 Wachtrijberichten tegelijk opgehaald en wordt uitgevoerd Hallo-functie die parallel worden verwerkt. [Hallo batchgrootte is configureerbaar](#how-to-set-configuration-options). Bij het ophalen van Hallo nummer wordt verwerkt omlaag toohalf van batchgrootte hello, hello SDK opgehaald van een andere batch- en begint met de verwerking van deze berichten. Maximum aantal gelijktijdige berichten worden verwerkt per functie Hallo is daarom een anderhalf maal Hallo batchgrootte. Deze beperking geldt afzonderlijk tooeach-functie die een **QueueTrigger** kenmerk. Als u niet dat parallelle uitvoering voor berichten ontvangen voor een wachtrij wilt, stelt u Hallo batch grootte too1.
 
 ## <a name="get-queue-or-queue-message-metadata"></a>Wachtrij of wachtrij bericht metagegevens ophalen
-U kunt de volgende berichteigenschappen krijgen door parameters toe te voegen aan de methodehandtekening:
+U kunt Hallo berichteigenschappen volgen door toe te voegen parameters toohello methodehandtekening krijgen:
 
 * **DateTimeOffset** expirationTime
 * **DateTimeOffset** insertionTime
@@ -106,9 +106,9 @@ U kunt de volgende berichteigenschappen krijgen door parameters toe te voegen aa
 * **tekenreeks** popReceipt
 * **int** dequeueCount
 
-Als u samenwerken met de Azure storage-API wilt, u kunt ook toevoegen een **CloudStorageAccount** parameter.
+Als u wilt dat toowork rechtstreeks met hello Azure storage-API, u kunt ook toevoegen een **CloudStorageAccount** parameter.
 
-Het volgende voorbeeld worden alle deze metagegevens van een logboek INFO geschreven. In het voorbeeld bevatten zowel logMessage als queueTrigger de inhoud van het bericht uit de wachtrij.
+Hallo volgende voorbeeld wordt geschreven alle deze metagegevens tooan INFO-toepassingslogboek. In voorbeeld Hallo bevatten zowel logMessage als queueTrigger Hallo inhoud van de wachtrij het Hallo-bericht.
 
         public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
             DateTimeOffset expirationTime,
@@ -135,7 +135,7 @@ Het volgende voorbeeld worden alle deze metagegevens van een logboek INFO geschr
                 queueTrigger);
         }
 
-Hier volgt een voorbeeld-logboekbestanden geschreven door de voorbeeldcode:
+Hier volgt een voorbeeld-logboekbestanden geschreven door de voorbeeldcode Hallo:
 
         logMessage=Hello world!
         expirationTime=10/14/2014 10:31:04 PM +00:00
@@ -148,9 +148,9 @@ Hier volgt een voorbeeld-logboekbestanden geschreven door de voorbeeldcode:
         queueTrigger=Hello world!
 
 ## <a name="graceful-shutdown"></a>Correct afsluiten
-Een functie die wordt uitgevoerd in een doorlopende webtaak kan accepteren een **CancellationToken** parameter waarmee het besturingssysteem naar de functie waarschuwen wanneer de webtaak wordt beëindigd. U kunt deze melding om ervoor te zorgen dat de functie niet onverwacht beëindigd op een manier die gegevens in een inconsistente status heeft blijven.
+Een functie die wordt uitgevoerd in een doorlopende webtaak kan accepteren een **CancellationToken** parameter waarmee Hallo toonotify Hallo besturingssysteemfunctie wanneer hello webtaak is over toobe beëindigd. U kunt deze melding toomake ervoor Hallo-functie niet onverwacht beëindigd op een manier die gegevens in een inconsistente status heeft blijven.
 
-Het volgende voorbeeld laat zien hoe om te controleren voor aanstaande webtaak beëindiging in een functie.
+Hallo volgende voorbeeld wordt getoond hoe toocheck voor aanstaande webtaak beëindiging in een functie.
 
     public static void GracefulShutdownDemo(
                 [QueueTrigger("inputqueue")] string inputText,
@@ -169,15 +169,15 @@ Het volgende voorbeeld laat zien hoe om te controleren voor aanstaande webtaak b
         }
     }
 
-**Opmerking:** het Dashboard mogelijk niet correct weergegeven status en de uitvoer van de functies die zijn afgesloten.
+**Opmerking:** Hallo Dashboard mogelijk niet correct weergegeven Hallo status en de uitvoer van de functies die zijn afgesloten.
 
 Zie voor meer informatie [WebJobs correct afsluiten](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
 
-## <a name="how-to-create-a-queue-message-while-processing-a-queue-message"></a>Het maken van een wachtrijbericht tijdens het verwerken van een wachtrijbericht
-Voor het schrijven van een functie die een nieuwe wachtrijbericht maakt, gebruikt u de **wachtrij** kenmerk. Zoals **QueueTrigger**, u doorgeeft in de naam van de wachtrij als een tekenreeks of kunt u [dynamisch naam van de wachtrij ingesteld](#how-to-set-configuration-options).
+## <a name="how-toocreate-a-queue-message-while-processing-a-queue-message"></a>Hoe een wachtrij toocreate bericht tijdens het verwerken van een wachtrijbericht
+een functie die u een nieuw wachtrijbericht, gebruik Hallo maakt toowrite **wachtrij** kenmerk. Zoals **QueueTrigger**, u doorgeeft in Hallo wachtrijnaam als een tekenreeks of kunt u [Hallo wachtrijnaam dynamisch ingesteld](#how-to-set-configuration-options).
 
 ### <a name="string-queue-messages"></a>String, Wachtrijberichten
-Het volgende niet-async-codevoorbeeld maakt een nieuwe wachtrijbericht in de wachtrij met de naam 'outputqueue' met dezelfde inhoud als het bericht in de wachtrij ontvangen in de wachtrij met de naam 'inputqueue'. (Gebruik voor asynchrone functies **IAsyncCollector<T>**  zoals later in deze sectie.)
+een nieuwe wachtrijbericht in Hallo wachtrij met de naam 'outputqueue' maakt Hello na niet async-codevoorbeeld met dezelfde inhoud als wachtrij het Hallo-bericht in Hallo wachtrij met de naam 'inputqueue ontvangen' Hallo. (Gebruik voor asynchrone functies **IAsyncCollector<T>**  zoals later in deze sectie.)
 
         public static void CreateQueueMessage(
             [QueueTrigger("inputqueue")] string queueMessage,
@@ -187,7 +187,7 @@ Het volgende niet-async-codevoorbeeld maakt een nieuwe wachtrijbericht in de wac
         }
 
 ### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(Plain oude CLR-Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) berichten in de wachtrij
-Voor het maken van een wachtrijbericht met een POCO in plaats van een tekenreeks, geeft u het type POCO als een output-parameter voor de **wachtrij** kenmerkconstructor.
+toocreate een wachtrijbericht met een POCO in plaats van een tekenreeks, op te geven Hallo POCO typt als een output-parameter toohello **wachtrij** kenmerkconstructor.
 
         public static void CreateQueueMessage(
             [QueueTrigger("inputqueue")] BlobInformation blobInfoInput,
@@ -196,10 +196,10 @@ Voor het maken van een wachtrijbericht met een POCO in plaats van een tekenreeks
             blobInfoOutput = blobInfoInput;
         }
 
-De SDK serialiseert automatisch het object naar JSON. Een wachtrijbericht is altijd gemaakt, zelfs als het object null is.
+Hallo SDK serialiseert automatisch Hallo object tooJSON. Een wachtrijbericht is altijd gemaakt, zelfs als het Hallo-object is null.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Meerdere berichten maken of in een async-functies
-Controleer het parametertype voor de wachtrij voor de uitvoer voor het maken van meerdere berichten **ICollector<T>**  of **IAsyncCollector<T>**, zoals wordt weergegeven in het volgende voorbeeld.
+toocreate meerdere berichten maken Hallo parametertype voor Hallo uitvoerwachtrij **ICollector<T>**  of **IAsyncCollector<T>**, zoals weergegeven in het volgende voorbeeld Hallo.
 
         public static void CreateQueueMessages(
             [QueueTrigger("inputqueue")] string queueMessage,
@@ -211,23 +211,23 @@ Controleer het parametertype voor de wachtrij voor de uitvoer voor het maken van
             outputQueueMessage.Add(queueMessage + "2");
         }
 
-Het bericht voor elke wachtrij wordt onmiddellijk gemaakt wanneer de **toevoegen** methode wordt aangeroepen.
+Het bericht voor elke wachtrij wordt gemaakt bij direct hello **toevoegen** methode wordt aangeroepen.
 
-### <a name="types-that-the-queue-attribute-works-with"></a>Typen die geschikt is voor het kenmerk wachtrij
-U kunt de **wachtrij** kenmerk voor de volgende parameter:
+### <a name="types-that-hello-queue-attribute-works-with"></a>Typen Hallo wachtrij kenmerk werkt met
+U kunt Hallo **wachtrij** -kenmerk op Hallo parametertypen te volgen:
 
-* **uitgaand tekenreeks** (wachtrijbericht maakt als waarde voor de parameter niet null wanneer de functie eindigt)
+* **uitgaand tekenreeks** (wachtrijbericht maakt als waarde voor de parameter niet null wanneer de functie Hallo eindigt)
 * **uitgaand byte []** (werkt als **tekenreeks**)
 * **uitgaand CloudQueueMessage** (werkt als **tekenreeks**)
-* **uitgaand POCO** (een serialiseerbaar type, maakt u een bericht met een null-object als de parameter is null wanneer de functie wordt beëindigd)
+* **uitgaand POCO** (een serialiseerbaar type, maakt u een bericht met een null-object als Hallo-parameter is null wanneer de functie Hallo eindigt)
 * **ICollector**
 * **IAsyncCollector**
-* **CloudQueue** (voor het maken van berichten handmatig rechtstreeks met de Azure Storage-API)
+* **CloudQueue** (voor het handmatig maken van berichten met behulp van Hallo API van Azure Storage rechtstreeks)
 
-### <a name="use-webjobs-sdk-attributes-in-the-body-of-a-function"></a>Kenmerken in de hoofdtekst van een functie WebJobs SDK gebruiken
-Als u werken in uw functie wilt voordat u een kenmerk WebJobs SDK, zoals **wachtrij**, **Blob**, of **tabel**, kunt u de **IBinder**interface.
+### <a name="use-webjobs-sdk-attributes-in-hello-body-of-a-function"></a>Kenmerken in de hoofdtekst van een functie Hallo WebJobs SDK gebruiken
+Als u toodo moet enkele werken in uw functie voordat u een kenmerk WebJobs SDK, zoals **wachtrij**, **Blob**, of **tabel**, kunt u Hallo **IBinder** interface.
 
-Het volgende voorbeeld wordt een bericht invoerwachtrij en maakt u een nieuw bericht met de inhoud van een wachtrij voor de uitvoer. De naam van de uitvoer-wachtrij is ingesteld door de code in de hoofdtekst van de functie.
+Hallo volgende voorbeeld wordt een bericht invoerwachtrij en maakt u een nieuw bericht Hello dezelfde inhoud in een wachtrij voor de uitvoer. Hallo uitvoer wachtrijnaam is ingesteld door code in de hoofdtekst van de functie Hallo Hallo.
 
         public static void CreateQueueMessage(
             [QueueTrigger("inputqueue")] string queueMessage,
@@ -239,15 +239,15 @@ Het volgende voorbeeld wordt een bericht invoerwachtrij en maakt u een nieuw ber
             outputQueue.AddMessage(new CloudQueueMessage(queueMessage));
         }
 
-De **IBinder** interface kan ook worden gebruikt met de **tabel** en **Blob** kenmerken.
+Hallo **IBinder** interface kan ook worden gebruikt met Hallo **tabel** en **Blob** kenmerken.
 
-## <a name="how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message"></a>Hoe kunnen lezen en schrijven van blobs, tabellen en tijdens het verwerken van een wachtrijbericht
-De **Blob** en **tabel** kenmerken kunnen u blobs en tabellen lezen en schrijven. De voorbeelden in deze sectie zijn van toepassing op blobs. Zie voor codevoorbeelden die laten hoe u zien voor het activeren van processen wanneer BLOB's worden gemaakt of bijgewerkt, [Azure blob storage gebruiken met de WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), en voor codevoorbeelden die lezen en schrijven van tabellen, Zie [het gebruik van Azure-tabel opslag met de WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
+## <a name="how-tooread-and-write-blobs-and-tables-while-processing-a-queue-message"></a>Hoe tooread en write-blobs en tabellen tijdens het verwerken van een wachtrijbericht
+Hallo **Blob** en **tabel** kenmerken kunt u tooread en blobs en tabellen te schrijven. Hallo-voorbeelden in deze sectie tooblobs van toepassing. Zie voor codevoorbeelden die laten hoe tootrigger verwerkt zien wanneer BLOB's worden gemaakt of bijgewerkt, [hoe toouse Azure blob-opslag met Hallo WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), en voor codevoorbeelden die lezen en schrijven van tabellen, Zie [hoe toouse Azure-tabel opslag Hello WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
 
 ### <a name="string-queue-messages-triggering-blob-operations"></a>String, Wachtrijberichten activering van blob-bewerkingen
-Voor een wachtrijbericht met een tekenreeks **queueTrigger** is een tijdelijke aanduiding kunt u in de **Blob** van het kenmerk **blobPath** parameter met de inhoud van de Bericht.
+Voor een wachtrijbericht met een tekenreeks **queueTrigger** is een tijdelijke aanduiding kunt u in Hallo **Blob** van het kenmerk **blobPath** parameter met inhoud van Hallo Hallo-bericht.
 
-Het volgende voorbeeld wordt **stroom** objecten te lezen en schrijven blobs. Bericht uit de wachtrij is de naam van een blob die zich in de container textblobs. Een kopie van de blob met '-nieuwe ' toegevoegd aan de naam wordt gemaakt in dezelfde container.
+Hallo volgende voorbeeld wordt **stroom** tooread en write blobs objecten. wachtrij het Hallo-bericht is Hallo-naam van een blob die zich in Hallo textblobs container. Een kopie van de blob met Hallo '-nieuwe ' toegevoegde toohello naam wordt gemaakt in Hallo dezelfde container.
 
         public static void ProcessQueueMessage(
             [QueueTrigger("blobcopyqueue")] string blobName,
@@ -257,11 +257,11 @@ Het volgende voorbeeld wordt **stroom** objecten te lezen en schrijven blobs. Be
             blobInput.CopyTo(blobOutput, 4096);
         }
 
-De **Blob** kenmerk constructor heeft een **blobPath** parameter waarmee de container en de blob-naam. Zie voor meer informatie over deze tijdelijke aanduiding [Azure blob storage gebruiken met de WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md).
+Hallo **Blob** kenmerk constructor heeft een **blobPath** parameter waarmee Hallo-container en de blob-naam. Zie voor meer informatie over deze tijdelijke aanduiding [hoe toouse Azure blob-opslag met Hallo WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md).
 
-Wanneer het kenmerk wordt verfraaid een **stroom** object, een andere constructorparameter geeft u de **FileAccess** modus lezen, schrijven of lezen/schrijven.
+Wanneer Hallo kenmerk wordt verfraaid een **stroom** object, een andere constructorparameter geeft u op Hallo **FileAccess** modus lezen, schrijven of lezen/schrijven.
 
-Het volgende voorbeeld wordt een **CloudBlockBlob** object verwijderen van een blob. Bericht uit de wachtrij is de naam van de blob.
+Hallo volgende voorbeeld wordt een **CloudBlockBlob** toodelete een blob-object. wachtrij het Hallo-bericht is Hallo-naam van Hallo blob.
 
         public static void DeleteBlob(
             [QueueTrigger("deleteblobqueue")] string blobName,
@@ -271,9 +271,9 @@ Het volgende voorbeeld wordt een **CloudBlockBlob** object verwijderen van een b
         }
 
 ### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(Plain oude CLR-Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) berichten in de wachtrij
-Voor een POCO opgeslagen als JSON in bericht in de wachtrij, kunt u tijdelijke aanduidingen die eigenschappen van het object in een naam geven de **wachtrij** van het kenmerk **blobPath** parameter. U kunt ook metagegevens-Eigenschapsnamen wachtrij gebruiken als tijdelijke aanduidingen. Zie [wachtrij of wachtrij bericht metagegevens ophalen](#get-queue-or-queue-message-metadata).
+Voor een POCO opgeslagen als JSON in wachtrij het Hallo-bericht, kunt u tijdelijke aanduidingen voor naam van de eigenschappen van het object in Hallo Hallo **wachtrij** van het kenmerk **blobPath** parameter. U kunt ook metagegevens-Eigenschapsnamen wachtrij gebruiken als tijdelijke aanduidingen. Zie [wachtrij of wachtrij bericht metagegevens ophalen](#get-queue-or-queue-message-metadata).
 
-Het volgende voorbeeld wordt een blob kopieert naar een nieuwe blob met een andere extensie. Bericht uit de wachtrij is een **BlobInformation** -object met **BlobName** en **BlobNameWithoutExtension** eigenschappen. De namen van eigenschappen worden gebruikt als tijdelijke aanduidingen in de blobpad voor de **Blob** kenmerken.
+Hallo volgende voorbeeld wordt gekopieerd een blob tooa nieuwe blob met een andere extensie. wachtrij het Hallo-bericht is een **BlobInformation** -object met **BlobName** en **BlobNameWithoutExtension** eigenschappen. eigenschapnamen Hello worden gebruikt als tijdelijke aanduidingen in Hallo blobpad voor Hallo **Blob** kenmerken.
 
         public static void CopyBlobPOCO(
             [QueueTrigger("copyblobqueue")] BlobInformation blobInfo,
@@ -283,38 +283,38 @@ Het volgende voorbeeld wordt een blob kopieert naar een nieuwe blob met een ande
             blobInput.CopyTo(blobOutput, 4096);
         }
 
-De SDK gebruikt de [Newtonsoft.Json NuGet-pakket](http://www.nuget.org/packages/Newtonsoft.Json) voor het serialiseren en deserialiseren van berichten. Als u berichten in wachtrij plaatsen in een programma dat geen gebruik maakt van de WebJobs SDK maakt, kunt u code op het volgende voorbeeld voor het maken van een wachtrijbericht POCO die kan worden geparseerd met de SDK schrijven.
+Hallo SDK maakt gebruik van Hallo [Newtonsoft.Json NuGet-pakket](http://www.nuget.org/packages/Newtonsoft.Json) tooserialize en deserialiseren van berichten. Als u berichten in wachtrij plaatsen in een programma dat Hallo WebJobs SDK maakt geen gebruik maakt, kunt u code zoals het volgende voorbeeld toocreate een wachtrijbericht POCO Hallo schrijven die Hallo die SDK kan worden geparseerd.
 
         BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
         var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
         logQueue.AddMessage(queueMessage);
 
-Als u werken in de functie wilt voor het binden van een blob naar een object, kunt u het kenmerk in de hoofdtekst van de functie, zoals wordt weergegeven in [WebJobs SDK gebruiken kenmerken in de hoofdtekst van een functie](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
+Als u toodo werken sommige in de functie moet voor het binden van een blob tooan-object, kunt u Hallo kenmerk in de hoofdtekst Hallo van Hallo-functie, zoals wordt weergegeven in [WebJobs SDK gebruiken kenmerken in de hoofdtekst van een functie Hallo](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
 
-### <a name="types-you-can-use-the-blob-attribute-with"></a>U het kenmerk Blob met kunt typen
-De **Blob** kenmerk kan worden gebruikt met de volgende typen:
+### <a name="types-you-can-use-hello-blob-attribute-with"></a>Blob-kenmerk met de Hallo kunnen worden gebruikt
+Hallo **Blob** kenmerk kan worden gebruikt met de volgende typen Hallo:
 
-* **Stroom** (lezen of schrijven, opgegeven met behulp van de constructorparameter FileAccess)
+* **Stroom** (lezen of schrijven, opgegeven met behulp van Hallo FileAccess constructorparameter)
 * **TextReader**
 * **TextWriter**
 * **tekenreeks** (gelezen)
-* **uitgaand tekenreeks** (schrijven, maakt u een blob alleen als de tekenreeksparameter is een niet-null wanneer de functie retourneert)
+* **uitgaand tekenreeks** (schrijven, maakt u een blob alleen als Hallo tekenreeksparameter niet-null is bij het Hallo-functie retourneert)
 * POCO (lezen)
-* uitgaand POCO (schrijven; altijd een blob maakt, maakt als null-object als POCO-parameter null is wanneer de functie retourneert)
+* uitgaand POCO (schrijven; altijd een blob maakt, maakt als null-object als POCO-parameter null is wanneer Hallo functie retourneert)
 * **CloudBlobStream** (schrijven)
 * **ICloudBlob** (lezen of schrijven)
 * **CloudBlockBlob** (lezen of schrijven)
 * **CloudPageBlob** (lezen of schrijven)
 
-## <a name="how-to-handle-poison-messages"></a>Hoe verontreinigde berichten worden verwerkt
-Berichten waarvan de inhoud zorgt ervoor dat een functie mislukken worden genoemd *berichten poison*. De functie mislukt, bericht uit de wachtrij wordt niet verwijderd als uiteindelijk wordt opgehaald, waardoor de cyclus om te worden herhaald. De SDK kan automatisch de cyclus worden onderbroken na een beperkt aantal iteraties of u kunt dit handmatig doen.
+## <a name="how-toohandle-poison-messages"></a>Hoe toohandle poison berichten
+Berichten waarvan de inhoud zorgt ervoor een functie toofail dat worden genoemd *berichten poison*. Hallo-functie is mislukt, wachtrij het Hallo-bericht is niet verwijderd als uiteindelijk wordt opgehaald, waardoor Hallo cyclus toobe herhaald. Hallo SDK kan automatisch Hallo cyclus worden onderbroken na een beperkt aantal iteraties of u kunt dit handmatig doen.
 
 ### <a name="automatic-poison-message-handling"></a>Verwerken van verontreinigde berichten automatische
-De SDK worden aanroepen van een functie 5 maal een wachtrijbericht te verwerken. Als de vijfde poging is mislukt, wordt het bericht wordt verplaatst naar een poison wachtrij. U kunt zien hoe het configureren van het maximum aantal pogingen in [het instellen van configuratie-opties](#how-to-set-configuration-options).
+Hallo SDK zal een functie van too5 keren tooprocess een wachtrijbericht aanroepen. Als de vijfde probeer Hallo mislukt, is het Hallo-bericht verplaatste tooa verontreinigd wachtrij. U kunt zien hoe tooconfigure maximum aantal pogingen in Hallo [hoe configuratieopties tooset](#how-to-set-configuration-options).
 
-De naam van de wachtrij verontreinigd *{originalqueuename}*-verontreinigd. U kunt schrijven om een functie verwerken van berichten uit de wachtrij verontreinigd door registratie of het verzenden van een melding dat handmatige aandacht nodig is.
+Hallo verontreinigd wachtrij heet *{originalqueuename}*-verontreinigd. U schrijft een functie tooprocess berichten uit Hallo verontreinigd wachtrij registratie of het verzenden van een melding dat handmatige aandacht nodig is.
 
-In het volgende voorbeeld de **CopyBlob** functie mislukken wanneer er een wachtrijbericht bevat de naam van een blob die niet bestaat. Wanneer dit gebeurt, wordt het bericht uit de wachtrij copyblobqueue verplaatst naar de wachtrij copyblobqueue poison. De **ProcessPoisonMessage** meldt zich dan verontreinigd bericht.
+In het volgende voorbeeld Hallo Hallo **CopyBlob** functie mislukken wanneer er een wachtrijbericht bevat Hallo-naam van een blob die niet bestaat. Wanneer dit gebeurt, wordt het Hallo-bericht wordt verplaatst van Hallo copyblobqueue wachtrij toohello copyblobqueue poison wachtrij. Hallo **ProcessPoisonMessage** vervolgens logboeken Hallo verontreinigd bericht.
 
         public static void CopyBlob(
             [QueueTrigger("copyblobqueue")] string blobName,
@@ -327,15 +327,15 @@ In het volgende voorbeeld de **CopyBlob** functie mislukken wanneer er een wacht
         public static void ProcessPoisonMessage(
             [QueueTrigger("copyblobqueue-poison")] string blobName, TextWriter logger)
         {
-            logger.WriteLine("Failed to copy blob, name=" + blobName);
+            logger.WriteLine("Failed toocopy blob, name=" + blobName);
         }
 
-De volgende afbeelding toont console-uitvoer van deze functies bij het verwerken van een poison-bericht.
+Hallo volgende afbeelding ziet u console-uitvoer van deze functies bij het verwerken van een poison-bericht.
 
 ![De uitvoer van de console voor het verwerken van verontreinigde berichten](./media/vs-storage-webjobs-getting-started-queues/poison.png)
 
 ### <a name="manual-poison-message-handling"></a>Verwerken van verontreinigde berichten handmatige
-U kunt het aantal keren dat een bericht opgepikt voor verwerking ophalen door het toevoegen van een **int** parameter met de naam **dequeueCount** aan de functie. U kunt controleren van de wachtrij halen telling in functiecode en voer uw eigen verontreinigd bericht verwerkt wanneer meer dan een drempelwaarde, zoals wordt weergegeven in het volgende voorbeeld.
+U krijgt Hallo aantal keren dat een bericht opgepikt voor verwerking door toe te voegen een **int** parameter met de naam **dequeueCount** tooyour-functie. U kunt vervolgens het selectievakje hello telling in functiecode in wachtrij- en uw eigen verontreinigd bericht verwerkt wanneer Hallo nummer een drempelwaarde overschrijdt, zoals wordt weergegeven in het volgende voorbeeld Hallo uitvoeren.
 
         public static void CopyBlob(
             [QueueTrigger("copyblobqueue")] string blobName, int dequeueCount,
@@ -345,7 +345,7 @@ U kunt het aantal keren dat een bericht opgepikt voor verwerking ophalen door he
         {
             if (dequeueCount > 3)
             {
-                logger.WriteLine("Failed to copy blob, name=" + blobName);
+                logger.WriteLine("Failed toocopy blob, name=" + blobName);
             }
             else
             {
@@ -353,15 +353,15 @@ U kunt het aantal keren dat een bericht opgepikt voor verwerking ophalen door he
             }
         }
 
-## <a name="how-to-set-configuration-options"></a>Het instellen van configuratie-opties
-U kunt de **JobHostConfiguration** type in te stellen van de volgende configuratieopties:
+## <a name="how-tooset-configuration-options"></a>Hoe tooset configuratieopties
+U kunt Hallo **JobHostConfiguration** type tooset Hallo volgende configuratieopties:
 
-* De SDK-verbindingsreeksen in code instellen.
+* Hallo SDK verbindingsreeksen in code instellen.
 * Configureer **QueueTrigger** instellingen zoals het maximum aantal in wachtrij.
 * Wachtrijnamen van de ophalen van configuratie.
 
 ### <a name="set-sdk-connection-strings-in-code"></a>SDK-verbindingsreeksen instellen in code
-Instellen van de SDK-verbindingsreeksen in code kunt u uw eigen namen van de tekenreeks verbindingen in configuratiebestanden of omgevingsvariabelen gebruiken zoals wordt weergegeven in het volgende voorbeeld.
+Hallo SDK-verbindingsreeksen instellen in de code kunt u toouse uw eigen namen van de tekenreeks verbindingen in configuratiebestanden of omgevingsvariabelen, zoals wordt weergegeven in Hallo voorbeeld te volgen.
 
         static void Main(string[] args)
         {
@@ -383,13 +383,13 @@ Instellen van de SDK-verbindingsreeksen in code kunt u uw eigen namen van de tek
         }
 
 ### <a name="configure-queuetrigger--settings"></a>QueueTrigger instellingen configureren
-U kunt de volgende instellingen die betrekking hebben op de berichtverwerking wachtrij configureren:
+U kunt Hallo instellingen die van toepassing toohello wachtrij berichtverwerking volgende configureren:
 
-* Het maximum aantal berichten die tegelijkertijd worden opgepikt parallel worden uitgevoerd (de standaardwaarde is 16).
-* Het maximum aantal pogingen alvorens een wachtrijbericht naar een poison-wachtrij verzonden (de standaardwaarde is 5).
-* De maximale wachttijd voordat opnieuw polling wanneer een wachtrij leeg is (de standaardwaarde is 1 minuut).
+* maximum aantal berichten die tegelijkertijd toobe parallel uitgevoerd worden opgepikt Hallo (de standaardwaarde is 16).
+* Hallo maximum aantal pogingen voordat een wachtrijbericht tooa poison-wachtrij worden verzonden (de standaardwaarde is 5).
+* Hallo maximale wachttijd voordat opnieuw polling wanneer een wachtrij leeg is (de standaardwaarde is 1 minuut).
 
-Het volgende voorbeeld ziet u hoe deze instellingen te configureren:
+Hallo volgende voorbeeld wordt getoond hoe tooconfigure deze instellingen:
 
         static void Main(string[] args)
         {
@@ -402,18 +402,18 @@ Het volgende voorbeeld ziet u hoe deze instellingen te configureren:
         }
 
 ### <a name="set-values-for-webjobs-sdk-constructor-parameters-in-code"></a>Waarden instellen voor de WebJobs SDK constructorparameters in code
-Soms wilt u de naam van een wachtrij, een blob-naam of -container opgeven of een tabel naam in de code in plaats van harde-code. Bijvoorbeeld, u wilt mogelijk opgeven de naam van de wachtrij voor **QueueTrigger** in een configuratie-bestand of de omgeving variabele.
+Soms wilt u toospecify een wachtrijnaam, een blob-naam of de container of een tabel naam in de code in plaats van harde-code. U kunt bijvoorbeeld toospecify Hallo wachtrijnaam voor **QueueTrigger** in een configuratie-bestand of de omgeving variabele.
 
-U kunt dit doen door doorgeven in een **NameResolver** object toe aan de **JobHostConfiguration** type. U speciale tijdelijke aanduidingen omgeven door procent (%) tekens in constructorparameters WebJobs SDK-kenmerk, opnemen en uw **NameResolver** code bevat de werkelijke waarden moet worden gebruikt in plaats van de tijdelijke aanduidingen.
+U kunt dit doen door doorgeven in een **NameResolver** object toohello **JobHostConfiguration** type. U speciale tijdelijke aanduidingen omgeven door procent (%) tekens in constructorparameters WebJobs SDK-kenmerk, opnemen en uw **NameResolver** code geeft Hallo werkelijke waarden toobe gebruikt in plaats van de tijdelijke aanduidingen.
 
-Stel dat u wilt gebruiken, een wachtrij met de naam logqueuetest in de testomgeving en een benoemde logqueueprod in productie. In plaats van een vastgelegde wachtrijnaam, die u wilt opgeven van de naam van een vermelding in de **appSettings** verzameling die de werkelijke wachtrijnaam zou hebben. Als de **appSettings** sleutel logqueue is, de functie eruit als in het volgende voorbeeld.
+Bijvoorbeeld, Stel dat u wilt dat toouse een wachtrij met de naam logqueuetest in de testomgeving Hallo en één met de naam logqueueprod in productie. In plaats van een vastgelegde wachtrijnaam, die u wilt toospecify Hallo-naam van een vermelding in Hallo **appSettings** verzameling die de werkelijke wachtrijnaam Hallo zou hebben. Als hello **appSettings** sleutel logqueue is, de functie eruit als Hallo voorbeeld te volgen.
 
         public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
         {
             Console.WriteLine(logMessage);
         }
 
-Uw **NameResolver** klasse kan vervolgens worden opgehaald uit de naam van de wachtrij **appSettings** zoals weergegeven in het volgende voorbeeld:
+Uw **NameResolver** klasse kan vervolgens ophalen Hallo wachtrijnaam van **appSettings** zoals weergegeven in Hallo voorbeeld te volgen:
 
         public class QueueNameResolver : INameResolver
         {
@@ -423,7 +423,7 @@ Uw **NameResolver** klasse kan vervolgens worden opgehaald uit de naam van de wa
             }
         }
 
-U geeft de **NameResolver** -klasse in voor de **JobHost** object, zoals wordt weergegeven in het volgende voorbeeld.
+U geeft Hallo **NameResolver** klasse in toohello **JobHost** zoals weergegeven in het volgende voorbeeld Hallo-object.
 
         static void Main(string[] args)
         {
@@ -433,10 +433,10 @@ U geeft de **NameResolver** -klasse in voor de **JobHost** object, zoals wordt w
             host.RunAndBlock();
         }
 
-**Opmerking:** Queue, table en blob-namen zijn opgelost telkens wanneer een functie wordt aangeroepen, maar de namen van de blob-containers zijn opgelost, alleen wanneer de toepassing wordt gestart. U kunt de naam van de blob-container niet wijzigen terwijl de taak wordt uitgevoerd.
+**Opmerking:** Queue, table en blob-namen zijn opgelost telkens wanneer een functie wordt aangeroepen, maar de namen van de blob-containers zijn opgelost, alleen wanneer het Hallo-toepassing wordt gestart. U kunt de naam van de blob-container niet wijzigen terwijl Hallo-taak wordt uitgevoerd.
 
-## <a name="how-to-trigger-a-function-manually"></a>Het activeren van een functie handmatig
-Als u wilt een functie handmatig activeren, gebruiken de **aanroepen** of **CallAsync** methode op de **JobHost** object en de **NoAutomaticTrigger** het kenmerk voor de functie, zoals wordt weergegeven in het volgende voorbeeld.
+## <a name="how-tootrigger-a-function-manually"></a>Hoe een functie tootrigger handmatig
+een functie tootrigger handmatig hello gebruiken **aanroepen** of **CallAsync** methode op Hallo **JobHost** object en Hallo **NoAutomaticTrigger** het kenmerk op Hallo-functie, zoals wordt weergegeven in Hallo voorbeeld te volgen.
 
         public class Program
         {
@@ -457,24 +457,24 @@ Als u wilt een functie handmatig activeren, gebruiken de **aanroepen** of **Call
             }
         }
 
-## <a name="how-to-write-logs"></a>Het schrijven van Logboeken
-Het Dashboard toont de logboeken op twee plaatsen: de pagina voor de webtaak en op de pagina voor een specifieke webtaak-aanroep.
+## <a name="how-toowrite-logs"></a>Hoe toowrite registreert
+Hallo Dashboard ziet u Logboeken op twee plaatsen: Hallo-pagina voor Hallo webtaak en Hallo-pagina voor een specifieke webtaak-aanroep.
 
 ![Logboeken in webtaak pagina](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
 ![Logboeken op de pagina voor functie-aanroep](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-De uitvoer van de Console methoden die u in een functie aanroept of in de **Main()** wordt weergegeven op de pagina Dashboard voor de webtaak, niet op de pagina voor het aanroepen van een bepaalde methode. De uitvoer van het object TextWriter die u via een parameter in de methodehandtekening wordt weergegeven op de pagina Dashboard voor een methodeaanroep.
+De uitvoer van de Console-methoden die u in een functie of Hallo aanroepen **Main()** wordt weergegeven in de dashboardpagina Hallo voor Hallo webtaak, niet in Hallo-pagina voor een bepaalde methodeaanroep. Uitvoer van Hallo TextWriter object die u via een parameter in de methodehandtekening weergegeven in de dashboardpagina Hallo voor een methodeaanroep.
 
-Console-uitvoer kan niet worden gekoppeld aan een bepaalde methodeaanroep omdat de Console één thread, is terwijl veel functies kunnen worden uitgevoerd op hetzelfde moment. Daarom is de SDK kunt u elke functieaanroep met een eigen unieke logboek writer-object.
+Console-uitvoer kan niet worden bepaald gekoppelde tooa de methodeaanroep omdat Hallo Console één thread, terwijl veel functies kunnen worden uitgevoerd op Hallo hetzelfde moment. Daarom is Hallo SDK biedt elke functieaanroep met een eigen unieke logboek writer-object.
 
-Schrijven van [logboeken voor tracering van toepassing](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), gebruik **Console.Out** (maakt logboeken die zijn gemarkeerd als INFO) en **Console.Error** (logboeken die zijn gemarkeerd als fout maakt). Een alternatief is [tracering of TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), waarmee u uitgebreid, waarschuwing, en kritieke niveaus naast gegevens en de fout. Logboeken voor tracering van toepassing worden weergegeven in de logboekbestanden web app, Azure-tabellen, of Azure blobs, afhankelijk van hoe u uw Azure-web-app configureren. Geldt voor alle Console-uitvoer, weergegeven de meest recente 100 toepassingslogboeken ook in de pagina Dashboard voor de webtaak, niet op de pagina voor een functie-aanroep.
+toowrite [logboeken voor tracering van toepassing](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), gebruik **Console.Out** (maakt logboeken die zijn gemarkeerd als INFO) en **Console.Error** (logboeken die zijn gemarkeerd als fout maakt). Een alternatief is toouse [tracering of TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)en waarmee u uitgebreid, waarschuwing, kritiek niveaus in de toevoeging tooInfo en de fout. Logboeken voor tracering van toepassing worden weergegeven in Hallo web app-logboekbestanden, Azure-tabellen, of Azure blobs, afhankelijk van hoe u uw Azure-web-app configureren. Geldt voor alle Console-uitvoer, Hallo meest recente 100-toepassingslogboeken ook worden weergegeven in de dashboardpagina Hallo voor Hallo webtaak, niet Hallo pagina voor een functie-aanroep.
 
-Console-uitvoer wordt weergegeven in het Dashboard alleen als het programma wordt uitgevoerd in een Azure-webtaak niet als het programma lokaal wordt uitgevoerd of in sommige andere omgeving.
+Console-uitvoer wordt weergegeven in Hallo Dashboard alleen als Hallo programma wordt uitgevoerd in een Azure-webtaak niet als Hallo programma lokaal wordt uitgevoerd of in sommige andere omgeving.
 
-U kunt logboekregistratie uitschakelen door de verbindingsreeks Dashboard in te stellen op null. Zie voor meer informatie [het instellen van configuratie-opties](#how-to-set-configuration-options).
+U kunt logboekregistratie uitschakelen door in te stellen Hallo Dashboard connection string toonull. Zie voor meer informatie [hoe tooset configuratieopties](#how-to-set-configuration-options).
 
-Het volgende voorbeeld ziet u schrijven logboeken op verschillende manieren:
+Hallo volgende voorbeeld ziet u op verschillende manieren toowrite Logboeken:
 
         public static void WriteLog(
             [QueueTrigger("logqueue")] string logMessage,
@@ -486,30 +486,30 @@ Het volgende voorbeeld ziet u schrijven logboeken op verschillende manieren:
             logger.WriteLine("TextWriter - " + logMessage);
         }
 
-In de WebJobs SDK-Dashboard de uitvoer van de **TextWriter** object wordt wanneer u naar de pagina voor een bepaalde gaat functie aanroepen en selecteer **wisselknop uitvoer**:
+Hallo in Hallo WebJobs SDK-Dashboard, uitvoer van Hallo **TextWriter** object wordt wanneer u toohello pagina voor een bepaalde gaat functie aanroepen en selecteer **wisselknop uitvoer**:
 
 ![Het aanroepen van koppeling](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
 ![Logboeken op de pagina voor functie-aanroep](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-In de WebJobs SDK-Dashboard de meest recente 100 regels van de Console uitvoer weergeven van wanneer u gaat u naar de pagina voor de webtaak (niet voor de functie-aanroep) en selecteer **wisselknop uitvoer**.
+In Hallo WebJobs SDK-Dashboard, Hallo meest recente 100 regels van de Console uitvoer weergeven van wanneer u toohello pagina voor Hallo webtaak (niet voor functie-aanroep Hallo gaat) en selecteer **wisselknop uitvoer**.
 
 ![Uitvoer van de in-of uitschakelen](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-In een doorlopende webtaak toepassingslogboeken weergegeven in/data/taken/continue/*{webjobname}*/job_log.txt in het bestandssysteem van de web-app.
+In een doorlopende webtaak toepassingslogboeken weergegeven in/data/taken/continue/*{webjobname}*/job_log.txt in Hallo web-app-bestandssysteem.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-In een Azure blob-de toepassing Logboeken eruit als volgt: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13, fout, contosoadsnew, 491e54, 635473620738373502,0,17404,19,console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
+In een Azure blob-toepassing hello logboeken moeten uitzien: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13, fout, contosoadsnew, 491e54, 635473620738373502,0,17404,19,console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
 
-En in een Azure-tabel de **Console.Out** en **Console.Error** logboeken moeten uitzien:
+En in een Azure-tabel Hallo **Console.Out** en **Console.Error** logboeken moeten uitzien:
 
 ![Logboek van de gegevens in de tabel](./media/vs-storage-webjobs-getting-started-queues/tableinfo.png)
 
 ![Foutenlogboek in tabel](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel is opgegeven codevoorbeelden die laten hoe u veelvoorkomende scenario's zien voor het werken met Azure wachtrijen verwerken. Zie voor meer informatie over het gebruik van Azure WebJobs en de WebJobs SDK [documentatiebronnen Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
+In dit artikel hebt gekregen code voorbeelden die tonen hoe toohandle algemene scenario's voor het werken met Azure wachtrijen. Voor meer informatie over hoe toouse Azure WebJobs en Hallo WebJobs SDK zien [documentatiebronnen Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
 

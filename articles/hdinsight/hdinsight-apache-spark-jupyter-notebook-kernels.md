@@ -1,6 +1,6 @@
 ---
-title: Kernels voor Jupyter-notebook in Spark-clusters in Azure HDInsight | Microsoft Docs
-description: Meer informatie over de PySpark PySpark3 en Spark kernels voor Jupyter-notebook met Spark op Azure HDInsight-clusters.
+title: aaaKernels voor Jupyter-notebook in Spark-clusters in Azure HDInsight | Microsoft Docs
+description: Meer informatie over Hallo PySpark PySpark3 en Spark kernels voor Jupyter-notebook met Spark op Azure HDInsight-clusters.
 keywords: jupyter-notebook in spark, jupyter spark
 services: hdinsight
 documentationcenter: 
@@ -17,21 +17,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: nitinme
-ms.openlocfilehash: 6cfd1c1e7b22f5460b78687c815d149e6c6deac9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 560c944fe850c5753ac9fa90550b804f0c47d14c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernels voor Jupyter-notebook in Spark-clusters in Azure HDInsight 
 
-HDInsight Spark-clusters bieden kernels die u met de Jupyter-notebook in Spark gebruiken kunt voor het testen van uw toepassingen. Een kernel is een programma dat wordt uitgevoerd en interpreteert uw code. De drie kernels zijn:
+HDInsight Spark-clusters bieden kernels die u met Jupyter-notebook in Spark Hallo gebruiken kunt voor het testen van uw toepassingen. Een kernel is een programma dat wordt uitgevoerd en interpreteert uw code. Er zijn drie kernels Hallo:
 
 - **PySpark** - voor toepassingen die zijn geschreven in Python2
 - **PySpark3** - voor toepassingen die zijn geschreven in Python3
 - **Spark** - voor toepassingen die zijn geschreven in Scala
 
-In dit artikel leert u hoe u deze kernels en de voordelen van het gebruik ervan.
+In dit artikel leert u hoe toouse deze kernels en Hallo voordelen van het gebruik ervan.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -39,118 +39,118 @@ In dit artikel leert u hoe u deze kernels en de voordelen van het gebruik ervan.
 
 ## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Maken van een Jupyter-notebook in Spark HDInsight
 
-1. Van de [Azure-portal](https://portal.azure.com/), opent u het cluster.  Zie [lijst en geeft weer clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters) voor instructies. Het cluster wordt geopend in een nieuwe portalblade.
+1. Van Hallo [Azure-portal](https://portal.azure.com/), opent u het cluster.  Zie [lijst en geeft weer clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters) voor Hallo-instructies. Hallo-cluster wordt geopend in een nieuwe portalblade.
 
-2. Van de **snelle koppelingen** sectie, klikt u op **Cluster dashboards** openen de **Cluster dashboards** blade.  Als er geen **snelkoppelingen**, klikt u op **overzicht** in het menu links op de blade.
+2. Van Hallo **snelle koppelingen** sectie, klikt u op **Cluster dashboards** tooopen hello **Cluster dashboards** blade.  Als er geen **snelkoppelingen**, klikt u op **overzicht** in Hallo linkermenu op Hallo-blade.
 
     ![Jupyter-notebook in Spark](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-jupyter-notebook-on-spark.png "Jupyter-notebook in Spark") 
 
-3. Klik op **Jupyter-Notebook**. Voer de beheerdersreferenties voor het cluster in als u daarom wordt gevraagd.
+3. Klik op **Jupyter-Notebook**. Voer desgevraagd Hallo beheerdersreferenties voor Hallo-cluster.
    
    > [!NOTE]
-   > U mag de Jupyter-notebook in Spark-cluster ook bereiken door de volgende URL in uw browser te openen. Vervang **CLUSTERNAME** door de naam van uw cluster.
+   > U kunt ook Hallo Jupyter-notebook in Spark-cluster door de volgende URL in uw browser openen-Hallo bereiken. Vervang **CLUSTERNAME** met Hallo-naam van het cluster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    > 
    > 
 
-3. Klik op **nieuw**, en klikt u ofwel **Pyspark**, **PySpark3**, of **Spark** voor het maken van een laptop. Gebruik de kernel Spark Scala-toepassingen, PySpark-kernel voor Python2 toepassingen en PySpark3 kernel voor Python3 toepassingen.
+3. Klik op **nieuw**, en klikt u ofwel **Pyspark**, **PySpark3**, of **Spark** toocreate een laptop. Hallo Spark kernel voor Scala-toepassingen, PySpark-kernel voor Python2 toepassingen en PySpark3 kernel voor Python3 toepassingen gebruiken.
    
     ![Kernels voor Jupyter-notebook in Spark](./media/hdinsight-apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernels voor Jupyter-notebook in Spark") 
 
-4. Een laptop wordt geopend met de kernel dat u hebt geselecteerd.
+4. Een laptop wordt geopend met Hallo kernel die u hebt geselecteerd.
 
-## <a name="benefits-of-using-the-kernels"></a>Voordelen van het gebruik van de kernels
+## <a name="benefits-of-using-hello-kernels"></a>Voordelen van het gebruik van Hallo kernels
 
-Hier volgen enkele voordelen van het gebruik van de nieuwe kernels op Jupyter-notebook op HDInsight Spark-clusters.
+Hier volgen enkele voordelen van het gebruik van Hallo nieuwe kernels op Jupyter-notebook op HDInsight Spark-clusters.
 
-- **Voorinstelling contexten**. Met **PySpark**, **PySpark3**, of de **Spark** kernels, hoeft u niet expliciet de Spark- of Hive-contexten instellen voordat u begint te werken met uw toepassingen. Dit zijn standaard beschikbaar. Deze contexten zijn:
+- **Voorinstelling contexten**. Met **PySpark**, **PySpark3**, of Hallo **Spark** kernels, hoeft u geen tooset Hallo Spark of Hive-contexten expliciet voordat u begint te werken met uw toepassingen. Dit zijn standaard beschikbaar. Deze contexten zijn:
    
    * **sc** : voor het Spark-context
    * **sqlContext** - voor Hive-context
 
-    U moet dus geen instructies als volgt om in te stellen de contexten uitvoeren:
+    Dus hebt u geen instructies voor het toorun zoals Hallo tooset Hallo contexten te volgen:
 
         SC SparkContext('yarn-client') sqlContext = HiveContext(sc) =
 
-    U kunt de vooraf ingestelde contexten in plaats daarvan direct gebruiken in uw toepassing.
+    In plaats daarvan u rechtstreeks kunt Hallo voorinstelling contexten in uw toepassing.
 
-- **Cel-magics**. De PySpark-kernel biedt een aantal vooraf gedefinieerde 'magics', die zijn speciale opdrachten die u met aanroepen kunt `%%` (bijvoorbeeld `%%MAGIC` <args>). Het magische opdracht moet het eerste woord in een codecel en toestaan voor meerdere regels van inhoud. Het magische woord moet het eerste woord in de cel. Toevoegen van voordat de magic, zelfs opmerkingen veroorzaakt een fout.     Zie voor meer informatie over magics [hier](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
+- **Cel-magics**. Hallo PySpark-kernel biedt een aantal vooraf gedefinieerde 'magics', die zijn speciale opdrachten die u met aanroepen kunt `%%` (bijvoorbeeld `%%MAGIC` <args>). Hallo magische opdracht moet worden Hallo eerste woord in een codecel en toestaan voor meerdere regels van inhoud. Hallo magische word moet Hallo eerste woord in Hallo cel. Alles voordat Hallo magic, zelfs opmerkingen toevoegen, veroorzaakt een fout.     Zie voor meer informatie over magics [hier](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
-    De volgende tabel bevat de verschillende magics die beschikbaar is via de kernels.
+    Hallo bevat volgende tabel andere magics Hallo beschikbaar via Hallo kernels.
 
    | Verwerkt Magic-pakket | Voorbeeld | Beschrijving |
    | --- | --- | --- |
-   | Help |`%%help` |Genereert een lijst met alle beschikbare magics met voorbeeld en beschrijving |
-   | Info |`%%info` |Sessie-informatie voor het huidige Livy eindpunt uitvoer |
-   | Configureren |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Hiermee configureert u de parameters voor het maken van een sessie. De vlag (-f) is verplicht als een sessie al is gemaakt, die zorgt ervoor dat de sessie wordt verwijderd en opnieuw gemaakt. Bekijk [van Livy POST /sessions aanvraagtekst](https://github.com/cloudera/livy#request-body) voor een lijst met geldige parameters op. Parameters moeten worden doorgegeven als een JSON-tekenreeks en moeten op de volgende regel na de magic, zoals wordt weergegeven in de voorbeeldkolom. |
-   | SQL |`%%sql -o <variable name>`<br> `SHOW TABLES` |Een Hive-query op de sqlContext worden uitgevoerd. Als de `-o` parameter is doorgegeven, het resultaat van de query wordt bewaard de %% lokale Python context als een [Pandas](http://pandas.pydata.org/) dataframe. |
-   | lokale |`%%local`<br>`a=1` |De code in de volgende regels wordt lokaal uitgevoerd. De sitecode moet geldige Python2 code zelfs ongeacht de kernel dat u gebruikt. Zo is, zelfs als u **PySpark3** of **Spark** kernels tijdens het maken van de notebook als u de `%%local` magische in een cel, die cel moet alleen code bevatten, geldige Python2... |
-   | logboeken |`%%logs` |De logboeken levert voor de huidige sessie van Livy. |
-   | verwijderen |`%%delete -f -s <session number>` |Hiermee verwijdert u een bepaalde sessie van het huidige Livy-eindpunt. Houd er rekening mee dat u de sessie die is gestart voor de kernel zichzelf niet verwijderen. |
-   | Opruimen |`%%cleanup -f` |Hiermee verwijdert u alle sessies voor de huidige Livy-eindpunt, waaronder deze laptop-sessie. De vlag force -f is verplicht. |
+   | Help |`%%help` |Genereert een lijst met alle beschikbare Hallo-magics met voorbeeld en beschrijving |
+   | Info |`%%info` |Sessie-informatie van uitvoer voor de huidige Livy eindpunt Hallo |
+   | Configureren |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Hiermee configureert u Hallo parameters voor het maken van een sessie. vlag force Hallo (-f) is verplicht als een sessie al is gemaakt, waardoor die sessie Hallo is verwijderd en opnieuw gemaakt. Bekijk [van Livy POST /sessions aanvraagtekst](https://github.com/cloudera/livy#request-body) voor een lijst met geldige parameters op. Parameters moeten worden doorgegeven als een JSON-tekenreeks en moeten op de volgende regel Hallo na Hallo magic, zoals weergegeven in Hallo voorbeeldkolom. |
+   | SQL |`%%sql -o <variable name>`<br> `SHOW TABLES` |Een Hive-query op Hallo sqlContext worden uitgevoerd. Als hello `-o` parameter is doorgegeven, Hallo resultaat van Hallo query wordt bewaard in Hallo %% lokale Python context als een [Pandas](http://pandas.pydata.org/) dataframe. |
+   | lokale |`%%local`<br>`a=1` |Alle Hallo-code in de volgende regels wordt lokaal uitgevoerd. De sitecode moet geldige Python2 code zelfs ongeacht Hallo kernel die u gebruikt. Zo is, zelfs als u **PySpark3** of **Spark** kernels tijdens het maken van Hallo laptop, als u Hallo `%%local` magische in een cel, die cel moet alleen code bevatten, geldige Python2... |
+   | logboeken |`%%logs` |Uitvoer Hallo logboeken voor de huidige Livy sessie Hallo. |
+   | verwijderen |`%%delete -f -s <session number>` |Hiermee verwijdert u een bepaalde sessie van de huidige Livy eindpunt Hallo. Houd er rekening mee dat u Hallo-sessie die is gestart voor Hallo kernel zichzelf niet verwijderen. |
+   | Opruimen |`%%cleanup -f` |Hiermee verwijdert u alle Hallo-sessies voor Hallo huidige Livy eindpunt, waaronder deze laptop-sessie. Hallo force vlag -f is verplicht. |
 
    > [!NOTE]
-   > Naast de magics die door de PySpark-kernel zijn toegevoegd, kunt u ook gebruiken de [ingebouwde IPython magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), inclusief `%%sh`. U kunt de `%%sh` verwerkt Magic-pakket voor het uitvoeren van scripts en codeblok op het cluster headnode.
+   > Bovendien toohello magics toegevoegd door de PySpark-kernel Hallo, u kunt ook Hallo [ingebouwde IPython magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), inclusief `%%sh`. U kunt Hallo `%%sh` magic toorun scripts en codeblok op Hallo cluster headnode.
    >
    >
-2. **Visualisatie automatisch**. De **Pyspark** kernel visualiseren automatisch de uitvoer van Hive en SQL-query's. U kunt kiezen tussen verschillende soorten visualisaties, met inbegrip van de tabel, cirkel, regel, gebied, balk.
+2. **Visualisatie automatisch**. Hallo **Pyspark** kernel visualiseren automatisch Hallo-uitvoer van Hive en SQL-query's. U kunt kiezen tussen verschillende soorten visualisaties, met inbegrip van de tabel, cirkel, regel, gebied, balk.
 
-## <a name="parameters-supported-with-the-sql-magic"></a>Parameters die worden ondersteund met de %% sql verwerkt Magic-pakket
-De `%%sql` magic ondersteunt verschillende parameters die u gebruiken kunt om te bepalen van het type uitvoer dat wordt weergegeven wanneer u query's uitvoeren. De volgende tabel bevat de uitvoer.
+## <a name="parameters-supported-with-hello-sql-magic"></a>Parameters die worden ondersteund door hello %% sql verwerkt Magic-pakket
+Hallo `%%sql` magic ondersteunt verschillende parameters kunt u toocontrol Hallo type uitvoer dat wordt weergegeven wanneer u query's uitvoeren. Hallo volgende tabel geeft een lijst Hallo uitvoer.
 
 | Parameter | Voorbeeld | Beschrijving |
 | --- | --- | --- |
-| -o |`-o <VARIABLE NAME>` |Gebruik deze parameter om het resultaat van de query in de %% lokale Python-context, als een [Pandas](http://pandas.pydata.org/) dataframe. De naam van de variabele dataframe is de naam van de variabele die u opgeeft. |
-| -q |`-q` |Met deze optie uitschakelen visualisaties voor de cel. Als u niet wilt dat de inhoud van een cel met een automatisch te visualiseren en willen het als een dataframe vastleggen en gebruik vervolgens `-q -o <VARIABLE>`. Als u uitschakelen visualisaties wilt zonder het vastleggen van de resultaten (bijvoorbeeld voor het uitvoeren van een SQL-query, zoals een `CREATE TABLE` instructie), gebruik `-q` zonder op te geven een `-o` argument. |
-| -m |`-m <METHOD>` |Waar **methode** is **nemen** of **voorbeeld** (standaardwaarde is **nemen**). Als de methode **nemen**, de kernel uitgelicht elementen vanaf de bovenkant van de resultatenset voor gegevens die worden opgegeven door MAXROWS (Zie verderop in deze tabel). Als de methode **voorbeeld**, willekeurig samples elementen van de gegevensset volgens de kernel `-r` parameter hieronder wordt beschreven in deze tabel. |
-| -r |`-r <FRACTION>` |Hier **FRACTIE** is een getal met drijvende komma tussen 0,0 en 1,0 liggen. Als de voorbeeldmethode voor de SQL-query is `sample`, en vervolgens de kernel willekeurig voorbeelden voor het opgegeven gedeelte van de elementen van de resultatenset voor u. Bijvoorbeeld, als u een SQL-query uitvoeren met de argumenten `-m sample -r 0.01`, en vervolgens 1% van de Resultatenrijen willekeurig worden vastgelegd. |
-| -n |`-n <MAXROWS>` |**MAXROWS** is een geheel getal. De kernel beperkt het aantal rijen dat u uitvoer wilt **MAXROWS**. Als **MAXROWS** is een negatief getal zoals **-1**, en vervolgens het aantal rijen in de resultatenset niet beperkt is. |
+| -o |`-o <VARIABLE NAME>` |Gebruik deze parameter toopersist Hallo-resultaat van het Hallo-query in Hallo %% lokale Python-context, als een [Pandas](http://pandas.pydata.org/) dataframe. Hallo-naam van Hallo dataframe variabele is Hallo variabele naam die u opgeeft. |
+| -q |`-q` |Gebruik deze tooturn uit visualisaties voor Hallo cel. Als u niet tooauto wilt-inhoud van een cel Hallo visualiseren en alleen wilt toocapture als een dataframe vervolgens gebruiken `-q -o <VARIABLE>`. Als u wilt dat tooturn uitschakelen visualisaties zonder Hallo resultaten opnemen (bijvoorbeeld voor het uitvoeren van een SQL-query, zoals een `CREATE TABLE` instructie), gebruik `-q` zonder op te geven een `-o` argument. |
+| -m |`-m <METHOD>` |Waar **methode** is **nemen** of **voorbeeld** (standaardwaarde is **nemen**). Als u de methode Hallo **nemen**, Hallo kernel uitgelicht elementen vanaf de bovenkant Hallo van Hallo gegevens resultatenset opgegeven door MAXROWS (Zie verderop in deze tabel). Als u de methode Hallo **voorbeeld**, Hallo kernel willekeurig samples elementen van de set gegevens Hallo volgens te`-r` parameter hieronder wordt beschreven in deze tabel. |
+| -r |`-r <FRACTION>` |Hier **FRACTIE** is een getal met drijvende komma tussen 0,0 en 1,0 liggen. Als Hallo voorbeeldmethode voor de SQL-query Hallo `sample`, en vervolgens Hallo kernel willekeurig samples Hallo opgegeven fractie van Hallo elementen van het Hallo-resultaat voor u ingesteld. Bijvoorbeeld, als u een SQL-query uitvoeren met Hallo argumenten `-m sample -r 0.01`, en vervolgens 1% van de Hallo Resultatenrijen willekeurig worden vastgelegd. |
+| -n |`-n <MAXROWS>` |**MAXROWS** is een geheel getal. Hallo kernel beperkt het aantal rijen dat uitvoer hello te**MAXROWS**. Als **MAXROWS** is een negatief getal zoals **-1**, en vervolgens het aantal rijen in de resultatenset Hallo Hallo niet beperkt is. |
 
 **Voorbeeld:**
 
     %%sql -q -m sample -r 0.1 -n 500 -o query2
     SELECT * FROM hivesampletable
 
-De instructie hiervoor doet het volgende:
+Hallo-instructie hiervoor Hallo te volgen:
 
 * Hiermee selecteert u alle records uit **hivesampletable**.
 * Omdat we - q, schakelt automatisch visualisatie.
-* Omdat we `-m sample -r 0.1 -n 500` het willekeurig samples 10% van de rijen in de hivesampletable en beperkt de grootte van het resultaat ingesteld op 500 rijen.
-* Ten slotte omdat we gebruikt `-o query2` Bovendien bespaart u de uitvoer in een dataframe aangeroepen **query2**.
+* Omdat we `-m sample -r 0.1 -n 500` het willekeurig 10% Hallo rijen in Hallo hivesampletable voorbeelden en limieten Hallo grootte van Hallo resultaat set too500 rijen.
+* Ten slotte omdat we gebruikt `-o query2` Bovendien bespaart u Hallo-uitvoer in een dataframe aangeroepen **query2**.
 
-## <a name="considerations-while-using-the-new-kernels"></a>Overwegingen bij het gebruik van de nieuwe kernels
+## <a name="considerations-while-using-hello-new-kernels"></a>Overwegingen bij het gebruik van nieuwe kernels Hallo
 
-De kernel dat u gebruikt, verbruikt zodat de laptops met de clusterbronnen.  Met deze kernels omdat de contexten vooraf, worden afgesloten gewoon de laptops de context niet beëindigen en daarom de clusterbronnen blijft in gebruik. Een goede gewoonte is met de **sluiten en stoppen** optie uit de notebook **bestand** menu wanneer u klaar bent met de laptop, waardoor de context is funest en vervolgens de notebook afgesloten.     
+De kernel dat u gebruikt, verbruikt verlaten Hallo laptops met Hallo clusterbronnen.  Met deze kernels omdat Hallo contexten worden vooraf ingesteld, gewoon afgesloten Hallo notitieblokken Hallo context niet beëindigen en daarom Hallo clusterbronnen toobe blijven in gebruik. Het wordt aangeraden toouse hello **sluiten en stoppen** optie uit Hallo-notebook **bestand** menu wanneer u klaar bent met Hallo laptop, die is funest Hallo context en vervolgens uitgangen notebook Hallo.     
 
 ## <a name="show-me-some-examples"></a>Sommige voorbeelden weergeven
 
-Als u een Jupyter-notebook opent, ziet u twee mappen die beschikbaar zijn op het hoogste niveau.
+Als u een Jupyter-notebook opent, ziet u twee mappen op hoofdniveau Hallo beschikbaar.
 
-* De **PySpark** map bevat voorbeeldquery notitieblokken die gebruikmaken van de nieuwe **Python** kernel.
-* De **Scala** map bevat voorbeeldquery notitieblokken die gebruikmaken van de nieuwe **Spark** kernel.
+* Hallo **PySpark** map bevat voorbeeldquery notitieblokken die gebruik Hallo nieuwe **Python** kernel.
+* Hallo **Scala** map bevat voorbeeldquery notitieblokken die gebruik Hallo nieuwe **Spark** kernel.
 
-U kunt openen de **00 - [Lees mij eerst] Spark Magic Kernel functies** notebook uit de **PySpark** of **Spark** map voor meer informatie over de andere magics die beschikbaar is. U kunt ook de andere beschikbare voorbeeld-notebooks gebruiken onder de twee mappen voor informatie over het bereiken van verschillende scenario's met Jupyter-notebooks met HDInsight Spark-clusters.
+U kunt openen Hallo **00 - [Lees mij eerst] Spark Magic Kernel-functies** notebook van Hallo **PySpark** of **Spark** map toolearn over andere magics Hallo beschikbaar. U kunt ook andere voorbeeldquery notitieblokken onder Hallo twee mappen toolearn hoe Hallo tooachieve verschillende scenario's met Jupyter-notebooks met HDInsight Spark-clusters.
 
-## <a name="where-are-the-notebooks-stored"></a>Waar worden de laptops opgeslagen?
+## <a name="where-are-hello-notebooks-stored"></a>Waar kan ik Hallo notitieblokken opgeslagen?
 
-Jupyter-notebooks worden opgeslagen in het opslagaccount die is gekoppeld aan het cluster onder de **/HdiNotebooks** map.  Notitieblokken, bestanden en mappen die u vanuit Jupyter maakt zijn toegankelijk is vanaf de storage-account.  Bijvoorbeeld, als u een map maken met Jupyter **mijnmap** en een laptop **myfolder/mynotebook.ipynb**, u toegang hebt tot die laptop `/HdiNotebooks/myfolder/mynotebook.ipynb` binnen het storage-account.  Het omgekeerde geldt ook, dat wil zeggen, als u een laptop rechtstreeks uploaden naar uw opslagaccount op `/HdiNotebooks/mynotebook1.ipynb`, de laptop is ook van Jupyter zichtbaar.  Laptops blijven in de storage-account, zelfs nadat het cluster wordt verwijderd.
+Jupyter-notebooks toohello storage-account die is gekoppeld aan het cluster onder Hallo Hallo worden opgeslagen **/HdiNotebooks** map.  Notitieblokken, bestanden en mappen die u vanuit Jupyter maakt zijn toegankelijk is vanaf Hallo storage-account.  Bijvoorbeeld, als u Jupyter toocreate een map **mijnmap** en een laptop **myfolder/mynotebook.ipynb**, u toegang hebt tot die laptop `/HdiNotebooks/myfolder/mynotebook.ipynb` binnen Hallo-opslagaccount.  Hallo omgekeerde geldt ook, dat wil zeggen, als u een laptop uploadt direct tooyour storage-account op `/HdiNotebooks/mynotebook1.ipynb`, Hallo laptop evenals van Jupyter zichtbaar is.  Notitieblokken blijven in Hallo storage-account, zelfs nadat het Hallo-cluster is verwijderd.
 
-De manier waarop notitieblokken worden opgeslagen in het opslagaccount is compatibel met HDFS. Dus als u SSH in het cluster dat kunt u opdrachten voor het beheer zoals weergegeven in het volgende fragment:
+Hallo manier notitieblokken toohello storage-account worden opgeslagen is compatibel met HDFS. Dus als u SSH in Hallo cluster die kunt u opdrachten voor het beheer zoals weergegeven in het volgende codefragment Hallo:
 
-    hdfs dfs -ls /HdiNotebooks                               # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
-    hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
-    hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
+    hdfs dfs -ls /HdiNotebooks                               # List everything at hello root directory – everything in this directory is visible tooJupyter from hello home page
+    hdfs dfs –copyToLocal /HdiNotebooks                    # Download hello contents of hello HdiNotebooks folder
+    hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb toohello root folder so it’s visible from Jupyter
 
 
-Als er problemen bij toegang tot het opslagaccount voor het cluster zijn, de laptops worden ook opgeslagen op de headnode `/var/lib/jupyter`.
+Als er problemen met toegang tot Hallo storage-account voor Hallo-cluster zijn, Hallo notitieblokken worden ook opgeslagen op Hallo headnode `/var/lib/jupyter`.
 
 ## <a name="supported-browser"></a>Ondersteunde browser
 
 Jupyter-notebooks op HDInsight Spark-clusters worden alleen ondersteund op Google Chrome.
 
 ## <a name="feedback"></a>Feedback
-De nieuwe kernels zijn in de fase in ontwikkeling en zal vervallen gedurende een bepaalde periode. Dit kan ook betekenen dat API's wijzigen kan, omdat deze kernels vervallen. We zouden feedback die u hebt tijdens het gebruik van deze nieuwe kernels stellen. Dit is handig in de definitieve versie van deze kernels vormgeven. U kunt feedback uw opmerkingen/onder de **opmerkingen** sectie onder aan dit artikel.
+nieuwe kernels Hallo zijn in de fase in ontwikkeling en zal vervallen gedurende een bepaalde periode. Dit kan ook betekenen dat API's wijzigen kan, omdat deze kernels vervallen. We zouden feedback die u hebt tijdens het gebruik van deze nieuwe kernels stellen. Dit is handig in Hallo definitieve versie van deze kernels vormgeven. U kunt feedback uw opmerkingen/onder Hallo **opmerkingen** sectie op Hallo onder aan dit artikel.
 
 ## <a name="seealso"></a>Zie ook
 * [Overzicht: Apache Spark in Azure HDInsight](hdinsight-apache-spark-overview.md)
@@ -158,7 +158,7 @@ De nieuwe kernels zijn in de fase in ontwikkeling en zal vervallen gedurende een
 ### <a name="scenarios"></a>Scenario's
 * [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark met Machine Learning: Spark in HDInsight toopredict voedselinspectieresultaten gebruiken](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark-streaming: Spark in HDInsight gebruiken voor het bouwen van realtime streamingtoepassingen](hdinsight-apache-spark-eventhub-streaming.md)
 * [Websitelogboekanalyse met Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -167,12 +167,12 @@ De nieuwe kernels zijn in de fase in ontwikkeling en zal vervallen gedurende een
 * [Taken op afstand uitvoeren in een Spark-cluster met behulp van Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
-* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om Spark Scala-toepassingen te maken en in te dienen](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om op afstand fouten in Spark Scala-toepassingen op te lossen](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [De invoegtoepassing HDInsight Tools voor IntelliJ IDEA toocreate en verzenden van Spark Scala-toepassingen](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA toodebug Spark applications op afstand gebruiken](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Zeppelin-notebooks gebruiken met een Spark-cluster in HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Externe pakketten gebruiken met Jupyter-notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Jupyter op uw computer installeren en verbinding maken met een HDInsight Spark-cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Jupyter op uw computer installeren en verbinding maken met tooan HDInsight Spark-cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Resources beheren
-* [Resources beheren voor het Apache Spark-cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Resources beheren voor Hallo Apache Spark-cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Taken die worden uitgevoerd in een Apache Spark-cluster in HDInsight, traceren en er fouten in oplossen](hdinsight-apache-spark-job-debugging.md)

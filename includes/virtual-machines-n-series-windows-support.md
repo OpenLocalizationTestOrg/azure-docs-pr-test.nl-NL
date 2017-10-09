@@ -15,5 +15,5 @@
 | Windows Server 2012 R2 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2008-2012r2-64bit-international-whql.exe) (.exe) |
 
 > [!NOTE]
-> Downloadkoppelingen voor Tesla-stuurprogramma’s zijn actueel op het moment van publicatie. Ga naar de [NVIDIA](http://www.nvidia.com/)-website voor de nieuwste stuurprogramma's.
+> Downloadkoppelingen voor Tesla-stuurprogramma’s zijn actueel op het moment van publicatie. Voor de meest recente stuurprogramma's op het Hallo, gaat u naar Hallo [NVIDIA](http://www.nvidia.com/) website.
 >

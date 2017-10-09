@@ -1,6 +1,6 @@
 ---
-title: Azure Functions Blob Storage-bindingen | Microsoft Docs
-description: Het gebruik van Azure Storage-triggers en bindingen in de Azure Functions begrijpen.
+title: aaaAzure functies Blob Storage bindingen | Microsoft Docs
+description: Begrijpen hoe Azure Storage toouse triggers en bindingen in Azure Functions.
 services: functions
 documentationcenter: na
 author: lindydonna
@@ -16,16 +16,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 8d8f510ec906c0e0420ec48d45d88b93c144658a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: cef44bd2154d0b97cca9220b6c5024a5b620c80d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-blob-storage-bindings"></a>Azure Functions Blob storage-bindingen
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-In dit artikel wordt uitgelegd hoe configureren en werken met Azure Blob storage bindingen in de Azure Functions. Azure Functions ondersteunt worden geactiveerd, invoer en uitvoer van de bindingen voor Azure Blob-opslag. Zie functies die beschikbaar in alle bindingen zijn [Azure Functions triggers en bindingen concepten](functions-triggers-bindings.md).
+Dit artikel wordt uitgelegd hoe tooconfigure en werken met Azure Blob storage bindingen in de Azure Functions. Azure Functions ondersteunt worden geactiveerd, invoer en uitvoer van de bindingen voor Azure Blob-opslag. Zie functies die beschikbaar in alle bindingen zijn [Azure Functions triggers en bindingen concepten](functions-triggers-bindings.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -37,25 +37,25 @@ In dit artikel wordt uitgelegd hoe configureren en werken met Azure Blob storage
 <a name="storage-blob-trigger"></a>
 ## <a name="blob-storage-triggers-and-bindings"></a>BLOB storage triggers en bindingen
 
-Met behulp van de Azure Blob storage-trigger wordt uw functiecode aangeroepen wanneer een nieuwe of bijgewerkte blob wordt gedetecteerd. De blobinhoud worden geleverd als invoer voor de functie.
+Hallo Azure Blob storage-trigger gebruikt, wordt de functiecode aangeroepen wanneer een nieuwe of bijgewerkte blob wordt gedetecteerd. Hallo blob-inhoud worden geleverd als invoer toohello-functie.
 
-Definieer een blob storage trigger met de **integreren** tabblad in de portal functies. De portal maakt de volgende definitie in de **bindingen** sectie van *function.json*:
+Definieer een blob storage-trigger met Hallo **integreren** tabblad in Hallo Functions-portal. Hallo portal maakt na definitie in Hallo Hallo **bindingen** sectie van *function.json*:
 
 ```json
 {
-    "name": "<The name used to identify the trigger data in your code>",
+    "name": "<hello name used tooidentify hello trigger data in your code>",
     "type": "blobTrigger",
     "direction": "in",
-    "path": "<container to monitor, and optionally a blob name pattern - see below>",
+    "path": "<container toomonitor, and optionally a blob name pattern - see below>",
     "connection": "<Name of app setting - see below>"
 }
 ```
 
-BLOB-invoer en uitvoer bindingen zijn gedefinieerd met behulp van `blob` als het bindingstype:
+BLOB-invoer en uitvoer bindingen zijn gedefinieerd met behulp van `blob` als het bindingstype Hallo:
 
 ```json
 {
-  "name": "<The name used to identify the blob input in your code>",
+  "name": "<hello name used tooidentify hello blob input in your code>",
   "type": "blob",
   "direction": "in", // other supported directions are "inout" and "out"
   "path": "<Path of input blob - see below>",
@@ -63,38 +63,38 @@ BLOB-invoer en uitvoer bindingen zijn gedefinieerd met behulp van `blob` als het
 },
 ```
 
-* De `path` ondersteunt de eigenschap binding expressies en filterparameters. Zie [patronen naam](#pattern).
-* De `connection` eigenschap moet bevatten de naam van een app-instelling met een verbindingsreeks voor opslag. In de Azure portal, de standaard editor in de **integreren** tabblad dit app-instelling die u configureert wanneer u een opslagaccount selecteren.
+* Hallo `path` ondersteunt de eigenschap binding expressies en filterparameters. Zie [patronen naam](#pattern).
+* Hallo `connection` eigenschap Hallo-naam van een app-instelling met een verbindingsreeks voor opslag moet bevatten. Hallo in hello Azure-portal, standaardeditor in Hallo **integreren** tabblad dit app-instelling die u configureert wanneer u een opslagaccount selecteren.
 
 > [!NOTE]
-> Wanneer u een blob-trigger op een plan verbruik, kunnen er maximaal 10 minuten vertraging bij de verwerking van nieuwe blobs nadat een functie-app niet actief is geworden. Nadat de functie-app wordt uitgevoerd, worden onmiddellijk blobs verwerkt. Overweeg om te voorkomen dat deze initiële vertraging, een van de volgende opties:
+> Wanneer u een blob-trigger op een plan verbruik, kunnen er up tooa 10 minuten vertraging bij de verwerking van nieuwe blobs nadat een functie-app niet actief is geworden. Nadat het Hallo-functie-app wordt uitgevoerd, worden onmiddellijk blobs verwerkt. Dit eerste tooavoid uitstellen, kunt u een Hallo volgende opties:
 > - Gebruik een App Service-abonnement met altijd op ingeschakeld.
-> - Gebruik een ander mechanisme voor het activeren van de blob verwerken, zoals een wachtrijbericht met de blob-naam. Zie voor een voorbeeld [wachtrij trigger met blob invoer binding](#input-sample).
+> - Gebruik een ander mechanisme tootrigger Hallo blob verwerken, zoals een wachtrijbericht die Hallo blob-naam bevat. Zie voor een voorbeeld [wachtrij trigger met blob invoer binding](#input-sample).
 
 <a name="pattern"></a>
 
 ### <a name="name-patterns"></a>Bestandsnaampatronen
-U kunt opgeven dat een naampatroon blob in de `path` eigenschap, die een filter of binding-expressie. Zie [Binding expressies en patronen](functions-triggers-bindings.md#binding-expressions-and-patterns).
+U kunt een naampatroon blob opgeven in Hallo `path` eigenschap, die een filter of binding-expressie. Zie [Binding expressies en patronen](functions-triggers-bindings.md#binding-expressions-and-patterns).
 
-Bijvoorbeeld als u wilt filteren op blobs die met de tekenreeks 'oorspronkelijke beginnen', gebruiken de volgende definitie. Dit pad zoeken naar een blob met de naam *oorspronkelijke Blob1.txt* in de *invoer* container en de waarde van de `name` variabele in functiecode is `Blob1`.
+Bijvoorbeeld gebruiken toofilter tooblobs die beginnen met Hallo tekenreeks 'oorspronkelijke' hello definitie te volgen. Dit pad zoeken naar een blob met de naam *oorspronkelijke Blob1.txt* in Hallo *invoer* container en de waarde Hallo Hallo `name` variabele in functiecode is `Blob1`.
 
 ```json
 "path": "input/original-{name}",
 ```
 
-Als u wilt koppelen aan de blob-bestandsnaam en de extensie afzonderlijk, gebruikmaken van twee patronen. Dit pad ook zoeken naar een blob met de naam *oorspronkelijke Blob1.txt*, en de waarde van de `blobname` en `blobextension` variabelen in de functiecode zijn *oorspronkelijke Blob1* en *txt*.
+toobind toohello blob-bestandsnaam en extensie afzonderlijk twee patronen te gebruiken. Dit pad ook zoeken naar een blob met de naam *oorspronkelijke Blob1.txt*, en de waarde van Hallo Hallo `blobname` en `blobextension` variabelen in de functiecode zijn *oorspronkelijke Blob1* en *txt*.
 
 ```json
 "path": "input/{blobname}.{blobextension}",
 ```
 
-U kunt het bestandstype blobs beperken met behulp van een vaste waarde voor de bestandsextensie. Gebruik bijvoorbeeld het volgende patroon volgen zodat alleen op PNG-bestanden:
+U kunt Hallo bestandstype blobs beperken met behulp van een vaste waarde voor de bestandsextensie Hallo. Bijvoorbeeld: tootrigger alleen op PNG-bestanden, gebruik Hallo patroon volgen:
 
 ```json
 "path": "samples/{name}.png",
 ```
 
-Accolades zijn speciale tekens in de naam van patronen. Voor blob-namen die accolades hebben met de naam opgeeft, kunt u de accolades met behulp van twee accolades escape. Het volgende voorbeeld wordt gezocht naar een blob met de naam *{20140101}-soundfile.mp3* in de *installatiekopieën* -container, en de `name` variabele waarde in de functiecode *soundfile.mp3*. 
+Accolades zijn speciale tekens in de naam van patronen. toospecify blob-namen die accolades in de naam van de hello hebben, escape Hallo accolades u twee gebruiken. Hallo volgende voorbeeld wordt gezocht naar een blob met de naam *{20140101}-soundfile.mp3* in Hallo *installatiekopieën* container en Hallo `name` variabelewaarde in Hallo functiecode is  *soundfile.mp3*. 
 
 ```json
 "path": "images/{{20140101}}-{name}",
@@ -102,50 +102,50 @@ Accolades zijn speciale tekens in de naam van patronen. Voor blob-namen die acco
 
 ### <a name="trigger-metadata"></a>Trigger metagegevens
 
-De blob-trigger biedt verschillende eigenschappen voor metagegevens. Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies bindingen in andere bindingen of als parameters in uw code. Deze waarden hebben dezelfde betekenis als [CloudBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
+Hallo blob trigger biedt verschillende eigenschappen voor metagegevens. Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies bindingen in andere bindingen of als parameters in uw code. Deze waarden Hallo hebben dezelfde betekenis als [CloudBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
 
-- **BlobTrigger**. Typ `string`. Het activerende blobpad
-- **URI**. Typ `System.Uri`. De blob-URI voor de primaire locatie.
-- **Eigenschappen**. Typ `Microsoft.WindowsAzure.Storage.Blob.BlobProperties`. Eigenschappen van de blob.
-- **Metagegevens**. Typ `IDictionary<string,string>`. De gebruiker gedefinieerde metagegevens voor de blob.
+- **BlobTrigger**. Typ `string`. Hallo activerende blobpad
+- **URI**. Typ `System.Uri`. Hallo-blob-URI voor de primaire locatie Hallo.
+- **Eigenschappen**. Typ `Microsoft.WindowsAzure.Storage.Blob.BlobProperties`. Hallo van blob-Systeemeigenschappen.
+- **Metagegevens**. Typ `IDictionary<string,string>`. Hallo gebruiker gedefinieerde metagegevens voor Hallo blob.
 
 <a name="receipts"></a>
 
 ### <a name="blob-receipts"></a>BLOB ontvangstbevestigingen
-De Azure Functions-runtime zorgt ervoor dat er is geen blob-activeringsfunctie meer dan één keer wordt aangeroepen voor de dezelfde nieuwe of bijgewerkte blob. Om te bepalen of een versie van de opgegeven blob is verwerkt, wordt bijgehouden *blob ontvangstbevestigingen*.
+Hello Azure Functions-runtime zorgt ervoor dat er geen blob-activeringsfunctie meer dan één keer wordt aangeroepen voor dezelfde nieuwe of bijgewerkte blob Hallo. toodetermine als een versie van de opgegeven blob is verwerkt, houdt *blob ontvangstbevestigingen*.
 
-Azure Functions winkels blob ontvangstbevestigingen in een container met de naam *webjobs-azure-hosts* in de Azure storage-account voor de functie-app (gedefinieerd door de app-instelling `AzureWebJobsStorage`). De ontvangst van een blob heeft de volgende informatie:
+Azure Functions winkels blob ontvangstbevestigingen in een container met de naam *webjobs-azure-hosts* in hello Azure storage-account voor de functie-app (gedefinieerd door de app-instelling Hallo `AzureWebJobsStorage`). De ontvangst van een blob heeft Hallo volgende informatie:
 
-* De geactiveerde functie ('*&lt;functie app-naam >*. Functies.  *&lt;functienaam >*', bijvoorbeeld: 'MyFunctionApp.Functions.CopyBlob')
-* De containernaam
-* Het blobtype ('BlockBlob' of 'PageBlob')
-* De blob-naam
-* De ETag (een blob-id, bijvoorbeeld: '0x8D1DC6E70A277EF')
+* Hallo functie geactiveerd ('*&lt;functie app-naam >*. Functies.  *&lt;functienaam >*', bijvoorbeeld: 'MyFunctionApp.Functions.CopyBlob')
+* Hallo-containernaam
+* Hallo blobtype ('BlockBlob' of 'PageBlob')
+* Hallo blob-naam
+* Hallo ETag (een blob-id, bijvoorbeeld: '0x8D1DC6E70A277EF')
 
-Verwijder de ontvangst van de blob voor blob uit om af te dwingen opnieuw verwerken van een blob, de *webjobs-azure-hosts* container handmatig.
+Hallo blob ontvangst voor blob tooforce opnieuw verwerken van een blob verwijderen uit Hallo *webjobs-azure-hosts* container handmatig.
 
 <a name="poison"></a>
 
 ### <a name="handling-poison-blobs"></a>Verwerken van verontreinigde blobs
 Als een functie van de trigger blob is mislukt voor een bepaalde functies van Azure-blob pogingen die een totaal van 5 maal standaard functioneren. 
 
-Als alle 5 pogingen mislukken, wordt een bericht met Azure Functions toegevoegd aan een opslagwachtrij met de naam *webjobs-blobtrigger-poison*. Bericht uit de wachtrij voor verontreinigde blobs is een JSON-object met de volgende eigenschappen:
+Als alle 5 pogingen mislukken, Azure Functions wordt toegevoegd een tooa opslag berichtenwachtrij met de naam *webjobs-blobtrigger-poison*. Hallo-bericht van wachtrij voor verontreinigde blobs is een JSON-object met Hallo volgende eigenschappen:
 
-* FunctionId (in de notatie  *&lt;functie app-naam >*. Functies.  *&lt;functienaam >*)
+* FunctionId (Hallo indeling  *&lt;functie app-naam >*. Functies.  *&lt;functienaam >*)
 * BlobType ('BlockBlob' of 'PageBlob')
 * ContainerName
 * BlobName
 * ETag (een blob-id, bijvoorbeeld: '0x8D1DC6E70A277EF')
 
 ### <a name="blob-polling-for-large-containers"></a>Er wordt gedelegeerd voor grote containers BLOB
-Als de blob-container die wordt bewaakt meer dan 10.000 blobs bevat, logboekbestanden de functies runtime scans moeten worden gecontroleerd voor nieuwe of gewijzigde blobs. Dit proces is niet realtime. Een functie mogelijk niet ophalen geactiveerd tot enkele minuten of langer nadat de blob is gemaakt. Bovendien [opslag logboeken worden gemaakt op een 'best effort'](/rest/api/storageservices/About-Storage-Analytics-Logging) basis. Er is geen garantie dat alle gebeurtenissen worden vastgelegd. Onder bepaalde omstandigheden wellicht Logboeken niet opgehaald. Als u sneller of betrouwbaarder blob verwerking vereist, kunt u een [wachtrijbericht](../storage/queues/storage-dotnet-how-to-use-queues.md) bij het maken van de blob. Vervolgens gebruikt u een [wachtrij trigger](functions-bindings-storage-queue.md) in plaats van een blob-trigger voor het verwerken van de blob.
+Als Hallo blob-container wordt bewaakt meer dan 10.000 blobs bevat, meld Hallo functies runtime scant bestanden toowatch voor nieuwe of gewijzigde blobs. Dit proces is niet realtime. Een functie mogelijk niet ophalen geactiveerd tot enkele minuten of langer nadat Hallo blob is gemaakt. Bovendien [opslag logboeken worden gemaakt op een 'best effort'](/rest/api/storageservices/About-Storage-Analytics-Logging) basis. Er is geen garantie dat alle gebeurtenissen worden vastgelegd. Onder bepaalde omstandigheden wellicht Logboeken niet opgehaald. Als u sneller of betrouwbaarder blob verwerking vereist, kunt u een [wachtrijbericht](../storage/queues/storage-dotnet-how-to-use-queues.md) bij het maken van Hallo blob. Vervolgens gebruikt u een [wachtrij trigger](functions-bindings-storage-queue.md) in plaats van een blob trigger tooprocess Hallo blob.
 
 <a name="triggerusage"></a>
 
 ## <a name="using-a-blob-trigger-and-input-binding"></a>Met behulp van een blob-trigger en invoer binding
-In .NET-functies, toegang tot de blobgegevens met een parameter van de methode, zoals `Stream paramName`. Hier `paramName` is de waarde die u hebt opgegeven in de [trigger configuratie](#trigger). Toegang tot de blob-invoerbron gegevens in Node.js-functies, `context.bindings.<name>`.
+In .NET-functies, toegang tot blobgegevens Hallo met een parameter van de methode, zoals `Stream paramName`. Hier `paramName` is Hallo-waarde die u hebt opgegeven in Hallo [trigger configuratie](#trigger). In de Node.js-functies toegang Hallo invoer blob-gegevens met `context.bindings.<name>`.
 
-U kunt in .NET binden aan een van de typen in de onderstaande lijst. Als gebruikt als een invoer-binding, is enkele van deze typen vereisen een `inout` richting in binding *function.json*. Deze richting wordt niet ondersteund door de standard-editor, zodat u de geavanceerde editor moet gebruiken.
+In .NET, kunt u tooany typen Hallo Hallo onderstaande binden. Als gebruikt als een invoer-binding, is enkele van deze typen vereisen een `inout` richting in binding *function.json*. Deze richting wordt niet ondersteund door Hallo standaardeditor, zodat u Hallo geavanceerde editor moet gebruiken.
 
 * `TextReader`
 * `Stream`
@@ -154,10 +154,10 @@ U kunt in .NET binden aan een van de typen in de onderstaande lijst. Als gebruik
 * `CloudPageBlob`('inout' binding richting vereist)
 * `CloudAppendBlob`('inout' binding richting vereist)
 
-Als tekst blobs worden verwacht, kunt u ook binden aan een .NET `string` type. Dit wordt alleen aanbevolen als de Blobgrootte van de klein is als de volledige blobinhoud in het geheugen geladen. In het algemeen is het raadzaam om het gebruik van een `Stream` of `CloudBlockBlob` type.
+Als tekst blobs worden verwacht, kunt u ook .NET tooa binden `string` type. Dit wordt alleen aanbevolen als Hallo blob klein is, zoals Hallo gehele blob-inhoud in het geheugen geladen. In het algemeen is het beter toouse een `Stream` of `CloudBlockBlob` type.
 
 ## <a name="trigger-sample"></a>Voorbeeld van de trigger
-Stel dat u hebt de volgende function.json die de trigger van een blob-opslag definieert:
+Stel dat u hebt Hallo function.json die een blob storage-trigger definieert te volgen:
 
 ```json
 {
@@ -174,7 +174,7 @@ Stel dat u hebt de volgende function.json die de trigger van een blob-opslag def
 }
 ```
 
-Zie het voorbeeld taalspecifieke waarmee de inhoud van elke blob die wordt toegevoegd aan de bewaakte container zich aanmeldt.
+Zie Hallo taalspecifieke steekproef die het Hallo-inhoud van elke blob die wordt toegevoegd toohello bewaakte container registreert.
 
 * [C#](#triggercsharp)
 * [Node.js](#triggernodejs)
@@ -192,7 +192,7 @@ public static void Run(Stream myBlob, TraceWriter log)
 ```
 
 ```cs
-// Blob trigger binding to a CloudBlockBlob
+// Blob trigger binding tooa CloudBlockBlob
 #r "Microsoft.WindowsAzure.Storage"
 
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -218,9 +218,9 @@ module.exports = function(context) {
 
 ## <a name="using-a-blob-output-binding"></a>Binding met een blob uitvoer
 
-.NET-functies, moet u gebruiken een `out string` parameter in uw functiehandtekening of gebruik een van de typen in de volgende lijst. In een Node.js-functies, opent u de uitvoer-blob via `context.bindings.<name>`.
+.NET-functies, moet u gebruiken een `out string` parameter in uw functiehandtekening of gebruik een van de typen Hallo in Hallo lijst te volgen. In Node.js-functies, opent u met behulp Hallo uitvoer blob `context.bindings.<name>`.
 
-In de .NET-functies kunt u uitvoeren met een van de volgende typen:
+In de .NET-functies kunt u tooany Hallo typen volgende uitvoeren:
 
 * `out string`
 * `TextWriter`
@@ -233,7 +233,7 @@ In de .NET-functies kunt u uitvoeren met een van de volgende typen:
 <a name="input-sample"></a>
 
 ## <a name="queue-trigger-with-blob-input-and-output-sample"></a>Wachtrij-trigger met blob-invoer en uitvoer voorbeeld
-Stel dat u hebt de volgende function.json, die definieert een [Queue Storage trigger](functions-bindings-storage-queue.md), een blob-opslag-invoer en uitvoer van een blob-opslag. Let op het gebruik van de `queueTrigger` metagegevenseigenschap. in de blob-invoer en uitvoer `path` eigenschappen:
+Stel dat u hebt na function.json hello, die definieert een [Queue Storage trigger](functions-bindings-storage-queue.md), een blob-opslag-invoer en uitvoer van een blob-opslag. Gebruik van de kennisgeving Hallo Hallo `queueTrigger` metagegevenseigenschap. in de blob Hallo invoer en uitvoer `path` eigenschappen:
 
 ```json
 {
@@ -264,7 +264,7 @@ Stel dat u hebt de volgende function.json, die definieert een [Queue Storage tri
 }
 ``` 
 
-Zie het voorbeeld taalspecifieke waarmee de blob-invoerbron worden gekopieerd naar de uitvoer-blob.
+Zie Hallo taalspecifieke steekproef die het Hallo blob-invoerbron toohello uitvoer blob kopieert.
 
 * [C#](#incsharp)
 * [Node.js](#innodejs)
@@ -274,7 +274,7 @@ Zie het voorbeeld taalspecifieke waarmee de blob-invoerbron worden gekopieerd na
 ### <a name="blob-binding-example-in-c"></a>Voorbeeld van BLOB-binding in C# #
 
 ```cs
-// Copy blob from input to output, based on a queue trigger
+// Copy blob from input toooutput, based on a queue trigger
 public static void Run(string myQueueItem, Stream myInputBlob, out string myOutputBlob, TraceWriter log)
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
@@ -287,7 +287,7 @@ public static void Run(string myQueueItem, Stream myInputBlob, out string myOutp
 ### <a name="blob-binding-example-in-nodejs"></a>Voorbeeld van BLOB-binding in Node.js
 
 ```javascript
-// Copy blob from input to output, based on a queue trigger
+// Copy blob from input toooutput, based on a queue trigger
 module.exports = function(context) {
     context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
     context.bindings.myOutputBlob = context.bindings.myInputBlob;

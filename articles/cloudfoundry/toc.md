@@ -2,7 +2,7 @@
 # Snelstartgidsen
 ## [Marketplace-sjabloon](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry)
 # Zelfstudies
-## [CF-app implementeren in Azure](/azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app)
+## [TooAzure CF App implementeren](/azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app)
 ## [Cloud Foundry op Azure](/azure/virtual-machines/linux/cloudfoundry-get-started)
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)

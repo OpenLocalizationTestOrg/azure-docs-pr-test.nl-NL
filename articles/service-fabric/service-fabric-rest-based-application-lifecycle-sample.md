@@ -1,6 +1,6 @@
 ---
-title: Voorbeeld van toepassing op basis van REST lifecycle | Microsoft Docs
-description: Een Microsoft Azure Service Fabric-voorbeeldtoepassing die u ziet u de levenscyclus van de toepassing met behulp van de Service Fabric REST-interface.
+title: Voorbeeld van toepassing op basis van aaaREST lifecycle | Microsoft Docs
+description: Een Microsoft Azure Service Fabric-voorbeeldtoepassing die u ziet u de levenscyclus van de toepassing hello met Hallo Service Fabric REST-interface.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,51 +15,51 @@ ms.workload: na
 ms.date: 12/2/2016
 ms.author: ryanwi
 redirect_url: /rest/api/servicefabric/
-ms.openlocfilehash: e0c744c4784deb2ce21abcb9b7e012a38b6d16a7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a6817edb932b3e9fc987dc7d90bcbb3c5eb91e64
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="rest-based-application-lifecycle-sample"></a>Voorbeeld van levenscyclus van op REST-gebaseerde toepassing
-Dit voorbeeld demonstreert de levenscyclus van de Service Fabric via REST API-aanroepen. Zie voor meer informatie over de levenscyclus van de Service Fabric-toepassing [Service Fabric-toepassing lifecycle](service-fabric-application-lifecycle.md).
+Dit voorbeeld demonstreert Hallo Service Fabric-toepassing lifecycle via REST API-aanroepen. Zie voor meer informatie over de levenscyclus van een Hallo Service Fabric-toepassing [Service Fabric-toepassing lifecycle](service-fabric-application-lifecycle.md).
 
-Dit voorbeeld voert het volgende:
+Dit voorbeeld voert Hallo uit:
 
-* Voorziet in de **WordCount 1.0.0** voorbeeld van het pakket van de toepassing WordCount in de image store.
-* Geeft de lijst met toepassingstypen, waaronder WordCount 1.0.0.
-* Hiermee maakt u de toepassing WordCount als **fabric: / WordCount**.
-* Geeft een lijst met toepassingen, waaronder fabric: / WordCount versie 1.0.0.
-* Voorziet in de 1.1.0 versie van de WordCount-voorbeeld van de **WordCountUpgrade** application-pakket in de image store.
-* Geeft een lijst met toepassingstypen, waaronder zowel WordCount 1.0.0 en **WordCount 1.1.0**.
-* Hiermee wordt de toepassing WordCount naar versie 1.1.0 bijgewerkt.
-* Geeft de lijst met toepassingen, die versie 1.1.0 WordCount bevat, maar bevat niet langer WordCount versie 1.0.0.
-* Hiermee verwijdert u de toepassing WordCount.
-* Geeft een lijst met toepassingen, waaronder niet langer fabric: / WordCount.
-* De 1.1.0 unprovisions versie van de WordCount-voorbeeld.
-* Geeft de lijst met toepassingstypen, die WordCount 1.0.0 bevat, maar bevat niet langer WordCount 1.1.0.
-* De 1.0.0 unprovisions versie van de WordCount-voorbeeld.
-* Geeft de lijst met toepassingstypen, waaronder niet langer WordCount.
+* Bepalingen Hallo **WordCount 1.0.0** voorbeeld van Hallo WordCount-toepassingspakket in Hallo image store.
+* Hallo-lijst met toepassingstypen, waaronder WordCount 1.0.0 weergeven.
+* Hiermee maakt u WordCount-toepassing hello als **fabric: / WordCount**.
+* Geeft Hallo lijst met toepassingen, waaronder fabric: / WordCount versie 1.0.0.
+* Bepalingen Hallo 1.1.0 versie van Hallo WordCount-voorbeeld uit Hallo **WordCountUpgrade** toepassingspakket in Hallo image store.
+* Hallo lijst weergeven van de toepassingstypen, waaronder zowel WordCount 1.0.0 en **WordCount 1.1.0**.
+* Hallo WordCount-toepassing tooversion 1.1.0 wordt bijgewerkt.
+* Hallo lijst weergeven van toepassingen, die versie 1.1.0 WordCount bevat, maar bevat niet langer WordCount versie 1.0.0.
+* Hiermee verwijdert u de toepassing WordCount Hallo.
+* Geeft Hallo lijst met toepassingen, waaronder niet langer fabric: / WordCount.
+* Unprovisions hello 1.1.0 versie van Hallo WordCount-voorbeeld.
+* Hallo-lijst met toepassingstypen, die WordCount 1.0.0 bevat, maar bevat niet langer WordCount 1.1.0 weergeven.
+* Unprovisions hello 1.0.0 versie van Hallo WordCount-voorbeeld.
+* Hallo lijst weergegeven met toepassingstypen, waaronder niet langer WordCount.
 
 ## <a name="prerequisites"></a>Vereisten
-In dit voorbeeld gebruikt de [WordCount-voorbeeld](http://aka.ms/servicefabricsamples) (gevonden in de **aan de slag** voorbeelden). Het WordCount-voorbeeld moet eerst worden gemaakt en vervolgens twee toepassingspakketten moeten worden gekopieerd naar de image store.
+In dit voorbeeld gebruikt Hallo [WordCount-voorbeeld](http://aka.ms/servicefabricsamples) (gevonden in Hallo **aan de slag** voorbeelden). Hallo WordCount-voorbeeld moet eerst worden gebouwd en klik vervolgens twee toepassingspakketten moet gekopieerde toohello image store.
 
 | Map | Beschrijving |
 | --- | --- |
-| WordCount |De toepassing WordCount-voorbeeld. De **ApplicationManifest.xml** bestand bevat **ApplicationTypeVersion = '1.0.0'**. |
-| WordCountUpgrade |De toepassing WordCount-voorbeeld. Het bestand ApplicationManifest.xml moet worden gewijzigd in **ApplicationTypeVersion = '1.1.0'** om toe te staan van de upgrade van de toepassing om te worden uitgevoerd. |
+| WordCount |Hallo WordCount-voorbeeldtoepassing. Hallo **ApplicationManifest.xml** bestand bevat **ApplicationTypeVersion = '1.0.0'**. |
+| WordCountUpgrade |Hallo WordCount-voorbeeldtoepassing. Hallo ApplicationManifest.xml bestand te moet worden gewijzigd**ApplicationTypeVersion = '1.1.0'** tooallow Hallo toepassing upgrade toooccur. |
 
-De toepassingspakketten maken en kopieer deze naar de image store, voert de volgende stappen uit:
+toocreate Hallo toepassingspakketten en kopieer deze toohello image store, nemen Hallo stappen te volgen:
 
-1. Kopiëren **C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug** naar **C:\Temp\WordCount**. Hiermee maakt u het WordCount-toepassingspakket.
-2. Kopieer C:\Temp\WordCount naar **C:\Temp\WordCountUpgrade**. Hiermee maakt u de **WordCountUpgrade toepassing** pakket.
+1. Kopiëren **C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug** te**C:\Temp\WordCount**. Hiermee maakt u Hallo WordCount-toepassingspakket.
+2. C:\Temp\WordCount te kopiëren**C:\Temp\WordCountUpgrade**. Hiermee maakt u Hallo **WordCountUpgrade toepassing** pakket.
 3. Open **C:\Temp\WordCountUpgrade\ApplicationManifest.xml** in een teksteditor.
-4. In de **ApplicationManifest** element, wijzig de **ApplicationTypeVersion** kenmerk **'1.1.0'**.  Hiermee wordt het versienummer van de toepassing bijgewerkt.
-5. Sla het gewijzigde ApplicationManifest.xml-bestand.
-6. De volgende PowerShell-script uitvoeren als beheerder om te kopiëren van de toepassingen op de image store:
+4. In Hallo **ApplicationManifest** element, wijziging Hallo **ApplicationTypeVersion** te kenmerk**'1.1.0'**.  Dit versienummer Hallo van de toepassing hello-updates.
+5. Hallo gewijzigd ApplicationManifest.xml bestand opslaan.
+6. Voer Hallo volgende PowerShell-script als beheerder toocopy Hallo toepassingen toohello image store:
 
 ```powershell
-# Deploy the WordCount and upgrade applications
+# Deploy hello WordCount and upgrade applications
 $applicationPathWordCount = "C:\Temp\WordCount"
 $applicationPathUpgrade = "C:\Temp\WordCountUpgrade"
 
@@ -73,10 +73,10 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathWor
 Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathUpgrade -ImageStoreConnectionString $imageStoreConnection
 ```
 
-Wanneer het PowerShell-script is voltooid, wordt deze toepassing kan nu worden uitgevoerd.
+Wanneer Hallo PowerShell-script is voltooid, is deze toepassing gereed toorun.
 
 ## <a name="example"></a>Voorbeeld
-Het volgende voorbeeld toont de levenscyclus van de Service Fabric-toepassing.
+Hallo volgende voorbeeld laat zien Hallo Service Fabric-toepassing levenscyclus.
 
 ```csharp
 using System;
@@ -102,94 +102,94 @@ namespace ServiceFabricRestCaller
             string buildPathUpgrade = "WordCountUpgrade";
             string updateVersionNumber = "1.1.0";
 
-            Console.WriteLine("\nProvision the 1.0.0 WordCount application for the first time.");
+            Console.WriteLine("\nProvision hello 1.0.0 WordCount application for hello first time.");
             ProvisionAnApplication(clusterUri, buildPathApplication);
-            Console.WriteLine("\nPress Enter to get the list of application types: ");
+            Console.WriteLine("\nPress Enter tooget hello list of application types: ");
             Console.ReadLine();
 
 
-            Console.WriteLine("\nGet the list of application types.");
+            Console.WriteLine("\nGet hello list of application types.");
             GetListOfApplicationTypes(clusterUri);
-            Console.WriteLine("\nPress Enter to create the fabric:/WordCount application: ");
+            Console.WriteLine("\nPress Enter toocreate hello fabric:/WordCount application: ");
             Console.ReadLine();
 
 
-            Console.WriteLine("\nCreate the fabric:/WordCount application.");
+            Console.WriteLine("\nCreate hello fabric:/WordCount application.");
             CreateApplication(clusterUri);
-            Console.WriteLine("\nPress Enter to get the list of applications: ");
+            Console.WriteLine("\nPress Enter tooget hello list of applications: ");
             Console.ReadLine();
 
 
-            Console.WriteLine("\nGet the list of applications.");
+            Console.WriteLine("\nGet hello list of applications.");
             GetApplicationList(clusterUri);
-            Console.WriteLine("\nPress Enter to provision the 1.1.0 upgrade to the WordCount application: ");
+            Console.WriteLine("\nPress Enter tooprovision hello 1.1.0 upgrade toohello WordCount application: ");
             Console.ReadLine();
 
 
-            Console.WriteLine("\nProvision the 1.1.0 upgrade to the WordCount application.");
+            Console.WriteLine("\nProvision hello 1.1.0 upgrade toohello WordCount application.");
             ProvisionAnApplication(clusterUri, buildPathUpgrade);
-            Console.WriteLine("\nPress Enter to get the list of application types: ");
+            Console.WriteLine("\nPress Enter tooget hello list of application types: ");
             Console.ReadLine();
 
 
-            Console.WriteLine("\nGet the list of application types.");
+            Console.WriteLine("\nGet hello list of application types.");
             GetListOfApplicationTypes(clusterUri);
-            Console.WriteLine("\nPress Enter to upgrade the fabric:/WordCount application: ");
+            Console.WriteLine("\nPress Enter tooupgrade hello fabric:/WordCount application: ");
             Console.ReadLine();
 
 
-            Console.WriteLine("\nUpgrade the fabric:/WordCount application.");
+            Console.WriteLine("\nUpgrade hello fabric:/WordCount application.");
             UpgradeApplicationByApplicationType(clusterUri);
-            Console.WriteLine("\nPress Enter to get the list of applications: ");
+            Console.WriteLine("\nPress Enter tooget hello list of applications: ");
             Console.ReadLine();
 
 
-            Console.WriteLine("\nGet the list of applications.");
+            Console.WriteLine("\nGet hello list of applications.");
             GetApplicationList(clusterUri);
-            Console.WriteLine("\nPress Enter to delete the fabric:/WordCount application: ");
+            Console.WriteLine("\nPress Enter toodelete hello fabric:/WordCount application: ");
             Console.ReadLine();
 
 
-            Console.WriteLine("\nDelete the fabric:/WordCount application.");
+            Console.WriteLine("\nDelete hello fabric:/WordCount application.");
             DeleteApplication(clusterUri);
-            Console.WriteLine("\nPress Enter to get the list of applications: ");
+            Console.WriteLine("\nPress Enter tooget hello list of applications: ");
             Console.ReadLine();
 
 
-            Console.WriteLine("\nGet the list of applications.");
+            Console.WriteLine("\nGet hello list of applications.");
             GetApplicationList(clusterUri);
-            Console.WriteLine("\nPress Enter to unprovision the WordCount 1.1.0 application: ");
+            Console.WriteLine("\nPress Enter toounprovision hello WordCount 1.1.0 application: ");
             Console.ReadLine();
 
 
-            Console.WriteLine("\nUnprovision the WordCount 1.1.0 application.");
+            Console.WriteLine("\nUnprovision hello WordCount 1.1.0 application.");
             UnprovisionAnApplication(clusterUri, updateVersionNumber);
-            Console.WriteLine("\nPress Enter to get the list of application types: ");
+            Console.WriteLine("\nPress Enter tooget hello list of application types: ");
             Console.ReadLine();
 
 
-            Console.WriteLine("\nGet the list of application types.");
+            Console.WriteLine("\nGet hello list of application types.");
             GetListOfApplicationTypes(clusterUri);
-            Console.WriteLine("\nPress Enter to unprovision the WordCount 1.0.0 application: ");
+            Console.WriteLine("\nPress Enter toounprovision hello WordCount 1.0.0 application: ");
             Console.ReadLine();
 
 
-            Console.WriteLine("\nUnprovision the WordCount 1.0.0 application.");
+            Console.WriteLine("\nUnprovision hello WordCount 1.0.0 application.");
             UnprovisionAnApplication(clusterUri, applicationVersionNumber);
-            Console.WriteLine("\nPress Enter to get the final list of application types: ");
+            Console.WriteLine("\nPress Enter tooget hello final list of application types: ");
             Console.ReadLine();
 
 
-            Console.WriteLine("\nGet the final list of application types.");
+            Console.WriteLine("\nGet hello final list of application types.");
             GetListOfApplicationTypes(clusterUri);
-            Console.WriteLine("\nPress Enter to end this program: ");
+            Console.WriteLine("\nPress Enter tooend this program: ");
             Console.ReadLine();
         }
 
         #region Classes
 
         /// <summary>
-        /// Class similar to ApplicationType. Designed for use with JavaScriptSerializer.
+        /// Class similar tooApplicationType. Designed for use with JavaScriptSerializer.
         /// </summary>
         public class AppType
         {
@@ -213,7 +213,7 @@ namespace ServiceFabricRestCaller
         }
 
         /// <summary>
-        /// Class similar to Parameter. Designed for use with JavaScriptSerializer.
+        /// Class similar tooParameter. Designed for use with JavaScriptSerializer.
         /// </summary>
         public class Parameter
         {
@@ -227,38 +227,38 @@ namespace ServiceFabricRestCaller
         #region Get List of Application Types (REST API)
 
         /// <summary>
-        /// Gets the list of application types.
+        /// Gets hello list of application types.
         /// </summary>
-        /// <param name="clusterUri">The URI to access the cluster.</param>
+        /// <param name="clusterUri">hello URI tooaccess hello cluster.</param>
         /// <returns>Returns true if successful; otherwise false.</returns>
         public static bool GetListOfApplicationTypes(Uri clusterUri)
         {
-            // String to capture the response stream.
+            // String toocapture hello response stream.
             string responseString = string.Empty;
 
-            // Create the request and add URL parameters.
+            // Create hello request and add URL parameters.
             Uri requestUri = new Uri(clusterUri, string.Format("/ApplicationTypes?api-version={0}",
             "1.0"));    // api-version
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri);
             request.Method = "GET";
 
-            // Execute the request and obtain the response.
+            // Execute hello request and obtain hello response.
             try
             {
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 {
                     using (StreamReader streamReader = new StreamReader(response.GetResponseStream(), true))
                     {
-                        // Capture the response string.
+                        // Capture hello response string.
                         responseString = streamReader.ReadToEnd();
                     }
                 }
             }
             catch (WebException e)
             {
-                // If there is a web exception, display the error message.
-                Console.WriteLine("Error getting the list of application types:");
+                // If there is a web exception, display hello error message.
+                Console.WriteLine("Error getting hello list of application types:");
                 Console.WriteLine(e.Message);
                 if (e.InnerException != null)
                     Console.WriteLine(e.InnerException.Message);
@@ -270,7 +270,7 @@ namespace ServiceFabricRestCaller
                 throw (e);
             }
 
-            // Deserialize the response string.
+            // Deserialize hello response string.
             JavaScriptSerializer jss = new JavaScriptSerializer();
             List<AppType> applicationTypes = jss.Deserialize<List<AppType>>(responseString);
 
@@ -299,14 +299,14 @@ namespace ServiceFabricRestCaller
         #region Provision an Application (REST API)
 
         /// <summary>
-        /// Provisions an application to the image store.
+        /// Provisions an application toohello image store.
         /// </summary>
-        /// <param name="clusterUri">The URI to access the cluster.</param>
-        /// <param name="applicationTypeBuildPath">The application type build path ("WordCount" or "WordCountUpgrade").</param>
+        /// <param name="clusterUri">hello URI tooaccess hello cluster.</param>
+        /// <param name="applicationTypeBuildPath">hello application type build path ("WordCount" or "WordCountUpgrade").</param>
         /// <returns>Returns true if successful; otherwise false.</returns>
         public static bool ProvisionAnApplication(Uri clusterUri, string applicationTypeBuildPath)
         {
-            // Create the request and add URL parameters.
+            // Create hello request and add URL parameters.
             Uri requestUri = new Uri(clusterUri, string.Format("/ApplicationTypes/$/Provision?api-version={0}",
                 "1.0"));    // api-version
 
@@ -314,15 +314,15 @@ namespace ServiceFabricRestCaller
             request.Method = "POST";
             request.ContentType = "application/json; charset=utf-8";
 
-            // Create the byte array that will become the request body.
+            // Create hello byte array that will become hello request body.
             string requestBody = "{\"ApplicationTypeBuildPath\":\"" + applicationTypeBuildPath + "\"}";
             byte[] requestBodyBytes = Encoding.UTF8.GetBytes(requestBody);
             request.ContentLength = requestBodyBytes.Length;
 
-            // Stores the response status code.
+            // Stores hello response status code.
             HttpStatusCode statusCode;
 
-            // Create the request body.
+            // Create hello request body.
             try
             {
                 using (Stream requestStream = request.GetRequestStream())
@@ -330,7 +330,7 @@ namespace ServiceFabricRestCaller
                     requestStream.Write(requestBodyBytes, 0, requestBodyBytes.Length);
                     requestStream.Close();
 
-                    // Execute the request and obtain the response.
+                    // Execute hello request and obtain hello response.
                     using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                     {
                         statusCode = response.StatusCode;
@@ -339,8 +339,8 @@ namespace ServiceFabricRestCaller
             }
             catch (WebException e)
             {
-                // If there is a web exception, display the error message.
-                Console.WriteLine("Error provisioning the application:");
+                // If there is a web exception, display hello error message.
+                Console.WriteLine("Error provisioning hello application:");
                 Console.WriteLine(e.Message);
                 if (e.InnerException != null)
                     Console.WriteLine(e.InnerException.Message);
@@ -363,11 +363,11 @@ namespace ServiceFabricRestCaller
         /// <summary>
         /// Unprovisions an application.
         /// </summary>
-        /// <param name="clusterUri">The URI to access the cluster.</param>
+        /// <param name="clusterUri">hello URI tooaccess hello cluster.</param>
         /// <returns>Returns true if successful; otherwise false.</returns>
         public static bool UnprovisionAnApplication(Uri clusterUri, string versionToUnprovision)
         {
-            // Create the request and add URL parameters.
+            // Create hello request and add URL parameters.
             Uri requestUri = new Uri(clusterUri, string.Format("/ApplicationTypes/{0}/$/Unprovision?api-version={1}",
                 "WordCount",     // Application Type Name
                 "1.0"));            // api-version
@@ -376,15 +376,15 @@ namespace ServiceFabricRestCaller
             request.Method = "POST";
             request.ContentType = "application/json; charset=utf-8";
 
-            // Stores the response status code.
+            // Stores hello response status code.
             HttpStatusCode statusCode;
 
-            // Create the byte array that will become the request body.
+            // Create hello byte array that will become hello request body.
             string requestBody = "{\"ApplicationTypeVersion\":\"" + versionToUnprovision + "\"}";
             byte[] requestBodyBytes = Encoding.UTF8.GetBytes(requestBody);
             request.ContentLength = requestBodyBytes.Length;
 
-            // Create the request body.
+            // Create hello request body.
             try
             {
                 using (Stream requestStream = request.GetRequestStream())
@@ -392,7 +392,7 @@ namespace ServiceFabricRestCaller
                     requestStream.Write(requestBodyBytes, 0, requestBodyBytes.Length);
                     requestStream.Close();
 
-                    // Execute the request and obtain the response.
+                    // Execute hello request and obtain hello response.
                     using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                     {
                         statusCode = response.StatusCode;
@@ -401,8 +401,8 @@ namespace ServiceFabricRestCaller
             }
             catch (WebException e)
             {
-                // If there is a web exception, display the error message.
-                Console.WriteLine("Error unprovisioning the application:");
+                // If there is a web exception, display hello error message.
+                Console.WriteLine("Error unprovisioning hello application:");
                 Console.WriteLine(e.Message);
                 if (e.InnerException != null)
                     Console.WriteLine(e.InnerException.Message);
@@ -423,38 +423,38 @@ namespace ServiceFabricRestCaller
         #region Get Application List (REST API)
 
         /// <summary>
-        /// Gets the list of applications.
+        /// Gets hello list of applications.
         /// </summary>
-        /// <param name="clusterUri">The URI to access the cluster.</param>
+        /// <param name="clusterUri">hello URI tooaccess hello cluster.</param>
         /// <returns>Returns true if successful; otherwise false.</returns>
         public static bool GetApplicationList(Uri clusterUri)
         {
-            // String to capture the response stream.
+            // String toocapture hello response stream.
             string responseString = string.Empty;
 
-            // Create the request and add URL parameters.
+            // Create hello request and add URL parameters.
             Uri requestUri = new Uri(clusterUri, string.Format("/Applications?api-version={0}",
                 "1.0")); // api-version
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri);
             request.Method = "GET";
 
-            // Execute the request and obtain the response.
+            // Execute hello request and obtain hello response.
             try
             {
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 {
                     using (StreamReader streamReader = new StreamReader(response.GetResponseStream(), true))
                     {
-                        // Capture the response string.
+                        // Capture hello response string.
                         responseString = streamReader.ReadToEnd();
                     }
                 }
             }
             catch (WebException e)
             {
-                // If there is a web exception, display the error message.
-                Console.WriteLine("Error getting the application list:");
+                // If there is a web exception, display hello error message.
+                Console.WriteLine("Error getting hello application list:");
                 Console.WriteLine(e.Message);
                 if (e.InnerException != null)
                     Console.WriteLine(e.InnerException.Message);
@@ -467,7 +467,7 @@ namespace ServiceFabricRestCaller
             }
 
 
-            // Deserialize the response string.
+            // Deserialize hello response string.
             JavaScriptSerializer jss = new JavaScriptSerializer();
             List<ApplicationInfo> applicationInfos = jss.Deserialize<List<ApplicationInfo>>(responseString);
 
@@ -503,17 +503,17 @@ namespace ServiceFabricRestCaller
         /// <summary>
         /// Creates an application.
         /// </summary>
-        /// <param name="clusterUri">The URI to access the cluster.</param>
+        /// <param name="clusterUri">hello URI tooaccess hello cluster.</param>
         /// <returns>Returns true if successful; otherwise false.</returns>
         public static bool CreateApplication(Uri clusterUri)
         {
-            // String to capture the response stream.
+            // String toocapture hello response stream.
             string responseString = string.Empty;
 
-            // Stores the response status code.
+            // Stores hello response status code.
             HttpStatusCode statusCode;
 
-            // Create the request and add URL parameters.
+            // Create hello request and add URL parameters.
             Uri requestUri = new Uri(clusterUri, string.Format("/Applications/$/Create?api-version={0}",
                 "1.0"));    // api-version
 
@@ -521,7 +521,7 @@ namespace ServiceFabricRestCaller
             request.ContentType = "text/json";
             request.Method = "POST";
 
-            // Create the byte array that will become the request body.
+            // Create hello byte array that will become hello request body.
             string requestBody = "{\"Name\":\"fabric:/WordCount\"," +
                                     "\"TypeName\":\"WordCount\"," +
                                     "\"TypeVersion\":\"1.0.0\"," +
@@ -529,7 +529,7 @@ namespace ServiceFabricRestCaller
             byte[] requestBodyBytes = Encoding.UTF8.GetBytes(requestBody);
             request.ContentLength = requestBodyBytes.Length;
 
-            // Create the request body.
+            // Create hello request body.
             try
             {
                 using (Stream requestStream = request.GetRequestStream())
@@ -537,7 +537,7 @@ namespace ServiceFabricRestCaller
                     requestStream.Write(requestBodyBytes, 0, requestBodyBytes.Length);
                     requestStream.Close();
 
-                    // Execute the request and obtain the response.
+                    // Execute hello request and obtain hello response.
                     using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                     {
                         statusCode = response.StatusCode;
@@ -546,7 +546,7 @@ namespace ServiceFabricRestCaller
             }
             catch (WebException e)
             {
-                // If there is a web exception, display the error message.
+                // If there is a web exception, display hello error message.
                 Console.WriteLine("Error creating application:");
                 Console.WriteLine(e.Message);
                 if (e.InnerException != null)
@@ -572,11 +572,11 @@ namespace ServiceFabricRestCaller
         /// <summary>
         /// Deletes an application.
         /// </summary>
-        /// <param name="clusterUri">The URI to access the cluster.</param>
+        /// <param name="clusterUri">hello URI tooaccess hello cluster.</param>
         /// <returns>Returns true if successful; otherwise false.</returns>
         public static bool DeleteApplication(Uri clusterUri)
         {
-            // Create the request and add URL parameters.
+            // Create hello request and add URL parameters.
             Uri requestUri = new Uri(clusterUri,
                 string.Format("/Applications/{0}/$/Delete?api-version={1}",
                 "WordCount",    // Application Name
@@ -586,10 +586,10 @@ namespace ServiceFabricRestCaller
             request.Method = "POST";
             request.ContentLength = 0;
 
-            // Stores the response status code.
+            // Stores hello response status code.
             HttpStatusCode statusCode;
 
-            // Execute the request and obtain the response.
+            // Execute hello request and obtain hello response.
             try
             {
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
@@ -599,7 +599,7 @@ namespace ServiceFabricRestCaller
             }
             catch (WebException e)
             {
-                // If there is a web exception, display the error message.
+                // If there is a web exception, display hello error message.
                 Console.WriteLine("Error deleting application:");
                 Console.WriteLine(e.Message);
                 if (e.InnerException != null)
@@ -624,17 +624,17 @@ namespace ServiceFabricRestCaller
         /// <summary>
         /// Upgrades an application by application type.
         /// </summary>
-        /// <param name="clusterUri">The URI to access the cluster.</param>
+        /// <param name="clusterUri">hello URI tooaccess hello cluster.</param>
         /// <returns>Returns true if successful; otherwise false.</returns>
         public static bool UpgradeApplicationByApplicationType(Uri clusterUri)
         {
-            // String to capture the response stream.
+            // String toocapture hello response stream.
             string responseString = string.Empty;
 
-            // Stores the response status code.
+            // Stores hello response status code.
             HttpStatusCode statusCode;
 
-            // Create the request and add URL parameters.
+            // Create hello request and add URL parameters.
             Uri requestUri = new Uri(clusterUri, string.Format("/Applications/{0}/$/Upgrade?api-version={1}",
                 "WordCount",     // Application Name
                 "1.0"));                // api-version
@@ -644,7 +644,7 @@ namespace ServiceFabricRestCaller
             request.Method = "POST";
 
 
-            // Create the Health Policy.
+            // Create hello Health Policy.
             string requestBody = "{\"Name\":\"fabric:/WordCount\"," +
                                     "\"TargetApplicationTypeVersion\":\"1.1.0\"," +
                                     "\"Parameters\":[]," +
@@ -660,11 +660,11 @@ namespace ServiceFabricRestCaller
                                     "\"UpgradeTimeoutInMilliseconds\":\"60000\"," +
                                     "\"UpgradeDomainTimeoutInMilliseconds\":\"30000\"}}";
 
-            // Create the byte array that will become the request body.
+            // Create hello byte array that will become hello request body.
             byte[] requestBodyBytes = Encoding.UTF8.GetBytes(requestBody);
             request.ContentLength = requestBodyBytes.Length;
 
-            // Create the request body.
+            // Create hello request body.
             try
             {
                 using (Stream requestStream = request.GetRequestStream())
@@ -672,7 +672,7 @@ namespace ServiceFabricRestCaller
                     requestStream.Write(requestBodyBytes, 0, requestBodyBytes.Length);
                     requestStream.Close();
 
-                    // Execute the request and obtain the response.
+                    // Execute hello request and obtain hello response.
                     using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                     {
                         statusCode = response.StatusCode;
@@ -681,7 +681,7 @@ namespace ServiceFabricRestCaller
             }
             catch (WebException e)
             {
-                // If there is a web exception, display the error message.
+                // If there is a web exception, display hello error message.
                 Console.WriteLine("Error upgrading application:");
                 Console.WriteLine(e.Message);
                 if (e.InnerException != null)
@@ -705,7 +705,7 @@ namespace ServiceFabricRestCaller
 ```
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+<!--Every topic should have next steps and links toohello next logical set of content tookeep hello customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen
 [De levenscyclus van de service Fabric-toepassing](service-fabric-application-lifecycle.md)
 

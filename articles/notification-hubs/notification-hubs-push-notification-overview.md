@@ -1,6 +1,6 @@
 ---
-title: Azure Notification Hubs
-description: Informatie over het toevoegen van push notification-mogelijkheden met Azure Notification Hubs.
+title: aaaAzure Notification Hubs
+description: Meer informatie over hoe tooadd push-melding mogelijkheden met Azure Notification Hubs.
 author: ysxu
 manager: erikre
 editor: 
@@ -14,29 +14,29 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 1/17/2017
 ms.author: yuaxu
-ms.openlocfilehash: a1be0b13cd1feb582a23965df142e44d90ac6851
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 78ce34b6b094b560c8002ab9652f7ba4563c5c74
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-notification-hubs"></a>Azure Notification Hubs
 ## <a name="overview"></a>Overzicht
-Azure Notification Hubs bieden een eenvoudig te gebruiken, meerdere platforms, uitgebreid push-engine. Met een enkel platformoverschrijdende API-aanroep kunt u eenvoudig gerichte en gepersonaliseerde pushmeldingen verzenden naar elk mobiel platform van elke cloud of on-premises back-end.
+Azure Notification Hubs bieden een eenvoudig te gebruiken, meerdere platforms, uitgebreid push-engine. Met een enkel platformoverschrijdende API-aanroep kunt u eenvoudig gerichte en gepersonaliseerde push notifications tooany mobiel platform verzenden vanaf elke cloud of on-premises back-end.
 
 Notification Hubs werkt prima voor enterprise- als consumentenscenario's. Hier volgen enkele voorbeelden klanten Notification Hubs voor gebruiken:
 
-* Belangrijk nieuws meldingen verzenden naar miljoenen gebruikers met een lage latentie.
-* Locatie gebaseerde coupons aan gebruikerssegmenten willen verzenden.
-* Gebeurtenis-gerelateerde meldingen verzenden aan gebruikers of groepen voor media/Sport/Financiën/gaming-toepassingen.
-* Push-aanbiedingen inhoud naar apps te benaderen markt aan klanten.
+* Belangrijk nieuws meldingen toomillions verzenden met een lage latentie.
+* Locatie gebaseerde coupons toointerested gebruikerssegmenten verzenden.
+* Gebeurtenis-gerelateerde meldingen toousers of groepen voor media/Sport/Financiën/games verzenden.
+* Push-aanbiedingen inhoud tooapps tooengage en het marktaandeel toocustomers.
 * Waarschuw gebruikers van bedrijfsgebeurtenissen zoals nieuwe berichten en werkitems.
 * Codes voor multi-factor authentication verzenden.
 
 ## <a name="what-are-push-notifications"></a>Wat zijn pushmeldingen?
-Pushmeldingen is een vorm van app-naar-gebruiker communicatie waar gebruikers van mobiele apps bepaalde gewenste gegevens, meestal in een pop-upvenster of dialoogvenster worden gewaarschuwd. Gebruikers kunnen doorgaans kiezen om te bekijken of verwijderen van het bericht en de mobiele app, die de melding heeft gecommuniceerd kiezen de voormalige wordt geopend.
+Pushmeldingen is een vorm van app-naar-gebruiker communicatie waar gebruikers van mobiele apps bepaalde gewenste gegevens, meestal in een pop-upvenster of dialoogvenster worden gewaarschuwd. Gebruikers kunnen doorgaans tooview kiezen of het Hallo-bericht negeren en Hallo mobiele Apps die waren uitgewisseld Hallo melding Hallo voormalige kiezen wordt geopend.
 
-Pushmeldingen is essentieel voor consumenten-apps in oplopende betrokkenheid van Apps en het gebruik en voor zakelijke apps bij het communiceren up-to-date bedrijfsgegevens. Het is de beste app aan gebruiker communicatie omdat het energie-efficiënte voor mobiele apparaten, voor de afzenders meldingen flexibele en beschikbaar is terwijl de overeenkomstige apps zijn niet actief.
+Pushmeldingen is essentieel voor consumenten-apps in oplopende betrokkenheid van Apps en het gebruik en voor zakelijke apps bij het communiceren up-to-date bedrijfsgegevens. Hallo aanbevolen app aan gebruiker communicatie is omdat het energie-efficiënte voor mobiele apparaten, flexibele voor Hallo meldingen afzenders en beschikbaar is terwijl de overeenkomstige apps zijn niet actief.
 
 Voor meer informatie over pushmeldingen voor enkele populaire platforms:
 * [iOS](https://developer.apple.com/notifications/)
@@ -44,44 +44,44 @@ Voor meer informatie over pushmeldingen voor enkele populaire platforms:
 * [Windows](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
 
 ## <a name="how-push-notifications-work"></a>Hoe werken pushmeldingen?
-Pushmeldingen worden geleverd via een platformspecifieke infrastructuur, het zogenaamde *Platformmeldingssystemen* (PNSes). Ze bieden barebone push functionaliteiten levering bericht op een apparaat met een opgegeven verwerken en hebben geen algemene interface. Versies van een app, de ontwikkelaar moeten een melding verzenden voor alle klanten via de iOS, Android en Windows werken met APNS (Apple Push Notification Service), FCM (Firebase Cloud Messaging) en WNS (Windows Notification Service) tijdens de batchverwerking de verzendt.
+Pushmeldingen worden geleverd via een platformspecifieke infrastructuur, het zogenaamde *Platformmeldingssystemen* (PNSes). Ze bieden barebone push functionaliteiten toodelivery bericht tooa apparaat met een opgegeven verwerken en hebben geen algemene interface. een melding toosend tooall klanten over Hallo iOS, Android en Windows versies van een app Hallo ontwikkelaar moet werken met APNS (Apple Push Notification Service), FCM (Firebase Cloud Messaging) en WNS (Windows Notification Service) tijdens de batchverwerking Hallo verzendt.
 
 Op hoog niveau, moet u dit is de werking van push:
 
-1. De clientapp besluit wil ontvangen pushes daarom neemt contact op met de bijbehorende PNS om op te halen van de unieke en tijdelijke push-ingang. Het ingangstype is afhankelijk van het systeem (bijvoorbeeld WNS heeft URI's terwijl APNS tokens heeft).
-2. De clientapp slaat deze ingang op in de back-end app of de provider.
-3. Voor het verzenden van een pushmelding contact back-end van de app op met de PNS met behulp van de ingang naar een specifieke client-App.
-4. De PNS stuurt de melding door naar het apparaat dat is opgegeven door de ingang.
+1. Hallo client-app kunt u besluit dat deze wil tooreceive pushes daarom contactpersonen Hallo PNS tooretrieve overeenkomt bijbehorende unieke en tijdelijke push-ingang. Hallo ingangstype is afhankelijk van Hallo-systeem (bijvoorbeeld WNS heeft URI's terwijl APNS tokens heeft).
+2. Hallo-clientapp slaat deze ingang op in de back-end Hallo app of de provider.
+3. toosend een push-melding, back-end Hallo app contactpersonen Hallo PNS Hallo ingang tootarget met een specifieke client-app.
+4. Hallo PNS stuurt Hallo toohello meldingsapparaten door Hallo-ingang is opgegeven.
 
 ![][0]
 
-## <a name="the-challenges-of-push-notifications"></a>De uitdagingen voor pushmeldingen
-Hoewel PNSes krachtige, laat ze veel werk voor appontwikkelaars om te implementeren, zelfs algemene push notification scenario's, zoals het uitzenden of verzenden van pushmeldingen aan gesegmenteerde gebruikers.
+## <a name="hello-challenges-of-push-notifications"></a>Hallo uitdagingen van Pushmeldingen
+Hoewel PNSes krachtige, laat ze veel werk toohello app-ontwikkelaar in volgorde tooimplement zelfs algemene push notification scenario's, zoals het uitzenden of verzenden van pushmeldingen meldingen toosegmented gebruikers.
 
-Push is een van de meest aangevraagde functies in mobiele cloudservices, omdat de werking complexe infrastructuur die niet aan de app zakelijke logica is vereist. Enkele van de infrastructurele uitdagingen zijn:
+Push is een van de Hallo meest stellen aangevraagde functies in mobiele cloudservices, omdat de werking complexe infrastructuur die van niet-verwante toohello app zakelijke logica zijn vereist. Enkele van Hallo infrastructurele uitdagingen zijn:
 
 * **Platformafhankelijkheid**: 
 
-  * De back-end moet complex en moeilijk te onderhouden platformafhankelijk logica om meldingen te verzenden naar apparaten op verschillende platforms zoals PNSes zijn geen unified hebben.
+  * Hallo back-end moet toohave complex en moeilijk te onderhouden platformafhankelijk logica toosend meldingen toodevices op verschillende platformen, zoals PNSes zijn geen unified.
 * **Schaal**:
 
-  * Per PNS-richtlijnen moeten de apparaattokens bij elke starten van de app worden vernieuwd. Dit betekent dat de back-end is omgaan met een grote hoeveelheid verkeer en database tot alleen de tokens up-to-date te houden. Wanneer het aantal apparaten honderden en miljarden groeit, is de kosten van het maken en onderhouden van deze infrastructuur enorme.
-  * De meeste PNSes bieden geen ondersteuning voor uitzending naar meerdere apparaten. Dit betekent dat een eenvoudige uitzending naar een miljoen apparaten leidt tot een miljoen aanroepen naar de PNSes. Deze hoeveelheid verkeer schalen met een minimale latentie is zeer lastig.
+  * Per PNS-richtlijnen moeten de apparaattokens bij elke starten van de app worden vernieuwd. Dit betekent Hallo back-end is omgaan met een grote hoeveelheid verkeer en database toegang alleen tookeep Hallo tokens up-to-date. Wanneer het aantal apparaten Hallo toohundreds en miljarden groeit, is Hallo kosten van het maken en onderhouden van deze infrastructuur enorme.
+  * De meeste PNSes bieden geen ondersteuning voor uitzending toomultiple apparaten. Dit betekent dat een eenvoudig broadcast tooa miljoenen apparaten leidt tot een miljoen aanroepen toohello PNSes. Deze hoeveelheid verkeer schalen met een minimale latentie is zeer lastig.
 * **Routering**:
   
-  * Hoewel PNSes een manier om berichten te verzenden naar apparaten bieden, worden de meeste apps meldingen gericht op gebruikers of belangengroepen. Dit betekent dat de back-end moet ervoor zorgen dat een register apparaten koppelen aan belangengroepen, gebruikers, eigenschappen, enzovoort. Deze overhead worden toegevoegd aan de tijd op de markt onderhoudskosten en een app.
+  * Hoewel PNSes een manier toosend berichten toodevices bieden, worden de meeste apps meldingen gericht op gebruikers of belangengroepen. Dit betekent dat Hallo back-end moet ervoor zorgen dat een register tooassociate-apparaten met belangengroepen, gebruikers, eigenschappen, enzovoort. Deze overhead toevoegen toohello tijd toomarket onderhoudskosten en een app
 
 ## <a name="why-use-notification-hubs"></a>Waarom werken met Notification Hubs?
-Notification Hubs elimineert alle complexiteit die zijn gekoppeld aan het inschakelen van push op uw eigen. De infrastructuur van meerdere platforms, uitgebreid push notification minder push-gerelateerde codes en vereenvoudigt uw back-end. Met Notification Hubs zijn apparaten alleen verantwoordelijk voor het registreren van hun PNS-ingangen met een hub, terwijl de back-end berichten naar gebruikers of belangengroepen, verzendt zoals wordt weergegeven in de volgende afbeelding:
+Notification Hubs elimineert alle complexiteit die zijn gekoppeld aan het inschakelen van push op uw eigen. De infrastructuur van meerdere platforms, uitgebreid push notification minder push-gerelateerde codes en vereenvoudigt uw back-end. Apparaten zijn alleen verantwoordelijk voor het registreren van hun PNS-ingangen met een hub, terwijl het Hallo-back-end verzendt berichten toousers of belangengroepen, zoals wordt weergegeven in de volgende afbeelding Hallo met Notification Hubs:
 
 ![][1]
 
-Notification hubs is uw kant-en-klare push-engine met de volgende voordelen:
+Notification hubs is uw kant-en-klare push-engine met Hallo volgende voordelen:
 
 * **Cross-platforms**
 
   * Ondersteuning voor alle primaire push-platforms, waaronder iOS, Android, Windows, en Kindle en Baidu.
-  * Een algemene interface naar push op alle platforms in platformspecifieke of platformonafhankelijk indelingen met geen platform-specifieke werk.
+  * Een algemene interface toopush tooall platforms in platformspecifieke of platformonafhankelijk indelingen met geen platform-specifieke werk.
   * Apparaat verwerken op één plek.
 * **Cross-back-ends**
   
@@ -89,46 +89,46 @@ Notification hubs is uw kant-en-klare push-engine met de volgende voordelen:
   * .NET, Node.js, Java, enzovoort.
 * **Groot aantal afleveringswijzen**:
 
-  * *Uitzending naar een of meerdere platforms*: U kunt direct uitzenden naar miljoenen apparaten op platforms met één API-aanroep.
-  * *Push naar apparaat*: U kunt meldingen op afzonderlijke apparaten richten.
-  * *Push naar gebruiker*: functies Tags en sjablonen kunt u alle apparaten van een gebruiker die meerdere platforms.
-  * *Het segment met dynamische tags-push*: functie labels kunt u segment apparaten en push ze aan uw wensen of u naar een segment of een expressie van segmenten (bijvoorbeeld het actieve van leven en in Seattle niet voor de nieuwe gebruiker verzendt). In plaats van wordt beperkt tot pub sub, kunt u bijwerken apparaat labels overal en altijd en overal.
+  * *Uitzenden tooone of meerdere platforms*: U kunt direct toomillions van apparaten op platforms met één API-aanroep uitzenden.
+  * *Push toodevice*: U kunt meldingen tooindividual apparaten richten.
+  * *Push toouser*: functies Tags en sjablonen kunt u alle apparaten van een gebruiker die meerdere platforms.
+  * *Push-toosegment met dynamische labels*: functie labels kunt u apparaten segmenteren en push toothem tooyour behoeften, volgens of van tooone segment of een expressie van segmenten (bijvoorbeeld active en leven in Seattle niet voor de nieuwe gebruiker verzenden). In plaats van alleen beperkte toopub-sub, kunt u bijwerken apparaat labels overal en altijd en overal.
   * *Gelokaliseerde push*: sjablonen functie helpt u bij het bereiken van lokalisatie zonder back endcode.
-  * *Achtergrond push*: U kunt het patroon push naar pull kunnen door achtergrond meldingen verzenden naar apparaten en activering van deze om bepaalde worden of acties te voltooien.
-  * *Geplande push*: U kunt plannen voor het verzenden van meldingen op elk gewenst moment.
-  * *Direct push*: kunt u registreren apparaten met onze service overslaan en direct push naar een lijst met apparaten ingangen batch.
+  * *Achtergrond push*: U kunt Hallo push-pull-patroon door toodevices achtergrond meldingen verzenden en activering van toocomplete kunnen bepaalde worden of acties.
+  * *Geplande push*: U kunt op elk gewenst moment toosend meldingen plannen.
+  * *Direct push*: U kunt registreren apparaten met onze service en rechtstreeks batch push tooa lijst met apparaten ingangen overslaan.
   * *Persoonlijke push*: apparaat push variabelen helpt bij het verzenden van apparaat-specifieke persoonlijke pushmeldingen met aangepaste sleutel / waarde-paren.
 * **Uitgebreide telemetrie**
   
-  * Algemene push, apparaat, fout en bewerking telemetrie is beschikbaar in de Azure-portal en programmatisch.
-  * Houdt elke push vanuit een aanroep van uw eerste aanvraag voor de service is de pushes uit batchverwerking per bericht telemetrie.
-  * Platform Notification System Feedback communiceert alle feedback van platform Notification System om te helpen bij foutopsporing.
+  * Algemene push, apparaat, fout en bewerking telemetrie is beschikbaar in hello Azure-portal en programmatisch.
+  * Per bericht telemetrie houdt implementeert elke push van uw eerste aanvraag-aanroep tooour service is batchverwerking Hallo.
+  * Platform Notification System Feedback communiceert alle feedback van platform Notification System tooassist bij foutopsporing.
 * **Schaalbaarheid** 
   
-  * Snelle berichten verzenden naar miljoenen apparaten zonder sharding moet worden veranderd of het apparaat.
+  * Toomillions van apparaten zonder dat moet worden veranderd of het apparaat sharding snelle berichten verzenden.
 * **Beveiliging**
 
   * Shared Access Secret (SAS) of federatieve verificatie.
 
 ## <a name="integration-with-app-service-mobile-apps"></a>Integratie met App Service Mobile Apps
-Voor een naadloze werking van alle Azure-services biedt [App Service Mobile Apps] ingebouwde ondersteuning voor pushmeldingen via Notification Hubs. Met [App Service Mobile Apps] kunnen ontwikkelaars van ondernemingen en systeemintegrators gebruikmaken van een zeer schaalbaar, algemeen beschikbaar ontwikkelplatform voor mobiele toepassingen, dat uitgebreide mogelijkheden biedt voor ontwikkelaars van mobiele apps.
+een naadloze en een uniforme ervaring alle Azure-services, toofacilitate [App Service Mobile Apps] ingebouwde ondersteuning voor pushmeldingen via Notification Hubs. [App Service Mobile Apps] biedt een mobiele toepassing in hoge mate schaalbaar, algemeen beschikbaar ontwikkelplatform voor ontwikkelaars van ondernemingen en systeemintegrators die ook een uitgebreide reeks mogelijkheden toomobile ontwikkelaars.
 
-Mobiele apps van ontwikkelaars kunnen gebruikmaken van Notification Hubs in de volgende werkstroom:
+Mobiele Apps van ontwikkelaars kunnen gebruikmaken van Notification Hubs Hello workflow volgen:
 
 1. PNS-ingang van het apparaat ophalen
 2. Apparaten registreren met Notification Hubs via de handige Client SDK voor Mobile Apps registreren API
-   * Om beveiligingsreden worden alle tags op registraties door mobiele apps verwijderd. Gebruik Notification Hubs om vanuit de back-end rechtstreeks tags aan apparaten koppelen.
+   * Om beveiligingsreden worden alle tags op registraties door mobiele apps verwijderd. Werken met Notification Hubs vanuit uw back-end rechtstreeks tooassociate tags aan apparaten.
 3. Meldingen verzenden vanuit de back-end van uw app met Notification Hubs
 
-Hier zijn een aantal voordelen voor ontwikkelaars:
+Hier volgen een aantal voordelen toodevelopers bij deze integratie:
 
-* **Mobiele Apps Client-SDK's**: deze SDK's van meerdere platforms bieden eenvoudige API's voor registratie en neem contact op met de notification hub automatisch met de mobiele app gekoppeld. Ontwikkelaars hoeven niet op zoek naar de aanmeldgegevens voor Notification Hubs of met een extra service te werken.
+* **Mobiele Apps Client-SDK's**: deze SDK's van meerdere platforms bieden eenvoudige API's voor registratie en het contact toohello notification hub die automatisch de mobiele App Hallo gekoppeld. Ontwikkelaars niet toodig via Notification Hubs referenties nodig en werken met een extra service.
 
-  * *Push naar gebruiker*: de SDK's automatisch het opgegeven apparaat met Mobile Apps geverifieerde gebruikers-ID om in te schakelen, te pushen naar gebruikersscenario labelen.
-  * *Push naar apparaat*: de SDK's gebruiken automatisch de installatie-ID van mobiele Apps als GUID om te registreren met Notification Hubs, Hierdoor hoeven de moeite van het onderhouden van meerdere service-GUID's.
-* **Installatiemodel**: mobiele Apps werken met Notification Hubs meest recente pushmodel alle pusheigenschappen beschikbaar die zijn gekoppeld aan een apparaat in een JSON-installatie die wordt uitgelijnd met een Push Notification Services en eenvoudig te gebruiken.
-* **Flexibiliteit**: ontwikkelaars kunnen altijd beslissen rechtstreeks met Notification Hubs werkt ook met de integratie.
-* **Geïntegreerde ervaring in [Azure-portal]**: Push-als een mogelijkheid visueel wordt weergegeven in Mobile Apps en ontwikkelaars kunnen eenvoudig met de bijbehorende notification hub via mobiele Apps werken.
+  * *Push toouser*: Hallo SDK's label automatisch Hallo apparaat met Mobile Apps geverifieerde gebruikers-ID tooenable push toouser scenario gegeven.
+  * *Push toodevice*: Hallo SDK's Hallo Mobile Apps-installatie-ID automatisch als GUID tooregister met Notification Hubs, Hierdoor hoeven Hallo problemen van het onderhouden van meerdere service-GUID's gebruiken.
+* **Installatiemodel**: mobiele Apps werken met Notification Hubs nieuwste push model toorepresent alle eigenschappen die zijn gekoppeld aan een apparaat in een JSON-installatie die wordt uitgelijnd met een Push Notification Services en eenvoudig toouse push.
+* **Flexibiliteit**: ontwikkelaars kunnen altijd beslissen toowork rechtstreeks met Notification Hubs zelfs met Hallo-integratie in plaats.
+* **Geïntegreerde ervaring in [Azure-portal]**: Push-als een mogelijkheid visueel wordt weergegeven in Mobile Apps en ontwikkelaars eenvoudig met de bijbehorende notification hub Hallo via mobiele Apps werken kunnen.
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over de Notification Hubs vindt u in de volgende onderwerpen:

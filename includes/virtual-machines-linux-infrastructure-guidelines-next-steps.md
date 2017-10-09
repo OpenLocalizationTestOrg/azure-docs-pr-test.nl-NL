@@ -1,4 +1,4 @@
-De volledige reeks richtlijnen vindt u informatie over de verschillende ontwerpoverwegingen voor het bouwen onze de infrastructuur van uw toepassing in Azure:
+volledige reeks richtlijnen geeft u inzicht in alle andere Hallo Hallo ontwerpoverwegingen voor het bouwen onze de infrastructuur van uw toepassing in Azure:
 
 * [Azure-abonnement en richtlijnen voor Accounts](../articles/virtual-machines/linux/infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure-infrastructuur Naming richtlijnen](../articles/virtual-machines/linux/infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -1,6 +1,6 @@
 ---
-title: Taakstatus Azure Import/Export - v1 controleren | Microsoft Docs
-description: Informatie over het gebruik van de logboekbestanden gemaakt wanneer de taak importeren of exporteren werd uitgevoerd voor de status van de taak voor importeren/exporteren.
+title: aaaReviewing taakstatus Azure Import/Export - v1 | Microsoft Docs
+description: Meer informatie over hoe toouse Hallo logboekbestanden wanneer Hallo importeren of exporteren van de taak toosee Hallo status van Hallo Import/Export-taak werd uitgevoerd.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: muralikk
-ms.openlocfilehash: 621e41df127fded6ec6fe1f71e86cb8630965a70
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 378bc9a7ef6bfe65209413c8c4134f313a2c0d79
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>De status van de Azure Import/Export-taak controleren met logboekbestanden kopiëren
-Wanneer de Microsoft Azure Import/Export-service stations die zijn gekoppeld aan een taak importeren of exporteren verwerkt, schrijft kopie logboekbestanden naar het opslagaccount naar of van waaruit u importeert of exporteert blobs. Het logboekbestand bevat een gedetailleerde status van elk bestand dat is geïmporteerd of geëxporteerd. De URL naar het logboekbestand van elke kopie wordt geretourneerd wanneer u een query uitvoeren op de status van een voltooide taak; Zie [Get Job](/rest/api/storageservices/Get-Job3) voor meer informatie.  
+Wanneer Hallo Microsoft Azure Import/Export-service stations die zijn gekoppeld aan een taak importeren of exporteren verwerkt, schrijft deze kopie logboek bestanden toohello storage account tooor van waaruit u importeert of exporteert blobs. Hallo-logboekbestand bevat gedetailleerde status van elk bestand dat is geïmporteerd of geëxporteerd. Hallo URL tooeach kopie-logboekbestand wordt geretourneerd wanneer u een query uitvoeren op Hallo status van een voltooide taak; Zie [Get Job](/rest/api/storageservices/Get-Job3) voor meer informatie.  
 
 ## <a name="example-urls"></a>Voorbeeld-URL 's
 
-Het volgende zijn voorbeeld-URL's voor kopiëren-logboekbestanden voor een import-taak met twee schijven:  
+Hallo hieronder vindt u voorbeeld-URL's voor kopiëren-logboekbestanden voor een import-taak met twee schijven:  
   
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM35C2V_20130921-034307-902_error.xml`  
   
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM45A6Q_20130921-042122-021_error.xml`  
   
- Zie [Import/Export-service indeling van logboekbestand](storage-import-export-file-format-log.md) voor de indeling van de logboeken van kopiëren en een volledige lijst met statuscodes.  
+ Zie [Import/Export-service indeling van logboekbestand](storage-import-export-file-format-log.md) voor Hallo-indeling van Logboeken voor kopiëren en Hallo volledige lijst met statuscodes.  
   
 ## <a name="next-steps"></a>Volgende stappen
  
- * [Instellen van het hulpprogramma Azure Import/Export](storage-import-export-tool-setup-v1.md)   
+ * [Hallo-instelling van Azure-hulpprogramma voor importeren/exporteren](storage-import-export-tool-setup-v1.md)   
  * [Harde schijven voorbereiden voor een importtaak](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
  * [Een importtaak herstellen](storage-import-export-tool-repairing-an-import-job-v1.md)   
  * [Een exporttaak herstellen](storage-import-export-tool-repairing-an-export-job-v1.md)   
- * [Problemen met het hulpprogramma Azure Import/Export oplossen](storage-import-export-tool-troubleshooting-v1.md)
+ * [Het oplossen van problemen hello Azure-hulpprogramma voor importeren/exporteren](storage-import-export-tool-troubleshooting-v1.md)

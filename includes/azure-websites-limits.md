@@ -28,13 +28,13 @@
 | SLA | |<p> |99,9% |99.95%<sup>10</sup> |99.95%<sup>10</sup> |
 
 <sup>1</sup>apps en opslagquota zijn per App Service-abonnement tenzij anders vermeld wordt.  
-<sup>2</sup>het werkelijke aantal apps die u op deze machines hosten kunt is afhankelijk van de activiteit van de apps, de grootte van de machine-exemplaren en de bijbehorende bronnen beter worden benut.  
+<sup>2</sup>Hallo werkelijke aantal apps die u op deze machines hosten kunt is afhankelijk van Hallo activiteit van het Hallo-apps, Hallo-grootte van het Hallo-machine-exemplaren en de bijbehorende Resourcegebruik Hallo.  
 <sup>3</sup>specifieke exemplaren van verschillende grootte kunnen zijn. Zie [prijzen van App Service](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/) voor meer informatie.  
-<sup>4</sup>premium-laag kan maximaal 50 exemplaren (afhankelijk van beschikbaarheid) en 500 GB aan schijfruimte berekent bij gebruik van App Service-omgevingen en 20 compute-exemplaren en 250 GB opslagruimte anders.  
-<sup>5</sup>de opslaglimiet is de totale grootte van de inhoud voor alle apps in hetzelfde App Service-plan. Meer opties voor opslag zijn beschikbaar in [App Service-omgeving](../articles/app-service-web/app-service-web-configure-an-app-service-environment.md#storage)  
-<sup>6</sup>deze resources worden beperkt door fysieke resources op de specifieke exemplaren (de exemplaargrootte en het aantal exemplaren van).  
-<sup>7</sup>als u een app in de basisstaffel naar twee exemplaren schalen, hebt u 350 gelijktijdige verbindingen voor elk van de twee exemplaren.  
-<sup>8</sup>premium-laag kunt back-intervallen omlaag tot elke 5 minuten bij gebruik van App Service-omgevingen en 50 keer per dag anders.  
-<sup>9</sup>aangepaste uitvoerbare bestanden en/of scripts uitvoeren op aanvraag volgens een schema of continu als achtergrondtaak binnen uw App Service-exemplaar. Altijd beschikbaar is vereist voor de continue uitvoering van WebJobs. Azure Scheduler Gratis of Standaard is vereist voor geplande WebJobs. Er is geen vooraf gedefinieerde limiet voor het aantal WebJobs die kunnen worden uitgevoerd in een App Service-exemplaar, maar er zijn praktische grenzen die afhankelijk zijn van wat de toepassingscode probeert te doen.   
+<sup>4</sup>premium-laag kunt too50 wordt berekend exemplaren (onderwerp tooavailability) en 500 GB aan schijfruimte nodig wanneer u App Service-omgevingen en 20 compute-exemplaren en 250 GB opslagruimte anders.  
+<sup>5</sup>opslaglimiet Hallo Hallo totale omvang van de inhoud is voor alle apps in hetzelfde App Service-plan. Meer opties voor opslag zijn beschikbaar in [App Service-omgeving](../articles/app-service-web/app-service-web-configure-an-app-service-environment.md#storage)  
+<sup>6</sup>deze resources worden beperkt door fysieke resources op Hallo-specifieke exemplaren (Hallo exemplaargrootte en aantal exemplaren Hallo).  
+<sup>7</sup>als u een app in Hallo basisstaffel tootwo exemplaren schalen, hebt u 350 gelijktijdige verbindingen voor elk Hallo twee exemplaren.  
+<sup>8</sup>premium-laag kunt back-intervallen omlaag up tooevery 5 minuten bij gebruik van App Service-omgevingen en 50 keer per dag anders.  
+<sup>9</sup>aangepaste uitvoerbare bestanden en/of scripts uitvoeren op aanvraag volgens een schema of continu als achtergrondtaak binnen uw App Service-exemplaar. Altijd beschikbaar is vereist voor de continue uitvoering van WebJobs. Azure Scheduler Gratis of Standaard is vereist voor geplande WebJobs. Er is geen vooraf gedefinieerde limiet voor aantal WebJobs die kunnen worden uitgevoerd in een App Service-exemplaar hello, maar er zijn praktische grenzen die afhankelijk zijn van welke toepassing hello code toodo probeert.   
 <sup>10</sup>SLA van 99,95% die zijn opgegeven voor implementaties met meerdere exemplaren met Azure Traffic Manager is geconfigureerd voor failover.  
 

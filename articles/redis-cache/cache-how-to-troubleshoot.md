@@ -1,6 +1,6 @@
 ---
-title: Het oplossen van Azure Redis-Cache | Microsoft Docs
-description: Informatie over het oplossen van veelvoorkomende problemen met Azure Redis-Cache.
+title: aaaHow tootroubleshoot Azure Redis-Cache | Microsoft Docs
+description: Meer informatie over hoe tooresolve algemene problemen met een Azure Redis-Cache.
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -14,81 +14,81 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: sdanie
-ms.openlocfilehash: 2e9d1b644f1e80c7d916a261a6c47fcc11a1ffe0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4e736fce2b6d5200a2a8d802f3f1384b63458cab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-troubleshoot-azure-redis-cache"></a>Het oplossen van Azure Redis-Cache
-Dit artikel bevat richtlijnen voor het oplossen van de volgende categorieën van Azure Redis-Cache-problemen.
+# <a name="how-tootroubleshoot-azure-redis-cache"></a>Hoe tootroubleshoot Azure Redis-Cache
+Dit artikel bevat richtlijnen voor het Hallo volgende categorieën van Azure Redis-Cache-problemen oplossen.
 
-* [Client-side probleemoplossing](#client-side-troubleshooting) - in deze sectie bevat richtlijnen te identificeren en het oplossen van problemen veroorzaakt door de toepassing verbinding maken met Azure Redis-Cache.
-* [Server side probleemoplossing](#server-side-troubleshooting) - in deze sectie bevat richtlijnen te identificeren en het oplossen van problemen veroorzaakt aan de serverzijde van Azure Redis-Cache.
-* [StackExchange.Redis time-out-uitzonderingen](#stackexchangeredis-timeout-exceptions) -in deze sectie bevat informatie over het oplossen van problemen bij het gebruik van de client StackExchange.Redis.
+* [Client-side probleemoplossing](#client-side-troubleshooting) - in deze sectie bevat richtlijnen te identificeren en het oplossen van problemen veroorzaakt door Hallo toepassing verbinden tooAzure Redis-Cache.
+* [Server side probleemoplossing](#server-side-troubleshooting) - in deze sectie bevat richtlijnen te identificeren en het oplossen van problemen veroorzaakt op Hallo van Azure Redis-Cache-serverzijde.
+* [StackExchange.Redis time-out-uitzonderingen](#stackexchangeredis-timeout-exceptions) -in deze sectie bevat informatie over het oplossen van problemen bij het gebruik van de client StackExchange.Redis Hallo.
 
 > [!NOTE]
-> Aantal van de stappen in deze handleiding bevatten instructies om Redis-opdrachten uitvoeren en controleren van verschillende maatstaven voor prestaties. Zie voor meer informatie en instructies in de artikelen in de [aanvullende informatie](#additional-information) sectie.
+> Aantal Hallo stappen in deze handleiding voor probleemoplossing bevatten instructies toorun Redis-opdrachten en verschillende maatstaven voor prestaties bewaken. Zie voor meer informatie en instructies Hallo artikelen in Hallo [aanvullende informatie](#additional-information) sectie.
 > 
 > 
 
 ## <a name="client-side-troubleshooting"></a>Client-side probleemoplossing
-Deze sectie wordt beschreven voor het oplossen van problemen die vanwege een voorwaarde op de clienttoepassing optreden.
+Deze sectie wordt beschreven voor het oplossen van problemen die vanwege een voorwaarde op Hallo-clienttoepassing optreden.
 
-* [Geheugendruk op de client](#memory-pressure-on-the-client)
+* [Geheugendruk op Hallo-client](#memory-pressure-on-the-client)
 * [Burst van verkeer](#burst-of-traffic)
 * [Hoge client CPU-gebruik](#high-client-cpu-usage)
 * [Client-Side bandbreedte overschreden](#client-side-bandwidth-exceeded)
 * [De grootte van veel aanvragen/reacties](#large-requestresponse-size)
-* [Waar vind ik mijn gegevens in Redis?](#what-happened-to-my-data-in-redis)
+* [Wat is er gebeurd toomy gegevens in Redis?](#what-happened-to-my-data-in-redis)
 
-### <a name="memory-pressure-on-the-client"></a>Geheugendruk op de client
+### <a name="memory-pressure-on-hello-client"></a>Geheugendruk op Hallo-client
 #### <a name="problem"></a>Probleem
-Geheugendruk op de clientcomputer leidt tot allerlei soorten prestatieproblemen die de verwerking van gegevens die zijn verzonden door het Redis-exemplaar zonder enige vertraging kunnen worden vertraagd. Wanneer geheugendruk raakt, heeft het systeem meestal op de paginagegevens van het fysieke geheugen in het virtuele geheugen op de schijf. Dit *pagina met fout* zorgt ervoor dat het systeem aanzienlijk vertragen.
+Geheugendruk op de clientcomputer Hallo leidt tooall soorten prestatieproblemen die de verwerking van gegevens die zijn verzonden door Hallo Redis exemplaar zonder enige vertraging kunnen worden vertraagd. Wanneer geheugendruk raakt, heeft Hallo system doorgaans toopage gegevens uit het fysieke geheugen toovirtual geheugen op de schijf. Dit *pagina met fout* oorzaken Hallo system tooslow omlaag aanzienlijk.
 
 #### <a name="measurement"></a>Meting
-1. Geheugengebruik op de machine om ervoor te zorgen dat het beschikbare geheugen niet overschrijdt. 
-2. Monitor voor de `Page Faults/Sec` prestatiemeteritem. De meeste systemen wordt hebben sommige wisselbestandsfouten zelfs tijdens normale werking, dus pieken in dit prestatiemeteritem voor pagina-fouten die met time-outs overeenkomen gecontroleerd.
+1. Geheugengebruik op machine toomake ervoor dat het beschikbare geheugen niet overschrijdt. 
+2. Monitor Hallo `Page Faults/Sec` prestatiemeteritem. De meeste systemen wordt hebben sommige wisselbestandsfouten zelfs tijdens normale werking, dus pieken in dit prestatiemeteritem voor pagina-fouten die met time-outs overeenkomen gecontroleerd.
 
 #### <a name="resolution"></a>Oplossing
-Upgrade voor de client naar een grotere client VM-grootte met meer geheugen of verdiepen in uw geheugen gebruikspatronen te verminderen geheugen consuption.
+Upgrade voor de client tooa groter client VM-grootte met meer geheugen of verdiepen in uw consuption geheugen gebruikspatronen tooreduce geheugen.
 
 ### <a name="burst-of-traffic"></a>Burst van verkeer
 #### <a name="problem"></a>Probleem
-Bursts van verkeer, gecombineerd met slecht `ThreadPool` instellingen kunnen leiden tot vertragingen bij het verwerken van gegevens die al zijn verzonden door de Redis-Server, maar nog niet op de client verbruikt.
+Bursts van verkeer, gecombineerd met slecht `ThreadPool` instellingen kunnen leiden tot vertragingen bij het verwerken van gegevens die al zijn verzonden door Hallo Redis-Server maar nog niet aan de clientzijde Hallo verbruikt.
 
 #### <a name="measurement"></a>Meting
-Monitor hoe uw `ThreadPool` statistieken wijzigen gedurende een periode met code [zoals deze](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). U kunt ook zoeken op de `TimeoutException` bericht van StackExchange.Redis. Hier volgt een voorbeeld:
+Monitor hoe uw `ThreadPool` statistieken wijzigen gedurende een periode met code [zoals deze](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). U kunt ook zoeken op Hallo `TimeoutException` bericht van StackExchange.Redis. Hier volgt een voorbeeld:
 
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0, 
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
 
-In het bovenstaande bericht zijn er verschillende problemen die interessante:
+In Hallo boven bericht zijn er verschillende problemen die interessante zijn:
 
-1. Merk op dat in de `IOCP` sectie en de `WORKER` sectie die u hebt een `Busy` waarde die groter is dan de `Min` waarde. Dit betekent dat uw `ThreadPool` instellingen moeten aan te passen.
-2. U ziet ook `in: 64221`. Dit geeft aan dat 64211 bytes op de laag van de kernel-socket is ontvangen, maar nog niet zijn gelezen door de toepassing (bijvoorbeeld StackExchange.Redis). Dit betekent doorgaans dat uw toepassing wordt niet lezen van gegevens vanaf het netwerk snel de server is naar u te verzenden.
+1. U ziet dat in Hallo `IOCP` sectie en Hallo `WORKER` sectie die u hebt een `Busy` waarde die groter is dan Hallo `Min` waarde. Dit betekent dat uw `ThreadPool` instellingen moeten aan te passen.
+2. U ziet ook `in: 64221`. Dit geeft aan dat 64211 bytes zijn ontvangen op Hallo kernel socket layer maar nog niet zijn gelezen door Hallo-toepassing (bijvoorbeeld StackExchange.Redis). Dit betekent doorgaans dat uw toepassing wordt niet lezen van gegevens vanaf het netwerk Hallo snel Hallo-server verzendt het tooyou.
 
 #### <a name="resolution"></a>Oplossing
-Configureer uw [ThreadPool instellingen](https://gist.github.com/JonCole/e65411214030f0d823cb) burst scenario's om ervoor te zorgen dat uw thread-groep snel onder worden geschaald.
+Configureer uw [ThreadPool instellingen](https://gist.github.com/JonCole/e65411214030f0d823cb) toomake ervoor dat de thread-groep snel onder wordt opschalen burst scenario's.
 
 ### <a name="high-client-cpu-usage"></a>Hoge client CPU-gebruik
 #### <a name="problem"></a>Probleem
-Hoog CPU-gebruik op de client is een indicatie dat het systeem niet kan bijhouden met het werk dat deze is gevraagd om uit te voeren. Dit betekent dat de client een antwoord van Redis op tijdige wijze verwerkt Hoewel Redis antwoord verzonden door het zeer snel kan mislukken.
+Hoog CPU-gebruik op Hallo-client is een indicatie dat Hallo-systeem met Hallo werk dat deze is gevraagd tooperform niet kan bijhouden. Dit betekent dat clientcomputers Hallo tooprocess een reactie van Redis op tijdige wijze kan mislukken ondanks dat Redis antwoord verzonden door Hallo zeer snel.
 
 #### <a name="measurement"></a>Meting
-Het systeem Wide CPU-gebruik via de Azure Portal of via het bijbehorende prestatiemeteritem bewaken. Zorg ervoor dat u niet bewaken *proces* CPU omdat een enkel proces lage CPU-gebruik kan hebben op de tijd die het hele systeem CPU kan hoog zijn. Pieken in CPU-gebruik die met time-outs overeenkomen gecontroleerd. Als gevolg van een hoog CPU, u ziet misschien ook hoog `in: XXX` in waarden `TimeoutException` foutberichten zoals beschreven in de [Burst van verkeer](#burst-of-traffic) sectie.
+Monitor Hallo System Wide CPU-gebruik via hello Azure Portal of via Hallo gekoppelde prestatiemeteritem. Wees voorzichtig niet toomonitor *proces* CPU omdat er een enkel proces lage CPU-gebruik op Hallo dezelfde tijd dat het hele systeem CPU hoge kan worden. Pieken in CPU-gebruik die met time-outs overeenkomen gecontroleerd. Als gevolg van een hoog CPU, u ziet misschien ook hoog `in: XXX` in waarden `TimeoutException` foutberichten zoals beschreven in Hallo [Burst van verkeer](#burst-of-traffic) sectie.
 
 > [!NOTE]
-> StackExchange.Redis 1.1.603 en nieuwer, bevat de `local-cpu` metrische in `TimeoutException` foutberichten. Zorg ervoor dat u de nieuwste versie van de [NuGet-pakket StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/). Er zijn fouten die voortdurend wordt verholpen in de volgende code maakt u deze krachtiger voor time-outs dus belangrijk dat de meest recente versie is.
+> StackExchange.Redis 1.1.603 en hoger bevat Hallo `local-cpu` metrische in `TimeoutException` foutberichten. Zorg ervoor dat u de nieuwste versie Hallo Hallo [NuGet-pakket StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/). Er zijn fouten voortdurend worden gecorrigeerd in Hallo code toomake krachtiger tootimeouts zodanig dat de meest recente versie Hallo belangrijk is.
 > 
 > 
 
 #### <a name="resolution"></a>Oplossing
-Upgrade naar een grotere VM-grootte met meer CPU-capaciteit of onderzoeken wat de oorzaak van CPU, pieken. 
+Upgrade tooa groter VM-grootte met meer CPU-capaciteit uit of onderzoeken wat de oorzaak van CPU, pieken. 
 
 ### <a name="client-side-bandwidth-exceeded"></a>Client-side bandbreedte overschreden
 #### <a name="problem"></a>Probleem
-Clientcomputers van verschillende grootte hebben hun beperkingen op de hoeveelheid netwerkbandbreedte ze beschikbaar zijn. Als de client de beschikbare bandbreedte overschrijdt, wordt klikt u vervolgens gegevens niet verwerkt op de client snel de server is verzonden. Dit kan leiden tot time-outs.
+Clientcomputers van verschillende grootte hebben hun beperkingen op de hoeveelheid netwerkbandbreedte ze beschikbaar zijn. Als client Hallo overschrijdt Hallo beschikbare bandbreedte en gegevens niet snel Hallo-server verzendt deze aan de clientzijde Hallo worden verwerkt. Dit kan leiden tootimeouts.
 
 #### <a name="measurement"></a>Meting
 Controleren hoe uw bandbreedtegebruik wijzigen gedurende een periode met code [zoals deze](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). Houd er rekening mee dat deze code kan niet worden uitgevoerd in sommige omgevingen met beperkte machtigingen (zoals Azure websites).
@@ -98,9 +98,9 @@ Client VM-grootte vergroten of verkleinen van netwerkbandbreedte.
 
 ### <a name="large-requestresponse-size"></a>De grootte van veel aanvragen/reacties
 #### <a name="problem"></a>Probleem
-Een veel aanvragen/reacties kan leiden tot time-outs. Stel bijvoorbeeld dat uw time-outwaarde die is geconfigureerd op de client is 1 seconde. Uw toepassing aanvragen twee sleutels (bijvoorbeeld) "A" en "B") op hetzelfde moment (met behulp van de fysieke netwerkverbinding). De meeste clients ondersteunen 'Pipelining' van aanvragen, zodat zowel aanvragen "A" en "B" worden verzonden op de kabel met de server een achter elkaar zonder te wachten op voor de reacties. De server stuurt de antwoorden terug in dezelfde volgorde. Als antwoord "A" groot kunt is het meeste van de time-out voor volgende aanvragen eat. 
+Een veel aanvragen/reacties kan leiden tot time-outs. Stel bijvoorbeeld dat uw time-outwaarde die is geconfigureerd op de client is 1 seconde. Uw toepassing aanvragen twee sleutels (bijvoorbeeld) "A" en "B") op Hallo hetzelfde moment (met behulp van dezelfde fysieke netwerkverbinding Hallo). De meeste clients ondersteunen 'Pipelining' van aanvragen, zodat zowel aanvragen "A" en "B" worden verzonden op Hallo kabel toohello server na Hallo andere zonder te wachten Hallo-antwoorden. Hallo server stuurt Hallo-antwoorden weer Hallo dezelfde volgorde. Als antwoord "A" groot kunt is het meeste Hallo time-out voor volgende aanvragen eat. 
 
-Het volgende voorbeeld ziet dit scenario. In dit scenario aanvraag "A" en "B" snel worden verzonden, de server begint met het verzenden van antwoorden "A" en "B" snel, maar vanwege overdrachtstijden van gegevens, "B" hangen achter de andere aanvraag en time-out ondanks dat de server snel heeft gereageerd.
+Hallo volgende voorbeeld laat zien in dit scenario. In dit scenario worden in aanvraag "A" en "B" verzonden snel Hallo server begint met het verzenden van antwoorden "A" en "B" snel, maar vanwege de overdrachtstijd gegevens hangen "B" achter andere aanvraag en time-out Hallo Hoewel Hallo server snel gereageerd.
 
     |-------- 1 Second Timeout (A)----------|
     |-Request A-|
@@ -112,87 +112,87 @@ Het volgende voorbeeld ziet dit scenario. In dit scenario aanvraag "A" en "B" sn
 
 
 #### <a name="measurement"></a>Meting
-Dit is een moeilijk te meten. U hebt in feite softwareontwikkelaars de clientcode om grote aanvragen en antwoorden te houden. 
+Dit is een moeilijk één toomeasure. U hebt in feite tooinstrument uw code tootrack grote clientaanvragen en antwoorden. 
 
 #### <a name="resolution"></a>Oplossing
-1. Redis is geoptimaliseerd voor een groot aantal kleine waarden in plaats van enkele grote waarden. De beste oplossing is om uw gegevens in de gerelateerde lagere waarden. Zie de [wat is het ideaal grootte van het waardebereik voor redis? 100KB te groot is? ](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) post een bericht voor meer informatie over waarom de lagere waarden worden aanbevolen.
-2. Verhoog de grootte van uw virtuele machine (voor client en Server voor Redis-Cache), als u de mogelijkheden voor hogere bandbreedte, overdrachtstijden van gegevens voor grotere antwoorden verminderen. Houd er rekening mee dat het ophalen van meer bandbreedte op alleen de server of alleen op de client mogelijk niet voldoende. Meet het bandbreedteverbruik en vergelijk dit met de mogelijkheden van de grootte van virtuele machine die u momenteel hebt.
-3. Verhoog het aantal `ConnectionMultiplexer` objecten u gebruik en round robin-aanvragen via andere verbindingen.
+1. Redis is geoptimaliseerd voor een groot aantal kleine waarden in plaats van enkele grote waarden. Hallo bij voorkeur oplossing is toobreak van uw gegevens naar gerelateerde kleinere waarden. Zie Hallo [wat Hallo ideale grootte waardebereik voor redis is? 100KB te groot is? ](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) post een bericht voor meer informatie over waarom de lagere waarden worden aanbevolen.
+2. Hallo vergroten van de virtuele machine (voor client en Server voor Redis-Cache), tooget hogere bandbreedte mogelijkheden, waardoor gegevens overbrengen tijden voor grotere antwoorden. Houd er rekening mee dat meer bandbreedte ophalen op net Hallo-server of alleen op Hallo client mogelijk niet voldoende. Meet het bandbreedteverbruik en vergelijken het toohello mogelijkheden van de grootte van virtuele machine die u momenteel hebt Hallo.
+3. Hallo aantal verhogen `ConnectionMultiplexer` objecten u gebruik en round robin-aanvragen via andere verbindingen.
 
-### <a name="what-happened-to-my-data-in-redis"></a>Waar vind ik mijn gegevens in Redis?
+### <a name="what-happened-toomy-data-in-redis"></a>Wat is er gebeurd toomy gegevens in Redis?
 #### <a name="problem"></a>Probleem
-Verwacht voor bepaalde gegevens worden in mijn Azure Redis-Cache-exemplaar, maar het niet lijkt te zijn er.
+Ik verwachtte voor bepaalde gegevens toobe in mijn Azure Redis-Cache-exemplaar, maar het toobe er niet lijkt.
 
 #### <a name="resolution"></a>Oplossing
-Zie [waar vind ik mijn gegevens in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) voor mogelijke oorzaken en oplossingen.
+Zie [wat is er gebeurd toomy gegevens in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) voor mogelijke oorzaken en oplossingen.
 
 ## <a name="server-side-troubleshooting"></a>Server side problemen oplossen
-Deze sectie wordt beschreven voor het oplossen van problemen die vanwege een voorwaarde op de server van de cache optreden.
+Deze sectie wordt beschreven voor het oplossen van problemen die vanwege een voorwaarde op Hallo cacheserver optreden.
 
-* [Geheugendruk op de server](#memory-pressure-on-the-server)
+* [Geheugendruk op Hallo-server](#memory-pressure-on-the-server)
 * [Hoog CPU-gebruik / Server laden](#high-cpu-usage-server-load)
 * [Server Side bandbreedte is overschreden](#server-side-bandwidth-exceeded)
 
-### <a name="memory-pressure-on-the-server"></a>Geheugendruk op de server
+### <a name="memory-pressure-on-hello-server"></a>Geheugendruk op Hallo-server
 #### <a name="problem"></a>Probleem
-Geheugendruk aan de serverzijde leidt tot allerlei soorten prestatieproblemen die de verwerking van aanvragen kunnen vertragen. Wanneer geheugendruk raakt, heeft het systeem meestal op de paginagegevens van het fysieke geheugen in het virtuele geheugen op de schijf. Dit *pagina met fout* zorgt ervoor dat het systeem aanzienlijk vertragen. Er zijn verschillende mogelijke oorzaken van dit geheugendruk: 
+Geheugendruk aan serverzijde Hallo leidt tooall soorten prestatieproblemen die de verwerking van aanvragen kunnen vertragen. Wanneer geheugendruk raakt, heeft Hallo system doorgaans toopage gegevens uit het fysieke geheugen toovirtual geheugen op de schijf. Dit *pagina met fout* oorzaken Hallo system tooslow omlaag aanzienlijk. Er zijn verschillende mogelijke oorzaken van dit geheugendruk: 
 
-1. U hebt de cache van de volledige capaciteit ingevuld met gegevens. 
-2. Redis ziet hoge geheugenfragmentatie - meestal veroorzaakt door het opslaan van grote objecten (Redis is geoptimaliseerd voor een kleine objecten - Zie de [wat is het ideaal grootte van het waardebereik voor redis? 100KB te groot is? ](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) post een bericht voor meer informatie). 
+1. U kunt Hallo cache toofull capaciteit hebt ingevuld met gegevens. 
+2. Redis ziet hoge geheugenfragmentatie - meestal veroorzaakt door het opslaan van grote objecten (Redis is geoptimaliseerd voor een kleine objecten - Zie Hallo [wat Hallo ideale grootte waardebereik voor redis is? 100KB te groot is? ](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) post een bericht voor meer informatie). 
 
 #### <a name="measurement"></a>Meting
-Redis beschrijft de twee metrische gegevens kunt u dit probleem identificeren. De eerste is `used_memory` en de andere `used_memory_rss`. [Deze metrische gegevens](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) zijn beschikbaar in de Azure Portal of via de [Redis INFO](http://redis.io/commands/info) opdracht.
+Redis beschrijft de twee metrische gegevens kunt u dit probleem identificeren. Hallo wordt eerst `used_memory` en andere Hallo `used_memory_rss`. [Deze metrische gegevens](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) zijn beschikbaar in hello Azure Portal of via Hallo [Redis INFO](http://redis.io/commands/info) opdracht.
 
 #### <a name="resolution"></a>Oplossing
-Er zijn verschillende mogelijke wijzigingen die u kunt om te voorkomen dat het geheugengebruik in orde:
+Er zijn verschillende mogelijke wijzigingen die u toohelp keep-geheugengebruik in orde aanbrengen kunt:
 
 1. [Configureer een beleid geheugen](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) en verlopen tijdstippen instellen op uw sleutels. Houd er rekening mee dat dit mogelijk niet voldoende als er fragmentatie.
-2. [Een waarde maxmemory gereserveerd configureert](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) die groot genoeg is om te compenseren voor geheugenfragmentatie is.
+2. [Een waarde maxmemory gereserveerd configureert](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) die groot genoeg toocompensate voor geheugenfragmentatie.
 3. Verdeel uw grote objecten in de cache in kleinere verwante objecten.
-4. [Schaal](cache-how-to-scale.md) in een groter formaat in de cache.
-5. Als u een [premium cache met Redis-cluster ingeschakeld](cache-how-to-premium-clustering.md) kunt u [Verhoog het aantal shards](cache-how-to-premium-clustering.md#change-the-cluster-size-on-a-running-premium-cache).
+4. [Schaal](cache-how-to-scale.md) tooa groter cachegrootte.
+5. Als u een [premium cache met Redis-cluster ingeschakeld](cache-how-to-premium-clustering.md) kunt u [Verhoog het aantal shards hello](cache-how-to-premium-clustering.md#change-the-cluster-size-on-a-running-premium-cache).
 
 ### <a name="high-cpu-usage--server-load"></a>Hoog CPU-gebruik / Server laden
 #### <a name="problem"></a>Probleem
-Hoog CPU-gebruik kan betekenen dat de client een antwoord van Redis op tijdige wijze verwerkt Hoewel Redis antwoord verzonden door het zeer snel kan mislukken.
+Hoog CPU-gebruik kan betekenen dat de clientzijde Hallo tooprocess een reactie van Redis tijdig mislukken zelfs als Redis antwoord verzonden door Hallo zeer snel.
 
 #### <a name="measurement"></a>Meting
-Het systeem Wide CPU-gebruik via de Azure Portal of via het bijbehorende prestatiemeteritem bewaken. Zorg ervoor dat u niet bewaken *proces* CPU omdat een enkel proces lage CPU-gebruik kan hebben op de tijd die het hele systeem CPU kan hoog zijn. Pieken in CPU-gebruik die met time-outs overeenkomen gecontroleerd.
+Monitor Hallo System Wide CPU-gebruik via hello Azure Portal of via Hallo gekoppelde prestatiemeteritem. Wees voorzichtig niet toomonitor *proces* CPU omdat er een enkel proces lage CPU-gebruik op Hallo dezelfde tijd dat het hele systeem CPU hoge kan worden. Pieken in CPU-gebruik die met time-outs overeenkomen gecontroleerd.
 
 #### <a name="resolution"></a>Oplossing
-[Schaal](cache-how-to-scale.md) naar een grotere cache servicetier met meer CPU-capaciteit of onderzoeken wat de oorzaak van CPU, pieken. 
+[Schaal](cache-how-to-scale.md) tooa grotere cache servicetier met meer CPU-capaciteit of onderzoeken wat de oorzaak van CPU, pieken. 
 
 ### <a name="server-side-bandwidth-exceeded"></a>Server Side bandbreedte is overschreden
 #### <a name="problem"></a>Probleem
-Exemplaren van verschillende grootte cache hebben hun beperkingen op de hoeveelheid netwerkbandbreedte ze beschikbaar zijn. Als de server de beschikbare bandbreedte overschrijdt, wordt er geen gegevens naar de client zo snel worden verzonden. Dit kan leiden tot time-outs.
+Exemplaren van verschillende grootte cache hebben hun beperkingen op de hoeveelheid netwerkbandbreedte ze beschikbaar zijn. Als server Hallo overschrijdt de beschikbare bandbreedte van hello, klikt u vervolgens gegevens niet verzonden toohello client zo snel. Dit kan leiden tootimeouts.
 
 #### <a name="measurement"></a>Meting
-U kunt controleren de `Cache Read` metrische gegevens de hoeveelheid gegevens is gelezen uit de cache in MB per seconde (MB/s) tijdens het opgegeven interval voor rapportage. Deze waarde komt overeen met de netwerkbandbreedte gebruikt door deze cache. Als u waarschuwingen instellen voor server side netwerk bandbreedtelimieten wilt, u kunt ze maken gebruik van deze `Cache Read` teller. Vergelijk uw metingen met de waarden in [deze tabel](cache-faq.md#cache-performance) voor de waargenomen-bandbreedtelimieten voor verschillende cache lagen en grootten prijzen.
+U kunt bewaken Hallo `Cache Read` metrische gegevens Hallo hoeveelheid gegevens gelezen uit de cache Hallo in Megabytes per seconde (MB/s) tijdens Hallo opgegeven reporting interval is. Deze waarde komt overeen toohello netwerkbandbreedte gebruikt door deze cache. Als u tooset van waarschuwingen voor bandbreedtelimieten van server side netwerk wilt, u kunt ze maken gebruik van deze `Cache Read` teller. Vergelijk uw metingen met Hallo-waarden in de [deze tabel](cache-faq.md#cache-performance) voor Hallo in acht genomen ondergrenzen voor verschillende cache prijzen lagen en grootten voor de bandbreedte.
 
 #### <a name="resolution"></a>Oplossing
-Als u consistent in de buurt van de geobserveerde maximale bandbreedte voor de grootte van uw prijscategorie laag en de cache bent, kunt u overwegen [schalen](cache-how-to-scale.md) met behulp van de waarden in een prijscategorie laag, of grootte die een groter netwerkbandbreedte heeft [deze tabel](cache-faq.md#cache-performance)als richtlijn.
+Als u bijna Hallo waargenomen maximale bandbreedte voor de grootte van uw prijscategorie laag en cache consistent zijn, kunt u overwegen [schalen](cache-how-to-scale.md) tooa prijzen laag of de grootte die een groter netwerkbandbreedte heeft, met behulp van Hallo-waarden in [deze tabel](cache-faq.md#cache-performance) als richtlijn.
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>StackExchange.Redis time-out-uitzonderingen
-Configuratie-instelling met de naam maakt gebruik van StackExchange.Redis `synctimeout` voor synchrone bewerkingen waarvoor een standaardwaarde van 1000 ms. Als een synchrone aanroep komt niet in de aangegeven tijd hebt voltooid, genereert de client StackExchange.Redis een time-outfout vergelijkbaar met het volgende voorbeeld.
+Configuratie-instelling met de naam maakt gebruik van StackExchange.Redis `synctimeout` voor synchrone bewerkingen waarvoor een standaardwaarde van 1000 ms. Als een synchrone aanroep niet voltooit bepaald Hallo tijd, Hallo StackExchange.Redis client er wordt een time-fout vergelijkbare toohello voorbeeld te volgen.
 
     System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
 
 
-Dit foutbericht bevat metrische gegevens die kunnen helpen bij het wijst u de oorzaak en de mogelijke oplossing van het probleem. De volgende tabel bevat details over de fout bericht metrische gegevens.
+Dit foutbericht bevat metrische gegevens die kunnen helpen bij het wijst u toohello oorzaak en de mogelijke resolutie van Hallo probleem. Hallo bevat volgende tabel details over Hallo fout bericht metrische gegevens.
 
 | Fout bericht metrische gegevens | Details |
 | --- | --- |
-| inst |In de afgelopen tijdsperiode: 0-opdrachten zijn uitgegeven |
-| Mgr |Het uitvoeren van de socket-manager `socket.select` wat het betekent dat het besturingssysteem om aan te geven van een socket met iets te maken; vraagt in feite: de lezer is niet actief lezen vanaf het netwerk omdat deze niet denkt er is niets dat te maken |
+| inst |In de afgelopen tijdsperiode Hallo: 0-opdrachten zijn uitgegeven |
+| Mgr |Hallo socket manager voert `socket.select` wat het betekent dat vraagt Hallo OS tooindicate een socket met iets toodo; in feite: Hallo lezer is niet actief lezen vanaf het netwerk Hallo omdat deze niet denkt dat iets toodo |
 | Wachtrij |Er zijn 73 totale voortgang-bewerkingen |
-| Qu |6 van de bewerkingen in uitvoering zijn in de wachtrij voor niet-verzonden en nog niet zijn geschreven met het uitgaande netwerk |
-| Qs |67 van he lopende bewerkingen zijn verzonden naar de server, maar een antwoord is nog niet beschikbaar. Kan het antwoord worden `Not yet sent by the server` of`sent by the server but not yet processed by the client.` |
-| QC |0 van de bewerkingen in uitvoering antwoorden hebt gezien, maar nog niet is gemarkeerd als voltooid vanwege het wachten op de voltooiing lus |
-| wR |Er is een actieve writer (wat betekent dat de 6 unsent aanvragen worden niet genegeerd) bytes/activewriters |
-| in |Er zijn geen actieve lezers en nul bytes beschikbaar zijn voor worden gelezen op de NIC-bytes/activereaders |
+| Qu |6 van Hallo lopende bewerkingen zijn in de niet-verzonden wachtrij Hallo en zijn niet nog weggeschreven toohello uitgaande netwerk |
+| Qs |67 van he lopende bewerkingen toohello server zijn verzonden, maar een antwoord is nog niet beschikbaar. antwoord Hallo kan worden `Not yet sent by hello server` of`sent by hello server but not yet processed by hello client.` |
+| QC |0 van Hallo lopende bewerkingen antwoorden hebt gezien, maar zijn niet nog gemarkeerd als voltooid vanwege toowaiting op Hallo voltooiing lus |
+| wR |Er is een actieve schrijver (wat betekent dat Hallo 6 unsent aanvragen worden niet genegeerd) bytes/activewriters |
+| in |Er zijn geen actieve lezers en nul bytes beschikbaar toobe lezen op Hallo NIC bytes/activereaders |
 
-### <a name="steps-to-investigate"></a>Stappen voor het onderzoeken van
-1. Als best practice Controleer of u het volgende patroon gebruikt voor het verbinding maken wanneer u de client StackExchange.Redis.
+### <a name="steps-tooinvestigate"></a>Stappen tooinvestigate
+1. Als best practice Controleer of u Hallo tooconnect patroon volgen wanneer u de client StackExchange.Redis Hallo gebruikt.
 
     ```c#
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -210,26 +210,26 @@ Dit foutbericht bevat metrische gegevens die kunnen helpen bij het wijst u de oo
     }
     ````
 
-    Zie voor meer informatie [verbinding maken met de cache met behulp van StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
+    Zie voor meer informatie [toohello-cache met behulp van StackExchange.Redis verbinding](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
 
-1. Zorg ervoor dat uw Azure Redis-Cache en de clienttoepassing in dezelfde regio in Azure. Bijvoorbeeld, u kunt zich voordoen time-outs wanneer uw cache in VS-Oost, maar de client zich in VS-West en de aanvraag niet voltooid binnen de `synctimeout` interval of u kunt zich voordoen time-outs wanneer u foutopsporing van uw lokale ontwikkelcomputer. 
+1. Zorg ervoor dat uw Azure Redis-Cache en het Hallo-clienttoepassing Hallo dezelfde regio in Azure. Bijvoorbeeld, u kan zich voordoen time-outs wanneer uw cache in VS-Oost, maar Hallo client bevindt zich in VS-West en Hallo-aanvraag niet voltooid binnen de Hallo `synctimeout` interval of u kunt zich voordoen time-outs wanneer u foutopsporing van uw lokale ontwikkelcomputer. 
    
-    Het is raadzaam om de cache en in de client in dezelfde Azure-regio. Als u een scenario met aanroepen tussen regio hebt, moet u instellen de `synctimeout` interval op een waarde die hoger is dan het interval standaard 1000 ms door een `synctimeout` eigenschap in de verbindingstekenreeks. Het volgende voorbeeld ziet u een fragment StackExchange.Redis cache verbinding tekenreeks met een `synctimeout` van 2000 ms.
+    Het is raadzaam toohave Hallo cache en Hallo in Hallo-client in dezelfde Azure-regio. Als u een scenario met aanroepen tussen regio hebt, moet u instellen Hallo `synctimeout` tooa intervalwaarde hoger is dan Hallo standaardinterval 1000 ms door een `synctimeout` eigenschap in de verbindingsreeks Hallo. Hallo volgende voorbeeld ziet u een fragment StackExchange.Redis cache verbinding tekenreeks met een `synctimeout` van 2000 ms.
    
         synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
-2. Zorg ervoor dat u de nieuwste versie van de [NuGet-pakket StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/). Er zijn fouten die voortdurend wordt verholpen in de volgende code maakt u deze krachtiger voor time-outs dus belangrijk dat de meest recente versie is.
-3. Als er aanvragen die ophalen door bandbreedtebeperkingen op de server of client gebonden zijn, duurt het langer om te voltooien en waardoor time-outs. Zie voor als de time-out als gevolg van de netwerkbandbreedte op de server is [bandbreedte van de Server-side overschreden](#server-side-bandwidth-exceeded). Zie voor als de time-out als gevolg van de netwerkbandbreedte client is [Client side bandbreedte overschreden](#client-side-bandwidth-exceeded).
-4. U CPU ophalen gebonden zijn op de server of op de client?
+2. Zorg ervoor dat u de nieuwste versie Hallo Hallo [NuGet-pakket StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/). Er zijn fouten voortdurend worden gecorrigeerd in Hallo code toomake krachtiger tootimeouts zodanig dat de meest recente versie Hallo belangrijk is.
+3. Als er aanvragen die ophalen door bandbreedtebeperkingen op Hallo-server of client gebonden zijn, duurt het langer voor hen toocomplete, waardoor time-outs. toosee als de time-out is vanwege toonetwork bandbreedte op Hallo van server, raadpleegt u [bandbreedte van de Server-side overschreden](#server-side-bandwidth-exceeded). toosee als de time-out is vanwege tooclient netwerkbandbreedte, Zie [Client side bandbreedte overschreden](#client-side-bandwidth-exceeded).
+4. U ophalen van de CPU of zijn gekoppeld op Hallo-server op Hallo client?
    
-   * Controleer als u aan de CPU op de client ervoor zorgen dat de aanvraag niet verwerkt gebonden ophalen kan binnen de `synctimeout` interval, hetgeen een time-out. Verplaatsen naar een groter formaat van de client of distributie van de belasting kunt u dit instellen. 
-   * Controleer of uw CPU-gebonden op de server door de bewaking van de `CPU` [prestaties metrische gegevens in de cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Voor de configuratieaanvragen terwijl Redis CPU-gebonden kunnen leiden tot deze aanvragen voor time-out. Daarom kunt u de verdelen over meerdere shards in een premium-cache of bijwerken naar een groter formaat of prijscategorie. Zie voor meer informatie [Server Side bandbreedte overschreden](#server-side-bandwidth-exceeded).
-5. Zijn er opdrachten duurt lang voordat op de server kan worden verwerkt? Langlopende opdrachten die het duurt lang worden verwerkt op de redis-server kan leiden tot time-outs. Enkele voorbeelden van langdurige opdrachten zijn `mget` met een groot aantal sleutels, `keys *` of slecht geschreven scripts lua. U kunt verbinding maken met uw Azure Redis-Cache-exemplaar met behulp van de client redis cli of de [Redis-Console](cache-configure.md#redis-console) en voer de [SlowLog](http://redis.io/commands/slowlog) opdracht uit om te zien of er aanvragen duurt langer dan verwacht. Redis-Server en StackExchange.Redis zijn geoptimaliseerd voor veel kleine aanvragen in plaats van minder grote aanvragen. Uw gegevens splitsen in kleinere reeksen kan dingen hier verbeteren. 
+   * Controleer of u ophalen gebonden aan de CPU op de client waardoor Hallo aanvraag toonot kan worden verwerkt binnen Hallo `synctimeout` interval, hetgeen een time-out. Tooa groter client verplaatsen of distributie van Hallo load kunt toocontrol dit. 
+   * Controleer of uw CPU gebonden op Hallo server door de bewaking van Hallo `CPU` [prestaties metrische gegevens in de cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Aanvragen terwijl Redis is afhankelijk van de CPU kan leiden tot de binnenkomende aanvragen tootimeout. tooaddress dit u Hallo kunt distribueren over meerdere shards in een cache premium laden of tooa groter of prijscategorie upgraden. Zie voor meer informatie [Server Side bandbreedte overschreden](#server-side-bandwidth-exceeded).
+5. Zijn er opdrachten duurt lang tooprocess op Hallo server? Langlopende opdrachten die het duurt lang tooprocess op Hallo redis-server kan leiden tot time-outs. Enkele voorbeelden van langdurige opdrachten zijn `mget` met een groot aantal sleutels, `keys *` of slecht geschreven scripts lua. U kunt verbinding tooyour Azure Redis-Cache-exemplaar met behulp van Hallo redis cli client of Hallo [Redis-Console](cache-configure.md#redis-console) en Voer Hallo [SlowLog](http://redis.io/commands/slowlog) opdracht toosee als er aanvragen duurt langer dan verwacht. Redis-Server en StackExchange.Redis zijn geoptimaliseerd voor veel kleine aanvragen in plaats van minder grote aanvragen. Uw gegevens splitsen in kleinere reeksen kan dingen hier verbeteren. 
    
-    Zie voor informatie over verbinding maken met de Azure Redis-Cache SSL-eindpunt met redis cli en stunnel, de [aangekondigd ASP.NET Session State-Provider voor de Preview-versie Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogbericht. Zie voor meer informatie [SlowLog](http://redis.io/commands/slowlog).
-6. Hoge belasting van de Redis-server kan leiden tot time-outs. U kunt de belasting van de server controleren door de bewaking van de `Redis Server Load` [prestaties metrische gegevens in de cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Belasting van de server van 100 (maximumwaarde) geeft aan dat de redis-server is bezet geen niet-actieve tijd verwerken van aanvragen. Als u wilt zien als bepaalde verzoeken zijn inneemt alle van de mogelijkheid van de server, voert u de opdracht SlowLog zoals beschreven in de vorige alinea. Zie voor meer informatie [hoog CPU-gebruik / Server laden](#high-cpu-usage-server-load).
-7. Is er een andere gebeurtenis aan de clientzijde die kan worden gelegd een blip netwerk? Controleer op de client (web, werkrol of een Iaas VM) als er een gebeurtenis is, zoals het aantal exemplaren van de client schaal omhoog of omlaag of implementeren van een nieuwe versie van de client of automatisch schalen is ingeschakeld? Bij onze tests die hebben we gevonden voor automatisch schalen of omhoog/omlaag schalen kan veroorzaken kan uitgaande netwerkverbinding verloren zijn enkele seconden. StackExchange.Redis code is tegen dergelijke gebeurtenissen en verbinding wordt hersteld. Alle aanvragen in de wachtrij kunnen gedurende deze tijd nieuwe verbinding een time-out.
-8. Is er een grote aanvraag diverse kleine aanvragen voorafgaand aan de Redis-Cache waarvoor een time-out? De parameter `qs` in de volgende fout bericht vertelt u hoeveel aanvragen naar de server van de client zijn verzonden, maar nog niet zijn verwerkt op een antwoord. Deze waarde kan blijven groeien omdat StackExchange.Redis één TCP-verbinding gebruikt en alleen van een reactie op een tijdstip lezen kan. Hoewel er is een time-out opgetreden voor de eerste bewerking, stopt niet de gegevens worden verzonden vanaf de server en andere aanvragen worden geblokkeerd totdat dit proces is voltooid, waardoor een time-out. Eén oplossing is de kans op time-outs minimaliseren door ervoor te zorgen dat uw cache groot genoeg is voor uw workload is en grote waarden splitsen in kleinere reeksen. Een andere mogelijke oorzaak is het gebruik van een pool van `ConnectionMultiplexer` in uw client-objecten en kies de minste geladen `ConnectionMultiplexer` bij het verzenden van een nieuwe aanvraag. Hierdoor moet een enkel time-out veroorzaakt door andere aanvragen voor ook time-out.
-9. Als u `RedisSessionStateprovider`, controleert u de time-out opnieuw correct hebt ingesteld. `retrytimeoutInMilliseconds`moet hoger zijn dan `operationTimeoutinMilliseonds`, anders geen nieuwe pogingen wordt uitgevoerd. In het volgende voorbeeld `retrytimeoutInMilliseconds` is ingesteld op 3000. Zie voor meer informatie [ASP.NET Session State-Provider voor Azure Redis-Cache](cache-aspnet-session-state-provider.md) en [het gebruik van de parameters voor de configuratie van de sessiestatus-Provider en de Provider voor de uitvoercache](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
+    Zie voor informatie over het verbinden van toohello Azure Redis-Cache SSL-eindpunt met redis cli en stunnel, Hallo [aangekondigd ASP.NET Session State-Provider voor de Preview-versie Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogbericht. Zie voor meer informatie [SlowLog](http://redis.io/commands/slowlog).
+6. Hoge belasting van de Redis-server kan leiden tot time-outs. U kunt de serverbelasting Hallo bewaken door bewaking Hallo `Redis Server Load` [prestaties metrische gegevens in de cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Belasting van de server van 100 (maximumwaarde) geeft aan dat Hallo redis server actief is bezig met geen niet-actieve tijd verwerken van aanvragen. toosee als bepaalde verzoeken van alle server-functie hello, Hallo SlowLog opdracht uitvoeren, zoals beschreven in de vorige alinea Hallo. Zie voor meer informatie [hoog CPU-gebruik / Server laden](#high-cpu-usage-server-load).
+7. Is er een andere gebeurtenis aan clientzijde Hallo die kan worden gelegd een blip netwerk? Controleer op Hallo-client (web, werkrol of een Iaas VM) als er een gebeurtenis als het aantal exemplaren van de client Hallo schaal omhoog of omlaag of implementeren van een nieuwe versie van de client Hallo is of automatisch schalen is ingeschakeld? Bij onze tests die hebben we gevonden voor automatisch schalen of omhoog/omlaag schalen kan veroorzaken kan uitgaande netwerkverbinding verloren zijn enkele seconden. StackExchange.Redis code robuuste toosuch gebeurtenissen is en verbinding wordt hersteld. Alle aanvragen in wachtrij voor Hallo kunnen tijdens deze periode van opnieuw verbinding een time-out.
+8. Is er een grote aanvraag voorafgaand aan verschillende kleine aanvragen toohello Redis-Cache waarvoor een time-out? parameter Hallo `qs` Hallo fout bericht vertelt u hoeveel aanvragen van Hallo client toohello server zijn verzonden, maar nog niet zijn verwerkt op een antwoord. Deze waarde kan blijven groeien omdat StackExchange.Redis één TCP-verbinding gebruikt en alleen van een reactie op een tijdstip lezen kan. Hoewel er is een time-out opgetreden voor de eerste bewerking hello, stopt niet Hallo-gegevens worden verzonden vanaf de server Hallo en andere aanvragen worden geblokkeerd totdat dit proces is voltooid, waardoor een time-out. Eén oplossing is toominimize Hallo kans time-outs door ervoor te zorgen dat uw cache groot genoeg is voor uw workload is en grote waarden splitsen in kleinere reeksen. Een andere mogelijke oorzaak is toouse een groep met `ConnectionMultiplexer` in uw client-objecten en kies Hallo minste geladen `ConnectionMultiplexer` bij het verzenden van een nieuwe aanvraag. Hierdoor moet een enkel time-out veroorzaakt door andere aanvragen tooalso time-out.
+9. Als u `RedisSessionStateprovider`, controleert u Hallo opnieuw time-out correct hebt ingesteld. `retrytimeoutInMilliseconds`moet hoger zijn dan `operationTimeoutinMilliseonds`, anders geen nieuwe pogingen wordt uitgevoerd. In het volgende voorbeeld Hallo `retrytimeoutInMilliseconds` too3000 is ingesteld. Zie voor meer informatie [ASP.NET Session State-Provider voor Azure Redis-Cache](cache-aspnet-session-state-provider.md) en [hoe toouse configuratieparameters van sessiestatus-Provider en de Provider voor de uitvoercache Hallo](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
     <add
       name="AFRedisCacheSessionStateProvider"
@@ -245,17 +245,17 @@ Dit foutbericht bevat metrische gegevens die kunnen helpen bij het wijst u de oo
       retryTimeoutInMilliseconds="3000" />
 
 
-1. Controleer geheugengebruik op de server van Azure Redis-Cache door [bewaking](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` en `Used Memory`. Als een beleid voor verwijdering gemaakt is, Redis wordt gestart wanneer onbeschikbaar maken van sleutels `Used_Memory` de cachegrootte is bereikt. In het ideale geval `Used Memory RSS` moet slechts iets hoger dan `Used memory`. Een grote verschil betekent dat er geheugenfragmentatie (intern of extern. Wanneer `Used Memory RSS` is minder dan `Used Memory`, betekent dit deel van het cachegeheugen is door het besturingssysteem zijn gewisseld. In dat geval kunt u een aantal belangrijke latenties verwachten. Omdat Redis geen controle heeft over hoe de toewijzingen zijn toegewezen aan geheugenpagina's, hoge `Used Memory RSS` is vaak het resultaat van een piek in geheugengebruik. Redis maakt vrij geheugen, het geheugen terug naar de toewijzingsfunctie wordt gegeven als de toewijzingsfunctie kan of kan geen geven het geheugen terug op het systeem. Mogelijk zijn er een discrepantie is tussen de `Used Memory` verbruik waarde en geheugen zoals gemeld door het besturingssysteem. Kan zijn vanwege het feit geheugen is gebruikt en vrijgegeven door Redis, maar niet gegeven weer aan het systeem. U kunt de volgende stappen uitvoeren om te voorkomen dat geheugenproblemen.
+1. Controleer geheugengebruik op Hallo Azure Redis-Cache-server door [bewaking](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` en `Used Memory`. Als een beleid voor verwijdering gemaakt is, Redis wordt gestart wanneer onbeschikbaar maken van sleutels `Used_Memory` bereikt Hallo cachegrootte. In het ideale geval `Used Memory RSS` moet slechts iets hoger dan `Used memory`. Een grote verschil betekent dat er geheugenfragmentatie (intern of extern. Wanneer `Used Memory RSS` is minder dan `Used Memory`, betekent dit deel van het cachegeheugen Hallo heeft zijn gewisseld door Hallo-besturingssysteem. In dat geval kunt u een aantal belangrijke latenties verwachten. Omdat Redis heeft geen controle hoe de toewijzingen worden toegewezen toomemory pagina's, hoge `Used Memory RSS` is vaak Hallo resultaat van een piek in geheugengebruik. Redis maakt vrij geheugen, Hallo geheugen terug toohello toewijzer wordt gegeven als Hallo toewijzingsfunctie mogelijk of Hallo geheugen back toohello system kan niet worden geven. Er is mogelijk een discrepantie tussen Hallo `Used Memory` verbruik waarde en geheugen zoals gemeld door het Hallo-besturingssysteem. Kan worden veroorzaakt door toohello feit geheugen is gebruikt en door Redis, maar niet gegeven back toohello system uitgebracht. toohelp beperken geheugenproblemen u Hallo stappen kunt uitvoeren.
    
-   * De cache bijwerken naar een groter, zodat u niet mogelijkheden geheugenbeperkingen worden uitgevoerd op het systeem.
-   * Geldigheidsduur van de sleutels zo instellen dat oudere waarden proactief zijn verwijderd.
-   * Monitor voor de de `used_memory_rss` metrische gegevens in de cache. Wanneer deze waarde de grootte van het cachegeheugen nadert, bent u waarschijnlijk beginnen te zien van prestatieproblemen. De gegevens verdelen over meerdere shards, als u met behulp van een premium-cache, of een upgrade uitvoert naar een grotere cachegrootte.
+   * Hallo tooa groter cachegrootte bijwerken zodat u niet mogelijkheden geheugenbeperkingen op Hallo-systeem uitvoert.
+   * Vervaldatum tijden op Hallo sleutels zo instellen dat oudere waarden proactief zijn verwijderd.
+   * Monitor Hallo Hallo `used_memory_rss` metrische gegevens in de cache. Wanneer deze waarde Hallo grootte van de cache nadert, bent u waarschijnlijk toostart prestatieproblemen te zien. Verdelen over meerdere shards Hallo gegevens als u met behulp van een premium-cache, of een grotere cachegrootte tooa upgrade.
    
-   Zie voor meer informatie [geheugendruk op de server](#memory-pressure-on-the-server).
+   Zie voor meer informatie [geheugendruk op Hallo server](#memory-pressure-on-the-server).
 
 ## <a name="additional-information"></a>Aanvullende informatie
 * [Welk aanbod voor de Redis-cache en welke cachegrootte moet ik kiezen?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
-* [Hoe kan ik benchmark en test de prestaties van mijn cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+* [Hoe kan ik benchmark en test de prestaties van mijn cache Hallo?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [Hoe kan ik de Redis-opdrachten uitvoeren?](cache-faq.md#how-can-i-run-redis-commands)
-* [Azure Redis-Cache controleren](cache-how-to-monitor.md)
+* [Hoe toomonitor Azure Redis-Cache](cache-how-to-monitor.md)
 

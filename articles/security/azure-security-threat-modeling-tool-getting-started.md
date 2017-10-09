@@ -1,6 +1,6 @@
 ---
-title: -Microsoft Threat Modeling hulpprogramma - Azure aan de slag | Microsoft Docs
-description: Dit is een beter overzicht markering van het hulpprogramma Threat Modeling in te grijpen.
+title: aaaGetting gestart - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: Dit is een beter overzicht Hallo Threat Modeling hulpprogramma in de actie is gemarkeerd.
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 2d940b42108948f4cd36a585f1e79def05fe8fd3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 75ef139071e8abd0e743aa17b443a6e353f29372
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="getting-started-with-the-threat-modeling-tool"></a>Aan de slag met het hulpprogramma Threat Modeling
+# <a name="getting-started-with-hello-threat-modeling-tool"></a>Aan de slag met Hallo Threat Modeling hulpprogramma
 
-De Cloud en Enterprise beveiligingsprogramma's team uitgebracht de Threat Modeling hulpprogramma Preview eerder dit jaar als een gratis  **[Klik hier om te downloaden](https://aka.ms/tmtpreview)**. De wijziging in bezorgingsmechanisme kan we de meest recente verbeteringen en oplossingen voor problemen om naar te pushen klanten telkens wanneer die ze het hulpprogramma Open, waardoor het gemakkelijker te onderhouden en gebruiken.
-In dit artikel gaat u door het proces van het aan de slag met de Microsoft SDL threat modeling benadering en ziet u hoe u het hulpprogramma voor het ontwikkelen van modellen geweldige threat als een backbone van uw beveiliging.
+Hallo-Cloud en Enterprise beveiligingsprogramma's team uitgebracht Hallo Threat Modeling hulpprogramma Preview eerder dit jaar als een gratis  **[Klik hier om te downloaden](https://aka.ms/tmtpreview)**. Hallo wijziging in bezorgingsmechanisme, kunnen wij toopush Hallo nieuwste verbeteringen en oplossingen voor problemen toocustomers telkens wanneer die ze gemakkelijker toomaintain en gebruik Hallo hulpprogramma opent.
+Dit artikel leert u Hallo proces van het aan de slag met Hallo Microsoft SDL threat modeling benadering en ziet u hoe toouse Hallo hulpprogramma toodevelop geweldige threat modellen als een backbone van uw beveiliging.
 
-In dit artikel is gebaseerd op bestaande kennis over de SDL threat modeling benadering. Raadpleeg voor een kort overzicht  **[Threat Modeling webtoepassingen](https://msdn.microsoft.com/library/ms978516.aspx)**  en een gearchiveerde versie van  **[onthullen beveiligingsfouten met behulp van de aanpak STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)**  MSDN-artikel in 2006 gepubliceerd.
+In dit artikel is gebaseerd op bestaande kennis over Hallo SDL threat modeling benadering. Voor een kort overzicht verwijzen te**[Threat Modeling webtoepassingen](https://msdn.microsoft.com/library/ms978516.aspx)**  en een gearchiveerde versie van  **[onthullen beveiligingsfouten met behulp van Hallo STRIDE benadering](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)**  MSDN-artikel gepubliceerd in 2006.
 
-Samenvattend snel omvat de aanpak het maken van een diagram, bedreigingen te identificeren, beperkende ze en elke risicobeperking valideren. Hier volgt een diagram dit proces illustreert:
+tooquickly samenvatten, Hallo benadering omvat het maken van een diagram, bedreigingen te identificeren, beperkende ze en elke risicobeperking valideren. Hier volgt een diagram dit proces illustreert:
 
 ![SDL-proces](./media/azure-security-threat-modeling-tool/sdlapproach.png)
 
-## <a name="starting-the-threat-modeling-process"></a>De threat modeling proces wordt gestart
+## <a name="starting-hello-threat-modeling-process"></a>Hallo threat modeling proces wordt gestart
 
-Wanneer u het hulpprogramma Threat Modeling start, ziet u een aantal dingen, zoals in de afbeelding:
+Wanneer u Hallo Threat Modeling hulpprogramma start, ziet u een aantal dingen, zoals in afbeelding Hallo:
 
 ![Lege startpagina](./media/azure-security-threat-modeling-tool/tmtstart.png)
 
@@ -41,20 +41,20 @@ Wanneer u het hulpprogramma Threat Modeling start, ziet u een aantal dingen, zoa
 
 | Onderdeel                                   | Details                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Feedback, suggesties en problemen knop** | U gaat de  **[MSDN-Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)**  voor alle zaken SDL. Dit biedt u een kans om Lees wat andere gebruikers, samen met tijdelijke oplossingen en aanbevelingen doen. Als u nog steeds niet kunt vinden wat u zoekt, e- tmtextsupport@microsoft.com voor ons ondersteuningsteam om u te helpen                                                                                                                            |
-| **Een Model maken**                          | Hiermee opent u een leeg canvas voor u het diagram te tekenen. Zorg ervoor dat u selecteren welke sjabloon die u wilt gebruiken voor uw model                                                                                                                                                                                                                                                                                                                                                                       |
-| **Sjabloon voor nieuwe modellen**                 | U moet selecteren welke sjabloon te gebruiken voordat het maken van een model. Onze belangrijkste de sjabloon is Azure Threat Model, waarin de Azure-specifieke stencils, bedreigingen en oplossingen. Voor algemene modellen, selecteert u de SDL TM Knowledge Base uit de vervolgkeuzelijst. Wilt u uw eigen sjabloon maken of een nieuwe voor alle gebruikers verzenden? Bekijk onze  **[sjabloon opslagplaats](https://github.com/Microsoft/threat-modeling-templates)**  GitHub-Page voor meer informatie                              |
-| **Een Model openen**                            | <p>Wordt geopend eerder opgeslagen threat modellen. De functie modellen onlangs geopend is ideaal als u nodig hebt om uw meest recente bestanden te openen. Wanneer u de muisaanwijzer op de selectie, vindt u 2 manieren modellen openen:</p><p><ul><li>Open vanaf deze Computer – klassieke manier van het openen van een bestand met behulp van lokale opslag</li><li>Openen van OneDrive-teams kunt mappen in OneDrive opslaan en delen van hun threat modellen in op één locatie naar de productiviteit te verhogen en samenwerking</li></ul></p> |
-| **Getting Started Guide**                   | Hiermee opent u de  **[Microsoft Threat Modeling Tool](./azure-security-threat-modeling-tool.md)**  hoofdpagina                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Feedback, suggesties en problemen knop** | Vindt u Hallo  **[MSDN-Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)**  voor alle zaken SDL. Dit biedt u een kans tooread via wat andere gebruikers, samen met tijdelijke oplossingen en aanbevelingen doen. Als u nog steeds niet kunt vinden wat u zoekt, e- tmtextsupport@microsoft.com voor onze support team toohelp u                                                                                                                            |
+| **Een Model maken**                          | Hiermee opent u een leeg canvas voor toodraw u het diagram. Zorg ervoor dat tooselect welke sjabloon gewenst toouse voor uw model                                                                                                                                                                                                                                                                                                                                                                       |
+| **Sjabloon voor nieuwe modellen**                 | U moet welke toouse sjabloon selecteren voordat het maken van een model. Onze belangrijkste sjabloon is hello Azure Threat Model sjabloon waarin de Azure-specifieke stencils, bedreigingen en oplossingen. Selecteer Hallo SDL TM Knowledge Base uit de vervolgkeuzelijst Hallo voor algemene modellen. Toocreate wilt uw eigen sjabloon of een nieuwe voor alle gebruikers verzenden? Bekijk onze  **[sjabloon opslagplaats](https://github.com/Microsoft/threat-modeling-templates)**  GitHub-Page toolearn meer                              |
+| **Een Model openen**                            | <p>Wordt geopend eerder opgeslagen threat modellen. Hallo modellen onlangs geopend functie is handig als u uw meest recente bestanden tooopen nodig. Wanneer u de muisaanwijzer op Hallo selectie, vindt u 2 manieren tooopen modellen:</p><p><ul><li>Open vanaf deze Computer – klassieke manier van het openen van een bestand met behulp van lokale opslag</li><li>Openen van OneDrive-teams kunnen mappen in OneDrive toosave gebruiken en delen alle hun threat modellen in een enkele locatie toohelp de productiviteit te verhogen en samenwerking</li></ul></p> |
+| **Getting Started Guide**                   | Hallo wordt geopend  **[Microsoft Threat Modeling Tool](./azure-security-threat-modeling-tool.md)**  hoofdpagina                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ### <a name="template-section"></a>Sjabloonsectie
 
 | Onderdeel               | Details                                                                                                                                                          |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Nieuwe sjabloon maken** | Hiermee opent u een lege sjabloon voor u op maken. Tenzij u uitgebreide kennis bij het maken van sjablonen helemaal hebt, raden we u aan op basis van bestaande samenstellen |
-| **Sjabloon openen**       | Hiermee opent u de bestaande sjablonen voor u wijzigingen aan te brengen                                                                                                              |
+| **Nieuwe sjabloon maken** | Hiermee opent u een lege sjabloon voor u toobuild op. Tenzij u uitgebreide kennis bij het maken van sjablonen helemaal hebt, wordt aanbevolen om toobuild uit bestaande groepen. |
+| **Sjabloon openen**       | Hiermee opent u de sjablonen te bestaande voor u toomake wijzigingen                                                                                                             |
 
-Het team Threat Modeling hulpprogramma wordt steeds verder te verbeteren hulpprogramma functionaliteit en ervaren. Enkele kleine wijzigingen in de loop van het jaar kunnen plaatsvinden, maar alle belangrijke wijzigingen vereisen regeneraties in de handleiding. Raadpleeg het vaak om ervoor te zorgen dat u de meest recente aankondigingen.
+Hallo Threat Modeling hulpprogramma team werkt voortdurend tooimprove hulpprogramma functionaliteit en ervaring. Enkele kleine wijzigingen in de loop Hallo van Hallo jaar kunnen plaatsvinden, maar alle belangrijke wijzigingen vereisen regeneraties in Hallo handleiding. Raadpleeg tooit vaak tooensure ophalen van de meest recente aankondigingen Hallo.
 
 ## <a name="building-a-model"></a>Een model bouwen
 
@@ -64,82 +64,82 @@ In deze sectie we Ga als volgt:
 - Ricardo (een programmamanager) en
 - Ashish (tester)
 
-Ze gaan door het proces van hun eerste risicomodel ontwikkelt.
+Ze moeten Hallo-proces voor de ontwikkeling van hun eerste risicomodel worden doorlopen.
 
-> Ricardo: Hallo Cristina, in het model threat diagram is gegaan en wilden om ervoor te zorgen wij de details van de juiste. Kan u helpen mij via zoeken?
+> Ricardo: Hallo Cristina, op Hallo threat modeldiagram is gegaan en wilden toomake ervoor dat wij Hallo details rechts. Kan u helpen mij via zoeken?
 > Cristina: volkomen. Laten we.
-> Ricardo Hiermee opent u het hulpprogramma en zijn scherm deelt met Cristina.
+> Ricardo Hallo hulpprogramma geopend en zijn scherm deelt met Cristina.
 
 ![Basic risicomodel](./media/azure-security-threat-modeling-tool/basictmt.png)
 
 > Cristina: OK klikt, ziet er eenvoudig, maar kunt u doorlopen mij deze?
-> Ricardo: zeker! Hier volgt de uitsplitsing:
+> Ricardo: zeker! Hier volgt Hallo uitsplitsing:
 > - Onze menselijke gebruiker wordt getekend als een externe entiteit: een vierkant
-> - Deze opdrachten op uw webserver verzendt: de cirkel
-> - De webserver is een database (twee parallelle lijnen) advies
+> - Deze opdrachten tooour webserver verzendt: Hallo cirkel
+> - Hallo-webserver is een database (twee parallelle lijnen) advies
 
-Wat Ricardo net hebt u geleerd Cristina is een GSD, afkorting voor  **[gegevensstroom-Diagram](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Het hulpprogramma Threat Modeling kunnen gebruikers de grenzen van vertrouwensrelaties, aangegeven door de rode stippellijn om weer te geven waarin verschillende entiteiten zich bevindt in het besturingselement opgeven. IT-beheerders vereisen bijvoorbeeld een Active Directory-systeem voor verificatiedoeleinden zodat Active Directory buiten hun besturingselement is.
+Wat Ricardo net hebt u geleerd Cristina is een GSD, afkorting voor  **[gegevensstroom-Diagram](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Hallo Threat Modeling hulpprogramma kan gebruikers toospecify grenzen van vertrouwensrelaties, aangegeven door Hallo rode stippellijn, tooshow waarop andere entiteiten in besturingselement zijn. IT-beheerders vereisen bijvoorbeeld een Active Directory-systeem voor verificatiedoeleinden zodat Hallo Active Directory buiten hun besturingselement is.
 
-> Cristina: Gezicht aan mij. Hoe zit het omgaan met bedreigingen?
+> Cristina: Rechts toome gezocht. Hoe zit het Hallo bedreigingen?
 > Ricardo: Ik laat zien.
 
 ## <a name="analyzing-threats"></a>Bedreigingen analyseren
 
-Nadat hij op de weergave van de analyse van de pictogram menuselectie (bestand met Vergrootglas) klikt, hij wordt uitgevoerd om een lijst van bedreigingen het Threat Modeling hulpprogramma gevonden die zijn gegenereerd op basis van de standaardsjabloon dat gebruikmaakt van de SDL-methode aangeroepen  **[ STRIDE (vervalsing, knoeien, vrijgeven van informatie, DOS-aanval en bevoegdheden)](https://en.wikipedia.org/wiki/STRIDE_(security))**. Het idee is dat software onder een voorspelbare set van bedreigingen die u kunt vinden met behulp van deze categorieën 6 afkomstig is.
+Nadat hij op Hallo analyseweergave uit Hallo pictogram menuselectie (bestand met Vergrootglas), hij weergeven van de tooa gegenereerde bedreigingen Hallo Threat Modeling hulpprogramma gevonden op basis van de standaardsjabloon Hallo ondernomen dat gebruikmaakt van Hallo SDL benadering aangeroepen klikt  **[ STRIDE (vervalsing, knoeien, vrijgeven van informatie, DOS-aanval en bevoegdheden)](https://en.wikipedia.org/wiki/STRIDE_(security))**. Hallo idee is dat software onder een voorspelbare set van bedreigingen die u kunt vinden met behulp van deze categorieën 6 afkomstig is.
 
-Deze benadering is dat uw huis beveiligen door ervoor te zorgen elke deur- en beschikt over een vergrendelingsfout mechanisme voor het toevoegen van een alarmsysteem of chasing na de dief.
+Deze benadering is dat uw huis beveiligen door ervoor te zorgen elke deur- en beschikt over een vergrendelingsfout mechanisme voordat een waarschuwing-systeem toevoegen of chasing na Hallo dief.
 
 ![Basic bedreigingen](./media/azure-security-threat-modeling-tool/basicthreats.png)
 
-Ricardo begint met het selecteren van het eerste item in de lijst. Dit is wat er gebeurt:
+Ricardo begint met het eerste item in de lijst Hallo Hallo selecteren. Dit is wat er gebeurt:
 
-Eerst is de interactie tussen de twee stencils verbeterd
+Eerst is Hallo interactie tussen de twee stencils Hallo verbeterd
 
 ![Interactie](./media/azure-security-threat-modeling-tool/interaction.png)
 
-Tweede, aanvullende informatie over de bedreiging wordt weergegeven in het venster Eigenschappen Threat
+Tweede, aanvullende informatie over het Hallo-bedreiging wordt weergegeven in Hallo Threat eigenschappenvenster
 
 ![Interactie Info](./media/azure-security-threat-modeling-tool/interactioninfo.png)
 
-De gegenereerde bedreiging helpt hem potentiële fouten met ontwerp begrijpen. De categorisatie STRIDE geeft hij een idee op mogelijke aanvalsvectoren, terwijl de extra beschrijving toegangsinformatie precies wat is het probleem en mogelijke manieren om te beperken van het. Hij kan bewerkbare velden notities bij de rechtvaardiging-gegevens schrijven of wijzigen van de prioriteit classificaties, afhankelijk van zijn organisatie bug balk gebruiken.
+Hallo gegenereerd threat helpt hem potentiële fouten met ontwerp begrijpen. Hallo STRIDE categorisatie geeft hij een idee op potentiële aanvalsvectoren, tijdens het Hallo extra beschrijving toegangsinformatie precies wat is onjuist, samen met mogelijke manieren toomitigate deze. Hij kan prioriteit classificaties, afhankelijk van zijn organisatie bug-balk wijzigen of bewerkbare velden toowrite opmerkingen gebruikt Hallo reden meer informatie.
 
-Azure-sjablonen hebben extra details om te helpen gebruikers begrijpen niet alleen wat is het probleem, maar ook hoe u dit herstelt door beschrijvingen, voorbeelden en hyperlinks Azure-specifieke documentatie toe te voegen.
+Azure-sjablonen hebben extra details toohelp gebruikers begrijpen niet alleen wat is het probleem, maar ook hoe toofix deze door beschrijvingen, voorbeelden en hyperlinks tooAzure-specifieke documentatie toe te voegen.
 
-De beschrijving die hij het belang van het toevoegen van een verificatiemethode om te voorkomen dat gebruikers worden vervalst, houd er rekening mee weer te geven in de eerste gevaar worden gewerkt. Een paar minuten in de bespreking van de met Cristina, begrepen zij het belang van de implementatie van toegangsbeheer en rollen. Ricardo gevuld in sommige snelle notities om ervoor te zorgen dat deze zijn geïmplementeerd.
+Hallo beschrijving aangebracht hij zich ervan bewust Hallo belangrijk voor het toevoegen van een verificatie mechanisme tooprevent gebruikers uit wordt vervalst, weer te geven Hallo eerste threat toobe gewerkt. Een paar minuten in Hallo discussie met Cristina, begrepen ze Hallo belang van de implementatie van toegangsbeheer en rollen. Ricardo gevuld in sommige toomake snelle notities zeker van te zijn dat deze zijn geïmplementeerd.
 
-Als Ricardo is een in de bedreigingen onder openbaarmaking van informatie fout, gerealiseerde hij dat de dit plan sommige alleen-lezen accounts vereist voor controle en rapportage. Hij zich wel eens afgevraagd of dit een nieuwe bedreiging moet zijn, maar de oplossingen hetzelfde, zijn zodat hij de bedreiging dienovereenkomstig hebt genoteerd.
-Hij ook iets meer over het vrijgeven van informatie wordt beschouwd en realiseren dat de back-uptapes moesten versleuteling, een taak voor het operationele team nodig.
+Als Ricardo is een in Hallo bedreigingen onder openbaarmaking van informatie fout, gerealiseerde hij Hallo dit plan sommige alleen-lezen accounts vereist voor controle en rapportage. Hij zich wel eens afgevraagd of is een nieuwe bedreiging dit, maar Hallo oplossingen zijn Hallo dezelfde zijn, zodat hij Hallo threat dienovereenkomstig hebt genoteerd.
+Hij ook iets meer over het vrijgeven van informatie wordt beschouwd en de back-uptapes Hallo ging tooneed versleuteling, een taak voor het operationele team van hello gerealiseerde.
 
-Niet van toepassing op het ontwerp vanwege bestaande oplossingen of -beveiligingsgroep bedreigingen wordt gegarandeerd dat kan worden gewijzigd in "Kan niet van toepassing" in de vervolgkeuzelijst Status. Er zijn drie andere opties: niet gestart: standaardselectie moet onderzoek – gebruikt voor het opvolgen van items en Mitigated – nadat het volledig is gegaan op.
+Bedreigingen wordt gegarandeerd dat niet van toepassing toohello ontwerp vervaldatum tooexisting oplossingen of beveiliging te kunnen worden gewijzigd 'niet van toepassing"van Hallo Status vervolgkeuzelijst. Er zijn drie andere opties: niet gestart: standaardselectie onderzoek moet – gebruikt toofollow up voor artikelen en Mitigated – nadat het volledig is gegaan op.
 
 ## <a name="reports--sharing"></a>Rapporten en delen
 
-Zodra Ricardo de lijst met Cristina doorloopt en belangrijke opmerkingen, oplossingen/redenen, prioriteit en statuswijzigingen toevoegt, selecteert hij rapporten -> volledige rapport opslaan rapport afdrukken van een rapport nice voor hem te doorlopen met collega's -> maken om te controleren of de juiste beveiliging werk is geïmplementeerd.
+Zodra Ricardo doorloopt Hallo lijst met Cristina en belangrijke opmerkingen worden toegevoegd, oplossingen/redenen, prioriteit en de status verandert, hij selecteert rapporten -> volledige rapport -> opslaan welke afdrukken leuk een rapport voor hem toogo via met rapport maken collega's tooensure Hallo correcte beveiliging werk is geïmplementeerd.
 
 ![Interactie Info](./media/azure-security-threat-modeling-tool/report.png)
 
-Als Ricardo wil dit bestand te delen in plaats daarvan, kunt hij eenvoudig doen door op te slaan in de organisatie OneDrive-account. Wanneer hij dat doet, kan hij het documentkoppeling kopiëren en delen met zijn collega's. 
+Als Ricardo wil in plaats daarvan tooshare Hallo-bestand, kunt hij eenvoudig doen door op te slaan in de organisatie OneDrive-account. Nadat hij dat doet, kan hij Hallo documentkoppeling kopiëren en delen met zijn collega's. 
 
 ## <a name="threat-modeling-meetings"></a>Threat modellering vergaderingen
 
-Wanneer zijn risicomodel Ricardo naar zijn collega met OneDrive, Ashish, de tester verzonden, is underwhelmed. Leek zoals Ricardo en Cristina ontbreekt een aantal belangrijke complexere cases, die kunnen worden gegarandeerd. Zijn telefoontjes vormt een aanvulling op threat modellen.
+Wanneer Ricardo zijn threat model toohis collega met OneDrive, Ashish, Hallo tester verzonden, is underwhelmed. Leek zoals Ricardo en Cristina ontbreekt een aantal belangrijke complexere cases, die kunnen worden gegarandeerd. Zijn telefoontjes is een aanvulling toothreat-modellen.
 
-In dit scenario nadat Ashish via de risicomodel duurde hij aangeroepen voor twee threat modellering vergaderingen: één vergadering synchroniseren op het proces en de diagrammen doorlopen en vervolgens een tweede vergadering voor bedreiging bekijken en afmelden.
+In dit scenario nadat Ashish via risicomodel hello, heeft hij aangeroepen voor twee threat modellering vergaderingen: één vergadering toosynchronize op Hallo-proces en doorloop Hallo diagrammen en vervolgens een tweede vergadering voor beoordeling van bedreigingen en afmelden.
 
-In de eerste vergadering gespendeerd Ashish 10 minuten roulatie van iedereen via de SDL threat modeling proces. Hij vervolgens opgehaald van het model threat diagram en uit te leggen in detail gestart. Binnen vijf minuten waren een belangrijk onderdeel van de ontbrekende geïdentificeerd.
+In de eerste vergadering hello gespendeerd Ashish 10 minuten roulatie van iedereen via Hallo SDL threat modeling proces. Hij vervolgens Hallo threat model-diagram opgehaald en uit te leggen in detail gestart. Binnen vijf minuten waren een belangrijk onderdeel van de ontbrekende geïdentificeerd.
 
-Een paar minuten later, Ashish en Ricardo is in een uitgebreide bespreking van hoe de webserver is opgebouwd. Het is momenteel niet de optimale methode voor een vergadering om door te gaan, maar iedereen uiteindelijk overeengekomen dat het verschil vroeg detecteren zou ze om tijd te besparen in de toekomst.
+Een paar minuten later, Ashish en Ricardo is in een uitgebreide bespreking van hoe Hallo-webserver is opgebouwd. Is niet ideaal manier voor een vergadering tooproceed hello, maar iedereen uiteindelijk overeengekomen dat vroeg Hallo discrepantie detecteren zou deze in de toekomst Hallo periode toosave.
 
-Enkele manieren deze besproken en op de risicomodel afgemeld in de tweede vergadering het team doorlopen van de bedreigingen. Ze het document in broncodebeheer ingecheckt en voortgezet met ontwikkeling.
+In Hallo tweede vergadering, Hallo team doorlopen Hallo bedreigingen, een aantal manieren tooaddress ze en ondertekende besproken op Hallo risicomodel uitgeschakeld. Deze Hallo document ingecheckt in broncodebeheer en voortgezet met ontwikkeling.
 
 ## <a name="thinking-about-assets"></a>Nadenken over activa
 
-Sommige lezers die beschikken over de bedreiging gemodelleerd merkt dat we nog niet is besproken activa helemaal. We hebben gedetecteerd dat veel softwareontwikkelaars hun software beter dan ze het concept van activa begrijpen en welke activa een aanvaller mogelijk geïnteresseerd in begrijpen.
+Sommige lezers die beschikken over de bedreiging gemodelleerd merkt dat we nog niet is besproken activa helemaal. We hebben gedetecteerd dat veel softwareontwikkelaars hun software beter dan ze Hallo concept van assets begrijpen en welke activa een aanvaller mogelijk geïnteresseerd in begrijpen.
 
-Als u risicomodel een huis gaat, kunt u beginnen met nadenken over uw familie, onvervangbare foto's of waardevolle illustratie. Mogelijk kunt u beginnen met nadenken over wie in mogelijk verbroken en het huidige beveiligingssysteem. Of kunt u beginnen met de fysieke kenmerken, zoals de groep of de front-porch overwegen. Dit zijn vergelijkbaar met nadenken over activa, aanvallers of softwareontwerp. Een van deze drie methoden werken.
+Als u toothreat gaat een huis model, kunt u beginnen met nadenken over uw familie, onvervangbare foto's of waardevolle illustratie. Mogelijk kunt u beginnen met nadenken over wie in mogelijk verbroken en Hallo huidige beveiligingssysteem. Of kunt u beginnen met het Hallo fysieke functies, zoals de groep op Hallo of Hallo front porch overwegen. Dit zijn vergelijkbaar toothinking over activa, aanvallers of softwareontwerp. Een van deze drie methoden werken.
 
-De aanpak voor het modelleren we hebt die hier wordt gepresenteerd dreiging is aanzienlijk eenvoudiger is dan wat Microsoft in het verleden heeft gedaan. We vinden het ontwerpplan software geschikt is voor veel teams. We hopen dat die jouw e-mailadres bevatten.
+Hallo benadering toothreat modellering we hebt die hier wordt gepresenteerd is aanzienlijk eenvoudiger is dan wat Microsoft in de afgelopen Hallo heeft gedaan. We vinden Hallo software ontwerpbenadering geschikt is voor veel teams. We hopen dat die jouw e-mailadres bevatten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Verzenden van uw vragen, opmerkingen en problemen op tmtextsupport@microsoft.com. **[Download](https://aka.ms/tmtpreview)**  Threat Modeling hulpprogramma aan de slag.
+Stuur uw vragen, opmerkingen en problemen tootmtextsupport@microsoft.com. **[Download](https://aka.ms/tmtpreview)**  Hallo Threat Modeling hulpprogramma tooget gestart.

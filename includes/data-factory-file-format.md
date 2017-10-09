@@ -1,5 +1,5 @@
 ## <a name="specifying-formats"></a>Indelingen opgeven
-Azure Data Factory ondersteunt de volgende bestandsindelingen:
+Azure Data Factory ondersteunt Hallo indelingstypen te volgen:
 
 * [Tekstindeling](#specifying-textformat)
 * [JSON-indeling](#specifying-jsonformat)
@@ -8,22 +8,22 @@ Azure Data Factory ondersteunt de volgende bestandsindelingen:
 * [Parquet-indeling](#specifying-parquetformat)
 
 ### <a name="specifying-textformat"></a>TextFormat opgeven
-Als u de tekstbestanden wilt parseren of de gegevens in tekstindeling wilt schrijven, stelt u de eigenschap `format` `type` in op **TextFormat**. U kunt ook de volgende **optionele** eigenschappen opgeven in het gedeelte `format`. Raadpleeg het gedeelte [TextFormat-voorbeeld](#textformat-example) voor configuratie-instructies.
+Als u wilt dat tooparse Hallo tekstbestanden of Hallo-gegevens in tekstindeling schrijven, ingesteld Hallo `format` `type` eigenschap te**TextFormat**. U kunt ook opgeven Hallo volgende **optionele** eigenschappen in Hallo `format` sectie. Zie [TextFormat voorbeeld](#textformat-example) sectie over het tooconfigure.
 
 | Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| columnDelimiter |Het teken dat wordt gebruikt voor het scheiden van kolommen in een bestand. U kunt overwegen om een zeldzaam niet-afdrukbaar teken te gebruiken dat waarschijnlijk niet in uw gegevens bestaat: bijvoorbeeld '\u0001', dat het begin van een kop aangeeft. |Er is slechts één teken toegestaan. De **standaardwaarde** is een **komma (',')**. <br/><br/>Raadpleeg voor het gebruik van een Unicode-teken [Unicode-tekens](https://en.wikipedia.org/wiki/List_of_Unicode_characters) om de overeenkomstige code op te halen. |Nee |
-| rowDelimiter |Het teken dat wordt gebruikt voor het scheiden van rijen in een bestand. |Er is slechts één teken toegestaan. De **standaardwaarde** is een van de volgende leeswaarden **['\r\n', '\r', '\n']** en de schrijfwaarde **'\r\n'**. |Nee |
-| escapeChar |Dit speciale teken wordt gebruikt om een scheidingsteken voor kolommen van de inhoud van het invoerbestand om te zetten. <br/><br/>Het is niet mogelijk om zowel escapeChar als quoteChar voor een tabel op te geven. |Er is slechts één teken toegestaan. Er is geen standaardwaarde. <br/><br/>Voorbeeld: als u kolommen scheidt met komma's (', '), maar u het kommateken in een tekst wilt gebruiken (voorbeeld: 'Hallo, wereld'), kunt u '$' als het omzettingsteken opgeven en in de bron de tekenreeks 'Hallo$, wereld' gebruiken. |Nee |
-| quoteChar |Het teken dat wordt gebruikt om een tekenreekswaarde te citeren. De scheidingstekens voor kolommen en rijen binnen de aanhalingstekens worden beschouwd als onderdeel van de tekenreekswaarde. Deze eigenschap is van toepassing op gegevenssets voor invoer en uitvoer.<br/><br/>Het is niet mogelijk om zowel escapeChar als quoteChar voor een tabel op te geven. |Er is slechts één teken toegestaan. Er is geen standaardwaarde. <br/><br/>Voorbeeld: als u kolommen scheidt met komma's (', '), maar u het kommateken in een tekst wilt gebruiken (voorbeeld: <Hallo, wereld>), kunt u " (dubbel aanhalingsteken) als het aanhalingsteken opgeven en de tekenreeks "Hallo, wereld" in de bron gebruiken. |Nee |
-| nullValue |Een of meer tekens die worden gebruikt om een null-waarde te vertegenwoordigen. |Een of meer tekens. De **standaardwaarden** zijn **'\N' en 'NULL'** voor lezen en **'\N'** voor schrijven. |Nee |
-| encodingName |Geef de coderingsnaam op. |Een geldige coderingsnaam. Zie [De eigenschap Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Voorbeeld: windows 1250 of shift_jis. De **standaardwaarde** is **UTF-8**. |Nee |
-| firstRowAsHeader |Hiermee geeft u op of de eerste rij als een header moet worden gezien. Bij een gegevensset voor invoer leest Data Factory de eerste rij als een header. Bij een gegevensset voor uitvoer schrijft Data Factory de eerste rij als een header. <br/><br/>Zie [Gebruiksscenario's`firstRowAsHeader` en `skipLineCount` ](#scenarios-for-using-firstrowasheader-and-skiplinecount) voor voorbeeldscenario's. |True<br/>**False (standaard)** |Nee |
-| skipLineCount |Geeft het aantal rijen aan dat moet worden overgeslagen bij het lezen van gegevens in invoerbestanden. Als zowel skipLineCount als firstRowAsHeader is opgegeven, worden de regels eerst overgeslagen en wordt de headerinformatie gelezen uit het invoerbestand. <br/><br/>Zie [Gebruiksscenario's`firstRowAsHeader` en `skipLineCount` ](#scenarios-for-using-firstrowasheader-and-skiplinecount) voor voorbeeldscenario's. |Geheel getal |Nee |
-| treatEmptyAsNull |Hiermee geeft u aan of null of lege tekenreeks moeten worden behandeld als een null-waarde bij het lezen van gegevens uit een invoerbestand. |**True (standaard)**<br/>False |Nee |
+| columnDelimiter |Hallo teken tooseparate kolommen in een bestand gebruikt. Kunt u overwegen toouse een zeldzame niet-afdrukbaar teken die waarschijnlijk niet voorkomt in uw gegevens: bijvoorbeeld '\u0001' waarmee de Start van kop (SOH) opgeven. |Er is slechts één teken toegestaan. Hallo **standaard** waarde is **met door komma's (',')**. <br/><br/>toouse een Unicode-teken te verwijzen[Unicode-tekens](https://en.wikipedia.org/wiki/List_of_Unicode_characters) tooget hello overeenkomstige code voor deze. |Nee |
+| rowDelimiter |Hallo teken tooseparate rijen in een bestand gebruikt. |Er is slechts één teken toegestaan. Hallo **standaard** waarde is een van de volgende waarden op lezen Hallo: **['\r\n', '\r', '\n']** en **'\r\n'** op schrijven. |Nee |
+| escapeChar |Hallo speciaal teken tooescape een kolomscheidingsteken in inhoud van invoerbestand Hallo gebruikt. <br/><br/>Het is niet mogelijk om zowel escapeChar als quoteChar voor een tabel op te geven. |Er is slechts één teken toegestaan. Er is geen standaardwaarde. <br/><br/>Voorbeeld: als er een door komma's (', ') als scheidingsteken voor Hallo kolommen, maar u toohave hello kommateken in de tekst hello wilt (voorbeeld: "Hallo, wereld"), kunt u definiëren '$' als Hallo escape-teken en gebruiken van de tekenreeks "$Hallo, wereld" in de Hallo bron. |Nee |
+| quoteChar |Hallo teken gebruikt tooquote een string-waarde. Hallo kolom en rij scheidingstekens binnen de aanhalingstekens Hallo zou worden beschouwd als onderdeel van Hallo string-waarde. Deze eigenschap is van toepassing tooboth invoer- en uitvoergegevenssets.<br/><br/>Het is niet mogelijk om zowel escapeChar als quoteChar voor een tabel op te geven. |Er is slechts één teken toegestaan. Er is geen standaardwaarde. <br/><br/>Bijvoorbeeld, als er een door komma's (', ') als scheidingsteken voor Hallo kolommen, maar u toohave kommateken in de tekst hello wilt (voorbeeld: < Hallo, wereld >), kunt u definiëren ' (dubbel aanhalingsteken) als Hallo aanhalingsteken en gebruiken van Hallo tekenreeks "Hallo, wereld" in hello bron. |Nee |
+| nullValue |Een of meer tekens gebruikt toorepresent een null-waarde. |Een of meer tekens. Hallo **standaard** waarden zijn **'\N' en 'NULL'** bij lezen en **'\N'** op schrijven. |Nee |
+| encodingName |Hallo coderingsnaam opgeven. |Een geldige coderingsnaam. Zie [De eigenschap Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Voorbeeld: windows 1250 of shift_jis. Hallo **standaard** waarde is **UTF-8**. |Nee |
+| firstRowAsHeader |Hiermee geeft u op of tooconsider Hallo eerste rij als een koptekst. Bij een gegevensset voor invoer leest Data Factory de eerste rij als een header. Bij een gegevensset voor uitvoer schrijft Data Factory de eerste rij als een header. <br/><br/>Zie [Gebruiksscenario's`firstRowAsHeader` en `skipLineCount` ](#scenarios-for-using-firstrowasheader-and-skiplinecount) voor voorbeeldscenario's. |True<br/>**False (standaard)** |Nee |
+| skipLineCount |Geeft het aantal rijen tooskip Hallo bij het lezen van gegevens uit invoerbestanden. Als zowel skipLineCount en firstRowAsHeader zijn opgegeven, Hallo regels eerst worden overgeslagen en wordt Hallo koptekstgegevens gelezen uit het invoerbestand Hallo. <br/><br/>Zie [Gebruiksscenario's`firstRowAsHeader` en `skipLineCount` ](#scenarios-for-using-firstrowasheader-and-skiplinecount) voor voorbeeldscenario's. |Geheel getal |Nee |
+| treatEmptyAsNull |Hiermee geeft u op of tootreat null of lege tekenreeks als een null-waarde wanneer lezen van gegevens uit een bestand voor invoer. |**True (standaard)**<br/>False |Nee |
 
 #### <a name="textformat-example"></a>Voorbeeld van TextFormat
-Het volgende voorbeeld toont een aantal van de eigenschappen van de TextFormat-indeling.
+Hallo volgende voorbeeld ziet u enkele eigenschappen Hallo voor TextFormat.
 
 ```json
 "typeProperties":
@@ -44,29 +44,29 @@ Het volgende voorbeeld toont een aantal van de eigenschappen van de TextFormat-i
 },
 ```
 
-Gebruik een `escapeChar` in plaats van `quoteChar`, vervang de regel door `quoteChar` met het volgende escapeChar:
+toouse een `escapeChar` in plaats van `quoteChar`, vervang Hallo regel met `quoteChar` Hello escapeChar te volgen:
 
 ```json
 "escapeChar": "$",
 ```
 
 #### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>Scenario's voor het gebruik van firstRowAsHeader en skipLineCount
-* U kopieert vanuit een bron die geen bestand is, naar een tekstbestand en wilt een headerregel toevoegen die de metagegevens van het schema bevat (bijvoorbeeld: SQL-schema). Geef voor `firstRowAsHeader` 'True' op in de uitvoergegevensset voor dit scenario.
-* U wilt kopiëren vanuit een tekstbestand met een headerregel naar een sink die geen bestand is en wilt die regel verwijderen. Geef voor `firstRowAsHeader` 'True' op in de invoergegevensset.
-* U wilt kopiëren uit een tekstbestand en wilt een paar regels aan het begin overslaan die geen gegevens of headerinformatie bevatten. Geef `skipLineCount` op om aan te geven hoeveel regels er moeten worden overgeslagen. Als de rest van het bestand een headerregel bevat, kunt u ook `firstRowAsHeader` opgeven. Als zowel `skipLineCount` als `firstRowAsHeader` is opgegeven, worden de regels eerst overgeslagen en wordt de headerinformatie gelezen uit het invoerbestand
+* U kopieert uit een tekstbestand voor niet-bestandsbron tooa en tooadd een kopregel die Hallo schemametagegevens bevatten (bijvoorbeeld: SQL-schema). Geef `firstRowAsHeader` als waar zijn in de uitvoergegevensset Hallo voor dit scenario.
+* U kopieert uit een tekstbestand met een header regel tooa niet bestand sink en wilt toodrop die regel. Geef `firstRowAsHeader` echte in Hallo invoergegevensset.
+* U kopieert uit een tekstbestand en tooskip een paar regels aan begin Hallo die geen gegevens of header-gegevens bevatten. Geef `skipLineCount` tooindicate Hallo aantal regels toobe overgeslagen. Als Hallo rest van Hallo-bestand een kopregel bevat, u kunt ook opgeven `firstRowAsHeader`. Als beide `skipLineCount` en `firstRowAsHeader` zijn opgegeven, Hallo regels eerst worden overgeslagen en wordt Hallo koptekstgegevens gelezen uit het invoerbestand Hallo
 
 ### <a name="specifying-jsonformat"></a>JsonFormat opgeven
-Naar **als JSON-bestanden voor importeren/exporteren-is naar/van Azure DB die Cosmos**, Zie [voor importeren/exporteren JSON-documenten](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) sectie in de Azure DB die Cosmos-connector met details.
+te**als JSON-bestanden voor importeren/exporteren-is naar/van Azure DB die Cosmos**, Zie [voor importeren/exporteren JSON-documenten](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) sectie in hello Azure Cosmos DB connector met details.
 
-Als u de JSON-bestanden wilt parseren of de gegevens in JSON-indeling wilt schrijven, stelt u de eigenschap `format` `type` in op **JsonFormat**. U kunt ook de volgende **optionele** eigenschappen opgeven in het gedeelte `format`. Zie het gedeelte [JsonFormat-voorbeeld](#jsonformat-example) voor configuratie-instructies.
+Als u wilt dat tooparse Hallo JSON-bestanden of Hallo-gegevens in JSON-indeling schrijven, stel Hallo `format` `type` eigenschap te**JsonFormat**. U kunt ook opgeven Hallo volgende **optionele** eigenschappen in Hallo `format` sectie. Zie [JsonFormat voorbeeld](#jsonformat-example) sectie over het tooconfigure.
 
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| filePattern |Hiermee geeft u het patroon aan van gegevens die zijn opgeslagen in elk JSON-bestand. Toegestane waarden zijn **setOfObjects** en **arrayOfObjects**. De **standaardwaarde** is **setOfObjects**. Zie het gedeelte [JSON-bestandpatronen](#json-file-patterns) voor meer informatie over deze patronen. |Nee |
-| jsonNodeReference | Als u wilt bladeren en gegevens wilt ophalen uit de objecten in een matrixveld met hetzelfde patroon, geeft u het JSON-pad van die matrix op. Deze eigenschap wordt alleen ondersteund bij het kopiëren van gegevens uit JSON-bestanden. | Nee |
-| jsonPathDefinition | Hiermee geeft u de JSON-padexpressie aan voor elke kolomtoewijzing met een aangepaste kolomnaam (begin met een kleine letter). Deze eigenschap wordt alleen ondersteund bij het kopiëren van gegevens uit JSON-bestanden. U kunt gegevens ophalen uit het object of een matrix. <br/><br/> Voor velden onder het hoofdobject begint u met root $; voor velden binnen de matrix die is gekozen door de eigenschap `jsonNodeReference`, begint u vanaf het element van de matrix. Zie het gedeelte [JsonFormat-voorbeeld](#jsonformat-example) voor configuratie-instructies. | Nee |
-| encodingName |Geef de coderingsnaam op. Zie voor de lijst met geldige namen voor versleuteling [De eigenschap Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Bijvoorbeeld: windows 1250 of shift_jis. De **standaardwaarde** is **UTF-8**. |Nee |
-| nestingSeparator |Teken dat wordt gebruikt voor het scheiden van geneste niveaus. De standaardwaarde is '.' (punt). |Nee |
+| filePattern |Hallo-patroon van de gegevens die zijn opgeslagen in elk JSON-bestand aangeven. Toegestane waarden zijn **setOfObjects** en **arrayOfObjects**. Hallo **standaard** waarde is **setOfObjects**. Zie het gedeelte [JSON-bestandpatronen](#json-file-patterns) voor meer informatie over deze patronen. |Nee |
+| jsonNodeReference | Als u tooiterate wilt en gegevens uit het Hallo-objecten in een matrix ophalen veld Hello hetzelfde patroon, geeft u Hallo JSON-pad van de matrix. Deze eigenschap wordt alleen ondersteund bij het kopiëren van gegevens uit JSON-bestanden. | Nee |
+| jsonPathDefinition | Hallo JSON-pad-expressie voor elke kolomtoewijzing met een aangepaste kolomnaam (start met kleine) opgeven. Deze eigenschap wordt alleen ondersteund bij het kopiëren van gegevens uit JSON-bestanden. U kunt gegevens ophalen uit het object of een matrix. <br/><br/> Voor velden onder hoofdobject beginnen met hoofdmap $; voor velden binnen het Hallo-matrix door gekozen `jsonNodeReference` begin vanaf matrixelement Hallo-eigenschap. Zie [JsonFormat voorbeeld](#jsonformat-example) sectie over het tooconfigure. | Nee |
+| encodingName |Hallo coderingsnaam opgeven. Zie voor Hallo lijst met geldige namen voor codering: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) eigenschap. Bijvoorbeeld: windows 1250 of shift_jis. Hallo **standaard** waarde is: **UTF-8**. |Nee |
+| nestingSeparator |Teken gebruikte tooseparate aantal geneste niveaus. Hallo-standaardwaarde is '.' (punt). |Nee |
 
 #### <a name="json-file-patterns"></a>JSON-bestandpatronen
 
@@ -163,11 +163,11 @@ Kopieerbewerkingen kunnen onderstaande patronen van JSON-bestanden parseren:
 
 **Voorbeeld 1: gegevens uit JSON-bestanden kopiëren**
 
-Hieronder ziet u twee soorten voorbeelden van het kopiëren van gegevens uit JSON-bestanden en de algemene punten om te onthouden:
+Hieronder twee soorten voorbeelden vindt u bij het kopiëren van gegevens van JSON-bestanden en algemene punten toonote Hallo:
 
 **Voorbeeld 1: gegevens ophalen uit object en matrix**
 
-In dit voorbeeld kunt u verwachten dat één JSON-hoofdobject wordt toegewezen aan één record in het tabelresultaat. Als u een JSON-bestand hebt met de volgende inhoud:  
+In dit voorbeeld verwacht u dat een hoofdmap JSON-object toegewezen toosingle record in tabelvorm resultatenset. Als u een JSON-bestand Hello volgende inhoud hebt:  
 
 ```json
 {
@@ -192,16 +192,16 @@ In dit voorbeeld kunt u verwachten dat één JSON-hoofdobject wordt toegewezen a
     }
 }
 ```
-en u wilt het kopiëren naar een Azure SQL-tabel in de volgende indeling door gegevens te extraheren uit de objecten en matrix:
+en u wilt dat deze naar een Azure SQL-tabel in de volgende Hallo-indeling, door het extraheren van gegevens uit zowel objecten als matrix toocopy:
 
 | id | deviceType | targetResourceType | resourceManagmentProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | Pc | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 13/1/2017 11:24:37 uur |
 
-De invoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: (gedeeltelijke definitie met alleen belangrijke onderdelen). Met name:
+Hallo invoergegevensset met **JsonFormat** type is als volgt gedefinieerd: (gedeeltelijke definitie met alleen relevante Hallo delen). Met name:
 
-- Het gedeelte `structure` definieert de aangepaste kolomnamen en het bijbehorende gegevenstype tijdens het converteren van gegevens in tabelvorm. Dit gedeelte is **optioneel**, tenzij u kolommen moet toewijzen. Zie het gedeelte [Een structuurdefinitie opgeven voor rechthoekige gegevenssets](#specifying-structure-definition-for-rectangular-datasets) voor meer informatie.
-- Met `jsonPathDefinition` geeft u het JSON-pad op voor elke kolom die aangeeft waar de gegevens moeten worden opgehaald. Voor het kopiëren van gegevens vanuit een matrix kunt u **array[x].property** gebruiken om de waarde van de opgegeven eigenschap op te halen uit het xth-object. U kunt ook **array[*].property** gebruiken om de waarde van een object met deze eigenschap te vinden.
+- `structure`sectie definieert Hallo aangepast kolomnamen en het bijbehorende gegevenstype Hallo tijdens het converteren van tootabular gegevens. Deze sectie is **optionele** tenzij u de kolomtoewijzing toodo hoeft. Zie het gedeelte [Een structuurdefinitie opgeven voor rechthoekige gegevenssets](#specifying-structure-definition-for-rectangular-datasets) voor meer informatie.
+- `jsonPathDefinition`Hiermee geeft u Hallo JSON-pad voor elke kolom waarmee wordt aangegeven waar tooextract Hallo gegevens uit. toocopy gegevens van een matrix, kunt u **matrix [x] .property** tooextract waarde Hallo gegeven eigenschap Hallo x objecten of u kunt gebruiken  **matrix [*] .property** toofind Hallo-waarde van een object met deze eigenschap.
 
 ```json
 "properties": {
@@ -238,9 +238,9 @@ De invoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: (
 }
 ```
 
-**Voorbeeld 2: meerdere objecten met hetzelfde patroon uit een matrix toepassen**
+**Voorbeeld 2: toepassing kruislingse meerdere objecten met dezelfde patroon van een matrix Hallo**
 
-In dit voorbeeld probeert u een JSON-hoofdobject te transformeren naar meerdere records in een tabelresultaat. Als u een JSON-bestand hebt met de volgende inhoud:  
+In dit voorbeeld kunt u één hoofdmap JSON-object tootransform in meerdere records in tabelvorm resultaat verwacht. Als u een JSON-bestand Hello volgende inhoud hebt:  
 
 ```json
 {
@@ -263,7 +263,7 @@ In dit voorbeeld probeert u een JSON-hoofdobject te transformeren naar meerdere 
     "city": [ { "sanmateo": "No 1" } ]
 }
 ```
-en u wilt het kopiëren naar een Azure SQL-tabel in de volgende indeling, door de gegevens binnen de matrix af te vlakken en samen te voegen met de algemene root-gegevens:
+en u wilt dat deze naar een Azure SQL-tabel in de volgende Hallo-indeling, door het Hallo-gegevens binnen de matrix Hallo afvlakken toocopy cross join met Hallo algemene hoofdmap gegevens:
 
 | ordernumber | orderdate | order_pd | order_price | city |
 | --- | --- | --- | --- | --- |
@@ -271,11 +271,11 @@ en u wilt het kopiëren naar een Azure SQL-tabel in de volgende indeling, door d
 | 01 | 20170122 | P2 | 13 | [{"sanmateo":"No 1"}] |
 | 01 | 20170122 | P3 | 231 | [{"sanmateo":"No 1"}] |
 
-De invoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: (gedeeltelijke definitie met alleen belangrijke onderdelen). Met name:
+Hallo invoergegevensset met **JsonFormat** type is als volgt gedefinieerd: (gedeeltelijke definitie met alleen relevante Hallo delen). Met name:
 
-- Het gedeelte `structure` definieert de aangepaste kolomnamen en het bijbehorende gegevenstype tijdens het converteren van gegevens in tabelvorm. Dit gedeelte is **optioneel**, tenzij u kolommen moet toewijzen. Zie het gedeelte [Een structuurdefinitie opgeven voor rechthoekige gegevenssets](#specifying-structure-definition-for-rectangular-datasets) voor meer informatie.
-- Met `jsonNodeReference` geeft u aan dat moet worden gebladerd naar het object en dat er gegevens uit moeten worden opgehaald met hetzelfde patroon onder de **matrix** orderlines.
-- Met `jsonPathDefinition` geeft u het JSON-pad op voor elke kolom die aangeeft waar de gegevens moeten worden opgehaald. In dit voorbeeld bevinden 'ordernumber', 'orderdate' en 'city' zich onder het root-object. Het JSON-pad begint met '$.', terwijl 'order_pd' en 'order_price' worden gedefinieerd met het pad dat is afgeleid van het matrixelement zonder '$.'.
+- `structure`sectie definieert Hallo aangepast kolomnamen en het bijbehorende gegevenstype Hallo tijdens het converteren van tootabular gegevens. Deze sectie is **optionele** tenzij u de kolomtoewijzing toodo hoeft. Zie het gedeelte [Een structuurdefinitie opgeven voor rechthoekige gegevenssets](#specifying-structure-definition-for-rectangular-datasets) voor meer informatie.
+- `jsonNodeReference`Hiermee wordt aangegeven tooiterate en gegevens te extraheren uit het Hallo-objecten met dezelfde patroon onder Hallo **matrix** orderlines.
+- `jsonPathDefinition`Hiermee geeft u Hallo JSON-pad voor elke kolom waarmee wordt aangegeven waar tooextract Hallo gegevens uit. In dit voorbeeld zijn 'ordernumber', 'orderdate' en 'plaats' onder hoofdobject met JSON-pad beginnen met "$.", terwijl 'order_pd' en 'order_price' worden gedefinieerd met het pad dat is afgeleid van een matrixelement Hallo zonder "$"..
 
 ```json
 "properties": {
@@ -313,14 +313,14 @@ De invoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: (
 }
 ```
 
-**Houd rekening met de volgende punten:**
+**Houd er rekening mee Hallo volgende punten:**
 
-* Als `structure` en `jsonPathDefinition` niet zijn gedefinieerd in de gegevensset van Data Factory, detecteert de kopieerbewerking het schema van het eerste object en wordt het hele object afgevlakt.
-* Als de JSON-invoer een matrix heeft, zet de kopieerbewerking de volledige matrix-waarde standaard om in een tekenreeks. U kunt ervoor kiezen om er gegevens uit op te halen met behulp van `jsonNodeReference` en/of `jsonPathDefinition`, of deze stap over te slaan door deze niet op te geven in `jsonPathDefinition`.
-* Als er dubbele namen op hetzelfde niveau voorkomen, gebruikt de kopieerbewerking de laatste.
+* Als hello `structure` en `jsonPathDefinition` zijn niet gedefinieerd in de Data Factory-gegevensset hello, hello Kopieeractiviteit detecteert schema van de eerste object Hallo Hallo en plat Hallo gehele object.
+* Als Hallo JSON-invoer een matrix heeft, standaard zet Hallo Kopieeractiviteit Hallo volledige Matrixwaarde in een tekenreeks. U kunt tooextract gegevens met behulp van `jsonNodeReference` en/of `jsonPathDefinition`, of door op te geven niet in overslaan `jsonPathDefinition`.
+* Als er dubbele namen op hetzelfde niveau hello, Hallo Kopieeractiviteit uitgelicht Hallo laatste.
 * Eigenschapnamen zijn hoofdlettergevoelig. Twee eigenschappen met dezelfde naam maar met een verschil in hoofdletters en kleine letters worden behandeld als twee afzonderlijke eigenschappen.
 
-**Voorbeeld 2: gegevens schrijven naar een JSON-bestand**
+**Voorbeeld 2: Schrijven tooJSON gegevensbestand**
 
 Als u de onderstaande tabel hebt in SQL-Database:
 
@@ -330,7 +330,7 @@ Als u de onderstaande tabel hebt in SQL-Database:
 | 2 | 20170120 | 3500 | Patrick |
 | 3 | 20170121 | 4000 | Jason |
 
-en voor elke record die u verwacht te schrijven naar een JSON-object in onderstaande indeling:
+en voor elke record verwacht toowrite tooa JSON-object in de onderstaande indeling:
 ```json
 {
     "id": "1",
@@ -342,7 +342,7 @@ en voor elke record die u verwacht te schrijven naar een JSON-object in ondersta
 }
 ```
 
-De uitvoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: (gedeeltelijke definitie met alleen belangrijke onderdelen). Het gedeelte `structure` bepaalt met name de namen van aangepaste eigenschappen in het doelbestand, `nestingSeparator` (de standaardwaarde is '.') wordt gebruikt voor het identificeren van de nestlaag van de naam. Dit gedeelte is **optioneel**, tenzij u de naam van de eigenschap wilt wijzigen ten opzichte van de naam van de bronkolom of sommige eigenschappen wilt nesten.
+Hallo uitvoergegevensset met **JsonFormat** type is als volgt gedefinieerd: (gedeeltelijke definitie met alleen relevante Hallo delen). Meer specifiek, `structure` sectie Hallo aangepast eigenschapnamen worden gedefinieerd in doelbestand, `nestingSeparator` (standaardwaarde is '. ') worden gebruikte tooidentify Hallo nest laag uit Hallo-naam. Deze sectie is **optionele** tenzij u wilt vergelijken met de naam van bronkolom Hallo-eigenschapsnaam voor toochange of sommige Hallo-eigenschappen worden genest.
 
 ```json
 "properties": {
@@ -374,7 +374,7 @@ De uitvoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: 
 ```
 
 ### <a name="specifying-avroformat"></a>AvroFormat opgeven
-Als u de Avro-bestanden wilt parseren of de gegevens in Avro-indeling wilt schrijven, stelt u de eigenschap `format` `type` in op **AvroFormat**. U hoeft geen eigenschappen op te geven in het gedeelte Indeling binnen het gedeelte typeProperties. Voorbeeld:
+Als u wilt dat tooparse hello Avro bestanden of Hallo-gegevens in de Avro-indeling schrijven, ingesteld Hallo `format` `type` eigenschap te**AvroFormat**. U hoeft geen eigenschappen in Hallo indeling sectie binnen Hallo typeProperties sectie niet toospecify. Voorbeeld:
 
 ```json
 "format":
@@ -383,14 +383,14 @@ Als u de Avro-bestanden wilt parseren of de gegevens in Avro-indeling wilt schri
 }
 ```
 
-Als u de Avro-indeling wilt gebruiken in een Hive-tabel, kunt u de [Zelfstudie voor Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe) raadplegen.
+toouse Avro-indeling in een Hive-tabel, kunt u verwijzen te[van Apache Hive zelfstudie](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
-Houd rekening met de volgende punten:  
+Houd er rekening mee Hallo volgende punten:  
 
 * [Complexe gegevenstypen](http://avro.apache.org/docs/current/spec.html#schema_complex) worden niet ondersteund (records, enums, matrices, kaarten, samenvoegingen en vaste bestanden).
 
 ### <a name="specifying-orcformat"></a>OrcFormat opgeven
-Als u de ORC-bestanden wilt parseren of de gegevens in ORC-indeling wilt schrijven, stelt u de eigenschap `format` `type` in op **OrcFormat**. U hoeft geen eigenschappen op te geven in het gedeelte Indeling binnen het gedeelte typeProperties. Voorbeeld:
+Als u wilt dat tooparse hello ORC-bestanden of Hallo-gegevens in ORC-indeling schrijven, ingesteld Hallo `format` `type` eigenschap te**OrcFormat**. U hoeft geen eigenschappen in Hallo indeling sectie binnen Hallo typeProperties sectie niet toospecify. Voorbeeld:
 
 ```json
 "format":
@@ -400,17 +400,17 @@ Als u de ORC-bestanden wilt parseren of de gegevens in ORC-indeling wilt schrijv
 ```
 
 > [!IMPORTANT]
-> Als u de ORC niet **ongewijzigd** kopieert tussen on-premises gegevensopslag en gegevensopslag in de cloud, moet u de JRE 8 (Java Runtime Environment) op de gatewaycomputer installeren. Een 64-bits-gateway vereist 64-bits JRE en 32-bits JRE is vereist voor een 32-bits-gateway. U vindt beide versies [hier](http://go.microsoft.com/fwlink/?LinkId=808605). Kies de juiste versie.
+> Als u geen ORC-bestanden kopieert **als-is** tussen on-premises en cloud gegevensarchieven, moet u tooinstall Hallo JRE 8 (Java Runtime Environment) op uw computer met de gateway. Een 64-bits-gateway vereist 64-bits JRE en 32-bits JRE is vereist voor een 32-bits-gateway. U vindt beide versies [hier](http://go.microsoft.com/fwlink/?LinkId=808605). Hallo juiste wachtwoord kiezen.
 >
 >
 
-Houd rekening met de volgende punten:
+Houd er rekening mee Hallo volgende punten:
 
 * Complexe gegevenstypen worden niet ondersteund (STRUCT, MAP, LIST, UNION)
-* Een ORC-bestand heeft drie [opties voor compressie](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory ondersteunt het lezen van gegevens uit ORC-bestanden in een van deze gecomprimeerde indelingen. Hierbij wordt de compressiecodec in de metagegevens gebruikt om de gegevens te lezen. Bij het schrijven naar een ORC-bestand kiest Data Factory echter ZLIB, de standaardinstelling voor ORC. Er is momenteel geen optie om dit gedrag te overschrijven.
+* Een ORC-bestand heeft drie [opties voor compressie](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory ondersteunt het lezen van gegevens uit ORC-bestanden in een van deze gecomprimeerde indelingen. Hierbij Hallo compressie codec bevindt zich in Hallo metagegevens tooread Hallo gegevens. Echter, bij het schrijven van tooan ORC bestand Data Factory kiest ZLIB, dit is de standaardoptie Hallo voor ORC. Er is momenteel geen optie toooverride dit gedrag.
 
 ### <a name="specifying-parquetformat"></a>ParquetFormat opgeven
-Als u de Parquet-bestanden wilt parseren of de gegevens in Parquet-indeling wilt schrijven, stelt u de eigenschap `format` `type` in op **ParquetFormat**. U hoeft geen eigenschappen op te geven in het gedeelte Indeling binnen het gedeelte typeProperties. Voorbeeld:
+Als u tooparse Hallo parketvloeren bestanden wilt of Hallo-gegevens in de indeling parketvloeren schrijven, ingesteld Hallo `format` `type` eigenschap te**ParquetFormat**. U hoeft geen eigenschappen in Hallo indeling sectie binnen Hallo typeProperties sectie niet toospecify. Voorbeeld:
 
 ```json
 "format":
@@ -419,11 +419,11 @@ Als u de Parquet-bestanden wilt parseren of de gegevens in Parquet-indeling wilt
 }
 ```
 > [!IMPORTANT]
-> Als u de Parquet niet **ongewijzigd** kopieert tussen on-premises gegevensopslag en gegevensopslag in de cloud, moet u de JRE 8 (Java Runtime Environment) op de gatewaycomputer installeren. Een 64-bits-gateway vereist 64-bits JRE en 32-bits JRE is vereist voor een 32-bits-gateway. U vindt beide versies [hier](http://go.microsoft.com/fwlink/?LinkId=808605). Kies de juiste versie.
+> Als u geen parketvloeren bestanden kopieert **als-is** tussen on-premises en cloud gegevensarchieven, moet u tooinstall Hallo JRE 8 (Java Runtime Environment) op uw computer met de gateway. Een 64-bits-gateway vereist 64-bits JRE en 32-bits JRE is vereist voor een 32-bits-gateway. U vindt beide versies [hier](http://go.microsoft.com/fwlink/?LinkId=808605). Hallo juiste wachtwoord kiezen.
 >
 >
 
-Houd rekening met de volgende punten:
+Houd er rekening mee Hallo volgende punten:
 
 * Complexe gegevenstypen worden niet ondersteund (MAP, LIST)
-* Parquet-bestanden hebben de volgende opties voor compressie: NONE, SNAPPY, GZIP en LZO. Data Factory ondersteunt het lezen van gegevens uit ORC-bestanden in een van deze gecomprimeerde indelingen. Hierbij wordt de compressiecodec in de metagegevens gebruikt om de gegevens te lezen. Bij het schrijven naar een Parquet-bestand kiest Data Factory echter SNAPPY, de standaardinstelling voor Parquet. Er is momenteel geen optie om dit gedrag te overschrijven.
+* Parketvloeren bestand heeft Hallo volgend opties voor compressie: NONE, SNAPPY GZIP en LZO. Data Factory ondersteunt het lezen van gegevens uit ORC-bestanden in een van deze gecomprimeerde indelingen. Hallo compressiecodec wordt gebruikt in Hallo metagegevens tooread Hallo gegevens. Echter bij het schrijven van tooa parketvloeren bestand kiest Data Factory SNAPPY, dit is de standaardoptie Hallo voor parketvloeren-indeling. Er is momenteel geen optie toooverride dit gedrag.

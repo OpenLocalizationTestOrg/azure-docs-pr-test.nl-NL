@@ -1,30 +1,30 @@
 ## <a name="nic"></a>NIC
-Een bron-interface (netwerkinterfacekaart) biedt een netwerkverbinding met een bestaand subnet in een VNet-resource. Hoewel u een NIC als zelfstandige object maken kunt, moet u deze koppelen aan een ander object daadwerkelijk om verbinding te bieden. Een NIC kan worden gebruikt om een virtuele machine met een subnet, een openbare IP-adres of een load balancer.  
+Een network interface (netwerkinterfacekaart)-bron biedt connectiviteit tooan bestaande netwerksubnet in een VNet-resource. Hoewel u een NIC als zelfstandige object maken kunt, moet u tooassociate deze tooanother object tooactually connectiviteit bieden. Een NIC kan worden gebruikt tooconnect tooa VM-subnet, een openbare IP-adres of een load balancer.  
 
 | Eigenschap | Beschrijving | Voorbeeldwaarden |
 | --- | --- | --- |
-| **virtuele machine** |Virtuele machine de NIC is gekoppeld. |/Subscriptions/{GUID}/../Microsoft.COMPUTE/virtualMachines/vm1 |
-| **MAC-adres** |MAC-adres voor de NIC |een waarde tussen 4 en 30 in |
-| **networkSecurityGroup** |NSG die is gekoppeld naar de NIC. |/Subscriptions/{GUID}/../Microsoft.Network/networkSecurityGroups/myNSG1 |
-| **dnsSettings** |DNS-instellingen voor de NIC |Zie [PIP](#Public-IP-address) |
+| **virtuele machine** |VM Hallo NIC is gekoppeld. |/Subscriptions/{GUID}/../Microsoft.COMPUTE/virtualMachines/vm1 |
+| **MAC-adres** |MAC-adres voor Hallo NIC |een waarde tussen 4 en 30 in |
+| **networkSecurityGroup** |NSG die is gekoppeld toohello NIC |/Subscriptions/{GUID}/../Microsoft.Network/networkSecurityGroups/myNSG1 |
+| **dnsSettings** |DNS-instellingen voor Hallo NIC |Zie [PIP](#Public-IP-address) |
 
-Een Network Interface Card of NIC, vertegenwoordigt een netwerkinterface die gekoppeld aan een virtuele machine (VM worden kan). Een virtuele machine kan een of meer NIC's hebben.
+Een Network Interface Card of NIC, vertegenwoordigt een netwerkinterface die gekoppeld tooa virtuele machine (VM worden kan). Een virtuele machine kan een of meer NIC's hebben.
 
 ![NIC's op een enkele virtuele machine](./media/resource-groups-networking/Figure3.png)
 
 ### <a name="ip-configurations"></a>IP-configuraties
-NIC's hebben een onderliggend object met de naam **ipConfigurations** met de volgende eigenschappen:
+NIC's hebben een onderliggend object met de naam **ipConfigurations** met Hallo volgende eigenschappen:
 
 | Eigenschap | Beschrijving | Voorbeeldwaarden |
 | --- | --- | --- |
-| **subnet** |Subnet van de NIC is onnected aan. |/Subscriptions/{GUID}/../Microsoft.Network/virtualNetworks/myvnet1/subnets/mysub1 |
-| **privateIPAddress** |IP-adres voor de NIC in het subnet |10.0.0.8 |
+| **subnet** |Subnet Hallo NIC is onnected aan. |/Subscriptions/{GUID}/../Microsoft.Network/virtualNetworks/myvnet1/subnets/mysub1 |
+| **privateIPAddress** |IP-adres voor Hallo NIC in Hallo subnet |10.0.0.8 |
 | **privateIPAllocationMethod** |IP-toewijzingsmethode |Dynamische of statische |
-| **enableIPForwarding** |Hiermee wordt aangegeven of de NIC kan worden gebruikt voor routering |waar of ONWAAR |
-| **primaire** |Hiermee wordt aangegeven of de NIC is de primaire NIC voor de virtuele machine |waar of ONWAAR |
-| **publicIPAddress** |PIP die zijn gekoppeld aan de NIC |Zie [DNS-instellingen](#DNS-settings) |
-| **loadbalancerbackendaddresspools gebruikt** |Back-end-adresgroepen die de NIC is gekoppeld | |
-| **loadBalancerInboundNatRules** |Binnenkomende NAT-regels voor load balancer is die de NIC is gekoppeld aan | |
+| **enableIPForwarding** |Hiermee wordt aangegeven of Hallo NIC kan worden gebruikt voor routering |waar of ONWAAR |
+| **primaire** |Of NIC Hallo Hallo primaire NIC voor Hallo VM |waar of ONWAAR |
+| **publicIPAddress** |PIP Hallo NIC gekoppeld |Zie [DNS-instellingen](#DNS-settings) |
+| **loadbalancerbackendaddresspools gebruikt** |Back-end adres pools Hallo die NIC is gekoppeld aan | |
+| **loadBalancerInboundNatRules** |Inkomende load balancer NAT-regels Hallo die NIC is gekoppeld aan | |
 
 Voorbeeld openbare IP-adres in JSON-indeling:
 
@@ -73,5 +73,5 @@ Voorbeeld openbare IP-adres in JSON-indeling:
     }
 
 ### <a name="additional-resources"></a>Aanvullende bronnen
-* Lees de [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt163579.aspx) voor NIC's.
+* Lees Hallo [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt163579.aspx) voor NIC's.
 

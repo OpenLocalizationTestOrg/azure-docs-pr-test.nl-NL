@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory-Verificatiebibliotheken | Microsoft Docs
-description: "De Azure AD Authentication Library (ADAL) kan client toepassingsontwikkelaars eenvoudig om gebruikers te verifiëren naar de cloud of on-premises Active Directory (AD) en vervolgens verkrijgen toegangstokens voor het beveiligen van API-aanroepen."
+title: Active Directory Authentication Libraries aaaAzure | Microsoft Docs
+description: "Hello Azure AD Authentication Library (ADAL) kan client toepassingsontwikkelaars tooeasily toocloud gebruikers verifiëren of on-premises Active Directory (AD) en vervolgens verkrijgen toegangstokens voor het beveiligen van API-aanroepen."
 services: active-directory
 documentationcenter: 
 author: bryanla
@@ -15,20 +15,20 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 9cf8ca88c9df4082590b18acd5c4a87a91bb1afd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 20fae18807ef03463ab1bc218e5f3548b5bd5717
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory-Verificatiebibliotheken
-De Azure Active Directory Authentication Library (ADAL) kunnen toepassingsontwikkelaars client eenvoudig om gebruikers te verifiëren naar de cloud of on-premises Active Directory (AD), en toegangstokens voor het beveiligen van API-aanroepen te verkrijgen. ADAL gemakkelijker verificatie voor ontwikkelaars via functies, zoals:
+Hello Azure Active Directory Authentication Library (ADAL) kan client toepassing ontwikkelaars tooeasily toocloud gebruikers verifiëren of on-premises Active Directory (AD), en toegangstokens voor het beveiligen van API-aanroepen te verkrijgen. ADAL gemakkelijker verificatie voor ontwikkelaars via functies, zoals:
  - ondersteuning voor asynchrone methodeaanroepen
  - een configureerbare tokencache dat winkels tokens en vernieuw tokens
  - automatisch token vernieuwen wanneer een toegangstoken is verlopen en een vernieuwingstoken is beschikbaar
  - en meer
  
-Door het verwerken van de meeste van de complexiteit ADAL helpt ontwikkelaars zich richten op uw bedrijfslogica en resources, eenvoudig te beveiligen zonder een expert in de beveiliging.
+De meeste Hallo complexiteit kan verwerken, ADAL helpt ontwikkelaars zich richten op uw bedrijfslogica en resources, eenvoudig te beveiligen zonder een expert in de beveiliging.
 
 ADAL is beschikbaar op verschillende platforms.
 
@@ -44,7 +44,7 @@ ADAL is beschikbaar op verschillende platforms.
 | .NET-client, Windows Store, Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [Bureaublad-app](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | | 
 | Javascript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[App met één pagina](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
 | voor iOS, Mac OS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[iOS-app](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-ios) | [Naslaginformatie](https://cocoapods.org/pods/ADAL)|
-| Android |ADAL |[De centrale opslagplaats](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android-app](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](http://javadoc.io/doc/com.microsoft.aad/adal/)|
+| Android |ADAL |[Hallo centrale opslagplaats](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android-app](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](http://javadoc.io/doc/com.microsoft.aad/adal/)|
 | Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | | |
 | Java |ADAL4J |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java-web-app](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-java) | |
 | Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) | | |
@@ -67,20 +67,20 @@ Hier volgen drie gangbare scenario's waarin ADAL voor het verifiëren van een cl
 
 ### <a name="authenticating-users-of-a-native-client-application-running-on-a-device"></a>Gebruikers van een systeemeigen clienttoepassing uitgevoerd op een apparaat te verifiëren 
 
-In dit scenario heeft een ontwikkelaar een clienttoepassing WPF die nodig zijn voor toegang tot een externe bron die is beveiligd door Azure AD, zoals een web-API. Hij heeft een Azure-abonnement, weet hoe de downstream web-API aanroepen en kent van de Azure AD-tenant die gebruikmaakt van de web-API. Hij kan als gevolg hiervan ADAL gebruiken ter bevordering van de verificatie met Azure AD, door de verificatie-ervaring adal volledig delegeren of door expliciet afhandeling van gebruikersreferenties. ADAL maakt het gemakkelijk te verifiëren van de gebruiker, een toegangstoken en een vernieuwingstoken verkrijgen van Azure AD en gebruik vervolgens het toegangstoken om ervoor te aanvragen naar de web-API.
+In dit scenario heeft een ontwikkelaar een clienttoepassing WPF die tooaccess een externe bron die is beveiligd door Azure AD, zoals een web-API behoeften. Hij heeft een Azure-abonnement, weet hoe tooinvoke Hallo downstream web-API en kent hello Azure AD-tenant die Hallo maakt gebruik van web-API. Hij kan als gevolg hiervan toofacilitate ADAL-verificatie met Azure AD gebruiken door volledig delegeren Hallo verificatie-ervaring tooADAL of expliciet afhandeling van gebruikersreferenties. ADAL maakt het eenvoudig tooauthenticate Hallo gebruiker, een toegangstoken en een vernieuwingstoken verkrijgen van Azure AD en gebruik vervolgens Hallo access token toomake aanvragen toohello web-API.
 
-Zie voor een voorbeeld van code die u laat zien in dit scenario met verificatie met Azure AD [Native Client WPF-toepassing voor Web-API](https://github.com/azureadsamples/nativeclient-dotnet).
+Zie voor een voorbeeld van code die u laat zien van dit scenario met verificatie tooAzure AD [systeemeigen clienttoepassing WPF tooWeb API](https://github.com/azureadsamples/nativeclient-dotnet).
 
 ### <a name="authenticating-a-confidential-client-application-running-on-a-web-server"></a>Verificatie van een vertrouwelijk clienttoepassing uitvoert op een webserver
 
-In dit scenario heeft een ontwikkelaar een toepassing die wordt uitgevoerd op een server die nodig zijn voor toegang tot een externe bron die is beveiligd door Azure AD, zoals een web-API. Hij een Azure-abonnement heeft, kunnen worden aanroepen van de downstream-service en kent dat de Azure AD-tenant de web-API wordt gebruikt. Hij kan als gevolg hiervan ADAL gebruiken om te vereenvoudigen, verificatie met Azure AD expliciet afhandeling van de referenties van de toepassing. ADAL zorgt ervoor dat er eenvoudig een token met behulp van de toepassing de clientreferenties ophalen uit Azure AD en dit token vervolgens gebruiken om ervoor te aanvragen naar de web-API. ADAL zorgt ook voor de levensduur van het toegangstoken beheren door deze cache en vernieuwen van deze indien nodig. Zie voor een voorbeeld van code die u in dit scenario laat zien [Daemon console toepassing naar de Web-API](https://github.com/AzureADSamples/Daemon-DotNet).
+In dit scenario heeft een ontwikkelaar een toepassing die wordt uitgevoerd op een server die tooaccess moet een externe bron die is beveiligd door Azure AD, zoals een web-API. Hij heeft een Azure-abonnement, weet hoe tooinvoke downstream service Hallo en kent hello Azure AD-tenant Hallo web-API wordt gebruikt. Hij kan als gevolg hiervan toofacilitate ADAL-verificatie gebruiken met Azure AD expliciet Hallo de referenties van toepassing kan verwerken. ADAL maakt het eenvoudig tooretrieve een token van Azure AD met behulp van de toepassing hello clientreferenties en gebruik vervolgens dat token toomake aanvragen toohello web API. ADAL ook ingangen beheren Hallo levensduur van Hallo toegangstoken door deze cache en vernieuwen van deze indien nodig. Zie voor een voorbeeld van code die u in dit scenario laat zien [Daemon console toepassing tooWeb API](https://github.com/AzureADSamples/Daemon-DotNet).
 
 ### <a name="authenticating-a-confidential-client-application-running-on-a-server-on-behalf-of-a-user"></a>Een vertrouwelijk clienttoepassing uitgevoerd op een server namens een gebruiker verifiëren 
 
-In dit scenario heeft een ontwikkelaar een toepassing die wordt uitgevoerd op een server die nodig zijn voor toegang tot een externe bron die is beveiligd door Azure AD, zoals een web-API. De aanvraag moet ook worden gedaan namens een Azure AD-gebruiker. Hij heeft een Azure-abonnement, weet hoe de downstream web-API aanroepen en kent van de Azure AD tenant van de service wordt gebruikt. Als de gebruiker is geverifieerd aan de webtoepassing, kan de toepassing een autorisatiecode verkrijgen voor de gebruiker van Azure AD. De webtoepassing kunt vervolgens ADAL gebruiken om vernieuwen token namens een gebruiker met de autorisatie-code en client-referenties die zijn gekoppeld aan de toepassing van Azure AD te verkrijgen van een toegangstoken. Zodra de webtoepassing in bezit is van het toegangstoken is, kan de web-API aanroepen totdat het token is verlopen. Wanneer het token is verlopen, kan de webtoepassing gebruikmaken van ADAL voor een nieuw toegangstoken token ophalen met behulp van de vernieuwing die eerder is ontvangen. Zie voor een voorbeeld van code die u in dit scenario laat zien [Native client tot de Web-API voor Web-API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
+In dit scenario heeft een ontwikkelaar een toepassing die wordt uitgevoerd op een server die tooaccess moet een externe bron die is beveiligd door Azure AD, zoals een web-API. Hallo-aanvraag moet ook toobe gedaan namens een Azure AD-gebruiker. Hij heeft een Azure-abonnement, weet hoe tooinvoke Hallo downstream web-API en kent hello Azure AD-tenant Hallo-service wordt gebruikt. Zodra gebruiker Hallo geverifieerde toohello webtoepassing, krijgen Hallo toepassing een autorisatiecode voor Hallo gebruiker van Azure AD. Vervolgens kunt Hallo webtoepassing ADAL tooobtain gebruiken een toegangstoken en een vernieuwingstoken namens een gebruiker met Hallo autorisatie code en de client de referenties die zijn gekoppeld aan de toepassing hello van Azure AD. Zodra het Hallo-webtoepassing is in bezit is van het toegangstoken Hallo, kan Hallo web-API aanroepen totdat het Hallo-token is verlopen. Wanneer Hallo-token is verlopen, kunt Hallo webtoepassing ADAL tooget een nieuw toegangstoken gebruiken met behulp van Hallo-vernieuwingstoken dat u eerder hebt ontvangen. Zie voor een voorbeeld van code die u in dit scenario laat zien [Native client tooWeb API tooWeb API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
 ## <a name="see-also"></a>Zie ook
 
-- [De ontwikkelaarshandleiding voor de Azure Active Directory](active-directory-developers-guide.md)
+- [Hallo ontwikkelaarshandleiding Azure Active Directory](active-directory-developers-guide.md)
 - [Verificatie-scenario's voor Azure Active directory](active-directory-authentication-scenarios.md)
 - [Azure Active Directory-codevoorbeelden](active-directory-code-samples.md)

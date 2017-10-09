@@ -1,6 +1,6 @@
 ---
-title: Node.js-API-app in Azure App Service | Microsoft Docs
-description: Informatie over het maken van een Node.js-RESTful-API en deze implementeren in een API-app in Azure App Service.
+title: aaaNode.js API-app in Azure App Service | Microsoft Docs
+description: Meer informatie over hoe toocreate een Node.js-RESTful-API en deze tooan API-app in Azure App Service implementeren.
 services: app-service\api
 documentationcenter: node
 author: bradygaster
@@ -14,16 +14,16 @@ ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 06/13/2017
 ms.author: rachelap
-ms.openlocfilehash: 806585edd43b9d2d678bfa41523e4d9d40af8cba
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 3b3229c1453b6ca4d06bef26f476e92afda4e244
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Een Node.js-RESTful-API maken en deze implementeren in een API-app in Azure
+# <a name="build-a-nodejs-restful-api-and-deploy-it-tooan-api-app-in-azure"></a>Een Node.js-RESTful-API maken en deze tooan API-app in Azure implementeren
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-In deze snelstartgids wordt uitgelegd hoe u een REST-API kunt maken die is geschreven met Node.js [Express](http://expressjs.com/) met behulp van een [Swagger](http://swagger.io/)-definitie en deze als [API-app](app-service-api-apps-why-best-platform.md) kunt implementeren in Azure. U maakt de app met opdrachtregelprogramma's, configureert resources met de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) en implementeert de app met Git.  Wanneer u klaar bent, hebt u een werkende voorbeeld-REST API die wordt uitgevoerd op Azure.
+Deze snelstartgids toont hoe toocreate een REST-API geschreven met behulp van Node.js [Express](http://expressjs.com/)met een [Swagger](http://swagger.io/) definitie en implementeren als een [API-app](app-service-api-apps-why-best-platform.md) op Azure. U Hallo-app met opdrachtregelprogramma's maken, configureren van resources met Hallo [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), Hallo-app met Git en implementeren.  Wanneer u klaar bent, hebt u een werkende voorbeeld-REST API die wordt uitgevoerd op Azure.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -34,17 +34,17 @@ In deze snelstartgids wordt uitgelegd hoe u een REST-API kunt maken die is gesch
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, wordt in dit onderwerp vereist dat u hello Azure CLI versie 2.0 of hoger worden uitgevoerd. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-your-environment"></a>Uw omgeving voorbereiden
 
-1. Voer in een terminalvenster de volgende opdracht uit om het voorbeeld naar uw lokale machine te klonen.
+1. Voer in een terminalvenster Hallo opdracht tooclone Hallo voorbeeld tooyour lokale computer te volgen.
 
     ```bash
     git clone https://github.com/Azure-Samples/app-service-api-node-contact-list
     ```
 
-2. Ga naar de map die de voorbeeldcode bevat.
+2. Toohello map waarin de voorbeeldcode Hallo wijzigen.
 
     ```bash
     cd app-service-api-node-contact-list
@@ -59,9 +59,9 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="generate-nodejs-code"></a>Node.js-code genereren 
 
-In deze sectie van de zelfstudie wordt een API-ontwikkelingswerkstroom getoond waarin u eerst Swagger-metagegevens maakt en deze vervolgens gebruikt om automatisch servercode voor de API te genereren. 
+Deze sectie van de zelfstudie Hallo modellen een API ontwikkelingswerkstroom getoond waarin u eerst Swagger-metagegevens maken en gebruiken die tooscaffold (automatisch genereren) servercode voor Hallo API. 
 
-Wijzig de map naar de map *start* en voer `yo swaggerize` uit. Swaggerize maakt een Node.js-project voor uw API van de Swagger-definitie in *api.json*.
+Wijzigen van de directory toohello *start* map, voer `yo swaggerize`. Swaggerize maakt een Node.js-project voor uw API van Hallo Swagger-definitie in *api.json*.
 
 ```bash
 cd start
@@ -73,28 +73,28 @@ Wanneer in Swaggerize om een projectnaam wordt gevraagd, gebruikt u *ContactList
    ```bash
    Swaggerize Generator
    Tell us a bit about your application
-   ? What would you like to call this project: ContactList
+   ? What would you like toocall this project: ContactList
    ? Your name: Francis Totten
    ? Your github user name: fabfrank
    ? Your email: frank@fabrikam.net
    ```
    
-## <a name="customize-the-project-code"></a>De projectcode aanpassen
+## <a name="customize-hello-project-code"></a>Hallo projectcode aanpassen
 
-1. Kopieer de map *lib* naar de map *ContactList* die door `yo swaggerize` is gemaakt en wijzig de map naar *ContactList*.
+1. Kopiëren Hallo *lib* map in Hallo *ContactList* map gemaakt door `yo swaggerize`, wijzigt u vervolgens de directory in *ContactList*.
 
     ```bash
     cp -r lib/ ContactList/
     cd ContactList
     ```
 
-2. Installeer de NPM-modules `jsonpath` en `swaggerize-ui`. 
+2. Hallo installeren `jsonpath` en `swaggerize-ui` NPM-modules. 
 
     ```bash
     npm install --save jsonpath swaggerize-ui
     ```
 
-3. Vervang de code in het bestand *handlers/contacts.js* door de volgende code: 
+3. Vervang de code Hallo in Hallo *handlers/contacts.js* Hello code te volgen: 
     ```javascript
     'use strict';
 
@@ -106,9 +106,9 @@ Wanneer in Swaggerize om een projectnaam wordt gevraagd, gebruikt u *ContactList
         }
     };
     ```
-    Deze code gebruikt de JSON-gegevens die zijn opgeslagen in het bestand *lib/contacts.json* dat gebruikmaakt van *lib/contactRepository.js*. De nieuwe code *contacts.js* retourneert alle contactpersonen in de opslagplaats als JSON-nettolading. 
+    Deze code gebruikt Hallo JSON-gegevens opgeslagen in *lib/contacts.json* afgehandeld door *lib/contactRepository.js*. Hallo nieuwe *contacts.js* code retourneert alle contactpersonen in het Hallo-opslagplaats als JSON-nettolading. 
 
-4. Vervang de code in het bestand **handlers/contacts/{id}.js** door de volgende code:
+4. Vervang de code Hallo in Hallo **handlers/contacts/{id}.js** bestand met de volgende code Hallo:
 
     ```javascript
     'use strict';
@@ -122,9 +122,9 @@ Wanneer in Swaggerize om een projectnaam wordt gevraagd, gebruikt u *ContactList
     };
     ```
 
-    Met deze code kunt u een padvariabele gebruiken om alleen de contactpersoon met een bepaalde id te retourneren.
+    Deze code kunt u een contactpersoon voor pad variabele tooreturn Hallo alleen gebruiken met een opgegeven ID.
 
-5. Vervang de code in **server.js** door de volgende code:
+5. Vervang de code Hallo in **server.js** Hello code te volgen:
 
     ```javascript
     'use strict';
@@ -162,16 +162,16 @@ Wanneer in Swaggerize om een projectnaam wordt gevraagd, gebruikt u *ContactList
     });
     ```   
 
-    Deze code brengt een aantal kleine wijzigingen aan zodat deze werkt met Azure App Service en maakt een interactieve webinterface voor uw API beschikbaar.
+    Deze code maakt een aantal kleine wijzigingen toolet het werken met Azure App Service en een interactieve webinterface voor uw API beschrijft.
 
-### <a name="test-the-api-locally"></a>De API lokaal testen
+### <a name="test-hello-api-locally"></a>Test Hallo API lokaal
 
-1. De Node.js-app starten
+1. Hallo Node.js-app starten
     ```bash
     npm start
     ```
     
-2. Blader naar http://localhost:8000/contacts om de JSON voor de volledige lijst met contactpersonen weer te geven.
+2. Blader toohttp://localhost:8000 / tooview Hallo JSON contactpersonen voor Hallo complete lijst met contactpersonen.
    
    ```json
     {
@@ -191,7 +191,7 @@ Wanneer in Swaggerize om een projectnaam wordt gevraagd, gebruikt u *ContactList
     }
    ```
 
-3. Blader naar http://localhost:8000/contacts/2 om de contactpersoon met een `id` van twee weer te geven.
+3. Blader toohttp://localhost:8000/contacts/2 tooview Hallo contact met een `id` van twee.
    
     ```json
     { 
@@ -201,21 +201,21 @@ Wanneer in Swaggerize om een projectnaam wordt gevraagd, gebruikt u *ContactList
     }
     ```
 
-4. Test de API met behulp van de Swagger-webinterface op http://localhost:8000/docs.
+4. Hallo-API met Hallo Swagger webinterface op http://localhost: 8000/docs testen.
    
     ![Swagger-webinterface](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
 ## <a id="createapiapp"></a> Een API-app maken
 
-In deze sectie kunt u de Azure CLI 2.0 gebruiken om de resources te maken om de API op Azure App Service te hosten. 
+In deze sectie gebruikt u hello Azure CLI 2.0 toocreate Hallo resources toohost Hallo API in Azure App Service. 
 
-1.  Meld u aan bij uw Azure-abonnement met de opdracht [az login](/cli/azure/#login) en volg de instructies op het scherm.
+1.  Meld u bij de Azure-abonnement met Hallo tooyour [az aanmelding](/cli/azure/#login) opdracht in en volg Hallo op het scherm instructies.
 
     ```azurecli-interactive
     az login
     ```
 
-2. Als u meerdere Azure-abonnementen hebt, wijzigt u het standaardabonnement naar het gewenste abonnement.
+2. Als u meerdere Azure-abonnementen hebt, gewenste wijziging Hallo standaard abonnement toohello een.
 
     ````azurecli-interactive
     az account set --subscription <name or id>
@@ -228,36 +228,36 @@ In deze sectie kunt u de Azure CLI 2.0 gebruiken om de resources te maken om de 
 5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
 
 
-## <a name="deploy-the-api-with-git"></a>De API implementeren met Git
+## <a name="deploy-hello-api-with-git"></a>Hallo-API met Git implementeren
 
-Implementeer uw code in de API-app door doorvoeracties van uw lokale Git-opslagplaats naar Azure App Service te pushen.
+Implementeer uw code toohello API-app door doorvoeracties te pushen van uw lokale Git-opslagplaats tooAzure App Service.
 
 1. [!INCLUDE [Configure your deployment credentials](../../includes/configure-deployment-user-no-h.md)] 
 
-2. Initialiseer een nieuwe opslagplaats in de map *ContactList*. 
+2. Initialiseren van een nieuwe opslagplaats in Hallo *ContactList* directory. 
 
     ```bash
     git init .
     ```
 
-3. Sluit de map *node_modules* uit die via NPM is gemaakt in een eerdere stap in de zelfstudie over Git. Maak een nieuw `.gitignore`-bestand in de huidige map en voeg ergens in het bestand de volgende tekst toe op een nieuwe regel.
+3. Hallo uitsluiten *node_modules* directory gemaakt door npm in een eerdere stap in de zelfstudie Hallo van Git. Maak een nieuwe `.gitignore` -bestand in de huidige map Hallo en Hallo tekst volgen op een nieuwe regel overal in het Hallo-bestand toevoegen.
 
     ```
     node_modules/
     ```
-    Bevestig met `git status` dat de `node_modules`-map wordt genegeerd.
+    Hallo bevestigen `node_modules` map wordt genegeerd met `git status`.
 
-4. Voer de wijzigingen door in de map.
+4. Hallo wijzigingen toohello opslagplaats doorvoeren.
     ```bash
     git add .
     git commit -m "initial version"
     ```
 
-5. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
+5. [!INCLUDE [Push tooAzure](../../includes/app-service-api-git-push-to-azure.md)]  
  
-## <a name="test-the-api--in-azure"></a>De API testen in Azure
+## <a name="test-hello-api--in-azure"></a>Test Hallo API in Azure
 
-1. Open http://app_name.azurewebsites.net/contacts in een browservenster. Dezelfde JSON wordt geretourneerd als toen u de aanvraag eerder in de zelfstudie lokaal indiende.
+1. Open een browser toohttp://app_name.azurewebsites.net/contacts. U ziet dat dezelfde JSON geretourneerd als wanneer u lokaal Hallo-aanvraag heeft ingediend eerder in de zelfstudie Hallo Hallo.
 
    ```json
    {
@@ -277,15 +277,15 @@ Implementeer uw code in de API-app door doorvoeracties van uw lokale Git-opslagp
    }
    ```
 
-2. Ga in een browser naar het eindpunt `http://app_name.azurewebsites.net/docs` om de Swagger-UI uit te proberen die in Azure wordt uitgevoerd.
+2. Ga in een browser toohello `http://app_name.azurewebsites.net/docs` eindpunt tootry uit Hallo Swagger-gebruikersinterface die zijn uitgevoerd op Azure.
 
     ![Swagger-UI](media/app-service-api-nodejs-api-app/swagger-azure-ui.png)
 
-    U kunt nu updates voor de voorbeeld-API implementeren in Azure door doorvoeracties naar de Azure Git-opslagplaats te pushen.
+    U kunt nu updates toohello voorbeeld API tooAzure implementeren door doorvoeracties toohello Azure Git-opslagplaats te pushen.
 
 ## <a name="clean-up"></a>Opruimen
 
-Voer de volgende Azure CLI-opdracht uit als u alle resources wilt verwijderen die door deze snelstartgids zijn gemaakt:
+tooclean Hallo-resources die zijn gemaakt in deze snelstartgids, Hallo na Azure CLI-opdracht uitvoeren:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

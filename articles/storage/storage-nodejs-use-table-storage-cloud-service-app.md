@@ -1,6 +1,6 @@
 ---
-title: Web-app met table storage (Node.js) | Microsoft Docs
-description: Een zelfstudie bouwt op de Web-App met snelle zelfstudie voort door toevoeging van Azure Storage-services en de Azure-module.
+title: aaaWeb app met table storage (Node.js) | Microsoft Docs
+description: Een zelfstudie die is gebaseerd op Hallo van Web-App met snelle zelfstudie door Azure Storage-services toe te voegen en hello Azure-module.
 services: cloud-services, storage
 documentationcenter: nodejs
 author: mmacy
@@ -14,77 +14,77 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-ms.openlocfilehash: 5d7ee2f529b5127ee60ec8b4f5acaa49e75ddf39
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4eba16f09f8b69cbc135d097e6ca71e08b33733c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="nodejs-web-application-using-storage"></a>Node.js-webtoepassing met opslag
 ## <a name="overview"></a>Overzicht
-In deze zelfstudie wordt u uitbreiden van de toepassing gemaakt de [Node.js-webtoepassing met een snelle] zelfstudie met behulp van de Microsoft Azure-clientbibliotheken voor Node.js werken met data management-services. U kunt uw toepassing een webgebaseerde takenlijst-toepassing die u naar Azure implementeren kunt maken wordt uitbreiden. De takenlijst kan een gebruiker taken ophalen, het toevoegen van nieuwe taken en taken te markeren als voltooid.
+In deze zelfstudie wordt u uitbreiden Hallo toepassing gemaakt in de [Node.js-webtoepassing met een snelle] zelfstudie via Hallo Microsoft Azure-clientbibliotheken voor Node.js toowork met data management-services. Een web gebaseerde takenlijst toepassing dat u tooAzure kunt implementeren, gaat u uw toepassing toocreate uitbreiden. Hallo takenlijst kan een gebruiker taken ophalen, het toevoegen van nieuwe taken en taken te markeren als voltooid.
 
-De items worden opgeslagen in Azure Storage. Azure Storage biedt niet-gestructureerde gegevensopslag die fouttolerante en maximaal beschikbaar is. Azure Storage bevat verschillende gegevensstructuren waarin u kunt opslaan en toegang tot gegevens en u van de storage-services van de API's opgenomen in de Azure SDK voor Node.js of via de REST-API's gebruikmaken kunt. Zie voor meer informatie [opslaan en toegang tot gegevens in Azure].
+Hallo taakitems worden opgeslagen in Azure Storage. Azure Storage biedt niet-gestructureerde gegevensopslag die fouttolerante en maximaal beschikbaar is. Azure Storage bevat verschillende gegevensstructuren waarin u kunt opslaan en toegang tot gegevens en u van de opslagservices Hallo van Hallo API's die zijn opgenomen in hello Azure SDK voor Node.js of via de REST-API's gebruikmaken kunt. Zie voor meer informatie [opslaan en toegang tot gegevens in Azure].
 
-Deze zelfstudie wordt ervan uitgegaan dat u hebt voltooid de [Node.js-webtoepassing] en [Node.js snelle][Node.js-webtoepassing met een snelle] zelfstudies.
+Deze zelfstudie wordt ervan uitgegaan dat u Hallo hebt voltooid [Node.js-webtoepassing] en [Node.js snelle][Node.js-webtoepassing met een snelle] zelfstudies.
 
 U leert:
 
-* Werken met de engine Jade sjabloon
-* Werken met Azure Data Management-services
+* Hoe toowork met Jade sjabloon engine Hallo
+* Hoe toowork met Azure Data Management-services
 
-Een schermopname van de voltooide toepassing lager is dan:
+Een schermopname van de toepassing hello voltooid lager is dan:
 
-![De voltooide webpagina in internet explorer](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
+![Hallo voltooid webpagina in internet explorer](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
 
 ## <a name="setting-storage-credentials-in-webconfig"></a>Storage-referenties instelling in het bestand Web.Config
-U moet doorgeven in de storage-referenties voor toegang tot Azure Storage. U doet dit door u toepassingsinstellingen web.config gebruiken.
-Deze instellingen worden doorgegeven als omgevingsvariabelen knooppunt, die vervolgens worden gelezen door de Azure SDK.
+tooaccess Azure Storage, moet u toopass in de storage-referenties. toodo, gebruikmaken van web.config toepassingsinstellingen.
+Deze instellingen worden doorgegeven als omgeving variabelen tooNode, die vervolgens worden gelezen door hello Azure SDK.
 
 > [!NOTE]
-> Storage-referenties worden alleen gebruikt wanneer de toepassing wordt geïmplementeerd naar Azure. Wanneer in de emulator wordt uitgevoerd, wordt de toepassing de opslagemulator gebruiken.
+> Storage-referenties worden alleen gebruikt wanneer de toepassing hello geïmplementeerde tooAzure. Wanneer in Hallo-emulator wordt uitgevoerd, wordt Hallo toepassing hello-opslagemulator gebruiken.
 >
 >
 
-Voer de volgende stappen uit om de opslagaccountreferenties ophalen en toe te voegen aan het web.config-instellingen:
+Uitvoeren van de volgende stappen tooretrieve hello opslagaccountreferenties Hallo en toohello web.config-instellingen toevoegen:
 
-1. Als deze nog niet is geopend, start u de Azure PowerShell uit de **Start** menu door het uitbreiden van **alle programma's, Azure**, met de rechtermuisknop op **Azure PowerShell**, en selecteer vervolgens **als Administrator uitvoeren**.
-2. Wijzig de mappen in de map met uw toepassing. Bijvoorbeeld: C:\\knooppunt\\tasklist\\WebRole1.
-3. Voer de volgende cmdlet om op te halen van de accountgegevens voor de opslag van de Azure Powershell-venster:
+1. Als deze nog niet is geopend, start u hello Azure PowerShell vanuit Hallo **Start** menu door het uitbreiden van **alle programma's, Azure**, met de rechtermuisknop op **Azure PowerShell**, en selecteer vervolgens  **Als Administrator uitvoeren**.
+2. Mappen toohello map wijzigen met uw toepassing. Bijvoorbeeld: C:\\knooppunt\\tasklist\\WebRole1.
+3. Voer vanuit hello Azure Powershell-venster Hallo cmdlet tooretrieve Hallo-opslag-accountgegevens te volgen:
 
     ```powershell
     PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
     ```
 
-   Hiermee haalt de lijst met opslagaccounts en sleutels die zijn gekoppeld aan de gehoste service-account.
+   Hiermee haalt Hallo lijst van storage-accounts en sleutels die zijn gekoppeld aan de gehoste service-account.
 
    > [!NOTE]
-   > Omdat de Azure SDK een opslagaccount maakt wanneer u een service implementeert, moet al een opslagaccount van het implementeren van uw toepassing in de vorige handleidingen bestaan.
+   > Omdat hello Azure SDK een opslagaccount maakt wanneer u een service implementeert, moet al een opslagaccount van het implementeren van uw toepassing in de vorige handleidingen Hallo bestaan.
    >
    >
-4. Open de **ServiceDefinition.csdef** bestand met de omgevingsinstellingen die worden gebruikt wanneer de toepassing wordt geïmplementeerd naar Azure:
+4. Open Hallo **ServiceDefinition.csdef** bestand met Hallo omgevingsinstellingen die worden gebruikt wanneer de toepassing hello geïmplementeerde tooAzure:
 
     ```powershell
     PS C:\node\tasklist> notepad ServiceDefinition.csdef
     ```
 
-5. Voeg het volgende blok onder **omgeving** element, vervangen door {OPSLAGACCOUNT} en {TOEGANGSSLEUTEL voor opslag} met de accountnaam en de primaire sleutel voor het opslagaccount dat u wilt gebruiken voor implementatie:
+5. INSERT Hallo volgende blokkeren onder **omgeving** element, vervangen door {OPSLAGACCOUNT} en {TOEGANGSSLEUTEL voor opslag} met Hallo-accountnaam en de primaire sleutel Hallo voor Hallo storage-account wilt van toouse voor de implementatie:
 
   <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
   <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
 
-   ![De inhoud van het bestand web.cloud.config](./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png)
+   ![Hallo web.cloud.config bestandsinhoud](./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png)
 
-6. Sla het bestand op en sluit Kladblok.
+6. Hallo-bestand opslaan en sluit Kladblok.
 
 ### <a name="install-additional-modules"></a>Aanvullende modules installeren
-1. Gebruik de volgende opdracht voor het installeren van de [azure] [knooppunt-uuid] [nconf] en [asynchrone] modules lokaal ook om op te slaan een vermelding voor hen de **package.json** bestand:
+1. Gebruik Hallo na de opdracht tooinstall Hallo [azure], [knooppunt-uuid] [nconf] en [asynchrone] modules lokaal alsmede toosave een vermelding voor hen toohello **package.json** bestand:
 
   ```powershell
   PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
   ```
 
-  De uitvoer van deze opdracht ziet er ongeveer als volgt:
+  Hallo-uitvoer van deze opdracht moet vergelijkbaar toohello volgende weergegeven:
 
   ```
   node-uuid@1.4.1 node_modules\node-uuid
@@ -105,13 +105,13 @@ Voer de volgende stappen uit om de opslagaccountreferenties ophalen en toe te vo
   └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
   ```
 
-## <a name="using-the-table-service-in-a-node-application"></a>De tabel-service in een knooppunttoepassing gebruiken
-In deze sectie kunt u de basistoepassing die is gemaakt door wordt uitgebreide de **snelle** door toe te voegen opdracht een **task.js** bestand waarin het model voor uw taken. Ook wijzigt u de bestaande **app.js** en maak een nieuwe **tasklist.js** bestand dat gebruikmaakt van het model.
+## <a name="using-hello-table-service-in-a-node-application"></a>Hallo tabel-service in een knooppunttoepassing gebruiken
+In deze sectie wordt u Hallo eenvoudige toepassing gemaakt door Hallo uitbreiden **snelle** door toe te voegen opdracht een **task.js** bestand waarin Hallo-model voor uw taken. U wordt ook wijzigen Hallo bestaande **app.js** en maak een nieuwe **tasklist.js** bestand dat gebruikmaakt van Hallo-model.
 
-### <a name="create-the-model"></a>Het model maken
-1. In de **WebRole1** directory, maak een nieuwe map met de naam **modellen**.
-2. In de **modellen** directory, maak een nieuw bestand met de naam **task.js**. Dit bestand bevat het model voor de taken die zijn gemaakt door uw toepassing.
-3. Aan het begin van de **task.js** bestand, voeg de volgende code om te verwijzen naar de vereiste bibliotheken:
+### <a name="create-hello-model"></a>Hallo-model maken
+1. In Hallo **WebRole1** directory, maak een nieuwe map met de naam **modellen**.
+2. In Hallo **modellen** directory, maak een nieuw bestand met de naam **task.js**. Dit bestand bevat Hallo-model voor Hallo-taken die zijn gemaakt door uw toepassing.
+3. Aan begin Hallo Hallo **task.js** bestand, het toevoegen van Hallo code tooreference vereist bibliotheken te volgen:
 
     ```nodejs
     var azure = require('azure-storage');
@@ -119,7 +119,7 @@ In deze sectie kunt u de basistoepassing die is gemaakt door wordt uitgebreide d
     var entityGen = azure.TableUtilities.entityGenerator;
     ```
 
-4. Vervolgens voegt u code toe om het taakobject te definiëren en te exporteren. Dit object is verantwoordelijk voor het verbinden met de tabel.
+4. Vervolgens moet u code toodefine toevoegen en Hallo taakobject exporteren. Dit object is verantwoordelijk voor het verbinden van toohello tabel.
 
     ```nodejs
     module.exports = Task;
@@ -136,7 +136,7 @@ In deze sectie kunt u de basistoepassing die is gemaakt door wordt uitgebreide d
     };
     ```
 
-5. Vervolgens voegt u de volgende code om aanvullende methoden voor het taakobject te definiëren waardoor er interactie met gegevens die zijn opgeslagen in de tabel:
+5. Vervolgens voegt u Hallo code toodefine extra methoden volgen op Hallo taakobject, waardoor er interactie met gegevens die zijn opgeslagen in de tabel Hallo:
 
     ```nodejs
     Task.prototype = {
@@ -153,7 +153,7 @@ In deze sectie kunt u de basistoepassing die is gemaakt door wordt uitgebreide d
 
       addItem: function(item, callback) {
         self = this;
-        // use entityGenerator to set types
+        // use entityGenerator tooset types
         // NOTE: RowKey must be a string type, even though
         // it contains a GUID in this example.
         var itemDescriptor = {
@@ -190,11 +190,11 @@ In deze sectie kunt u de basistoepassing die is gemaakt door wordt uitgebreide d
     }
     ```
 
-6. Sla op en sluit de **task.js** bestand.
+6. Opslaan en sluiten Hallo **task.js** bestand.
 
-### <a name="create-the-controller"></a>De controller maken
-1. In de **WebRole1/routes** directory, maak een nieuw bestand met de naam **tasklist.js** en open het in een teksteditor.
-2. Voeg de volgende code toe aan het bestand **tasklist.js**. Dit wordt geladen met de azure- en async-modules die worden gebruikt door **tasklist.js**. Hiermee ook definieert u de **TaskList** functie die wordt doorgegeven een exemplaar van de **taak** object eerder:
+### <a name="create-hello-controller"></a>Hallo controller maken
+1. In Hallo **WebRole1/routes** directory, maak een nieuw bestand met de naam **tasklist.js** en open het in een teksteditor.
+2. Hallo code te volgen toevoegen**tasklist.js**. Dit wordt geladen hello azure en async-modules die worden gebruikt door **tasklist.js**. Hiermee definieert u ook Hallo **TaskList** functie die een exemplaar van Hallo wordt doorgegeven **taak** object eerder:
 
     ```nodejs
     var azure = require('azure-storage');
@@ -207,7 +207,7 @@ In deze sectie kunt u de basistoepassing die is gemaakt door wordt uitgebreide d
     }
     ```
 
-3. Blijven toevoegen aan de **tasklist.js** bestand door het toevoegen van de methoden voor **showTasks**, **addTask**, en **completeTasks**:
+3. Doorgaan met het toevoegen van toohello **tasklist.js** bestand door toe te voegen Hallo methoden te**showTasks**, **addTask**, en **completeTasks**:
 
     ```nodejs
     TaskList.prototype = {
@@ -253,11 +253,11 @@ In deze sectie kunt u de basistoepassing die is gemaakt door wordt uitgebreide d
     }
     ```
 
-4. Sla de **tasklist.js** bestand.
+4. Hallo opslaan **tasklist.js** bestand.
 
 ### <a name="modify-appjs"></a>App.js wijzigen
-1. In de **WebRole1** directory, open de **app.js** bestand in een teksteditor.
-2. Voeg de volgende voor het laden van de azure-module en stel de sleutel van naam en partitie in de tabel aan het begin van het bestand:
+1. In Hallo **WebRole1** directory, open Hallo **app.js** bestand in een teksteditor.
+2. Aan het begin van de Hallo van Hallo-bestand, Hallo na tooload hello azure module toevoegen en instellen van naam en partitie-sleutel van tabel Hallo:
 
     ```nodejs
     var azure = require('azure-storage');
@@ -265,14 +265,14 @@ In deze sectie kunt u de basistoepassing die is gemaakt door wordt uitgebreide d
     var partitionKey = 'hometasks';
     ```
 
-3. In het bestand app.js, bladert u omlaag naar waar u de volgende regel zien:
+3. In het bestand app.js hello, schuif naar beneden toowhere u ziet Hallo volgende regel:
 
     ```nodejs
     app.use('/', routes);
     app.use('/users', users);
     ```
 
-    Vervang de bovenstaande regels door de code hieronder wordt weergegeven. Hiermee wordt een exemplaar van initialiseren <strong>taak</strong> met een verbinding met uw storage-account. Dit wordt doorgegeven aan de <strong>TaskList</strong>, die wordt gebruikt om communicatie met de tabel-service:
+    Hallo boven regels vervangen door Hallo-code hieronder wordt weergegeven. Hiermee wordt een exemplaar van initialiseren <strong>taak</strong> met een verbinding tooyour storage-account. Dit wordt doorgegeven toohello <strong>TaskList</strong>, welke gebruiken deze toocommunicate Hello tabelservice:
 
     ```nodejs
     var TaskList = require('./routes/tasklist');
@@ -285,11 +285,11 @@ In deze sectie kunt u de basistoepassing die is gemaakt door wordt uitgebreide d
     app.post('/completetask', taskList.completeTask.bind(taskList));
     ```
 
-4. Sla de **app.js** bestand.
+4. Hallo opslaan **app.js** bestand.
 
-### <a name="modify-the-index-view"></a>Wijzig de weergave index
-1. Wijzig de mappen op de **weergaven** directory en open de **index.jade** bestand in een teksteditor.
-2. Vervang de inhoud van de **index.jade** bestand met de volgende code. Hiermee definieert u de weergave voor het weergeven van bestaande taken, evenals een formulier voor het toevoegen van nieuwe taken en bestaande bestanden markeren als voltooid.
+### <a name="modify-hello-index-view"></a>Hallo index weergave wijzigen
+1. Wijzig de mappen toohello **weergaven** directory en open Hallo **index.jade** bestand in een teksteditor.
+2. Vervang de inhoud Hallo Hallo **index.jade** bestand met de Hallo-code hieronder. Hiermee definieert u Hallo weergave voor het weergeven van bestaande taken, evenals een formulier voor het toevoegen van nieuwe taken en bestaande bestanden markeren als voltooid.
 
     ```
     extends layout
@@ -332,48 +332,48 @@ In deze sectie kunt u de basistoepassing die is gemaakt door wordt uitgebreide d
 
 3. Opslaan en sluiten **index.jade** bestand.
 
-### <a name="modify-the-global-layout"></a>De indeling van de globale wijzigen
-Het bestand **layout.jade** in de map **views** wordt gebruikt als een algemeen sjabloon voor andere **.jade**-bestanden. In deze stap wordt het bestand aangepast voor het gebruik van [Twitter Bootstrap](https://github.com/twbs/bootstrap). Dit is een werkset waarmee u eenvoudig een aantrekkelijk ogende website kunt maken.
+### <a name="modify-hello-global-layout"></a>Hallo globale indeling wijzigen
+Hallo **layout.jade** bestand in Hallo **weergaven** directory wordt gebruikt als een algemeen sjabloon voor andere **.jade** bestanden. In deze stap wijzigt u deze toouse [Twitter Bootstrap](https://github.com/twbs/bootstrap), dit is een werkset waarmee u eenvoudig toodesign een aantrekkelijk ogende website.
 
-1. Downloaden en uitpakken van de bestanden voor [Twitter Bootstrap](http://getbootstrap.com/). Kopieer de **bootstrap.min.css** bestand van de **bootstrap\\verdeling\\css** map de **openbare\\stylesheets** map van uw toepassing tasklist.
-2. Van de **weergaven** map, open de **layout.jade** in een teksteditor en vervang de inhoud door het volgende:
+1. Downloaden en uitpakken van bestanden voor Hallo [Twitter Bootstrap](http://getbootstrap.com/). Kopiëren Hallo **bootstrap.min.css** bestand van Hallo **bootstrap\\verdeling\\css** map toohello **openbare\\stylesheets** map van uw toepassing tasklist.
+2. Van Hallo **weergaven** map, open Hallo **layout.jade** in uw editor en vervang Hallo tekstinhoud door Hallo volgende:
 
     DOCTYPE HTML-html head titel = Titelkoppeling (rel = 'stylesheet', href='/stylesheets/bootstrap.min.css') koppeling (rel = 'stylesheet', href='/stylesheets/style.css') body.app nav.navbar.navbar-standaard div.navbar-header a.navbar-brand(href='/') inhoud van mijn taken blokkeren
 
-3. Sla de **layout.jade** bestand.
+3. Hallo opslaan **layout.jade** bestand.
 
-### <a name="running-the-application-in-the-emulator"></a>De toepassing wordt uitgevoerd in de Emulator
-Gebruik de volgende opdracht voor het starten van de toepassing in de emulator.
+### <a name="running-hello-application-in-hello-emulator"></a>Hallo toepassing uitgevoerd in de Emulator Hallo
+Gebruik Hallo volgende opdracht toostart Hallo toepassing in Hallo-emulator.
 
 ```powershell
 PS C:\node\tasklist\WebRole1> start-azureemulator -launch
 ```
 
-De browser wordt geopend en de volgende pagina wordt weergegeven:
+Hallo-browser wordt geopend en wordt na pagina Hallo weergegeven:
 
-![Een web wisselbaar geheugen: met de titel van mijn takenlijst met een tabel met taken en velden in om een nieuwe taak toevoegen.](./media/storage-nodejs-use-table-storage-cloud-service-app/node44.png)
+![Een web-wisselbare getiteld mijn takenlijst met een tabel met taken en velden tooadd een nieuwe taak.](./media/storage-nodejs-use-table-storage-cloud-service-app/node44.png)
 
-Gebruik het formulier items toevoegen of verwijderen van bestaande items door deze te markeren als voltooid.
+Hallo formulier tooadd items gebruiken of verwijderen van bestaande items door deze te markeren als voltooid.
 
-## <a name="publishing-the-application-to-azure"></a>Publiceren van de toepassing in Azure
-Aanroepen in de Windows PowerShell-venster de volgende cmdlet als u wilt uw gehoste service in Azure implementeren.
+## <a name="publishing-hello-application-tooazure"></a>Publishing Hallo toepassing tooAzure
+Aanroepen in de Windows PowerShell-venster Hallo Hallo cmdlet tooredeploy na uw tooAzure gehoste service.
 
 ```powershell
 PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -location datacentername -launch
 ```
 
-Vervang **myuniquename** met een unieke naam voor deze toepassing. Vervang **datacentername** met de naam van een Azure-Datacenter, zoals **VS-West**.
+Vervang **myuniquename** met een unieke naam voor deze toepassing. Vervang **datacentername** met Hallo-naam van een Azure-Datacenter, zoals **VS-West**.
 
-Nadat de implementatie voltooid is, ziet u een reactie vergelijkbaar met het volgende:
+Nadat het Hallo-implementatie is voltooid, ziet u een reactie vergelijkbaar toohello volgende:
 
 ```
   PS C:\node\tasklist> publish-azureserviceproject -servicename tasklist -location "West US"
-  WARNING: Publishing tasklist to Microsoft Azure. This may take several minutes...
+  WARNING: Publishing tasklist tooMicrosoft Azure. This may take several minutes...
   WARNING: 2:18:42 PM - Preparing runtime deployment for service 'tasklist'
   WARNING: 2:18:42 PM - Verifying storage account 'tasklist'...
   WARNING: 2:18:43 PM - Preparing deployment for tasklist with Subscription ID: 65a1016d-0f67-45d2-b838-b8f373d6d52e...
   WARNING: 2:19:01 PM - Connecting...
-  WARNING: 2:19:02 PM - Uploading Package to storage service larrystore...
+  WARNING: 2:19:02 PM - Uploading Package toostorage service larrystore...
   WARNING: 2:19:40 PM - Upgrading...
   WARNING: 2:22:48 PM - Created Deployment ID: b7134ab29b1249ff84ada2bd157f296a.
   WARNING: 2:22:48 PM - Initializing...
@@ -381,35 +381,35 @@ Nadat de implementatie voltooid is, ziet u een reactie vergelijkbaar met het vol
   WARNING: 2:22:50 PM - Created Website URL: http://tasklist.cloudapp.net/.
 ```
 
-Als voorheen omdat u opgegeven de **-starten** optie, de browser wordt geopend en geeft u uw toepassing in Azure wordt uitgevoerd als het publiceren is voltooid.
+Als voorheen omdat u Hallo opgegeven **-starten** optie Hallo browser wordt geopend en wordt uw toepassing in Azure wordt uitgevoerd als het publiceren is voltooid.
 
-![Een browservenster met de pagina Mijn takenlijst. De URL geeft aan dat de pagina nu wordt gehost op Azure.](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
+![Een browservenster Hallo mijn takenlijst pagina weergeven. Hallo URL geeft Hallo pagina nu wordt gehost op Azure.](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
 
 ## <a name="stopping-and-deleting-your-application"></a>Stoppen en verwijderen van uw toepassing
-Na implementatie van uw toepassing, wilt u mogelijk uitgeschakeld zodat u kunt kosten voorkomen of bouwen en implementeren van andere toepassingen binnen de periode voor de gratis proefversie.
+Na implementatie van uw toepassing, kunt u toodisable zodat u kunt voorkomen kosten of bouwen en implementeren van andere toepassingen binnen Hallo gratis proefabonnement periode.
 
 Webrolexemplaren in Azure worden per uur van verbruikte servertijd in rekening gebracht.
-Er wordt servertijd verbruikt zodra de toepassing is geïmplementeerd, zelfs als de exemplaren niet worden uitgevoerd en de gestopte status hebben.
+Er wordt servertijd verbruikt zodra uw toepassing is geïmplementeerd, zelfs als de exemplaren niet worden uitgevoerd en met de status Hallo gestopt.
 
-De volgende stappen laten zien hoe om te stoppen en verwijderen van uw toepassing.
+Hallo volgende stappen ziet u hoe toostop en verwijderen van uw toepassing.
 
-1. In het Windows PowerShell-venster stopt u de service-implementatie die u in de vorige sectie hebt gemaakt, met de volgende cmdlet:
+1. In Hallo Windows PowerShell-venster stopt Hallo service-implementatie gemaakt in de vorige sectie Hallo Hello volgende cmdlet:
 
     ```powershell
     PS C:\node\tasklist\WebRole1> Stop-AzureService
     ```
 
-   Het kan enkele minuten duren voordat de service is gestopt. Als de service is gestopt, krijgt u een bericht waarin dit wordt aangegeven.
+   Hallo-service wordt gestopt, kan dit enkele minuten duren. Wanneer het Hallo-service wordt gestopt, krijgt u een bericht weergegeven dat aangeeft dat deze is gestopt.
 
-2. Als u de service wilt verwijderen, roept u de volgende cmdlet aan:
+2. toodelete hello service aanroep Hallo volgende cmdlet:
 
     ```powershell
     PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
     ```
 
-   Wanneer dit wordt gevraagd, typt u **Y** om de service te verwijderen.
+   Wanneer u wordt gevraagd, typt u **Y** toodelete Hallo-service.
 
-   Het kan enkele minuten duren voordat de service is verwijderd. Als de service is verwijderd, krijgt u een bericht waarin dit wordt aangegeven.
+   Verwijderen van Hallo-service kan enkele minuten duren. U ontvangt een bericht weergegeven dat aangeeft dat het Hallo-service is verwijderd nadat het Hallo-service is verwijderd.
 
 [Node.js-webtoepassing met een snelle]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
 [opslaan en toegang tot gegevens in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx

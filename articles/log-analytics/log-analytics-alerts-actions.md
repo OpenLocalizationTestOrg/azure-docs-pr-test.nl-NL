@@ -1,6 +1,6 @@
 ---
-title: Antwoorden op waarschuwingen in OMS Log Analytics | Microsoft Docs
-description: Waarschuwingen in logboekanalyse kunnen belangrijke informatie in de OMS-opslagplaats te identificeren en proactief zullen u informeren over problemen of acties uit om te proberen op te lossen ze aanroepen.  In dit artikel beschrijft het maken van een waarschuwingsregel en details van de verschillende acties die ze kunnen ondernemen.
+title: aaaResponses tooalerts in OMS Log Analytics | Microsoft Docs
+description: Waarschuwingen in logboekanalyse belangrijke informatie in de OMS-opslagplaats te identificeren en op de proactief kunnen zullen u informeren over problemen of acties tooattempt toocorrect aanroepen ze.  Dit artikel wordt beschreven hoe een waarschuwingsregel toocreate en details Hallo verschillende acties kunnen nemen.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -15,78 +15,78 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b8731e1fe48b7d809b113eb5273e3962542b8f34
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d24bb726a96e7143985f111c0599dc4e7898b4f0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-actions-to-alert-rules-in-log-analytics"></a>Acties toevoegen aan de regels voor waarschuwingen in Log Analytics
-Wanneer een [waarschuwing is gemaakt in logboekanalyse](log-analytics-alerts.md), hebt u de optie [configureren van de waarschuwingsregel](log-analytics-alerts.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende acties die beschikbaar zijn en meer informatie over het configureren van elk type.
+# <a name="add-actions-tooalert-rules-in-log-analytics"></a>Acties tooalert regels in logboekanalyse toevoegen
+Wanneer een [waarschuwing is gemaakt in logboekanalyse](log-analytics-alerts.md), hebt u de optie Hallo van [configureren Hallo waarschuwingsregel](log-analytics-alerts.md) tooperform een of meer acties.  In dit artikel beschrijft Hallo verschillende acties die beschikbaar zijn en meer informatie over het configureren van elk type.
 
 | Actie | Beschrijving |
 |:--|:--|
-| [E-mail](#email-actions) | Verzend een e-mailbericht met de details van de waarschuwing naar een of meer geadresseerden. |
+| [E-mail](#email-actions) | Stuur een e-mail met Hallo details van de waarschuwing tooone Hallo of meer geadresseerden. |
 | [Webhook](#webhook-actions) | Een extern proces via één HTTP POST-aanvraag worden aangeroepen. |
 | [Runbook](#runbook-actions) | Starten van een runbook in Azure Automation. |
 
 
 ## <a name="email-actions"></a>E-acties
-E-acties verzend een e-mailbericht met de details van de waarschuwing naar een of meer geadresseerden.  Kunt u het onderwerp van het e-mailbericht, maar de inhoud is een standaardindeling samengesteld door logboekanalyse.  Dit omvat samenvattende informatie zoals de naam van de waarschuwing naast de details van maximaal tien records geretourneerd door het logboek zoeken.  Het bevat ook een koppeling naar een zoekopdracht logboek logboekanalyse dat de volledige set van records uit de query die wordt geretourneerd.   De afzender van het e-mailbericht is *Microsoft Operations Management Suite-Team &lt; noreply@oms.microsoft.com &gt;* . 
+E-acties Stuur een e-mail met Hallo details van de waarschuwing tooone Hallo of meer geadresseerden.  U kunt Hallo onderwerp van e-mail Hallo opgeven, maar de inhoud is een standaardindeling samengesteld door logboekanalyse.  Samenvattende informatie zoals de naam van de Hallo van Hallo waarschuwing in toodetails toevoeging van tooten records geretourneerd door de zoekfunctie Hallo opgenomen.  Het bevat ook een koppeling tooa logboek zoekopdracht logboekanalyse dat Hallo volledige set van records uit deze query wordt geretourneerd.   Hallo afzender Hallo mail *Microsoft Operations Management Suite-Team &lt; noreply@oms.microsoft.com &gt;* . 
 
-E-bewerkingen moet de eigenschappen in de volgende tabel.
+E-acties vereisen Hallo eigenschappen in de volgende tabel Hallo.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| Onderwerp |Onderwerpen in het e-mailbericht.  U kunt de hoofdtekst van het e-mailbericht niet wijzigen. |
-| ontvangers |De adressen van alle e-mailgeadresseerden.  Als u meer dan één adres opgeeft, scheidt u de adressen met een puntkomma (;). |
+| Onderwerp |Onderwerpen in Hallo e-mailbericht.  U kunt Hallo hoofdtekst van e-mail Hallo niet wijzigen. |
+| ontvangers |De adressen van alle e-mailgeadresseerden.  Als u meer dan één adres vervolgens afzonderlijke hello-mailadressen opgeven met een puntkomma (;). |
 
 
 ## <a name="webhook-actions"></a>Webhookacties
 
-Webhookacties kunnen u een extern proces via één HTTP POST-aanvraag worden aangeroepen.  De service die wordt aangeroepen moet webhooks ondersteunen en bepaal hoe het door middel van elke nettolading wordt ontvangen.  U kunt ook een REST-API die niet specifiek webhooks ondersteunt, zolang de aanvraag heeft een indeling die werkt met de API aanroepen.  Voorbeelden van het gebruik van een webhook in reactie op een waarschuwing een bericht verzendt [Slack](http://slack.com) of het maken van een incident in [PagerDuty](http://pagerduty.com/).  Een volledige procedure voor het maken van een waarschuwingsregel met een webhook aanroepen Slack is beschikbaar op [Webhooks in logboekanalyse waarschuwingen](log-analytics-alerts-webhooks.md).
+Webhookacties kunnen u tooinvoke een extern proces via één HTTP POST-aanvraag.  Hallo-service wordt aangeroepen moet webhooks ondersteunen en bepaal hoe het door middel van elke nettolading wordt ontvangen.  U kunt ook een REST-API die niet specifiek webhooks ondersteunt, zolang het Hallo-aanvraag heeft een indeling die Hallo API begrijpt aanroepen.  Voorbeelden van het gebruik van een webhook in antwoord tooan waarschuwing een bericht verzendt [Slack](http://slack.com) of het maken van een incident in [PagerDuty](http://pagerduty.com/).  Een volledige procedure voor het maken van een waarschuwingsregel met een webhook toocall Slack is beschikbaar op [Webhooks in logboekanalyse waarschuwingen](log-analytics-alerts-webhooks.md).
 
-Webhookacties vereisen de eigenschappen in de volgende tabel.
+Webhookacties vereisen Hallo eigenschappen in de volgende tabel Hallo.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| Webhook-URL |De URL van de webhook. |
-| Aangepaste JSON-nettolading |Aangepaste nettolading met de webhook moeten worden verzonden.  Zie hieronder voor meer informatie. |
+| Webhook-URL |Hallo-URL van de webhook Hallo. |
+| Aangepaste JSON-nettolading |Aangepaste nettolading toosend met Hallo webhook.  Zie hieronder voor meer informatie. |
 
 
-Webhooks omvatten een URL en een nettolading opgemaakt in JSON is de gegevens naar de externe service verzonden.  De nettolading van de neemt standaard de waarden in de volgende tabel.  U kunt deze nettolading vervangen door een aangepaste van uzelf.  In dat geval kunt u de variabelen in de tabel voor elk van de parameters voor hun waarde bevatten in de aangepaste nettolading.
+Een URL opnemen naar Webhooks en een nettolading opgemaakt in JSON is Hallo gegevens toohello externe service verzonden.  Standaard wordt Hallo nettolading in de volgende tabel Hallo Hallo waarden bevatten.  U kunt deze nettolading met een van uw eigen aangepaste tooreplace.  In dat geval kunt u variabelen in de tabel Hallo Hallo voor elk Hallo parameters tooinclude hun waarde in de aangepaste nettolading.
 
 | Parameter | Variabele | Beschrijving |
 |:--- |:--- |:--- |
-| AlertRuleName |#alertrulename |Naam van de waarschuwingsregel. |
-| AlertThresholdOperator |#thresholdoperator |Drempelwaarde voor de operator voor de waarschuwingsregel.  *Groter dan* of *minder dan*. |
-| AlertThresholdValue |#thresholdvalue |Drempelwaarde voor de waarschuwingsregel. |
-| LinkToSearchResults |#linktosearchresults |Koppelen aan logboekanalyse logboek zoeken waarmee de records geretourneerd van de query die de waarschuwing wordt gemaakt. |
-| ResultCount |#searchresultcount |Het aantal records in de zoekresultaten. |
-| SearchIntervalEndtimeUtc |#searchintervalendtimeutc |De eindtijd voor de query in UTC-notatie. |
-| SearchIntervalInSeconds |#searchinterval |Tijdvenster voor de waarschuwingsregel. |
-| SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Begintijd voor de query in UTC-notatie. |
-| searchQuery |#searchquery |Logboek zoekquery gebruikt door de waarschuwingsregel. |
-| Zoekresultaten |Hieronder vindt u de |Records geretourneerd door de query in JSON-indeling.  Beperkt tot de eerste 5000 records. |
+| AlertRuleName |#alertrulename |Naam van de waarschuwingsregel Hallo. |
+| AlertThresholdOperator |#thresholdoperator |Drempelwaarde voor de operator voor Hallo waarschuwingsregel.  *Groter dan* of *minder dan*. |
+| AlertThresholdValue |#thresholdvalue |Drempelwaarde voor het Hallo-waarschuwingsregel. |
+| LinkToSearchResults |#linktosearchresults |Koppeling tooLog Analytics logboek zoekquery waarmee Hallo records in de Hallo-query die Hallo waarschuwing gemaakt. |
+| ResultCount |#searchresultcount |Het aantal records in de zoekresultaten Hallo. |
+| SearchIntervalEndtimeUtc |#searchintervalendtimeutc |De eindtijd voor de query Hallo in UTC-notatie. |
+| SearchIntervalInSeconds |#searchinterval |Tijdvenster voor Hallo waarschuwingsregel. |
+| SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Begintijd voor de query Hallo in UTC-notatie. |
+| searchQuery |#searchquery |Logboek zoekquery gebruikt door de waarschuwingsregel Hallo. |
+| Zoekresultaten |Hieronder vindt u de |Records geretourneerd door de query Hallo in JSON-indeling.  Beperkte toohello eerste 5000 records. |
 | WorkspaceID |#workspaceid |ID van de OMS-werkruimte. |
 
-Bijvoorbeeld, kunt u opgeven de volgende aangepaste nettolading met een enkele parameter aangeroepen *tekst*.  De service die deze webhook aanroepen, zou deze parameter worden verwacht.
+Bijvoorbeeld, kunt u opgeven Hallo aangepaste nettolading met een enkele parameter aangeroepen na *tekst*.  Hallo-service die deze webhook aanroept, zou deze parameter worden verwacht.
 
     {
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
 
-De nettolading van dit voorbeeld zou worden omgezet naar ongeveer het volgende wanneer u naar de webhook verzonden.
+De nettolading van dit voorbeeld zou oplossen toosomething zoals Hallo volgen wanneer toohello webhook verzonden.
 
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 
-Als u wilt opnemen zoekresultaten in een aangepaste nettolading, voeg de volgende regel als een eigenschap van het hoogste niveau in de json-nettolading.  
+tooinclude zoekresultaten in een aangepaste nettolading toevoegen Hallo volgt regel als een eigenschap van het hoogste niveau in de json-nettolading Hallo.  
 
     "IncludeSearchResults":true
 
-Bijvoorbeeld: voor het maken van een aangepaste nettolading met alleen de naam van de waarschuwing en de zoekresultaten, u kunt de volgende. 
+Bijvoorbeeld, toocreate een aangepaste nettolading met NET Hallo naam van waarschuwing en Hallo zoekresultaten, u kunt hello te volgen. 
 
     {
        "alertname":"#alertrulename",
@@ -94,29 +94,29 @@ Bijvoorbeeld: voor het maken van een aangepaste nettolading met alleen de naam v
     }
 
 
-U kunt een compleet voorbeeld van een waarschuwingsregel maken met een webhook om een externe service op te starten doorlopen [maken van een actie waarschuwing webhook in OMS Log Analytics bericht te verzenden naar Slack](log-analytics-alerts-webhooks.md).
+U kunt een compleet voorbeeld van een waarschuwingsregel maken met een toostart webhook met een externe service op doorlopen [maakt een actie waarschuwing webhook in OMS Log Analytics toosend bericht tooSlack](log-analytics-alerts-webhooks.md).
 
 ## <a name="runbook-actions"></a>Runbook-acties
-Runbook-acties starten van een runbook in Azure Automation.  Om dit type actie gebruiken, hebt u de [Automation-oplossing](log-analytics-add-solutions.md) geïnstalleerd en geconfigureerd in de OMS-werkruimte.  U kunt kiezen uit de runbooks in het automation-account die u hebt geconfigureerd in de Automation-oplossing.
+Runbook-acties starten van een runbook in Azure Automation.  In volgorde toouse dit type actie, moet u hebben Hallo [Automation-oplossing](log-analytics-add-solutions.md) geïnstalleerd en geconfigureerd in de OMS-werkruimte.  U kunt kiezen uit runbooks Hallo in Hallo automation-account die u hebt geconfigureerd in Hallo Automation-oplossing.
 
-Runbook-bewerkingen moet de eigenschappen in de volgende tabel.
+Runbook-bewerkingen moet Hallo eigenschappen in de volgende tabel Hallo.
 
 | Eigenschap | Beschrijving |
 |:--- |:---|
-| Runbook | Een Runbook dat u starten wilt wanneer een waarschuwing wordt gemaakt. |
-| Voer op | Geef **Azure** voor het uitvoeren van het runbook in de cloud.  Geef **hybride worker** voor het uitvoeren van het runbook op een agent met [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md ) geïnstalleerd.  |
+| Runbook | Het Runbook dat het gewenste toostart wanneer een waarschuwing wordt gemaakt. |
+| Voer op | Geef **Azure** toorun hello runbook in de cloud Hallo.  Geef **hybride worker** toorun hello runbook op een agent met [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md ) geïnstalleerd.  |
 
-Runbook-acties, start het runbook met behulp van een [webhook](../automation/automation-webhooks.md).  Wanneer u de waarschuwingsregel maakt, wordt deze automatisch een nieuwe webhook voor het runbook maken met de naam **OMS waarschuwing herstel** gevolgd door een GUID.  
+Runbook-acties aan de slag Hallo runbook met een [webhook](../automation/automation-webhooks.md).  Wanneer u een waarschuwingsregel Hallo maakt, wordt deze automatisch een nieuwe webhook voor Hallo runbook maken met Hallo naam **OMS waarschuwing herstel** gevolgd door een GUID.  
 
-U kan niet rechtstreeks vullen met de parameters van het runbook, maar de [$WebhookData parameter](../automation/automation-webhooks.md) bevat de details van de waarschuwing, met inbegrip van de resultaten van de zoekopdracht logboek waarvan deze is gemaakt.  Het runbook moet definiëren **$WebhookData** als parameter voor deze toegang krijgt tot de eigenschappen van de waarschuwing.  Gegevens van de waarschuwing is beschikbaar in json-indeling in één eigenschap aangeroepen **zoekresultaten** in de **RequestBody** eigenschap van **$WebhookData**.  Dit heeft met de eigenschappen in de volgende tabel.
+U kan niet rechtstreeks vullen van de parameters van Hallo runbook maar Hallo [$WebhookData parameter](../automation/automation-webhooks.md) bevat details op Hallo van Hallo waarschuwing, met inbegrip van Hallo resultaten van Hallo logboek zoekopdracht waarvan deze is gemaakt.  Hallo runbook moet toodefine **$WebhookData** als parameter voor deze tooaccess eigenschappen van de waarschuwing Hallo Hallo.  Hallo waarschuwingsgegevens is beschikbaar in json-indeling in één eigenschap aangeroepen **zoekresultaten** in Hallo **RequestBody** eigenschap van **$WebhookData**.  Dit heeft met de eigenschappen in de volgende tabel Hallo Hallo.
 
 | Knooppunt | Beschrijving |
 |:--- |:--- |
-| id |Pad en de GUID van de zoekopdracht. |
-| __metadata |Informatie over de waarschuwing waaronder het aantal records en status van de zoekresultaten. |
-| waarde |Afzonderlijke vermelding voor elke record in de zoekresultaten.  De details van het item komt overeen met de eigenschappen en waarden van de record. |
+| id |Pad en de GUID van Hallo zoeken. |
+| __metadata |Informatie over Hallo waarschuwing inclusief Hallo aantal records en status van Hallo zoekresultaten. |
+| waarde |Afzonderlijke vermelding voor elke record in de zoekresultaten Hallo.  Hallo-details van Hallo vermelding komt overeen met Hallo eigenschappen en waarden van Hallo record. |
 
-De volgende runbook zou bijvoorbeeld uitpakken van de records geretourneerd door het logboek zoeken en toewijzen van andere eigenschappen op basis van het type van elke record.  Denk eraan dat het runbook met het converteren van begint **RequestBody** van json zodanig dat deze kan worden gewerkt met als een object in PowerShell.
+Bijvoorbeeld zou hello volgende runbook pak Hallo records geretourneerd door Hallo logboek zoeken en toewijzen van verschillende eigenschappen die zijn gebaseerd op het Hallo-type van elke record.  Houd er rekening mee dat runbook Hallo begint met het converteren van **RequestBody** van json zodanig dat deze kan worden gewerkt met als een object in PowerShell.
 
     param ( 
         [object]$WebhookData
@@ -148,4 +148,4 @@ De volgende runbook zou bijvoorbeeld uitpakken van de records geretourneerd door
 
 ## <a name="next-steps"></a>Volgende stappen
 - Een stapsgewijze Kennismaking voltooien [configureren van een webook](log-analytics-alerts-webhooks.md) met een waarschuwingsregel.  
-- Meer informatie over het schrijven van [runbooks in Azure Automation](https://azure.microsoft.com/documentation/services/automation) oplossen van problemen die worden aangeduid met waarschuwingen.
+- Meer informatie over hoe toowrite [runbooks in Azure Automation](https://azure.microsoft.com/documentation/services/automation) tooremediate problemen geïdentificeerd met waarschuwingen.

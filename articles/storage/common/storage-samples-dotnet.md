@@ -1,6 +1,6 @@
 ---
-title: Voorbeelden van Azure Storage met .NET | Microsoft Docs
-description: Weergeven, downloaden en uitvoeren van toepassingen voor Azure Storage en voorbeeldcode. Ontdek aan de slag voorbeelden voor blobs, wachtrijen, tabellen en bestanden, met behulp van de opslagclientbibliotheken voor .NET.
+title: Voorbeelden van aaaAzure Storage met .NET | Microsoft Docs
+description: Weergeven, downloaden en uitvoeren van toepassingen voor Azure Storage en voorbeeldcode. Ontdek aan de slag voorbeelden voor blobs, wachtrijen, tabellen en bestanden, met behulp van Hallo-opslagclientbibliotheken voor .NET.
 services: storage
 documentationcenter: na
 author: seguler
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: 74777ed14ebb41ad31657f814e86724ff1e5e62e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 6b02b596f77845fc5fa474fa235c2b5df6e94ad7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-samples-using-net"></a>Voorbeelden van Azure Storage met .NET
 
 ## <a name="net-sample-index"></a>Index van .NET-voorbeeld
 
-De volgende tabel bevat een overzicht van onze voorbeelden-opslagplaats en de scenario's worden behandeld in elk voorbeeld. Klik op de koppelingen naar de bijbehorende voorbeeldcode weergeven in GitHub.
+Hallo volgende tabel geeft een overzicht van onze voorbeelden opslagplaats en Hallo scenario's die in elk voorbeeld worden behandeld. Klik op Hallo koppelingen tooview Hallo bijbehorende voorbeeldcode in GitHub.
 
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Eindpunt</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Voorbeeldcode</th></tr></thead><tbody> 
 <tr> 
@@ -197,13 +197,13 @@ De volgende tabel bevat een overzicht van onze voorbeelden-opslagplaats en de sc
 
 ## <a name="azure-code-samples-library"></a>Azure-codevoorbeelden-bibliotheek
 
-Als u wilt de compleet codevoorbeeld bibliotheek bekijken, gaat u naar de [Azure codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=storage) bibliotheek, waaronder voorbeelden voor Azure-opslag die u kunt downloaden en lokaal uitvoeren. De bibliotheek met voorbeeld wordt een voorbeeldcode in het ZIP-indeling. U kunt ook bladeren en kloon de GitHub-opslagplaats voor elk voorbeeld.
+tooview hello compleet codevoorbeeld bibliotheek, Ga toohello [Azure codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=storage) bibliotheek, waaronder voorbeelden voor Azure-opslag die u kunt downloaden en lokaal uitvoeren. Hallo Code voorbeeld van een bibliotheek bevat voorbeeldcode in het ZIP-indeling. U kunt ook bladeren en Hallo GitHub-opslagplaats voor elk voorbeeld klonen.
 
 [!INCLUDE [storage-dotnet-samples-include](../../../includes/storage-dotnet-samples-include.md)]
 
 ## <a name="getting-started-guides"></a>Ophalen van slag-handleidingen
 
-Bekijk de volgende handleidingen in als u op zoek bent voor instructies over het installeren en aan de slag met de clientbibliotheken van Azure Storage.
+Hallo handleidingen volgen als u op zoek bent voor instructies over het uitchecken tooinstall en aan de slag met Hallo clientbibliotheken van Azure Storage.
 
 * [Aan de slag met Azure Blob-Service in .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
 * [Aan de slag met Azure Queue-Service in .NET](../storage-dotnet-how-to-use-queues.md)

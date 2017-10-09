@@ -49,4 +49,4 @@ sql-database-service-tiers.md
 | Maximaal aantal gelijktijdige sessies | 30.000| 30.000| 30.000| 30.000|
 |||||||
 
-\*De maximale databasegrootte verwijst naar de maximale grootte van de gegevens in de database. 
+\*Maximale databasegrootte verwijst toohello maximale grootte van Hallo-gegevens in Hallo database. 

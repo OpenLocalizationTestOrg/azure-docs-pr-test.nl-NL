@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Azure Relay en nuttige eigenschappen | Microsoft Docs
+title: aaaWhat Azure Relay en waarom gebruiken overzicht | Microsoft Docs
 description: Overzicht van Azure Relay
 services: service-bus-relay
 documentationcenter: .net
@@ -14,28 +14,28 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 08/23/2017
 ms.author: sethm
-ms.openlocfilehash: 77ee85db0bcc701514a1a98da9405a79d658d49d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4cfd77048210a435c446b908b7896737cad0edbf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-is-azure-relay"></a>Wat is Azure Relay?
 
-De Azure Relay-service maakt het uitvoeren van hybride toepassingen mogelijk doordat u services die zich in een bedrijfsnetwerk bevinden, veilig kunt blootstellen aan de openbare cloud zonder dat u een firewallverbinding hoeft te openen en zonder dat wijzigingen in de infrastructuur van een bedrijfsnetwerk zijn vereist. Met Relay wordt een groot aantal verschillende transportprotocollen en webservicestandaarden ondersteund.
+Hello Azure Relay service hybride toepassingen vereenvoudigt doordat u toosecurely services die zich in een zakelijke enterprise netwerk toohello openbare cloud, bevinden zonder dat een firewallverbinding tooopen vrijgegeven of vereisen Tussenkomende wijzigingen tooa infrastructuur van het bedrijfsnetwerk. Met Relay wordt een groot aantal verschillende transportprotocollen en webservicestandaarden ondersteund.
 
-De Relay-service biedt ondersteuning voor traditioneel verkeer in één richting, aanvraag-/antwoordverkeer en peer-to-peerverkeer. De service ondersteunt tevens gebeurtenisdistributie via internet voor scenario's voor publiceren/abonneren en bidirectionele socket-communicatie voor verbeterde point-to-point-efficiëntie. 
+Hallo relay-service ondersteunt traditionele één richting, aanvraag/antwoord en peer-to-peer-verkeer. Het ondersteunt ook gebeurtenisdistributie via internet bereik tooenable publiceren/abonneren scenario's en bidirectionele socket-communicatie voor verbeterde point-to-point-efficiëntie. 
 
-In het patroon voor doorgestuurde gegevensoverdracht maakt een on-premises service verbinding met de Relay-service via een uitgaande poort en wordt een bidirectionele socket voor communicatie gemaakt die is gekoppeld aan een bepaald rendezvous-adres. De client kan vervolgens met de on-premises service communiceren door verkeer te verzenden naar de Relay-service die gericht is op het rendezvous-adres. De Relay-service stuurt gegevens vervolgens door naar de on-premises service via een bidirectionele socket die is toegewezen aan elke client. De client heeft geen rechtstreekse verbinding met de on-premises service nodig en hoeft niet te weten waar de service zich bevindt. Voor de on-premises service is niet vereist dat poorten voor inkomend verkeer zijn geopend in de firewall.
+In Hallo relayed gegevensoverdracht patroon een on-premises-service toohello relay-service verbindt via een uitgaande poort en maakt een bidirectionele socket voor communicatie gebonden tooa bepaald rendezvous-adres. Hallo-client kan vervolgens communiceren met de Hallo on-premises-service door te sturen verkeer toohello relay-service die gericht is op Hallo rendezvous-adres. Hallo relay-service stuurt' vervolgens' data toohello on-premises service via een bidirectionele socket toegewezen tooeach-client. Hallo client hoeft niet een rechtstreekse verbinding toohello lokale service en is niet vereist tooknow waarbij Hallo-service zich bevindt en Hallo lokale service hoeft niet poorten voor inkomend verkeer op Hallo firewall openen.
 
-De belangrijkste mogelijkheden met Relay zijn bidirectionele, uit de buffer gehaalde communicatie over de netwerkgrenzen heen, met TCP-beperking, eindpuntdetectie, connectiviteitsstatus en overlappende eindpuntbeveiliging. De mogelijkheden van Relay verschillen van die van integratietechnologieën op netwerkniveau zoals VPN. Dit komt omdat Relay kan worden toegepast op een enkele computer, terwijl VPN-technologie veel ingrijpender is omdat de netwerkomgeving hierbij moet worden gewijzigd.
+Hallo sleutel mogelijkheid elementen geleverd door Relay communicatie in twee richtingen, niet-gebufferde zijn buiten de netwerkgrenzen van met TCP-achtige beperking, eindpunt detectie, verbindingsstatus en eindpuntbeveiliging overlapt. Hallo relay-mogelijkheden kunnen afwijken van de op netwerkniveau integratietechnologieën zoals VPN, in die relay bereik tooa één toepassingseindpunt op een enkele computer terwijl VPN-technologie is tot nu toe ingrijpender zoals is afhankelijk van het wijzigen van de netwerkomgeving Hallo .
 
 Azure Relay heeft twee functies:
 
-1. [Hybride verbindingen](#hybrid-connections): maakt gebruik van websockets op basis van open standaarden, waardoor scenario's met meerdere platforms worden ingeschakeld.
-2. [WCF-relays](#wcf-relays): maakt gebruik van WCF (Windows Communication Foundation) om externe procedureaanroepen in te schakelen. WCF-relay is de oude relay-aanbieding die veel klanten mogelijk al gebruiken met hun WCF-programmeringsmodellen.
+1. [Hybride verbindingen](#hybrid-connections) - gebruikt Hallo standard web openen sockets inschakelen van scenario's voor meerdere platforms.
+2. [WCF-Relays](#wcf-relays) -tooenable externe procedureaanroepen weer dat gebruikmaakt van Windows Communication Foundation (WCF). Relay WCF is Hallo verouderde relay biedt dat veel klanten al met hun WCF programming modellen gebruiken.
 
-Zowel met Hybride verbindingen als met WCF-relays wordt een beveiligde verbinding ingeschakeld naar activa die bestaan binnen een bedrijfsnetwerk. Of u de ene of de andere methode gebruikt is afhankelijk van uw specifieke behoeften, zoals wordt beschreven in de volgende tabel:
+Hybride verbindingen en WCF-Relays inschakelen beveiligde verbinding tooassets die bestaan in een bedrijfsnetwerk. Gebruik van een via andere Hallo is afhankelijk van uw specifieke behoeften, zoals beschreven in de volgende tabel Hallo:
 
 |  | WCF-relay | Hybride verbindingen |
 | --- |:---:|:---:|
@@ -48,20 +48,20 @@ Zowel met Hybride verbindingen als met WCF-relays wordt een beveiligde verbindin
 
 ## <a name="hybrid-connections"></a>Hybride verbindingen
 
-De functie [Hybride verbindingen van Azure Relay](relay-hybrid-connections-protocol.md) is een veilige open-protocolversie van de bestaande Relay-functies en kan op elk platform en in elke taal worden geïmplementeerd. De enige vereiste hiervoor zijn de standaardmogelijkheden van WebSocket, die expliciet de WebSocket-API omvat in veelgebruikte webbrowsers. Hybride verbindingen zijn gebaseerd op HTTP en WebSockets.
+Hallo [Azure Relay hybride verbindingen](relay-hybrid-connections-protocol.md) mogelijkheid is een beveiligde, open-protocol evolutie van Hallo bestaande Relay-functies die kunnen worden geïmplementeerd op elk platform en in elke taal waarvoor een basic WebSocket-mogelijkheid heeft die algemene webbrowsers bevat expliciet Hallo WebSocket-API. Hybride verbindingen zijn gebaseerd op HTTP en WebSockets.
 
 ### <a name="service-history"></a>Servicegeschiedenis
 
-De functie Hybride verbindingen vervangt de vorige functie, genaamd BizTalk Services, die is gebouwd op de Azure Service Bus WCF-relay. De mogelijkheden van de nieuwe hybride verbindingen zijn een aanvulling op de bestaande WCF-relay. De mogelijkheden van deze twee services bestaan naast elkaar in de Azure Relay-service. De twee services delen een gateway, maar zijn verder afzonderlijke implementaties.
+Hybride verbindingen supplants Hallo voormalige, op dezelfde manier met de naam 'BizTalk Services'-functie die is gebaseerd op Hallo Azure Service Bus WCF Relay. Hallo nieuwe hybride verbindingen mogelijkheid is een aanvulling op bestaande WCF Relay-functie Hallo en deze twee servicefuncties side-by-side in hello Azure Relay-service bestaat. De twee services delen een gateway, maar zijn verder afzonderlijke implementaties.
 
 ## <a name="wcf-relays"></a>WCF-relays
 
-De WCF-Relay werkt voor het volledige .NET Framework (NETFX) en voor WCF. U start de verbinding tussen uw on-premises service en de Relay-service met een reeks WCF-relaybindingen. Achter de schermen worden de Relay-bindingen toegewezen aan nieuwe transportbindingselementen die zijn ontworpen om WCF-kanaalonderdelen te maken die kunnen worden geïntegreerd met de Service Bus in de cloud.
+Hallo WCF Relay werkt voor Hallo volledige .NET Framework (NETFX) en voor WCF. U start Hallo-verbinding tussen uw on-premises-service en Hallo relay-service met een reeks WCF 'relay'-bindingen. Hallo relay-bindingen toegewezen achter de schermen hello, toonew transport binding elementen ontworpen toocreate WCF-kanaalonderdelen die kunnen worden geïntegreerd met Service Bus in de cloud Hallo.
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Architectuur: verwerken van inkomende relay-aanvragen
-Wanneer een client een verzoek naar de [Azure Relay](/azure/service-bus-relay/)-service verzendt, wordt het via de Azure Load Balancer doorgestuurd naar een van de gateway-knooppunten. Als de aanvraag een aanvraag voor luisteren is, maakt het gateway-knooppunt een nieuwe relay. Als de aanvraag een verbindingsaanvraag is voor een specifieke relay, verzendt het gateway-knooppunt de verbindingsaanvraag door naar het gateway-knooppunt dat eigenaar is van de relay. Het gateway-knooppunt dat eigenaar is van de relay verzendt een ontmoetingsaanvraag naar de luisterende client om een tijdelijk kanaal te maken naar het gateway-knooppunt dat de verbindingsaanvraag heeft ontvangen.
+Wanneer een client verzendt een aanvraag toohello [Azure Relay](/azure/service-bus-relay/) hello Azure load balancer-service stuurt deze tooany van Hallo gateway-knooppunten. Als Hallo-aanvraag een aanvraag voor luisteren is, maakt het Hallo-gateway-knooppunt een nieuwe relay. Als Hallo-aanvraag een verbinding aanvraag tooa specifieke relay is, verzendt Hallo gateway-knooppunt Hallo verbinding aanvraag toohello gateway-knooppunt dat eigenaar is van Hallo relay. Hallo gateway-knooppunt dat eigenaar is van Hallo relay verzendt een rendezvous aanvraag toohello luisterende client om Hallo listener toocreate een tijdelijk kanaal toohello gateway-knooppunt dat Hallo verbindingsaanvraag heeft ontvangen.
 
-Wanneer de relay-verbinding tot stand is gebracht, kunnen de clients berichten uitwisselen via het gateway-knooppunt dat wordt gebruikt voor de ontmoeting.
+Wanneer Hallo relay-verbinding tot stand is gebracht, kunnen clients Hallo berichten uit via Hallo gateway-knooppunt dat wordt gebruikt voor Hallo rendezvous uitwisselen.
 
 ![Verwerken van inkomende WCF Relay-aanvragen](./media/relay-what-is-it/ic690645.png)
 

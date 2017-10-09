@@ -1,6 +1,6 @@
 ---
-title: Verificatie toevoegen op Apache Cordova met Mobile Apps | Microsoft Docs
-description: "Informatie over het verifiëren van gebruikers van uw Apache Cordova-app via een groot aantal identiteitsproviders, waaronder Google, Facebook, Twitter en Microsoft met Mobile Apps in Azure App Service."
+title: aaaAdd verificatie op Apache Cordova met Mobile Apps | Microsoft Docs
+description: Meer informatie over hoe toouse Mobile Apps in Azure App Service tooauthenticate gebruikers van uw Apache Cordova-app via een groot aantal identiteitsproviders, waaronder Google, Facebook, Twitter en Microsoft.
 services: app-service\mobile
 documentationcenter: javascript
 author: ggailey777
@@ -14,37 +14,37 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: glenga
-ms.openlocfilehash: b7362b7f26859de541f792e714502851d74c98e5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 61a05c5ac67fd0f0bc4c9d6920954a9b464a0a8d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-authentication-to-your-apache-cordova-app"></a>Verificatie toevoegen aan uw Apache Cordova-app
+# <a name="add-authentication-tooyour-apache-cordova-app"></a>Verificatie tooyour Apache Cordova-app toevoegen
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## <a name="summary"></a>Samenvatting
-In deze zelfstudie kunt u verificatie toevoegen aan de todolist-Quick Start-project op Apache Cordova met behulp van een ondersteunde id-provider. Deze zelfstudie is gebaseerd op de [aan de slag met Mobile Apps] zelfstudie die u moet eerst te voltooien.
+In deze zelfstudie kunt u verificatie toohello todolist Quick Start-project toevoegen op Apache Cordova met behulp van een ondersteunde id-provider. Deze zelfstudie is gebaseerd op Hallo [aan de slag met Mobile Apps] zelfstudie die u moet eerst te voltooien.
 
-## <a name="register"></a>Uw app registreren voor verificatie en de App Service configureren
+## <a name="register"></a>Uw app registreren voor verificatie en Hallo App Service configureren
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 [Bekijk een video van vergelijkbare stappen](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
 
-## <a name="permissions"></a>Machtigingen beperken voor geverifieerde gebruikers
+## <a name="permissions"></a>Machtigingen tooauthenticated gebruikers beperken
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Nu kunt u controleren of anonieme toegang tot uw back-end is uitgeschakeld. In Visual Studio:
+U kunt nu controleren dat die back-end voor anonieme toegang tooyour is uitgeschakeld. In Visual Studio:
 
-* Open het project dat u hebt gemaakt toen u de zelfstudie voltooid [aan de slag met Mobile Apps].
-* Uw toepassing uitvoeren in de **Google Android-Emulator**.
-* Controleer of er een onverwachte fout in de verbinding wordt weergegeven nadat de app is gestart.
+* Open Hallo-project dat u hebt gemaakt toen u Hallo-zelfstudie voltooid [aan de slag met Mobile Apps].
+* Uw toepassing uitvoeren in Hallo **Google Android-Emulator**.
+* Controleer of er een onverwachte fout in de verbinding wordt weergegeven nadat Hallo app is gestart.
 
-Werk vervolgens de app om gebruikers te verifiëren voordat u resources van de back-end voor de mobiele App.
+Werk vervolgens Hallo app tooauthenticate gebruikers voordat u resources van Hallo-end voor mobiele App.
 
-## <a name="add-authentication"></a>Verificatie toevoegen aan de app.
-1. Open het project in **Visual Studio**, open vervolgens de `www/index.html` bestand voor bewerken.
-2. Zoek de `Content-Security-Policy` meta-code in het gedeelte head.  De OAuth host toevoegt aan de lijst met toegestane bronnen.
+## <a name="add-authentication"></a>Verificatie toohello app toevoegen
+1. Open het project in **Visual Studio**, open vervolgens Hallo `www/index.html` bestand voor bewerken.
+2. Zoek Hallo `Content-Security-Policy` meta-code in Hallo head-sectie.  Hallo OAuth host toohello lijst van toegestane bronnen toevoegen.
 
    | Provider | De naam van de SDK-Provider | OAuth-Host |
    |:--- |:--- |:--- |
@@ -59,13 +59,13 @@ Werk vervolgens de app om gebruikers te verifiëren voordat u resources van de b
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'
             data: gap: https://login.microsoftonline.com https://yourapp.azurewebsites.net; style-src 'self'">
 
-    Vervang `https://login.microsoftonline.com` met de OAuth-host uit de voorgaande tabel.  Zie voor meer informatie over de inhoud beveiligingsbeleid meta-code, de [inhoud beveiligingsbeleid documentatie].
+    Vervang `https://login.microsoftonline.com` met OAuth host Hallo Hallo voorafgaand aan de tabel.  Zie voor meer informatie over Hallo inhoud beveiligingsbeleid metatag Hallo [inhoud beveiligingsbeleid documentatie].
 
     Sommige verificatieproviders vereisen geen dat inhoud beveiligingsbeleid wijzigingen bij op de juiste mobiele apparaten.  Er zijn geen inhoud beveiligingsbeleid wijzigingen zijn vereist met Google-verificatie op een Android-apparaat.
 
-3. Open de `www/js/index.js` voor het bewerken van het bestand, zoek de `onDeviceReady()` methode, en onder het maken van de client code toe te voegen met de volgende code:
+3. Open Hallo `www/js/index.js` voor het bewerken van het bestand, zoek Hallo `onDeviceReady()` methode, en onder Hallo client maken code toe te voegen Hallo code te volgen:
 
-        // Login to the service
+        // Login toohello service
         client.login('SDK_Provider_Name')
             .then(function () {
 
@@ -74,10 +74,10 @@ Werk vervolgens de app om gebruikers te verifiëren voordat u resources van de b
                 // Create a table reference
                 todoItemTable = client.getTable('todoitem');
 
-                // Refresh the todoItems
+                // Refresh hello todoItems
                 refreshDisplay();
 
-                // Wire up the UI Event Handler for the Add Item
+                // Wire up hello UI Event Handler for hello Add Item
                 $('#add-item').submit(addItemHandler);
                 $('#refresh').on('click', refreshDisplay);
 
@@ -85,18 +85,18 @@ Werk vervolgens de app om gebruikers te verifiëren voordat u resources van de b
 
             }, handleError);
 
-    Deze code vervangt de bestaande code die de tabelverwijzing maakt en de gebruikersinterface vernieuwt.
+    Deze code vervangt de bestaande code Hallo die Hallo tabelverwijzing maakt en Hallo UI vernieuwt.
 
-    De methode login() begint verificatie met de provider. De methode login() is een async-functie die een JavaScript-belofte retourneert.  De rest van de initialisatie van de wordt in het antwoord CTP geplaatst zodat deze wordt niet uitgevoerd totdat de login()-methode is voltooid.
+    verificatie begint Hallo login() methode met het Hallo-provider. Hallo login() methode is een async-functie die een JavaScript-belofte retourneert.  Hallo rest van de initialisatie van de Hallo wordt geplaatst in het antwoord van de belofte Hallo zodat deze wordt niet uitgevoerd totdat Hallo login() methode is voltooid.
 
-4. Vervang in de code die u zojuist hebt toegevoegd, `SDK_Provider_Name` met de naam van de aanmeldingsprovider van uw. Bijvoorbeeld: voor Azure Active Directory, gebruiken `client.login('aad')`.
-5. Voer uw project.  Wanneer het project is geïnitialiseerd, ziet uw toepassing de OAuth-aanmeldingspagina voor de gekozen verificatieprovider.
+4. Vervang in Hallo-code die u zojuist hebt toegevoegd, `SDK_Provider_Name` met Hallo-naam van uw aanmeldingsprovider. Bijvoorbeeld: voor Azure Active Directory, gebruiken `client.login('aad')`.
+5. Voer uw project.  Wanneer het Hallo-project is geïnitialiseerd, ziet u uw toepassing hello OAuth-aanmeldingspagina voor Hallo verificatieprovider gekozen.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie [over verificatie] met Azure App Service.
-* De zelfstudie gaan door toe te voegen [Pushmeldingen] aan uw Apache Cordova-app.
+* Hallo-zelfstudie gaan door toe te voegen [Pushmeldingen] tooyour Apache Cordova-app.
 
-Informatie over het gebruik van de SDK's.
+Meer informatie over hoe toouse Hallo SDK's.
 
 * [Apache Cordova SDK]
 * [ASP.NET Server SDK]

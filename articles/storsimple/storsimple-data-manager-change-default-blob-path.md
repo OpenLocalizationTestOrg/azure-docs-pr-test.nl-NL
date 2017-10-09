@@ -1,6 +1,6 @@
 ---
-title: Blob-pad van de standaardwaarde wijzigen | Microsoft Docs
-description: Meer informatie over het instellen van een Azure-functie naam wijzigen van een blob-bestandspad (afgeschermd voorbeeld)
+title: aaaChange blobpad van de standaard Hallo | Microsoft Docs
+description: Meer informatie over hoe tooset van een Azure functioneren toorename een blob-bestandspad (afgeschermd voorbeeld)
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/16/2017
 ms.author: vidarmsft
-ms.openlocfilehash: 057d4d7370207859617eb63238bf425bfa6d3e16
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c414603514223c701ab1a3bd0b81ee18f1af666
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="change-a-blob-path-from-the-default-path-private-preview"></a>Wijzig het blobpad van een het standaardpad (afgeschermd voorbeeld)
+# <a name="change-a-blob-path-from-hello-default-path-private-preview"></a>Wijzig het blobpad van een Hallo standaardpad (afgeschermd voorbeeld)
 
-In dit artikel wordt beschreven hoe een Azure-functie instellen voor het wijzigen van een standaard blob-bestandspad. 
+Dit artikel wordt beschreven hoe tooset van een Azure functioneren toorename een standaardpad voor blob. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -30,77 +30,77 @@ Zorg ervoor dat u de taakdefinitie van een die correct is geconfigureerd in de b
 
 ## <a name="create-an-azure-function"></a>Een Azure-functie maken
 
-Voor het maken van een Azure-functie, het volgende doen:
+een Azure-functie toocreate Hallo te volgen:
 
-1. Ga naar de [Azure Portal](http://portal.azure.com/).
+1. Ga toohello [Azure-portal](http://portal.azure.com/).
 
-2. Klik boven in het linkerdeelvenster op **nieuw**. 
+2. Hallo boven aan het linkerdeelvenster hello, klikt u op **nieuw**. 
 
-3. In de **Search** in het vak **functie-App**, en druk op Enter.
+3. In Hallo **Search** in het vak **functie-App**, en druk op Enter.
 
-    ![Typ 'Functie-App' in het vak Zoeken](./media/storsimple-data-manager-change-default-blob-path/goto-function-app-resource.png)
+    ![Typ 'Functie-App' in het zoekvak Hallo](./media/storsimple-data-manager-change-default-blob-path/goto-function-app-resource.png)
 
-4. In de **resultaten** lijst, klikt u op **functie-App**.
+4. In Hallo **resultaten** lijst, klikt u op **functie-App**.
 
-    ![Selecteer een resource voor de functie-app in de lijst met resultaten](./media/storsimple-data-manager-change-default-blob-path/select-function-app-resource.png)
+    ![Selecteer Hallo functie app resource in de lijst met resultaten Hallo](./media/storsimple-data-manager-change-default-blob-path/select-function-app-resource.png)
 
-    De **functie-App** venster wordt geopend.
+    Hallo **functie-App** venster wordt geopend.
 
 5. Klik op **Create**.
 
-    ![De knop functie-App venster 'Maken'](./media/storsimple-data-manager-change-default-blob-path/create-new-function-app.png)
+    ![knop 'Maken' Hello functie-App-venster](./media/storsimple-data-manager-change-default-blob-path/create-new-function-app.png)
 
-6. Op de **functie-App** blade van de configuratie van de volgende handelingen uit:
+6. Op Hallo **functie-App** configuratie blade Hallo te volgen:
 
-    a. In de **appnaam** typt u de appnaam.
+    a. In Hallo **appnaam** vak, type Hallo app-naam.
     
-    b. In de **abonnement** typt u de naam van het abonnement.
+    b. In Hallo **abonnement** vak, type Hallo-naam van het Hallo-abonnement.
 
-    c. Onder **resourcegroep**, klikt u op **nieuw**, en typ vervolgens de naam van de resourcegroep.
+    c. Onder **resourcegroep**, klikt u op **nieuw**, en vervolgens Hallo typenaam van de resourcegroep Hallo.
 
-    d. In de **die als host fungeert van plan bent** in het vak **verbruik plannen**.
+    d. In Hallo **die als host fungeert van plan bent** in het vak **verbruik plannen**.
 
-    e. In de **locatie** typt u de locatie.
+    e. In Hallo **locatie** vak type Hallo locatie.
 
-    f. Onder **opslagaccount**, selecteer een bestaand opslagaccount of maak een nieuw opslagaccount. Een opslagaccount wordt intern gebruikt voor de functie.
+    f. Onder **opslagaccount**, selecteer een bestaand opslagaccount of maak een nieuw opslagaccount. Een opslagaccount wordt intern gebruikt voor Hallo-functie.
 
     ![Voer de nieuwe functie-App-configuratiegegevens](./media/storsimple-data-manager-change-default-blob-path/enter-new-funcion-app-data.png)
 
 7. Klik op **Create**.  
-    De functie-app wordt gemaakt.
+    Hallo functie-app wordt gemaakt.
 
-8. Klik in het linkerdeelvenster op **meer services**, en vervolgens de volgende handelingen uit:
+8. Klik in het linkerdeelvenster Hallo **meer services**, en vervolgens Hallo te volgen:
     
-    a. In de **Filter** in het vak **App services**.
+    a. In Hallo **Filter** in het vak **App services**.
     
     b. Klik op **App Services**. 
 
-    ![De koppeling 'Meer services' in het linkerdeelvenster](./media/storsimple-data-manager-change-default-blob-path/more-services.png)
+    ![De koppeling 'Meer services' in het linkerdeelvenster Hallo](./media/storsimple-data-manager-change-default-blob-path/more-services.png)
 
-9. Klik op de naam van de functie-app in de lijst van app-services.  
-    De functie app-pagina wordt geopend.
+9. Klik op Hallo-naam van de functie-app Hallo in lijst Hallo van app-services.  
+    Hallo functie app-pagina wordt geopend.
 
-10. Klik in het linkerdeelvenster op **nieuwe functie**, en vervolgens de volgende handelingen uit: 
+10. Klik in het linkerdeelvenster Hallo **nieuwe functie**, en vervolgens Hallo te volgen: 
 
-    a. In de **taal** selecteert **C#**.
+    a. In Hallo **taal** selecteert **C#**.
     
-    b. Selecteer in de matrix van sjabloon tegels **QueueTrigger CSharp**.
+    b. Selecteer in het Hallo-matrix van sjabloon tegels, **QueueTrigger CSharp**.
 
-    c. In de **naam van de functie** typt u een naam voor de functie.
+    c. In Hallo **naam van de functie** typt u een naam voor de functie.
 
-    d. In de **wachtrijnaam** typt u de naam van uw data transformation taak definitie.
+    d. In Hallo **wachtrijnaam** typt u de naam van uw data transformation taak definitie.
 
-    e. Onder **Storage-account verbinding**, klikt u op **nieuwe**, en selecteer vervolgens het account dat overeenkomt met de taak gegevens transformatie.  
-        Noteer de naam van de verbinding. De naam van de is later in de Azure-functie vereist.
+    e. Onder **Storage-account verbinding**, klikt u op **nieuwe**, en selecteer vervolgens Hallo-account dat overeenkomt met toohello gegevenstransformatie taak.  
+        Noteer de naam van de verbinding Hallo. Hallo naam is verderop in hello Azure-functie vereist.
 
        ![Maak een nieuwe C#-functie](./media/storsimple-data-manager-change-default-blob-path/create-new-csharp-function.png)
 
     f. Klik op **Create**.  
-    De **functie** venster wordt geopend.
+    Hallo **functie** venster wordt geopend.
 
-11. In de **functie** venster uitvoeren _.csx_ bestand en voert u het volgende:
+11. In Hallo **functie** venster uitvoeren _.csx_ -bestand en vervolgens Hallo te volgen:
 
-    a. Plak de volgende code:
+    a. Plak Hallo code te volgen:
 
     ```
     using System;
@@ -146,7 +146,7 @@ Voor het maken van een Azure-functie, het volgende doen:
         log.Info($"Blob name: {blobName}");
         log.Info($"New blob name: {newBlobName}");
 
-        // Create the blob client.
+        // Create hello blob client.
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
         // Container reference
@@ -169,8 +169,8 @@ Voor het maken van een Azure-functie, het volgende doen:
         CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
         if (!blob.Exists())
         {
-            // Skip to copy the blob to new container, if source blob doesn't exist
-            log.Info($"The specified blob does not exist.");
+            // Skip toocopy hello blob toonew container, if source blob doesn't exist
+            log.Info($"hello specified blob does not exist.");
             log.Info($"Blob Uri: {blob.Uri}");
             return;
         }
@@ -179,7 +179,7 @@ Voor het maken van een Azure-functie, het volgende doen:
         if (!blobCopy.Exists())
         {
             blobCopy.StartCopy(blob);
-            // Delete old blob, after copy to new container
+            // Delete old blob, after copy toonew container
             blob.DeleteIfExists();
             log.Info($"Blob file path renamed completed successfully");
         }
@@ -204,21 +204,21 @@ Voor het maken van een Azure-functie, het volgende doen:
 
     b. Vervang **STORAGE_CONNECTIONNAME** op regel 11 met de storage-account verbinding (Zie punt 8 c).
 
-    c. Klik linksboven, **opslaan**.
+    c. Klik boven Hallo links op **opslaan**.
 
     ![De functie opslaan](./media/storsimple-data-manager-change-default-blob-path/save-function.png)
 
-12. Voor het voltooien van de functie toevoegen één meer bestand als volgt:
+12. toocomplete Hallo functie, één meer bestand toevoegen door Hallo volgende te doen:
 
     a. Klik op **bestanden bekijken**.
 
-       ![De koppeling 'Bestanden weergeven'](./media/storsimple-data-manager-change-default-blob-path/view-files.png)
+       ![Hallo 'Bestanden weergeven' koppeling](./media/storsimple-data-manager-change-default-blob-path/view-files.png)
 
     b. Klik op **Add**.
     
     c. Type **project.json**, en druk op Enter.
     
-    d. In de **project.json** bestand, plak de volgende code:
+    d. In Hallo **project.json** bestand, plak Hallo code te volgen:
 
     ```
     {
@@ -235,8 +235,8 @@ Voor het maken van een Azure-functie, het volgende doen:
 
     e. Klik op **Opslaan**.
 
-U hebt een Azure-functie gemaakt. Deze functie wordt telkens wanneer die een nieuwe blob wordt gegenereerd door de taak Gegevenstransformatie geactiveerd.
+U hebt een Azure-functie gemaakt. Deze functie wordt telkens wanneer die een nieuwe blob wordt gegenereerd door Hallo gegevenstransformatie taak geactiveerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Gebruik StorSimple Data Manager UI om uw gegevens te transformeren](storsimple-data-manager-ui.md)
+[Uw gegevens StorSimple Data Manager UI tootransform gebruiken](storsimple-data-manager-ui.md)

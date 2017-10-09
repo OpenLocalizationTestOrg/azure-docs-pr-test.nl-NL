@@ -1,6 +1,6 @@
 ---
-title: Toevoegen van een vertraging in logic apps | Microsoft Docs
-description: Overzicht van de vertraging en vertraging-totdat acties en hoe u deze met een Azure logic app gebruikt.
+title: aaaAdd een vertraging in logic apps | Microsoft Docs
+description: Overzicht van Hallo vertraging en vertraging-totdat acties, en hoe toouse ze aan een Azure logic app.
 services: 
 documentationcenter: 
 author: jeffhollan
@@ -15,62 +15,62 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 5f4f7052d48b4ca4ed91212d970551141e78e852
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e5bc9d639adbddc01ee0f6a4c68716f586d4344a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-delay-and-delay-until-actions"></a>Aan de slag met vertraging en vertraging-totdat acties
-Met behulp van de vertraging en ' vertraging-totdat ' acties, werkstroom-scenario's kan worden voltooid.
+# <a name="get-started-with-hello-delay-and-delay-until-actions"></a>Aan de slag met Hallo vertraging en vertraging-totdat acties
+Met behulp van Hallo vertraging en ' vertraging-totdat ' acties, werkstroom-scenario's kan worden voltooid.
 
 U kunt bijvoorbeeld:
 
-* Wachten totdat een weekdag een statusupdate verzenden via e-mail.
-* De werkstroom uit te stellen tot er een HTTP-aanroep is tijd om te voltooien voordat wordt hervat en het ophalen van het resultaat.
+* Wacht totdat een weekdag toosend status bijwerken via e-mail.
+* Vertraging Hallo werkstroom totdat een HTTP-aanroep heeft tijd toofinish voordat wordt hervat en ophalen van het Hallo-resultaat.
 
-Om te beginnen met de actie vertraging in een logische app, Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+tooget gestart met Hallo vertraging actie in een logische app, Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="use-the-delay-actions"></a>De vertraging acties gebruiken
-Een actie is een bewerking die wordt uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](connectors-overview.md).
+## <a name="use-hello-delay-actions"></a>Hallo vertraging acties gebruiken
+Een actie is een bewerking die wordt uitgevoerd door Hallo werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](connectors-overview.md).
 
-Hier volgt een voorbeeld van de volgorde van het gebruik van een vertraging stap in een logische app:
+Hier volgt een van de voorbeeldreeks hoe toouse een vertraging stap in een logische app:
 
-1. Klik na het toevoegen van een trigger **nieuwe stap** een actie toevoegen.
-2. Zoeken naar **vertraging** online zetten van de acties vertraging. In dit voorbeeld selecteren we **vertraging**.
+1. Klik na het toevoegen van een trigger **nieuwe stap** tooadd een actie.
+2. Zoeken naar **vertraging** toobring Hallo vertraging acties. In dit voorbeeld selecteren we **vertraging**.
    
     ![Vertraging acties](./media/connectors-native-delay/using-action-1.png)
-3. Voltooi alle van de actie-eigenschappen voor het configureren van de vertraging.
+3. Voltooi alle Hallo actie eigenschappen tooconfigure Hallo vertraging.
    
     ![Vertraging config](./media/connectors-native-delay/using-action-2.png)
-4. Klik op **opslaan** publiceren en activeren van de logische app.
+4. Klik op **opslaan** toopublish en Hallo logische app activeren.
 
 ## <a name="action-details"></a>Actiedetails
-De trigger terugkeerpatroon heeft de volgende eigenschappen die kunnen worden geconfigureerd.
+Hallo terugkeerpatroon trigger heeft Hallo volgende eigenschappen die kunnen worden geconfigureerd.
 
 ### <a name="delay-action"></a>Vertraging actie
-Deze actie een vertraging de uitvoeren voor een bepaalde periode.
+Deze actie vertragingen hello uitvoeren voor een bepaalde periode.
 A * houdt in dat een vereist veld.
 
 | Weergavenaam | De naam van eigenschap | Beschrijving |
 | --- | --- | --- |
-| Aantal * |Aantal |Het aantal tijdseenheden vertraging |
-| Eenheid * |eenheid |De tijdseenheid: `Second`, `Minute`, `Hour`, of`Day` |
+| Aantal * |Aantal |het aantal keer eenheden toodelay Hallo |
+| Eenheid * |eenheid |Hallo tijdseenheid: `Second`, `Minute`, `Hour`, of`Day` |
 
 <br>
 
 ### <a name="delay-until-action"></a>Vertraging-totdat de actie
-Deze actie een vertraging de uitvoeren tot een opgegeven datum/tijd.
+Deze actie een vertraging Hallo uitgevoerd totdat het een opgegeven datum/tijd.
 A * houdt in dat een vereist veld.
 
 | Weergavenaam | De naam van eigenschap | Beschrijving |
 | --- | --- | --- |
-| Jaar * |tijdstempel |Het jaar tot uitstellen tot (GMT) |
-| Maand * |tijdstempel |De maand tot uitstellen tot (GMT) |
-| Dag * |tijdstempel |De dag uitstellen tot (GMT) |
+| Jaar * |tijdstempel |Hallo jaar toodelay tot (GMT) |
+| Maand * |tijdstempel |Hallo maand toodelay tot (GMT) |
+| Dag * |tijdstempel |Hallo dag toodelay tot (GMT) |
 
 <br>
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu uitproberen van het platform en [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md). U kunt de beschikbare connectors in logische apps door te kijken verkennen onze [API's lijst](apis-list.md).
+Nu uitproberen Hallo-platform en [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md). U kunt verkennen Hallo van andere beschikbare connectors in logische apps door te kijken onze [API's lijst](apis-list.md).
 

@@ -1,6 +1,6 @@
-In de Kopieeractiviteit, wanneer de bron van het type **FileSystemSource**, de volgende eigenschappen beschikbaar zijn in de sectie typeProperties:
+In de Kopieeractiviteit, wanneer de bron van het type **FileSystemSource**, Hallo volgende eigenschappen beschikbaar zijn in de sectie typeProperties:
 
 | Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| Recursieve |Hiermee wordt aangegeven of de gegevens recursief is gelezen uit de submappen of alleen uit de opgegeven map. |True, False (standaard) |Nee |
+| Recursieve |Hiermee wordt aangegeven of Hallo gegevens recursief is gelezen vanuit Hallo submappen of alleen vanuit de opgegeven map Hallo. |True, False (standaard) |Nee |
 

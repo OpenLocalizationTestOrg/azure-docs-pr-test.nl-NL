@@ -1,6 +1,6 @@
 ---
-title: Azure Storage Scalability and Performance Targets | Microsoft Docs
-description: Meer informatie over de schaalbaarheids- en prestatiedoelen voor Azure Storage, met inbegrip van capaciteit en snelheid van aanvragen voor binnenkomende en uitgaande bandbreedte voor beide standard en premium storage-accounts. Begrijpen prestatiedoelen voor partities in elk van de Azure Storage-services.
+title: aaaAzure Storage Scalability and Performance Targets | Microsoft Docs
+description: Meer informatie over de schaalbaarheids- en prestatiedoelen Hallo voor Azure Storage, met inbegrip van capaciteit en snelheid van aanvragen voor binnenkomende en uitgaande bandbreedte voor beide standard en premium storage-accounts. Begrijpen prestatiedoelen voor partities binnen elke hello Azure Storage-services.
 services: storage
 documentationcenter: na
 author: robinsh
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
 ms.author: robinsh
-ms.openlocfilehash: 47a1d2b87269d40716b3dae02276207060b41c24
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7afe4366a02887b4e3d9781c26c8adda81adce95
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Schaalbaarheids- en prestatiedoelen van Azure Storage
 ## <a name="overview"></a>Overzicht
-Dit onderwerp beschrijft de schaalbaarheid en prestaties onderwerpen voor Microsoft Azure Storage. Zie voor een overzicht van andere Azure limieten [Azure-abonnement en Service-limieten, quota's en beperkingen](../../azure-subscription-service-limits.md).
+Dit onderwerp beschrijft de schaalbaarheid en prestaties onderwerpen Hallo voor Microsoft Azure Storage. Zie voor een overzicht van andere Azure limieten [Azure-abonnement en Service-limieten, quota's en beperkingen](../../azure-subscription-service-limits.md).
 
 > [!NOTE]
-> Alle opslagaccounts worden uitgevoerd op de nieuwe platte netwerktopologie en ondersteunen de schaalbaarheids- en prestatiedoelen onderstaande, ongeacht wanneer ze zijn gemaakt. Zie voor meer informatie over de Azure Storage platte netwerkarchitectuur en schaalbaarheid [Microsoft Azure Storage: een maximaal beschikbare Cloudopslagservice met sterke consistentie](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+> Alle opslagaccounts worden uitgevoerd op Hallo nieuwe platte-netwerktopologie en ondersteunen Hallo schaalbaarheids- en prestatiedoelen onderstaande, ongeacht wanneer ze zijn gemaakt. Zie voor meer informatie over hello Azure Storage platte netwerkarchitectuur en schaalbaarheid [Microsoft Azure Storage: een maximaal beschikbare Cloudopslagservice met sterke consistentie](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 > 
 > [!IMPORTANT]
-> De schaalbaarheids- en prestatiedoelen hier vermeld zijn geavanceerde doelen, maar worden uitgevoerd. In alle gevallen, de frequentie van aanvragen en bandbreedte door uw opslag account is afhankelijk van de grootte van de objecten die zijn opgeslagen, de toegangspatronen gebruikt, en het type werkbelasting van uw toepassing uitvoert. Zorg ervoor dat voor het testen van uw service om te bepalen of de prestaties aan uw vereisten voldoet. Indien mogelijk plotselinge pieken in de frequentie van verkeer te voorkomen en ervoor te zorgen dat verkeer goed gedistribueerde meerdere partities.
+> Hallo schaalbaarheids- en prestatiedoelen hier vermeld zijn geavanceerde doelen, maar worden uitgevoerd. In alle gevallen Hallo aanvraag snelheid en bandbreedte bereikt door uw storage-account is afhankelijk van de grootte van de objecten die zijn opgeslagen, Hallo Hallo toegangspatronen gebruikt en Hallo type werkbelasting dat uw toepassing uitvoert. Worden tootest ervoor dat uw service toodetermine of de prestaties aan uw vereisten voldoet. Indien mogelijk plotselinge pieken in de frequentie van verkeer Hallo voorkomen en ervoor te zorgen dat verkeer goed gedistribueerde meerdere partities.
 > 
-> Wanneer uw toepassing de limiet bereikt van wat een partitie voor de werkbelasting kan verwerken, gaat Azure Storage-foutcode 503 (Server bezet) of foutcode 500 (time-out voor de bewerking) antwoorden retourneren. Wanneer dit het geval is, moet de toepassing een exponentieel uitstel-beleid gebruiken voor nieuwe pogingen. De exponentieel uitstel kan de belasting op de partitie te verkleinen en te vereenvoudigen uit pieken in het verkeer voor deze partitie.
+> Wanneer uw toepassing hello limiet van wat een partitie voor uw workload verwerken kan bereikt, Azure Storage tooreturn-foutcode 503 (Server bezet) wordt gestart of foutcode 500 (time-out voor de bewerking) antwoorden. Wanneer dit het geval is, moet Hallo toepassing een exponentieel uitstel-beleid gebruiken voor nieuwe pogingen. Hallo exponentieel uitstel kan Hallo belasting op Hallo partitie toodecrease en tooease uit pieken in verkeer toothat partitie.
 > 
 > 
 
-Als de behoeften van uw toepassing de schaalbaarheidsdoelen van een enkele storage-account overschrijdt, kunt u uw toepassing te gebruiken van meerdere storage-accounts maken en uw gegevensobjecten partitie tussen deze opslagaccounts. Zie [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor meer informatie over Volumeprijzen.
+Als Hallo van uw toepassing hello schaalbaarheidsdoelen van een enkele opslagaccount overschrijdt behoeften, kunt u meerdere opslagaccounts voor uw toepassing toouse bouwen en partitie uw gegevensobjecten over de storage-accounts. Zie [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor meer informatie over Volumeprijzen.
 
 ## <a name="scalability-targets-for-blobs-queues-tables-and-files"></a>Schaalbaarheidsdoelen voor blobs, wachtrijen, tabellen en bestanden
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
-<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
+<!-- conceptual info about disk limits -- applies toounmanaged and managed -->
 ## <a name="scalability-targets-for-virtual-machine-disks"></a>Schaalbaarheidsdoelen voor virtuele machine-schijven
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
@@ -58,20 +58,20 @@ Zie [Windows VM-grootten](../../virtual-machines/windows/sizes.md?toc=%2fazure%2
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ## <a name="partitions-in-azure-storage"></a>Partities in Azure-opslag
-Elk object dat bevat gegevens die zijn opgeslagen in Azure Storage (BLOB's, berichten, entiteiten en bestanden) behoort tot een partitie en wordt geïdentificeerd door een partitiesleutel. De partitie bepaalt hoe Azure Storage load compromis tussen de BLOB's, berichten, entiteiten en bestanden op servers om te voldoen aan de behoeften van verkeer van die objecten. De partitiesleutel is uniek en wordt gebruikt om te zoeken naar een blob, het bericht of de entiteit.
+Elk object dat bevat gegevens die zijn opgeslagen in Azure Storage (BLOB's, berichten, entiteiten en bestanden) behoort tooa partitie en wordt geïdentificeerd door een partitiesleutel. Hallo partitie bepaalt hoe Azure Storage load compromis tussen de BLOB's, berichten, entiteiten en bestanden tussen servers toomeet Hallo verkeer behoeften van die objecten. Hallo partitiesleutel is uniek en gebruikte toolocate is een blob, het bericht of de entiteit.
 
-Bovenstaande tabel [Schaalbaarheidsdoelen voor Standard-Opslagaccounts](#standard-storage-accounts) geeft een lijst van de prestatiedoelen voor één partitie voor elke service.
+bovenstaande Hallo-tabel [Schaalbaarheidsdoelen voor Standard-Opslagaccounts](#standard-storage-accounts) lijsten Hallo prestatiedoelen voor één partitie voor elke service.
 
-Partities invloed hebben op taakverdeling en schaalbaarheid voor elk van de storage-services in de volgende manieren:
+Partities invloed hebben op taakverdeling en schaalbaarheid voor elk van de opslagservices Hallo in de volgende manieren Hallo:
 
-* **BLOBs**: de partitiesleutel voor een blob is accountnaam + containernaam + blob-naam. Dit betekent dat elke blob een eigen partitie hebben kan als de belasting van de blob is vereist. BLOBs kunnen op veel servers worden gedistribueerd om de toegang tot uitbreiden, maar één blob kan alleen worden geleverd door één server. Blobs kunnen logisch worden gegroepeerd in blob-containers, maar er zijn geen partitionering gevolgen van deze groepering.
-* **Bestanden**: de partitiesleutel voor een bestand is de sharenaam van naam + bestand-account. Dit betekent dat alle bestanden in een bestandsshare bevinden zich ook in één partitie.
-* **Berichten**: de partitiesleutel voor een bericht is de accountnaam + wachtrijnaam, dus alle berichten in een wachtrij zijn ondergebracht in één partitie en door één server worden behandeld. Verschillende wachtrijen kunnen worden verwerkt door andere servers voor de taakverdeling voor echter veel wachtrijen een opslagaccount kan hebben.
-* **Entiteiten**: de partitiesleutel voor een entiteit is het account naam + tabelnaam + partitie-sleutel, waarbij de partitiesleutel de waarde van de vereiste gebruiker gedefinieerde is **PartitionKey** eigenschap voor de entiteit. Alle entiteiten met dezelfde partitie sleutelwaarde in dezelfde partitie worden gegroepeerd en door de server met dezelfde partitie worden behandeld. Dit is een belangrijk punt om te begrijpen bij het ontwerpen van uw toepassing. De voordelen van de schaalbaarheid van entiteiten verspreid over meerdere partities met de voordelen van toegang voor het groeperen van entiteiten in één partitie moet worden verdeeld in uw toepassing.  
+* **BLOBs**: Hallo partitiesleutel voor een blob is accountnaam + containernaam + blob-naam. Dit betekent dat elke blob een eigen partitie hebben kan als de belasting op Hallo blob is vereist. BLOBs kunnen worden gedistribueerd op veel servers in de volgorde tooscale uit toegang toothem, maar één blob kan alleen worden geleverd door één server. Blobs kunnen logisch worden gegroepeerd in blob-containers, maar er zijn geen partitionering gevolgen van deze groepering.
+* **Bestanden**: Hallo partitiesleutel voor een bestand is de sharenaam van naam + bestand-account. Dit betekent dat alle bestanden in een bestandsshare bevinden zich ook in één partitie.
+* **Berichten**: Hallo partitiesleutel voor een bericht is Hallo accountnaam + wachtrijnaam, zodat alle berichten in een wachtrij zijn ondergebracht in één partitie en door één server worden behandeld. Verschillende wachtrijen kunnen worden verwerkt door andere servers toobalance Hallo laden voor het echter veel wachtrijen een opslagaccount kan hebben.
+* **Entiteiten**: Hallo partitiesleutel voor een entiteit is accountnaam + tabelnaam + partitiesleutel, waarbij Hallo partitiesleutel Hallo-waarde van Hallo vereist is gebruiker gedefinieerde **PartitionKey** eigenschap voor Hallo entiteit. Alle entiteiten met dezelfde waarde voor de partitiesleutel worden gegroepeerd op Hallo dezelfde partitie en worden geleverd door Hallo dezelfde Hallo partitie-server. Dit is een belangrijk punt toounderstand bij het ontwerpen van uw toepassing. Hallo schaalbaarheid voordelen van entiteiten verspreid over meerdere partities met Hallo gegevens toegang voordelen van het groeperen van entiteiten in één partitie moet worden verdeeld in uw toepassing.  
 
-Een groot voordeel op een verzameling entiteiten in een tabel groeperen in één partitie is dat het is mogelijk atomic batchbewerkingen uitvoert via voor entiteiten in dezelfde partitie omdat een partitie op één server bestaat. Overweeg daarom als u uitvoeren van batchbewerkingen op een groep van entiteiten wilt, om ze te groeperen met dezelfde partitiesleutel. 
+Een groot voordeel toogrouping een set van entiteiten in een tabel in een enkele partitie is dat het mogelijk tooperform-atomic batchbewerkingen is voor alle entiteiten in Hallo dezelfde partitie omdat een partitie op één server bestaat. Overweeg daarom als u tooperform batchbewerkingen op een groep van entiteiten wenst, om ze te groeperen met Hallo dezelfde partitiesleutel. 
 
-Aan de andere kant entiteiten die zich in dezelfde tabel, maar de verschillende partitiesleutels kan worden met gelijke taakverdeling over verschillende servers, waardoor het mogelijk om grotere schaalbaarheid.
+Op Hallo daarentegen, entiteiten die zich in Hallo dezelfde tabel, maar verschillende partitiesleutels kunnen gelijkmatig verdeeld zijn over verschillende servers, waardoor het mogelijk toohave grotere schaalbaarheid.
 
 Aanbevelingen voor het ontwerpen van partitioneren strategie voor tabellen vindt u gedetailleerde [hier](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 

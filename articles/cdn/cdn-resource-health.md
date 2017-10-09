@@ -1,6 +1,6 @@
 ---
-title: De status van Azure CDN resources bewaken | Microsoft Docs
-description: Informatie over het controleren van de status van uw Azure CDN-resources met behulp van de status van de Azure-resources.
+title: aaaMonitor hello status van Azure CDN resources | Microsoft Docs
+description: Meer informatie over hoe toomonitor Hallo status van uw Azure CDN-resources met behulp van de status van de Azure-resources.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 37fe208f5087f318e665e76825127854b4a11c98
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0a77e56d2fecae4bde6c83730c05375853a6638a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="monitor-the-health-of-azure-cdn-resources"></a>De status van Azure CDN resources bewaken
+# <a name="monitor-hello-health-of-azure-cdn-resources"></a>Hallo-status van Azure CDN-resources bewaken
   
-Azure CDN resourcestatus is een subset van [Azure resourcestatus](../resource-health/resource-health-overview.md).  Azure-resource health kunt u de status van resources CDN controleren en ontvangen van bruikbare richtlijnen voor het oplossen van problemen.
+Azure CDN resourcestatus is een subset van [Azure resourcestatus](../resource-health/resource-health-overview.md).  U kunt Azure-resource health toomonitor Hallo status van CDN-resources gebruiken en bruikbare richtlijnen tootroubleshoot problemen ontvangen.
 
 >[!IMPORTANT] 
->Azure CDN-resourcestatus accounts alleen momenteel de status van globale levering van CDN en API-mogelijkheden.  Azure CDN-resourcestatus controleert niet of afzonderlijke CDN-eindpunten.
+>Azure CDN-resourcestatus accounts momenteel alleen Hallo status van globale levering van CDN en API-mogelijkheden.  Azure CDN-resourcestatus controleert niet of afzonderlijke CDN-eindpunten.
 >
->De signalen die Azure CDN resourcestatus feed mogelijk maximaal 15 minuten vertraagd.
+>Hallo geeft aan dat de resourcestatus Azure CDN feed mogelijk up too15 minuten vertraagd.
 
-## <a name="how-to-find-azure-cdn-resource-health"></a>Het zoeken van Azure CDN-resourcestatus
+## <a name="how-toofind-azure-cdn-resource-health"></a>Hoe toofind Azure CDN-resourcestatus
 
-1. In de [Azure-portal](https://portal.azure.com), blader naar uw CDN-profiel.
+1. In Hallo [Azure-portal](https://portal.azure.com), bladeren tooyour CDN-profiel.
 
-2. Klik op de **instellingen** knop.
+2. Klik op Hallo **instellingen** knop.
 
     ![Knop Instellingen](./media/cdn-resource-health/cdn-profile-settings.png)
 
@@ -42,22 +42,22 @@ Azure CDN resourcestatus is een subset van [Azure resourcestatus](../resource-he
     ![CDN-resourcestatus](./media/cdn-resource-health/cdn-resource-health3.png)
 
 >[!TIP] 
->U vindt ook CDN bronnen in de *resourcestatus* -tegel in de *Help + ondersteuning* blade.  U snel toegang krijgen tot *Help + ondersteuning* door te klikken op de cirkel **?** in de rechterbovenhoek van de portal.
+>U vindt ook CDN bronnen in Hallo *resourcestatus* -tegel in Hallo *Help + ondersteuning* blade.  U kunt snel te krijgen*Help + ondersteuning* door te klikken op Hallo omcirkeld **?** in Hallo rechtsboven Hallo-portal.
 >
 > ![Help en ondersteuning](./media/cdn-resource-health/cdn-help-support.png)
 
 ## <a name="azure-cdn-specific-messages"></a>Azure CDN-specifieke berichten
 
-Hieronder vindt u statussen die betrekking hebben op Azure CDN resourcestatus.
+Hieronder vindt u statussen gerelateerde tooAzure CDN resourcestatus.
 
 |Bericht | Aanbevolen actie |
 |---|---|
 |U kunt hebt gestopt, verwijderd of onjuist geconfigureerd een of meer van uw CDN-eindpunten | U kunt hebt gestopt, verwijderd of onjuist geconfigureerd een of meer van uw CDN-eindpunten.|
-|Beschikbaar is, de CDN-management-service is momenteel niet beschikbaar | Controleer hier terug voor statusupdates; Neem contact op met de ondersteuning als het probleem zich blijft nadat de verwachte oplossingstijd voordoen.|
-|Helaas is dat uw CDN-eindpunten wordt mogelijk beïnvloed door een voortdurende problemen met enkele van onze CDN-providers | Controleer hier terug voor statusupdates; Gebruik het hulpprogramma problemen oplossen voor informatie over het testen van uw oorsprong en CDN-eindpunt; Neem contact op met de ondersteuning als het probleem zich blijft nadat de verwachte oplossingstijd voordoen. |
-|Helaas CDN-eindpunt configuratiewijzigingen ondervinden vertragingen bij het doorgeven | Controleer hier terug voor statusupdates; Als u uw wijzigingen in de configuratie niet volledig binnen de verwachte tijd worden overgebracht, moet u contact op met ondersteuning.|
-|We vinden het jammer, dat er zijn momenteel problemen bij het laden van de aanvullende portal | Controleer hier terug voor statusupdates; Neem contact op met de ondersteuning als het probleem zich blijft nadat de verwachte oplossingstijd voordoen.|
-Helaas, dat we hebben momenteel problemen met enkele van onze CDN-providers | Controleer hier terug voor statusupdates; Neem contact op met de ondersteuning als het probleem zich blijft nadat de verwachte oplossingstijd voordoen. |
+|Helaas, Hallo CDN management-service is momenteel niet beschikbaar | Controleer hier terug voor statusupdates; Als het probleem zich blijft voordoen nadat Hallo oplossingstijd verwacht, neem dan contact op met ondersteuning.|
+|Helaas is dat uw CDN-eindpunten wordt mogelijk beïnvloed door een voortdurende problemen met enkele van onze CDN-providers | Controleer hier terug voor statusupdates; Gebruik Hallo oplossen hulpprogramma toolearn hoe tootest uw oorsprong en CDN-eindpunt; Als het probleem zich blijft voordoen nadat Hallo oplossingstijd verwacht, neem dan contact op met ondersteuning. |
+|Helaas CDN-eindpunt configuratiewijzigingen ondervinden vertragingen bij het doorgeven | Controleer hier terug voor statusupdates; Als u uw wijzigingen in de configuratie niet volledig in Hallo verwacht tijd worden overgebracht, moet u contact op met ondersteuning.|
+|We vinden het jammer, dat er zijn momenteel problemen bij het laden van de aanvullende portal Hallo | Controleer hier terug voor statusupdates; Als het probleem zich blijft voordoen nadat Hallo oplossingstijd verwacht, neem dan contact op met ondersteuning.|
+Helaas, dat we hebben momenteel problemen met enkele van onze CDN-providers | Controleer hier terug voor statusupdates; Als het probleem zich blijft voordoen nadat Hallo oplossingstijd verwacht, neem dan contact op met ondersteuning. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

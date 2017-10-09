@@ -1,6 +1,6 @@
 
 ### <a name="cacheskuname"></a>cacheSKUName
-De prijscategorie van de nieuwe Azure Redis-Cache.
+Hallo-prijscategorie van de Hallo nieuwe Azure Redis-Cache.
 
     "cacheSKUName": {
       "type": "string",
@@ -10,15 +10,15 @@ De prijscategorie van de nieuwe Azure Redis-Cache.
       ],
       "defaultValue": "Basic",
       "metadata": {
-        "description": "The pricing tier of the new Azure Redis Cache."
+        "description": "hello pricing tier of hello new Azure Redis Cache."
       }
     },
 
-De sjabloon definieert de waarden die zijn toegestaan voor deze parameter (basis of standaard) en een standaardwaarde (basis) wordt toegewezen als er geen waarde is opgegeven. Basic biedt één knooppunt met meerdere groottes beschikbaar up tot 53 GB.
-Standaard biedt twee knooppunten primair/Replica met meerdere groottes beschikbaar om aan de SLA 53 GB en 99,9%.
+Hallo sjabloon definieert Hallo-waarden die zijn toegestaan voor deze parameter (basis of standaard), en wijst een standaardwaarde (basis) als er geen waarde is opgegeven. Basic kunt u één knooppunt met meerdere groottes van too53 GB beschikbaar.
+Standaard biedt twee knooppunten primair/Replica met meerdere groottes van too53 GB en 99,9% SLA beschikbaar.
 
 ### <a name="cacheskufamily"></a>cacheSKUFamily
-De familie voor de sku.
+Hallo-familie voor Hallo sku.
 
     "cacheSKUFamily": {
       "type": "string",
@@ -27,13 +27,13 @@ De familie voor de sku.
       ],
       "defaultValue": "C",
       "metadata": {
-        "description": "The family for the sku."
+        "description": "hello family for hello sku."
       }
     },
 
 
 ### <a name="cacheskucapacity"></a>cacheSKUCapacity
-De grootte van het nieuwe exemplaar van Azure Redis-Cache. 
+Hallo-grootte van de nieuwe Azure Redis-Cache-exemplaar Hallo. 
 
     "cacheSKUCapacity": {
       "type": "int",
@@ -48,10 +48,10 @@ De grootte van het nieuwe exemplaar van Azure Redis-Cache.
       ],
       "defaultValue": 0,
       "metadata": {
-        "description": "The size of the new Azure Redis Cache instance. "
+        "description": "hello size of hello new Azure Redis Cache instance. "
       }
     }
 
 
-De sjabloon definieert de waarden die zijn toegestaan voor deze parameter (0, 1, 2, 3, 4, 5 of 6), en wijst een standaardwaarde (1) als er geen waarde is opgegeven. Deze getallen die overeenkomen met de volgende cachegrootte: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
+Hallo sjabloon definieert Hallo-waarden die zijn toegestaan voor deze parameter (0, 1, 2, 3, 4, 5 of 6), en wijst een standaardwaarde (1) als er geen waarde is opgegeven. Deze getallen komen overeen toofollowing cachegrootte: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
 

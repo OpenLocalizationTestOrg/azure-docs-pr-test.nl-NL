@@ -1,0 +1,5 @@
+Afzender beleid Framework (SPF)-records zijn gebruikte toospecifying welke e-mailservers toosend e namens een bepaald domeinnaam zijn toegestaan.  Juiste configuratie van de SPF-records is belangrijk tooprevent ontvangers uw e-mailadres als 'ongewenste e-mail' markeren.
+
+een nieuwe 'SPF' recordtype toosupport Hallo RFC's voor DNS oorspronkelijk geïntroduceerd in dit scenario. toosupport oudere naamservers ze Hallo gebruik van Hallo TXT recordtype toospecify SPF-records ook toegestaan.  Deze dubbelzinnigheid geleid tooconfusion, dit is opgelost door [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1).  Dit staat dat SPF-records moeten alleen worden gemaakt met het type Hallo TXT-record, en dat recordtype Hallo SPF is afgeschaft.
+
+**SPF-records worden ondersteund door Azure DNS en moeten worden gemaakt via Hallo TXT-recordtype.** Hallo verouderd SPF recordtype dat wordt niet ondersteund. Wanneer [importeren van een DNS-zonebestand](../articles/dns/dns-import-export.md), via Hallo SPF-recordtype SPF records worden geconverteerd toohello TXT recordtype.

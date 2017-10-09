@@ -1,5 +1,5 @@
 ---
-title: Gebruikerstokens in Azure AD B2B-samenwerking begrijpen | Microsoft Docs
+title: aaaUnderstand gebruikerstokens in Azure AD B2B-samenwerking | Microsoft Docs
 description: Gebruiker tokenverwijzing voor Azure Active Directory B2B-samenwerking
 services: active-directory
 documentationcenter: 
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
 ms.author: sasubram
-ms.openlocfilehash: 57b170539513953bd6a01ab4dd362a65cf905496
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 968af1c8d1ab6f4b3f50a82f6c998da3955ac364
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Gebruikerstokens in Azure AD B2B-samenwerking begrijpen
 
-Als u weten hoe het token voor een gebruiker B2B-samenwerking eruit wilt, hier worden de details van bearer-token en token inhoud voor een gastbesturingssysteem Azure Active Directory (Azure AD) en Microsoft-account Gast in de resource-tenant (voor tenantid 04dcc6ab-388a-4559-b527-fbec656300ea). Als de inhoud JSON Web Token (JWT) wilt weergeven, gebruikt [https://jwt.io/](https://jwt.io/) of [http://calebb.net](http://calebb.net/).
+Als u tooknow welke token Hallo ziet er voor een gebruiker B2B-samenwerking wilt, hier worden Hallo bearer-token details en token inhoud voor een gastbesturingssysteem Azure Active Directory (Azure AD) en Microsoft-account Gast in resource-tenant (voor tenantid Hallo 04dcc6ab-388a-4559-b527-fbec656300ea). toosee hello JSON Web Token (JWT) inhoud gebruiken [https://jwt.io/](https://jwt.io/) of [http://calebb.net](http://calebb.net/).
 
 ## <a name="azure-ad-guest-token"></a>Azure AD Gast token
 ```
@@ -42,7 +42,7 @@ Lees ook onze andere artikelen over Azure AD B2B-samenwerking:
 
 * [Wat is Azure AD B2B-samenwerking?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Gebruikerseigenschappen B2B-samenwerking](active-directory-b2b-user-properties.md)
-* [Een B2B-samenwerking-gebruiker toe te voegen aan een rol](active-directory-b2b-add-guest-to-role.md)
+* [B2B-samenwerking tooa gebruikersrol toevoegen](active-directory-b2b-add-guest-to-role.md)
 * [B2B-samenwerking uitnodigingen delegeren](active-directory-b2b-delegate-invitations.md)
 * [Dynamische groepen en B2B-samenwerking](active-directory-b2b-dynamic-groups.md)
 * [B2B-samenwerking code en PowerShell-voorbeelden](active-directory-b2b-code-samples.md)

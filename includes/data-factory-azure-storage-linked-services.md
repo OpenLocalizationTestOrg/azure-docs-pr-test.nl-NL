@@ -1,12 +1,12 @@
 ### <a name="azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service
-De **gekoppelde Azure Storage-service** kunt u een Azure storage-account koppelen aan een Azure data factory met behulp van de **accountsleutel**, waarmee de gegevensfactory met globale toegang tot de Azure Storage. De volgende tabel bevat een beschrijving voor JSON-elementen die specifiek zijn voor gekoppelde Azure Storage-service.
+Hallo **gekoppelde Azure Storage-service** kunt u een Azure storage-account tooan Azure data factory toolink met behulp van Hallo **accountsleutel**, waarmee u Hallo data factory met globale toegang toohello Azure Opslag. Hallo volgende tabel bevat een beschrijving voor JSON-elementen specifieke tooAzure gekoppelde Storage-service.
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type |De eigenschap type moet worden ingesteld op: **AzureStorage** |Ja |
-| connectionString |Geef informatie op die nodig zijn voor het verbinding maken met Azure-opslag voor de eigenschap connectionString. |Ja |
+| type |Hallo type eigenschap moet worden ingesteld op: **AzureStorage** |Ja |
+| connectionString |Geef informatie tooconnect tooAzure opslag voor de eigenschap connectionString Hallo nodig. |Ja |
 
-Zie het volgende artikel voor stappen voor de accountsleutel kopie/weergeven voor een Azure Storage: [weergeven, kopiëren en opnieuw genereren opslag toegangssleutels](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account).
+Zie de volgende artikel voor stappen tooview/kopiëren Hallo accountsleutel voor een Azure Storage Hallo: [weergeven, kopiëren en opnieuw genereren opslag toegangssleutels](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
 **Voorbeeld:**  
 
@@ -23,18 +23,18 @@ Zie het volgende artikel voor stappen voor de accountsleutel kopie/weergeven voo
 ```
 
 ### <a name="azure-storage-sas-linked-service"></a>Sas van Azure Storage gekoppelde Service
-Een shared access signature (SAS) biedt gedelegeerde toegang tot bronnen in uw opslagaccount. Hiermee kunt u dat een client beperkte machtigingen voor objecten in uw storage-account gedurende een bepaalde tijd en met een opgegeven set machtigingen, zonder dat voor het delen van de toegangssleutels van uw account verlenen. De SAS is een URI die de gegevens die zijn vereist voor geverifieerde toegang tot een opslagresource, in de queryparameters omvat. Voor toegang tot de storage-resources met de SA's, moet de client alleen worden doorgegeven in de SA's aan de juiste constructor of methode. Zie voor gedetailleerde informatie over SAS [Shared Access Signatures: inzicht in het SAS-Model](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)
+Een shared access signature (SAS) biedt tooresources gedelegeerde toegang in uw opslagaccount. Hiermee kunt u een client toogrant beperkt tooobjects machtigingen in uw opslagaccount gedurende een bepaalde tijd en met een opgegeven set machtigingen, zonder tooshare de toegangssleutels van uw account. Hallo SAS is een URI die in de queryparameters alle Hallo gegevens die nodig zijn voor geverifieerde toegang tooa storage resource omvat. opslagbronnen tooaccess Hello SAS, Hallo-client moet alleen toopass in Hallo SAS toohello geschikte constructor of methode. Zie voor gedetailleerde informatie over SAS [Shared Access Signatures: inzicht Hallo SAS-Model](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)
 
 > [!IMPORTANT]
-> Azure Data Factory nu ondersteunt alleen het **Service-SAS** maar geen Account-SAS. Zie [typen van handtekeningen voor gedeelde toegang](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) voor meer informatie over deze twee typen en bouwen. Let op de SAS-URL generable vanuit Azure-portal of Opslagverkenner is een SAS-Account, wat niet wordt ondersteund.
+> Azure Data Factory nu ondersteunt alleen het **Service-SAS** maar geen Account-SAS. Zie [typen van handtekeningen voor gedeelde toegang](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) voor meer informatie over deze twee typen en hoe tooconstruct. Houd er rekening mee Hallo SAS-URL generable vanuit Azure-portal of Opslagverkenner is een SAS-Account, wat niet wordt ondersteund.
 > 
 
-De service Azure Storage SAS is gekoppeld, kunt u een Azure Storage-Account koppelen aan een Azure data factory met behulp van een Shared Access Signature (SAS). Het biedt de gegevensfactory beperkt/tijdsgebonden toegang tot alle/specifieke bronnen, (blobcontainer) / in de opslag. De volgende tabel bevat een beschrijving voor JSON-elementen die specifiek zijn voor Azure Storage SAS gekoppelde service. 
+Hallo SAS van Azure Storage gekoppelde service, kunt u een Azure Storage-Account tooan Azure data factory toolink met behulp van een Shared Access Signature (SAS). Het biedt Hallo data factory toegang beperkt/tijdsgebonden tooall/specifieke bronnen (blobcontainer) / in Hallo-opslag. Hallo volgende tabel bevat een beschrijving voor JSON-elementen specifieke tooAzure opslag SAS gekoppelde service. 
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type |De eigenschap type moet worden ingesteld op: **AzureStorageSas** |Ja |
-| sasUri |Shared Access Signature URI voor de Azure Storage-resources zoals blob-container of tabel opgeven.  |Ja |
+| type |Hallo type eigenschap moet worden ingesteld op: **AzureStorageSas** |Ja |
+| sasUri |Geef de Shared Access Signature URI toohello Azure Storage-resources zoals blob-container of tabel.  |Ja |
 
 **Voorbeeld:**
 
@@ -44,15 +44,15 @@ De service Azure Storage SAS is gekoppeld, kunt u een Azure Storage-Account kopp
     "properties": {  
         "type": "AzureStorageSas",  
         "typeProperties": {  
-            "sasUri": "<Specify SAS URI of the Azure Storage resource>"   
+            "sasUri": "<Specify SAS URI of hello Azure Storage resource>"   
         }  
     }  
 }  
 ```
 
-Bij het maken van een **SAS-URI**, overweegt het volgende:  
+Bij het maken van een **SAS-URI**, Hallo volgende overwegen:  
 
-* Stel de juiste lezen/schrijven **machtigingen** op objecten op basis van hoe de gekoppelde service (lezen, schrijven, lezen/schrijven) wordt gebruikt in uw gegevensfactory.
-* Stel **verlooptijdstip** op de juiste wijze. Zorg ervoor dat de toegang tot Azure Storage-objecten niet binnen een actieve periode van de pijplijn verloopt.
-* URI moet worden gemaakt op de juiste container/blob of tabelniveau op basis van de behoeften. Een SAS-Uri met een Azure-blob kan de Data Factory-service voor toegang tot bepaalde blob. Een SAS-Uri naar een Azure blob-container kan de Data Factory-service om te doorlopen blobs in de container. Als u wilt toegang later meer/minder objecten bieden of bijwerken van de SAS-URI, moet u bij het bijwerken van de gekoppelde service met de nieuwe URI.   
+* Stel de juiste lezen/schrijven **machtigingen** op objecten op basis van hoe Hallo gekoppelde service (lezen, schrijven, lezen/schrijven) wordt gebruikt in uw gegevensfactory.
+* Stel **verlooptijdstip** op de juiste wijze. Zorg ervoor dat Hallo toegang tooAzure opslagobjecten verloopt niet binnen de actieve periode Hallo van Hallo-pijplijn.
+* URI moet worden gemaakt op Hallo juiste container/blob of tabelniveau op basis van Hallo nodig. Een SAS-Uri tooan Azure-blob kan Hallo Data Factory-service tooaccess bepaalde blob. Een SAS-Uri tooan Azure blob-container kunt Hallo Data Factory-service tooiterate via blobs in de container. Als u toegang nodig hebt tooprovide meer/minder objecten later of update Hallo SAS URI, houd er rekening mee tooupdate Hallo gekoppelde service met de Hallo nieuwe URI.   
 

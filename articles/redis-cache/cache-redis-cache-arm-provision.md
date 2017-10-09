@@ -1,6 +1,6 @@
 ---
-title: Inrichten van een Redis-Cache met Azure Resource Manager | Microsoft Docs
-description: Gebruik Azure Resource Manager-sjabloon voor het implementeren van een Azure Redis-Cache.
+title: aaaProvision een Redis-Cache met Azure Resource Manager | Microsoft Docs
+description: Azure Resource Manager-sjabloon toodeploy een Azure Redis-Cache gebruiken.
 services: app-service
 documentationcenter: 
 author: steved0x
@@ -14,61 +14,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-ms.openlocfilehash: cce5d63e8bad2dd066cb4c28e2a8a9cb16c47953
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 46e7b3b2493ac51dbe6bab0b086304802afc5d48
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>Een Redis Cache maken op basis van een sjabloon
-In dit onderwerp leert u het maken van een Azure Resource Manager-sjabloon die u een Azure Redis-Cache implementeert. De cache kan worden gebruikt met een bestaand opslagaccount om diagnostische gegevens te behouden. U leert ook hoe om te definiëren welke bronnen worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
+In dit onderwerp leert u hoe toocreate een Azure Resource Manager-sjabloon die wordt geïmplementeerd in een Azure Redis-Cache. Hallo-cache kan worden gebruikt met een bestaande opslag account tookeep diagnostische gegevens. U leert ook hoe toodefine welke resources zijn geïmplementeerd en hoe toodefine parameters die zijn opgegeven wanneer het Hallo-implementatie wordt uitgevoerd. U kunt deze sjabloon voor uw eigen implementaties gebruiken of aanpassen toomeet uw vereisten.
 
-Diagnostische instellingen worden op dit moment wordt gedeeld voor alle caches in dezelfde regio voor een abonnement. Bijwerken van een cache in het gebied van invloed op alle andere caches in de regio.
+Op dit moment diagnostische instellingen worden gedeeld voor alle caches in Hallo dezelfde regio voor een abonnement. Bijwerken van een cache in Hallo regio is van invloed op alle andere caches in Hallo regio.
 
 Zie voor meer informatie over het maken van sjablonen [Azure Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Zie voor de volledige sjabloon [Redis-Cache sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
+Zie voor de volledige sjabloon hello, [Redis-Cache sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
 > [!NOTE]
-> Resource Manager-sjablonen voor de nieuwe [Premium-laag](cache-premium-tier-intro.md) beschikbaar zijn. 
+> Resource Manager-sjablonen voor nieuwe Hallo [Premium-laag](cache-premium-tier-intro.md) beschikbaar zijn. 
 > 
 > * [Maken van een Premium Redis-Cache met clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
 > * [Premium Redis-Cache met gegevenspersistentie maken](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
 > * [Premium Redis-Cache maken met VNet en een optionele clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
 > 
-> Om te controleren of de meest recente sjablonen, Zie [Azure-Snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) en zoek naar `Redis Cache`.
+> toocheck voor de meest recente sjablonen hello, Zie [Azure-Snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) en zoek naar `Redis Cache`.
 > 
 > 
 
 ## <a name="what-you-will-deploy"></a>Wat u wilt implementeren
 In deze sjabloon implementeert u een Azure Redis-Cache die gebruikmaakt van een bestaand opslagaccount voor diagnostische gegevens.
 
-Klik op de volgende knop om de implementatie automatisch uit te voeren:
+toorun implementatie automatisch Hallo, klikt u op de knop volgende Hallo:
 
-[![Implementeren in Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+[![TooAzure implementeren](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parameters
-Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam van de Parameters die alle van de parameterwaarden bevat.
-U moet een parameter definiëren voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving waarin u gaat implementeren. Definieer geen parameters voor waarden die altijd hetzelfde blijven. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die worden geïmplementeerd. 
+Met Azure Resource Manager u parameters definiëren voor waarden gewenste toospecify wanneer Hallo sjabloon wordt geïmplementeerd. Hallo-sjabloon bevat een sectie met de naam van de Parameters die alle Hallo parameterwaarden bevat.
+U moet een parameter voor de waarden die variëren op basis van Hallo-project die u implementeert of op basis van Hallo-omgeving die u om te implementeert definiëren. Definieer parameters niet voor waarden die altijd blijven Hallo dezelfde. De waarde van elke parameter wordt gebruikt in Hallo sjabloon toodefine Hallo resources die zijn geïmplementeerd. 
 
 [!INCLUDE [app-service-web-deploy-redis-parameters](../../includes/cache-deploy-parameters.md)]
 
 ### <a name="rediscachelocation"></a>redisCacheLocation
-De locatie van de Redis-Cache. Voor de beste prestaties gebruik van dezelfde locatie als de app moet worden gebruikt met de cache.
+Hallo-locatie van Hallo Redis-Cache. Voor de beste prestaties Hallo gebruik dezelfde locatie als Hallo app toobe met Hallo cache gebruikt.
 
     "redisCacheLocation": {
       "type": "string"
     }
 
 ### <a name="existingdiagnosticsstorageaccountname"></a>existingDiagnosticsStorageAccountName
-De naam van het bestaande opslagaccount voor diagnostische gegevens. 
+Hallo de naam van Hallo bestaande storage account toouse voor diagnostische gegevens. 
 
     "existingDiagnosticsStorageAccountName": {
       "type": "string"
     }
 
 ### <a name="enablenonsslport"></a>EnableNonSslPort
-Een Boolean die aangeeft of toegang hebben via niet-SSL-poort.
+Een Boolean die aangeeft of tooallow toegang krijgen tot via niet-SSL-poort.
 
     "enableNonSslPort": {
       "type": "bool"
@@ -86,9 +86,9 @@ Een waarde die aangeeft of diagnostische gegevens is ingeschakeld. Gebruik ON of
         ]
     }
 
-## <a name="resources-to-deploy"></a>Resources om te implementeren
+## <a name="resources-toodeploy"></a>Resources toodeploy
 ### <a name="redis-cache"></a>Redis Cache
-Hiermee maakt u de Azure Redis-Cache.
+Hiermee maakt u hello Azure Redis-Cache.
 
     {
       "apiVersion": "2015-08-01",
@@ -122,7 +122,7 @@ Hiermee maakt u de Azure Redis-Cache.
 
 
 
-## <a name="commands-to-run-deployment"></a>Opdrachten om implementatie uit te voeren
+## <a name="commands-toorun-deployment"></a>Opdrachten toorun implementatie
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell

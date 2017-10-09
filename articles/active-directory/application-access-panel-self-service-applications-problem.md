@@ -1,6 +1,6 @@
 ---
-title: Probleem met toegang tot de toepassing zelf | Microsoft Docs
-description: Problemen met betrekking tot toegang tot de toepassing zelf oplossen
+title: met behulp van de toegang tot de toepassing zelf aaaProblem | Microsoft Docs
+description: Oplossen van problemen gerelateerde tooself servicetoepassing toegang
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -14,74 +14,74 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 217726709a1fdb02275de5a76a1352ea9c350600
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 2487be1df191a4e7fd0bcc0ebbe4ea62fae0fd5d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="problem-using-self-service-application-access"></a>Probleem met toegang tot selfservice-toepassingen
 
-Toegang tot de toepassing zelf is een uitstekende manier om toestaan dat gebruikers zelf detecteren toepassingen, toestaan de bedrijfsgroep goedkeuren van toegang tot deze toepassingen. U kunt de bedrijfsgroep voor het beheren van de referenties die zijn toegewezen aan deze gebruikers voor het recht wachtwoord eenmalige aanmelding op toepassingen van hun panelen toegang toestaan.
+Toegang tot de toepassing zelf is een uitstekende manier tooallow gebruikers tooself-toepassingen detecteren, eventueel Hallo business groep toestaan tooapprove toothose toepassingen. U kunt toestaan Hallo business groep toomanage Hallo referenties toegewezen gebruikers toothose voor wachtwoord eenmalige aanmelding op toepassingen rechtstreeks vanuit hun panelen toegang.
 
-Voordat uw gebruikers toepassingen van hun Toegangsvenster automatisch detecteren kunnen, moet u inschakelen **toegang tot toepassingen Self-service** naar elke toepassing die u wilt toestaan dat gebruikers zelf detecteren en aanvragen toegang tot.
+Voordat u uw gebruikers kunnen toepassingen van hun Toegangsvenster automatisch detecteren, moet u tooenable **toegang tot toepassingen Self-service** tooany toepassingen die u wenst dat tooallow gebruikers tooself-detecteren en om toegang te vragen.
 
-## <a name="general-issues-to-check-first"></a>Algemene problemen om eerst te controleren
+## <a name="general-issues-toocheck-first"></a>Algemene problemen toocheck eerst
 
--   Zorg ervoor dat de toegang tot selfservice toepassing correct is geconfigureerd. Zie ' toegang tot de toepassing zelf configureren '.
+-   Zorg ervoor dat de toegang tot selfservice toepassing correct is geconfigureerd. Zie 'Hoe tooconfigure selfservice toepassing toegang krijgen tot'.
 
--   Zorg ervoor dat de gebruiker of groep is ingeschakeld voor het aanvragen van toegang tot de toepassing zelf.
+-   Ervoor zorgen dat Hallo gebruiker of groep is toorequest selfservice toepassing toegang ingeschakeld.
 
--   Zorg ervoor dat de gebruiker de juiste plaats voor toegang tot toepassingen selfservice bezoekt. gebruikers kunnen navigeren naar hun [toepassing Toegangspaneel](https://myapps.microsoft.com/) en klik op de **+ toevoegen** om te zoeken van de apps waarmee u toegang tot selfservice hebt ingeschakeld.
+-   Zorg ervoor dat Hallo gebruiker de juiste plaats Hallo voor toegang tot toepassingen selfservice bezoekt. gebruikers kunnen navigeren tootheir [toepassing Toegangspaneel](https://myapps.microsoft.com/) en klik op Hallo **+ toevoegen** knop toofind Hallo apps toowhich u access selfservicegebruikers hebt ingeschakeld.
 
--   Als toegang tot de toepassing zelf onlangs is geconfigureerd, probeert aan te melden en afmelden opnieuw naar de gebruiker toegang deelvenster na een paar minuten om te zien als de wijzigingen access selfservicegebruikers hebben gestaan.
+-   Als toegang tot de toepassing zelf onlangs is geconfigureerd, opnieuw toosign in en uit in het toegangsvenster Hallo van de gebruiker na een paar minuten toosee als Hallo access selfservicegebruikers wijzigingen hebben gestaan.
 
-## <a name="how-to-configure-self-service-application-access"></a>Toegang tot selfservice-toepassingen configureren
+## <a name="how-tooconfigure-self-service-application-access"></a>Hoe tooconfigure selfservice toepassing openen
 
-Voor self-service toepassing toegang tot een toepassing, de volgende stappen uit te voeren:
+tooenable selfservice toepassing toegang tooan toepassing hello stappen hieronder:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
+4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
 
-5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
+5.  Klik op **alle toepassingen** tooview een lijst met al uw toepassingen.
 
-  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
+  * Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
 
-6.  Selecteer de toepassing die u wilt inschakelen, Self-service toegang tot in de lijst.
+6.  Selecteer gewenste tooenable Self-service toofrom Hallo toegangslijst Hallo-toepassing.
 
-7.  Nadat de toepassing wordt geladen, klikt u op **Self-service** van navigatiemenu links aan de van de toepassing.
+7.  Nadat de toepassing hello wordt geladen, klikt u op **Self-service** uit van de toepassing hello linkerkant navigatiemenu.
 
-8.  Voor self-service toepassing toegang voor deze toepassing, schakelt u de **toestaan dat gebruikers toegang tot deze toepassing aanvragen?** in-of uitschakelen op **Ja.**
+8.  tooenable toegang tot de toepassing Self-service voor deze toepassing, schakelt u Hallo **toorequest access toothis-toepassing voor gebruikers toestaan?** te schakelen**Ja.**
 
-9.  Klik vervolgens op de selector naast het label om te selecteren in de groep waartoe gebruikers die aanvragen toegang tot deze toepassing moet worden toegevoegd, **voor welke groep toegewezen gebruikers worden toegevoegd?** en selecteert u een groep.
+9.  Tooselect hello toowhich gebruikers die een groep aanvragen toegang toothis toepassing moet worden toegevoegd, klik vervolgens op Hallo selector volgende toohello label **toowhich groep moet worden toegewezen gebruikers worden toegevoegd?** en selecteert u een groep.
 
-10. **Optioneel:** als u wilt een zakelijke goedkeuringsprocedure voordat gebruikers toegang hebben, stelt u de **moeten worden goedgekeurd voordat het verlenen van toegang tot deze toepassing?** in-of uitschakelen op **Ja**.
+10. **Optioneel:** als u toorequire goedkeuring van een zakelijke wenst voordat gebruikers toegang kunt krijgen, stelt u Hallo **moeten worden goedgekeurd voordat u verleent toegang toothis toepassing?** te schakelen**Ja**.
 
-11. **Optioneel: voor toepassingen die gebruikmaken van wachtwoord eenmalige aanmelding alleen op** als u deze bedrijven fiatteurs om op te geven van de wachtwoorden die worden verzonden naar deze toepassing voor goedgekeurde gebruikers toestaan wilt, stelt u de **fiatteurs instellen van wachtwoorden voor deze toepassing van de gebruiker toestaan?** in-of uitschakelen op **Ja**.
+11. **Optioneel: voor toepassingen die gebruikmaken van wachtwoord eenmalige aanmelding alleen op** desgewenst tooallow deze bedrijven goedkeurders toospecify Hallo wachtwoorden die worden verzonden toothis toepassingen voor goedgekeurde gebruikers instellen Hallo **toestaan goedkeurders tooset wachtwoorden van de gebruiker voor deze toepassing?**  te schakelen**Ja**.
 
-12. **Optioneel:** om op te geven de zakelijke fiatteurs die zijn toegestaan voor het goedkeuren van toegang tot deze toepassing, klikt u op de selector naast het label **die is toegestaan voor het goedkeuren van toegang tot deze toepassing?** maximaal 10 afzonderlijke business goedkeurders selecteren.
+12. **Optioneel:** toospecify Hallo business goedkeurders die mogen tooapprove toegang toothis toepassing, klikt u op Hallo selector volgende toohello label **die tooapprove access toothis-toepassing is toegestaan?** tooselect up too10 afzonderlijke business goedkeurders.
 
  >[!NOTE]
  > Groepen worden niet ondersteund.
  >
  >
 
-13. **Optioneel:** **voor toepassingen die functies zichtbaar**, als u wilt Self-service goedgekeurde gebruikers toewijzen aan een rol, klikt u op de selector naast de **welke rol u gebruikers wilt toewijzen in deze toepassing?** om de rol waaraan u deze gebruikers worden toegewezen te selecteren.
+13. **Optioneel:** **voor toepassingen die functies zichtbaar**, indien tooassign Self-service goedgekeurde gebruikers tooa rol gewenst, klikt u op Hallo selector volgende toohello **toowhich rol moeten gebruikers worden toegewezen in dit toepassing?**  tooselect Hallo rol toowhich deze gebruikers moeten worden toegewezen.
 
-14. Klik op de **opslaan** knop aan de bovenkant van de blade om te voltooien.
+14. Klik op Hallo **opslaan** knop bovenaan Hallo Hallo blade toofinish.
 
-Nadat u de configuratie van Self-Service toepassing hebt voltooid, gebruikers kunnen navigeren naar hun [toepassing Toegangspaneel](https://myapps.microsoft.com/) en klik op de **+ toevoegen** om te zoeken van de apps waarmee u toegang tot selfservice hebt ingeschakeld. Zakelijke goedkeurders er ook een melding in hun [Toegangspaneel toepassing](https://myapps.microsoft.com/). U kunt een melding wanneer een gebruiker heeft toegang tot een toepassing die hun goedkeuring vereist aangevraagd e-mail inschakelen. 
+Nadat u de configuratie van Self-Service toepassing hebt voltooid, gebruikers tootheir kunnen navigeren [toepassing Toegangspaneel](https://myapps.microsoft.com/) en klik op Hallo **+ toevoegen** knop toofind Hallo apps toowhich u hebt ingeschakeld Selfservice toegang. Zakelijke goedkeurders er ook een melding in hun [Toegangspaneel toepassing](https://myapps.microsoft.com/). U kunt een melding wanneer een gebruiker toegang tooan toepassing waarvoor goedkeuring is aangevraagd e-mail inschakelen. 
 
-Deze goedkeuringen ondersteuning voor één werkstromen voor goedkeuring, wat betekent dat als u meerdere goedkeurders opgeeft, een enkele fiatteur toegang tot de toepassing goedkeuren kan.
+Deze goedkeuringen ondersteuning voor één werkstromen voor goedkeuring, wat betekent dat als u meerdere goedkeurders opgeeft, een enkele fiatteur access toohello-toepassing goedkeuren kan.
 
-## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Als bovenstaande stappen voor probleemoplossing het probleem niet oplossen 
+## <a name="if-these-troubleshooting-steps-do-not-resolve-hello-issue"></a>Als u deze stappen voor probleemoplossing Hallo probleem niet verhelpen 
 
-een ondersteuningsticket opent met de volgende informatie, indien beschikbaar:
+Open een ondersteuningsticket Hello volgende informatie, indien beschikbaar:
 
 -   Correlatie fout-ID
 

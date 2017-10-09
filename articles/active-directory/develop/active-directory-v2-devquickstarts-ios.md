@@ -1,6 +1,6 @@
 ---
-title: Aanmelden toevoegen aan een iOS-toepassing met behulp van het Azure AD v2.0-eindpunt | Microsoft Docs
-description: Het bouwen van een iOS-app die gebruikers met beide persoonlijke Microsoft-account aanmeldt en werk- of schoolaccount accounts met behulp van de bibliotheken van derden.
+title: aaaAdd tooan-in iOS-toepassing met behulp van Azure AD v2.0-eindpunt Hallo | Microsoft Docs
+description: Hoe toobuild een iOS-app die meldt zich aan gebruikers met beide persoonlijke Microsoft-account en werk-of schoolaccounts met behulp van de bibliotheken van derden.
 services: active-directory
 documentationcenter: 
 author: brandwe
@@ -15,61 +15,61 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: cf1455dc3d55ea3581195f7a315556d134c23a26
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a384062e6e4bd398a2b12318800728e627e05c32
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Aanmelden voor een iOS-app met behulp van een derde partij-bibliotheek met Graph API met behulp van het v2.0-eindpunt toevoegen
-Op het Microsoft Identity-platform wordt gebruikgemaakt van open standaarden, zoals OAuth2 en OpenID Connect. Ontwikkelaars kunnen een bibliotheek die ze willen integreren in onze services gebruiken. Om te helpen ons platform gebruiken met andere bibliotheken ontwikkelaars, hebben we enkele scenario's zoals deze voorbeelden van het configureren van derden bibliotheken verbinding maken met het identiteitsplatform van Microsoft geschreven. De meeste bibliotheken die implementeren [de RFC6749 OAuth2-specificatie](https://tools.ietf.org/html/rfc6749) verbinding kunnen maken met het identiteitsplatform van Microsoft.
+# <a name="add-sign-in-tooan-ios-app-using-a-third-party-library-with-graph-api-using-hello-v20-endpoint"></a>Aanmelden tooan iOS-app met behulp van een derde partij-bibliotheek met Graph API met behulp van Hallo v2.0-eindpunt toevoegen
+Hallo Microsoft identity-platform gebruikt open standaarden, zoals OAuth2 en OpenID Connect. Ontwikkelaars kunnen een bibliotheek, ze toointegrate met onze services willen gebruiken. ons platform toohelp ontwikkelaars gebruiken met andere bibliotheken, hebben we hoe de enkele scenario's zoals deze één toodemonstrate geschreven tooconfigure van derden bibliotheken tooconnect toohello Microsoft identity-platform. De meeste bibliotheken die implementeren [hello RFC6749 OAuth2-specificatie](https://tools.ietf.org/html/rfc6749) verbinding kunnen maken van toohello Microsoft identity-platform.
 
-Met de toepassing die in dit scenario maakt, kunnen gebruikers zich aanmelden bij hun organisatie en zoekt u naar anderen binnen hun organisatie met behulp van de Graph API.
+Hallo-toepassing die in dit scenario maakt, kunnen gebruikers aanmelden tootheir organisatie en zoekt u naar anderen binnen hun organisatie met behulp van Hallo Graph API.
 
-Als u geen ervaring met OAuth2 of OpenID Connect, wellicht veel van de configuratie van deze niet verstandig aan u. Het is raadzaam dat u leest [v2.0-protocollen - stromen van OAuth 2.0 autorisatie Code](active-directory-v2-protocols-oauth-code.md) voor de achtergrond.
+Als u nieuwe tooOAuth2 of OpenID Connect, kan veel van deze voorbeeldconfiguratie zin tooyou niet maken. Het is raadzaam dat u leest [v2.0-protocollen - stromen van OAuth 2.0 autorisatie Code](active-directory-v2-protocols-oauth-code.md) voor de achtergrond.
 
 > [!NOTE]
-> Sommige functies van ons platform die u een expressie in de OAuth2 of OpenID Connect standaarden, zoals voorwaardelijke toegang en beheer van Intune-beleid hebt, moeten u onze open-source bibliotheken voor Microsoft Azure identiteit gebruiken.
+> Sommige functies van ons platform waarvoor een expressie in Hallo OAuth2 of OpenID Connect standaarden, zoals voorwaardelijke toegang en beheer van Intune vereist u toouse onze open-source bibliotheken voor Microsoft Azure identiteit.
 > 
 > 
 
-Het v2.0-eindpunt biedt geen ondersteuning voor alle Azure Active Directory-scenario's en onderdelen.
+Hallo v2.0-eindpunt biedt geen ondersteuning voor alle Azure Active Directory-scenario's en onderdelen.
 
 > [!NOTE]
-> Meer informatie over om te bepalen of moet u het v2.0-eindpunt, [v2.0 beperkingen](active-directory-v2-limitations.md).
+> toodetermine als Hallo v2.0-eindpunt, moet u meer informatie over [v2.0 beperkingen](active-directory-v2-limitations.md).
 > 
 > 
 
 ## <a name="download-code-from-github"></a>Code vanuit GitHub downloaden
-De code voor deze zelfstudie wordt onderhouden in [GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2).  Als u wilt volgen, kunt u [basis van de app downloaden als een ZIP-](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) of het geraamte:
+Hallo-code voor deze zelfstudie wordt bijgehouden [op GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2).  toofollow langs, kunt u [basis van Hallo app downloaden als een ZIP-](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) of kloon Hallo basisproject:
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
 ```
 
-U kunt ook het voorbeeld downloaden en meteen aan de slag:
+U kunt ook gewoon Hallo voorbeeld downloaden en meteen aan de slag:
 
 ```
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
 ```
 
 ## <a name="register-an-app"></a>Een app registreren
-Maakt een nieuwe app op de [toepassing registratieportal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), of de gedetailleerde stappen op [het registreren van een app met het v2.0-eindpunt](active-directory-v2-app-registration.md).  Zorg ervoor dat:
+Maak een nieuwe app op Hallo [toepassing registratieportal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), of volgen gedetailleerde stappen op Hallo [hoe tooregister een app met Hallo v2.0-eindpunt](active-directory-v2-app-registration.md).  Zorg ervoor dat:
 
-* Kopieer de **toepassings-Id** die toegewezen aan uw app, omdat u hebt deze snel nodig.
-* Voeg de **Mobile** platform voor uw app.
-* Kopieer de **omleidings-URI** vanuit de portal. Moet u de standaardwaarde van `urn:ietf:wg:oauth:2.0:oob`.
+* Kopiëren Hallo **toepassings-Id** die is toegewezen tooyour app omdat u hebt deze snel nodig.
+* Hallo toevoegen **Mobile** platform voor uw app.
+* Kopiëren Hallo **omleidings-URI** van Hallo-portal. Moet u de standaardwaarde Hallo van `urn:ietf:wg:oauth:2.0:oob`.
 
-## <a name="download-the-third-party-nxoauth2-library-and-create-a-workspace"></a>De derde partij NXOAuth2 bibliotheek downloaden en een werkruimte maken
-Voor dit scenario moet u de OAuth2Client vanuit GitHub, namelijk een OAuth2-bibliotheek voor Mac OS X- en iOS (Cocoa en Cocoa touch) gebruikt. Deze bibliotheek is gebaseerd op concept 10 van de OAuth2-specificatie. Het systeemeigen toepassingsprofiel implementeert en biedt ondersteuning voor het eindpunt voor autorisatie van de gebruiker. Dit zijn alle dingen die u wilt integreren met het identiteitsplatform van Microsoft.
+## <a name="download-hello-third-party-nxoauth2-library-and-create-a-workspace"></a>Hallo van derden NXOAuth2 bibliotheek downloaden en een werkruimte maken
+Voor dit scenario moet u Hallo OAuth2Client vanuit GitHub, namelijk een OAuth2-bibliotheek voor Mac OS X- en iOS (Cocoa en Cocoa touch) gebruikt. Deze bibliotheek is gebaseerd op concept 10 van Hallo OAuth2-specificatie. Hallo systeemeigen toepassingsprofiel implementeert en ondersteunt Hallo autorisatie endpoint van Hallo-gebruiker. Dit zijn alles van hello, moet u toointegrate met Hallo Microsoft identiteitsplatform.
 
-### <a name="add-the-library-to-your-project-by-using-cocoapods"></a>De bibliotheek toevoegen aan uw project via CocoaPods
-CocoaPods is een hulpmiddel voor afhankelijkheidsbeheer voor Xcode-projecten. Hiermee worden de vorige installatiestappen automatisch beheerd.
+### <a name="add-hello-library-tooyour-project-by-using-cocoapods"></a>Hallo-bibliotheek tooyour project via CocoaPods toevoegen
+CocoaPods is een hulpmiddel voor afhankelijkheidsbeheer voor Xcode-projecten. Het beheert vorige installatiestappen Hallo automatisch.
 
 ```
 $ vi Podfile
 ```
-1. Voeg het volgende aan de podfile toe:
+1. Hallo toothis podfile volgende toevoegen:
    
     ```
      platform :ios, '8.0'
@@ -80,7 +80,7 @@ $ vi Podfile
    
      end
     ```
-2. De podfile laden via CocoaPods. Hiermee maakt u een nieuwe Xcode-werkruimte die u gaat laden.
+2. Hallo podfile laden via CocoaPods. Hiermee maakt u een nieuwe Xcode-werkruimte die u gaat laden.
    
     ```
     $ pod install
@@ -88,24 +88,24 @@ $ vi Podfile
     $ open QuickStart.xcworkspace
     ```
 
-## <a name="explore-the-structure-of-the-project"></a>De structuur van het project verkennen
-De volgende structuur is ingesteld voor het project in het geraamte opgenomen:
+## <a name="explore-hello-structure-of-hello-project"></a>Hallo-structuur van Hallo project verkennen
+Hallo structuur te volgen is voor onze project in Hallo basisproject ingesteld:
 
 * Een Master-weergave met een zoekopdracht UPN
-* Een detailweergave voor de gegevens over de geselecteerde gebruiker
-* Een aanmelding weergave waar een gebruiker bij de app aanmelden zich om op te vragen van de grafiek
+* Een detailweergave voor Hallo gegevens over de geselecteerde gebruiker Hallo
+* Een aanmelding weergave waar een gebruiker zich in toohello app tooquery Hallo grafiek aanmelden kunt
 
-Er wordt verplaatst naar verschillende bestanden in de basis voor verificatie toevoegen. Andere onderdelen van de code, zoals de visual code, niet van toepassing zijn op identiteit, maar zijn beschikbaar voor u.
+We wordt toovarious bestanden in Hallo geraamte tooadd verificatie verplaatst. Andere onderdelen van Hallo code, zoals visual code hello, tooidentity niet van toepassing zijn, maar zijn beschikbaar voor u.
 
-## <a name="set-up-the-settingsplst-file-in-the-library"></a>Instellen van het bestand settings.plst in de bibliotheek
-* Open in de Quick Start-project het `settings.plist` bestand. Vervang de waarden van de elementen in de sectie in overeenstemming met de waarden die u in de Azure portal gebruikt. Uw code verwijst naar deze waarden als de Active Directory Authentication Library wordt gebruikt.
-  * De `clientId` is de client-ID van uw toepassing die u hebt gekopieerd uit de portal.
-  * De `redirectUri` is de omleidings-URL die de portal worden opgegeven.
+## <a name="set-up-hello-settingsplst-file-in-hello-library"></a>Hallo settings.plst bestand instelt op Hallo-bibliotheek
+* Open in Hallo Quick Start-project, Hallo `settings.plist` bestand. Vervang de waarden Hallo Hallo-elementen in Hallo sectie tooreflect Hallo waarden die u in hello Azure-portal gebruikt. Uw code zal naar deze waarden verwijzen wanneer Hallo Active Directory Authentication Library wordt gebruikt.
+  * Hallo `clientId` Hallo client-ID van uw toepassing die u hebt gekopieerd uit de portal Hallo is.
+  * Hallo `redirectUri` Hallo Omleidings-URL die Hallo portal opgegeven is.
 
-## <a name="set-up-the-nxoauth2client-library-in-your-loginviewcontroller"></a>De bibliotheek NXOAuth2Client in uw LoginViewController instellen
-De bibliotheek NXOAuth2Client moet sommige waarden ophalen instellen. Nadat u die taak hebt voltooid, kunt u het verkregen token de Graph-API aan te roepen. Omdat `LoginView` wordt aangeroepen op elk gewenst moment moeten we verifiëren, is het verstandig om configuratiewaarden in aan dat bestand.
+## <a name="set-up-hello-nxoauth2client-library-in-your-loginviewcontroller"></a>Hallo NXOAuth2Client bibliotheek in uw LoginViewController instellen
+Hallo NXOAuth2Client bibliotheek is vereist voor sommige waarden tooget instellen. Nadat u die taak hebt voltooid, kunt u Hallo verkregen token toocall Hallo Graph API. Omdat `LoginView` moet op elk gewenst moment worden aangeroepen moeten we tooauthenticate, is het zinvol tooput configuratiewaarden in toothat-bestand.
 
-* Laten we enkele Voeg waarden toe aan de `LoginViewController.m` bestand in te stellen de context voor verificatie en autorisatie. Meer informatie over de waarden volgt u de code.
+* We voegen sommige waarden toohello `LoginViewController.m` bestand tooset Hallo context voor verificatie en autorisatie. Meer informatie over Hallo waarden Volg Hallo-code.
   
     ```objc
     NSString *scopes = @"openid offline_access User.Read";
@@ -122,22 +122,22 @@ De bibliotheek NXOAuth2Client moet sommige waarden ophalen instellen. Nadat u di
     NSURL *authcode;
     ```
 
-Bekijk meer informatie over de code in.
+Bekijk meer informatie over het Hallo-code.
 
-De eerste tekenreeks is voor `scopes`.  De `User.Read` waarde kunt u lezen van het profiel van de basis van de aangemelde gebruiker.
+de eerste tekenreeks Hallo is voor `scopes`.  Hallo `User.Read` waarde kunt u tooread Hallo basisprofiel Hallo gebruiker aangemeld.
 
-U kunt meer informatie over de beschikbare scopes op [Microsoft Graph-machtigingsbereiken](https://graph.microsoft.io/docs/authorization/permission_scopes).
+U kunt meer informatie over alle beschikbare Hallo-scopes op [Microsoft Graph-machtigingsbereiken](https://graph.microsoft.io/docs/authorization/permission_scopes).
 
-Voor `authURL`, `loginURL`, `bhh`, en `tokenURL`, moet u de waarden die eerder is opgegeven. Als u de open-source bibliotheken voor Microsoft Azure identiteit gebruikt, halen we deze gegevens voor u met behulp van onze metagegevenseindpunt. Deze waarden zijn al voor u uitgepakt.
+Voor `authURL`, `loginURL`, `bhh`, en `tokenURL`, moet u eerder opgegeven Hallo-waarden. Als u Hallo open-source bibliotheken voor Microsoft Azure identiteit gebruikt, halen we deze gegevens voor u met behulp van onze metagegevenseindpunt. We hebt Hallo harde werk van het extraheren van deze waarden voor u gedaan.
 
-De waarde `keychain` is de container die de bibliotheek NXOAuth2Client gebruikt voor het maken van een sleutelhanger waarin uw tokens worden opgeslagen. Als u wilt ophalen van eenmalige aanmelding (SSO) via talrijke apps, kunt u de dezelfde sleutelketen opgeven in elk van uw toepassingen en aanvragen van het gebruik van die sleutelhanger in uw Xcode-rechten. Dit wordt uitgelegd in de Apple-documentatie.
+Hallo `keychain` waarde is het Hallo-container die Hallo NXOAuth2Client bibliotheek gebruikt een toostore sleutelhanger toocreate uw tokens. Als u tooget eenmalige aanmelding (SSO) via talrijke apps wilt, kunt u dezelfde sleutelhanger in elk van uw toepassingen Hallo en aanvragen Hallo gebruik van die sleutelhanger in uw Xcode-rechten. Dit wordt uitgelegd in Hallo Apple-documentatie.
 
-De rest van deze waarden zijn vereist voor de bibliotheek gebruiken en maken van de plaatsen waar u bij het uitvoeren van de waarden voor de context.
+Hallo rest van deze waarden zijn vereiste toouse Hallo-bibliotheek en locaties voor u toocarry waarden toohello context.
 
 ### <a name="create-a-url-cache"></a>Een URL-cache maken
-Binnen `(void)viewDidLoad()`, die altijd wordt aangeroepen nadat de weergave wordt geladen, de volgende code primes een cache voor onze gebruik.
+Binnen `(void)viewDidLoad()`, die altijd wordt aangeroepen nadat Hallo weergave wordt geladen, hello volgende code primes een cache voor onze gebruik.
 
-Voeg de volgende code toe:
+Hallo na code toevoegen:
 
 ```objc
 - (void)viewDidLoad {
@@ -154,14 +154,14 @@ Voeg de volgende code toe:
 ```
 
 ### <a name="create-a-webview-for-sign-in"></a>Maken van een webweergave voor aanmelden
-Een webweergave kan de gebruiker gevraagd om aanvullende factoren zoals SMS-bericht (indien geconfigureerd) of foutberichten terug naar de gebruiker. Hier stelt u de webweergave boven en vervolgens de code voor het afhandelen van de retouraanroepen die in de webweergave van de services identiteit gebeurt later te schrijven.
+Een webweergave kunt Hallo gebruiker vragen om aanvullende factoren zoals SMS-bericht (indien geconfigureerd) of fout berichten toohello gebruiker retourneren. Hier moet u instellen Hallo webweergave en later schrijven Hallo code toohandle Hallo retouraanroepen gebeurt in Hallo webweergave van Hallo identity services.
 
 ```objc
 -(void)requestOAuth2Access {
-    //to sign in to Microsoft APIs using OAuth2, we must show an embedded browser (UIWebView)
+    //toosign in tooMicrosoft APIs using OAuth2, we must show an embedded browser (UIWebView)
     [[NXOAuth2AccountStore sharedStore] requestAccessToAccountWithType:@"myGraphService"
                                    withPreparedAuthorizationURLHandler:^(NSURL *preparedURL) {
-                                       //navigate to the URL returned by NXOAuth2Client
+                                       //navigate toohello URL returned by NXOAuth2Client
 
                                        NSURLRequest *r = [NSURLRequest requestWithURL:preparedURL];
                                        [self.loginView loadRequest:r];
@@ -169,13 +169,13 @@ Een webweergave kan de gebruiker gevraagd om aanvullende factoren zoals SMS-beri
 }
 ```
 
-### <a name="override-the-webview-methods-to-handle-authentication"></a>De WebView-methoden voor het afhandelen van verificatie overschrijven
-Om te laten de webweergave wat er gebeurt wanneer een gebruiker aanmelden moet, zoals eerder besproken, kunt u de volgende code plakken.
+### <a name="override-hello-webview-methods-toohandle-authentication"></a>Hallo webweergave methoden toohandle verificatie overschrijven
+tootell Hallo webweergave wat er gebeurt wanneer een gebruiker nodig toosign in, zoals eerder besproken, kunt u Hallo na code plakken.
 
 ```objc
 - (void)resolveUsingUIWebView:(NSURL *)URL {
 
-    // We get the auth token from a redirect so we need to handle that in the webview.
+    // We get hello auth token from a redirect so we need toohandle that in hello webview.
 
     if (![NSThread isMainThread]) {
         [self performSelectorOnMainThread:@selector(resolveUsingUIWebView:) withObject:URL waitUntilDone:YES];
@@ -193,27 +193,27 @@ Om te laten de webweergave wat er gebeurt wanneer een gebruiker aanmelden moet, 
 
     NSLog(@"webView:shouldStartLoadWithRequest: %@ (%li)", request.URL, (long)navigationType);
 
-    // The webview is where all the communication happens. Slightly complicated.
+    // hello webview is where all hello communication happens. Slightly complicated.
 
     myLoadedUrl = [webView.request mainDocumentURL];
     NSLog(@"***Loaded url: %@", myLoadedUrl);
 
-    //if the UIWebView is showing our authorization URL or consent URL, show the UIWebView control
+    //if hello UIWebView is showing our authorization URL or consent URL, show hello UIWebView control
     if ([request.URL.absoluteString rangeOfString:authURL options:NSCaseInsensitiveSearch].location != NSNotFound) {
         self.loginView.hidden = NO;
     } else if ([request.URL.absoluteString rangeOfString:loginURL options:NSCaseInsensitiveSearch].location != NSNotFound) {
-        //otherwise hide the UIWebView, we've left the authorization flow
+        //otherwise hide hello UIWebView, we've left hello authorization flow
         self.loginView.hidden = NO;
     } else if ([request.URL.absoluteString rangeOfString:bhh options:NSCaseInsensitiveSearch].location != NSNotFound) {
-        //otherwise hide the UIWebView, we've left the authorization flow
+        //otherwise hide hello UIWebView, we've left hello authorization flow
         self.loginView.hidden = YES;
         [[NXOAuth2AccountStore sharedStore] handleRedirectURL:request.URL];
     }
     else {
         self.loginView.hidden = NO;
-        //read the Location from the UIWebView, this is how Microsoft APIs is returning the
-        //authentication code and relation information. This is controlled by the redirect URL we chose to use from Microsoft APIs
-        //continue the OAuth2 flow
+        //read hello Location from hello UIWebView, this is how Microsoft APIs is returning the
+        //authentication code and relation information. This is controlled by hello redirect URL we chose toouse from Microsoft APIs
+        //continue hello OAuth2 flow
        // [[NXOAuth2AccountStore sharedStore] handleRedirectURL:request.URL];
     }
 
@@ -222,17 +222,17 @@ Om te laten de webweergave wat er gebeurt wanneer een gebruiker aanmelden moet, 
 }
 ```
 
-### <a name="write-code-to-handle-the-result-of-the-oauth2-request"></a>Code schrijven om het resultaat van de OAuth2-aanvraag af te handelen
-De volgende code wordt de URL van de omleiding die als resultaat de webweergave geeft afgehandeld. Als verificatie niet geslaagd is, probeert de code het opnieuw. De fout die u kunt zien in de beheerconsole of asynchroon verwerken krijgt ondertussen van de bibliotheek.
+### <a name="write-code-toohandle-hello-result-of-hello-oauth2-request"></a>Schrijven van code toohandle Hallo resultaat van Hallo OAuth2-aanvraag
+Hallo wordt volgende code afgehandeld Hallo URL omleiding die uit Hallo webweergave retourneert. Als verificatie niet geslaagd is, probeert Hallo code het opnieuw. Hallo-bibliotheek biedt ondertussen Hallo-fout die u kunt zien in de beheerconsole Hallo of asynchroon verwerkt.
 
 ```objc
 - (void)handleOAuth2AccessResult:(NSString *)accessResult {
 
     AppData* data = [AppData getInstance];
 
-    //parse the response for success or failure
+    //parse hello response for success or failure
      if (accessResult)
-    //if success, complete the OAuth2 flow by handling the redirect URL and obtaining a token
+    //if success, complete hello OAuth2 flow by handling hello redirect URL and obtaining a token
      {
          [[NXOAuth2AccountStore sharedStore] handleRedirectURL:accessResult];
     } else {
@@ -242,8 +242,8 @@ De volgende code wordt de URL van de omleiding die als resultaat de webweergave 
 }
 ```
 
-### <a name="set-up-the-oauth-context-called-account-store"></a>Instellen van de OAuth-Context (accountarchief genoemd)
-U kunt hier aanroepen `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:tokenURL:redirectURL:forAccountType:]` op de gedeelde accountarchief voor elke service die u wilt toegang krijgen tot de toepassing. Het accounttype is een tekenreeks die wordt gebruikt als een id voor een bepaalde service. Omdat u de Graph API opent, wordt de code verwijst naar als `"myGraphService"`. U instellen een zien die aangeven wanneer iets verandert met het token vervolgens. Nadat u het token, u terugkeert de gebruiker terug naar de `masterView`.
+### <a name="set-up-hello-oauth-context-called-account-store"></a>Hallo OAuth-Context (accountarchief genoemd) instellen
+U kunt hier aanroepen `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:tokenURL:redirectURL:forAccountType:]` op Hallo gedeelde accountarchief voor elke service die u wilt dat Hallo toepassing toobe kunnen tooaccess. Hallo-accounttype is een tekenreeks die wordt gebruikt als een id voor een bepaalde service. Omdat u Hallo Graph API gebruiken, Hallo code verwijst tooit als `"myGraphService"`. U instellen een zien die aangeven wanneer iets verandert met Hallo token vervolgens. Nadat u Hallo-token ophalen, u Hallo gebruiker back toohello terug `masterView`.
 
 ```objc
 - (void)setupOAuth2AccountStore {
@@ -288,16 +288,16 @@ U kunt hier aanroepen `-[NXOAuth2AccountStore setClientID:secret:authorizationUR
 }
 ```
 
-## <a name="set-up-the-master-view-to-search-and-display-the-users-from-the-graph-api"></a>Instellen van de Master-weergave te zoeken en weer van de gebruikers van de Graph API
-Een model-View-Controller (MVC)-app die wordt weergegeven van de geretourneerde gegevens in het raster is buiten het bereik van dit scenario en veel online zelfstudies wordt uitgelegd hoe u een bouwen. Alle deze code is in het geraamte bestand. U moet echter te maken met een aantal items in deze MVC-toepassing:
+## <a name="set-up-hello-master-view-toosearch-and-display-hello-users-from-hello-graph-api"></a>Hallo Master weergave toosearch instellen en gebruikers Hallo van Hallo Graph API weergeven
+Een model-View-Controller (MVC)-app waarin gegevens worden geretourneerd in raster Hallo Hallo is buiten bereik van deze rondleiding Hallo en veel online zelfstudies wordt uitgelegd hoe toobuild een. Alle deze code wordt geraamte Hallo-bestand. U moet echter wel toodeal met een aantal items in deze MVC-toepassing:
 
-* Wanneer een gebruiker iets in het zoekveld onderscheppen
-* Een object van de gegevens terug naar de MasterView bieden, zodat de resultaten kan worden weergegeven in het raster
+* Wanneer een gebruiker iets in Hallo zoekveld onderscheppen
+* Geef een object van de gegevens terug toohello MasterView zodat weer te resultaten Hallo in Hallo raster geven
 
 We doen die hieronder.
 
-### <a name="add-a-check-to-see-if-youre-logged-in"></a>Toevoegen van een selectievakje om te zien als u bent aangemeld
-De toepassing biedt weinig als de gebruiker niet is ondertekend, dus is het verstandig om te controleren of er al een token in de cache. Als dat niet het geval is, wordt u omgeleid naar de LoginView voor de gebruiker aan te melden. Als u intrekt, wordt de beste manier acties uitvoeren wanneer een weergave wordt geladen is met de `viewDidLoad()` methode waarmee Apple ons.
+### <a name="add-a-check-toosee-if-youre-logged-in"></a>Een selectievakje toosee toevoegen als u bent aangemeld
+Hallo toepassing doet weinig als Hallo gebruiker niet is aangemeld, dus is het slimme toocheck als er al een token in Hallo-cache. Als niet zo is, wordt u omgeleid toohello LoginView voor Hallo gebruiker toosign in. Als u intrekt, Hallo aanbevolen manier toodo acties wanneer een weergave wordt geladen toouse Hallo is `viewDidLoad()` methode waarmee Apple ons.
 
 ```objc
 - (void)viewDidLoad {
@@ -317,8 +317,8 @@ De toepassing biedt weinig als de gebruiker niet is ondertekend, dus is het vers
         }
 ```
 
-### <a name="update-the-table-view-when-data-is-received"></a>De weergave van de tabel niet bijwerken wanneer gegevens worden ontvangen
-Wanneer de Graph API gegevens retourneert, moet u de gegevens worden weergegeven. Voor eenvoud, moet u hier de code voor het bijwerken van de tabel is. U kunt alleen de juiste waarden in uw MVC standaardtekst code plakken.
+### <a name="update-hello-table-view-when-data-is-received"></a>Hallo tabelweergave bijwerken wanneer gegevens worden ontvangen
+Wanneer Hallo Graph API gegevens retourneert, moet u toodisplay Hallo gegevens. Voor eenvoud volgt hier alle Hallo tooupdate Hallo codetabel. Alleen kunt u de juiste waarden Hallo plakken in uw MVC standaardtekst code.
 
 ```objc
 #pragma mark - Table View
@@ -344,7 +344,7 @@ Wanneer de Graph API gegevens retourneert, moet u de gegevens worden weergegeven
      user = [upnArray objectAtIndex:indexPath.row];
 
 
-    // Configure the cell
+    // Configure hello cell
     cell.textLabel.text = user.name;
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 
@@ -353,8 +353,8 @@ Wanneer de Graph API gegevens retourneert, moet u de gegevens worden weergegeven
 
 ```
 
-### <a name="provide-a-way-to-call-the-graph-api-when-someone-types-in-the-search-field"></a>Bieden een manier om de Graph API aanroepen wanneer iemand in het zoekveld typt
-Wanneer een gebruiker typt een zoekopdracht in het vak, moet u die via shove voor Graph API. De `GraphAPICaller` klasse, die u in de volgende code bouwt, scheidt u de lookup-functionaliteit van de presentatie. Nu gaan we de code schrijven waarmee willekeurige tekens search-feeds voor Graph API. We dit doen door op te geven van een methode met de naam `lookupInGraph`, wat de tekenreeks die u zoeken wilt naar duurt.
+### <a name="provide-a-way-toocall-hello-graph-api-when-someone-types-in-hello-search-field"></a>Geef een manier toocall Hallo Graph API wanneer iemand in het veld van Hallo zoeken typt
+Wanneer een gebruiker typt een zoekopdracht in Hallo vak, hoeft u tooshove die via toohello Graph API. Hallo `GraphAPICaller` klasse, die u in de volgende code Hallo bouwt, scheidt Hallo lookup functionaliteit van Hallo presentatie. Nu gaan we Hallo code schrijven waarmee een zoekopdracht tekens toohello Graph API-feeds. We dit doen door op te geven van een methode met de naam `lookupInGraph`, wat Hallo-tekenreeks die we willen toosearch voor duurt.
 
 ```objc
 
@@ -391,11 +391,11 @@ if (searchText.length > 0) {
 }
 ```
 
-## <a name="write-a-helper-class-to-access-the-graph-api"></a>Schrijven van een helperklasse voor toegang tot de Graph API
-Dit is de kern van de toepassing. Terwijl de rest code in het standaard MVC bij Apple invoegen is, schrijven hier u code voor de grafiek niet opvragen als het gebruikerstypen en ga daarna terug die gegevens. Dit is de code en een gedetailleerde uitleg erop volgt.
+## <a name="write-a-helper-class-tooaccess-hello-graph-api"></a>Schrijven van een Helper-klasse tooaccess Hallo Graph API
+Dit is Hallo kern van de toepassing. Hallo rest is code invoegen in Hallo standaardpatroon MVC bij Apple, hier maar geschreven code tooquery Hallo grafiek terwijl Hallo gebruiker typen en vervolgens deze gegevens worden geretourneerd. Hier is Hallo code en een gedetailleerde uitleg erop volgt.
 
 ### <a name="create-a-new-objective-c-header-file"></a>Maak een nieuw Objective C-header-bestand
-Noem het bestand `GraphAPICaller.h`, en voeg de volgende code.
+Bestand met de Hallo `GraphAPICaller.h`, en Hallo volgende code toe te voegen.
 
 ```objc
 @interface GraphAPICaller : NSObject<NSURLConnectionDataDelegate>
@@ -406,10 +406,10 @@ Noem het bestand `GraphAPICaller.h`, en voeg de volgende code.
 @end
 ```
 
-Hier ziet u dat een opgegeven methode een tekenreeks zijn wordt en een completionBlock retourneert. Deze completionBlock omdat u mogelijk hebt geraden, wordt de tabel bijwerken door te geven van een object met ingevulde gegevens in realtime als de gebruiker.
+Hier ziet u dat een opgegeven methode een tekenreeks zijn wordt en een completionBlock retourneert. Deze completionBlock wordt als u mogelijk hebt geraden, bijgewerkt Hallo tabel verstrekken die een object met ingevulde gegevens in realtime Hallo gebruikers zoeken.
 
 ### <a name="create-a-new-objective-c-file"></a>Maak een nieuw Objective C-bestand
-Noem het bestand `GraphAPICaller.m`, en voeg de volgende methode toe.
+Bestand met de Hallo `GraphAPICaller.m`, en Hallo volgende methode toe te voegen.
 
 ```objc
 +(void) searchUserList:(NSString*)searchString
@@ -436,16 +436,16 @@ Noem het bestand `GraphAPICaller.m`, en voeg de volgende methode toe.
                    // e.g., update a progress indicator
                }
                    responseHandler:^(NSURLResponse *response, NSData *responseData, NSError *error) {
-                       // Process the response
+                       // Process hello response
                        if (responseData) {
                            NSError *error;
                            NSDictionary *dataReturned = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
                            NSLog(@"Graph Response was: %@", dataReturned);
 
-                           // We can grab the top most JSON node to get our graph data.
+                           // We can grab hello top most JSON node tooget our graph data.
                            NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
 
-                           // Don't be thrown off by the key name being "value". It really is the name of the
+                           // Don't be thrown off by hello key name being "value". It really is hello name of the
                            // first node. :-)
 
                            //each object is a key value pair
@@ -481,22 +481,22 @@ Noem het bestand `GraphAPICaller.m`, en voeg de volgende methode toe.
 
 We gaan met deze methode in detail.
 
-De kern van deze code is in de `NXOAuth2Request`, methode waarmee de parameters die u al hebt gedefinieerd in het bestand settings.plist.
+Hallo-kern van deze code is in Hallo `NXOAuth2Request`, methode waarmee de Hallo parameters zijn vereist die u al hebt gedefinieerd in Hallo settings.plist-bestand.
 
-De eerste stap is om de juiste Graph API-aanroep samen te stellen. Omdat u aanroept `/users`, u opgeven dat door deze te voegen aan de resource Graph API samen met de versie. Het zinvol om deze in een bestand met externe instellingen omdat deze wijzigen kunnen, zoals de API ontwikkeld.
+de eerste stap Hallo is tooconstruct Hallo rechts Graph API-aanroep. Omdat u aanroept `/users`, u opgeven dat door deze toohello Graph API resource samen met de Hallo-versie toe te voegen. Het maakt zin tooput deze in een bestand met externe instellingen omdat deze wijzigen kunnen, zoals Hallo API ontwikkeld.
 
 ```objc
 NSString *graphURL = [NSString stringWithFormat:@"%@%@/users", data.graphApiUrlString, data.apiversion];
 ```
 
-Vervolgens moet u parameters opgeven die u ook voor de Graph API-aanroep biedt. Het is *erg belangrijk* plaats de parameters niet in het resource-eindpunt omdat die is verwijderd voor alle niet-URI die voldoen tekens tijdens runtime. Alle querycode moet worden opgegeven in de parameters.
+Vervolgens moet u toospecify parameters dat u ook toohello Graph API-aanroep bieden. Het is *erg belangrijk* plaats Hallo-parameters niet in de resource-eindpunt Hallo omdat die is verwijderd voor alle niet-URI die voldoen tekens tijdens runtime. Alle querycode moet worden opgegeven in het Hallo-parameters.
 
 ```objc
 
 NSDictionary* params = [self convertParamsToDictionary:searchString];
 ```
 
-U wellicht opgevallen dat hiermee een `convertParamsToDictionary` methode die u nog niet hebt geschreven. Laten we dit nu doen aan het einde van het bestand:
+U wellicht opgevallen dat hiermee een `convertParamsToDictionary` methode die u nog niet hebt geschreven. Laten we dit nu doen aan Hallo einde van Hallo-bestand:
 
 ```objc
 +(NSDictionary*) convertParamsToDictionary:(NSString*)searchString
@@ -513,7 +513,7 @@ U wellicht opgevallen dat hiermee een `convertParamsToDictionary` methode die u 
 }
 
 ```
-Vervolgens gebruiken we de `NXOAuth2Request` methode terug gegevens ophalen van de API in JSON-indeling.
+Vervolgens gebruiken we Hallo `NXOAuth2Request` methode tooget gegevens weer van Hallo API in JSON-indeling.
 
 ```objc
 NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
@@ -525,23 +525,23 @@ NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
                    // e.g., update a progress indicator
                }
                    responseHandler:^(NSURLResponse *response, NSData *responseData, NSError *error) {
-                       // Process the response
+                       // Process hello response
                        if (responseData) {
                            NSError *error;
                            NSDictionary *dataReturned = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
                            NSLog(@"Graph Response was: %@", dataReturned);
 
-                           // We can grab the top most JSON node to get our graph data.
+                           // We can grab hello top most JSON node tooget our graph data.
                            NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
 ```
 
-Tot slot gaan we kijken hoe u de gegevens terug naar de MasterViewController. De gegevens retourneert als geserialiseerd en moet worden gedeserialiseerd en geladen in een object dat de MainViewController kan gebruiken. Voor dit doel het basisproject heeft een `User.m/h` -bestand dat wordt gemaakt van een gebruikersobject. Vullen van dat object gebruiker met informatie van de grafiek.
+Ten slotte bekijken we hoe u Hallo gegevens toohello MasterViewController retourneren. Hallo gegevens retourneert als geserialiseerd en toobe gedeserialiseerd moet en geladen in een object dat Hallo MainViewController kan gebruiken. Voor dit doel Hallo basisproject heeft een `User.m/h` -bestand dat wordt gemaakt van een gebruikersobject. U vullen dat object gebruiker met informatie uit Hallo grafiek.
 
 ```objc
-                           // We can grab the top most JSON node to get our graph data.
+                           // We can grab hello top most JSON node tooget our graph data.
                            NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
 
-                           // Don't be thrown off by the key name being "value". It really is the name of the
+                           // Don't be thrown off by hello key name being "value". It really is hello name of the
                            // first node. :-)
 
                            //each object is a key value pair
@@ -564,9 +564,9 @@ Tot slot gaan we kijken hoe u de gegevens terug naar de MasterViewController. De
 ```
 
 
-## <a name="run-the-sample"></a>Het voorbeeld uitvoert
-Als u hebt het basisproject gebruikt of gevolgd samen met de procedure moet nu uw toepassing uitvoeren. De simulator Start en op **aanmelden** om de toepassing te gebruiken.
+## <a name="run-hello-sample"></a>Hallo-voorbeeld uitvoeren
+Als u hebt gebruikt Hallo basisproject of gevolgd samen met de Hallo scenario moet nu uw toepassing uitvoeren. Hallo simulator Start en op **aanmelden** toouse Hallo-toepassing.
 
 ## <a name="get-security-updates-for-our-product"></a>Beveiligingsupdates voor onze product
-We raden u aan wanneer er beveiligingsincidenten door bezoeken optreden meldingen ontvangt de [Security TechCenter](https://technet.microsoft.com/security/dd252948) en u te abonneren op Security Advisory Alerts.
+We raden u tooget meldingen van wanneer er beveiligingsincidenten optreden door te bezoeken Hallo [Security TechCenter](https://technet.microsoft.com/security/dd252948) en u te abonneren tooSecurity Advisory Alerts.
 

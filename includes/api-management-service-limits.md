@@ -6,5 +6,5 @@
 | Eenheden van de schaal |Onbeperkte<sup>1</sup> |
 | Integratie van Azure Active Directory |Accounts voor gebruikers met onbeperkte<sup>1</sup> |
 
-<sup>1</sup>limieten van API Management zijn verschillend voor elke prijscategorie. Zie voor de lagen en hun bijbehorende limieten prijzen en -opties [API Management-prijzen](https://azure.microsoft.com/pricing/details/api-management/).
+<sup>1</sup>limieten van API Management zijn verschillend voor elke prijscategorie. toosee Hallo prijzen lagen en hun bijbehorende limieten en opties, Zie [API Management-prijzen](https://azure.microsoft.com/pricing/details/api-management/).
 

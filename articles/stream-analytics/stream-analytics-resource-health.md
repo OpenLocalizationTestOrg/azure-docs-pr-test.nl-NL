@@ -1,6 +1,6 @@
 ---
-title: Gebruik de resourceblade van de status in Azure Stream Analytics | Microsoft Docs
-description: Klik hier voor meer informatie over het identificeren van problemen bij het oplossen van Stream Analytics-taken.
+title: AAA gebruik Hallo health resourceblade in Azure Stream Analytics | Microsoft Docs
+description: Hoe toopinpoint problemen bij het oplossen van Stream Analytics-taken.
 keywords: problemen met stroomdiagram, resource-blade
 documentationcenter: 
 services: stream-analytics
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/01/2017
 ms.author: jeffstok
-ms.openlocfilehash: 2834692ab9df6c47b9dcb0f3c5a72b32f9fee2d6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 72bf187adc28143c910f624688200ccc69f8e273
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="stream-analytics-resource-health-blade"></a>Stream Analytics resourceblade health
 
-De **resourcestatus** blade in de Azure portal ziet u de status van uw Azure Stream Analytics-taken. U ziet ook bruikbare richtlijnen die kan helpen bij het oplossen van problemen. 
+Hallo **resourcestatus** blade in hello Azure-portal bevat Hallo status van uw Azure Stream Analytics-taken. U ziet ook bruikbare richtlijnen die kan helpen bij het oplossen van problemen. 
 
-De **resourcestatus** blade is bedoeld om te bepalen hoe sneller de hoofdmap van een probleem is in de toepassing of als dit wordt veroorzaakt door een gebeurtenis in Azure. Kunt u weten wanneer een ondersteuningsaanvraag voor het ontvangen van Hulp openen.
+Hallo **resourcestatus** blade is beoogde toohelp u sneller bepalen of Hallo basis van een probleem is in de toepassing hello, of als dit wordt veroorzaakt door een gebeurtenis in Azure. Kunt u u weten wanneer een ondersteuning tooopen case tooreceive hulp.
 
 ## <a name="troubleshooting-workflow"></a>Werkstroom voor het oplossen van problemen
 
-Overzicht van de status van de bron voor uw Stream Analytics-taken, selecteer de **resourcestatus** blade. 
+toosee hello resourcestatus voor uw Stream Analytics-taken, selecteer Hallo **resourcestatus** blade. 
 
 ![Stream Analytics probleemoplossing stroom - toegang](media/stream-analytics-resource-health/stream-analytics-access-troubleshooting.png)
 
-Het volgende stroomdiagram kunt u beslissingen neemt over wat u wilt zoeken en wanneer een ondersteuningsaanvraag te openen.
+Hallo volgende stroomdiagram kunt u beslissingen over welke toolook voor, en wanneer tooopen een ondersteuningsaanvraag.
 
 ![Stream Analytics voor probleemoplossing stroom - toewijzen](media/stream-analytics-resource-health/stream-analytics-troubleshooting-map.png)
 
@@ -41,7 +41,7 @@ Het volgende stroomdiagram kunt u beslissingen neemt over wat u wilt zoeken en w
 Voor meer informatie en ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Inleiding tot Stream Analytics](stream-analytics-introduction.md)
+* [Inleiding tooStream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
 * [Naslaggids voor stream Analytics query](https://msdn.microsoft.com/library/azure/dn834998.aspx)

@@ -1,6 +1,6 @@
 ---
-title: Waarschuwing voor een metriek maken met Resource Manager-sjabloon | Microsoft Docs
-description: Informatie over het gebruik van Resource Manager-sjabloon een metrische waarschuwing voor het ontvangen van meldingen per e-mail of webhook wilt maken.
+title: aaaCreate een metrische waarschuwing met Resource Manager-sjabloon | Microsoft Docs
+description: Meer informatie over hoe een Resource Manager-sjabloon toocreate een metriek toouse tooreceive meldingen per e-mail of webhook.
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/21/2017
 ms.author: johnkem
-ms.openlocfilehash: ac12605636d21fd0b5c89512c454ef2d899ef6dc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: dcf92b189f56a8389fff007c82197527239b96b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Een waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
-Dit artikel laat zien hoe u kunt een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) Azure metrische waarschuwingen configureren. Hiermee kunt u waarschuwingen op uw resources automatisch ingesteld als ze zijn gemaakt om ervoor te zorgen dat alle bronnen correct worden bewaakt.
+Dit artikel laat zien hoe u kunt een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) tooconfigure Azure metrische waarschuwingen. Hiermee kunt u tooautomatically mailwaarschuwingen instellen op uw resources wanneer ze worden gemaakt tooensure alle resources op de juiste wijze worden bewaakt.
 
-De eenvoudige stappen zijn als volgt:
+Hallo eenvoudige stappen zijn als volgt:
 
-1. Een sjabloon maken als een JSON-bestand dat wordt beschreven hoe u de waarschuwing wilt maken.
-2. [De sjabloon met een implementatiemethode implementeert](../azure-resource-manager/resource-group-template-deploy.md).
+1. Een sjabloon maken als een JSON-bestand dat wordt beschreven hoe toocreate Hallo waarschuwing.
+2. [Hallo-sjabloon met een implementatiemethode implementeert](../azure-resource-manager/resource-group-template-deploy.md).
 
-Hieronder wordt beschreven hoe u maakt een Resource Manager-sjabloon eerst voor een waarschuwing alleen vervolgens voor een waarschuwing tijdens het maken van een andere resource.
+Hieronder worden beschreven hoe toocreate Resource Manager-sjabloon voor een waarschuwing alleen eerst vervolgens voor een waarschuwing tijdens het Hallo maken van een andere resource.
 
 ## <a name="resource-manager-template-for-a-metric-alert"></a>Resource Manager-sjabloon voor een metrische waarschuwing
-Voor het maken van een waarschuwing met een Resource Manager-sjabloon die u maakt een resource van het type `Microsoft.Insights/alertRules` en in alle gerelateerde eigenschappen te vullen. Hieronder vindt u een sjabloon die een waarschuwingsregel maakt.
+toocreate een waarschuwing met een Resource Manager-sjabloon, maakt u een resource van het type `Microsoft.Insights/alertRules` en in alle gerelateerde eigenschappen te vullen. Hieronder vindt u een sjabloon die een waarschuwingsregel maakt.
 
 ```json
 {
@@ -62,14 +62,14 @@ Voor het maken van een waarschuwing met een Resource Manager-sjabloon die u maak
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Resource ID of the resource emitting the metric that will be used for the comparison."
+                "description": "Resource ID of hello resource emitting hello metric that will be used for hello comparison."
             }
         },
         "metricName": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Name of the metric used in the comparison to activate the alert."
+                "description": "Name of hello metric used in hello comparison tooactivate hello alert."
             }
         },
         "operator": {
@@ -82,14 +82,14 @@ Voor het maken van een waarschuwing met een Resource Manager-sjabloon die u maak
                 "LessThanOrEqual"
             ],
             "metadata": {
-                "description": "Operator comparing the current value with the threshold value."
+                "description": "Operator comparing hello current value with hello threshold value."
             }
         },
         "threshold": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "The threshold value at which the alert is activated."
+                "description": "hello threshold value at which hello alert is activated."
             }
         },
         "aggregation": {
@@ -103,35 +103,35 @@ Voor het maken van een waarschuwing met een Resource Manager-sjabloon die u maak
                 "Total"
             ],
             "metadata": {
-                "description": "How the data that is collected should be combined over time."
+                "description": "How hello data that is collected should be combined over time."
             }
         },
         "windowSize": {
             "type": "string",
             "defaultValue": "PT5M",
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+                "description": "Period of time used toomonitor alert activity based on hello threshold. Must be between five minutes and one day. ISO 8601 duration format."
             }
         },
         "sendToServiceOwners": {
             "type": "bool",
             "defaultValue": true,
             "metadata": {
-                "description": "Specifies whether alerts are sent to service owners"
+                "description": "Specifies whether alerts are sent tooservice owners"
             }
         },
         "customEmailAddresses": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Comma-delimited email addresses where the alerts are also sent"
+                "description": "Comma-delimited email addresses where hello alerts are also sent"
             }
         },
         "webhookUrl": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "URL of a webhook that will receive an HTTP POST when the alert activates."
+                "description": "URL of a webhook that will receive an HTTP POST when hello alert activates."
             }
         }
     },
@@ -178,10 +178,10 @@ Voor het maken van een waarschuwing met een Resource Manager-sjabloon die u maak
 }
 ```
 
-Beschrijvingen van het schema en de eigenschappen voor een waarschuwingsregel [is hier beschikbaar](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Een uitleg van Hallo schema en eigenschappen voor een waarschuwingsregel [is hier beschikbaar](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="resource-manager-template-for-a-resource-with-an-alert"></a>Resource Manager-sjabloon voor een resource met een waarschuwing
-Een waarschuwing op Resource Manager-sjabloon is vaak nuttig bij het maken van een waarschuwing tijdens het maken van een resource. U wilt bijvoorbeeld ervoor te zorgen dat een ' CPU % > 80 ' regel wordt ingesteld telkens wanneer u een virtuele Machine implementeert. U doet dit door u waarschuwingsregel toevoegen als een resource in de matrix resource voor VM-sjabloon en toevoegen van een afhankelijkheid met de `dependsOn` eigenschap in op de VM-resource-ID. Hier volgt een voorbeeld van een volledige die wordt gemaakt van een virtuele machine van Windows en wordt een waarschuwing die abonnementsbeheerders wordt gewaarschuwd wanneer het CPU-gebruik hoger dan 80 is %.
+Een waarschuwing op Resource Manager-sjabloon is vaak nuttig bij het maken van een waarschuwing tijdens het maken van een resource. Bijvoorbeeld, kunt u tooensure die een ' CPU % > 80 ' regel wordt ingesteld telkens wanneer u een virtuele Machine implementeert. toodo dit u Hallo waarschuwingsregel toevoegen als een resource in Hallo resource matrix voor VM-sjabloon en toevoegen van een afhankelijkheid tussen Hallo `dependsOn` eigenschap toohello VM resource-ID. Hier volgt een voorbeeld van een volledige die wordt gemaakt van een virtuele machine van Windows en wordt een waarschuwing die abonnementsbeheerders waarschuwt als Hallo CPU-gebruik hoger dan 80 is %.
 
 ```json
 {
@@ -191,25 +191,25 @@ Een waarschuwing op Resource Manager-sjabloon is vaak nuttig bij het maken van e
         "newStorageAccountName": {
             "type": "string",
             "metadata": {
-                "Description": "The name of the storage account where the VM disk is stored."
+                "Description": "hello name of hello storage account where hello VM disk is stored."
             }
         },
         "adminUsername": {
             "type": "string",
             "metadata": {
-                "Description": "The name of the administrator account on the VM."
+                "Description": "hello name of hello administrator account on hello VM."
             }
         },
         "adminPassword": {
             "type": "securestring",
             "metadata": {
-                "Description": "The administrator account password on the VM."
+                "Description": "hello administrator account password on hello VM."
             }
         },
         "dnsNameForPublicIP": {
             "type": "string",
             "metadata": {
-                "Description": "The name of the public IP address used to access the VM."
+                "Description": "hello name of hello public IP address used tooaccess hello VM."
             }
         }
     },
@@ -402,5 +402,5 @@ Een waarschuwing op Resource Manager-sjabloon is vaak nuttig bij het maken van e
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over waarschuwingen](insights-receive-alert-notifications.md)
-* [Toevoegen van diagnostische instellingen](monitoring-enable-diagnostic-logs-using-template.md) naar de Resource Manager-sjabloon
+* [Toevoegen van diagnostische instellingen](monitoring-enable-diagnostic-logs-using-template.md) tooyour Resource Manager-sjabloon
 

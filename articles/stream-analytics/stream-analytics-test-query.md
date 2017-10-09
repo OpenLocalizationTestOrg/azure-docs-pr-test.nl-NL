@@ -1,6 +1,6 @@
 ---
-title: Azure Stream Analytics query testen | Microsoft Docs
-description: Klik hier voor meer informatie over het testen van uw query's in de Stream Analytics-taken.
+title: aaaAzure Stream Analytics query testen | Microsoft Docs
+description: Hoe tootest uw query's in de Stream Analytics-taken.
 keywords: query testen, query oplossen
 documentation center: 
 services: stream-analytics
@@ -15,33 +15,33 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeffstok
-ms.openlocfilehash: 16bb3f26ec3a69e5204162db9e54a186cf1ec6a6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3b141d98332fdc170e696e181c8446796a86f78e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="test-azure-stream-analytics-queries-in-the-azure-portal"></a>Azure Stream Analytics query's testen in de Azure-portal
+# <a name="test-azure-stream-analytics-queries-in-hello-azure-portal"></a>Azure Stream Analytics query's testen in hello Azure-portal
 
-U kunt met Azure Stream Analytics query's testen in de Azure portal zonder starten of stoppen van een taak.
+U kunt met Azure Stream Analytics query's in Azure-portal Hallo testen zonder toostart of een taak stoppen.
 
-## <a name="test-the-input"></a>De invoer testen
+## <a name="test-hello-input"></a>Hallo invoer testen
 
-1. Als u wilt testen met invoer voorbeeldgegevens, met de rechtermuisknop op een van uw invoer en selecteer vervolgens **voorbeeldgegevens uit bestand uploaden**.
+1. tootest met voorbeeldgegevens voor invoer met de rechtermuisknop op een van uw invoer en selecteer vervolgens **voorbeeldgegevens uit bestand uploaden**.
 
     ![query voor stream analytics query-editor testen](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
-2. Nadat het uploaden voltooid is, klikt u op **testen** voor het testen van deze query op de voorbeeldgegevens die u hebt opgegeven.
+2. Nadat het Hallo uploaden is voltooid, klikt u op **Test** tootest deze query op Hallo voorbeeldgegevens u hebt opgegeven.
 
     ![Stream analytics query-editor test voorbeeldgegevens](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 
-De uitvoer van de query wordt weergegeven in de browser, met resultaten downloadkoppeling moet u de testuitvoer voor later gebruik opslaan. U kunt nu eenvoudig en iteratief uw query te wijzigen en testen herhaaldelijk om te zien hoe de uitvoer wordt gewijzigd.
+Hallo-uitvoer van de query wordt weergegeven in Hallo browser met downloadkoppeling resultaten als u wilt dat toosave hello testuitvoer voor later gebruik. U kunt nu eenvoudig en iteratief pas uw query en testen herhaaldelijk toosee hoe Hallo uitvoer verandert.
 
 ![Voorbeelduitvoer van stream Analytics query-editor](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
 
-U kunt met meerdere Uitvoerbronnen dat wordt gebruikt in een query, zien de resultaten voor beide uitvoer afzonderlijk en schakelen tussen deze twee.
+U kunt met meerdere Uitvoerbronnen dat wordt gebruikt in een query, Zie Hallo resultaten voor beide uitvoer afzonderlijk en schakelen tussen deze twee.
 
-Nadat u tevreden bent met de resultaten weergegeven in de browser uw query opslaan, start de taak en kunt deze gebeurtenissen zonder fouten verwerken.
+Nadat u tevreden bent met Hallo resultaten weergegeven in de browser Hallo uw query opslaan, start de taak en kunt deze gebeurtenissen zonder fouten verwerken.
 
 ## <a name="get-help"></a>Help opvragen
 
@@ -49,7 +49,7 @@ Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://so
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
+* [Inleiding tooAzure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
 * [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)

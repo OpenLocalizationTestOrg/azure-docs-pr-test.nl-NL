@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van Notification Hubs met behulp van Python
-description: Informatie over het gebruik van Azure Notification Hubs vanuit een Python-back-end.
+title: aaaHow toouse Notification Hubs met behulp van Python
+description: Meer informatie over hoe toouse Azure Notification Hubs vanuit een Python-back-end.
 services: notification-hubs
 documentationcenter: 
 author: ysxu
@@ -14,19 +14,19 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 9ceedb9940759427fc8cec74a1307e42472563a6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 21d5aaf7fc24c9936fac8e0a8de640c66c51ab0a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-notification-hubs-from-python"></a>Het gebruik van Notification Hubs met Python
+# <a name="how-toouse-notification-hubs-from-python"></a>Hoe toouse Notification Hubs met Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-U kunt alle functies van de Notification Hubs kunt openen vanaf een Java/PHP/Python/Ruby back-end met de Notification Hub REST-interface, zoals beschreven in de MSDN-onderwerp [Notification Hubs REST-API's](http://msdn.microsoft.com/library/dn223264.aspx).
+U kunt alle functies van de Notification Hubs kunt openen vanaf een Java/PHP/Python/Ruby back-end Hallo Notification Hub REST-interface gebruiken, zoals beschreven in de MSDN-onderwerp Hallo [Notification Hubs REST-API's](http://msdn.microsoft.com/library/dn223264.aspx).
 
 > [!NOTE]
-> Dit is een Voorbeeldimplementatie van de referentie voor de uitvoering van de meldingen verzendt in Python en is niet officieel ondersteund meldingen Hub Python SDK.
+> Dit is een Voorbeeldimplementatie van de referentie voor het implementeren van Hallo melding verzendt in Python en is niet officieel ondersteund meldingen Hub Python SDK Hallo.
 > 
 > Dit voorbeeld is geschreven met behulp van Python 3.4.
 > 
@@ -35,42 +35,42 @@ U kunt alle functies van de Notification Hubs kunt openen vanaf een Java/PHP/Pyt
 In dit onderwerp laten we zien hoe:
 
 * Bouw een REST-client voor Notification Hubs-functies in Python.
-* Meldingen met de Python-interface om de Notification Hub REST-API's te verzenden. 
-* Een dump van de REST van de HTTP-aanvragen/reacties voor foutopsporing/educatieve doel niet ophalen. 
+* Verzenden van meldingen via Hallo Python interface toohello Notification Hub REST-API's. 
+* Een dump Hallo HTTP REST/reactie op aanvragen voor foutopsporing/educatieve doel niet ophalen. 
 
-U kunt volgen de [Get gestart zelfstudie](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) implementeren voor uw mobiele platform van de keuze van het back-end-gedeelte in Python.
+U kunt volgen Hallo [Get gestart zelfstudie](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) voor uw mobiele platform keuze, het implementeren van Hallo back-end gedeelte in Python.
 
 > [!NOTE]
-> Het bereik van de steekproef wordt alleen beperkt om meldingen te verzenden en deze bevat een registratie-management niet.
+> Hallo-bereik van Hallo voorbeeld is alleen beperkt toosend meldingen en deze bevat een registratie-management niet.
 > 
 > 
 
 ## <a name="client-interface"></a>Client-interface
-De belangrijkste clientinterface kan bieden dezelfde methoden die beschikbaar zijn in de [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx). Dit kunt u rechtstreeks vertalen de zelfstudies en voorbeelden die momenteel beschikbaar is op deze site en die is bijgedragen door de community op het internet.
+de belangrijkste clientinterface Hallo Hallo kan bieden dezelfde methoden die beschikbaar in Hallo zijn [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx). Hierdoor kunt u toodirectly vertalen alle Hallo zelfstudies en voorbeelden die momenteel beschikbaar is op deze site en die is bijgedragen door Hallo-community op Hallo internet.
 
-U vindt de code die zijn beschikbaar in de [Python REST wrapper voorbeeld].
+U vindt alle Hallo-code die beschikbaar zijn in Hallo [Python REST wrapper voorbeeld].
 
-Als u bijvoorbeeld wilt maken van een client:
+Bijvoorbeeld, toocreate een client:
 
     isDebug = True
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 
-Verzenden van een pop-upmelding voor Windows:
+een Windows toosend toasten we melding:
 
     wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello world!</text></binding></visual></toast>"""
     hub.send_windows_notification(wns_payload)
 
 ## <a name="implementation"></a>Implementatie
-Als u nog niet hebt gedaan, volgt u onze [Get gestart zelfstudie] omhoog naar de laatste sectie waar u hebt voor het implementeren van de back-end.
+Als u nog niet hebt gedaan, volgt u onze [Get gestart zelfstudie] -up maken van de laatste sectie toohello waar u tooimplement Hallo back-end hebt.
 
-De details voor het implementeren van een volledige REST-wrapper vindt u op [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). In deze sectie worden beschreven de Python-implementatie van de belangrijkste stappen die nodig zijn voor toegang tot Notification Hubs REST-eindpunten en meldingen verzenden
+Alle details tooimplement een volledige REST-wrapper vindt u op Hallo [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). In deze sectie wordt beschreven Hallo Python-implementatie van Hallo belangrijke stappen vereist tooaccess Notification Hubs REST-eindpunten en meldingen verzenden
 
-1. De verbindingsreeks parseren
-2. Het verificatietoken genereren
+1. Hallo-verbindingsreeks parseren
+2. Hallo-Autorisatietoken te genereren
 3. Een melding verzenden via HTTP REST-API
 
-### <a name="parse-the-connection-string"></a>De verbindingsreeks parseren
-Dit is de hoofdklasse uitvoering van de client, waarvan constructor de verbindingsreeks parseert:
+### <a name="parse-hello-connection-string"></a>Hallo-verbindingsreeks parseren
+Hier volgt hoofdklasse Hallo Hallo-client, waarvan constructor Hallo verbindingsreeks parseert implementeren:
 
     class NotificationHub:
         API_VERSION = "?api-version=2013-10"
@@ -95,8 +95,8 @@ Dit is de hoofdklasse uitvoering van de client, waarvan constructor de verbindin
 
 
 ### <a name="create-security-token"></a>Beveiligingstoken maken
-De details van het token maken voor beveiliging zijn beschikbaar [hier](http://msdn.microsoft.com/library/dn495627.aspx).
-De volgende methoden moeten worden toegevoegd aan de **NotificationHub** klasse te maken van het token op basis van de URI van de huidige aanvraag en de referenties die zijn opgehaald uit de verbindingsreeks.
+Hallo-details van hello security token maken zijn beschikbaar [hier](http://msdn.microsoft.com/library/dn495627.aspx).
+Hallo volgende methoden hebt toegevoegd toobe toohello **NotificationHub** klassentoken toocreate Hallo op basis van Hallo-URI van de huidige aanvraag Hallo en opgehaald uit de verbindingsreeks Hallo Hallo-referenties.
 
     @staticmethod
     def get_expiry():
@@ -134,7 +134,7 @@ Eerste, laat gebruik definiëren een klasse die een melding vertegenwoordigt.
             if not any(x in notification_format for x in valid_formats):
                 raise Exception(
                     "Invalid Notification format. " +
-                    "Must be one of the following - 'template', 'apple', 'gcm', 'windows', 'windowsphone', 'adm', 'baidu'")
+                    "Must be one of hello following - 'template', 'apple', 'gcm', 'windows', 'windowsphone', 'adm', 'baidu'")
 
             self.format = notification_format
             self.payload = payload
@@ -147,9 +147,9 @@ Eerste, laat gebruik definiëren een klasse die een melding vertegenwoordigt.
 
 Deze klasse is een container voor de hoofdtekst van een systeemeigen melding of een set eigenschappen in het geval van een melding van de sjabloon, een reeks headers die-indeling (systeemeigen platform of sjabloon) en platform-specifieke eigenschappen (zoals Apple verlopen eigenschap en WNS headers) bevat .
 
-Raadpleeg de [Notification Hubs REST-API's, documentatie](http://msdn.microsoft.com/library/dn495827.aspx) en de specifieke notification-platforms worden gebruikt voor alle beschikbare opties.
+Raadpleeg toohello [Notification Hubs REST-API's, documentatie](http://msdn.microsoft.com/library/dn495827.aspx) en specifieke notification-platforms indelingen Hallo voor alle beschikbare opties Hallo.
 
-Nu u met deze klasse kunnen we de verzenden waarschuwingsmethoden binnen van schrijven de **NotificationHub** klasse.
+Nu u met deze klasse kunnen we Hallo verzenden waarschuwingsmethoden binnen Hallo schrijven **NotificationHub** klasse.
 
     def make_http_request(self, url, payload, headers):
         parsed_url = urllib.parse.urlparse(url)
@@ -157,7 +157,7 @@ Nu u met deze klasse kunnen we de verzenden waarschuwingsmethoden binnen van sch
 
         if self.Debug > 0:
             connection.set_debuglevel(self.Debug)
-            # adding this querystring parameter gets detailed information about the PNS send notification outcome
+            # adding this querystring parameter gets detailed information about hello PNS send notification outcome
             url += self.DEBUG_SEND
             print("--- REQUEST ---")
             print("URI: " + url)
@@ -205,11 +205,11 @@ Nu u met deze klasse kunnen we de verzenden waarschuwingsmethoden binnen van sch
         else:
             tag_list = tag_or_tag_expression
 
-        # add the tags/tag expressions to the headers collection
+        # add hello tags/tag expressions toohello headers collection
         if tag_list != "":
             headers.update({'ServiceBusNotification-Tags': tag_list})
 
-        # add any custom headers to the headers collection that the user may have added
+        # add any custom headers toohello headers collection that hello user may have added
         if notification.headers is not None:
             headers.update(notification.headers)
 
@@ -257,23 +257,23 @@ Nu u met deze klasse kunnen we de verzenden waarschuwingsmethoden binnen van sch
         nh = Notification("template", properties)
         self.send_notification(nh, tags)
 
-De bovenstaande methoden verzenden een HTTP POST-aanvraag naar het eindpunt /messages van uw notification hub, met de juiste instantie en -koppen om de melding te verzenden.
+Hallo hierboven methoden een HTTP POST-aanvraag toohello /messages eindpunt van uw notification hub, met de juiste hoofdtekst Hallo en headers toosend Hallo melding verzenden.
 
-### <a name="using-debug-property-to-enable-detailed-logging"></a>Met behulp van de eigenschap debug gedetailleerde logboekregistratie inschakelen
-Eigenschap debug inschakelen tijdens het initialiseren van de Notification Hub wordt schrijven gedetailleerde logboekregistratie informatie over de HTTP-aanvraag en antwoord dump, evenals gedetailleerde melding verzenden resultaat. We hebben onlangs deze eigenschap met de naam toegevoegd [Notification Hubs TestZenden eigenschap](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx) die gedetailleerde informatie over de melding verzenden uitkomst als resultaat gegeven. Voor het gebruik van deze - initialiseren met behulp van de volgende:
+### <a name="using-debug-property-tooenable-detailed-logging"></a>Met behulp van foutopsporing eigenschap tooenable gedetailleerde logboekregistratie
+Eigenschap debug inschakelen tijdens het initialiseren van Hallo Notification Hub wordt uitschrijven gedetailleerde logboekgegevens over Hallo HTTP-aanvraag en antwoord dump, evenals gedetailleerde melding verzenden resultaat. We hebben onlangs deze eigenschap met de naam toegevoegd [Notification Hubs TestZenden eigenschap](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx) die gedetailleerde informatie over Hallo melding verzenden resultaat retourneert. toouse het - gebruik van de volgende Hallo initialiseren:
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 
-De Notification Hub verzenden aanvraag HTTP-URL wordt toegevoegd aan een querystring 'test' als gevolg hiervan. 
+Hallo Notification Hub verzenden aanvraag HTTP-URL wordt toegevoegd aan een querystring 'test' als gevolg hiervan. 
 
-## <a name="complete-tutorial"></a>Voltooi de zelfstudie
-U kunt nu de zelfstudie aan de slag uitvoeren met de melding verzenden vanuit een Python-back-end.
+## <a name="complete-tutorial"></a>Volledige Hallo-zelfstudie
+U kunt nu Hallo-zelfstudie aan de slag uitvoeren met het Hallo-bericht verzenden vanuit een Python-back-end.
 
-Uw Notification Hubs-client initialiseren (vervangen door de verbindingsreeks en hubnaam verbindingsnaam volgens de instructies in de [Get gestart zelfstudie]):
+Uw Notification Hubs-client initialiseren (vervangen door Hallo verbindingsreeks en hubnaam verbindingsnaam volgens de instructies in Hallo [Get gestart zelfstudie]):
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
-Voeg de code verzenden, afhankelijk van uw mobiele doelplatform. Dit voorbeeld voegt ook hoger niveau methoden voor het verzenden van meldingen op basis van het platform bijvoorbeeld send_windows_notification voor windows; inschakelen send_apple_notification (voor apple) enzovoort. 
+Voeg Hallo verzenden code, afhankelijk van uw mobiele doelplatform toe. Dit voorbeeld voegt ook hoger niveau methoden tooenable verzenden van meldingen op basis van Hallo platform bijvoorbeeld send_windows_notification voor windows. send_apple_notification (voor apple) enzovoort. 
 
 ### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Windows Store en Windows Phone 8.1 (zonder Silverlight)
     wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Test</text></binding></visual></toast>"""
@@ -322,33 +322,33 @@ Uitvoeren van uw Python-code moet een melding weergegeven op het doelapparaat pr
 
 ## <a name="examples"></a>Voorbeelden:
 ### <a name="enabling-debug-property"></a>Eigenschap debug inschakelen
-Wanneer u de vlag foutopsporing inschakelt tijdens het initialiseren van de NotificationHub ziet u gedetailleerde HTTP-aanvraag en antwoord dump, evenals NotificationOutcome als volgt waar u inzicht in welke HTTP-headers worden doorgegeven in de aanvraag en welke HTTP-antwoord zijn ontvangen van de Notification Hub:![][1]
+Wanneer u de vlag foutopsporing inschakelt tijdens het initialiseren van Hallo NotificationHub ziet u gedetailleerde HTTP-aanvraag en -antwoord dump, evenals NotificationOutcome Hallo volgende waarbij u inzicht in welke HTTP-headers worden doorgegeven in Hallo-aanvraag en welke HTTP Er is een reactie ontvangen van Hallo Notification Hub:![][1]
 
 U ziet bijvoorbeeld gedetailleerde van resultaat van de Notification Hub 
 
-* Wanneer het bericht is verzonden naar de Push Notification Service. 
+* Wanneer het Hallo-bericht is verzonden toohello Push Notification Service. 
   
-        <Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
-* Als er geen doelen gevonden voor een push-melding zijn vervolgens gaat u waarschijnlijk ziet het volgende in het antwoord (waarmee wordt aangegeven dat er geen registraties gevonden voor het leveren van de melding is het waarschijnlijk omdat de registraties had een niet-overeenkomende labels zijn)
+        <Outcome>hello Notification was successfully sent toohello Push Notification System</Outcome>
+* Als er waren geen doelen gevonden voor een push-melding wordt u waarschijnlijk toosee Hallo volgende Hallo-reactie (waarmee wordt aangegeven dat er geen registraties toodeliver Hallo melding waarschijnlijk gevonden zijn omdat Hallo registraties hadden gaat niet-overeenkomende tags)
   
         '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
 
-### <a name="broadcast-toast-notification-to-windows"></a>Pop-upmelding naar Windows-broadcast
-U ziet de headers die verzonden ophalen wanneer u een broadcast pop-upmelding naar Windows-client verzendt. 
+### <a name="broadcast-toast-notification-toowindows"></a>Toast-melding tooWindows-broadcast
+U ziet Hallo headers die verzonden ophalen wanneer u een broadcast toast melding tooWindows client verzendt. 
 
     hub.send_windows_notification(wns_payload)
 
 ![][2]
 
 ### <a name="send-notification-specifying-a-tag-or-tag-expression"></a>Verzenden van meldingen geven een tag (of labelexpressie)
-U ziet de labels HTTP-header die wordt toegevoegd aan de HTTP-aanvraag (in het volgende voorbeeld wordt de melding alleen naar verzendt registraties met 'Sport' nettolading)
+Kennisgeving Hallo labels HTTP-header die toohello HTTP-aanvraag wordt toegevoegd (in Hallo onderstaand voorbeeld we sturen Hallo melding alleen tooregistrations met 'Sport' payload)
 
     hub.send_windows_notification(wns_payload, "sports")
 
 ![][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>Meerdere labels geven melding verzenden
-U ziet hoe de labels HTTP-header verandert wanneer meerdere labels worden verzonden. 
+U ziet hoe Hallo labels HTTP-header verandert wanneer meerdere labels worden verzonden. 
 
     tags = {'sports', 'politics'}
     hub.send_windows_notification(wns_payload, tags)
@@ -356,14 +356,14 @@ U ziet hoe de labels HTTP-header verandert wanneer meerdere labels worden verzon
 ![][4]
 
 ### <a name="templated-notification"></a>Sjablonen melding
-U ziet dat de indeling HTTP-header wordt gewijzigd en de hoofdtekst van de nettolading wordt verzonden als onderdeel van het hoofdgedeelte van de HTTP-aanvraag:
+Hallo indeling http-header wijzigingen en Hallo nettolading instantie wordt verzonden als onderdeel van de aanvraagtekst Hallo HTTP:
 
 **Client-side - geregistreerde sjabloon**
 
         var template =
                         @"<toast><visual><binding template=""ToastText01""><text id=""1"">$(greeting_en)</text></binding></visual></toast>";
 
-**Server side - verzenden van de nettolading**
+**Server side - Hallo nettolading verzenden**
 
         template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
         hub.send_template_notification(template_payload)
@@ -371,11 +371,11 @@ U ziet dat de indeling HTTP-header wordt gewijzigd en de hoofdtekst van de netto
 ![][5]
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit onderwerp we hebt u geleerd hoe u een eenvoudige Python REST-client voor Notification Hubs maakt. Hier kunt u het volgende doen:
+In dit onderwerp we hebt u geleerd hoe toocreate een eenvoudige Python REST-client voor Notification Hubs. Hier kunt u het volgende doen:
 
-* Downloaden van de volledige [Python REST wrapper voorbeeld], die de bovenstaande code bevat.
-* Gaan leren over Notification Hubs tagging functie in de [nieuws op te splitsen-zelfstudie]
-* Gaan leren over de functie Notification Hubs sjablonen in de [nieuws lokalisatie-zelfstudie]
+* Hallo volledige downloaden [Python REST wrapper voorbeeld], die alle Hallo code bovenstaande bevat.
+* Meer informatie over Notification Hubs functie tags in Hallo gaan [nieuws op te splitsen-zelfstudie]
+* Meer informatie over de functie voor Notification Hubs sjablonen gaan in Hallo [nieuws lokalisatie-zelfstudie]
 
 <!-- URLs -->
 [Python REST wrapper voorbeeld]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python

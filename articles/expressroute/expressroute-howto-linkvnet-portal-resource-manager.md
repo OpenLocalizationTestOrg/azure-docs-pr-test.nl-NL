@@ -1,6 +1,6 @@
 ---
-title: 'Een virtueel netwerk koppelen aan een ExpressRoute-circuit: Azure portal | Microsoft Docs'
-description: Dit document bevat een overzicht van het virtuele netwerken (vnet's) koppelen aan ExpressRoute-circuits.
+title: 'Koppelen van een virtueel netwerk tooan ExpressRoute-circuit: Azure portal | Microsoft Docs'
+description: Dit document bevat een overzicht van hoe toolink virtuele (vnet's) tooExpressRoute circuits netwerken.
 services: expressroute
 documentationcenter: na
 author: cherylmc
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: 595c30ab5d9adc6061ad753d952adf894ba80b2f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8bedcb11df7e30281fd439afdfb76cc67626a8f5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Een virtueel netwerk verbinden met een ExpressRoute-circuit
+# <a name="connect-a-virtual-network-tooan-expressroute-circuit"></a>Verbinding maken met een virtueel netwerk tooan ExpressRoute-circuit
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
@@ -30,115 +30,115 @@ ms.lasthandoff: 08/03/2017
 > * [PowerShell (klassiek)](expressroute-howto-linkvnet-classic.md)
 > 
 
-In dit artikel helpt u bij virtuele netwerken (vnet's) koppelen aan Azure ExpressRoute-circuits met behulp van het implementatiemodel van Resource Manager en de Azure-portal. Virtuele netwerken in hetzelfde abonnement kunnen zijn of deel uitmaken van een ander abonnement.
+In dit artikel helpt u bij virtuele netwerken (vnet's) tooAzure ExpressRoute-circuits koppelen met Hallo Resource Manager-implementatiemodel en hello Azure-portal. Virtuele netwerken kunnen zijn in Hallo hetzelfde abonnement, of dat ze deel kunnen uitmaken van een ander abonnement.
 
 ## <a name="before-you-begin"></a>Voordat u begint
-* Controleer de [vereisten](expressroute-prerequisites.md), [routeringsvereisten](expressroute-routing.md), en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
+* Bekijk Hallo [vereisten](expressroute-prerequisites.md), [routeringsvereisten](expressroute-routing.md), en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
 * U moet een actief ExpressRoute-circuit hebben.
   
-  * Volg de instructies voor [maken van een ExpressRoute-circuit](expressroute-howto-circuit-portal-resource-manager.md) en laat het circuit inschakelen door de connectiviteitsprovider.
-  * Zorg ervoor dat u persoonlijke Azure-peering voor uw circuit is geconfigureerd. Zie de [Configure routing](expressroute-howto-routing-portal-resource-manager.md) artikel voor routering instructies.
-  * Zorg ervoor dat de persoonlijke Azure-peering is geconfigureerd en van de BGP-peering tussen uw netwerk en Microsoft is, zodat u kunt end-to-end-connectiviteit inschakelen.
-  * Zorg ervoor dat u hebt een virtueel netwerk en een virtuele netwerkgateway gemaakt en volledig is ingericht. Volg de instructies voor [maken van een virtuele netwerkgateway voor ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Het GatewayType 'ExpressRoute' niet VPN maakt gebruik van een virtuele netwerkgateway voor ExpressRoute.
+  * Hallo-instructies te volgen[maken van een ExpressRoute-circuit](expressroute-howto-circuit-portal-resource-manager.md) en laat Hallo-circuit inschakelen door de connectiviteitsprovider.
+  * Zorg ervoor dat u persoonlijke Azure-peering voor uw circuit is geconfigureerd. Zie Hallo [Configure routing](expressroute-howto-routing-portal-resource-manager.md) artikel voor routering instructies.
+  * Zorg ervoor dat persoonlijke Azure-peering is geconfigureerd en actief Hallo BGP-peering tussen uw netwerk en Microsoft is, zodat u kunt end-to-end-connectiviteit inschakelen.
+  * Zorg ervoor dat u hebt een virtueel netwerk en een virtuele netwerkgateway gemaakt en volledig is ingericht. Hallo-instructies te volgen[maken van een virtuele netwerkgateway voor ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Hallo GatewayType 'ExpressRoute' niet VPN maakt gebruik van een virtuele netwerkgateway voor ExpressRoute.
 
-* U kunt maximaal 10 virtuele netwerken koppelen aan een standaard ExpressRoute-circuit. Alle virtuele netwerken moet in dezelfde geopolitieke regio bij gebruik van een standaard ExpressRoute-circuit. 
-* U kunt een virtueel netwerk buiten de geopolitieke regio van het ExpressRoute-circuit koppelen of verbinding maken met een groter aantal virtuele netwerken aan uw ExpressRoute-circuit als u de invoegtoepassing ExpressRoute premium ingeschakeld. Controleer de [Veelgestelde vragen over](expressroute-faqs.md) voor meer informatie over de premium-invoegtoepassing.
-* U kunt [Bekijk een video](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) voordat u begint met de stappen beter te begrijpen.
+* U kunt een koppeling van too10 virtuele netwerken tooa standaard ExpressRoute-circuit. Alle virtuele netwerken moet Hallo dezelfde geopolitieke regio bij gebruik van een standaard ExpressRoute-circuit. 
+* U kunt een virtueel netwerk buiten de geopolitieke regio Hallo Hallo ExpressRoute-circuit koppelen of verbinding maken met een groter aantal virtuele netwerken tooyour ExpressRoute-circuit als u premium-invoegtoepassing voor ExpressRoute Hallo ingeschakeld. Controleer de Hallo [Veelgestelde vragen over](expressroute-faqs.md) voor meer informatie over Hallo premium-invoegtoepassing.
+* U kunt [Bekijk een video](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) voordat begin toobetter begrijpen Hallo stappen.
 
-## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Een virtueel netwerk in hetzelfde abonnement verbinden met een circuit
+## <a name="connect-a-virtual-network-in-hello-same-subscription-tooa-circuit"></a>Verbinding maken met een virtueel netwerk in Hallo hetzelfde abonnement tooa circuit
 
-### <a name="to-create-a-connection"></a>Een verbinding te maken
+### <a name="toocreate-a-connection"></a>toocreate een verbinding
 
 > [!NOTE]
-> BGP-configuratie-informatie wordt niet weergegeven als de layer 3-provider uw peerings geconfigureerd. Als uw circuit ingericht status heeft is, moet u mogelijk zijn om verbindingen te maken.
+> BGP-configuratie-informatie wordt niet weergegeven als Hallo laag 3-provider uw peerings geconfigureerd. Als uw circuit ingericht status heeft is, moet u kunnen toocreate verbindingen.
 >
 
-1. Zorg ervoor dat uw ExpressRoute-circuit en de persoonlijke Azure-peering correct is geconfigureerd. Volg de instructies in [maken van een ExpressRoute-circuit](expressroute-howto-circuit-arm.md) en [Configure routing](expressroute-howto-routing-arm.md). Uw ExpressRoute-circuit moet eruitzien als in de volgende afbeelding:
+1. Zorg ervoor dat uw ExpressRoute-circuit en de persoonlijke Azure-peering correct is geconfigureerd. Volg de instructies in Hallo [maken van een ExpressRoute-circuit](expressroute-howto-circuit-arm.md) en [Configure routing](expressroute-howto-routing-arm.md). Uw ExpressRoute-circuit moet eruitzien als Hallo installatiekopie te volgen:
 
     ![ExpressRoute-circuit-schermafbeelding](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
    
-2. U kunt nu starten voor het inrichten van een verbinding voor het koppelen van uw virtuele netwerkgateway aan uw ExpressRoute-circuit. Klik op **verbinding** > **toevoegen** openen de **verbinding toevoegen** blade en configureer vervolgens de waarden.
+2. U kunt nu starten inrichten van een verbinding toolink uw virtuele netwerk gateway tooyour ExpressRoute-circuit. Klik op **verbinding** > **toevoegen** tooopen hello **verbinding toevoegen** blade en configureer vervolgens Hallo waarden.
 
     ![Schermafbeelding van de verbinding toevoegen](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)  
 
-3. Nadat de verbinding is geconfigureerd, kan uw verbindingsobject gegevens voor de verbinding wordt weergegeven.
+3. Nadat de verbinding is geconfigureerd, ziet uw verbindingsobject Hallo-informatie voor Hallo-verbinding.
 
      ![Schermafbeelding van de verbinding-object](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
 
-### <a name="to-delete-a-connection"></a>Een verbinding verwijderen
-U kunt een verbinding verwijderen door het selecteren van de **verwijderen** pictogram op de blade voor de verbinding.
+### <a name="toodelete-a-connection"></a>toodelete een verbinding
+U kunt een verbinding verwijderen door het selecteren van Hallo **verwijderen** pictogram op de blade Hallo voor de verbinding.
 
-## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Een virtueel netwerk in een ander abonnement verbinden met een circuit
-U kunt een ExpressRoute-circuit delen tussen meerdere abonnementen. De onderstaande afbeelding ziet u een eenvoudige schematische van hoe delen werkt voor ExpressRoute-circuits voor meerdere abonnementen.
+## <a name="connect-a-virtual-network-in-a-different-subscription-tooa-circuit"></a>Verbinding maken met een virtueel netwerk in een ander abonnement tooa circuit
+U kunt een ExpressRoute-circuit delen tussen meerdere abonnementen. Hallo afbeelding hieronder ziet een eenvoudige schematische van hoe delen werkt voor ExpressRoute-circuits voor meerdere abonnementen.
 
 ![Abonnementoverschrijdende connectiviteit](./media/expressroute-howto-linkvnet-portal-resource-manager/cross-subscription.png)
 
-- Elk van de kleinere clouds binnen de grote cloud wordt gebruikt voor abonnementen die bij verschillende afdelingen binnen een organisatie horen te vertegenwoordigen.
-- Elk van de afdelingen binnen de organisatie kan hun eigen abonnement gebruiken voor het implementeren van hun services, maar één ExpressRoute-circuit terugverbinding maken met uw on-premises netwerk kunnen delen.
-- Één afdeling (in dit voorbeeld: IT) kunt eigenaar van het ExpressRoute-circuit. Andere abonnementen binnen de organisatie kunnen het ExpressRoute-circuit gebruiken.
+- Elk van de kleinere clouds binnen grote cloud Hallo Hallo is gebruikte toorepresent abonnementen die deel uitmaken van toodifferent afdelingen binnen een organisatie.
+- Elk van de afdelingen binnen de organisatie Hallo Hallo hun eigen abonnement kunt gebruiken voor het implementeren van hun services, maar ze kunnen een enkel ExpressRoute-circuit tooconnect back tooyour on-premises netwerk delen.
+- Één afdeling (in dit voorbeeld: IT) eigenaar kunnen Hallo ExpressRoute-circuit. Andere abonnementen binnen de organisatie Hallo kunnen Hallo ExpressRoute-circuit gebruiken.
 
     > [!NOTE]
-    > Verbindingen en bandbreedte kosten voor het specifieke circuit wordt toegepast op de eigenaar van het ExpressRoute-circuit. Alle virtuele netwerken delen de dezelfde bandbreedte.
+    > Verbindingen en bandbreedte kosten voor speciale Hallo circuit zijn toegepaste toohello ExpressRoute-circuiteigenaar. Alle virtuele netwerken Hallo delen dezelfde bandbreedte.
     > 
     >
 
 ### <a name="administration---circuit-owners-and-circuit-users"></a>Beheer - circuit eigenaars en circuit gebruikers
 
-De circuiteigenaar is een geautoriseerde gebruiker Power van de bron van ExpressRoute-circuit. De circuiteigenaar van het kunt autorisaties die kunnen worden ingewisseld door 'circuit gebruikers' maken. Circuit gebruikers kunnen eigenaren van virtuele netwerkgateways die zich niet binnen hetzelfde abonnement als het ExpressRoute-circuit. Circuit gebruikers kunnen inwisselen autorisaties (één autorisatie per virtueel netwerk).
+Hallo 'circuiteigenaar' is een geautoriseerde gebruiker Power Hallo ExpressRoute-circuit resource. Hallo circuiteigenaar kunt autorisaties die kunnen worden ingewisseld door 'circuit gebruikers' maken. Circuit gebruikers kunnen eigenaren van het virtuele netwerk gateways die niet binnen hetzelfde abonnement Hallo zoals Hallo ExpressRoute-circuit. Circuit gebruikers kunnen inwisselen autorisaties (één autorisatie per virtueel netwerk).
 
-De circuiteigenaar van het bevoegd is om te wijzigen en machtigingen intrekt op elk gewenst moment. Intrekken van een vergunning resulteert in alle koppeling verbindingen wordt verwijderd uit het abonnement waarvoor de toegang is ingetrokken.
+Hallo circuiteigenaar heeft Hallo power toomodify en trek autorisaties op elk gewenst moment. Intrekken van een vergunning resulteert in alle koppeling verbindingen wordt verwijderd uit het Hallo-abonnement waarvoor de toegang is ingetrokken.
 
 ### <a name="circuit-owner-operations"></a>Circuit eigenaar bewerkingen
 
-**Maken van een verbinding-autorisatieregels**
+**een verbindingsverificatie toocreate**
 
-De circuiteigenaar van het maakt een autorisatie. Dit resulteert in het maken van een autorisatiesleutel die kan worden gebruikt door een gebruiker circuit verbinding maken hun virtuele netwerkgateways aan ExpressRoute-circuit. Een vergunning is geldig voor slechts één verbinding.
+Hallo circuiteigenaar maakt een autorisatie. Dit resulteert in Hallo maken van een autorisatiesleutel die kan worden gebruikt door een gebruiker circuit tooconnect hun virtuele netwerk gateways toohello ExpressRoute-circuit. Een vergunning is geldig voor slechts één verbinding.
 
-1. Klik op de blade ExpressRoute **autorisaties** en typ vervolgens een **naam** voor autorisatie en klik op **opslaan**.
+1. Klik op Hallo ExpressRoute blade **autorisaties** en typ vervolgens een **naam** voor Hallo autorisatie en klik op **opslaan**.
 
     ![autorisaties](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 
-2. Zodra de configuratie is opgeslagen, kopieert u de **Resource-ID** en de **Autorisatiesleutel**.
+2. Zodra het Hallo-configuratie is opgeslagen, kopiëren Hallo **Resource-ID** en Hallo **Autorisatiesleutel**.
 
     ![Autorisatiesleutel](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
 
-**De autorisatie van een verbinding verwijderen**
+**een verbindingsverificatie toodelete**
 
-U kunt een verbinding verwijderen door het selecteren van de **verwijderen** pictogram op de blade voor de verbinding.
+U kunt een verbinding verwijderen door het selecteren van Hallo **verwijderen** pictogram op de blade Hallo voor de verbinding.
 
 ### <a name="circuit-user-operations"></a>Bewerkingen voor circuit-gebruikers
 
-De circuit-gebruiker moet de resource-ID en een autorisatiesleutel van de circuiteigenaar van het. 
+Hallo circuit gebruiker moet Hallo resource-ID en een autorisatiesleutel van Hallo circuiteigenaar. 
 
-**Voor een verbindingsverificatie inwisselen**
+**een verbindingsverificatie tooredeem**
 
-1.  Klik op de **+ nieuw** knop.
+1.  Klik op Hallo **+ nieuw** knop.
 
     ![Klik op nieuwe](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
 
-2.  Zoeken naar **'Verbinding'** in de Marketplace te selecteren en op **maken**.
+2.  Zoeken naar **'Verbinding'** in Hallo Marketplace, te selecteren en op **maken**.
 
     ![Zoekactie voor verbinding](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 
-3.  Zorg ervoor dat de **verbindingstype** is ingesteld op 'ExpressRoute'.
+3.  Zorg ervoor dat Hallo **verbindingstype** te is ingesteld 'ExpressRoute'.
 
 
-4.  Vul de details en klik vervolgens op **OK** in de blade grondbeginselen.
+4.  Vul Hallo details en klik vervolgens op **OK** in de blade grondbeginselen Hallo.
 
     ![Blade Grondbeginselen](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 
-5.  In de **instellingen** blade, selecteer de **virtuele netwerkgateway** en controleer de **inwisselen autorisatie** selectievakje.
+5.  In Hallo **instellingen** blade, selecteer Hallo **virtuele netwerkgateway** en controleer Hallo **inwisselen autorisatie** selectievakje.
 
-6.  Voer de **autorisatiesleutel** en de **circuit URI Peer** en geef een naam op voor de verbinding. Klik op **OK**.
+6.  Voer Hallo **autorisatiesleutel** en Hallo **circuit URI Peer** en geef een naam op Hallo-verbinding. Klik op **OK**.
 
     ![Blade Instellingen](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 
-7. Lees de informatie in de **samenvatting** blade en klik op **OK**.
+7. Lees de informatie Hallo in Hallo **samenvatting** blade en klik op **OK**.
 
 
-**Een verbindingsverificatie vrijgeven**
+**een verbindingsverificatie toorelease**
 
-U kunt een vergunning vrijgeven door het verwijderen van de verbinding die is gekoppeld aan het virtuele netwerk in het ExpressRoute-circuit.
+U kunt een vergunning vrijgeven door Hallo-verbinding die is gekoppeld aan Hallo ExpressRoute-circuit toohello virtueel netwerk te verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Voor meer informatie over ExpressRoute raadpleegt u de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).
+Zie voor meer informatie over ExpressRoute hello [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).

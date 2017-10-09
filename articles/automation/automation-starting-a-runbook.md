@@ -1,6 +1,6 @@
 ---
-title: Een runbook starten in Azure Automation | Microsoft Docs
-description: Geeft een overzicht van de verschillende methoden die kunnen worden gebruikt voor het starten van een runbook in Azure Automation en biedt details over het gebruik van de Azure-portal en de Windows PowerShell.
+title: een runbook in Azure Automation aaaStarting | Microsoft Docs
+description: Geeft een overzicht van Hallo verschillende methoden die kunnen worden gebruikt toostart een runbook in Azure Automation en biedt details over het gebruik van beide hello Azure-portal en Windows PowerShell.
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 844831b63d5263987ed05370125fbe9f01913ab9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e44bce5b56b8e803f9247fbb4f3d4db7ab35c913
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Een runbook starten in Azure Automation
-De volgende tabel kunt u bepalen welke methode voor het starten van een runbook in Azure Automation die het meest geschikt is voor uw specifieke scenario. Dit artikel bevat informatie over het starten van een runbook met de Azure-portal en met Windows PowerShell. Meer informatie over de andere methoden beschikbaar in andere documentatie die u vanaf de onderstaande koppelingen openen kunt.
+Hallo volgende tabel kunt u bepalen Hallo methode toostart een runbook in Azure Automation die het meest geschikte tooyour bepaalde scenario. Dit artikel bevat informatie over het starten van een runbook met hello Azure-portal en met Windows PowerShell. Details op Hallo andere methoden beschikbaar zijn in andere documentatie die u vanaf Hallo onderstaande koppelingen openen kunt.
 
 | **METHODE** | **KENMERKEN** |
 | --- | --- |
-| [Azure Portal](#starting-a-runbook-with-the-azure-portal) |<li>Eenvoudigste methode met interactieve gebruikersinterface.<br> <li>Formulier eenvoudige parameterwaarden opgeven.<br> <li>Taakstatus op eenvoudige wijze volgen.<br> <li>De toegang wordt geverifieerd met aanmelding bij Azure. |
-| [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) |<li>Aanroepen vanuit de opdrachtregel met Windows PowerShell-cmdlets.<br> <li>Geautomatiseerde oplossing met meerdere stappen kunnen worden opgenomen.<br> <li>Aanvraag is geverifieerd met een certificaat of de OAuth-gebruiker principal / service principal.<br> <li>Eenvoudige en complexe parameterwaarden opgeven.<br> <li>Taakstatus bijhouden.<br> <li>De client vereist ter ondersteuning van PowerShell-cmdlets. |
+| [Azure Portal](#starting-a-runbook-with-the-azure-portal) |<li>Eenvoudigste methode met interactieve gebruikersinterface.<br> <li>Formulier tooprovide eenvoudige parameterwaarden.<br> <li>Taakstatus op eenvoudige wijze volgen.<br> <li>De toegang wordt geverifieerd met aanmelding bij Azure. |
+| [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) |<li>Aanroepen vanuit de opdrachtregel met Windows PowerShell-cmdlets.<br> <li>Geautomatiseerde oplossing met meerdere stappen kunnen worden opgenomen.<br> <li>Aanvraag is geverifieerd met een certificaat of de OAuth-gebruiker principal / service principal.<br> <li>Eenvoudige en complexe parameterwaarden opgeven.<br> <li>Taakstatus bijhouden.<br> <li>-Client vereist toosupport PowerShell-cmdlets. |
 | [Azure Automation-API](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>Meest flexibele methode, maar ook de meeste complex.<br> <li>Aanroepen vanuit elke gewenste aangepaste code die HTTP-aanvragen kan maken.<br> <li>Aanvraag geverifieerd met het certificaat of de Oauth-gebruiker principal / service principal.<br> <li>Eenvoudige en complexe parameterwaarden opgeven.<br> <li>Taakstatus bijhouden. |
-| [Webhooks.](automation-webhooks.md) |<li>Runbook starten vanuit één HTTP-aanvraag.<br> <li>Geverifieerd met beveiligingstoken in URL.<br> <li>Client overschrijven niet parameterwaarden die zijn opgegeven wanneer webhook is gemaakt. Runbook kunt definiëren één parameter die is gevuld met de details van de HTTP-aanvraag.<br> <li>Er is geen mogelijkheid om bij te houden taakstatus via webhook-URL. |
-| [Reageren op Azure waarschuwing](../log-analytics/log-analytics-alerts.md) |<li>Een runbook starten in reactie op Azure waarschuwing.<br> <li>Webhook voor runbook en een koppeling naar een waarschuwing configureren.<br> <li>Geverifieerd met beveiligingstoken in URL. |
-| [Planning](automation-schedules.md) |<li>Start runbook automatisch op elk uur, dagelijks, wekelijks of maandelijks schema.<br> <li>Manipuleren planning via Azure portal, PowerShell-cmdlets of Azure-API.<br> <li>Parameterwaarden moet worden gebruikt met een planning opgeven. |
-| [Vanuit een ander Runbook](automation-child-runbooks.md) |<li>Een runbook gebruiken als een activiteit in een ander runbook.<br> <li>Dit is handig voor functionaliteit die wordt gebruikt door meerdere runbooks.<br> <li>Parameterwaarden voor onderliggend runbook opgeven en het gebruik van uitvoer in bovenliggende runbook. |
+| [Webhooks.](automation-webhooks.md) |<li>Runbook starten vanuit één HTTP-aanvraag.<br> <li>Geverifieerd met beveiligingstoken in URL.<br> <li>Client overschrijven niet parameterwaarden die zijn opgegeven wanneer webhook is gemaakt. Runbook kan één parameter die is gevuld met gegevens voor de HTTP-aanvraag Hallo kunt definiëren.<br> <li>Er is geen mogelijkheid tootrack taakstatus via webhook-URL. |
+| [Reageren tooAzure waarschuwing](../log-analytics/log-analytics-alerts.md) |<li>Een runbook start in antwoord tooAzure waarschuwing.<br> <li>Configureer webhook voor het runbook en tooalert koppelen.<br> <li>Geverifieerd met beveiligingstoken in URL. |
+| [Planning](automation-schedules.md) |<li>Start runbook automatisch op elk uur, dagelijks, wekelijks of maandelijks schema.<br> <li>Manipuleren planning via Azure portal, PowerShell-cmdlets of Azure-API.<br> <li>Geef de parameter waarden toobe gebruikt met planning. |
+| [Vanuit een ander Runbook](automation-child-runbooks.md) |<li>Een runbook gebruiken als een activiteit in een ander runbook.<br> <li>Dit is handig voor functionaliteit die wordt gebruikt door meerdere runbooks.<br> <li>Geef de parameter waarden toochild runbook en gebruik van uitvoer in bovenliggend runbook. |
 
-De volgende afbeelding illustreert de gedetailleerde stapsgewijze proces in de levenscyclus van een runbook. Dit omvat verschillende manieren die een runbook wordt gestart in Azure Automation onderdelen vereist zijn voor hybride Runbook Worker Azure Automation-runbooks en interacties tussen de verschillende onderdelen uit te voeren. Raadpleeg voor meer informatie over het uitvoeren van Automation-runbooks in uw datacenter, [hybride runbook workers](automation-hybrid-runbook-worker.md)
+Hallo volgende afbeelding ziet u gedetailleerde stapsgewijze procedure geleid in Hallo levenscyclus van een runbook. Dit omvat verschillende manieren een runbook wordt gestart in Azure Automation, die vereist zijn voor hybride Runbook Worker tooexecute Azure Automation-runbooks en -interacties tussen de verschillende onderdelen. toolearn over het uitvoeren van Automation-runbooks in uw datacenter te verwijzen[hybride runbook workers](automation-hybrid-runbook-worker.md)
 
 ![Runbook-architectuur](media/automation-starting-runbook/runbooks-architecture.png)
 
-## <a name="starting-a-runbook-with-the-azure-portal"></a>Een runbook starten met de Azure-portal
-1. Selecteer in de Azure-portal **Automation** en klik vervolgens op de naam van een automation-account.
-2. Selecteer in het menu Hub **Runbooks**.
-3. Op de **Runbooks** blade, selecteert u een runbook en klik vervolgens op **Start**.
-4. Als het runbook parameters heeft, wordt u gevraagd waarden met een tekstvak voor elke parameter opgeven. Zie [Runbookparameters](#Runbook-parameters) hieronder voor meer informatie over parameters.
-5. Op de **taak** blade kunt u de status van de runbooktaak weergeven.
+## <a name="starting-a-runbook-with-hello-azure-portal"></a>Een runbook starten met hello Azure-portal
+1. Selecteer in de Azure-portal hello, **Automation** en klik vervolgens op Hallo-naam van een automation-account.
+2. Selecteer op de Hub-menu Hallo **Runbooks**.
+3. Op Hallo **Runbooks** blade, selecteert u een runbook en klik vervolgens op **Start**.
+4. Als Hallo runbook parameters heeft, kunt u zich na vragen aan gebruiker tooprovide waarden met een tekstvak voor elke parameter. Zie [Runbookparameters](#Runbook-parameters) hieronder voor meer informatie over parameters.
+5. Op Hallo **taak** blade kunt u Hallo status van de runbooktaak Hallo bekijken.
 
 ## <a name="starting-a-runbook-with-windows-powershell"></a>Een runbook starten met Windows PowerShell
-U kunt de [Start AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) een runbook starten met Windows PowerShell. De volgende voorbeeldcode wordt een runbook met de naam Test-Runbook gestart.
+U kunt Hallo [Start AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) toostart een runbook met Windows PowerShell. Hallo volgende voorbeeldcode wordt een runbook gestart naam Test-Runbook.
 
 ```
 Start-AzureRmAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
-Start AzureRmAutomationRunbook retourneert een taakobject dat u de status ervan bijhouden kunt zodra het runbook wordt gestart. U kunt dit object met [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) om te bepalen van de status van de taak en [Get-AzureRmAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx) ophalen van de uitvoer ervan weergegeven. De volgende voorbeeldcode wordt gestart van een runbook met de naam Test-Runbook, wordt er gewacht totdat deze is voltooid en vervolgens de uitvoer ervan weergegeven wordt.
+Retourneert een taak start AzureRmAutomationRunbook object waarmee u tootrack de status ervan kunt zodra Hallo runbook wordt gestart. U kunt dit object met [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) toodetermine Hallo status van Hallo taak en [Get-AzureRmAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx) tooget uitvoer ervan weergegeven. Hallo volgende voorbeeldcode wordt een runbook met de naam Test-Runbook, wordt er gewacht totdat deze is voltooid en vervolgens de uitvoer wordt gestart.
 
 ```
 $runbookName = "Test-Runbook"
@@ -70,7 +70,7 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Als het runbook parameters vereist, dan u als opgeven moet een [hashtabel](http://technet.microsoft.com/library/hh847780.aspx) waar de sleutel van de hashtabel overeenkomt met de parameternaam van de en de waarde is de waarde van parameter. Het volgende voorbeeld ziet hoe u een runbook met twee Reeksparameters met de naam FirstName en LastName, een geheel getal met de naam RepeatCount en een Boole-parameter met de naam Show start. Zie voor meer informatie over parameters [Runbookparameters](#Runbook-parameters) hieronder.
+Als Hallo runbook parameters vereist, dan u als opgeven moet een [hashtabel](http://technet.microsoft.com/library/hh847780.aspx) waarbij Hallo-sleutel van Hallo hashtabel overeenkomt met Hallo parameternaam en Hallo-waarde is de waarde van de Hallo-parameter. Hallo volgende voorbeeld ziet u hoe toostart een runbook met twee Reeksparameters met de naam FirstName en LastName, een geheel getal met de naam RepeatCount en een Boole-parameter met de naam Show. Zie voor meer informatie over parameters [Runbookparameters](#Runbook-parameters) hieronder.
 
 ```
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
@@ -78,14 +78,14 @@ Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" �
 ```
 
 ## <a name="runbook-parameters"></a>Runbook-parameters
-Wanneer u een runbook vanuit de Azure Portal of de Windows PowerShell start, wordt de instructie verzonden via de Azure Automation-webservice. Deze service biedt geen ondersteuning voor parameters met complexe gegevenstypen. Als u moet een waarde opgeven voor een complexe parameter, moet u deze inline vanuit een ander runbook aanroepen moet zoals beschreven in [onderliggende runbooks in Azure Automation](automation-child-runbooks.md).
+Wanneer u een runbook vanuit hello Azure Portal of met Windows PowerShell start, Hallo instructie verzonden via hello Azure Automation-webservice. Deze service biedt geen ondersteuning voor parameters met complexe gegevenstypen. Als u een waarde tooprovide voor een complexe parameter moet, wordt u deze inline vanuit een ander runbook aanroepen moet zoals beschreven in [onderliggende runbooks in Azure Automation](automation-child-runbooks.md).
 
-De webservice Azure Automation biedt speciale functionaliteit voor parameters die bepaalde gegevenstypen zoals beschreven in de volgende secties gebruiken.
+Hello Azure Automation-webservice biedt speciale functionaliteit voor parameters die bepaalde gegevenstypen gebruiken, zoals beschreven in Hallo uit te voeren.
 
 ### <a name="named-values"></a>Naamwaarden
-Als de parameter gegevenstype [object] is, dan kunt u de volgende JSON-indeling te verzenden in een lijst met naamwaarden: *{Name1: 'Value1', Naam2: 'Waarde2', Name3: 'Value3'}*. Deze waarden moeten eenvoudige typen. Het runbook ontvangt de parameter als een [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) met eigenschappen die met elke benoemde waarde overeenkomen.
+Als Hallo parameter gegevenstype [object] is, wordt u Hallo volgende JSON-indeling toosend een lijst met benoemde waarden kunt gebruiken: *{Name1: 'Value1', Naam2: 'Waarde2', Name3: 'Value3'}*. Deze waarden moeten eenvoudige typen. Hallo runbook ontvangt Hallo parameter als een [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) met eigenschappen die met de naam value tooeach overeenkomen.
 
-Houd rekening met het volgende testrunbook dat een parameter met de naam van de gebruiker accepteert.
+Overweeg het volgende testrunbook dat een parameter met de naam van de gebruiker accepteert Hallo.
 
 ```
 Workflow Test-Parameters
@@ -103,13 +103,13 @@ Workflow Test-Parameters
 }
 ```
 
-De volgende tekst kan worden gebruikt voor de parameter user.
+Hallo kan volgende tekst worden gebruikt voor de parameter user Hallo.
 
 ```
 {FirstName:'Joe',LastName:'Smith',RepeatCount:'2',Show:'True'}
 ```
 
-Dit resulteert in de volgende uitvoer.
+Dit resulteert in Hallo na uitvoer.
 
 ```
 Joe
@@ -119,9 +119,9 @@ Smith
 ```
 
 ### <a name="arrays"></a>Matrices
-Als de parameter een matrix zoals [array is] of [string []], kunt u de volgende JSON-indeling gebruiken om te verzenden in een lijst met waarden: *[Value1, Value2, Value3]*. Deze waarden moeten eenvoudige typen.
+Als Hallo-parameter een matrix zoals [array is] of [string []], kunt u Hallo volgende JSON-indeling toosend deze een lijst met waarden: *[Value1, Value2, Value3]*. Deze waarden moeten eenvoudige typen.
 
-Houd rekening met het volgende testrunbook dat een parameter met de naam accepteert *gebruiker*.
+Overweeg het volgende testrunbook dat een parameter met de naam accepteert Hallo *gebruiker*.
 
 ```
 Workflow Test-Parameters
@@ -138,13 +138,13 @@ Workflow Test-Parameters
 }
 ```
 
-De volgende tekst kan worden gebruikt voor de parameter user.
+Hallo kan volgende tekst worden gebruikt voor de parameter user Hallo.
 
 ```
 ["Joe","Smith",2,true]
 ```
 
-Dit resulteert in de volgende uitvoer.
+Dit resulteert in Hallo na uitvoer.
 
 ```
 Joe
@@ -154,9 +154,9 @@ Smith
 ```
 
 ### <a name="credentials"></a>Referenties
-Als de parameter gegevenstype **PSCredential**, kunt u de naam van een Azure Automation opgeven [referentieasset](automation-credentials.md). Het runbook haalt de referentie met de naam die u opgeeft.
+Als de parameter Hallo gegevenstype **PSCredential**, kunt u Hallo-naam van een Azure Automation opgeven [referentieasset](automation-credentials.md). Hallo runbook haalt Hallo-referentie met Hallo-naam die u opgeeft.
 
-Houd rekening met het volgende testrunbook dat een parameter met de naam van de referentie accepteert.
+Overweeg het volgende testrunbook dat een parameter met de naam van de referentie accepteert Hallo.
 
 ```
 Workflow Test-Parameters
@@ -168,19 +168,19 @@ Workflow Test-Parameters
 }
 ```
 
-De volgende tekst kan worden gebruikt voor de gebruiker parameter mits het referentie-element *mijn referentie*.
+Hallo volgende tekst kan worden gebruikt voor Hallo gebruiker parameter mits het referentie-element *mijn referentie*.
 
 ```
 My Credential
 ```
 
-Als de gebruikersnaam in de referentie is *jsmith*, resulteert dit in de volgende uitvoer.
+Ervan uitgaand dat Hallo gebruikersnaam in het Hallo-referentie is *jsmith*, resulteert dit in de volgende uitvoer Hallo.
 
 ```
 jsmith
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* De runbook-architectuur in het huidige artikel biedt een overzicht van het beheer van bronnen van de runbooks in Azure en on-premises met de hybride Runbook Worker.  Raadpleeg voor meer informatie over het uitvoeren van Automation-runbooks in uw datacenter, [Hybrid Runbook Workers](automation-hybrid-runbook-worker.md).
-* Raadpleeg voor meer informatie over het maken, modulaire runbooks moet worden gebruikt door andere runbooks voor specifieke of algemene functies [onderliggende Runbooks](automation-child-runbooks.md).
+* Hallo runbook-architectuur in het huidige artikel biedt een overzicht van het beheer van bronnen van de runbooks in Azure en on-premises met Hallo Hybrid Runbook Worker.  toolearn over het uitvoeren van Automation-runbooks in uw datacenter te verwijzen[Hybrid Runbook Workers](automation-hybrid-runbook-worker.md).
+* toolearn meer informatie over Hallo modulaire runbooks toobe gebruikt door andere runbooks voor specifieke of algemene functies, maken te verwijzen[onderliggende Runbooks](automation-child-runbooks.md).
 

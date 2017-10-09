@@ -1,4 +1,4 @@
-Als u een parameterbestand parameterwaarden doorgeven tijdens de implementatie gebruikt, moet u een JSON-bestand maken met een indeling als in het volgende voorbeeld:
+Als u een parameterwaarden bestand toopass parameter tijdens de implementatie gebruikt, moet u op toocreate een JSON-bestand met een indeling vergelijkbaar toohello voorbeeld te volgen:
 
 ```json
 {
@@ -26,7 +26,7 @@ Als u een parameterbestand parameterwaarden doorgeven tijdens de implementatie g
 }
 ```
 
-De grootte van het parameterbestand mag niet meer dan 64 KB.
+Hallo-grootte van het parameterbestand Hallo mag niet meer dan 64 KB.
 
-Als u wilt een gevoelige waarde opgeven voor een parameter (zoals een wachtwoord), moet u die waarde toevoegen aan een sleutelkluis. De sleutelkluis ophalen tijdens de implementatie, zoals wordt weergegeven in het vorige voorbeeld. Zie voor meer informatie [beveiligde waarden doorgeven tijdens de implementatie van](../articles/azure-resource-manager/resource-manager-keyvault-parameter.md). 
+Als u tooprovide een gevoelige waarde moet een parameter (zoals een wachtwoord), voegt u die waarde tooa-sleutelkluis. Hallo sleutelkluis tijdens de implementatie, zoals weergegeven in het vorige voorbeeld Hallo ophalen. Zie voor meer informatie [beveiligde waarden doorgeven tijdens de implementatie van](../articles/azure-resource-manager/resource-manager-keyvault-parameter.md). 
 

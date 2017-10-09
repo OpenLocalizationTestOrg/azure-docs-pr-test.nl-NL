@@ -1,31 +1,31 @@
-## <a name="view-the-telemetry"></a>De telemetrie weergeven
+## <a name="view-hello-telemetry"></a>Hallo telemetrie van paginaweergaven
 
-De Pi frambozen is nu met het verzenden van telemetrie naar de oplossing voor externe controle. U kunt de telemetrie weergeven op het dashboard van oplossing. U kunt ook berichten verzenden naar uw Pi frambozen vanuit het dashboard van oplossing.
+Hallo frambozen Pi verzendt nu telemetrie toohello oplossing voor externe controle. U kunt Hallo telemetrie weergeven op Hallo oplossing dashboard. Ook kunt u berichten tooyour frambozen Pi verzenden vanuit Hallo oplossing dashboard.
 
-- Ga naar het dashboard van de oplossing.
-- Selecteer het apparaat in de **apparaat naar de weergave** vervolgkeuzelijst.
-- De telemetrie van de Pi frambozen wordt weergegeven op het dashboard.
+- Navigeer toohello oplossing dashboard.
+- Selecteer het apparaat in Hallo **apparaat tooView** vervolgkeuzelijst.
+- Hallo telemetrie van Hallo frambozen Pi wordt weergegeven op Hallo-dashboard.
 
-![Telemetrie weergegeven van de Pi frambozen][img-telemetry-display]
+![Telemetrie weergegeven van Hallo frambozen Pi][img-telemetry-display]
 
-## <a name="act-on-the-device"></a>Reageren op het apparaat
+## <a name="act-on-hello-device"></a>Reageren op Hallo-apparaat
 
-U kunt vanuit het dashboard oplossing methoden aanroepen op uw frambozen Pi. Wanneer de Pi frambozen verbinding met de oplossing voor externe controle, stuurt informatie over de methoden die wordt ondersteund.
+U kunt vanuit Hallo oplossing dashboard, methoden aanroepen op uw frambozen Pi. Wanneer Hallo frambozen Pi verbinding toohello oplossing voor externe controle, stuurt informatie over deze ondersteuning biedt voor Hallo-methoden.
 
-- Klik in het dashboard van de oplossing op **apparaten** bezoeken de **apparaten** pagina. Selecteer uw Raspberry Pi in de **lijst met apparaten**. Kies vervolgens **methoden**:
+- Klik in het dashboard van de oplossing hello, **apparaten** toovisit hello **apparaten** pagina. Selecteer uw Pi frambozen in Hallo **lijst met apparaten**. Kies vervolgens **methoden**:
 
     ![Lijst met apparaten in het dashboard][img-list-devices]
 
-- Op de **methode Invoke** pagina **LightBlink** in de **methode** vervolgkeuzelijst.
+- Op Hallo **methode Invoke** pagina **LightBlink** in Hallo **methode** vervolgkeuzelijst.
 
-- Kies **InvokeMethod**. De LED verbonden met de flitsen frambozen Pi meermaals. De app op de Pi frambozen verzendt een bevestiging terug naar het dashboard van oplossing:
+- Kies **InvokeMethod**. Hallo LED verbonden toohello die frambozen Pi meermaals knippert. Hallo-app op Hallo frambozen Pi verzendt een dashboard van de bevestiging terug toohello oplossing:
 
     ![Overzicht van de methode weergeven][img-method-history]
 
-- Kunt u de LED in- en uitschakelen met behulp van de **ChangeLightStatus** methode met een **LightStatusValue** ingesteld op **1** voor op of **0** voor uitschakelen.
+- Kunt u schakelen Hallo LED in- en uitschakelen met behulp van Hallo **ChangeLightStatus** methode met een **LightStatusValue** instellen te**1** voor op of **0** voor uitschakelen.
 
 > [!WARNING]
-> Als u de oplossing voor externe controle uitgevoerd in uw Azure-account laat, wordt u gefactureerd voor de tijd die wordt uitgevoerd. Zie voor meer informatie over het verbruik verminderen terwijl de oplossing voor externe controle wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor demonstratiedoeleinden][lnk-demo-config]. De vooraf geconfigureerde oplossing verwijderen uit uw Azure-account wanneer u klaar bent met het gebruik van maken.
+> Als u Hallo oplossing uitgevoerd in uw Azure-account voor externe controle laat, wordt u gefactureerd voor Hallo keer die wordt uitgevoerd. Zie voor meer informatie over het verminderen van verbruik tijdens het Hallo voor externe controle van de oplossing wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor demonstratiedoeleinden][lnk-demo-config]. Hallo vooraf geconfigureerde oplossing uit uw Azure-account verwijderen wanneer u klaar bent met het gebruik van maken.
 
 
 [img-telemetry-display]: media/iot-suite-raspberry-pi-kit-view-telemetry/telemetry.png

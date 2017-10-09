@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager-sjabloon fungeert - matrices en objecten | Microsoft Docs
-description: Beschrijft de functies te gebruiken in een Azure Resource Manager-sjabloon voor het werken met matrices en objecten.
+title: Resource Manager-sjabloon aaaAzure functioneert - matrices en objecten | Microsoft Docs
+description: Hallo functies toouse in een Azure Resource Manager-sjabloon voor het werken met matrices en objecten beschrijft.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 0bd9ec41761c9ce575f3bcf4d1f8e8578b83e01c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e5f1a9b2a71039562eae7e48c2474a1fa59a7bea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Matrix en object-functies voor Azure Resource Manager-sjablonen 
 
@@ -42,20 +42,20 @@ Resource Manager biedt een aantal functies voor het werken met matrices en objec
 * [duren](#take)
 * [Union](#union)
 
-Als u een matrix van tekenreekswaarden gescheiden door een waarde, Zie [splitsen](resource-group-template-functions-string.md#split).
+een matrix van tekenreekswaarden gescheiden door een waarde tooget Zie [splitsen](resource-group-template-functions-string.md#split).
 
 <a id="array" />
 
 ## <a name="array"></a>matrix
 `array(convertToArray)`
 
-De waarde wordt omgezet in een matrix.
+De waardematrix tooan Hallo converteert.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Ja |int, string, matrix of object |De waarde te converteren naar een matrix. |
+| convertToArray |Ja |int, string, matrix of object |Hallo waarde tooconvert tooan matrix. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -63,7 +63,7 @@ Een matrix.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet hoe u de functie array met verschillende typen.
+Hallo volgende voorbeeld ziet u hoe toouse Hallo Matrixfunctie met verschillende typen.
 
 ```json
 {
@@ -102,35 +102,35 @@ Het volgende voorbeeld ziet hoe u de functie array met verschillende typen.
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| intOutput | matrix | [1] |
-| stringOutput | matrix | ["a"] |
-| objectOutput | matrix | [{"a": "b", "c": "d"}] |
+| intOutput | Matrix | [1] |
+| stringOutput | Matrix | ["a"] |
+| objectOutput | Matrix | [{"a": "b", "c": "d"}] |
 
 <a id="coalesce" />
 
 ## <a name="coalesce"></a>Coalesce
 `coalesce(arg1, arg2, arg3, ...)`
 
-Retourneert de eerste niet-null-waarde van de parameters. Lege tekenreeksen, matrices leeg en lege objecten zijn niet null.
+Retourneert de eerste niet-null-waarde van Hallo-parameters. Lege tekenreeksen, matrices leeg en lege objecten zijn niet null.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |int, string, matrix of object |De eerste waarde om te controleren op null. |
-| Als u meer argumenten |Nee |int, string, matrix of object |Aanvullende waarden testen op null. |
+| Arg1 |Ja |int, string, matrix of object |Hallo eerste waarde tootest voor null. |
+| Als u meer argumenten |Nee |int, string, matrix of object |Aanvullende waarden tootest voor null. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-De waarde van de eerste niet-null-parameters, dit kan een string, int, matrix of object. Null als alle parameters leeg zijn. 
+Hallo-waarde van Hallo eerste niet-null-parameters, dit kan een string, int, matrix of object. Null als alle parameters leeg zijn. 
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet de uitvoer van verschillende coalesce worden gebruikt.
+Hallo ziet volgende voorbeeld Hallo-uitvoer van verschillende coalesce worden gebruikt.
 
 ```json
 {
@@ -176,14 +176,14 @@ Het volgende voorbeeld ziet de uitvoer van verschillende coalesce worden gebruik
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | stringOutput | Tekenreeks | Standaard |
 | intOutput | int | 1 |
 | objectOutput | Object | {{'eerste': 'standaard'} |
-| arrayOutput | matrix | [1] |
+| arrayOutput | Matrix | [1] |
 | emptyOutput | BOOL | True |
 
 <a id="concat" />
@@ -191,23 +191,23 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="concat"></a>concat
 `concat(arg1, arg2, arg3, ...)`
 
-Combineert meerdere matrices en retourneert de aaneengeschakelde matrix of combineert meerdere tekenreekswaarden en retourneert de samengevoegde tekenreeks. 
+Combineert meerdere matrices en retourneert Hallo samengevoegd matrix, of meerdere tekenreekswaarden combineert en retourneert Hallo samengevoegd tekenreeks. 
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |matrix of tekenreeks |De eerste matrix of tekenreeks op voor de samenvoeging. |
+| Arg1 |Ja |matrix of tekenreeks |Hallo eerste matrix of tekenreeks op voor de samenvoeging. |
 | Extra argumenten |Nee |matrix of tekenreeks |Aanvullende matrices of tekenreeksen in opeenvolgende volgorde voor de samenvoeging. |
 
-Deze functie kan duren voordat een willekeurig aantal argumenten en tekenreeksen of matrices voor de parameters kan accepteren.
+Deze functie kan duren voordat een willekeurig aantal argumenten en tekenreeksen of matrices voor Hallo parameters kan accepteren.
 
 ### <a name="return-value"></a>Retourwaarde
 Een tekenreeks of matrix met samengevoegde waarden.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet twee matrices combineren.
+Hallo volgende voorbeeld ziet u hoe toocombine twee matrices.
 
 ```json
 {
@@ -242,13 +242,13 @@ Het volgende voorbeeld ziet twee matrices combineren.
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| retourneren | matrix | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| retourneren | Matrix | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-Het volgende voorbeeld laat zien hoe het combineren van twee tekenreekswaarden zoals en een samengevoegde tekenreeks retourneren.
+Hallo volgende voorbeeld ziet u hoe toocombine twee tekenreekswaarden en een samengevoegde tekenreeks retourneren.
 
 ```json
 {
@@ -270,7 +270,7 @@ Het volgende voorbeeld laat zien hoe het combineren van twee tekenreekswaarden z
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -287,16 +287,16 @@ Controleert of een matrix een waarde bevat, een object een sleutel bevat of een 
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| container |Ja |Array, object of een tekenreeks |De waarde met de waarde om te zoeken. |
-| itemToFind |Ja |String of int. |De waarde om te zoeken. |
+| container |Ja |Array, object of een tekenreeks |Hallo-waarde die Hallo waarde toofind bevat. |
+| itemToFind |Ja |String of int. |Hallo waarde toofind. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-**De waarde True** als het item gevonden, anders wordt is **False**.
+**De waarde True** als Hallo item gevonden, anders wordt is **False**.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet u hoe u bevat met verschillende typen:
+Hallo volgende voorbeeld laat zien hoe toouse bevat met verschillende typen:
 
 ```json
 {
@@ -347,7 +347,7 @@ Het volgende voorbeeld ziet u hoe u bevat met verschillende typen:
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -363,14 +363,14 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="createarray"></a>createarray
 `createArray (arg1, arg2, arg3, ...)`
 
-Maakt een matrix van de parameters.
+Maakt een matrix van Hallo-parameters.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |Tekenreeks, geheel getal, matrix of Object |De eerste waarde in de matrix. |
-| Extra argumenten |Nee |Tekenreeks, geheel getal, matrix of Object |Aanvullende waarden in de matrix. |
+| Arg1 |Ja |Tekenreeks, geheel getal, matrix of Object |Hallo eerste waarde in Hallo matrix. |
+| Extra argumenten |Nee |Tekenreeks, geheel getal, matrix of Object |Aanvullende waarden in Hallo matrix. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -378,7 +378,7 @@ Een matrix.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet hoe u createArray met verschillende typen:
+Hallo volgende voorbeeld wordt getoond hoe toouse createArray met verschillende typen:
 
 ```json
 {
@@ -417,14 +417,14 @@ Het volgende voorbeeld ziet hoe u createArray met verschillende typen:
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| stringArray | matrix | ["a", "b", "c"] |
-| intArray | matrix | [1, 2, 3] |
-| objectArray | matrix | [{"een": "a", "twee": "b", "drie": "c"}] |
-| arrayArray | matrix | [[' een', 'twee', 'drie']] |
+| stringArray | Matrix | ["a", "b", "c"] |
+| intArray | Matrix | [1, 2, 3] |
+| objectArray | Matrix | [{"een": "a", "twee": "b", "drie": "c"}] |
+| arrayArray | Matrix | [[' een', 'twee', 'drie']] |
 
 <a id="empty" />
 
@@ -438,15 +438,15 @@ Hiermee wordt bepaald of een matrix, een object of een tekenreeks leeg is.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Ja |Array, object of een tekenreeks |De waarde om te controleren als deze leeg is. |
+| itemToTest |Ja |Array, object of een tekenreeks |Hallo waarde toocheck als deze leeg is. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Retourneert **True** als de waarde leeg, anders wordt is **False**.
+Retourneert **True** als Hallo-waarde leeg, anders wordt is **False**.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld wordt gecontroleerd of een matrix, het object en de tekenreeks leeg zijn.
+Hallo volgende voorbeeld wordt gecontroleerd of een matrix, het object en de tekenreeks leeg zijn.
 
 ```json
 {
@@ -485,7 +485,7 @@ Het volgende voorbeeld wordt gecontroleerd of een matrix, het object en de teken
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -498,21 +498,21 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="first"></a>eerste
 `first(arg1)`
 
-Retourneert het eerste element van de matrix of het eerste teken van de tekenreeks.
+Retourneert Hallo eerste element van Hallo matrix of het eerste teken van Hallo tekenreeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |matrix of tekenreeks |De waarde voor het ophalen van het eerste element of teken. |
+| Arg1 |Ja |matrix of tekenreeks |Hallo waarde tooretrieve Hallo eerste element of teken. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Het type (string, int, matrix of object) van het eerste element in een matrix of het eerste teken van een tekenreeks.
+Hallo type (string, int, matrix of object) Hallo eerste element in een matrix of Hallo eerste teken van een tekenreeks.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet hoe u de eerste functie met een matrix en de tekenreeks.
+Hallo volgende voorbeeld ziet u hoe toouse Hallo eerste functie met een matrix en de tekenreeks.
 
 ```json
 {
@@ -539,7 +539,7 @@ Het volgende voorbeeld ziet hoe u de eerste functie met een matrix en de tekenre
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -551,23 +551,23 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="intersection"></a>snijpunt
 `intersection(arg1, arg2, arg3, ...)`
 
-Retourneert een matrix of object met de algemene elementen van de parameters.
+Retourneert een matrix of object met Hallo standaardelementen van Hallo-parameters.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |matrix of object |De eerste waarde voor het zoeken naar algemene elementen. |
-| Arg2 |Ja |matrix of object |De tweede waarde voor het zoeken naar algemene elementen. |
-| Extra argumenten |Nee |matrix of object |Aanvullende waarden gebruiken voor het zoeken naar algemene elementen. |
+| Arg1 |Ja |matrix of object |Hallo eerste waarde toouse voor het zoeken naar algemene elementen. |
+| Arg2 |Ja |matrix of object |Hallo tweede waarde toouse voor het zoeken naar algemene elementen. |
+| Extra argumenten |Nee |matrix of object |Aanvullende waarden toouse voor het zoeken naar algemene elementen. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een matrix of object met de algemene elementen.
+Een matrix of object met Hallo algemene elementen.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet hoe u snijpunt met matrices en objecten:
+Hallo volgende voorbeeld wordt getoond hoe toouse snijpunt met matrices en objecten:
 
 ```json
 {
@@ -606,12 +606,12 @@ Het volgende voorbeeld ziet hoe u snijpunt met matrices en objecten:
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"een": "a", "3": "c"} |
-| arrayOutput | matrix | ["twee", "drie"] |
+| arrayOutput | Matrix | ["twee", "drie"] |
 
 
 ## <a name="json"></a>JSON
@@ -623,16 +623,16 @@ Retourneert een JSON-object.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |Tekenreeks |De waarde niet converteren naar JSON. |
+| Arg1 |Ja |Tekenreeks |Hallo waarde tooconvert tooJSON. |
 
 
 ### <a name="return-value"></a>Retourwaarde
 
-De JSON-object van de opgegeven tekenreeks of een leeg object wanneer **null** is opgegeven.
+Hallo JSON-object van het Hallo-opgegeven tekenreeks of een leeg object wanneer **null** is opgegeven.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet hoe u snijpunt met matrices en objecten:
+Hallo volgende voorbeeld wordt getoond hoe toouse snijpunt met matrices en objecten:
 
 ```json
 {
@@ -653,7 +653,7 @@ Het volgende voorbeeld ziet hoe u snijpunt met matrices en objecten:
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -665,21 +665,21 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="last"></a>laatste
 `last (arg1)`
 
-Retourneert het laatste element van de matrix of laatste teken van de tekenreeks.
+Retourneert Hallo laatste element van de matrix Hallo of laatste teken van het Hallo-tekenreeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |matrix of tekenreeks |De waarde voor het ophalen van het laatste element of teken. |
+| Arg1 |Ja |matrix of tekenreeks |Hallo waarde tooretrieve Hallo laatste element of teken. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Het type (string, int, matrix of object) van het laatste element in een matrix of het laatste teken van een tekenreeks.
+Hallo type (string, int, matrix of object) Hallo laatste element in een matrix of laatste teken Hallo van een tekenreeks.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet hoe u de laatste functie met een matrix en de tekenreeks.
+Hallo volgende voorbeeld ziet u hoe toouse Hallo laatste functie met een matrix en de tekenreeks.
 
 ```json
 {
@@ -706,7 +706,7 @@ Het volgende voorbeeld ziet hoe u de laatste functie met een matrix en de tekenr
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -718,13 +718,13 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="length"></a>lengte
 `length(arg1)`
 
-Retourneert het aantal elementen in een matrix of de tekens in een tekenreeks.
+Retourneert het aantal elementen Hallo in een matrix of de tekens in een tekenreeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |matrix of tekenreeks |De matrix te gebruiken voor het ophalen van het aantal elementen of de tekenreeks moet worden gebruikt voor het ophalen van het aantal tekens. |
+| Arg1 |Ja |matrix of tekenreeks |Hallo toouse voor het ophalen van het aantal elementen Hallo matrix of tekenreeks toouse voor het ophalen van het aantal tekens Hallo Hallo. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -732,7 +732,7 @@ Een int.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet u hoe lengte gebruiken met een matrix en de tekenreeks:
+Hallo volgende voorbeeld wordt getoond hoe toouse lengte met een matrix en de tekenreeks:
 
 ```json
 {
@@ -766,14 +766,14 @@ Het volgende voorbeeld ziet u hoe lengte gebruiken met een matrix en de tekenree
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
 
-U kunt deze functie gebruiken met een matrix te geven voor het aantal iteraties maken van resources. In het volgende voorbeeld wordt de parameter **siteNames** verwijzen naar een matrix van namen te gebruiken bij het maken van websites.
+U kunt deze functie gebruiken met een matrix toospecify Hallo aantal iteraties bij het maken van resources. Hallo in Hallo voorbeeld te volgen, parameter **siteNames** tooan matrix van namen toouse verwijzen bij het maken van websites Hallo.
 
 ```json
 "copy": {
@@ -789,21 +789,21 @@ Zie voor meer informatie over het gebruik van deze functie met een matrix [maken
 ## <a name="min"></a>min.
 `min(arg1)`
 
-Retourneert de minimumwaarde van een matrix van gehele getallen of een door komma's gescheiden lijst met gehele getallen zijn.
+Retourneert Hallo minimumwaarde van een matrix van gehele getallen of een door komma's gescheiden lijst met gehele getallen zijn.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |matrix van gehele getallen of door komma's gescheiden lijst met gehele getallen |De verzameling voor de minimumwaarde. |
+| Arg1 |Ja |matrix van gehele getallen of door komma's gescheiden lijst met gehele getallen |Hallo verzameling tooget Hallo minimumwaarde. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal dat de minimale waarde vertegenwoordigt.
+Een int die Hallo minimale waarde vertegenwoordigt.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet u hoe min. gebruik met een matrix en een lijst met gehele getallen zijn:
+Hallo volgende voorbeeld wordt getoond hoe toouse min met een matrix en een lijst met gehele getallen zijn:
 
 ```json
 {
@@ -829,7 +829,7 @@ Het volgende voorbeeld ziet u hoe min. gebruik met een matrix en een lijst met g
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -841,21 +841,21 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="max"></a>Maximum aantal
 `max(arg1)`
 
-Retourneert de maximumwaarde van een matrix van gehele getallen of een door komma's gescheiden lijst met gehele getallen zijn.
+Retourneert Hallo de maximumwaarde van een matrix van gehele getallen of een door komma's gescheiden lijst met gehele getallen.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |matrix van gehele getallen of door komma's gescheiden lijst met gehele getallen |De verzameling die de maximale waarde op te halen. |
+| Arg1 |Ja |matrix van gehele getallen of door komma's gescheiden lijst met gehele getallen |Hallo verzameling tooget Hallo maximale waarde. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal dat de maximale waarde vertegenwoordigt.
+Een int die de maximale waarde Hallo vertegenwoordigt.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet u hoe max gebruiken met een matrix en een lijst met gehele getallen zijn:
+Hallo volgende voorbeeld wordt getoond hoe toouse max met een matrix en een lijst met gehele getallen zijn:
 
 ```json
 {
@@ -881,7 +881,7 @@ Het volgende voorbeeld ziet u hoe max gebruiken met een matrix en een lijst met 
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -899,8 +899,8 @@ Maakt een matrix van gehele getallen van een geheel getal beginnen en met een aa
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Ja |int |De eerste geheel getal in de matrix. |
-| numberofElements |Ja |int |Het aantal getallen in de matrix. |
+| startingInteger |Ja |int |Hallo eerste geheel getal in Hallo matrix. |
+| numberofElements |Ja |int |Hallo-nummer van gehele getallen in de matrix Hallo. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -908,7 +908,7 @@ Een matrix van gehele getallen.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet u hoe de bereikfunctie gebruiken:
+Hallo volgende voorbeeld ziet u hoe toouse bereikfunctie Hallo:
 
 ```json
 {
@@ -934,25 +934,25 @@ Het volgende voorbeeld ziet u hoe de bereikfunctie gebruiken:
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| rangeOutput | matrix | [5, 6, 7] |
+| rangeOutput | Matrix | [5, 6, 7] |
 
 <a id="skip" />
 
 ## <a name="skip"></a>Overslaan
 `skip(originalValue, numberToSkip)`
 
-Retourneert een matrix met alle elementen na het opgegeven getal in de matrix of retourneert een tekenreeks met de tekens na het opgegeven getal in de tekenreeks.
+Retourneert een matrix met alle Hallo elementen nadat Hallo getal in Hallo-matrix opgegeven, of een tekenreeks waarin alle tekens worden Hallo retourneert nadat Hallo nummer in Hallo-tekenreeks opgegeven.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| originalValue |Ja |matrix of tekenreeks |De matrix of tekenreeks moet worden gebruikt voor het overslaan. |
-| numberToSkip |Ja |int |Het aantal elementen of tekens over te slaan. Als deze waarde 0 of minder is, worden alle elementen of tekens in de waarde geretourneerd. Als deze groter dan de lengte van de matrix of tekenreeks is, een lege matrix of tekenreeks geretourneerd. |
+| originalValue |Ja |matrix of tekenreeks |Hallo toouse matrix of tekenreeks voor het overslaan. |
+| numberToSkip |Ja |int |Hallo aantal elementen of tekens tooskip. Als deze waarde 0 of minder is, alle elementen Hallo of tekens in Hallo-waarde worden geretourneerd. Als deze groter dan Hallo lengte van Hallo matrix of tekenreeks is, een lege matrix of tekenreeks geretourneerd. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -960,7 +960,7 @@ Een matrix of tekenreeks zijn.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld wordt overgeslagen voor het opgegeven aantal elementen in de matrix en het opgegeven aantal tekens in een tekenreeks.
+Hallo voorbeeld Slaat het Hallo na opgegeven aantal elementen in Hallo matrix en Hallo opgegeven aantal tekens in een tekenreeks.
 
 ```json
 {
@@ -1002,11 +1002,11 @@ Het volgende voorbeeld wordt overgeslagen voor het opgegeven aantal elementen in
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| arrayOutput | matrix | ["drie"] |
+| arrayOutput | Matrix | ["drie"] |
 | stringOutput | Tekenreeks | twee drie |
 
 <a id="take" />
@@ -1014,14 +1014,14 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="take"></a>duren
 `take(originalValue, numberToTake)`
 
-Retourneert een matrix met het opgegeven aantal elementen vanaf het begin van de matrix of een tekenreeks zijn met het opgegeven aantal tekens vanaf het begin van de tekenreeks.
+Retourneert een matrix met Hallo aantal elementen vanaf opgegeven Hallo Hallo matrix is gestart, of een tekenreeks met Hallo opgegeven aantal tekens vanaf het begin van het Hallo-tekenreeks Hallo.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| originalValue |Ja |matrix of tekenreeks |De matrix of tekenreeks op voor het nemen van elementen uit. |
-| numberToTake |Ja |int |Het aantal elementen of tekens te laten worden. Als deze waarde 0 of minder is, wordt een lege matrix of tekenreeks geretourneerd. Als deze groter is dan de lengte van de opgegeven matrix of tekenreeks is, worden alle elementen in de matrix of tekenreeks geretourneerd. |
+| originalValue |Ja |matrix of tekenreeks |Hallo matrix of tekenreeks tootake Hallo elementen uit. |
+| numberToTake |Ja |int |Hallo aantal elementen of tekens tootake. Als deze waarde 0 of minder is, wordt een lege matrix of tekenreeks geretourneerd. Als het is groter dan de lengte Hallo Hallo gegeven matrix of tekenreeks, worden alle Hallo-elementen in het Hallo-matrix of tekenreeks geretourneerd. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -1029,7 +1029,7 @@ Een matrix of tekenreeks zijn.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld wordt het opgegeven aantal elementen van de matrix en de tekens uit een tekenreeks.
+Hallo voorbeeld vergt Hallo na een opgegeven aantal elementen van een matrix van Hallo en tekens uit een tekenreeks.
 
 ```json
 {
@@ -1071,11 +1071,11 @@ Het volgende voorbeeld wordt het opgegeven aantal elementen van de matrix en de 
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| arrayOutput | matrix | ['een', 'twee'] |
+| arrayOutput | Matrix | ['een', 'twee'] |
 | stringOutput | Tekenreeks | op |
 
 <a id="union" />
@@ -1083,15 +1083,15 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="union"></a>Union
 `union(arg1, arg2, arg3, ...)`
 
-Retourneert een matrix of object met alle elementen van de parameters. Dubbele waarden of sleutels zijn slechts één keer wordt opgenomen.
+Retourneert een matrix of object met alle elementen van Hallo-parameters. Dubbele waarden of sleutels zijn slechts één keer wordt opgenomen.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |matrix of object |De eerste waarde moet worden gebruikt om lid te worden elementen. |
-| Arg2 |Ja |matrix of object |De tweede waarde moet worden gebruikt om lid te worden elementen. |
-| Extra argumenten |Nee |matrix of object |Aanvullende waarden worden gebruikt om lid te worden elementen. |
+| Arg1 |Ja |matrix of object |Hallo eerste waarde toouse om lid te worden elementen. |
+| Arg2 |Ja |matrix of object |Hallo tweede waarde toouse om lid te worden elementen. |
+| Extra argumenten |Nee |matrix of object |Aanvullende waarden toouse om lid te worden elementen. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -1099,7 +1099,7 @@ Een matrix of object.
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet hoe u union met matrices en objecten:
+Hallo volgende voorbeeld wordt getoond hoe toouse union met matrices en objecten:
 
 ```json
 {
@@ -1138,16 +1138,16 @@ Het volgende voorbeeld ziet hoe u union met matrices en objecten:
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"een": "a", "twee": "b", "drie": "c", "4": "d", "vijf": "e"} |
-| arrayOutput | matrix | ['een', 'twee', 'drie', "vier"] |
+| arrayOutput | Matrix | ['een', 'twee', 'drie', "vier"] |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een beschrijving van de secties in een Azure Resource Manager-sjabloon [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md).
-* U kunt meerdere sjablonen samenvoegen, Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
-* Voor een opgegeven aantal keer herhalen bij het maken van een type resource, Zie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md).
-* Zie voor het implementeren van de sjabloon die u hebt gemaakt, [Implementeer een toepassing met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
+* Zie voor een beschrijving van de secties Hallo in een Azure Resource Manager-sjabloon [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md).
+* toomerge meerdere sjablonen Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
+* een opgegeven aantal keren tooiterate bij het maken van een type resource, Zie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md).
+* toosee hoe toodeploy Hallo sjabloon die u hebt gemaakt, Zie [Implementeer een toepassing met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
 

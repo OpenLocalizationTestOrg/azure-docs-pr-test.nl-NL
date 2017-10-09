@@ -1,5 +1,5 @@
 
-De code voor alle functies in een bepaalde functie-app woont in een hoofdmap met een configuratiebestand van de host en een of meer submappen, elk waarvan de code voor een afzonderlijke functie, zoals in het volgende voorbeeld bevat:
+Hallo-code voor alle functies in een bepaalde functie-app Hallo woont in een hoofdmap met een configuratiebestand voor de host en een of meer submappen, die elk de Hallo-code voor een afzonderlijke functie, zoals in het volgende voorbeeld Hallo bevatten:
 
 ```
 wwwroot
@@ -15,7 +15,7 @@ wwwroot
  | | - run.csx
 ```
 
-De *host.json* bestand bevat een runtime-specifieke configuratie en bevindt zich in de hoofdmap van de functie-app. Zie voor informatie over de instellingen die beschikbaar zijn, [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) in de opslagplaats WebJobs.Script wiki.
+Hallo *host.json* bestand bevat een runtime-specifieke configuratie en bevindt zich in de hoofdmap Hallo van Hallo functie-app. Zie voor informatie over de instellingen die beschikbaar zijn, [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) in Hallo WebJobs.Script opslagplaats wiki.
 
-Elke functie heeft een map met een of meer codebestanden, de configuratie van de function.json en andere afhankelijkheden.
+Elke functie heeft een map met een of meer codebestanden, Hallo function.json configuratie en andere afhankelijkheden.
 

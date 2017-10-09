@@ -1,22 +1,22 @@
-U kunt een label toevoegen aan een resourcegroep met **azure-groep set**. Als de resourcegroep geen bestaande labels in de tag doorgeven.
+gebruik van een resourcegroep tag tooa tooadd **azure-groep set**. Als Hallo resourcegroep geen bestaande labels doorgeven in Hallo-code.
 
 ```azurecli
 azure group set -n tag-demo-group -t Dept=Finance
 ```
 
-Labels worden bijgewerkt als geheel. Als u een label toevoegen aan een resourcegroep met bestaande labels, geeft u alle codes. 
+Labels worden bijgewerkt als geheel. Als u een tag tooa resourcegroep met de bestaande codes tooadd wilt, slagen voor alle Hallo-tags. 
 
 ```azurecli
 azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
 ```
 
-Labels wordt niet overgenomen door de resources in een resourcegroep. U kunt een label toevoegen aan een resource met **azure-ResourceSet**. Geeft het nummer van de API-versie voor het brontype dat u het label wilt toevoegen. Als u nodig hebt voor het ophalen van de API-versie, gebruikt u de volgende opdracht met de resourceprovider voor het type dat u wilt instellen:
+Labels wordt niet overgenomen door de resources in een resourcegroep. een bron van de tooa tag tooadd gebruiken **azure-ResourceSet**. Hallo versienummer van de API voor Hallo brontype dat u Hallo tag om te toevoegt slagen. Als u tooretrieve Hallo API-versie moet, gebruikt u Hallo volgende opdracht met Hallo resourceprovider voor het type Hallo die u instelt:
 
 ```azurecli
 azure provider show -n Microsoft.Storage --json
 ```
 
-Zoek in de resultaten voor het brontype dat u wilt.
+Zoek in Hallo-resultaten voor Hallo resource dat die u wilt.
 
 ```azurecli
 "resourceTypes": [
@@ -38,13 +38,13 @@ Nu bieden die API-versie, de naam van resourcegroep, Resourcenaam, resourcetype 
 azure resource set -g tag-demo-group -n storagetagdemo -r Microsoft.Storage/storageAccounts -t Dept=Finance -o 2016-01-01
 ```
 
-Labels aanwezig rechtstreeks op de resources en resourcegroepen. Overzicht van de bestaande codes ophalen van een resourcegroep en de bijbehorende bronnen met **azure-groep weergeven**.
+Labels aanwezig rechtstreeks op de resources en resourcegroepen. toosee hello bestaande tags kunnen ophalen van een resourcegroep en de bijbehorende bronnen met **azure-groep weergeven**.
 
 ```azurecli
 azure group show -n tag-demo-group --json
 ```
 
-Die resulteert metagegevens over de resourcegroep, inclusief eventuele afsluitcodes toegepast.
+Die resulteert metagegevens over Hallo-resourcegroep, met inbegrip van eventuele tooit labels worden toegepast.
 
 ```azurecli
 {
@@ -63,25 +63,25 @@ Die resulteert metagegevens over de resourcegroep, inclusief eventuele afsluitco
 }
 ```
 
-U de labels voor een bepaalde bron weergeven met behulp van **azure-resource weergeven**.
+U Hallo labels voor een bepaalde bron weergeven met behulp van **azure-resource weergeven**.
 
 ```azurecli
 azure resource show -g tag-demo-group -n storagetagdemo -r Microsoft.Storage/storageAccounts -o 2016-01-01 --json
 ```
 
-Voor het ophalen van alle resources met een tagwaarde gebruiken:
+tooretrieve alle Hallo resources met een tagwaarde gebruiken:
 
 ```azurecli
 azure resource list -t Dept=Finance --json
 ```
 
-Voor het ophalen van alle brongroepen met een tagwaarde gebruiken:
+tooretrieve alle Hallo bronnengroepen met een tagwaarde gebruiken:
 
 ```azurecli
 azure group list -t Dept=Finance
 ```
 
-U kunt de bestaande labels weergeven in uw abonnement met de volgende opdracht:
+U kunt bestaande Hallo-codes in uw abonnement bekijken met de volgende opdracht Hallo:
 
 ```azurecli
 azure tag list

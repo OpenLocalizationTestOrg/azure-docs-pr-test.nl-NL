@@ -1,6 +1,6 @@
 ---
-title: Gebruik C# met Hive en Pig met Hadoop in HDInsight - Azure | Microsoft Docs
-description: Informatie over het gebruik van C# gebruiker gedefinieerde functies (UDF) met Hive en Pig streaming in Azure HDInsight.
+title: aaaUse C# met Hive en Pig met Hadoop in HDInsight - Azure | Microsoft Docs
+description: Meer informatie over hoe toouse C# gebruiker gedefinieerde functies (UDF) met Hive en Pig streaming in Azure HDInsight.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,30 +16,30 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.openlocfilehash: 58e7af47be71c3e0389e5fb4641e124eb648494e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: dd35409766f2dafe4d8050c3f9bc351949473ad6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>C# gebruiker gedefinieerde functies gebruiken met Hive en Pig streaming van Hadoop in HDInsight
 
-Informatie over het gebruik van C# gebruiker gedefinieerde functies (UDF) met Apache Hive en Pig op HDInsight.
+Meer informatie over hoe toouse C# gebruiker functies (UDF) met Apache Hive en Pig gedefinieerd op HDInsight.
 
 > [!IMPORTANT]
-> De stappen in dit document werken met op basis van Linux en Windows-HDInsight-clusters. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie [versiebeheer van HDInsight-onderdeel](hdinsight-component-versioning.md).
+> Hallo stappen in dit document met HDInsight-clusters op basis van Linux en Windows-werken. Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie voor meer informatie [versiebeheer van HDInsight-onderdeel](hdinsight-component-versioning.md).
 
-Beide Hive en Pig gegevens kan doorgeven bij externe toepassingen voor verwerking. Dit proces wordt ook wel _streaming_. Wanneer u een .NET registratieaanvraag ligt, de gegevens op STDIN wordt doorgegeven aan de toepassing en de toepassing de resultaten weer die op STDOUT. U kunt gebruiken om te lezen en schrijven op STDIN en STDOUT, `Console.ReadLine()` en `Console.WriteLine()` vanuit een consoletoepassing.
+Beide Hive en Pig tooexternal gegevenstoepassingen voor verwerking kunt doorgeven. Dit proces wordt ook wel _streaming_. Wanneer u een .NET registratieaanvraag ligt, Hallo gegevens worden doorgevoerd toohello toepassing STDIN en Hallo toepassing hello resultaten weer die op STDOUT. tooread en write van STDIN en STDOUT, kunt u `Console.ReadLine()` en `Console.WriteLine()` vanuit een consoletoepassing.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * U moet bekend zijn met schrijven en het bouwen van C#-code die gericht is op .NET Framework 4.5.
 
-    * Ongeacht IDE die u wilt gebruiken. Het is raadzaam [Visual Studio](https://www.visualstudio.com/vs) 2015, 2017, of [Visual Studio Code](https://code.visualstudio.com/). De stappen in dit document gebruikt u Visual Studio 2017.
+    * Ongeacht IDE die u wilt gebruiken. Het is raadzaam [Visual Studio](https://www.visualstudio.com/vs) 2015, 2017, of [Visual Studio Code](https://code.visualstudio.com/). Hallo stappen in dit document Visual Studio 2017.
 
-* Een manier .exe-bestanden uploaden naar het cluster en Pig en Hive-taken uitvoeren. Beter Data Lake Tools voor Visual Studio, Azure PowerShell en Azure CLI. De stappen in dit document Data Lake Tools voor Visual Studio voor het uploaden van de bestanden en het voorbeeld uitvoert Hive-query.
+* Een manier tooupload .exe-bestanden toohello cluster en Pig en Hive-taken uitvoeren. Beter Hallo Data Lake Tools voor Visual Studio, Azure PowerShell en Azure CLI. Hallo stappen in dit document gebruiken Hallo Data Lake Tools voor Visual Studio tooupload Hallo bestanden en Voer Hallo voorbeeld Hive-query.
 
-    Hive-query's en Pig-taken, raadpleegt u de volgende documenten voor meer informatie over andere manieren om uit te voeren:
+    Zie voor informatie over andere manieren toorun Hive-query's en Pig-taken, Hallo documenten te volgen:
 
     * [Apache Hive gebruiken met HDInsight](hdinsight-use-hive.md)
 
@@ -49,26 +49,26 @@ Beide Hive en Pig gegevens kan doorgeven bij externe toepassingen voor verwerkin
 
 ## <a name="net-on-hdinsight"></a>.NET in HDInsight
 
-* __HDInsight op basis van Linux__ opslagclusters die gebruikmaken van [Mono (https://mono-project.com)](https://mono-project.com) .NET-toepassingen uit te voeren. Mono versie 4.2.1 is opgenomen in HDInsight versie 3.5.
+* __HDInsight op basis van Linux__ opslagclusters die gebruikmaken van [Mono (https://mono-project.com)](https://mono-project.com) toorun .NET-toepassingen. Mono versie 4.2.1 is opgenomen in HDInsight versie 3.5.
 
     Zie voor meer informatie over de Mono compatibiliteit met versies van .NET Framework [Mono compatibiliteit](http://www.mono-project.com/docs/about-mono/compatibility/).
 
-    Zie voor het gebruik van een specifieke versie van Mono de [installeren of update Mono](hdinsight-hadoop-install-mono.md) document.
+    toouse een specifieke versie van Mono, Zie Hallo [installeren of update Mono](hdinsight-hadoop-install-mono.md) document.
 
-* __HDInsight op basis van Windows__ clusters gebruiken de Microsoft .NET CLR .NET-toepassingen uit te voeren.
+* __HDInsight op basis van Windows__ clusters Hallo Microsoft .NET CLR toorun .NET-toepassingen gebruiken.
 
-Zie voor meer informatie over de versie van .NET framework en Mono opgenomen met versies van HDInsight [HDInsight onderdeel versies](hdinsight-component-versioning.md).
+Zie voor meer informatie over Hallo-versie van Hallo .NET framework en Mono opgenomen met versies van HDInsight [HDInsight onderdeel versies](hdinsight-component-versioning.md).
 
-## <a name="create-the-c-projects"></a>Maken van de C\# projecten
+## <a name="create-hello-c-projects"></a>Hallo C maken\# projecten
 
 ### <a name="hive-udf"></a>Hive UDF
 
-1. Open Visual Studio en maak een oplossing. Selecteer voor het projecttype **Console-App (.NET Framework)**, en de naam van het nieuwe project **HiveCSharp**.
+1. Open Visual Studio en maak een oplossing. Selecteer Hallo projecttype **Console-App (.NET Framework)**, en de naam van Hallo nieuw project **HiveCSharp**.
 
     > [!IMPORTANT]
     > Selecteer __.NET Framework 4.5__ als u een Linux gebaseerde HDInsight-cluster. Zie voor meer informatie over de Mono compatibiliteit met versies van .NET Framework [Mono compatibiliteit](http://www.mono-project.com/docs/about-mono/compatibility/).
 
-2. Vervang de inhoud van **Program.cs** door het volgende:
+2. Vervang de inhoud Hallo van **Program.cs** door Hallo volgende:
 
     ```csharp
     using System;
@@ -86,17 +86,17 @@ Zie voor meer informatie over de versie van .NET framework en Mono opgenomen met
                 // Read stdin in a loop
                 while ((line = Console.ReadLine()) != null)
                 {
-                    // Parse the string, trimming line feeds
+                    // Parse hello string, trimming line feeds
                     // and splitting fields at tabs
                     line = line.TrimEnd('\n');
                     string[] field = line.Split('\t');
                     string phoneLabel = field[1] + ' ' + field[2];
-                    // Emit new data to stdout, delimited by tabs
+                    // Emit new data toostdout, delimited by tabs
                     Console.WriteLine("{0}\t{1}\t{2}", field[0], phoneLabel, GetMD5Hash(phoneLabel));
                 }
             }
             /// <summary>
-            /// Returns an MD5 hash for the given string
+            /// Returns an MD5 hash for hello given string
             /// </summary>
             /// <param name="input">string value</param>
             /// <returns>an MD5 hash</returns>
@@ -107,7 +107,7 @@ Zie voor meer informatie over de versie van .NET framework en Mono opgenomen met
                 byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
                 byte[] hash = md5.ComputeHash(inputBytes);
 
-                // Step 2, convert byte array to hex string
+                // Step 2, convert byte array toohex string
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < hash.Length; i++)
                 {
@@ -119,13 +119,13 @@ Zie voor meer informatie over de versie van .NET framework en Mono opgenomen met
     }
     ```
 
-3. Maak het project.
+3. Hallo-project maken.
 
 ### <a name="pig-udf"></a>Pig UDF
 
-1. Open Visual Studio en maak een oplossing. Selecteer voor het projecttype **consoletoepassing**, en de naam van het nieuwe project **PigUDF**.
+1. Open Visual Studio en maak een oplossing. Selecteer Hallo projecttype **consoletoepassing**, en de naam van Hallo nieuw project **PigUDF**.
 
-2. Vervang de inhoud van de **Program.cs** bestand met de volgende code:
+2. Vervang de inhoud Hallo Hallo **Program.cs** bestand met de volgende code Hallo:
 
     ```csharp
     using System;
@@ -143,10 +143,10 @@ Zie voor meer informatie over de versie van .NET framework en Mono opgenomen met
                     // Fix formatting on lines that begin with an exception
                     if(line.StartsWith("java.lang.Exception"))
                     {
-                        // Trim the error info off the beginning and add a note to the end of the line
+                        // Trim hello error info off hello beginning and add a note toohello end of hello line
                         line = line.Remove(0, 21) + " - java.lang.Exception";
                     }
-                    // Split the fields apart at tab characters
+                    // Split hello fields apart at tab characters
                     string[] field = line.Split('\t');
                     // Put fields back together for writing
                     Console.WriteLine(String.Join("\t",field));
@@ -156,11 +156,11 @@ Zie voor meer informatie over de versie van .NET framework en Mono opgenomen met
     }
     ```
 
-    Deze toepassing parseert de regels die zijn verzonden vanaf Pig en herformatteren regels die beginnen met `java.lang.Exception`.
+    Deze toepassing hello regels die zijn verzonden vanaf de Pig en herformatteren regels die beginnen met parseert `java.lang.Exception`.
 
-3. Sla **Program.cs**, en vervolgens het project te bouwen.
+3. Sla **Program.cs**, en vervolgens Hallo-project te bouwen.
 
-## <a name="upload-to-storage"></a>Uploaden naar de opslag
+## <a name="upload-toostorage"></a>Toostorage uploaden
 
 1. Open in Visual Studio **Server Explorer**.
 
@@ -168,23 +168,23 @@ Zie voor meer informatie over de versie van .NET framework en Mono opgenomen met
 
 3. Als u wordt gevraagd, Voer uw referenties in Azure-abonnement en klik vervolgens op **aanmelden**.
 
-4. Vouw het HDInsight-cluster die u wilt deze toepassing te implementeren. Een item met de tekst __(Default Storage Account)__ wordt vermeld.
+4. Hallo HDInsight-cluster dat u deze toepassing toodeploy wilt uitbreiden. Een item met de tekst hello __(Default Storage Account)__ wordt vermeld.
 
-    ![Server Explorer met de storage-account voor het cluster](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
+    ![Server Explorer Hallo storage-account voor Hallo cluster weergeven](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 
-    * Als dit item kan worden uitgebreid, gebruikt u een __Azure Storage-Account__ als standaard opslag voor het cluster. Als u de bestanden op de standaard-opslag voor het cluster, vouw de vermelding en dubbelklikt u vervolgens op de __(standaardcontainer)__.
+    * Als dit item kan worden uitgebreid, gebruikt u een __Azure Storage-Account__ als standaard opslag voor Hallo-cluster. tooview hello bestanden op Hallo standaard opslag voor Hallo-cluster, vouw Hallo vermelding en dubbelklik vervolgens op Hallo __(standaardcontainer)__.
 
-    * Als dit item kan niet worden uitgebreid, gebruikt u __Azure Data Lake Store__ als de opslag van de standaard voor het cluster. Als u wilt weergeven van de bestanden op de standaard-opslag voor het cluster, dubbelklikt u op de __(Standaardopslagaccount)__ vermelding.
+    * Als dit item kan niet worden uitgebreid, gebruikt u __Azure Data Lake Store__ als Hallo standaard opslag voor Hallo-cluster. tooview hello bestanden op Hallo standaard opslag voor Hallo-cluster, dubbelklikt u op Hallo __(Standaardopslagaccount)__ vermelding.
 
-6. Als u wilt de .exe-bestanden uploaden, moet u een van de volgende methoden gebruiken:
+6. tooupload hello .exe-bestanden, een van de volgende methoden hello gebruiken:
 
-    * Als u een __Azure Storage-Account__, klik op het pictogram uploaden en blader vervolgens naar de **bin\debug** map voor de **HiveCSharp** project. Tot slot selecteert u de **HiveCSharp.exe** -bestand en klik op **Ok**.
+    * Als u een __Azure Storage-Account__op Hallo uploaden pictogram en blader vervolgens toohello **bin\debug** map voor Hallo **HiveCSharp** project. Tot slot selecteert Hallo **HiveCSharp.exe** -bestand en klik op **Ok**.
 
         ![pictogram uploaden](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * Als u __Azure Data Lake Store__, met de rechtermuisknop op een leeg gebied in de lijst en selecteer vervolgens __uploaden__. Tot slot selecteert u de **HiveCSharp.exe** -bestand en klik op **Open**.
+    * Als u __Azure Data Lake Store__, met de rechtermuisknop op een leeg gebied in Hallo bestand aanbieding en selecteer vervolgens __uploaden__. Tot slot selecteert Hallo **HiveCSharp.exe** -bestand en klik op **Open**.
 
-    Eenmaal de __HiveCSharp.exe__ upload is voltooid, herhaalt het uploadproces voor de __PigUDF.exe__ bestand.
+    Eenmaal Hallo __HiveCSharp.exe__ uploaden is voltooid, herhaalt Hallo uploadproces voor Hallo __PigUDF.exe__ bestand.
 
 ## <a name="run-a-hive-query"></a>Een Hive-query uitvoeren
 
@@ -192,14 +192,14 @@ Zie voor meer informatie over de versie van .NET framework en Mono opgenomen met
 
 2. Vouw **Azure** uit en vouw vervolgens **HDInsight** uit.
 
-3. Met de rechtermuisknop op het cluster dat u hebt geïmplementeerd de **HiveCSharp** naar een toepassing en selecteer vervolgens **een Hive-Query schrijven**.
+3. Klik met de rechtermuisknop Hallo cluster die u hebt geïmplementeerd Hallo **HiveCSharp** naar een toepassing en selecteer vervolgens **een Hive-Query schrijven**.
 
-4. Gebruik de volgende tekst voor de Hive-query:
+4. Gebruik Hallo tekst voor Hallo Hive-query te volgen:
 
     ```hiveql
-    -- Uncomment the following if you are using Azure Storage
+    -- Uncomment hello following if you are using Azure Storage
     -- add file wasb:///HiveCSharp.exe;
-    -- Uncomment the following if you are using Azure Data Lake Store
+    -- Uncomment hello following if you are using Azure Data Lake Store
     -- add file adl:///HiveCSharp.exe;
 
     SELECT TRANSFORM (clientid, devicemake, devicemodel)
@@ -210,28 +210,28 @@ Zie voor meer informatie over de versie van .NET framework en Mono opgenomen met
     ```
 
     > [!IMPORTANT]
-    > Opmerkingen bij de `add file` instructie die overeenkomt met het type standaard opslag gebruikt voor uw cluster.
+    > Verwijder de opmerkingen in Hallo `add file` instructie die overeenkomt met de Hallo type standaard opslag gebruikt voor uw cluster.
 
-    Deze query selecteert de `clientid`, `devicemake`, en `devicemodel` velden uit `hivesampletable`, en geeft u de velden aan de toepassing HiveCSharp.exe. De query verwacht dat de toepassing om terug te keren drie velden die worden opgeslagen als `clientid`, `phoneLabel`, en `phoneHash`. De query verwacht ook HiveCSharp.exe vinden in de hoofdmap van de standaard storage-container.
+    Deze query selecteert Hallo `clientid`, `devicemake`, en `devicemodel` velden uit `hivesampletable`, en worden de velden Hallo toohello HiveCSharp.exe toepassing. Hallo-query verwacht Hallo toepassing tooreturn drie velden die worden opgeslagen als `clientid`, `phoneLabel`, en `phoneHash`. Hallo-query verwacht ook toofind HiveCSharp.exe in de hoofdmap Hallo van Hallo standaard storage-container.
 
-5. Klik op **indienen** voor het verzenden van de taak met de HDInsight-cluster. De **taakoverzicht Hive** venster wordt geopend.
+5. Klik op **indienen** toosubmit Hallo taak toohello HDInsight-cluster. Hallo **taakoverzicht Hive** venster wordt geopend.
 
-6. Klik op **vernieuwen** vernieuwen van de samenvatting tot **taakstatus** wijzigingen in **voltooid**. Als u wilt weergeven van de taakuitvoer **Taakuitvoer**.
+6. Klik op **vernieuwen** toorefresh Hallo samenvatting tot **taakstatus** wijzigingen te**voltooid**. tooview hello taak uitvoert, klikt u op **Taakuitvoer**.
 
 ## <a name="run-a-pig-job"></a>Pig-taak uitgevoerd
 
-1. Gebruik een van de volgende methoden om verbinding maken met uw HDInsight-cluster:
+1. Gebruik een van de Hallo methoden tooconnect tooyour HDInsight-cluster te volgen:
 
     * Als u een __op basis van Linux__ HDInsight-cluster, SSH gebruiken. Bijvoorbeeld `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Zie voor meer informatie [SSH gebruiken withHDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
     
-    * Als u een __Windows gebaseerde__ HDInsight-cluster, [verbinding maken met het cluster met behulp van extern bureaublad](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
+    * Als u een __Windows gebaseerde__ HDInsight-cluster, [Connect toohello cluster met behulp van extern bureaublad](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
 
-2. Gebruik een de volgende opdracht om te beginnen de Pig-opdrachtregel:
+2. Gebruik één Hallo opdracht toostart Hallo Pig vanaf de opdrachtregel te volgen:
 
         pig
 
     > [!IMPORTANT]
-    > Als u een cluster met Windows gebruikt, kunt u de volgende opdrachten gebruiken:
+    > Als u van een cluster met Windows gebruikmaakt, gebruikt u Hallo volgende opdrachten in plaats daarvan:
     > ```
     > cd %PIG_HOME%
     > bin\pig
@@ -239,7 +239,7 @@ Zie voor meer informatie over de versie van .NET framework en Mono opgenomen met
 
     Een `grunt>` prompt wordt weergegeven.
 
-3. Voer de volgende als u wilt uitvoeren van een Pig-taak die gebruikmaakt van de .NET Framework-toepassing:
+3. Voer Hallo toorun een Pig-taak die gebruikmaakt van .NET Framework-toepassing hello te volgen:
 
         DEFINE streamer `PigUDF.exe` CACHE('/PigUDF.exe');
         LOGS = LOAD '/example/data/sample.log' as (LINE:chararray);
@@ -247,12 +247,12 @@ Zie voor meer informatie over de versie van .NET framework en Mono opgenomen met
         DETAILS = STREAM LOG through streamer as (col1, col2, col3, col4, col5);
         DUMP DETAILS;
 
-    De `DEFINE` instructie maakt u een alias van `streamer` voor de toepassingen pigudf.exe en `CACHE` geladen uit opslag standaard voor het cluster. Later, `streamer` wordt gebruikt met de `STREAM` operator voor het verwerken van de regels die zijn opgenomen in een logboek en de gegevens worden geretourneerd als een reeks kolommen.
+    Hallo `DEFINE` instructie maakt u een alias van `streamer` voor Hallo pigudf.exe toepassingen en `CACHE` geladen uit opslag voor Hallo cluster standaard. Later, `streamer` wordt gebruikt met Hallo `STREAM` operator tooprocess Hallo één regels in het logboek- en return Hallo als een reeks kolommen.
 
     > [!NOTE]
-    > De naam van de toepassing die wordt gebruikt voor streaming moet worden omgeven door de \` (backtick) teken als alias, en ' (enkel aanhalingsteken) gebruikt in combinatie met `SHIP`.
+    > Hallo toepassingsnaam die wordt gebruikt voor streaming moet worden omgeven door Hallo \` (backtick) teken als alias, en ' (enkel aanhalingsteken) gebruikt in combinatie met `SHIP`.
 
-4. De taak na het invoeren van de laatste regel moet worden gestart. Deze retourneert uitvoer vergelijkbaar met de volgende tekst:
+4. Na het invoeren van de laatste regel Hallo Hallo-taak moet worden gestart. Deze retourneert uitvoer vergelijkbare toohello volgende tekst:
 
         (2012-02-03 20:11:56 SampleClass5 [WARN] problem finding id 1358451042 - java.lang.Exception)
         (2012-02-03 20:11:56 SampleClass5 [DEBUG] detail for id 1976092771)
@@ -262,9 +262,9 @@ Zie voor meer informatie over de versie van .NET framework en Mono opgenomen met
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit document hebt u geleerd hoe een toepassing .NET Framework via Hive en Pig op HDInsight gebruiken. Als u meer informatie over het wilt gebruik van Python met Hive en Pig, Zie [Python gebruiken met Hive en Pig in HDInsight](hdinsight-python.md).
+In dit document hebt u geleerd hoe toouse een .NET Framework-toepassing via Hive en Pig op HDInsight. Als u wilt toolearn hoe toouse Python met Hive en Pig, Zie [gebruik Python met Hive en Pig in HDInsight](hdinsight-python.md).
 
-Zie de volgende documenten voor andere manieren om te gebruiken, Pig en Hive, en voor meer informatie over het gebruik van MapReduce:
+Zie voor andere manieren toouse Pig en Hive en toolearn over het gebruik van MapReduce, Hallo documenten te volgen:
 
 * [Hive gebruiken met HDInsight](hdinsight-use-hive.md)
 * [Pig gebruiken met HDInsight](hdinsight-use-pig.md)

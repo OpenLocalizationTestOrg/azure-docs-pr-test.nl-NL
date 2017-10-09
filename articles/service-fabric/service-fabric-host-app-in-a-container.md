@@ -1,6 +1,6 @@
 ---
-title: Een .NET-app in een container implementeren in Azure Service Fabric | Microsoft Docs
-description: "Leert u hoe u een .NET-app in Visual Studio in een Docker-Container van het pakket. Deze nieuwe 'container'-app wordt geïmplementeerd op een Service Fabric-cluster."
+title: een .NET-app in een container tooAzure Service Fabric aaaDeploy | Microsoft Docs
+description: "Leert u hoe toopackage een .NET-app in Visual Studio in een Docker-Container. Deze nieuwe 'container'-app wordt geïmplementeerd tooa Service Fabric-cluster."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 484db494e7975df950543d19bf841a4df7cdd139
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 094b0e71d76b2e56ffb9b23638dd8154b3aff5fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Een .NET-toepassing in een Windows-container implementeren op Azure Service Fabric
+# <a name="deploy-a-net-application-in-a-windows-container-tooazure-service-fabric"></a>Een .NET-toepassing in een Windows-container tooAzure Service Fabric implementeren
 
-Deze zelfstudie laat zien hoe u een bestaande ASP.NET-toepassing in een Windows-container in Azure implementeren.
+Deze zelfstudie leert u hoe toodeploy een bestaande ASP.NET-toepassing in een Windows-container in Azure.
 
 In deze zelfstudie leert u het volgende:
 
@@ -34,21 +34,21 @@ In deze zelfstudie leert u het volgende:
 ## <a name="prerequisites"></a>Vereisten
 
 1. Installeer [Docker CE voor Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) zodat u containers op Windows 10 uitvoeren kunt.
-2. Vertrouwd raken met de [Windows 10 Containers Quick Start][link-container-quickstart].
-3. Download de [Fabrikam Fiber CallCenter] [ link-fabrikam-github] voorbeeldtoepassing.
+2. Maak uzelf bekend met Hallo [Windows 10 Containers Quick Start][link-container-quickstart].
+3. Hallo downloaden [Fabrikam Fiber CallCenter] [ link-fabrikam-github] voorbeeldtoepassing.
 4. Installeer [Azure PowerShell][link-azure-powershell-install]
-5. Installeer de [uitbreiding continue levering van hulpprogramma's voor Visual Studio 2017][link-visualstudio-cd-extension]
+5. Hallo installeren [extensie continue levering van hulpprogramma's voor Visual Studio 2017][link-visualstudio-cd-extension]
 6. Maak een [Azure-abonnement] [ link-azure-subscription] en een [Visual Studio Team Services-account][link-vsts-account]. 
 7. [Een cluster maken in Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 
-## <a name="containerize-the-application"></a>De toepassing containerize
+## <a name="containerize-hello-application"></a>De toepassing hello containerize
 
-Nu dat u hebt een [Service Fabric-cluster wordt uitgevoerd in Azure](service-fabric-tutorial-create-cluster-azure-ps.md) bent u klaar voor een beperkte toepassing maken en implementeren. Voor het starten van onze toepassing wordt uitgevoerd in een container, moeten we voegen **Docker ondersteuning** aan het project in Visual Studio. Bij het toevoegen van **Docker ondersteuning** aan de toepassing, twee dingen gebeuren. Eerst een _Dockerfile_ wordt toegevoegd aan het project. Dit nieuwe bestand wordt beschreven hoe de installatiekopie van de container kan worden opgebouwd. Vervolgens tweede, een nieuwe _docker compose_ project wordt toegevoegd aan de oplossing. Het nieuwe project bevat enkele docker compose bestanden. Docker compose bestanden kunnen worden gebruikt om te beschrijven hoe de container wordt uitgevoerd.
+Nu dat u hebt een [Service Fabric-cluster wordt uitgevoerd in Azure](service-fabric-tutorial-create-cluster-azure-ps.md) u bent klaar toocreate en een beperkte toepassing implementeert. toostart onze toepassing wordt uitgevoerd in een container, moeten we tooadd **Docker ondersteuning** toohello-project in Visual Studio. Bij het toevoegen van **Docker ondersteuning** toohello toepassing, twee dingen gebeuren. Eerst een _Dockerfile_ toohello project wordt toegevoegd. Dit nieuwe bestand wordt beschreven waarom de installatiekopie van de container Hallo toobe gebouwd. Vervolgens tweede, een nieuwe _docker compose_ project toohello oplossing wordt toegevoegd. Hallo nieuw project bevat enkele docker compose bestanden. Docker compose-bestanden kunnen worden gebruikt toodescribe hoe Hallo container wordt uitgevoerd.
 
 Meer informatie over het werken met [Container met Visual Studio Tools][link-visualstudio-container-tools].
 
 >[!NOTE]
->Als dit de eerste keer dat u Windows-container installatiekopieën op uw computer uitvoert, moet de base afbeeldingen voor uw containers Docker CE halen. De afbeeldingen in deze zelfstudie gebruikt zijn 14 GB. Opwekken en voer de volgende terminal opdracht voor het ophalen van de basisinstallatiekopieën:
+>Als het Hallo eerste keer dat u Windows-container installatiekopieën op uw computer uitvoert, moet Docker CE trek omlaag Hallo basisinstallatiekopieën voor uw containers. Hallo-afbeeldingen in deze zelfstudie gebruikt zijn 14 GB. Opwekken en Voer Hallo terminal opdracht toopull Hallo basisinstallatiekopieën te volgen:
 >```cmd
 >docker pull microsoft/mssql-server-windows-developer
 >docker pull microsoft/aspnet:4.6.2
@@ -56,17 +56,17 @@ Meer informatie over het werken met [Container met Visual Studio Tools][link-vis
 
 ### <a name="add-docker-support"></a>Docker-ondersteuning toevoegen
 
-Open de [FabrikamFiber.CallCenter.sln] [ link-fabrikam-github] bestand in Visual Studio.
+Open Hallo [FabrikamFiber.CallCenter.sln] [ link-fabrikam-github] bestand in Visual Studio.
 
-Met de rechtermuisknop op de **FabrikamFiber.Web** project > **toevoegen** > **Docker ondersteuning**.
+Klik met de rechtermuisknop Hallo **FabrikamFiber.Web** project > **toevoegen** > **Docker ondersteuning**.
 
 ### <a name="add-support-for-sql"></a>Ondersteuning voor SQL toevoegen
 
-Deze toepassing wordt SQL gebruikt als de gegevensprovider zodat een SQL-server vereist is voor het uitvoeren van de toepassing. Verwijzen naar een installatiekopie van SQL Server-container in onze docker-compose.override.yml-bestand.
+Deze toepassing wordt SQL als gegevensprovider hello, zodat een SQL-server vereist toorun Hallo-toepassing is. Verwijzen naar een installatiekopie van SQL Server-container in onze docker-compose.override.yml-bestand.
 
-Open in Visual Studio **Solution Explorer**, vinden **docker compose**, en open het bestand **docker compose.override.yml**.
+Open in Visual Studio **Solution Explorer**, vinden **docker compose**, en de bestandsnaam van de open Hallo **docker compose.override.yml**.
 
-Navigeer naar de `services:` knooppunt toevoegen van een knooppunt met de naam `db:` waarmee wordt gedefinieerd met de SQL Server-vermelding voor de container.
+Navigeer toohello `services:` knooppunt toevoegen van een knooppunt met de naam `db:` Hallo SQL Server-vermelding voor de container hello te definiëren.
 
 ```yml
   db:
@@ -86,9 +86,9 @@ Navigeer naar de `services:` knooppunt toevoegen van een knooppunt met de naam `
 >U kunt SQL-servers die u liever voor lokale foutopsporing gebruiken, zolang deze bereikbaar is vanaf de host is. Echter, **localdb** biedt geen ondersteuning voor `container -> host` communicatie.
 
 >[!WARNING]
->Met SQL Server in een container biedt geen ondersteuning voor vastleggen van gegevens. Wanneer de container wordt gestopt, worden uw gegevens worden gewist. Gebruik deze configuratie niet voor productie.
+>Met SQL Server in een container biedt geen ondersteuning voor vastleggen van gegevens. Wanneer Hallo container wordt gestopt, worden uw gegevens worden gewist. Gebruik deze configuratie niet voor productie.
 
-Navigeer naar de `fabrikamfiber.web:` knooppunt en het toevoegen van een onderliggend knooppunt met de naam `depends_on:`. Dit zorgt ervoor dat de `db` (de SQL Server-container)-service wordt gestart voordat onze webtoepassing (fabrikamfiber.web).
+Navigeer toohello `fabrikamfiber.web:` knooppunt en het toevoegen van een onderliggend knooppunt met de naam `depends_on:`. Dit zorgt ervoor dat Hallo `db` (SQL Server-container Hallo)-service wordt gestart voordat onze webtoepassing (fabrikamfiber.web).
 
 ```yml
   fabrikamfiber.web:
@@ -96,9 +96,9 @@ Navigeer naar de `fabrikamfiber.web:` knooppunt en het toevoegen van een onderli
       - db
 ```
 
-### <a name="update-the-web-config"></a>Bijwerken van de webconfiguratie
+### <a name="update-hello-web-config"></a>Hallo webconfiguratie bijwerken
 
-Terug in de **FabrikamFiber.Web** project, het bijwerken van de verbindingsreeks in de **web.config** bestand om te verwijzen naar de SQL-Server in de container.
+Terug in Hallo **FabrikamFiber.Web** project, update Hallo-verbindingsreeks in Hallo **web.config** -bestand, toopoint toohello SQL-Server in het Hallo-container.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Data Source=db,1433;Database=FabrikamFiber;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
@@ -107,31 +107,31 @@ Terug in de **FabrikamFiber.Web** project, het bijwerken van de verbindingsreeks
 ```
 
 >[!NOTE]
->Als u wilt gebruiken een ander wordt SQL Server tijdens het bouwen van een release bouwen van uw webtoepassing, nog een verbindingsreeks toevoegen aan uw web.release.config-bestand.
+>Als u een andere SQL-Server tijdens het bouwen van een release bouwen van uw webtoepassing toouse wilt, kunt u een andere verbinding tekenreeks tooyour web.release.config-bestand toevoegen.
 
 ### <a name="test-your-container"></a>De container testen
 
-Druk op **F5** uitvoeren en fouten opsporen in de toepassing in de container.
+Druk op **F5** toorun en foutopsporing Hallo-toepassing in de container.
 
-Rand opent van uw toepassing gedefinieerde starten-pagina met het IP-adres van de container op het interne netwerk met NAT (meestal 172.x.x.x). Zie voor meer informatie over foutopsporing in toepassingen in containers met behulp van Visual Studio 2017, [in dit artikel][link-debug-container].
+Rand opent van uw toepassing gedefinieerde starten-pagina met Hallo IP-adres van de container Hallo op Hallo interne NAT netwerk (meestal 172.x.x.x). Zie toolearn meer informatie over foutopsporing in toepassingen in containers met behulp van Visual Studio-2017 [in dit artikel][link-debug-container].
 
 ![Voorbeeld van fabrikam in een container][image-web-preview]
 
-De container is nu klaar om te worden gebouwd en verpakt in een Service Fabric-toepassing. Zodra u de installatiekopie van het container gebouwd op uw computer hebt, kunt u dit doorgeven aan een container-register en voeg alles naar beneden op elke host worden uitgevoerd.
+Hallo-container is nu gereed toobe gebouwd en verpakt in een Service Fabric-toepassing. Zodra u de installatiekopie van de container Hallo gebouwd op uw computer hebt, kunt u dit tooany container register doorgeven en trek het omlaag tooany host toorun.
 
-## <a name="get-the-application-ready-for-the-cloud"></a>Bereid u voor de toepassing voor de cloud
+## <a name="get-hello-application-ready-for-hello-cloud"></a>De toepassing hello voorbereidingen voor Hallo cloud
 
-Om de toepassing klaar is voor het uitvoeren in Service Fabric in Azure, moeten we twee stappen:
+tooget hello toepassing gereed is voor het uitvoeren in Service Fabric in Azure, moeten we toocomplete twee stappen:
 
-1. De poort waarop we willen kunnen bereiken onze webtoepassing in de Service Fabric-cluster worden blootgesteld.
+1. Hallo-poort waar we toobe kunnen tooreach onze webtoepassing in Service Fabric-cluster hello wilt tonen.
 2. Geef een productie gereed SQL-database voor de toepassing.
 
-### <a name="expose-the-port-for-the-app"></a>De poort voor de app weergeven
-Het Service Fabric-cluster dat we hebben geconfigureerd, heeft poort *80* standaard geopend in de Azure Load Balancer, die een compromis tussen de binnenkomende verkeer naar het cluster. We kunnen onze container op deze poort beschikbaar via onze docker-compose.yml-bestand.
+### <a name="expose-hello-port-for-hello-app"></a>Hallo-poort voor Hallo-app
+Hallo Service Fabric-cluster we hebt geconfigureerd, is de poort *80* standaard geopend in hello Azure Load Balancer, die een compromis tussen de binnenkomende verkeer toohello cluster. We kunnen onze container op deze poort beschikbaar via onze docker-compose.yml-bestand.
 
-Open in Visual Studio **Solution Explorer**, vinden **docker compose**, en open het bestand **docker compose.override.yml**.
+Open in Visual Studio **Solution Explorer**, vinden **docker compose**, en de bestandsnaam van de open Hallo **docker compose.override.yml**.
 
-Wijzig de `fabrikamfiber.web:` knooppunt een onderliggend knooppunt met de naam toevoegen `ports:`.
+Hallo wijzigen `fabrikamfiber.web:` knooppunt een onderliggend knooppunt met de naam toevoegen `ports:`.
 
 Een tekenreeks-vermelding toevoegen `- "80:80"`.
 
@@ -149,62 +149,62 @@ Een tekenreeks-vermelding toevoegen `- "80:80"`.
 ```
 
 ### <a name="use-a-production-sql-database"></a>Gebruik een SQL-database voor productie
-Wanneer in productie wordt uitgevoerd, moeten we onze gegevens behouden in de database. Er is momenteel geen manier om te waarborgen permanente gegevens in een container, dus u productiegegevens niet opslaan in SQL Server in een container.
+Wanneer in productie wordt uitgevoerd, moeten we onze gegevens behouden in de database. Er zijn momenteel geen permanente manier tooguarantee-gegevens in een container, dus u productiegegevens niet opslaan in SQL Server in een container.
 
-U wordt aangeraden gebruikmaken van een Azure SQL Database. Als u wilt instellen en uitvoeren van een beheerde SQL-Server in Azure, gaat u naar de [Azure SQL Database snelstartgidsen] [ link-azure-sql] artikel.
+U wordt aangeraden gebruikmaken van een Azure SQL Database. tooset up en voer een beheerde SQL-Server in Azure, gaat u naar Hallo [Azure SQL Database snelstartgidsen] [ link-azure-sql] artikel.
 
 >[!NOTE]
->Houd er rekening mee te wijzigen van de verbindingsreeksen in de SQL-server in de **web.release.config** bestand de **FabrikamFiber.Web** project.
+>Houd er rekening mee toochange Hallo verbinding tekenreeksen toohello SQL-server in Hallo **web.release.config** bestand in Hallo **FabrikamFiber.Web** project.
 >
->Deze toepassing mislukt probleemloos als geen SQL-database bereikbaar is. U kunt doorgaan en de toepassing implementeren met geen SQL-server.
+>Deze toepassing mislukt probleemloos als geen SQL-database bereikbaar is. U kunt kiezen toogo vooruit en implementeer de toepassing hello met geen SQL-server.
 
 ## <a name="deploy-with-visual-studio-team-services"></a>Met Visual Studio teamservices implementeren
 
-Als u een implementatie met behulp van Visual Studio Team Services instelt, moet u voor het installeren van de [extensie continue levering van hulpprogramma's voor Visual Studio 2017][link-visualstudio-cd-extension]. Deze extensie kunt eenvoudig implementeren in Azure door Visual Studio Team Services configureren en ophalen van uw app geïmplementeerd voor uw Service Fabric-cluster.
+tooset up implementatie met behulp van Visual Studio Team Services, moet u tooinstall hello [extensie continue levering van hulpprogramma's voor Visual Studio 2017][link-visualstudio-cd-extension]. Deze extensie maakt het eenvoudig toodeploy tooAzure door Visual Studio Team Services configureren en ophalen van uw app geïmplementeerd tooyour Service Fabric-cluster.
 
-Om te beginnen, moet uw code worden gehost in broncodebeheer. De rest van deze sectie wordt ervan uitgegaan dat **git** wordt gebruikt.
+tooget gestart, moet uw code worden gehost in broncodebeheer. Hallo rest van deze sectie wordt ervan uitgegaan dat **git** wordt gebruikt.
 
 ### <a name="set-up-a-vsts-repo"></a>Een opslagplaats VSTS instellen
-Klik op de rechterbenedenhoek van Visual Studio **toevoegen aan broncodebeheer** > **Git** (of welke optie u liever).
+Hallo rechterbenedenhoek van Visual Studio, klikt u op **tooSource besturingselement toevoegen** > **Git** (of welke optie u liever).
 
-![Druk op de knop bron controle][image-source-control]
+![Druk op de knop Hallo bron][image-source-control]
 
-In de _Team Explorer_ deelvenster, drukt u op **Git-opslagplaats publiceren**.
+In Hallo _Team Explorer_ deelvenster, drukt u op **Git-opslagplaats publiceren**.
 
 Selecteer de naam van de opslagplaats VSTS en druk op **opslagplaats**.
 
-![opslagplaats naar VSTS publiceren][image-publish-repo]
+![opslagplaats tooVSTS publiceren][image-publish-repo]
 
 Nu dat uw code wordt gesynchroniseerd met een bron VSTS opslagplaats, kunt u continue integratie en continue levering kunt configureren.
 
 ### <a name="setup-continuous-delivery"></a>Continue levering instellen
 
-In _Solution Explorer_, met de rechtermuisknop op de **oplossing** > **continue levering configureren**.
+In _Solution Explorer_, klik met de rechtermuisknop Hallo **oplossing** > **continue levering configureren**.
 
-Selecteer het Azure-abonnement.
+Selecteer hello Azure-abonnement.
 
-Stel **Type Host** naar **Service Fabric-Cluster**.
+Stel **hosttype** te**Service Fabric-Cluster**.
 
-Stel **doelhost** naar de service fabric-cluster die u in de vorige sectie hebt gemaakt.
+Stel **doelhost** toohello service fabric-cluster die u hebt gemaakt in de vorige sectie Hallo.
 
-Kies een **Container register** voor het publiceren van de container.
+Kies een **Container register** toopublish de container.
 
 >[!TIP]
->Gebruik de **bewerken** om te maken van een container-register.
+>Gebruik Hallo **bewerken** knop toocreate een container-register.
 
 Druk op **OK**.
 
 ![Setup service fabric continue integratie][image-setup-ci]
    
-   Zodra de configuratie is voltooid, wordt de container geïmplementeerd naar Service Fabric. Wanneer u push-updates naar de opslagplaats voor een nieuwe build en versie wordt uitgevoerd.
+   Zodra het Hallo-configuratie is voltooid, is de container geïmplementeerde tooService Fabric. Wanneer u updates toohello opslagplaats pushen wordt een nieuwe build en release uitgevoerd.
    
    >[!NOTE]
-   >Het opbouwen van de container afbeeldingen nemen ongeveer 15 minuten.
-   >De eerste implementatie voor de Service Fabric-cluster zorgt ervoor dat de basis Windows Server Core-container afbeeldingen worden gedownload. Het downloaden van de duurt aanvullende 5-10 minuten.
+   >Installatiekopieën van het gebouw Hallo container duren ongeveer 15 minuten.
+   >Hallo eerste implementatie toohello Service Fabric-cluster wordt Hallo base Windows Server Core-container installatiekopieën toobe gedownload. Hallo downloaden duurt toocomplete extra 5-10 minuten.
 
-Blader naar de Fabrikam aanroep Center-toepassing met de url van het cluster: bijvoorbeeld *http://mycluster.westeurope.cloudapp.azure.com*
+Blader toohello Fabrikam aanroep Center-toepassing met behulp van de url van uw cluster Hallo: bijvoorbeeld *http://mycluster.westeurope.cloudapp.azure.com*
 
-Nu dat u hebt beperkte en de oplossing Fabrikam aanroep Center geïmplementeerd, kunt u opent de [Azure-portal] [ link-azure-portal] en de toepassing die wordt uitgevoerd in de Service Fabric zien. Probeer de toepassing, open een webbrowser en Ga naar de URL van uw Service Fabric-cluster.
+Nu dat u hebt beperkte en Hallo Fabrikam aanroep Center oplossing wordt geïmplementeerd, kunt u Hallo openen [Azure-portal] [ link-azure-portal] en het Hallo-toepassing uitgevoerd in de Service Fabric zien. tootry hello toepassing, open een webbrowser en ga toohello-URL van uw Service Fabric-cluster.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -217,10 +217,10 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 <!--   NOTE SURE WHAT WE SHOULD DO YET HERE
 
-Advance to the next tutorial to learn how to bind a custom SSL certificate to it.
+Advance toohello next tutorial toolearn how toobind a custom SSL certificate tooit.
 
 > [!div class="nextstepaction"]
-> [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
+> [Bind an existing custom SSL certificate tooAzure Web Apps](app-service-web-tutorial-custom-ssl.md)
 
 ## Next steps
 

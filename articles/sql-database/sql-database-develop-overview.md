@@ -1,6 +1,6 @@
 ---
-title: Overzicht van de ontwikkeling van toepassingen voor SQL Database | Microsoft Docs
-description: Kom meer te weten over beschikbare verbindingsbibliotheken en aanbevolen procedures voor toepassingen die verbinding maken met SQL Database.
+title: aaaSQL Database ontwikkelen-overzicht | Microsoft Docs
+description: Meer informatie over beschikbare verbinding bibliotheken en best practices voor toepassingen tooSQL Database verbinding te maken.
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -15,29 +15,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.openlocfilehash: 94257b68b3a0f62f4ade727277a904ceec082c05
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 17f04db600828f90c42c750c9abdb92cfa4ca817
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sql-database-application-development-overview"></a>SQL-Database ontwikkelen-overzicht
-In dit artikel leest u meer over de algemene zaken waar ontwikkelaars van op de hoogte moeten zijn voor het schrijven van code om verbinding te maken met Azure SQL Database.
+In dit artikel wordt uitgelegd Hallo basic overwegingen die een ontwikkelaar houden moet rekening bij het schrijven van code tooconnect tooAzure SQL-Database.
 
 > [!TIP]
-> Zie de [Zelfstudie Aan de slag](sql-database-get-started-portal.md) voor een zelfstudie over het maken van een server, het maken van een op een server gebaseerde firewall, het weergeven van servereigenschappen, het maken van verbinding met behulp van SQL Server Management Studio, het uitvoeren van query's op de hoofddatabase, het maken van een voorbeelddatabase, het uitvoeren van query's op database-eigenschappen, het maken van verbinding met behulp van SQL Server Management Studio en het uitvoeren van query's op de voorbeelddatabase.
+> Verbinding voor een zelfstudie waarin u hoe toocreate een server, een firewall op de server, server-eigenschappen weergeven, maken verbinding maken met behulp van de query Hallo hoofddatabase van SQL Server Management Studio, een voorbeelddatabase en een lege database maken, query uitvoeren op database-eigenschappen SQL Server Management Studio en query Hallo-voorbeelddatabase gebruikt, Zie [ophalen zelfstudie](sql-database-get-started-portal.md).
 >
 
 ## <a name="language-and-platform"></a>Taal en platform
-Er zijn codevoorbeelden beschikbaar voor verschillende programmeertalen en platforms. Hier vindt u koppelingen naar de codevoorbeelden: 
+Er zijn codevoorbeelden beschikbaar voor verschillende programmeertalen en platforms. Hier vindt u koppelingen toohello codevoorbeelden op: 
 
 * Meer informatie: [Verbindingsbibliotheken voor SQL Database en SQL Server](sql-database-libraries.md)
 
 ## <a name="tools"></a>Hulpprogramma's 
-U kunt gebruikmaken van open-source-hulpprogramma's zoals [cheetah](https://github.com/wunderlist/cheetah), [sql cli](https://www.npmjs.com/package/sql-cli) of [VS Code](https://code.visualstudio.com/). Daarnaast werkt Azure SQL Database met Microsoft-hulpprogramma's zoals [Visual Studio](https://www.visualstudio.com/downloads/) en [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  U kunt ook de Azure-beheerportal, PowerShell en REST-API's gebruiken als u nog productiever wilt zijn.
+U kunt gebruikmaken van open-source-hulpprogramma's zoals [cheetah](https://github.com/wunderlist/cheetah), [sql cli](https://www.npmjs.com/package/sql-cli) of [VS Code](https://code.visualstudio.com/). Daarnaast werkt Azure SQL Database met Microsoft-hulpprogramma's zoals [Visual Studio](https://www.visualstudio.com/downloads/) en [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  U kunt ook hello Azure Management Portal, PowerShell en REST-API's kunt u extra productiviteit krijgen.
 
 ## <a name="resource-limitations"></a>Resourcebeperkingen
-Azure SQL Database beheert de resources die voor een database beschikbaar zijn door twee verschillende mechanismen te gebruiken: Resources Governance en Enforcement of Limits.
+Azure SQL Database beheert Hallo resources beschikbaar tooa database met behulp van twee verschillende mechanismen: Resources beheer en afdwinging van limieten.
 
 * Meer informatie: [Azure SQL Database-resourcebeperkingen](sql-database-resource-limits.md)
 
@@ -48,31 +48,31 @@ Azure SQL Database biedt resources voor het beperken van toegang, het beveiligen
 
 ## <a name="authentication"></a>Authentication
 * Azure SQL Database biedt ondersteuning voor zowel SQL Server-verificatiegebruikers en -aanmeldingen als [Azure Active Directory](sql-database-aad-authentication.md)-verificatiegebruikers en -aanmeldingen.
-* U moet een bepaalde database opgeven in plaats van standaard de *hoofd*database te gebruiken.
-* U kunt geen gebruikmaken van de Transact-SQL-instructie **USE myDatabaseName;** om SQL Database om over te schakelen naar een andere database.
+* U moet een bepaalde database, in plaats van Standaardinstellingenbeleid toohello toospecify *master* database.
+* U kunt geen Hallo Transact-SQL gebruiken **gebruik myDatabaseName;** instructie op SQL-Database tooswitch tooanother database.
 * Meer informatie: [SQL Database-beveiliging: databasetoegang en aanmeldingsbeveiliging beheren](sql-database-manage-logins.md)
 
 ## <a name="resiliency"></a>Flexibiliteit
-Wanneer er een tijdelijke fout optreedt bij het verbinden met SQL Database, moet met uw code de aanroep opnieuw worden uitgevoerd.  Het wordt aanbevolen om voor logica voor opnieuw proberen uitstellogica te gebruiken zodat de SQL Database niet overbelast raakt door meerdere clients die tegelijk opnieuw proberen.
+Wanneer een tijdelijke fout optreedt tijdens het verbinden van tooSQL Database, moet uw code Hallo-aanroep in opnieuw proberen.  U wordt aangeraden dat Pogingslogica backoff logica te gebruiken, zodat deze niet wordt overbelast Hallo SQL-Database met meerdere clients tegelijkertijd opnieuw uit te voeren.
 
-* Codevoorbeelden: zie [Verbindingsbibliotheken voor SQL Database en SQL Server](sql-database-libraries.md) voor codevoorbeelden met daarin logica voor opnieuw proberen en voorbeelden van de taal van uw keuze
+* Codevoorbeelden: codevoorbeelden die aangeven Pogingslogica, vindt u voorbeelden voor de taal van uw keuze op Hallo: [verbindingsbibliotheken voor SQL-Database en SQL Server](sql-database-libraries.md)
 * Meer informatie: [Foutberichten voor SQL Database-clientprogramma’s](sql-database-develop-error-messages.md)
 
 ## <a name="managing-connections"></a>Verbindingen beheren
-* In de verbindingslogica van de client overschrijft u de standaardtime-out zodat deze 30 seconden bedraagt.  De standaardwaarde van 15 seconden is te kort voor verbindingen die afhankelijk zijn van internet.
-* Als u een [verbindingsgroep](http://msdn.microsoft.com/library/8xx3tyca.aspx) gebruikt, zorgt u ervoor dat de verbinding wordt verbroken zodra uw programma er niet actief meer gebruik van maakt en wanneer uw programma niet wordt voorbereid om opnieuw verbinding te maken.
+* In de logica van uw client-verbinding overschrijven Hallo standaard time-out toobe 30 seconden.  Hallo standaardwaarde van 15 seconden is te kort voor verbindingen die afhankelijk van zijn internet Hallo.
+* Als u een [verbindingsgroep](http://msdn.microsoft.com/library/8xx3tyca.aspx), kunnen ervoor tooclose Hallo verbinding Hallo instant uw programma is niet actief gebruikt en niet tooreuse bereidt het.
 
 ## <a name="network-considerations"></a>Aandachtspunten voor netwerken
-* Zorg er op de computer die als host fungeert voor uw clientprogramma voor dat de firewall uitgaande TCP-communicatie toestaat via poort 1433.  Meer informatie: [Een Azure SQL Database-firewall configureren](sql-database-configure-firewall-settings.md)
-* Als uw clientprogramma verbinding maakt met SQL-Database terwijl de client wordt uitgevoerd op Azure een virtuele machine (VM), moet u bepaalde poortbereiken op de virtuele machine openen. Meer informatie: [poorten buiten 1433 voor ADO.NET 4.5 en SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
-* Clientverbindingen met Azure SQL Database wordt soms de proxyserver wordt overgeslagen en communiceren rechtstreeks met de database. Andere poorten dan poort 1433 worden belangrijk. Voor meer informatie [Azure SQL Database connectivity architectuur](sql-database-connectivity-architecture.md) en [poorten buiten 1433 voor ADO.NET 4.5 en SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
+* Controleer op Hallo-computer die als host fungeert voor uw clientprogramma, Hallo firewall staat uitgaande TCP-communicatie op poort 1433.  Meer informatie: [Een Azure SQL Database-firewall configureren](sql-database-configure-firewall-settings.md)
+* Als uw clientprogramma verbinding tooSQL Database maakt, terwijl de client wordt uitgevoerd op Azure een virtuele machine (VM), moet u bepaalde poortbereiken op Hallo VM openen. Meer informatie: [poorten buiten 1433 voor ADO.NET 4.5 en SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Client verbindingen tooAzure SQL-Database soms Hallo proxy omzeilen en rechtstreeks communiceren met de Hallo-database. Andere poorten dan poort 1433 worden belangrijk. Voor meer informatie [Azure SQL Database connectivity architectuur](sql-database-connectivity-architecture.md) en [poorten buiten 1433 voor ADO.NET 4.5 en SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 ## <a name="data-sharding-with-elastic-scale"></a>Gegevens sharding met elastisch schalen
-Met elastisch schalen wordt omhoog en omlaag schalen eenvoudiger. 
+Elastisch schalen vereenvoudigt Hallo schalen (en). 
 
 * [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md)
 * [Aan de slag met het voorbeeld voor elastisch schalen voor Azure SQL Database](sql-database-elastic-scale-get-started.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk alle [mogelijkheden van SQL Database](sql-database-technical-overview.md)
+Alle Hallo verkennen [mogelijkheden van SQL-Database](sql-database-technical-overview.md)

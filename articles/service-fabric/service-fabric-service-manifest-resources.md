@@ -1,6 +1,6 @@
 ---
-title: Service Fabric-service-eindpunten geven | Microsoft Docs
-description: Het eindpunt resources in een servicemanifest van de, inclusief het instellen van HTTPS-eindpunten beschrijven
+title: Service Fabric-service-eindpunten aaaSpecifying | Microsoft Docs
+description: Hoe toodescribe eindpunt resources in een service manifest, met inbegrip van hoe tooset HTTPS-eindpunten
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: subramar
-ms.openlocfilehash: 08141edfbc8be9bf7bf303419e1e482d5f884860
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a4ebee353ce5cf86583673674246094f03f368be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Resources specificeren in een servicemanifest
 ## <a name="overview"></a>Overzicht
-Het servicemanifest kunt resources die worden gebruikt door de service worden gedeclareerd of gewijzigd zonder de gecompileerde code te wijzigen. Azure Service Fabric ondersteunt de configuratie van endpoint-resources voor de service. De toegang tot de resources die zijn opgegeven in het servicemanifest kan worden beheerd via de beveiligingsgroep in het toepassingsmanifest. De declaratie van resources kunt deze resources worden gewijzigd tijdens de implementatie, wat betekent dat de service niet hoeft te introduceren een nieuwe configuratie-mechanisme. De schemadefinitie voor het bestand ServiceManifest.xml is geïnstalleerd met de Service Fabric SDK en hulpprogramma's voor *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Hallo servicemanifest kan resources die worden gebruikt door Hallo service toobe gedeclareerd of gewijzigd zonder Hallo gecompileerde code te wijzigen. Azure Service Fabric ondersteunt de configuratie van endpoint-resources voor Hallo-service. Hallo toegang toohello resources die zijn opgegeven in het Hallo-servicemanifest kunnen worden beheerd via Hallo beveiligingsgroep in het toepassingsmanifest Hallo. Hallo-declaratie van resources kunt deze resources toobe gewijzigd tijdens de implementatie, wat betekent dat Hallo service hoeft niet toointroduce een nieuw configuratie-mechanisme. Hallo schemadefinitie voor Hallo ServiceManifest.xml bestand is geïnstalleerd met Hallo Service Fabric SDK en hulpprogramma's te*C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## <a name="endpoints"></a>Eindpunten
-Als een resource van het eindpunt is gedefinieerd in het servicemanifest, wijst Service Fabric de poorten van de gereserveerde toepassingspoortbereik wanneer een poort expliciet is niet opgegeven. Zoek bijvoorbeeld naar op het eindpunt *ServiceEndpoint1* opgegeven in het manifest codefragment die na dit lid. Services kunnen bovendien ook aanvragen voor een specifieke poort in een resource. Service-replica's uitgevoerd op verschillende knooppunten kunnen worden toegewezen worden andere poortnummers, terwijl de replica's van een service die wordt uitgevoerd op hetzelfde knooppunt poort delen. De service-replica's kunnen deze poorten vervolgens naar wens gebruiken voor replicatie en luistert naar aanvragen van clients.
+Als endpoint-bron is gedefinieerd in het manifest voor Hallo-service, wijst Service Fabric de poorten van Hallo gereserveerd toepassingspoortbereik wanneer een poort expliciet is niet opgegeven. Zoek bijvoorbeeld naar op Hallo eindpunt *ServiceEndpoint1* opgegeven in het manifest Hallo-codefragment die na dit lid. Services kunnen bovendien ook aanvragen voor een specifieke poort in een resource. Service-replica's uitgevoerd op verschillende knooppunten kunnen worden toegewezen worden andere poortnummers, terwijl de replica's van een service die wordt uitgevoerd op hetzelfde knooppunt share Hallo poort Hallo. Hallo service replica's kunnen deze poorten vervolgens naar wens gebruiken voor replicatie en luistert naar aanvragen van clients.
 
 ```xml
 <Resources>
@@ -37,10 +37,10 @@ Als een resource van het eindpunt is gedefinieerd in het servicemanifest, wijst 
 </Resources>
 ```
 
-Raadpleeg [configureren van stateful Reliable Services](service-fabric-reliable-services-configuration.md) meer informatie over die verwijzen naar de eindpunten van de instellingen van de config-pakket (settings.xml) bestand lezen.
+Raadpleeg te[configureren van stateful Reliable Services](service-fabric-reliable-services-configuration.md) tooread meer informatie over die verwijzen naar eindpunten vanuit Hallo configuratie-instellingen pakketbestand (settings.xml).
 
 ## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Voorbeeld: een HTTP-eindpunt voor uw service opgeven
-De volgende servicemanifest definieert één resource voor TCP-eindpunt en twee HTTP-eindpunt bronnen in de &lt;Resources&gt; element.
+Hallo volgende servicemanifest definieert één resource voor TCP-eindpunt en bronnen van twee HTTP-eindpunt op Hallo &lt;Resources&gt; element.
 
 HTTP-eindpunten worden automatisch dat ACL zou door Service Fabric.
 
@@ -52,8 +52,8 @@ HTTP-eindpunten worden automatisch dat ACL zou door Service Fabric.
                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
-    <!-- This is the name of your ServiceType.
-         This name must match the string used in the RegisterServiceType call in Program.cs. -->
+    <!-- This is hello name of your ServiceType.
+         This name must match hello string used in hello RegisterServiceType call in Program.cs. -->
     <StatefulServiceType ServiceTypeName="Stateful1Type" HasPersistedState="true" />
   </ServiceTypes>
 
@@ -66,22 +66,22 @@ HTTP-eindpunten worden automatisch dat ACL zou door Service Fabric.
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
+  <!-- Config package is hello contents of hello Config directoy under PackageRoot that contains an
        independently updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
   <Resources>
     <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port number on which to
+      <!-- This endpoint is used by hello communication listener tooobtain hello port number on which to
            listen. Note that if your service is partitioned, this port is shared with
            replicas of different partitions that are placed in your code. -->
       <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
       <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
       <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
 
-      <!-- This endpoint is used by the replicator for replicating the state of your service.
-           This endpoint is configured through the ReplicatorSettings config section in the Settings.xml
-           file under the ConfigPackage. -->
+      <!-- This endpoint is used by hello replicator for replicating hello state of your service.
+           This endpoint is configured through hello ReplicatorSettings config section in hello Settings.xml
+           file under hello ConfigPackage. -->
       <Endpoint Name="ReplicatorEndpoint" />
     </Endpoints>
   </Resources>
@@ -89,14 +89,14 @@ HTTP-eindpunten worden automatisch dat ACL zou door Service Fabric.
 ```
 
 ## <a name="example-specifying-an-https-endpoint-for-your-service"></a>Voorbeeld: een HTTPS-eindpunt voor uw service opgeven
-Het HTTPS-protocol biedt verificatie van de server en wordt ook gebruikt voor het versleutelen van de client-servercommunicatie. Geef het protocol in voor het HTTPS inschakelen voor uw Service Fabric-service, de *Resources-eindpunten > -> Endpoint* sectie van de servicemanifest, zoals eerder besproken voor het eindpunt *ServiceEndpoint3*.
+Hallo HTTPS-protocol biedt verificatie van de server en wordt ook gebruikt voor het versleutelen van de client-servercommunicatie. tooenable HTTPS op uw Service Fabric-service, Hallo protocol opgeven in Hallo *Resources-eindpunten > Endpoint ->* sectie van Hallo servicemanifest, zoals eerder besproken voor het eindpunt Hallo *ServiceEndpoint3* .
 
 > [!NOTE]
 > Een service-protocol kan niet worden gewijzigd tijdens de upgrade van de toepassing. Als deze is gewijzigd tijdens de upgrade, is een belangrijke wijziging.
 > 
 > 
 
-Hier volgt een voorbeeld ApplicationManifest die u nodig hebt om in te stellen voor HTTPS. De vingerafdruk van het certificaat moet worden opgegeven. De EndpointRef is een verwijzing naar EndpointResource in ServiceManifest, waarvoor u het HTTPS-protocol hebt ingesteld. U kunt meer dan één EndpointCertificate toevoegen.  
+Hier volgt een voorbeeld ApplicationManifest moet u tooset voor HTTPS. Hallo vingerafdruk voor het certificaat moet worden opgegeven. Hallo EndpointRef is een verwijzing tooEndpointResource in ServiceManifest, waarvoor u de HTTPS-protocol Hallo ingesteld. U kunt meer dan één EndpointCertificate toevoegen.  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -110,8 +110,8 @@ Hier volgt een voorbeeld ApplicationManifest die u nodig hebt om in te stellen v
     <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
     <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
-  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion
-       should match the Name and Version attributes of the ServiceManifest element defined in the
+  <!-- Import hello ServiceManifest from hello ServicePackage. hello ServiceManifestName and ServiceManifestVersion
+       should match hello Name and Version attributes of hello ServiceManifest element defined in the
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Stateful1Pkg" ServiceManifestVersion="1.0.0" />
@@ -121,11 +121,11 @@ Hier volgt een voorbeeld ApplicationManifest die u nodig hebt om in te stellen v
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
-    <!-- The section below creates instances of service types when an instance of this
+    <!-- hello section below creates instances of service types when an instance of this
          application type is created. You can also create one or more instances of service type by using the
          Service Fabric PowerShell module.
 
-         The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
+         hello attribute ServiceTypeName below must match hello name defined in hello imported ServiceManifest.xml file. -->
     <Service Name="Stateful1">
       <StatefulService ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_ ]">
         <UniformInt64Partition PartitionCount="[Stateful1_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
@@ -140,11 +140,11 @@ Hier volgt een voorbeeld ApplicationManifest die u nodig hebt om in te stellen v
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Eindpunten in ServiceManifest.xml overschrijven
 
-In de ApplicationManifest toevoegen een sectie ResourceOverrides die op hetzelfde niveau ConfigOverrides gedeelte. In deze sectie kunt u de onderdrukking voor de sectie eindpunten in de bronnensectie is opgegeven in het manifest van de Service.
+Voeg een sectie ResourceOverrides die als een lid op hetzelfde niveau tooConfigOverrides sectie Hallo ApplicationManifest. In deze sectie kunt u Hallo onderdrukking voor Hallo eindpunten in de sectie van Hallo resources die zijn opgegeven in het Hallo-servicemanifest.
 
-Om te overschrijven eindpunt in ServiceManifest ApplicationParameters wijzigen de ApplicationManifest als volgt gebruiken:
+Hallo in volgorde toooverride eindpunt in ServiceManifest ApplicationParameters wijzigen met ApplicationManifest als volgt:
 
-Voeg een nieuwe sectie 'ResourceOverrides' in de sectie ServiceManifestImport
+Voeg een nieuwe sectie 'ResourceOverrides' in hello ServiceManifestImport sectie
 
 ```xml
 <ServiceManifestImport>
@@ -162,7 +162,7 @@ Voeg een nieuwe sectie 'ResourceOverrides' in de sectie ServiceManifestImport
   </ServiceManifestImport>
 ```
 
-In de Parameters die hieronder worden toevoegen:
+In de Hallo die parameters hieronder toevoegen:
 
 ```xml
   <Parameters>
@@ -174,17 +174,17 @@ In de Parameters die hieronder worden toevoegen:
   </Parameters>
 ```
 
-Tijdens de implementatie van de toepassing nu kunt u doorgeven in deze waarden als ApplicationParameters bijvoorbeeld:
+Tijdens de implementatie van de toepassing nu Hallo kunt u deze waarden als doorgeven ApplicationParameters bijvoorbeeld:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Opmerking: Als de waarden voor de ApplicationParameters leeg is bieden we Ga terug naar de standaardwaarde opgegeven in de ServiceManifest voor de bijbehorende EndPointName.
+Opmerking: Als Hallo waarden opgeven voor Hallo ApplicationParameters leeg is we gaat u terug toohello standaard waarde die is opgegeven in Hallo ServiceManifest voor Hallo EndPointName overeenkomt.
 
 Bijvoorbeeld:
 
-Als in de ServiceManifest die u hebt opgegeven
+Indien in Hallo ServiceManifest die u hebt opgegeven
 
 ```xml
   <Resources>
@@ -194,6 +194,6 @@ Als in de ServiceManifest die u hebt opgegeven
   </Resources>
 ```
 
-En de waarde voor Port1 en Protocol1 voor parameters van toepassing is null of leeg. De poort wordt nog steeds bepaald door ServiceFabric. En de TCP-Protocol wordt.
+Hallo Port1 en Protocol1 waarde voor de parameters voor de toepassing is null of leeg. Hallo-poort wordt nog steeds bepaald door ServiceFabric. En Hallo Protocol tcp wordt.
 
-Stel dat u een onjuiste waarde opgeven. Net als voor de poort u hebt opgegeven een tekenreekswaarde "Foo" in plaats van een int.  Nieuwe ServiceFabricApplication opdracht mislukt met een fout opgetreden: de overrideparameter met de naam 'ServiceEndpoint1' kenmerk 'Port1' in sectie 'ResourceOverrides' is ongeldig. De opgegeven waarde is 'Foo' en 'integer' vereist is.
+Stel dat u een onjuiste waarde opgeven. Net als voor de poort u hebt opgegeven een tekenreekswaarde "Foo" in plaats van een int.  Nieuwe ServiceFabricApplication opdracht mislukt met een fout opgetreden: Hallo overrideparameter met de 'ServiceEndpoint1' naamkenmerk 'Port1' in sectie 'ResourceOverrides' is ongeldig. Hallo waarde die is opgegeven is 'Foo' en 'integer' vereist is.

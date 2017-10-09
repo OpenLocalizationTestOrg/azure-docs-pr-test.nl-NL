@@ -1,6 +1,6 @@
 ---
-title: Eigenschappen van de Azure-Project
-description: Beschrijft de eigenschappen van de Azure-Project-instellingen in de Azure-werkset voor Eclipse.
+title: aaaAzure Projecteigenschappen
+description: Beschrijft de eigenschappen van de Azure-Project-instellingen Hallo in hello Azure Toolkit voor Eclipse.
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,30 +14,30 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: 9d9eb695b63c2f4efa3ebea97ddb2f2780180bca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6d8993ca38e7e03a8c7ebe96d174594aa0ff78e2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-project-properties"></a>Eigenschappen van de Azure-Project
-Diverse instellingen voor uw Azure-project kunnen worden ingesteld binnen de Azure-werkset voor Eclipse.
+Diverse instellingen voor uw Azure-project kunnen worden ingesteld binnen hello Azure Toolkit voor Eclipse.
 
 ## <a name="configuring-azure-project-properties"></a>Eigenschappen van de Azure-Project configureren
-Configureren van de eigenschappen van uw Azure-Project wordt uitgevoerd via de eigenschap dialoogvensters voor uw Azure-project. Met de rechtermuisknop op het project in de Eclipse-Project Explorer-venster, klikt u op **eigenschappen**, en selecteer vervolgens de **Azure** vervolgmenu.
+Configureren van de eigenschappen van uw Azure-Project wordt uitgevoerd via Hallo eigenschap dialoogvensters voor uw Azure-project. Met de rechtermuisknop op het Hallo-project in de Eclipse-Project Explorer-venster, klikt u op **eigenschappen**, en selecteer vervolgens Hallo **Azure** vervolgmenu.
 
 ![][ic719480]
 
-U kunt de volgende items wijzigen binnen deze pagina met eigenschappen: 
+Binnen deze pagina met eigenschappen kunt u de volgende items Hallo wijzigen: 
 
-* **Servicenaam:** de naam voor uw Azure-project.
-* **Build voor:** of het project is ingesteld voor implementaties naar Azure of gebouw de compute-emulator.
-* **Doel OS:** het besturingssysteem moet worden gebruikt wanneer het project wordt geïmplementeerd in Azure.
+* **Servicenaam:** Hallo-naam voor uw Azure-project.
+* **Build voor:** of Hallo-project voor het bouwen van toohello compute emulator of implementatie tooAzure is ingesteld.
+* **Doel OS:** besturingssysteem toouse Hallo als uw project geïmplementeerde tooAzure is.
 
 ## <a name="see-also"></a>Zie ook
 [Azure Toolkit voor Eclipse][Azure Toolkit for Eclipse]
 
-[De installatie van de Azure Toolkit voor Eclipse][Installing the Azure Toolkit for Eclipse] 
+[Hello Azure Toolkit voor Eclipse installeren][Installing hello Azure Toolkit for Eclipse] 
 
 [Maken van een Hallo wereld-toepassing voor Azure in Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
@@ -45,7 +45,7 @@ U kunt de volgende items wijzigen binnen deze pagina met eigenschappen:
 
 [Lijst met Azure Storage-Account][Azure Storage Account List]
 
-Zie voor meer informatie over het gebruik van Azure met Java de [Azure Java Developer Center][Azure Java Developer Center].
+Zie voor meer informatie over het gebruik van Azure met Java Hallo [Azure Java Developer Center][Azure Java Developer Center].
 
 <!-- URL List -->
 
@@ -54,7 +54,7 @@ Zie voor meer informatie over het gebruik van Azure met Java de [Azure Java Deve
 [Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
 [Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Installing hello Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 

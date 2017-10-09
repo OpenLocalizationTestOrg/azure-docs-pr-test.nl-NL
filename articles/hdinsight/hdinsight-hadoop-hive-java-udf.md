@@ -1,6 +1,6 @@
 ---
-title: Java gebruiker gedefinieerde functie (UDF met Hive in HDInsight - Azure) | Microsoft Docs
-description: Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde functie (UDF die met Hive werkt). In dit voorbeeld UDF converteert een tabel van tekenreeksen in kleine letters.
+title: aaaJava gebruiker gedefinieerde functie (UDF met Hive in HDInsight - Azure) | Microsoft Docs
+description: Meer informatie over hoe toocreate een op Java gebaseerde gebruiker gedefinieerde functie (UDF) die met Hive werkt. In dit voorbeeld UDF converteert een tabel van tekst tekenreeksen toolowercase.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/26/2017
 ms.author: larryfr
-ms.openlocfilehash: 481d234eaf88bdb210821084ee4154159470eda0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 392b4cfb73299d2f6c1e8e825a4201b48d501388
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Gebruik van een Java UDF met Hive in HDInsight
 
-Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde functie (UDF die met Hive werkt). De Java-UDF in dit voorbeeld converteert een tabel van tekenreeksen alle kleine tekens.
+Meer informatie over hoe toocreate een op Java gebaseerde gebruiker gedefinieerde functie (UDF) die met Hive werkt. Hallo Java UDF in dit voorbeeld converteert een tabel van tekenreeksen tooall kleine tekens.
 
 ## <a name="requirements"></a>Vereisten
 
 * Een HDInsight-cluster 
 
     > [!IMPORTANT]
-    > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+    > Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-    De meeste stappen in dit document werken op zowel Windows - en Linux gebaseerde clusters. De stappen voor het uploaden van de gecompileerde UDF aan het cluster en voer dit zijn echter specifiek voor op basis van Linux-clusters. Vindt u koppelingen naar informatie die kan worden gebruikt met Windows gebaseerde clusters.
+    De meeste stappen in dit document werken op zowel Windows - en Linux gebaseerde clusters. Hallo stappen tooupload Hallo gecompileerd echter UDF toohello cluster en het specifieke tooLinux gebaseerde clusters worden uitgevoerd. Koppelingen vindt u tooinformation die kan worden gebruikt met Windows gebaseerde clusters.
 
 * [Java-JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 of hoger (of een vergelijkbare groep, zoals OpenJDK)
 
@@ -41,24 +41,24 @@ Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde func
 * Een teksteditor of IDE voor Java
 
     > [!IMPORTANT]
-    > Als u de Python-bestanden op een Windows-client maakt, moet u een editor die LF als een regel beëindigen gebruikt. Als u niet zeker of uw editor LF of CRLF gebruikt weet, raadpleegt u de [probleemoplossing](#troubleshooting) sectie voor stapsgewijze instructies voor het teken CR wordt verwijderd.
+    > Als u Hallo Python-bestanden op een Windows-client maakt, moet u een editor die LF als een regel beëindigen gebruikt. Als u niet zeker of uw editor LF of CRLF gebruikt weet, raadpleegt u Hallo [probleemoplossing](#troubleshooting) sectie voor stapsgewijze instructies voor het verwijderen van Hallo CR-teken.
 
 ## <a name="create-an-example-java-udf"></a>Een voorbeeld Java UDF maken 
 
-1. Gebruik de volgende naar een nieuw Maven-project maken vanaf een opdrachtregel:
+1. Gebruik vanaf een opdrachtregel Hallo toocreate een nieuw Maven-project te volgen:
 
     ```bash
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
    > [!NOTE]
-   > Als u met behulp van PowerShell, kunt u aanhalingstekens rond de parameters moet zetten. Bijvoorbeeld `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
+   > Als u met behulp van PowerShell, kunt u aanhalingstekens rond Hallo parameters moet zetten. Bijvoorbeeld `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
 
-    Deze opdracht maakt u een map met de naam **exampleudf**, die het Maven-project bevat.
+    Deze opdracht maakt u een map met de naam **exampleudf**, die Hallo Maven-project bevat.
 
-2. Zodra het project is gemaakt, verwijdert de **src-exampleudf/Testscenario** map die is gemaakt als onderdeel van het project.
+2. Zodra het Hallo-project is gemaakt, verwijdert u Hallo **src-exampleudf/Testscenario** map die is gemaakt als onderdeel van het Hallo-project.
 
-3. Open de **exampleudf/pom.xml**, en vervang de bestaande `<dependencies>` vermelding met de volgende XML-code:
+3. Open Hallo **exampleudf/pom.xml**, en vervang bestaande Hallo `<dependencies>` vermelding met Hallo XML te volgen:
 
     ```xml
     <dependencies>
@@ -77,9 +77,9 @@ Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde func
     </dependencies>
     ```
 
-    Deze vermeldingen Geef de versie van Hadoop en Hive met HDInsight 3.5 opgenomen. U vindt meer informatie over de versies van Hadoop en Hive voorzien in HDInsight via de [versiebeheer van HDInsight-onderdeel](hdinsight-component-versioning.md) document.
+    Deze vermeldingen opgeven Hallo-versie van Hadoop en Hive met HDInsight 3.5 opgenomen. U vindt meer informatie over het Hallo-versies van Hadoop en Hive met HDInsight wordt geleverd door Hallo [versiebeheer van HDInsight-onderdeel](hdinsight-component-versioning.md) document.
 
-    Voeg een `<build>` sectie voordat de `</project>` regel aan het einde van het bestand. Deze sectie, moet de volgende XML bevatten:
+    Voeg een `<build>` sectie voordat Hallo `</project>` lijn op Hallo einde van Hallo-bestand. In deze sectie bevatten Hallo XML te volgen:
 
     ```xml
     <build>
@@ -133,13 +133,13 @@ Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde func
     </build>
     ```
 
-    Deze vermeldingen definiëren hoe om het project te bouwen. In het bijzonder de versie van Java die gebruikmaakt van het project en het bouwen van een uberjar voor de implementatie van het cluster.
+    Deze vermeldingen definiëren hoe toobuild Hallo project. In het bijzonder Hallo versie van Java die Hallo project gebruikt en hoe toobuild een uberjar voor implementatie toohello cluster.
 
-    Sla het bestand nadat de wijzigingen zijn aangebracht.
+    Hallo-bestand opslaan als Hallo wijzigingen zijn aangebracht.
 
-4. Wijzig de naam van **exampleudf/src/main/java/com/microsoft/examples/App.java** naar **ExampleUDF.java**, en open vervolgens het bestand in uw editor.
+4. Wijzig de naam van **exampleudf/src/main/java/com/microsoft/examples/App.java** te**ExampleUDF.java**, en open vervolgens Hallo-bestand in uw editor.
 
-5. Vervang de inhoud van de **ExampleUDF.java** door het volgende bestand en sla het bestand.
+5. Vervang de inhoud Hallo Hallo **ExampleUDF.java** bestand met de volgende Hallo en sla vervolgens Hallo-bestand.
 
     ```java
     package com.microsoft.examples;
@@ -148,45 +148,45 @@ Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde func
     import org.apache.hadoop.hive.ql.exec.UDF;
     import org.apache.hadoop.io.*;
 
-    // Description of the UDF
+    // Description of hello UDF
     @Description(
         name="ExampleUDF",
-        value="returns a lower case version of the input string.",
+        value="returns a lower case version of hello input string.",
         extended="select ExampleUDF(deviceplatform) from hivesampletable limit 10;"
     )
     public class ExampleUDF extends UDF {
         // Accept a string input
         public String evaluate(String input) {
-            // If the value is null, return a null
+            // If hello value is null, return a null
             if(input == null)
                 return null;
-            // Lowercase the input string and return it
+            // Lowercase hello input string and return it
             return input.toLowerCase();
         }
     }
     ```
 
-    Deze code implementeert een UDF die een string-waarde accepteert en retourneert een kleine versie van de tekenreeks.
+    Deze code implementeert een UDF die een string-waarde accepteert en retourneert een kleine versie van het Hallo-tekenreeks.
 
-## <a name="build-and-install-the-udf"></a>Bouwen en de UDF installeren
+## <a name="build-and-install-hello-udf"></a>Opbouwen en Hallo UDF installeren
 
-1. Gebruik de volgende opdracht om te compileren en de UDF pakket:
+1. Gebruik Hallo opdracht toocompile te volgen en Hallo UDF pakket:
 
     ```bash
     mvn compile package
     ```
 
-    Met deze opdracht maakt en pakketten van de UDF in de `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` bestand.
+    Met deze opdracht maakt en pakketten UDF in Hallo Hallo `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` bestand.
 
-2. Gebruik de `scp` opdracht het bestand kopiëren naar het HDInsight-cluster.
+2. Gebruik Hallo `scp` opdracht toocopy Hallo bestand toohello HDInsight-cluster.
 
     ```bash
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
     ```
 
-    Vervang `myuser` met het SSH-gebruikersaccount voor uw cluster. Vervang `mycluster` met de naam van het cluster. Als u een wachtwoord gebruikt om de SSH-account te beveiligen, wordt u gevraagd het wachtwoord invoeren. Als u een certificaat gebruikt, moet u mogelijk gebruik van de `-i` parameter om een bestand met de persoonlijke sleutel.
+    Vervang `myuser` Hello SSH gebruikersaccount voor uw cluster. Vervang `mycluster` met de naam van de cluster Hallo. Als u een wachtwoord toosecure Hallo SSH-account gebruikt, zijn na vragen aan gebruiker tooenter Hallo wachtwoord. Als u een certificaat gebruikt, moet u mogelijk toouse hello `-i` parameter toospecify Hallo persoonlijke sleutelbestand.
 
-3. Verbinding maken met het cluster via SSH.
+3. Toohello-cluster via SSH verbinding.
 
     ```bash
     ssh myuser@mycluster-ssh.azurehdinsight.net
@@ -194,23 +194,23 @@ Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde func
 
     Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-4. Kopieer het jar-bestand HDInsight-opslag van de SSH-sessie.
+4. Kopiëren van Hallo SSH-sessie, opslag tooHDInsight Hallo jar-bestanden.
 
     ```bash
     hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
     ```
 
-## <a name="use-the-udf-from-hive"></a>Gebruik de UDF van Hive
+## <a name="use-hello-udf-from-hive"></a>Hallo UDF van Hive gebruiken
 
-1. Gebruik de volgende op de client Beeline starten vanaf de SSH-sessie.
+1. Gebruik Hallo toostart hello Beeline client Hallo SSH-sessie te volgen.
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
     ```
 
-    Met deze opdracht wordt ervan uitgegaan dat u de standaardwaarde van gebruikt **admin** voor het aanmeldingsaccount voor uw cluster.
+    Met deze opdracht wordt ervan uitgegaan dat u standaard Hallo van gebruikt **admin** voor Hallo aanmeldingsaccount voor uw cluster.
 
-2. Wanneer u aankomt bij de `jdbc:hive2://localhost:10001/>` gevraagd, voert u het volgende als u wilt de UDF toevoegen aan Hive en deze als een functie weer te geven.
+2. Wanneer u bij Hallo aankomt `jdbc:hive2://localhost:10001/>` gevraagd, voert u Hallo tooadd Hallo UDF tooHive te volgen en deze weergeven als een functie.
 
     ```hiveql
     ADD JAR wasb:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
@@ -218,15 +218,15 @@ Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde func
     ```
 
     > [!NOTE]
-    > In dit voorbeeld wordt ervan uitgegaan dat Azure Storage standaard opslagruimte voor het cluster. Als uw cluster in plaats daarvan Data Lake Store gebruikt, wijzigt u de `wasb:///` van waarde naar `adl:///`.
+    > In dit voorbeeld wordt ervan uitgegaan dat Azure Storage standaard opslagruimte voor Hallo-cluster. Als uw cluster in plaats daarvan Data Lake Store gebruikt, wijzigt u Hallo `wasb:///` waarde te`adl:///`.
 
-3. De UDF gebruiken om waarden opgehaald uit een tabel naar kleine letters tekenreeksen te converteren.
+3. Hallo UDF tooconvert waarden opgehaald van tekenreeksen voor tabel-toolower gebruiken.
 
     ```hiveql
     SELECT tolower(deviceplatform) FROM hivesampletable LIMIT 10;
     ```
 
-    Deze query selecteert het platform van het apparaat (Android, Windows, iOS, enzovoort) uit de tabel, converteert u de tekenreeks voor kleine, en deze vervolgens weergeven. De uitvoer lijkt op de volgende tekst:
+    Deze query selecteert apparaatplatform (Android, Windows, iOS, enzovoort) uit de tabel Hallo HALLO hallo tekenreeks toolower geval converteren en ze weergeven. Hallo-uitvoer wordt weergegeven vergelijkbaar toohello volgende tekst:
 
         +----------+--+
         |   _c0    |
@@ -245,6 +245,6 @@ Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde func
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor andere manieren om te werken met Hive, [Hive gebruiken met HDInsight](hdinsight-use-hive.md).
+Zie voor andere manieren toowork met Hive, [Hive gebruiken met HDInsight](hdinsight-use-hive.md).
 
-Zie voor meer informatie over functies Hive User-Defined [Hive operatoren en door de gebruiker gedefinieerde functies](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) sectie van de Hive-wiki op apache.org.
+Zie voor meer informatie over functies Hive User-Defined [Hive operatoren en door de gebruiker gedefinieerde functies](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) sectie van Hallo Hive wiki op apache.org.

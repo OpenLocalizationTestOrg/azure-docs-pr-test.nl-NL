@@ -1,14 +1,14 @@
 
 <!--author=alkohli last changed: 9/11/15-->
 
-#### <a name="to-add-a-storsimple-backup-policy"></a>Een StorSimple-back-upbeleid toevoegen
-1. Klik op de pagina **Snel starten** van het apparaat op het tabblad **Back-upbeleid**. De pagina **Back-upbeleid** wordt geopend.
-2. Klik onder aan de pagina op **toevoegen**.
-3. In de **back-upbeleid toevoegen** dialoogvenster de volgende handelingen uit:
+#### <a name="tooadd-a-storsimple-backup-policy"></a>een StorSimple-back-upbeleid tooadd
+1. Op Hallo apparaat **Quick Start** pagina, klikt u op Hallo **back-upbeleid** tabblad. Hiermee gaat u toohello **back-upbeleid** pagina.
+2. Klik onder aan de pagina Hallo Hallo op **toevoegen**.
+3. In Hallo **back-upbeleid toevoegen** dialoogvenster vak, Hallo te volgen:
    
    1. Geef een back-upbeleidsnaam op van 3 tot 150 tekens.
-   2. Een of meer volumes aan het back-upbeleid toewijzen. Als u van andere cloudserviceproviders gebruikmaakt, op basis van uw eerste selectie wordt volumes die behoren tot alleen die cloud serviceprovider weergegeven in de vervolgkeuzelijst. Hierdoor kunt u tot groep volumes die horen bij een serviceprovider één cloud voor het maken van een momentopname.
-   3. Klik op het vinkje ![vinkje](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) om het beleid op te slaan.
+   2. Een of meer volumes toothis back-upbeleid toewijzen. Als u van andere cloudserviceproviders gebruikmaakt, op basis van uw eerste selectie ziet Hallo vervolgkeuzelijst volumes die behoren tooonly die cloud serviceprovider. Hierdoor kunt u toogroup volumes die behoren tooa één cloudserviceprovider voor het maken van een momentopname.
+   3. Klik op het vinkje Hallo ![vinkje](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) toosave hello beleid.
 
-Het nieuwe beleid wordt in tabelvorm weergegeven op de pagina **Back-upbeleid**.
+Hallo toegevoegde beleid wordt weergegeven in tabelweergave op Hallo Hallo **back-upbeleid** pagina.
 

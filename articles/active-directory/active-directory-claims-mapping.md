@@ -11,43 +11,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 78dbbe085fca26ad529c6262ba852f3c06ace404
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ff07b9954d5c2ce71ab0ffd0db49fde15f323586
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Claims toewijzen in Azure Active Directory (openbare preview)
 
 >[!NOTE]
->Deze functie vervangt en vervangt de [claims aanpassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) die tegenwoordig worden aangeboden via de portal. Als u claims op basis van de portal naast de grafiek/PowerShell-methode uiteengezet in dit document voor dezelfde toepassing aanpast, wordt tokens verleend voor de configuratie in de portal wordt genegeerd door toepassing.
-Configuraties die worden aangebracht via de methoden die in dit document wordt beschreven worden, niet weergegeven in de portal.
+>Deze functie vervangt en vervangt Hallo [claims aanpassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) die worden aangeboden via de portal Hallo vandaag. Als u claims op basis van Hallo portal aanpast bovendien toohello grafiek/PowerShell-methode uiteengezet in dit document op Hallo dezelfde toepassing, tokens die zijn uitgegeven voor die toepassing hello configuratie in Hallo portal wordt genegeerd.
+Configuraties die worden aangebracht via Hallo methoden uiteengezet in dit document worden niet doorgevoerd in Hallo-portal.
 
-Deze functie wordt gebruikt door tenantbeheerders voor het aanpassen van de claims die wordt verzonden in tokens voor een bepaalde toepassing in de tenant. U kunt beleid voor het toewijzen van claims gebruiken:
+Deze functie wordt gebruikt door de tenant admins toocustomize Hallo claims verzonden in tokens voor een bepaalde toepassing in de tenant. U kunt beleid voor het toewijzen van claims gebruiken:
 
 - Selecteer welke claims worden opgenomen in de tokens.
 - Claimtypen die al bestaan niet maken.
-- Kies of wijzig de bron van gegevens die in bepaalde claims.
+- Kies of wijzig Hallo-bron van gegevens in specifieke claims worden verzonden.
 
 >[!NOTE]
->Deze mogelijkheid is momenteel in de openbare preview. Wees voorbereid om te herstellen of verwijderen van eventuele wijzigingen. De functie is beschikbaar in een abonnement voor Azure Active Directory (Azure AD) tijdens de openbare preview. Wanneer de functie algemeen beschikbaar wordt, kunnen sommige aspecten van de functie echter een Azure Active Directory premium-abonnement nodig.
+>Deze mogelijkheid is momenteel in de openbare preview. Toorevert worden voorbereid op of verwijder eventuele wijzigingen. Hallo-functie is beschikbaar in een abonnement voor Azure Active Directory (Azure AD) tijdens de openbare preview. Wanneer het Hallo-functie in het algemeen beschikbaar wordt, mogelijk bepaalde aspecten van de functie Hallo echter een Azure Active Directory premium-abonnement nodig.
 
 ## <a name="claims-mapping-policy-type"></a>Claims beleidstype toewijzing
-In Azure AD een **beleid** object vertegenwoordigt een reeks regels afgedwongen op afzonderlijke toepassingen of op alle toepassingen in een organisatie. Elk type beleid heeft een unieke structuur, met een set eigenschappen die vervolgens worden toegepast op objecten waarvoor ze worden toegewezen.
+In Azure AD een **beleid** object vertegenwoordigt een reeks regels afgedwongen op afzonderlijke toepassingen of op alle toepassingen in een organisatie. Elk type beleid heeft een unieke structuur, met een set eigenschappen die zijn vervolgens toegepast tooobjects toowhich die ze worden toegewezen.
 
-Claims van een toewijzing van beleid is een soort **beleid** object waarmee de claims die wordt verzonden in tokens die zijn uitgegeven voor specifieke toepassingen worden gewijzigd.
+Claims van een toewijzing van beleid is een soort **beleid** -object dat wordt gewijzigd Hallo claims in tokens die zijn uitgegeven voor specifieke toepassingen worden verzonden.
 
 ## <a name="claim-sets"></a>Claimsets
 Er zijn bepaalde sets van claims die definiëren hoe en wanneer ze worden gebruikt in tokens.
 
 ### <a name="core-claim-set"></a>Claim kernset
-Claims in de claim kernset zijn aanwezig in elke token, ongeacht het beleid. Deze claims worden ook beschouwd als beperkt en kunnen niet worden gewijzigd.
+Claims in Hallo core claimtype set aanwezig zijn in elke token, ongeacht het beleid. Deze claims worden ook beschouwd als beperkt en kunnen niet worden gewijzigd.
 
 ### <a name="basic-claim-set"></a>Basic claimset
-De basic claim bestaan de claims die worden gegenereerd door de standaardwaarde voor tokens (in aanvulling op de claim kernset). Deze claims worden weggelaten of gewijzigd met behulp van de claims koppelen van beleidsregels.
+Hallo basic claimset bevat Hallo claims die worden gegenereerd door de standaardwaarde voor tokens (in aanvulling toohello claim kernset). Deze claims worden weggelaten of gewijzigd via Hallo claims koppelen van beleidsregels.
 
 ### <a name="restricted-claim-set"></a>Beperkte claimset
-Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan niet worden gewijzigd en er is geen transformatie wordt toegepast als deze claims worden gegenereerd.
+Beperkte claims worden niet gewijzigd met behulp van beleid. Hallo-gegevensbron kan niet worden gewijzigd en er is geen transformatie wordt toegepast als deze claims worden gegenereerd.
 
 #### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabel 1: JSON Web Token (JWT) beperkt claimset
 |Claimtype (naam)|
@@ -234,7 +234,7 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |http://schemas.Microsoft.com/Identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>Claims toewijzing van eigenschappen van beleid
-Gebruik de eigenschappen van een toewijzing van beleid om te bepalen welke claims worden verzonden en waar de gegevens afkomstig is uit de claimprovider. Als er geen beleid is ingesteld, geeft het systeem tokens met de claimset core, de basic claimset en optionele claims die de toepassing ervoor gekozen heeft te ontvangen.
+Hallo-eigenschappen van een toewijzing van beleid toocontrol welke claims worden verzonden en waar Hallo gegevens afkomstig is uit de claimprovider gebruiken. Als er geen beleid is ingesteld, Hallo systeem geeft tokens met Hallo claim kernset Hallo basic claim set en optionele claims die toepassing hello tooreceive heeft gekozen.
 
 ### <a name="include-basic-claim-set"></a>Basic claimset opnemen
 
@@ -242,13 +242,13 @@ Gebruik de eigenschappen van een toewijzing van beleid om te bepalen welke claim
 
 **Gegevenstype:** Booleaans (True of False)
 
-**Overzicht:** deze eigenschap bepaalt of de basic claimset is opgenomen in de tokens die worden beïnvloed door dit beleid. 
+**Overzicht:** deze eigenschap bepaalt of Hallo basic claimset is opgenomen in de tokens die worden beïnvloed door dit beleid. 
 
-- Indien ingesteld op True, alle claims in de basis claimset in het beleid van invloed op tokens worden gegenereerd. 
-- Als is ingesteld op False, claims in de claimset basic zich niet in de tokens, tenzij ze afzonderlijk in de claims schema-eigenschap van hetzelfde beleid zijn toegevoegd.
+- Als de set tooTrue, alle claims in Hallo basic claimset in Hallo beleid van invloed op tokens worden gegenereerd. 
+- Als er geen set tooFalse, claims in Hallo basic claimset zijn Hallo-tokens, tenzij ze zijn afzonderlijk toegevoegd in Hallo claims schema-eigenschap van Hallo dezelfde beleid.
 
 >[!NOTE] 
->Claims in de claim kernset zijn aanwezig in elke token, ongeacht wat deze eigenschap is ingesteld op. 
+>Claims in Hallo core claimtype set aanwezig zijn in elke token, ongeacht wat deze eigenschap is ingesteld op. 
 
 ### <a name="claims-schema"></a>Claims schema
 
@@ -256,28 +256,28 @@ Gebruik de eigenschappen van een toewijzing van beleid om te bepalen welke claim
 
 **Gegevenstype:** JSON-blob met een of meer claim schema vermeldingen
 
-**Overzicht:** deze eigenschap wordt gedefinieerd welke claims aanwezig zijn in de tokens die van invloed op een door het beleid ook aan de basis claimset en de kern claim set.
-Bepaalde informatie is vereist voor elke claim schema vermelding gedefinieerd voor deze eigenschap. U moet opgeven waar de gegevens vandaan (**waarde** of **paar van de bron-ID**), en dat de gegevens claim wordt verzonden als (**Type Claim**).
+**Overzicht:** deze eigenschap wordt gedefinieerd welke claims aanwezig zijn in Hallo beleid van invloed op Hallo-tokens, Daarnaast toohello basic als de Hallo core claim set.
+Bepaalde informatie is vereist voor elke claim schema vermelding gedefinieerd voor deze eigenschap. U moet opgeven waar Hallo gegevens vandaan (**waarde** of **paar van de bron-ID**), en die Hallo claimgegevens wordt verzonden als (**Type Claim**).
 
 ### <a name="claim-schema-entry-elements"></a>Claim-vermelding schema-elementen
 
-**Waarde:** het element waarde definieert een statische waarde als de gegevens die moeten worden verzonden in de claim.
+**Waarde:** Hallo waarde element definieert een statische waarde als Hallo gegevens toobe in Hallo claim verzonden.
 
-**De combinatie van de bron-ID:** elementen van de bron- en -ID definiëren waar de gegevens in de claim afkomstig is uit. 
+**De combinatie van de bron-ID:** Hallo bron en ID-elementen definiëren waar Hallo-gegevens in Hallo claim afkomstig is uit. 
 
-Het bronelement moet worden ingesteld op een van de volgende: 
+Hallo bronelement moet worden ingesteld als tooone van Hallo volgende: 
 
 
-- 'gebruiker': de gegevens in de claim is een eigenschap van het gebruikersobject. 
-- 'application': de gegevens in de claim is een eigenschap van de toepassing (client) service-principal. 
-- 'resource': de gegevens in de claim is een eigenschap van de resource-service-principal.
-- 'doelgroep': de gegevens in de claim is een eigenschap van de service-principal is de doelgroep van het token (de client of de resource service-principal).
-- 'bedrijf': de gegevens in de claim is een eigenschap op van de resource-tenant bedrijfs-object.
-- 'transformatie': de gegevens in de claim afkomstig is van claimtransformatie (Zie de sectie 'Claims transformatie' verderop in dit artikel). 
+- 'gebruiker': Hallo-gegevens in Hallo claim is een eigenschap van het gebruikersobject Hallo. 
+- 'application': Hallo-gegevens in Hallo claim is een eigenschap op Hallo toepassing (client) service-principal. 
+- 'resource': Hallo-gegevens in Hallo claim is een eigenschap op Hallo resource service-principal.
+- 'doelgroep': Hallo-gegevens in Hallo claim is een eigenschap op Hallo service-principal die is Hallo doelgroep van Hallo-token (ofwel Hallo client- of service-principal).
+- 'bedrijf': Hallo-gegevens in Hallo claim is een eigenschap op Hallo resource tenant bedrijfs-object.
+- 'transformatie': Hallo-gegevens in Hallo claim afkomstig is van claimtransformatie (Zie de sectie 'claimtransformatie' hello verderop in dit artikel). 
 
-Als de bron is een transformatie verleent de **TransformationID** element moet worden opgenomen in deze claimdefinitie.
+Als Hallo bron transformatie, Hallo **TransformationID** element moet worden opgenomen in deze claimdefinitie.
 
-Het ID-element identificeert welke eigenschap op de bron wordt de waarde voor de claim. De volgende tabel bevat de waarden van geldige voor elke waarde van de bron-ID.
+Hallo-ID-element identificeert waarvan de eigenschap op Hallo-bron biedt Hallo-waarde voor Hallo claim. Hallo bevat volgende tabel Hallo waarden geldig zijn voor elke waarde van de bron-id.
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabel 3: Geldige id-waarden per bron
 |Bron|Id|Beschrijving|
@@ -326,17 +326,17 @@ Het ID-element identificeert welke eigenschap op de bron wordt de waarde voor de
 |toepassing, resource, doelgroep|tags|Service-Principal label|
 |Bedrijf|tenantcountry|Land van tenant|
 
-**TransformationID:** TransformationID element alleen als het bronelement is ingesteld op 'transformatie' moet worden opgegeven.
+**TransformationID:** hello TransformationID element moet worden opgegeven als hello bronelement te is ingesteld 'transformatie'.
 
-- Dit element moet overeenkomen met de ID-element van de transformatie-vermelding in de **ClaimsTransformation** eigenschap die definieert hoe de gegevens voor deze claim wordt gegenereerd.
+- Dit element moet overeenkomen met een ID-element Hallo van Hallo transformatie vermelding in Hallo **ClaimsTransformation** eigenschap die definieert hoe Hallo-gegevens voor deze claim wordt gegenereerd.
 
-**Claimtype:** de **JwtClaimType** en **SamlClaimType** elementen definiëren die claim claim schema post verwijst.
+**Claimtype:** hello **JwtClaimType** en **SamlClaimType** elementen definiëren die claim claim schema post verwijst.
 
-- De JwtClaimType moet de naam van de claim te worden verzonden in JWTs bevatten.
-- De SamlClaimType moet de URI van de claim te worden verzonden in SAML-tokens bevatten.
+- Hallo JwtClaimType moet Hallo-naam van Hallo claim toobe verzonden in JWTs bevatten.
+- Hallo SamlClaimType moet Hallo URI Hallo claim verzonden in SAML-tokens toobe bevatten.
 
 >[!NOTE]
->Namen en URI's van claims in de beperkte claimset kan niet worden gebruikt voor het type claimelementen. Zie de sectie 'Uitzonderingen en beperkingen' verderop in dit artikel voor meer informatie.
+>Namen en URI's van claims in Hallo beperkt claim set kan niet worden gebruikt voor Hallo claim type elementen. Zie Hallo 'Uitzonderingen en beperkingen' sectie verderop in dit artikel voor meer informatie.
 
 ### <a name="claims-transformation"></a>Claimtransformatie
 
@@ -344,38 +344,38 @@ Het ID-element identificeert welke eigenschap op de bron wordt de waarde voor de
 
 **Gegevenstype:** JSON-blob met een of meer vermeldingen voor transformatie 
 
-**Overzicht:** gebruik van deze eigenschap algemene transformaties toepassen op de brongegevens voor het genereren van de uitvoergegevens voor claims die zijn opgegeven in het Schema van Claims.
+**Overzicht:** gebruiken deze eigenschap tooapply algemene transformaties toosource gegevens, toogenerate Hallo uitvoergegevens voor claims in opgegeven Hallo Claims Schema.
 
-**-ID:** met de ID-element verwijzen naar deze transformatie-vermelding in de vermelding TransformationID Claims Schema. Deze waarde moet uniek zijn voor elk item transformatie binnen dit beleid.
+**-ID:** gebruik Hallo ID-element tooreference dit item transformatie in Hallo TransformationID Claims Schema-item. Deze waarde moet uniek zijn voor elk item transformatie binnen dit beleid.
 
-**TransformationMethod:** TransformationMethod element identificeert welke bewerking wordt uitgevoerd voor het genereren van de gegevens voor de claim.
+**TransformationMethod:** hello TransformationMethod element identificeert welke bewerking is uitgevoerd toogenerate Hallo gegevens voor Hallo claim.
 
-Op basis van de gekozen methode, wordt een reeks invoer en uitvoer verwacht. Deze worden gedefinieerd met behulp van de **InputClaims**, **invoerparameters** en **OutputClaims** elementen.
+Op basis van Hallo methode die is gekozen, wordt een reeks invoer en uitvoer verwacht. Deze worden gedefinieerd met behulp van Hallo **InputClaims**, **invoerparameters** en **OutputClaims** elementen.
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabel 4: Transformatie methoden en verwachte invoer en uitvoer
 |TransformationMethod|Verwachte invoer|Verwachte uitvoer|Beschrijving|
 |-----|-----|-----|-----|
 |Koppelen|tekenreeks1, tekenreeks2, scheidingselement|outputClaim|Joins invoer tekenreeksen met behulp van een scheidingsteken ertussen. Bijvoorbeeld: tekenreeks1: 'foo@bar.com', tekenreeks2: sandbox '-', scheidingsteken: '. ' resulteert in outputClaim: 'foo@bar.com.sandbox'|
-|ExtractMailPrefix|E-mail|outputClaim|Haalt het lokale gedeelte van een e-mailadres. Bijvoorbeeld: e-mail: 'foo@bar.com' resulteert in outputClaim: "foo". Wanneer dit niet het @ is aanmelding aanwezig is, wordt de bestaande invoerreeks is geretourneerd.|
+|ExtractMailPrefix|E-mail|outputClaim|Extraheert Hallo lokale gedeelte van een e-mailadres. Bijvoorbeeld: e-mail: 'foo@bar.com' resulteert in outputClaim: "foo". Wanneer dit niet het @ is aanmelding aanwezig is, wordt Hallo bestaande invoerreeks geretourneerd als is.|
 
-**InputClaims:** met een element InputClaims kunt u de gegevens van een claim schema vermelding doorgeven aan een transformatie. Deze twee kenmerken heeft: **ClaimTypeReferenceId** en **TransformationClaimType**.
+**InputClaims:** een InputClaims element toopass Hallo gegevens uit een claim schema vermelding tooa transformatie gebruiken. Deze twee kenmerken heeft: **ClaimTypeReferenceId** en **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** wordt samengevoegd met de ID-element van de claim schema vermelding vinden van de juiste invoerclaim wordt aangeduid. 
-- **TransformationClaimType** wordt gebruikt voor deze invoer een unieke naam geven. Deze naam moet overeenkomen met een van de verwachte invoer voor de transformatiemethode.
+- **ClaimTypeReferenceId** wordt samengevoegd met de ID-element van Hallo claim schema vermelding toofind Hallo juiste invoerclaim wordt aangeduid. 
+- **TransformationClaimType** gebruikte toogive is een unieke naam toothis-invoer. Deze naam moet overeenkomen met een van de invoerwaarden Hallo verwacht voor Hallo transformatie-methode.
 
-**Invoerparameters:** gebruik van een element invoerparameters te geven van een constante waarde aan een transformatie. Deze twee kenmerken heeft: **waarde** en **ID**.
+**Invoerparameters:** een invoerparameters element toopass een constante waarde tooa transformatie gebruiken. Deze twee kenmerken heeft: **waarde** en **ID**.
 
-- **Waarde** de werkelijke constante waarde moet worden doorgegeven.
-- **ID** wordt gebruikt voor deze invoer een unieke naam geven. Deze naam moet overeenkomen met een van de verwachte invoer voor de transformatiemethode.
+- **Waarde** Hallo werkelijke constante waarde toobe wordt doorgegeven.
+- **ID** gebruikte toogive is een unieke naam toothis-invoer. Deze naam moet overeenkomen met een van de invoerwaarden Hallo verwacht voor Hallo transformatie-methode.
 
-**OutputClaims:** met een element OutputClaims kunt u de gegevens die worden gegenereerd door een transformatie bevatten en deze koppelen aan een claim schema-item. Deze twee kenmerken heeft: **ClaimTypeReferenceId** en **TransformationClaimType**.
+**OutputClaims:** een OutputClaims element toohold Hallo gegevens die worden gegenereerd door een transformatie gebruiken en deze tooa claim schema vermelding koppelen. Deze twee kenmerken heeft: **ClaimTypeReferenceId** en **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** wordt samengevoegd met de ID van de claim schema vermelding vinden van de juiste uitvoer claim.
-- **TransformationClaimType** wordt gebruikt om aan te geven van een unieke naam voor deze uitvoer. Deze naam moet overeenkomen met een van de verwachte uitvoer voor de transformatiemethode.
+- **ClaimTypeReferenceId** met Hallo Hallo claim schema vermelding toofind Hallo juiste uitvoer claim-ID is gekoppeld.
+- **TransformationClaimType** gebruikte toogive is een unieke naam toothis uitvoer. Deze naam moet overeenkomen met een van de uitvoer voor transformatiemethode Hallo Hallo verwacht.
 
 ### <a name="exceptions-and-restrictions"></a>Uitzonderingen en beperkingen
 
-**SAML NameID en UPN:** de kenmerken van waaruit u de waarden NameID en UPN en de claimtransformaties die zijn toegestaan, bron zijn beperkt.
+**SAML NameID en UPN:** Hallo kenmerken van waaruit u Hallo NameID en UPN waarden bron en Hallo claims transformaties die zijn toegestaan, zijn beperkt.
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabel 5: Kenmerken die zijn toegestaan als een gegevensbron voor SAML-NameID
 |Bron|Id|Beschrijving|
@@ -404,104 +404,104 @@ Op basis van de gekozen methode, wordt een reeks invoer en uitvoer verwacht. Dez
 |TransformationMethod|Beperkingen|
 | ----- | ----- |
 |ExtractMailPrefix|Geen|
-|Koppelen|Het achtervoegsel wordt toegevoegd, moet een geverifieerd domein van de resource-tenant.|
+|Koppelen|Hallo-achtervoegsel wordt toegevoegd, moet een geverifieerde domein voor Hallo resource tenant.|
 
 ### <a name="custom-signing-key"></a>Aangepaste ondertekeningssleutel
-Een aangepaste handtekeningsleutel moet worden toegewezen aan het service-principal-object voor een claimprovider toewijzing van beleid kracht te laten worden. Alle tokens uitgegeven hebben zijn beïnvloed door het beleid zijn ondertekend met deze sleutel. Toepassingen moeten worden geconfigureerd voor tokens accepteert ondertekend met deze sleutel. Dit zorgt ervoor bevestiging dat tokens zijn gewijzigd door de maker van de claims die toewijzing van beleid. Deze beschermt toepassingen tegen toewijzing van beleid dat is gemaakt door schadelijke actoren claims.
+Een aangepaste handtekeningsleutel moet toohello service principal-object voor een toewijzing van beleid tootake effect claims worden toegewezen. Alle tokens uitgegeven hebben zijn beïnvloed door het Hallo-beleid zijn ondertekend met deze sleutel. Toepassingen moet geconfigureerde tooaccept tokens die zijn ondertekend met deze sleutel. Dit zorgt ervoor dat tokens zijn gewijzigd door de maker van Hallo Hallo bevestiging claims toewijzing van beleid. Deze beschermt toepassingen tegen toewijzing van beleid dat is gemaakt door schadelijke actoren claims.
 
 ### <a name="cross-tenant-scenarios"></a>Cross-tenantscenario 's
-Claims koppelen van beleidsregels zijn niet van toepassing op gastgebruikers. Als een gastgebruiker probeert te krijgen tot een toepassing met een beleid dat is toegewezen aan de service-principal toewijzing van de claimprovider, het standaardtoken is uitgegeven (het beleid heeft geen effect).
+Claims beleidsregels koppelen tooguest gebruikers niet van toepassing. Als een gastgebruiker tooaccess probeert een toepassing met een van de claimprovider toewijzing beleid dat is toegewezen tooits service-principal, Hallo standaardtoken is uitgegeven (Hallo beleid heeft geen effect).
 
 ## <a name="claims-mapping-policy-assignment"></a>Claims beleidstoewijzing toewijzing
-Claims toewijzing van beleid kunnen alleen worden toegewezen aan de service-principals.
+Claims toewijzing beleid kan alleen worden toegewezen tooservice SPN-objecten.
 
 ### <a name="example-claims-mapping-policies"></a>Voorbeeld van claims toewijzing van beleid
 
-In Azure AD zijn veel scenario's mogelijk als u claims die worden verzonden in tokens voor een specifieke service-principals kunt aanpassen. In deze sectie doorlopen we enkele algemene scenario's kunt u het gebruik van de toewijzing van beleidstype claims te vatten.
+In Azure AD zijn veel scenario's mogelijk als u claims die worden verzonden in tokens voor een specifieke service-principals kunt aanpassen. In deze sectie doorlopen we enkele algemene scenario's kunt u leren hoe toouse Hallo toewijzing beleidstype claims.
 
 #### <a name="prerequisites"></a>Vereisten
-In de volgende voorbeelden u maken, bijwerken, koppelen en beleidsregels voor service-principals verwijderen. Als u niet bekend met Azure AD bent, raden wij u meer informatie over het ophalen van een Azure AD-tenant voordat u met deze voorbeelden doorgaat. 
+In de Hallo volgen voorbeelden, u maken, bijwerken, koppelen en beleidsregels voor service-principals verwijderen. Als u nieuwe tooAzure AD bent, raden wij aan dat u meer informatie over hoe tooget een Azure AD-tenant voordat u doorgaat met deze voorbeelden. 
 
-Voer de volgende stappen uit om te beginnen:
+tooget gestart, Hallo stappen te volgen:
 
 
-1. Download de meest recente [public preview-versie van Azure AD PowerShell-Module](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.127).
-2.  Voer de opdracht Connect aan te melden bij uw Azure AD-beheeraccount. Deze opdracht uitvoeren telkens wanneer starten u een nieuwe sessie.
+1. Meest recente Hallo downloaden [public preview-versie van Azure AD PowerShell-Module](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.127).
+2.  Hallo Connect opdracht toosign in tooyour Azure AD-admin-account uitgevoerd. Deze opdracht uitvoeren telkens wanneer starten u een nieuwe sessie.
     
      ``` powershell
     Connect-AzureAD -Confirm
     
     ```
-3.  Overzicht van alle beleidsregels die zijn gemaakt in uw organisatie, moet u de volgende opdracht uitvoeren. Het is raadzaam dat u deze opdracht nadat de meeste bewerkingen in de volgende scenario's om te controleren uitvoeren dat de beleidsregels zijn gemaakt zoals verwacht.
+3.  toosee alle beleidsregels die zijn gemaakt in uw organisatie, Voer Hallo na de opdracht. Het is raadzaam dat u deze opdracht nadat de meeste bewerkingen in Hallo uitvoeren volgende scenario's, toocheck die uw beleid worden gemaakt als verwacht.
    
     ``` powershell
         Get-AzureADPolicy
     
     ```
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid voor de eenvoudige claims van tokens die zijn verleend aan een service-principal weglaten.
-In dit voorbeeld maakt u een beleid dat Hiermee verwijdert u de eenvoudige claim ingesteld van tokens die zijn uitgegeven aan de gekoppelde service-principals.
+#### <a name="example-create-and-assign-a-policy-tooomit-hello-basic-claims-from-tokens-issued-tooa-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid tooomit Hallo basic claims van uitgegeven tokens tooa service-principal.
+In dit voorbeeld maakt u een beleid dat Hallo basic claimset uit uitgegeven tokens toolinked verwijdert service-principals.
 
 
-1. Maak een van de claimprovider toewijzing van beleid. Dit beleid, gekoppeld aan specifieke service-principals, verwijdert de eenvoudige claim ingesteld op basis van tokens.
-    1. Voor het maken van het beleid, moet u deze opdracht uitvoeren: 
+1. Maak een van de claimprovider toewijzing van beleid. Dit beleid, gekoppelde toospecific service-principals, verwijdert Hallo basic claimset van tokens.
+    1. toocreate hello beleid, voer deze opdracht uit: 
     
      ``` powershell
     New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims” -Type "ClaimsMappingPolicy"
     ```
-    2. Voer de volgende opdracht om te zien van het nieuwe beleid en het beleid voor object-id ophalen:
+    2. toosee uw nieuw beleid en tooget Hallo beleid ObjectId, Voer Hallo volgende opdracht:
     
      ``` powershell
     Get-AzureADPolicy
     ```
-2.  Het beleid aan uw service-principal toewijzen. Ook moet u de object-id van uw service principal. 
-    1.  Overzicht van de service-principals van uw organisatie, kunt u Microsoft Graph opvragen. Of in Azure AD Graph Explorer, moet u zich aanmelden bij uw Azure AD-account.
-    2.  Wanneer u de object-id van uw service-principal hebt, voer de volgende opdracht:  
+2.  Hallo beleid tooyour service-principal toewijzen. U moet ook tooget Hallo ObjectId van uw service-principal. 
+    1.  toosee service-principals van uw organisatie, kunt u Microsoft Graph query. Of aanmelden in Azure AD Graph Explorer tooyour Azure AD-account.
+    2.  Wanneer u hebt Hallo ObjectId van uw service-principal, voert Hallo zijn na de opdracht:  
      
      ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+    Add-AzureADServicePrincipalPolicy -Id <ObjectId of hello ServicePrincipal> -RefObjectId <ObjectId of hello Policy>
     ```
-#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid voor het opnemen van de werknemer-id en TenantCountry als claims in tokens die zijn verleend aan een service-principal.
-In dit voorbeeld maakt u een beleid dat de werknemer-id en TenantCountry toegevoegd aan de tokens die zijn uitgegeven aan de gekoppelde service-principals. De werknemer-id is als het claimtype naam in SAML-tokens en JWTs verzonden. De TenantCountry wordt verzonden als het landclaimtype in SAML-tokens en JWTs. In dit voorbeeld gaan we bevatten de eenvoudige claims in de tokens instellen.
+#### <a name="example-create-and-assign-a-policy-tooinclude-hello-employeeid-and-tenantcountry-as-claims-in-tokens-issued-tooa-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid tooinclude Hallo werknemer-id en TenantCountry als tooa service-principal die claims in tokens worden uitgegeven.
+In dit voorbeeld maakt u een beleid dat wordt toegevoegd Hallo werknemer-id en TenantCountry tootokens uitgegeven toolinked service-principals. Hallo werknemer-id wordt verzonden als Hallo naam claimtype in SAML-tokens en JWTs. Hallo TenantCountry wordt verzonden als Hallo land claimtype in SAML-tokens en JWTs. In dit voorbeeld gaan we tooinclude Hallo basic claims ingesteld in het Hallo-tokens.
 
-1. Maak een van de claimprovider toewijzing van beleid. Dit beleid is gekoppeld aan een specifieke service-principals, wordt de werknemer-id en TenantCountry claims voor tokens toegevoegd.
-    1. Voor het maken van het beleid, moet u deze opdracht uitvoeren:  
+1. Maak een van de claimprovider toewijzing van beleid. Dit beleid, gekoppelde toospecific service-principals, wordt Hallo werknemer-id en TenantCountry claims tootokens toegevoegd.
+    1. toocreate hello beleid, voer deze opdracht uit:  
      
      ``` powershell
     New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":" tenantcountry ","SamlClaimType":" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country ","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample” -Type "ClaimsMappingPolicy"
     ```
     
-    2. Voer de volgende opdracht om te zien van het nieuwe beleid en het beleid voor object-id ophalen:
+    2. toosee uw nieuw beleid en tooget Hallo beleid ObjectId, Voer Hallo volgende opdracht:
      
      ``` powershell  
     Get-AzureADPolicy
     ```
-2.  Het beleid aan uw service-principal toewijzen. Ook moet u de object-id van uw service principal. 
-    1.  Overzicht van de service-principals van uw organisatie, kunt u Microsoft Graph opvragen. Of in Azure AD Graph Explorer, moet u zich aanmelden bij uw Azure AD-account.
-    2.  Wanneer u de object-id van uw service-principal hebt, voer de volgende opdracht:  
+2.  Hallo beleid tooyour service-principal toewijzen. U moet ook tooget Hallo ObjectId van uw service-principal. 
+    1.  toosee service-principals van uw organisatie, kunt u Microsoft Graph query. Of aanmelden in Azure AD Graph Explorer tooyour Azure AD-account.
+    2.  Wanneer u hebt Hallo ObjectId van uw service-principal, voert Hallo zijn na de opdracht:  
      
      ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+    Add-AzureADServicePrincipalPolicy -Id <ObjectId of hello ServicePrincipal> -RefObjectId <ObjectId of hello Policy>
     ```
-#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid dat gebruikmaakt van een claimtransformatie in tokens die zijn verleend aan een service-principal.
-In dit voorbeeld maakt u een beleid dat u een aangepaste claim 'JoinedData' moet worden verleend aan de gekoppelde service-principals JWTs verzendt. Deze claim bevat een waarde die is gemaakt door de gegevens die zijn opgeslagen in het kenmerk extensionattribute1 van het gebruikersobject met '.sandbox'. In dit voorbeeld uitsluiten we de eenvoudige claims in de tokens instellen.
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-tooa-service-principal"></a>Voorbeeld: Maken en toewijzen van een beleid dat gebruikmaakt van een claimtransformatie in uitgegeven tokens tooa service-principal.
+In dit voorbeeld maakt u een beleid dat u een aangepaste claim 'JoinedData' tooJWTs uitgegeven toolinked service-principals verzendt. Deze claim bevat een waarde die is gemaakt door Hallo-gegevens die zijn opgeslagen in Hallo extensionattribute1 kenmerk van het gebruikersobject Hallo met '.sandbox'. In dit voorbeeld uitsluiten we Hallo basic claims ingesteld in het Hallo-tokens.
 
 
-1. Maak een van de claimprovider toewijzing van beleid. Dit beleid is gekoppeld aan een specifieke service-principals, wordt de werknemer-id en TenantCountry claims voor tokens toegevoegd.
-    1. Voor het maken van het beleid, moet u deze opdracht uitvoeren: 
+1. Maak een van de claimprovider toewijzing van beleid. Dit beleid, gekoppelde toospecific service-principals, wordt Hallo werknemer-id en TenantCountry claims tootokens toegevoegd.
+    1. toocreate hello beleid, voer deze opdracht uit: 
      
      ``` powershell
     New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformation":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"Id":"string2","Value":"sandbox"},{"Id":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample” -Type "ClaimsMappingPolicy"
     ```
     
-    2. Voer de volgende opdracht om te zien van het nieuwe beleid en het beleid voor object-id ophalen: 
+    2. toosee uw nieuw beleid en tooget Hallo beleid ObjectId, Voer Hallo volgende opdracht: 
      
      ``` powershell
     Get-AzureADPolicy
     ```
-2.  Het beleid aan uw service-principal toewijzen. Ook moet u de object-id van uw service principal. 
-    1.  Overzicht van de service-principals van uw organisatie, kunt u Microsoft Graph opvragen. Of in Azure AD Graph Explorer, moet u zich aanmelden bij uw Azure AD-account.
-    2.  Wanneer u de object-id van uw service-principal hebt, voer de volgende opdracht: 
+2.  Hallo beleid tooyour service-principal toewijzen. U moet ook tooget Hallo ObjectId van uw service-principal. 
+    1.  toosee service-principals van uw organisatie, kunt u Microsoft Graph query. Of aanmelden in Azure AD Graph Explorer tooyour Azure AD-account.
+    2.  Wanneer u hebt Hallo ObjectId van uw service-principal, voert Hallo zijn na de opdracht: 
      
      ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+    Add-AzureADServicePrincipalPolicy -Id <ObjectId of hello ServicePrincipal> -RefObjectId <ObjectId of hello Policy>
     ```

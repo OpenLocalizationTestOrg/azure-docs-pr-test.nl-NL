@@ -1,15 +1,15 @@
 
-Maak een gratis [API-app](../articles/app-service-api/app-service-api-apps-why-best-platform.md) in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/appservice/web#create). 
+Maak een [API-app](../articles/app-service-api/app-service-api-apps-why-best-platform.md) in Hallo `myAppServicePlan` App Service-abonnement met Hallo [az webapp maken](/cli/azure/appservice/web#create) opdracht. 
 
-De web-app biedt hostruimte voor uw API en biedt een URL waarmee u de geïmplementeerde app kunt weergeven.
+Hallo-web-app hier hosting voor uw API en een URL tooview Hallo geïmplementeerd app biedt.
 
-Vervang in de volgende opdracht *\<app_name>* door een unieke naam. Als `<app_name>` niet uniek is, wordt er een foutbericht weergegeven met de mededeling dat er al een website bestaat met die naam. De standaard-URL van de web-app is `https://<app_name>.azurewebsites.net`. 
+Hallo opdracht, na Vervang in  *\<app_naam >* met een unieke naam. Als `<app_name>` is niet uniek zijn, u krijgt Hallo foutbericht "De Website met de gegeven naam < app_naam > al bestaat." standaard-URL van de web-app Hallo is Hallo `https://<app_name>.azurewebsites.net`. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
-Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke informatie als in het volgende voorbeeld:
+Wanneer het Hallo-web-app is gemaakt, ziet u hello Azure CLI informatie vergelijkbare toohello voorbeeld te volgen:
 
 ```json
 {

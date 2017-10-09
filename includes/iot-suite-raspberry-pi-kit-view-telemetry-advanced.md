@@ -1,20 +1,20 @@
-## <a name="view-the-telemetry"></a>De telemetrie weergeven
+## <a name="view-hello-telemetry"></a>Hallo telemetrie van paginaweergaven
 
-De Pi frambozen is nu met het verzenden van telemetrie naar de oplossing voor externe controle. U kunt de telemetrie weergeven op het dashboard van oplossing. U kunt ook berichten verzenden naar uw Pi frambozen vanuit het dashboard van oplossing.
+Hallo frambozen Pi verzendt nu telemetrie toohello oplossing voor externe controle. U kunt Hallo telemetrie weergeven op Hallo oplossing dashboard. Ook kunt u berichten tooyour frambozen Pi verzenden vanuit Hallo oplossing dashboard.
 
-- Ga naar het dashboard van de oplossing.
-- Selecteer het apparaat in de **apparaat naar de weergave** vervolgkeuzelijst.
-- De telemetrie van de Pi frambozen wordt weergegeven op het dashboard.
+- Navigeer toohello oplossing dashboard.
+- Selecteer het apparaat in Hallo **apparaat tooView** vervolgkeuzelijst.
+- Hallo telemetrie van Hallo frambozen Pi wordt weergegeven op Hallo-dashboard.
 
-![Telemetrie weergegeven van de Pi frambozen][img-telemetry-display]
+![Telemetrie weergegeven van Hallo frambozen Pi][img-telemetry-display]
 
-## <a name="initiate-the-firmware-update"></a>Starten van de firmware-update
+## <a name="initiate-hello-firmware-update"></a>Hallo-firmware-update starten op
 
-Het updateproces firmware downloadt en installeert een bijgewerkte versie van de apparaat-clienttoepassing op de frambozen Pi. Zie voor meer informatie over het bijwerkproces firmware, de beschrijving van de firmware-update-patroon in [overzicht van Apparaatbeheer met IoT Hub][lnk-update-pattern].
+procedure Hallo firmware-update downloadt en installeert een bijgewerkte versie van Hallo device-clienttoepassing op Hallo frambozen Pi. Zie voor meer informatie over Hallo firmware updateproces Hallo beschrijving van Hallo firmware-update-patroon in [overzicht van Apparaatbeheer met IoT Hub][lnk-update-pattern].
 
-U start het updateproces firmware door het aanroepen van een methode op het apparaat. Deze methode is asynchroon en retourneert zodra de update wordt gestart. Het apparaat worden gemeld eigenschappen op de hoogte van de oplossing over de voortgang van de update wilt.
+U start Hallo firmware bijwerken door het aanroepen van een methode op Hallo-apparaat. Deze methode is asynchroon en retourneert zodra het updateproces Hallo begint. Eigenschappen toonotify Hallo oplossing Hallo apparaat gebruikt gerapporteerd over de voortgang van de update Hallo Hallo.
 
-U kunt methoden aanroepen op uw Pi frambozen vanuit het dashboard van oplossing. Wanneer de Pi frambozen is eerst verbinding met de oplossing voor externe controle maakt, stuurt informatie over de methoden die wordt ondersteund. 
+U kunt methoden aanroepen op uw Pi frambozen vanuit Hallo oplossing dashboard. Wanneer Hallo frambozen Pi toohello oplossing voor externe controle de eerst verbinding maakt, wordt informatie over Hallo methoden ondersteunt verzonden. 
 
 [img-telemetry-display]: media/iot-suite-raspberry-pi-kit-view-telemetry-advanced/telemetry.png
 [lnk-update-pattern]: ../articles/iot-hub/iot-hub-device-management-overview.md

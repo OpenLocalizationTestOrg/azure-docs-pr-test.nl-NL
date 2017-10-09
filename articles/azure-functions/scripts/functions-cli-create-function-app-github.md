@@ -1,5 +1,5 @@
 ---
-title: Een functie-App maken en implementeren van functiecode vanuit GitHub | Microsoft Docs
+title: aaaCreate een functie-App en functiecode vanuit GitHub implementeren | Microsoft Docs
 description: Azure CLI-voorbeeldscript - een functie-App maken en implementeren van functiecode vanuit GitHub
 services: functions
 keywords: 
@@ -9,33 +9,33 @@ ms.date: 04/27/2017
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: d67e85f91c80efe464fceb1105243bedfba83a0f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 026886f11909149db695d9a52d0aa37f109f64e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-github"></a>Een functie-app maken en implementeren van functiecode vanuit GitHub
 
-Dit voorbeeldscript maakt een functie-app met de [verbruik plan](../functions-scale.md#consumption-plan) met de bijbehorende resources en de functiecode uit een openbare GitHub-opslagplaats (zonder continue implementatie) implementeert. Lees voor continue levering van functiecode vanuit GitHub, [maken van een functie-app en continu implementeren vanuit GitHub](functions-cli-create-function-app-github-continuous.md)
+Dit voorbeeldscript wordt gemaakt van een functie-app met behulp van Hallo [verbruik plan](../functions-scale.md#consumption-plan) met de bijbehorende resources en de functiecode uit een openbare GitHub-opslagplaats (zonder continue implementatie) implementeert. Lees voor continue levering van functiecode vanuit GitHub, [maken van een functie-app en continu implementeren vanuit GitHub](functions-cli-create-function-app-github-continuous.md)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, wordt in dit onderwerp vereist dat u hello Azure CLI versie 2.0 of hoger worden uitgevoerd. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Voorbeeld van een script
 
 Dit voorbeeld maakt u een Azure-functie-app en implementeert functiecode vanuit GitHub.
 
-[!code-azurecli-interactive[belangrijkste](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github/deploy-function-app-with-function-github.sh?highlight=3 "een functie-app maken met de implementatie van GitHub")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github/deploy-function-app-with-function-github.sh?highlight=3 "Create a function app with deployment from GitHub")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Script uitleg
 
-Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht. Dit script maakt gebruik van de volgende opdrachten:
+Elke opdracht in Hallo tabel koppelingen toocommand specifieke documentatie. Dit script maakt gebruik van Hallo volgende opdrachten:
 
 | Opdracht | Opmerkingen |
 |---|---|
@@ -46,6 +46,6 @@ Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+Zie voor meer informatie over hello Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Aanvullende voorbeelden van Azure Functions CLI-script kunnen worden gevonden in de [documentatie van Azure Functions](../functions-cli-samples.md).
+Aanvullende voorbeelden van Azure Functions CLI script kunnen u vinden in Hallo [documentatie van Azure Functions](../functions-cli-samples.md).

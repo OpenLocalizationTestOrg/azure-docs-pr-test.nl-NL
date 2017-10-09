@@ -1,6 +1,6 @@
 ---
-title: Met behulp van client API's beveiligd tegen certificaatverificatie in API Management - Azure API Management | Microsoft Docs
-description: Meer informatie over het beveiligen van toegang tot API's met behulp van clientcertificaten
+title: aaaSecure API's met behulp van verificatie van clientcertificaten in API Management - Azure API Management | Microsoft Docs
+description: Meer informatie over hoe toosecure toegang krijgen tot tooAPIs met behulp van clientcertificaten
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
-ms.openlocfilehash: d3d51d0575a6d2dacced931601d48eb1e51a4051
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6ff78bda3d429829da79d0dc4d652f19669cc919
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Het beveiligen van API's met behulp van client certificaatverificatie in API Management
+# <a name="how-toosecure-apis-using-client-certificate-authentication-in-api-management"></a>Hoe toosecure-API's met behulp van client certificaat gebaseerde verificatie in API Management
 
-API Management biedt de mogelijkheid om toegang tot API's (dat wil zeggen, de client naar API Management) te beveiligen met behulp van clientcertificaten. Op dit moment kunt u de vingerafdruk van een certificaat met een waarde van de gewenste controleren. U kunt ook de vingerafdruk op basis van bestaande certificaten geüpload naar de API Management controleren.  
+API Management biedt Hallo mogelijkheid toosecure toegang tooAPIs (dat wil zeggen, client tooAPI Management) met behulp van clientcertificaten. U kunt op dit moment Hallo vingerafdruk van een certificaat met een waarde van de gewenste controleren. U kunt ook controleren Hallo vingerafdruk op basis van bestaande certificaten geüpload tooAPI Management.  
 
-Zie voor meer informatie over het beveiligen van toegang tot de back-end-service van een API met behulp van clientcertificaten (dat wil zeggen, API Management aan back-end) [het beveiligen van back-end-services met behulp van client verificatie via certificaat](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+Zie voor meer informatie over het beveiligen van access-service toohello back-end van een API met behulp van clientcertificaten (dat wil zeggen, API Management tooback-end) [hoe toosecure back-end-services met behulp van client-certificaat gebaseerde verificatie](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
 
-## <a name="checking-the-expiration-date"></a>Controleren of de vervaldatum
+## <a name="checking-hello-expiration-date"></a>Hallo-vervaldatum controleren
 
-Onderstaande beleidsregels kunnen worden geconfigureerd om te controleren of het certificaat is verlopen:
+Hieronder beleid kan geconfigureerde toocheck zijn als het Hallo-certificaat is verlopen:
 
 ```
 <choose>
@@ -39,9 +39,9 @@ Onderstaande beleidsregels kunnen worden geconfigureerd om te controleren of het
 </choose>
 ```
 
-## <a name="checking-the-issuer-and-subject"></a>Controle van de verlener en onderwerp
+## <a name="checking-hello-issuer-and-subject"></a>Hallo verlener en onderwerp controleren
 
-Onderstaande beleidsregels kunnen worden geconfigureerd om te controleren van de verlener en onderwerp van een certificaat:
+Hieronder beleid kan worden geconfigureerd toocheck Hallo verlener en onderwerp van een certificaat:
 
 ```
 <choose>
@@ -53,9 +53,9 @@ Onderstaande beleidsregels kunnen worden geconfigureerd om te controleren van de
 </choose>
 ```
 
-## <a name="checking-the-thumbprint"></a>Controleren of de vingerafdruk
+## <a name="checking-hello-thumbprint"></a>Hallo vingerafdruk controleren
 
-Onderstaande beleidsregels kunnen worden geconfigureerd om te controleren van de vingerafdruk van een certificaat:
+Hieronder beleid kan worden geconfigureerd toocheck Hallo vingerafdruk van een certificaat:
 
 ```
 <choose>
@@ -67,9 +67,9 @@ Onderstaande beleidsregels kunnen worden geconfigureerd om te controleren van de
 </choose>
 ```
 
-## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Controleren of een vingerafdruk tegen certificaten geüpload naar de API Management
+## <a name="checking-a-thumbprint-against-certificates-uploaded-tooapi-management"></a>Controleren of een vingerafdruk tegen certificaten geüpload tooAPI Management
 
-Het volgende voorbeeld ziet u hoe u controleert de vingerafdruk van een clientcertificaat tegen certificaten geüpload naar de API Management: 
+Hallo volgende voorbeeld laat zien hoe toocheck Hallo vingerafdruk van een clientcertificaat tegen certificaten tooAPI Management geüpload: 
 
 ```
 <choose>
@@ -84,6 +84,6 @@ Het volgende voorbeeld ziet u hoe u controleert de vingerafdruk van een clientce
 
 ## <a name="next-step"></a>Volgende stap
 
-*  [Het beveiligen van back-end-services met behulp van client verificatie via certificaat](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
-*  [Het uploaden van certificaten](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
+*  [Hoe toosecure back-end-services met behulp van client-certificaat gebaseerde verificatie](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+*  [Hoe tooupload certificaten](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
 

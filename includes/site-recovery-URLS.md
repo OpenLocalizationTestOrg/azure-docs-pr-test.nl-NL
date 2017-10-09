@@ -1,0 +1,4 @@
+``*.accesscontrol.windows.net``. Wordt gebruikt voor toegangs- en identiteitsbeheer.<br/><br/>``\*.backup.windowsazure.com``. Wordt gebruikt voor overdracht en coördinatie van replicatiegegevens. <br/><br/> ``\*.blob.core.windows.net``. Gebruikt voor toegang tot toohello gerepliceerde storage-account dat wordt opgeslagen gegevens.<br/><br/> ``\*.hypervrecoverymanager.windowsazure.com``. Wordt gebruikt voor bewerkingen en coördinatie in het kader van replicatiebeheer.<br/><br/>
+``time.nist.gov`` en ``time.windows.com``. Tijdsynchronisatie toocheck tussen system en globale tijd gebruikt.
+<br/><br/>
+URL's voor hello Azure Government cloud:<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us

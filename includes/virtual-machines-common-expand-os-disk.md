@@ -1,18 +1,18 @@
 ## <a name="overview"></a>Overzicht
-Wanneer u een nieuwe virtuele machine (VM) maakt in een resourcegroep door een installatiekopie van [Azure Marketplace](https://azure.microsoft.com/marketplace/) te implementeren, is het standaardstation voor het besturingssysteem 127 GB groot. Hoewel het mogelijk is om gegevensschijven toe te voegen aan de VM (het aantal is afhankelijk van de SKU die u hebt gekozen) en het bovendien wordt aangeraden om toepassingen en CPU-intensieve werkbelastingen te installeren op deze aanvullende schijven, moeten klanten vaak ook de besturingssysteemschijf uitbreiden om bepaalde scenario's te ondersteunen, zoals de volgende:
+Wanneer u een nieuwe virtuele machine (VM) maakt in een resourcegroep met de implementatie van een installatiekopie van [Azure Marketplace](https://azure.microsoft.com/marketplace/), Hallo standaard OS station is 127 GB. Hoewel het mogelijk tooadd gegevens schijven toohello VM (hoeveel, al naar gelang Hallo SKU u hebt gekozen) is en bovendien is het aanbevolen tooinstall toepassingen en werkbelastingen met een intensieve CPU op deze schijven addendum, moeten vaak ook klanten tooexpand Hallo OS station toosupport bepaalde scenario's zoals het volgende:
 
 1. Ondersteuning voor oudere toepassingen die onderdelen op de besturingssysteemschijf installeren.
 2. Een fysieke computer of virtuele machine migreren van on-premises met een grotere besturingssysteemschijf.
 
 > [!IMPORTANT]
-> In Azure zijn twee verschillende implementatiemodellen beschikbaar voor het maken van en werken met resources: Resource Manager en het klassieke model. In dit artikel wordt het Resource Manager-model beschreven. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
+> In Azure zijn twee verschillende implementatiemodellen beschikbaar voor het maken van en werken met resources: Resource Manager en het klassieke model. In dit artikel bevat informatie over met behulp van Hallo Resource Manager-model. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken.
 > 
 > 
 
-## <a name="resize-the-os-drive"></a>Besturingssysteemschijf uitbreiden
-In dit artikel gaan we de grootte van de besturingssysteemschijf aanpassen met behulp van Resource Manager-modules van [Azure Powershell](/powershell/azureps-cmdlets-docs). Open de Powershell ISE of het Powershell-venster in de beheerdersmodus en voer de volgende stappen uit:
+## <a name="resize-hello-os-drive"></a>Hallo OS station vergroten of verkleinen
+In dit artikel hebt we uitvoeren van de taak Hallo Hallo OS-station met resource manager-modules van formaat wijzigen van [Azure Powershell](/powershell/azureps-cmdlets-docs). Open de Powershell ISE of de Powershell-venster in de beheerdersmodus en volg onderstaande stappen voor Hallo:
 
-1. Meld u in de modus voor resourcebeheer aan bij uw Microsoft Azure-account en selecteer uw abonnement als volgt:
+1. Aanmelden tooyour Microsoft Azure-account op de resource management-modus en selecteer uw abonnement als volgt:
    
    ```Powershell
    Login-AzureRmAccount
@@ -24,17 +24,17 @@ In dit artikel gaan we de grootte van de besturingssysteemschijf aanpassen met b
    $rgName = 'my-resource-group-name'
    $vmName = 'my-vm-name'
    ```
-3. Vraag als volgt een verwijzing op naar uw VM:
+3. Een verwijzing tooyour VM als volgt verkrijgen:
    
    ```Powershell
    $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
    ```
-4. Ga als volgt te werk om de VM te stoppen voordat u de grootte van de schijf aanpast:
+4. Hallo VM stoppen voordat het vergroten of verkleinen Hallo schijf als volgt:
    
     ```Powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
-5. En dan nu het moment waarop we allemaal gewacht hebben! Stel de grootte van de besturingssysteemschijf in op de gewenste waarde en werk de VM als volgt bij:
+5. En komen Hallo momenteel die we hebt gewacht! Hallo-grootte van de waarde voor toohello gewenst Hallo OS-schijf instellen en Hallo VM als volgt bijwerken:
    
    ```Powershell
    $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
@@ -42,19 +42,19 @@ In dit artikel gaan we de grootte van de besturingssysteemschijf aanpassen met b
    ```
    
    > [!WARNING]
-   > De nieuwe grootte moet groter zijn dan de bestaande schijfgrootte. De toegestane maximale waarde is 1023 GB.
+   > Hallo nieuwe grootte moet groter zijn dan de bestaande schijfgrootte Hallo zijn. maximale toegestane Hallo is 1023 GB.
    > 
    > 
-6. Het bijwerken van de VM kan een paar seconden duren. Zodra de opdracht is voltooid, start u de VM als volgt opnieuw op:
+6. Bijwerken Hallo VM kan een paar seconden duren. Zodra het Hallo-opdracht is uitgevoerd, start u Hallo VM als volgt opnieuw:
    
    ```Powershell
    Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
    ```
 
-Dat is alles. Ga nu met RDP naar de VM, open Computerbeheer (of Schijfbeheer) en vouw het station met de zojuist toegewezen ruimte uit.
+Dat is alles. Nu RDP in Hallo VM, open Computerbeheer (of Schijfbeheer) en vouw Hallo-station met Hallo zojuist toegewezen ruimte.
 
 ## <a name="summary"></a>Samenvatting
-In dit artikel hebben we Azure Resource Manager-modules van Powershell gebruikt om de besturingssysteemschijf van een virtuele IaaS-machine uit te breiden. Hieronder ziet u het volledige script ter referentie:
+In dit artikel hebben we Azure Resource Manager-modules van Powershell tooexpand Hallo OS-schijf van de virtuele machine voor IaaS gebruikt. Hieronder wordt Hallo volledige script ter referentie:
 
 ```Powershell
 Login-AzureRmAccount
@@ -69,16 +69,16 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Hoewel we in dit artikel voornamelijk hebben gekeken naar het uitbreiden van de besturingssysteemschijf van de VM, kan het script ook worden gebruikt voor het uitbreiden van de gegevensschijven die zijn gekoppeld aan de VM. Hiervoor hoeft maar één regel met code te worden gewijzigd. Als u bijvoorbeeld de eerste gegevensschijf die is gekoppeld aan de VM wilt uitbreiden, vervangt u het object ```OSDisk``` van ```StorageProfile``` door de matrix ```DataDisks``` en gebruikt u een numerieke index om een verwijzing naar de eerste gekoppelde schijf te verkrijgen, zoals hieronder wordt weergegeven:
+Hoewel in dit artikel wordt primair gericht op het uitbreiden van de schijf Hallo OS Hallo VM, kan hello ontwikkelde script ook worden gebruikt voor het uitbreiden van Hallo gegevens schijven gekoppelde toohello VM door één regel code wijzigen. Bijvoorbeeld tooexpand Hallo eerste gegevens gekoppelde toohello VM schijf, vervang Hallo ```OSDisk``` object van het ```StorageProfile``` met ```DataDisks``` matrix en het gebruik van een numerieke index tooobtain een schijf verwijzing toofirst bijgesloten gegevens, zoals hieronder wordt weergegeven:
 
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
-Op dezelfde manier kunt u verwijzen naar andere gegevensschijven die aan de VM zijn gekoppeld. Dit kan met behulp van een index, zoals hierboven, of met de eigenschap ```Name``` van de schijf, zoals hieronder wordt weergegeven:
+U kunt ook verwijzen naar andere schijven gekoppelde toohello VM, met behulp van een index, zoals hierboven van gegevens of Hallo ```Name``` van Hallo schijf zoals hieronder weergegeven:
 
 ```Powershell
 ($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
 ```
 
-Als u wilt weten hoe u schijven koppelt aan een Azure Resource Manager-VM, raadpleegt u dit [artikel](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Als u toofind wilt uit hoe tooattach tooan Azure Resource Manager VM schijven, dit selectievakje inschakelt [artikel](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

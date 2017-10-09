@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: osamam
-ms.openlocfilehash: 5c039a80b24feda61da0793fa64b48cb4783c3f1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7a8b760df90b545b5fbde2f614aef62dd3985bb6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="nat-for-expressroute"></a>NAT voor ExpressRoute
 
-Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u routering instellen en beheren. Sommige connectiviteitsproviders bieden het instellen en beheren van routering aan als een beheerde service. Neem contact op met uw connectiviteitsprovider om na te gaan of ze deze service leveren. Als dat niet het geval is, moet u voldoen aan de volgende vereisten. 
+tooconnect tooMicrosoft cloudservices met ExpressRoute, hebt u nodig hebt tooset en routing beheert. Sommige connectiviteitsproviders bieden het instellen en beheren van routering aan als een beheerde service. Neem contact op met uw provider connectiviteit toosee als ze deze service aanbiedt. Zo niet, moet u toohello volgens de vereisten voldoen. 
 
-Raadpleeg het artikel [Circuits and routing domains](expressroute-circuit-peerings.md) (Circuits en routeringsdomeinen) voor een beschrijving van de routeringssessies die moeten worden ingesteld om connectiviteit mogelijk te maken.
+Raadpleeg toohello [Circuits en Routeringsdomeinen](expressroute-circuit-peerings.md) artikel voor een beschrijving van het Hallo routering sessies die toobe moeten instellen in de toofacilitate verbinding.
 
 > [!NOTE]
 > Microsoft biedt geen ondersteuning voor routerredundantieprotocollen (zoals HSRP, VRRP) voor de configuratie van hoge beschikbaarheid. We zijn afhankelijk van twee redundante BGP-sessies per peering voor maximale beschikbaarheid.
@@ -33,56 +33,56 @@ Raadpleeg het artikel [Circuits and routing domains](expressroute-circuit-peerin
 
 ## <a name="ip-addresses-used-for-peerings"></a>IP-adressen die worden gebruikt voor peerings
 
-U moet enkele blokken met IP-adressen reserveren om routering tussen uw netwerk en de MSEE-routers (Microsoft Enterprise Edge) te configureren. In deze sectie vindt u een lijst met vereisten en worden de regels beschreven met betrekking tot hoe u deze IP-adressen kunt verkrijgen en gebruiken.
+U moet enkele blokken van IP-adres tooreserve adressen tooconfigure routering tussen uw netwerk en routers van Microsoft Enterprise-rand (msee's). Deze sectie bevat een lijst met vereisten en beschrijft Hallo regels met betrekking tot hoe deze IP-adressen moeten worden aangeschaft en gebruikt.
 
 ### <a name="ip-addresses-used-for-azure-private-peering"></a>IP-adressen die worden gebruikt voor persoonlijke Azure-peering
 
-U kunt privé IP-adressen of openbare IP-adressen gebruiken om de peerings te configureren. Het adresbereik dat wordt gebruikt voor het configureren van routes mag geen adresbereiken overlappen die worden gebruikt voor het maken van virtuele netwerken in Azure. 
+U kunt privé IP-adressen of openbare IP-adressen tooconfigure hello peerings gebruiken. Hallo adresbereik dat wordt gebruikt voor het configureren van routes mogen elkaar niet overlappen met adres adresbereiken gebruikt toocreate virtuele netwerken in Azure. 
 
 * U moet een /29-subnet of twee /30-subnetten voor routeringsinterfaces reserveren.
-* De subnetten voor routering kunnen privé of openbare IP-adressen zijn.
-* De subnetten mogen geen conflicten opleveren met het bereik dat door de klant is gereserveerd voor gebruik in de Microsoft Cloud.
+* Hallo subnetten voor routering kunnen privé IP-adressen of openbare IP-adressen worden.
+* Hallo subnetten moeten niet in conflict met gereserveerd door de klant voor gebruik in de Microsoft-cloud Hallo HALLO hallo-bereik.
 * Als een /29-subnet wordt gebruikt, wordt dit verdeeld in twee /30-subnetten. 
-  * Het eerste /30-subnet wordt gebruikt voor de primaire koppeling en het tweede/30-subnet voor de secundaire koppeling.
-  * Voor beide /30-subnetten moet u het eerste IP-adres van het /30-subnet op de router gebruiken. Microsoft gebruikt het tweede IP-adres van het/30-subnet voor het instellen van een BGP-sessie.
-  * Onze [beschikbaarheids-SLA](https://azure.microsoft.com/support/legal/sla/) is alleen geldig als beide BGP-sessies zijn ingesteld.  
+  * Hallo eerst/30-subnet wordt gebruikt voor de primaire koppeling Hallo en tweede /30 Hallo subnet wordt gebruikt voor de secundaire koppeling Hallo.
+  * Voor elk Hallo /30 subnetten, moet u het eerste IP-adres Hallo van Hallo /30 subnet op uw router. Microsoft gebruikt het tweede IP-adres Hallo van Hallo /30 subnet tooset van een BGP-sessie.
+  * U moet beide BGP-sessies instellen onze [beschikbaarheids-SLA](https://azure.microsoft.com/support/legal/sla/) toobe is ongeldig.  
 
 #### <a name="example-for-private-peering"></a>Voorbeeld voor persoonlijke peering
 
-Als u a.b.c.d/29 gebruikt om de peering in te stellen, wordt dit gesplitst in twee /30-subnetten. In onderstaand voorbeeld kijken we hoe het subnet a.b.c.d/29 wordt gebruikt. 
+Als u toouse a.b.c.d/29 tooset up Hallo peering kiest, wordt dit verdeeld in twee/30-subnetten. In Hallo onderstaand voorbeeld kijken we hoe Hallo a.b.c.d/29 subnet wordt gebruikt. 
 
-a.b.c.d/29 wordt gesplitst in a.b.c.d/30 en a.b.c.d+4/30 en via de inrichting-API's doorgegeven aan Microsoft. U gaat a.b.c.d+1 gebruiken als de VRF-IP voor de primaire PE en Microsoft gaat a.b.c.d+2 gebruiken als de VRF-IP voor de primaire MSEE. U gaat a.b.c.d+5 gebruiken als de VRF-IP voor de secundaire PE en Microsoft gaat a.b.c.d+6 gebruiken als de VRF-IP voor de secundaire MSEE.
+a.b.c.d/29 wordt gesplitst tooa.b.c.d/30 en a.b.c.d+4/30 en tooMicrosoft via Hallo inrichting-API's doorgegeven. U gaat a.b.c.d+1 gebruiken als Hallo VRF IP voor Hallo primaire PE en Microsoft gaat a.b.c.d+2 gebruiken als de VRF IP voor Hallo Hallo primaire MSEE. U gaat a.b.c.d+5 gebruiken als hello VRF IP voor hello secundaire PE en Microsoft gaat a.b.c.d+6 gebruiken als de VRF IP voor Hallo Hallo secundaire MSEE.
 
-Stelt u zich een situatie voor waarin u 192.168.100.128/29 selecteert om persoonlijke peering in te stellen. 192.168.100.128/29 bevat adressen van 192.168.100.128 tot 192.168.100.135, waarbij:
+U kunt een aanvraag waarin u 192.168.100.128/29 tooset up persoonlijke peering selecteren. 192.168.100.128/29 bevat adressen van 192.168.100.128 too192.168.100.135, waaronder:
 
-* 192.168.100.128/30 wordt toegewezen aan link1, waarbij de provider 192.168.100.129 gebruikt en Microsoft 192.168.100.130 gebruikt.
-* 192.168.100.132/30 wordt toegewezen aan link2, waarbij provider 192.168.100.133 gebruikt en Microsoft 192.168.100.134 gebruikt.
+* 192.168.100.128/30 wordt toolink1, waarbij de provider 192.168.100.129 gebruikt en Microsoft 192.168.100.130 toegewezen.
+* 192.168.100.132/30 wordt toolink2, waarbij provider 192.168.100.133 gebruikt en Microsoft 192.168.100.134 toegewezen.
 
 ### <a name="ip-addresses-used-for-azure-public-and-microsoft-peering"></a>IP-adressen die worden gebruikt voor openbare Azure-peering en Microsoft-peering
 
-U moet voor het instellen van de BGP-sessies openbare IP-adressen gebruiken waarvan u eigenaar bent. Microsoft moet het eigenaarschap van de IP-adressen kunnen verifiëren via Routing Internet Registries en Internet Routing Registries. 
+Openbare IP-adressen waarvan u eigenaar moet u gebruiken voor het instellen van Hallo BGP-sessies. Microsoft moet kunnen tooverify Hallo eigendom van Hallo IP-adressen via Routing Internet Registries en Internet Routing Registries. 
 
-* U moet een uniek /29-subnet of twee /30-subnetten gebruiken om de BGP-peering voor elke peering per ExpressRoute-circuit (als u er meer dan één hebt) in te stellen. 
+* Moet u een uniek/29-subnet of twee/30-subnetten tooset up Hallo BGP-peering voor elke peering per ExpressRoute-circuit (als u meer dan één hebt). 
 * Als een /29-subnet wordt gebruikt, wordt dit verdeeld in twee /30-subnetten. 
-  * Het eerste /30-subnet wordt gebruikt voor de primaire koppeling en het tweede/30-subnet voor de secundaire koppeling.
-  * Voor beide /30-subnetten moet u het eerste IP-adres van het /30-subnet op de router gebruiken. Microsoft gebruikt het tweede IP-adres van het/30-subnet voor het instellen van een BGP-sessie.
-  * Onze [beschikbaarheids-SLA](https://azure.microsoft.com/support/legal/sla/) is alleen geldig als beide BGP-sessies zijn ingesteld.
+  * Hallo eerst/30-subnet wordt gebruikt voor de primaire koppeling Hallo en tweede /30 Hallo subnet wordt gebruikt voor de secundaire koppeling Hallo.
+  * Voor elk Hallo /30 subnetten, moet u het eerste IP-adres Hallo van Hallo /30 subnet op uw router. Microsoft gebruikt het tweede IP-adres Hallo van Hallo /30 subnet tooset van een BGP-sessie.
+  * U moet beide BGP-sessies instellen onze [beschikbaarheids-SLA](https://azure.microsoft.com/support/legal/sla/) toobe is ongeldig.
 
 ## <a name="public-ip-address-requirement"></a>Vereiste openbaar IP-adres
 
 ### <a name="private-peering"></a>Persoonlijke peering
 
-U kunt kiezen om openbare of persoonlijke IPv4-adressen te gebruiken voor persoonlijke peering. We bieden end-to-end-isolatie van uw verkeer, zodat het overlappen van adressen met andere klanten niet mogelijk is in het geval van persoonlijke peering. Deze adressen worden niet geadverteerd naar internet. 
+U kunt toouse openbaar of particulier IPv4-adressen voor persoonlijke peering. We bieden end-to-end-isolatie van uw verkeer, zodat het overlappen van adressen met andere klanten niet mogelijk is in het geval van persoonlijke peering. Deze adressen zijn niet aangekondigd tooInternet. 
 
 ### <a name="public-peering"></a>Openbare peering
 
-Met het pad voor openbare Azure-peering kunt u verbinding maken met alle services die via de openbare IP-adressen worden gehost in Azure. Deze lijst bevat services die worden vermeld in de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) en alle services die door ISV's worden gehost op Microsoft Azure. Connectiviteit met Microsoft Azure-services via openbare peering wordt altijd gestart vanuit uw netwerk naar het Microsoft-netwerk. U moet openbare IP-adressen gebruiken voor het verkeer dat bestemd is voor het Microsoft-netwerk.
+Hello Azure pad voor openbare peering kunt u tooconnect tooall services die worden gehost in Azure via de openbare IP-adressen. Deze omvatten services die worden vermeld in Hallo [Veelgestelde vragen over ExpessRoute](expressroute-faqs.md) en alle services die door ISV's in Microsoft Azure worden gehost. Connectiviteit tooMicrosoft Azure services voor openbare peering wordt altijd gestart vanuit het netwerk in Hallo Microsoft-netwerk. U moet de openbare IP-adressen voor Hallo verkeer die bestemd zijn tooMicrosoft netwerk gebruiken.
 
 ### <a name="microsoft-peering"></a>Microsoft-peering
 
-Met het pad voor Microsoft-peering kunt u verbinding maken met Microsoft Cloud-services die niet worden ondersteund via het pad voor openbare Azure-peering. De lijst met services bevat Office 365-services, zoals Exchange Online, SharePoint Online, Skype voor Bedrijven en Dynamics 365. Microsoft ondersteunt bidirectionele connectiviteit op de Microsoft-peering. Verkeer dat is bestemd voor Microsoft Cloud-services, moet geldige openbare IPv4-adressen gebruiken voordat het het Microsoft-netwerk binnenkomt.
+Hallo pad voor Microsoft-peering kunt u tooMicrosoft cloud-services die worden niet ondersteund via hello Azure pad voor openbare peering verbinding te maken. Hallo-lijst met services bevat Office 365-services, zoals Exchange Online, SharePoint Online, Skype voor bedrijven en Dynamics 365. Microsoft ondersteunt bidirectionele connectiviteit op Hallo Microsoft-peering. Verkeer dat is bestemd tooMicrosoft cloudservices moeten geldige openbare IPv4-adressen gebruiken voordat Hallo Microsoft-netwerk binnenkomt.
 
-Controleer of uw IP-adres en AS-nummer in een van de hieronder vermelde registers op uw naam zijn geregistreerd.
+Zorg ervoor dat uw IP-adres en AS-nummer zijn geregistreerde tooyou in een Hallo registers hieronder vermeld.
 
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
@@ -93,57 +93,57 @@ Controleer of uw IP-adres en AS-nummer in een van de hieronder vermelde register
 * [ALTDB](http://altdb.net/)
 
 > [!IMPORTANT]
-> Openbare IP-adressen die naar Microsoft zijn geadverteerd via ExpressRoute, mogen niet worden geadverteerd naar internet. Dit kan de connectiviteit met andere Microsoft-services verbreken. Openbare IP-adressen die worden gebruikt door servers in uw netwerk en communiceren met O365-eindpunten in Microsoft, kunnen echter wel worden geadverteerd via ExpressRoute. 
+> Openbare IP-adres adressen aangekondigd tooMicrosoft via ExpressRoute mag geen aangekondigd toohello Internet. Dit kan verbreekt de connectiviteit tooother Microsoft-services. Openbare IP-adressen die worden gebruikt door servers in uw netwerk en communiceren met O365-eindpunten in Microsoft, kunnen echter wel worden geadverteerd via ExpressRoute. 
 > 
 > 
 
 ## <a name="dynamic-route-exchange"></a>Dynamische route-uitwisseling
 
-Routeringsuitwisseling vindt plaats via het eBGP-protocol. EBGP-sessies worden tot stand gebracht tussen de MSEE's en uw routers. Verificatie van BGP-sessies is niet vereist. Indien nodig kan een MD5-hash worden geconfigureerd. Zie [Configure routing](expressroute-howto-routing-classic.md) (Routering configureren) en [Circuit provisioning workflows and circuit states](expressroute-workflows.md) (Werkstromen voor de inrichting van ExpressRoute-circuits en circuittoestanden) voor informatie over het configureren van BGP-sessies.
+Routeringsuitwisseling vindt plaats via het eBGP-protocol. EBGP-sessies worden tot stand gebracht tussen Hallo msee's en uw routers. Verificatie van BGP-sessies is niet vereist. Indien nodig kan een MD5-hash worden geconfigureerd. Zie Hallo [Configure routing](expressroute-howto-routing-classic.md) en [Circuit provisioning workflows en statussen circuit](expressroute-workflows.md) voor informatie over het configureren van BGP-sessies.
 
 ## <a name="autonomous-system-numbers"></a>Autonome systeemnummers
 
-Microsoft gebruikt AS 12076 voor persoonlijke Azure-peering, openbare Azure-peering en Microsoft-peering. We hebben ASN's van 65515 tot 65520 gereserveerd voor intern gebruik. Zowel 16- als 32-bits AS-getallen worden ondersteund.
+Microsoft gebruikt AS 12076 voor persoonlijke Azure-peering, openbare Azure-peering en Microsoft-peering. We hebben ASN's gereserveerde van 65515 too65520 voor intern gebruik. Zowel 16- als 32-bits AS-getallen worden ondersteund.
 
-Er zijn geen vereisten met betrekking tot gegevensoverdrachtsymmetrie. De inkomende en uitgaande paden lopen mogelijk langs verschillende routerparen. Identieke routes moeten worden geadverteerd van beide zijden van meerdere circuitparen waarvan u eigenaar bent. Route metrics hoeven niet identiek te zijn.
+Er zijn geen vereisten met betrekking tot gegevensoverdrachtsymmetrie. Hallo inkomende en uitgaande paden lopen mogelijk langs verschillende routerparen. Identieke routes moeten worden geadverteerd van beide zijden van meerdere circuitparen waarvan u eigenaar bent. Route metrische gegevens zijn niet vereist toobe identiek zijn.
 
 ## <a name="route-aggregation-and-prefix-limits"></a>Limieten voor route-aggregatie en voorvoegsel
 
-Wij ondersteunen maximaal 4000 voorvoegsels die aan ons zijn geadverteerd door middel van de persoonlijke Azure-peering. Dit aantal kan worden verhoogd tot 10.000 voorvoegsels als de Premium-invoegtoepassing voor ExpressRoute wordt ingeschakeld. We accepteren maximaal 200 voorvoegsels per BGP-sessie voor openbare Azure-peering en Microsoft-peering. 
+We ondersteuning voor maximaal too4000 voorvoegsels aangekondigd toous via Hallo persoonlijke Azure-peering. Dit kan worden verhoogd van too10, 000 voorvoegsels als Hallo premium-invoegtoepassing voor ExpressRoute is ingeschakeld. We accepteren van too200 voorvoegsels per BGP-sessie voor openbare Azure- en Microsoft-peering. 
 
-De BGP-sessie wordt verwijderd als het aantal voorvoegsels de limiet overschrijdt. Standaardroutes worden alleen geaccepteerd op de persoonlijke peeringkoppeling. Provider moet standaardroute- en privé IP-adressen (RFC 1918) uit de paden voor openbare Azure- en Microsoft-peering filteren. 
+Hallo BGP-sessie wordt verwijderd als het aantal voorvoegsels Hallo Hallo overschrijdt. Standaardroutes op Hallo persoonlijke peeringkoppeling alleen geaccepteerd. Provider moet standaardroute en privé IP-adressen (RFC 1918) uit Hallo openbare Azure paden en Microsoft-peering filteren. 
 
 ## <a name="transit-routing-and-cross-region-routing"></a>Transitroutering en regio-overschrijdende routering
 
-ExpressRoute kan niet worden geconfigureerd als transitrouter. Voor transitrouteringsservices bent u aangewezen op uw connectiviteitsprovider.
+ExpressRoute kan niet worden geconfigureerd als transitrouter. Hebt u toorely op uw connectiviteitsprovider voor transitrouteringsservices.
 
 ## <a name="advertising-default-routes"></a>Standaardroutes adverteren
 
-Standaardroutes zijn alleen toegestaan voor persoonlijke Azure-peeringsessies. In dat geval wordt al het verkeer van de gekoppelde virtuele netwerken omgeleid naar uw netwerk. Wanneer standaardroutes worden geadverteerd naar persoonlijke peering, wordt het internetpad vanuit Azure geblokkeerd. Als u verkeer van en naar internet wilt routeren voor services die worden gehost in Azure, zult u gebruik moeten maken van uw bedrijfsfunctionaliteit. 
+Standaardroutes zijn alleen toegestaan voor persoonlijke Azure-peeringsessies. In dat geval wordt er al het verkeer van Hallo gekoppelde virtuele netwerken tooyour netwerk routeren. Wanneer standaardroutes worden geadverteerd naar persoonlijke peering leidt tot Hallo internetpad vanuit Azure geblokkeerd. U moet zijn afhankelijk van uw bedrijfsfunctionaliteit tooroute verkeer van en toohello internet voor services die worden gehost in Azure. 
 
- Als u connectiviteit met andere Azure-services en infrastructuurservices wilt inschakelen, moet u een van de volgende voorzieningen treffen:
+ tooenable connectiviteit tooother Azure services en infrastructuurservices, moet u ervoor zorgen dat een van de volgende items Hallo is geïmplementeerd:
 
-* Openbare Azure-peering is ingeschakeld om verkeer om te leiden naar openbare eindpunten
-* U gebruikt door de gebruiker gedefinieerde routering om internetconnectiviteit toe te staan voor elk subnet dat internetconnectiviteit vereist.
+* Openbare Azure-peering is ingeschakeld tooroute verkeer toopublic eindpunten
+* Gebruiker gedefinieerde routering tooallow verbinding met internet wordt gebruikt voor elk subnet vereisen internetverbinding.
 
 > [!NOTE]
-> Wanneer standaardroutes worden geadverteerd, wordt de activering van Windows- en andere VM-licenties verbroken. Volg [deze](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) instructies als u dit wilt omzeilen.
+> Wanneer standaardroutes worden geadverteerd, wordt de activering van Windows- en andere VM-licenties verbroken. Volg de instructies [hier](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) toowork voorkomen.
 > 
 > 
 
 ## <a name="support-for-bgp-communities-preview"></a>Ondersteuning voor BGP-community's (Preview)
 
-Deze sectie bevat een overzicht van hoe BGP-community's worden gebruikt met ExpressRoute. Microsoft adverteert routes in de paden voor openbare en Microsoft-peering waarbij de routes zijn gemarkeerd met de juiste communitywaarden. De reden hiervoor en meer informatie over communitywaarden worden hieronder beschreven. Microsoft erkent echter geen communitywaarden die zijn toegevoegd aan routes die worden geadverteerd aan Microsoft.
+Deze sectie bevat een overzicht van hoe BGP-community's worden gebruikt met ExpressRoute. Microsoft adverteert routes in Hallo openbare en Microsoft-peering paden met routes zijn gemarkeerd met de juiste Communitywaarden. Hallo reden hiervoor en meer informatie over community waarden worden hieronder beschreven Hallo. Microsoft, echter niet van toepassing een community met tags tooroutes waarden tooMicrosoft aangekondigd.
 
-Als u op willekeurig welke locatie in een geopolitieke regio via ExpressRoute verbinding maakt met Microsoft, hebt u toegang tot alle Microsoft-cloudservices in alle regio's binnen de geopolitieke grenzen. 
+Als u tooMicrosoft zijn verbonden via ExpressRoute op een locatie binnen een geopolitieke regio, hebt u toegang tooall Microsoft-cloudservices in alle regio's binnen de geopolitieke grenzen Hallo. 
 
-Als u bijvoorbeeld via ExpressRoute bent verbonden met Microsoft in Amsterdam, hebt u toegang tot alle Microsoft Cloud-services die worden gehost in Noord-Europa en West-Europa. 
+Als u tooMicrosoft in Amsterdam via ExpressRoute verbonden, hebt u bijvoorbeeld toegang tooall Microsoft cloud-services die worden gehost in Noord-Europa en West-Europa. 
 
-Raadpleeg de pagina [ExpressRoute partners and peering locations](expressroute-locations.md) (Overzicht van ExpressRoute-partners en -peeringlocaties) voor een gedetailleerde lijst van de geopolitieke regio's, bijbehorende Azure-regio's en bijbehorende ExpressRoute-peeringlocaties.
+Raadpleeg toohello [ExpressRoute-partners en peeringlocaties](expressroute-locations.md) pagina voor een gedetailleerde lijst met geopolitieke regio's, bijbehorende Azure-regio's en bijbehorende ExpressRoute-peeringlocaties.
 
-U kunt meer dan één ExpressRoute-circuit per geopolitieke regio aanschaffen. Het hebben van meer verbindingen biedt aanzienlijke voordelen wat betreft hoge beschikbaarheid vanwege geografische redundantie. Als u meerdere ExpressRoute-circuits hebt, ontvangt u dezelfde set voorvoegsels die worden geadverteerd vanuit Microsoft op de paden voor openbare peering en Microsoft-peering. Dat betekent dat er vanuit uw netwerk meerdere paden zijn naar Microsoft. Dit kan tot gevolg hebben dat er in uw netwerk suboptimale routeringsbeslissingen worden genomen. Dit kan leiden tot suboptimale connectiviteitservaringen met andere services. 
+U kunt meer dan één ExpressRoute-circuit per geopolitieke regio aanschaffen. Hebben van meer verbindingen biedt aanzienlijke voordelen wat betreft hoge beschikbaarheid vanwege toogeo redundantie. In gevallen waarin u meerdere ExpressRoute-circuits hebt, ontvangt u van Microsoft op Hallo openbare peering en Microsoft-peering paden Hallo dezelfde set voorvoegsels zijn geadverteerd. Dat betekent dat er vanuit uw netwerk meerdere paden zijn naar Microsoft. Dit kan veroorzaken suboptimale routering beslissingen toobe die zijn aangebracht in uw netwerk. Als gevolg hiervan kunnen optreden suboptimale connectiviteit ervaringen toodifferent services. 
 
-Daarom markeert Microsoft voorvoegsels die worden geadverteerd via openbare peering en Microsoft-peering met de juiste BGP-communitywaarden. Deze waarden geven de regio aan waarin de voorvoegsels worden gehost. Op basis van de communitywaarden worden de juiste routeringsbeslissingen genomen voor [optimale routering naar klanten](expressroute-optimize-routing.md).
+Microsoft voorvoegsels die worden geadverteerd via openbare peering en Microsoft-peering met de juiste BGP-Communitywaarden die aangeeft Hallo regio Hallo voorvoegsels worden gehost in. U kunt vertrouwen op Hallo community waarden toomake juiste routering beslissingen toooffer [optimale routering toocustomers](expressroute-optimize-routing.md).
 
 | **Geopolitieke regio** | **Microsoft Azure-regio** | **BGP-communitywaarde** |
 | --- | --- | --- |
@@ -177,14 +177,14 @@ Daarom markeert Microsoft voorvoegsels die worden geadverteerd via openbare peer
 | India - west |12076:51018 | |
 | India - midden |12076:51017 | |
 
-Alle routes die worden geadverteerd vanuit Microsoft, worden gemarkeerd met de juiste community-waarde. 
+Alle routes die worden geadverteerd vanuit Microsoft worden, gemarkeerd met de juiste communitywaarde Hallo. 
 
 > [!IMPORTANT]
 > Globale voorvoegsels worden gemarkeerd met een juiste communitywaarde en worden alleen geadverteerd wanneer de Premium-invoegtoepassing voor ExpressRoute is ingeschakeld.
 > 
 > 
 
-Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service waartoe ze behoren. Dit geldt alleen voor de Microsoft-peering. De volgende tabel bevat een toewijzing van services aan BGP-communitywaarden.
+Bovendien toohello hoger, Microsoft ook voorvoegsels op basis van Hallo service waartoe ze behoren. Dit geldt alleen toohello Microsoft-peering. Hallo in de volgende tabel bevat een toewijzing van de service tooBGP community-waarde.
 
 | **Service** | **BGP-communitywaarde** |
 | --- | --- |
@@ -195,7 +195,7 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 | **Andere Office 365-services** |12076:5100 |
 
 > [!NOTE]
-> BGP-communitywaarden die u instelt op de routes die worden geadverteerd naar Microsoft, worden niet door Microsoft erkend.
+> BGP-Communitywaarden die u op Hallo routes aangekondigd tooMicrosoft instelt worden niet door door Microsoft.
 > 
 > 
 
@@ -203,7 +203,7 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 
 * Configureer uw ExpressRoute-verbinding.
   
-  * [Create an ExpressRoute circuit for the classic deployment model](expressroute-howto-circuit-classic.md) (Een ExpressRoute-circuit maken voor het klassieke implementatiemodel) of [Create and modify an ExpressRoute circuit using Azure Resource Manager](expressroute-howto-circuit-arm.md) (Een ExpressRoute-circuit maken en wijzigen met Azure Resource Manager)
-  * [Configure routing for the classic deployment model](expressroute-howto-routing-classic.md) (Routering configureren voor het klassieke implementatiemodel) of [Configure routing for the Resource Manager deployment model](expressroute-howto-routing-arm.md) (Routering configureren voor het Resource Manager-implementatiemodel)
-  * [Link a classic VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md) (Een klassiek VNet koppelen aan een ExpressRoute-circuit) of [Link a Resource Manager VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md) (Een Resource Manager-VNet koppelen aan een ExpressRoute-circuit)
+  * [Maken van een ExpressRoute-circuit voor het klassieke implementatiemodel Hallo](expressroute-howto-circuit-classic.md) of [maken en een ExpressRoute-circuit met Azure Resource Manager wijzigen](expressroute-howto-circuit-arm.md)
+  * [Routering configureren voor het klassieke implementatiemodel Hallo](expressroute-howto-routing-classic.md) of [routering configureren voor Hallo Resource Manager-implementatiemodel](expressroute-howto-routing-arm.md)
+  * [Koppelen van een klassiek VNet tooan ExpressRoute-circuit](expressroute-howto-linkvnet-classic.md) of [koppelen van een Resource Manager VNet tooan ExpressRoute-circuit](expressroute-howto-linkvnet-arm.md)
 

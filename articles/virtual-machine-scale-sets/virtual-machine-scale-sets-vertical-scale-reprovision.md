@@ -1,6 +1,6 @@
 ---
-title: Virtuele machine van Azure-schaalsets verticaal te schalen | Microsoft Docs
-description: Een virtuele Machine verticaal te schalen in reactie op waarschuwingen met Azure Automation bewaken
+title: aaaVertically scale Azure virtuele-machineschaalsets | Microsoft Docs
+description: Hoe toovertically schaal van een virtuele Machine in antwoord toomonitoring waarschuwingen met Azure Automation
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gbowerman
@@ -15,33 +15,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: guybo
-ms.openlocfilehash: 9159a5a9041864fe06785829121233379c46bb03
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1cc35a805b6a5742252a89c21588ca451ff547a3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Verticale automatisch geschaald met de virtuele Machine-schaalsets
-Dit artikel wordt beschreven hoe u Azure verticaal te schalen [virtuele-Machineschaalsets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) met of zonder reprovisioning. Raadpleeg voor verticale schaling van virtuele machines die niet in-schaalsets [verticaal schalen Azure virtuele machine met Azure Automation](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Dit artikel wordt beschreven hoe toovertically Azure schalen [virtuele-Machineschaalsets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) met of zonder reprovisioning. Raadpleeg te voor verticale schaling van virtuele machines die niet in-schaalsets[verticaal schalen Azure virtuele machine met Azure Automation](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Verticale schaling, ook wel bekend als *opschalen* en *omlaag schalen*houdt in oplopende of aflopende volgorde van de grootte van de virtuele machines (VM) in reactie op een werkbelasting. Vergelijk deze met [horizontaal schalen](virtual-machine-scale-sets-autoscale-overview.md), ook wel *uitschalen* en *schalen*, waarbij het aantal VM's afhankelijk van de werkbelasting wordt gewijzigd.
+Verticale schaling, ook wel bekend als *opschalen* en *omlaag schalen*houdt in oplopende of aflopende volgorde grootten van virtuele machine (VM) op antwoord tooa werkbelasting. Vergelijk deze met [horizontaal schalen](virtual-machine-scale-sets-autoscale-overview.md), ook wel aangeduid tooas *uitschalen* en *schalen*, waarbij Hallo aantal VM's afhankelijk van de werkbelasting hello wordt gewijzigd.
 
-Reprovisioning betekent het verwijderen van een bestaande VM te vervangen door een nieuwe. Wanneer u vergroten of verkleinen van de grootte van virtuele machines in een VM-Schaalset, in sommige gevallen wilt u de grootte van bestaande virtuele machines wijzigen en uw gegevens behouden, terwijl in andere gevallen moet u nieuwe virtuele machines van de nieuwe grootte implementeren. Dit document bevat informatie over beide gevallen.
+Reprovisioning betekent het verwijderen van een bestaande VM te vervangen door een nieuwe. Wanneer u vergroten of Hallo grootte van virtuele machines in een VM-Schaalset verkleinen, in sommige gevallen u wilt tooresize bestaande virtuele machines en uw gegevens behouden, terwijl in andere gevallen u toodeploy moet nieuwe virtuele machines van de nieuwe grootte Hallo. Dit document bevat informatie over beide gevallen.
 
 Verticale schaling kan handig zijn wanneer:
 
-* Een service die is gebaseerd op virtuele machines is onder gebruikt (bijvoorbeeld in het weekend). De VM-grootte verminderen kunt maandelijkse kosten te verlagen.
-* VM-grootte toenemend omgaan met grotere verzoek zonder extra virtuele machines maken.
+* Een service die is gebaseerd op virtuele machines is onder gebruikt (bijvoorbeeld in het weekend). Hallo VM verkleinen kunt maandelijkse kosten te verlagen.
+* VM-grootte toocope met grotere vraag te vergroten zonder dat er extra virtuele machines.
 
-U kunt instellen verticaal schalen om te worden geactiveerd op basis van metrische waarschuwingen op basis van uw VM-Schaalset. Wanneer de waarschuwing is geactiveerd. Deze gebeurtenis wordt gestart een webhook die een runbook die kan worden geschaald schaal omhoog of omlaag ingesteld triggers. Verticale schaling kan worden geconfigureerd met de volgende stappen:
+U kunt een verticale instellen toobe geactiveerd schalen op basis van metrische waarschuwingen op basis van uw VM-Schaalset. Wanneer Hallo waarschuwing is geactiveerd. Deze gebeurtenis wordt gestart een webhook die een runbook die kan worden geschaald schaal omhoog of omlaag ingesteld triggers. Verticale schaling kan worden geconfigureerd met de volgende stappen:
 
 1. Een Azure Automation-account maken met run as-functionaliteit.
 2. Verticale schaal van Azure Automation-runbooks voor VM-Schaalsets importeren in uw abonnement.
-3. Een webhook toevoegen aan uw runbook.
-4. Een waarschuwing toevoegen aan uw VM-Schaalset met behulp van een webhook-melding.
+3. Toevoegen van een webhook tooyour runbook.
+4. Een waarschuwing tooyour VM-Schaalset met behulp van een webhook melding toevoegen.
 
 > [!NOTE]
-> Verticale automatisch schalen kan alleen plaatsvinden binnen een bepaalde adresbereiken van VM-formaten. Vergelijk de specificaties van elke grootte voordat u besluit om te schalen van een aan een andere (hoger de waarde niet altijd wordt aangegeven in de VM-grootte groter). U kunt kiezen tussen de volgende paren van grootte schalen:
+> Verticale automatisch schalen kan alleen plaatsvinden binnen een bepaalde adresbereiken van VM-formaten. Hallo-specificaties van elke grootte vergelijken voordat u besluit tooscale van één tooanother (hoger de waarde niet altijd wordt aangegeven in de VM-grootte groter). U kunt tooscale tussen Hallo paren van grootte te volgen:
 > 
 > | VM-grootten paar schalen |  |
 > | --- | --- |
@@ -55,35 +55,35 @@ U kunt instellen verticaal schalen om te worden geactiveerd op basis van metrisc
 > 
 
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Een Azure Automation-Account maken met run as-functionaliteit
-Het eerste wat dat u moet doen is een Azure Automation-account die als host voor de runbooks gebruikt fungeert voor het schalen van de VM-Schaalset exemplaren maken. Recent [Azure Automation](https://azure.microsoft.com/services/automation/) geïntroduceerd van de functie 'Run As-account', waardoor de instelling van de Service-Principal voor het automatisch uitvoeren van de runbooks namens een gebruiker heel eenvoudig. U kunt meer lezen over deze in het artikel hieronder:
+u moet toodo Hallo-eerst is een Azure Automation-account die als host Hallo runbooks gebruikt tooscale Hallo VM-Schaalset exemplaren fungeert maken. Recent [Azure Automation](https://azure.microsoft.com/services/automation/) Hallo 'Uitvoeren als-account' functie waardoor Hallo Service-Principal instellen voor het automatisch uitvoeren van runbooks Hallo namens een gebruiker heel eenvoudig geïntroduceerd. U kunt meer lezen over deze in de onderstaande Hallo-artikel:
 
 * [Runbooks verifiëren met een Azure Uitvoeren als-account](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Verticale schaal van Azure Automation-runbooks importeert in uw abonnement
-De runbooks die nodig zijn voor uw VM-Schaalsets verticaal te schalen zijn al gepubliceerd in de galerie van Azure Automation Runbook. Als u wilt importeren stappen in uw abonnement de in dit artikel:
+Hallo runbooks nodig toovertically schaal die uw VM-Schaalsets al zijn gepubliceerd in de galerie van Azure Automation-Runbook Hallo. tooimport deze in uw abonnement Hallo Volg de stappen in dit artikel:
 
 * [Runbook- en galerieën voor Azure Automation](../automation/automation-runbook-gallery.md)
 
-Kies de optie Galerij bladeren in het menu Runbooks:
+Hallo bladeren galerie optie kiezen uit Hallo Runbooks menu:
 
-![Runbooks moeten worden geïmporteerd][runbooks]
+![Runbooks toobe geïmporteerd][runbooks]
 
-De runbooks die moeten worden geïmporteerd, worden weergegeven. Selecteer het runbook op basis van of u wilt dat verticale met of zonder reprovisioning schalen:
+Hallo-runbooks die toobe geïmporteerd moeten worden weergegeven. Hallo runbook op basis van of u verticale schalen met of zonder reprovisioning wilt selecteren:
 
 ![Galerie met Runbooks][gallery]
 
-## <a name="add-a-webhook-to-your-runbook"></a>Een webhook toevoegen aan uw runbook
-Zodra u hebt geïmporteerd toevoegen de runbooks u moet een webhook aan het runbook, zodat deze kan worden geactiveerd door een waarschuwing van een VM-Schaalset. De details van het maken van een webhook voor uw Runbook worden beschreven in dit artikel:
+## <a name="add-a-webhook-tooyour-runbook"></a>Een webhook tooyour runbook toevoegen
+Zodra u Hallo runbooks hebt geïmporteerd moet u een webhook toohello runbook tooadd zodat deze kan worden geactiveerd door een waarschuwing van een VM-Schaalset. Hallo-details van het maken van een webhook voor uw Runbook worden beschreven in dit artikel:
 
 * [Azure Automation-webhooks.](../automation/automation-webhooks.md)
 
 > [!NOTE]
-> Zorg ervoor dat u de webhook URI kopiëren voordat u sluit het dialoogvenster webhook want u dit in de volgende sectie moet.
+> Zorg ervoor dat u Hallo webhook URI kopiëren voordat het Hallo-webhook dialoogvenster te sluiten als u dit in de volgende sectie Hallo moet.
 > 
 > 
 
-## <a name="add-an-alert-to-your-vm-scale-set"></a>Een waarschuwing toevoegen aan uw VM-Schaalset
-Hieronder vindt u een PowerShell-script die laat zien hoe een waarschuwing toevoegt aan een VM-Schaalset. Raadpleeg het volgende artikel om op te halen van de naam van de metrische gegevens voor het starten van de waarschuwing in: [Azure Monitor automatisch schalen algemene metrische gegevens](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
+## <a name="add-an-alert-tooyour-vm-scale-set"></a>Toevoegen van een waarschuwing tooyour VM-Schaalset
+Hieronder vindt u een PowerShell-script waaruit blijkt hoe tooadd een waarschuwing tooa VM-Schaalset. Raadpleeg toohello tooget Hallo artikelnaam van Hallo metrische toofire Hallo waarschuwing op te volgen: [Azure Monitor automatisch schalen algemene metrische gegevens](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
@@ -112,11 +112,11 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 ```
 
 > [!NOTE]
-> Het verdient aanbeveling voor het configureren van een redelijke tijdvenster voor de waarschuwing om te voorkomen dat verticaal schalen en de bijbehorende service-onderbreking, te vaak activering. U kunt een venster van minimaal 20-30 minuten of langer. U kunt een horizontale schaal als u wilt vermijden.
+> Het is aanbevolen tooconfigure een redelijke tijdvenster voor Hallo waarschuwing in volgorde tooavoid activerende verticaal schalen en alle gekoppelde service wordt onderbroken, te vaak. U kunt een venster van minimaal 20-30 minuten of langer. U kunt een horizontale schaal als u tooavoid onderbreking moet.
 > 
 > 
 
-Raadpleeg de volgende artikelen voor meer informatie over het maken van waarschuwingen:
+Voor meer informatie over hoe waarschuwingen toocreate verwijzen toohello volgende artikelen:
 
 * [Azure PowerShell Monitor snel starten-voorbeelden](../monitoring-and-diagnostics/insights-powershell-samples.md)
 * [Azure Monitor platformoverschrijdende CLI snel starten-voorbeelden](../monitoring-and-diagnostics/insights-cli-samples.md)

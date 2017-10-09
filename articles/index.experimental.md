@@ -1,13 +1,13 @@
 ---
 layout: HubPage
 hide_bc: True
-title: Documentatie voor Microsoft Azure
-description: Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Azure Cloud Services. Maak gebruik van documentatie, voorbeeldcode, zelfstudies en meer.
-ms.openlocfilehash: 282e1da4a5ec8ccb3c6119c6de6fd37b83bbb71e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+title: aaaMicrosoft Azure-documentatie
+description: Meer informatie over hoe toobuild krachtige toepassingen met Microsoft Azure cloudservices en beheren. Maak gebruik van documentatie, voorbeeldcode, zelfstudies en meer.
+ms.openlocfilehash: a844a7c29be3e0f61c50eb0e89b8677029ee97dc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1081,7 +1081,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Schaalsets voor virtuele machines</h3>
-                                                    <p>Beheer en schaal naar tientallen, honderden of duizenden virtuele Linux- en Windows-machines</p>
+                                                    <p>Beheren en schalen per 10 too1000s van Linux- en Windows virtuele machines</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1218,7 +1218,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Overzicht van netwerken</h3>
-                                                    <p>Een geïntegreerde weergave van de netwerkservices in Azure</p>
+                                                    <p>Een weergave met een geïntegreerde Hallo netwerkservices in Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1237,7 +1237,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Virtual Network</h3>
-                                                    <p>Privénetwerken inrichten, optioneel verbinding maken met on-premises datacenters</p>
+                                                    <p>Inrichten van particuliere netwerken, eventueel verbinding tooon-premises datacenters</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1255,8 +1255,8 @@ ms.lasthandoff: 08/03/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Load Balancer</h3>
-                                                    <p>Hoge beschikbaarheid en netwerkprestaties voor uw toepassingen leveren</p>
+                                                    <h3>Load balancer</h3>
+                                                    <p>Hoge beschikbaarheid en netwerkprestaties leveren tooyour toepassingen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1332,7 +1332,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>CDN</h3>
-                                                    <p>Inhoud aan eindgebruikers leveren via een robuust netwerk met globale datacenters </p>
+                                                    <p>Inhoud tooend-gebruikers via een robuuste netwerk van globale datacenters leveren </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1370,7 +1370,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>ExpressRoute</h3>
-                                                    <p>Toegewezen glasvezelverbindingen van privénetwerken naar Azure</p>
+                                                    <p>Speciale privénetwerk fiber verbindingen tooAzure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1469,8 +1469,8 @@ ms.lasthandoff: 08/03/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Back-up maken</h3>
-                                                    <p>Eenvoudige en betrouwbare serverback-up naar de cloud</p>
+                                                    <h3>Back-up</h3>
+                                                    <p>Eenvoudige en betrouwbare server back-toohello cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1532,7 +1532,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Mobile Apps</h3>
-                                                    <p>De back-end voor een mobiele app bouwen en hosten</p>
+                                                    <p>Build en host Hallo back-end voor mobiele Apps</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1550,7 +1550,7 @@ ms.lasthandoff: 08/03/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>API Apps</h3>
+                                                    <h3>API-apps</h3>
                                                     <p>Eenvoudig cloud-API's bouwen en gebruiken</p>
                                                 </div>
                                             </div>
@@ -1570,7 +1570,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Logic Apps</h3>
-                                                    <p>De toegang tot, en het gebruik van, gegevens in clouds automatiseren zonder code te schrijven</p>
+                                                    <p>Het automatiseren van Hallo toegang en gebruik van gegevens tussen clouds zonder code te schrijven</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1589,7 +1589,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>CDN</h3>
-                                                    <p>Inhoud aan eindgebruikers leveren via een robuust netwerk met globale datacenters </p>
+                                                    <p>Inhoud tooend-gebruikers via een robuuste netwerk van globale datacenters leveren </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1827,7 +1827,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Server Stretch Database</h3>
-                                                    <p>On-premises SQL Server-databases dynamisch naar Azure uitbreiden</p>
+                                                    <p>Dynamisch stretch lokale SQL Server-databases tooAzure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1903,7 +1903,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Redis Cache</h3>
-                                                    <p>Gegevenstoegang met hoge doorvoer en lage latentie om snelle, schaalbare toepassingen te bouwen</p>
+                                                    <p>Hoge doorvoer, lage latentie data access-toobuild fast/schaalbare toepassingen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1984,7 +1984,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Zoeken op het web met Bing</h3>
-                                                    <p>Krachtige onlinezoekfunctie koppelen aan uw apps</p>
+                                                    <p>Verbinding maken met de krachtige zoeken tooyour WebApps</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2022,7 +2022,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Custom Vision Service</h3>
-                                                    <p>Een aanpasbare webservice die specifieke inhoud in beeldmateriaal leert herkennen</p>
+                                                    <p>Een aanpasbare webservice die leert van specifieke inhoudstypen in beelden toorecognize</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2060,7 +2060,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Language Understanding Intelligent Services (LUIS)</h3>
-                                                    <p>Leer uw apps opdrachten van uw gebruikers te begrijpen</p>
+                                                    <p>Leer uw apps toounderstand opdrachten uit uw gebruikers</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2079,7 +2079,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Aangepast zoeken met Bing</h3>
-                                                    <p>De zoekresultaten bouwen die u zoekt</p>
+                                                    <p>Hallo-zoekresultaten die u zoekt bouwen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2122,7 +2122,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning</h3>
-                                                    <p>Krachtig cloudprogramma voor predictive analytics dat voorspellend onderhoud mogelijk maakt</p>
+                                                    <p>Krachtige cloud-gebaseerde predictive analytics hulpprogramma tooenable voorspeld onderhoud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2160,7 +2160,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Zelfservice voor gegevensbrondetectie inschakelen voor het hele bedrijf</p>
+                                                    <p>Detectie van gegevensbron selfservice inschakelen tussen Hallo enterprise</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2255,7 +2255,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Analysis Services</h3>
-                                                    <p>Hoogwaardige gegevensmodellen in de cloud</p>
+                                                    <p>Gegevens van bedrijfsniveau modelleren in Hallo cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2336,7 +2336,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure IoT Suite</h3>
-                                                    <p>Leg tot nu toe ongebruikte gegevens vast en analyseer deze om de bedrijfsresultaten te verbeteren</p>
+                                                    <p>Vastleggen en analyseren van onbenutte gegevens tooimprove bedrijfsresultaten</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2393,7 +2393,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning</h3>
-                                                    <p>Krachtig cloudprogramma voor predictive analytics dat voorspellend onderhoud mogelijk maakt</p>
+                                                    <p>Krachtige cloud-gebaseerde predictive analytics hulpprogramma tooenable voorspeld onderhoud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2455,7 +2455,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Logic Apps</h3>
-                                                    <p>De toegang tot, en het gebruik van, gegevens in clouds automatiseren zonder code te schrijven</p>
+                                                    <p>Het automatiseren van Hallo toegang en gebruik van gegevens tussen clouds zonder code te schrijven</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2493,7 +2493,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>API Management</h3>
-                                                    <p>API's veilig en op schaal publiceren naar ontwikkelaars, partners en werknemers</p>
+                                                    <p>Publiceren van API's toodevelopers, partners en medewerkers veilig en op schaal</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2531,7 +2531,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Server Stretch Database</h3>
-                                                    <p>On-premises SQL Server-databases dynamisch naar Azure uitbreiden</p>
+                                                    <p>Dynamisch stretch lokale SQL Server-databases tooAzure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2569,7 +2569,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>BizTalk Services</h3>
-                                                    <p>Probleemloze integratie van de onderneming en de cloud</p>
+                                                    <p>Hallo enterprise en Hallo cloud kunnen probleemloos worden geïntegreerd</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2593,7 +2593,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Center</h3>
-                                                    <p>Verbeterde zichtbaarheid bij het voorkomen, detecteren en oplossen van bedreigingen</p>
+                                                    <p>Detecteren, voorkomen van en reageren toothreats dankzij een verhoogde zichtbaarheid</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2612,7 +2612,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Key Vault</h3>
-                                                    <p>Meer informatie over het beheren van cryptografische sleutels en geheimen</p>
+                                                    <p>Meer informatie over hoe toomanage cryptografische sleutels en geheimen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2650,7 +2650,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Active Directory B2C</h3>
-                                                    <p>Identiteits- en toegangsbeheer van consumenten in de cloud</p>
+                                                    <p>Consumer identiteits- en toegangsbeheer management in Hallo cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2669,7 +2669,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Active Directory Domain Services</h3>
-                                                    <p>Azure Virtual Machines toevoegen aan een domein zonder domeincontrollers</p>
+                                                    <p>Lid worden van domein van de virtuele machines in Azure tooa zonder domeincontrollers</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2687,8 +2687,8 @@ ms.lasthandoff: 08/03/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Multi-Factor Authentication</h3>
-                                                    <p>Toegang tot uw gegevens en apps beschermen met een extra verificatieniveau</p>
+                                                    <h3>Meervoudige verificatie</h3>
+                                                    <p>Beveiliging toegang tooyour gegevens en apps met een extra verificatieniveau</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2707,7 +2707,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Informatie over beveiliging</h3>
-                                                    <p>Informatie over de veilige infrastructuur van Azure waarop u uw cloudoplossingen kunt bouwen</p>
+                                                    <p>Meer informatie over hoe Azure biedt een zekere infrastructuur toobuild cloudoplossingen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2731,7 +2731,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Visual Studio Team Services</h3>
-                                                    <p>Services waarmee teams code kunnen delen, werk kunnen volgen en software kunnen verzenden</p>
+                                                    <p>Services voor teams tooshare code, werk bijhouden en het verzenden van software</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2788,7 +2788,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>API Management</h3>
-                                                    <p>API's veilig en op schaal publiceren naar ontwikkelaars, partners en werknemers</p>
+                                                    <p>Publiceren van API's toodevelopers, partners en medewerkers veilig en op schaal</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2850,7 +2850,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
-                                                    <p>Leer hoe u computergegevens kunt transformeren tot operationele intelligentie</p>
+                                                    <p>Meer informatie over hoe tootransform gegevens in operationele intelligence machine</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2868,7 +2868,7 @@ ms.lasthandoff: 08/03/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Automation</h3>
+                                                    <h3>Automatisering</h3>
                                                     <p>Cloudbeheer vereenvoudigen met procesautomatisering</p>
                                                 </div>
                                             </div>
@@ -2887,8 +2887,8 @@ ms.lasthandoff: 08/03/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Back-up maken</h3>
-                                                    <p>Eenvoudige en betrouwbare serverback-up naar de cloud</p>
+                                                    <h3>Back-up</h3>
+                                                    <p>Eenvoudige en betrouwbare server back-toohello cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2964,7 +2964,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Facturering</h3>
-                                                    <p>Het gebruik van uw Azure-abonnement en de factuur voor dit abonnement begrijpen</p>
+                                                    <p>Meer informatie over hoe tooread/begrijpen Hallo gebruiks- en factuur voor uw Azure-abonnement</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2983,7 +2983,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Advisor</h3>
-                                                    <p>De rentabiliteit, prestaties, beschikbaarheid en beveiliging van uw Azure-resources verbeteren</p>
+                                                    <p>Hallo kosten effectiviteit, prestaties, beschikbaarheid en beveiliging van uw Azure-resources te verbeteren</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3116,7 +3116,7 @@ ms.lasthandoff: 08/03/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/dotnet/azure/dotnet-sdk-azure-install">De Azure-bibliotheken voor .NET ophalen</a>
+                                                    <a href="/dotnet/azure/dotnet-sdk-azure-install">Het ophalen van de hello Azure-bibliotheken voor .NET</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/develop/net/">Aan de slag</a>
@@ -3140,7 +3140,7 @@ ms.lasthandoff: 08/03/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://pypi.python.org/pypi/azure">De Python-SDK ophalen</a>
+                                                    <a href="https://pypi.python.org/pypi/azure">Hallo Python SDK ophalen</a>
                                                 </h3>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Aan de slag</a>
@@ -3170,7 +3170,7 @@ ms.lasthandoff: 08/03/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.npmjs.com/package/azure">De Node.js-SDK ophalen</a>
+                                                    <a href="https://www.npmjs.com/package/azure">Hallo Node.js SDK ophalen</a>
                                                 </h3>
                                                 <p>
                                                     <a href="http://azure.github.io/azure-sdk-for-node/">Aan de slag</a>
@@ -3200,7 +3200,7 @@ ms.lasthandoff: 08/03/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/java/azure/java-sdk-azure-install">De Azure-bibliotheken voor Java ophalen</a>
+                                                    <a href="/java/azure/java-sdk-azure-install">Het ophalen van de hello Azure-bibliotheken voor Java</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/develop/java/">Aan de slag</a>
@@ -3224,7 +3224,7 @@ ms.lasthandoff: 08/03/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://rubygems.org/gems/azure">De Ruby-SDK ophalen</a>
+                                                    <a href="https://rubygems.org/gems/azure">Hallo Ruby SDK ophalen</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">Aan de slag</a>
@@ -3496,7 +3496,7 @@ ms.lasthandoff: 08/03/2017
                         <ul id="architecture1" class="cardsC">
                             <li>
                                 <div class="container intro">
-                                    <p>Een set van aanbevolen architecturen voor cloud-toepassingen. Elke architectuur bevat aanbevolen procedures, prescriptieve stappen en een uitvoerbare onderdeel waarin de aanbevelingen in acht zijn genomen.</p>
+                                    <p>Een set van aanbevolen architecturen voor cloud-toepassingen. Elke architectuur bevat aanbevolen procedures, richtlijnen stappen en een onderdeel van het uitvoerbare bestand die Hallo aanbevelingen.</p>
                                 </div>
                             </li>
                             <li>
@@ -3511,7 +3511,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Basisinformatie over de cloud</h3>
-                                                    <p>Fundamentele kennis om succesvol te kunnen werken in de cloud. Als u geen ervaring hebt met de cloud of voor het eerst met Azure werkt, begint u hier.</p>
+                                                    <p>Fundamentele kennis toobe geslaagde in Hallo cloud. Als u nieuwe toohello cloud of een nieuwe tooAzure, begint u hier.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3530,7 +3530,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Referentiearchitecturen</h3>
-                                                    <p>Een set van aanbevolen architecturen voor de cloud. Elke architectuur bevat aanbevolen procedures, prescriptieve stappen en een oplossing die kan worden geïmplementeerd.</p>
+                                                    <p>Een verzameling aanbevolen architecturen voor Hallo cloud. Elke architectuur bevat aanbevolen procedures, prescriptieve stappen en een oplossing die kan worden geïmplementeerd.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3549,7 +3549,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloudontwerppatronen</h3>
-                                                    <p>Ontwerppatronen voor de cloud. Elk patroon beschrijft een probleem, een patroon om het probleem op te lossen, en een voorbeeld op basis van Azure.</p>
+                                                    <p>Ontwerppatronen voor Hallo cloud. Elk patroon beschrijft een probleem voordoet, wordt een patroon dat adressen Hallo probleem en een voorbeeld op basis van Azure.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3587,7 +3587,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Scenario Guides</h3>
-                                                    <p>Guidance for various end-to-end application scenarios in the cloud. Includes
+                                                    <p>Guidance for various end-to-end application scenarios in hello cloud. Includes
                                                         written guidance and reference implementations.</p>
                                                 </div>
                                             </div>

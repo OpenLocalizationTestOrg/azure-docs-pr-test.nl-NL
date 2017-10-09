@@ -1,5 +1,5 @@
 ---
-title: Verzenden gebruikerscontext gebruiksanalyse moet zijn ingeschakeld in Azure Application Insights optreedt | Microsoft Docs
+title: aaaSending gebruiker context tooenable gebruik optreedt in Azure Application Insights | Microsoft Docs
 description: Bijhouden hoe gebruikers verplaatsen door middel van uw service na het toewijzen van elk van deze een unieke, permanente ID-reeks in Application Insights.
 services: application-insights
 documentationcenter: 
@@ -12,45 +12,45 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: bwren
-ms.openlocfilehash: 9350029c775643be0dcc679b0f4bb9238b5f8aca
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 0e6c2348f53a3ea970060334179b0dd070925e82
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-#  <a name="sending-user-context-to-enable-usage-experiences-in-azure-application-insights"></a>Verzenden gebruikerscontext ervaringen gebruik Azure Application Insights inschakelen
+#  <a name="sending-user-context-tooenable-usage-experiences-in-azure-application-insights"></a>Verzenden tooenable gebruik van de gebruiker context optreedt in Azure Application Insights
 
 ## <a name="tracking-users"></a>Gebruikers bijhouden
 
-Application Insights kunt u om te controleren en bijhouden van uw gebruikers via een set hulpprogramma's informatie over het gebruik van product: 
+Application Insights kunt u toomonitor en bijhouden van uw gebruikers via een set hulpprogramma's informatie over het gebruik van product: 
 * [Gebruikers, sessies, gebeurtenissen](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
 * [Trechters](https://docs.microsoft.com/azure/application-insights/usage-funnels)
 * [Retentie](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention)
 * Cohorten
 * [Werkmappen](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 
-Te houden wat een gebruiker gedurende een bepaalde periode doet, moet een Application Insights een ID voor elke gebruiker of de sessie. Deze id in elke aangepaste gebeurtenis- of -weergave wilt opnemen.
+In de volgorde tootrack wat een gebruiker gedurende een bepaalde periode heeft, moet Application Insights een ID voor elke gebruiker of de sessie. Deze id in elke aangepaste gebeurtenis- of -weergave wilt opnemen.
 - Gebruikers, schoorstenen, bewaren en cohorten: bevatten de gebruikers-ID.
 - Sessies: Omvatten sessie-ID.
 
-Als uw app is geïntegreerd met de [JavaScript SDK](https://docs.microsoft.com/azure/application-insights/app-insights-javascript#set-up-application-insights-for-your-web-page), gebruiker-ID automatisch wordt bijgehouden.
+Als uw app is geïntegreerd met Hallo [JavaScript SDK](https://docs.microsoft.com/azure/application-insights/app-insights-javascript#set-up-application-insights-for-your-web-page), gebruiker-ID automatisch wordt bijgehouden.
 
 ## <a name="choosing-user-ids"></a>Gebruikers-id's kiezen
 
-Gebruikers-id's moeten blijven bewaard tussen gebruikerssessies bijhouden hoe gebruikers zich gedragen gedurende een bepaalde periode. Er zijn verschillende manieren voor het persistent maken van de-ID.
+Gebruikers-id's moeten persistent is voor gebruiker sessies tootrack hoe gebruikers zich gedragen gedurende een bepaalde periode. Er zijn verschillende manieren voor persistent maken Hallo-ID.
 - Een definitie van een gebruiker die u al in uw service hebt.
-- Als de service toegang tot een browser heeft, kan deze de browser een cookie met een ID in het doorgegeven. De ID bewaard voor, zolang de cookie in de browser van de gebruiker blijft.
-- Indien nodig, wordt kunt u een nieuwe ID elke sessie, maar de resultaten over gebruikers beperkt. Bijvoorbeeld, u niet mogelijk om te zien hoe gedrag van een gebruiker verandert gedurende een bepaalde periode.
+- Als Hallo-service toegang tot tooa browser heeft, kunt het Hallo-browser een cookie met een ID in het doorgeven. zolang Hallo cookie in de browser van de gebruiker Hallo blijft bewaard Hallo-ID voor.
+- Indien nodig, kunt u een nieuwe ID elke sessie Hallo resultaten over gebruikers worden echter beperkt. Bijvoorbeeld, niet kunnen toosee hoe gedrag van een gebruiker gedurende een bepaalde periode verandert.
 
-De ID moet een Guid of een andere tekenreeks complex genoeg elke gebruiker uniek wordt geïdentificeerd. Bijvoorbeeld, wordt een lange willekeurig getal.
+Hallo-ID moet een Guid of een andere tekenreeks complex genoeg tooidentify elke gebruiker een unieke. Bijvoorbeeld, wordt een lange willekeurig getal.
 
-Als de ID persoonlijke gegevens over de gebruiker bevat, is het niet de juiste waarde te verzenden naar Application Insights als een gebruikers-ID. U kunt verzenden dergelijke ID als een [geverifieerde gebruikers-ID](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), maar deze voldoet niet aan de vereisten van de gebruiker-ID voor gebruiksscenario's.
+Hallo-ID bevat persoonsgegevens identificatiegegevens over Hallo gebruiker, is het niet als een geschikte waarde toosend tooApplication Insights als een gebruikers-ID. U kunt verzenden dergelijke ID als een [geverifieerde gebruikers-ID](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), maar deze voldoet niet aan de Hallo gebruiker-ID vereiste voor gebruiksscenario's.
 
 ## <a name="aspnet-apps-set-user-context-in-an-itelemetryinitializer"></a>ASP.NET-Apps: Gebruikerscontext in een ITelemetryInitializer instellen
 
-Maak een initialisatiefunctie telemetrie zoals beschreven in detail [hier](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer), en stel de Context.User.Id en de Context.Session.Id.
+Maak een initialisatiefunctie telemetrie zoals beschreven in detail [hier](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer), en een set Hallo Context.User.Id en Context.Session.Id Hallo.
 
-In het volgende voorbeeld wordt de gebruikers-ID op een id die na de sessie is verlopen. Gebruik zo mogelijk een gebruikers-ID dat behouden over de sessies blijft.
+In het volgende voorbeeld wordt de Hallo gebruikers-ID tooan-id die na Hallo-sessie verloopt. Gebruik zo mogelijk een gebruikers-ID dat behouden over de sessies blijft.
 
 *C#*
 
@@ -64,7 +64,7 @@ In het volgende voorbeeld wordt de gebruikers-ID op een id die na de sessie is v
     namespace MvcWebRole.Telemetry
     {
       /*
-       * Custom TelemetryInitializer that sets the user ID.
+       * Custom TelemetryInitializer that sets hello user ID.
        *
        */
       public class MyTelemetryInitializer : ITelemetryInitializer
@@ -72,17 +72,17 @@ In het volgende voorbeeld wordt de gebruikers-ID op een id die na de sessie is v
         public void Initialize(ITelemetry telemetry)
         {
             // For a full experience, track each user across sessions. For an incomplete view of user 
-            // behavior within a session, store user ID on the HttpContext Session.
-            // Set the user ID if we haven't done so yet.
+            // behavior within a session, store user ID on hello HttpContext Session.
+            // Set hello user ID if we haven't done so yet.
             if (HttpContext.Current.Session["UserId"] == null)
             {
                 HttpContext.Current.Session["UserId"] = Guid.NewGuid();
             }
 
-            // Set the user id on the Application Insights telemetry item.
+            // Set hello user id on hello Application Insights telemetry item.
             telemetry.Context.User.Id = (string)HttpContext.Current.Session["UserId"];
 
-            // Set the session id on the Application Insights telemetry item.
+            // Set hello session id on hello Application Insights telemetry item.
             telemetry.Context.Session.Id = HttpContext.Current.Session.SessionID;
         }
       }
@@ -90,8 +90,8 @@ In het volgende voorbeeld wordt de gebruikers-ID op een id die na de sessie is v
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- Om in te schakelen ervaringen gebruik, beginnen met het verzenden [aangepaste gebeurtenissen](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) of [paginaweergaven](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
-- Als u al aangepaste gebeurtenissen of paginaweergaven verzendt, gebruik de informatie over het gebruik hulpprogramma's voor meer informatie over hoe gebruikers gebruiken voor uw service.
+- Gebruik tooenable optreedt, te beginnen met het verzenden [aangepaste gebeurtenissen](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) of [paginaweergaven](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Als u al aangepaste gebeurtenissen of paginaweergaven verkennen Hallo gebruik hulpprogramma's voor toolearn verzendt hoe gebruikers de service gebruiken.
     * [Overzicht gebruik](app-insights-usage-overview.md)
     * [Gebruikers, sessies en gebeurtenissen](app-insights-usage-segmentation.md)
     * [Trechters](usage-funnels.md)

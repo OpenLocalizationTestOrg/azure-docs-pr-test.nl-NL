@@ -1,6 +1,6 @@
-## <a name="versions-of-the-azure-cli"></a>Versies van de Azure CLI
+## <a name="versions-of-hello-azure-cli"></a>Versies van hello Azure CLI
 
-Er zijn momenteel twee versies van de Azure-opdrachtregelinterface (CLI) beschikbaar:
+Er zijn twee versies van hello Azure-opdrachtregelinterface (CLI) op dit moment beschikbaar:
 
-* [Azure CLI 2.0](../articles/storage/common/storage-azure-cli.md): onze CLI van de nieuwste generatie, geschreven in Python, voor gebruik met het Resource Manager-implementatiemodel.
-* [Azure CLI 1.0](../articles/storage/common/storage-azure-cli-nodejs.md): onze CLI geschreven in Node.js, voor gebruik met zowel het klassieke implementatiemodel als het Resource Management-implementatiemodel.
+* [Azure CLI 2.0](../articles/storage/common/storage-azure-cli.md): de volgende generatie CLI geschreven in Python, voor gebruik met Hallo Resource Manager-implementatiemodel.
+* [Azure CLI 1.0](../articles/storage/common/storage-azure-cli-nodejs.md): onze CLI geschreven in Node.js, voor gebruik met zowel Hallo-classic als Resource Manager-implementatiemodel.

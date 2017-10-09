@@ -1,7 +1,7 @@
 ## <a name="obtain-an-azure-resource-manager-token"></a>Een Azure Resource Manager-token verkrijgen
-De taken die u uitvoert op resources met behulp van de Azure Resource Manager moeten worden geverifieerd door Azure Active Directory. Het voorbeeld gebruikt wachtwoordverificatie, voor Zie andere benaderingen [verificatie van Azure Resource Manager-aanvragen][lnk-authenticate-arm].
+Azure Active Directory moeten alle Hallo-taken die u uitvoert op resources met behulp van hello Azure Resource Manager verifiëren. Hallo voorbeeld gebruikt wachtwoordverificatie, voor Zie andere benaderingen [verificatie van Azure Resource Manager-aanvragen][lnk-authenticate-arm].
 
-1. Voeg de volgende code naar de **Main** methode in Program.cs ophalen van een token van Azure AD met behulp van de toepassings-id en het wachtwoord.
+1. Hallo na code toohello toevoegen **Main** methode in Program.cs tooretrieve een token van Azure AD met Hallo toepassings-id en wachtwoord.
    
     ```
     var authContext = new AuthenticationContext(string.Format  
@@ -12,18 +12,18 @@ De taken die u uitvoert op resources met behulp van de Azure Resource Manager mo
    
     if (token == null)
     {
-      Console.WriteLine("Failed to obtain the token");
+      Console.WriteLine("Failed tooobtain hello token");
       return;
     }
     ```
-2. Maak een **ResourceManagementClient** -object dat u het token gebruikt door de volgende code toe te voegen aan het einde van de **Main** methode:
+2. Maak een **ResourceManagementClient** object dat wordt gebruikt token door toe te voegen na code toohello Hallo HALLO hallo **Main** methode:
    
     ```
     var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
     client.SubscriptionId = subscriptionId;
     ```
-3. Maken of een verwijzing naar de resourcegroep die u gebruikt:
+3. Maken of een verwijzing naar Hallo-resourcegroep die u gebruikt:
    
     ```
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,

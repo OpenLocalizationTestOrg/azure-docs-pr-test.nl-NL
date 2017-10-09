@@ -1,12 +1,12 @@
 ---
 title: 'Gesimuleerde apparaat & Azure IoT Gateway - les 3: voorbeeld-app uitvoeren | Microsoft Docs'
-description: Voer een gesimuleerd apparaat voorbeeld-app temperatuur om gegevens te verzenden naar uw IoT-hub
+description: Voer een gesimuleerd apparaat voorbeeld-app toosend temperatuur tooyour iothub
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: gegevens in de cloud
+keywords: gegevens toocloud
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 5d051d99-9749-4150-b3c8-573b0bda9c52
@@ -17,26 +17,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 7df2d730c38a9f715e0fd57b4d436724a5727760
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bc2c97919e95e4e3977a8b6ac75162bf2b5017be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-and-run-a-simulated-device-sample-app"></a>Configureren en uitvoeren van een gesimuleerd apparaat voorbeeld-app
 
 ## <a name="what-you-will-do"></a>Wat u doet
 
-- Kloon de opslagplaats voorbeeld.
-- De Azure CLI gebruiken om uw IoT-hub en logische apparaatgegevens voor de voorbeeldtoepassing gesimuleerde apparaat. Configureren en uitvoeren van de voorbeeldtoepassing gesimuleerde apparaat.
+- Kloon Hallo voorbeeld opslagplaats.
+- Gebruik uw IoT-hub en logische apparaatgegevens hello Azure CLI tooget voor de voorbeeldtoepassing gesimuleerde apparaat. Configureren en uitvoeren van de voorbeeldtoepassing voor Hallo gesimuleerde apparaat.
 
-Als u problemen hebt, moet u uitkijken voor oplossingen op de [probleemoplossing pagina](iot-hub-gateway-kit-c-sim-troubleshooting.md).
+Als u problemen hebt, zoekt u naar oplossingen op Hallo [probleemoplossing pagina](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Wat u leert
 
 In dit artikel leert u het:
 
-- Informatie over het configureren en uitvoeren van de voorbeeldtoepassing gesimuleerde apparaat.
+- Hoe tooconfigure en Voer Hallo gesimuleerd apparaat voorbeeldtoepassing.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
 
@@ -44,21 +44,21 @@ U moet hebt voltooid
 
 - [Een IoT-hub maken en uw apparaat registreren](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
 
-## <a name="clone-the-sample-repository-to-the-host-computer"></a>Kloon de opslagplaats voorbeeld met de hostcomputer
+## <a name="clone-hello-sample-repository-toohello-host-computer"></a>Kloon Hallo voorbeeld opslagplaats toohello hostcomputer
 
-De voorbeeld-opslagplaats klonen, moet u deze stappen volgen op de hostcomputer:
+tooclone hello voorbeeld opslagplaats als volgt te werk op de hostcomputer Hallo:
 
 1. Open een opdrachtprompt in Windows of een terminal in Mac OS of Ubuntu.
-2. Voer de volgende opdrachten uit:
+2. Voer Hallo volgende opdrachten:
 
    ```bash
    git clone https://github.com/Azure-samples/iot-hub-c-intel-nuc-gateway-getting-started
    cd iot-hub-c-intel-nuc-gateway-getting-started
    ```
 
-## <a name="configure-the-simulated-device-and-your-nuc"></a>Het gesimuleerde apparaat en uw NUC configureren
+## <a name="configure-hello-simulated-device-and-your-nuc"></a>Hallo gesimuleerde apparaat en uw NUC configureren
 
-1. Open het configuratiebestand `config.json` in Visual Studio Code met de volgende opdracht:
+1. Open Hallo-configuratiebestand `config.json` in Visual Studio Code door te voeren Hallo volgende opdracht:
 
    ```bash
    code config.json
@@ -68,7 +68,7 @@ De voorbeeld-opslagplaats klonen, moet u deze stappen volgen op de hostcomputer:
 
    ![Configuratie hebt u niet een TI SensorTag-apparaat](media/iot-hub-gateway-kit-lessons/lesson3/config_no_sensortag.png)
 
-3. Het configuratiebestand initialiseren met de volgende opdrachten:
+3. Hallo-configuratiebestand door het uitvoeren van de volgende opdrachten Hallo initialiseren:
 
    ```bash
    cd Lesson3
@@ -76,7 +76,7 @@ De voorbeeld-opslagplaats klonen, moet u deze stappen volgen op de hostcomputer:
    gulp init
    ```
 
-4. Open `config-gateway.json` in Visual Studio Code met de volgende opdracht:
+4. Open `config-gateway.json` in Visual Studio Code door te voeren Hallo volgende opdracht:
 
    ```bash
    # For Windows command prompt
@@ -85,24 +85,24 @@ De voorbeeld-opslagplaats klonen, moet u deze stappen volgen op de hostcomputer:
    code ~/.iot-hub-getting-started/config-gateway.json
    ```
 
-5. Zoek de volgende regel code en vervang `[device hostname or IP address]` met IP-adres of de host-naam van de Intel NUC.
+5. Hallo volgende coderegel zoeken en vervangen `[device hostname or IP address]` met IP-adres of de hostnaam naam Hallo Intel NUC.
    ![schermopname van configuratie-gateway](media/iot-hub-gateway-kit-lessons/lesson3/config_gateway.png)
 
-## <a name="get-the-connection-string-of-your-iot-hub-logical-device"></a>De verbindingsreeks van uw IoT hub logisch apparaat ophalen
+## <a name="get-hello-connection-string-of-your-iot-hub-logical-device"></a>De verbindingsreeks Hallo van uw IoT hub logisch apparaat ophalen
 
-Als u de verbindingsreeks voor Azure IoT hub van het logische apparaat, voer de volgende opdracht op de hostcomputer:
+tooget hello Azure IoT hub-verbindingsreeks van het logische apparaat, uitvoeren van de volgende opdracht op de hostcomputer Hallo Hallo:
 
 ```bash
 az iot device show-connection-string --hub-name {IoT hub name} --device-id mydevice --resource-group iot-gateway
 ```
 
-`{IoT hub name}`is de naam van de IoT-hub die u hebt gebruikt. Iot-gateway gebruiken als de waarde van `{resource group name}` en mydevice gebruiken als de waarde van `{device id}` als u de waarde in les 2 is niet gewijzigd.
+`{IoT hub name}`is Hallo naam IoT-hub die u hebt gebruikt. Iot-gateway gebruiken als de waarde van Hallo `{resource group name}` en mydevice gebruiken als Hallo-waarde van `{device id}` als u Hallo-waarde in les 2 niet wijzigen.
 
-## <a name="configure-the-simulated-device-cloud-upload-sample-application"></a>Configureren van de voorbeeldtoepassing gesimuleerd apparaat cloud uploaden
+## <a name="configure-hello-simulated-device-cloud-upload-sample-application"></a>Hallo gesimuleerd apparaat cloud uploaden-voorbeeldtoepassing configureren
 
-Configureren en uitvoeren van de voorbeeldtoepassing gesimuleerd apparaat cloud uploaden, als volgt te werk op de hostcomputer:
+tooconfigure en Voer Hallo gesimuleerd apparaat cloud voorbeeldtoepassing uploaden, als volgt te werk op de hostcomputer Hallo:
 
-1. Open `config-sensortag.json` in Visual Studio Code met de volgende opdracht:
+1. Open `config-sensortag.json` in Visual Studio Code door te voeren Hallo volgende opdracht:
 
    ```bash
    # For Windows command prompt
@@ -113,29 +113,29 @@ Configureren en uitvoeren van de voorbeeldtoepassing gesimuleerd apparaat cloud 
 
    ![schermopname van configuratie sensortag](media/iot-hub-gateway-kit-lessons/lesson3/config_simulated_device.png)
 
-2. Controleer de volgende vervangingen in de code:
-   - Vervang `[IoT hub name]` met de naam van de IoT-hub.
-   - Vervang `[IoT device connection string]` met de verbindingsreeks van uw IoT hub logisch apparaat.
+2. Controleer Hallo vervangingen in Hallo code te volgen:
+   - Vervang `[IoT hub name]` met naam Hallo IoT-hub.
+   - Vervang `[IoT device connection string]` met de verbindingsreeks Hallo van uw IoT hub logisch apparaat.
 
-3. Voer de toepassing uit.
+3. Hallo-toepassing uitvoeren.
 
-   Implementeren en uitvoeren van de toepassing met de volgende opdracht:
+   Implementeren en uitvoeren van de toepassing hello door het uitvoeren van de volgende opdracht Hallo:
 
    ```bash
    gulp run
    ```
 
-## <a name="verify-the-sample-application-works"></a>Controleer of de toepassing voorbeeld werkt
+## <a name="verify-hello-sample-application-works"></a>Controleren Hallo voorbeeld toepassing werkt
 
-U ziet nu de volgende uitvoer:
+U ziet nu Hallo volgende uitvoer:
 
 ![de toepassing voorbeelduitvoer gesimuleerd apparaat](media/iot-hub-gateway-kit-lessons/lesson3/gulp_run_simudev.png)
 
-De toepassing verzendt temperatuur gegevens naar uw IoT-hub 40 seconden duurt.
+Hallo toepassing verzendt temperatuur gegevens tooyour IoT-hub 40 seconden duurt.
 
 ## <a name="summary"></a>Samenvatting
 
-U hebt is geconfigureerd en uitvoeren van de voorbeeldtoepassing van gesimuleerd apparaat cloud uploaden die gegevens naar uw IoT-hub met gesimuleerde apparaat verzendt.
+U hebt geconfigureerd en Voer Hallo gesimuleerd apparaat cloud uploaden voorbeeldtoepassing die gegevens tooyour iothub met gesimuleerde apparaat verzendt.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Berichten van de IoT-hub lezen](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)

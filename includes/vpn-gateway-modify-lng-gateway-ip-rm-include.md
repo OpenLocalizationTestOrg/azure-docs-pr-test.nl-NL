@@ -1,8 +1,8 @@
-### <a name="gwipnoconnection"></a> Het 'gatewayIpAddress' van de lokale netwerkgateway wijzigen - geen gatewayverbinding
+### <a name="gwipnoconnection"></a>toomodify hello lokale netwerkgateway GatewayIpAddress - er is geen gatewayverbinding
 
-Als van het VPN-apparaat waarmee u verbinding wilt maken het openbare IP-adres is gewijzigd, moet u de gateway van het lokale netwerk aanpassen met deze wijziging. Gebruik het voorbeeld om een lokale netwerkgateway die geen gatewayverbinding heeft te wijzigen.
+Als Hallo VPN-apparaat dat u wilt dat tooconnect toohas het openbare IP-adres is gewijzigd, moet u toomodify Hallo lokale netwerk gateway tooreflect die wijzigen. Hallo voorbeeld toomodify een lokale netwerkgateway die geen een gatewayverbinding gebruiken.
 
-Wanneer u deze waarde wijzigt, kunt u tegelijkertijd ook de adresvoorvoegsels wijzigen. Zorg ervoor dat u de bestaande naam van de gateway van uw lokale netwerk gebruikt om de huidige instellingen te overschrijven. Als u een andere naam gebruikt, maakt u een nieuwe lokale netwerkgateway in plaats van de bestaande gateway te overschrijven.
+Als u deze waarde wijzigt, kunt u ook Hallo adresvoorvoegsels op Hallo wijzigen hetzelfde moment. Ervoor toouse Hallo bestaande naam van uw lokale netwerkgateway worden in volgorde toooverwrite Hallo huidige instellingen. Als u een andere naam gebruikt, kunt u een nieuwe lokale netwerkgateway maken, in plaats van het overschrijven van Hallo bestaande.
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
@@ -10,34 +10,34 @@ New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
 -GatewayIpAddress "5.4.3.2" -ResourceGroupName MyRGName
 ```
 
-### <a name="gwipwithconnection"></a>Het 'gatewayIpAddress' van de lokale netwerkgateway wijzigen - bestaande gatewayverbinding
+### <a name="gwipwithconnection"></a>toomodify hello lokale netwerkgateway GatewayIpAddress - bestaande gatewayverbinding
 
-Als van het VPN-apparaat waarmee u verbinding wilt maken het openbare IP-adres is gewijzigd, moet u de gateway van het lokale netwerk aanpassen met deze wijziging. Als er al een gatewayverbinding bestaat, moet u die verbinding eerst verwijderen. Nadat de verbinding is verwijderd, kunt u het IP-adres van de gateway wijzigen en een nieuwe verbinding maken. U kunt tegelijkertijd ook de adresvoorvoegsels wijzigen. Dit veroorzaakt enige downtime in uw VPN-verbinding. Als u het IP-adres van de gateway wijzigt, hoeft u de VPN-gateway niet te verwijderen. U hoeft alleen de verbinding te verwijderen.
+Als Hallo VPN-apparaat dat u wilt dat tooconnect toohas het openbare IP-adres is gewijzigd, moet u toomodify Hallo lokale netwerk gateway tooreflect die wijzigen. Als er al een gatewayverbinding bestaat, moet u eerst tooremove Hallo verbinding. Nadat Hallo verbinding is verwijderd, kunt u Hallo gateway IP-adres wijzigen en maak een nieuwe verbinding. U kunt ook de adresvoorvoegsels Hallo op Hallo wijzigen hetzelfde moment. Dit veroorzaakt enige downtime in uw VPN-verbinding. Als u IP-adres van Hallo gateway wijzigt, hoeft u geen toodelete Hallo VPN-gateway. U hoeft alleen tooremove Hallo verbinding.
  
 
-1. Verwijder de verbinding. U kunt de naam van uw verbinding vinden met behulp van de cmdlet 'Get-AzureRmVirtualNetworkGatewayConnection'.
+1. Hallo-verbinding verwijderen. U vindt Hallo-naam van de verbinding met de cmdlet Hallo 'Get-AzureRmVirtualNetworkGatewayConnection'.
 
   ```powershell
   Remove-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `
   -ResourceGroupName MyRGName
   ```
-2. Wijzig de waarde 'GatewayIpAddress'. U kunt tegelijkertijd ook de adresvoorvoegsels wijzigen. Zorg ervoor dat u de bestaande naam van de gateway van uw lokale netwerk gebruikt om de huidige instellingen te overschrijven. Als u dit niet doet, maakt u een nieuwe lokale netwerkgateway in plaats van de bestaande gateway te overschrijven.
+2. De waarde van de 'GatewayIpAddress' hello wijzigen. U kunt ook de adresvoorvoegsels Hallo op Hallo wijzigen hetzelfde moment. Deze ervoor toouse Hallo bestaande naam van uw lokale netwerk toooverwrite Hallo huidige instellingen van de gateway. Als u dit niet doet, kunt u een nieuwe lokale netwerkgateway maken, Hallo bestaande in plaats van wordt overschreven.
 
   ```powershell
   New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
   -Location "West US" -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24') `
   -GatewayIpAddress "104.40.81.124" -ResourceGroupName MyRGName
   ```
-3. Maak de verbinding. In dit voorbeeld configureren we een IPsec-verbindingstype. Wanneer u uw verbinding opnieuw maakt, gebruikt u het verbindingstype dat is opgegeven voor uw configuratie. Zie de pagina [PowerShell-cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) voor aanvullende verbindingstypen.  U kunt de cmdlet 'Get-AzureRmVirtualNetworkGateway' uitvoeren om de VirtualNetworkGateway-naam te verkrijgen.
+3. Hallo verbinding maken. In dit voorbeeld configureren we een IPsec-verbindingstype. Wanneer u opnieuw de verbinding maakt, gebruikt u Hallo verbindingstype dat is opgegeven voor uw configuratie. Zie voor aanvullende verbindingstypen Hallo [PowerShell-cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) pagina.  de naam van tooobtain hello VirtualNetworkGateway, kunt u Hallo 'Get-AzureRmVirtualNetworkGateway' cmdlet uitvoeren.
    
-    Stel de variabelen in.
+    Hallo-variabelen worden ingesteld.
 
   ```powershell
   $local = Get-AzureRMLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
   $vnetgw = Get-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName MyRGName
   ```
    
-    Maak de verbinding.
+    Hallo verbinding maken.
 
   ```powershell 
   New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName -ResourceGroupName MyRGName `

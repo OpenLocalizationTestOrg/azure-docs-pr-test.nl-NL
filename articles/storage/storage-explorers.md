@@ -1,6 +1,6 @@
 ---
-title: Hulpprogramma's voor het werken met Azure Storage | Microsoft Docs
-description: Een lijst met hulpprogramma's waarmee u weergave/communiceren met uw Azure Storage-gegevens.
+title: aaaTools voor het werken met Azure Storage | Microsoft Docs
+description: Een lijst met hulpprogramma's waarmee u tooview/communiceren met uw Azure Storage-gegevens.
 services: storage
 documentationcenter: 
 author: dineshmurthy
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: dineshmurthy
-ms.openlocfilehash: 620efda06d8225b21b6bb9b104b79061ebb6515c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3308de2153099a05a676ab1d76426bd932e8a96c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage Client Tools
-Gebruikers van Azure Storage wilt vaak kunnen weergeven/communiceren met hun gegevens met een Azure Storage client-hulpprogramma. In de onderstaande tabellen weergeven we een aantal hulpprogramma's waarmee u kunt dit doen. We zetten een 'X' in elk blok als het biedt de mogelijkheid om ofwel inventariseren en/of toegang tot de abstrahering van gegevens. De tabel wordt ook weergegeven als de hulpprogramma's is gratis. 'Proefversie' geeft aan dat er een gratis proefversie is, maar het volledige product niet beschikbaar is. ' J/N' geeft aan dat een versie beschikbaar voor het vrije is terwijl een andere versie beschikbaar voor de aankoop is.
+Gebruikers van Azure Storage wilt vaak toobe kunnen tooview/communiceren met hun gegevens met een Azure Storage client-hulpprogramma. In onderstaande Hallo tabellen, wij in de lijst een aantal hulpprogramma's waarmee u toodo dit. We een 'X' plaatsen in elk blok biedt de mogelijkheid Hallo tooeither inventariseren en/of toegang tot Hallo gegevens abstractie. Hallo-tabel wordt ook weergegeven als extra Hallo is gratis. 'Proefversie' geeft aan dat er een gratis proefversie is maar Hallo product met volledig niet beschikbaar is. ' J/N' geeft aan dat een versie beschikbaar voor het vrije is terwijl een andere versie beschikbaar voor de aankoop is.
 
-We bieden alleen een momentopname van de beschikbare hulpprogramma's voor Azure Storage-client. Deze hulpprogramma's kunnen blijven evolueren en groei in de functionaliteit. Als er correcties of updates, laat u een opmerking laat ons weten. Hetzelfde geldt dat als u hulpprogramma's die zou moeten hier - weten we graag toe te voegen zou zijn.
+We bieden alleen een momentopname van Hallo beschikbare Azure Storage clienthulpprogramma's. Deze hulpprogramma's kunnen blijven tooevolve en toenemen in functionaliteit. Als er correcties of updates, laat u een opmerking toolet die ons weten. Hallo geldt ook als u weet van hulpprogramma's die hier toobe zou - we blij tooadd zijn ze.
 
 **Hulpprogramma's voor Microsoft Azure Storage Client**
 
@@ -91,7 +91,7 @@ We bieden alleen een momentopname van de beschikbare hulpprogramma's voor Azure 
 
 **Clienthulpprogramma's van derden Azure-opslag**
 
-We de functionaliteit of door de volgende hulpprogramma's van derden geclaimd kwaliteit niet geverifieerd en hun aanbieding impliceert niet endosseert Microsoft.
+We hebben niet geverifieerd Hallo functionaliteit of door de volgende hulpprogramma's van derden en hun aanbieding Hallo geclaimd kwaliteit betekent niet dat endosseert Microsoft.
 
 <table>
   <tr>

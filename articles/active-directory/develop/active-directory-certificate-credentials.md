@@ -1,6 +1,6 @@
 ---
-title: Referenties van het certificaat in Azure AD | Microsoft Docs
-description: Dit artikel wordt beschreven voor de registratie en het gebruik van referenties van het computercertificaat voor de verificatie van de toepassing
+title: aaaCertificate referenties in Azure AD | Microsoft Docs
+description: Dit artikel wordt beschreven Hallo registratie en het gebruik van referenties van het computercertificaat voor de verificatie van de toepassing
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 08bb5140bb35bbd120aaa506afeab8ad247f81e1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3508803112ac06268d553db86ab74812aa53e455
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Referenties van het computercertificaat voor de verificatie van de toepassing
 
-Azure Active Directory kunt een toepassing een eigen referenties gebruiken voor verificatie, bijvoorbeeld in de OAuth 2.0-Client referenties Grant-stroom en de On-namens-stroom.
-Een vorm van de referentie die kan worden gebruikt is een JSON Web Token(JWT) assertion ondertekend met een certificaat waartoe de toepassing.
+Azure Active Directory biedt een toouse toepassing eigen referenties voor verificatie, bijvoorbeeld in Hallo OAuth 2.0-Client referenties Grant stroom en Hallo op namens-stroom.
+Een vorm van de referentie die kan worden gebruikt is een JSON Web Token(JWT) assertion ondertekend met een toepassing hello-certificaat.
 
-## <a name="format-of-the-assertion"></a>Indeling van de verklaring
-Als u wilt de verklaring compute, wilt u waarschijnlijk een van de vele [JSON Web Token](https://jwt.io/) bibliotheken in de taal van uw keuze. De informatie die door het token is:
+## <a name="format-of-hello-assertion"></a>Indeling van Hallo verklaring
+toocompute Hallo verklaring, wilt u waarschijnlijk toouse een Hallo veel [JSON Web Token](https://jwt.io/) bibliotheken in Hallo taal van uw keuze. Hallo-informatie die door Hallo-token is:
 
 #### <a name="header"></a>Koptekst
 
@@ -35,21 +35,21 @@ Als u wilt de verklaring compute, wilt u waarschijnlijk een van de vele [JSON We
 | --- | --- | --- |
 | `alg` | Moet **RS256** |
 | `typ` | Moet **JWT** |
-| `x5t` | Moet de vingerafdruk van het x.509-certificaat SHA-1 |
+| `x5t` | Hallo x.509-certificaat SHA-1-vingerafdruk moet worden |
 
 #### <a name="claims-payload"></a>Claims (Payload)
 
 | Parameter |  Opmerking |
 | --- | --- | --- |
 | `aud` | : Doelgroep  **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token ** |
-| `exp` | Vervaldatum: de datum waarop het token verloopt. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat de geldigheid van het token is verlopen.|
-| `iss` | Uitgever: moet de client_id (toepassings-Id van de client-service) |
-| `jti` | GUID: de JWT-ID |
-| `nbf` | Niet vooraf: de datum voor het token kan niet worden gebruikt. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat de tijd die het token is uitgegeven. |
-| `sub` | Onderwerp:-als voor `iss`, moet de client_id (toepassings-Id van de client-service) |
+| `exp` | Vervaldatum: Hallo datum wanneer Hallo-token is verlopen. Hallo tijd wordt weergegeven als het aantal seconden Hallo vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat Hallo Hallo token geldigheidsduur is verstreken.|
+| `iss` | Uitgever: moet Hallo client_id (toepassings-Id van de clientservice Hallo) |
+| `jti` | GUID: Hallo JWT-ID |
+| `nbf` | Niet vooraf: Hallo datum voordat welke Hallo token kan niet worden gebruikt. Hallo tijd wordt weergegeven als het aantal seconden Hallo vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat Hallo tijd Hallo token is uitgegeven. |
+| `sub` | Onderwerp:-als voor `iss`, moet Hallo client_id (toepassings-Id van de clientservice Hallo) |
 
 #### <a name="signature"></a>Handtekening
-De handtekening wordt berekend met het toepassen van het certificaat, zoals beschreven in de [JSON Web Token RFC7519 specificatie](https://tools.ietf.org/html/rfc7519)
+Hallo-handtekening wordt berekend Hallo certificaat toepassen, zoals beschreven in Hallo [JSON Web Token RFC7519 specificatie](https://tools.ietf.org/html/rfc7519)
 
 ### <a name="example-of-a-decoded-jwt-assertion"></a>Voorbeeld van een gedecodeerde JWT-verklaring
 ```
@@ -73,22 +73,22 @@ De handtekening wordt berekend met het toepassen van het certificaat, zoals besc
 ```
 
 ### <a name="example-of-an-encoded-jwt-assertion"></a>Voorbeeld van een gecodeerde JWT bewering
-De volgende tekenreeks is een voorbeeld van gecodeerde verklaring. Als u zorgvuldig bekijkt, ziet u drie secties gescheiden door punten (.).
-De eerste sectie codeert de kop van de tweede de nettolading en de laatste is de handtekening berekend met de certificaten van de inhoud van de eerste twee secties.
+Hallo volgende tekenreeks is een voorbeeld van gecodeerde verklaring. Als u zorgvuldig bekijkt, ziet u drie secties gescheiden door punten (.).
+de eerste sectie Hallo Hallo-kop, Hallo tweede Hallo nettolading codeert en Hallo is laatste Hallo-handtekening berekend met Hallo certificaten van de inhoud van de eerste twee secties Hallo Hallo.
 ```
 "eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ubWljcm9zb2Z0b25saW5lLmNvbVwvam1wcmlldXJob3RtYWlsLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQ4NDU5MzM0MSwiaXNzIjoiOTdlMGE1YjctZDc0NS00MGI2LTk0ZmUtNWY3N2QzNWM2ZTA1IiwianRpIjoiMjJiM2JiMjYtZTA0Ni00MmRmLTljOTYtNjVkYmQ3MmMxYzgxIiwibmJmIjoxNDg0NTkyNzQxLCJzdWIiOiI5N2UwYTViNy1kNzQ1LTQwYjYtOTRmZS01Zjc3ZDM1YzZlMDUifQ.
 Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Uw certificaat registreren met Azure AD
-De referentie certificaat koppelt u de clienttoepassing in Azure AD, moet u het toepassingsmanifest te bewerken.
-De blokkering van een certificaat hebt, moet u berekenen:
-- `$base64Thumbprint`, namelijk het base64-codering van het certificaat-Hash
-- `$base64Value`, namelijk het base64-codering van de onbewerkte gegevens van certificaat
+tooassociate hello certificaat-referentie met de clienttoepassing Hallo in Azure AD, moet u tooedit Hallo-toepassingsmanifest.
+De blokkering van een certificaat hebt, moet u toocompute:
+- `$base64Thumbprint`, die is Hallo base64-codering van Hallo certificaat-Hash
+- `$base64Value`, die is Hallo base64-codering van Hallo onbewerkte gegevens van certificaat
 
-u moet ook een GUID voor het identificeren van de sleutel in het toepassingsmanifest bieden (`$keyId`)
+u moet ook een GUID tooidentify Hallo-sleutel in het toepassingsmanifest Hallo tooprovide (`$keyId`)
 
-In de Azure-app-registratie voor de clienttoepassing, open het toepassingsmanifest en vervang de *keyCredentials* eigenschap met de nieuwe certificaatinformatie van een met het volgende schema:
+Open in Azure app-registratie voor de clienttoepassing Hallo Hallo, Hallo toepassingsmanifest en vervang Hallo *keyCredentials* eigenschap met uw nieuwe certificaatgegevens met Hallo schema te volgen:
 ```
 "keyCredentials": [
     {
@@ -101,4 +101,4 @@ In de Azure-app-registratie voor de clienttoepassing, open het toepassingsmanife
 ]
 ```
 
-De wijzigingen opslaan in het toepassingsmanifest en uploaden naar Azure AD. De eigenschap keyCredentials heeft meerdere waarden, zodat u meerdere certificaten voor uitgebreidere Sleutelbeheer kan uploaden.
+Hallo bewerkingen toohello toepassingsmanifest opslaan en tooAzure AD uploaden. Hallo keyCredentials eigenschap heeft meerdere waarden, zodat u meerdere certificaten voor uitgebreidere Sleutelbeheer kan uploaden.

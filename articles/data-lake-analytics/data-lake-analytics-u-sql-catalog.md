@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met de U-SQL-catalogus | Microsoft Docs
-description: Informatie over het gebruik van de U-SQL-catalogus code en gegevens delen.
+title: Aan de slag met Hallo U-SQL-catalogus | Microsoft Docs
+description: Meer informatie over hoe toouse Hallo U-SQL-catalogus tooshare code en gegevens.
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/09/2017
 ms.author: edmaca
-ms.openlocfilehash: 08364c6c7bea53807844e3b1cc327dc3742e0487
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 559bb7a3879031eb290a3e82946d7bf42ac9f553
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-u-sql-catalog"></a>Aan de slag met de U-SQL-catalogus
+# <a name="get-started-with-hello-u-sql-catalog"></a>Aan de slag met Hallo U-SQL-catalogus
 
 ## <a name="create-a-tvf"></a>Maken van een TVF
 
-In de vorige U-SQL-script wordt herhaald u het gebruik van EXTRACT lezen uit het bronbestand met dezelfde. Met de U-SQL-functie met tabelwaarden (TVF), kunt u de gegevens voor toekomstig gebruik inkapselen.  
+In vorige U-SQL-script hello wordt herhaald u Hallo gebruik van EXTRACT tooread van Hallo hetzelfde bronbestand. Met de Hallo U-SQL-functie met tabelwaarden (TVF), kunt u inkapselen Hallo-gegevens voor toekomstig gebruik.  
 
-Het volgende script maakt een TVF aangeroepen `Searchlog()` in de standaarddatabase en het schema:
+Hallo volgende script maakt een TVF aangeroepen `Searchlog()` in Hallo standaarddatabase en schema:
 
 ```
 DROP FUNCTION IF EXISTS Searchlog;
@@ -57,7 +57,7 @@ RETURN;
 END;
 ```
 
-Het volgende script toont hoe u de TVF die is gedefinieerd in het vorige script:
+Hallo volgende script toont hoe toouse TVF die is gedefinieerd in de vorige script Hallo Hallo:
 
 ```
 @res =
@@ -69,16 +69,16 @@ GROUP BY Region
 HAVING SUM(Duration) > 200;
 
 OUTPUT @res
-    TO "/output/SerachLog-use-tvf.csv"
+    too"/output/SerachLog-use-tvf.csv"
     ORDER BY TotalDuration DESC
     USING Outputters.Csv();
 ```
 
 ## <a name="create-views"></a>Weergaven maken
 
-Als u een enkele query-expressie hebt, in plaats van een TVF kunt u een U-SQL-weergave inkapselen die expressie.
+Als u een enkele query-expressie hebt, in plaats van een TVF kunt u een U-SQL-weergave tooencapsulate die expressie.
 
-Het volgende script maakt een weergave met de naam `SearchlogView` in de standaarddatabase en het schema:
+Hallo volgende script maakt een weergave met de naam `SearchlogView` in Hallo standaarddatabase en schema:
 
 ```
 DROP VIEW IF EXISTS SearchlogView;
@@ -95,7 +95,7 @@ CREATE VIEW SearchlogView AS
 USING Extractors.Tsv();
 ```
 
-Het volgende script toont het gebruik van de gedefinieerde weergave:
+Hallo volgende script toont Hallo gebruik van de weergave Hallo gedefinieerd:
 
 ```
 @res =
@@ -107,15 +107,15 @@ GROUP BY Region
 HAVING SUM(Duration) > 200;
 
 OUTPUT @res
-    TO "/output/Searchlog-use-view.csv"
+    too"/output/Searchlog-use-view.csv"
     ORDER BY TotalDuration DESC
     USING Outputters.Csv();
 ```
 
 ## <a name="create-tables"></a>Tabellen maken
-Zoals met relationele database-tabellen met U-SQL kunt u een tabel met een vooraf gedefinieerd schema maken of een tabel maken die het schema uit de query afleidt die de tabel (ook wel bekend als CREATE TABLE AS SELECT of CTAS) gevuld.
+Zoals met relationele database-tabellen met U-SQL kunt u een tabel met een vooraf gedefinieerd schema maken of een tabel maken Hallo schema afleidt uit Hallo-query die wordt gevuld Hallo-tabel (ook wel bekend als CREATE TABLE AS SELECT of CTAS).
 
-Een database en de twee tabellen maken met het volgende script:
+Een database en de twee tabellen maken met behulp van Hallo script volgen:
 
 ```
 DROP DATABASE IF EXISTS SearchLogDb;
@@ -147,9 +147,9 @@ CREATE TABLE SearchLog2(
 ```
 
 ## <a name="query-tables"></a>Querytabellen
-U kunt de tabellen, zoals die zijn gemaakt in het vorige script, op dezelfde manier als dat u de gegevensbestanden query opvragen. In plaats van een rijenset maken met behulp van EXTRACT, nu raadpleegt u de naam van de tabel.
+U kunt een query tabellen, zoals die zijn gemaakt in de vorige script Hallo in Hallo dezelfde manier als dat u een query Hallo gegevensbestanden worden opgeslagen. In plaats van een rijenset maken met behulp van EXTRACT, kunt u nu de tabelnaam toohello verwijzen.
 
-Als u wilt lezen uit de tabellen, wijzig de transformatie-script dat u eerder hebt gebruikt:
+tooread uit Hallo tabellen, wijzig Hallo transformatie-script dat u eerder hebt gebruikt:
 
 ```
 @rs1 =
@@ -166,13 +166,13 @@ GROUP BY Region;
     FETCH 5 ROWS;
 
 OUTPUT @res
-    TO "/output/Searchlog-query-table.csv"
+    too"/output/Searchlog-query-table.csv"
     ORDER BY TotalDuration DESC
     USING Outputters.Csv();
 ```
 
  >[!NOTE]
- >U uitvoeren niet een SELECT op dit moment op een tabel in hetzelfde script als het account waar u de tabel is gemaakt.
+ >U uitvoeren niet een SELECT op dit moment kunnen op een tabel in hetzelfde script, zoals een Hallo Hallo waar u Hallo tabel hebt gemaakt.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Overzicht van Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

@@ -1,11 +1,11 @@
-U past tags toe op uw Azure-resources om ze logisch te ordenen op categorieën. Elke tag bestaat uit een naam en een waarde. U kunt de naam Omgeving en de waarde Productie bijvoorbeeld toepassen op alle resources in de productie. Zonder deze tag kunt u mogelijk moeilijker bepalen of een resource is bedoeld voor ontwikkeling, tests of productie. Omgeving en Productie zijn echter alleen voorbeelden. U definieert zelf de namen en waarden die het zinvolst zijn voor het organiseren van uw abonnement.
+U tags toepassen tooyour Azure-resources toologically ordenen in categorieën. Elke tag bestaat uit een naam en een waarde. U kunt bijvoorbeeld Hallo naam 'Omgeving' en Hallo waarde 'Productie' tooall Hallo resources in productie toepassen. Zonder deze tag kunt u mogelijk moeilijker bepalen of een resource is bedoeld voor ontwikkeling, tests of productie. Omgeving en Productie zijn echter alleen voorbeelden. U definieert Hallo namen en waarden die Hallo meeste geschikt zijn voor het ordenen van uw abonnement.
 
-Nadat u de tags hebt toegepast, kunt u alle resources in het abonnement ophalen met deze tagnaam en -waarde. Met tags kunt u verwante resources ophalen die zich in verschillende resourcegroepen bevinden. Deze aanpak is nuttig wanneer u resources moet ordenen voor facturering of beheer.
+Nadat u labels toepast, kunt u alle Hallo resources in uw abonnement met die naam en waarde ophalen. Labels inschakelen tooretrieve u verwante resources die zich in verschillende resourcegroepen bevinden. Deze methode is handig wanneer u tooorganize bronnen nodig voor facturerings- of management.
 
-Voor tags gelden de volgende beperkingen:
+Hallo volgen beperkingen toepassen tootags:
 
-* Elke resource of resourcegroep mag maximaal 15 combinaties van tagnaam en -waarde hebben. Deze beperking geldt alleen voor tags die direct worden toegepast op de resourcegroep of resource. Een resourcegroep kan veel bronnen bevatten die elk 15 combinaties van tagnaam en -waarde bevatten. 
-* De tagnaam is beperkt tot 512 tekens en de tagwaarde is beperkt tot 256 tekens. Voor opslagaccounts is de tagnaam beperkt tot 128 tekens en de tagwaarde beperkt tot 256 tekens.
-* Tags die zijn toegepast op de resourcegroep, worden niet overgenomen door de resources in deze resourcegroep. 
+* Elke resource of resourcegroep mag maximaal 15 combinaties van tagnaam en -waarde hebben. Deze beperking geldt alleen direct worden toegepast tootags toohello-resourcegroep of resource. Een resourcegroep kan veel bronnen bevatten die elk 15 combinaties van tagnaam en -waarde bevatten. 
+* Hallo tagnaam is beperkt too512 tekens en Hallo tagwaarde is beperkt too256 tekens. Hallo tagnaam is beperkt too128 tekens voor storage-accounts en Hallo tagwaarde is beperkt too256 tekens.
+* Labels toegepast toohello resourcegroep wordt niet overgenomen door Hallo resources in die resourcegroep. 
 
-Als u meer dan 15 waarden aan een resource moet koppelen, gebruikt u een JSON-tekenreeks voor de tagwaarde. De JSON-tekenreeks kan veel waarden bevatten die worden toegepast op een enkele tagnaam. Dit artikel bevat een voorbeeld van het toewijzen van een JSON-tekenreeks aan een tag.
+Als u meer dan 15 waarden moet u tooassociate aan een resource hebt, gebruikt u een JSON-tekenreeks voor de labelwaarde Hallo. Hallo JSON-tekenreeks kan veel waarden die toegepast tooa enkel labelnaam zijn bevatten. In dit artikel bevat een voorbeeld van een JSON-tekenreeks toohello label toe te wijzen.

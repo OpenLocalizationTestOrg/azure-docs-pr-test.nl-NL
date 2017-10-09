@@ -1,6 +1,6 @@
 ---
-title: HDInsight verbinden met uw on-premises netwerk - of Azure HDInsight | Microsoft Docs
-description: Informatie over het maken van een HDInsight-cluster in een Azure-netwerk en maak verbinding met uw lokale netwerk. Informatie over het configureren van naamomzetting tussen HDInsight en uw on-premises netwerk via een aangepaste DNS-server.
+title: aaaConnect HDInsight tooyour on-premises netwerk - Azure HDInsight | Microsoft Docs
+description: Meer informatie over hoe toocreate een HDInsight-cluster in een Azure-netwerk en sluit vervolgens tooyour on-premises netwerk. Meer informatie over hoe tooconfigure naamomzetting tussen HDInsight en uw on-premises netwerk via een aangepaste DNS-server.
 documentationcenter: 
 author: Blackmist
 manager: jhubbard
@@ -13,32 +13,32 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/21/2017
 ms.author: larryfr
-ms.openlocfilehash: 6fc863010cc59e20e7d86ea9344489e574be75f2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8a3adf0e3df7726d8e6566d723700506baaf89a8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-hdinsight-to-your-on-premise-network"></a>HDInsight verbinden met uw on-premises-netwerk
+# <a name="connect-hdinsight-tooyour-on-premise-network"></a>HDInsight tooyour on-premises netwerk verbinden
 
-Informatie over het HDInsight verbinding met uw on-premises netwerk met behulp van Azure Virtual Networks en een VPN-gateway. Dit document bevat de planningsinformatie over:
+Meer informatie over hoe tooconnect HDInsight tooyour on-premises netwerk door met behulp van Azure Virtual Networks en een VPN-gateway. Dit document bevat de planningsinformatie over:
 
-* HDInsight gebruikt in een Azure-netwerk die verbinding met uw on-premises netwerk maakt.
+* Gebruik HDInsight in een Azure-netwerk die verbinding tooyour maakt on-premises netwerk.
 
-* Configureren van DNS-naamomzetting tussen het virtuele netwerk en uw on-premises netwerk.
+* Configureren van DNS-naamomzetting tussen Hallo virtuele netwerk en uw on-premises netwerk.
 
-* Configureren van netwerkbeveiligingsgroepen internettoegang tot HDInsight te beperken.
+* Network security groepen toorestrict internet toegang tooHDInsight configureren.
 
-* Poorten die zijn geleverd door HDInsight op het virtuele netwerk.
+* Poorten die zijn geleverd door HDInsight op Hallo virtueel netwerk.
 
-## <a name="create-the-virtual-network-configuration"></a>De configuratie van het virtuele netwerk maken
+## <a name="create-hello-virtual-network-configuration"></a>Hallo-configuratie voor virtuele netwerken maken
 
 > [!IMPORTANT]
-> Als u zoekt Stapsgewijze instructies voor het verbinden van HDInsight met uw on-premises netwerk via een virtueel netwerk van Azure, raadpleegt u de [HDInsight verbinding maken met uw on-premises netwerk](connect-on-premises-network.md) document.
+> Als u op zoek bent voor stapsgewijze instructies voor het verbinden van HDInsight tooyour lokaal netwerk met een virtueel netwerk van Azure, Zie Hallo [verbinding maken met HDInsight tooyour on-premises netwerk](connect-on-premises-network.md) document.
 
-Gebruik de volgende documenten voor meer informatie over het maken van een virtueel netwerk van Azure die is verbonden met uw on-premises netwerk:
+Gebruik Hallo volgende documenten toolearn hoe een Azure-netwerk dat is verbonden tooyour toocreate lokale netwerk:
     
-* [Azure Portal gebruiken](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Met behulp van hello Azure-portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 
 * [Azure PowerShell gebruiken](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 
@@ -46,100 +46,100 @@ Gebruik de volgende documenten voor meer informatie over het maken van een virtu
 
 ## <a name="configure-name-resolution"></a>Naamomzetting configureren
 
-Als u wilt toestaan HDInsight en bronnen in het gekoppelde netwerk om te communiceren met de naam, moet u de volgende acties uitvoeren:
+tooallow HDInsight en resources die lid zijn van Hallo netwerk toocommunicate met de naam, moet u de volgende activiteiten Hallo uitvoeren:
 
-* Maak een aangepaste DNS-server in het virtuele netwerk van Azure.
+* Maak een aangepaste DNS-server in hello Azure Virtual Network.
 
-* Het virtuele netwerk voor het gebruik van de aangepaste DNS-server in plaats van de standaard Azure recursieve naamomzetting configureren.
+* Hallo virtueel netwerk toouse Hallo aangepaste DNS-server in plaats van Hallo standaard Azure recursieve naamomzetting configureren.
 
-* Configureren van forwarding tussen de aangepaste DNS-server en de lokale DNS-server.
+* Configureren van forwarding tussen Hallo aangepaste DNS-server en de lokale DNS-server.
 
-Deze configuratie kunt het volgende gedrag:
+Deze configuratie kunt Hallo volgende gedrag:
 
-* Aanvragen voor de volledig gekwalificeerde domeinnamen waarvoor het DNS-achtervoegsel __voor het virtuele netwerk__ worden doorgestuurd naar de aangepaste DNS-server. De aangepaste DNS-server stuurt vervolgens deze aanvragen aan de recursieve Resolver van Azure, waardoor het IP-adres geretourneerd.
+* Aanvragen voor de volledig gekwalificeerde domeinnamen met Hallo DNS-achtervoegsel __voor het virtuele netwerk Hallo__ toohello aangepaste DNS-server worden doorgestuurd. Hallo aangepaste DNS-server stuurt vervolgens deze aanvragen toohello Azure recursieve Resolver, die als resultaat Hallo IP-adres.
 
-* Alle andere aanvragen worden doorgestuurd naar de lokale DNS-server. Zelfs aanvragen voor het openbare internet-bronnen zoals microsoft.com worden doorgestuurd naar de lokale DNS-server voor naamomzetting.
+* Alle andere aanvragen worden doorgestuurd toohello lokale DNS-server. Zelfs aanvragen voor het openbare internet-bronnen zoals microsoft.com doorgestuurd toohello lokale DNS-server voor naamomzetting.
 
-Groen regels zijn in het volgende diagram aanvragen voor bronnen die op de DNS-achtervoegsel van het virtuele netwerk eindigen. Blauwe lijnen zijn aanvragen voor bronnen in de on-premises netwerk of op het openbare internet.
+Groen regels zijn in Hallo diagram te volgen, aanvragen voor bronnen die op Hallo DNS-achtervoegsel van het virtuele netwerk Hallo eindigen. Blauwe lijnen zijn aanvragen voor bronnen in Hallo on-premises netwerk of op Hallo openbare internet.
 
-![Diagram van hoe de DNS-aanvragen worden verwerkt in de configuratie die in dit document gebruikt](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
+![Diagram van hoe de DNS-aanvragen worden verwerkt in Hallo-configuratie gebruikt in dit document](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
 
 ### <a name="create-a-custom-dns-server"></a>Maken van een aangepaste DNS-server
 
 > [!IMPORTANT]
-> U moet maken en configureren van de DNS-server voordat u HDInsight installeert in het virtuele netwerk.
+> U moet maken en configureren van Hallo DNS-server voordat u HDInsight in Hallo virtueel netwerk installeert.
 
-Maken van een Linux-VM die gebruikmaakt van de [binden](https://www.isc.org/downloads/bind/) DNS-software, gebruik de volgende stappen:
+een Linux-VM die gebruikmaakt van Hallo toocreate [binden](https://www.isc.org/downloads/bind/) DNS-software, gebruik Hallo stappen te volgen:
 
 > [!NOTE]
-> De volgende stappen uitvoeren om de [Azure-portal](https://portal.azure.com) voor het maken van een virtuele Machine van Azure. Zie voor andere manieren om te maken van een virtuele machine, de [VM maken, Azure CLI](../virtual-machines/linux/quick-create-cli.md) en [VM maken, Azure PowerShell](../virtual-machines/linux/quick-create-portal.md) documenten.
+> Hallo volgende stappen gebruikt Hallo [Azure-portal](https://portal.azure.com) toocreate een virtuele Machine van Azure. Zie voor andere toocreate manieren een virtuele machine Hallo [VM maken, Azure CLI](../virtual-machines/linux/quick-create-cli.md) en [VM maken, Azure PowerShell](../virtual-machines/linux/quick-create-portal.md) documenten.
 
-1. Van de [Azure-portal](https://portal.azure.com), selecteer  __+__ , __Compute__, en __Ubuntu Server 16.04 LTS__.
+1. Van Hallo [Azure-portal](https://portal.azure.com), selecteer  __+__ , __Compute__, en __Ubuntu Server 16.04 LTS__.
 
     ![Een virtuele Ubuntu-machine maken](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-2. Van de __basisbeginselen__ sectie, voer de volgende informatie:
+2. Van Hallo __basisbeginselen__ sectie, voert u Hallo volgende informatie:
 
     * __Naam__: een beschrijvende naam die deze virtuele machine wordt aangeduid. Bijvoorbeeld: __DNSProxy__.
-    * __Gebruikersnaam__: de naam van het SSH-account.
-    * __Openbare SSH-sleutel__ of __wachtwoord__: de verificatiemethode voor de SSH-account. Wordt aangeraden met openbare sleutels, omdat ze beter te beveiligen. Zie voor meer informatie de [maken en gebruiken SSH-sleutels voor virtuele Linux-machines](../virtual-machines/linux/mac-create-ssh-keys.md) document.
-    * __Resourcegroep__: Selecteer __gebruik bestaande__, en selecteer vervolgens de resourcegroep waarin het virtuele netwerk eerder hebt gemaakt.
-    * __Locatie__: Selecteer de dezelfde locatie als het virtuele netwerk.
+    * __Gebruikersnaam__: naam Hallo Hallo SSH-account.
+    * __Openbare SSH-sleutel__ of __wachtwoord__: Hallo verificatiemethode voor Hallo SSH-account. Wordt aangeraden met openbare sleutels, omdat ze beter te beveiligen. Zie voor meer informatie, Hallo [maken en gebruiken SSH-sleutels voor virtuele Linux-machines](../virtual-machines/linux/mac-create-ssh-keys.md) document.
+    * __Resourcegroep__: Selecteer __gebruik bestaande__, en selecteer vervolgens de resourcegroep Hallo met Hallo virtueel netwerk eerder hebt gemaakt.
+    * __Locatie__: Selecteer dezelfde locatie als het virtuele netwerk Hallo Hallo.
 
     ![Basisconfiguratie van de virtuele machine](./media/connect-on-premises-network/vm-basics.png)
 
-    Andere items laat de standaardwaarden en selecteer vervolgens __OK__.
+    Laat de andere vermeldingen op Hallo standaardwaarden en selecteer vervolgens __OK__.
 
-3. Van de __een grootte kiezen__ sectie, selecteert u de VM-grootte. Selecteer de optie waarbij de kleinste en de laagste kosten voor deze zelfstudie. Als u wilt doorgaan, gebruikt u de __Selecteer__ knop.
+3. Van Hallo __een grootte kiezen__ sectie, selecteer Hallo VM-grootte. Voor deze zelfstudie Hallo kleinste selecteren en de laagste kosten optie. toocontinue, gebruik Hallo __Selecteer__ knop.
 
-4. Van de __instellingen__ sectie, voer de volgende informatie:
+4. Van Hallo __instellingen__ sectie, voert u Hallo volgende informatie:
 
-    * __Virtueel netwerk__: Selecteer het virtuele netwerk die u eerder hebt gemaakt.
+    * __Virtueel netwerk__: Selecteer Hallo virtueel netwerk dat u eerder hebt gemaakt.
 
-    * __Subnet__: Selecteer de standaard-subnet voor het virtuele netwerk. Voer __niet__ selecteert u het subnet dat wordt gebruikt door de VPN-gateway.
+    * __Subnet__: Hallo standaard subnet voor het virtuele netwerk Hallo selecteert. Voer __niet__ Selecteer Hallo subnet dat wordt gebruikt door Hallo VPN-gateway.
 
     * __Opslagaccount voor diagnostische gegevens__: Selecteer een bestaand opslagaccount of maak een nieuwe.
 
     ![Virtuele-netwerkinstellingen](./media/connect-on-premises-network/virtual-network-settings.png)
 
-    De andere vermeldingen laat de standaardwaarde en selecteer vervolgens __OK__ om door te gaan.
+    Hallo andere vermeldingen laten op het Hallo-standaardwaarde, selecteert u vervolgens __OK__ toocontinue.
 
-5. Van de __aankoop__ sectie, selecteer de __aankoop__ om te maken van de virtuele machine.
+5. Van Hallo __aankoop__ sectie, selecteer Hallo __aankoop__ knop toocreate Hallo virtuele machine.
 
-6. Wanneer de virtuele machine is gemaakt, de __overzicht__ sectie wordt weergegeven. Selecteer in de lijst aan de linkerkant __eigenschappen__. Sla de __openbaar IP-adres__ en __particuliere IP-adres__ waarden. Deze wordt gebruikt in de volgende sectie.
+6. Zodra Hallo virtuele machine is gemaakt, de __overzicht__ sectie wordt weergegeven. Selecteer in lijst aan de linkerkant Hallo Hallo __eigenschappen__. Hallo opslaan __openbaar IP-adres__ en __particuliere IP-adres__ waarden. Deze wordt gebruikt in de volgende sectie Hallo.
 
     ![Openbare en particuliere IP-adressen](./media/connect-on-premises-network/vm-ip-addresses.png)
 
 ### <a name="install-and-configure-bind-dns-software"></a>Installeren en configureren van de binding (DNS-software)
 
-1. SSH gebruiken voor verbinding met de __openbaar IP-adres__ van de virtuele machine. Het volgende voorbeeld maakt verbinding met een virtuele machine op 40.68.254.142:
+1. Gebruik van SSH tooconnect toohello __openbaar IP-adres__ van Hallo virtuele machine. Hallo volgende voorbeeld maakt tooa virtuele machine op 40.68.254.142 verbinding:
 
     ```bash
     ssh sshuser@40.68.254.142
     ```
 
-    Vervang `sshuser` met het SSH-gebruikersaccount dat u hebt opgegeven bij het maken van het cluster.
+    Vervang `sshuser` Hello SSH gebruikersaccount die u hebt opgegeven bij het maken van Hallo-cluster.
 
     > [!NOTE]
-    > Er zijn tal van manieren verkrijgen van de `ssh` hulpprogramma. Op Linux, Unix- en Mac OS, wordt dit geleverd als onderdeel van het besturingssysteem. Als u van Windows gebruikmaakt, overweeg een van de volgende opties:
+    > Er zijn tal van manieren tooobtain hello `ssh` hulpprogramma. Op Linux, Unix- en Mac OS, wordt dit geleverd als onderdeel van het Hallo-besturingssysteem. Als u van Windows gebruikmaakt, overweeg dan een Hallo volgende opties:
     >
     > * [Azure-Cloud-Shell](../cloud-shell/quickstart.md)
     > * [Bash op Ubuntu op Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
     > * [GIT (https://git-scm.com/)](https://git-scm.com/)
     > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
-2. Gebruik de volgende opdrachten bij de SSH-sessie voor het installeren van Bind:
+2. tooinstall binding, gebruik Hallo volgende opdrachten uit Hallo SSH-sessie:
 
     ```bash
     sudo apt-get update -y
     sudo apt-get install bind9 -y
     ```
 
-3. Gebruik voor het configureren van de binding voor het doorsturen van aanvragen voor naamomzetting naar uw on-premises DNS-server de volgende tekst als de inhoud van de `/etc/bind/named.conf.options` bestand:
+3. tooconfigure Bind tooforward aanvragen tooyour on-premises DNS-server voor naamomzetting, gebruiken na de tekst hello inhoud Hallo Hallo `/etc/bind/named.conf.options` bestand:
 
         acl goodclients {
-            10.0.0.0/16; # Replace with the IP address range of the virtual network
-            10.1.0.0/16; # Replace with the IP address range of the on-premises network
+            10.0.0.0/16; # Replace with hello IP address range of hello virtual network
+            10.1.0.0/16; # Replace with hello IP address range of hello on-premises network
             localhost;
             localnets;
         };
@@ -152,66 +152,66 @@ Maken van een Linux-VM die gebruikmaakt van de [binden](https://www.isc.org/down
                 allow-query { goodclients; };
 
                 forwarders {
-                192.168.0.1; # Replace with the IP address of the on-premises DNS server
+                192.168.0.1; # Replace with hello IP address of hello on-premises DNS server
                 };
 
                 dnssec-validation auto;
 
-                auth-nxdomain no;    # conform to RFC1035
+                auth-nxdomain no;    # conform tooRFC1035
                 listen-on { any; };
         };
 
     > [!IMPORTANT]
-    > Vervang de waarden in de `goodclients` sectie met de IP-adresbereik van het virtuele netwerk en de on-premises netwerk. Deze sectie worden de adressen die deze DNS-server aanvragen van accepteert gedefinieerd.
+    > Vervang de waarden Hallo in Hallo `goodclients` sectie met Hallo IP-adresbereik van Hallo virtueel netwerk en on-premises netwerk. Deze sectie definieert hello-mailadressen die deze DNS-server aanvragen van accepteert.
     >
-    > Vervang de `192.168.0.1` vermelding in de `forwarders` sectie met de IP-adres van uw lokale DNS-server. Deze vermelding routeert DNS-aanvragen naar de lokale DNS-server voor naamomzetting.
+    > Vervang Hallo `192.168.0.1` vermelding in Hallo `forwarders` sectie met Hallo IP-adres van uw lokale DNS-server. Deze vermelding routes DNS-aanvragen tooyour lokale DNS-server voor naamomzetting.
 
-    Dit bestand bewerken, moet u de volgende opdracht gebruiken:
+    tooedit dit bestand, gebruik Hallo volgende opdracht:
 
     ```bash
     sudo nano /etc/bind/named.conf.options
     ```
 
-    Gebruiken om het bestand opslaat, __Ctrl + X__, __Y__, en vervolgens __Enter__.
+    Gebruik-bestand Hallo toosave __Ctrl + X__, __Y__, en vervolgens __Enter__.
 
-4. Gebruik de volgende opdracht in de SSH-sessie:
+4. Gebruik van Hallo SSH-sessie, Hallo volgende opdracht:
 
     ```bash
     hostname -f
     ```
 
-    Met deze opdracht retourneert een waarde die vergelijkbaar is met de volgende tekst:
+    Met deze opdracht retourneert een waarde van een vergelijkbare toohello volgende tekst:
 
         dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
 
-    De `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` tekst is de __DNS-achtervoegsel__ voor dit virtuele netwerk. Deze waarde niet opslaan omdat het wordt later gebruikt.
+    Hallo `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` tekst hello is __DNS-achtervoegsel__ voor dit virtuele netwerk. Deze waarde niet opslaan omdat het wordt later gebruikt.
 
-5. Gebruik voor het configureren van DNS-namen omzetten voor resources binnen het virtuele netwerk is afhankelijk van de volgende tekst als de inhoud van de `/etc/bind/named.conf.local` bestand:
+5. tooconfigure Bind tooresolve DNS-namen voor resources binnen het virtuele netwerk hello, gebruiken na de tekst hello inhoud Hallo Hallo `/etc/bind/named.conf.local` bestand:
 
-        // Replace the following with the DNS suffix for your virtual network
+        // Replace hello following with hello DNS suffix for your virtual network
         zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
             type forward;
-            forwarders {168.63.129.16;}; # The Azure recursive resolver
+            forwarders {168.63.129.16;}; # hello Azure recursive resolver
         };
 
     > [!IMPORTANT]
-    > Vervang de `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` met de DNS-achtervoegsel dat u eerder hebt opgehaald.
+    > Vervang Hallo `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` met Hallo DNS-achtervoegsel die u eerder hebt opgehaald.
 
-    Dit bestand bewerken, moet u de volgende opdracht gebruiken:
+    tooedit dit bestand, gebruik Hallo volgende opdracht:
 
     ```bash
     sudo nano /etc/bind/named.conf.local
     ```
 
-    Gebruiken om het bestand opslaat, __Ctrl + X__, __Y__, en vervolgens __Enter__.
+    Gebruik-bestand Hallo toosave __Ctrl + X__, __Y__, en vervolgens __Enter__.
 
-6. Gebruik de volgende opdracht voor het starten van Bind:
+6. toostart binding, Hallo volgende opdracht gebruiken:
 
     ```bash
     sudo service bind9 restart
     ```
 
-7. Om te controleren die afhankelijk van de namen van bronnen in uw on-premises netwerk kunt oplossen, gebruikt u de volgende opdrachten:
+7. tooverify die binden kunt oplossen Hallo namen van resources in uw on-premises netwerk, gebruik Hallo volgende opdrachten:
 
     ```bash
     sudo apt install dnsutils
@@ -219,11 +219,11 @@ Maken van een Linux-VM die gebruikmaakt van de [binden](https://www.isc.org/down
     ```
 
     > [!IMPORTANT]
-    > Vervang `dns.mynetwork.net` met de volledig gekwalificeerde domeinnaam (FQDN) van een resource in uw on-premises netwerk.
+    > Vervang `dns.mynetwork.net` met Hallo volledig gekwalificeerde domeinnaam (FQDN) van een bron in uw on-premises netwerk.
     >
-    > Vervang `10.0.0.4` met de __interne IP-adres__ van uw aangepaste DNS-server in het virtuele netwerk.
+    > Vervang `10.0.0.4` Hello __interne IP-adres__ van uw aangepaste DNS-server in het virtuele netwerk Hallo.
 
-    Het antwoord ziet er ongeveer de volgende tekst:
+    antwoord Hallo verschijnt vergelijkbare toohello volgende tekst:
 
         Server:         10.0.0.4
         Address:        10.0.0.4#53
@@ -232,79 +232,79 @@ Maken van een Linux-VM die gebruikmaakt van de [binden](https://www.isc.org/down
         Name:   dns.mynetwork.net
         Address: 192.168.0.4
 
-### <a name="configure-the-virtual-network-to-use-the-custom-dns-server"></a>Het virtuele netwerk voor het gebruik van de aangepaste DNS-server configureren
+### <a name="configure-hello-virtual-network-toouse-hello-custom-dns-server"></a>Hallo virtueel netwerk toouse Hallo aangepaste DNS-server configureren
 
-Gebruik de volgende stappen voor het configureren van het virtuele netwerk voor het gebruik van de aangepaste DNS-server in plaats van de Azure recursieve resolver:
+tooconfigure hello virtueel netwerk toouse Hallo aangepaste DNS-server in plaats van hello Azure recursieve resolver, gebruik Hallo stappen te volgen:
 
-1. In de [Azure-portal](https://portal.azure.com), selecteer het virtuele netwerk en selecteer vervolgens __DNS-Servers__.
+1. In Hallo [Azure-portal](https://portal.azure.com)Hallo virtueel netwerk selecteert en selecteer vervolgens __DNS-Servers__.
 
-2. Selecteer __aangepaste__, en voer de __interne IP-adres__ van de aangepaste DNS-server. Tot slot selecteert __opslaan__.
+2. Selecteer __aangepaste__, en Voer Hallo __interne IP-adres__ van Hallo aangepaste DNS-server. Tot slot selecteert __opslaan__.
 
-    ![De aangepaste DNS-server voor het netwerk instellen](./media/connect-on-premises-network/configure-custom-dns.png)
+    ![Hallo aangepaste DNS-server voor Hallo netwerk instellen](./media/connect-on-premises-network/configure-custom-dns.png)
 
-### <a name="configure-the-on-premises-dns-server"></a>De lokale DNS-server configureren
+### <a name="configure-hello-on-premises-dns-server"></a>Hallo lokale DNS-server configureren
 
-In de vorige sectie, moet u de aangepaste DNS-server voor het doorsturen van aanvragen naar de lokale DNS-server geconfigureerd. Vervolgens configureert u de lokale DNS-server voor het doorsturen van aanvragen voor de aangepaste DNS-server.
+In de vorige sectie hello, moet u Hallo aangepaste DNS-server tooforward aanvragen toohello lokale DNS-server geconfigureerd. Vervolgens configureert u Hallo lokale DNS-server tooforward aanvragen toohello aangepaste DNS-server.
 
-Raadpleeg de documentatie bij uw DNS-server-software voor specifieke stappen over het configureren van uw DNS-server. Zoekt u de stappen voor het configureren van een __voorwaardelijke doorstuurserver__.
+Voor specifieke stappen over het tooconfigure uw DNS-server, Raadpleeg de documentatie van de Hallo voor uw DNS-server-software. Zoek naar Hallo Stapsgewijze instructies voor het tooconfigure een __voorwaardelijke doorstuurserver__.
 
-Een voorwaardelijke voorwaartse verzendt alleen aanvragen voor een specifieke DNS-achtervoegsel. In dit geval moet u een doorstuurserver voor het DNS-achtervoegsel van het virtuele netwerk configureren. Aanvragen voor dit achtervoegsel moeten worden doorgestuurd naar het IP-adres van de aangepaste DNS-server. 
+Een voorwaardelijke voorwaartse verzendt alleen aanvragen voor een specifieke DNS-achtervoegsel. In dit geval moet u een doorstuurserver voor Hallo DNS-achtervoegsel van het virtuele netwerk Hallo configureren. Aanvragen voor dit achtervoegsel moeten toohello IP-adres van Hallo aangepaste DNS-server worden doorgestuurd. 
 
-De volgende tekst is een voorbeeld van een voorwaardelijke doorstuurserver-configuratie voor de **binden** DNS-software:
+Hallo volgende tekst is een voorbeeld van een voorwaardelijke doorstuurserver-configuratie voor Hallo **binden** DNS-software:
 
     zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
         type forward;
-        forwarders {10.0.0.4;}; # The custom DNS server's internal IP address
+        forwarders {10.0.0.4;}; # hello custom DNS server's internal IP address
     };
 
-Voor informatie over het gebruik van DNS op **Windows Server 2016**, Zie de [toevoegen DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) documentatie...
+Voor informatie over het gebruik van DNS op **Windows Server 2016**, Zie Hallo [toevoegen DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) documentatie...
 
-Wanneer u de lokale DNS-server hebt geconfigureerd, kunt u `nslookup` van de on-premises netwerk om te controleren dat u namen in het virtuele netwerk omzetten kan. Het volgende voorbeeld 
+Wanneer u Hallo lokale DNS-server hebt geconfigureerd, kunt u `nslookup` van Hallo lokale netwerk tooverify in Hallo virtueel netwerk dat u het kunt oplossen namen. Hallo voorbeeld te volgen 
 
 ```bash
 nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net 196.168.0.4
 ```
 
-Dit voorbeeld wordt de lokale DNS-server op 196.168.0.4 omzetten van de naam van de aangepaste DNS-server. Het IP-adres vervangen door de voor de lokale DNS-server. Vervang de `dnsproxy` adres met de volledig gekwalificeerde domeinnaam van de aangepaste DNS-server.
+In dit voorbeeld maakt gebruik van de lokale DNS-server op 196.168.0.4 Hallo tooresolve Hallo-naam van Hallo aangepaste DNS-server. Hallo IP-adres vervangen door Hallo voor Hallo lokale DNS-server. Vervang Hallo `dnsproxy` adres met de volledig gekwalificeerde domeinnaam Hallo van Hallo aangepaste DNS-server.
 
 ## <a name="optional-control-network-traffic"></a>Optioneel: Besturingselement netwerkverkeer
 
-U kunt netwerkbeveiligingsgroepen (NSG) of de gebruiker gedefinieerde routes (UDR) netwerkverkeer wordt beheerd. Nsg's kunnen u binnenkomend en uitgaand verkeer filteren en toestaan of weigeren van het verkeer. Udr's kunnen u bepalen hoe verkeersstromen tussen resources in het virtuele netwerk, internet en de on-premises netwerk.
+U kunt de netwerkbeveiligingsgroepen (NSG) of de gebruiker gedefinieerde routes (UDR) toocontrol-netwerkverkeer. Nsg's kunnen u toofilter binnenkomend en uitgaand verkeer, en verkeer toestaan of weigeren Hallo. Udr's kunnen u toocontrol hoe tussen resources in het virtuele netwerk Hallo verkeersstromen Hallo van internet en Hallo on-premises netwerk.
 
 > [!WARNING]
-> HDInsight vereist binnenkomende toegang van specifieke IP-adressen in de Azure-cloud en onbeperkte uitgaande toegang. Wanneer u nsg's of udr's om te bepalen van verkeer, moet u de volgende stappen uitvoeren:
+> HDInsight vereist binnenkomende toegang van specifieke IP-adressen in hello Azure-cloud en onbeperkte uitgaande toegang. Wanneer u nsg's of udr's toocontrol-verkeer gebruikt, moet u Hallo stappen uitvoeren:
 >
-> 1. De IP-adressen vinden voor de locatie waarin het virtuele netwerk. Zie voor een lijst met vereiste IP-adressen per locatie, [vereiste IP-adressen](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+> 1. Hallo IP-adressen voor Hallo locatie waarin het virtuele netwerk zoeken. Zie voor een lijst met vereiste IP-adressen per locatie, [vereiste IP-adressen](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
 >
-> 2. Binnenkomend verkeer van de IP-adressen toestaan.
+> 2. Binnenkomend verkeer van Hallo IP-adressen toestaan.
 >
->    * __NSG__: toestaan __inkomende__ verkeer op poort __443__ van de __Internet__.
->    * __UDR__: Stel de __volgende Hop__ type van de route naar __Internet__.
+>    * __NSG__: toestaan __inkomende__ verkeer op poort __443__ van Hallo __Internet__.
+>    * __UDR__: Set Hallo __volgende Hop__ Hallo route too__Internet__ type.
 
-Zie voor een voorbeeld van het gebruik van Azure PowerShell of Azure CLI voor het nsg's maken, de [HDInsight uitbreiden met Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) document.
+Zie voor een voorbeeld van het gebruik van Azure PowerShell of hello Azure CLI toocreate nsg's Hallo [HDInsight uitbreiden met Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) document.
 
-## <a name="create-the-hdinsight-cluster"></a>Het HDInsight-cluster maken
+## <a name="create-hello-hdinsight-cluster"></a>Hallo HDInsight-cluster maken
 
 > [!WARNING]
-> Voordat u HDInsight in het virtuele netwerk installeert, moet u de aangepaste DNS-server configureren.
+> Hallo aangepaste DNS-server moet u configureren voordat u HDInsight in het virtuele netwerk Hallo installeert.
 
-Gebruik de stappen in de [maken van een HDInsight-cluster met de Azure portal](./hdinsight-hadoop-create-linux-clusters-portal.md) document om een HDInsight-cluster te maken.
+Gebruik Hallo stappen voor het Hallo [maken van een HDInsight-cluster met behulp van Azure-portal Hallo](./hdinsight-hadoop-create-linux-clusters-portal.md) document toocreate een HDInsight-cluster.
 
 > [!WARNING]
-> * Tijdens het maken, moet u de locatie waarin het virtuele netwerk.
+> * Tijdens het maken, moet u Hallo locatie waarin het virtuele netwerk.
 >
-> * In de __geavanceerde instellingen__ deel van de configuratie, moet u het virtuele netwerk en subnet dat u eerder hebt gemaakt.
+> * In Hallo __geavanceerde instellingen__ deel van de configuratie, moet u Hallo virtueel netwerk en subnet dat u eerder hebt gemaakt.
 
-## <a name="connecting-to-hdinsight"></a>Verbinding maken met HDInsight
+## <a name="connecting-toohdinsight"></a>Verbinding maken met tooHDInsight
 
-De meeste documentatie op HDInsight wordt ervan uitgegaan dat u toegang tot het cluster via internet hebt. Bijvoorbeeld, u verbinding kunt maken met het cluster op https://CLUSTERNAME.azurehdinsight.net. Dit adres wordt gebruikt voor de openbare-gateway niet beschikbaar is als u nsg's of udr's hebt gebruikt om toegang te beperken van het internet.
+De meeste documentatie op HDInsight wordt ervan uitgegaan dat u toegang toohello cluster via Hallo internet. Bijvoorbeeld, kunt u de cluster toohello op https://CLUSTERNAME.azurehdinsight.net koppelen. Dit adres Hallo openbare-gateway niet beschikbaar is als u nsg's hebt gebruikt of udr's toorestrict toegang vanaf internet Hallo gebruikt.
 
-Om rechtstreeks verbinding maken met HDInsight via het virtuele netwerk, gebruikt u de volgende stappen uit:
+toodirectly tooHDInsight via Hallo virtueel netwerk verbinding maken, gebruikt u Hallo stappen te volgen:
 
-1. Gebruik een van de volgende methoden voor het detecteren van de interne FQDN-namen van de clusterknooppunten HDInsight:
+1. toodiscover hello interne FQDN-namen van de clusterknooppunten Hallo HDInsight, een van de volgende methoden hello gebruiken:
 
     ```powershell
-    $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
+    $resourceGroupName = "hello resource group that contains hello virtual network used with HDInsight"
 
     $clusterNICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
 
@@ -323,18 +323,18 @@ Om rechtstreeks verbinding maken met HDInsight via het virtuele netwerk, gebruik
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-2. Zie het vaststellen van de poort die een service is beschikbaar op de [poorten die worden gebruikt door de services van Hadoop op HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
+2. toodetermine hello poort die een service is beschikbaar op, Zie Hallo [poorten die worden gebruikt door de services van Hadoop op HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
 
     > [!IMPORTANT]
-    > Sommige services die worden gehost op de hoofdknooppunten zijn alleen actief is op één knooppunt tegelijk. Als u probeert toegang tot een service op één hoofdknooppunt en dit mislukt, overschakelen naar het hoofdknooppunt.
+    > Sommige services die worden gehost op Hallo hoofdknooppunten zijn alleen actief is op één knooppunt tegelijk. Als u probeert toegang tot een service op één hoofdknooppunt en dit mislukt, overschakelen toohello andere hoofdknooppunt.
     >
-    > Bijvoorbeeld, is Ambari alleen actief op één hoofdknooppunt tegelijk. Als u probeert toegang tot Ambari op één hoofdknooppunt en een 404-fout retourneert, wordt klikt u vervolgens deze uitgevoerd op het hoofdknooppunt.
+    > Bijvoorbeeld, is Ambari alleen actief op één hoofdknooppunt tegelijk. Als u probeert toegang tot Ambari op één hoofdknooppunt en een 404-fout, retourneert en vervolgens deze wordt uitgevoerd op Hallo andere hoofdknooppunt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor meer informatie over het gebruik van HDInsight in een virtueel netwerk [HDInsight uitbreiden met behulp van Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md).
 
-* Zie voor meer informatie over virtuele netwerken in Azure, de [Azure Virtual Network-overzicht](../virtual-network/virtual-networks-overview.md).
+* Zie voor meer informatie over virtuele netwerken van Azure Hallo [Azure Virtual Network-overzicht](../virtual-network/virtual-networks-overview.md).
 
 * Zie voor meer informatie over netwerkbeveiligingsgroepen [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md).
 

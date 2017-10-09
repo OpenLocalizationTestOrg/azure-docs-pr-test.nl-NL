@@ -1,5 +1,5 @@
-Wanneer u probeert te maken van een nieuwe Azure virtuele Machine (VM), worden de algemene fouten die optreden inrichting fouten of toewijzingsfouten.
+Wanneer u een nieuwe Azure virtuele Machine (VM) toocreate, worden de Hallo algemene fouten die optreden inrichting fouten of toewijzingsfouten.
 
-* Een inrichting fout gebeurt wanneer de installatiekopie van het besturingssysteem niet wordt geladen als gevolg van onjuiste voorbereidende stappen of vanwege de verkeerde instellingen selecteren tijdens de installatiekopie vast te leggen van de portal.
-* Een toewijzingsfout resulteert wanneer het cluster of de regio geen bronnen beschikbaar heeft of het aangevraagde VM-grootte kan niet worden ondersteund.
+* Een inrichting fout gebeurt wanneer Hallo OS-installatiekopie is mislukt vanwege de voorbereidende stappen tooincorrect of vanwege een onjuiste instellingen Hallo selecteren tijdens Hallo installatiekopie vanaf Hallo portal vastleggen tooload.
+* Een toewijzing fout ontstaat wanneer het Hallo-cluster of de regio heeft geen beschikbare bronnen of Hallo ondersteunt geen aangevraagde VM-grootte.
 

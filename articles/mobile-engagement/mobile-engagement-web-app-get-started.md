@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure Mobile Engagement voor web-apps | Microsoft Docs
-description: Ontdek hoe u Azure Mobile Engagement gebruikt met analyses en pushmeldingen voor web-apps.
+title: aaaGet de slag met Azure Mobile Engagement voor Web-Apps | Microsoft Docs
+description: Meer informatie over hoe toouse Azure Mobile Engagement met analyses en pushmeldingen voor Web-Apps.
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
@@ -14,52 +14,52 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a84c96cac13bf3b85e72aef55da5c91693e1766c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Aan de slag met Azure Mobile Engagement voor web-apps
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-In dit onderwerp wordt beschreven hoe u met Azure Mobile Engagement uw gebruik van web-apps leert te begrijpen.
+Dit onderwerp leest u hoe toouse Azure Mobile Engagement toounderstand gebruik van uw Web-App.
 
 > [!NOTE]
-> De Azure Mobile Engagement-service wordt in maart 2018 beëindigd en is momenteel alleen beschikbaar voor bestaande klanten. Zie [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/) voor meer informatie.
+> Hallo Azure Mobile Engagement service buiten gebruik gesteld maart 2018 en is momenteel alleen beschikbaar tooexisting klanten. Zie [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/) voor meer informatie.
 
-Voor deze zelfstudie hebt u het volgende nodig:
+Deze zelfstudie vereist de volgende Hallo:
 
 * Visual Studio 2015 of een andere editor van uw keuze
 * [Web SDK](http://aka.ms/P7b453)
 
-Deze Web SDK bevindt zich nog in de previewfase en ondersteunt momenteel alleen Analytics en biedt geen ondersteuning voor het verzenden van pushmeldingen in browsers of apps. 
+Deze Web-SDK is Preview-versie en alleen Analytics Hallo momenteel ondersteunt en biedt geen ondersteuning voor pushmeldingen verzenden browser of in-app nog. 
 
 > [!NOTE]
-> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started) voor meer informatie.
+> toocomplete deze zelfstudie maakt u een actief Azure-account moet hebben. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started) voor meer informatie.
 > 
 > 
 
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>Mobile Engagement instellen voor uw web-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
-Deze zelfstudie toont een 'basisintegratie'. Dit is de minimale set die vereist is voor het verzamelen van gegevens.
+## <a id="connecting-app"></a>Verbinding maken met uw app toohello Mobile Engagement-back-end
+Deze zelfstudie toont een 'basisintegratie,' Hallo minimale set die vereist toocollect gegevens.
 
-We gaan een elementaire web-app maken met Visual Studio ter illustratie van de integratie, maar u kunt de stappen ook volgen met elke webtoepassing die buiten Visual Studio is gemaakt. 
+We gaan een eenvoudige web-app maken met Visual Studio-integratie voor toodemonstrate hello, maar u Hallo met een webtoepassing die ook buiten Visual Studio gemaakt stappen kunt. 
 
 ### <a name="create-a-new-web-app"></a>Een nieuwe web-app maken
-In de volgende stappen wordt ervan uitgegaan dat u Visual Studio 2015 gebruikt, hoewel de stappen hetzelfde zijn in eerdere versies van Visual Studio. 
+Hallo volgende stappen wordt ervan uitgegaan Hallo gebruik van Visual Studio 2015 al Hallo stappen vergelijkbaar in eerdere versies van Visual Studio zijn. 
 
-1. Start Visual Studio en selecteer **New Project** in het scherm **Home**.
-2. Selecteer **Web** -> **ASP.Net Web Application** (ASP.Net-webtoepassing) in de pop-up. Vul de **app-naam**, **locatie** en **oplossingsnaam** in en klik op **OK**.
-3. Selecteer in de pop-up **Select a template** (Selecteer een sjabloon) de optie **Empty** (Leeg) onder **ASP.Net 4.5 Templates** (ASP.Net 4.5-sjablonen) en klik op **OK**. 
+1. Start Visual Studio en in Hallo **Start** Schakel in het scherm **nieuw Project**.
+2. Selecteer in het pop-upvenster Hallo **Web** -> **ASP.Net-webtoepassing**. Vul Hallo app **naam**, **locatie** en **oplossingsnaam**, en klik vervolgens op **OK**.
+3. In Hallo **Selecteer een sjabloon** pop-up Selecteer **leeg** onder **ASP.Net 4.5 sjablonen** en klik op **OK**. 
 
-U hebt nu een nieuw, leeg web-app-project gemaakt waarin wij de Web SDK van Azure Mobile Engagement gaan integreren.
+U hebt nu een nieuwe lege Web-App-project waarin hello Azure Mobile Engagement Web SDK is geïntegreerd gemaakt.
 
-### <a name="connect-your-app-to-mobile-engagement-backend"></a>Uw app verbinden met de back-end van Mobile Engagement
-1. Maak een nieuwe map genaamd **javascript** in uw oplossing en voeg het Web SDK JS-bestand **azure-engagement.js** eraan toe. 
-2. Voeg met de volgende code een nieuw bestand met de naam **main.js** toe aan deze javascript-map. Zorg ervoor dat u de verbindingstekenreeks bijwerkt. Dit `azureEngagement`-object wordt gebruikt voor toegang tot Web SDK-methoden. 
+### <a name="connect-your-app-toomobile-engagement-backend"></a>Verbinding maken met uw app tooMobile Engagement back-end
+1. Maak een nieuwe map **javascript** in uw oplossing en Hallo Web SDK JS bestand toevoegen **azure engagement.js** in de App. 
+2. Voeg een nieuw bestand genaamd **main.js** in deze map javascript Hello code te volgen. Zorg ervoor dat tooupdate Hallo-verbindingsreeks. Dit `azureEngagement` -object worden gebruikte tooaccess Web SDK-methoden. 
    
         var azureEngagement = {
             debug: true,
@@ -69,14 +69,14 @@ U hebt nu een nieuw, leeg web-app-project gemaakt waarin wij de Web SDK van Azur
     ![Visual Studio met js-bestanden][1]
 
 ## <a name="enable-real-time-monitoring"></a>Realtime-bewaking inschakelen
-U dient ten minste één activiteit naar de back-end van Mobile Engagement te sturen om te beginnen met het verzenden van gegevens en ervoor te zorgen dat de gebruikers actief zijn. Een activiteit in de context van een web-app is een webpagina. 
+U moet ten minste één activiteit toohello Mobile Engagement back-end verzenden in volgorde toostart verzenden van gegevens en ervoor te zorgen dat Hallo gebruikers actief zijn. Een activiteit in de context Hallo van een web-app is een webpagina. 
 
-1. Maak een nieuwe pagina met de naam **home.html** in uw oplossing en stel deze in als de startpagina van uw web-app. 
-2. Neem er de twee javascripts in op die we eerder aan deze pagina hebben toegevoegd door het volgende in de <body>-tag toe te voegen. 
+1. Maak een nieuwe pagina aangeroepen **home.html** in uw oplossing en als Hallo vanaf pagina voor uw web-app. 
+2. Hallo twee JavaScript die we eerder in deze pagina hebt toegevoegd door toe te voegen Hallo volgende binnen Hallo hoofdtekst tag bevatten. 
    
         <script type="text/javascript" src="javascript/main.js"></script>
         <script type="text/javascript" src="javascript/azure-engagement.js"></script>
-3. Werk de <body>-tag bij zodat de `startActivity`-methode van EngagementAgent wordt aangeroepen
+3. Hallo hoofdtekst tag toocall EngagementAgent van bijwerken `startActivity` methode
    
         <body onload="engagement.agent.startActivity('Home')">
 4. Zo ziet uw **home.html**-pagina eruit
@@ -97,7 +97,7 @@ U dient ten minste één activiteit naar de back-end van Mobile Engagement te st
   ![][2]
 
 ## <a name="extend-analytics"></a>Analyse uitbreiden
-Dit zijn alle methoden die momenteel bij Web SDK beschikbaar zijn die u voor analyses kunt gebruiken:
+Hier zijn alle Hallo methoden beschikbaar met Web-SDK die u voor analyses kunt gebruiken:
 
 1. Activiteiten/webpagina's:
    

@@ -1,6 +1,6 @@
 ---
-title: Zoekopdrachten opslaan en een pincode gegevensassets in Azure Data Catalog | Microsoft Docs
-description: Hoe kan ik artikel mogelijkheden in Azure Data Catalog is gemarkeerd voor het opslaan van gegevensbronnen en gegevensassets voor later gebruik.
+title: aaaSave zoekopdrachten en pincode gegevensassets in Azure Data Catalog | Microsoft Docs
+description: Hoe tooarticle markeren mogelijkheden in Azure Data Catalog voor het opslaan van gegevensbronnen en gegevensassets voor later gebruik.
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -15,72 +15,72 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.openlocfilehash: 8c319d0dcbe8b95af11b8be2368a9348b260446c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 0ad0a31d4b84782fed9d80acc2734912eecd6d74
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Zoekopdrachten en pincode gegevensassets opslaan in Azure Data Catalog
 ## <a name="introduction"></a>Inleiding
-Azure Data Catalog bevat mogelijkheden voor detectie van gegevensbronnen. U kunt snel zoeken en filteren van de catalogus gegevensbronnen vinden en begrijpen van het beoogde gebruik, waardoor het gemakkelijker de juiste gegevens vinden voor de taak op dat moment.
+Azure Data Catalog bevat mogelijkheden voor detectie van gegevensbronnen. U kunt snel zoeken en filteren Hallo catalogus toolocate gegevensbronnen en begrijpen van het beoogde gebruik, waardoor het gemakkelijker toofind Hallo juiste gegevens voor Hallo taak op dat moment.
 
-Maar wat gebeurt er als u wilt regelmatig werken met dezelfde gegevens? En wat gebeurt er als u en andere gebruikers regelmatig bij te dragen uw kennis met de dezelfde gegevensbronnen in de catalogus? In deze situaties kan herhaaldelijk uitgeven de zoekopdrachten die dezelfde zijn inefficiënt. Dit is waar opgeslagen zoekopdracht en vastgemaakt gegevensassets kunnen helpen.
+Maar wat gebeurt er als u tooregularly moet werken met Hallo dezelfde gegevens? En wat gebeurt er als u en andere gebruikers regelmatig bij te uw kennis toohello dragen dezelfde gegevensbronnen in de catalogus Hallo? In deze situaties met toorepeatedly probleem Hallo dezelfde zoekacties inefficiënt zijn. Dit is waar opgeslagen zoekopdracht en vastgemaakt gegevensassets kunnen helpen.
 
 ## <a name="saved-searches"></a>Opgeslagen zoekopdrachten
-Een opgeslagen zoekopdracht in Data Catalog is een definitie van een herbruikbare, per gebruiker zoeken. U kunt een zoekopdracht, zoals zoektermen, labels en andere filters definiëren en vervolgens opslaan. U kunt de definitie van de opgeslagen zoekopdracht later om te retourneren van alle gegevensassets die overeenkomen met de zoekcriteria opnieuw uitvoeren.
+Een opgeslagen zoekopdracht in Data Catalog is een definitie van een herbruikbare, per gebruiker zoeken. U kunt een zoekopdracht, zoals zoektermen, labels en andere filters definiëren en vervolgens opslaan. U kunt opnieuw uitvoeren Hallo opgeslagen zoekopdracht definitie hoger tooreturn eventuele gegevensassets die overeenkomen met de zoekcriteria.
 
 ### <a name="create-a-saved-search"></a>Maken van een opgeslagen zoekopdracht
-Ga als volgt te werk voor het maken van een opgeslagen zoekopdracht:
-1. In de Azure Data Catalog-portal in de **huidige zoekopdracht** venster, klikt u op **opslaan**. 
+een opgeslagen zoekopdracht toocreate Hallo te volgen:
+1. Hello Azure Data Catalog, in portal Hallo **huidige zoekopdracht** venster, klikt u op **opslaan**. 
 
     ![Koppeling van huidige zoekopdracht instellingen opslaan](./media/data-catalog-how-to-save-pin/01-save-option.png) 
 
-2. Voer de zoekcriteria die u wilt gebruiken en klik vervolgens op **opslaan**.
+2. Voer de zoekcriteria Hallo tooreuse wilt en klik vervolgens op **opslaan**.
 
     ![Huidige zoekinstellingen opgeslagen zoeknaam](./media/data-catalog-how-to-save-pin/02-name.png)
 
-3. Wanneer u wordt gevraagd, typt u een naam voor de opgeslagen zoekopdracht. Kies een naam die zinnig is en dat de gegevensassets die worden geretourneerd door de zoekopdracht beschrijft.
+3. Wanneer u wordt gevraagd, typt u een naam voor de opgeslagen zoekopdracht Hallo. Kies een naam die zinnig is en die beschrijft Hallo gegevensassets die worden geretourneerd door Hallo zoeken.
 
 ### <a name="manage-saved-searches"></a>Opgeslagen zoekopdrachten beheren
-Nadat u hebt opgeslagen zoekopdrachten voor een of meer, een **opgeslagen zoekacties** optie wordt weergegeven onder de **huidige zoekopdracht** vak. Wanneer de lijst wordt uitgevouwen, worden alle opgeslagen zoekopdrachten worden weergegeven.
+Nadat u hebt opgeslagen zoekopdrachten voor een of meer, een **opgeslagen zoekacties** optie wordt weergegeven onder Hallo **huidige zoekopdracht** vak. Wanneer het Hallo-lijst is uitgevouwen, worden alle opgeslagen zoekopdrachten worden weergegeven.
 
  ![Lijst met opgeslagen zoekopdrachten](./media/data-catalog-how-to-save-pin/03-list.png)
 
-Het volgende doen:
+Hallo volgende doen:
 
-* Selecteer een opgeslagen zoekopdracht in de lijst voor het uitvoeren van een zoekopdracht.
+* tooexecute een zoekopdracht, selecteert u een opgeslagen zoekopdracht in Hallo-lijst.
 
-* Een lijst van beheeropties voor een opgeslagen zoekopdracht wilt weergeven, klikt u op de pijl-omlaag naast de naam van de zoekopdracht.
+* tooview een lijst met opties voor een opgeslagen zoekopdracht, klikt u op Hallo omlaag Pijl volgende toohello zoeknaam.
 
     ![Opties voor het beheer opgeslagen zoekopdrachten](./media/data-catalog-how-to-save-pin/04-managing.png)
 
-* Als u wilt een nieuwe naam voor de opgeslagen zoekopdracht invoeren, selecteert u **naam**. De definitie van de zoekopdracht is niet gewijzigd.
+* Selecteer een nieuwe naam voor de zoekopdracht op Hallo opgeslagen tooenter **naam**. Hallo zoeken definitie is niet gewijzigd.
 
-* Als de opgeslagen zoekopdracht uit de lijst, selecteert u **verwijderen**, en vervolgens de verwijdering te bevestigen.
+* tooremove hello opgeslagen zoekopdracht uit de lijst, selecteert **verwijderen**, en bevestig vervolgens Hallo verwijdering.
 
-* Selecteer de opgeslagen zoekopdracht als uw zoekopdracht standaard markeert, **opslaan als standaard**. Als u een 'empty' zoekopdracht vanaf de startpagina van Azure Data Catalog uitvoert, wordt uw standaard-zoekopdracht wordt uitgevoerd. Bovendien de zoekopdracht die gemarkeerd als de standaardzoekopdracht wordt weergegeven boven aan de **opgeslagen zoekacties** lijst.
+* uw zoekopdracht standaard selecteert toomark Hallo opgeslagen zoekactie **opslaan als standaard**. Als u een 'empty' zoeken op de introductiepagina van hello Azure Data Catalog uitvoert, wordt uw standaard-zoekopdracht wordt uitgevoerd. Bovendien Hallo zoeken die gemarkeerd als Hallo standaardzoekopdracht wordt weergegeven boven Hallo Hallo **opgeslagen zoekacties** lijst.
 
 ### <a name="organizational-saved-searches"></a>Organisatie opgeslagen zoekopdrachten
-Alle gebruikers in uw organisatie kunt zoekopdrachten voor eigen gebruik opslaan. Data Catalog beheerders kunnen ook gezocht naar alle gebruikers binnen de organisatie opslaan. Wanneer beheerders een zoekopdracht opslaat, ze worden weergegeven met een **Share binnen het bedrijf** optie. Als u deze optie selecteert, deelt de opgeslagen zoekopdracht voor alle gebruikers in de organisatie.
+Alle gebruikers in uw organisatie kunt zoekopdrachten voor eigen gebruik opslaan. Data Catalog beheerders kunnen ook gezocht naar alle gebruikers binnen de organisatie Hallo opslaan. Wanneer beheerders een zoekopdracht opslaat, ze worden weergegeven met een **Share binnen Hallo bedrijf** optie. Deze optie shares Hallo opgeslagen zoekactie voor alle gebruikers in de organisatie Hallo selecteren.
 
  ![Organisatie opgeslagen zoekopdrachten](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
 
 ## <a name="pinned-data-assets"></a>Vastgemaakte gegevensassets
-U kunt met opgeslagen zoekopdrachten opslaan en opnieuw zoeken definities gebruiken. De gegevensassets die worden geretourneerd door de zoekopdrachten die kunnen worden gewijzigd na verloop van tijd als de inhoud van de wijziging van de catalogus. Wanneer u gegevensassets vastmaken, kunt u specifieke gegevensassets te vereenvoudigen voor toegang tot een zoeken gebruiken zonder expliciet identificeren.
+U kunt met opgeslagen zoekopdrachten opslaan en opnieuw zoeken definities gebruiken. Hallo-gegevensassets die worden geretourneerd door Hallo zoekopdrachten kunnen worden gewijzigd na verloop van tijd als de inhoud Hallo van Hallo catalogus wijzigen. Wanneer u gegevensassets vastmaken, kunt u expliciet specifieke gegevens activa toomake identificeren ze gemakkelijker tooaccess zonder toouse een zoekopdracht.
 
-Een gegevensasset vastmaken is eenvoudig. De gegevensasset toevoegen aan uw vastgemaakte lijst, klikt u op de **pincode** pictogram. Het pictogram wordt weergegeven in de rechterbenedenhoek van de asset-tegel in de weergave tile en in de linkerkolom in de lijstweergave in de portal voor Azure Data Catalog.
+Een gegevensasset vastmaken is eenvoudig. tooadd hello gegevens asset tooyour vastgemaakt lijst, klikt u op Hallo **pincode** pictogram. Hallo-pictogram wordt weergegeven in de hoek Hallo van Hallo asset tegel in de weergave tile hello en in de linkerkolom Hallo in de lijstweergave Hallo in hello Azure Data Catalog-portal.
 
-![Het Punaisepictogram gegevens asset](./media/data-catalog-how-to-save-pin/05-pinning.png)
+![Hallo-gegevensasset Punaisepictogram](./media/data-catalog-how-to-save-pin/05-pinning.png)
 
-Een gegevensasset losmaken is even eenvoudig. Klik op de **losmaken** pictogram in de instelling voor de geselecteerde asset-of uitschakelen.
+Een gegevensasset losmaken is even eenvoudig. Klik op Hallo **losmaken** pictogram tootoggle Hallo-instelling voor de geselecteerde asset Hallo.
 
-![De gegevensasset losmaken pictogram](./media/data-catalog-how-to-save-pin/06-unpinning.png)
+![Hallo-gegevensasset losmaken pictogram](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
-## <a name="the-my-assets-section"></a>De sectie Mijn activa
-De portal startpagina van Data Catalog bevat een **Mijn activa** sectie geeft de activa van belang bij de huidige gebruiker. Deze sectie bevat zowel vastgemaakt activa en opgeslagen zoekopdrachten.
+## <a name="hello-my-assets-section"></a>Hallo Mijn activa-sectie
+Hallo Data Catalog portal introductiepagina bevat een **Mijn activa** sectie waarin de activa van belang toohello huidige gebruiker. Deze sectie bevat zowel vastgemaakt activa en opgeslagen zoekopdrachten.
 
-![De sectie Mijn activa op de startpagina](./media/data-catalog-how-to-save-pin/07-my-assets.png)
+![Hallo Mijn activa-sectie op Hallo-startpagina](./media/data-catalog-how-to-save-pin/07-my-assets.png)
 
 ## <a name="summary"></a>Samenvatting
-Azure Data Catalog bevat mogelijkheden waarmee het eenvoudiger is voor het detecteren van de gegevensbronnen die u nodig hebt, zodat u en andere leden van de organisatie kunnen minder tijd nodig voor zoekt gegevens en meer tijd ermee te werken. Opgeslagen zoekopdrachten en vastgemaakt gegevens activa op deze belangrijkste mogelijkheden, bouwen zodat gebruikers de gegevensbronnen die ze met herhaaldelijk werken gemakkelijk kunnen herkennen.
+Azure Data Catalog bevat mogelijkheden waarmee u gemakkelijker toodiscover Hallo gegevensbronnen die u nodig, zodat u en andere leden van de organisatie kunnen minder tijd nodig voor zoekt gegevens en meer tijd ermee te werken. Opgeslagen zoekopdrachten en vastgemaakt gegevens activa op deze belangrijkste mogelijkheden, bouwen zodat gebruikers de gegevensbronnen die ze met herhaaldelijk werken gemakkelijk kunnen herkennen.

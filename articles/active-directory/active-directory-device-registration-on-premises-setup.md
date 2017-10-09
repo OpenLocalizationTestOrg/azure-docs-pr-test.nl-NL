@@ -1,6 +1,6 @@
 ---
-title: Instellen van lokale voorwaardelijke toegang met behulp van Azure Active Directory-apparaatregistratie | Microsoft Docs
-description: Een stapsgewijze handleiding voor het inschakelen van voorwaardelijke toegang tot on-premises toepassingen met behulp van Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
+title: aaaSetting van lokale voorwaardelijke toegang met behulp van Azure Active Directory-apparaatregistratie | Microsoft Docs
+description: Een stapsgewijze handleiding tooenabling voorwaardelijke toegang tooon-premises toepassingen met behulp van Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,63 +15,63 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1a6f1c6566468188daa71939db8345280b7a529f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 808e3b96873102aebae667153f588dcdb205e884
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Lokale voorwaardelijke toegang instellen met behulp van Azure Active Directory-apparaatregistratie
-Als u werkplek koppelen gebruikers hun persoonlijke apparaten naar de apparaatregistratieservice van Azure Active Directory (Azure AD), kunnen hun apparaten kunnen worden gemarkeerd als bekend is bij uw organisatie. Hier volgt een stapsgewijze handleiding voor het inschakelen van voorwaardelijke toegang tot on-premises toepassingen met behulp van Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
+Als u wilt dat gebruikers tooworkplace-join hun persoonlijke apparaten toohello apparaatregistratieservice van Azure Active Directory (Azure AD), kunnen hun apparaten kunnen worden gemarkeerd als bekende tooyour organisatie. Hier volgt een stapsgewijze handleiding voor het inschakelen van voorwaardelijke toegang tooon-premises toepassingen met behulp van Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
 
 > [!NOTE]
 > Een licentie voor Office 365 of Azure AD Premium is vereist wanneer de apparaten die zijn geregistreerd in het beleid voor voorwaardelijke toegang van Azure Active Directory device registration service. Het gaat hierbij om beleidsregels die door AD FS in lokale bronnen worden afgedwongen.
 > 
-> Zie voor meer informatie over de scenario's voor voorwaardelijke toegang voor lokale bronnen [werkplek koppelen vanaf elk apparaat voor eenmalige aanmelding en naadloze tweeledige verificatie tussen bedrijfstoepassingen](https://technet.microsoft.com/library/dn280945.aspx).
+> Zie voor meer informatie over Hallo voorwaardelijke toegang scenario's voor lokale bronnen [koppelen tooworkplace vanaf elk apparaat voor eenmalige aanmelding en naadloze tweeledige verificatie tussen bedrijfstoepassingen](https://technet.microsoft.com/library/dn280945.aspx).
 
-Deze mogelijkheden zijn beschikbaar voor klanten die een Azure Active Directory Premium-licentie kopen.
+Deze mogelijkheden zijn beschikbaar toocustomers die een Azure Active Directory Premium-licentie kopen.
 
 ## <a name="supported-devices"></a>Ondersteunde apparaten
 * Domein Windows 7-apparaten
 * Windows 8.1 persoonlijke en domein-apparaten
-* iOS 6 en hoger voor de Safari-browser
+* iOS 6 en hoger voor Hallo Safari-browser
 * Android 4.0 of hoger, Samsung GS3 of hoger telefoons, Samsung Galaxy Opmerking 2 of hoger tablets
 
 ## <a name="scenario-prerequisites"></a>Scenario-vereisten
-* Abonnement op Office 365 of Azure Active Directory Premium
+* Abonnement tooOffice 365 of Azure Active Directory Premium
 * Een Azure Active Directory-tenant
 * Windows Server Active Directory (WindowsServer 2008 of hoger)
 * Bijgewerkte schema in Windows Server 2012 R2
 * Licentie voor Azure Active Directory Premium
-* Windows Server 2012 R2 Federation Services, geconfigureerd voor eenmalige aanmelding bij Azure AD
+* Windows Server 2012 R2 Federation Services, geconfigureerd voor eenmalige aanmelding tooAzure AD
 * Windows Server 2012 R2 Web Application Proxy 
 * Microsoft Azure Active Directory Connect (Azure AD Connect) [(Azure AD Connect downloaden)](http://www.microsoft.com/en-us/download/details.aspx?id=47594)
 * Geverifieerde domein
 
 ## <a name="known-issues-in-this-release"></a>Bekende problemen in deze release
-* Beleid voor voorwaardelijke toegang op basis van apparaten vereisen apparaat object terugschrijven naar Active Directory van Azure Active Directory. Het kan apparaatobjecten worden teruggeschreven naar Active Directory tot drie uur duren.
-* iOS 7-apparaten altijd de gebruiker gevraagd om een certificaat selecteren tijdens de verificatie van clientcertificaten.
+* Beleid voor voorwaardelijke toegang op basis van apparaten vereisen apparaat object terugschrijven tooActive Directory van Azure Active Directory. Het kan apparaat objecten toobe tooActive Directory worden teruggeschreven toothree uur duren.
+* Hallo gebruiker tooselect een certificaat voor vragen iOS 7-apparaten altijd tijdens de verificatie van clientcertificaten.
 * In sommige versies van iOS 8 voordat iOS 8.3 niet werken.
 
 ## <a name="scenario-assumptions"></a>Veronderstellingen scenario
-Dit scenario wordt ervan uitgegaan dat u hebt een hybride omgeving die bestaan uit een Azure AD-tenant en een lokale Active Directory. Deze tenants moeten zijn verbonden met Azure AD Connect, met een geverifieerde domeinnaam en met AD FS voor eenmalige aanmelding. Gebruik de volgende controlelijst om hulp bij het configureren van uw omgeving afhankelijk van de vereisten.
+Dit scenario wordt ervan uitgegaan dat u hebt een hybride omgeving die bestaan uit een Azure AD-tenant en een lokale Active Directory. Deze tenants moeten zijn verbonden met Azure AD Connect, met een geverifieerde domeinnaam en met AD FS voor eenmalige aanmelding. Gebruik Hallo controlelijst toohelp configureren van uw omgeving op basis van toohello vereisten te volgen.
 
 ## <a name="checklist-prerequisites-for-conditional-access-scenario"></a>Controlelijst: Vereisten voor het scenario voor voorwaardelijke toegang
 Verbinding maken met uw Azure AD-tenant met uw lokale Active Directory-exemplaar.
 
 ## <a name="configure-azure-active-directory-device-registration-service"></a>Azure Active Directory device registratieservice configureren
-Deze handleiding gebruiken om te implementeren en configureren van de Azure Active Directory device registratieservice voor uw organisatie.
+Gebruik deze handleiding toodeploy en hello Azure Active Directory device registratieservice voor uw organisatie configureren.
 
-Deze handleiding wordt ervan uitgegaan dat u Windows Server Active Directory hebt geconfigureerd en u bent geabonneerd op Microsoft Azure Active Directory. Zie de vereisten die eerder zijn beschreven.
+Deze handleiding wordt ervan uitgegaan dat u Windows Server Active Directory hebt geconfigureerd en u bent geabonneerd tooMicrosoft Azure Active Directory. Zie Hallo-vereisten die eerder zijn beschreven.
 
-Voer de taken in de volgende controlelijst in volgorde voor het implementeren van de Azure Active Directory device registratieservice aan uw Azure Active Directory-tenant. Wanneer een verwijzende koppeling u naar een conceptueel onderwerp gaat, terug naar deze controlelijst daarna, zodat u kunt doorgaan met de resterende taken. Sommige taken omvatten een scenario validatiestap kunt u controleren of de stap is voltooid.
+toodeploy hello Azure Active Directory device registration-service met uw Azure Active Directory-tenant, volledige Hallo taken in de volgende controlelijst in volgorde Hallo. Als een verwijzende koppeling u tooa conceptueel onderwerp, retourneren toothis controlelijst daarna, zodat u kunt doorgaan met de Hallo resterende taken. Sommige taken omvatten een scenario validatiestap kunt u controleren of Hallo stap is voltooid.
 
 ## <a name="part-1-enable-azure-active-directory-device-registration"></a>Deel 1: Enable Azure Active Directory-apparaatregistratie
-Volg de stappen in de controlelijst inschakelen en configureren van de Azure Active Directory device registratieservice.
+Volg de stappen Hallo in Hallo controlelijst tooenable en hello Azure Active Directory device registratieservice configureren.
 
 | Taak | Naslaginformatie | 
 | --- | --- |
-| Schakel apparaatregistratie in uw Azure Active Directory-tenant om apparaten die aan de werkplek koppelen. Azure multi-factor Authentication is standaard niet ingeschakeld voor de service. We raden echter aan dat u multi-factor Authentication gebruiken wanneer u een apparaat registreren. Voordat u multi-factor Authentication inschakelt in de registratieservice van Active Directory, zorg ervoor dat de AD FS is geconfigureerd voor een multi-factor Authentication-provider. |[Azure Active Directory-apparaatregistratie inschakelen](active-directory-device-registration-get-started.md)| 
+| Schakel apparaatregistratie in uw Azure Active Directory-tenant tooallow apparaten toojoin Hallo werkplek. Azure multi-factor Authentication is standaard niet ingeschakeld voor Hallo-service. We raden echter aan dat u multi-factor Authentication gebruiken wanneer u een apparaat registreren. Voordat u multi-factor Authentication inschakelt in de registratieservice van Active Directory, zorg ervoor dat de AD FS is geconfigureerd voor een multi-factor Authentication-provider. |[Azure Active Directory-apparaatregistratie inschakelen](active-directory-device-registration-get-started.md)| 
 |Uw Azure Active Directory device registratieservice detecteren apparaten door te zoeken naar bekende DNS-records. Uw bedrijfs-DNS configureren zodat apparaten de apparaatregistratieservice van Azure Active Directory detecteren kunnen. |[Azure Active Directory device registration detectie configureren](active-directory-device-registration-get-started.md)| 
 
 
@@ -79,64 +79,64 @@ Volg de stappen in de controlelijst inschakelen en configureren van de Azure Act
 
 | Taak | Naslaginformatie |
 | --- | --- |
-| Active Directory Domain Services implementeren met de schema-uitbreidingen voor Windows Server 2012 R2. U hoeft niet een van uw domeincontrollers upgraden naar Windows Server 2012 R2. De schema-upgrade is de enige vereiste. |[Uw Active Directory Domain Services-schema bijwerken](#upgrade-your-active-directory-domain-services-schema) |
+| Active Directory Domain Services met Windows Server 2012 R2 schema-uitbreidingen Hallo implementeren. U hoeft niet tooupgrade van uw domein domeincontrollers tooWindows Server 2012 R2. Hallo schema-upgrade is de enige vereiste Hallo. |[Uw Active Directory Domain Services-schema bijwerken](#upgrade-your-active-directory-domain-services-schema) |
 | Uw Azure Active Directory device registratieservice detecteren apparaten door te zoeken naar bekende DNS-records. Uw bedrijfs-DNS configureren zodat apparaten de apparaatregistratieservice van Azure Active Directory detecteren kunnen. |[Voorbereiden van uw Active Directory ondersteuning voor apparaten](#prepare-your-active-directory-to-support-devices) |
 
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Deel 3: Schakel apparaat terugschrijven in Azure AD
 | Taak | Naslaginformatie |
 | --- | --- |
-| Deel 2 van "Enabling device writeback in Azure AD Connect." Nadat u klaar bent, keert u terug naar deze handleiding. |[Apparaat terugschrijven inschakelen in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
+| Deel 2 van "Enabling device writeback in Azure AD Connect." Nadat u deze handleiding return toothis. |[Apparaat terugschrijven inschakelen in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Optioneel] Deel 4: Schakel multi-factor Authentication
-Sterk aanbevolen een van de verschillende opties voor multi-factor Authentication te configureren. Als u meervoudige authenticatie wilt, Zie [de multi-factor Authentication-beveiligingsoplossing kiezen voor u](../multi-factor-authentication/multi-factor-authentication-get-started.md). Het bevat een beschrijving van elke oplossing en koppelingen naar informatie waarmee u de oplossing van uw keuze configureren.
+Sterk aanbevolen dat u een Hallo verschillende opties voor multi-factor Authentication configureert. Als u toorequire multi-factor Authentication wilt, Zie [hello multi-factor Authentication-beveiligingsoplossing kiezen voor u](../multi-factor-authentication/multi-factor-authentication-get-started.md). Het bevat een beschrijving van elke oplossing en koppelingen toohelp configureren van Hallo-oplossing van uw keuze.
 
 ## <a name="part-5-verification"></a>Deel 5: verificatie
-De implementatie is voltooid en u een aantal scenario's kunt uitproberen. Gebruik de volgende koppelingen om te experimenteren met de service en vertrouwd raken met de functies.
+Hallo-implementatie is voltooid en u een aantal scenario's kunt uitproberen. Hallo volgende tooexperiment met Hallo-service is gekoppeld en vertrouwd raakt met de functies gebruiken.
 
 | Taak | Naslaginformatie |
 | --- | --- |
-| Sommige apparaten koppelt aan uw werkplek met behulp van Azure Active Directory device registration-service. U kunt deelnemen aan iOS-, Windows- en Android-apparaten. |[Apparaten koppelt aan uw werkplek met Azure Active Directory device registratieservice](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
-| Weergeven en in- of uitschakelen van geregistreerde apparaten met behulp van de beheerdersportal. In deze taak kunt u een aantal geregistreerde apparaten weergeven met behulp van de beheerdersportal. |[Azure Active Directory device Registratieoverzicht van service](active-directory-device-registration-get-started.md) |
-| Controleer of dat apparaatobjecten van Azure Active Directory naar Windows Server Active Directory teruggeschreven. |[Geregistreerde apparaten worden teruggeschreven naar Active Directory controleren](#verify-registered-devices-are-written-back-to-active-directory) |
+| Sommige apparaten tooyour workplace join met behulp van Azure Active Directory device registration-service. U kunt deelnemen aan iOS-, Windows- en Android-apparaten. |[Deelnemen aan apparaten tooyour werkplek met Azure Active Directory device registratieservice](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
+| Weergeven en in- of uitschakelen van geregistreerde apparaten met behulp van Hallo beheerdersportal. In deze taak kunt u een aantal geregistreerde apparaten weergeven met behulp van Hallo beheerdersportal. |[Azure Active Directory device Registratieoverzicht van service](active-directory-device-registration-get-started.md) |
+| Controleer of dat apparaatobjecten van Azure Active Directory tooWindows Server Active Directory teruggeschreven. |[Geregistreerde apparaten teruggeschreven tooActive Directory controleren](#verify-registered-devices-are-written-back-to-active-directory) |
 | Nu dat gebruikers hun apparaten registreren kunnen, kunt u de toepassing maken toegangsbeleid in AD FS die ervoor zorgen alleen geregistreerde apparaten dat. In deze taak maakt u een toegangsregel van toepassing en een aangepast bericht voor geweigerde toegang. |[Maak een beleid voor toepassingstoegang en een aangepaste bericht bij geweigerde toegang](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>Azure Active Directory integreren met on-premises Active Directory
-Deze stap kunt u uw Azure AD-tenant met uw lokale Active Directory integreren met behulp van Azure AD Connect. Hoewel de stappen beschikbaar in de klassieke Azure portal zijn, noteer eventuele speciale instructies die worden vermeld in deze sectie.
+Deze stap kunt u uw Azure AD-tenant met uw lokale Active Directory integreren met behulp van Azure AD Connect. Hoewel Hallo stappen beschikbaar in de klassieke Azure-portal hello zijn, noteer eventuele speciale instructies die worden vermeld in deze sectie.
 
-1. Aanmelden bij de klassieke Azure portal met behulp van een account dat een globale beheerder in Azure AD.
-2. Selecteer in het linkerdeelvenster **Active Directory**.
-3. Selecteer uw directory op het tabblad **Directory**.
-4. Selecteer de **Adreslijstintegratie** tabblad.
-5. Onder de **implementeren en beheren van** sectie, volg de stappen 1 tot en met 3 Azure Active Directory integreren met uw on-premises directory.
+1. Meld u toohello klassieke Azure-portal met behulp van een account dat een globale beheerder in Azure AD.
+2. Selecteer in het linkerdeelvenster Hallo **Active Directory**.
+3. Op Hallo **Directory** tabblad, selecteer uw directory.
+4. Selecteer Hallo **Adreslijstintegratie** tabblad.
+5. Onder Hallo **implementeren en beheren van** opgevolgd, volgt u stap 1 tot en met 3 toointegrate Azure Active Directory met uw on-premises directory.
    
    1. Domeinen toevoegen.
-   2. Installeren en uitvoeren van Azure AD Connect met behulp van de instructies op de [aangepaste installatie van Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
+   2. Installeren en uitvoeren van Azure AD Connect met behulp van instructies op Hallo [aangepaste installatie van Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
    3. Te controleren en beheren van directory-synchronisatie. Instructies voor één aanmelding zijn beschikbaar in deze stap.
    
    Bovendien Federatie met AD FS configureren zoals wordt beschreven in [aangepaste installatie van Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Uw Active Directory Domain Services-schema bijwerken
 > [!NOTE]
-> Na de upgrade van uw Active Directory-schema, het proces kan niet ongedaan worden gemaakt. Het is raadzaam dat u eerst de upgrade in een testomgeving uitvoeren.
+> Na de upgrade van uw Active Directory-schema, Hallo proces kan niet ongedaan worden gemaakt. Het is raadzaam dat u eerst Hallo upgrade in een testomgeving uitvoeren.
 > 
 
-1. Aanmelden bij uw domeincontroller met een account dat zowel ondernemingsadministrator en schema-administrator-rechten heeft.
-2. Kopieer de **[media] \support\adprep** map en submappen op een van uw Active Directory-domeincontrollers (waarbij **[media]** is het pad naar de installatiemedia van Windows Server 2012 R2).
-4. Vanaf een opdrachtprompt, gaat u naar de **adprep** map en voer **adprep.exe/forestprep**. Volg de aanwijzingen om de schema-upgrade te voltooien.
+1. Meld u aan de domeincontroller tooyour met een account dat zowel ondernemingsadministrator en schema-administrator-rechten heeft.
+2. Kopiëren Hallo **[media] \support\adprep** tooone map en submappen van uw Active Directory-domeincontrollers (waarbij **[media]** Hallo pad toohello Windows Server 2012 R2-installatiemedia is ).
+4. Ga vanaf een opdrachtprompt toohello **adprep** map en voer **adprep.exe/forestprep**. Ga als volgt Hallo instructies op het scherm toocomplete Hallo schema-upgrade.
 
-## <a name="prepare-your-active-directory-to-support-devices"></a>Voorbereiden van uw Active Directory om apparaten te ondersteunen
+## <a name="prepare-your-active-directory-toosupport-devices"></a>Voorbereiden van uw Active Directory toosupport-apparaten
 > [!NOTE]
-> Dit is een eenmalige bewerking die u uitvoeren moet als u wilt voorbereiden van uw Active Directory-forest om apparaten te ondersteunen. Voor deze procedure als u bent aangemeld met ondernemingsadministratormachtigingen heeft en uw Active Directory-forest moet het schema van Windows Server 2012 R2.
+> Dit is een eenmalige bewerking dat u tooprepare uw Active Directory-forest toosupport apparaten uitvoeren moet. toocomplete deze procedure moet u zijn aangemeld met ondernemingsadministratormachtigingen heeft en uw Active Directory-forest moet Hallo Windows Server 2012 R2-schema.
 > 
 
 
 ### <a name="prepare-your-active-directory-forest"></a>Uw Active Directory-forest voorbereiden
 1. Open een Windows PowerShell-opdrachtvenster en typ op de federatieserver **initialiseren ADDeviceRegistration**. 
-2. Als u wordt gevraagd **ServiceAccountName**, voer de naam van het serviceaccount dat u hebt geselecteerd als het serviceaccount voor AD FS. Als een beheerd serviceaccount is, voert u het account in de **domain\accountname$** indeling. Gebruik de notatie voor een domeinaccount **domain\accountname**.
+2. Als u wordt gevraagd **ServiceAccountName**, voer de naam Hallo van Hallo-serviceaccount die u hebt geselecteerd als Hallo-serviceaccount voor AD FS. Als een beheerd serviceaccount is, voert u Hallo-account in Hallo **domain\accountname$** indeling. Voor een domeinaccount, gebruik Hallo indeling **domain\accountname**.
 
 ### <a name="enable-device-authentication-in-ad-fs"></a>Verificatie van apparaten in AD FS inschakelen
-1. Open de AD FS-beheerconsole op uw federatieserver en gaat u naar **AD FS** > **verificatiebeleid**.
-2. Op de **acties** deelvenster **globale primaire authenticatie bewerken**.
+1. Open op uw federatieserver Hallo AD FS-beheerconsole en ga te**AD FS** > **verificatiebeleid**.
+2. Op Hallo **acties** deelvenster **globale primaire authenticatie bewerken**.
 3. Controleer **apparaatverificatie inschakelen**, en selecteer vervolgens **OK**.
 4. Standaard verwijdert AD FS periodiek ongebruikte apparaten uit Active Directory. Deze taak uitschakelen wanneer u Azure Active Directory device registration-service zodat apparaten kunnen worden beheerd in Azure.
 
@@ -146,81 +146,81 @@ Open een Windows PowerShell-opdrachtvenster en typ op de federatieserver **Set A
 ### <a name="prepare-azure-ad-connect-for-device-writeback"></a>Azure AD Connect voorbereiden voor write-back van apparaat
 Deel 1: voorbereiden van Azure AD Connect.
 
-## <a name="join-devices-to-your-workplace-by-using-azure-active-directory-device-registration-service"></a>Apparaten aan uw werkplek te koppelen met behulp van Azure Active Directory device registration-service
+## <a name="join-devices-tooyour-workplace-by-using-azure-active-directory-device-registration-service"></a>Apparaten tooyour workplace join met behulp van Azure Active Directory device registration-service
 
 ### <a name="join-an-ios-device-by-using-azure-active-directory-device-registration"></a>Een iOS-apparaat koppelen met behulp van Azure Active Directory-apparaatregistratie
-Azure Active Directory-apparaatregistratie maakt gebruik van het inschrijvingsproces van het Over-the-Air-profiel voor iOS-apparaten. Dit proces wordt gestart wanneer de gebruiker verbinding met de profiel-URL voor inschrijving met Safari maakt. De URL-indeling is als volgt:
+Azure Active Directory-apparaatregistratie gebruikt inschrijvingsproces Hallo-Over-the-Air-profiel voor iOS-apparaten. Dit proces begint wanneer Hallo gebruiker verbinding toohello profiel-URL voor inschrijving met Safari maakt. Hallo URL-indeling is als volgt:
 
     https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/"yourdomainname"
 
-In dit geval `yourdomainname` de domeinnaam die u hebt geconfigureerd met Azure Active Directory. Bijvoorbeeld, als uw domeinnaam contoso.com is, de URL is als volgt:
+In dit geval `yourdomainname` Hallo-domeinnaam die u hebt geconfigureerd met Azure Active Directory. Bijvoorbeeld, als uw domeinnaam contoso.com is, is Hallo-URL als volgt:
 
     https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com
 
-Er zijn veel verschillende manieren om te communiceren deze URL voor uw gebruikers. Deze URL is bijvoorbeeld publiceren van een aanbevolen methode in een aangepaste toepassingsbericht bij geweigerde toegang in AD FS. Deze gegevens worden behandeld in het volgende gedeelte [maken van een beleid voor toepassingstoegang en aangepaste bericht bij geweigerde toegang](#create-an-application-access-policy-and-custom-access-denied-message).
+Er zijn veel verschillende manieren toocommunicate deze URL tooyour gebruikers. Deze URL is bijvoorbeeld publiceren van een aanbevolen methode in een aangepaste toepassingsbericht bij geweigerde toegang in AD FS. Deze gegevens worden behandeld in het volgende gedeelte Hallo [maken van een beleid voor toepassingstoegang en aangepaste bericht bij geweigerde toegang](#create-an-application-access-policy-and-custom-access-denied-message).
 
 ### <a name="join-a-windows-81-device-by-using-azure-active-directory-device-registration"></a>Lid worden van een Windows 8.1-apparaat met Azure Active Directory-apparaatregistratie
 1. Selecteer op het apparaat Windows 8.1 **PC-instellingen** > **netwerk** > **werkplek**.
 2. Voer uw gebruikersnaam in UPN-indeling. bijvoorbeeld:  **dan@contoso.com** .
 3. Selecteer **Join**.
-4. Wanneer u wordt gevraagd, aanmelden met uw referenties. Het apparaat is nu lid geworden.
+4. Wanneer u wordt gevraagd, aanmelden met uw referenties. Hallo-apparaat wordt nu toegevoegd.
 
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Lid worden van een apparaat met Windows 7 met Azure Active Directory-apparaatregistratie
-Voor het registreren van apparaten voor Windows 7 domein, moet u het softwarepakket voor apparaatregistratie implementeren. Het softwarepakket is aangeroepen Workplace Join voor Windows 7 en de beschikbaar voor downloaden op de [Microsoft Connect-website](https://connect.microsoft.com/site1164). 
+apparaten van tooregister Windows 7-domein, moet u toodeploy Hallo softwarepakket voor apparaatregistratie. Hallo softwarepakket heet Workplace Join voor Windows 7 en de beschikbare gedownload op Hallo [Microsoft Connect-website](https://connect.microsoft.com/site1164). 
 
-Instructies over het gebruik van het pakket zijn beschikbaar in [automatische registratie van Windows-domein-apparaten met Azure Active Directory configureren](active-directory-conditional-access-automatic-device-registration-setup.md).
+Instructies over hoe toouse pakket Hallo zijn beschikbaar in [hoe tooconfigure automatische registratie van Windows-domein apparaten met Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
-## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Controleer of dat geregistreerde apparaten worden teruggeschreven naar Active Directory
-U kunt bekijken en controleren of uw apparaatobjecten hebben is teruggeschreven naar uw Active Directory met LDP.exe of ADSI bewerken. Beide zijn beschikbaar met de beheerder van Active Directory's.
+## <a name="verify-that-registered-devices-are-written-back-tooactive-directory"></a>Controleer of dat geregistreerde apparaten tooActive Directory teruggeschreven
+U kunt bekijken en controleren of uw apparaatobjecten zijn geschreven terug tooyour Active Directory met LDP.exe of ADSI bewerken. Beide zijn beschikbaar met Hallo Active Directory-beheerprogramma's.
 
-Standaard worden in hetzelfde domein bevinden als uw AD FS-farm apparaatobjecten die van Azure Active Directory worden teruggeschreven geplaatst.
+Standaard apparaatobjecten die van Azure Active Directory worden teruggeschreven worden geplaatst in Hallo hetzelfde domein bevinden als uw AD FS-farm.
 
     CN=RegisteredDevices,defaultNamingContext
 
 ## <a name="create-an-application-access-policy-and-custom-access-denied-message"></a>Maak een beleid voor toepassingstoegang en een aangepaste bericht bij geweigerde toegang
-Neem het volgende scenario: U een Relying Party Trust in AD FS-toepassing maken en configureren van een Uitgifteautorisatieregel waarmee alleen geregistreerde apparaten. Nu mogen alleen apparaten die zijn geregistreerd voor toegang tot de toepassing. 
+Overweeg het Hallo volgen scenario: U een Relying Party Trust in AD FS-toepassing maken en configureren van een Uitgifteautorisatieregel waarmee alleen geregistreerde apparaten. Alleen apparaten die zijn geregistreerd, zijn nu tooaccess Hallo toepassing toegestaan. 
 
-Om het eenvoudig voor uw gebruikers toegang te krijgen tot de toepassing maken, moet u een aangepast toegang geweigerd bericht instructies voor het bevat koppelen van hun apparaat configureren. Uw gebruikers hebben nu een naadloze manier om hun apparaten registreren, zodat ze toegang een toepassing tot.
+toomake het eenvoudig voor uw gebruikers toogain toegang toohello toepassing, u een aangepast toegang geweigerd bericht instructies voor het bevat configureren van toojoin hun apparaat. Nu hebben uw gebruikers een naadloze manier tooregister hun apparaten toegang te krijgen tot een toepassing.
 
-De volgende stappen ziet u hoe u dit scenario implementeert.
+Hallo volgende stappen ziet u hoe tooimplement dit scenario.
 
 > [!NOTE]
 > Deze sectie wordt ervan uitgegaan dat u al hebt geconfigureerd een Relying Party Trust voor uw toepassing in AD FS.
 > 
 
-1. Open het hulpprogramma voor AD FS MMC en selecteer vervolgens **AD FS** > **vertrouwensrelaties** > **Relying Party-vertrouwensrelaties**.
-2. Ga naar de toepassing die deze nieuwe toegangsregel van toepassing is. Met de rechtermuisknop op de toepassing en selecteer vervolgens **Claimregels bewerken**.
-3. Selecteer de **autorisatieregels voor uitgifte** tabblad en selecteer vervolgens **regel toevoegen**.
-4. Van de **claimregel** sjabloon vervolgkeuzelijst, selecteer **toestaan of weigeren gebruikers op basis van een binnenkomende Claim**. Selecteer vervolgens **volgende**.
-5. In de **naam Claimregel** veld **toegang verlenen van geregistreerde apparaten**.
-6. Van de **type binnenkomende claim** vervolgkeuzelijst, selecteer **geregistreerde gebruiker Is**.
-7. In de **binnenkomende claimwaarde** veld **true**.
-8. Selecteer de **toegang verlenen aan gebruikers met deze binnenkomende claim** keuzerondje.
+1. Hallo AD FS MMC-hulpprogramma te openen en selecteer vervolgens **AD FS** > **vertrouwensrelaties** > **Relying Party-vertrouwensrelaties**.
+2. Zoek Hallo toepassing toowhich die deze nieuwe toegangsregel van toepassing is. Met de rechtermuisknop op het Hallo-toepassing en selecteer vervolgens **Claimregels bewerken**.
+3. Selecteer Hallo **autorisatieregels voor uitgifte** tabblad en selecteer vervolgens **regel toevoegen**.
+4. Van Hallo **claimregel** sjabloon vervolgkeuzelijst, selecteer **toestaan of weigeren gebruikers op basis van een binnenkomende Claim**. Selecteer vervolgens **volgende**.
+5. In Hallo **naam Claimregel** veld **toegang verlenen van geregistreerde apparaten**.
+6. Van Hallo **type binnenkomende claim** vervolgkeuzelijst, selecteer **geregistreerde gebruiker Is**.
+7. In Hallo **binnenkomende claimwaarde** veld **true**.
+8. Selecteer Hallo **toestaan toegang toousers met deze binnenkomende claim** keuzerondje.
 9. Selecteer **voltooien**, en selecteer vervolgens **toepassen**.
-10. Verwijder alle regels die zijn dan de regel die u hebt gemaakt. Bijvoorbeeld, verwijderen van de standaardregel **toegang toestaan voor alle gebruikers**.
+10. Verwijder alle regels die zijn dan het Hallo-regel die u hebt gemaakt. Bijvoorbeeld verwijderen Hallo standaardregel **toegang toestaan tooall gebruikers**.
 
-Uw toepassing is nu geconfigureerd voor toegang alleen wanneer de gebruiker afkomstig is van een apparaat dat ze geregistreerd en aan de werkplek heeft gekoppeld. Zie voor meer geavanceerde toegangsbeleid [risico's beheren met extra meervoudige verificatie voor gevoelige toepassingen](https://technet.microsoft.com/library/dn280949.aspx).
+Uw toepassing is nu geconfigureerd tooallow toegang alleen wanneer Hallo gebruiker afkomstig is van een apparaat dat ze geregistreerd en toohello werkplek gekoppeld. Zie voor meer geavanceerde toegangsbeleid [risico's beheren met extra meervoudige verificatie voor gevoelige toepassingen](https://technet.microsoft.com/library/dn280949.aspx).
 
-Vervolgens configureert u een aangepast foutbericht voor uw toepassing. Het foutbericht kan gebruikers weten dat ze hun apparaat aan de werkplek toevoegen moeten toegang te krijgen tot de toepassing. U kunt een aangepaste toepassing toegang geweigerd-bericht maken met behulp van aangepaste HTML- en PowerShell.
+Vervolgens configureert u een aangepast foutbericht voor uw toepassing. Fout bij het Hallo-bericht kan gebruikers weten dat ze hun apparaat toohello werkplek toegang te krijgen tot de toepassing hello moeten toevoegen. U kunt een aangepaste toepassing toegang geweigerd-bericht maken met behulp van aangepaste HTML- en PowerShell.
 
-Open een PowerShell-opdrachtvenster en typ de volgende opdracht op de federatieserver. Vervang gedeelten van de opdracht met items die specifiek voor uw systeem zijn:
+Open een PowerShell-opdrachtvenster en typ Hallo volgende opdracht op uw federatieserver. Delen van de opdracht Hallo vervangen door specifieke tooyour system-items:
 
     Set-AdfsRelyingPartyWebContent -Name "relying party trust name" -ErrorPageAuthorizationErrorMessage
 Voordat u toegang hebt tot deze toepassing, moet u uw apparaat registreren.
 
-**Als u een iOS-apparaat gebruikt, selecteert u deze koppeling naar uw apparaat**:
+**Als u een iOS-apparaat gebruikt, selecteert u deze koppeling toojoin uw apparaat**:
 
     a href='https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/yourdomain.com
 
-Deze iOS-apparaat koppelen aan uw werkplek.
+Deelnemen aan dit iOS-apparaat tooyour werkplek.
 
 Als u een Windows 8.1-apparaat gebruikt, kunt u uw apparaat toevoegen door te selecteren **PC-instellingen**> **netwerk** > **werkplek**.
 
-In de voorgaande opdrachten **naam van de vertrouwensrelatie van relying party** is de naam van uw toepassing een vertrouwensrelatie van Relying Party-object in AD FS.
-En **uwdomein.com** de domeinnaam die u hebt geconfigureerd met Azure Active Directory (bijvoorbeeld contoso.com).
-Zorg ervoor dat eventuele regeleinden (indien aanwezig) verwijderen uit de HTML-inhoud die u doorgeeft aan de **Set AdfsRelyingPartyWebContent** cmdlet.
+In het Hallo-opdrachten, vóór **naam van de vertrouwensrelatie van relying party** Hallo-naam van uw toepassing een vertrouwensrelatie van Relying Party object in AD FS.
+En **uwdomein.com** Hallo-domeinnaam die u hebt geconfigureerd met Azure Active Directory (bijvoorbeeld contoso.com).
+Ervoor tooremove eventuele (indien aanwezig) van Hallo HTML inhoud regeleinden die u toohello doorgeeft worden **Set AdfsRelyingPartyWebContent** cmdlet.
 
-Wanneer gebruikers toegang krijgen uw toepassing van een apparaat dat niet geregistreerd bij Azure Active Directory device registratieservice tot, zien ze nu een pagina die vergelijkbaar is met de volgende schermopname.
+Wanneer gebruikers toegang krijgen uw toepassing van een apparaat dat niet geregistreerd bij Azure Active Directory device registration-service hello tot, zien ze nu een pagina die er ongeveer uitziet vergelijkbare toohello volgende schermopname.
 
 ![Schermafbeelding van een foutmelding wanneer gebruikers hun apparaat nog niet hebt geregistreerd in Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 

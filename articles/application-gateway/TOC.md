@@ -6,7 +6,7 @@
 ## [Statuscontrole](application-gateway-probe-overview.md)
 ## [URL-routering](application-gateway-url-route-overview.md)
 ## [Multi-site](application-gateway-multi-site-overview.md)
-## [End-to-end-SSL](application-gateway-backend-ssl.md)
+## [Einde tooend SSL](application-gateway-backend-ssl.md)
 ## [SSL-beleid](application-gateway-ssl-policy-overview.md)
 ## [Omleiding](application-gateway-redirect-overview.md)
 ## [Ondersteuning voor meerdere tenants](application-gateway-web-app-overview.md)
@@ -37,7 +37,7 @@
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (klassiek)](application-gateway-ssl.md)
 ### [Azure CLI 2.0](application-gateway-ssl.md)
-### [End-to-end](application-gateway-end-to-end-ssl-powershell.md)
+### [Einde tooend](application-gateway-end-to-end-ssl-powershell.md)
 ### [SSL-beleid](application-gateway-configure-ssl-policy-powershell.md)
 ## Routering op basis van URL-pad configureren
 ### [Portal](application-gateway-create-url-route-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: Het oplossen van problemen gedegradeerd status op Azure Traffic Manager
-description: Problemen met Traffic Manager-profielen wanneer deze wordt weergegeven als de status gedegradeerd.
+title: status van gedegradeerd aaaTroubleshooting op Azure Traffic Manager
+description: Hoe tootroubleshoot Traffic Manager-profielen wanneer deze wordt weergegeven als gedegradeerd status.
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -13,42 +13,42 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: kumud
-ms.openlocfilehash: b1d00fb84695d2289f37647f55a7c56cf28c8c96
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fd95697781472b52e98d856e66beb7b89dfeaf23
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Het oplossen van problemen gedegradeerde status op Azure Traffic Manager
 
-In dit artikel wordt beschreven hoe een Azure Traffic Manager-profiel dat wordt weergegeven een gedegradeerde status oplossen. Voor dit scenario kunt u een Traffic Manager-profiel die verwijst naar een deel van uw cloudapp.net gehoste services hebt geconfigureerd. Als de status van uw Traffic Manager wordt weergegeven in een **gedegradeerd** status en vervolgens de status van een of meer eindpunten mogelijk **gedegradeerd**:
+Dit artikel wordt beschreven hoe een Azure Traffic Manager-profiel tootroubleshoot die wordt weergegeven een gedegradeerde status. Voor dit scenario kunt u een Traffic Manager-profiel wijst toosome van uw cloudapp.net gehoste services hebt geconfigureerd. Als Hallo status van uw Traffic Manager wordt weergegeven in een **gedegradeerd** status en vervolgens Hallo status van een of meer eindpunten mogelijk **gedegradeerd**:
 
 ![status van gedegradeerd endpoint](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
-Als de status van uw Traffic Manager wordt weergegeven in een **inactief** status en vervolgens beide eindpunten mogelijk **uitgeschakelde**:
+Als Hallo status van uw Traffic Manager wordt weergegeven in een **inactief** status en vervolgens beide eindpunten mogelijk **uitgeschakelde**:
 
 ![Inactieve Traffic Manager-status](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 
 ## <a name="understanding-traffic-manager-probes"></a>Understanding Traffic Manager-tests
 
-* Traffic Manager overweegt een eindpunt worden ONLINE alleen wanneer de test een HTTP 200-respons van het pad van de test ontvangt. Een ander niet-200-antwoord is een fout.
-* Een omleiding 30 x mislukt, zelfs als de omgeleide URL een 200 retourneert.
+* Traffic Manager overweegt een eindpunt toobe ONLINE alleen wanneer Hallo test een HTTP 200-respons ontvangt back vanaf Hallo test pad. Een ander niet-200-antwoord is een fout.
+* Een omleiding 30 x mislukt, zelfs als Hallo omgeleid URL retourneert een 200.
 * Voor HTTPs-tests worden certificaatfouten genegeerd.
-* De daadwerkelijke inhoud van het pad van de test maakt niet uit als een 200 wordt geretourneerd. Scannen van een URL naar een aantal statische inhoud, zoals ' / favicon.ico ' is een algemene methode. Dynamische inhoud, zoals de ASP-pagina's mogelijk niet altijd retourneren, 200, zelfs wanneer de toepassing in orde is.
-* Er is een best practice naar het pad van de test ingesteld op iets wat onvoldoende logica om te bepalen heeft dat de site omhoog of omlaag is. In het vorige voorbeeld, door het pad in te stellen op ' / favicon.ico ', u alleen bent testen die w3wp.exe reageert. Deze test niet geeft aan dat uw webtoepassing in orde. Een betere optie zou zijn, zoals een pad op een iets instellen ' / Probe.aspx ' die logica voor het bepalen van de status van de site is. U kunt bijvoorbeeld prestatiemeteritems voor CPU-gebruik gebruiken of het aantal mislukte aanvragen. Of u toegang tot bronnen van de database of sessiestatus om ervoor te zorgen dat de webtoepassing werkt kan proberen.
-* Als alle eindpunten in een profiel zijn gedegradeerd, behandelt Traffic Manager alle eindpunten als goed en routes verkeer naar alle eindpunten. Dit gedrag zorgt ervoor dat problemen met het mechanisme voor zoek niet in een volledige onderbreking van uw service resulteren.
+* de daadwerkelijke inhoud Hallo van Hallo test pad maakt niet uit als een 200 wordt geretourneerd. Scannen van de like voor statische inhoud van een URL-toosome ' / favicon.ico ' is een algemene methode. Dynamische inhoud, zoals Hallo ASP-pagina's mogelijk niet altijd retourneren, 200, zelfs wanneer de toepassing hello in orde is.
+* Een aanbevolen procedure is tooset Hallo test pad toosomething met voldoende toodetermine logica die site Hallo omhoog of omlaag is. In Hallo vorige voorbeeld door in te stellen hello pad too"/favicon.ico", kunt u alleen die w3wp.exe testen reageert. Deze test niet geeft aan dat uw webtoepassing in orde. Een betere optie zou worden tooset een tooa pad iets zoals ' / Probe.aspx ' die logica toodetermine Hallo status van Hallo site heeft. Bijvoorbeeld, kunt u prestaties tellers tooCPU gebruik of meting Hallo aantal mislukte aanvragen. Of u kan proberen tooaccess databaseresources of sessie status toomake of webtoepassing Hallo werkt.
+* Als alle eindpunten in een profiel zijn gedegradeerd, klikt u vervolgens alle eindpunten in Traffic Manager wordt beschouwd als goed en routes verkeer tooall eindpunten. Dit gedrag zorgt ervoor dat problemen met Hallo probing mechanisme niet in een volledige onderbreking van uw service resulteren.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Voor het oplossen van een test-fout, moet u een hulpprogramma waarmee de HTTP-statuscode geretourneerd van de test-URL. Er zijn veel hulpprogramma's beschikbaar die u de onbewerkte HTTP-antwoord tonen.
+tootroubleshoot een test-fout, moet u een hulpprogramma waarmee Hallo HTTP-statuscode geretourneerd uit Hallo WebTest-URL. Er zijn veel hulpprogramma's beschikbaar die u onbewerkte HTTP-antwoord Hallo weergeven.
 
 * [Fiddler](http://www.telerik.com/fiddler)
 * [cURL](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
-Bovendien kunt u het tabblad netwerk van de F12-foutopsporing hulpprogramma's in Internet Explorer om de HTTP-antwoorden weer te geven.
+U kunt ook Hallo netwerk tabblad Hallo F12 foutopsporing extra in Internet Explorer tooview Hallo HTTP-antwoorden.
 
-In dit voorbeeld willen we zien van het antwoord van de WebTest-URL: http://watestsdp2008r2.cloudapp.net:80/test. De volgende PowerShell-voorbeeld ziet u het probleem.
+In dit voorbeeld willen we toosee Hallo reactie van de WebTest-URL: http://watestsdp2008r2.cloudapp.net:80/test. Hallo volgende PowerShell-voorbeeld illustreert Hallo probleem.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
@@ -60,9 +60,9 @@ Voorbeelduitvoer:
     ---------- -----------------
            301 Moved Permanently
 
-U ziet dat er een omleidingsantwoord ontvangen. Zoals eerder gezegd, een StatusCode dan wordt 200 als een fout geïnterpreteerd. Traffic Manager verandert de Eindpuntstatus op Offline. Controleer de websiteconfiguratie om ervoor te zorgen dat de juiste StatusCode kan worden geretourneerd van het pad van de test het probleem op te lossen. Configureer opnieuw de Traffic Manager-test om te verwijzen naar een pad op dat een 200 retourneert.
+U ziet dat er een omleidingsantwoord ontvangen. Zoals eerder gezegd, een StatusCode dan wordt 200 als een fout geïnterpreteerd. Traffic Manager wijzigingen Hallo eindpunt status tooOffline. tooresolve hello probleem selectievakje Hallo website configuratie tooensure die de juiste StatusCode Hallo vanaf Hallo test pad kan worden geretourneerd. Configureer opnieuw Hallo Traffic Manager-test toopoint tooa pad waarmee een 200 wordt geretourneerd.
 
-Als uw test het HTTPS-protocol wordt gebruikt, moet u wellicht controleren SSL/TLS om fouten te voorkomen tijdens uw test certificaat uitschakelen. De volgende PowerShell-instructies uitschakelen validatie van het servercertificaat voor de huidige PowerShell-sessie:
+Als uw test Hallo HTTPS-protocol gebruikt, moet u mogelijk toodisable certificaat tooavoid SSL/TLS-fouten tijdens uw test controleren. Hallo uitschakelen volgende PowerShell-instructies validatie van het servercertificaat voor de huidige PowerShell-sessie Hallo:
 
 ```powershell
 add-type @"

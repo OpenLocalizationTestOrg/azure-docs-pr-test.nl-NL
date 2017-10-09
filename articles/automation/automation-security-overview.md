@@ -1,6 +1,6 @@
 ---
-title: Inleiding tot verificatie in Azure Automation | Microsoft Docs
-description: Dit artikel geeft een overzicht van Automation-beveiliging en de diverse verificatiemethoden die beschikbaar zijn voor Automation-accounts in Azure Automation.
+title: aaaIntro tooauthentication in Azure Automation | Microsoft Docs
+description: In dit artikel biedt een overzicht van automatische beveiliging en Hallo verschillende verificatiemethoden die beschikbaar zijn voor Automation-Accounts in Azure Automation.
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -16,39 +16,39 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: magoedte
 ROBOTS: NOINDEX
-ms.openlocfilehash: 91c98f8dda6f24c2db2730a5e0df5ea43e151c61
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4b4409b5be010c16f7bf00a9a0f617e3617d4663
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-authentication-in-azure-automation"></a>Inleiding tot verificatie in Azure Automation  
-Met Azure Automation kunt u taken automatiseren voor bronnen in Azure, on-premises en bij andere cloudproviders zoals Amazon Web Services (AWS).  Om een runbook in staat te stellen de vereiste acties uit te voeren, moet het machtigingen hebben om veilig toegang te krijgen tot de resources met de minimale rechten die vereist zijn binnen het abonnement.
+# <a name="introduction-tooauthentication-in-azure-automation"></a>Inleiding tooauthentication in Azure Automation  
+Azure Automation kunt u tooautomate taken op basis van bronnen in Azure, on-premises en bij andere cloudproviders zoals Amazon Web Services (AWS).  Om een runbook tooperform de vereiste acties moet hebben machtigingen toosecurely toegang Hallo resources met de minimale rechten Hallo binnen Hallo abonnement vereist.
 
-In dit artikel worden de verschillende verificatiescenario's beschreven die door Azure Automation worden ondersteund, en wordt uitgelegd hoe u aan de slag kunt gaan afhankelijk van de omgeving(en) die u wilt beheren.  
+Dit artikel wordt uitgelegd Hallo verschillende scenario's voor de verificatie wordt ondersteund door Azure Automation en tonen u hoe tooget gestart op basis van Hallo omgeving(en) die u moet toomanage.  
 
 ## <a name="automation-account-overview"></a>Overzicht van Automation-account
-Wanneer u Azure Automation voor het eerst start, moet u ten minste één Automation-account maken. Met Automation-accounts kunt u uw Automation-resources (runbooks, assets, configuraties) isoleren van de resources in andere Automation-accounts. U kunt Automation-accounts gebruiken om resources onder te verdelen in afzonderlijke logische omgevingen. U kunt bijvoorbeeld één account maken voor ontwikkeling, één voor productie, en één voor uw on-premises omgeving.  Een Azure Automation-account verschilt van uw Microsoft-account of de accounts die zijn gemaakt in uw Azure-abonnement.
+Wanneer u Azure Automation voor Hallo eerst start, moet u ten minste één Automation-account maken. Automation-accounts kunnen u uw Automation-resources (runbooks, assets, configuraties) uit bronnen die zich bevinden in andere Automation-accounts Hallo tooisolate. U kunt Automation-accounts tooseparate resources gebruiken in afzonderlijke logische omgevingen. U kunt bijvoorbeeld één account maken voor ontwikkeling, één voor productie, en één voor uw on-premises omgeving.  Een Azure Automation-account verschilt van uw Microsoft-account of de accounts die zijn gemaakt in uw Azure-abonnement.
 
-De Automation-resources voor elk Automation-account zijn gekoppeld aan één Azure-regio, maar Automation-accounts kunnen alle resources in uw abonnement beheren. De voornaamste reden om Automation-accounts in verschillende regio's te maken zou zijn als u beleid hebt waardoor gegevens en resources moeten worden geïsoleerd in een specifieke regio.
+Hallo Automation-resources voor elk Automation-account zijn gekoppeld aan één Azure-regio, maar Automation-accounts kunnen alle Hallo resources in uw abonnement beheren. Hallo belangrijkste reden toocreate Automation-accounts in verschillende regio's zou zijn als u beleid hebt waardoor gegevens en resources toobe geïsoleerde tooa specifieke regio.
 
 > [!NOTE]
-> Automation-accounts, en de resources die deze bevatten die in de Azure-portal worden gemaakt, zijn niet toegankelijk via de klassieke Azure-portal. Als u deze accounts of de bijbehorende resources wilt beheren met Windows PowerShell, moet u gebruikmaken van de Azure Resource Manager-modules.
+> Automation-accounts en Hallo-resources die ze bevatten die zijn gemaakt in hello Azure-portal, niet toegankelijk in de klassieke Azure-portal Hallo. Als u toomanage deze accounts of hun resources met Windows PowerShell wilt, moet u hello Azure Resource Manager-modules.
 >
 
-Alle taken die u uitvoert op resources met behulp van Azure Resource Manager en de Azure-cmdlets in Azure Automation moeten worden geverifieerd bij Azure met behulp van verificatie op basis van organisatie-identiteitreferenties van Azure Active Directory.  De oorspronkelijke verificatiemethode voor de Azure Service Management-modus was gebaseerd op certificaten, maar het instellen hiervan was ingewikkeld.  Verificatie bij Azure met Azure AD-gebruiker is in 2014 geïntroduceerd, niet alleen met het doel om het proces waarmee een verificatieaccount kon worden geconfigureerd te vereenvoudigen, maar ook om de mogelijkheid te ondersteunen om op een niet-interactieve wijze bij Azure te verifiëren met één gebruikersaccount dat zowel in Azure Resource Manager als in de klassieke resources werkte.   
+Alle Hallo-taken die u uitvoert op resources met Azure Resource Manager en hello Azure-cmdlets in Azure Automation tooAzure met Azure Active Directory organisatie-id-referentie gebaseerde verificatie moet worden geverifieerd.  Verificatie op basis van certificaten is Hallo oorspronkelijke verificatiemethode Azure Service Management-modus, maar was ingewikkeld toosetup.  Verificatie van tooAzure met Azure AD-gebruiker is geïntroduceerd in 2014 toonot alleen vereenvoudigen Hallo proces tooconfigure een account voor verificatie, maar ook ondersteuning Hallo mogelijkheid toonon interactief tooAzure met één gebruikersaccount die werkten verifiëren met Azure Resource Manager en klassieke resources.   
 
-Wanneer u op dit moment in de Azure-portal een nieuw Automation-account maakt, wordt automatisch het volgende gemaakt:
+Op dit moment als u een nieuw automatiseringsaccount in hello Azure-portal maakt, wordt automatisch gemaakt:
 
-* Uitvoeren als-account; hiermee wordt een nieuwe service-principal in Azure Active Directory gemaakt, een certificaat, en wordt het RBAC (op rollen gebaseerd toegangsbeheer) toegewezen, dat wordt gebruikt om Resource Manager-resources te beheren met runbooks.
-* Klassiek uitvoeren als-account; door een beheercertificaat te uploaden, dat wordt gebruikt om Azure-servicebeheer of klassieke resources te beheren met runbooks.  
+* Run As-account dat wordt een nieuwe service-principal gemaakt in Azure Active Directory, een certificaat en wijst Hallo Inzender op rollen gebaseerde toegangsbeheer (RBAC), die wordt gebruikt toomanage Resource Manager-resources met behulp van runbooks.
+* Klassieke Run As-account door het uploaden van een beheercertificaat dat zal worden gebruikt toomanage Azure Service Management of klassieke resources met behulp van runbooks.  
 
-Op rollen gebaseerd toegangsbeheer is beschikbaar in Azure Resource Manager voor het toekennen van toegestane acties aan een Azure AD-gebruikersaccount en Uitvoeren als-account, en om die service-principal te verifiëren.  Lees het artikel [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md) voor meer informatie die u helpt bij het ontwikkelen van een model voor het beheren van machtigingen in Automation.  
+Toegangsbeheer op basis van rollen is beschikbaar met Azure Resource Manager toogrant toegestane acties tooan Azure AD-gebruikersaccount en Run As-account en verifiëren van deze service-principal.  Lees [toegangsbeheer op basis van rollen in Azure Automation-artikel](automation-role-based-access-control.md) voor verdere informatie toohelp ontwikkelen van een model voor het beheren van machtigingen in Automation.  
 
-Runbooks die op een hybride Runbook Worker in uw datacenter of op basis van computingservices in AWS worden uitgevoerd, kunnen niet dezelfde methode gebruiken die doorgaans wordt gebruikt voor runbooks die worden geverifieerd voor Azure-resources.  Dit is omdat deze resources buiten Azure worden uitgevoerd en er daarom voor deze resources eigen beveiligingsreferenties moeten worden gedefinieerd in Automation, zodat ze kunnen worden geverifieerd voor resources waartoe ze lokaal toegang hebben.  
+Runbooks die worden uitgevoerd op een hybride Runbook Worker in uw datacenter of op basis van computingservices in AWS kan geen gebruik Hallo dezelfde methode die wordt doorgaans gebruikt voor runbooks tooAzure bronnen te verifiëren.  Dit is omdat deze resources buiten Azure worden uitgevoerd en daarom moet u hun eigen beveiligingsreferenties gedefinieerd in Automation tooauthenticate tooresources die ze lokaal toegang hebben.  
 
 ## <a name="authentication-methods"></a>Verificatiemethoden
-De volgende tabel bevat een overzicht van de verschillende verificatiemethoden voor elke omgeving die wordt ondersteund door Azure Automation, evenals het artikel waarin wordt beschreven hoe u verificatie voor uw runbooks moet instellen.
+Hallo volgende tabel ziet u Hallo verschillende verificatiemethoden voor elke omgeving wordt ondersteund door Azure Automation en Hallo artikel beschrijven hoe toosetup verificatie voor uw runbooks.
 
 | Methode | Omgeving | Artikel |
 | --- | --- | --- |

@@ -1,6 +1,6 @@
 ---
-title: Sjablonen in Azure API Management | Microsoft Docs
-description: Informatie over het aanpassen van de inhoud van developer portal-pagina's met behulp van een set van sjablonen in Azure API Management.
+title: aaaPage sjablonen in Azure API Management | Microsoft Docs
+description: Meer informatie over hoe toocustomize Hallo inhoud van developer portal-pagina's met behulp van een set van sjablonen in Azure API Management.
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 7f9ef37a694bce786b6acaa428df83f0cb23c2dc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 84bd971ad4bcacfdd36c2ebbe05b16063f2a547b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="page-templates-in-azure-api-management"></a>Sjablonen in Azure API Management
-Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van developer portal-pagina's met behulp van een set van sjablonen die hun inhoud configureren. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [resources String](api-management-template-resources.md#strings), [Glyph-resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u aanzienlijke flexibiliteit voor het configureren van de inhoud van de pagina's naar wens met behulp van deze sjablonen.  
+Azure API Management biedt dat u Hallo mogelijkheid toocustomize Hallo inhoud van developer portal-pagina's met behulp van een set van sjablonen die hun inhoud configureren. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en het Hallo-editor naar keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [resources String](api-management-template-resources.md#strings), [ De glyph-resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u aanzienlijke flexibiliteit tooconfigure Hallo inhoud van het Hallo-pagina's naar wens met behulp van deze sjablonen.  
   
- De sjablonen in deze sectie kunnen u de inhoud van het teken in sign up aanpassen en pagina's pagina niet vinden in de portal voor ontwikkelaars.  
+ Hallo-sjablonen in deze sectie kunt u toocustomize Hallo inhoud van het Hallo-aanmelding in de aanmelding van en pagina's pagina niet vinden in Hallo-portal voor ontwikkelaars.  
   
 -   [Aanmelden](#SignIn)  
   
@@ -32,10 +32,10 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 -   [Pagina is niet gevonden](#PageNotFound)  
   
 > [!NOTE]
->  Standaard-voorbeeldsjablonen zijn opgenomen in de volgende documentatie, maar nog worden gewijzigd vanwege continu verbeteringen. U kunt de live standaardsjablonen weergeven in de ontwikkelaarsportal door te navigeren naar de gewenste afzonderlijke sjablonen. Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Standaard-voorbeeldsjablonen zijn opgenomen in de volgende documentatie Hallo, maar onderwerp toochange vanwege toocontinuous verbeteringen zijn. U kunt Hallo live standaardsjablonen in Hallo developer-portal door te navigeren toohello gewenst afzonderlijke sjablonen weergeven. Zie voor meer informatie over het werken met sjablonen [hoe toocustomize API Management-portal voor ontwikkelaars met behulp van sjablonen Hallo](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="SignIn"></a>Aanmelden  
- De **aanmelden** sjabloon kunt u de aanmeldingspagina in de ontwikkelaarsportal aanpassen.  
+ Hallo **aanmelden** sjabloon kunt u toocustomize Hallo aanmelding op de pagina in het Hallo-portal voor ontwikkelaars.  
   
  ![Meld u aan de pagina](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM aanmelden pagina Developer Portal-sjablonen")  
   
@@ -96,7 +96,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ### <a name="controls"></a>Besturingselementen  
- Deze sjabloon kan gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
+ Deze sjabloon kunt Hallo volgende [pagina besturingselementen](api-management-page-controls.md).  
   
 -   [Basic-aanmelding](api-management-page-controls.md#basic-signin)  
   
@@ -134,7 +134,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ##  <a name="SignUp"></a>Aanmelden  
- De **aanmelden** sjabloon kunt u de registratiepagina in de ontwikkelaarsportal aanpassen.  
+ Hallo **aanmelden** sjabloon kunt u registratiepagina toocustomize Hallo in Hallo-portal voor ontwikkelaars.  
   
  ![Aanmeldingspagina](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "APIM aanmelden pagina Developer Portal-sjablonen")  
   
@@ -155,7 +155,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ### <a name="controls"></a>Besturingselementen  
- Deze sjabloon kan gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
+ Deze sjabloon kunt Hallo volgende [pagina besturingselementen](api-management-page-controls.md).  
   
 -   [aanmelden](api-management-page-controls.md#sign-up)  
   
@@ -182,7 +182,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ##  <a name="PageNotFound"></a>Pagina is niet gevonden  
- De **pagina niet gevonden** sjabloon kunt u de pagina pagina niet gevonden in de ontwikkelaarsportal aanpassen.  
+ Hallo **pagina niet gevonden** sjabloon kunt u toocustomize Hallo pagina pagina niet gevonden in Hallo-portal voor ontwikkelaars.  
   
  ![Niet gevonden pagina](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM niet gevonden pagina Developer Portal-sjablonen")  
   
@@ -225,11 +225,11 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|referenceCode|Tekenreeks|De code gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
-|Foutcode|Tekenreeks|De code gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
-|emailBody|Tekenreeks|E-instantie die worden gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
-|requestedUrl|Tekenreeks|De URL die is aangevraagd wanneer de pagina is niet gevonden.|  
-|referrerUrl|Tekenreeks|De verwijzende URL naar de aangevraagde URL.|  
+|referenceCode|Tekenreeks|De code gegenereerd als deze pagina wordt weergegeven als Hallo resultaat van een interne fout.|  
+|Foutcode|Tekenreeks|De code gegenereerd als deze pagina wordt weergegeven als Hallo resultaat van een interne fout.|  
+|emailBody|Tekenreeks|Tekst gegenereerd als deze pagina wordt weergegeven als resultaat van een interne fout Hallo van e-mail.|  
+|requestedUrl|Tekenreeks|Hallo URL aangevraagd wanneer Hallo pagina is niet gevonden.|  
+|referrerUrl|Tekenreeks|Hallo verwijzende URL toohello aangevraagde URL.|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
   
@@ -244,4 +244,4 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](api-management-developer-portal-templates.md).
+Zie voor meer informatie over het werken met sjablonen [hoe toocustomize API Management-portal voor ontwikkelaars met behulp van sjablonen Hallo](api-management-developer-portal-templates.md).

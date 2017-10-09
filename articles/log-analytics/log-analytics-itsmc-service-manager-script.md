@@ -1,6 +1,6 @@
 ---
-title: Script voor het maken van Service Manager-Web-app verbinding maken met de IT-Service Management-Connector in OMS geautomatiseerde | Microsoft Docs
-description: Een Service Manager-Web-app met een geautomatiseerde script verbinding maken met de IT-Service Management-Connector in OMS, centraal kunt bewaken en beheren van de werkitems ITSM maken.
+title: aaaAutomated script toocreate webinhoud Service Manager-app tooconnect met IT Service Management-Connector in OMS | Microsoft Docs
+description: Maken van een Service Manager-Web-app met behulp van een geautomatiseerd script tooconnect met IT Service Management-Connector in OMS, centraal bewaken en beheren van Hallo ITSM werkitems.
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: v-jysur
-ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cbe6a1f75548ac541fd428a977edf64eea959e4f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script-preview"></a>Service Manager-Web-app met behulp van de geautomatiseerde script (Preview) maken
+# <a name="create-service-manager-web-app-using-hello-automated-script-preview"></a>Service Manager-Web-app met behulp van automatische Hallo-script (Preview) maken
 
-Gebruik het volgende script te maken van de Web-app voor uw exemplaar van de Service Manager. Meer informatie over Service Manager-verbinding is hier: [Service Manager-Web-app](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Gebruik Hallo script toocreate Hallo Web-app voor uw Service Manager-exemplaar te volgen. Meer informatie over Service Manager-verbinding is hier: [Service Manager-Web-app](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
-Voer het script door de volgende vereiste gegevens:
+Hallo-script uitvoeren door te geven Hallo vereiste gegevens te volgen:
 
 - Details van de Azure-abonnement
 - De naam van resourcegroep
@@ -33,16 +33,16 @@ Voer het script door de volgende vereiste gegevens:
 - Site-voorvoegsel voor uw Web-app
 - Service Bus-Namespace.
 
-Het script maakt de Web-app met de naam die u hebt opgegeven (samen met enkele extra tekenreeksen uniek te maken). Genereert het **Web-app-URL**, **client-ID** en **clientgeheim**.
+Hallo script wordt Hallo Web-app maken met behulp van Hallo-naam die u hebt opgegeven (samen met enkele extra tekenreeksen toomake deze unieke). Hallo genereert **Web-app-URL**, **client-ID** en **clientgeheim**.
 
 Sla deze waarden moet u deze wanneer u een verbinding met de IT-Service Management-Connector maakt.
 
 ## <a name="prerequisites"></a>Vereisten
 
  Windows Management Framework 5.0 of hoger.
-Windows 10 heeft 5.1 standaard. U kunt downloaden van het framework van [hier](https://www.microsoft.com/download/details.aspx?id=53347):
+Windows 10 heeft 5.1 standaard. U kunt downloaden Hallo framework van [hier](https://www.microsoft.com/download/details.aspx?id=53347):
 
-Gebruik het volgende script:
+Gebruik Hallo script volgen:
 
 ```
 ####################################
@@ -52,7 +52,7 @@ Gebruik het volgende script:
 # Subscription name in Azure account. Check in Azure Portal.
 $azureSubscriptionName = ""
 
-# Resource group name for resource deployment. Could be an existing resource group or a new one to be created.
+# Resource group name for resource deployment. Could be an existing resource group or a new one toobe created.
 $resourceGroupName = ""
 
 # Location for existing resource group or new resource group deployment
@@ -70,7 +70,7 @@ $username = ""
 $password = ""
 
 
-# Azure site Name Prefix. Default is "smoc". It can be configured to any desired value.
+# Azure site Name Prefix. Default is "smoc". It can be configured tooany desired value.
 $siteNamePrefix = ""
 
 # Service Bus namespace. Please provide an already existing service bus namespace.
@@ -85,7 +85,7 @@ $serviceName = ""
 # Installations
 ################
 
-# Allowing the execution of the script for current user.  
+# Allowing hello execution of hello script for current user.  
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
 Write-Host "Checking for required modules..."
@@ -141,7 +141,7 @@ if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered
     }
     catch
     {
-        Write-Host "Failed to Register Microsoft.Web Resource Provider. Please register it in Azure Portal."
+        Write-Host "Failed tooRegister Microsoft.Web Resource Provider. Please register it in Azure Portal."
         exit
     }   
 }
@@ -203,7 +203,7 @@ try
 }
 catch
 {
-    # Delete the deployed web app if Azure AD application fails
+    # Delete hello deployed web app if Azure AD application fails
     Remove-AzureRmResource -ResourceGroupName $resourceGroupName -ResourceName $siteName -ResourceType Microsoft.Web/sites -Force
 
     Write-Host "Faiure occured in Azure AD application....Try again!!"
@@ -247,10 +247,10 @@ catch
 {
     Write-Host "Web App configuration failed. Please ensure all values are provided in Service Manager Authentication Settings in User Configuration Section"
 
-    # Delete the AzureRm AD Application if confiuration fails
+    # Delete hello AzureRm AD Application if confiuration fails
     Remove-AzureRmADApplication -ObjectId $adApp.ObjectId -Force
 
-    # Delete the deployed web app if configuration fails
+    # Delete hello deployed web app if configuration fails
     Remove-AzureRmResource -ResourceGroupName $resourceGroupName -ResourceName $siteName -ResourceType Microsoft.Web/sites -Force
 
     exit
@@ -276,7 +276,7 @@ if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered
     }
     catch
     {
-        Write-Host "Failed to Register Microsoft.Relay Resource Provider. Please register it in Azure Portal."
+        Write-Host "Failed tooRegister Microsoft.Relay Resource Provider. Please register it in Azure Portal."
     }   
 }
 
@@ -305,7 +305,7 @@ if(!$resource)
 
 }
 
-Write-Host "Note: Please Configure Hybrid connection in the Networking section of the web application in Azure Portal to link to the on-premises system.`n"
+Write-Host "Note: Please Configure Hybrid connection in hello Networking section of hello web application in Azure Portal toolink toohello on-premises system.`n"
 Write-Host "App Details"
 Write-Host "============"
 Write-Host "App Name:"  $siteName
@@ -319,4 +319,4 @@ if(!$err)
 
 ```
 ## <a name="next-steps"></a>Volgende stappen
-[Configureer de hybride verbinding](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+[Configureer de Hallo hybride verbinding](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).

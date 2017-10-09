@@ -1,6 +1,6 @@
 ---
-title: Een Docker-container te publiceren met behulp van de Azure-Toolkit voor IntelliJ | Microsoft Docs
-description: Informatie over het publiceren van een web-app naar Microsoft Azure als een Docker-container met behulp van de Azure-Toolkit voor IntelliJ.
+title: een Docker-container met behulp van aaaPublish hello Azure Toolkit voor IntelliJ | Microsoft Docs
+description: Meer informatie over hoe toopublish een web-app tooMicrosoft Azure als een Docker-container met behulp van Azure Toolkit Hallo voor IntelliJ.
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,189 +14,189 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: 96680319a6c4c0f0a4673cd6303a5b172f428797
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bee94cb269ea707ae7ad55232e23e915aec48c34
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="publish-a-web-app-as-a-docker-container-by-using-the-azure-toolkit-for-intellij"></a>Een web-app publiceren als een Docker-container met behulp van de Azure-Toolkit voor IntelliJ
+# <a name="publish-a-web-app-as-a-docker-container-by-using-hello-azure-toolkit-for-intellij"></a>Een web-app publiceren als een Docker-container met behulp van hello Azure Toolkit voor IntelliJ
 
-Docker-containers zijn een veelgebruikte methode voor het implementeren van webtoepassingen. Met behulp van Docker-containers kunnen ontwikkelaars hun project-bestanden en afhankelijkheden in een enkel pakket voor implementatie naar een server consolideren. De Azure-werkset voor IntelliJ vereenvoudigt dit proces voor Java-ontwikkelaars door toe te voegen *publiceren als Docker-Container* onderdelen voor implementatie naar Microsoft Azure. Dit artikel begeleidt u bij de stappen die nodig zijn voor het publiceren van uw toepassingen naar Azure als Docker-containers.
+Docker-containers zijn een veelgebruikte methode voor het implementeren van webtoepassingen. Met behulp van Docker-containers kunnen ontwikkelaars alle projectbestanden en afhankelijkheden in een enkel pakket voor tooa implementatieserver consolideren. Hello Azure Toolkit voor IntelliJ vereenvoudigt dit proces voor Java-ontwikkelaars door toe te voegen *publiceren als Docker-Container* functies voor implementatie tooMicrosoft Azure. Dit artikel begeleidt u bij Hallo stappen vereist toopublish uw toepassingen tooAzure als Docker-containers.
 
 > [!NOTE]
 >
-> Meer informatie over Docker is beschikbaar op de [Docker-website].
+> Meer informatie over Docker is beschikbaar op Hallo [Docker-website].
 >
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-## <a name="publish-your-web-app-to-azure-by-using-a-docker-container"></a>Uw web-app publiceren naar Azure met behulp van Docker-container
+## <a name="publish-your-web-app-tooazure-by-using-a-docker-container"></a>Uw web-app tooAzure publiceren met behulp van Docker-container
 
 > [!NOTE]
-> * Voor het publiceren van uw web-app, moet u een artefact implementatie gereed te maken. Zie voor meer informatie, de [aanvullende informatie over het maken van artefacten](#artifacts) sectie.
+> * toopublish uw web-app, moet u een implementatie-ready artefacten maken. meer, Zie Hallo toolearn [aanvullende informatie over het maken van artefacten](#artifacts) sectie.
 >
-> * Nadat u de implementatiewizard ten minste eenmaal hebt voltooid, worden de meeste van uw instellingen als standaardwaarden gebruikt wanneer u de wizard opnieuw uitvoeren.
+> * Nadat u de wizard implementatie Hallo ten minste eenmaal hebt voltooid, worden de meeste van uw instellingen als standaardwaarden gebruikt wanneer u Hallo wizard opnieuw uitvoeren.
 >
 
 1. Open IntelliJ uw web-app-project.
 
-2. Starten de **publiceren als Docker-Container** wizard een van de volgende handelingen uit:
+2. Hallo toostart **publiceren als Docker-Container** wizard Hallo volgende doen:
 
-   * In de **Project** venster hulpprogramma, met de rechtermuisknop op uw project, klik op **Azure**, en klik vervolgens op **publiceren als Docker-Container**:
+   * In Hallo **Project** venster hulpprogramma, met de rechtermuisknop op uw project, klik op **Azure**, en klik vervolgens op **publiceren als Docker-Container**:
 
-      ![Het publiceren als de opdracht Docker-Container][PUB01]
+      ![Hallo publiceren als de opdracht Docker-Container][PUB01]
 
-   * Klik op de werkbalk IntelliJ de **groep publiceren** knop en klik vervolgens op **publiceren als Docker-Container**:
+   * Klik op Hallo IntelliJ werkbalk op Hallo **groep publiceren** knop en klik vervolgens op **publiceren als Docker-Container**:
 
-      ![Het publiceren als de opdracht Docker-Container][PUB02]  
-    De **Docker-Container in Azure implementeren** wizard wordt geopend.
+      ![Hallo publiceren als de opdracht Docker-Container][PUB02]  
+    Hallo **Docker-Container in Azure implementeren** wizard wordt geopend.
 
-   ![De Docker-Container implementeren in de Azure-wizard][PUB03]
+   ![Hallo Docker-Container in de wizard Azure implementeren][PUB03]
 
-3. In de **typt u een installatiekopie met de naam, selecteer het artefact pad en controleren van een Docker-host moet worden gebruikt** venster de volgende handelingen uit: 
+3. In Hallo **typt u een installatiekopie met de naam, selecteer Hallo-artefact pad en controleren van een Docker host toobe gebruikt** venster Hallo te volgen: 
 
-   a. In de **Docker installatiekopienaam** Voer een unieke naam voor de Docker-host. (De wizard maakt automatisch een naam, maar u kunt deze wijzigen.) 
+   a. In Hallo **Docker installatiekopienaam** Voer een unieke naam voor de Docker-host. (Hallo wizard maakt automatisch een naam, maar u kunt deze wijzigen.) 
 
-   b. De **Hosts** gebied worden weergegeven voor alle Docker-hosts die u al hebt gemaakt. Voer een van de volgende bewerkingen uit: 
-      * Als u een bestaande Docker-host hebt, kunt u uw web-app te implementeren.
-      * Klik op het groen plusteken om een Docker-host (**+**).  
-       De **Docker-Host maken** dialoogvenster wordt geopend. 
+   b. Hallo **Hosts** gebied worden weergegeven voor alle Docker-hosts die u al hebt gemaakt. Hallo volgende doen: 
+      * Als u een bestaande Docker-host hebt, kunt u uw web-app tooit kunt implementeren.
+      * toocreate een Docker-host, klikt u op Hallo groen plusteken (**+**).  
+       Hallo **Docker-Host maken** dialoogvenster wordt geopend. 
 
       ![Docker-Container in de Wizard Azure implementeren][PUB04a]
 
-4. In de **configureren van de nieuwe virtuele machine** venster de volgende informatie over de Docker-host. (De wizard automatisch de meeste informatie voor u gegenereerd, maar u deze kunt wijzigen.) 
+4. In Hallo **Hallo nieuwe virtuele machine configureren** venster bieden Hallo informatie over de Docker-host te volgen. (Hallo wizard genereert automatisch Hallo-informatie voor u de meeste, maar u deze kunt wijzigen.) 
 
-   a. In de **naam** Voer een unieke naam voor de Docker-host. (Dit is niet hetzelfde zijn als de naam van de Docker-installatiekopie die u eerder hebt opgegeven.) 
+   a. In Hallo **naam** Voer een unieke naam voor Hallo Docker-host. (Dit is hetzelfde als de naam van de Docker-installatiekopie die u eerder hebt opgegeven Hallo niet Hallo.) 
     
-   b. In de **abonnement** Voer het Azure-abonnement dat u voor de host gebruikt. 
+   b. In Hallo **abonnement** Voer hello Azure-abonnement dat u voor de host gebruikt. 
       
-   c. In de **regio** Voer de geografische regio waar uw host bevindt.
+   c. In Hallo **regio** Voer Hallo geografische regio waar uw host bevindt.
       
-   d. Op de **OS en de grootte** tabblad, het volgende doen:      
-      * **Host-OS**: Geef het besturingssysteem voor de virtuele machine die de host bevat. 
-      * **De grootte van**: Geef de grootte van de virtuele machine voor de host.   
+   d. Op Hallo **OS en de grootte** tabblad, Hallo te volgen:      
+      * **Host-OS**: Voer Hallo-besturingssysteem voor Hallo virtuele machine met de host. 
+      * **De grootte van**: Geef de grootte voor de virtuele machine Hallo voor de host.   
        
-   e. Op de **resourcegroep** tabblad, selecteert u een van de volgende:      
+   e. Op Hallo **resourcegroep** tabblad, selecteert u een van de volgende Hallo:      
       * **Nieuwe resourcegroep**: een resourcegroep maken voor de host.
       * **Bestaande resourcegroep**: Geef een bestaande resourcegroep van uw Azure-account. 
        
-   f. Op de **netwerk** tabblad, selecteert u een van de volgende:      
+   f. Op Hallo **netwerk** tabblad, selecteert u een van de volgende Hallo:      
       * **Nieuw virtueel netwerk**: een virtueel netwerk maken voor de host.
       * **Bestaand virtueel netwerk**: Geef een bestaand virtueel netwerk van uw Azure-account. 
        
-   g. Op de **opslag** tabblad, selecteert u een van de volgende:      
+   g. Op Hallo **opslag** tabblad, selecteert u een van de volgende Hallo:      
       * **Nieuw opslagaccount**: een opslagaccount maken voor de host.
       * **Bestaande opslagaccount**: Geef een bestaand opslagaccount van uw Azure-account.
        
 5. Klik op **Volgende**.  
-     De **logboek referenties configureren en poortinstellingen** venster wordt geopend.
+     Hallo **logboek referenties configureren en poortinstellingen** venster wordt geopend.
 
-      ![Het logboek configureren in de referenties en poort instellingenvenster][PUB05]
+      ![Hallo configureren aanmelden referenties en poort instellingenvenster][PUB05]
 
-6. Selecteer een van de volgende opties:
+6. Selecteer een Hallo volgende opties:
 
       * **Referenties importeren uit Azure Key Vault**: Geef een eerder opgeslagen set referenties die zijn opgeslagen in uw Azure-abonnement.
 
           > [!NOTE]
-          > Een Azure sleutelkluis die gemaakt met een specifiek account of een service-principal is niet automatisch toegankelijk is door een ander account of service-principal die het abonnement deelt. Als u wilt toestaan een ander account of -service principal gebruik van de sleutelkluis, moet u de Azure-portal de account of de service-principal toe te voegen.
+          > Een Azure sleutelkluis die gemaakt met een specifiek account of een service-principal is niet automatisch toegankelijk is door een ander account of service-principal die Hallo-abonnement deelt. tooallow een ander account of de service principal toouse Hallo key vault, moet u hello Azure portal tooadd Hallo account of service-principal gebruiken.
 
-      * **Nieuwe aanmelding referenties**: Maak een nieuwe set aanmeldingsreferenties. Als u deze optie selecteert, het volgende doen:
+      * **Nieuwe aanmelding referenties**: Maak een nieuwe set aanmeldingsreferenties. Als u deze optie selecteert, Hallo te volgen:
 
-        a. Op de **VM referenties** tabblad, bieden de volgende informatie voor de virtuele machine-aanmeldingsreferenties van de Docker-host: * **gebruikersnaam**: Geef de gebruikersnaam voor uw virtuele machines aanmeldingsreferenties.
-             * **Wachtwoord** en **bevestigen**: Voer het wachtwoord voor uw virtuele machines aanmeldingsreferenties.
-             * **SSH**: Geef de instellingen van Secure Shell (SSH) voor de Docker-host. U kunt een van de volgende opties selecteren: * **geen**: Hiermee geeft u de virtuele machine staat niet toe dat SSH-verbindingen.
-                * **Automatisch genereren**: de vereiste instellingen automatisch maakt om verbinding te maken via SSH.
-                * **Importeren uit directory**: Hiermee kunt u een map met een set van de eerder opgeslagen SSH-instellingen opgeven. De map moet bevatten de volgende twee bestanden:
+        a. Op Hallo **VM referenties** tabblad, bieden Hallo-gegevens voor Hallo aanmeldingsgegevens voor virtuele machines van de Docker-host te volgen: * **gebruikersnaam**: Hallo gebruikersnaam invoeren voor de aanmelding voor uw virtuele machines de referenties.
+             * **Wachtwoord** en **bevestigen**: Hallo wachtwoord invoeren voor uw virtuele machines aanmeldingsreferenties.
+             * **SSH**: Voer Hallo Secure Shell (SSH)-instellingen voor de Docker-host. U kunt een Hallo volgende opties selecteren: * **geen**: Hiermee geeft u de virtuele machine staat niet toe dat SSH-verbindingen.
+                * **Automatisch genereren**: automatisch maakt Hallo vereiste instellingen voor verbinding maken via SSH.
+                * **Importeren uit directory**: Hiermee kunt u toospecify een map met een set van de eerder opgeslagen SSH-instellingen. Hallo directory moet de volgende twee bestanden Hallo bevatten:
                 
-                  * *id_rsa*: Contains the RSA identification for a user.
-                  * *id_rsa.pub*: Contains the RSA public key that is used for authentication.
+                  * *id_rsa*: Contains hello RSA identification for a user.
+                  * *id_rsa.pub*: Contains hello RSA public key that is used for authentication.
             
-        b. Op de **Docker-Daemon toegang** tabblad, geef de volgende informatie:
+        b. Op Hallo **Docker-Daemon toegang** tabblad, bieden Hallo volgende informatie:
 
           ![Docker-Host maken][PUB06]
     
-             * **Docker Daemon port**: Enter the unique TCP port for your Docker host.
-             * **TLS Security**: Enter the Transport Layer Security settings for your Docker host. You can choose from the following options:
+             * **Docker Daemon port**: Enter hello unique TCP port for your Docker host.
+             * **TLS Security**: Enter hello Transport Layer Security settings for your Docker host. You can choose from hello following options:
                 * **None**: Specifies that your virtual machine does not allow TLS connections.
-                * **Auto-generate**: Automatically creates the requisite settings for connecting via TLS.
-                * **Import from directory**: Specifies a directory that contains a set of previously saved TLS settings. The directory must contain the following six files: 
-                   * *ca.pem* and *ca-key.pem*: Contain the certificate and public key for the TLS Certificate Authority.
+                * **Auto-generate**: Automatically creates hello requisite settings for connecting via TLS.
+                * **Import from directory**: Specifies a directory that contains a set of previously saved TLS settings. hello directory must contain hello following six files: 
+                   * *ca.pem* and *ca-key.pem*: Contain hello certificate and public key for hello TLS Certificate Authority.
                    * *cert.pem* and *key.pem*: Contain client certificate and public key which will be used for TLS authentication.
-                   * *server.pem* and *server-key.pem*: Contain the client certificate and public key that is used for TLS authentication.
+                   * *server.pem* and *server-key.pem*: Contain hello client certificate and public key that is used for TLS authentication.
 
-7. Nadat u de vereiste gegevens hebt ingevoerd, klikt u op **voltooien**.  
-    De **Docker-Container in Azure implementeren** wizard opnieuw wordt weergegeven.
+7. Nadat u Hallo vereiste gegevens hebt ingevoerd, klikt u op **voltooien**.  
+    Hallo **Docker-Container in Azure implementeren** wizard opnieuw wordt weergegeven.
 
    ![Docker-Container in de Wizard Azure implementeren][PUB07]
 
 8. Klik op **Volgende**.  
-    De **configureren de Docker-container gemaakt** venster wordt geopend.
+    Hallo **hello Docker-container toobe gemaakt configureren** venster wordt geopend.
 
-   ![Het configureren van de Docker-container venster worden gemaakt][PUB08]
+   ![Hallo configureren Hallo Docker-container gemaakt toobe venster][PUB08]
 
-9. In de **configureren de Docker-container gemaakt** venster de volgende informatie: 
+9. In Hallo **hello Docker-container toobe gemaakt configureren** venster bieden Hallo volgende informatie: 
 
-   a. In de **Docker-containernaam** Voer een unieke naam voor uw Docker-container.
+   a. In Hallo **Docker-containernaam** Voer een unieke naam voor uw Docker-container.
 
-   b. Kies een van de volgende Docker-afbeeldingen: 
+   b. Kies een van de Hallo Docker-installatiekopieën te volgen: 
 
       * **De installatiekopie van een vooraf gedefinieerde Docker**: Geef een bestaande Docker-installatiekopie uit Azure. 
 
         > [!NOTE]
-        > De lijst met Docker-afbeeldingen in dit vak bestaat uit diverse installatiekopieën die de Azure-Toolkit is geconfigureerd voor het patch zodat uw artefacten automatisch wordt geïmplementeerd. 
+        > Hallo-lijst van Docker-afbeeldingen in dit vak bestaat uit diverse installatiekopieën die Azure Toolkit is Hallo toopatch zo geconfigureerd dat uw artefacten automatisch wordt geïmplementeerd. 
 
       * **Aangepaste Dockerfile**: Geef een eerder opgeslagen Dockerfile vanaf uw lokale computer.
 
         > [!NOTE]
-        > Dit is een geavanceerde functie voor ontwikkelaars die willen hun eigen Dockerfile implementeren. Het is echter maximaal ontwikkelaars die gebruikmaken van deze optie om ervoor te zorgen dat hun Dockerfile correct is gebouwd. Omdat de Azure-Toolkit wordt de inhoud van een aangepaste Dockerfile niet gevalideerd, wordt de implementatie kan mislukken als de Dockerfile problemen heeft. Bovendien, omdat de Azure-Toolkit de aangepaste Dockerfile verwacht bevatten een web-app-artefacten, probeert te openen van een HTTP-verbinding. Als ontwikkelaars een ander type artefact publiceert, krijgen ze mogelijk onschuldig fouten na de implementatie.
+        > Dit is een geavanceerde functie voor ontwikkelaars die toodeploy hun eigen Dockerfile willen. Het is echter van toodevelopers die gebruikmaken van deze optie tooensure die hun Dockerfile correct is ingebouwd. Omdat Azure Toolkit Hallo Hallo inhoud in een aangepaste Dockerfile niet valideren, worden de Hallo-implementatie kan mislukken als Hallo Dockerfile problemen heeft. Bovendien omdat hello Azure Toolkit Hallo aangepaste Dockerfile toocontain een artefact van web-app verwacht, probeert het tooopen een HTTP-verbinding. Als ontwikkelaars een ander type artefact publiceert, krijgen ze mogelijk onschuldig fouten na de implementatie.
 
-   c. In de **poortinstellingen** Geef de unieke TCP-poort-binding voor de Docker-container. 
+   c. In Hallo **poortinstellingen** Voer Hallo unieke TCP-poortbinding voor de Docker-container. 
 
-10. Nadat u de voorgaande stappen hebt voltooid, klikt u op **voltooien**. 
+10. Nadat u Hallo vorige stappen hebt voltooid, klikt u op **voltooien**. 
 
-De Toolkit Azure begint uw web-app implementeren naar Azure in een Docker-container. Tenzij u hebt geconfigureerd IntelliJ worden geïmplementeerd op de achtergrond een **implementeren naar Azure** voortgangsbalk weergegeven. 
+Hello Azure Toolkit begint de tooAzure van uw web-app in een Docker-container te implementeren. Tenzij u hebt geconfigureerd IntelliJ toobe geïmplementeerd op de achtergrond hello, een **tooAzure implementeren** voortgangsbalk weergegeven. 
 
-![De voortgangsbalk implementatie][PUB09]
+![Hallo implementatie voortgangsbalk][PUB09]
 
 <a name="artifacts"></a>
 ## <a name="additional-information-about-creating-artifacts"></a>Als u meer informatie over het maken van artefacten
 
-Voor het maken van een implementatie-gereed-artefacten, het volgende doen:
+een artefact implementatie gereed toocreate Hallo te volgen:
 
 1. Open IntelliJ uw web-app-project.
 
 2. Klik op **bestand**, en klik vervolgens op **projectstructuur**.
 
-   ![De structuur van de Project-opdracht][ART01]
+   ![Hallo structuur Project-opdracht][ART01]
 
-3. Klik op Help als u een artefact groen plusteken (**+**), en klik vervolgens op **webtoepassing: archief**.
+3. tooadd een artefact, klikt u op Hallo groen plusteken (**+**), en klik vervolgens op **webtoepassing: archief**.
 
-   ![De opdracht 'Toepassing: webarchief'][ART02]
+   ![Hallo 'Toepassing: webarchief'-opdracht][ART02]
 
-4. In de **naam** Voer een naam voor uw artefacten (omvatten geen de *.war* extensie), en klik vervolgens op **OK**.
+4. In Hallo **naam** Voer een naam voor uw artefacten (omvatten geen Hallo *.war* extensie), en klik vervolgens op **OK**.
 
-   ![Het naamvak artefact][ART03]
+   ![Hallo artefact naamvak][ART03]
 
-Zie voor meer informatie over het maken van artefacten in IntelliJ [artefacten configureren] op de website JetBrains.
+Zie voor meer informatie over het maken van artefacten in IntelliJ [artefacten configureren] op Hallo JetBrains website.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende bronnen voor meer informatie over de Azure-Toolkits voor IDE voor Java:
+Zie voor meer informatie over hello Azure Toolkits voor IDE voor Java Hallo resources te volgen:
 
 * [Azure Toolkit voor Eclipse]
-  * [Wat is er nieuw in de Azure-werkset voor Eclipse]
-  * [Installing the Azure Toolkit for Eclipse] (De Azure Toolkit voor Eclipse installeren)
-  * [Aanmelden instructies voor de Azure-werkset voor Eclipse]
+  * [Wat is er nieuw in hello Azure Toolkit voor Eclipse]
+  * [Hello Azure Toolkit voor Eclipse installeren]
+  * [Aanmelden instructies voor het hello Azure Toolkit voor Eclipse]
   * [Een Hallo wereld-web-app maken voor Azure in Eclipse]
 * [Azure Toolkit for IntelliJ] (Azure Toolkit voor IntelliJ)
-  * [Wat is er nieuw in de Azure-werkset voor IntelliJ]
-  * [Installing the Azure Toolkit for IntelliJ] (De Azure Toolkit voor IntelliJ installeren)
-  * [Aanmelden instructies voor de Azure-Toolkit voor IntelliJ]
+  * [Wat is er nieuw in hello Azure Toolkit voor IntelliJ]
+  * [Hello Azure Toolkit voor IntelliJ installeren]
+  * [Aanmelden instructies voor hello Azure Toolkit voor IntelliJ]
   * [Een Hallo wereld-web-app maken voor Azure in IntelliJ]
 
-Voor meer informatie over het gebruik van Azure met Java raadpleegt u het [Azure Java-ontwikkelaarscentrum] en de [Java Tools voor Visual Studio Team Services].
+Zie voor meer informatie over het gebruik van Azure met Java Hallo [Azure Java Developer Center] en Hallo [Java-Tools voor Visual Studio Team Services].
 
-Zie voor aanvullende bronnen voor Docker de officiële [Docker-website].
+Zie voor aanvullende bronnen voor Docker Hallo officiële [Docker-website].
 
 <!-- URL List -->
 
@@ -204,15 +204,15 @@ Zie voor aanvullende bronnen voor Docker de officiële [Docker-website].
 [Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md (Azure Toolkit voor IntelliJ)
 [Een Hallo wereld-web-app maken voor Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Een Hallo wereld-web-app maken voor Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md (De Azure Toolkit voor Eclipse installeren)
-[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md (De Azure Toolkit voor IntelliJ installeren)
-[Aanmelden instructies voor de Azure-werkset voor Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
-[Aanmelden instructies voor de Azure-Toolkit voor IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Wat is er nieuw in de Azure-werkset voor Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
-[Wat is er nieuw in de Azure-werkset voor IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+[Hello Azure Toolkit voor Eclipse installeren]: ./azure-toolkit-for-eclipse-installation.md
+[Hello Azure Toolkit voor IntelliJ installeren]: ./azure-toolkit-for-intellij-installation.md
+[Aanmelden instructies voor het hello Azure Toolkit voor Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Aanmelden instructies voor hello Azure Toolkit voor IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Wat is er nieuw in hello Azure Toolkit voor Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Wat is er nieuw in hello Azure Toolkit voor IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
-[Azure Java-ontwikkelaarscentrum]: https://azure.microsoft.com/develop/java/
-[Java Tools voor Visual Studio Team Services]: https://java.visualstudio.com/
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[Java-Tools voor Visual Studio Team Services]: https://java.visualstudio.com/
 
 [Docker-website]: https://www.docker.com/
 [artefacten configureren]: https://www.jetbrains.com/help/idea/2016.1/configuring-artifacts.html

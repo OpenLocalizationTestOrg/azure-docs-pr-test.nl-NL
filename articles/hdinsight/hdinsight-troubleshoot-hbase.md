@@ -1,6 +1,6 @@
 ---
-title: HBase oplossen met behulp van Azure HDInsight | Microsoft Docs
-description: Vind antwoorden op veelgestelde vragen over het werken met HBase en Azure HDInsight.
+title: aaaTroubleshoot HBase met behulp van Azure HDInsight | Microsoft Docs
+description: Vind antwoorden op vragen over het werken met HBase en Azure HDInsight toocommon.
 services: hdinsight
 documentationcenter: 
 author: nitinver
@@ -13,70 +13,70 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 7/7/2017
 ms.author: nitinver
-ms.openlocfilehash: 15412c3853a2b8436c5e96034c9a92a2a1094662
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5210184f8ea95628952a95df8c98f5b98e37c53e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>HBase oplossen met behulp van Azure HDInsight
 
-Meer informatie over de meest voorkomende problemen en hun oplossingen bij het werken met Apache HBase nettoladingen in Apache Ambari.
+Meer informatie over de meestvoorkomende problemen Hallo en hun oplossingen bij het werken met Apache HBase nettoladingen in Apache Ambari.
 
 ## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Hoe voer hbck opdracht rapporten met meerdere niet-toegewezen gebieden
 
-Een algemene foutmelding dat u mogelijk zien bij het uitvoeren van de `hbase hbck` opdracht is "meerdere regio's wordt niet-toegewezen of gaten in de keten van regio's."
+Een algemene foutmelding dat u mogelijk zien bij het uitvoeren van Hallo `hbase hbck` opdracht is "meerdere regio's wordt niet-toegewezen of gaten in Hallo keten van regio's."
 
-In de UI HBase Master ziet u het aantal regio's die zijn op alle servers van de regio in onbalans gebracht. U kunt vervolgens uitvoert `hbase hbck` opdracht om te zien gaten in de keten regio.
+Hallo HBase Master UI ziet u Hallo aantal regio's die zijn op alle servers van de regio in onbalans gebracht. U kunt vervolgens uitvoert `hbase hbck` opdracht toosee gaten in Hallo regio keten.
 
-Gaten wordt mogelijk veroorzaakt door de offline-regio's, de toewijzingen dus eerst los. 
+Gaten mogelijk eerst worden veroorzaakt door Hallo offline regio's in dat geval fix Hallo toewijzingen. 
 
-Voor het maken van de niet-toegewezen gebieden terug naar een normale status, moet u de volgende stappen uitvoeren:
+toobring Hallo normale status van niet-toegewezen gebieden back tooa, voltooien Hallo stappen te volgen:
 
-1. Meld u aan het HDInsight HBase-cluster via SSH.
-2. Voor verbinding met de ZooKeeper-shell, voer de `hbase zkcli` opdracht.
-3. Voer de `rmr /hbase/regions-in-transition` opdracht of het `rmr /hbase-unsecure/regions-in-transition` opdracht.
-4. Om af te sluiten van de `hbase zkcli` -shell, gebruikt u de `exit` opdracht.
-5. Open de Apache Ambari-gebruikersinterface en start de service actief HBase Master opnieuw.
-6. Voer de `hbase hbck` opdracht (zonder opties) opnieuw. Controleer de uitvoer van deze opdracht om ervoor te zorgen dat alle regio's worden toegewezen.
+1. Aanmelden toohello HDInsight HBase-cluster via SSH.
+2. tooconnect met Hallo ZooKeeper shell, Voer Hallo `hbase zkcli` opdracht.
+3. Voer Hallo `rmr /hbase/regions-in-transition` opdracht of Hallo `rmr /hbase-unsecure/regions-in-transition` opdracht.
+4. tooexit van Hallo `hbase zkcli` -shell, gebruikt u Hallo `exit` opdracht.
+5. Open Hallo Apache Ambari gebruikersinterface en start Hallo actieve HBase Master-service opnieuw.
+6. Voer Hallo `hbase hbck` opdracht (zonder opties) opnieuw. Controleer Hallo-uitvoer van deze opdracht tooensure die alle regio's worden toegewezen.
 
 
 ## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>Hoe los ik problemen time-out bij gebruik van hbck opdrachten voor toewijzingen regio
 
 ### <a name="issue"></a>Probleem
 
-Een mogelijke oorzaak voor time-out van problemen wanneer u de `hbck` opdracht mogelijk verschillende regio's zijn in de status 'in de overgangsfase' gedurende een lange periode. Deze regio's kunt u zien als offline in de HBase-Master-UI. Omdat een groot aantal gebieden om een overgang probeert, HBase Master time-out mogelijk en geen regio's weer online brengen.
+Een mogelijke oorzaak voor time-out voor problemen bij het gebruik van Hallo `hbck` opdracht is mogelijk dat meerdere regio's in Hallo 'in de overgangsfase zijn' status gedurende een lange periode. Deze regio's kunt u zien als offline in Hallo HBase Master UI. Omdat een groot aantal gebieden tootransition probeert, time-out mogelijk HBase hoofd- en kan niet toobring die gebieden weer online worden.
 
 ### <a name="resolution-steps"></a>Stappen voor het oplossen
 
-1. Meld u aan het HDInsight HBase-cluster via SSH.
-2. Voor verbinding met de ZooKeeper-shell, voer de `hbase zkcli` opdracht.
-3. Voer de `rmr /hbase/regions-in-transition` of de `rmr /hbase-unsecure/regions-in-transition` opdracht.
-4. Om af te sluiten de `hbase zkcli` -shell, gebruikt u de `exit` opdracht.
-5. In de Ambari-UI de actieve HBase Master-service opnieuw te starten.
-6. Voer de `hbase hbck -fixAssignments` opdracht opnieuw.
+1. Aanmelden toohello HDInsight HBase-cluster via SSH.
+2. tooconnect met Hallo ZooKeeper shell, Voer Hallo `hbase zkcli` opdracht.
+3. Voer Hallo `rmr /hbase/regions-in-transition` of Hallo `rmr /hbase-unsecure/regions-in-transition` opdracht.
+4. Hallo tooexit `hbase zkcli` -shell, gebruikt u Hallo `exit` opdracht.
+5. In Hallo Ambari UI, opnieuw opstarten Hallo actieve HBase-hoofdservice.
+6. Voer Hallo `hbase hbck -fixAssignments` opdracht opnieuw.
 
 ## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Hoe ik geforceerde-/ uitschakelen HDFS veilige modus in een cluster
 
 ### <a name="issue"></a>Probleem
 
-De lokale Hadoop Distributed File System (HDFS) is vastgelopen in de veilige modus op het HDInsight-cluster.
+Hallo lokale Hadoop Distributed File System (HDFS) is vastgelopen in de veilige modus op Hallo HDInsight-cluster.
 
 ### <a name="detailed-description"></a>Gedetailleerde beschrijving
 
-Deze fout kan zijn veroorzaakt door een fout opgetreden tijdens het uitvoeren van de volgende HDFS-opdracht:
+Deze fout kan zijn veroorzaakt door een fout opgetreden tijdens het uitvoeren van Hallo HDFS-opdracht te volgen:
 
 ```apache
 hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 ```
 
-De fout die u tegenkomen kunt wanneer u probeert uit te voeren van de opdracht ziet er als volgt:
+Hallo-fout die u tegenkomen kunt wanneer u toorun Hallo opdracht probeert ziet er als volgt:
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
-It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
+It was turned on manually. Use "hdfs dfsadmin -safemode leave" tooturn safe mode off.
         at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1359)
         at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.mkdirs(FSNamesystem.java:4010)
         at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.mkdirs(NameNodeRpcServer.java:1102)
@@ -126,11 +126,11 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ### <a name="probable-cause"></a>Mogelijke oorzaak
 
-De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten. Het aantal knooppunten is lager dan of dicht bij de replicatie HDFS factor.
+Hallo HDInsight-cluster is verkleind tooa zeer weinig knooppunten. het aantal knooppunten Hallo lager is dan of toohello HDFS replicatie factor sluit.
 
 ### <a name="resolution-steps"></a>Stappen voor het oplossen 
 
-1. De status van de HDFS ophalen op het HDInsight-cluster met de volgende opdrachten:
+1. Status van HDFS op Hallo HDInsight-cluster door het uitvoeren van de volgende opdrachten Hallo HALLO hallo ophalen:
 
    ```apache
    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
@@ -171,14 +171,14 @@ De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten
    ...
 
    ```
-2. U kunt ook de integriteit van de HDFS op het HDInsight-cluster controleren met behulp van de volgende opdrachten:
+2. U kunt ook Hallo integriteit van HDFS op Hallo HDInsight-cluster met behulp van de volgende opdrachten Hallo Hallo controleren:
 
    ```apache
    hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
    ```
 
    ```apache
-   Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
+   Connecting toonamenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
    FSCK started by hdiuser (auth:SIMPLE) from /10.0.0.22 for path / at Wed Apr 05 16:40:28 UTC 2017
    ....................................................................................................
 
@@ -201,10 +201,10 @@ De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten
    Number of racks:               1
    FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
 
-   The filesystem under path '/' is HEALTHY
+   hello filesystem under path '/' is HEALTHY
    ```
 
-3. Als u dat vaststelt er zijn geen ontbreekt, beschadigd of under-gerepliceerde blokken of dat deze blokken kunnen worden genegeerd, voer de volgende opdracht te laten de naam van knooppunt buiten de veilige modus:
+3. Als u vaststelt dat er geen ontbreekt, is beschadigd of under-gerepliceerde blokken, of dat deze blokken kunnen worden genegeerd, voert u Hallo opdracht tootake Hallo naam knooppunt buiten de veilige modus te volgen:
 
    ```apache
    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
@@ -215,30 +215,30 @@ De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten
 
 ### <a name="resolution-steps"></a>Stappen voor het oplossen
 
-Als u wilt verbinden met Phoenix, moet u het IP-adres van een actief ZooKeeper-knooppunt opgeven. Zorg ervoor dat de service ZooKeeper welke sqlline.py verbinding probeert te maken is actief.
-1. Meld u aan het HDInsight-cluster via SSH.
-2. Voer de volgende opdracht in:
+tooconnect met Phoenix, moet u Hallo IP-adres van een actief ZooKeeper-knooppunt opgeven. Zorg ervoor dat Hallo ZooKeeper service toowhich sqlline.py probeert tooconnect actief is.
+1. Aanmelden toohello HDInsight-cluster via SSH.
+2. Voer Hallo volgende opdracht:
                 
    ```apache
            "/usr/hdp/current/phoenix-client/bin/sqlline.py <IP of machine where Active Zookeeper is running"
    ```
 
    > [!Note] 
-   > Het IP-adres van het actieve knooppunt van de ZooKeeper kunt u krijgen via de UI Ambari. Ga naar **HBase** > **snelle koppelingen** > **ZK\* (actief)** > **Zookeeper Info**. 
+   > Hallo IP-adres van de actieve ZooKeeper knooppunt Hallo kunt u krijgen via Hallo Ambari UI. Ga te**HBase** > **snelkoppelingen** > **ZK\* (actief)** > **Zookeeper Info**. 
 
-3. Als de sqlline.py met Phoenix verbindt en geen time-out biedt, voert u de volgende opdracht om de beschikbaarheid en de status van Phoenix valideren:
+3. Als Hallo sqlline.py tooPhoenix verbindt en geen time-out biedt, Voer Hallo volgende opdracht uit toovalidate Hallo beschikbaarheid en de gezondheid van Phoenix:
 
    ```apache
            !tables
            !quit
    ```      
-4. Als deze opdracht werkt, is er geen probleem. Het IP-adres opgegeven door de gebruiker is mogelijk onjuist. Echter, als de opdracht voor langere tijd wordt onderbroken en wordt vervolgens de volgende fout weergegeven, verder met stap 5.
+4. Als deze opdracht werkt, is er geen probleem. Hallo IP-adres opgegeven door de gebruiker Hallo is mogelijk onjuist. Als het Hallo-opdracht voor langere tijd wordt onderbroken en wordt vervolgens de volgende fout Hallo, blijven echter toostep 5.
 
    ```apache
-           Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings. 
+           Error while connecting toosqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting toojdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings. 
    ```
 
-5. De volgende opdrachten uitvoeren vanaf het hoofdknooppunt (hn0) voor het vaststellen van de voorwaarde van het systeem Phoenix. Catalogustabel:
+5. Hallo volgende opdrachten uit Hallo hoofdknooppunt (hn0) toodiagnose Hallo voorwaarde Hallo Phoenix systeem worden uitgevoerd. Catalogustabel:
 
    ```apache
             hbase shell
@@ -246,23 +246,23 @@ Als u wilt verbinden met Phoenix, moet u het IP-adres van een actief ZooKeeper-k
            count 'SYSTEM.CATALOG'
    ```
 
-   De opdracht moet retourneren een foutmelding ziet er als volgt: 
+   Hallo-opdracht moet een fout vergelijkbare toohello volgende retourneren: 
 
    ```apache
            ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
    ```
-6. Voer de volgende stappen uit om de service HMaster op alle knooppunten van de ZooKeeper opnieuw te starten in de UI Ambari:
+6. Hallo Ambari UI, uitvoeren Hallo stappen toorestart hello HMaster service op alle ZooKeeper-knooppunten te volgen:
 
-    1. In de **samenvatting** sectie van HBase, gaat u naar **HBase** > **actieve HBase Master**. 
-    2. In de **onderdelen** sectie, opnieuw opstarten van de HBase-hoofdservice.
+    1. In Hallo **samenvatting** sectie van HBase, ga te**HBase** > **actieve HBase Master**. 
+    2. In Hallo **onderdelen** sectie, Hallo HBase Master-service opnieuw starten.
     3. Herhaal deze stappen voor alle resterende **stand-by HBase Master** services. 
 
-Het kan tot vijf minuten duren voordat de HBase-Master service stabiel en het herstelproces te voltooien. Herhaal de sqlline.py-opdrachten om te bevestigen dat het systeem na een paar minuten. Catalogustabel actief is en dat deze kan worden opgevraagd. 
+Het kan een Hallo HBase Master service toostabilize toofive minuten in beslag nemen en Hallo herstelproces te voltooien. Herhaal Hallo sqlline.py opdrachten tooconfirm die Hallo systeem na een paar minuten. Catalogustabel actief is en dat deze kan worden opgevraagd. 
 
-Wanneer het systeem. Catalogustabel is weer in de normale, het connectiviteitsprobleem naar Phoenix moet worden automatisch opgelost.
+Wanneer Hallo systeem. Catalogustabel back toonormal, Hallo connectiviteit probleem tooPhoenix moet worden automatisch opgelost.
 
 
-## <a name="what-causes-a-master-server-to-fail-to-start"></a>Wat zorgt ervoor dat een master server niet worden gestart
+## <a name="what-causes-a-master-server-toofail-toostart"></a>Waarom een hoofdserver toofail toostart
 
 ### <a name="error"></a>Fout 
 
@@ -270,19 +270,19 @@ Een atomic naamswijzigingen fout optreedt.
 
 ### <a name="detailed-description"></a>Gedetailleerde beschrijving
 
-Tijdens het opstarten voltooid HMaster veel initialisatiestappen. Deze omvatten het verplaatsen van gegevens uit de map maken (TMP) naar de map data. HMaster ook gekeken naar de map schrijven-ahead logs (WALs) om te zien of er niet-reagerende regio-servers zijn, enzovoort. 
+Tijdens het opstartproces hello voltooit HMaster veel initialisatiestappen. Deze omvatten het verplaatsen van gegevens vanaf het begin hello (TMP) gegevens van de map toohello. Hallo vooraf geschreven Logboeken (WALs) map toosee HMaster ook kijkt als er een niet-reagerende regio-servers, enzovoort. 
 
 Tijdens het opstarten HMaster biedt een eenvoudige `list` opdracht op deze mappen. Als HMaster op elk gewenst moment een onverwacht bestand in een van deze mappen ziet, er een uitzondering gegenereerd en niet kan worden gestart.  
 
 ### <a name="probable-cause"></a>Mogelijke oorzaak
 
-Probeer om te bepalen van de tijdlijn van het maken van het bestand en controleer vervolgens of er is een proces crash rond de tijd die het bestand is gemaakt in de logboeken van de server regio. (Contact op met ondersteuning van HBase om u te helpen dit uit te voeren). Dit helpt ons bieden krachtiger mechanismen, zodat u kunt u door deze fout voorkomen en zorg ervoor dat de correcte proces afsluitingen over te slaan.
+In de serverlogboeken Hallo regio, probeer tooidentify Hallo tijdlijn Hallo bestand is gemaakt en vervolgens controleren of er is dat een proces crash rond Hallo tijd Hallo-bestand is gemaakt. (Neem contact op met HBase ondersteuning tooassist u dat doet.) Dit helpt ons bieden krachtiger mechanismen, zodat u kunt u door deze fout voorkomen en zorg ervoor dat de correcte proces afsluitingen over te slaan.
 
 ### <a name="resolution-steps"></a>Stappen voor het oplossen
 
-Controleer de aanroepstack en probeer het bepalen van de map waarin het probleem mogelijk worden veroorzaakt (bijvoorbeeld het moet mogelijk de map WALs of TMP). In de Cloud Explorer of via de HDFS-opdrachten, probeer het probleembestand te zoeken. Meestal is dit een \*-renamePending.json-bestand. (De \*-renamePending.json bestand is een journaalbestand dat wordt gebruikt voor het implementeren van de atomic naamswijziging in het stuurprogramma WASB. Als gevolg van fouten in deze implementatie van kunnen deze bestanden blijven via na proces crashes, enzovoort.) Force verwijderen van dit bestand in de Cloud Explorer of via de HDFS-opdrachten. 
+Hallo aanroepstack en probeer het toodetermine map waarin Hallo probleem mogelijk worden veroorzaakt (bijvoorbeeld het moet mogelijk Hallo WALs map of Hallo tmp). In de Cloud Explorer of via de HDFS-opdrachten, probeer toolocate Hallo probleembestand. Meestal is dit een \*-renamePending.json-bestand. (Hallo \*-renamePending.json bestand is een journaalbestand dat tooimplement Hallo-atomic naamswijziging Hallo WASB stuurprogramma is gebruikt. Vervaldatum toobugs in deze implementatie van deze bestanden kunnen blijven via na proces crashes, enzovoort.) Force verwijderen van dit bestand in de Cloud Explorer of via de HDFS-opdrachten. 
 
-Soms wordt er mogelijk ook een tijdelijk bestand dat lijkt op met de naam *$$$. $$$* op deze locatie. U moet gebruiken de HDFS `ls` opdracht om te zien van dit bestand; u kunt het bestand in de Cloud Explorer kan niet controleren. Als u wilt verwijderen van dit bestand, gebruikt u de opdracht HDFS `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.  
+Soms wordt er mogelijk ook een tijdelijk bestand dat lijkt op met de naam *$$$. $$$* op deze locatie. U hebt toouse HDFS `ls` opdracht toosee dit bestand; u kunt niet Hallo-bestand in de Cloud Explorer bekijken. toodelete dit bestand, de opdracht use Hallo-HDFS `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.  
 
 Na het uitvoeren van deze opdrachten moet HMaster onmiddellijk starten. 
 
@@ -292,11 +292,11 @@ Er is geen serveradres wordt vermeld in *hbase: meta* voor xxx regio.
 
 ### <a name="detailed-description"></a>Gedetailleerde beschrijving
 
-U ziet een bericht op uw Linux-cluster waarmee wordt aangegeven dat de *hbase: meta* tabel is niet online. Met `hbck` kunnen melden die ' hbase: meta tabel replicaId 0 is niet gevonden in elke regio. " Het probleem mogelijk HMaster kan niet initialiseren nadat u HBase opnieuw opgestart. In de logboeken HMaster ziet u het bericht: "Er is geen serveradres vermeld in hbase: meta voor regio hbase: back- \<regionaam\>'.  
+U ziet een bericht op uw Linux-cluster die dat Hallo aangeeft *hbase: meta* tabel is niet online. Met `hbck` kunnen melden die ' hbase: meta tabel replicaId 0 is niet gevonden in elke regio. " Hallo probleem wordt mogelijk HMaster kan niet initialiseren nadat u HBase opnieuw opgestart. In Hallo HMaster Logboeken, ziet u het Hallo-bericht: ' geen serveradres vermeld in hbase: meta voor regio hbase: back- \<regionaam\>'.  
 
 ### <a name="resolution-steps"></a>Stappen voor het oplossen
 
-1. Voer de volgende opdrachten (werkelijke waarden voor de wijziging van toepassing) in de HBase-shell:  
+1. Voer in Hallo HBase-shell, Hallo opdrachten (werkelijke waarden voor de wijziging van toepassing) te volgen:  
 
    ```apache
    > scan 'hbase:meta'  
@@ -306,11 +306,11 @@ U ziet een bericht op uw Linux-cluster waarmee wordt aangegeven dat de *hbase: m
    > delete 'hbase:meta','hbase:backup <region name>','<column name>'  
    ```
 
-2. Verwijder de *hbase: naamruimte* vermelding. Dit item is mogelijk dezelfde fout die wordt gemeld wanneer de *hbase: naamruimte* tabel wordt gescand.
+2. Hallo verwijderen *hbase: naamruimte* vermelding. Dit item is mogelijk dezelfde fout die wordt gerapporteerd als Hallo Hallo *hbase: naamruimte* tabel wordt gescand.
 
-3. Start de actieve HMaster-service actief is, in de UI Ambari HBase weer te geven.  
+3. toobring van HBase actief is, in Hallo Ambari UI, Hallo Active HMaster service opnieuw starten.  
 
-4. In de HBase-shell, zodat alle offline tabellen, voer de volgende opdracht:
+4. In HBase-shell, toobring van alle tabellen offline Hallo uitvoeren Hallo volgende opdracht:
 
    ```apache 
    hbase hbck -ignorePreCheckPermission -fixAssignments 
@@ -318,46 +318,46 @@ U ziet een bericht op uw Linux-cluster waarmee wordt aangegeven dat de *hbase: m
 
 ### <a name="additional-reading"></a>Aanvullende bronnen
 
-[Kan niet worden verwerkt de HBase-tabel](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
+[Kan geen tooprocess hello HBase-tabel](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
 
 
 ### <a name="error"></a>Fout
 
-HMaster een time-out optreedt bij een fatale uitzondering die vergelijkbaar is met ' java.io.IOException: time-out 300000ms wachten naamruimte tabel moet worden toegewezen. "
+Time-out opgetreden voor de HMaster met een vergelijkbare too"java.io.IOException fatale uitzondering opgetreden: time-out 300000ms naamruimte tabel toobe toegewezen wachten."
 
 ### <a name="detailed-description"></a>Gedetailleerde beschrijving
 
-U kunt dit probleem kan optreden als er veel tabellen en regio's die niet is leeggemaakt wanneer u uw HMaster services opnieuw start. Opnieuw opstarten kan mislukken en ziet u het vorige foutbericht wordt weergegeven.  
+U kunt dit probleem kan optreden als er veel tabellen en regio's die niet is leeggemaakt wanneer u uw HMaster services opnieuw start. Opnieuw opstarten kan mislukken en ziet u Hallo vóór het foutbericht.  
 
 ### <a name="probable-cause"></a>Mogelijke oorzaak
 
-Dit is een bekend probleem met de service HMaster. Algemene cluster starten van de taken kunnen lang duren. HMaster afgesloten omdat de tabel naamruimte nog niet is toegewezen. Dit gebeurt alleen in scenario's waarin grote hoeveelheid gegevens unflushed bestaat en een time-out van vijf minuten is niet voldoende.
+Dit is een bekend probleem met de Hallo HMaster service. Algemene cluster starten van de taken kunnen lang duren. HMaster afgesloten omdat Hallo naamruimte tabel nog niet is toegewezen. Dit gebeurt alleen in scenario's waarin grote hoeveelheid gegevens unflushed bestaat en een time-out van vijf minuten is niet voldoende.
   
 ### <a name="resolution-steps"></a>Stappen voor het oplossen
 
-1. Ga in de UI Ambari naar **HBase** > **Configs**. Voeg de volgende instelling in het bestand aangepaste hbase-site.xml: 
+1. Ga te in Hallo Ambari UI,**HBase** > **Configs**. Voeg toe Hallo instelling na Hallo aangepaste hbase-site.xml bestand: 
 
    ```apache
    Key: hbase.master.namespace.init.timeout Value: 2400000  
    ```
 
-2. De vereiste services (HMaster en mogelijk andere HBase-services) opnieuw te starten.  
+2. Hallo vereist services (HMaster en eventueel andere HBase-services) opnieuw starten.  
 
 
 ## <a name="what-causes-a-restart-failure-on-a-region-server"></a>Wat veroorzaakt een fout opnieuw opstarten op een server regio
 
 ### <a name="issue"></a>Probleem
 
-Een fout opnieuw opstarten op een server regio kan worden voorkomen door de volgende best practices. U wordt aangeraden zwaar worden belast activiteit te onderbreken, wanneer u van plan bent om te HBase regio servers opnieuw opstarten. Als een toepassing wordt voortgezet verbinding maken met servers in regio als shutdown bezig is, wordt regio server opnieuw opstarten trager worden door enkele minuten. Het is ook een goed idee eerst leegmaken van alle tabellen. Zie voor informatie over het leegmaken van tabellen [HDInsight HBase: suggesties voor verbeteringen aan het opstarten van de HBase-cluster door het leegmaken van tabellen](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+Een fout opnieuw opstarten op een server regio kan worden voorkomen door de volgende best practices. U wordt aangeraden zwaar worden belast activiteit te onderbreken, wanneer u van plan bent toorestart HBase regio servers. Als een toepassing tooconnect met regio servers blijft als afsluiten uitgevoerd wordt, wordt Hallo regio server opnieuw opstarten trager worden door enkele minuten. Het is ook een goed idee toofirst leegmaken dat alle tabellen Hallo. Voor informatie over het tooflush tabellen, Zie [HDInsight HBase: hoe tooimprove hello HBase-cluster opnieuw opstarten, door het leegmaken van tabellen](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
-Als u de bewerking voor opnieuw opstarten op HBase regio servers van de Ambari UI hebt gestart, ziet u onmiddellijk dat de servers regio werd afgesloten, maar ze niet meteen opnieuw. 
+Als u Hallo-bewerking voor opnieuw opstarten op HBase regio servers van Hallo Ambari UI hebt gestart, ziet u onmiddellijk dat Hallo regio servers werd afgesloten, maar ze niet meteen opnieuw. 
 
-Dit is wat er gebeurt achter de schermen: 
+Dit is wat er gebeurt achter de schermen Hallo: 
 
-1. De Ambari-agent verzendt een aanvraag tot stoppen met de regio-server.
-2. De Ambari-agent wacht gedurende 30 seconden voor de regio server afsluiten. 
-3. Als uw toepassing blijft om te verbinden met de regio-server, sluit de server niet omlaag onmiddellijk. De 30 seconden time-out is verstreken voordat de afsluiting. 
-4. Na 30 seconden, de Ambari-agent verzendt een force-kill (`kill -9`) opdracht met de regio-server. U kunt dit zien in het logboek ambari-agent (in de /var/log /-map van het respectieve werkrolknooppunt):
+1. Hallo Ambari agent verzendt een stop aanvraag toohello regio-server.
+2. Hallo Ambari agent wacht gedurende 30 seconden voor Hallo regio server tooshut omlaag probleemloos. 
+3. Als uw toepassing tooconnect met Hallo regio server blijft, sluit server Hallo niet af onmiddellijk. Hallo 30 seconden time-out is verstreken voordat de afsluiting. 
+4. Na 30 seconden Hallo Ambari agent verzendt een force-kill (`kill -9`) opdracht toohello regio-server. U kunt dit zien in Hallo ambari-agent-logboek (in Hallo /var/log/map van de respectieve werkrolknooppunt Hallo):
 
    ```apache
            2017-03-21 13:22:09,171 - Execute['/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh --config /usr/hdp/current/hbase-regionserver/conf stop regionserver'] {'only_if': 'ambari-sudo.sh  -H -E t
@@ -371,7 +371,7 @@ Dit is wat er gebeurt achter de schermen:
            2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
            2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
    ```
-Vanwege het abrupte afsluiten, kan de poort die is gekoppeld aan het proces niet worden vrijgegeven, hoewel de regio serverproces is gestopt. Deze situatie kan leiden tot een AddressBindException bij het starten van de regio-server, zoals wordt weergegeven in de volgende Logboeken. U kunt dit controleren in de regio-server.log in de map /var/log/hbase op de worker-knooppunten waar de regio-server niet kan worden gestart. 
+Vanwege Hallo nu afgesloten, kan Hallo-poort die is gekoppeld aan het Hallo-proces niet worden vrijgegeven, hoewel Hallo regio serverproces is gestopt. Deze situatie kan leiden tooan AddressBindException wanneer Hallo regio server wordt gestart, zoals wordt weergegeven in Hallo logboeken te volgen. U kunt dit controleren in Hallo regio-server.log in Hallo /var/log/hbase map op Hallo worker-knooppunten waar Hallo regio server toostart mislukt. 
 
    ```apache
 
@@ -392,7 +392,7 @@ Vanwege het abrupte afsluiten, kan de poort die is gekoppeld aan het proces niet
    at org.apache.hadoop.hbase.regionserver.HRegionServer.constructRegionServer(HRegionServer.java:2634)
    ... 5 more
         
-   Caused by: java.net.BindException: Problem binding to /10.2.0.4:16020 : Address already in use
+   Caused by: java.net.BindException: Problem binding too/10.2.0.4:16020 : Address already in use
    at org.apache.hadoop.hbase.ipc.RpcServer.bind(RpcServer.java:2497)
    at org.apache.hadoop.hbase.ipc.RpcServer$Listener.<init>(RpcServer.java:580)
    at org.apache.hadoop.hbase.ipc.RpcServer.<init>(RpcServer.java:1982)
@@ -413,8 +413,8 @@ Vanwege het abrupte afsluiten, kan de poort die is gekoppeld aan het proces niet
 
 ### <a name="resolution-steps"></a>Stappen voor het oplossen
 
-1. Wilt u de belasting op de HBase regio-servers te verminderen voordat u een opnieuw opstarten initiëren. 
-2. U kunt ook (als stap 1 niet help), probeer het opnieuw wilt opstarten regio servers op de worker-knooppunten met behulp van de volgende opdrachten:
+1. Probeer tooreduce Hallo load op Hallo HBase regio servers voordat u een opnieuw opstarten initiëren. 
+2. U kunt ook opdrachten (als stap 1 niet help), probeer toomanually herstart regio servers op Hallo worker-knooppunten met behulp van Hallo volgende:
 
    ```apache
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"

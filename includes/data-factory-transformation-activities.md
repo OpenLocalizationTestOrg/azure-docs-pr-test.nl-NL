@@ -1,4 +1,4 @@
-Azure Data Factory ondersteunt de volgende transformaties, die individueel of gekoppeld aan andere activiteiten kunnen worden toegevoegd aan pijplijnen.
+Azure Data Factory ondersteunt Hallo activiteiten voor gegevenstransformatie die kunnen worden toegevoegd toopipelines ofwel afzonderlijk of gekoppeld met een andere activiteit te volgen.
 
 | Activiteiten voor gegevenstransformatie | Compute-omgeving |
 |:--- |:--- |
@@ -13,8 +13,8 @@ Azure Data Factory ondersteunt de volgende transformaties, die individueel of ge
 | [DotNet](../articles/data-factory/data-factory-use-custom-activities.md) |HDInsight [Hadoop] of Azure Batch |
 
 > [!NOTE]
-> U kunt de MapReduce-activiteit gebruiken om Spark-programma's uit te voeren op uw HDInsight Spark-cluster. Zie [Spark-programma's aanroepen vanuit Azure Data Factory](../articles/data-factory/data-factory-spark.md) voor meer informatie.
-> U kunt een aangepaste activiteit maken om R-scripts uit te voeren op uw HDInsight-cluster waarop R is geïnstalleerd. Zie [R-script uitvoeren met behulp van Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample).
+> U kunt de MapReduce-activiteit toorun Spark programma's op uw HDInsight Spark-cluster. Zie [Spark-programma's aanroepen vanuit Azure Data Factory](../articles/data-factory/data-factory-spark.md) voor meer informatie.
+> U kunt een aangepaste activiteit toorun R scripts maken op uw HDInsight-cluster met R is geïnstalleerd. Zie [R-script uitvoeren met behulp van Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample).
 > 
 > 
 

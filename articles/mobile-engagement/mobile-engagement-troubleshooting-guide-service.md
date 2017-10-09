@@ -1,5 +1,5 @@
 ---
-title: Azure Mobile Engagement Troubleshooting Guide - Service
+title: aaaAzure Mobile Engagement Troubleshooting Guide - Service
 description: Troubleshooting Guide voor Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: 
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: f13fd0540b783120014b3a8d4e41f78808c7fade
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cf48db323a873ccef95946f7bb26e8d7473c002f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting-guide-for-service-issues"></a>Gids voor probleemoplossing voor problemen met de Service
-Hieronder vindt u mogelijke problemen die optreden bij hoe Azure Mobile Engagement wordt uitgevoerd.
+Hallo volgen mogelijke problemen die optreden bij hoe Azure Mobile Engagement wordt uitgevoerd.
 
 ## <a name="service-outages"></a>Serviceonderbrekingen
 ### <a name="issue"></a>Probleem
-* Problemen die worden veroorzaakt door Azure Mobile Engagement serviceonderbrekingen worden weergegeven.
+* Problemen die worden veroorzaakt door Azure Mobile Engagement serviceonderbrekingen toobe weergegeven.
 
 ### <a name="causes"></a>Oorzaken
-* Problemen die worden veroorzaakt door Azure Mobile Engagement serviceonderbrekingen lijken kunnen zijn veroorzaakt door verschillende andere problemen:
-  * Geïsoleerde problemen die oorspronkelijk al aan alle Azure Mobile Engagement weergegeven
+* Problemen die worden veroorzaakt door Azure Mobile Engagement serviceonderbrekingen toobe weergegeven kunnen zijn veroorzaakt door verschillende andere problemen:
+  * Geïsoleerde problemen die oorspronkelijk al tooall van Azure Mobile Engagement weergegeven
   * Bekende problemen veroorzaakt door serverstoringen (die niet altijd wordt weergegeven in de serverstatus):
-  * Voor de planning vertragingen, fouten Targeting, problemen Badge-update, statistieken stop verzamelen, werkt niet voor Push kan niet-API's meer werken, nieuwe apps of gebruikers worden gemaakt, DNS-fouten en time-outfouten in de gebruikersinterface, API of Apps op een apparaat.
+  * Voor de planning vertragingen, fouten Targeting, problemen Badge-update, statistieken stop verzamelen, werkt niet voor Push kan niet-API's meer werken, nieuwe apps of gebruikers worden gemaakt, DNS-fouten en time-outfouten in Hallo UI of API-Apps op een apparaat.
   * Afhankelijkheid uitval cloud [Azure servicestatus](http://status.azure.com/)
   * Push Notification Services (PNS) afhankelijkheid uitval
   * App Store uitval
 
-1) Als u wilt testen om te zien als het probleem al is kunt u dezelfde functie uit een andere testen
+1) tootest toosee als Hallo probleem al kunt u dezelfde functie uit een andere Hallo testen
 
 * Azure Mobile Engagement geïntegreerde toepassing
 * Testapparaat
@@ -46,46 +46,46 @@ Hieronder vindt u mogelijke problemen die optreden bij hoe Azure Mobile Engageme
 * Browser (IE, Firefox, Chrome, enz.)
 * Computer
 
-2) Als het probleem alleen betrekking heeft op de gebruikersinterface of de API testen:
+2) tootest als Hallo probleem alleen betrekking heeft op Hallo UI of Hallo-API's:
 
-* Dezelfde functie uit de Azure Mobile Engagement-gebruikersinterface en de Azure Mobile Engagement API testen.
+* Test hello dezelfde functioneren van beide hello Azure Mobile Engagement-UI en hello Azure Mobile Engagement-API's.
 
-3) Als het probleem met uw mobiele telefoonnetwerk is testen:
+3) tootest als Hallo probleem met het netwerk van uw mobiele telefoon is:
 
-* Test tijdens verbinding met Internet via Wi-Fi en via uw mobiele telefoon 3G netwerk is verbonden.
-* Bevestig dat uw firewall niet worden geblokkeerd van de Azure Mobile Engagement IP-adressen of -poorten.
+* Tijdens het verbonden toohello Internet via Wi-Fi en verbonden via het netwerk van de mobiele telefoon 3G testen.
+* Controleer of de firewall niet hello Azure Mobile Engagement IP-adressen of poorten blokkeert.
 
-4) Als het probleem met uw apparaat is testen:
+4) tootest als Hallo probleem met uw apparaat is:
 
-* Als het apparaat verbinding kunnen maken met Azure Mobile Engagement met een andere geïntegreerde Azure Mobile Engagement-app testen.
-* Test die u kunt gebeurtenissen, taken en Crashes van uw telefoon die kan worden weergegeven in de gebruikersinterface van Azure Mobile Engagement genereren. 
-* Testen of u pushmeldingen verzenden vanuit de Azure Mobile Engagement-gebruikersinterface op uw apparaat op basis van de apparaat-ID kunt. 
+* Als het apparaat kunnen tooconnect tooAzure Mobile Engagement met een andere geïntegreerde Azure Mobile Engagement-app testen.
+* Test die u kunt gebeurtenissen, taken en Crashes van uw telefoon die kan worden bekeken in hello Azure Mobile Engagement UI genereren. 
+* Testen of u pushmeldingen verzenden vanuit hello Azure Mobile Engagement UI tooyour apparaat op basis van de apparaat-ID kunt. 
 
-5) Als het probleem met uw App is testen:
+5) tootest als Hallo probleem met uw App is:
 
 * Installeren en testen van de toepassing van een emulator in plaats van vanaf een fysiek apparaat:
 
-6) Om te controleren of het probleem is met upgrades voor het besturingssysteem voor de eindgebruiker apparaten waarvoor een upgrade van de SDK om op te lossen:
+6) tootest als Hallo probleem is met upgrades tooend besturingssysteemgebruiker apparaten waarvoor een upgrade tooresolve SDK:
 
-* Test uw toepassing op verschillende apparaten met verschillende versies van het besturingssysteem.
-* Controleer of u van de meest recente versie van de SDK gebruikmaakt.
+* Test uw toepassing op verschillende apparaten met verschillende versies van Hallo OS.
+* Bevestig dat u van de meest recente versie Hallo Hallo SDK gebruikmaakt.
 
 ## <a name="connectivity-and-incorrect-information-issues"></a>Connectiviteit en onjuiste informatie over problemen
 ### <a name="issue"></a>Probleem
-* Problemen bij het aanmelden bij de Azure Mobile Engagement-gebruikersinterface.
-* Verbindingsfouten met de Azure Mobile Engagement API.
-* Problemen met het uploaden van App-Info labels via de apparaat-API.
+* Problemen met aanmelden bij hello Azure Mobile Engagement-gebruikersinterface.
+* Verbindingsfouten Hello Azure Mobile Engagement-API van.
+* Problemen met het App-Info labels uploaden via Hallo apparaat-API.
 * Problemen bij het downloaden van Logboeken of de geëxporteerde gegevens van Azure Mobile Engagement.
-* Onjuiste informatie weergegeven in de gebruikersinterface van Azure Mobile Engagement.
+* Onjuiste gegevens in hello Azure Mobile Engagement-gebruikersinterface wordt weergegeven.
 * Onjuiste informatie die wordt weergegeven in Azure Mobile Engagement-Logboeken.
 
 ### <a name="causes"></a>Oorzaken
-* Bevestig dat uw gebruikersaccount heeft onvoldoende machtigingen om uit te voeren van de taak.
-* Bevestig dat het probleem niet geïsoleerd, zodat één computer of uw lokale netwerk is.
-* Controleer of het uitval moet worden gemeld dat de service Azure Mobile Engagement geen heeft.
+* Bevestig dat uw gebruikersaccount heeft onvoldoende machtigingen tooperform Hallo taak.
+* Bevestig dat Hallo-probleem is niet geïsoleerd tooone computer of uw lokale netwerk.
+* Controleer of deze hello Azure Mobile Engagement-service geen gemelde storingen heeft.
 * Bevestig dat uw App-Info label bestanden al deze regels volgen:
-  * Gebruik alleen de UTF8-tekenset (de ANSI-tekenset wordt niet ondersteund).
-  * Gebruik een komma "," als scheidingsteken (u kunt een service om aan te vragen het CSV-scheidingsteken wijzigen vanaf een door komma's openen "," naar een ander teken, zoals een puntkomma ';').
+  * Gebruik alleen Hallo UTF8-tekenset (Hallo ANSI-tekenset wordt niet ondersteund).
+  * Gebruik een komma "," als scheidingsteken hello (u kunt een scheidingsteken van service aanvraag toorequest toochange Hallo CSV openen vanuit een komma "," tooanother teken, zoals een puntkomma ';').
   * Gebruik voor Boole-waarden alle kleine letters 'true' en 'false'.
-  * Gebruik een bestand dat kleiner is dan de maximale bestandsgrootte van 35MB.
+  * Gebruik een bestand dat kleiner is dan de maximale bestandsgrootte Hallo van 35MB.
 

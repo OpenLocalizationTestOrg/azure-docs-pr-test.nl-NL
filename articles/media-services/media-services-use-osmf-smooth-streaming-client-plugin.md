@@ -1,6 +1,6 @@
 ---
-title: Smooth Streaming-invoegtoepassing voor de Media Open-Source Framework
-description: Informatie over het gebruik van de Azure Media Services Smooth Streaming-invoegtoepassing voor Adobe Open Source Media Framework.
+title: aaaSmooth hello Open Source Media Framework Streaming-invoegtoepassing
+description: Meer informatie over hoe toouse hello Azure Media Services Smooth Streaming-invoegtoepassing voor Hallo Adobe Open Source Media Framework.
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 9c764f176ae75085320882de3fb26d8e7d52daaf
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3cf8e4679279344cf79c3f0e5b28f63adf88179d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Het gebruik van de Microsoft-Smooth Streaming-invoegtoepassing voor Adobe Open-Source Media Framework
+# <a name="how-toouse-hello-microsoft-smooth-streaming-plugin-for-hello-adobe-open-source-media-framework"></a>Hoe tooUse Smooth Streaming-invoegtoepassing voor Microsoft hello voor Hallo Adobe Open Source Media Framework
 ## <a name="overview"></a>Overzicht
-De Microsoft Smooth Streaming-invoegtoepassing voor Open Source Media Framework 2.0 (SS voor OSMF) breidt de voorzieningen standaard van OSMF en inhoud afspelen Microsoft Smooth Streaming naar nieuwe en bestaande OSMF spelers toegevoegd. De invoegtoepassing worden Smooth Streaming afspelen mogelijkheden ook toegevoegd aan stroboscoop Media afspelen (SMP).
+Hallo Microsoft Smooth Streaming-invoegtoepassing voor Open Source Media Framework 2.0 (SS voor OSMF) Hallo standaard voorzieningen van OSMF breidt en inhoud afspelen toonew Microsoft Smooth Streaming en bestaande OSMF voegt spelers. Hallo-invoegtoepassing ook Smooth Streaming afspelen mogelijkheden tooStrobe Media afspelen (SMP) toegevoegd.
 
 SS voor OSMF bevat twee versies van de invoegtoepassing:
 
 * Statische Smooth Streaming-invoegtoepassing voor OSMF (SWC)
 * Dynamische Smooth Streaming-invoegtoepassing voor OSMF (.swf)
 
-Dit document wordt ervan uitgegaan dat de lezer een algemene praktische kennis van OSMF en OSMF heeft invoegtoepassingen. Voor meer informatie over OSMF, Raadpleeg de documentatie van de [officiële OSMF site](http://osmf.org/).
+Dit document wordt ervan uitgegaan dat de lezer Hallo algemene enige basiskennis van OSMF en OSMF invoegtoepassingen. Voor meer informatie over OSMF Zie Hallo documentatie over Hallo [officiële OSMF site](http://osmf.org/).
 
 ### <a name="smooth-streaming-plugin-for-osmf-20"></a>Smooth Streaming-invoegtoepassing voor OSMF 2.0
-De invoegtoepassing biedt ondersteuning voor laden en afspelen van Smooth Streaming inhoud op aanvraag met de volgende functies:
+Hallo-invoegtoepassing biedt ondersteuning voor laden en afspelen van Smooth Streaming inhoud op aanvraag met Hallo volgende kenmerken:
 
 * Afspelen op aanvraag Smooth Streaming (Play, onderbreken, Seek, Stop)
 * Live afspelen Smooth Streaming (Play)
@@ -46,18 +46,18 @@ De invoegtoepassing biedt ondersteuning voor laden en afspelen van Smooth Stream
 * Deze versie ondersteunt alleen OSMF 2.0.
 
 ## <a name="supported-features-and-known-issues"></a>Ondersteunde functies en bekende problemen
-Raadpleeg voor een volledige lijst van ondersteunde functies, niet-ondersteunde functies en bekende problemen [dit document](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
+Voor een volledige lijst van ondersteunde functies, niet-ondersteunde functies en bekende problemen te verwijzen[dit document](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
 
-## <a name="loading-the-plugin"></a>Bij het laden van de invoegtoepassing
-OSMF invoegtoepassingen kunnen worden geladen (op het tijdstip van compilatie) statisch of dynamisch (tijdens runtime). De invoegtoepassing Smooth Streaming OSMF downloaden bevat versies van dynamische en statische.
+## <a name="loading-hello-plugin"></a>Hallo laden van de invoegtoepassing
+OSMF invoegtoepassingen kunnen worden geladen (op het tijdstip van compilatie) statisch of dynamisch (tijdens runtime). Hallo Smooth Streaming-invoegtoepassing downloaden OSMF bevat versies van dynamische en statische.
 
-* Statische laden: als u wilt laden statisch, een statische bibliotheek (SWC)-bestand is vereist. Statische plugins worden toegevoegd als een verwijzing naar de projecten en samenvoegen in de uiteindelijke uitvoer-bestand op het moment van compileren.
-* Dynamisch laden: dynamische taakverdeling, een vooraf gecompileerde (SWF)-bestand is vereist. Dynamische invoegtoepassingen zijn geladen in de runtime en niet zijn opgenomen in de projectuitvoer. (Gecompileerde uitvoer) Dynamische invoegtoepassingen kunnen worden geladen met behulp van HTTP- en protocollen.
+* Statische laden: tooload statisch, een statische bibliotheek (SWC)-bestand is vereist. Statische plugins worden toegevoegd als een verwijzing toohello projecten en samenvoegen in de uiteindelijke uitvoer Hallo-bestand op het tijdstip van Hallo.
+* Dynamisch laden: tooload dynamisch gecompileerde (SWF) is een bestand vereist. Dynamische invoegtoepassingen zijn geladen in Hallo runtime en niet zijn opgenomen in de uitvoer van de Hallo-project. (Gecompileerde uitvoer) Dynamische invoegtoepassingen kunnen worden geladen met behulp van HTTP- en protocollen.
 
-Zie voor meer informatie over statische en dynamische laden de officiële [OSMF invoegtoepassing pagina](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
+Zie voor meer informatie over statische en dynamische laden Hallo officiële [OSMF invoegtoepassing pagina](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
 
 ### <a name="ss-for-osmf-static-loading"></a>SS voor OSMF statische laden
-Het onderstaande codefragment laat zien hoe de invoegtoepassing SS statisch voor OSMF laden en een basic video met behulp van de klasse OSMF MediaFactory afspelen. Voordat u met inbegrip van de SS voor OSMF code, zorg ervoor dat het project een verwijzing de statische 'MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swc'-invoegtoepassing bevat.
+Hallo codefragment hieronder ziet u hoe tooload SS invoegtoepassing statisch voor OSMF Hallo en een basic video met behulp van de klasse OSMF MediaFactory afspelen. Voordat u met inbegrip van Hallo SS voor OSMF code, zorg ervoor dat projectverwijzing Hallo Hallo 'MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swc' statische invoegtoepassing bevat.
 
 ```
 package 
@@ -94,24 +94,24 @@ package
         private function initMediaPlayer():void
         {
 
-            // Create the container (sprite) for managing display and layout
+            // Create hello container (sprite) for managing display and layout
             _mediaPlayerSprite = new MediaPlayerSprite();    
             _mediaPlayerSprite.addEventListener(MediaErrorEvent.MEDIA_ERROR, onPlayerFailed);
             _mediaPlayerSprite.addEventListener(MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, onPlayerStateChange);
             _mediaPlayerSprite.scaleMode = ScaleMode.NONE;
             _mediaPlayerSprite.width = stage.stageWidth;
             _mediaPlayerSprite.height = stage.stageHeight;
-            //Adds the container to the stage
+            //Adds hello container toohello stage
             addChild(_mediaPlayerSprite);
 
             // Create a mediafactory instance
             _mediaFactory = new DefaultMediaFactory();
 
-            // Add the listeners for PLUGIN_LOADING
+            // Add hello listeners for PLUGIN_LOADING
             _mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD,onPluginLoaded);
             _mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD_ERROR, onPluginLoadFailed );
 
-            // Load the plugin class 
+            // Load hello plugin class 
             loadAdaptiveStreamingPlugin( );  
 
         }
@@ -126,15 +126,15 @@ package
 
         private function onPluginLoaded( event:MediaFactoryEvent ):void
         {
-            // The plugin is loaded successfully.
-            // Your web server needs to host a valid crossdomain.xml file to allow plugin to download Smooth Streaming files.
+            // hello plugin is loaded successfully.
+            // Your web server needs toohost a valid crossdomain.xml file tooallow plugin toodownload Smooth Streaming files.
         loadMediaSource("http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest")
 
         }
 
         private function onPluginLoadFailed( event:MediaFactoryEvent ):void
         {
-            // The plugin is failed to load ...
+            // hello plugin is failed tooload ...
         }
 
 
@@ -148,12 +148,12 @@ package
             {
                 case MediaPlayerState.LOADING: 
 
-                    // A new source is started to load.
+                    // A new source is started tooload.
 
                     break;
 
                 case  MediaPlayerState.READY :   
-                    // Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
+                    // Add code toodeal with Player Ready when it is hit hello first load after a source is loaded. 
 
                     break;
 
@@ -174,7 +174,7 @@ package
 
         private function loadMediaSource(sourceURL : String):void 
         {
-            // Take an URL of SmoothStreamingSource's manifest and add it to the page.
+            // Take an URL of SmoothStreamingSource's manifest and add it toohello page.
 
             var resource:URLResource= new URLResource( sourceURL );
 
@@ -183,7 +183,7 @@ package
             _mediaPlayerSprite.width = stage.stageWidth;
             _mediaPlayerSprite.height = stage.stageHeight;
 
-            // Add the media element
+            // Add hello media element
             _mediaPlayerSprite.media = element;
         }     
 
@@ -193,7 +193,7 @@ package
 
 
 ### <a name="ss-for-osmf-dynamic-loading"></a>SS voor OSMF dynamisch laden
-Het onderstaande codefragment laat zien hoe de SS-invoegtoepassing voor OSMF dynamisch laden en een eenvoudige afspelen video met behulp van de klasse OSMF MediaFactory. Voordat u met inbegrip van de SS voor OSMF code, de dynamische invoegtoepassing 'MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swf' naar de projectmap kopiëren als u wilt laden met bestandsprotocol of kopieer onder een webserver voor HTTP-belasting. Er is niet nodig om op te nemen 'MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swc' in de projectverwijzingen.
+onderstaande Hallo codefragment ziet u hoe tooload SS invoegtoepassing dynamisch Hallo voor OSMF en een eenvoudige video met behulp van Hallo OSMF MediaFactory klasse afspelen. Voordat u met inbegrip van Hallo SS voor OSMF code Hallo 'MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swf' dynamische invoegtoepassing toohello projectmap te kopiëren als u wilt met behulp van bestandsprotocol tooload of onder een webserver voor HTTP-belasting kopieert. Er is geen noodzaak tooinclude 'MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swc' in de projectverwijzingen Hallo.
 
 {het pakket
 
@@ -208,7 +208,7 @@ Het onderstaande codefragment laat zien hoe de SS-invoegtoepassing voor OSMF dyn
     import flash.system.Capabilities;
 
 
-    //Sets the size of the SWF
+    //Sets hello size of hello SWF
 
     [SWF(width="1024", height="768", backgroundColor='#405050', frameRate="25")]
     public class TestPlayer extends Sprite
@@ -227,22 +227,22 @@ Het onderstaande codefragment laat zien hoe de SS-invoegtoepassing voor OSMF dyn
         private function initMediaPlayer():void
         {
 
-            // Create the container (sprite) for managing display and layout
+            // Create hello container (sprite) for managing display and layout
             _mediaPlayerSprite = new MediaPlayerSprite();    
             _mediaPlayerSprite.addEventListener(MediaErrorEvent.MEDIA_ERROR, onPlayerFailed);
             _mediaPlayerSprite.addEventListener(MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, onPlayerStateChange);
 
-            //Adds the container to the stage
+            //Adds hello container toohello stage
             addChild(_mediaPlayerSprite);
 
             // Create a mediafactory instance
             _mediaFactory = new DefaultMediaFactory();
 
-            // Add the listeners for PLUGIN_LOADING
+            // Add hello listeners for PLUGIN_LOADING
             _mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD,onPluginLoaded);
             _mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD_ERROR, onPluginLoadFailed );
 
-            // Load the plugin class 
+            // Load hello plugin class 
             loadAdaptiveStreamingPlugin( );  
 
         }
@@ -252,7 +252,7 @@ Het onderstaande codefragment laat zien hoe de SS-invoegtoepassing voor OSMF dyn
             var pluginResource:MediaResourceBase;
             var adaptiveStreamingPluginUrl:String;
 
-            // Your dynamic plugin web server needs to host a valid crossdomain.xml file to allow loading plugins.
+            // Your dynamic plugin web server needs toohost a valid crossdomain.xml file tooallow loading plugins.
 
             adaptiveStreamingPluginUrl = "http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf";
             pluginResource = new URLResource(adaptiveStreamingPluginUrl);
@@ -262,16 +262,16 @@ Het onderstaande codefragment laat zien hoe de SS-invoegtoepassing voor OSMF dyn
 
         private function onPluginLoaded( event:MediaFactoryEvent ):void
         {
-            // The plugin is loaded successfully.
+            // hello plugin is loaded successfully.
 
-            // Your web server needs to host a valid crossdomain.xml file to allow plugin to download Smooth Streaming files.
+            // Your web server needs toohost a valid crossdomain.xml file tooallow plugin toodownload Smooth Streaming files.
 
     loadMediaSource("http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest")
         }
 
         private function onPluginLoadFailed( event:MediaFactoryEvent ):void
         {
-            // The plugin is failed to load ...
+            // hello plugin is failed tooload ...
         }
 
 
@@ -285,12 +285,12 @@ Het onderstaande codefragment laat zien hoe de SS-invoegtoepassing voor OSMF dyn
             {
                 case MediaPlayerState.LOADING: 
 
-                    // A new source is started to load.
+                    // A new source is started tooload.
 
                     break;
 
                 case  MediaPlayerState.READY :   
-                    // Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
+                    // Add code toodeal with Player Ready when it is hit hello first load after a source is loaded. 
 
                     break;
 
@@ -311,7 +311,7 @@ Het onderstaande codefragment laat zien hoe de SS-invoegtoepassing voor OSMF dyn
 
         private function loadMediaSource(sourceURL : String):void 
         {
-            // Take an URL of SmoothStreamingSource's manifest and add it to the page.
+            // Take an URL of SmoothStreamingSource's manifest and add it toohello page.
 
             var resource:URLResource= new URLResource( sourceURL );
 
@@ -319,22 +319,22 @@ Het onderstaande codefragment laat zien hoe de SS-invoegtoepassing voor OSMF dyn
             _mediaPlayerSprite.scaleMode = ScaleMode.LETTERBOX;
             _mediaPlayerSprite.width = stage.stageWidth;
             _mediaPlayerSprite.height = stage.stageHeight;
-            // Add the media element
+            // Add hello media element
             _mediaPlayerSprite.media = element;
         }     
 
     }
 }
 
-## <a name="strobe-media--playback-with-the-ss-odmf-dynamic-plugin"></a>Stroboscoop Media afspelen met de dynamische SS ODMF-invoegtoepassing
-De Smooth Streaming voor dynamische OSMF-invoegtoepassing is compatibel met [stroboscoop Media afspelen (SMP)](http://osmf.org/strobe_mediaplayback.html). U kunt de SS voor OSMF invoegtoepassing Smooth Streaming afspelen van inhoud toevoegen aan SMP gebruiken. U doet dit door kopiëren 'MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swf' onder een webserver voor HTTP-belasting met behulp van de volgende stappen uit:
+## <a name="strobe-media--playback-with-hello-ss-odmf-dynamic-plugin"></a>Stroboscoop Media afspelen Hello SS ODMF dynamische invoegtoepassing
+Hallo Smooth Streaming voor dynamische OSMF-invoegtoepassing is compatibel met [stroboscoop Media afspelen (SMP)](http://osmf.org/strobe_mediaplayback.html). U kunt Hallo SS voor OSMF invoegtoepassing tooadd Smooth Streaming inhoud afspelen tooSMP gebruiken. toodo deze, kopie 'MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf' onder een webserver voor HTTP-belasting met Hallo volgende stappen:
 
-1. Bladeren de [stroboscoop Media afspelen installatiepagina](http://osmf.org/dev/2.0gm/setup.html). 
-2. De src ingesteld op een bron Smooth Streaming, (bijvoorbeeld http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
-3. De gewenste configuratiewijzigingen aanbrengen en klikt u op Preview en Update.
+1. Hallo Bladeren [stroboscoop Media afspelen installatiepagina](http://osmf.org/dev/2.0gm/setup.html). 
+2. Set Hallo src tooa Smooth Streaming bron (bijvoorbeeld http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
+3. Hallo gewenst configuratiewijzigingen aanbrengen en klikt u op Preview en Update.
    
    **Opmerking** uw webserver inhoud moet een geldige crossdomain.xml. 
-4. Kopieer en plak de code in een eenvoudig HTML-pagina met behulp van uw favoriete teksteditor, zoals in het volgende voorbeeld:
+4. Kopieer en plak Hallo code tooa eenvoudig HTML-pagina met behulp van uw favoriete teksteditor, zoals in het volgende voorbeeld Hallo:
 
         <html>
         <body>
@@ -359,7 +359,7 @@ De Smooth Streaming voor dynamische OSMF-invoegtoepassing is compatibel met [str
 
 
 
-1. Smooth Streaming OSMF-invoegtoepassing toevoegen aan de ingesloten code en opslaan.
+1. Toevoegen van Smooth Streaming OSMF invoegtoepassing toohello invoegcode en op te slaan.
    
         <html>
         <object width="920" height="640"> 
@@ -379,10 +379,10 @@ De Smooth Streaming voor dynamische OSMF-invoegtoepassing is compatibel met [str
         </embed>
         </object>
         </html>
-2. De HTML-pagina opslaan en publiceren naar een webserver. Blader naar de gepubliceerde webpagina met uw favoriete Flash&reg; Player ingeschakeld internetbrowser (Internet Explorer, Chrome, Firefox, enzovoort).
+2. De HTML-pagina opslaan en publiceren van tooa-webserver. Bladeren toohello gepubliceerde webpagina met uw favoriete Flash&reg; Player ingeschakeld internetbrowser (Internet Explorer, Chrome, Firefox, enzovoort).
 3. Profiteer van Smooth Streaming inhoud in Adobe&reg; Flash&reg; Player.
 
-Zie voor meer informatie over algemene OSMF ontwikkeling de officiële [OSMF ontwikkeling pagina](http://osmf.org/resources.html).
+Zie voor meer informatie over algemene OSMF ontwikkeling Hallo officiële [OSMF ontwikkeling pagina](http://osmf.org/resources.html).
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

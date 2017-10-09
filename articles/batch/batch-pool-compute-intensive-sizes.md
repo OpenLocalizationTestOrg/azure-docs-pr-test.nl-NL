@@ -1,6 +1,6 @@
 ---
-title: Rekenintensieve Azure VM's gebruiken met Batch | Microsoft Docs
-description: Hoe kunt u profiteren van de RDMA-compatibele of GPU ingeschakeld VM-grootte in Azure Batch-pools
+title: aaaUse rekenintensieve Azure VM's met Batch | Microsoft Docs
+description: Hoe tootake profiteren van de RDMA-compatibele of GPU ingeschakeld VM in Azure Batch-pools groottes
 services: batch
 documentationcenter: 
 author: dlepow
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: danlep
-ms.openlocfilehash: c52a054e4fc8f61f871acd9f35b9a3e6247e48ef
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 6a462a5f2a44ddcec8bf4e5c200d444cac8fafe6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Gebruik van RDMA-compatibele of GPU ingeschakeld exemplaren in Batch-pools
 
-Voor het uitvoeren van bepaalde Batch-taken, is het raadzaam om te profiteren van Azure VM-grootten die zijn ontworpen voor grootschalige berekeningen. Bijvoorbeeld, om het uitvoeren van meerdere exemplaren [MPI belastingen](batch-mpi.md), kunt u A8, A9, of H-serie-groottes met een netwerk interface voor Remote Direct Memory Access (RDMA). Deze formaten verbinden met een InfiniBand-netwerk voor de communicatie tussen knooppunten, die MPI-toepassingen kan versnellen. Of voor CUDA toepassingen, kunt u N-serie grootten die NVIDIA Tesla afbeeldingen verwerken kaarten GPU (unit) bevatten.
+toorun bepaalde taken Batch kunt u profiteren van Azure VM-formaten ontworpen voor grootschalige berekeningen tootake. Bijvoorbeeld: toorun meerdere exemplaren [MPI belastingen](batch-mpi.md), kunt u A8, A9, of H-serie-groottes met een netwerk interface voor Remote Direct Memory Access (RDMA). Deze formaten verbinding tooan InfiniBand-netwerk voor de communicatie tussen knooppunten, die MPI-toepassingen kan versnellen. Of voor CUDA toepassingen, kunt u N-serie grootten die NVIDIA Tesla afbeeldingen verwerken kaarten GPU (unit) bevatten.
 
-Dit artikel bevat richtlijnen en voorbeelden aan sommige gespecialiseerde grootten van Azure gebruiken in de Batch-pools. Zie voor technische specificaties en achtergrond:
+Dit artikel bevat richtlijnen en voorbeelden toouse aantal gespecialiseerde grootten in Batch-pools van Azure. Zie voor technische specificaties en achtergrond:
 
 * Hoge prestaties compute-VM-grootten ([Linux](../virtual-machines/linux/sizes-hpc.md), [Windows](../virtual-machines/windows/sizes-hpc.md)) 
 
@@ -33,20 +33,20 @@ Dit artikel bevat richtlijnen en voorbeelden aan sommige gespecialiseerde groott
 
 ## <a name="subscription-and-account-limits"></a>Abonnement en limieten
 
-* **Quota's** -een of meer Azure-quota kunnen beperken het nummer of het type van knooppunten die u aan een Batch-pool toevoegen kunt. U waarschijnlijk worden beperkt wanneer u RDMA-compatibele GPU ingeschakeld of andere multicore VM-grootten kiest. Afhankelijk van het type Batch-account die u hebt gemaakt, kunnen het toepassen van de quota's aan het account zelf of uw abonnement.
+* **Quota's** -een of meer Azure-quota, beperkt dat mogelijk Hallo getal of het type van knooppunten kunt u de Batch-pool tooa toevoegen. U bent waarschijnlijker toobe beperkt wanneer u RDMA-functionaliteit, GPU is ingeschakeld, of andere multicore VM-groottes. Afhankelijk van het type Hallo van Batch-account die u hebt gemaakt, kunnen de Hallo quota toohello account zelf of tooyour abonnement toepassen.
 
-    * Als u hebt gemaakt van uw Batch-account in de **Batch-service** configuratie, worden beperkt door de [toegewezen kernen quotum per Batch-account](batch-quota-limit.md#resource-quotas). Standaard is dit quotum 20 kernen. Een afzonderlijke quotum van toepassing op [prioriteit Laag VMs](batch-low-pri-vms.md), als u deze gebruikt. 
+    * Als u uw Batch-account hebt gemaakt in Hallo **Batch-service** configuratie, u beperkt door Hallo [toegewezen kernen quotum per Batch-account](batch-quota-limit.md#resource-quotas). Standaard is dit quotum 20 kernen. Een afzonderlijke quotum van toepassing is te[prioriteit Laag VMs](batch-low-pri-vms.md), als u deze gebruikt. 
 
-    * Als het maken van het account in de **gebruikerabonnement** configuratie, uw abonnement limieten voor het aantal VM cores per regio. Zie [Azure-abonnement en Servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md). Uw abonnement geldt ook een regionale quotum voor bepaalde VM-grootten, met inbegrip van HPC en GPU-exemplaren. In de Gebruikersconfiguratie abonnement geen extra quota van toepassing op het Batch-account. 
+    * Als u Hallo-account hebt gemaakt in Hallo **gebruikerabonnement** configureren van uw abonnement beperkt het aantal kernen per regio VM Hallo. Zie [Azure-abonnement en Servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md). Uw abonnement geldt ook een regionale quotum toocertain VM-grootten, met inbegrip van HPC en GPU-exemplaren. In Hallo-Gebruikersconfiguratie abonnement gelden geen extra quota toohello Batch-account. 
 
-  U moet mogelijk een of meer quota verhogen als u een speciale VM-grootte in Batch. Als u een verhoging van het quotum wilt aanvragen, opent u een [online een ondersteuningsverzoek](../azure-supportability/how-to-create-azure-support-request.md). Hiervoor worden geen kosten in rekening gebracht.
+  Mogelijk moet u tooincrease quota's voor een of meer wanneer u een speciale VM-grootte in Batch. toorequest een verhoging van het quotum, open een [online klant ondersteuningsaanvraag](../azure-supportability/how-to-create-azure-support-request.md) zonder kosten.
 
-* **Beschikbaarheid in regio's** - rekenintensieve VM's mogelijk niet beschikbaar in de regio's waar u uw Batch-accounts maken. Om te controleren of een grootte beschikbaar zijn, Zie [producten die beschikbaar zijn in elke regio](https://azure.microsoft.com/regions/services/).
+* **Beschikbaarheid in regio's** - rekenintensieve VM's mogelijk niet beschikbaar in Hallo regio's waar u uw Batch-accounts maken. toocheck dat een grootte is beschikbaar, Zie [producten die beschikbaar zijn in elke regio](https://azure.microsoft.com/regions/services/).
 
 
 ## <a name="dependencies"></a>Afhankelijkheden
 
-De RDMA en GPU-mogelijkheden van rekenintensieve grootten worden alleen ondersteund in bepaalde besturingssystemen. Afhankelijk van het besturingssysteem moet u mogelijk installeren of configureren van extra stuurprogramma of andere software. De volgende tabellen geven een overzicht van deze afhankelijkheden. Zie gekoppelde artikelen voor meer informatie. Zie voor de opties voor het configureren van de Batch-pools, verderop in dit artikel.
+Hallo RDMA en GPU-mogelijkheden van rekenintensieve grootten worden alleen ondersteund in bepaalde besturingssystemen. Afhankelijk van uw besturingssysteem mogelijk u moet tooinstall of extra stuurprogramma of andere software configureren. Hallo volgende tabellen geven een overzicht van deze afhankelijkheden. Zie gekoppelde artikelen voor meer informatie. Zie voor opties tooconfigure Batch-pools verderop in dit artikel.
 
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Groepen van Linux - Virtuele-machineconfiguratie
@@ -74,7 +74,7 @@ De RDMA en GPU-mogelijkheden van rekenintensieve grootten worden alleen onderste
 ### <a name="windows-pools---cloud-services-configuration"></a>Windows-groepen - configuratie voor Cloud-services
 
 > [!NOTE]
-> N-serie grootten worden niet ondersteund in de Batch-pools met de configuratie van de cloud-services.
+> N-serie grootten worden niet ondersteund in de Batch-pools met Hallo cloud services-configuratie.
 >
 
 | Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Instellingen voor toepassingen |
@@ -87,17 +87,17 @@ De RDMA en GPU-mogelijkheden van rekenintensieve grootten worden alleen onderste
 
 ## <a name="pool-configuration-options"></a>Groep configuratie-opties
 
-Voor het configureren van een gespecialiseerde VM-grootte voor uw Batch-pool, bieden de Batch-API's en hulpprogramma's voor verschillende opties voor het installeren van vereiste software of stuurprogramma's, met inbegrip van:
+tooconfigure een gespecialiseerde VM-grootte voor uw Batch-pool, Hallo Batch-API's en hulpprogramma's bieden verschillende opties tooinstall vereist software of stuurprogramma's, waaronder:
 
-* [Begintaak](batch-api-basics.md#start-task) -een installatiepakket voor als een resource-bestand uploaden naar Azure storage-account in dezelfde regio bevinden als het Batch-account. Maak een opdrachtregel start-taak voor het bronbestand voor de achtergrond installeren wanneer de groep van toepassingen wordt gestart. Zie voor meer informatie de [REST API-documentatie](/rest/api/batchservice/add-a-pool-to-an-account#bk_starttask).
+* [Begintaak](batch-api-basics.md#start-task) -een installatiepakket voor uploaden als een resource bestand tooan Azure storage-account in Hallo dezelfde regio bevinden als Hallo Batch-account. Maken een starten vanaf de opdrachtregel tooinstall Hallo bronbestand achtergrond wanneer Hallo van toepassingen wordt gestart. Zie voor meer informatie, Hallo [REST API-documentatie](/rest/api/batchservice/add-a-pool-to-an-account#bk_starttask).
 
   > [!NOTE] 
-  > De begintaak moet worden uitgevoerd met verhoogde bevoegdheden (admin) machtigingen en het voor een correcte werking moet wachten.
+  > Hallo begintaak moet worden uitgevoerd met verhoogde bevoegdheden (admin) machtigingen en het voor een correcte werking moet wachten.
   >
 
-* [Toepassingspakket](batch-application-packages.md) : een gecomprimeerde installatiepakket toevoegen aan uw Batch-account en het configureren van de verwijzing naar een pakket in de groep. Deze instelling wordt geüpload en het pakket op alle knooppunten in de pool wordt uitgepakt. Als het pakket een installatieprogramma, maakt u een begin taak vanaf de opdrachtregel voor de achtergrond de app te installeren op alle knooppunten van de groep van toepassingen. Installeer het pakket desgewenst wanneer een taak is gepland op een knooppunt worden uitgevoerd.
+* [Toepassingspakket](batch-application-packages.md) - een installatie van het gecomprimeerde pakket tooyour Batch-account toevoegen en configureren van een pakket-verwijzing in Hallo van toepassingen. Deze instelling wordt geüpload en Hallo-pakket op alle knooppunten in de groep hello wordt uitgepakt. Als Hallo-pakket een installatieprogramma is, maakt u een app Hallo van start taak opdrachtregel toosilently installeren op alle knooppunten van de groep van toepassingen. Eventueel hello-pakketten installeren wanneer een taak geplande toorun op een knooppunt is.
 
-* [Afbeelding van aangepaste toepassingen](batch-api-basics.md#pool) - maken van een aangepaste Windows of Linux-VM-installatiekopie met stuurprogramma's, software, of andere instellingen die vereist zijn voor de VM-grootte. Als u uw Batch-account in de configuratie van het abonnement hebt gemaakt, geeft u de aangepaste afbeelding voor uw Batch-pool. (Aangepaste installatiekopieën worden niet ondersteund in de configuratie van de Batch-service-accounts.) Aangepaste installatiekopieën kunnen alleen worden gebruikt met toepassingen die in de configuratie van de virtuele machine.
+* [Afbeelding van aangepaste toepassingen](batch-api-basics.md#pool) - maken van een aangepaste Windows of Linux-VM-installatiekopie met stuurprogramma's, software of andere instellingen die vereist zijn voor Hallo VM-grootte. Als u uw Batch-account hebt gemaakt in de Gebruikersconfiguratie abonnement hello, geef de aangepaste installatiekopie Hallo voor uw Batch-pool. (Aangepaste installatiekopieën worden niet ondersteund in de configuratie van de service Batch Hallo-accounts.) Aangepaste installatiekopieën kunnen alleen worden gebruikt met toepassingen die in de configuratie van de virtuele machine Hallo.
 
   > [!IMPORTANT]
   > U niet in Batch-pools momenteel een aangepaste installatiekopie gemaakt met beheerde schijven of met Premium-opslag gebruiken.
@@ -105,17 +105,17 @@ Voor het configureren van een gespecialiseerde VM-grootte voor uw Batch-pool, bi
 
 
 
-* [Batch-scheepswerf](https://github.com/Azure/batch-shipyard) configureert automatisch de GPU en RDMA transparant werken met beperkte workloads in Azure Batch. Batch scheepswerf wordt volledig aangedreven met configuratiebestanden. Er zijn veel voorbeeld recept configuraties beschikbaar waarmee GPU en RDMA werkbelastingen, zoals de [CNTK GPU recept](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI) die configureert vooraf GPU-stuurprogramma's op virtuele machines N-reeks en cognitieve Toolkit voor Microsoft-software als een Docker-installatiekopie wordt geladen.
+* [Batch-scheepswerf](https://github.com/Azure/batch-shipyard) configureert Hallo GPU en RDMA toowork automatisch transparant met beperkte workloads in Azure Batch. Batch scheepswerf wordt volledig aangedreven met configuratiebestanden. Er zijn veel voorbeeld recept configuraties beschikbaar waarmee GPU en RDMA werkbelastingen zoals Hallo [CNTK GPU recept](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI) die configureert vooraf GPU-stuurprogramma's op virtuele machines N-reeks en cognitieve Toolkit voor Microsoft-software als een Docker-installatiekopie wordt geladen.
 
 
 ## <a name="example-microsoft-mpi-on-an-a8-vm-pool"></a>Voorbeeld: Microsoft MPI op een groep A8-VM
 
-Windows MPI-toepassingen op een pool van Azure A8 knooppunten, hebt u nodig voor het installeren van een ondersteunde MPI-implementatie. Hier vindt u voorbeelden van stappen beschreven voor het installeren van [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) op een Windows-groep met behulp van een Batch-toepassingspakket.
+toorun Windows MPI-toepassingen op een pool van Azure A8 knooppunten, moet u tooinstall ondersteunde MPI-implementatie. Hier vindt u voorbeeld stappen tooinstall [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) op een Windows-groep met behulp van een Batch-toepassingspakket.
 
-1. Download de [installatiepakket](http://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe) voor de meest recente versie van Microsoft MPI.
-2. Maak een zipbestand van het pakket.
-3. Uploaden van het pakket aan uw Batch-account. Zie voor stappen de [toepassingspakketten](batch-application-packages.md) richtlijnen. Geef een toepassings-id zoals *MSMPI*, en een versie zoals *8.1*. 
-4. Maak een pool met de Batch-API's of Azure-portal in de cloud services-configuratie met het gewenste aantal knooppunten en de schaal. De volgende tabel ziet u voorbeelden van instellingen voor het instellen van MPI in met behulp van een begintaak zonder toezicht:
+1. Hallo downloaden [installatiepakket](http://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe) voor de meest recente versie van Microsoft MPI Hallo.
+2. Maak een zip-bestand van het Hallo-pakket.
+3. Hallo pakket tooyour Batch-account uploaden. Zie voor stappen Hallo [toepassingspakketten](batch-application-packages.md) richtlijnen. Geef een toepassings-id zoals *MSMPI*, en een versie zoals *8.1*. 
+4. Maak een groep met Hallo Batch-API's of Azure-portal in Hallo cloud services-configuratie met Hallo gewenst aantal knooppunten en de schaal. Hallo volgende tabel toont voorbeeld instellingen tooset up MPI in met behulp van een begintaak zonder toezicht:
 
 | Instelling | Waarde |
 | ---- | ----- | 
@@ -129,21 +129,21 @@ Windows MPI-toepassingen op een pool van Azure A8 knooppunten, hebt u nodig voor
 
 ## <a name="example-nvidia-tesla-drivers-on-nc-vm-pool"></a>Voorbeeld: NVIDIA Tesla stuurprogramma's op de NC-VM-groep
 
-CUDA toepassingen op een pool van Linux NC-knooppunten uitgevoerd, moet u CUDA Toolkit 8.0 installeren op de knooppunten. De Toolkit installeert de benodigde NVIDIA Tesla GPU-stuurprogramma's. Hier volgen voorbeelden van stappen beschreven voor het implementeren van een aangepaste installatiekopie Ubuntu 16.04 TNS met de GPU-stuurprogramma's:
+toorun CUDA toepassingen op een pool van Linux NC-knooppunten, moet u tooinstall CUDA Toolkit 8.0 op Hallo knooppunten. Hallo Toolkit Hallo nodig NVIDIA Tesla GPU-stuurprogramma's geïnstalleerd. Hier volgt een voorbeeld stappen toodeploy een aangepaste installatiekopie Ubuntu 16.04 TNS Hallo GPU-stuurprogramma's:
 
-1. Implementeer een Azure-NC6 VM Ubuntu 16.04 TNS uitgevoerd. Bijvoorbeeld, de virtuele machine maken in de regio VS Zuid-centraal. Zorg ervoor dat u de virtuele machine met de standard-opslag maken en *zonder* schijven die worden beheerd.
-2. Volg de stappen voor het verbinding maken met de virtuele machine en [CUDA stuurprogramma's installeren](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
-3. De Linux-agent inrichting ervan ongedaan en vervolgens vastleggen Linux VM-installatiekopie met de Azure CLI 1.0-opdrachten. Zie voor stappen [vastleggen van een virtuele Linux-machine uitgevoerd op Azure](../virtual-machines/linux/capture-image-nodejs.md). Noteer de URI van de installatiekopie.
+1. Implementeer een Azure-NC6 VM Ubuntu 16.04 TNS uitgevoerd. Bijvoorbeeld Hallo VM maken in Hallo ons Zuid-centraal regio. Zorg ervoor dat u Hallo VM met de standard-opslag maakt en *zonder* schijven die worden beheerd.
+2. Ga als volgt Hallo stappen tooconnect toohello VM en [CUDA stuurprogramma's installeren](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
+3. Inrichting ervan ongedaan Hallo Linux-agent en vervolgens vastleggen Linux VM-installatiekopie hello Azure CLI 1.0-opdrachten gebruiken. Zie voor stappen [vastleggen van een virtuele Linux-machine uitgevoerd op Azure](../virtual-machines/linux/capture-image-nodejs.md). Noteer Hallo installatiekopie URI.
   > [!IMPORTANT]
-  > Gebruik geen 2.0 voor Azure CLI-opdrachten voor het vastleggen van de afbeelding voor Azure Batch. De opdrachten CLI 2.0 vastleggen op dit moment alleen virtuele machines die zijn gemaakt met behulp van beheerde schijven.
+  > Gebruik geen Azure CLI 2.0 opdrachten toocapture Hallo afbeelding voor Azure Batch. Hallo 2.0 CLI-opdrachten vastleggen op dit moment alleen virtuele machines die zijn gemaakt met behulp van beheerde schijven.
   >
-4. Maak een Batch-account met de configuratie van de gebruiker abonnement in een regio die ondersteuning biedt voor NC virtuele machines.
-5. Met de Batch-API's of Azure-portal een pool maken met de aangepaste installatiekopie en met het gewenste aantal knooppunten en de schaal. De volgende tabel ziet u voorbeelden van toepassingen van instellingen voor de installatiekopie:
+4. Een Batch-account maken met Hallo abonnement Gebruikersconfiguratie in een regio die ondersteuning biedt voor NC virtuele machines.
+5. Hallo Batch-API's of Azure-portal, met een pool maken met de aangepaste installatiekopie Hallo en Hello gewenst aantal knooppunten en de schaal. Hallo volgende tabel ziet u voorbeelden van groepsinstellingen voor de installatiekopie van het Hallo:
 
 | Instelling | Waarde |
 | ---- | ---- |
 | **Type installatiekopie** | Aangepaste installatiekopie |
-| **Aangepaste installatiekopie** | Afbeelding URI van het formulier`https://yourstorageaccountdisks.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd` |
+| **Aangepaste installatiekopie** | Afbeelding URI van Hallo formulier`https://yourstorageaccountdisks.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd` |
 | **Knooppunt agent SKU** | batch.node.Ubuntu 16.04 |
 | **De grootte van knooppunt** | Standard NC6 |
 
@@ -151,6 +151,6 @@ CUDA toepassingen op een pool van Linux NC-knooppunten uitgevoerd, moet u CUDA T
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor informatie over het uitvoeren van MPI-taken op een Azure Batch-pool de [Windows](batch-mpi.md) of [Linux](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/) voorbeelden.
+* toorun MPI-taken op een Azure Batch-toepassingen, Zie Hallo [Windows](batch-mpi.md) of [Linux](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/) voorbeelden.
 
-* Zie voor voorbeelden van GPU werkbelastingen op Batch de [Batch scheepswerf](https://github.com/Azure/batch-shipyard/) recepten.
+* Zie voor voorbeelden van GPU werkbelastingen op Batch Hallo [Batch scheepswerf](https://github.com/Azure/batch-shipyard/) recepten.

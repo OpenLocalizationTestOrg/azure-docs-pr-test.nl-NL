@@ -1,6 +1,6 @@
 ---
-title: Azure-resources implementeren op meerdere resourcegroepen | Microsoft Docs
-description: "Laat zien hoe u meer dan één Azure-resourcegroep als doel tijdens de implementatie."
+title: aaaDeploy Azure-resources toomultiple resourcegroepen | Microsoft Docs
+description: "Toont hoe tootarget meer dan één Azure-resource groep tijdens de implementatie."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: d8b041213b269775175a810e585103d3c538557f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 93a39a26e0ca18dfcb5c6e8de95c38a64186d6de
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-azure-resources-to-more-than-one-resource-group"></a>Azure-resources implementeren op meer dan één resourcegroep
+# <a name="deploy-azure-resources-toomore-than-one-resource-group"></a>Azure-resources toomore dan één resourcegroep implementeren
 
-Normaal gesproken implementeren u alle resources in de sjabloon één resourcegroep. Er zijn echter scenario's waarin u wilt implementeren van een set resources samen, maar in verschillende resourcegroepen plaatsen. U wilt bijvoorbeeld de back-virtuele machine voor Azure Site Recovery implementeert naar een afzonderlijke resourcegroep en locatie. Resource Manager kunt u geneste sjablonen met verschillende resourcegroepen bevinden dan de resourcegroep voor de bovenliggende sjabloon gebruikt als doel.
+Normaal gesproken implementeren u alle Hallo resources in uw sjabloon tooa één resource-groep. Er zijn echter scenario's waarbij u toodeploy een set resources samen, maar in verschillende resourcegroepen plaatsen. U kunt bijvoorbeeld toodeploy Hallo back-virtuele machine voor Azure Site Recovery tooa afzonderlijke resourcegroep en locatie. Resource Manager kunt u toouse geneste sjablonen tootarget verschillende resourcegroepen bevinden dan Hallo resourcegroep gebruikt voor Hallo bovenliggende sjabloon.
 
-De resourcegroep is de container levenscyclus voor de toepassing en de verzameling van resources. U maakt de resourcegroep buiten de sjabloon en geef de resourcegroep toe te passen tijdens de implementatie. Zie voor een inleiding tot resourcegroepen, [overzicht van Azure Resource Manager](resource-group-overview.md).
+Hallo-resourcegroep is Hallo lifecycle container voor de toepassing hello en de verzameling van resources. U de resourcegroep Hallo buiten Hallo-sjabloon maken en Hallo resource groep tootarget opgeven tijdens de implementatie. Zie voor een inleiding tooresource groepen, [overzicht van Azure Resource Manager](resource-group-overview.md).
 
 ## <a name="example-template"></a>Van de voorbeeldsjabloon
 
-Als u wilt richten op een andere resource, moet u een sjabloon geneste of gekoppelde tijdens de implementatie. De `Microsoft.Resources/deployments` brontype beschikt over een `resourceGroup` parameter waarmee u een andere resourcegroep voor de geneste implementatie opgeven. Alle brongroepen moeten bestaan voordat de implementatie wordt uitgevoerd. Het volgende voorbeeld worden twee storage-accounts: in de resourcegroep die is opgegeven tijdens de implementatie, geïmplementeerd en één in een resourcegroep met de naam `crossResourceGroupDeployment`:
+een andere resource tootarget, moet u een sjabloon geneste of gekoppelde gebruiken tijdens de implementatie. Hallo `Microsoft.Resources/deployments` brontype beschikt over een `resourceGroup` parameter waarmee u een andere resourcegroep voor Hallo toospecify geneste implementatie. Alle brongroepen voor Hallo moeten bestaan voordat Hallo-implementatie wordt uitgevoerd. Hallo volgende voorbeeld implementeert twee storage-accounts: een in de resourcegroep Hallo opgegeven tijdens de implementatie, en één in een resourcegroep met de naam `crossResourceGroupDeployment`:
 
 ```json
 {
@@ -83,11 +83,11 @@ Als u wilt richten op een andere resource, moet u een sjabloon geneste of gekopp
 }
 ```
 
-Als u instelt `resourceGroup` op de naam van een resourcegroep die niet bestaat, mislukt de implementatie. Als u een waarde op voor geen specifieke `resourceGroup`, Resource Manager maakt gebruik van de bovenliggende resource-groep.  
+Als u instelt `resourceGroup` toohello-naam van een resourcegroep die niet bestaat, Hallo implementatie mislukt. Als u een waarde op voor geen specifieke `resourceGroup`, Hallo bovenliggende resourcegroep maakt gebruik van Resource Manager.  
 
-## <a name="deploy-the-template"></a>De sjabloon implementeren
+## <a name="deploy-hello-template"></a>Hallo-sjabloon implementeren
 
-U kunt de portal, Azure PowerShell of Azure CLI gebruiken voor het implementeren van de voorbeeldsjabloon. Voor Azure PowerShell of Azure CLI, moet u een release in mei 2017 of hoger. De voorbeelden wordt ervan uitgegaan dat u de sjabloon lokaal hebt opgeslagen als een bestand met de naam **crossrgdeployment.json**.
+toodeploy hello voorbeeldsjabloon, kunt u Hallo-portal, Azure PowerShell of Azure CLI. Voor Azure PowerShell of Azure CLI, moet u een release in mei 2017 of hoger. Hallo voorbeelden wordt ervan uitgegaan dat u hebt Hallo sjabloon lokaal opgeslagen als een bestand met de naam **crossrgdeployment.json**.
 
 Voor PowerShell:
 
@@ -117,9 +117,9 @@ Nadat de implementatie is voltooid, ziet u twee resourcegroepen. Elke resourcegr
 
 ## <a name="use-resourcegroup-function"></a>Gebruik de functie resourceGroup()
 
-Voor cross-resourcegroepimplementaties, de [resouceGroup() functie](resource-group-template-functions-resource.md#resourcegroup) wordt omgezet is anders op basis van hoe u de geneste sjabloon opgeven. 
+Voor cross-resourcegroepimplementaties, hello [resouceGroup() functie](resource-group-template-functions-resource.md#resourcegroup) wordt omgezet is anders op basis van hoe u Hallo geneste sjabloon opgeven. 
 
-Als u een sjabloon in een andere sjabloon insluit, is resouceGroup() in de geneste sjabloon wordt omgezet naar de bovenliggende resource-groep. Een ingesloten sjabloon maakt gebruik van de volgende indeling:
+Als u een sjabloon in een andere sjabloon insluit, opgelost resouceGroup() in geneste sjabloon Hallo toohello bovenliggende resourcegroep. Een ingesloten sjabloon maakt gebruik van Hallo volgende indeling:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -130,12 +130,12 @@ Als u een sjabloon in een andere sjabloon insluit, is resouceGroup() in de genes
     "mode": "Incremental",
     "template": {
         ...
-        resourceGroup() refers to parent resource group
+        resourceGroup() refers tooparent resource group
     }
 }
 ```
 
-Als u een koppeling naar een afzonderlijke sjabloon, wordt resouceGroup() in de gekoppelde sjabloon omgezet in de geneste resourcegroep. Een gekoppelde sjabloon maakt gebruik van de volgende indeling:
+Als u afzonderlijke sjabloon tooa koppelt, oplossing resouceGroup() in de gekoppelde sjabloon Hallo toohello geneste resourcegroep. Een gekoppelde sjabloon maakt gebruik van Hallo volgende indeling:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -146,13 +146,13 @@ Als u een koppeling naar een afzonderlijke sjabloon, wordt resouceGroup() in de 
     "mode": "Incremental",
     "templateLink": {
         ...
-        resourceGroup() in linked template refers to linked resource group
+        resourceGroup() in linked template refers toolinked resource group
     }
 }
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Om te begrijpen hoe parameters in de sjabloon definieert, Zie [inzicht in de structuur en de syntaxis van Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).
+* hoe toodefine-parameters in de sjabloon zien toounderstand [begrijpen Hallo structuur en syntaxis van Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).
 * Zie voor tips over het oplossen van algemene implementatiefouten [oplossen van veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Zie voor meer informatie over het implementeren van een sjabloon waarvoor een SAS-token [persoonlijke sjabloon implementeren met SAS-token](resource-manager-powershell-sas-token.md).

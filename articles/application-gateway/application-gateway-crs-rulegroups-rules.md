@@ -1,5 +1,5 @@
 ---
-title: Azure Application Gateway web application firewall CRS regel groepen en regels | Microsoft Docs
+title: aaaAzure Application Gateway web application firewall CRS regel groepen en regels | Microsoft Docs
 description: Deze pagina bevat informatie over groepen met web application firewall CRS regels en voorschriften.
 documentationcenter: na
 services: application-gateway
@@ -15,17 +15,17 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
-ms.openlocfilehash: 9f4445b7ceb5b39c7907b1ca4c7bf0ad52ba8212
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6be139847392baeb235bc48b079335c1e0d8287b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lijst met groepen met web application firewall CRS regels en regels die worden aangeboden
 
-Application Gateway web application firewall (WAF) beschermt webtoepassingen tegen veelvoorkomende beveiligingslekken en aanvallen. Dit wordt gedaan door regels die zijn gedefinieerd op basis van de OWASP core regelsets 2.2.9 of 3.0. Deze regels kunnen worden uitgeschakeld op basis van de regel door de regel. Dit artikel bevat de huidige regels en rulesets aangeboden.
+Application Gateway web application firewall (WAF) beschermt webtoepassingen tegen veelvoorkomende beveiligingslekken en aanvallen. Dit wordt gedaan door regels die zijn gedefinieerd op basis van Hallo OWASP core regelsets 2.2.9 of 3.0. Deze regels kunnen worden uitgeschakeld op basis van de regel door de regel. In dit artikel bevat de huidige regels Hallo en rulesets aangeboden.
 
-De volgende tabellen worden de regelgroepen en regels die beschikbaar zijn bij het gebruik van Application Gateway met web application firewall.  Elke tabel vertegenwoordigt de regels in de regelgroep van een voor een specifieke CRS versie gevonden.
+Hallo volgende tabellen zijn Hallo regelgroepen en regels die beschikbaar zijn bij het gebruik van Application Gateway met web application firewall.  Elke tabel vertegenwoordigt Hallo regels gevonden in de regelgroep van een voor een specifieke CRS-versie.
 
 ##<a name="owasp30"></a>OWASP_3.0
 
@@ -110,7 +110,7 @@ De volgende tabellen worden de regelgroepen en regels die beschikbaar zijn bij h
 |920011|Regel 920011|
 |920012|Regel 920012|
 |920100|Ongeldige HTTP-aanvraag regel|
-|920130|Parseren van de hoofdtekst van de aanvraag is mislukt.|
+|920130|Kan geen aanvraagtekst tooparse.|
 |920140|Meerdelige aanvraag hoofdtekst strikte validatie is mislukt = PE %@{REQBODY_PROCESSOR_ERROR} bv %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} DB %@{MULTIPART_DATA_BEFORE} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF % @ {MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING} IQ %@{MULTIPART_INVALID_QUOTING} IH %@{MULTIPART_INVALID_HEADER_FOLDING} FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
 |920160|De HTTP Content-Length-header is niet numeriek.|
 |920170|GET of HEAD aanvragen met inhoud van de hoofdtekst.|
@@ -342,7 +342,7 @@ De volgende tabellen worden de regelgroepen en regels die beschikbaar zijn bij h
 |---|---|
 |960911|Ongeldige HTTP-aanvraag regel|
 |981227|Apache fout = Ongeldige URI in de aanvraag.|
-|960912|Parseren van de hoofdtekst van de aanvraag is mislukt.|
+|960912|Kan geen aanvraagtekst tooparse.|
 |960914|Meerdelige aanvraag hoofdtekst strikte validatie is mislukt = PE %@{REQBODY_PROCESSOR_ERROR} bv %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} DB %@{MULTIPART_DATA_BEFORE} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF % @ {MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING} IQ %@{MULTIPART_INVALID_QUOTING} IH %@{MULTIPART_INVALID_HEADER_FOLDING} FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
 |960915|Meerdelige parser de grens van een mogelijk niet-overeenkomende gedetecteerd.|
 |960016|De HTTP Content-Length-header is niet numeriek.|
@@ -400,9 +400,9 @@ De volgende tabellen worden de regelgroepen en regels die beschikbaar zijn bij h
 
 |ruleId|Beschrijving|
 |---|---|
-|990002|Aanvraag geeft aan dat een beveiligingsscanner gescand de Site|
-|990901|Aanvraag geeft aan dat een beveiligingsscanner gescand de Site|
-|990902|Aanvraag geeft aan dat een beveiligingsscanner gescand de Site|
+|990002|Aanvraag geeft aan dat een Hallo beveiliging gescand Site|
+|990901|Aanvraag geeft aan dat een Hallo beveiliging gescand Site|
+|990902|Aanvraag geeft aan dat een Hallo beveiliging gescand Site|
 |990012|Crawlermetagegevens: Rogue-website|
 
 ### <a name="crs40"></a>crs_40_generic_attacks
@@ -592,6 +592,6 @@ De volgende tabellen worden de regelgroepen en regels die beschikbaar zijn bij h
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het uitschakelen van WAF regels met bezoeken: [regels WAF aanpassen](application-gateway-customize-waf-rules-portal.md)
+Meer informatie over hoe toodisable WAF in via regels: [regels WAF aanpassen](application-gateway-customize-waf-rules-portal.md)
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png

@@ -1,5 +1,5 @@
 ---
-title: Taak vooraf voor Azure Media Indexer
+title: aaaTask vooraf voor Azure Media Indexer
 description: In dit onderwerp geeft een overzicht van taak vooraf voor Azure Media Indexer.
 services: media-services
 documentationcenter: 
@@ -13,27 +13,27 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: ae6c4da189cd6637b4e1fa9274473b62f6664e51
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ca0b3e7aa9f6dd9fdecddfc5b3137281ed5cef35
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Taak vooraf voor Azure Media Indexer
 
-Azure Media Indexer is een Processor Media die u kunt de volgende taken uitvoeren: doorzoekbaar maken van media-bestanden en inhoud, gesloten closed captioning houdt en trefwoorden genereren, index assetbestanden die deel van uw asset uitmaken.
+Azure Media Indexer is een Mediaprocessor dat u tooperform Hallo taken te volgen: doorzoekbaar maken van media-bestanden en inhoud, gesloten closed captioning houdt en trefwoorden genereren, index assetbestanden die deel van uw asset uitmaken.
 
-Dit onderwerp beschrijft de taak vooraf ingesteld dat u moet doorgeven aan de indexing-taak. Zie voor een compleet voorbeeld [mediabestanden met Azure Media Indexer indexeren](media-services-index-content.md).
+Dit onderwerp wordt beschreven Hallo taak vooraf ingesteld dat u nodig hebt toopass tooyour taak te indexeren. Zie voor een compleet voorbeeld [mediabestanden met Azure Media Indexer indexeren](media-services-index-content.md).
 
 ## <a name="azure-media-indexer-configuration-xml"></a>Azure Media Indexer-configuratie-XML
 
-De volgende tabel beschrijft de elementen en kenmerken van de configuratie-XML.
+Hallo volgende tabel bevat uitleg over elementen en kenmerken van Hallo configuratie-XML.
 
 |Naam|Require|Beschrijving|
 |---|---|---|
-|Invoer|De waarde True|Asset-bestanden die u wilt indexeren.<br/>Azure Media Indexer ondersteunt de volgende bestandsindelingen van media: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Kunt u de bestandsnaam (s) in de **naam** of **lijst** kenmerk van de **invoer** element (zoals hieronder wordt weergegeven). Als u niet welke assetbestand naar index opgeeft, wordt het primaire bestand opgenomen. Als er geen primaire assetbestand is ingesteld, wordt het eerste bestand in de invoer asset geïndexeerd.<br/><br/>Geef expliciet de bestandsnaam van de asset door het volgende te doen:<br/>```<input name="TestFile.wmv" />```<br/><br/>U kunt ook meerdere assetbestanden tegelijk (maximaal 10) index. Om dit te doen:<br/>-Maak een tekstbestand (manifestbestand) en geef deze extensie .lst.<br/>-Een lijst met alle namen van de asset-bestand in uw invoer asset toevoegen aan deze manifestbestand.<br/>-(Uploaden) thanifest bestand toevoegen aan de asset.<br/>-Geef de naam van het manifestbestand in de invoer lijst kenmerk.<br/>```<input list="input.lst">```<br/><br/>**Opmerking:** als u meer dan 10 bestanden aan het manifestbestand toevoegt, de indexering taak mislukt met foutcode 2006.|
-|Metagegevens|ONWAAR|De metagegevens voor de opgegeven asset-bestanden.<br/>```<metadata key="..." value="..." />```<br/><br/>U kunt waarden voor vooraf gedefinieerde sleutels opgeven. <br/><br/>Op dit moment wordt worden de volgende sleutels ondersteund:<br/><br/>**titel** en **beschrijving** : wordt gebruikt voor het taalmodel voor een betere nauwkeurigheid van de spraakherkenning bijwerken.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**gebruikersnaam** en **wachtwoord** : wordt gebruikt voor verificatie bij het downloaden van internet-bestanden via http of https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>De gebruikersnaam en wachtwoord waarden van toepassing op alle media-URL's in het manifest van de invoer.|
-|database<br/><br/>Toegevoegd in versie 1.2. De enige ondersteunde functie is momenteel spraakherkenning ('ASR').|ONWAAR|De functie Spraakherkenning heeft de sleutels van de volgende instellingen:<br/><br/>Taal:<br/>-De natuurlijke taal in het bestand multimedia worden herkend.<br/>-Engels en Spaans<br/><br/>CaptionFormats:<br/>-een door puntkomma's gescheiden lijst van de gewenste uitvoer bijschrift indelingen (indien aanwezig)<br/>-ttml; sami; webvtt<br/><br/><br/>GenerateAIB:<br/>-Een Booleaanse vlag die aangeeft of een AIB-bestand (voor gebruik met SQL Server en de klant indexeerfunctie IFilter) vereist is. Zie voor meer informatie, met behulp van AIB bestanden met Azure Media Indexer en SQL Server.<br/>-Waar is; De waarde False<br/><br/>GenerateKeywords:<br/>-Een Booleaanse vlag die aangeeft of een sleutelwoord XML-bestand vereist is.<br/>-Waar is; De waarde False.|
+|Invoer|De waarde True|Asset-bestanden die u tooindex wilt.<br/>Azure Media Indexer ondersteunt Hallo media-bestandsindelingen te volgen: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>U kunt Hallo bestandsnaam (s) opgeven in Hallo **naam** of **lijst** kenmerk Hallo **invoer** element (zoals hieronder wordt weergegeven). Als u niet welke tooindex asset-bestand opgeeft, wordt het primaire bestand Hallo opgenomen. Als geen assetbestand primaire is ingesteld, wordt de eerste bestand Hallo Hallo invoer actief in geïndexeerd.<br/><br/>tooexplicitly hello asset-bestandsnaam opgeven, doen:<br/>```<input name="TestFile.wmv" />```<br/><br/>U kunt ook meerdere assetbestanden (omhoog too10-bestanden) in één keer index. toodo dit:<br/>-Maak een tekstbestand (manifestbestand) en geef deze extensie .lst.<br/>-Een lijst met alle Hallo asset bestandsnamen toevoegen in het manifestbestand van uw invoer asset toothis.<br/>-Toevoegen (uploaden) thanifest bestand toohello asset.<br/>-Hallo naam opgeven van het manifestbestand Hallo in kenmerk Hallo-invoer.<br/>```<input list="input.lst">```<br/><br/>**Opmerking:** als u meer dan 10 bestanden toohello manifestbestand toevoegt, Hallo indexering taak mislukt met foutcode Hallo 2006.|
+|Metagegevens|ONWAAR|Metagegevens voor Hallo opgegeven asset-bestanden.<br/>```<metadata key="..." value="..." />```<br/><br/>U kunt waarden voor vooraf gedefinieerde sleutels opgeven. <br/><br/>Op dit moment worden Hallo na sleutels ondersteund:<br/><br/>**titel** en **beschrijving** -tooupdate Hallo taal model tooimprove spraakherkenning gebruikt.<br/>```<metadata key="title" value="[Title of hello media file]" /><metadata key="description" value="[Description of hello media file]" />```<br/><br/>**gebruikersnaam** en **wachtwoord** : wordt gebruikt voor verificatie bij het downloaden van internet-bestanden via http of https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>Hallo gebruikersnaam en wachtwoord waarden toe te passen tooall media URL's in Hallo invoer manifest.|
+|database<br/><br/>Toegevoegd in versie 1.2. Alleen ondersteund Hallo-functie is momenteel spraakherkenning ('ASR').|ONWAAR|Hallo spraakherkenning functie heeft Hallo instellingen sleutels te volgen:<br/><br/>Taal:<br/>-Hallo van natuurlijke taal toobe herkend in multimedia Hallo-bestand.<br/>-Engels en Spaans<br/><br/>CaptionFormats:<br/>-een door puntkomma's gescheiden lijst met Hallo gewenst bijschrift uitvoerindelingen (indien aanwezig)<br/>-ttml; sami; webvtt<br/><br/><br/>GenerateAIB:<br/>-Een Booleaanse vlag die aangeeft of een AIB-bestand (voor gebruik met SQL Server en Hallo klant indexeerfunctie IFilter) vereist is. Zie voor meer informatie, met behulp van AIB bestanden met Azure Media Indexer en SQL Server.<br/>-Waar is; De waarde False<br/><br/>GenerateKeywords:<br/>-Een Booleaanse vlag die aangeeft of een sleutelwoord XML-bestand vereist is.<br/>-Waar is; De waarde False.|
 
 ## <a name="azure-media-indexer-configuration-xml-example"></a>Azure Media Indexer configuration XML-voorbeeld
 
@@ -41,8 +41,8 @@ De volgende tabel beschrijft de elementen en kenmerken van de configuratie-XML.
 <?xml version="1.0" encoding="utf-8"?>  
 <configuration version="2.0">  
   <input>  
-    <metadata key="title" value="[Title of the media file]" />  
-    <metadata key="description" value="[Description of the media file]" />  
+    <metadata key="title" value="[Title of hello media file]" />  
+    <metadata key="description" value="[Description of hello media file]" />  
   </input>  
   <settings>  
   </settings>  

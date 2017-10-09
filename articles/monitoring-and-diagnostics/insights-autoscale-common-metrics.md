@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor voor automatisch schalen die de algemene metrische gegevens | Microsoft Docs
+title: Monitor voor automatisch schalen algemene metrische gegevens aaaAzure | Microsoft Docs
 description: Meer informatie over welke metrische gegevens vaak worden gebruikt voor automatisch schalen uw Cloudservices, virtuele Machines en Web-Apps.
 author: anirudhcavale
 manager: orenr
@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/6/2016
 ms.author: ancav
-ms.openlocfilehash: 240a230d09680672ccd5316470a87d047fab9fd1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 372a40d72d7a6c22c5ff854b1460ec8a3b7ed1d1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor automatisch schalen de algemene metrische gegevens
-Azure Monitor-automatisch schalen kunt u het aantal actieve exemplaren omhoog of omlaag, schalen op basis van telemetriegegevens (metrische gegevens). Dit document beschrijft algemene metrische gegevens die u wilt gebruiken. U kunt in de Azure-portal voor Cloudservices en serverfarms de metrische gegevens van de resource te schalen. Echter, u kunt ook alle metrische gegevens van een andere resource te schalen.
+Azure Monitor-automatisch schalen kunt u tooscale Hallo aantal actieve exemplaren omhoog of omlaag, op basis van telemetriegegevens (metrische gegevens). Dit document beschrijft algemene metrische gegevens die u wilt misschien toouse. U kunt in Azure-portal voor Cloudservices en serverfarms Hallo, Hallo meetwaarde van Hallo resource tooscale door. Echter, u kunt ook alle metrische gegevens van een andere resource tooscale door.
 
-Monitor voor automatisch schalen die Azure is alleen bedoeld voor [virtuele-Machineschaalsets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloudservices](https://azure.microsoft.com/services/cloud-services/), en [App Service - Web-Apps](https://azure.microsoft.com/services/app-service/web/). Andere Azure-services verschillende schalen methoden gebruiken.
+Monitor voor automatisch schalen die Azure geldt alleen te[virtuele-Machineschaalsets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloudservices](https://azure.microsoft.com/services/cloud-services/), en [App Service - Web-Apps](https://azure.microsoft.com/services/app-service/web/). Andere Azure-services verschillende schalen methoden gebruiken.
 
 ## <a name="compute-metrics-for-resource-manager-based-vms"></a>Metrische gegevens voor Resource Manager gebaseerde virtuele machines te berekenen
-Standaard verzenden Resource Manager gebaseerde virtuele Machines en virtuele-Machineschaalsets basismetrieken (hostniveau). Bovendien bij het configureren van diagnostische gegevens te verzamelen voor een virtuele machine van Azure en VMSS verzendt de diagnostische Azure-extensie ook prestatiemeteritems guest-OS (bekend als "Guest-OS metrische gegevens").  U gebruikt deze metrische gegevens in de regels voor automatisch schalen.
+Standaard verzenden Resource Manager gebaseerde virtuele Machines en virtuele-Machineschaalsets basismetrieken (hostniveau). Bovendien bij het configureren van diagnostische gegevens te verzamelen voor een virtuele machine van Azure en VMSS verzendt Hallo diagnostische Azure-extensie ook prestatiemeteritems guest-OS (bekend als "Guest-OS metrische gegevens").  U gebruikt deze metrische gegevens in de regels voor automatisch schalen.
 
-U kunt de `Get MetricDefinitions` PoSH-API/CLI om weer te geven de metrische gegevens beschikbaar zijn voor uw resource VMSS.
+U kunt Hallo `Get MetricDefinitions` PoSH/API/CLI tooview Hallo metrische gegevens beschikbaar voor uw resource VMSS.
 
 Als u VM-schaalsets en u een bepaalde metriek vermeld niet ziet, dan is het waarschijnlijk *uitgeschakeld* in de extensie voor diagnostische gegevens.
 
-Als een bepaalde waarde niet wordt door actieve of kunnen worden overgebracht met de frequentie die u wilt, kunt u de configuratie van diagnostische gegevens bijwerken.
+Als een bepaalde waarde niet opgevangen of overgedragen op Hallo frequentie die u wilt wordt, kunt u de configuratie van diagnostische Hallo bijwerken.
 
-Als beide bovenstaande gevallen waar is, controleert u [Gebruik PowerShell voor het inschakelen van Azure Diagnostics in een virtuele machine met Windows](../virtual-machines/windows/ps-extensions-diagnostics.md) over PowerShell om te configureren en werk de extensie van uw Azure VM Diagnostics zodat de metriek. Dit artikel bevat ook een voorbeeldbestand voor de configuratie van diagnostische gegevens.
+Als beide bovenstaande gevallen waar is, controleert u [Gebruik PowerShell tooenable diagnostische Azure-gegevens in een virtuele machine met Windows](../virtual-machines/windows/ps-extensions-diagnostics.md) over PowerShell tooconfigure en werk uw Azure VM Diagnostics extensie tooenable Hallo metriek. Dit artikel bevat ook een voorbeeldbestand voor de configuratie van diagnostische gegevens.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Host metrische gegevens voor Resource Manager gebaseerde Windows- en Linux-machines
-De volgende hostniveau metrische gegevens worden standaard verzonden voor virtuele machine van Azure en VMSS in Windows- en Linux-exemplaren. Deze metrische gegevens van de Azure VM beschreven, maar worden verzameld van de Azure VM-host in plaats van via agent is geïnstalleerd op de Gast-VM. U kunt deze metrische gegevens in de regels voor automatisch schalen.
+Hallo hostniveau metrische gegevens te volgen worden standaard verzonden voor virtuele machine van Azure en VMSS in Windows- en Linux-exemplaren. Deze metrische gegevens van de Azure VM beschreven, maar worden verzameld van hello Azure VM-host in plaats van via agent is geïnstalleerd op Hallo Gast-VM. U kunt deze metrische gegevens in de regels voor automatisch schalen.
 
 - [Host metrische gegevens voor Resource Manager gebaseerde Windows- en Linux-machines](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)
 - [Host metrische gegevens voor Resource Manager gebaseerde Windows- en Linux VM-Schaalsets](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)
 
 ### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Gastbesturingssysteem metrische Resource Manager gebaseerde Windows-VM 's
-Wanneer u een virtuele machine in Azure maakt, wordt de diagnostische gegevens ingeschakeld met behulp van de extensie voor diagnostische gegevens. De extensie voor diagnostische gegevens verzendt een set van metrische gegevens die afkomstig zijn uit binnen de virtuele machine. Dit betekent dat kunt u automatisch schalen van metrische gegevens die niet standaard worden gegenereerd.
+Wanneer u een virtuele machine in Azure maakt, worden diagnostische gegevens wordt ingeschakeld met behulp van Hallo-extensie voor diagnostische gegevens. Hallo-extensie voor diagnostische gegevens verzendt een set van metrische gegevens die afkomstig zijn uit binnen Hallo VM. Dit betekent dat kunt u automatisch schalen van metrische gegevens die niet standaard worden gegenereerd.
 
-U kunt een lijst van de metrische gegevens genereren met behulp van de volgende opdracht in PowerShell.
+U kunt een lijst met Hallo metrische gegevens genereren met behulp van de volgende opdracht in PowerShell Hallo.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-U kunt een waarschuwing voor de volgende metrische gegevens maken:
+U kunt een waarschuwing voor Hallo metrische gegevens te volgen:
 
 | Metrische naam | Eenheid |
 | --- | --- |
@@ -86,13 +86,13 @@ U kunt een waarschuwing voor de volgende metrische gegevens maken:
 ### <a name="guest-os-metrics-linux-vms"></a>Gastbesturingssysteem metrische gegevens Linux VM 's
 Wanneer u een virtuele machine in Azure maakt, wordt er met behulp van de extensie voor diagnostische gegevens diagnostics standaard ingeschakeld.
 
-U kunt een lijst van de metrische gegevens genereren met behulp van de volgende opdracht in PowerShell.
+U kunt een lijst met Hallo metrische gegevens genereren met behulp van de volgende opdracht in PowerShell Hallo.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
- U kunt een waarschuwing voor de volgende metrische gegevens maken:
+ U kunt een waarschuwing voor Hallo metrische gegevens te volgen:
 
 | Metrische naam | Eenheid |
 | --- | --- |
@@ -136,10 +136,10 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | \NetworkInterface\TotalCollisions |Count |
 
 ## <a name="commonly-used-web-server-farm-metrics"></a>Gangbare metrische gegevens van Web (serverfarm)
-U kunt ook automatisch schalen op basis van algemene web server-gegevens zoals de lengte van de Http-wachtrij uitvoeren. De naam van de meetwaarde is **HttpQueueLength**.  De volgende sectie geeft een lijst van beschikbare serverfarm (Web-Apps) metrische gegevens.
+U kunt ook automatisch schalen op basis van algemene web server-gegevens zoals Hallo Http-wachtrijlengte uitvoeren. De naam van de meetwaarde is **HttpQueueLength**.  Hallo sectie een lijst met beschikbare serverfarm (Web-Apps) metrische gegevens te volgen.
 
 ### <a name="web-apps-metrics"></a>Metrische gegevens van Web-Apps
-U kunt een lijst van de Web-Apps metrische gegevens genereren met behulp van de volgende opdracht in PowerShell.
+U kunt een lijst met metrische gegevens Hallo-Web-Apps met behulp van de volgende opdracht in PowerShell Hallo genereren.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
@@ -157,11 +157,11 @@ U kunt op een waarschuwing of schalen door deze metrische gegevens.
 | BytesSent |Bytes |
 
 ## <a name="commonly-used-storage-metrics"></a>Gangbare metrische gegevens voor opslag
-U kunt schalen door wachtrijlengte voor opslag, dit het aantal berichten in de opslagwachtrij is. Wachtrijlengte van Storage is een speciale metrische gegevens en de drempelwaarde is het aantal berichten per exemplaar. Bijvoorbeeld, als er twee exemplaren en de drempelwaarde is ingesteld op 100, schalen treedt op wanneer het totale aantal berichten in de wachtrij 200. Dat kan worden 100 berichten per exemplaar, 120 en 80, of een andere combinatie waarmee maximaal 200 of meer worden toegevoegd.
+U kunt schalen door wachtrijlengte voor opslag, het aantal berichten in wachtrij voor Hallo opslag Hallo. Wachtrijlengte van Storage is een speciale metriek en Hallo drempelwaarde Hallo aantal berichten per exemplaar is. Bijvoorbeeld, als er twee exemplaren en Hallo drempelwaarde too100 is ingesteld, schalen treedt op wanneer totaal aantal berichten in wachtrij Hallo Hallo 200. Dat kan worden 100 berichten per exemplaar, 120 en 80, of een andere combinatie die too200 of meer opgeteld.
 
-Deze instelling configureert in de Azure Portal de **instellingen** blade. U kunt de instelling voor automatisch schalen in de Resource Manager-sjabloon gebruiken bijwerken voor VM-schaalsets *metricName* als *ApproximateMessageCount* en de ID van de opslagwachtrij als doorgeeft *metricResourceUri*.
+Configureer deze instelling in hello Azure-portal op Hallo **instellingen** blade. U kunt Hallo-instelling voor automatisch schalen in Hallo Resource Manager-sjabloon toouse bijwerken voor VM-schaalsets *metricName* als *ApproximateMessageCount* en het Hallo-ID van de opslagwachtrij Hallo als doorgeeft  *metricResourceUri*.
 
-Met een klassieke Opslagaccount kan de instelling voor automatisch schalen metricTrigger zou zijn:
+Een klassieke Opslagaccount Hello omvat automatisch schalen instelling metricTrigger bijvoorbeeld:
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -169,7 +169,7 @@ Met een klassieke Opslagaccount kan de instelling voor automatisch schalen metri
  "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
-Voor een opslagaccount (niet-klassiek) omvat de metricTrigger:
+Voor een opslagaccount met (niet-klassiek) omvat Hallo metricTrigger:
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -178,9 +178,9 @@ Voor een opslagaccount (niet-klassiek) omvat de metricTrigger:
 ```
 
 ## <a name="commonly-used-service-bus-metrics"></a>Gangbare metrische gegevens van Service Bus
-U kunt schalen door Service Bus-wachtrijlengte, dit het aantal berichten in de Service Bus-wachtrij is. Wachtrijlengte van Service Bus is een speciale metrische gegevens en de drempelwaarde is het aantal berichten per exemplaar. Bijvoorbeeld, als er twee exemplaren en de drempelwaarde is ingesteld op 100, schalen treedt op wanneer het totale aantal berichten in de wachtrij 200. Dat kan worden 100 berichten per exemplaar, 120 en 80, of een andere combinatie waarmee maximaal 200 of meer worden toegevoegd.
+U kunt schalen door Service Bus-wachtrijlengte, het aantal berichten in de Service Bus-wachtrij Hallo Hallo. Wachtrijlengte van Service Bus is een speciale metriek en Hallo drempelwaarde Hallo aantal berichten per exemplaar is. Bijvoorbeeld, als er twee exemplaren en Hallo drempelwaarde too100 is ingesteld, schalen treedt op wanneer totaal aantal berichten in wachtrij Hallo Hallo 200. Dat kan worden 100 berichten per exemplaar, 120 en 80, of een andere combinatie die too200 of meer opgeteld.
 
-U kunt de instelling voor automatisch schalen in de Resource Manager-sjabloon gebruiken bijwerken voor VM-schaalsets *metricName* als *ApproximateMessageCount* en de ID van de opslagwachtrij als doorgeeft *metricResourceUri*.
+U kunt Hallo-instelling voor automatisch schalen in Hallo Resource Manager-sjabloon toouse bijwerken voor VM-schaalsets *metricName* als *ApproximateMessageCount* en het Hallo-ID van de opslagwachtrij Hallo als doorgeeft  *metricResourceUri*.
 
 ```
 "metricName": "MessageCount",
@@ -189,6 +189,6 @@ U kunt de instelling voor automatisch schalen in de Resource Manager-sjabloon ge
 ```
 
 > [!NOTE]
-> Het concept van de groep resource bestaat niet voor Service Bus, maar Azure Resource Manager maakt een standaardresourcegroep per regio. De resourcegroep is meestal de indeling 'Default - ServiceBus-[regio]'. Bijvoorbeeld 'Service Bus-standaard-EastUS', 'Service Bus-standaard-WestUS', 'standaard-ServiceBus-AustraliaEast, enzovoort.
+> Hallo resource groep concept bestaat niet voor Service Bus, maar Azure Resource Manager maakt een standaardresourcegroep per regio. Hallo resourcegroep bevindt zich doorgaans in Hallo 'Default - ServiceBus-[regio]'-indeling. Bijvoorbeeld 'Service Bus-standaard-EastUS', 'Service Bus-standaard-WestUS', 'standaard-ServiceBus-AustraliaEast, enzovoort.
 >
 >

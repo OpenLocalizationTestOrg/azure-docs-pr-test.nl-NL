@@ -1,47 +1,47 @@
-### <a name="noconnection"></a>IP-adresvoorvoegsels wijzigen voor de gateway van een lokaal netwerk - geen gatewayverbinding
+### <a name="noconnection"></a>toomodify lokale netwerk gateway IP-adresvoorvoegsels - er is geen gatewayverbinding
 
-#### <a name="to-add-additional-address-prefixes"></a>Ga als volgt te werk om aanvullende voorvoegsels toe te voegen:
+#### <a name="tooadd-additional-address-prefixes"></a>tooadd aanvullende adresvoorvoegsels:
 
-1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
-2. Voeg de IP-adresruimte in de *aanvullend adresbereik toevoegen* vak.
-3. Klik op **opslaan** uw instellingen op te slaan.
+1. Op de lokale netwerkgateway bron, in Hallo Hallo **instellingen** sectie, klikt u op **configuratie**.
+2. Hallo IP-adresruimte toevoegen in Hallo *aanvullend adresbereik toevoegen* vak.
+3. Klik op **opslaan** toosave uw instellingen.
 
-#### <a name="to-remove-address-prefixes"></a>Ga als volgt te werk om adresvoorvoegsels te verwijderen:
+#### <a name="tooremove-address-prefixes"></a>tooremove adresvoorvoegsels:
 
-1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
-2. Klik op de **'...'** op de regel met het voorvoegsel dat u wilt verwijderen.
+1. Op de lokale netwerkgateway bron, in Hallo Hallo **instellingen** sectie, klikt u op **configuratie**.
+2. Klik op Hallo **'...'** op Hallo regel Hallo voorvoegsel met de gewenste tooremove.
 3. Klik op **verwijderen**.
-4. Klik op **opslaan** uw instellingen op te slaan.
+4. Klik op **opslaan** toosave uw instellingen.
 
-### <a name="withconnection"></a>IP-adresvoorvoegsels wijzigen voor de gateway van een lokaal netwerk - bestaande gatewayverbinding
+### <a name="withconnection"></a>toomodify lokale netwerk gateway IP-adresvoorvoegsels - gatewayverbinding bestaande
 
-Als u een gatewayverbinding hebt en u IP-adresvoorvoegsels wilt toevoegen aan of verwijderen uit uw lokale netwerkgateway, moet u de volgende stappen uitvoeren in de volgorde waarin ze staan vermeld. Dit veroorzaakt enige downtime in uw VPN-verbinding. Als u IP-adresvoorvoegsels wijzigt, hoeft u de VPN-gateway niet te verwijderen. U hoeft alleen de verbinding te verwijderen.
+Als u een gatewayverbinding hebt en tooadd wilt of Hallo IP-adresvoorvoegsels is opgenomen in uw lokale netwerkgateway verwijdert, moet u toodo Hallo stappen hebt uitgevoerd, in volgorde. Dit veroorzaakt enige downtime in uw VPN-verbinding. Als u IP-adresvoorvoegsels wijzigt, hoeft u geen toodelete Hallo VPN-gateway. U hoeft alleen tooremove Hallo verbinding.
 
-#### <a name="1-remove-the-connection"></a>1. Verwijder de verbinding.
+#### <a name="1-remove-hello-connection"></a>1. Hallo-verbinding verwijderen.
 
-1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **verbindingen**.
-2. Klik op de **...**  op de regel voor elke verbinding en klik vervolgens op **verwijderen**.
-3. Klik op **opslaan** uw instellingen op te slaan.
+1. Op de lokale netwerkgateway bron, in Hallo Hallo **instellingen** sectie, klikt u op **verbindingen**.
+2. Klik op Hallo **...**  op Hallo-regel voor elke verbinding en klik vervolgens op **verwijderen**.
+3. Klik op **opslaan** toosave uw instellingen.
 
-#### <a name="2-modify-the-address-prefixes"></a>2. De adresvoorvoegsels wijzigen.
+#### <a name="2-modify-hello-address-prefixes"></a>2. Hallo-adresvoorvoegsels wijzigen.
 
-Ga als volgt te werk om aanvullende voorvoegsels toe te voegen:
+tooadd aanvullende adresvoorvoegsels:
 
-1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
-2. De IP-adresruimte toevoegen.
-3. Klik op **opslaan** uw instellingen op te slaan.
+1. Op de lokale netwerkgateway bron, in Hallo Hallo **instellingen** sectie, klikt u op **configuratie**.
+2. Hallo IP-adresruimte toevoegen.
+3. Klik op **opslaan** toosave uw instellingen.
 
-Ga als volgt te werk om adresvoorvoegsels te verwijderen:
+tooremove adresvoorvoegsels:
 
-1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
-2. Klik op de **...**  op de regel met het voorvoegsel op dat u wilt verwijderen.
+1. Op de lokale netwerkgateway bron, in Hallo Hallo **instellingen** sectie, klikt u op **configuratie**.
+2. Klik op Hallo **...**  op Hallo regel Hallo voorvoegsel met de gewenste tooremove.
 3. Klik op **verwijderen**.
-4. Klik op **opslaan** uw instellingen op te slaan.
+4. Klik op **opslaan** toosave uw instellingen.
 
-#### <a name="3-recreate-the-connection"></a>3. Maak de verbinding opnieuw.
+#### <a name="3-recreate-hello-connection"></a>3. Maak opnieuw verbinding Hallo.
 
-1. Navigeer naar de virtuele netwerkgateway voor uw VNet. (Niet de lokale netwerkgateway.)
-2. Op de virtuele netwerkgateway in de **instellingen** sectie, klikt u op **verbindingen**.
-3. Klik op de **+ toevoegen** openen de **verbinding toevoegen** blade.
+1. Navigeer toohello virtuele netwerkgateway voor uw VNet. (Geen hello lokale netwerkgateway.)
+2. Op de virtuele-netwerkgateway Hallo in Hallo **instellingen** sectie, klikt u op **verbindingen**.
+3. Klik op Hallo **+ toevoegen** tooopen hello **verbinding toevoegen** blade.
 4. Maak opnieuw een verbinding.
-5. Klik op **OK** om de verbinding te maken.
+5. Klik op **OK** toocreate Hallo verbinding.

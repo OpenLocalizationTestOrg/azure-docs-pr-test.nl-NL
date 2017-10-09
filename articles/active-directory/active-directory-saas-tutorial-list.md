@@ -1,5 +1,5 @@
 ---
-title: SaaS-App-integratie-zelfstudies voor gebruik met Azure AD | Microsoft Docs
+title: aaaSaaS App integratie-zelfstudies voor gebruik met Azure AD | Microsoft Docs
 description: Azure Active Directory eenmalige aanmelding-integratie met tal van software van derden als een servicetoepassingen configureren.
 services: active-directory
 documentationcenter: 
@@ -15,19 +15,19 @@ ms.date: 06/21/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 5bedead730e0538c4cad464a9aee7f97a5a8c3ef
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d99ec50ac2db52ab0f8547b2caaac19fd3a5a0d9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integratie van de SaaS-toepassingen met Azure Active Directory
 
-Om te integreren met uw ingeschakeld voor de cloud [(SaaS)](https://azure.microsoft.com/overview/what-is-saas/) toepassingen met Azure Active Directory, hebben we een reeks zelfstudies die u bij configuratie helpt ontwikkeld.
+toohelp integreren van uw cloud ingeschakeld [(SaaS)](https://azure.microsoft.com/overview/what-is-saas/) toepassingen met Azure Active Directory, hebben we een reeks zelfstudies die u bij configuratie helpt ontwikkeld.
 
-We hebben een zelfstudie voor het inrichten van de gebruiker in de rechterkolom, naast de toepassing-zelfstudie waarin we tussenkomst van de inrichting van de gebruiker, hebben opgenomen.
+We hebben een zelfstudie voor gebruikers inrichten in Hallo rechterkolom volgende toohello toepassing zelfstudie waarin we tussenkomst van de inrichting van de gebruiker, hebben opgenomen.
 
-Zie voor een uitgebreide lijst met SaaS-apps die vooraf geïntegreerde met Azure AD zijn, de [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
+Hallo complete lijst van SaaS-apps die vooraf geïntegreerde met Azure AD zijn, Zie Hallo [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
 
 ## <a name="saas-tutorials"></a>SaaS-zelfstudies
 
@@ -68,7 +68,7 @@ Zie voor een uitgebreide lijst met SaaS-apps die vooraf geïntegreerde met Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-autotaskworkplace-tutorial.png)| [Autotask](active-directory-saas-autotaskworkplace-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BambooHR.png)| [Bamboe HR](active-directory-saas-bamboo-hr-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_bambubysproutsocial.png)| [Bambu door SPRUIT sociale](active-directory-saas-bambubysproutsocial-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bcinthecloud-tutorial.png)| [BC in de Cloud](active-directory-saas-bcinthecloud-tutorial.md)
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bcinthecloud-tutorial.png)| [BC in Hallo Cloud](active-directory-saas-bcinthecloud-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-beeline-tutorial.png)| [BeeLine](active-directory-saas-beeline-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-benefithub-tutorial.png)| [BenefitHub](active-directory-saas-benefithub-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Benefitssolver.png)| [Benefitsolver](active-directory-saas-benefitsolver-tutorial.md)|
@@ -349,7 +349,7 @@ Zie voor een uitgebreide lijst met SaaS-apps die vooraf geïntegreerde met Azure
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_teamphoria.png)| [Teamphoria](active-directory-saas-teamphoria-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_TeamSeer.png)| [TeamSeer](active-directory-saas-teamseer-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Teamwork.png)| [Werken als een team](active-directory-saas-teamwork-tutorial.md)
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-thefundingportal-tutorial.png)| [De fi Portal](active-directory-saas-thefundingportal-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-thefundingportal-tutorial.png)| [Hallo Funding Portal](active-directory-saas-thefundingportal-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-thirdlight-tutorial.png)| [ThirdLight](active-directory-saas-thirdlight-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-thoughtworks-mingle-tutorial.png)| [Thoughtworks Singleplayer](active-directory-saas-thoughtworks-mingle-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-thousandeyes-tutorial.png)| [ThousandEyes](active-directory-saas-thousandeyes-tutorial.md)|
@@ -403,4 +403,4 @@ Zie voor een uitgebreide lijst met SaaS-apps die vooraf geïntegreerde met Azure
 ## <a name="related-articles"></a>Verwante artikelen:
 
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
-* [Lijst met zelfstudies over het integreren van SaaS-Apps](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps](active-directory-saas-tutorial-list.md)

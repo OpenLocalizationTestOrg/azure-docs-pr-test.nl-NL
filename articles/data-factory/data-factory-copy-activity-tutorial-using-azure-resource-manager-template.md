@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: een pijplijn maken met het Resource Manager-sjabloon | Microsoft Docs'
-description: In deze zelfstudie maakt u een Azure Data Factory-pijplijn met behulp van een Azure Resource Manager-sjabloon. Met deze pijplijn worden gegevens vanuit een Azure-blobopslag gekopieerd naar een Azure SQL-database.
+description: In deze zelfstudie maakt u een Azure Data Factory-pijplijn met behulp van een Azure Resource Manager-sjabloon. Deze pijplijn kopieert invoergegevens uit een Azure blob storage tooan Azure SQL database.
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 8a155213ed17e516a5c46abbe3d8a2bcc52268ed
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1c7567cb0423f7ce3e0cab2d77a4d861b70eb56b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Zelfstudie: een Azure Resource Manager-sjabloon gebruiken voor het maken van een Data Factory-pijplijn om gegevens te kopiëren 
+# <a name="tutorial-use-azure-resource-manager-template-toocreate-a-data-factory-pipeline-toocopy-data"></a>Zelfstudie: Gebruik Azure Resource Manager sjabloon toocreate een Data Factory-pijplijn toocopy gegevens 
 > [!div class="op_single_selector"]
 > * [Overzicht en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
@@ -29,43 +29,43 @@ ms.lasthandoff: 08/03/2017
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager-sjabloon](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-> * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+> * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 > 
 
-In deze zelfstudie wordt uitgelegd hoe u een Azure Resource Manager-sjabloon maakt om een Azure-gegevensfactory te maken. In de gegevenspijplijn in deze zelfstudie worden gegevens van een brongegevensarchief gekopieerd naar een doelgegevensarchief. Er worden geen invoergegevens mee getransformeerd in uitvoergegevens. Zie [Zelfstudie: een pijplijn maken om gegevens te transformeren met een Hadoop-cluster](data-factory-build-your-first-pipeline.md) voor meer informatie over het transformeren van gegevens met Azure Data Factory.
+Deze zelfstudie leert u hoe toouse een Azure Resource Manager-sjabloon toocreate een Azure data factory. Hallo data pipeline in deze zelfstudie worden gegevens gekopieerd van een bron data store tooa doelgegevensopslagplaats. Het biedt invoergegevens tooproduce uitvoergegevens niet transformeren. Voor een zelfstudie over het tootransform van gegevens met behulp van Azure Data Factory, Zie [zelfstudie: een pijplijn tootransform gegevens met Hadoop-cluster bouwen](data-factory-build-your-first-pipeline.md).
 
-In deze zelfstudie maakt u een pijplijn met één activiteit erin: kopieeractiviteit. De kopieeractiviteit in Data Factory kopieert gegevens uit een ondersteund gegevensarchief naar een ondersteund sinkgegevensarchief. Zie [Ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) voor een lijst met gegevensarchieven die worden ondersteund als bron en als sink. De activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens veilig, betrouwbaar en schaalbaar kunnen worden gekopieerd tussen verschillende gegevensarchieven. Zie het artikel [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over kopieeractiviteiten.
+In deze zelfstudie maakt u een pijplijn met één activiteit erin: kopieeractiviteit. Hallo kopieeractiviteit kopieert gegevens van een gegevensarchief voor ondersteunde gegevens store tooa ondersteunde sink. Zie [Ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) voor een lijst met gegevensarchieven die worden ondersteund als bron en als sink. Hallo-activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens tussen verschillende gegevensarchieven op een manier veilig, betrouwbaar en schaalbaar kan worden gekopieerd. Zie voor meer informatie over Hallo Kopieeractiviteit [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md).
 
-Een pijplijn kan meer dan één activiteit hebben. Ook kunt u twee activiteiten koppelen (de ene activiteit na de andere laten uitvoeren) door de uitvoergegevensset van één activiteit in te stellen als invoergegevensset voor een andere activiteit. Zie [Meerdere activiteiten in een pijplijn](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) voor meer informatie. 
+Een pijplijn kan meer dan één activiteit hebben. En u kunt twee activiteiten (één activiteit uitgevoerd na de andere) koppelen door de uitvoergegevensset Hallo van een activiteit instellen als de Hallo invoergegevensset Hallo andere activiteit. Zie [Meerdere activiteiten in een pijplijn](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) voor meer informatie. 
 
 > [!NOTE] 
-> In de gegevenspijplijn in deze zelfstudie worden gegevens van een brongegevensarchief gekopieerd naar een doelgegevensarchief. Zie [Zelfstudie: een pijplijn maken om gegevens te transformeren met een Hadoop-cluster](data-factory-build-your-first-pipeline.md) voor meer informatie over het transformeren van gegevens met Azure Data Factory. 
+> Hallo data pipeline in deze zelfstudie worden gegevens gekopieerd van een bron data store tooa doelgegevensopslagplaats. Voor een zelfstudie over het tootransform van gegevens met behulp van Azure Data Factory, Zie [zelfstudie: een pijplijn tootransform gegevens met Hadoop-cluster bouwen](data-factory-build-your-first-pipeline.md). 
 
 ## <a name="prerequisites"></a>Vereisten
-* Neem [Overzicht van de zelfstudie en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) door en voer de **vereiste** stappen uit.
-* Volg de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/overview) om de meest recente versie van Azure PowerShell te installeren op uw computer. In deze zelfstudie gebruikt u PowerShell om Data Factory-entiteiten te implementeren. 
-* Zie [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md) (Azure Resource Manager-sjablonen samenstellen) voor meer informatie over Azure Resource Manager-sjablonen (optioneel).
+* Doorloop [overzicht van de zelfstudie en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en volledige Hallo **vereiste** stappen.
+* Volg de instructies in [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview) artikel tooinstall meest recente versie van Azure PowerShell op uw computer. In deze zelfstudie gebruikt u PowerShell toodeploy Data Factory-entiteiten. 
+* (optioneel) Zie [Azure Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md) toolearn over Azure Resource Manager-sjablonen.
 
 ## <a name="in-this-tutorial"></a>In deze zelfstudie
-In deze zelfstudie maakt u een gegevensfactory met de volgende Data Factory-entiteiten:
+In deze zelfstudie maakt maken u een gegevensfactory met de Hallo Data Factory-entiteiten te volgen:
 
 | Entiteit | Beschrijving |
 | --- | --- |
-| Een gekoppelde Azure Storage-service |Koppelt uw Azure Storage-account aan de gegevensfactory. Azure Storage is de brongegevensopslag en Azure SQL Database de opvanggegevensopslag voor de kopieerbewerking in de handleiding. Het geeft de opslagaccount aan die de invoergegevens voor de kopieerbewerking bevat. |
-| Een gekoppelde Azure SQL Database-service |Koppelt uw Azure SQL-database aan de gegevensfactory. Het geeft de Azure SQL-database aan die de uitvoergegevens voor de kopieerbewerking bevat. |
-| Azure Blob-invoergegevensset |Verwijst naar de gekoppelde Azure Storage-service. De gekoppelde service verwijst naar een Azure Storage-account en in de Azure Blob-gegevensset vindt u de container, map en bestandsnaam in de opslag die de invoergegevens bevat. |
-| Azure SQL-uitvoergegevensset |Verwijst naar de gekoppelde Azure SQL-service. De gekoppelde Azure SQL-service verwijst naar een Azure SQL-server en de Azure SQL-gegevensset bevat de naam van de tabel met de uitvoergegevens. |
-| Gegevenspijplijn |De pijplijn heeft één activiteit van het type Kopiëren waarbij de Azure Blob-gegevensset als invoer en de Azure SQL-gegevensset als uitvoer wordt genomen. Met de kopieerbewerking worden gegevens van een Azure-blob naar een tabel in de Azure SQL-database gekopieerd. |
+| Een gekoppelde Azure Storage-service |Uw Azure Storage-account toohello data factory gekoppeld. Azure-opslag is brongegevensarchief Hallo en Azure SQL-database is Hallo sink-gegevensopslag voor de kopieeractiviteit Hallo in Hallo zelfstudie. Het specificeert Hallo-opslagaccount waarin de invoergegevens voor de kopieeractiviteit Hallo Hallo. |
+| Een gekoppelde Azure SQL Database-service |Uw Azure SQL database toohello data factory gekoppeld. Geeft aan van hello Azure SQL-database die uitvoergegevens Hallo voor de kopieeractiviteit Hallo bevat. |
+| Azure Blob-invoergegevensset |Verwijst toohello gekoppelde Azure Storage-service. Hallo gekoppelde service verwijst tooan Azure Storage-account en hello Azure Blob-gegevensset geeft Hallo-container, map en bestandsnaam in Hallo opslag die Hallo invoergegevens bevat. |
+| Azure SQL-uitvoergegevensset |Toohello Azure SQL gekoppelde service verwijst. Hello Azure SQL gekoppelde service verwijst tooan Azure SQL-server en hello Azure SQL-gegevensset bevat Hallo-naam van Hallo tabel waarin Hallo uitvoergegevens. |
+| Gegevenspijplijn |Hallo pijplijn heeft een activiteit van Typ Copy waarmee hello Azure blob-gegevensset als invoer en hello Azure SQL-gegevensset als uitvoer. Hallo kopieeractiviteit kopieert gegevens van een tabel van de Azure-blobopslag tooa in hello Azure SQL-database. |
 
 Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Er zijn twee soorten activiteiten: [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) en [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md). In deze zelfstudie maakt u een pijplijn met één activiteit (kopiëren).
 
-![Een Azure Blob-gegevensset kopiëren naar Azure SQL Database](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/CopyBlob2SqlDiagram.png) 
+![Azure Blob-tooAzure SQL-Database kopiëren](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/CopyBlob2SqlDiagram.png) 
 
-In de volgende sectie vindt u de volledige Resource Manager-sjabloon voor het definiëren van Data Factory-entiteiten zodat u de zelfstudie snel kunt doorlopen en de sjabloon kunt testen. Raadpleeg de sectie [Data Factory-entiteiten in de sjabloon](#data-factory-entities-in-the-template) om te lezen hoe elke Data Factory-entiteit wordt gedefinieerd.
+Hallo volgende sectie bevat Hallo voltooid Resource Manager-sjabloon voor het definiëren van Data Factory-entiteiten, zodat u snel via Hallo zelfstudie en test Hallo-sjabloon uitvoeren kunt. toounderstand hoe elke entiteit Data Factory is gedefinieerd, Zie [Data Factory-entiteiten in de sjabloon Hallo](#data-factory-entities-in-the-template) sectie.
 
 ## <a name="data-factory-json-template"></a>JSON-sjabloon voor Data Factory
-De Resource Manager-sjabloon op het hoogste niveau voor het definiëren van een gegevensfactory is als volgt: 
+Hallo op het hoogste niveau Resource Manager-sjabloon voor het definiëren van een gegevensfactory is: 
 
 ```json
 {
@@ -91,22 +91,22 @@ De Resource Manager-sjabloon op het hoogste niveau voor het definiëren van een 
     ]
 }
 ```
-Maak een JSON-bestand met de naam **ADFCopyTutorialARM.json** in de map **C:\ADFGetStarted**. Geef het bestand de volgende inhoud:
+Maak een JSON-bestand met de naam **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** map Hello volgende inhoud:
 
 ```json
 {
     "contentVersion": "1.0.0.0",
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "parameters": {
-      "storageAccountName": { "type": "string", "metadata": { "description": "Name of the Azure storage account that contains the data to be copied." } },
-      "storageAccountKey": { "type": "securestring", "metadata": { "description": "Key for the Azure storage account." } },
-      "sourceBlobContainer": { "type": "string", "metadata": { "description": "Name of the blob container in the Azure Storage account." } },
-      "sourceBlobName": { "type": "string", "metadata": { "description": "Name of the blob in the container that has the data to be copied to Azure SQL Database table" } },
-      "sqlServerName": { "type": "string", "metadata": { "description": "Name of the Azure SQL Server that will hold the output/copied data." } },
-      "databaseName": { "type": "string", "metadata": { "description": "Name of the Azure SQL Database in the Azure SQL server." } },
-      "sqlServerUserName": { "type": "string", "metadata": { "description": "Name of the user that has access to the Azure SQL server." } },
-      "sqlServerPassword": { "type": "securestring", "metadata": { "description": "Password for the user." } },
-      "targetSQLTable": { "type": "string", "metadata": { "description": "Table in the Azure SQL Database that will hold the copied data." } 
+      "storageAccountName": { "type": "string", "metadata": { "description": "Name of hello Azure storage account that contains hello data toobe copied." } },
+      "storageAccountKey": { "type": "securestring", "metadata": { "description": "Key for hello Azure storage account." } },
+      "sourceBlobContainer": { "type": "string", "metadata": { "description": "Name of hello blob container in hello Azure Storage account." } },
+      "sourceBlobName": { "type": "string", "metadata": { "description": "Name of hello blob in hello container that has hello data toobe copied tooAzure SQL Database table" } },
+      "sqlServerName": { "type": "string", "metadata": { "description": "Name of hello Azure SQL Server that will hold hello output/copied data." } },
+      "databaseName": { "type": "string", "metadata": { "description": "Name of hello Azure SQL Database in hello Azure SQL server." } },
+      "sqlServerUserName": { "type": "string", "metadata": { "description": "Name of hello user that has access toohello Azure SQL server." } },
+      "sqlServerPassword": { "type": "securestring", "metadata": { "description": "Password for hello user." } },
+      "targetSQLTable": { "type": "string", "metadata": { "description": "Table in hello Azure SQL Database that will hold hello copied data." } 
       } 
     },
     "variables": {
@@ -235,7 +235,7 @@ Maak een JSON-bestand met de naam **ADFCopyTutorialARM.json** in de map **C:\ADF
               "activities": [
                 {
                   "name": "CopyFromAzureBlobToAzureSQL",
-                  "description": "Copy data frm Azure blob to Azure SQL",
+                  "description": "Copy data frm Azure blob tooAzure SQL",
                   "type": "Copy",
                   "inputs": [
                     {
@@ -279,7 +279,7 @@ Maak een JSON-bestand met de naam **ADFCopyTutorialARM.json** in de map **C:\ADF
 ```
 
 ## <a name="parameters-json"></a>JSON-bestand met parameters
-Maak een JSON-bestand met de naam **ADFCopyTutorialARM-Parameters.json** dat parameters voor de Azure Resource Manager-sjabloon bevat. 
+Maak een JSON-bestand met de naam **ADFCopyTutorialARM Parameters.json** die parameters voor hello Azure Resource Manager-sjabloon bevat. 
 
 > [!IMPORTANT]
 > Geef de naam en sleutel van uw Azure Storage-account op voor de parameters storageAccountName en storageAccountKey.  
@@ -291,44 +291,44 @@ Maak een JSON-bestand met de naam **ADFCopyTutorialARM-Parameters.json** dat par
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": { 
-        "storageAccountName": { "value": "<Name of the Azure storage account>"    },
+        "storageAccountName": { "value": "<Name of hello Azure storage account>"    },
         "storageAccountKey": {
-            "value": "<Key for the Azure storage account>"
+            "value": "<Key for hello Azure storage account>"
         },
         "sourceBlobContainer": { "value": "adftutorial" },
         "sourceBlobName": { "value": "emp.txt" },
-        "sqlServerName": { "value": "<Name of the Azure SQL server>" },
-        "databaseName": { "value": "<Name of the Azure SQL database>" },
-        "sqlServerUserName": { "value": "<Name of the user who has access to the Azure SQL database>" },
-        "sqlServerPassword": { "value": "<password for the user>" },
+        "sqlServerName": { "value": "<Name of hello Azure SQL server>" },
+        "databaseName": { "value": "<Name of hello Azure SQL database>" },
+        "sqlServerUserName": { "value": "<Name of hello user who has access toohello Azure SQL database>" },
+        "sqlServerPassword": { "value": "<password for hello user>" },
         "targetSQLTable": { "value": "emp" }
     }
 }
 ```
 
 > [!IMPORTANT]
-> Mogelijk beschikt u over afzonderlijke JSON-bestanden met parameters voor ontwikkel-, test- en productieomgevingen die u met dezelfde JSON-sjabloon voor Data Factory kunt gebruiken. U kunt met behulp van een Power Shell-script het implementeren van Data Factory-entiteiten in deze omgevingen automatiseren.  
+> Wellicht hebt u afzonderlijke parameter JSON-bestanden voor ontwikkeling, testen en productieomgevingen die u met gebruiken kunt Hallo dezelfde Data Factory JSON-sjabloon. U kunt met behulp van een Power Shell-script het implementeren van Data Factory-entiteiten in deze omgevingen automatiseren.  
 > 
 > 
 
 ## <a name="create-data-factory"></a>Een gegevensfactory maken
-1. Open **Azure PowerShell** en voer de volgende opdracht uit:
-   * Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal.
+1. Start **Azure PowerShell** en Voer Hallo de volgende opdracht:
+   * Voer Hallo volgende opdracht en Voer Hallo-gebruikersnaam en wachtwoord toosign in toohello Azure-portal te gebruiken.
    
     ```PowerShell
     Login-AzureRmAccount    
     ```  
-   * Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven.
+   * Hallo opdracht tooview na alle Hallo abonnementen voor dit account uitgevoerd.
    
     ```PowerShell
     Get-AzureRmSubscription
     ```   
-   * Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken.
+   * Hallo opdracht tooselect Hallo abonnement dat u wilt dat toowork met volgende worden uitgevoerd.
     
     ```PowerShell
     Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
     ```    
-2. Voer de volgende opdracht uit om Data Factory-entiteiten te implementeren met behulp van het Resource Manager-sjabloon dat u in stap 1 hebt gemaakt.
+2. Voer Hallo na de opdracht toodeploy Data Factory-entiteiten Hallo Resource Manager-sjabloon die u in stap 1 hebt gemaakt.
 
     ```PowerShell   
     New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
@@ -336,27 +336,27 @@ Maak een JSON-bestand met de naam **ADFCopyTutorialARM-Parameters.json** dat par
 
 ## <a name="monitor-pipeline"></a>De pijplijn bewaken
 
-1. Meld u met uw Azure-account aan bij [Azure Portal](https://portal.azure.com).
-2. Klik in het linkermenu op **Gegevensfactory's** (of) klik op **Meer services** en vervolgens op **Gegevensfactory's** onder de categorie **Informatie en analytische gegevens**.
+1. Meld u bij toohello [Azure-portal](https://portal.azure.com) met behulp van uw Azure-account.
+2. Klik op **gegevensfactory** op Hallo links menu (of) klikt u op **meer services** en klik op **gegevensfactory** onder **INTELLIGENCE en analyse** categorie.
    
     ![Het menu voor gegevensfactory's](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
-3. Zoek uw gegevenfactory (AzureBlobToAzureSQLDatabaseDF) op de pagina **Gegevensfactory's** op. 
+3. In Hallo **gegevensfactory** pagina, zoeken en weergeven van uw gegevensfactory (AzureBlobToAzureSQLDatabaseDF). 
    
     ![Naar de gegevensfactory zoeken](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
-4. Klik op uw Azure-gegevensfactory. De startpagina voor de gegevensfactory wordt weergegeven.
+4. Klik op uw Azure-gegevensfactory. U ziet Hallo startpagina voor Hallo data factory.
    
     ![De startpagina voor de gegevensfactory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
-6. Volg de instructies in [Gegevenssets en pijplijn bewaken](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) voor het bewaken van de pijplijn en gegevenssets die u tijdens deze zelfstudie hebt gemaakt. Visual Studio biedt momenteel geen ondersteuning voor het bewaken van Data Factory-pijplijnen.
-7. Wanneer een segment de status **Gereed** heeft, controleert u of de gegevens naar de tabel **emp** in de Azure SQL-database zijn gekopieerd.
+6. Volg de instructies uit [gegevenssets en pijplijn bewaken](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) toomonitor Hallo pijplijn en gegevenssets u in deze zelfstudie hebt gemaakt. Visual Studio biedt momenteel geen ondersteuning voor het bewaken van Data Factory-pijplijnen.
+7. Wanneer een segment is in Hallo **gereed** status, controleren of gegevens Hallo gekopieerde toohello **emp** tabel in hello Azure SQL database.
 
 
-Zie [Gegevenssets en pijplijn bewaken](data-factory-monitor-manage-pipelines.md) voor meer informatie over het gebruik van Azure Portal voor het bewaken van de pijplijn en gegevenssets te bewaken die u tijdens deze zelfstudie hebt gemaakt.
+Zie voor meer informatie over hoe toouse Azure portal-blades toomonitor pijplijn en gegevenssets u hebt gemaakt in deze zelfstudie, [gegevenssets en pijplijn bewaken](data-factory-monitor-manage-pipelines.md) .
 
-Zie [Azure Data Factory-pijplijnen bewaken en beheren met de Controle-app](data-factory-monitor-manage-app.md) voor meer informatie over het gebruik van de app Controleren en beheren voor het bewaken van uw gegevenspijplijnen.
+Zie voor meer informatie over hoe toouse Hallo Monitor & beheren toepassing toomonitor uw gegevens pijplijnen, [bewaken en beheren van de App voor bewaking met Azure Data Factory-pijplijnen](data-factory-monitor-manage-app.md).
 
-## <a name="data-factory-entities-in-the-template"></a>Data Factory-entiteiten in de sjabloon
+## <a name="data-factory-entities-in-hello-template"></a>Data Factory-entiteiten in Hallo-sjabloon
 ### <a name="define-data-factory"></a>Een gegevensfactory definiëren
-U definieert een gegevensfactory in de Resource Manager-sjabloon zoals in het volgende voorbeeld wordt weergegeven:  
+U definieert een gegevensfactory in Hallo Resource Manager-sjabloon zoals weergegeven in Hallo voorbeeld te volgen:  
 
 ```json
 "resources": [
@@ -368,16 +368,16 @@ U definieert een gegevensfactory in de Resource Manager-sjabloon zoals in het vo
 }
 ```
 
-De variabele dataFactoryName wordt als volgt gedefinieerd: 
+Hallo dataFactoryName wordt gedefinieerd als: 
 
 ```json
 "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
 ```
 
-Het is een unieke tekenreeks op basis van de resourcegroep-id.  
+Er is een unieke tekenreeks die is gebaseerd op Hallo resource-ID.  
 
 ### <a name="defining-data-factory-entities"></a>Data Factory-entiteiten definiëren
-De volgende Data Factory-entiteiten worden in de JSON-sjabloon gedefinieerd: 
+Hallo worden volgende Data Factory-entiteiten gedefinieerd in de JSON-sjabloon Hallo: 
 
 1. [Een gekoppelde Azure Storage-service](#azure-storage-linked-service)
 2. [Een gekoppelde Azure SQL-service](#azure-sql-database-linked-service)
@@ -386,7 +386,7 @@ De volgende Data Factory-entiteiten worden in de JSON-sjabloon gedefinieerd:
 5. [De gegevenspijplijn met een kopieerbewerking](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service
-De AzureStorageLinkedService koppelt uw Azure-opslagaccount aan de gegevensfactory. U hebt een container gemaakt en gegevens naar dit opslagaccount geüpload als onderdeel van de [vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). In deze sectie geeft u de naam en sleutel van uw Azure Storage-account op. Zie [Een gekoppelde Azure Storage-service](data-factory-azure-blob-connector.md#azure-storage-linked-service) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde Azure Storage-service. 
+Hallo AzureStorageLinkedService koppelt u uw Azure storage-account toohello data factory. U hebt gemaakt van een container en gegevens toothis opslagaccount geüpload als onderdeel van [vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). U geeft Hallo naam en sleutel van uw Azure storage-account in deze sectie. Zie [gekoppelde Azure Storage-service](data-factory-azure-blob-connector.md#azure-storage-linked-service) voor meer informatie over de JSON-eigenschappen die toodefine een Azure Storage gekoppelde service. 
 
 ```json
 {
@@ -406,10 +406,10 @@ De AzureStorageLinkedService koppelt uw Azure-opslagaccount aan de gegevensfacto
 }
 ```
 
-De tekenreeks connectionString maakt gebruik van de parameters storageAccountName en storageAccountKey. De waarden voor deze parameters worden doorgegeven met behulp van een configuratiebestand. De definitie maakt ook gebruik van variabelen: azureStorageLinkedService en dataFactoryName die zijn gedefinieerd in de sjabloon. 
+Hallo connectionString Hallo storageAccountName en storageAccountKey parameters gebruikt. Hallo-waarden voor deze parameters doorgegeven met behulp van een configuratiebestand. Hallo definitie variabelen ook worden gebruikt: azureStroageLinkedService en dataFactoryName in Hallo sjabloon worden gedefinieerd. 
 
 #### <a name="azure-sql-database-linked-service"></a>Een gekoppelde Azure SQL Database-service
-De AzureSqlLinkedService koppelt uw Azure SQL-database aan de gegevensfactory. De gegevens die worden gekopieerd uit de blobopslag worden opgeslagen in deze database. Als onderdeel van de [vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) hebt u de emp-tabel in deze database gemaakt. U geeft in deze sectie de Azure SQL-servernaam, -databasenaam, -gebruikersnaam en -wachtwoord op. Zie [Een gekoppelde Azure SQL-service](data-factory-azure-sql-connector.md#linked-service-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde Azure SQL-service.  
+Azuresqllinkedservice wordt uw Azure SQL database toohello data factory. Hallo-gegevens die worden gekopieerd van de blob-opslag hello wordt opgeslagen in deze database. Hallo emp-tabel in deze database wordt gemaakt als onderdeel van [vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). U opgeven hello Azure SQL-servernaam, databasenaam, gebruikersnaam en wachtwoord in deze sectie. Zie [Azure SQL gekoppelde service](data-factory-azure-sql-connector.md#linked-service-properties) voor meer informatie over de JSON-eigenschappen die toodefine een Azure SQL gekoppelde service.  
 
 ```json
 {
@@ -429,10 +429,10 @@ De AzureSqlLinkedService koppelt uw Azure SQL-database aan de gegevensfactory. D
 }
 ```
 
-De tekenreeks connectionString maakt gebruik van de parameters sqlServerName, databaseName, sqlServerUserName en sqlServerPassword waarvan de waarden worden doorgegeven met behulp van een configuratiebestand. De definitie maakt ook gebruik van de volgende variabelen uit de sjabloon: azureSqlLinkedServiceName en dataFactoryName.
+Hallo connectionString gebruikt sqlServerName, databaseName, sqlServerUserName en sqlServerPassword parameters waarvan de waarden worden doorgegeven met behulp van een configuratiebestand. Hallo definitie gebruikt ook Hallo volgende variabelen uit Hallo sjabloon: azureSqlLinkedServiceName, dataFactoryName.
 
 #### <a name="azure-blob-dataset"></a>De Azure Blob-gegevensset
-De gekoppelde Azure Storage-service geeft de verbindingsreeks op die de Data Factory-service tijdens runtime gebruikt om verbinding te maken met uw Azure-opslagaccount. In de gegevenssetdefinitie van de Azure-blob geeft u de namen op van de blobcontainer, map en het bestand met de invoergegevens op. Zie [Eigenschappen van de Azure Blob-gegevensset](data-factory-azure-blob-connector.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure Blob-gegevensset. 
+Hallo gekoppelde Azure storage-service geeft Hallo verbindingsreeks die gebruikmaakt van de Data Factory-service op uitvoeringstijd tooconnect tooyour Azure storage-account. In Azure blob-gegevenssetdefinitie geeft u de namen van blob-container, map en -bestand met de invoergegevens Hallo. Zie [eigenschappen van de Azure Blob-gegevensset](data-factory-azure-blob-connector.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die toodefine een Azure Blob-gegevensset. 
 
 ```json
 {
@@ -474,7 +474,7 @@ De gekoppelde Azure Storage-service geeft de verbindingsreeks op die de Data Fac
 ```
 
 #### <a name="azure-sql-dataset"></a>De Azure SQL-gegevensset
-U geeft de naam op van de tabel in de Azure SQL-database die de gekopieerde gegevens uit de Azure Blob-opslag bevat. Zie [Eigenschappen van de Azure SQL-gegevensset](data-factory-azure-sql-connector.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure SQL-gegevensset. 
+U Hallo naam opgeven van Hallo tabel in hello Azure SQL-database dat gegevens uit Azure Blob storage Hallo Hallo gekopieerd bevat. Zie [eigenschappen van de Azure SQL-gegevensset](data-factory-azure-sql-connector.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die toodefine een Azure SQL-gegevensset. 
 
 ```json
 {
@@ -510,7 +510,7 @@ U geeft de naam op van de tabel in de Azure SQL-database die de gekopieerde gege
 ```
 
 #### <a name="data-pipeline"></a>Gegevenspijplijn
-U definieert een pijplijn waarmee gegevens uit de Azure Blob-gegevensset naar de Azure SQL-gegevensset worden gekopieerd. Zie [JSON-bestand voor een pijplijn](data-factory-create-pipelines.md#pipeline-json) voor beschrijvingen van JSON-elementen die worden gebruikt voor het definiëren van een pijplijn in dit voorbeeld. 
+U definiëren een pijplijn waarmee gegevens worden gekopieerd uit hello Azure blob-gegevensset toohello Azure SQL gegevensset. Zie [pijplijn-JSON](data-factory-create-pipelines.md#pipeline-json) voor beschrijvingen van JSON-elementen die worden gebruikt toodefine een pijplijn in dit voorbeeld. 
 
 ```json
 {
@@ -528,7 +528,7 @@ U definieert een pijplijn waarmee gegevens uit de Azure Blob-gegevensset naar de
           "activities": [
         {
               "name": "CopyFromAzureBlobToAzureSQL",
-              "description": "Copy data frm Azure blob to Azure SQL",
+              "description": "Copy data frm Azure blob tooAzure SQL",
               "type": "Copy",
               "inputs": [
             {
@@ -567,8 +567,8 @@ U definieert een pijplijn waarmee gegevens uit de Azure Blob-gegevensset naar de
 }
 ```
 
-## <a name="reuse-the-template"></a>De sjabloon hergebruiken
-U hebt in de zelfstudie een sjabloon voor het definiëren van Data Factory-entiteiten en een sjabloon voor het doorgeven van waarden voor parameters gemaakt. Met de pijplijn worden gegevens gekopieerd van een Azure Storage-account naar een Azure SQL-database die zijn opgegeven via parameters. Als u dezelfde sjabloon wilt gebruiken voor het implementeren van Data Factory-entiteiten in verschillende omgevingen, maakt u een parameterbestand voor elke omgeving en gebruikt u dit bij het implementeren in die omgeving.     
+## <a name="reuse-hello-template"></a>Hallo-sjabloon gebruiken
+In de zelfstudie hello, moet u een sjabloon voor het definiëren van Data Factory-entiteiten en een sjabloon voor het doorgeven van waarden voor parameters gemaakt. Hallo pijplijn kopieert invoergegevens uit een Azure Storage-account tooan Azure SQL database via parameters opgegeven. toouse Hallo dezelfde sjabloon toodeploy Data Factory-entiteiten toodifferent omgevingen, u een parameterbestand voor elke omgeving maken en deze gebruiken bij het implementeren van toothat-omgeving.     
 
 Voorbeeld:  
 
@@ -582,13 +582,13 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Production.json
 ```
 
-De eerste opdracht maakt gebruik van het parameterbestand voor de ontwikkelomgeving, de tweede voor de testomgeving en de derde voor de productieomgeving.  
+U ziet dat de eerste opdracht Hallo maakt gebruik van parameterbestand voor Hallo-ontwikkelomgeving, tweede één voor Hallo testomgeving en derde één voor productie-omgeving Hallo Hallo.  
 
-U kunt de sjabloon ook hergebruiken om herhaalde taken uit te voeren. U moet bijvoorbeeld veel gegevensfactory's maken met een of meer pijplijnen die dezelfde logica implementeren, maar elke gegevensfactory maakt gebruik van andere Storage- en SQL Database-accounts. In dit scenario gebruikt u dezelfde sjabloon in dezelfde omgeving (voor het ontwikkelen, testen of de productie) met andere parameterbestanden om de gegevensfactory's te maken.   
+U kunt ook opnieuw gebruiken Hallo sjabloon tooperform herhaalde taken. Bijvoorbeeld, u toocreate moet veel data Factory met een of meer pijplijnen die implementeren Hallo dezelfde logica, maar elke gegevensfactory maakt gebruik van verschillende accounts voor opslag en SQL-Database. In dit scenario gebruikt u Hallo dezelfde sjabloon in Hallo bestanden dezelfde omgeving (dev-, test- of productie) met de andere parameter toocreate data Factory.   
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u voor een kopieerbewerking een Azure Blob-opslag gebruikt als brongegevensarchief en een Azure SQL-database als doelgegevensarchief. De volgende tabel bevat een lijst met gegevensarchieven die worden ondersteund als bron en doel voor de kopieeractiviteit: 
+In deze zelfstudie hebt u voor een kopieerbewerking een Azure Blob-opslag gebruikt als brongegevensarchief en een Azure SQL-database als doelgegevensarchief. Hallo bevat volgende tabel een lijst met gegevensarchieven als bronnen en bestemmingen wordt ondersteund door Hallo kopieeractiviteit: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-Klik op de koppeling voor de gegevensopslag in de tabel voor meer informatie over het kopiëren van gegevens naar/uit een gegevensarchief.
+toolearn over hoe gegevens uit een data toocopy opslaan, klikt u op Hallo-koppeling voor de gegevensopslag Hallo in Hallo tabel.

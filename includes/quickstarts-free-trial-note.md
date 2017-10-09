@@ -1,1 +1,3 @@
+Door Sipi bewerkt.
+
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.

@@ -1,6 +1,6 @@
 ---
-title: Aangepaste gebeurtenissen voor Azure Event Grid | Microsoft Docs
-description: Gebruik Azure Event Grid om een onderwerp te publiceren en u te abonneren op deze gebeurtenis.
+title: gebeurtenissen voor Azure Event raster aaaCustom | Microsoft Docs
+description: Gebruik Azure gebeurtenis raster toopublish een onderwerp en toothat gebeurtenis abonneren.
 services: event-grid
 keywords: 
 author: djrosanova
@@ -8,20 +8,20 @@ ms.author: darosa
 ms.date: 08/15/2017
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 0290836bebadb20085a3ce84dddc088c3af385da
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5055df1c970b043cadf06978a076f7f5c83501cd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-route-custom-events-with-azure-event-grid"></a>Aangepaste gebeurtenissen maken en routeren met behulp van Azure Event Grid
 
-Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel gebruikt u de Azure CLI om een aangepast onderwerp te maken, u op het onderwerp te abonneren, en de gebeurtenis te activeren om het resultaat weer te geven. Meestal stuurt u gebeurtenissen naar een eindpunt dat reageert op de gebeurtenis, zoals een webhook of Azure-functie. Ter vereenvoudiging van dit artikel stuurt u hier de gebeurtenissen echter naar een URL via welke de berichten alleen maar worden verzameld. U maakt deze URL met behulp van een open source-hulpprogramma van derden, met de naam [RequestBin](https://requestb.in/).
+Azure Event raster is een gebeurtenisservice voor Hallo cloud. In dit artikel gebruiken hello Azure CLI toocreate een eigen onderwerp, toohello onderwerp abonneren en Hallo gebeurtenis tooview Hallo resultaat activeren. Normaal gesproken verzendt u gebeurtenissen tooan eindpunt dat toohello gebeurtenis, zoals een webhook of een Azure-functie reageert. Toosimplify dit artikel, u Hallo gebeurtenissen tooa URL die alleen Hallo-berichten verzamelt verzenden. U maakt deze URL met behulp van een open source-hulpprogramma van derden, met de naam [RequestBin](https://requestb.in/).
 
 >[!NOTE]
->**RequestBin** is een open source-hulpprogramma dat niet is bedoeld voor gebruik met een hoge doorvoer. Het gebruik van het hulpprogramma hier is alleen om de mogelijkheden aan te tonen. Als u meer dan een gebeurtenis tegelijk pusht, ziet u mogelijk niet alle gebeurtenissen in het hulpprogramma.
+>**RequestBin** is een open source-hulpprogramma dat niet is bedoeld voor gebruik met een hoge doorvoer. Hallo-gebruik van Hallo hulpprogramma hier is puur demonstrative. Als u meer dan een gebeurtenis op een tijdstip pushen, ziet u mogelijk niet alle gebeurtenissen in Hallo-hulpprogramma.
 
-Wanneer u klaar bent, ziet u dat de gebeurtenisgegevens naar een eindpunt zijn verzonden.
+Wanneer u klaar bent, ziet u dat Hallo gebeurtenisgegevens tooan eindpunt is verzonden.
 
 ![Gebeurtenisgegevens](./media/custom-event-quickstart/request-result.png)
 
@@ -29,15 +29,15 @@ Wanneer u klaar bent, ziet u dat de gebeurtenisgegevens naar een eindpunt zijn v
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel de nieuwste versie van Azure CLI (2.0.14 of hoger) uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli).
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, in dit artikel is vereist dat u altijd de meest recente versie Hallo van Azure CLI (2.0.14 of hoger). toofind hello versie, voer `az --version`. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Event Grid-onderwerpen zijn Azure-resources en moeten in een Azure-resourcegroep worden geplaatst. De resourcegroep is een logische verzameling waarin Azure-resources worden geïmplementeerd en beheerd.
+Event Grid-onderwerpen zijn Azure-resources en moeten in een Azure-resourcegroep worden geplaatst. Hallo-resourcegroep is een logische verzameling in welke Azure resources worden geïmplementeerd en beheerd.
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). 
+Een resourcegroep maken met de Hallo [az groep maken](/cli/azure/group#create) opdracht. 
 
-In het volgende voorbeeld wordt een resourcegroep met de naam *gridResourceGroup* gemaakt op de locatie *westus2*.
+Hallo volgende voorbeeld maakt u een resourcegroep met de naam *gridResourceGroup* in Hallo *westus2* locatie.
 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2
@@ -45,7 +45,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>Een aangepast onderwerp maken
 
-Een onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebeurtenissen kunt posten. In het volgende voorbeeld wordt een onderwerp gemaakt in de resourcegroep. Vervang `<topic_name>` door een unieke naam voor het onderwerp. De onderwerpnaam moet uniek zijn omdat deze wordt vertegenwoordigd door een DNS-vermelding. Voor de preview-versie ondersteunt Event Grid de locaties **westus2** en **westcentralus**.
+Een onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebeurtenissen kunt posten. Hallo maakt volgende voorbeeld Hallo onderwerp in de resourcegroep. Vervang `<topic_name>` door een unieke naam voor het onderwerp. Hallo onderwerp de naam moet uniek zijn omdat deze wordt vertegenwoordigd door een DNS-vermelding. Voor de preview-versie Hallo gebeurtenis raster ondersteunt **westus2** en **westcentralus** locaties.
 
 ```azurecli-interactive
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
@@ -53,11 +53,11 @@ az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 
 ## <a name="create-a-message-endpoint"></a>Het eindpunt van een bericht maken
 
-Voordat u zich abonneert op het onderwerp, gaan we het eindpunt voor het gebeurtenisbericht maken. In plaats van code te schrijven om op de gebeurtenis te reageren, maken we een eindpunt waarop de berichten worden verzameld, zodat u ze kunt weergeven. RequestBin is een open source-hulpprogramma van derden waarmee u een eindpunt kunt maken en aanvragen kunt weergeven die naar dit eindpunt worden verzonden. Ga naar [RequestBin](https://requestb.in/) en klik op **Een RequestBin maken**.  Kopieer de URL. U hebt deze nodig wanneer u zich abonneert op het onderwerp.
+Voordat u zich abonneert toohello onderwerp, gaan we maken Hallo-eindpunt voor de gebeurtenis het Hallo-bericht. In plaats van schrijven van code toorespond toohello gebeurtenis, maken we een eindpunt dat Hallo-berichten worden verzameld zodat u ze kunt weergeven. RequestBin is een open-source hulpprogramma van derden waarmee u een eindpunt toocreate en aanvragen weergeven die tooit worden verzonden. Ga te[RequestBin](https://requestb.in/), en klik op **maken van een RequestBin**.  Kopieer de URL van Hallo-opslaglocatie, omdat u deze nodig hebt wanneer u zich abonneert toohello onderwerp.
 
-## <a name="subscribe-to-a-topic"></a>Abonneren op een onderwerp
+## <a name="subscribe-tooa-topic"></a>Abonneren tooa onderwerp
 
-U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren. In het volgende voorbeeld ziet u hoe u zich abonneert op het onderwerp dat u hebt gemaakt, en hoe de URL van RequestBin wordt doorgegeven als het eindpunt voor de gebeurtenismelding. Vervang `<event_subscription_name>` door een unieke naam voor het abonnement, en `<URL_from_RequestBin>` door de waarde uit de voorgaande sectie. Door een eindpunt op te geven wanneer u zich abonneert, wordt via Event Grid de routering van gebeurtenissen naar dit eindpunt verwerkt. Gebruik voor `<topic_name>` de waarde die u eerder hebt gemaakt. 
+U zich hebt geabonneerd tooa onderwerp tootell gebeurtenis raster welke gebeurtenissen u wilt dat tootrack. Hallo volgende voorbeeld is geabonneerd toohello onderwerp hebt gemaakt Hallo-URL van RequestBin als Hallo-eindpunt voor gebeurtenismelding doorgegeven. Vervang `<event_subscription_name>` met een unieke naam voor uw abonnement en `<URL_from_RequestBin>` Hallo waarde uit de voorgaande sectie Hallo. Als u zich abonneert, kunt u een eindpunt opgeeft, verwerkt gebeurtenis raster Hallo routering van gebeurtenissen toothat eindpunt. Voor `<topic_name>`, gebruik Hallo-waarde die u eerder hebt gemaakt. 
 
 ```azurecli-interactive
 az eventgrid topic event-subscription create --name <event_subscription_name> \
@@ -66,30 +66,30 @@ az eventgrid topic event-subscription create --name <event_subscription_name> \
   --topic-name <topic_name>
 ```
 
-## <a name="send-an-event-to-your-topic"></a>Een gebeurtenis verzenden naar het onderwerp
+## <a name="send-an-event-tooyour-topic"></a>Een gebeurtenis tooyour onderwerp verzenden
 
-Nu gaan we een gebeurtenis activeren om te zien hoe het bericht via Event Grid naar het eindpunt wordt gedistribueerd. Eerst gaan we de URL en de sleutel voor het onderwerp ophalen. Gebruik opnieuw de onderwerpnaam voor `<topic_name>`.
+Nu gaan we een gebeurtenis toosee activeren hoe gebeurtenis raster Hallo-bericht tooyour eindpunt distribueert. Eerst laten we Hallo-URL ophalen en de sleutel voor Hallo onderwerp. Gebruik opnieuw de onderwerpnaam voor `<topic_name>`.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-Ter vereenvoudiging van dit artikel hebben we voorbeeldgegevens voor de gebeurtenis ingesteld om naar het onderwerp te verzenden. Meestal worden de gebeurtenisgegevens verzonden via een toepassing of Azure-service. In de volgende gegevens worden de gebeurtenisgegevens opgehaald:
+toosimplify in dit artikel we een voorbeeld gebeurtenis gegevens toosend toohello onderwerp hebt ingesteld. Een toepassing of service van Azure wilt verzenden doorgaans Hallo gebeurtenisgegevens. Hallo volgt opgehaald Hallo gebeurtenisgegevens:
 
 ```azurecli-interactive
 body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
 ```
 
-Als u `echo "$body"` kunt u de volledige gebeurtenis zien. Het element `data` van de JSON is de nettolading van de gebeurtenis. Elke juist opgemaakte JSON kan in dit veld worden ingevoerd. U kunt het onderwerpveld ook gebruiken voor geavanceerd routeren en filteren.
+Als u `echo "$body"` ziet u de volledige gebeurtenis Hallo. Hallo `data` Hallo JSON-element is Hallo nettolading van de gebeurtenis. Elke juist opgemaakte JSON kan in dit veld worden ingevoerd. U kunt ook het veld onderwerp hello gebruiken voor geavanceerde routering en filteren.
 
-CURL is een hulpprogramma waarmee HTTP-aanvragen worden uitgevoerd. In dit artikel gebruiken we CURL om de gebeurtenis naar het onderwerp te verzenden. 
+CURL is een hulpprogramma waarmee HTTP-aanvragen worden uitgevoerd. In dit artikel gebruiken we CURL toosend Hallo gebeurtenis tooour onderwerp. 
 
 ```azurecli-interactive
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-U hebt de gebeurtenis geactiveerd, en de gebeurtenis is via Event Grid verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Blader naar de RequestBin-URL die u eerder hebt gemaakt. Of klik in het geopende RequestBin-browservenster op Vernieuwen. U ziet de gebeurtenis die u zojuist hebt verzonden. 
+U hebt Hallo-gebeurtenis geactiveerd en gebeurtenis raster Hallo-bericht toohello eindpunt die u geconfigureerd wanneer u zich abonneert verzonden. Blader toohello RequestBin-URL die u eerder hebt gemaakt. Of klik in het geopende RequestBin-browservenster op Vernieuwen. U ziet Hallo-gebeurtenis die u zojuist hebt verzonden. 
 
 ```json
 [{
@@ -106,7 +106,7 @@ U hebt de gebeurtenis geactiveerd, en de gebeurtenis is via Event Grid verzonden
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Als u verder wilt werken met deze gebeurtenis, schoont u de resources die u hebt gemaakt in dit artikel, niet op. Als u niet verder wilt werken, gebruikt u de volgende opdracht om de resources te verwijderen die u in dit artikel hebt gemaakt.
+Als u van plan toocontinue werken met deze gebeurtenis bent, gaat u als Hallo-resources die zijn gemaakt in dit artikel niet opruimen. Als u niet van plan toocontinue bent, gebruikt u Hallo opdracht toodelete Hallo-resources die u hebt gemaakt in dit artikel te volgen.
 
 ```azurecli-interactive
 az group delete --name gridResourceGroup
@@ -114,7 +114,7 @@ az group delete --name gridResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U weet nu hoe u onderwerpen maakt en hoe u zich abonneert op een gebeurtenis. Kijk waar Event Grid u nog meer bij kan helpen:
+Als u weet hoe toocreate onderwerpen en abonnementen, meer informatie over welke gebeurtenis raster kunt u doen:
 
 - [Over Event Grid](overview.md)
 - [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) (Wijzigingen in virtuele machines bewaken met Azure Event Grid en Logic Apps)

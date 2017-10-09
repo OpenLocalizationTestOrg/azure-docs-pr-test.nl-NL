@@ -1,6 +1,6 @@
 ---
-title: De Java-SDK gebruiken om toepassingen te ontwikkelen in Azure Data Lake Store | Microsoft Docs
-description: De Java-SDK van Azure Data Lake Store gebruiken om een Data Lake Store-account te maken en basisbewerkingen in Data Lake Store uit te voeren
+title: aaaUse hello Java SDK toodevelop toepassingen in Azure Data Lake Store | Microsoft Docs
+description: Gebruik van Azure Data Lake Store Java SDK toocreate een Data Lake Store-account en uitvoeren van basisbewerkingen in Data Lake Store Hallo
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 91128b53a2f1cd3ddcbee5b07da0d67668944fb4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d3bcee449c2a2a4bd2f7b241af46ecc010b6b62e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-data-lake-store-using-java"></a>Aan de slag met Azure Data Lake Store met Java
 > [!div class="op_single_selector"]
@@ -33,32 +33,32 @@ ms.lasthandoff: 07/11/2017
 >
 > 
 
-Lees hoe u met de Azure Data Lake Store Java SDK basisbewerkingen uitvoert, zoals het maken van mappen, het uploaden en downloaden van gegevensbestanden enzovoort. Zie [Azure Data Lake Store](data-lake-store-overview.md) voor meer informatie over Data Lake.
+Meer informatie over hoe toouse hello Azure Data Lake Store Java SDK tooperform basisbewerkingen, zoals maken van mappen, uploaden en downloaden van gegevensbestanden, enzovoort. Zie [Azure Data Lake Store](data-lake-store-overview.md) voor meer informatie over Data Lake.
 
-U kunt de Java SDK API-documenten voor Azure Data Lake Store openen via [Azure Data Lake Store Java API-documenten](https://azure.github.io/azure-data-lake-store-java/javadoc/).
+U hebt toegang tot Hallo Java SDK API documenten voor Azure Data Lake Store op [API van Azure Data Lake Store Java docs](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
 ## <a name="prerequisites"></a>Vereisten
 * Java Development Kit (JDK 7 of hoger met Java versie 1.7 of hoger)
-* Azure Data Lake Store-account. Volg de instructies in [Aan de slag met Azure Data Lake Store met Azure Portal](data-lake-store-get-started-portal.md).
-* [Maven](https://maven.apache.org/install.html). In deze zelfstudie wordt Maven gebruikt voor build- en projectafhankelijkheden. Hoewel het mogelijk is te ontwikkelen zonder een buildsysteem als Maven of Gradle, maken deze systemen het veel eenvoudiger om afhankelijkheden te beheren.
+* Azure Data Lake Store-account. Volg de instructies Hallo voor [aan de slag met Azure Data Lake Store met Azure Portal Hallo](data-lake-store-get-started-portal.md).
+* [Maven](https://maven.apache.org/install.html). In deze zelfstudie wordt Maven gebruikt voor build- en projectafhankelijkheden. Hoewel het mogelijk toobuild zonder een build-systeem, zoals Maven of Gradle, is het maken van deze systemen veel gemakkelijker toomanage afhankelijkheden.
 * (Optioneel) Een IDE zoals [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), [Eclipse](https://www.eclipse.org/downloads/) of vergelijkbaar.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Hoe verifieer ik met Azure Active Directory?
-In deze zelfstudie wordt een clientgeheim in de Azure AD-toepassing gebruikt om een Azure Active Directory-token (service-naar-serviceverificatie) op te halen. Dit token wordt gebruikt om een Data Lake Store-clientobject te maken voor het uitvoeren van bestand- en mapbewerkingen. Voer de volgende high-level stappen uit om de verificatie uit te voeren met het clientgeheim in Azure Data Lake Store:
+In deze zelfstudie gebruiken we een Azure AD-toepassing client geheime tooretrieve een Azure Active Directory-token (service-naar-service-verificatie). We gebruiken deze token toocreate een Data Lake Store client object tooperform operations-bestand en de directory-bewerkingen. Voor instructies over hoe tooauthenticate met het gebruik van Azure Data Lake Store clientgeheim Hallo, uitvoeren we Hallo volgende stappen op hoog niveau:
 
 1. Een Azure AD-webtoepassing maken
-2. Haal de client-id, het client-geheim en het tokeneindpunt voor de Azure AD-webtoepassing op.
-3. Configureer de toegang tot de Azure AD-webtoepassing in het/de Data Lake Store-bestand/-map dat/die u wilt openen vanuit de Java-toepassing die u maakt.
+2. Hallo client-ID en clientgeheim token eindpunt voor hello Azure AD-webtoepassing worden opgehaald.
+3. Configureer de toegang voor hello Azure AD-webtoepassing op Hallo Data Lake Store-bestand/map die u wilt tooaccess van Hallo Java-toepassing die u maakt.
 
-Zie [Een Active Directory-toepassing maken](data-lake-store-authenticate-using-active-directory.md) voor instructies om deze stappen uit te voeren.
+Voor instructies over hoe tooperform deze stappen zien [maken van een Active Directory-toepassing](data-lake-store-authenticate-using-active-directory.md).
 
-Azure Active Directory biedt andere opties naast het ophalen van een token. U kunt uit verschillende verificatiemechanismen kiezen aan de hand van uw scenario, bijvoorbeeld een toepassing die wordt uitgevoerd in een browser, een toepassing die wordt gedistribueerd als een bureaubladtoepassing of een servertoepassing die on-premises of in een virtuele Azure-machine wordt uitgevoerd. U kunt ook uit verschillende soorten referenties kiezen, zoals wachtwoorden, certificaten, tweeledige authenticatie enzovoort. Daarnaast stelt Azure Active Directory u in staat uw on-premises Active Directory-gebruikers te synchroniseren met de cloud. Zie [Verificatiescenario's voor Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) voor meer informatie. 
+Azure Active Directory biedt dat andere opties ook tooretrieve een token. U kunt kiezen uit een aantal verschillende mechanismen toosuit uw scenario, bijvoorbeeld een toepassing die wordt uitgevoerd in een browser, een toepassing die wordt gedistribueerd als een bureaubladtoepassing of een servertoepassing lokale uitgevoerd of in een virtuele Azure machine. U kunt ook uit verschillende soorten referenties kiezen, zoals wachtwoorden, certificaten, tweeledige authenticatie enzovoort. Bovendien Azure Active Directory kunt u toosynchronize uw on-premises Active Directory-gebruikers met Hallo cloud. Zie [Verificatiescenario's voor Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) voor meer informatie. 
 
 ## <a name="create-a-java-application"></a>Een Java-toepassing maken
-Dit codevoorbeeld beschikbaar [in GitHub](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/) doorloopt het proces waarin bestanden in het archief worden gemaakt, bestanden worden samengevoegd, een bestand wordt gedownload en een aantal bestanden uit het archief wordt verwijderd. In dit gedeelte van het artikel komen de belangrijkste onderdelen van de code aan bod.
+Voorbeeld van code Hallo beschikbaar [op GitHub](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/) begeleidt u bij Hallo proces van het maken van bestanden in archief hello, bestanden worden samengevoegd, downloaden van een bestand en verwijder enkele bestanden in archief Hallo. Deze sectie van Hallo artikel leest u Hallo hoofdonderdelen Hallo-code.
 
-1. Maak een Maven-project met behulp van [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) vanuit de opdrachtregel of met behulp van een IDE. [Hier](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html) vindt u instructies over het maken van een Java-project met behulp van IntelliJ. [Hier](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm) vindt u instructies over het maken van een Java-project met behulp van Eclipse. 
-2. Voeg de volgende afhankelijkheden toe aan het **pom.xml**-bestand in Maven. Voeg het volgende tekstfragment toe tussen de tag **\</version>** en de tag **\</project>**:
+1. Maak een Maven-project met [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) Hallo uit vanaf de opdrachtregel of met behulp van een IDE. Zie voor instructies over hoe toocreate een Java-project met behulp van IntelliJ, [hier](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Voor instructies over het toocreate een project met behulp van Eclipse Zie [hier](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm). 
+2. Hallo afhankelijkheden tooyour Maven na toevoegen **pom.xml** bestand. Hallo tekstfragment na tussen Hallo toevoegen  **\</version >** tag en Hallo  **\</project >** tag:
    
         <dependencies>
           <dependency>
@@ -73,21 +73,21 @@ Dit codevoorbeeld beschikbaar [in GitHub](https://azure.microsoft.com/documentat
           </dependency>
         </dependencies>
    
-    De eerste afhankelijkheid is om Data Lake Store SDK (`azure-data-lake-store-sdk`) vanuit de Maven-opslag te gebruiken. De tweede afhankelijkheid (`slf4j-nop`) is om aan te geven welk framework voor logboekregistratie moet worden gebruikt voor deze toepassing. De Data Lake Store SDK gebruikt een [slf4j](http://www.slf4j.org/)-façade voor logboekregistratie, waarmee u uit een aantal populaire frameworks voor logboekregistratie, zoals log4j, Java logging, logback enzovoort, of voor geen logboekregistratie kunt kiezen. In dit voorbeeld wordt logboekregistratie uitgeschakeld. Daarom wordt de **slf4j-nop**-binding gebruikt. [Hier](http://www.slf4j.org/manual.html#projectDep) vindt u andere opties voor logboekregistratie voor uw toepassing.
+    Hallo eerste afhankelijkheid is toouse Hallo Data Lake Store SDK (`azure-data-lake-store-sdk`) vanuit de opslagplaats met maven Hallo. tweede afhankelijkheid Hallo (`slf4j-nop`) toospecify welke toouse logboekregistratie framework voor deze toepassing is. Hallo Data Lake Store SDK maakt gebruik van [slf4j](http://www.slf4j.org/) logboekregistratie façade, waarin u kiezen uit een aantal logboekregistratie populaire frameworks, zoals log4j kunt, aan te melden, logback, enz., Java of geen logboekregistratie. Logboekregistratie uitgeschakeld voor dit voorbeeld, daarom gebruiken we Hallo **slf4j nop** binding. toouse andere opties voor logboekregistratie in uw app Zie [hier](http://www.slf4j.org/manual.html#projectDep).
 
-### <a name="add-the-application-code"></a>De toepassingscode toevoegen
-Er zijn drie belangrijke onderdelen voor het toevoegen van de code.
+### <a name="add-hello-application-code"></a>Hallo-toepassingscode toevoegen
+Er zijn drie belangrijkste onderdelen toohello code.
 
-1. De Azure Active Directory-token verkrijgen
-2. Het token gebruiken om een Data Lake Store-client te maken.
-3. De Data Lake Store-client gebruiken om bewerkingen uit te voeren.
+1. Hello Azure Active Directory-token verkrijgen
+2. Hallo token toocreate een Data Lake Store-client gebruiken.
+3. Hallo Data Lake Store-clientbewerkingen tooperform gebruiken.
 
 #### <a name="step-1-obtain-an-azure-active-directory-token"></a>Stap 1: het Azure Active Directory-token verkrijgen.
-De Data Lake Store SDK biedt handige methoden om de beveiligingstokens te beheren die nodig zijn om te communiceren met het Data Lake Store-account. Dit zijn echter niet de enige methoden die met SDK kunnen worden gebruikt. U kunt elke andere methode voor het verkrijgen van een token gebruiken. Zo kunt u de [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java) gebruiken, of uw persoonlijke code.
+Hallo Data Lake Store SDK biedt handige methoden die u kunnen beheren, Hallo beveiligingstokens tootalk toohello Data Lake Store-account nodig. Hallo SDK schrijft echter niet dat deze twee methoden worden gebruikt. U kunt een andere manier voor het verkrijgen van token, zoals het gebruik van Hallo [Azure Active Directory-SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java), of uw eigen aangepaste code.
 
-Als u de Data Lake Store SDK wilt gebruiken om het token te verkrijgen voor de Active Directory-webtoepassing die u eerder hebt gemaakt, gebruikt u een van de subklassen `AccessTokenProvider` (in het onderstaande voorbeeld wordt `ClientCredsTokenProvider` gebruikt). De tokenprovider slaat de referenties die worden gebruikt voor het ophalen van het token, op in de cache en vernieuwt het token automatisch als het bijna is verlopen. Het is mogelijk om uw eigen subklassen te maken van `AccessTokenProvider`, zodat tokens worden opgehaald door de code van de klant. In dit voorbeeld gebruiken we voor het gemak het token dat is opgegeven in de SDK.
+toouse hello Data Lake Store SDK tooobtain token voor Hallo Active Directory-webtoepassing u eerder hebt gemaakt, gebruikt u een van de Hallo subklassen van `AccessTokenProvider` (Hallo voorbeeld hieronder wordt `ClientCredsTokenProvider`). Hallo tokenprovider caches Hallo referenties tooobtain Hallo token in het geheugen gebruikt en wordt automatisch verlengd Hallo token als over tooexpire. Het is mogelijk toocreate uw eigen subklassen van `AccessTokenProvider` zodat tokens worden verkregen door de code van uw klant, maar nu gaan we zojuist gebruik Hallo één in Hallo SDK opgegeven.
 
-Vervang **FILL-IN-HERE** met de daadwerkelijke waarden voor de Azure Active Directory-webtoepassing.
+Vervang **invullen-hier** met de werkelijke waarden Hallo voor hello Azure Active Directory-webtoepassing.
 
     private static String clientId = "FILL-IN-HERE";
     private static String authTokenEndpoint = "FILL-IN-HERE";
@@ -96,15 +96,15 @@ Vervang **FILL-IN-HERE** met de daadwerkelijke waarden voor de Azure Active Dire
     AccessTokenProvider provider = new ClientCredsTokenProvider(authTokenEndpoint, clientId, clientKey);
 
 #### <a name="step-2-create-an-azure-data-lake-store-client-adlstoreclient-object"></a>Stap 2: een Azure Data Lake Store-clientobject (ADLStoreClient-object) verkrijgen
-Voor het maken van een [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/)-object moet u de Data Lake Store-accountnaam en de tokenprovider opgeven die u in de vorige stap hebt gemaakt. De Data Lake Store-accountnaam moet een volledig gekwalificeerde domeinnaam zijn. Vervang bijvoorbeeld **FILL-IN-HERE** met iets als **mydatalakestore.azuredatalakestore.net**.
+Maken van een [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) object, moet u toospecify Hallo Data Lake Store-account naam en het Hallo tokenprovider u in de laatste stap Hallo gegenereerd. Houd er rekening mee dat Hallo naam moet toobe een volledig gekwalificeerde domeinnaam van Data Lake Store-account. Vervang bijvoorbeeld **FILL-IN-HERE** met iets als **mydatalakestore.azuredatalakestore.net**.
 
-    private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
+    private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just hello account name
     ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
 
-### <a name="step-3-use-the-adlstoreclient-to-perform-file-and-directory-operations"></a>Stap 3: de ADLStoreClient gebruiken om bestand- en mapbewerkingen uit te voeren
-De code hieronder bevat voorbeelden van tekstfragmenten van een aantal veelvoorkomende bewerkingen. Bekijk de volledige [Data Lake Store Java SDK API-documenten](https://azure.github.io/azure-data-lake-store-java/javadoc/) van het **ADLStoreClient**-object om andere bewerkingen te bekijken.
+### <a name="step-3-use-hello-adlstoreclient-tooperform-file-and-directory-operations"></a>Stap 3: Hallo ADLStoreClient tooperform bestands- en bewerkingen gebruiken
+Hallo-code hieronder bevat enkele veelvoorkomende bewerkingen voorbeeld codefragmenten. U kunt zoeken op volledige Hallo [Data Lake Store Java SDK API docs](https://azure.github.io/azure-data-lake-store-java/javadoc/) Hallo **ADLStoreClient** object toosee andere bewerkingen.
 
-Bestanden worden gelezen en geschreven met behulp van standaard Java-streams. Dit betekent dat u een willekeurige Java-stream gelaagd bovenop de Data Lake Store-streams kunt plaatsen om van standaard Java-functionaliteit te profiteren (bijv. printstreams voor uitvoer met opmaak, of een van de compressie- of versleutelingsstreams voor extra functionaliteit enzovoort).
+Bestanden worden gelezen en geschreven met behulp van standaard Java-streams. Dit betekent dat u kunt van Hallo de streams Java boven op Hallo die Data Lake Store streams toobenefit van standaard Java-functionaliteit (bijv, afdrukken stromen voor opgemaakte uitvoer, of een van de Hallo compressie of codering stromen voor aanvullende functionaliteit op de laag boven, enz.).
 
      // create file and write some content
      String filename = "/a/b/c.txt";
@@ -112,14 +112,14 @@ Bestanden worden gelezen en geschreven met behulp van standaard Java-streams. Di
      PrintStream out = new PrintStream(stream);
      for (int i = 1; i <= 10; i++) {
          out.println("This is line #" + i);
-         out.format("This is the same line (%d), but using formatted output. %n", i);
+         out.format("This is hello same line (%d), but using formatted output. %n", i);
      }
      out.close();
     
     // set file permission
     client.setPermission(filename, "744");
 
-    // append to file
+    // append toofile
     stream = client.getAppendStream(filename);
     stream.write(getSampleContent());
     stream.close();
@@ -132,11 +132,11 @@ Bestanden worden gelezen en geschreven met behulp van standaard Java-streams. Di
     }
     in.close();
 
-    // concatenate the two files into one
+    // concatenate hello two files into one
     List<String> fileList = Arrays.asList("/a/b/c.txt", "/a/b/d.txt");
     client.concatenateFiles("/a/b/f.txt", fileList);
 
-    //rename the file
+    //rename hello file
     client.rename("/a/b/f.txt", "/a/b/g.txt");
 
     // list directory contents
@@ -146,15 +146,15 @@ Bestanden worden gelezen en geschreven met behulp van standaard Java-streams. Di
         printDirectoryInfo(entry);
     }
 
-    // delete directory along with all the subdirectories and files in it
+    // delete directory along with all hello subdirectories and files in it
     client.deleteRecursive("/a");
 
-#### <a name="step-4-build-and-run-the-application"></a>Stap 4: de toepassing bouwen en uitvoeren
-1. Klik op de knop **Uitvoeren** om de toepassing vanuit een IDE uit te voeren. Gebruik [exec:exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html) om deze vanuit Maven uit te voeren.
-2. Als u een afzonderlijke jar wilt maken die u vanuit de opdrachtregel kunt uitvoeren, bouwt u de jar met alle afhankelijkheden geïntegreerd met behulp van de [Maven assembly-invoegtoepassing](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). De pom.xml in de [voorbeeldbroncode van GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) bevat een voorbeeld van hoe u dat doet.
+#### <a name="step-4-build-and-run-hello-application"></a>Stap 4: Toepassing bouwen en uitvoeren Hallo
+1. toorun van binnen een IDE vinden en druk op Hallo **uitvoeren** knop. toorun van Maven, gebruik [exec: exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
+2. een zelfstandige jar die u vanaf de opdrachtregel build Hallo jar met alle afhankelijkheden die zijn opgenomen uitvoeren kunt, met behulp van Hallo tooproduce [Maven assembly invoegtoepassing](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). pom.xml in Hallo Hallo [broncode voorbeeld op github](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) is een voorbeeld van hoe toodo dit.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [JavaDoc verkennen voor de Java-SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+* [Ontdek de JavaDoc voor Hallo Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
 * [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics gebruiken met Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight gebruiken met Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

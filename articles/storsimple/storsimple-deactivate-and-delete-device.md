@@ -1,6 +1,6 @@
 ---
-title: Deactiveren en verwijderen van een StorSimple-apparaat | Microsoft Docs
-description: Beschrijving van het StorSimple-apparaat verwijderen uit de service met deze eerst te deactiveren en vervolgens te verwijderen.
+title: aaaDeactivate en verwijderen van een StorSimple-apparaat | Microsoft Docs
+description: Hierin wordt beschreven hoe tooremove StorSimple-apparaat uit de service door het eerst deactiveren en vervolgens te verwijderen.
 services: storsimple
 documentationcenter: 
 author: SharS
@@ -15,83 +15,83 @@ ms.workload: na
 ms.date: 05/17/2017
 ms.author: anbacker
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c000a642aa088ac80cc7077453b87e9a47f96900
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ed86bcd089aa957128e14b1709c836d938c131a4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-8000-series-device-via-storsimple-manager-service"></a>Deactiveren en verwijderen van een StorSimple 8000 series apparaat via de StorSimple Manager-service
 ## <a name="overview"></a>Overzicht
-U kunt desgewenst een StorSimple-apparaat buiten dienst duren (bijvoorbeeld, als u uw apparaat upgraden of vervangen of als u niet langer StorSimple gebruikt). Als dit het geval is, moet u het apparaat deactiveren voordat u het kunt verwijderen. Deactiveren verbreekt de verbinding tussen het apparaat en de bijbehorende StorSimple Manager-service. Deze zelfstudie wordt uitgelegd hoe u een StorSimple-apparaat verwijdert uit de service door het eerste te deactiveren en vervolgens te verwijderen. 
+U kunt de tootake een StorSimple-apparaat buiten dienst (bijvoorbeeld, als u uw apparaat upgraden of vervangen of als u niet langer StorSimple gebruikt). Als dit Hallo geval is, moet u toodeactivate Hallo apparaat voordat u het kunt verwijderen. Deactiveren Hallo verbinding tussen Hallo apparaat en de bijbehorende StorSimple Manager-service Hallo-servers. Deze zelfstudie wordt uitgelegd hoe tooremove een StorSimple-apparaat uit de service door het eerst deactiveren en vervolgens te verwijderen. 
 
-Wanneer u een apparaat deactiveert, is geen gegevens die lokaal zijn opgeslagen op het apparaat niet langer toegankelijk. Alleen de gegevens die zijn gekoppeld aan het apparaat dat is opgeslagen in de cloud kunnen worden hersteld.  
+Wanneer u een apparaat deactiveert, is geen gegevens die lokaal zijn opgeslagen op Hallo apparaat niet langer toegankelijk. Alleen Hallo gegevens die zijn gekoppeld aan het Hallo-apparaat dat is opgeslagen in de cloud Hallo kunnen worden hersteld.  
 
 > [!WARNING]
-> Deactivering is een permanente bewerking en kan niet ongedaan worden gemaakt. Een gedeactiveerde apparaat kan niet worden geregistreerd met de StorSimple Manager-service, tenzij u deze eerst naar de standaardinstellingen van de factory opnieuw ingesteld. 
+> Deactivering is een permanente bewerking en kan niet ongedaan worden gemaakt. Een gedeactiveerde apparaat kan niet worden geregistreerd met Hallo StorSimple Manager-service, tenzij het wordt eerst standaardwaarden toohello factory. 
 > 
-> De fabrieksinstellingen van proces verwijdert alle gegevens die lokaal zijn opgeslagen op uw apparaat. Daarom is het essentieel dat u een momentopname cloud van al uw gegevens voordat u een apparaat deactiveren. Hierdoor kunt u alle gegevens in een later stadium te herstellen.
+> Hallo terugzetten op fabrieksinstellingen proces verwijdert alle Hallo-gegevens die lokaal zijn opgeslagen op uw apparaat. Daarom is het essentieel dat u een momentopname cloud van al uw gegevens voordat u een apparaat deactiveren. Hierdoor kunt u toorecover alle gegevens in een later stadium Hallo.
 > 
 > 
 
 Deze zelfstudie wordt uitgelegd hoe:
 
-* Een apparaat deactiveren en verwijderen van de gegevens
-* Een apparaat deactiveren en de gegevens behouden
+* Een apparaat deactiveren en Hallo gegevens verwijderen
+* Een apparaat deactiveren en Hallo gegevens bewaren
 
 Ook wordt uitgelegd hoe deactiveren en verwijderen op een virtueel StorSimple-apparaat werkt.
 
 > [!NOTE]
-> Voordat u een virtueel StorSimple fysiek of virtueel apparaat deactiveert, moet u stoppen of verwijderen van clients en hosts die afhankelijk van dat apparaat zijn.
+> Voordat u een virtueel StorSimple fysiek of virtueel apparaat deactiveert, zorg ervoor dat toostop of clients en hosts die afhankelijk van dat apparaat zijn verwijderen.
 > 
 > 
 
 ## <a name="deactivate-and-delete-data"></a>Deactiveren en verwijderen van gegevens
-Als u geïnteresseerd bent in het apparaat volledig verwijderen en niet wilt bewaren van gegevens op het apparaat, klikt u vervolgens de volgende stappen uitvoeren.
+Als u geïnteresseerd bent in het Hallo-apparaat volledig verwijderen en niet dat tooretain Hallo gegevens op Hallo-apparaat wilt, voltooit u Hallo stappen te volgen.
 
-#### <a name="to-deactivate-the-device-and-delete-the-data"></a>Het apparaat deactiveren en verwijderen van de gegevens
-1. Voordat u een apparaat deactiveert, moet u het volume containers (en de volumes) die zijn gekoppeld aan het apparaat. Nadat u de gekoppelde back-ups hebt verwijderd, kunt u volumecontainers verwijderen.
-2. Als volgt te werk om het apparaat te deactiveren:
+#### <a name="toodeactivate-hello-device-and-delete-hello-data"></a>gegevens uit de toodeactivate Hallo apparaat- en delete-Hallo
+1. Eerdere toodeactivating een apparaat, moet u alle Hallo volume containers (en Hallo volumes) die zijn gekoppeld aan het Hallo-apparaat verwijderen. Pas nadat u de back-ups Hallo gekoppeld hebt verwijderd, kunt u volumecontainers verwijderen.
+2. Deactiveren Hallo-apparaat als volgt:
    
-   1. Op de StorSimple Manager-service **apparaten** pagina, selecteert u het apparaat dat u wilt uitschakelen en klik op aan de onderkant van de pagina **deactiveren**.
-   2. Er wordt een bevestigingsbericht weergegeven. Klik op **Ja** om door te gaan. Het proces deactiveren start en een paar minuten duren.
-3. Na de deactivering, kunt u het apparaat volledig verwijderen. Als u een apparaat verwijdert, wordt deze verwijderd uit de lijst met apparaten die zijn verbonden met de service. De service kan niet langer dan de verwijderde apparaatinschrijvingsbeheerder beheren. Gebruik de volgende stappen uit om te verwijderen van het apparaat:
+   1. Op Hallo StorSimple Manager-service **apparaten** pagina, selecteer Hallo apparaat die u wenst dat toodeactivate en aan de onderkant van de Hallo van Hallo pagina, klikt u op **deactiveren**.
+   2. Er wordt een bevestigingsbericht weergegeven. Klik op **Ja** toocontinue. Hallo Deactiveer proces wordt gestart en toocomplete met een paar minuten duren.
+3. Na de deactivering, kunt u Hallo apparaat volledig verwijderen. Als u een apparaat verwijdert, wordt deze verwijderd uit Hallo lijst met apparaten verbonden toohello service. Hallo-service kunt niet meer dan Hallo verwijderd apparaat beheren. Gebruik Hallo stappen toodelete Hallo apparaat te volgen:
    
-   1. Op de StorSimple Manager-service **apparaten** pagina, selecteert u een gedeactiveerde apparaat dat u wilt verwijderen.
-   2. Klik onderaan op de pagina **verwijderen**.
-   3. U wordt gevraagd om bevestiging. Klik op **Ja** om door te gaan.
+   1. Op Hallo StorSimple Manager-service **apparaten** pagina, selecteert u een gedeactiveerde apparaat dat u wenst dat toodelete.
+   2. Klik op Hallo onderkant op Hallo pagina **verwijderen**.
+   3. U wordt gevraagd om bevestiging. Klik op **Ja** toocontinue.
       
-      Duurt enkele minuten duren voordat het apparaat moet worden verwijderd.
+      Het kan enkele minuten duren voordat Hallo apparaat toobe verwijderd.
 
 ## <a name="deactivate-and-retain-data"></a>Deactiveren en behoud van gegevens
-Als u bent geïnteresseerd in het verwijderen van het apparaat, maar u wilt dat de gegevens wilt behouden, klikt u vervolgens de volgende stappen uitvoeren.
+Als u bent geïnteresseerd Hallo-apparaat wordt verwijderd, maar tooretain Hallo gegevens wilt, voltooit u Hallo stappen te volgen.
 
-#### <a name="to-deactivate-a-device-and-retain-the-data"></a>Een apparaat deactiveren en de gegevens behouden
-1. Het apparaat deactiveren. De volumecontainers en de momentopnamen van het apparaat blijven.
+#### <a name="toodeactivate-a-device-and-retain-hello-data"></a>een apparaat toodeactivate en Hallo gegevens bewaren
+1. Hallo-apparaat deactiveren. Alle volumecontainers Hallo en Hallo momentopnamen van Hallo apparaat blijven.
    
-   1. Op de StorSimple Manager-service **apparaten** pagina, selecteert u het apparaat dat u wilt uitschakelen en klik op aan de onderkant van de pagina **deactiveren**.
-   2. Er wordt een bevestigingsbericht weergegeven. Klik op **Ja** om door te gaan. Het proces deactiveren start en een paar minuten duren.
-2. U kunt nu de volumecontainers en de bijbehorende momentopnamen failover. Voor procedures gaat u naar [Failover en herstel na noodgevallen voor uw StorSimple-apparaat](storsimple-device-failover-disaster-recovery.md).
-3. Na deactiveren en failover, kunt u het apparaat volledig verwijderen. Als u een apparaat verwijdert, wordt deze verwijderd uit de lijst met apparaten die zijn verbonden met de service. De service kan niet langer dan de verwijderde apparaatinschrijvingsbeheerder beheren. De volgende stappen voor het verwijderen van het apparaat:
+   1. Op Hallo StorSimple Manager-service **apparaten** pagina, selecteer Hallo apparaat die u wenst dat toodeactivate en aan de onderkant van de Hallo van Hallo pagina, klikt u op **deactiveren**.
+   2. Er wordt een bevestigingsbericht weergegeven. Klik op **Ja** toocontinue. Hallo Deactiveer proces wordt gestart en toocomplete met een paar minuten duren.
+2. U kunt nu een failover Hallo volumecontainers en momentopnamen van Hallo die zijn gekoppeld. Voor procedures gaat te[Failover en herstel na noodgevallen voor uw StorSimple-apparaat](storsimple-device-failover-disaster-recovery.md).
+3. U kunt Hallo apparaat volledig verwijderen na deactiveren en failover. Als u een apparaat verwijdert, wordt deze verwijderd uit Hallo lijst met apparaten verbonden toohello service. Hallo-service kunt niet meer dan Hallo verwijderd apparaat beheren. Voer Hallo stappen toodelete Hallo apparaat volgen:
    
-   1. Op de StorSimple Manager-service **apparaten** pagina, selecteert u een gedeactiveerde apparaat dat u wilt verwijderen.
-   2. Klik onderaan op de pagina **verwijderen**.
-   3. U wordt gevraagd om bevestiging. Klik op **Ja** om door te gaan.
+   1. Op Hallo StorSimple Manager-service **apparaten** pagina, selecteert u een gedeactiveerde apparaat dat u wenst dat toodelete.
+   2. Klik op Hallo onderkant op Hallo pagina **verwijderen**.
+   3. U wordt gevraagd om bevestiging. Klik op **Ja** toocontinue.
       
-      Duurt enkele minuten duren voordat het apparaat moet worden verwijderd.
+      Het kan enkele minuten duren voordat Hallo apparaat toobe verwijderd.
 
 ## <a name="deactivate-and-delete-a-virtual-device"></a>Deactiveren en verwijderen van een virtueel apparaat
-Voor een virtueel StorSimple-apparaat deallocates deactivering van de virtuele machine. Vervolgens kunt u de virtuele machine en de resources die zijn gemaakt tijdens het inrichten verwijderen. Wanneer het virtuele apparaat wordt gedeactiveerd, kan het niet meer worden hersteld naar de oorspronkelijke staat. 
+Voor een virtueel StorSimple-apparaat deallocates deactivering Hallo virtuele machine. U kunt vervolgens verwijderen Hallo virtuele machine en Hallo-resources die zijn gemaakt tijdens het inrichten. Nadat het virtuele apparaat Hallo is gedeactiveerd, kan niet worden hersteld tooits eerdere status. 
 
-Deactivering van resultaten in de volgende acties:
+Deactivering van resultaten in Hallo van de volgende activiteiten:
 
-* Het virtuele StorSimple-apparaat wordt verwijderd.
-* De OSDisk en gegevensschijven die zijn gemaakt voor het virtuele StorSimple-apparaat worden verwijderd.
-* De gehoste Service en virtuele netwerken die zijn gemaakt tijdens het inrichten, blijven behouden. Als u deze entiteiten niet gebruikt, moet u deze handmatig verwijderen.
-* Cloudmomentopnamen die zijn gemaakt door het virtuele StorSimple-apparaat worden bewaard.
+* Hallo virtuele StorSimple-apparaat wordt verwijderd.
+* Hallo OSDisk en gegevensschijven die zijn gemaakt voor Hallo virtuele StorSimple-apparaat worden verwijderd.
+* Hallo worden gehoste Service en virtuele netwerken die zijn gemaakt tijdens het inrichten bewaard. Als u deze entiteiten niet gebruikt, moet u deze handmatig verwijderen.
+* Cloudmomentopnamen die zijn gemaakt door virtuele StorSimple-apparaat Hallo worden bewaard.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Als u wilt herstellen het gedeactiveerde apparaat naar de standaardwaarden, gaat u naar [opnieuw instellen van het apparaat fabrieksinstellingen](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+* toorestore Hallo gedeactiveerde apparaat toofactory standaardwaarden, gaat u te[Hallo apparaat toofactory standaardinstellingen herstellen](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 * Voor technische ondersteuning [contact op met Microsoft Support](storsimple-contact-microsoft-support.md).
-* Voor meer informatie over het gebruik van de StorSimple Manager-service, gaat u naar [de StorSimple Manager-service gebruiken voor het beheren van uw StorSimple-apparaat](storsimple-manager-service-administration.md). 
+* toolearn informatie over hoe toouse hello StorSimple Manager-service, gaan te[gebruik Hallo StorSimple Manager service tooadminister uw StorSimple-apparaat](storsimple-manager-service-administration.md). 
 

@@ -1,5 +1,5 @@
-#### <a name="to-shut-down-a-virtual-device"></a>Een virtueel apparaat afsluiten
-1. Meld u aan bij Beheerportal.
-2. Klik op **Virtuele machines** en selecteer vervolgens het virtuele apparaat.
+#### <a name="tooshut-down-a-virtual-device"></a>tooshut omlaag een virtueel apparaat
+1. Meld u aan toohello-beheerportal.
+2. Klik op **virtuele Machines**, en vervolgens selecteert Hallo virtueel apparaat.
 3. Klik op **Afsluiten**.
 

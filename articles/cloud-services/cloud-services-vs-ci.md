@@ -1,6 +1,6 @@
 ---
-title: Continue leveringsmethode voor cloud services met Visual Studio Online | Microsoft Docs
-description: Meer informatie over het instellen van continue leveringsmethode voor Azure cloud-apps zonder opslagsleutel diagnostische gegevens opslaan in de configuratiebestanden van de service
+title: aaaContinuous leveringsmethode voor cloud services met Visual Studio Online | Microsoft Docs
+description: Meer informatie over hoe tooset up continue leveringsmethode voor Azure cloud-apps zonder op te slaan diagnostics opslagbestanden sleutel toohello service configuration
 services: cloud-services
 documentationcenter: 
 author: cawa
@@ -14,83 +14,83 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/02/2016
 ms.author: cawa
-ms.openlocfilehash: 7e70f92d4d1333ca6cbac5876e5ccbc763bd915c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dc87d049e46daf8b8a26ee4450ebd9b7910f287b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="securely-save-cloud-services-diagnostics-storage-key-and-setup-continuous-integration-and-deployment-to-azure-using-visual-studio-online"></a>Securely Cloud Services Diagnostics opslagsleutel opslaan en Setup continue integratie en implementatie naar Azure met Visual Studio Online
- Het is een gebruikelijk om bronprojecten te openen tegenwoordig. Opslaan van de toepassing geheimen in configuratiebestanden is niet meer veilig practice als beveiligingsrisico's beschikbaar worden gesteld van geheimen van besturingselementen voor openbare gegevensbronnen wordt gelekt. Geheim opslaan als tekst zonder opmaak in een bestand in een pijplijn continue integratie niet beveiligd is ofwel omdat buildservers kunnen worden gedeeld met resources op de cloudomgeving. Dit artikel wordt uitgelegd hoe Visual Studio en Visual Studio Online vermindert de beveiligingsproblemen tijdens ontwikkeling en het proces voor continue integratie.
+# <a name="securely-save-cloud-services-diagnostics-storage-key-and-setup-continuous-integration-and-deployment-tooazure-using-visual-studio-online"></a>Securely Cloud Services Diagnostics opslagsleutel opslaan en Setup continue integratie en implementatie tooAzure met behulp van Visual Studio Online
+ Een algemene practice tooopen bronprojecten is tegenwoordig. Opslaan van de toepassing geheimen in configuratiebestanden is niet meer veilig practice als beveiligingsrisico's beschikbaar worden gesteld van geheimen van besturingselementen voor openbare gegevensbronnen wordt gelekt. Geheim opslaan als tekst zonder opmaak in een bestand in een pijplijn continue integratie niet beveiligd is gedeelde ofwel omdat buildservers kunnen bronnen op Hallo cloudomgeving. Dit artikel wordt uitgelegd hoe Visual Studio en Visual Studio Online vermindert Hallo beveiligingskwesties weergegeven tijdens het ontwikkelen en continue integratie-proces.
 
 ## <a name="remove-diagnostics-storage-key-secret-in-project-configuration-file"></a>Diagnostische gegevens opslag sleutel geheim verwijderen in het configuratiebestand van Project
-Extensie voor diagnostische gegevens van cloud-Services vereist Azure-opslag voor het opslaan van resultaten van de diagnostische gegevens. Voorheen de verbindingsreeks voor opslag is opgegeven in de Cloud Services-configuratiebestanden (.cscfg) en kan worden ingecheckt met resourcebeheer. In de nieuwste Azure SDK-versie gewijzigd we het gedrag voor het opslaan van slechts een gedeeltelijke verbindingsreeks met de sleutel vervangen door een token. De volgende stappen wordt beschreven hoe de nieuwe Cloudservices tooling werkt:
+Extensie voor diagnostische gegevens van cloud-Services vereist Azure-opslag voor het opslaan van resultaten van de diagnostische gegevens. Voorheen Hallo-verbindingsreeks voor opslag is opgegeven in Hallo Cloudservices (.cscfg) configuratiebestanden en toosource controle kan worden gecontroleerd. In de nieuwste Azure SDK versie Hallo gewijzigd we Hallo gedrag tooonly store een gedeeltelijke connection string met Hallo sleutel vervangen door een token. Hallo stappen wordt beschreven hoe Hallo nieuwe Cloudservices tooling werkt:
 
-### <a name="1-open-the-role-designer"></a>1. Open de rol designer
-* Dubbelklik op of klik met de rechtermuisknop op een Cloud Services-rol rol designer openen
+### <a name="1-open-hello-role-designer"></a>1. Hallo rol designer openen
+* Dubbelklik op of klik met de rechtermuisknop op een Cloud Services-rol tooopen rol designer
 
 ![Rol openen designer][0]
 
 ### <a name="2-under-diagnostics-section-a-new-check-box-dont-remove-storage-key-secret-from-project-is-added"></a>2. Onder de sectie diagnostische gegevens, het selectievakje nieuwe 'niet verwijderen geheim project-opslagsleutel' is toegevoegd
-* Als u van de emulator van de lokale opslag gebruikmaakt, dit selectievakje is uitgeschakeld omdat er geen geheim beheren voor de lokale verbindingsreeks, UseDevelopmentStorage = true.
+* Als u van de lokale opslagemulator Hallo gebruikmaakt, dit selectievakje is uitgeschakeld omdat er geen geheime toomanage Hallo lokale verbindingsreeks, namelijk UseDevelopmentStorage = true.
 
 ![Lokale opslag emulator-verbindingstekenreeks is geen geheime][1]
 
-* Als u een nieuw project maakt, zijn is dit selectievakje standaard uitgeschakeld. Dit resulteert in de belangrijkste sectie van de opslag van de geselecteerde opslagverbindingsreeks wordt vervangen door een token. De waarde van het token worden gevonden in de huidige gebruiker AppData Roaming map, bijvoorbeeld: C:\Users\contosouser\AppData\Roaming\Microsoft\CloudService
+* Als u een nieuw project maakt, zijn is dit selectievakje standaard uitgeschakeld. Dit resulteert in Hallo opslag sleutel sectie van de verbindingsreeks voor opslag van Hallo geselecteerd wordt vervangen door een token. Hallo waarde Hallo-token worden gevonden onder Hallo van de huidige gebruiker AppData Roaming map, bijvoorbeeld: C:\Users\contosouser\AppData\Roaming\Microsoft\CloudService
 
-> Houd er rekening mee dat de map user\AppData toegang beheerd door de gebruiker zich aanmelden en wordt beschouwd als een veilige plaats voor het opslaan van ontwikkeling geheimen.
+> Houd er rekening mee Hallo user\AppData map toegang beheerd is door de gebruiker zich aanmelden en wordt beschouwd als een veilige plaats toostore ontwikkeling geheimen.
 > 
 > 
 
 ![Opslagsleutel wordt opgeslagen in de gebruikersprofielmap][2]
 
 ### <a name="3-select-a-diagnostics-storage-account"></a>3. Selecteer een opslagaccount voor diagnostische gegevens
-* Selecteer een opslagaccount van het dialoogvenster gestart door te klikken op de '...' te klikken. U ziet hoe de verbindingsreeks voor de opslag gegenereerde geen sleutel van het opslagaccount.
+* Selecteer een opslagaccount van Hallo dialoogvenster gestart door te klikken op '...' Hallo te klikken. U ziet hoe Hallo opslagverbindingsreeks gegenereerd geen sleutel Hallo opslagaccount.
 * Bijvoorbeeld: DefaultEndpointsProtocol = https; AccountName = contosostorage; AccountKey = $(*clouddiagstrg.key*)
 
-### <a name="4----debugging-the-project"></a>4.    Foutopsporing voor het project
-* F5 in Visual Studio foutopsporing te starten. Alles wat u moet werken op dezelfde manier als voor.
+### <a name="4----debugging-hello-project"></a>4.    Foutopsporing Hallo-project
+* F5 toostart foutopsporing in Visual Studio. Alles wat u moet werken in Hallo dezelfde manier als voorheen.
   ![Lokaal foutopsporing starten][3]
 
 ### <a name="5-publish-project-from-visual-studio"></a>5. Visual Studio-project publiceren
-* Start het dialoogvenster publiceren en verdergaan met het aanmelden instructies voor het publiceren van de applicaion naar Azure.
+* Start Hallo dialoogvenster publiceren en verdergaan met het aanmelden instructies toopublish hello applicaion tooAzure.
 
 ### <a name="6-additional-information"></a>6. Aanvullende informatie
-> Opmerking: Het paneel met toepassingsinstellingen in de ontwerpfunctie voor rol blijven omdat deze nu. Als u gebruiken van de geheime beheerfunctie voor diagnostische gegevens wilt, gaat u naar het tabblad configuraties.
+> Opmerking: paneel met toepassingsinstellingen Hallo in Hallo rol designer blijven omdat deze nu. Als u wilt dat toouse Hallo geheime beheerfunctie voor diagnostische gegevens, gaat u toohello configuraties tabblad.
 > 
 > 
 
 ![Instellingen toevoegen][4]
 
-> Opmerking: Als ingeschakeld, de Application Insights-sleutel wordt opgeslagen als tekst zonder opmaak. De sleutel wordt alleen gebruikt voor het uploaden van inhoud, dus geen gevoelige gegevens risico wordt aangetast.
+> Opmerking: Als ingeschakeld, Hallo Application Insights sleutel wordt opgeslagen als tekst zonder opmaak. Hallo-sleutel wordt alleen gebruikt voor het uploaden van inhoud dus geen gevoelige gegevens risico wordt aangetast.
 > 
 > 
 
 ## <a name="build-and-publish-a-cloud-services-project-using-visual-studio-online-task-templates"></a>Maken en publiceren van een Cloud Services-Project met behulp van Visual Studio online taaksjablonen
-* De volgende stappen ziet u hoe continue integratie instellen voor Cloud Services-project met behulp van Visual Studio online taken:
+* Hallo stappen ziet u hoe toosetup continue integratie voor Cloud Services-project met behulp van Visual Studio online taken:
   ### <a name="1----obtain-a-vso-account"></a>1.    Een account VSO verkrijgen
 * [Visual Studio Online-account maken] [ Create Visual Studio Online account] als u nog niet hebt
 * [Maken van teamproject] [ Create team project] in uw Visual Studio online-account
 
 ### <a name="2----setup-source-control-in-visual-studio"></a>2.    Setup van broncodebeheer in Visual Studio
-* Verbinding maken met een teamproject
+* Verbinding maken met tooa teamproject
 
-![Verbinding maken met teamproject][5]
+![Verbinding maken met tooteam project][5]
 
-![Selecteer teamproject verbinding maken met][6]
+![Team project tooconnect te selecteren][6]
 
-* Uw project toevoegen aan bronbeheer
+* Uw project toosource besturingselement toevoegen
 
-![Project toevoegen aan bronbeheer][7]
+![Project toosource besturingselement toevoegen][7]
 
-![Project worden toegewezen aan een besturingselement bronmap][8]
+![Project tooa bronmap besturingselement toewijzen][8]
 
 * Controleer in uw project vanuit de Explorer-Team
 
-![Controleer in het project met resourcebeheer][9]
+![Controleer in het project toosource besturingselement][9]
 
 ### <a name="3----configure-build-process"></a>3.    Buildproces configureren
-* Blader naar uw teamproject en voegt u een nieuwe buildproces sjablonen
+* Blader tooyour teamproject en voegt u een nieuwe buildproces sjablonen
 
 ![Een nieuwe build toevoegen][10]
 
@@ -100,7 +100,7 @@ Extensie voor diagnostische gegevens van cloud-Services vereist Azure-opslag voo
 
 ![Visual Studio bouwen taak sjabloon selecteren][12]
 
-* Build taak invoer bewerken. Controleer de parameters build volgens uw behoeften aanpassen
+* Build taak invoer bewerken. Hallo-build parameters volgens tooyour moeten aanpassen
 
 ![Opbouwtaak configureren][13]
 
@@ -110,19 +110,19 @@ Extensie voor diagnostische gegevens van cloud-Services vereist Azure-opslag voo
 
 ![Build variabelen configureren][14]
 
-* Toevoegen van een taak voor het uploaden van build neerzetten
+* Een taak tooupload build afname toevoegen
 
 ![Kies neerzetten opbouwtaak publiceren][15]
 
 ![Configureer neerzetten opbouwtaak publiceren][16]
 
-* De build uitvoeren
+* Hallo build uitvoeren
 
 ![Nieuwe Wachtrijvorming][17]
 
 ![Overzicht van de build weergeven][18]
 
-* Als de build geslaagd is ziet u een resultaat vergelijkbaar met hieronder
+* Als Hallo build geslaagd is ziet u een vergelijkbare toobelow resultaat
 
 ![Resultaat bouwen][19]
 
@@ -131,28 +131,28 @@ Extensie voor diagnostische gegevens van cloud-Services vereist Azure-opslag voo
 
 ![Nieuwe release gemaakt][20]
 
-* Selecteer de implementatie van Azure Cloud Services-taak
+* Selecteer hello Azure Cloud Services-implementatie taak
 
 ![Selecteer taak voor Azure Cloud Services-implementatie][21]
 
-* Als de sleutel van het opslagaccount met resourcebeheer niet is ingeschakeld, moeten we de geheime sleutel voor het instellen van extensies van diagnostische gegevens opgeven. Vouw de **geavanceerde opties voor nieuwe Service maken** sectie en bewerkt u de **toegangscodes voor opslag van diagnostische gegevens** parameter invoer. Deze invoer nodig is op meerdere regels van sleutel-waardepaar in de indeling van **[RoleName]:$(StorageAccountKey)**
+* Naarmate de opslagaccountsleutel Hallo niet toosource controle is ingeschakeld, moeten we toospecify Hallo geheime sleutel voor het instellen van extensies van diagnostische gegevens. Vouw Hallo **geavanceerde opties voor nieuwe Service maken** sectie en Hallo bewerken **Opslagaccountsleutels Diagnostics** parameter invoer. Deze invoer nodig is op meerdere regels van sleutel-waardepaar Hallo indeling **[RoleName]:$(StorageAccountKey)**
 
-> Opmerking: als uw opslagaccount voor diagnostische gegevens onder hetzelfde abonnement is als waar u de Cloud Services-toepassing wilt publiceren, hebt u niet in te voeren van de sleutel in de invoer van de implementatie taak; de implementatie wordt programmatisch de storage-gegevens ophalen uit uw abonnement
+> Opmerking: als uw opslagaccount onder de ligt diagnostics hello hetzelfde abonnement als waar u Hallo Cloud Services-toepassing wilt publiceren, hebt u niet tooenter Hallo sleutel in de invoer voor Hallo implementatie taak; Hallo-implementatie wordt programmatisch Hallo storage-gegevens ophalen uit uw abonnement
 > 
 > 
 
 ![Taak voor Cloud Services-implementatie configureren][22]
 
-* Gebruik geheim bouwen variabelen Opslagsleutels opslaan. Voor het maskeren van een variabele als geheim klikt u op het vergrendelingspictogram aan de rechterkant van de invoer-variabelen
+* Gebruik geheim bouwen variabelen toosave Opslagsleutels. een variabele als geheim klikt u op Hallo vergrendelingspictogram aan de rechterkant Hallo Hallo toomask variabelen invoer
 
 ![Opslagsleutels opslaan in geheime build variabelen][23]
 
-* Een releaserecord maken en implementeren van uw project naar Azure
+* Een releaserecord maken en implementeren van uw project tooAzure
 
 ![Nieuwe release gemaakt][24]
 
 ## <a name="next-steps"></a>Volgende stappen
-Raadpleeg voor meer informatie over het instellen van extensies van diagnostische gegevens voor Azure Cloud Services, [diagnostische gegevens in Azure Cloud Services met behulp van PowerShell inschakelen][Enable diagnostics in Azure Cloud Services using PowerShell]
+Zie de toolearn meer informatie over het instellen van extensies van diagnostische gegevens voor Azure Cloud Services [diagnostische gegevens in Azure Cloud Services met behulp van PowerShell inschakelen][Enable diagnostics in Azure Cloud Services using PowerShell]
 
 [Create Visual Studio Online account]:https://www.visualstudio.com/team-services/
 [Create team project]: https://www.visualstudio.com/it-it/docs/setup-admin/team-services/connect-to-visual-studio-team-services

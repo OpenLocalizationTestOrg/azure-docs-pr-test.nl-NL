@@ -1,5 +1,5 @@
 ---
-title: Maken, bouwen en implementeren van logische apps in Visual Studio - Azure Logic Apps | Microsoft Docs
+title: aaaCreate, bouwen en implementeren van logische apps in Visual Studio - Azure Logic Apps | Microsoft Docs
 description: Visual Studio-projecten maken zodat u kunt ontwerpen, bouwen en implementeren van Azure Logic Apps.
 author: jeffhollan
 manager: anneta
@@ -15,96 +15,96 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5154cb05f9a48e9f0f2381a6953947217f7bb114
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Ontwerpen, bouwen en implementeren van Azure Logic Apps in Visual Studio
 
-Hoewel de [Azure-portal](https://portal.azure.com/) biedt een goede manier om te maken en beheren van Azure Logic Apps, u kunt Visual Studio gebruiken voor het ontwerpen, bouwen en implementeren van uw logische apps. Visual Studio biedt uitgebreide hulpmiddelen zoals de Logic App-ontwerper voor u logic apps maken, implementatie en automatisering sjablonen configureren en implementeren met elke omgeving. 
+Hoewel hello [Azure-portal](https://portal.azure.com/) een uitstekende manier biedt u toocreate en Azure Logic Apps beheren, kunt u Visual Studio voor het ontwerpen, bouwen en implementeren van uw logische apps. Visual Studio biedt uitgebreide hulpmiddelen zoals Hallo Logic App-ontwerper voor u toocreate logic apps, implementatie en automatisering sjablonen configureren en implementeren van tooany-omgeving. 
 
-Aan de slag met Azure Logic Apps meer [uw eerste logische app maken in de Azure-portal](logic-apps-create-a-logic-app.md).
+de slag met Azure Logic Apps tooget meer [hoe toocreate uw eerste logische app in Azure-portal Hallo](logic-apps-create-a-logic-app.md).
 
 ## <a name="installation-steps"></a>Installatiestappen
 
-Als u wilt installeren en configureren van Visual Studio-hulpprogramma's voor Azure Logic Apps, de volgende stappen uit.
+tooinstall en Visual Studio-hulpprogramma's configureren voor Azure Logic Apps, volgt u deze stappen.
 
 ### <a name="prerequisites"></a>Vereisten
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) of Visual Studio 2015
 * [Nieuwste Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 of hoger)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
-* Toegang tot het Internet wanneer u de ontwerpfunctie
+* De website toohello toegang wanneer u de ontwerpfunctie Hallo
 
 ### <a name="install-visual-studio-tools-for-azure-logic-apps"></a>Installeer Visual Studio-hulpprogramma's voor Azure Logic Apps
 
-Nadat u de vereisten:
+Nadat u Hallo-vereisten:
 
-1. Open Visual Studio. Op de **extra** selecteert u **uitbreidingen en Updates**.
-2. Vouw de **Online** categorie zodat u kunt online zoeken.
+1. Open Visual Studio. Op Hallo **extra** selecteert u **uitbreidingen en Updates**.
+2. Vouw Hallo **Online** categorie zodat u kunt online zoeken.
 3. Blader of zoek naar **Logic Apps** totdat u **Azure Logic Apps-Tools voor Visual Studio**.
-4. Als u wilt downloaden en installeren van de extensie, klikt u op **downloaden**.
+4. toodownload en installatie Hallo-extensie, klikt u op **downloaden**.
 5. Visual Studio starten na de installatie.
 
 > [!NOTE]
-> U kunt ook downloaden [Azure Logic Apps-Tools voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551) en de [Azure Logic Apps-Tools voor Visual Studio 2015](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio) rechtstreeks vanuit Visual Studio Marketplace.
+> U kunt ook downloaden [Azure Logic Apps-Tools voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551) en Hallo [Azure Logic Apps-Tools voor Visual Studio 2015](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio) rechtstreeks vanuit Visual Studio Marketplace Hallo.
 
-Nadat u de installatie hebt voltooid, kunt u de Azure-resourcegroepproject met Logic App-ontwerper.
+Nadat u de installatie hebt voltooid, kunt u hello Azure-resourcegroepproject met Logic App-ontwerper.
 
 ## <a name="create-your-project"></a>Uw project maken
 
-1. Op de **bestand** menu, gaat u naar **nieuw**, en selecteer **Project**. Of als uw project toevoegen aan een bestaande oplossing, gaat u naar **toevoegen**, en selecteer **nieuw Project**.
+1. Op Hallo **bestand** menu te gaan**nieuw**, en selecteer **Project**. Of tooadd uw project tooan bestaande oplossing, ga te**toevoegen**, en selecteer **nieuw Project**.
 
     ![Menu Bestand](./media/logic-apps-deploy-from-vs/filemenu.png)
 
-2. In de **nieuw Project** venster vinden **Cloud**, en selecteer **Azure-resourcegroep**. Naam van uw project en klik op **OK**.
+2. In Hallo **nieuw Project** venster vinden **Cloud**, en selecteer **Azure-resourcegroep**. Naam van uw project en klik op **OK**.
 
     ![Nieuw project toevoegen](./media/logic-apps-deploy-from-vs/addnewproject.png)
 
-3. Selecteer de **logische App** sjabloon die u maakt een lege logic app-implementatiesjabloon moet worden gebruikt. Nadat u de sjabloon hebt geselecteerd, klikt u op **OK**.
+3. Selecteer Hallo **logische App** sjabloon waarmee u een lege logic app-implementatiesjabloon voor u toouse maakt. Nadat u de sjabloon hebt geselecteerd, klikt u op **OK**.
 
     ![Selecteer de sjabloon voor logische Apps](./media/logic-apps-deploy-from-vs/selectazuretemplate1.png)
 
-    U hebt nu uw app-project logica toegevoegd aan uw oplossing. 
-    Uw implementatiebestand moet in Solution Explorer, worden weergegeven.
+    U hebt nu uw oplossing logic app-project tooyour toegevoegd. 
+    Uw implementatiebestand moet in Hallo Solution Explorer, worden weergegeven.
 
     ![Implementatiebestand](./media/logic-apps-deploy-from-vs/deployment.png)
 
 ## <a name="create-your-logic-app-with-logic-app-designer"></a>Uw logische app maken met Logic App-ontwerper
 
-Wanneer u een Azure-resourcegroepproject met een logische app hebt, kunt u de ontwerpfunctie voor Logic App openen in Visual Studio om uw werkstroom te maken. 
+Wanneer u een Azure-resourcegroepproject met een logische app hebt, kunt u Hallo Logic App-ontwerper openen in Visual Studio toocreate uw werkstroom. 
 
 > [!NOTE]
-> De ontwerpfunctie vereist een internetverbinding beschikken om de query-connectors voor de beschikbare eigenschappen en -gegevens. Als u de Dynamics CRM Online-connector gebruikt, vraagt de ontwerpfunctie voor uw CRM-exemplaar om weer te geven van de beschikbare aangepaste en de standaardeigenschappen.
+> Hallo designer vereist een internetverbinding te connectors voor de beschikbare eigenschappen en gegevens opvragen. Als u Hallo Dynamics CRM Online connector gebruikt, vraagt Hallo designer bijvoorbeeld uw CRM-exemplaar tooshow beschikbaar aangepaste en de standaardeigenschappen.
 
 1. Met de rechtermuisknop op uw `<template>.json` bestand en selecteer **openen met Logic App-ontwerper**. (`Ctrl+L`)
 
 2. Kies uw Azure-abonnement, resourcegroep en locatie voor de implementatiesjabloon.
 
     > [!NOTE]
-    > Het ontwerpen van een logische app, maakt resources van de API-verbinding die query voor eigenschappen tijdens de ontwerp. Visual Studio gebruikt de geselecteerde resourcegroep voor deze verbindingen maken tijdens de ontwerpfase. Als u wilt weergeven of wijzigen van de API-verbindingen, gaat u naar de Azure-portal en bladert u naar **API verbindingen**.
+    > Het ontwerpen van een logische app, maakt resources van de API-verbinding die query voor eigenschappen tijdens de ontwerp. Visual Studio maakt gebruik van de geselecteerde resource groep toocreate deze verbindingen tijdens het ontwerpen. tooview of wijzigen van de API-verbindingen, gaat u toohello Azure-portal en bladert u naar **API verbindingen**.
 
     ![Abonnement kiezen](./media/logic-apps-deploy-from-vs/designer_picker.png)
 
-    De ontwerpfunctie maakt gebruik van de definitie van de `<template>.json` -bestand voor rendering.
+    Hallo designer gebruikt Hallo definitie in Hallo `<template>.json` bestand voor de rendering.
 
 4. Maken en ontwerpen van uw logische app. Uw implementatiesjabloon is bijgewerkt met de wijzigingen.
 
     ![App-ontwerper logica in Visual Studio](./media/logic-apps-deploy-from-vs/designer_in_vs.png)
 
-Visual Studio voegt `Microsoft.Web/connections` bronnen zijn voor uw bronbestand voor de verbindingen uw logische app vereist is voor werking. De eigenschappen van deze verbinding kunnen worden ingesteld bij het implementeren van, en nadat u hebt geïmplementeerd beheerd **API verbindingen** in de Azure portal.
+Visual Studio voegt `Microsoft.Web/connections` resources te uw resourcebestand voor de verbindingen uw logische app moet toofunction. De eigenschappen van deze verbinding kunnen worden ingesteld bij het implementeren van, en nadat u hebt geïmplementeerd beheerd **API verbindingen** in hello Azure-portal.
 
-### <a name="switch-to-json-code-view"></a>Overschakelen naar de codeweergave JSON
+### <a name="switch-toojson-code-view"></a>Switch tooJSON codeweergave
 
-Als u wilt weergeven in de JSON-weergave voor uw logische app, selecteer de **codeweergave** tabblad aan de onderkant van de ontwerpfunctie.
+tooshow hello JSON-weergave voor uw logische app, selecteer Hallo **codeweergave** tabblad onderin Hallo Hallo Designer.
 
-Als u wilt overschakelen naar de volledige resource JSON, met de rechtermuisknop op de `<template>.json` bestand en selecteer **Open**.
+tooswitch back-toohello volledige resource JSON, met de rechtermuisknop op Hallo `<template>.json` bestand en selecteer **Open**.
 
-### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Verwijzingen voor afhankelijke resources toevoegen aan Visual Studio-implementatiesjablonen
+### <a name="add-references-for-dependent-resources-toovisual-studio-deployment-templates"></a>Verwijzingen voor afhankelijke resources tooVisual Studio implementatiesjablonen toevoegen
 
-Als u wilt dat uw logische app om te verwijzen naar afhankelijke resources, kunt u [Azure Resource Manager-sjabloonfuncties](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions) in uw sjabloon logic app-implementatie. Bijvoorbeeld, kunt u uw logische app om te verwijzen naar een Azure-functie of integratiepakket account die u samen met uw logische app wilt implementeren. Volg deze richtlijnen over het gebruik van parameters in de implementatiesjabloon voor, zodat de Logic App Designer correct wordt gerenderd. 
+Als u wilt dat uw logische app tooreference afhankelijke resources, kunt u [Azure Resource Manager-sjabloonfuncties](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions) in uw sjabloon logic app-implementatie. Bijvoorbeeld, kunt u uw logische app tooreference een Azure-functie of integratiepakket account dat u wilt dat toodeploy samen met uw logische app. Volg deze richtlijnen over hoe toouse parameters in de implementatiesjabloon voor de zodat die Logic App-ontwerper Hallo correct wordt gerenderd. 
 
 U kunt logische app parameters in deze soorten triggers en acties:
 
@@ -114,7 +114,7 @@ U kunt logische app parameters in deze soorten triggers en acties:
 *   De URL van de runtime verbinding API
 *   Verbindingspad API
 
-En u kunt een sjabloonfuncties, zoals parameters, variabelen, resourceId, concat, enzovoort. Dit is hoe u de resource-ID van het Azure-functie kunt vervangen:
+En u kunt een sjabloonfuncties, zoals parameters, variabelen, resourceId, concat, enzovoort. Dit is hoe u kunt vervangen hello Azure-functie resource-ID:
 
 ```
 "parameters":{
@@ -140,7 +140,7 @@ En waar u parameters wilt gebruiken:
     "runAfter":{}
 }
 ```
-Als een ander voorbeeld kunt u de Service Bus-verzendbewerking bericht voorzien:
+Als een ander voorbeeld kunt u Service Bus bericht verzendbewerking Hallo voorzien:
 
 ```
 "Send_message": {
@@ -169,7 +169,7 @@ Als een ander voorbeeld kunt u de Service Bus-verzendbewerking bericht voorzien:
 
 
 > [!NOTE] 
-> Voor Logic App Designer werken wanneer u parameters gebruiken, moet u standaardwaarden, bijvoorbeeld opgeven:
+> Voor Hallo Logic App-ontwerper toowork wanneer u parameters, moet u standaardwaarden opgeven, bijvoorbeeld:
 > 
 > ```
 > "parameters": {
@@ -183,50 +183,50 @@ Als een ander voorbeeld kunt u de Service Bus-verzendbewerking bericht voorzien:
 
 ### <a name="save-your-logic-app"></a>Uw logische app opslaan
 
-Als u wilt uw logische app op elk gewenst moment opslaan, gaat u naar **bestand** > **opslaan**. (`Ctrl+S`) 
+toosave uw logische app op elk gewenst moment, ga te**bestand** > **opslaan**. (`Ctrl+S`) 
 
-Als uw logische app fouten heeft bij het opslaan van uw app, worden deze weergegeven in de Visual Studio **uitvoer** venster.
+Als uw logische app fouten heeft bij het opslaan van uw app, worden deze weergegeven in Visual Studio Hallo **uitvoer** venster.
 
 ## <a name="deploy-your-logic-app-from-visual-studio"></a>Uw logische app vanuit Visual Studio implementeren
 
 Na het configureren van uw app kunt u rechtstreeks vanuit Visual Studio in een paar stappen implementeren. 
 
-1. Met de rechtermuisknop op uw project in Solution Explorer en Ga naar **implementeren** > **nieuwe implementatie...**
+1. Met de rechtermuisknop op uw project in Solution Explorer en ga te**implementeren** > **nieuwe implementatie...**
 
     ![Nieuwe implementatie](./media/logic-apps-deploy-from-vs/newdeployment.png)
 
-2. Wanneer u wordt gevraagd, moet u zich aanmelden bij uw Azure-abonnement. 
+2. Wanneer u wordt gevraagd, meld u aan tooyour Azure-abonnement. 
 
-3. Nu moet u de details voor de resourcegroep waar u uw logische app implementeren. Wanneer u bent klaar, selecteert u **implementeren**.
+3. U moet nu Hallo details voor de resourcegroep Hallo waar u toodeploy uw logische app wilt selecteren. Wanneer u bent klaar, selecteert u **implementeren**.
 
     > [!NOTE]
-    > Zorg ervoor dat u het juiste bestand voor de sjabloon en parameters voor de resourcegroep selecteert. Als u implementeren in een productieomgeving wilt, bijvoorbeeld het parameterbestand productie kiezen.
+    > Zorg ervoor dat u de juiste sjabloon Hallo en parameterbestand voor resourcegroep Hallo selecteren. Als u toodeploy tooa productie-omgeving wilt, bijvoorbeeld Hallo productie parameterbestand kiezen.
 
-    ![Implementeren in resourcegroep](./media/logic-apps-deploy-from-vs/deploytoresourcegroup.png)
+    ![Tooresource groep implementeren](./media/logic-apps-deploy-from-vs/deploytoresourcegroup.png)
 
-    Status van de implementatie wordt weergegeven in de **uitvoer** venster. 
-    U moet selecteren **Azure inrichting** in de **tonen de uitvoer van** lijst.
+    Hallo-Implementatiestatus wordt weergegeven in Hallo **uitvoer** venster. 
+    Moet u wellicht tooselect **Azure inrichting** in Hallo **tonen de uitvoer van** lijst.
 
     ![Implementatie statusuitvoer](./media/logic-apps-deploy-from-vs/output.png)
 
-U kunt in de toekomst bewerken van uw logische app in broncodebeheer en Visual Studio gebruiken voor het implementeren van nieuwe versies.
+In toekomstige Hallo, kunt u uw logische app in broncodebeheer bewerken en nieuwe versies van Visual Studio toodeploy gebruiken.
 
 > [!NOTE]
-> Als u de definitie van de Azure-portal rechtstreeks wijzigt, worden deze wijzigingen overschreven wanneer u vanuit Visual Studio opnieuw implementeert. 
+> Als u rechtstreeks Hallo definitie in hello Azure-portal wijzigt, worden deze wijzigingen overschreven wanneer u vanuit Visual Studio opnieuw implementeert. 
 
-## <a name="add-your-logic-app-to-an-existing-resource-group-project"></a>Uw logische app toevoegen aan een bestaande resourcegroep-project
+## <a name="add-your-logic-app-tooan-existing-resource-group-project"></a>Uw logische app tooan bestaande resourcegroep project toevoegen
 
-Als u een bestaand project voor de resourcegroep hebt, kunt u uw logische app toevoegen aan het project in het venster JSON-overzicht. U kunt ook een andere logische app naast de app die u eerder hebt gemaakt toevoegen.
+Als u een bestaand project voor de resourcegroep hebt, kunt u uw logische app toothat-project in het venster van de JSON-overzicht Hallo kunt toevoegen. U kunt ook een andere logische app naast Hallo-app die u eerder hebt gemaakt toevoegen.
 
-1. Open het `<template>.json`-bestand.
+1. Open Hallo `<template>.json` bestand.
 
-2. De JSON-overzicht om venster te openen, gaat u naar **weergave** > **overige vensters** > **JSON-overzicht**.
+2. tooopen hello JSON overzichtsvenster te gaan**weergave** > **overige vensters** > **JSON-overzicht**.
 
-3. Als u wilt een resource toevoegen aan het sjabloonbestand, klikt u op **Resource toevoegen** aan de bovenkant van het venster JSON-overzicht. Of in het venster JSON-overzicht met de rechtermuisknop op **resources**, en selecteer **nieuwe Resource toevoegen**.
+3. tooadd toohello sjabloon bronbestand, klikt u op **Resource toevoegen** Hallo boven aan het venster van de JSON-overzicht Hallo. Of met de rechtermuisknop in het venster JSON-overzicht hello, **resources**, en selecteer **nieuwe Resource toevoegen**.
 
     ![Venster JSON-overzicht](./media/logic-apps-deploy-from-vs/jsonoutline.png)
     
-4. In de **Resource toevoegen** in het dialoogvenster, zoeken en selecteert u **logische App**. Naam van uw logische app en kies **toevoegen**.
+4. In Hallo **Resource toevoegen** in het dialoogvenster, zoeken en selecteert u **logische App**. Naam van uw logische app en kies **toevoegen**.
 
     ![Resource toevoegen](./media/logic-apps-deploy-from-vs/addresource.png)
 
@@ -234,5 +234,5 @@ Als u een bestaand project voor de resourcegroep hebt, kunt u uw logische app to
 
 * [Logic apps beheren met Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)
 * [Algemene voorbeelden en scenario's weergeven](logic-apps-examples-and-scenarios.md)
-* [Meer informatie over het automatiseren van bedrijfsprocessen met Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694)
-* [Meer informatie over het integreren van uw systemen met Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
+* [Meer informatie over hoe tooautomate bedrijfsprocessen met Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694)
+* [Meer informatie over hoe toointegrate uw systemen met Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)

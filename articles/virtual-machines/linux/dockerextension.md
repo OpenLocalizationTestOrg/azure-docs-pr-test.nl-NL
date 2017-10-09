@@ -1,6 +1,6 @@
 ---
-title: Gebruik de Azure Docker VM-extensie | Microsoft Docs
-description: Informatie over het gebruik van de Docker-VM-extensie voor het snel en veilig implementeren van een Docker-omgeving in Azure met behulp van Resource Manager-sjablonen en Azure CLI 2.0
+title: aaaUse hello Azure Docker VM-extensie | Microsoft Docs
+description: Meer informatie over hoe toouse Hallo Docker VM-extensie tooquickly en veilig implementeert een Docker-omgeving in Azure met behulp van Resource Manager-sjablonen en hello Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 63d0d80999fd57d014c74d5c6aef3733ec2afe85
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8e43adc594192773466ccd2d3e455105f14c1a61
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Maakt een Docker-omgeving in Azure met behulp van de Docker-VM-extensie
-Docker is een populair containerbeheer en installatiekopieën platform waarmee u snel werken met containers op Linux. In Azure zijn er verschillende manieren waarop u kunt Docker implementeren volgens uw behoeften. Dit artikel is gericht op het gebruik van de Docker-VM-extensie en Azure Resource Manager-sjablonen met de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](dockerextension-nodejs.md).
+# <a name="create-a-docker-environment-in-azure-using-hello-docker-vm-extension"></a>Maakt een Docker-omgeving in Azure met behulp van Hallo Docker VM-extensie
+Docker is een populair containerbeheer en installatiekopieën platform waarmee u tooquickly werken met containers op Linux. In Azure zijn er verschillende manieren waarop u Docker volgens tooyour behoeften kunt implementeren. Dit artikel is gericht op het gebruik van Hallo Docker VM-extensie en Azure Resource Manager-sjablonen met hello Azure CLI 2.0. U kunt ook uitvoeren met deze stappen Hello [Azure CLI 1.0](dockerextension-nodejs.md).
 
 ## <a name="azure-docker-vm-extension-overview"></a>Overzicht van Azure Docker VM-extensie
-De virtuele machine in Azure Docker-extensie installeert en configureert u de Docker-daemon, Docker-client en Docker Compose in uw virtuele Linux-machine (VM). U hebt meer controle en functies dan gewoon met behulp van Docker-Machine of maken van de Docker-host met behulp van de virtuele machine in Azure Docker-extensie. Deze aanvullende functies, zoals [Docker Compose](https://docs.docker.com/compose/overview/), zorg dat de virtuele machine in Azure Docker-extensie is geschikt voor krachtiger developer- of productieomgevingen.
+Hello Azure Docker VM-extensie installeert en configureert u het Hallo Docker-daemon, Docker-client en Docker Compose in uw virtuele Linux-machine (VM). U hebt meer controle en functies dan gewoon met behulp van Docker-Machine of maken van Hallo Docker-host met behulp van hello Azure Docker VM-extensie. Deze aanvullende functies, zoals [Docker Compose](https://docs.docker.com/compose/overview/), zorg hello Azure Docker VM-extensie is geschikt voor krachtiger developer- of productieomgevingen.
 
-Zie voor meer informatie over de verschillende implementatiemethoden, met behulp van Docker-Machine en Services van Azure-Container, inclusief de volgende artikelen:
+Zie voor meer informatie over Hallo verschillende implementatiemethoden, inclusief het gebruik van Docker-Machine en de Azure-Container Services Hallo artikelen te volgen:
 
-* Snel prototype een app kunt u één Docker-host met behulp van [Docker-Machine](docker-machine.md).
-* Gereed voor productie, schaalbare omgevingen die aanvullende plannings- en hulpprogramma's bieden bouwen, kunt u implementeren een [Docker Swarm-cluster op Azure Container Services](../../container-service/dcos-swarm/container-service-deployment.md).
+* tooquickly prototype een app, kunt u één Docker-host met behulp van [Docker-Machine](docker-machine.md).
+* toobuild gereed is voor productie, schaalbare omgevingen die extra hulpprogramma's voor planning en beheer bieden, u kunt een [Docker Swarm-cluster op Azure Container Services](../../container-service/dcos-swarm/container-service-deployment.md).
 
-## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Een sjabloon met de extensie Azure Docker VM implementeren
-We gebruiken een bestaande sjabloon voor de Quick Start voor het maken van een Ubuntu VM die gebruikmaakt van de virtuele machine in Azure Docker-uitbreiding installeren en configureren van de Docker-host. U kunt de sjabloon hier weergeven: [eenvoudige implementatie van een VM Ubuntu met Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). U moet de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/#login).
+## <a name="deploy-a-template-with-hello-azure-docker-vm-extension"></a>Een sjabloon met hello Azure Docker VM-extensie implementeren
+Laten we gebruik van een bestaande sjabloon Quick Start-toocreate een Ubuntu VM die gebruikmaakt van hello Azure Docker VM-extensie tooinstall en Hallo Docker host configureren. U kunt hier Hallo sjabloon weergeven: [eenvoudige implementatie van een VM Ubuntu met Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Moet u Hallo nieuwste [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in Azure-account met behulp van tooan [az aanmelding](/cli/azure/#login).
 
-Maak eerst een resourcegroep met [az groep maken](/cli/azure/group#create). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *westus* locatie:
+Maak eerst een resourcegroep met [az groep maken](/cli/azure/group#create). Hallo volgende voorbeeld maakt u een resourcegroep met de naam *myResourceGroup* in Hallo *westus* locatie:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Vervolgens implementeert u een virtuele machine met [az implementatie maken](/cli/azure/group/deployment#create) waarin de Azure Docker VM-extensie van [deze Azure Resource Manager-sjabloon op GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Uw eigen waarden opgeven voor *newStorageAccountName*, *adminUsername*, *adminPassword*, en *dnsNameForPublicIP* als volgt:
+Vervolgens implementeert u een virtuele machine met [az implementatie maken](/cli/azure/group/deployment#create) waarin hello Azure Docker VM-extensie van [deze Azure Resource Manager-sjabloon op GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Uw eigen waarden opgeven voor *newStorageAccountName*, *adminUsername*, *adminPassword*, en *dnsNameForPublicIP* als volgt:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -51,11 +51,11 @@ az group deployment create --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-Het duurt enkele minuten duren voordat de implementatie is voltooid. Zodra de implementatie is voltooid, [verplaatsen naar de volgende stap](#deploy-your-first-nginx-container) naar SSH met uw virtuele machine. 
+Het duurt enkele minuten duren voordat Hallo implementatie toofinish. Zodra het Hallo-implementatie is voltooid, [toonext stap verplaatsen](#deploy-your-first-nginx-container) tooSSH tooyour VM. 
 
-Voeg desgewenst in plaats daarvan om terug te beheren op de vraag en kunt de implementatie op de achtergrond voortgezet, de `--no-wait` vlag naar de voorgaande opdracht. Dit proces kunt u andere taken uitvoeren in de CLI tijdens de implementatie gedurende enkele minuten blijft. 
+Tooinstead return besturingselement toohello-prompt en laat Hallo implementatie blijven op de achtergrond hello, voegt u desgewenst Hallo `--no-wait` toohello opdracht vóór markering. Dit proces kunt u tooperform doorwerken in Hallo CLI tijdens het Hallo-implementatie blijft gedurende enkele minuten. 
 
-Vervolgens kunt u meer informatie over de hoststatus Docker met bekijken [az vm weergeven](/cli/azure/vm#show). Het volgende voorbeeld controleert de status van de virtuele machine met de naam *myDockerVM* (de standaardnaam van de sjabloon - geen deze naam niet wijzigen) in de resourcegroep met de naam *myResourceGroup*:
+Vervolgens kunt u meer informatie over de status van Hallo Docker-host met bekijken [az vm weergeven](/cli/azure/vm#show). Hallo volgende voorbeeld controleert Hallo status van virtuele machine met de naam Hallo *myDockerVM* (de standaardnaam van de sjabloon Hallo Hallo - deze naam niet wijzigen) in de resourcegroep Hallo met de naam *myResourceGroup*:
 
 ```azurecli
 az vm show \
@@ -65,25 +65,25 @@ az vm show \
     --output tsv
 ```
 
-Wanneer deze opdracht retourneert *geslaagd*, de implementatie is voltooid en kunt u SSH naar de virtuele machine in de volgende stap.
+Wanneer deze opdracht retourneert *geslaagd*, Hallo-implementatie is voltooid en kunt u SSH toohello VM in Hallo volgende stap.
 
 ## <a name="deploy-your-first-nginx-container"></a>Uw eerste nginx-container implementeren
-Gebruiken om de details van uw virtuele machine, met inbegrip van de DNS-naam te geven `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv`. SSH kunt uitvoeren naar uw nieuwe Docker hosten van uw lokale computer als volgt:
+tooview details van uw virtuele machine, inclusief Hallo DNS-naam gebruiken `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv`. SSH tooyour nieuwe Docker hosten van uw lokale computer als volgt:
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
-Wanneer aangemeld bij de Docker-host, gaan we een nginx-container te uitvoeren:
+Wanneer toohello aangemeld met Docker-host, gaan we een nginx-container te uitvoeren:
 
 ```bash
 sudo docker run -d -p 80:80 nginx
 ```
 
-De uitvoer is vergelijkbaar met het volgende voorbeeld wordt de nginx-installatiekopie gedownload en een container gestart:
+Hallo-uitvoer is vergelijkbaar toohello na voorbeeld Hallo nginx installatiekopie gedownload en een container gestart:
 
 ```bash
-Unable to find image 'nginx:latest' locally
+Unable toofind image 'nginx:latest' locally
 latest: Pulling from library/nginx
 efd26ecc9548: Pull complete
 a3ed95caeb02: Pull complete
@@ -94,25 +94,25 @@ Status: Downloaded newer image for nginx:latest
 b6ed109fb743a762ff21a4606dd38d3e5d35aff43fa7f12e8d4ed1d920b0cd74
 ```
 
-Controleer de status van de containers die wordt uitgevoerd op uw host Docker als volgt:
+Controleer de status Hallo van Hallo-containers die zijn uitgevoerd op uw host Docker als volgt:
 
 ```bash
 sudo docker ps
 ```
 
-De uitvoer is vergelijkbaar met het volgende voorbeeld, waaruit blijkt dat de nginx-container actief is en TCP-poorten 80 en 443 en ernaar worden doorgestuurd:
+Hallo-uitvoer is vergelijkbaar toohello voorbeeld te volgen, die Hallo nginx-container met actief is en TCP-poorten 80 en 443 en ernaar worden doorgestuurd:
 
 ```bash
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                         NAMES
 b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, 443/tcp   adoring_payne
 ```
 
-De container in actie zien, opent u een webbrowser en voer de DNS-naam van de Docker-host:
+toosee uw container in actie, open een webbrowser boven en Voer Hallo DNS-naam van de Docker-host:
 
 ![Actieve ngnix container](./media/dockerextension/nginxrunning.png)
 
 ## <a name="azure-docker-vm-extension-template-reference"></a>Azure Docker VM-sjabloon uitbreidingsverwijzing
-Het vorige voorbeeld maakt gebruik van een bestaande Quick Start-sjabloon. U kunt ook de Azure Docker VM-extensie implementeren met uw eigen Resource Manager-sjablonen. Om dit te doen, kunt u het volgende toevoegen aan de Resource Manager-sjablonen, definiëren de `vmName` van uw virtuele machine op de juiste wijze:
+het vorige voorbeeld Hallo maakt gebruik van een bestaande Quick Start-sjabloon. U kunt ook hello Azure Docker VM-extensie implementeren met uw eigen Resource Manager-sjablonen. toodo toevoegen dus Hallo tooyour Resource Manager-sjablonen te volgen, Hallo definiëren `vmName` van uw virtuele machine op de juiste wijze:
 
 ```json
 {
@@ -137,11 +137,11 @@ Het vorige voorbeeld maakt gebruik van een bestaande Quick Start-sjabloon. U kun
 U vindt meer gedetailleerde stapsgewijze instructies over het gebruik van Resource Manager-sjablonen door te lezen [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt desgewenst [de Docker-daemon TCP-poort configureren](https://docs.docker.com/engine/reference/commandline/dockerd/#/bind-docker-to-another-hostport-or-a-unix-socket), begrijpen [Docker-beveiliging](https://docs.docker.com/engine/security/security/), of met behulp van containers implementeren [Docker Compose](https://docs.docker.com/compose/overview/). Zie voor meer informatie over de Azure Docker VM-extensie zichzelf, het [GitHub project](https://github.com/Azure/azure-docker-extension/).
+U kunt desgewenst te[hello Docker-daemon TCP-poort configureren](https://docs.docker.com/engine/reference/commandline/dockerd/#/bind-docker-to-another-hostport-or-a-unix-socket), begrijpen [Docker beveiliging](https://docs.docker.com/engine/security/security/), of met behulp van containers implementeren [Docker Compose](https://docs.docker.com/compose/overview/). Zie voor meer informatie over hello Azure Docker VM-extensie zichzelf Hallo [GitHub project](https://github.com/Azure/azure-docker-extension/).
 
-Lees meer informatie over de extra Docker implementatie-opties in Azure:
+Lees meer informatie over Hallo aanvullende Docker implementatieopties in Azure:
 
-* [Docker-Machine met het Azure-stuurprogramma gebruiken](docker-machine.md)  
-* [Aan de slag met Docker en opstellen om te definiëren en een toepassing met meerdere container uitvoert op een virtuele machine van Azure](docker-compose-quickstart.md).
+* [Docker-Machine Hello Azure stuurprogramma gebruiken](docker-machine.md)  
+* [Aan de slag met Docker Compose toodefine en een toepassing met meerdere container uitvoert op een virtuele machine van Azure](docker-compose-quickstart.md).
 * [Een Azure Container Service-cluster implementeren](../../container-service/dcos-swarm/container-service-deployment.md)
 

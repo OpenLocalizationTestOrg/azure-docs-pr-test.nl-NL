@@ -1,6 +1,6 @@
 ---
-title: Het beheren van Redis-cache met behulp van de Azure-Explorer voor IntelliJ | Microsoft Docs
-description: Informatie over het beheren van uw Azure redis-caches met behulp van de Azure-Explorer voor IntelliJ.
+title: Azure Explorer aaaManaging met behulp van Redis-Caches Hallo voor IntelliJ | Microsoft Docs
+description: Meer informatie over hoe toomanage uw Azure redis cache met behulp van hello Azure Explorer voor IntelliJ.
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,15 +14,15 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: robmcm
-ms.openlocfilehash: 9ab8ae17ee2a92b5b16d2210366c00b5b8023fa8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 76ba37a2a35c26d0045e17003181108992eb957d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="managing-redis-caches-using-the-azure-explorer-for-intellij"></a>Met de Azure-Explorer voor IntelliJ Redis-Caches beheren
+# <a name="managing-redis-caches-using-hello-azure-explorer-for-intellij"></a>Beheren van Redis-Caches hello Azure Explorer voor IntelliJ gebruiken
 
-De Azure-Explorer, die deel van de Azure-werkset voor IntelliJ uitmaakt, biedt de redis-caches in de Azure-account uit binnen de IntelliJ IDE voor Java-ontwikkelaars met een eenvoudig-en-klare oplossing voor het beheren van.
+Hello Azure Explorer, die deel uitmaakt van hello Azure Toolkit voor IntelliJ, Java-ontwikkelaars met een eenvoudig-en-klare oplossing voor het beheren van redis-caches in de Azure-account uit binnen Hallo IntelliJ IDE biedt.
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
@@ -30,60 +30,60 @@ De Azure-Explorer, die deel van de Azure-werkset voor IntelliJ uitmaakt, biedt d
 
 ## <a name="create-a-redis-cache-by-using-intellij"></a>Een Redis-Cache maken met behulp van IntelliJ
 
-De volgende stappen maakt u de stappen voor het maken van een redis-cache met behulp van de Azure-Explorer.
+Hallo stappen doorlopen Hallo stappen toocreate een redis-cache met behulp van hello Azure Explorer.
 
-1. Aanmelden bij uw Azure-account met behulp van de stappen in de [aanmelding In instructies voor de Azure-werkset voor IntelliJ] artikel.
+1. Meld u aan tooyour Azure-account met Hallo stappen in Hallo [aanmelding In instructies voor het hello Azure Toolkit voor IntelliJ] artikel.
 
-1. In de **Azure Explorer** venster hulpprogramma uit, vouw de **Azure** knooppunt met de rechtermuisknop op **Redis-Caches**, en klik vervolgens op **Redis-Cache maken**.
+1. In Hallo **Azure Explorer** venster hulpprogramma uit, vouw Hallo **Azure** knooppunt met de rechtermuisknop op **Redis-Caches**, en klik vervolgens op **Redis-Cache maken**.
 
    ![Menu Redis-Cache maken][CR01]
 
-1. Wanneer de **nieuwe Redis-Cache** dialoogvenster wordt weergegeven, geeft u de volgende opties:
+1. Wanneer Hallo **nieuwe Redis-Cache** dialoogvenster wordt weergegeven, Hallo volgende opties opgeven:
 
    ![Dialoogvenster Nieuwe Redis-Cache maken][CR02]
 
-   a. **DNS-naam**: Hiermee geeft u het DNS-subdomein voor de nieuwe redis-cache, die functienaam worden geplaatst om '. redis.cache.windows.net "; bijvoorbeeld: *wingtiptoys.redis.cache.windows.net*.
+   a. **DNS-naam**: Hiermee geeft u de DNS-subdomein Hallo voor Hallo nieuwe redis-cache, die worden voorafgegaan te '. redis.cache.windows .net "; bijvoorbeeld: *wingtiptoys.redis.cache.windows.net*.
 
-   b. **Abonnement**: Hiermee geeft u het Azure-abonnement u wilt gebruiken voor de nieuwe redis-cache.
+   b. **Abonnement**: Hiermee geeft u hello Azure-abonnement u toouse voor de nieuwe redis-cache hello wilt.
 
-   c. **Resourcegroep**: Hiermee geeft u de resourcegroep voor uw redis-cache; u moet een van de volgende opties kiezen:
-      * **Maken van nieuw**: geeft aan dat u wilt maken van een nieuwe resourcegroep.
+   c. **Resourcegroep**: Hiermee geeft u de resourcegroep Hallo voor redis-cache; moet u toochoose Hallo volgende opties:
+      * **Maken van nieuw**: geeft aan dat u wilt dat toocreate een nieuwe resourcegroep.
       * **Gebruik bestaande**: Hiermee geeft u op dat u uit een lijst met resourcegroepen die zijn gekoppeld aan uw Azure-account kiest.
 
-   d. **Locatie**: Hiermee geeft u de locatie waar uw redis-cache wordt gemaakt; bijvoorbeeld *VS-West*.
+   d. **Locatie**: Hiermee geeft u Hallo-locatie waar uw redis-cache wordt gemaakt; bijvoorbeeld *VS-West*.
 
-   e. **Prijscategorie**: Hiermee geeft u op welke prijscategorie uw redis-cache wordt gebruikt; deze instelling bepaalt u het aantal verbindingen van clients. (Zie voor meer informatie [Redis-Cache prijzen].)
+   e. **Prijscategorie**: Hiermee geeft u op welke prijscategorie uw redis-cache wordt gebruikt; deze instelling bepaalt u het aantal clientverbindingen Hallo. (Zie voor meer informatie [Redis-Cache prijzen].)
 
    f. **Niet-SSL-poort**: Hiermee geeft u op of de redis-cache niet-SSL-verbindingen toestaat; standaard SSL-verbindingen zijn toegestaan.
 
 1. Wanneer u alle instellingen van uw redis-cache hebt opgegeven, klikt u op **OK**.
 
-Nadat uw redis-cache is gemaakt, wordt deze weergegeven in de Azure-Explorer.
+Nadat uw redis-cache is gemaakt, wordt deze in hello Azure Explorer worden weergegeven.
 
    ![Redis-Cache in Azure Explorer][CR03]
 
 > [!NOTE]
 >
-> Voor meer informatie over het configureren van uw Azure redis-cache-instellingen, Zie [het configureren van Azure Redis-Cache].
+> Voor meer informatie over het configureren van uw Azure redis-cache-instellingen, Zie [hoe tooconfigure Azure Redis-Cache].
 >
 
-## <a name="display-the-properties-for-your-redis-cache-in-intellij"></a>De eigenschappen voor uw Redis-Cache in IntelliJ weergeven
+## <a name="display-hello-properties-for-your-redis-cache-in-intellij"></a>Hallo-eigenschappen voor uw Redis-Cache in IntelliJ weergeven
 
-1. In de Azure-Explorer met de rechtermuisknop op uw redis-cache en klikt u op **eigenschappen weergeven**.
+1. In Azure Explorer hello, met de rechtermuisknop op uw redis-cache en klik op **eigenschappen weergeven**.
 
-   ![Azure Explorer contextmenu Eigenschappen weergeven voor een redis-cache][SP01]
+   ![Azure Explorer toodisplay eigenschappen van contextmenu voor een redis-cache][SP01]
 
-1. De Azure-Explorer geeft de eigenschappen voor uw redis-cache.
+1. Hello Azure Explorer weergeven Hallo-eigenschappen voor uw redis-cache
 
    ![Eigenschappen van Redis-cache][SP02]
 
 ## <a name="delete-your-redis-cache-by-using-intellij"></a>Verwijderen van uw Redis-Cache met behulp van IntelliJ
 
-1. In de Azure-Explorer met de rechtermuisknop op uw redis-cache en klikt u op **verwijderen**.
+1. In Azure Explorer hello, met de rechtermuisknop op uw redis-cache en klik op **verwijderen**.
 
-   ![Azure Explorer contextmenu een redis-cache verwijderen][DE01]
+   ![Azure Explorer context menu toodelete een redis-cache][DE01]
 
-1. Klik op **Ja** wanneer u wordt gevraagd uw redis-cache verwijderen.
+1. Klik op **Ja** wanneer u daarom wordt gevraagd toodelete redis-cache.
 
    ![Prompt voor redis-cache verwijderen][DE02]
 
@@ -91,20 +91,20 @@ Nadat uw redis-cache is gemaakt, wordt deze weergegeven in de Azure-Explorer.
 
 [!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
 
-Zie de volgende koppelingen voor meer informatie over Azure redis-caches, configuratie-instellingen en prijzen:
+Zie voor meer informatie over Azure redis-caches, configuratie-instellingen en prijzen Hallo koppelingen te volgen:
 
 * [Azure Redis-cache]
 * [Redis-Cache-documentatie]
 * [Redis-Cache prijzen]
-* [het configureren van Azure Redis-Cache]
+* [hoe tooconfigure Azure Redis-Cache]
 
 <!-- URL List -->
 
 [Redis-Cache prijzen]: https://azure.microsoft.com/pricing/details/cache/
 [Azure Redis-cache]: https://azure.microsoft.com/services/cache/
 [Redis-Cache-documentatie]: ./redis-cache/index.md
-[het configureren van Azure Redis-Cache]: ./redis-cache/cache-configure.md
-[aanmelding In instructies voor de Azure-werkset voor IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md (Aanmeldingsinstructies voor de Azure Toolkit voor IntelliJ)
+[hoe tooconfigure Azure Redis-Cache]: ./redis-cache/cache-configure.md
+[aanmelding In instructies voor het hello Azure Toolkit voor IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
 
 <!-- IMG List -->
 

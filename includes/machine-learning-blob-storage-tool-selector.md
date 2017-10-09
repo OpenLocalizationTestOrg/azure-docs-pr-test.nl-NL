@@ -1,6 +1,6 @@
-<!-- Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
+<!-- Guidance on technologies used toomove data tooand/or from Azure Blob storage are linked here:
 -->
-Dit menu is gekoppeld aan de technologieën die u kunt gebruiken om gegevens te verplaatsen naar en van Azure Blob-opslag:
+Dit menu koppelingen tootechnologies kunt u toomove gegevens tooand uit Azure Blob-opslag:
 
 > [!div class="op_single_selector" title1="Blob storage tools"]
 > * [Overzicht](../articles/machine-learning/machine-learning-data-science-move-azure-blob.md)

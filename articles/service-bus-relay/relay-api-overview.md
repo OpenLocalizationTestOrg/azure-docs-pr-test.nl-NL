@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Azure Relay-API | Microsoft Docs
+title: overzicht van de Relay-API aaaAzure | Microsoft Docs
 description: Overzicht van de beschikbare Azure Relay-API 's
 services: event-hubs
 documentationcenter: na
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: sethm
-ms.openlocfilehash: 8d93a0344adc3b0b7617f3a7d85124142d7a7555
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3c4d737d5fee9a8babce094fa6dfddb28910834b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="available-relay-apis"></a>Beschikbare Relay-API 's
 
 ## <a name="runtime-apis"></a>Runtime-API 's
 
-De volgende tabel geeft een lijst met alle beschikbare Relay runtime-clients.
+Hallo bevat volgende tabel alle beschikbare Relay runtime-clients.
 
-De [aanvullende informatie](#additional-information) sectie bevat meer informatie over de status van elke runtime-bibliotheek.
+Hallo [aanvullende informatie](#additional-information) sectie vindt u meer informatie over Hallo status van elke runtime-bibliotheek.
 
 | Taal/Platform | Beschikbare functie | Clientpakket | Opslagplaats |
 | --- | --- | --- | --- |
@@ -37,9 +37,9 @@ De [aanvullende informatie](#additional-information) sectie bevat meer informati
 ### <a name="additional-information"></a>Aanvullende informatie
 
 #### <a name="net"></a>.NET
-Het .NET-ecosysteem heeft meerdere runtimes, dus er zijn meerdere .NET-bibliotheken voor Event Hubs. De standaard .NET-bibliotheek kan worden uitgevoerd met .NET Core of de .NET Framework, terwijl de .NET Framework-bibliotheek kan alleen worden uitgevoerd in een omgeving met .NET Framework. Zie voor meer informatie over .NET Frameworks [framework-versies](/dotnet/articles/standard/frameworks#framework-versions).
+Hallo .NET ecosysteem heeft meerdere runtimes, dus er zijn meerdere .NET-bibliotheken voor Event Hubs. Hallo .NET standaardbibliotheek kan worden uitgevoerd met .NET Core of .NET Framework, Hallo Hallo .NET Framework-bibliotheek kan alleen worden uitgevoerd in een omgeving met .NET Framework. Zie voor meer informatie over .NET Frameworks [framework-versies](/dotnet/articles/standard/frameworks#framework-versions).
 
 ## <a name="next-steps"></a>Volgende stappen
-Volg deze koppelingen voor meer informatie over Azure Relay:
+toolearn meer informatie over Azure-Relay, gaat u naar deze koppelingen:
 * [Wat is Azure Relay?](relay-what-is-it.md)
 * [Veelgestelde vragen over Relay](relay-faq.md)

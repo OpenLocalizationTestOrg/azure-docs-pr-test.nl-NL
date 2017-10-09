@@ -1,5 +1,5 @@
 ---
-title: Wijzig de instellingen in Azure microservices FabricTransport | Microsoft Docs
+title: aaaChange FabricTransport instellingen in Azure microservices | Microsoft Docs
 description: Meer informatie over het configureren van Azure Service Fabric actor communicatie-instellingen.
 services: Service-Fabric
 documentationcenter: .net
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 75bdd4644f4ccc583271b9169c50a375e2cd6629
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e312b475407eb95a435b93d80c0f2e9618b9ea1f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>FabricTransport instellingen configureren voor Reliable Actors
 
-Hier volgen de instellingen die u kunt configureren:
+Hier volgen Hallo-instellingen die u kunt configureren:
 - C#: [FabricTransportRemotingSettings](
 https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 - Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
-U kunt de standaardconfiguratie van FabricTransport wijzigen in de volgende manieren.
+U kunt de standaardconfiguratie Hallo van FabricTransport wijzigen in de volgende manieren.
 
 ## <a name="assembly-attribute"></a>Assembly-kenmerk
 
-De [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) kenmerk moet worden toegepast op de actor-client en de assembly's actor-service.
+Hallo [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) moet het kenmerk toobe toegepast op Hallo actor-client en actor service assembly's.
 
-Het volgende voorbeeld ziet u hoe de standaardwaarde van FabricTransport OperationTimeout instellingen wijzigen:
+Hallo volgende voorbeeld ziet u hoe toochange Hallo standaardwaarde FabricTransport OperationTimeout-instellingen:
 
   ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
@@ -49,11 +49,11 @@ Het volgende voorbeeld ziet u hoe de standaardwaarde van FabricTransport Operati
 
 ## <a name="config-package"></a>Configuratiepakket
 
-U kunt een [configuratiepakket](service-fabric-application-model.md) te wijzigen van de standaardconfiguratie.
+U kunt een [configuratiepakket](service-fabric-application-model.md) toomodify Hallo standaardconfiguratie.
 
-### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Instellingen voor de service actor FabricTransport configureren
+### <a name="configure-fabrictransport-settings-for-hello-actor-service"></a>Instellingen voor Hallo actor service FabricTransport configureren
 
-Een sectie TransportSettings in het bestand settings.xml toevoegen.
+Een sectie TransportSettings in Hallo settings.xml bestand toevoegen.
 
 Standaard actor code zoekt SectionName als '&lt;ActorName&gt;TransportSettings '. Als dat niet wordt gevonden, controleert deze voor SectionName als 'TransportSettings'.
 
@@ -72,9 +72,9 @@ Standaard actor code zoekt SectionName als '&lt;ActorName&gt;TransportSettings '
    </Section>
   ```
 
-### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Instellingen voor de assembly van de client actor FabricTransport configureren
+### <a name="configure-fabrictransport-settings-for-hello-actor-client-assembly"></a>Instellingen voor Hallo actor client assembly FabricTransport configureren
 
-Als de client wordt niet uitgevoerd als onderdeel van een service, kunt u een '&lt;Client Exe-naam&gt;. settings.xml ' bestand in dezelfde locatie als de client .exe-bestand. Voeg een sectie TransportSettings in dat bestand. SectionName moet 'TransportSettings'.
+Als het Hallo-client wordt niet uitgevoerd als onderdeel van een service, kunt u een '&lt;Client Exe-naam&gt;. settings.xml ' bestand in Hallo dezelfde locatie als Hallo client .exe-bestand. Voeg een sectie TransportSettings in dat bestand. SectionName moet 'TransportSettings'.
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -96,7 +96,7 @@ Als de client wordt niet uitgevoerd als onderdeel van een service, kunt u een '&
 
   * Instellingen voor veilige Actor Client-Service FabricTransport configureren met secundair certificaat.
   Secundaire certificaatgegevens kan toegevoegd worden door de parameter CertificateFindValuebySecondary toe te voegen.
-  Hieronder volgt het voorbeeld voor de Listener TransportSettings.
+  Hieronder vindt u voorbeeld Hallo voor Hallo Listener TransportSettings.
 
     ```xml
     <Section Name="TransportSettings">
@@ -110,7 +110,7 @@ Als de client wordt niet uitgevoerd als onderdeel van een service, kunt u een '&
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
     </Section>
      ```
-     Hieronder volgt het voorbeeld voor de Client-TransportSettings.
+     Hieronder vindt u voorbeeld Hallo voor Hallo Client TransportSettings.
 
     ```xml
    <Section Name="TransportSettings">
@@ -125,8 +125,8 @@ Als de client wordt niet uitgevoerd als onderdeel van een service, kunt u een '&
     </Section>
      ```
     * FabricTransport instellingen configureren voor het beveiligen van Actor Service /-Client met behulp van de onderwerpnaam.
-    Gebruiker moet voor het opgeven van findType als findbysubjectname zijn CertificateIssuerThumbprints en CertificateRemoteCommonNames waarden toevoegen.
-  Hieronder volgt het voorbeeld voor de Listener TransportSettings.
+    Gebruiker moet tooprovide findType als findbysubjectname zijn, CertificateIssuerThumbprints en CertificateRemoteCommonNames waarden toevoegen.
+  Hieronder vindt u voorbeeld Hallo voor Hallo Listener TransportSettings.
 
      ```xml
     <Section Name="TransportSettings">
@@ -140,7 +140,7 @@ Als de client wordt niet uitgevoerd als onderdeel van een service, kunt u een '&
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
     </Section>
     ```
-  Hieronder volgt het voorbeeld voor de Client-TransportSettings.
+  Hieronder vindt u voorbeeld Hallo voor Hallo Client TransportSettings.
 
     ```xml
      <Section Name="TransportSettings">

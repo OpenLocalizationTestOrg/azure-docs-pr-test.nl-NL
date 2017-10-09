@@ -1,6 +1,6 @@
 ---
-title: Instellen van de bron en doel voor Hyper-V-replicatie naar Azure (zonder de System Center VMM) met Azure Site Recovery | Microsoft Docs
-description: Geeft een overzicht van de stappen voor het instellen van de bron en doel-instellingen voor de replicatie van Hyper-V-machines naar Azure storage met Azure Site Recovery
+title: aaaSet up Hallo bron en doel voor Hyper-V-replicatie tooAzure (zonder de System Center VMM) met Azure Site Recovery | Microsoft Docs
+description: Geeft een overzicht van Hallo stappen tooset bron en doel-instellingen opgeven voor de replicatie van Hyper-V-machines tooAzure opslag met Azure Site Recovery
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,75 +14,75 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.openlocfilehash: b38eb3a011d46f2239891ea1d1bcac2a4059a866
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 105b90e6ac053d5b842c54a36c460a26d0f5c2ef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-8-set-up-the-source-and-target-for-hyper-v-replication-to-azure"></a>Stap 8: Instellen van de bron en doel voor Hyper-V-replicatie naar Azure
+# <a name="step-8-set-up-hello-source-and-target-for-hyper-v-replication-tooazure"></a>Stap 8: Instellen Hallo bron en doel voor Hyper-V-replicatie tooAzure
 
-Dit artikel wordt beschreven hoe u de bron en doel-instellingen configureren wanneer repliceren lokale Hyper-V virtuele machines (zonder de System Center VMM) naar Azure met behulp van de [Azure Site Recovery](site-recovery-overview.md) service in de Azure portal.
+Dit artikel wordt beschreven hoe tooconfigure bron en doel-instellingen bij het repliceren van on-premises Hyper-V virtuele machines (zonder de System Center VMM) tooAzure, met Hallo [Azure Site Recovery](site-recovery-overview.md) service in hello Azure-portal.
 
-Opmerkingen en vragen plaatsen onder aan dit artikel of op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Opmerkingen en vragen plaatsen Hallo onder aan dit artikel of op Hallo [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="set-up-the-source-environment"></a>De bronomgeving instellen
+## <a name="set-up-hello-source-environment"></a>Hallo bronomgeving instellen
 
-De Hyper-V-site instellen, de Azure Site Recovery Provider en de Azure Recovery Services-agent installeren op Hyper-V-hosts en de site in de kluis registreren.
+Hallo Hyper-V-site instellen, installeert hello Azure Site Recovery Provider en hello Azure Recovery Services agent op Hyper-V-hosts en Hallo site in Hallo kluis registreren.
 
-1. In **infrastructuur voorbereiden**, klikt u op **bron**. Een nieuwe Hyper-V-site toevoegen als een container voor uw Hyper-V-hosts of clusters: klik op **+ Hyper-V-Site**.
+1. In **infrastructuur voorbereiden**, klikt u op **bron**. tooadd een nieuwe Hyper-V-site als een container voor uw Hyper-V-hosts of clusters, klikt u op **+ Hyper-V-Site**.
 
     ![Bron instellen](./media/hyper-v-site-walkthrough-source-target/set-source1.png)
-2. In **maken van Hyper-V-site**, Geef een naam voor de site. Klik vervolgens op **OK**. Selecteer de site hebt gemaakt Klik op nu **+ Hyper-V Server** een server toevoegen aan de site.
+2. In **maken van Hyper-V-site**, Geef een naam voor het Hallo-site. Klik vervolgens op **OK**. Selecteer Hallo site hebt gemaakt Klik op nu **+ Hyper-V Server** tooadd een toohello serversite.
 
     ![Bron instellen](./media/hyper-v-site-walkthrough-source-target/set-source2.png)
 
 3. In **Server toevoegen** > **servertype**, controleert u of **Hyper-V-server** wordt weergegeven.
 
-    - Zorg ervoor dat de Hyper-V-server die u wilt toevoegen, voldoet aan de [vereisten](#on-premises-prerequisites), en kan worden gebruikt voor toegang tot de opgegeven URL's.
-    - Download het installatieprogramma voor de Azure Site Recovery-provider. U uitvoeren dit bestand voor het installeren van de Provider en de Recovery Services agent op elke Hyper-V-host.
+    - Zorg ervoor dat Hallo Hyper-V-server die u wilt tooadd voldoet aan de Hallo [vereisten](#on-premises-prerequisites), en kunnen tooaccess Hallo is opgegeven URL's.
+    - Download hello Azure Site Recovery Provider-installatiebestand. U voert dit bestand tooinstall Hallo Provider en Hallo Recovery Services-agent op elke Hyper-V-host.
 
     ![Bron instellen](./media/hyper-v-site-walkthrough-source-target/set-source3.png)
 
 
-## <a name="install-the-provider-and-agent"></a>De Provider en de agent installeren
+## <a name="install-hello-provider-and-agent"></a>Hallo Provider en agent installeren
 
-1. Voer de Provider-installatiebestand op elke host die u hebt toegevoegd aan de Hyper-V-site. Als u op een Hyper-V-cluster installeert, moet u setup uitvoeren op elk clusterknooppunt. Installeren en registreren van elk clusterknooppunt Hyper-V zorgt ervoor dat virtuele machines worden beschermd, zelfs als ze via knooppunten migreren.
+1. Hallo Provider-installatiebestand op elke host uitvoeren u toohello Hyper-V-site toegevoegd. Als u op een Hyper-V-cluster installeert, moet u setup uitvoeren op elk clusterknooppunt. Installeren en registreren van elk clusterknooppunt Hyper-V zorgt ervoor dat virtuele machines worden beschermd, zelfs als ze via knooppunten migreren.
 2. In **Microsoft Update** kunt u updates inschakelen, zodat de providerupdates volgens uw Microsoft Update-beleid worden geïnstalleerd.
-3. Accepteer of wijzig in **Installatie** de standaardinstallatielocatie van de provider en klik op **Installeren**.
-4. In **Kluisinstellingen**, klikt u op **Bladeren** selecteren van het kluissleutelbestand dat u hebt gedownload. Geef het Azure Site Recovery-abonnement, de kluisnaam van de en de Hyper-V-site waarop de Hyper-V-server behoort.
+3. In **installatie**, accepteer of wijzig Hallo Provider standaardlocatie voor installatie en klik op **installeren**.
+4. In **Kluisinstellingen**, klikt u op **Bladeren** tooselect hello kluissleutelbestand die u hebt gedownload. Geef hello Azure Site Recovery-abonnement, Hallo kluisnaam, en Hallo Hyper-V-site toowhich Hallo Hyper-V server behoort.
 
     ![Serverregistratie](./media/hyper-v-site-walkthrough-source-target/provider3.png)
 
-5. In **Proxy-instellingen**, opgeven hoe de Provider die wordt uitgevoerd op Hyper-V-hosts verbinding maakt met Azure Site Recovery via internet.
+5. In **Proxy-instellingen**, hoe Hallo Provider waarop Hyper-V-hosts tooAzure Site Recovery verbindt via internet Hallo opgeven.
 
-    * Als u wilt dat de provider rechtstreeks verbinding maakt, selecteert u **Rechtstreeks verbinding maken met Azure Site Recovery zonder proxyserver**.
-    * Als uw bestaande proxy verificatie vereist, of u wilt een aangepaste proxy gebruikt voor de providerverbinding, selecteer **verbinding maken met Azure Site Recovery via een proxyserver**.
+    * Als u wilt dat Hallo Provider tooconnect rechtstreeks Selecteer **tooAzure siteherstel zonder een proxy rechtstreeks verbinding gemaakt**.
+    * Als uw bestaande proxy verificatie vereist, of u een aangepaste proxy toouse voor Hallo providerverbinding wilt, schakelt u **verbinding maken met Site Recovery via een proxyserver tooAzure**.
     * Als u een proxy gebruikt:
-        - Het adres, poort en referenties opgeven
-        - Zorg ervoor dat de URL's die worden beschreven de [vereisten](#prerequisites) zijn toegestaan via de proxy.
+        - Hallo-adres, poort en referenties opgeven
+        - Zorg ervoor dat Hallo URL's die worden beschreven in Hallo [vereisten](#prerequisites) via proxy Hallo zijn toegestaan.
 
     ![internet](./media/hyper-v-site-walkthrough-source-target/provider7.png)
 
-6. Nadat de installatie is voltooid, klikt u op **registreren** de server in de kluis registreren.
+6. Nadat de installatie is voltooid, klikt u op **registreren** tooregister Hallo-server in Hallo kluis.
 
     ![Installatielocatie](./media/hyper-v-site-walkthrough-source-target/provider2.png)
 
-7. Nadat de registratie is voltooid, metagegevens van de Hyper-V-server worden opgehaald door Azure Site Recovery en de server wordt weergegeven in **Site Recovery-infrastructuur** > **Hyper-V-Hosts**.
+7. Nadat de registratie is voltooid, metagegevens van Hallo Hyper-V server worden opgehaald door Azure Site Recovery en Hallo-server wordt weergegeven in **Site Recovery-infrastructuur** > **Hyper-V-Hosts**.
 
 
-## <a name="set-up-the-target-environment"></a>De doelomgeving instellen
+## <a name="set-up-hello-target-environment"></a>Hallo doelomgeving instellen
 
-Geef de Azure storage-account voor replicatie en het Azure-netwerk waarmee virtuele Azure-machines verbinding maken na een failover.
+Geef hello Azure storage-account voor replicatie en hello Azure-netwerk toowhich virtuele Azure-machines na failover verbinding maakt.
 
 1. Klik op **infrastructuur voorbereiden** > **doel**.
-2. Selecteer het abonnement en de resourcegroep waarin u wilt maken van de Azure VM's na een failover. Kies het implementatiemodel dat u wilt gebruiken in Azure (klassiek of de resource management) voor de virtuele machines.
+2. Hallo-abonnement en resourcegroep Hallo waarin u toocreate Hallo virtuele Azure-machines na een failover wilt selecteren. Kies Hallo implementatie model wilt u toouse in Azure (klassiek of de resource management) voor Hallo virtuele machines.
 
 3. Site Recovery controleert of u een of meer compatibele Azure-opslagaccounts en -netwerken hebt.
 
-    - Als u geen storage-account hebt, klikt u op **en opslag** voor het maken van een inline-account op basis van een Resource Manager. 
-    - Als u geen Azure-netwerk hebt, klikt u op **+ netwerk** voor het maken van een inline Resource Manager-netwerk.
+    - Als u geen storage-account hebt, klikt u op **en opslag** toocreate een inline-account op basis van een Resource Manager. 
+    - Als u geen Azure-netwerk hebt, klikt u op **+ netwerk** toocreate een inline Resource Manager-netwerk.
 
 
 
@@ -91,4 +91,4 @@ Geef de Azure storage-account voor replicatie en het Azure-netwerk waarmee virtu
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar [stap 9: een replicatiebeleid instellen](hyper-v-site-walkthrough-replication.md)
+Ga te[stap 9: een replicatiebeleid instellen](hyper-v-site-walkthrough-replication.md)

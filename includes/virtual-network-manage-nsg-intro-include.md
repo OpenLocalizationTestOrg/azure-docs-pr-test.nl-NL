@@ -1,0 +1,2 @@
+Nadat u een of meer Netwerkbeveiligingsgroepen (nsg's) gemaakt, moet u toobe kunnen tooretrieve informatie over uw Nsg toevoegen en regels te verwijderen, de bestaande regels bewerken, koppelen of ontkoppelen nsg's en nsg's te verwijderen. In dit artikel leert u hoe tooexecute van deze taken. Voordat u nsg's beheren kunt, is het belangrijk tooknow [hoe nsg's werken](../articles/virtual-network/virtual-networks-nsg.md). 
+

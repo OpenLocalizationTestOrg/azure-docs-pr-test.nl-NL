@@ -1,6 +1,6 @@
 ---
-title: Een testfailover voor VMware-replicatie uitvoeren naar Azure | Microsoft Docs
-description: Geeft een overzicht van de stappen die u nodig hebt voor het uitvoeren van een testfailover voor virtuele VMware-machines repliceren naar Azure met behulp van de Azure Site Recovery-service.
+title: een testfailover voor VMware replicatie tooAzure aaaRun | Microsoft Docs
+description: Geeft een overzicht van Hallo-stappen die u moet voor het uitvoeren van een testfailover voor virtuele VMware-machines repliceren tooAzure hello Azure Site Recovery-service gebruiken.
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,73 +14,73 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.openlocfilehash: f1a6df56a2bb0094d972d2e659057cc124156b88
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: bed934446f0c6940089bfae24a13de4fb1556a62
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-12-run-a-test-failover-to-azure-for-vmware-vms"></a>Stap 12: Een testfailover uitvoeren naar Azure voor virtuele VMware-machines
+# <a name="step-12-run-a-test-failover-tooazure-for-vmware-vms"></a>Stap 12: Een test failover tooAzure uitvoeren voor virtuele VMware-machines
 
-Dit artikel wordt beschreven hoe u een testfailover uitvoeren van on-premises virtuele VMware-machines naar Azure met behulp van de [Azure Site Recovery](site-recovery-overview.md) service in de Azure portal.
+Dit artikel wordt beschreven hoe toorun een testfailover van lokale VMware-virtuele machines tooAzure, met behulp van Hallo [Azure Site Recovery](site-recovery-overview.md) service in hello Azure-portal.
 
-Opmerkingen en vragen plaatsen onder aan dit artikel of op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Opmerkingen en vragen plaatsen Hallo onder aan dit artikel of op Hallo [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="before-you-start"></a>Voordat u begint
 
-Voordat u een testfailover die wordt aangeraden Controleer of de VM-eigenschappen en breng de gewenste wijzigingen uitvoert moet u. u kunt toegang tot de VM-eigenschappen in **gerepliceerde items**. De **Essentials** blade ziet u informatie over machines instellingen en status.
+Voordat u een testfailover die wordt aangeraden controleren Hallo VM-eigenschappen en breng de gewenste wijzigingen uitvoert moet u. U toegang hebt tot Hallo VM-eigenschappen in **gerepliceerde items**. Hallo **Essentials** blade ziet u informatie over machines instellingen en status.
 
 ## <a name="managed-disk-considerations"></a>Beheerde schijf-overwegingen
 
-[Schijven die worden beheerd](../virtual-machines/windows/managed-disks-overview.md) Schijfbeheer voor Azure VM's vereenvoudigen door het beheer van de storage-accounts die zijn gekoppeld aan de VM-schijven. 
+[Schijven die worden beheerd](../virtual-machines/windows/managed-disks-overview.md) Schijfbeheer voor Azure VM's vereenvoudigen door het beheer van Hallo storage-accounts die zijn gekoppeld aan Hallo VM-schijven. 
 
-- Als u beveiliging voor een virtuele machine inschakelt, wordt virtuele machine worden gerepliceerd naar een opslagaccount. Beheerde schijven zijn gemaakt en gekoppeld aan de virtuele machine alleen wanneer failover plaatsvindt.
-- Beheerde schijven kunnen alleen voor virtuele machines die zijn geïmplementeerd met behulp van de Resource Manager-model worden gemaakt.  
-- Met deze instelling is ingeschakeld, alleen beschikbaarheidssets in resourcegroepen die beschikken over **beheerde schijven gebruiken** ingeschakeld kan worden geselecteerd. Virtuele machines met beheerde schijven moeten zich in beschikbaarheidssets met **beheerde schijven gebruiken** ingesteld op **Ja**. Als de instelling is niet ingeschakeld voor virtuele machines, kunnen alleen in beschikbaarheidssets voor resourcegroepen zonder beheerde schijven ingeschakeld worden geselecteerd.
+- Als u beveiliging voor een virtuele machine inschakelt, repliceert VM-gegevens tooa storage-account. Beheerde schijven worden gemaakt en gekoppeld toohello VM alleen wanneer failover plaatsvindt.
+- Beheerde schijven kunnen alleen voor virtuele machines die zijn geïmplementeerd met Resource Manager-model Hallo worden gemaakt.  
+- Met deze instelling is ingeschakeld, alleen beschikbaarheidssets in resourcegroepen die beschikken over **beheerde schijven gebruiken** ingeschakeld kan worden geselecteerd. Virtuele machines met beheerde schijven moeten zich in beschikbaarheidssets met **beheerde schijven gebruiken** instellen te**Ja**. Als het Hallo-instelling is niet ingeschakeld voor virtuele machines, kunnen alleen in beschikbaarheidssets voor resourcegroepen zonder beheerde schijven ingeschakeld worden geselecteerd.
 - [Meer informatie](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set) over beheerde schijven en beschikbaarheid ingesteld.
-- Als het opslagaccount dat u voor replicatie gebruikt zijn versleuteld met versleuteling van opslag-Service, kunnen beheerde schijven kunnen niet worden gemaakt tijdens de failover. In dit geval niet een gebruik van beheerde schijven, inschakelen of schakel de beveiliging voor de virtuele machine en opnieuw inschakelen voor gebruik van een opslagaccount dat geen versleuteling ingeschakeld. [Meer informatie](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
+- Als Hallo storage account dat u voor replicatie gebruikt zijn versleuteld met versleuteling van opslag-Service, kunnen beheerde schijven kunnen niet worden gemaakt tijdens de failover. In dit geval ofwel niet gebruik van beheerde schijven, inschakelen of schakel de beveiliging voor VM Hallo en u deze toouse een opslagaccount dat geen versleuteling ingeschakeld. [Meer informatie](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
 
 
 ## <a name="network-considerations"></a>Aandachtspunten voor netwerken
 
-U kunt de IP-adres van doel instellen voor een virtuele machine in Azure gemaakt na een failover.
+U kunt Hallo doel-IP-adres instellen voor een virtuele machine in Azure gemaakt na een failover.
 
-- Als u geen adres opgeeft, maakt de machine waarvoor een failover is uitgevoerd, gebruik van DHCP.
+- Als u een adres niet opgeeft, wordt Hallo failover machine DHCP gebruikt.
 - Als u een adres dat is niet beschikbaar bij een failover, werkt failover niet.
-- Hetzelfde doel-IP-adres kan worden gebruikt voor de testfailover, als het adres beschikbaar in het testfailovernetwerk is.
-- Het aantal netwerkadapters wordt bepaald door de grootte die u voor de virtuele doelmachine opgeeft:
+- Hallo hetzelfde IP-adres van doel kan worden gebruikt voor testfailover als Hallo adres in het testfailovernetwerk Hallo beschikbaar is.
+- Hallo aantal netwerkadapters wordt bepaald door het Hallo-grootte die u voor de virtuele doelmachine Hallo opgeeft:
 
-     - Als het aantal netwerkadapters op de bronmachine hetzelfde als of kleiner is dan het aantal adapters dat is toegestaan voor de grootte van de doelmachine, wordt het doel hetzelfde aantal adapters als de bron hebben.
-     - Als het aantal adapters voor de virtuele bronmachine groter is dan het aantal dat is toegestaan voor de doelgrootte dan het maximum wordt gebruikt.
-     - Als een bronmachine bijvoorbeeld twee netwerkadapters heeft en met de grootte van de doelmachine vier netwerkadapters worden ondersteund, heeft de doelcomputer twee adapters. Als de bronmachine twee adapters heeft, maar met de ondersteunde doelgrootte slechts één wordt ondersteund, heeft de doelcomputer slechts één adapter.     
-   - Als de virtuele machine meerdere netwerkadapters die worden deze allemaal verbonden met hetzelfde netwerk heeft.
-   - Als de virtuele machine meerdere netwerkadapters heeft dan het eerste beheerpunt dat wordt weergegeven in de lijst wordt de *standaard* netwerkadapter in de virtuele machine van Azure.
+     - Als Hallo aantal netwerkadapters op de bronmachine Hallo Hallo dezelfde is als of kleiner is dan het aantal adapters dat is toegestaan voor de doelgrootte machine Hallo hello, wordt Hallo doel hetzelfde aantal adapters als bron Hallo Hallo.
+     - Als Hallo aantal adapters voor de virtuele bronmachine Hallo Hallo dat is toegestaan voor de doelgrootte hello, overschrijdt en vervolgens maximaal Hallo doel wordt gebruikt.
+     - Als een bronmachine twee netwerkadapters heeft en de grootte van Hallo doelmachine vier ondersteunt, wordt Hallo doelmachine twee adapters hebben. Als Hallo-bronmachine twee adapters heeft, maar hello ondersteunde doelgrootte biedt alleen ondersteuning voor een hebben Hallo doelmachine slechts één adapter.     
+   - Als Hallo virtuele machine meerdere netwerkadapters heeft worden deze allemaal verbonden toohello hetzelfde netwerk.
+   - Als Hallo virtuele machine meerdere netwerkadapters Hallo heeft eerst weergegeven in de lijst hello wordt Hallo *standaard* netwerkadapter in hello Azure virtuele machine.
  - [Meer informatie](vmware-walkthrough-network.md) over IP-adressering.
 
 
 
 ## <a name="view-and-modify-vm-settings"></a>VM-instellingen weergeven en wijzigen
 
-U wordt aangeraden de eigenschappen van de bronmachine te controleren voordat u een failover uitvoert.
+Het is raadzaam om de eigenschappen van de bronmachine Hallo Hallo te controleren voordat u een failover uitvoert.
 
-1. In **beveiligde Items**, klikt u op **gerepliceerde Items**, en klik op de virtuele machine.
-2. In de **gerepliceerde item** deelvenster ziet u een overzicht van de VM-informatie, de status en de meest recente beschikbare herstelpunten. Klik op **eigenschappen** om meer details te bekijken.
+1. In **beveiligde Items**, klikt u op **gerepliceerde Items**, en klik op Hallo VM.
+2. In Hallo **gerepliceerde item** deelvenster ziet u een samenvatting van VM-informatie, de status en Hallo meest recente beschikbare-herstelpunten. Klik op **eigenschappen** tooview om meer details.
 3. In **berekening en netwerk**, kunt u:
-    - Wijzig de naam van de virtuele machine van Azure. De naam moet voldoen aan [Azure-vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+    - Naam van de virtuele machine van Azure Hallo wijzigen. Hallo-naam moet voldoen aan [Azure-vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
     - Geef een na een failover [resourcegroep].
-    - Specificeer de doelgrootte van een voor de Azure VM
+    - Geef de doelgrootte van een voor hello Azure VM
     - Selecteer een [beschikbaarheidsset](../virtual-machines/windows/tutorial-availability-sets.md).
-    - Geef op of gebruik [schijven die worden beheerd](#managed-disk-considerations). Selecteer **Ja**als u wilt koppelen beheerde schijven aan de computer over de migratie naar Azure.
-    - Netwerkinstellingen weergeven of wijzigen, met inbegrip van de netwerk-en het subnet waarin de virtuele machine in Azure worden opgeslagen na de failover- en het IP-adres dat wordt toegewezen aan deze.
-4. In **schijven**, vindt u informatie over het besturingssysteem en gegevensschijven op de virtuele machine.
+    - Opgeven of toouse [schijven die worden beheerd](#managed-disk-considerations). Selecteer **Ja**, als u tooattach beheerde schijven tooyour machine op migratie tooAzure wilt.
+    - Weergeven of wijzigen van de netwerkinstellingen, inclusief Hallo netwerksubnet/in welke hello Azure VM worden geplaatst na een failover en Hallo IP-adres dat wordt toegewezen tooit.
+4. In **schijven**, ziet u informatie over Hallo-besturingssysteem en gegevensschijven op Hallo VM.
 
 ## <a name="run-a-test-failover"></a>Een testfailover uitvoeren
 
-Nadat u hebt ingesteld alles, werkt uitvoeren van een testfailover om te controleren of Alles zoals verwacht.
+Nadat u hebt ingesteld alles, voert u toomake van de test-failover of dat alles werkt zoals verwacht.
 
-- Als u wilt verbinding maken met virtuele Azure-machines met RDP na een failover [voorbereiden om verbinding te](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
- - Als u een volledige test wilt uitvoeren, moet u Active Directory en DNS naar uw testomgeving kopiëren. [Meer informatie](site-recovery-active-directory.md#test-failover-considerations).
+- Als u wilt dat tooconnect tooAzure virtuele machines met RDP na een failover [tooconnect voorbereiden](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+ - toofully test u toocopy van Active Directory en DNS moet in uw testomgeving. [Meer informatie](site-recovery-active-directory.md#test-failover-considerations).
  - Lees voor volledige informatie over de testfailover [in dit artikel](site-recovery-test-failover-to-azure.md) artikel.
 - Haal een snel overzicht van de video voordat u begint:
 
@@ -90,26 +90,26 @@ Nadat u hebt ingesteld alles, werkt uitvoeren van een testfailover om te control
 
 Voer nu een failover:
 
-1. Een enkele machine failover **instellingen** > **gerepliceerde Items**, klikt u op de virtuele machine > **+ Testfailover** pictogram.
+1. toofail via één computer in **instellingen** > **gerepliceerde Items**, klikt u op Hallo VM > **+ Testfailover** pictogram.
 
     ![Testfailover](./media/vmware-walkthrough-test-failover/test-failover.png)
 
-2. Als u een failover wilt uitvoeren op basis van een herstelplan, klikt u in **Instellingen** > **Herstelplannen** met de rechtermuisknop op het plan > **Testfailover**. Volg [deze instructies](site-recovery-create-recovery-plans.md) om een herstelplan te maken.  
+2. plan toofail via een herstelbewerking **instellingen** > **herstelplannen**, klik met de rechtermuisknop Hallo plan > **Testfailover**. een herstelplan toocreate [Volg deze instructies](site-recovery-create-recovery-plans.md).  
 
-3. In **Testfailover**, selecteer het Azure-netwerk welke virtuele Azure-machines moet worden verbonden nadat er failover plaatsvindt.
+3. In **Testfailover**, selecteer hello Azure-netwerk toowhich virtuele Azure-machines moet worden verbonden nadat er failover plaatsvindt.
 
-4. Klik op **OK** om te beginnen met de failover. U kunt de voortgang volgen door te klikken op de virtuele machine om de eigenschappen te openen of op de **Testfailover** taak in de kluisnaam > **instellingen** > **taken** > **Site Recovery-taken**.
+4. Klik op **OK** toobegin Hallo failover. U kunt de voortgang volgen door te klikken op Hallo VM tooopen eigenschappen of op Hallo **Testfailover** taak in de kluisnaam > **instellingen** > **taken**  >  **Site Recovery-taken**.
 
-5. Wanneer de failover is voltooid, moet u de gerepliceerde Azure-machine ook kunnen zien in Azure Portal > **Virtuele machines**. Controleer of de virtuele machine de juiste grootte heeft, of deze is verbonden met het juiste netwerk en of deze actief is.
+5. Nadat de failover Hallo is voltooid, dient u zich kunt toosee Hallo replica machine van Azure in hello Azure-portal weergegeven > **virtuele Machines**. U moet ervoor zorgen dat Hallo VM is de juiste grootte hello, of deze is verbonden met het juiste netwerk toohello en dat deze wordt uitgevoerd.
 
-6. Als u verbindingen hebt voorbereid na een failover, kunt u verbinding maken met de Azure-VM.
+6. Als u voorbereid op verbindingen na een failover, moet u kunnen tooconnect toohello Azure VM.
 
-7. Als u klaar bent, klikt u op **testfailover opschonen** op het herstelplan. In **notities**, vastleggen en opslaan van eventuele opmerkingen die zijn gekoppeld aan de testfailover. Hiermee verwijdert u de virtuele machines die zijn gemaakt tijdens de testfailover.
+7. Als u klaar bent, klikt u op **testfailover opschonen** op Hallo herstelplan. In **notities**, vastleggen en opslaan van eventuele opmerkingen die zijn gekoppeld aan de testfailover Hallo. Hiermee verwijdert u Hallo virtuele machines die zijn gemaakt tijdens de testfailover.
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Meer informatie](site-recovery-failover.md) over verschillende soorten failovers en hoe ze uit te voeren.
+- [Meer informatie](site-recovery-failover.md) over verschillende soorten failovers, en hoe toorun ze.
 - Als u bij het migreren van computers in plaats van met repliceren en mislukt achter, [meer](site-recovery-migrate-to-azure.md#migrate-on-premises-vms-and-physical-servers).
-- [Meer informatie over failback](site-recovery-failback-azure-to-vmware.md), zodat een failback- en virtuele Azure-machines repliceren naar de primaire lokale site.
+- [Meer informatie over failback](site-recovery-failback-azure-to-vmware.md), toofail back en repliceren Azure VM's weer toohello primaire on-premises-site.

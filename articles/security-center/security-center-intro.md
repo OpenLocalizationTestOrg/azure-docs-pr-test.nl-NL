@@ -1,5 +1,5 @@
 ---
-title: Inleiding tot Azure Security Center | Microsoft Docs
+title: aaaIntroduction tooAzure Security Center | Microsoft Docs
 description: Meer informatie over Azure Security Center, de belangrijkste mogelijkheden van Azure Security Center en hoe Azure Security Center werkt.
 services: security-center
 documentationcenter: na
@@ -14,65 +14,65 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: terrylan
-ms.openlocfilehash: 8951167213da6ab5341c1ca420353ec625ef5424
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 287dbaaa7e2004c522f103595bc316261daf05b4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-azure-security-center"></a>Inleiding tot Azure Security Center
+# <a name="introduction-tooazure-security-center"></a>Inleiding tooAzure Security Center
 Meer informatie over Azure Security Center, de belangrijkste mogelijkheden van Azure Security Center en hoe Azure Security Center werkt.
 
 > [!NOTE]
-> Vanaf begin juni 2017 zal Security Center de Microsoft Monitoring Agent gebruiken voor het verzamelen en opslaan van gegevens. Zie [Migratie van Azure Security Center-platform](security-center-platform-migration.md) voor meer informatie. De informatie in dit artikel beschrijft functionaliteit van Security Center na de overstap naar de Microsoft Monitoring Agent.
+> Begin juni 2017 vanaf kan Security Center Hallo Microsoft Monitoring Agent toocollect gebruiken en opslaan van gegevens. Zie [Azure Security Center-Platform migratie](security-center-platform-migration.md) toolearn meer. Hallo-informatie in dit artikel beschrijft Security Center functionaliteit na de overgang toohello Microsoft Monitoring Agent.
 >
 >
 
 ## <a name="what-is-azure-security-center"></a>Wat is Azure Security Center?
- Azure Security Center helpt u bij het detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen te detecteren die anders onopgemerkt zouden blijven, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
+ Security Center helpt u bij het detecteren, voorkomen van en reageren toothreats met verhoogde zichtbaarheid van en controle over Hallo beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen te detecteren die anders onopgemerkt zouden blijven, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
 
 ## <a name="key-capabilities"></a>Belangrijkste mogelijkheden
- Security Center biedt eenvoudige en effectieve preventie en detectie van bedreigingen en reactiemogelijkheden die zijn ingebouwd in Azure. De belangrijkste mogelijkheden zijn:
+ Security Center biedt eenvoudig te gebruiken en effectieve bedreiging mogelijkheden voor preventie, detectie en reactie die zijn ingebouwd in tooAzure. De belangrijkste mogelijkheden zijn:
 
 | Fase | Mogelijkheid |
 | --- | --- |
-| Voorkomen |De beveiligingsstatus van uw Azure-resources wordt gecontroleerd |
-| Voorkomen | Wordt beleid gedefinieerd voor uw Azure-abonnementen op basis van beveiligingsvereisten van uw bedrijf, de typen toepassingen die u hebt gebruikt, en de vertrouwelijkheid van uw gegevens |
-| Voorkomen | Er wordt gebruikgemaakt van beveiligingsaanbevelingen van het beleid om service-eigenaren te begeleiden bij de implementatie van benodigde besturingselementen |
+| Voorkomen |Monitors Hallo beveiligingsstatus van uw Azure-resources |
+| Voorkomen | Beleidsregels voor uw Azure-abonnementen op basis van de beveiligingsvereisten van uw bedrijf, Hallo soorten toepassingen gebruiken en de vertrouwelijkheid van uw gegevens Hallo definieert |
+| Voorkomen | Maakt gebruik van beleid gebaseerde beveiliging aanbevelingen tooguide service-eigenaars via Hallo proces van implementatie van benodigde besturingselementen |
 | Voorkomen | Beveiligingsservices en -toepassingen van Microsoft en partners worden snel geïmplementeerd |
-| Detecteren |Beveiligingsgegevens van uw Azure-resources, het netwerk en partneroplossingen zoals antimalwareprogramma's en firewalls worden automatisch verzameld en geanalyseerd |
-| Detecteren | Maakt gebruik van globale dreiging intelligence van Microsoft-producten en services, de Microsoft Digital Crimes Unit (DCU), de Microsoft Security Response Center (MSRC) en externe feeds |
+| Detecteren |Automatisch verzameld en analyseert beveiligingsgegevens van uw Azure-resources, het Hallo-netwerk en partneroplossingen zoals antimalwareprogramma's en firewalls |
+| Detecteren | Maakt gebruik van globale dreiging intelligence van Microsoft-producten en services, Microsoft Digital Crimes Unit (DCU), Hallo Hallo Microsoft Security Response Center (MSRC) en externe feeds |
 | Detecteren | Er worden geavanceerde analyses toegepast, waaronder machine learning en gedragsanalyse |
 | Reageren |Beveiligingsincidenten/-waarschuwingen worden met prioriteit geleverd |
-| Reageren | Er wordt inzicht geboden in de bron van de aanval en betrokken resources |
-| Reageren | Er worden manieren voorgesteld om de huidige aanval te stoppen en toekomstige aanvallen te voorkomen |
+| Reageren | Inzicht geboden in Hallo bron van het Hallo-aanval en betrokken resources |
+| Reageren | Bevat informatie over toostop Hallo huidige aanval en toekomstige aanvallen te voorkomen |
 
 ## <a name="introductory-walkthrough"></a>Introductie
 
 > [!NOTE]
-> In dit document wordt de service geïntroduceerd aan de hand van een voorbeeldimplementatie. Dit document is niet een stapsgewijze handleiding.
+> Dit document bevat Hallo service met behulp van een voorbeeldimplementatie. Dit document is niet een stapsgewijze handleiding.
 >
 >
 
- Security Center is toegankelijk via [Azure Portal](https://azure.microsoft.com/features/azure-portal/). [Aanmelden bij de portal](https://portal.azure.com). Schuif onder het portal hoofdmenu naar de **Security Center** optie of Selecteer de **Security Center** tegel die u eerder aan het portaldashboard hebt vastgemaakt.
+ Security Center is toegankelijk vanuit Hallo [Azure-portal](https://azure.microsoft.com/features/azure-portal/). [Meld u aan de portal toohello](https://portal.azure.com). Schuif onder Hallo portal hoofdmenu toohello **Security Center** optie of selecteer Hallo **Security Center** tegel dat u eerder toohello portaldashboard hebt vastgemaakt.
 
 ![Beveiligingstegel in Azure Portal][1]
 
 Vanuit Security Center kunt u beveiligingsbeleid instellen, beveiligingsconfiguraties bewaken en beveiligingswaarschuwingen weergeven.
 
 ### <a name="security-policies"></a>Beveiligingsbeleid
-U kunt beleid definiëren voor uw Azure-abonnementen volgens de vereisten van de beveiliging van uw bedrijf. Vervolgens kunt u het beleid aanpassen aan de typen toepassingen die u gebruikt, of de vertrouwelijkheid van de gegevens in elk abonnement. Zo kunnen er voor resources die worden gebruikt voor ontwikkeling of tests, andere beveiligingsvereisten zijn dan voor resources die worden gebruikt voor productietoepassingen. Ook kan voor toepassingen met gereglementeerde gegevens, zoals PII, een hoger beveiligingsniveau vereist zijn.
+U kunt beleid voor uw Azure-abonnementen op basis van de beveiligingsvereisten van het bedrijf tooyour definiëren. U kunt ook het beleid aanpassen toohello typen toepassingen die u gebruikt of toohello vertrouwelijkheid van Hallo gegevens in elk abonnement. Zo kunnen er voor resources die worden gebruikt voor ontwikkeling of tests, andere beveiligingsvereisten zijn dan voor resources die worden gebruikt voor productietoepassingen. Ook kan voor toepassingen met gereglementeerde gegevens, zoals PII, een hoger beveiligingsniveau vereist zijn.
 
 > [!NOTE]
-> Als u wilt een beveiligingsbeleid wijzigen, moet u een beveiligingsbeheerder of eigenaar of bijdrager van het abonnement. Voor meer informatie over rollen en toegestane acties in Security Center, Zie [machtigingen in Azure Security Center](security-center-permissions.md).
+> toomodify een beveiligingsbeleid, moet u een abonnement beveiligingsbeheerder of Hallo eigenaar of bijdrager zijn. Zie toolearn meer informatie over de functies en de toegestane acties in Security Center [machtigingen in Azure Security Center](security-center-permissions.md).
 >
 >
 
-Selecteer op de blade **Security Center** de tegel **Beleid** voor een lijst met uw abonnementen en resourcegroepen.   
+Op Hallo **Security Center** blade, selecteer Hallo **beleid** tegel voor een lijst met uw abonnementen en resourcegroepen.   
 
 ![Blade Security Center][2]
 
-Op de **beveiligingsbeleid** blade, selecteert u een abonnement om details van het beleid weer te geven.
+Op Hallo **beveiligingsbeleid** blade, selecteert u een abonnement tooview Hallo beleidsdetails.
 
 **Gegevensverzameling** schakelt u gegevensverzameling voor een beveiligingsbeleid. Het inschakelen biedt:
 
@@ -80,73 +80,73 @@ Op de **beveiligingsbeleid** blade, selecteert u een abonnement om details van h
 * Verzameling van beveiligingsgebeurtenissen voor analyse en detectie van bedreigingen.
 
 > [!NOTE]
-> Gegevensverzameling is geconfigureerd op het abonnementsniveau.
+> Gegevensverzameling is geconfigureerd op abonnementsniveau Hallo.
 >
 >
 
-Selecteer **preventiebeleid** openen de **preventiebeleid** blade. **Aanbevelingen weergeven voor** kunt u ervoor kiest de beveiligingsmechanismen die u wilt bewaken en de aanbevelingen die u wilt weergeven op basis van de beveiligingsvereisten van de resources in het abonnement.
+Selecteer **preventiebeleid** tooopen hello **preventiebeleid** blade. **Aanbevelingen weergeven voor** kunt u kiezen Hallo beveiligingsmechanismen die u wilt dat toomonitor en Hallo aanbevelingen die u toosee op basis van Hallo beveiligingsbehoeften van Hallo resources binnen Hallo-abonnement wilt.
 
 ### <a name="security-recommendations"></a>Aanbevelingen voor beveiliging
- Security Center analyseert de beveiligingsstatus van uw Azure-resources om mogelijke beveiligingsproblemen op te sporen. Een lijst met aanbevelingen begeleidt u bij het configureren van benodigde besturingselementen. Voorbeelden zijn:
+ Security Center analyseert de beveiligingsstatus Hallo van uw Azure-resources tooidentify mogelijke beveiligingsproblemen. Een lijst met aanbevelingen begeleidt u bij het Hallo-proces voor het configureren van benodigde besturingselementen. Voorbeelden zijn:
 
-* Inrichting van antimalware om schadelijke software te identificeren en te verwijderen
-* Netwerkbeveiligingsgroepen en regels voor het verkeer voor beheer voor virtuele machines configureren
-* Inrichten van Web Application Firewalls om te beschermen tegen aanvallen die zijn gericht op uw webtoepassingen
+* Inrichting van antimalware toohelp identificeren en verwijderen van schadelijke software
+* Network security groepen en regels toocontrol tooVMs verkeer configureren
+* Inrichting van web application firewalls toohelp beschermen tegen aanvallen die zijn gericht op uw webtoepassingen
 * Implementatie van ontbrekende systeemupdates
-* Aanpassing van besturingssysteemconfiguraties die niet overeenkomen met de aanbevolen basislijnen
+* Aanpassing van besturingssysteemconfiguraties die niet overeenkomen met de Hallo aanbevolen basislijnen
 
-Klik op de tegel **Aanbevelingen** voor een lijst met aanbevelingen. Klik op elke aanbeveling om extra informatie weer te geven of te doen om het probleem te verhelpen.
+Klik op Hallo **aanbevelingen** tegel voor een lijst met aanbevelingen. Klik op elke aanbeveling tooview aanvullende informatie of tootake actie tooresolve Hallo probleem.
 
 ![Aanbevelingen voor beveiliging in Azure Security Center][5]
 
 ### <a name="security-state-of-azure-resources"></a>Beveiligingsstatus van de Azure-resources
-De **preventie** gedeelte van het dashboard ziet u de algehele beveiligingsstatus van de omgeving per resourcetype, met inbegrip van virtuele machines, webtoepassingen en andere bronnen.   
+Hallo **preventie** sectie van Hallo dashboard toont Hallo algehele beveiligingsstatus van Hallo omgeving per resourcetype, met inbegrip van virtuele machines, webtoepassingen en andere bronnen.   
 
-Selecteer een resourcetype onder **preventie** voor meer informatie, waaronder een lijst met alle mogelijke beveiligingsproblemen die zijn geïdentificeerd. (**Compute** is geselecteerd in het onderstaande voorbeeld.)
+Selecteer een resourcetype onder **preventie** tooview meer informatie, waaronder een lijst met alle mogelijke beveiligingsproblemen die zijn geïdentificeerd. (**Compute** is geselecteerd in Hallo in het volgende voorbeeld.)
 
 ![Tegel Status van resources][6]
 
 ### <a name="security-alerts"></a>Beveiligingswaarschuwingen
- Security Center verzamelt, analyseert en integreert automatisch logboekgegevens van uw Azure-resources, het netwerk en partneroplossingen zoals antimalwareprogramma's en firewalls. Wanneer er dreigingen worden gedetecteerd, wordt een beveiligingswaarschuwing gemaakt. Voorbeelden zijn detectie van:
+ Security Center automatisch verzamelt, analyseert en integreert logboekgegevens van uw Azure-resources, het Hallo-netwerk en partneroplossingen zoals antimalwareprogramma's en firewalls. Wanneer er dreigingen worden gedetecteerd, wordt een beveiligingswaarschuwing gemaakt. Voorbeelden zijn detectie van:
 
 * Verdachte VM's die communiceren met bekende schadelijke IP-adressen
 * Geavanceerde malware die is gedetecteerd met Windows Foutrapportage
 * Beveiligingsaanvallen op virtuele machines
 * Beveiligingswaarschuwingen van geïntegreerde antimalwareprogramma's en firewalls
 
-Als u op de tegel **Beveiligingswaarschuwingen** klikt, wordt een lijst waarschuwingen met prioriteit weergegeven.
+Te klikken op Hallo **beveiligingswaarschuwingen** tegel geeft een lijst met waarschuwingen van prioriteit.
 
 ![Beveiligingswaarschuwingen][7]
 
-Als u een waarschuwing selecteert, ziet u meer informatie over de aanval en suggesties voor herstel.
+Meer informatie over het Hallo-aanval en suggesties voor het selecteren van een waarschuwing bevat tooremediate deze.
 
 ![Details van beveiligingswaarschuwing][8]
 
 ### <a name="partner-solutions"></a>Partneroplossingen
-De **partneroplossingen** tegel kunt u controleren in één oogopslag de beveiligingsstatus van uw partneroplossingen die zijn geïntegreerd met uw Azure-abonnement. Security Center bevat waarschuwingen die van de oplossingen afkomstig zijn.
+Hallo **partneroplossingen** tegel kunt u in een oogopslag Hallo beveiligingsstatus van uw partneroplossingen bewaken die zijn geïntegreerd met uw Azure-abonnement. Security Center bevat waarschuwingen die afkomstig zijn van het Hallo-oplossingen.
 
-Selecteer de tegel **Partneroplossingen**. Er wordt een blade met een lijst van alle verbonden partneroplossingen geopend.
+Selecteer Hallo **partneroplossingen** tegel. Er wordt een blade met een lijst van alle verbonden partneroplossingen geopend.
 
 ![Partneroplossingen][9]
 
 ## <a name="get-started"></a>Aan de slag
-Om te beginnen met Security Center, moet u een abonnement op Microsoft Azure. Security Center wordt met uw Azure-abonnement ingeschakeld. Als u geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
+tooget gestart met Security Center, moet u een abonnement tooMicrosoft Azure. Security Center wordt met uw Azure-abonnement ingeschakeld. Als u geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 
- Security Center is toegankelijk via [Azure Portal](https://azure.microsoft.com/features/azure-portal/). Zie de [portaldocumentatie](https://azure.microsoft.com/documentation/services/azure-portal/) voor meer informatie.
+ Security Center is toegankelijk vanuit Hallo [Azure-portal](https://azure.microsoft.com/features/azure-portal/). Zie Hallo [portaldocumentatie](https://azure.microsoft.com/documentation/services/azure-portal/) toolearn meer.
 
-In [Aan de slag met Azure Security Center](security-center-get-started.md) leert u snel de onderdelen van Security Center voor de bewaking van de beveiliging en het beheer van het beleid kennen.
+[Aan de slag met Azure Security Center](security-center-get-started.md) leert u snel voor Hallo-beveiligingsbewaking en beleidsbeheer onderdelen van Security Center.
 
 ## <a name="next-steps"></a>Volgende stappen
-Dit document is een inleiding tot Security Center, de belangrijkste mogelijkheden hiervan en hoe u met Security Center aan de slag gaat. Zie de volgende bronnen voor meer informatie:
+In dit document zijn u geïntroduceerd tooSecurity Center, de belangrijkste mogelijkheden en hoe tooget gestart. toolearn Zie meer Hallo resources te volgen:
 
-* [Beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md) : informatie over het beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen configureren.
+* [Beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md) : meer informatie hoe tooconfigure beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md) : Leer hoe aanbevelingen u uw Azure-resources te beveiligen.
-* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): meer informatie over het bewaken van de status van uw Azure-resources.
-* [Het beheren van en reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md) : informatie over het beheren van en reageren op beveiligingswaarschuwingen.
-* [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
+* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md) : meer informatie over hoe toomonitor Hallo status van uw Azure-resources.
+* [Het beheer van is en reageert toosecurity waarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md) : meer informatie hoe toomanage en gereageerd had toosecurity waarschuwingen.
+* [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md) : meer informatie over hoe toomonitor gezondheidsstatus van uw partneroplossingen Hallo.
 - [Beveiliging van gegevens van Azure Security Center](security-center-data-security.md) -informatie over hoe gegevens worden beheerd en beveiligd in Security Center.
-* [Azure Security Center FAQ](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
-* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/) — Lees het laatste nieuws van de Azure-beveiliging en de informatie.
+* [Veelgestelde vragen over Azure Security Center](security-center-faq.md) : Raadpleeg Veelgestelde vragen over het gebruik van Hallo-service.
+* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/) : Hallo nieuwste Azure-beveiliging nieuws en informatie.
 
 <!--Image references-->
 [1]: ./media/security-center-intro/security-tile.png

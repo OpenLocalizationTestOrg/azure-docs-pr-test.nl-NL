@@ -1,6 +1,6 @@
 ---
-title: Een rapport insluiten in Azure Power BI Embedded | Microsoft Docs
-description: Informatie over het insluiten van een rapport dat zich in Power BI Embedded in uw toepassing.
+title: een rapport in Azure Power BI Embedded aaaEmbed | Microsoft Docs
+description: Meer informatie over hoe een rapport dat in uw toepassing in Power BI Embedded tooembed.
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -15,31 +15,31 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: asaxton
-ms.openlocfilehash: 3d865af2418c9c557c861a379766a125d75cebf1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f25344bbd0b9c092ef19da04d0b455d453b426a4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="embed-a-report-in-power-bi-embedded"></a>Een rapport insluiten in Power BI Embedded
 
-Informatie over het insluiten van een rapport dat zich in Power BI Embedded in uw toepassing.
+Meer informatie over hoe een rapport dat in uw toepassing in Power BI Embedded tooembed.
 
-Laten we zien hoe u daadwerkelijk een rapport insluiten in uw toepassing. Hierbij wordt verondersteld dat er al een rapport dat bestaat in een werkruimte in uw werkruimteverzameling. Als u deze stap nog niet hebt gedaan, Zie [aan de slag met Power BI Embedded](power-bi-embedded-get-started.md).
+Laten we zien hoe tooactually een rapport insluiten in uw toepassing. Hierbij wordt verondersteld dat er al een rapport dat bestaat in een werkruimte in uw werkruimteverzameling. Als u deze stap nog niet hebt gedaan, Zie [aan de slag met Power BI Embedded](power-bi-embedded-get-started.md).
 
-U kunt de .NET (C#) of Node.js-SDK, samen met JavaScript, gemakkelijk maken voor uw toepassing met Power BI Embedded. 
+U kunt Hallo .NET (C#) of Node.js SDK, samen met JavaScript, tooeasily uw toepassing met Power BI Embedded bouwen. 
 
-## <a name="using-the-access-keys-to-use-rest-apis"></a>Met behulp van de toegangssleutels REST-API's gebruiken
+## <a name="using-hello-access-keys-toouse-rest-apis"></a>Hallo toegang sleutels toouse REST-API's gebruiken
 
-Om de REST-API aanroept, kunt u de toegangssleutel die u via de Azure-portal voor een bepaalde werkruimteverzameling krijgen kunt doorgeven. Zie voor meer informatie [aan de slag met Power BI Embedded](power-bi-embedded-get-started.md).
+U kunt in volgorde toocall Hallo REST-API, Hallo toegangssleutel die u via hello Azure-portal voor een bepaalde werkruimteverzameling krijgen kunt doorgeven. Zie voor meer informatie [aan de slag met Power BI Embedded](power-bi-embedded-get-started.md).
 
 ## <a name="get-a-report-id"></a>Een rapport-id ophalen
 
-Elke toegangstoken is gebaseerd op een rapport. U moet de opgegeven rapport-id niet ophalen voor het rapport dat u wilt insluiten. Dit kan worden gedaan op basis van aanroepen naar de [Get Reports](https://msdn.microsoft.com/library/azure/mt711510.aspx) REST-API. Hiermee herstelt u de lijst-id en de url insluiten. Dit kan worden gedaan met behulp van de Power BI .NET SDK of de REST-API rechtstreeks aan te roepen.
+Elke toegangstoken is gebaseerd op een rapport. U moet tooget Hallo lijst-id opgegeven voor het Hallo-rapport dat u wilt dat tooembed. Dit kan worden gedaan op basis van aanroepen toohello [Get Reports](https://msdn.microsoft.com/library/azure/mt711510.aspx) REST-API. Dit wordt Hallo rapport-id en het Hallo insluiten url geretourneerd. U kunt dit doen met behulp van Hallo Power BI .NET SDK of rechtstreeks Hallo REST-API aanroepen.
 
-### <a name="using-the-power-bi-net-sdk"></a>Met behulp van de Power BI .NET SDK
+### <a name="using-hello-power-bi-net-sdk"></a>Met behulp van Hallo Power BI .NET SDK
 
-Wanneer u de .NET SDK, moet u een token referentie die is gebaseerd op de toegangssleutel die u via de Azure portal krijgen maken. Dit vereist dat u installeert de [Power BI API NuGet-pakket](https://www.nuget.org/profiles/powerbi).
+Wanneer u Hallo .NET SDK, moet u toocreate een token referentie die is gebaseerd op Hallo toegangssleutel die u via hello Azure-portal krijgen. Dit is vereist dat u Hallo installeert [Power BI API NuGet-pakket](https://www.nuget.org/profiles/powerbi).
 
 **NuGet-pakket installeren**
 
@@ -59,10 +59,10 @@ client.BaseUri = new Uri(https://api.powerbi.com);
 
 var reports = (IList<Report>)client.Reports.GetReports(workspaceCollectionName, workspaceId).Value;
 
-// Select the report that you want to work with from the collection of reports.
+// Select hello report that you want toowork with from hello collection of reports.
 ```
 
-### <a name="calling-the-rest-api-directly"></a>Rechtstreeks aanroepen van de REST-API
+### <a name="calling-hello-rest-api-directly"></a>Rechtstreeks aanroepen Hallo REST-API
 
 ```
 System.Net.WebRequest request = System.Net.WebRequest.Create("https://api.powerbi.com/v1.0/collections/{collectionName}/workspaces/{workspaceId}/Reports") as System.Net.HttpWebRequest;
@@ -75,7 +75,7 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 {
     using (var reader = new System.IO.StreamReader(response.GetResponseStream()))
     {
-        // Work with JSON response to get the report you want to work with.
+        // Work with JSON response tooget hello report you want toowork with.
     }
 
 }
@@ -83,11 +83,11 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 
 ## <a name="create-an-access-token"></a>Maken van een toegangstoken
 
-Maakt gebruik van Power BI Embedded insluiten token, JSON Web Tokens die HMAC zijn ondertekend. De tokens zijn ondertekend door de toegangssleutel van uw Azure Power BI Embedded werkruimteverzameling. Sluit tokens, standaard, alleen-lezen toegang aan een rapport insluiten in een toepassing worden gebruikt. Sluit tokens worden uitgegeven voor een specifiek rapport en moeten worden gekoppeld aan een URL insluiten.
+Maakt gebruik van Power BI Embedded insluiten token, JSON Web Tokens die HMAC zijn ondertekend. Hallo tokens zijn ondertekend door de toegangssleutel Hallo van uw Azure Power BI Embedded werkruimteverzameling. Sluit tokens, standaard, zijn gebruikte tooprovide lezen alleen toegang tot tooa rapport tooembed in een toepassing. Sluit tokens worden uitgegeven voor een specifiek rapport en moeten worden gekoppeld aan een URL insluiten.
 
-Toegangstokens moeten worden gemaakt op de server, zoals de toegangssleutels voor het teken/versleutelen van de tokens worden gebruikt. Zie voor meer informatie over het maken van een toegangstoken [Authenticating en autoriseren met Power BI Embedded](power-bi-embedded-app-token-flow.md). U kunt ook bekijken de [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) methode. Hier volgt een voorbeeld van hoe dit eruitziet met de .NET SDK voor Power BI.
+Toegangstokens moeten worden gemaakt op de server Hallo Hallo toegangstoetsen zijn gebruikte toosign/versleutelen Hallo-tokens. Voor meer informatie over een toegangstoken toocreate Zie [Authenticating en autoriseren met Power BI Embedded](power-bi-embedded-app-token-flow.md). U kunt ook bekijken Hallo [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) methode. Hier volgt een voorbeeld van hoe dit eruitziet Hallo .NET SDK gebruiken voor Power BI.
 
-Gebruikt u de id die u eerder hebt opgehaald. Zodra de insluittoken is gemaakt, wordt u vervolgens de toegangssleutel voor het genereren van het token dat u kunt gebruiken vanuit het perspectief van javascript gebruiken. De *PowerBIToken klasse* vereist dat u installeert de [Power BI Core NuGut pakket](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
+U gebruikt Hallo rapport-id die u eerder hebt opgehaald. Zodra Hallo insluiten token is gemaakt, gebruikt u vervolgens Hallo sleutel toogenerate Hallo toegangstoken dat u vanuit javascript-perspectief Hallo gebruiken kunt. Hallo *PowerBIToken klasse* vereist dat u Hallo installeert [Power BI Core NuGut pakket](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
 **NuGet-pakket installeren**
 
@@ -106,16 +106,16 @@ embedToken = PowerBIToken.CreateReportEmbedToken(workspaceCollectionName, worksp
 var token = embedToken.Generate("{access key}");
 ```
 
-### <a name="adding-permission-scopes-to-embed-tokens"></a>Scopes van de machtiging voor het insluiten van tokens toevoegen
+### <a name="adding-permission-scopes-tooembed-tokens"></a>Machtiging scopes tooembed-tokens toevoegen
 
-Wanneer u insluiten tokens gebruikt, kunt u beperkt gebruik van de resources die u toegang te geven. Daarom kunt u een token met bereik machtigingen genereren. Zie voor meer informatie [Scopes](power-bi-embedded-app-token-flow.md#scopes)
+Wanneer u insluiten tokens gebruikt, kunt u toorestrict informatie over het gebruik van Hallo-resources die u toegang te geven. Daarom kunt u een token met bereik machtigingen genereren. Zie voor meer informatie [Scopes](power-bi-embedded-app-token-flow.md#scopes)
 
 ## <a name="embed-using-javascript"></a>Insluiten met JavaScript
 
-Nadat u het toegangstoken en de lijst-id hebt, kunnen we het rapport met JavaScript insluiten. Dit vereist dat u het nuget installeert [Power BI JavaScript pakket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). De embedUrl worden alleen https://embedded.powerbi.com/appTokenReportEmbed.
+Nadat u Hallo-toegangstoken en Hallo lijst-id hebt, kunt we met JavaScript Hallo-rapport insluiten. Dit vereist dat u Hallo nuget installeert [Power BI JavaScript pakket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). Hallo embedUrl worden alleen https://embedded.powerbi.com/appTokenReportEmbed.
 
 > [!NOTE]
-> U kunt de [JavaScript rapport insluiten voorbeeld](https://microsoft.github.io/PowerBI-JavaScript/demo/) om functionaliteit te testen. Het biedt ook voorbeelden van code voor de verschillende bewerkingen die beschikbaar zijn.
+> U kunt Hallo [JavaScript rapport insluiten voorbeeld](https://microsoft.github.io/PowerBI-JavaScript/demo/) tootest-functionaliteit. Het biedt ook voorbeelden van code voor verschillende bewerkingen Hallo die beschikbaar zijn.
 
 **NuGet-pakket installeren**
 
@@ -140,9 +140,9 @@ var $reportContainer = $('#reportContainer');
 var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 ```
 
-### <a name="set-the-size-of-embedded-elements"></a>De grootte van de ingesloten elementen instellen
+### <a name="set-hello-size-of-embedded-elements"></a>Hallo-grootte van de ingesloten elementen instellen
 
-Het rapport wordt automatisch op basis van de grootte van de container worden ingesloten. Voor het onderdrukken van de standaardgrootte van het ingesloten toe te voegen een CSS-klasse-kenmerk of inline stijlen voor breedte en hoogte.
+Hallo-rapport wordt automatisch op basis van de grootte van de container Hallo worden ingesloten. toooverride hello standaardgrootte Hallo ingesloten gewoon een CSS-klasse-kenmerk of inline stijlen voor breedte en hoogte toevoegen.
 
 ## <a name="see-also"></a>Zie ook
 
@@ -155,4 +155,4 @@ Het rapport wordt automatisch op basis van de grootte van de container worden in
 [Power BI Core NuGut-pakket](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
 [Power BI-CSharp Git-opslagplaats](https://github.com/Microsoft/PowerBI-CSharp)  
 [Power BI-knooppunt Git-opslagplaats](https://github.com/Microsoft/PowerBI-Node)  
-Nog vragen? [Probeer de Power BI-community](http://community.powerbi.com/)
+Nog vragen? [Probeer Hallo Power BI-Community](http://community.powerbi.com/)

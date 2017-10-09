@@ -1,6 +1,6 @@
 ---
-title: Netwerktoewijzing voor Hyper-V-machines in VMM-clouds repliceren naar Azure met Azure Site Recovery configureren | Microsoft Docs
-description: Hierin wordt beschreven hoe netwerktoewijzing configureren wanneer u Hyper-V-machines in VMM-clouds repliceren naar Azure met Azure Site Recovery
+title: de netwerktoewijzing aaaConfigure voor het repliceren van Hyper-V-machines in VMM-clouds tooAzure met Azure Site Recovery | Microsoft Docs
+description: Hierin wordt beschreven hoe netwerktoewijzing tooconfigure bij het repliceren van Hyper-V-machines in VMM tooAzure met Azure Site Recovery clouds
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2017
 ms.author: raynew
-ms.openlocfilehash: ed6f73d8baea5af0d2aa5f0ae885f305911ccc82
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 081a9fdb0ffa4114099e9bcb9c1b1e43ad26ecbb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-9-configure-network-mapping-for-hyper-v-replication-with-vmm-to-azure"></a>Stap 9: Netwerktoewijzing voor Hyper-V-replicatie (met VMM) naar Azure configureren
+# <a name="step-9-configure-network-mapping-for-hyper-v-replication-with-vmm-tooazure"></a>Stap 9: Netwerktoewijzing voor Hyper-V-replicatie (met VMM) tooAzure configureren
 
-Na het instellen van de [bron- en replicatie-instellingen](vmm-to-azure-walkthrough-source-target.md), gebruik dit artikel bij netwerktoewijzing om een koppeling tussen on-premises VMM VM-netwerken en Azure-netwerken configureren.
+Na het instellen van Hallo [bron- en replicatie-instellingen](vmm-to-azure-walkthrough-source-target.md), in dit artikel tooconfigure netwerk toewijzing toomap tussen on-premises VMM VM-netwerken en Azure-netwerken gebruiken.
 
-Opmerkingen en vragen plaatsen onder aan dit artikel of op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Opmerkingen en vragen plaatsen Hallo onder aan dit artikel of op Hallo [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="before-you-start"></a>Voordat u begint
 
 - Meer informatie over [netwerktoewijzing](vmm-to-azure-walkthrough-network.md#network-mapping-for-replication-to-azure).
 - [VMM voorbereiden op netwerktoewijzing](vmm-to-azure-walkthrough-network.md#prepare-vmm-for-network-mapping). 
-- Controleer of de virtuele machines op de VMM-server verbonden zijn met een netwerk met virtuele machines en of u ten minste één virtueel Azure-netwerk hebt gemaakt. Aan één Azure-netwerk kunnen meerdere netwerken met virtuele machines worden toegewezen.
+- Verifieer dat de virtuele machines op Hallo VMM-server verbonden tooa VM-netwerk zijn en dat u ten minste één virtuele Azure-netwerk hebt gemaakt. Meerdere VM-netwerken kunnen worden toegewezen tooa één Azure-netwerk.
 
 ## <a name="configure-mapping"></a>Toewijzing configureren
 
 Configureer het toewijzen als volgt:
 
-1. Klik in **Site Recovery-infrastructuur** > **Netwerktoewijzingen** > **Netwerktoewijzing** op het pictogram **+Netwerktoewijzing**.
+1. In **Site Recovery-infrastructuur** > **Netwerktoewijzingen** > **netwerktoewijzing**, klikt u op Hallo **+ netwerktoewijzing**  pictogram.
 
     ![Netwerktoewijzing](./media/vmm-to-azure-walkthrough-network-mapping/network-mapping1.png)
-2. Selecteer in **Netwerktoewijzing toevoegen** de bron-VMM-server en selecteer **Azure** als doel.
-3. Controleer na het uitvoeren van een failover het abonnement en het implementatiemodel.
-4. Selecteer in **Bronnetwerk** in de lijst die is gekoppeld aan de VMM-server, het on-premises bronnetwerk met virtuele machines dat u wilt toewijzen.
-5. Selecteer in **Doelnetwerk** het Azure-netwerk waarin de replica’s (virtuele Azure-machines) moeten worden geplaatst nadat ze zijn gemaakt. Klik vervolgens op **OK**.
+2. In **netwerktoewijzing toevoegen**, selecteer Hallo bron-VMM-server, en **Azure** als Hallo doel.
+3. Controleer of u Hallo-abonnement en Hallo implementatiemodel na een failover.
+4. In **Bronnetwerk**, selecteer Hallo bron on-premises VM-netwerk gewenste toomap uit die zijn gekoppeld aan de VMM-server Hallo Hallo-lijst.
+5. In **doelnetwerk**, selecteer hello Azure-netwerk in welke replica virtuele Azure-machines geplaatst worden moeten nadat ze zijn gemaakt. Klik vervolgens op **OK**.
 
     ![Netwerktoewijzing](./media/vmm-to-azure-walkthrough-network-mapping/network-mapping2.png)
 
 Dit is wat er gebeurt wanneer er netwerktoewijzing wordt uitgevoerd:
 
-* Bestaande virtuele machines in het VM-bronnetwerk zijn verbonden met het netwerk wanneer de toewijzing begint. Nieuwe virtuele machines die zijn verbonden met het bron-VM-netwerk, worden verbonden met het toegewezen Azure-netwerk wanneer replicatie plaatsvindt.
-* Als u een bestaande netwerktoewijzing wijzigt, worden gerepliceerde virtuele machines verbonden op basis van de nieuwe instellingen.
-* Als het doelnetwerk meerdere subnetten bevat en een van deze subnetten dezelfde naam heeft als het subnet waarin de virtuele bronmachine zich bevindt, wordt de gerepliceerde virtuele machine na een failover verbonden met dat doelsubnet.
-* Als er geen doelsubnet met een overeenkomende naam bestaat, wordt de virtuele machine verbonden met het eerste subnet in het netwerk.
+* Bestaande virtuele machines op Hallo bron VM-netwerk zijn verbonden toohello doelnetwerk bij toewijzing begint. Nieuwe virtuele machines verbonden toohello bron VM-netwerk zijn verbonden toohello toegewezen Azure-netwerk wanneer er replicatie plaatsvindt.
+* Als u een bestaande netwerktoewijzing wijzigt, gerepliceerde virtuele machines verbinding maken met behulp van de nieuwe instellingen Hallo.
+* Als Hallo doelnetwerk meerdere subnetten heeft en een van deze subnetten Hallo heeft dezelfde naam als het subnet waarop Hallo bron virtuele machine zich bevindt en vervolgens Hallo replica virtuele machine verbindt toothat Doelsubnet na een failover.
+* Als er geen Doelsubnet met een overeenkomende naam, verbindt Hallo virtuele machine toohello eerste subnet in het Hallo-netwerk.
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar [stap 10: een replicatiebeleid maken](vmm-to-azure-walkthrough-replication.md)
+Ga te[stap 10: een replicatiebeleid maken](vmm-to-azure-walkthrough-replication.md)

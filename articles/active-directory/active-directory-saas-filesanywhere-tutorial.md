@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met FilesAnywhere | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en FilesAnywhere.
+description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en FilesAnywhere.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,71 +13,71 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 4153056bd21006061c6ad8ff9cf3c17de9248628
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 376364a5c75f8d069ea6390c58586acb378cd8b4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Zelfstudie: Azure Active Directory-integratie met FilesAnywhere
 
-In deze zelfstudie leert u hoe FilesAnywhere integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe toointegrate FilesAnywhere met Azure Active Directory (Azure AD).
 
-FilesAnywhere integreren met Azure AD biedt de volgende voordelen:
+FilesAnywhere integreren met Azure AD biedt Hallo volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot FilesAnywhere heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij FilesAnywhere (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts op één centrale locatie - en de Azure Management portal beheren
+- U kunt beheren in Azure AD die tooFilesAnywhere toegang heeft
+- U kunt uw gebruikers tooautomatically get aangemelde tooFilesAnywhere (Single Sign-On) met hun Azure AD-accounts inschakelen
+- U kunt uw accounts op één centrale locatie - hello Azure Management portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met FilesAnywhere, moet u de volgende items:
+Azure AD-integratie met FilesAnywhere tooconfigure, moet u Hallo volgende items:
 
 - Een Azure AD-abonnement
 - Een FilesAnywhere eenmalige aanmelding ingeschakeld abonnement
 
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - U moet uw productieomgeving niet gebruiken tenzij dit noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. FilesAnywhere uit de galerie toevoegen
+1. Het toevoegen van FilesAnywhere van Hallo-galerie
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
 
-## <a name="adding-filesanywhere-from-the-gallery"></a>FilesAnywhere uit de galerie toevoegen
-Voor het configureren van de integratie van FilesAnywhere in Azure AD, moet u FilesAnywhere uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-filesanywhere-from-hello-gallery"></a>Het toevoegen van FilesAnywhere van Hallo-galerie
+tooconfigure hello integratie van FilesAnywhere in Azure AD, moet u tooadd FilesAnywhere uit Hallo galerie tooyour lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen FilesAnywhere uit de galerie, moet u de volgende stappen uitvoeren:**
+**tooadd FilesAnywhere via Hallo gallery uitvoeren Hallo stappen te volgen:**
 
-1. In de  **[Azure Management Portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In Hallo  **[Azure Management Portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer te**bedrijfstoepassingen**. Ga te**alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Klik op **toevoegen** knop boven aan het dialoogvenster.
+3. Klik op **toevoegen** knop op Hallo Hallo dialoogvenster bovenaan.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **FilesAnywhere**.
+4. Typ in het zoekvak Hallo **FilesAnywhere**.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_search.png)
 
-5. Selecteer in het deelvenster resultaten **FilesAnywhere**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+5. Selecteer in het deelvenster resultaten hello, **FilesAnywhere**, en klik vervolgens op **toevoegen** knop tooadd Hallo-toepassing.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_addfromgallery.png)
 
@@ -85,75 +85,75 @@ Voor het configureren van de integratie van FilesAnywhere in Azure AD, moet u Fi
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
 In deze sectie configureert en test eenmalige aanmelding Azure AD met FilesAnywhere op basis van een testgebruiker 'Britta Simon' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in FilesAnywhere is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in FilesAnywhere tot stand worden gebracht.
+Voor één aanmelding toowork moet Azure AD tooknow welke Hallo equivalent in FilesAnywhere is tooa gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker Hallo in FilesAnywhere toobe tot stand gebracht.
 
-Deze relatie koppeling wordt ingesteld door het toewijzen van de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in FilesAnywhere.
+Deze relatie koppeling wordt vastgesteld door het toewijzen van de waarde van Hallo Hallo **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** in FilesAnywhere.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met FilesAnywhere, moet u de volgende bouwstenen voltooien:
+tooconfigure en eenmalige aanmelding Azure AD-test met FilesAnywhere, moet u toocomplete Hallo bouwstenen te volgen:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker FilesAnywhere](#creating-a-filesanywhere-test-user)**  - FilesAnywhere die is gekoppeld aan de Azure AD-representatie van haar van een exemplaar van Britta Simon bevatten.
-3. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-4. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.
+2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maken van een testgebruiker FilesAnywhere](#creating-a-filesanywhere-test-user)**  -toohave een equivalent van Britta Simon in FilesAnywhere die is gekoppeld toohello Azure AD-weergave van haar.
+3. **[Toewijzen hello Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.
+4. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  -tooverify Hallo of configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerportal en eenmalige aanmelding in uw toepassing FilesAnywhere configureren.
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-beheerportal en eenmalige aanmelding in uw toepassing FilesAnywhere configureren.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met FilesAnywhere, moet u de volgende stappen uitvoeren:**
+**Azure AD tooconfigure eenmalige aanmelding met FilesAnywhere, Voer Hallo stappen te volgen:**
 
-1. In de Azure-beheerportal op de **FilesAnywhere** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In hello Azure Management portal op Hallo **FilesAnywhere** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster als **modus** Selecteer **op basis van SAML aanmelding** eenmalige aanmelding inschakelen op.
+2. Op Hallo **eenmalige aanmelding** dialoogvenster als **modus** Selecteer **op basis van SAML aanmelding** tooenable voor eenmalige aanmelding.
  
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_samlbase.png)
 
-3. Op de **FilesAnywhere domein en de URL's** sectie als u wilt configureren van de toepassing in **IDP geïnitieerd modus**:
+3. Op Hallo **FilesAnywhere domein en de URL's** sectie, indien gewenst tooconfigure Hallo toepassing in **IDP geïnitieerd modus**:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_url.png)
     
-    a. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<company name>.filesanywhere.com/saml20.aspx?c=215`
+    a. In Hallo **antwoord-URL** textbox, typ een URL met Hallo patroon volgen:`https://<company name>.filesanywhere.com/saml20.aspx?c=215`
 > [!NOTE]
-> Houd er rekening mee dat de waarde **215** is een **clientid** en is slechts een voorbeeld. U wilt vervangen door de werkelijke clientid-waarde.
+> Houd er rekening mee dat waarde Hallo **215** is een **clientid** en is slechts een voorbeeld. U moet tooreplace met Hallo clientid Werkelijke waarde.
 
-4. Op de **FilesAnywhere domein en de URL's** sectie als u wilt configureren van de toepassing in **SP geïnitieerd modus**, voer de volgende stappen uit:
+4. Op Hallo **FilesAnywhere domein en de URL's** sectie, indien gewenst tooconfigure Hallo toepassing in **SP geïnitieerd modus**, Hallo volgende stappen uit te voeren:
     
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_url1.png)
 
-    a. Klik op de **weergeven geavanceerde instellingen voor URL** optie
+    a. Klik op Hallo **weergeven geavanceerde instellingen voor URL** optie
 
-    b. In de **aanmelding op URL** textbox, typ een URL met het volgende patroon volgen:`https://<sub domain>.filesanywhere.com/`
+    b. In Hallo **aanmelding op URL** textbox, typ een URL met Hallo patroon volgen:`https://<sub domain>.filesanywhere.com/`
 
     > [!NOTE] 
-    > Houd er rekening mee dat deze niet de werkelijke waarden zijn. U hebt deze waarden bijwerken met de werkelijke aanmelding op de URL en antwoord-URL. Neem contact op met [FilesAnywhere ondersteuningsteam](mailto:support@FilesAnywhere.com) ophalen van deze waarden. 
+    > Houd er rekening mee dat deze niet Hallo echte waarden zijn. U hebt deze waarden door de werkelijke aanmelding op de URL en de antwoord-URL Hallo tooupdate. Neem contact op met [FilesAnywhere ondersteuningsteam](mailto:support@FilesAnywhere.com) tooget deze waarden. 
 
-5. De SAML-asserties verwacht FilesAnywhere softwaretoepassing in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt beheren de waarden van deze kenmerken van de '**gebruikerskenmerken**' sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
+5. Hallo SAML asserties verwacht FilesAnywhere softwaretoepassing in een specifieke indeling. Configureer Hallo claims voor deze toepassing te volgen. U kunt waarden van deze kenmerken Hallo beheren vanuit Hallo '**gebruikerskenmerken**' sectie op de pagina van de toepassing-integratie. Hallo volgende Schermafbeelding toont een voorbeeld voor deze.
     
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_attribute.png)
     
-    Als de gebruikers zich aanmeldt met FilesAnywhere krijgen ze de waarde van **clientid** kenmerk uit [FilesAnywhere team](mailto:support@FilesAnywhere.com). U moet het kenmerk 'Client-Id' met de unieke waarde die is geleverd door FilesAnywhere toevoegen. Alle deze kenmerken die hierboven zijn vereist.
+    Wanneer gebruikers zich up met FilesAnywhere ze Hallo-waarde van krijgen Hallo **clientid** kenmerk uit [FilesAnywhere team](mailto:support@FilesAnywhere.com). U hebt tooadd Hallo 'Client-Id-kenmerk met Hallo unieke waarde die door FilesAnywhere. Alle deze kenmerken die hierboven zijn vereist.
     > [!NOTE] 
-    > Houd er rekening mee dat de waarde **. 2331** van **clientid** is slechts een voorbeeld. U moet de werkelijke waarde opgeven.
+    > Houd er rekening mee dat waarde Hallo **. 2331** van **clientid** is slechts een voorbeeld. U moet tooprovide Hallo werkelijke waarde.
 
 
-6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding hierboven en voer de volgende stappen uit:
+6. In Hallo **gebruikerskenmerken** sectie op Hallo **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in Hallo afbeelding hierboven en uitvoeren van Hallo stappen te volgen:
     
     | Naam van kenmerk | De waarde van kenmerk |
     | ---------------| --------------- |    
     | clientid | *'uniquevalue'* |
 
-    a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
+    a. Klik op **toevoegen kenmerk** tooopen hello **kenmerk toevoegen** dialoogvenster.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_04.png)
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_05.png)
     
-    b. In de **naam** textbox, typ de naam van het kenmerk wordt weergegeven voor die rij.
+    b. In Hallo **naam** textbox Hallo kenmerknaam wordt weergegeven voor die rij.
     
-    c. Van de **waarde** typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+    c. Van Hallo **waarde** lijst, type Hallo-kenmerkwaarde wordt weergegeven voor die rij.
     
     d. Klik op **Ok**
 
@@ -161,46 +161,46 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerport
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_general_400.png)
 
-8. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
+8. Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het Hallo-certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_certificate.png) 
 
-9. Op de **FilesAnywhere configuratie** sectie, klikt u op **configureren FilesAnywhere** openen **eenmalige aanmelding configureren** venster.
+9. Op Hallo **FilesAnywhere configuratie** sectie, klikt u op **configureren FilesAnywhere** tooopen **eenmalige aanmelding configureren** venster.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_configure.png) 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_configuresignon.png)
 
-10. Als u eenmalige aanmelding configuratie voltooid voor uw toepassing aan FilesAnywhere einde, neem contact op met [FilesAnywhere ondersteuningsteam](mailto:support@FilesAnywhere.com) en geeft u het gedownloade SAML token-ondertekening van certificaten en eenmalige aanmelding op (SSO)-URL.
+10. tooget SSO configuratie voltooid voor uw toepassing aan het einde van FilesAnywhere contact [FilesAnywhere ondersteuningsteam](mailto:support@FilesAnywhere.com) en bieden ze Hallo gedownload ondertekenen certificaat en eenmalige aanmelding op (SSO) de URL van SAML-token.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is het een testgebruiker maken in Azure Management portal Britta Simon aangeroepen.
+Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-beheerportal Britta Simon aangeroepen.
 
 ![Azure AD-gebruiker maken][100]
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**
 
-1. In de **Azure Management portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+1. In Hallo **Azure Management portal**, op Hallo navigatiedeelvenster links, klikt u op **Azure Active Directory** pictogram.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-FilesAnywhere-tutorial/create_aaduser_01.png) 
 
-2. Ga naar **gebruikers en groepen** en klik op **alle gebruikers** om de lijst met gebruikers weer te geven.
+2. Ga te**gebruikers en groepen** en klik op **alle gebruikers** toodisplay Hallo lijst met gebruikers.
     
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-FilesAnywhere-tutorial/create_aaduser_02.png) 
 
-3. Klik aan de bovenkant van het dialoogvenster **toevoegen** openen de **gebruiker** dialoogvenster.
+3. Klik boven Hallo van dialoogvenster Hallo op **toevoegen** tooopen hello **gebruiker** dialoogvenster.
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-FilesAnywhere-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+4. Op Hallo **gebruiker** dialoogvenster pagina, voert u Hallo stappen te volgen:
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-FilesAnywhere-tutorial/create_aaduser_04.png) 
 
-    a. In de **naam** textbox type **BrittaSimon**.
+    a. In Hallo **naam** textbox type **BrittaSimon**.
 
-    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
+    b. In Hallo **gebruikersnaam** textbox type Hallo **e-mailadres** van BrittaSimon.
 
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Selecteer **wachtwoord weergeven** en schrijf Hallo-waarde van Hallo **wachtwoord**.
 
     d. Klik op **Create**. 
 
@@ -208,26 +208,26 @@ Het doel van deze sectie is het een testgebruiker maken in Azure Management port
 
 ### <a name="creating-a-filesanywhere-test-user"></a>Een testgebruiker FilesAnywhere maken
 
-Toepassing ondersteunt Just in tijd gebruikers inrichten en na verificatie gebruikers wordt in de toepassing automatisch gemaakt. 
+Toepassing ondersteunt Just in tijd gebruikers inrichten en na verificatie gebruikers wordt in de toepassing hello automatisch gemaakt. 
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Toewijzen van de testgebruiker hello Azure AD
 
-In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door haar toegang verlenen aan FilesAnywhere.
+In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen door haar tooFilesAnywhere toegang verlenen.
 
 ![Gebruiker toewijzen][200] 
 
-**Britta Simon om aan te wijzen FilesAnywhere, moet u de volgende stappen uitvoeren:**
+**tooassign Britta Simon tooFilesAnywhere, Voer Hallo stappen te volgen:**
 
-1. In de Azure-beheerportal, opent u de weergave toepassingen en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open in Hallo Azure Management portal Hallo toepassingen weergeven, en toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **FilesAnywhere**.
+2. Selecteer in de lijst met de toepassingen van Hallo **FilesAnywhere**.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
@@ -235,7 +235,7 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.
 
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
@@ -245,14 +245,14 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door
 
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van Hallo Toegangsvenster testen.
 
-Als u op de tegel FilesAnywhere in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing FilesAnywhere.
+Als u op Hallo FilesAnywhere tegel in Hallo Toegangsvenster, krijgt u automatisch aangemelde tooyour FilesAnywhere toepassing.
 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

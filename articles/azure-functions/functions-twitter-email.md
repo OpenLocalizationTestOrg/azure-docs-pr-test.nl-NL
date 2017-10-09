@@ -1,6 +1,6 @@
 ---
-title: "Maken van een functie die kan worden geïntegreerd met Azure Logic Apps | Microsoft Docs"
-description: "Maak een functie die kan worden geïntegreerd met Azure Logic Apps en cognitieve Azure-Services tweet gevoel categoriseren en meldingen verzenden wanneer gevoel slecht is."
+title: "een functie die kan worden geïntegreerd met Azure Logic Apps aaaCreate | Microsoft Docs"
+description: "Maken van een functie die kan worden geïntegreerd met Azure Logic Apps en cognitieve Azure-Services toocategorize tweet gevoel en meldingen te verzenden wanneer gevoel slecht is."
 services: functions, logic-apps, cognitive-services
 keywords: werkstroom, cloud-apps, cloudservices, bedrijfsprocessen, systeemintegratie, enterprise application integration, EAI
 documentationcenter: 
@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 4a5dc668e21c5328b308c8f5852aaa922232374d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e176bd946af9a3684b3ad0e4b1bed1c3ee344019
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Maken van een functie die kan worden geïntegreerd met Azure Logic Apps
 
-Azure Functions integreert met Azure Logic Apps in de ontwerpfunctie voor Logic Apps. Deze integratie kunt u de verwerkingskracht van functies in integraties met andere Azure en services van derden gebruiken. 
+Azure Functions integreert met Azure Logic Apps in Hallo Logic Apps Designer. Deze integratie kunt u Hallo rekenkracht van functies in integraties met andere Azure en services van derden gebruiken. 
 
-Deze zelfstudie ziet u het gebruik van functies met Logic Apps en cognitieve Azure-Services voor het analyseren van gevoel uit Twitter-berichten. Een functie HTTP geactiveerd categoriseert tweets als groen, geel of rood op basis van de score gevoel. Een e-mailbericht wordt verzonden wanneer slechte gevoel wordt gedetecteerd. 
+Deze zelfstudie leert u hoe toouse functioneert met Logic Apps en cognitieve Azure-Services tooanalyze gevoel uit Twitter-berichten. Een functie HTTP geactiveerd categoriseert tweets als groen, geel of rood op basis van Hallo gevoel score. Een e-mailbericht wordt verzonden wanneer slechte gevoel wordt gedetecteerd. 
 
 ![afbeelding van de eerste twee stappen van de app in App-ontwerper voor logica](media/functions-twitter-email/designer1.png)
 
@@ -35,68 +35,68 @@ In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
 > * Maak een cognitieve Services-account.
 > * Maak een functie die tweet gevoel ingedeeld.
-> * Maak een logische app die is verbonden met Twitter.
-> * Detectie van gevoel toevoegen aan de logische app. 
-> * De logische app verbinden met de functie.
-> * Stuur een e-mail op basis van het antwoord van de functie.
+> * Een logische app die is verbonden tooTwitter maken.
+> * Gevoel detectie toohello logic app toevoegen. 
+> * Verbinding maken Hallo logic app toohello functie.
+> * Een e-mailbericht op basis van het antwoord van de functie Hallo Hallo verzenden.
 
 ## <a name="prerequisites"></a>Vereisten
 
 + Een actieve [Twitter](https://twitter.com/) account. 
 + Een [Outlook.com](https://outlook.com/) account (voor het verzenden van meldingen).
-+ Als startpunt van dit onderwerp dienen de resources die zijn gemaakt in [Create your first function from the Azure portal](functions-create-first-azure-function.md) (Uw eerste functie maken vanuit Azure Portal).  
-Als u dit nog niet hebt gedaan, moet u deze stappen nu voltooien om uw functie-app te maken.
++ In dit onderwerp wordt gebruikt als het eerste punt Hallo resources gemaakt in [uw eerste functie maken vanuit Azure-portal Hallo](functions-create-first-azure-function.md).  
+Als u dit nog niet hebt gedaan, voert u deze stappen nu toocreate functie-app.
 
 ## <a name="create-a-cognitive-services-account"></a>Een cognitieve Services-account maken
 
-Een cognitieve Services-account is vereist voor het detecteren van de gevoel tweets wordt bewaakt.
+Een cognitieve Services-account is vereist toodetect Hallo gevoel tweets wordt bewaakt.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com/).
 
-2. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+2. Klik op Hallo **nieuw** knop gevonden op Hallo linkerbovenhoek Hallo Azure-portal.
 
-3. Klik op **gegevens en analyse** > **cognitieve Services**. Vervolgens gebruikt u de instellingen die zijn opgegeven in de tabel en controleer de voorwaarden accepteren **vastmaken aan dashboard**.
+3. Klik op **gegevens en analyse** > **cognitieve Services**. Vervolgens Hallo-instellingen gebruiken als opgegeven in de tabel hello, Hallo voorwaarden accepteren en Controleer **pincode toodashboard**.
 
     ![Blade cognitieve account maken](media/functions-twitter-email/cog_svcs_account.png)
 
     | Instelling      |  Voorgestelde waarde   | Beschrijving                                        |
     | --- | --- | --- |
     | **Naam** | MyCognitiveServicesAccnt | Kies een unieke naam. |
-    | **API-type** | Tekstanalyse-API | API gebruikt voor het analyseren van tekst.  |
+    | **API-type** | Tekstanalyse-API | API gebruikt tooanalyze tekst.  |
     | **Locatie** | VS - west | Op dit moment alleen **VS-West** is beschikbaar voor tekstanalyse. |
-    | **Prijscategorie** | F0 | Beginnen met de laagste categorie. Als u buiten aanroepen uitvoert, kan worden uitgebreid naar een hogere laag.|
-    | **Resourcegroep** | myResourceGroup | Gebruik dezelfde resourcegroep voor alle services in deze zelfstudie.|
+    | **Prijscategorie** | F0 | Beginnen met de laagste categorie Hallo. Als u weinig aanroepen, schalen tooa hogere lagen.|
+    | **Resourcegroep** | myResourceGroup | Gebruik Hallo dezelfde resourcegroep voor alle services in deze zelfstudie.|
 
-4. Klik op **maken** om uw account te maken. Nadat het account is gemaakt, klikt u op uw nieuwe cognitieve Services-account hebt vastgemaakt aan het dashboard. 
+4. Klik op **maken** toocreate uw account. Nadat het Hallo-account is gemaakt, klikt u op uw nieuwe cognitieve Services-account vastgemaakt toohello dashboard. 
 
-5. Klik in het account op **sleutels**, en kopieert u de waarde van **Key 1** en op te slaan. U gebruikt deze sleutel voor de logische app verbinding met uw cognitieve Services-account. 
+5. Hallo-account, klikt u op **sleutels**, en kopieer vervolgens Hallo-waarde van **Key 1** en op te slaan. U gebruikt deze sleutel tooconnect Hallo logic app tooyour cognitieve Services-account. 
  
     ![Sleutels](media/functions-twitter-email/keys.png)
 
-## <a name="create-the-function"></a>De functie maken
+## <a name="create-hello-function"></a>Hallo-functie maken
 
-Functies biedt een uitstekende manier om de offload van taken in een werkstroom van logic apps. Deze zelfstudie gebruikt een functie HTTP is geactiveerd voor het verwerken van tweet gevoel scores van cognitieve Services en een categoriewaarde retourneren.  
+Functies biedt een goede manier toooffload verwerkingstaken in een werkstroom van logic apps. Deze zelfstudie maakt gebruik van een HTTP-geactiveerde functie tooprocess tweet gevoel scores van cognitieve Services en retourneren een categoriewaarde.  
 
-1. Vouw de functie-app, klikt u op de  **+**  naast **functies**, klikt u op de **HTTPTrigger** sjabloon. Type `CategorizeSentiment` voor de functie **naam** en klik op **maken**.
+1. Vouw de functie-app, klikt u op Hallo  **+**  knop naast te**functies**, klikt u op Hallo **HTTPTrigger** sjabloon. Type `CategorizeSentiment` voor Hallo functie **naam** en klik op **maken**.
 
     ![Functie Apps blade functies +](media/functions-twitter-email/add_fun.png)
 
-2. De inhoud van het bestand run.csx vervangen door de volgende code en klik vervolgens op **opslaan**:
+2. Hallo-inhoud van Hallo run.csx bestand vervangen door Hallo code te volgen en klik vervolgens op **opslaan**:
 
     ```c#
     using System.Net;
     
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
     {
-        // The sentiment category defaults to 'GREEN'. 
+        // hello sentiment category defaults too'GREEN'. 
         string category = "GREEN";
     
-        // Get the sentiment score from the request body.
+        // Get hello sentiment score from hello request body.
         double score = await req.Content.ReadAsAsync<double>();
-        log.Info(string.Format("The sentiment score received is '{0}'.",
+        log.Info(string.Format("hello sentiment score received is '{0}'.",
                     score.ToString()));
     
-        // Set the category based on the sentiment score.
+        // Set hello category based on hello sentiment score.
         if (score < .3)
         {
             category = "RED";
@@ -108,56 +108,56 @@ Functies biedt een uitstekende manier om de offload van taken in een werkstroom 
         return req.CreateResponse(HttpStatusCode.OK, category);
     }
     ```
-    Deze functiecode retourneert een kleurcategorie op basis van de gevoel score ontvangen in de aanvraag. 
+    Deze functiecode retourneert een kleurcategorie is gebaseerd op Hallo gevoel score Hallo-aanvraag. 
 
-3. U kunt de functie testen, klikt u op **testen** helemaal rechts op het tabblad testresultaten uitbreiden. Typ een waarde van `0.2` voor de **aanvraagtekst**, en klik vervolgens op **uitvoeren**. Een waarde van **rood** in de hoofdtekst van het antwoord wordt geretourneerd. 
+3. tootest Hallo-functie, klikt u op **Test** Hallo rechterkant tooexpand Hallo Test tabblad. Typ een waarde van `0.2` voor Hallo **aanvraagtekst**, en klik vervolgens op **uitvoeren**. Een waarde van **rood** Hallo hoofdtekst van antwoord Hallo wordt geretourneerd. 
 
-    ![De functie testen in de Azure portal](./media/functions-twitter-email/test.png)
+    ![Hallo functie testen in hello Azure-portal](./media/functions-twitter-email/test.png)
 
 U hebt nu een functie die gevoel scores ingedeeld. Vervolgens kunt u een logische app, die de functie kan worden geïntegreerd met uw accounts Twitter en cognitieve Services maken. 
 
 ## <a name="create-a-logic-app"></a>Een logische app maken   
 
-1. Klik in de Azure-portal op de **nieuw** knop gevonden in de linkerbovenhoek van de Azure portal.
+1. In Azure-portal hello, klikt u op Hallo **nieuw** knop gevonden op Hallo linkerbovenhoek Hallo Azure-portal.
 
-2. Klik op **Enterprise Integration** > **logische App**. Vervolgens gebruikt u de instellingen die zijn opgegeven in de tabel, selectievakje **vastmaken aan dashboard**, en klik op **maken**.
+2. Klik op **Enterprise Integration** > **logische App**. Hallo-instellingen gebruiken als opgegeven in de tabel hello, Controleer **pincode toodashboard**, en klik op **maken**.
  
-4. Typ een **naam** zoals `TweetSentiment`, gebruik van de instellingen die zijn opgegeven in de tabel, accepteer de voorwaarden en Controleer **vastmaken aan dashboard**.
+4. Typ een **naam** zoals `TweetSentiment`, Hallo-instellingen gebruiken die zijn opgegeven in de tabel Hallo Hallo voorwaarden accepteren en Controleer **pincode toodashboard**.
 
-    ![Logische app maken in de Azure portal](./media/functions-twitter-email/new_logicApp.png)
+    ![Logische app maken in hello Azure-portal](./media/functions-twitter-email/new_logicApp.png)
 
     | Instelling      |  Voorgestelde waarde   | Beschrijving                                        |
     | ----------------- | ------------ | ------------- |
     | **Naam** | TweetSentiment | Kies een passende naam voor uw app. |
-    | **Resourcegroep** | myResourceGroup | API gebruikt voor het analyseren van tekst.  |
-    | **Locatie** | VS - oost | Kies een locatie dicht bij u. |
-    | **Resourcegroep** | myResourceGroup | Kies dezelfde bestaande resourcegroep als voor.|
+    | **Resourcegroep** | myResourceGroup | API gebruikt tooanalyze tekst.  |
+    | **Locatie** | VS - oost | Kies een locatie sluiten tooyou. |
+    | **Resourcegroep** | myResourceGroup | Kies Hallo dezelfde bestaande resourcegroep als voorheen.|
 
-4. Klik op **maken** uw logische app maken. Nadat de app is gemaakt, klikt u op de nieuwe logische app vastgemaakt aan het dashboard. Klik in de ontwerpfunctie voor Logic Apps, schuif naar beneden en klikt u op de **lege logische App** sjabloon. 
+4. Klik op **maken** toocreate uw logische app. Nadat het Hallo-app is gemaakt, klikt u op uw nieuwe logische app vastgemaakt toohello dashboard. Klik in Logic Apps Designer Hallo, schuif naar beneden en klikt u op Hallo **lege logische App** sjabloon. 
 
     ![Lege Logic Apps-sjabloon](media/functions-twitter-email/blank.png)
 
-U kunt nu de ontwerpfunctie van Logic Apps services en triggers toevoegt aan uw app.
+U kunt nu Hallo Logic Apps Designer tooadd services en triggers tooyour-app gebruiken.
 
-## <a name="connect-to-twitter"></a>Verbinding maken met Twitter
+## <a name="connect-tootwitter"></a>Verbinding maken met tooTwitter
 
-Maak eerst een verbinding met uw Twitter-account. De logische app worden opgevraagd op tweets die worden uitgevoerd met de app te activeren.
+Maak eerst een verbinding tooyour Twitter-account. Hallo logische app worden opgevraagd op tweets Hallo app toorun wordt geactiveerd.
 
-1. Klik in de ontwerpfunctie voor de **Twitter** service en klik op de **wanneer een nieuwe tweet wordt gepost** trigger. Aanmelden bij uw Twitter-account en autoriseren van Logic Apps om uw account te gebruiken.
+1. In de ontwerpfunctie hello, klikt u op Hallo **Twitter** service en klikt u op Hallo **wanneer een nieuwe tweet wordt gepost** trigger. Meld u aan tooyour Twitter-account en autoriseren van Logic Apps toouse uw account.
 
-2. Gebruik de instellingen van de trigger Twitter zoals opgegeven in de tabel. 
+2. Hallo Twitter triggerinstellingen zoals opgegeven in de tabel hello gebruiken. 
 
     ![Instellingen voor Twitter-connector](media/functions-twitter-email/azure_tweet.png)
 
     | Instelling      |  Voorgestelde waarde   | Beschrijving                                        |
     | ----------------- | ------------ | ------------- |
-    | **Zoektekst** | #Azure | Gebruik een hashtag die populaire voor nieuwe tweets genereren in het gekozen interval. Wanneer met behulp van de laag gratis en uw hashtag te populair is, kunt u snel van de transacties gebruiken in uw cognitieve Services-account. |
-    | **Frequentie** | Minuut | De frequentie eenheid wordt gebruikt voor het polling-Twitter.  |
-    | **Interval** | 15 | De verstreken tijd tussen Twitter-aanvragen in de frequentie eenheden. |
+    | **Zoektekst** | #Azure | Gebruik een hashtag die populaire voor nieuwe tweets toogenerate in hello gekozen-interval. Wanneer met behulp van de gratis laag Hallo en uw hashtag te populair is, kunt u snel omhoog Hallo transacties gebruiken in uw cognitieve Services-account. |
+    | **Frequentie** | Minuut | Hallo frequentie eenheid gebruikt voor het polling-Twitter.  |
+    | **Interval** | 15 | Hallo-tijd is verstreken tussen Twitter-aanvragen in de frequentie eenheden. |
 
-3.  Klik op **opslaan** verbinding maken met uw Twitter-account. 
+3.  Klik op **opslaan** tooconnect tooyour Twitter-account. 
 
-Uw app is nu verbonden met Twitter. Vervolgens maakt verbinding u met tekstanalyse voor het detecteren van de gevoel verzamelde tweets.
+Uw app is nu verbonden tooTwitter. Vervolgens maakt u verbinding maken met tootext analytics toodetect Hallo gevoel verzamelde tweets.
 
 ## <a name="add-sentiment-detection"></a>Detectie van gevoel toevoegen
 
@@ -165,23 +165,23 @@ Uw app is nu verbonden met Twitter. Vervolgens maakt verbinding u met tekstanaly
 
     ![Nieuwe stap, waarna een actie toevoegen](media/functions-twitter-email/new_step.png)
 
-2. In **kiest u een actie**, klikt u op **Tekstanalyse**, en klik vervolgens op de **detecteren gevoel** in te grijpen.
+2. In **kiest u een actie**, klikt u op **Tekstanalyse**, en klik vervolgens op Hallo **detecteren gevoel** in te grijpen.
 
     ![Gevoel detecteren](media/functions-twitter-email/detect_sent.png)
 
-3. Typ de naam van een verbinding zoals `MyCognitiveServicesConnection`, plak de sleutel voor uw cognitieve Services-dat u hebt opgeslagen account en klik op **maken**.  
+3. Typ de naam van een verbinding zoals `MyCognitiveServicesConnection`, plak Hallo-sleutel voor uw cognitieve Services-dat u hebt opgeslagen account en klik op **maken**.  
 
-4. Klik op **tekst voor het analyseren van** > **Tweet tekst**, en klik vervolgens op **opslaan**.  
+4. Klik op **tekst tooanalyze** > **Tweet tekst**, en klik vervolgens op **opslaan**.  
 
     ![Gevoel detecteren](media/functions-twitter-email/ds_tta.png)
 
-Nu gevoel detectie is geconfigureerd, kunt u een verbinding toevoegen aan de functie die de uitvoer van de score gevoel verbruikt.
+Nu dat gevoel detectie is geconfigureerd, kunt u een verbinding tooyour-functie die Hallo gevoel score uitvoer verbruikt kunt toevoegen.
 
-## <a name="connect-sentiment-output-to-your-function"></a>Verbinding maken met gevoel uitvoer van de functie
+## <a name="connect-sentiment-output-tooyour-function"></a>Verbinding maken met gevoel uitvoer tooyour functie
 
-1. Klik in de ontwerpfunctie voor Logic Apps **nieuwe stap** > **een actie toevoegen**, en klik vervolgens op **Azure Functions**. 
+1. In Hallo Logic Apps Designer, klikt u op **nieuwe stap** > **een actie toevoegen**, en klik vervolgens op **Azure Functions**. 
 
-2. Klik op **kiest u een Azure-functie**, selecteer de **CategorizeSentiment** functie die u eerder hebt gemaakt.  
+2. Klik op **kiest u een Azure-functie**, selecteer Hallo **CategorizeSentiment** functie die u eerder hebt gemaakt.  
 
     ![Azure vak voor de functie kiezen met een Azure-functie](media/functions-twitter-email/choose_fun.png)
 
@@ -189,69 +189,69 @@ Nu gevoel detectie is geconfigureerd, kunt u een verbinding toevoegen aan de fun
 
     ![Score](media/functions-twitter-email/trigger_score.png)
 
-De functie wordt nu geactiveerd wanneer een score gevoel wordt verzonden door de logische app. Een kleurcode categorie wordt geretourneerd naar de logische app door de functie. Vervolgens voegt u een e-mailbericht dat wordt verzonden als een waarde gevoel van **rood** wordt geretourneerd vanaf de functie. 
+De functie wordt nu worden geactiveerd wanneer een score gevoel wordt verzonden vanuit Hallo logische app. Een kleurcode categorie geretourneerd door Hallo functie toohello logische app. Vervolgens voegt u een e-mailbericht dat wordt verzonden als een waarde gevoel van **rood** wordt geretourneerd vanaf Hallo-functie. 
 
 ## <a name="add-email-notifications"></a>E-mailmeldingen toevoegen
 
-Het laatste deel van de werkstroom is voor het activeren van een e-mailbericht wanneer de gevoel wordt berekend als _rood_. In dit onderwerp gebruikt een Outlook.com-connector. U kunt vergelijkbare stappen voor het gebruik van een connector Gmail of Office 365 Outlook uitvoeren.   
+Hallo laatste deel van de werkstroom Hallo is tootrigger een e-mailbericht wanneer Hallo gevoel wordt berekend als _rood_. In dit onderwerp gebruikt een Outlook.com-connector. U kunt vergelijkbare stappen toouse Gmail of Outlook van Office 365-connector kunt uitvoeren.   
 
-1. Klik in de ontwerpfunctie voor Logic Apps **nieuwe stap** > **een voorwaarde toevoegen**. 
+1. In Hallo Logic Apps Designer, klikt u op **nieuwe stap** > **een voorwaarde toevoegen**. 
 
 2. Klik op **kiest u een waarde**, klikt u vervolgens op **hoofdtekst**. Selecteer **gelijk is aan**, klikt u op **kiest u een waarde** en het type `RED`, en klik op **opslaan**. 
 
-    ![Een voorwaarde toevoegen aan de logische app.](media/functions-twitter-email/condition.png)
+    ![Een voorwaarde toohello logische app toevoegen.](media/functions-twitter-email/condition.png)
 
-3. In **zo ja, niets doen**, klikt u op **een actie toevoegen**, zoeken naar `outlook.com`, klikt u op **e-mailbericht verzenden**, en meld u aan bij uw account Outlook.com.
+3. In **zo ja, niets doen**, klikt u op **een actie toevoegen**, zoeken naar `outlook.com`, klikt u op **e-mailbericht verzenden**, en meld u aan tooyour Outlook.com-account.
     
-    ![Kies een actie voor de voorwaarde.](media/functions-twitter-email/outlook.png)
+    ![Kies een actie voor Hallo voorwaarde.](media/functions-twitter-email/outlook.png)
 
     > [!NOTE]
     > Als u geen een Outlook.com-account hebt, kunt u een andere connector, zoals Gmail of Office 365 Outlook
 
-4. In de **e-mailbericht verzenden** actie, gebruik de e-mailinstellingen als in de tabel opgegeven. 
+4. In Hallo **e-mailbericht verzenden** actie, gebruik Hallo e-mailinstellingen als opgegeven in de tabel Hallo. 
 
-    ![Configureer het e-mailbericht voor het verzenden van een e-actie.](media/functions-twitter-email/sendemail.png)
+    ![Configureer Hallo e voor Hallo verzend een e-actie.](media/functions-twitter-email/sendemail.png)
 
     | Instelling      |  Voorgestelde waarde   | Beschrijving  |
     | ----------------- | ------------ | ------------- |
-    | **Aan** | Typ uw e-mailadres | Het e-mailadres dat de melding ontvangt. |
-    | **Onderwerp** | Negatieve tweet gevoel gedetecteerd  | De onderwerpregel van het e-mailmeldingen.  |
-    | **Hoofdtekst** | Tweet tekst, locatie | Klik op de **Tweet tekst** en **locatie** parameters. |
+    | **Aan** | Typ uw e-mailadres | Hallo e-mailadres dat Hallo melding ontvangt. |
+    | **Onderwerp** | Negatieve tweet gevoel gedetecteerd  | Hallo onderwerpregel van het e-mailmelding Hallo.  |
+    | **Hoofdtekst** | Tweet tekst, locatie | Klik op Hallo **Tweet tekst** en **locatie** parameters. |
 
 5.  Klik op **Opslaan**.
 
-Nu dat de werkstroom voltooid is, kunt u de logische app inschakelen en de functie op het werk ziet.
+Nu dat Hallo werkstroom voltooid is, kunt u Hallo logische app- en Zie Hallo-functie op het werk.
 
-## <a name="test-the-workflow"></a>De werkstroom testen
+## <a name="test-hello-workflow"></a>Test Hallo werkstroom
 
-1. Klik in de ontwerpfunctie voor Logic App **uitvoeren** om de app te starten.
+1. In Hallo Logic App-ontwerper, klikt u op **uitvoeren** toostart Hallo app.
 
-2. Klik in de linkerkolom **overzicht** voor de status van de logische app. 
+2. Klik in de linkerkolom hello, **overzicht** toosee Hallo status van Hallo logische app. 
  
     ![Uitvoeringsstatus van Logic app](media/functions-twitter-email/over1.png)
 
-3. (Optioneel) Klik op een van de wordt uitgevoerd om de details van de uitvoering te bekijken.
+3. (Optioneel) Klik op een hello wordt uitgevoerd toosee details van Hallo worden uitgevoerd.
 
-4. Ga naar de functie, bekijk de logboeken en controleert u of gevoel waarden zijn ontvangen en verwerkt.
+4. Tooyour functie gaat, Hallo logboeken bekijken en controleren of gevoel waarden zijn ontvangen en verwerkt.
  
     ![Logboeken van de functie weergeven](media/functions-twitter-email/sent.png)
 
-5. Wanneer een potentieel negatieve gevoel wordt gedetecteerd, krijgt u een e-mailbericht. Als u een e-mailbericht hebt ontvangen, kunt u de functiecode om terug te keren rood telkens wanneer:
+5. Wanneer een potentieel negatieve gevoel wordt gedetecteerd, krijgt u een e-mailbericht. Als u een e-mailbericht hebt ontvangen, kunt u elke keer Hallo functie code tooreturn rood wijzigen:
 
         return req.CreateResponse(HttpStatusCode.OK, "RED");
 
-    Nadat u hebt gecontroleerd dat e-mailmeldingen, wijzigt u terug naar de oorspronkelijke code:
+    Nadat u e-mailmeldingen hebt gecontroleerd, kunt u back toohello oorspronkelijke code wijzigen:
 
         return req.CreateResponse(HttpStatusCode.OK, category);
 
     > [!IMPORTANT]
-    > Nadat u deze zelfstudie hebt voltooid, moet u de logische app uitschakelen. Door het uitschakelen van de app u voorkomen dat u in rekening gebracht voor uitvoeringen en met behulp van de transacties in uw cognitieve Services-account.
+    > Nadat u deze zelfstudie hebt voltooid, moet u Hallo logische app uitschakelen. Door het uitschakelen van Hallo app u voorkomen dat u in rekening gebracht voor uitvoeringen en met behulp van Hallo transacties in uw cognitieve Services-account.
 
-Nu hebt u gezien hoe eenvoudig het is het integreren van functies in een werkstroom Logic Apps.
+Nu hebt u gezien hoe eenvoudig het is toointegrate functies in een werkstroom Logic Apps.
 
-## <a name="disable-the-logic-app"></a>De logische app uitschakelen
+## <a name="disable-hello-logic-app"></a>Hallo logische app uitschakelen
 
-Als u wilt uitschakelen op de logische app, **overzicht** en klik vervolgens op **uitschakelen** aan de bovenkant van het scherm. Hierdoor wordt voorkomen dat de logische app uitgevoerd en steeds kosten zonder te verwijderen van de app. 
+toodisable hello logische app, klikt u op **overzicht** en klik vervolgens op **uitschakelen** Hallo boven aan het welkomstscherm. Hierdoor wordt voorkomen dat Hallo logische app uitgevoerd en steeds kosten zonder Hallo-app te verwijderen. 
 
 ![De functie Logboeken](media/functions-twitter-email/disable-logic-app.png)
 
@@ -262,15 +262,15 @@ In deze zelfstudie heeft u het volgende geleerd:
 > [!div class="checklist"]
 > * Maak een cognitieve Services-account.
 > * Maak een functie die tweet gevoel ingedeeld.
-> * Maak een logische app die is verbonden met Twitter.
-> * Detectie van gevoel toevoegen aan de logische app. 
-> * De logische app verbinden met de functie.
-> * Stuur een e-mail op basis van het antwoord van de functie.
+> * Een logische app die is verbonden tooTwitter maken.
+> * Gevoel detectie toohello logic app toevoegen. 
+> * Verbinding maken Hallo logic app toohello functie.
+> * Een e-mailbericht op basis van het antwoord van de functie Hallo Hallo verzenden.
 
-Ga naar de volgende zelfstudie voor meer informatie over het maken van een zonder Server API voor de functie.
+Hoe gaan van de volgende zelfstudie toolearn toohello toocreate een zonder Server API voor de functie.
 
 > [!div class="nextstepaction"] 
 > [Een serverloze API maken met behulp van Azure Functions](functions-create-serverless-api.md)
 
-Zie voor meer informatie over Logic Apps, [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md).
+toolearn meer informatie over Logic Apps, Zie [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md).
 

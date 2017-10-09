@@ -1,6 +1,6 @@
 ---
-title: Ontwerp van uw eerste Azure-Database voor de MySQL-database. Azure-Portal | Microsoft Docs
-description: Deze zelfstudie wordt uitgelegd hoe maken en beheren van Azure-Database voor MySQL-server en database via Azure Portal.
+title: uw eerste Azure-Database voor de MySQL-database. Azure-Portal aaaDesign | Microsoft Docs
+description: Deze zelfstudie wordt uitgelegd hoe toocreate en beheren van Azure-Database voor de MySQL-server en database gebruiken met Azure Portal.
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -10,95 +10,95 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 06/06/2017
 ms.custom: mvc
-ms.openlocfilehash: c7b76cacbdc4e483353f64cc4e50c974867bb5b7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 06dd952acc5356b8cccaf36917df1ff8db4f7139
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Ontwerp van uw eerste Azure-Database voor de MySQL-database
-Azure Database voor MySQL is een beheerde service waarmee u MySQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. Met de Azure portal, kunt u eenvoudig beheren van uw server en ontwerpen van een database.
+Azure MySQL-Database is een beheerde service waarmee u toorun, beheren en schalen van maximaal beschikbare MySQL-databases in de cloud Hallo. Hello Azure-portal gebruikt, kunt u eenvoudig beheren van uw server en ontwerpen van een database.
 
-In deze zelfstudie maakt u de Azure portal gebruiken voor meer informatie over hoe:
+In deze zelfstudie gebruikt u Azure portal toolearn Hallo hoe naar:
 
 > [!div class="checklist"]
 > * Een Azure-Database maken voor MySQL
-> * De serverfirewall configureren
-> * Mysql-opdrachtregelprogramma gebruiken om een database te maken
+> * Hallo serverfirewall configureren
+> * Gebruik van mysql opdrachtregelprogramma toocreate een database
 > * Voorbeeldgegevens laden
 > * Querygegevens
 > * Gegevens bijwerken
 > * Gegevens terugzetten
 
-## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
-Open uw favoriete webbrowser en Ga naar de [Microsoft Azure-portal](https://portal.azure.com/). Voer uw referenties in om u aan te melden bij de portal. De standaardweergave is uw service-dashboard.
+## <a name="sign-in-toohello-azure-portal"></a>Meld u aan toohello Azure-portal
+Open uw favoriete webbrowser en Ga naar Hallo [Microsoft Azure-portal](https://portal.azure.com/). Voer uw referenties toosign in toohello-portal. Hallo standaardweergave is uw servicedashboard.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Een Azure-database voor MySQL-server maken
-Een Azure Database voor MySQL-server wordt gemaakt met een gedefinieerde set [reken- en opslagresources](./concepts-compute-unit-and-storage.md). De server wordt gemaakt in een [Azure-resourcegroep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+Een Azure Database voor MySQL-server wordt gemaakt met een gedefinieerde set [reken- en opslagresources](./concepts-compute-unit-and-storage.md). Hallo-server is gemaakt binnen een [Azure-resourcegroep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
 
-1. Navigeer naar **Databases** > **Azure MySQL-Database**. Als u niet kunt vinden MySQL-Server onder **Databases** categorie, klikt u op **alle** om alle beschikbare databaseservices weer te geven. U kunt ook typen **Azure Database voor MySQL** in het zoekvak om snel de service niet vinden.
-![2-1, navigeer naar MySQL](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)
+1. Navigeer te**Databases** > **Azure Database voor MySQL**. Als u niet kunt vinden MySQL-Server onder **Databases** categorie, klikt u op **alle** tooshow alle beschikbare services-database. U kunt ook typen **Azure Database voor MySQL** in Hallo zoeken vak tooquickly Hallo service vinden.
+![2-1 navigeren tooMySQL](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)
 
 2. Klik op **Azure Database voor MySQL** tegel en klik vervolgens op **maken**.
 
-Vul in ons voorbeeld wordt de Azure-Database MySQL formulier met de volgende informatie:
+Vul in ons voorbeeld hello Azure Database voor MySQL formulier Hello volgende informatie:
 
 | **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld** |
 |---|---|---|
-| *Servernaam* | myserver4demo  | Servernaam moet globaal uniek zijn. |
-| *Abonnement* | mysubscription | Selecteer uw abonnement in de vervolgkeuzelijst. |
+| *Servernaam* | myserver4demo  | De servernaam van de heeft toobe globaal uniek zijn. |
+| *Abonnement* | mysubscription | Uw abonnement te selecteren in de vervolgkeuzelijst Hallo. |
 | *Resourcegroep* | myResourceGroup | Maak een nieuwe resourcegroep of selecteer een bestaande. |
 | *Aanmeldgegevens van serverbeheerder* | myadmin | Accountnaam van de Setup-beheerder. |
 | *Wachtwoord* |  | Stel een wachtwoord voor het beheerdersaccount in. |
-| *Wachtwoord bevestigen* |  | Bevestig het wachtwoord voor het beheerdersaccount. |
+| *Wachtwoord bevestigen* |  | Hallo beheerder accountwachtwoord bevestigen. |
 | *Locatie* |  | Selecteer een beschikbare regio. |
-| *Versie* | 5.7 | Kies de nieuwste versie. |
+| *Versie* | 5.7 | Kies de meest recente versie Hallo. |
 | *Prestaties configureren* | Basis, 50 compute-eenheden, 50 GB  | Kies **Prijscategorie**, **Rekeneenheden**, **Opslag (GB)** en klik vervolgens op **OK**. |
-| *Vastmaken aan dashboard* | Selecteren | Het is raadzaam dit selectievakje in te schakelen zodat u de server later gemakkelijk kunt terugvinden |
-Klik vervolgens op **Maken**. Na een minuut of twee wordt een nieuwe Azure-database voor de MySQL-server uitgevoerd in de cloud. U kunt klikken op **meldingen** op de werkbalk om te controleren van het implementatieproces.
+| *Pincode tooDashboard* | Selecteren | Toocheck aanbevolen dit selectievakje in zodat u mogelijk eenvoudig later op Hallo server zoeken |
+Klik vervolgens op **Maken**. In een minuut of twee, wordt een nieuwe Azure-Database voor de MySQL-server in de cloud Hallo uitgevoerd. U kunt klikken op **meldingen** knop op Hallo werkbalk toomonitor Hallo-implementatieproces.
 
 ## <a name="configure-firewall"></a>Firewall configureren
-Azure voor MySQL-Databases worden beveiligd door een firewall. Standaard worden alle verbindingen met de server en de databases binnen de server geweigerd. Voordat u verbinding maakt met Azure-Database voor MySQL voor de eerste keer, de firewall configureren voor IP-adres van de client-computer openbaar netwerk (of IP-adresbereik) toevoegen.
+Azure voor MySQL-Databases worden beveiligd door een firewall. Standaard worden alle verbindingen toohello server- en Hallo databases binnen Hallo server geweigerd. Voordat u verbinding maakt tooAzure Database voor MySQL voor Hallo eerst, Hallo firewall tooadd Hallo clientmachine van openbare IP-adres (of IP-adresbereik) te configureren.
 
 1. Klik op de nieuwe virtuele server en klik vervolgens op **verbindingsbeveiliging**.
    ![Beveiliging 3-1-verbindingen](./media/tutorial-design-database-using-portal/3_1-Connection-security.png)
-2. U kunt **Mijn IP toevoegen**, of hier firewallregels configureren. Vergeet niet op **Opslaan** te klikken nadat u de regels hebt gemaakt.
-U kunt nu verbinding met de server met het opdrachtregelprogramma mysql of MySQL Workbench GUI-hulpprogramma.
+2. U kunt **Mijn IP toevoegen**, of hier firewallregels configureren. Houd er rekening mee tooclick **opslaan** nadat u Hallo regels hebt gemaakt.
+U kunt nu verbinding toohello-server met het opdrachtregelprogramma mysql of MySQL Workbench GUI-hulpprogramma.
 
 > [!TIP]
-> Azure-Database voor de MySQL-server communiceert via poort 3306. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 3306 mogelijk niet toegestaan door de firewall van uw netwerk. Zo ja, u geen verbinding maken met Azure MySQL-server tenzij poort 3306 wordt geopend door uw IT-afdeling.
+> Azure-Database voor de MySQL-server communiceert via poort 3306. Als u tooconnect van binnen een bedrijfsnetwerk probeert, kan uitgaand verkeer via poort 3306 niet worden toegestaan door de firewall van uw netwerk. Als dit het geval is, kunt u tooAzure MySQL-server kan geen verbinding tenzij uw IT-afdeling poort 3306 wordt geopend.
 
 ## <a name="get-connection-information"></a>Verbindingsgegevens ophalen
-Ophalen van de volledig gekwalificeerde **servernaam** en **aanmeldingsnaam van Server-beheerder** voor uw Azure-Database voor MySQL-server van de Azure-portal. De volledig gekwalificeerde servernaam kunt u verbinding met de server met het opdrachtregelprogramma mysql. 
+Get-Hallo volledig gekwalificeerd **servernaam** en **aanmeldingsnaam van Server-beheerder** voor uw Azure-Database voor de server MySQL van hello Azure-portal. U gebruikt Hallo server volledig gekwalificeerde naam tooconnect tooyour server met het opdrachtregelprogramma mysql. 
 
-1. In [Azure-portal](https://portal.azure.com/), klikt u op **alle resources** in het menu links, typ de naam en zoek naar uw Azure-Database voor de MySQL-server. Selecteer de naam van de server om de details weer te geven.
+1. In [Azure-portal](https://portal.azure.com/), klikt u op **alle resources** van menu links van hello, Hallo typenaam en zoeken naar uw Azure-Database voor de MySQL-server. Selecteer Hallo naam tooview Hallo-servergegevens.
 
-2. Onder de instellingen voor de kop, klikt u op **eigenschappen**. Noteer **servernaam** en **AANMELDINGSNAAM van SERVER-beheerder**. U mag klikt u op de knop kopiëren naast elk veld naar het Klembord kopiëren.
+2. Onder Hallo instellingen kop, klikt u op **eigenschappen**. Noteer **servernaam** en **AANMELDINGSNAAM van SERVER-beheerder**. Klikt u op Hallo knop volgende tooeach veld toocopy toohello Klembord kopiëren.
    ![Eigenschappen van de server 4-2](./media/tutorial-design-database-using-portal/4_2-server-properties.png)
 
-In dit voorbeeld is de servernaam *myserver4demo.mysql.database.azure.com* en de aanmeldgegevens van de serverbeheerder zijn *myadmin@myserver4demo*.
+In dit voorbeeld Hallo-servernaam is *myserver4demo.mysql.database.azure.com*, en aanmeldgegevens van serverbeheerder Hallo  *myadmin@myserver4demo* .
 
-## <a name="connect-to-the-server-using-mysql"></a>Verbinding maken met de server met behulp van mysql
-Gebruik het [opdrachtregelprogramma mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) om een verbinding tot stand te brengen met uw Azure-database voor MySQL-server. U kunt het opdrachtregelhulpprogramma mysql uitvoeren vanuit de Azure-Cloud-Shell in de browser of vanuit uw eigen computer lokaal met behulp van mysql-hulpprogramma's geïnstalleerd. Start de Azure-Cloud-Shell, klikt u op de `Try It` op een codeblok in dit artikel of Ga naar de Azure-portal en klik op de `>_` pictogram in de bovenste werkbalk rechts. 
+## <a name="connect-toohello-server-using-mysql"></a>Verbinding maken met behulp van mysql toohello-server
+Gebruik [mysql opdrachtregelprogramma](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) tooestablish een verbinding tooyour Azure Database voor de MySQL-server. U kunt Hallo mysql opdrachtregelprogramma uitvoeren vanuit hello Azure Cloud Shell in Hallo browser of vanuit uw eigen computer lokaal met behulp van mysql-hulpprogramma's geïnstalleerd. toolaunch hello Azure Cloud-Shell, klikt u op Hallo `Try It` knop op een codeblok in dit artikel of gaat u naar hello Azure-portal en klikt u op Hallo `>_` pictogram in het bovenste rechts werkbalk Hallo. 
 
-Typ de opdracht voor verbinding:
+Hallo opdracht tooconnect typt u:
 ```azurecli-interactive
 mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
 
 ## <a name="create-a-blank-database"></a>Een lege database maken
-Als u met de server verbonden bent, een lege database maken voor gebruik met.
+Als u verbonden toohello server bent, maakt u een lege database toowork met.
 ```sql
 CREATE DATABASE mysampledb;
 ```
 
-Voer de volgende opdracht verbinding overschakelen naar de nieuwe database op de opdrachtprompt:
+Voer bij Hallo-prompt Hallo opdracht tooswitch verbinding toothis nieuw gemaakte database te volgen:
 ```sql
 USE mysampledb;
 ```
 
-## <a name="create-tables-in-the-database"></a>Tabellen maken in de database
-Nu dat u hoe u verbinding maken met de Azure-Database voor de MySQL-database weet, kunnen we gaan over hoe u enkele eenvoudige taken uitvoeren.
+## <a name="create-tables-in-hello-database"></a>Tabellen maken in Hallo-database
+Als u weet hoe tooconnect toohello Azure Database voor de MySQL-database, we kunt gaan om de manier waarop toocomplete sommige basistaken uitvoeren.
 
 We kunnen eerst een tabel maken en deze met enkele gegevens te laden. We maken een tabel met inventarisatie-informatie.
 ```sql
@@ -109,60 +109,60 @@ CREATE TABLE inventory (
 );
 ```
 
-## <a name="load-data-into-the-tables"></a>Gegevens laden in de tabellen
-Nu dat we een tabel hebben, kunnen we sommige gegevens invoegen in het. Voer de volgende query voor het invoegen van een aantal rijen van de gegevens in het venster opdrachtprompt openen.
+## <a name="load-data-into-hello-tables"></a>Gegevens laden in Hallo tabellen
+Nu dat we een tabel hebben, kunnen we sommige gegevens invoegen in het. Op Hallo open opdrachtpromptvenster, typt u Hallo query tooinsert volgen een aantal rijen van gegevens.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-U hebt nu twee rijen van de voorbeeldgegevens in de tabel die u eerder hebt gemaakt.
+U hebt nu twee rijen van de voorbeeldgegevens in Hallo tabel die u eerder hebt gemaakt.
 
-## <a name="query-and-update-the-data-in-the-tables"></a>Vragen en de gegevens in de tabellen bijwerken
-De volgende query om informatie te halen uit de databasetabel.
+## <a name="query-and-update-hello-data-in-hello-tables"></a>Vragen en het Hallo-gegevens in het Hallo-tabellen bijwerken
+Hallo volgende tooretrieve querygegevens uit Hallo-databasetabel worden uitgevoerd.
 ```sql
 SELECT * FROM inventory;
 ```
 
-U kunt ook de gegevens in de tabellen bijwerken.
+U kunt ook Hallo-gegevens in Hallo-tabellen bijwerken.
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-De rij wordt dienovereenkomstig bijgewerkt wanneer u gegevens ophaalt.
+Hallo rij opgehaald dienovereenkomstig bijgewerkt wanneer u gegevens ophaalt.
 ```sql
 SELECT * FROM inventory;
 ```
 
-## <a name="restore-a-database-to-a-previous-point-in-time"></a>Een database herstellen naar een eerder tijdstip
-Stel dat u een belangrijke databasetabel per ongeluk hebt verwijderd en de gegevens niet gemakkelijk kan niet worden hersteld. Azure MySQL-Database kunt u de server te herstellen naar een punt in tijd, het maken van een kopie van de databases in de nieuwe server. U kunt deze nieuwe server gebruiken om uw verwijderde gegevens te herstellen. Voordat u de tabel is toegevoegd, de volgende stappen uit de voorbeeldserver herstellen naar een punt.
+## <a name="restore-a-database-tooa-previous-point-in-time"></a>Een database tooa eerder punt herstellen in-time
+Stel dat u een belangrijke databasetabel per ongeluk hebt verwijderd en Hallo gegevens gemakkelijk niet herstellen. Azure MySQL-Database kunt u toorestore Hallo server tooa punt in tijd, het maken van een kopie van Hallo databases in de nieuwe server. U kunt deze nieuwe server toorecover uw verwijderde gegevens te gebruiken. Hallo na stappen Hallo voorbeeld server tooa herstelpunt voordat Hallo tabel toegevoegd.
 
-1. Zoek uw Azure-Database voor MySQL in de Azure-portal. Op de **overzicht** pagina, klikt u op **herstellen** op de werkbalk. De pagina voor herstel wordt geopend.
+1. Zoek uw Azure-Database voor MySQL in Azure-portal hello. Op Hallo **overzicht** pagina, klikt u op **herstellen** op Hallo-werkbalk. Hallo terugzetten pagina wordt geopend.
 
    ![10-1 herstel van een database](./media/tutorial-design-database-using-portal/10_1-restore-a-db.png)
 
-2. Vul de **herstellen** formulier met de vereiste informatie.
+2. Hallo invullen **herstellen** formulier met Hallo vereiste informatie.
    
    ![10-2-formulier voor herstel](./media/tutorial-design-database-using-portal/10_2-restore-form.png)
    
-   - **Herstelpunt**: Selecteer een point-in-time die u herstellen wilt, binnen de periode die wordt vermeld. Zorg ervoor dat uw lokale tijdzone converteren naar UTC.
-   - **Herstellen naar de nieuwe server**: Geef een nieuwe servernaam die u wilt herstellen.
-   - **Locatie**: de regio is hetzelfde als de bronserver en kan niet worden gewijzigd.
-   - **Prijscategorie**: de prijscategorie is hetzelfde als de bronserver en kan niet worden gewijzigd.
+   - **Herstelpunt**: Selecteer een point-in-time-dat u wilt dat toorestore, binnen Hallo tijdsbestek vermeld. Zorg ervoor dat tooconvert de tooUTC van uw lokale tijdzone.
+   - **Herstellen van de server toonew**: Geef een nieuwe naam van een server gewenste toorestore aan.
+   - **Locatie**: Hallo regio is hetzelfde als de bronserver Hallo en kan niet worden gewijzigd.
+   - **Prijscategorie**: Hallo prijscategorie is Hallo dezelfde zijn als Hallo bron van de server en kan niet worden gewijzigd.
    
-3. Klik op **OK** de server te herstellen [herstellen naar een punt in tijd](./howto-restore-server-portal.md) voordat de tabel is verwijderd. Herstellen van een server, maakt een nieuwe kopie van de server, vanaf het punt in tijd die u opgeeft. 
+3. Klik op **OK** toorestore Hallo server te[tooa herstelpunt in de tijd](./howto-restore-server-portal.md) voordat het Hallo-tabel is verwijderd. Herstellen van een server, maakt een nieuwe kopie van de server hello, vanaf Hallo punt in tijd die u opgeeft. 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie gebruikt u de Azure portal naar geleerde how to:
+In deze zelfstudie gebruikt u Azure portal toolearned Hallo hoe naar:
 
 > [!div class="checklist"]
 > * Een Azure-Database maken voor MySQL
-> * De serverfirewall configureren
-> * Mysql-opdrachtregelprogramma gebruiken om een database te maken
+> * Hallo serverfirewall configureren
+> * Gebruik van mysql opdrachtregelprogramma toocreate een database
 > * Voorbeeldgegevens laden
 > * Querygegevens
 > * Gegevens bijwerken
 > * Gegevens terugzetten
 
 > [!div class="nextstepaction"]
-> [Verbinding maken tussen toepassingen met Azure-Database voor MySQL](./howto-connection-string.md)
+> [Hoe tooconnect toepassingen tooAzure voor MySQL-Database](./howto-connection-string.md)

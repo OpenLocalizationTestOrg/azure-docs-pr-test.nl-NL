@@ -4,7 +4,7 @@
 * [Een ILB ingeschakeld App Service-omgeving met Resource Manager-sjablonen maken](../articles/app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
 * [Automatisch schalen met een App Service-omgeving gebruiken](../articles/app-service/app-service-environment-auto-scale.md)
 * [Binnenkomend verkeer beveiligen](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
-* [Verbinding maken met back-endresources](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
+* [Verbinding maken met bronnen tooBackend](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
 * [ExpressRoute- en App Service-omgevingen](../articles/app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
 * [Aangepaste configuratie-instellingen voor App Service-omgevingen met inbegrip van instellingen voor PCI-naleving](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
 * [High-density App hosten met App Service-omgevingen](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)

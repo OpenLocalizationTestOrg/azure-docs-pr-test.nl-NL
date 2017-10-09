@@ -1,69 +1,69 @@
-Azure-klanten kunnen iedere maand 25.000 gratis e-mails ontgrendelen. Deze 25.000 gratis maandelijkse e-mails geven u toegang tot geavanceerde rapportages en analyses en [alle API's][all APIs] (web, SMTP, gebeurtenis, parseren en meer). Voor informatie over extra diensten die door SendGrid worden aangeboden, gaat u naar de pagina met [SendGrid-oplossingen][SendGrid Solutions].
+Azure-klanten kunnen iedere maand 25.000 gratis e-mails ontgrendelen. Deze 25.000 gratis maandelijkse e-mails, krijgt u toegang tooadvanced rapportage en analyse en [alle API's] [ all APIs] (Web, SMTP-, gebeurtenis, Parse en meer). Voor informatie over de extra diensten die door SendGrid, gaat u naar Hallo [SendGrid oplossingen] [ SendGrid Solutions] pagina.
 
-### <a name="to-sign-up-for-a-sendgrid-account"></a>Aanmelden voor een SendGrid-account
-1. Meld u aan bij de [Azure-beheerportal][Azure Management Portal].
-2. Klik in het menu aan de linkerkant op **Nieuw**.
+### <a name="toosign-up-for-a-sendgrid-account"></a>toosign voor een SendGrid-account
+1. Meld u bij toohello [Azure Management Portal][Azure Management Portal].
+2. Klik in het menu aan de linkerkant Hallo Hallo op **nieuw**.
 
     ![opdracht-balk-nieuw][command-bar-new]
 3. Klik op **Invoegtoepassingen** en vervolgens op **SendGrid e-maillevering**.
 
     ![sendgrid-opslaan][sendgrid-store]
-4. Vul het registratieformulier in en selecteer **Maken**.
+4. Hallo aanmelding ingevuld en selecteer **maken**.
 
     ![sendgrid-maken][sendgrid-create]
-5. Voer een **naam** in om uw SendGrid-service in uw Azure-instellingen te herkennen. Namen moeten tussen de 1 en 100 tekens lang zijn en mogen alleen alfanumerieke tekens, streepjes, punten en onderstrepingstekens bevatten. De naam moet uniek zijn in uw lijst met geabonneerde Azure Store-items.
+5. Voer een **naam** tooidentify uw SendGrid-service in uw Azure-instellingen. Namen moeten tussen de 1 en 100 tekens lang zijn en mogen alleen alfanumerieke tekens, streepjes, punten en onderstrepingstekens bevatten. Hallo-naam moet uniek zijn in uw lijst met geabonneerde Azure Store Items.
 6. Voer uw **wachtwoord** in en bevestig dit.
 7. Kies uw **abonnement**.
 8. Maak een nieuwe **resourcegroep** of selecteer een bestaande.
-9. Selecteer in het gedeelte **Prijscategorie** het SendGrid-abonnement waar u zich voor wilt aanmelden.
+9. In Hallo **prijscategorie** sectie Hallo SendGrid-abonnement u toosign voor wilt selecteren.
 
     ![sendgrid-prijzen][sendgrid-pricing]
 10. Voer een **promotiecode** in als u er een hebt.
 11. Voer uw **contactgegevens** in.
-12. Lees en accepteer de **juridische bepalingen**.
-13. Nadat u uw aankoop hebt bevestigd, verschijnt het pop-upbericht **Implementatie voltooid** en wordt uw account vermeld in het gedeelte **Alle resources**.
+12. Lees en accepteer Hallo **juridische voorwaarden**.
+13. Nadat is bevestigd dat uw aankoop ziet u een **implementatie is voltooid** pop-upvenster en u ziet uw account die worden vermeld in Hallo **alle resources** sectie.
 
     ![alle-resources][all-resources]
 
-    Nadat u uw aankoop hebt voltooid en op de knop **Beheren** hebt geklikt om de verificatieprocedure van het e-mailadres te starten, ontvangt u een e-mail van SendGrid waarin u wordt gevraagd uw account te verifiëren. Als u deze e-mail niet ontvangt of problemen ervaart bij het verifiëren van uw account, raadpleegt u deze veelgestelde vragen.
+    Nadat u hebt uw aankoop voltooid en geklikt Hallo **beheren** knop tooinitiate Hallo e verificatieproces, ontvangt u een e-mailbericht van SendGrid tooverify waarin u wordt gevraagd uw account. Als u deze e-mail niet ontvangt of problemen ervaart bij het verifiëren van uw account, raadpleegt u deze veelgestelde vragen.
 
     ![beheren][manage]
 
-    **U kunt maximaal 100 e-mailberichten per dag verzenden totdat u uw account hebt geverifieerd.**
+    **U kunt alleen verzenden van e-mailberichten too100 per dag totdat u uw account hebt geverifieerd.**
 
-    Als u uw abonnement wilt wijzigen of de SendGrid-contactinstellingen wilt bekijken, klikt u op de naam van uw SendGrid-service om het SendGrid Marketplace-dashboard te openen.
+    toomodify uw abonnementen of Zie Hallo contact op met SendGrid-instellingen, klikt u op Hallo-naam van uw SendGrid-service tooopen hello SendGrid Marketplace-dashboard.
 
     ![instellingen][settings]
 
-    Als u een e-mail met SendGrid wilt verzenden, moet u uw API-sleutel invoeren.
+    toosend een e-mail met de SendGrid, moet u uw API-sleutel opgeven.
 
-### <a name="to-find-your-sendgrid-api-key"></a>Uw SendGrid-API-sleutel vinden
+### <a name="toofind-your-sendgrid-api-key"></a>toofind uw SendGrid-API-sleutel
 1. Klik op **Beheren**.
 
     ![beheren][manage]
-2. Selecteer op uw SendGrid-dashboard **Instellingen** en vervolgens **API-sleutels** in het menu aan de linkerkant.
+2. Selecteer in het dashboard SendGrid **instellingen** en vervolgens **API-sleutels** in het menu aan de linkerkant Hallo Hallo.
 
     ![API-sleutels][api-keys]
 
-3. Klik op de vervolgkeuzelijst **API-sleutel maken** en selecteer **Algemene API-sleutel**.
+3. Klik op Hallo **API-sleutel maken** vervolgkeuzelijst en selecteer **algemene API-sleutel**.
 
     ![algemene-api-sleutel][general-api-key]
-4. Geef ten minste de **naam van de sleutel** op, verleen volledige toegang tot **Mail verzenden** en selecteer vervolgens **Opslaan**.
+4. Geef ten minste Hallo **naam van deze sleutel** en volledige toegang te verlenen**e-Mail verzenden** en selecteer **opslaan**.
 
     ![toegang][access]
-5. Uw API wordt op dit moment één keer weergegeven. Zorg ervoor dat u de API veilig opslaat.
+5. Uw API wordt op dit moment één keer weergegeven. Zorg ervoor dat toostore deze veilig.
 
-### <a name="to-find-your-sendgrid-credentials"></a>Uw SendGrid-referenties vinden
-1. Klik op het sleutelpictogram om uw **gebruikersnaam** te vinden.
+### <a name="toofind-your-sendgrid-credentials"></a>toofind uw SendGrid-referenties
+1. Klik op Hallo sleutelpictogram toofind uw **gebruikersnaam**.
 
     ![sleutel][key]
-2. Het wachtwoord is door u gekozen tijdens de installatie. Als u wijzigingen wilt aanbrengen, selecteert u **Wachtwoord wijzigen** of **Wachtwoord opnieuw instellen**.
+2. Hallo-wachtwoord is Hallo een die u hebt gekozen tijdens de installatie. U kunt selecteren **wachtwoord wijzigen** of **wachtwoord opnieuw instellen** toomake eventuele wijzigingen.
 
-Als u uw instellingen voor de bezorging van e-mail wilt beheren, klikt u op de knop **Beheren**. Hiermee wordt een omleiding naar uw SendGrid-dashboard.
+toomanage uw e-mailinstellingen deliverability klikt u op Hallo **beheren knop**. Dit worden tooyour SendGrid dashboard omgeleid.
 
     ![manage][manage]
 
-    For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
+    For more information on sending email through SendGrid, visit hello [Email API Overview][Email API Overview].
 
 <!--images-->
 

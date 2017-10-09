@@ -1,6 +1,6 @@
 ---
-title: Ontwikkelen van U-SQL-gebruiker gedefinieerde operators (UDO's) | Microsoft Docs
-description: 'Informatie over het ontwikkelen van de gebruiker gedefinieerde operators moeten worden gebruikt en hergebruikt in Data Lake Analytics-taken. '
+title: aaaDevelop U-SQL-gebruiker gedefinieerde operators (UDO's) | Microsoft Docs
+description: 'Ontdek hoe toodevelop gebruiker gedefinieerde operators toobe gebruikt en hergebruikt in Data Lake Analytics-taken. '
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: fdee02fb60b633c26704fc1774dfc3a7825b5e0d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6b86618efd3751cd9a5e91875879d7dd6d6a7b02
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Ontwikkelen van U-SQL-gebruiker gedefinieerde operators (UDO's)
-Informatie over het ontwikkelen van de gebruiker gedefinieerde operators voor het verwerken van gegevens in een U-SQL-taak.
+Meer informatie over hoe toodevelop gebruiker gedefinieerde operators tooprocess gegevens in een U-SQL-taak.
 
 Zie voor instructies over het ontwikkelen van algemene assembly's voor de U-SQL [ontwikkelen van U-SQL-assembly's voor Azure Data Lake Analytics-taken](data-lake-analytics-u-sql-develop-assemblies.md)
 
 ## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>Definieer en het gebruik van een gebruiker gedefinieerde operator in U-SQL
-**Maken en verzenden van een U-SQL-taak**
+**toocreate en het verzenden van een U-SQL-taak**
 
-1. Selecteer Visual Studio in **bestand > Nieuw > Project > U-SQL Project**.
+1. Selecteer in Visual Studio Hallo **bestand > Nieuw > Project > U-SQL Project**.
 2. Klik op **OK**. Visual Studio maakt een oplossing met een bestand Script.usql.
 3. Van **Solution Explorer**, vouw Script.usql en dubbelklikt u vervolgens op **Script.usql.cs**.
-4. Plak de volgende code in het bestand:
+4. Plak Hallo code in Hallo-bestand te volgen:
 
         using Microsoft.Analytics.Interfaces;
         using System.Collections.Generic;
@@ -88,7 +88,7 @@ Zie voor instructies over het ontwikkelen van algemene assembly's voor de U-SQL 
                 }
             }
         }
-6. Open **Script.usql**, en plak het volgende U-SQL-script:
+6. Open **Script.usql**, en U-SQL-script te plakken Hallo volgen:
 
         @drivers =
             EXTRACT UserID      string,
@@ -115,21 +115,21 @@ Zie voor instructies over het ontwikkelen van algemene assembly's voor de U-SQL 
             USING new USQL_UDO.CountryName();    
 
         OUTPUT @drivers_CountryName
-            TO "/Samples/Outputs/Drivers.csv"
+            too"/Samples/Outputs/Drivers.csv"
             USING Outputters.Csv(Encoding.Unicode);
-7. Geef het Data Lake Analytics-account, de database en het schema op.
+7. Hallo Data Lake Analytics-account, Database en Schema opgeven.
 8. Ga naar **Solution Explorer**, klik met de rechtermuisknop op **Script.usql** en klik vervolgens op **Build Script**.
 9. Ga naar **Solution Explorer**, klik met de rechtermuisknop op **Script.usql** en klik vervolgens op **Submit Script**.
-10. Als u dit nog niet hebt verbonden met uw Azure-abonnement, wordt u gevraagd de referenties van uw Azure-account in te voeren.
-11. Klik op **indienen**. Resultaat van het verzenden en een koppeling naar de taak zijn beschikbaar in het resultatenvenster wanneer het verzenden is voltooid.
-12. Klik op de **vernieuwen** om weer te geven van de meest recente taak de status en het scherm te vernieuwen.
+10. Als u dit nog niet hebt tooyour Azure-abonnement verbonden, wordt u na vragen aan gebruiker tooenter worden de referenties van uw Azure-account.
+11. Klik op **indienen**. Resultaat van het verzenden en een koppeling naar de taak zijn beschikbaar in het resultatenvenster Hallo wanneer Hallo verzenden is voltooid.
+12. Klik op Hallo **vernieuwen** knop toosee meest recente taak status en vernieuw Hallo welkomstscherm.
 
-**Om te zien van de uitvoer**
+**toosee Hallo-uitvoer**
 
-1. Van **Server Explorer**, vouw **Azure**, vouw **Data Lake Analytics**, vouw uw Data Lake Analytics-account, vouw **Opslagaccounts**, met de rechtermuisknop op de standaard-opslag en klik vervolgens op **Explorer**.
+1. Van **Server Explorer**, vouw **Azure**, vouw **Data Lake Analytics**, vouw uw Data Lake Analytics-account, vouw **Opslagaccounts**, met de rechtermuisknop op Hallo Default Storage en klik vervolgens op **Explorer**.
 2. Vouw voorbeelden uit, vouw uitvoer en dubbelklikt u vervolgens op **Stuurprogramma's.csv**.
 
 ## <a name="see-also"></a>Zie ook
 * [Aan de slag met Data Lake Analytics met PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Aan de slag met Data Lake Analytics met Azure portal](data-lake-analytics-get-started-portal.md)
+* [Aan de slag met Data Lake Analytics met hello Azure-portal](data-lake-analytics-get-started-portal.md)
 * [Data Lake Tools voor Visual Studio gebruiken voor het ontwikkelen van U-SQL-toepassingen](data-lake-analytics-data-lake-tools-get-started.md)

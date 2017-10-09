@@ -1,14 +1,14 @@
-Maak een App Service-plan met de opdracht [az appservice plan create](/cli/azure/appservice/plan#create).
+Maken van een App Service-abonnement met Hallo [az appservice-abonnement maken](/cli/azure/appservice/plan#create) opdracht.
 
 [!INCLUDE [app-service-plan](app-service-plan.md)]
 
-In het volgende voorbeeld wordt een App Service-plan gemaakt met de naam `myAppServicePlan` en de prijscategorie **Gratis**:
+Hallo volgende voorbeeld maakt u een App Service-abonnement met de naam `myAppServicePlan` in Hallo **vrije** prijscategorie:
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-Wanneer het App Service-plan is gemaakt, toont de Azure CLI soortgelijke informatie als in het volgende voorbeeld:
+Wanneer Hallo App Service-abonnement is gemaakt, ziet u hello Azure CLI informatie vergelijkbare toohello voorbeeld te volgen:
 
 ```json
 { 

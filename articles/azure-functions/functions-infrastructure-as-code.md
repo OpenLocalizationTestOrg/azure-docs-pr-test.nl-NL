@@ -1,6 +1,6 @@
 ---
-title: Automatisering van resource voor een functie-app in Azure Functions | Microsoft Docs
-description: "Informatie over het bouwen van een Azure Resource Manager-sjabloon die de functie-app wordt geïmplementeerd."
+title: aaaAutomate resources implementeren voor een functie-app in Azure Functions | Microsoft Docs
+description: "Meer informatie over hoe toobuild een Azure Resource Manager-sjabloon die de functie-app wordt geïmplementeerd."
 services: Functions
 documtationcenter: na
 author: lindydonna
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 15496e4ab2858b2aa319d53f1c438a259a3d5e49
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b0df0d4ef9fe93213f7b1cb1d1e6b4e14f8b3a30
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Implementatie van de resource voor de functie-app in Azure Functions automatiseren
 
-U kunt een Azure Resource Manager-sjabloon gebruiken voor het implementeren van een functie-app. In dit artikel bevat een overzicht van de vereiste resources en de parameters voor doet. Mogelijk moet u aanvullende resources implementeren afhankelijk van de [triggers en bindingen](functions-triggers-bindings.md) in uw app functie.
+U kunt een Azure Resource Manager-sjabloon toodeploy een functie-app gebruiken. In dit artikel bevat een overzicht van Hallo vereiste resources en parameters voor doet. Mogelijk moet u aanvullende bronnen voor toodeploy, afhankelijk van Hallo [triggers en bindingen](functions-triggers-bindings.md) in uw app functie.
 
 Zie voor meer informatie over het maken van sjablonen [Azure Resource Manager-sjablonen samenstellen](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -56,9 +56,9 @@ Een Azure storage-account is vereist voor een functie-app. U moet een account vo
 }
 ```
 
-Daarnaast biedt de eigenschappen `AzureWebJobsStorage` en `AzureWebJobsDashboard` moet worden opgegeven als de app-instellingen in de siteconfiguratie. De Azure Functions-runtime gebruikt de `AzureWebJobsStorage` verbindingsreeks interne wachtrijen maken. De verbindingsreeks `AzureWebJobsDashboard` wordt gebruikt voor aanmelding tot Azure Table storage en power de **Monitor** tabblad in de portal.
+Bovendien Hallo eigenschappen `AzureWebJobsStorage` en `AzureWebJobsDashboard` moet worden opgegeven als de app-instellingen in Hallo site-configuratie. Hallo maakt gebruik van Azure Functions-runtime Hallo `AzureWebJobsStorage` connection string toocreate interne wachtrijen. Hallo verbindingsreeks `AzureWebJobsDashboard` gebruikte toolog tooAzure Table-opslag- en stroomkabels Hallo is **Monitor** tabblad in Hallo-portal.
 
-Deze eigenschappen zijn opgegeven in de `appSettings` verzameling in de `siteConfig` object:
+Deze eigenschappen in opgegeven Hallo `appSettings` verzameling in hello `siteConfig` object:
 
 ```json
 "appSettings": [
@@ -74,11 +74,11 @@ Deze eigenschappen zijn opgegeven in de `appSettings` verzameling in de `siteCon
 
 ### <a name="hosting-plan"></a>Hosting-plan
 
-De definitie van het plan hosting varieert, afhankelijk van of u een verbruik of App Service-abonnement gebruiken. Zie [implementeren van een functie-app op het plan verbruik](#consumption) en [implementeren van een functie-app op het App Service-abonnement](#app-service-plan).
+Hallo-definitie van Hallo die als host fungeert voor plan varieert, afhankelijk van of u een verbruik of App Service-abonnement gebruiken. Zie [implementeren van een functie-app op Hallo verbruik plan](#consumption) en [implementeren van een functie-app op Hallo App Service-abonnement](#app-service-plan).
 
 ### <a name="function-app"></a>Functie-app
 
-De resource voor de functie-app wordt gedefinieerd door middel van een bron van het type **Microsoft.Web/Site** en type **functionapp**:
+Hallo functie app-resource is gedefinieerd met behulp van een bron van het type **Microsoft.Web/Site** en type **functionapp**:
 
 ```json
 {
@@ -95,15 +95,15 @@ De resource voor de functie-app wordt gedefinieerd door middel van een bron van 
 
 <a name="consumption"></a>
 
-## <a name="deploy-a-function-app-on-the-consumption-plan"></a>Een functie-app op het plan verbruik implementeren
+## <a name="deploy-a-function-app-on-hello-consumption-plan"></a>Een functie-app op Hallo verbruik plan implementeren
 
-U kunt een functie-app uitvoeren in twee verschillende modi: het plan verbruik en de App Service-abonnement. Het plan verbruik wijst automatisch rekencapaciteit wanneer uw code wordt uitgevoerd, indien nodig om belasting te verwerken uitgeschaald en vervolgens omlaag geschaald wanneer de code wordt niet uitgevoerd. Dus u hoeft te betalen voor niet-actieve virtuele machines en u hoeft te worden van tevoren capaciteit reserveren. Zie voor meer informatie over hostingplannen, [Azure Functions gebruiks- en App Service-plannen](functions-scale.md).
+U kunt een functie-app uitvoeren in twee verschillende modi: Hallo verbruik plannings- en Hallo App Service-abonnement. rekencapaciteit Hallo verbruik plan automatisch toegewezen wanneer uw code wordt uitgevoerd, als de belasting van de benodigde toohandle uitgeschaald en vervolgens omlaag geschaald wanneer de code wordt niet uitgevoerd. Dus u hebt geen toopay voor niet-actieve virtuele machines en u niet van tevoren tooreserve capaciteit hebt. toolearn meer informatie over hostingplannen, Zie [Azure Functions gebruiks- en App Service-plannen](functions-scale.md).
 
 Zie voor een Azure Resource Manager voorbeeldsjabloon [functie-app van verbruik plan].
 
 ### <a name="create-a-consumption-plan"></a>Maak een plan verbruik
 
-Een plan verbruik is een speciaal type resource 'serverfarm'. U het opgeeft via de `Dynamic` waarde voor de `computeMode` en `sku` eigenschappen:
+Een plan verbruik is een speciaal type resource 'serverfarm'. U het opgeeft met behulp van Hallo `Dynamic` waarde voor Hallo `computeMode` en `sku` eigenschappen:
 
 ```json
 {
@@ -121,7 +121,7 @@ Een plan verbruik is een speciaal type resource 'serverfarm'. U het opgeeft via 
 
 ### <a name="create-a-function-app"></a>Een functie-app maken
 
-Bovendien een plan verbruik vereist twee extra instellingen in de siteconfiguratie: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` en `WEBSITE_CONTENTSHARE`. Deze eigenschappen configureren voor de storage-account en het bestandspad waar de functie app-code en de configuratie zijn opgeslagen.
+Bovendien een plan verbruik vereist twee extra instellingen van siteconfiguratie Hallo: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` en `WEBSITE_CONTENTSHARE`. Deze eigenschappen configureren Hallo storage-account en het bestandspad waar Hallo functie app-code en configuratie zijn opgeslagen.
 
 ```json
 {
@@ -166,9 +166,9 @@ Bovendien een plan verbruik vereist twee extra instellingen in de siteconfigurat
 
 <a name="app-service-plan"></a> 
 
-## <a name="deploy-a-function-app-on-the-app-service-plan"></a>Implementeren van een functie-app op het App Service-abonnement
+## <a name="deploy-a-function-app-on-hello-app-service-plan"></a>Implementeren van een functie-app op Hallo App Service-abonnement
 
-In de App Service-abonnement functie-app uitgevoerd via exclusieve virtuele machines op Basic, Standard en Premium-SKU's, vergelijkbaar met web-apps. Zie voor meer informatie over de werking van de App Service-abonnement de [gedetailleerd overzicht van Azure App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+In Hallo App Service-abonnement, de functie-app uitgevoerd via exclusieve virtuele machines op een vergelijkbare tooweb apps Basic, Standard en Premium-SKU's. Zie voor meer informatie over de werking van App Service-abonnement Hallo Hallo [gedetailleerd overzicht van Azure App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 Zie voor een Azure Resource Manager voorbeeldsjabloon [functie-app in Azure App Service-plan].
 
@@ -192,12 +192,12 @@ Zie voor een Azure Resource Manager voorbeeldsjabloon [functie-app in Azure App 
 
 ### <a name="create-a-function-app"></a>Een functie-app maken 
 
-Nadat u een optie schaling hebt geselecteerd, maakt u een functie-app. De app is de container waarin alle uw functies.
+Nadat u een optie schaling hebt geselecteerd, maakt u een functie-app. Hallo-app is Hallo-container met alle uw functies.
 
-Een functie-app heeft veel onderliggende resources die u in uw implementatie gebruiken kunt, met inbegrip van app-instellingen en opties voor beheer. U kunt desgewenst ook verwijderen de **sourcecontrols** onderliggende resource, en gebruik een andere [Implementatieoptie](functions-continuous-deployment.md) in plaats daarvan.
+Een functie-app heeft veel onderliggende resources die u in uw implementatie gebruiken kunt, met inbegrip van app-instellingen en opties voor beheer. Bovendien kunt u tooremove hello **sourcecontrols** onderliggende resource, en gebruik een andere [Implementatieoptie](functions-continuous-deployment.md) in plaats daarvan.
 
 > [!IMPORTANT]
-> Als u wilt uw toepassing implementeren met behulp van Azure Resource Manager, is het belangrijk te begrijpen hoe resources worden geïmplementeerd in Azure. In het volgende voorbeeld wordt op het hoogste niveau configuraties zijn toegepast met behulp van **siteConfig**. Het is belangrijk dat deze configuraties ingesteld op het hoogste niveau, omdat ze gegevens naar de runtime en implementatie-engine van functies worden beschouwd. Op het hoogste niveau informatie is vereist voordat de onderliggende **sourcecontrols of web** resource wordt toegepast. Hoewel het mogelijk deze instellingen te configureren in het onderliggende niveau **config/appSettings** bron, in sommige gevallen functie-app moet worden geïmplementeerd *voordat* **config/appSettings** wordt toegepast. Bijvoorbeeld, wanneer u werkt in combinatie met gebruikt [Logic Apps](../logic-apps/index.md), uw functies zijn afhankelijk van een andere resource.
+> toosuccessfully uw toepassing implementeren met behulp van Azure Resource Manager, is het belangrijk toounderstand hoe resources worden geïmplementeerd in Azure. Hallo voorbeeld te volgen, op het hoogste niveau configuraties worden toegepast met behulp van **siteConfig**. Het is belangrijk tooset deze configuraties boven een niveau, omdat ze gegevens toohello functies runtime en implementatie-engine worden beschouwd. Op het hoogste niveau informatie is vereist voordat de onderliggende hello **sourcecontrols of web** resource wordt toegepast. Hoewel het mogelijk tooconfigure deze instellingen in een onderliggend niveau Hallo **config/appSettings** bron, in sommige gevallen functie-app moet worden geïmplementeerd *voordat* **config/appSettings**  wordt toegepast. Bijvoorbeeld, wanneer u werkt in combinatie met gebruikt [Logic Apps](../logic-apps/index.md), uw functies zijn afhankelijk van een andere resource.
 
 ```json
 {
@@ -252,25 +252,25 @@ Een functie-app heeft veel onderliggende resources die u in uw implementatie geb
 }
 ```
 > [!TIP]
-> Deze sjabloon worden gebruikt voor de [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) waarde van app-instellingen, waarmee de basismap waarin de implementatie-engine van functies (Kudu) wordt gezocht voor implementeerbare code wordt ingesteld. In onze opslagplaats onze functies zijn in een submap van de **src** map. Dus in het voorgaande voorbeeld wordt de app instellingen waarde instelt op `src`. Als uw functies in de hoofdmap van uw opslagplaats, of als u niet vanuit resourcebeheer implementeert, kunt u de waarde van deze app-instellingen verwijderen.
+> Deze sjabloon maakt gebruik van Hallo [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) app-instellingen-waarde ingesteld Hallo-basismap in welke Hallo functies implementatie-engine (Kudu) implementeerbare code zoekt. In onze opslagplaats onze functies zijn in een submap van Hallo **src** map. Dus in Hallo voorgaande voorbeeld, we waarde Hallo app instellingen te`src`. Als uw functies in de hoofdmap van uw opslagplaats hello, of als u niet vanuit resourcebeheer implementeert, kunt u de waarde van deze app-instellingen verwijderen.
 
 ## <a name="deploy-your-template"></a>De sjabloon implementeren
 
-U kunt een van de volgende manieren om uw sjabloon te implementeren:
+U kunt een van de volgende manieren toodeploy Hallo uw sjabloon:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure-CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
 * [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
-### <a name="deploy-to-azure-button"></a>Implementeren naar Azure-knop
+### <a name="deploy-tooazure-button"></a>TooAzure implementatieknop
 
-Vervang ```<url-encoded-path-to-azuredeploy-json>``` met een [URL-codering](https://www.bing.com/search?q=url+encode) versie van het pad onbewerkte van uw `azuredeploy.json` -bestand in GitHub.
+Vervang ```<url-encoded-path-to-azuredeploy-json>``` met een [URL-codering](https://www.bing.com/search?q=url+encode) versie van onbewerkte pad Hallo van uw `azuredeploy.json` -bestand in GitHub.
 
 Hier volgt een voorbeeld die gebruikmaakt van markdown:
 
 ```markdown
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>)
+[![Deploy tooAzure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>)
 ```
 
 Hier volgt een voorbeeld waarin HTML wordt gebruikt:
@@ -281,10 +281,10 @@ Hier volgt een voorbeeld waarin HTML wordt gebruikt:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het ontwikkelen en configureren van Azure Functions.
+Meer informatie over het toodevelop en configureren van Azure Functions.
 
 * [Naslaginformatie over Azure Functions voor ontwikkelaars](functions-reference.md)
-* [Het Azure-functie app-instellingen configureren](functions-how-to-use-azure-function-app-settings.md)
+* [Hoe de app-instellingen voor het functioneren van tooconfigure Azure](functions-how-to-use-azure-function-app-settings.md)
 * [Uw eerste Azure-functie maken](functions-create-first-azure-function.md)
 
 <!-- LINKS -->

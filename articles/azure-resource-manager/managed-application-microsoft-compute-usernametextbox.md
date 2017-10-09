@@ -1,6 +1,6 @@
 ---
-title: Azure beheerde toepassing UserNameTextBox UI-element | Microsoft Docs
-description: Beschrijft het Microsoft.Compute.UserNameTextBox UI-element voor beheerde Azure-toepassingen
+title: Beheerde toepassing UserNameTextBox UI-element aaaAzure | Microsoft Docs
+description: Beschrijft Hallo Microsoft.Compute.UserNameTextBox UI-element voor beheerde Azure-toepassingen
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: c90be5a0ed3aadda81d7ec9b5388a96472f69af0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 33092014e804c4aabd56ba49144d9cd4d6a5fd1e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Microsoft.Compute.UserNameTextBox UI-element
 Een tekstvak met ingebouwde validatie voor Windows en Linux-gebruikersnamen. Gebruik van dit element wanneer [maken van een Azure-toepassing beheerd](managed-application-publishing.md).
@@ -36,7 +36,7 @@ Een tekstvak met ingebouwde validatie voor Windows en Linux-gebruikersnamen. Geb
   "constraints": {
     "required": true,
     "regex": "^[a-z0-9A-Z]{1,30}$",
-    "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+    "validationMessage": "Only alphanumeric characters are allowed, and hello value must be 1-30 characters long."
   },
   "osPlatform": "Windows",
   "visible": true
@@ -44,12 +44,12 @@ Een tekstvak met ingebouwde validatie voor Windows en Linux-gebruikersnamen. Geb
 ```
 
 ## <a name="remarks"></a>Opmerkingen
-- Als `constraints.required` is ingesteld op **true**, en vervolgens in het tekstvak moet een waarde kan worden gevalideerd bevatten. De standaardwaarde is **true**.
+- Als `constraints.required` te is ingesteld,**true**, Hallo tekstvak is een waarde toovalidate moet bevatten. de standaardwaarde Hallo is **true**.
 - `osPlatform`moet worden opgegeven en kan **Windows** of **Linux**.
-- `constraints.regex`is een reguliere-expressiepatroon van JavaScript. Indien opgegeven, klikt u vervolgens de waarde van het tekstvak moet overeenkomen met het patroon kan worden gevalideerd. De standaardwaarde is **null**.
-- `constraints.validationMessage`is een tekenreeks om weer te geven wanneer de waarde van het tekstvak, de validatie is opgegeven mislukt door `constraints.regex`. Als niet wordt opgegeven, wordt het tekstvak ingebouwde validatieberichten gebruikt. De standaardwaarde is **null**.
-- Dit element heeft ingebouwde validatiefouten die is gebaseerd op de opgegeven waarde voor `osPlatform`. De ingebouwde validatie kan worden gebruikt samen met een aangepaste reguliere expressie.
-Als er een waarde voor `constraints.regex` is opgegeven, worden de ingebouwde en aangepaste validaties worden geactiveerd.
+- `constraints.regex`is een reguliere-expressiepatroon van JavaScript. Indien opgegeven, klikt u vervolgens Hallo van het tekstvak waarde moet overeenkomen met Hallo patroon toovalidate is. De standaardwaarde is **null**.
+- `constraints.validationMessage`een tekenreeks toodisplay is wanneer de waarde van het Hallo-tekstvak is mislukt Hallo validatie is opgegeven door `constraints.regex`. Als dat niet wordt opgegeven, wordt Hallo van het tekstvak ingebouwde validatie berichten worden gebruikt. de standaardwaarde Hallo is **null**.
+- Dit element heeft ingebouwde validatiefouten die is gebaseerd op Hallo-waarde opgegeven voor `osPlatform`. Hallo ingebouwde validatie kan worden gebruikt samen met een aangepaste reguliere expressie.
+Als er een waarde voor `constraints.regex` is opgegeven, worden beide Hallo ingebouwde en aangepaste validaties worden geactiveerd.
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
 ```json
@@ -57,6 +57,6 @@ Als er een waarde voor `constraints.regex` is opgegeven, worden de ingebouwde en
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een inleiding tot beheerde toepassingen, [overzicht van Azure Managed toepassing](managed-application-overview.md).
-* Zie voor een inleiding tot het maken van de definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* Zie voor een inleiding toomanaged toepassingen, [overzicht van Azure Managed toepassing](managed-application-overview.md).
+* Zie voor een inleiding toocreating UI definities [aan de slag met CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Zie voor een beschrijving van de algemene eigenschappen in de UI-elementen, [CreateUiDefinition elementen](managed-application-createuidefinition-elements.md).

@@ -1,6 +1,6 @@
 ---
-title: Maak een internetgerichte load balancer met IPv6 - Azure CLI | Microsoft Docs
-description: Informatie over het maken van een Internetgericht load balancer met IPv6 in Azure Resource Manager met de Azure CLI
+title: aaaCreate een internetgerichte load balancer met IPv6 - Azure CLI | Microsoft Docs
+description: Meer informatie over hoe een Internet gerichte load balancer met IPv6 in het gebruik van Azure Resource Manager toocreate hello Azure CLI
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -15,55 +15,55 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: efb4771800c42df544c3cc37d1d164045fdcaf3e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7ff75ac90d74a74e3d0c27672b36fbd955a086a3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-internet-facing-load-balancer-with-ipv6-in-azure-resource-manager-using-the-azure-cli"></a>Maken van een Internetgericht load balancer met IPv6 in Azure Resource Manager met de Azure CLI
+# <a name="create-an-internet-facing-load-balancer-with-ipv6-in-azure-resource-manager-using-hello-azure-cli"></a>De load balancer met IPv6 in Azure Resource Manager hello Azure CLI met behulp van een Internetgericht maken
 
 > [!div class="op_single_selector"]
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [Sjabloon](load-balancer-ipv6-internet-template.md)
 
-Azure Load Balancer is een Layer-4 (TCP, UDP) load balancer. De load balancer biedt hoge beschikbaarheid bij het verdelen van inkomend verkeer over gezonde service-exemplaren in cloudservices of virtuele machines in een load balancer-set. Azure Load Balancer kan deze services ook toepassen op meerdere poorten, meerdere IP-adressen of allebei.
+Azure Load Balancer is een Layer-4 (TCP, UDP) load balancer. Hallo load balancer biedt hoge beschikbaarheid door het distribueren van inkomend verkeer tussen orde service-exemplaren in cloudservices of virtuele machines in een load balancer-set. Azure Load Balancer kan deze services ook toepassen op meerdere poorten, meerdere IP-adressen of allebei.
 
 ## <a name="example-deployment-scenario"></a>Voorbeeldscenario voor implementatie
 
-Het volgende diagram illustreert de oplossing voor taakverdeling wordt geïmplementeerd met behulp van de voorbeeldsjabloon die in dit artikel wordt beschreven.
+Hallo volgende diagram illustreert Hallo-oplossing voor taakverdeling wordt geïmplementeerd met behulp van Hallo voorbeeld van de sjabloon die in dit artikel wordt beschreven.
 
 ![Load balancer-scenario](./media/load-balancer-ipv6-internet-cli/lb-ipv6-scenario-cli.png)
 
-In dit scenario maakt u de volgende Azure-resources:
+In dit scenario maakt u hello Azure-resources te volgen:
 
 * twee virtuele machines (VM's)
 * de virtuele netwerkinterface voor elke virtuele machine met zowel IPv4 als IPv6-adressen die zijn toegewezen
 * een internetgerichte Load Balancer met een IPv4 en IPv6-openbare IP-adres
-* een Beschikbaarheidsset aan die bevat de twee virtuele machines
-* twee taakverdelingsregels het openbare VIP's worden toegewezen aan de persoonlijke eindpunten
+* een Beschikbaarheidsset toothat bevat Hallo twee virtuele machines
+* twee laden taakverdeling regels toomap Hallo openbare VIP's toohello persoonlijke eindpunten
 
-## <a name="deploying-the-solution-using-the-azure-cli"></a>De oplossing implementeren met de Azure CLI
+## <a name="deploying-hello-solution-using-hello-azure-cli"></a>Hallo-oplossing met behulp van Azure CLI Hallo implementeren
 
-De volgende stappen laten zien hoe u Azure Resource Manager gebruikt om een internetgerichte load balancer te maken met behulp van CLI. Met Azure Resource Manager wordt elke resource afzonderlijk gemaakt en geconfigureerd, en vervolgens samengevoegd om een resource te maken.
+Hallo stappen laten zien hoe toocreate een internetverbinding netwerktaakverdeler met Azure Resource Manager met CLI. Met Azure Resource Manager elke bron wordt gemaakt en afzonderlijk geconfigureerd en vervolgens samengesteld toocreate een resource.
 
-Voor het implementeren van een load balancer maken en configureren van de volgende objecten:
+een load balancer toodeploy, u maken en configureren van Hallo objecten te volgen:
 
 * Front-end-IP-configuratie: bevat openbare IP-adressen voor inkomend netwerkverkeer.
-* Back-endadresgroep: bevat netwerkinterfaces (NIC's) waardoor de virtuele machines netwerkverkeer kunnen ontvangen van de load balancer.
-* Regels voor taakverdeling: bevat regels die een openbare poort op de load balancer toewijzen aan een poort in de back-endadresgroep.
-* NAT-regels voor binnenkomende verbindingen: bevat regels die een openbare poort op de load balancer toewijzen aan een poort voor een specifieke virtuele machine in de back-endadresgroep.
-* Tests: bevat statustests die worden gebruikt om de beschikbaarheid van exemplaren van virtuele machines in de back-endadresgroep te controleren.
+* Back-end-adresgroep - bevat netwerkinterfaces (NIC's) voor virtuele machines tooreceive-netwerkverkeer Hallo van Hallo load balancer.
+* Taakverdeling regels - bevat regels voor toewijzing van een openbare poort op Hallo load balancer tooport in Hallo back-end-adresgroep.
+* Binnenkomende NAT-regels: regels voor toewijzing van een openbare poort op Hallo load balancer tooa poort voor een specifieke virtuele machine in het back-end-adresgroep Hallo bevat.
+* Tests - beschikbaarheid van health-tests gebruikt toocheck van exemplaren van virtuele machines in het back-end-adresgroep Hallo bevat.
 
 Zie [Azure Resource Manager-ondersteuning voor load balancer](load-balancer-arm.md) voor meer informatie.
 
-## <a name="set-up-your-cli-environment-to-use-azure-resource-manager"></a>Uw omgeving CLI instellen voor gebruik van Azure Resource Manager
+## <a name="set-up-your-cli-environment-toouse-azure-resource-manager"></a>Instellen van uw CLI omgeving toouse Azure Resource Manager
 
-In dit voorbeeld wordt de CLI-hulpprogramma's uitgevoerd in een PowerShell-opdrachtvenster. We de Azure PowerShell-cmdlets niet gebruiken, maar we scriptmogelijkheden van PowerShell gebruiken voor het verbeteren van de leesbaarheid en opnieuw kunnen worden gebruikt.
+In dit voorbeeld wordt Hallo CLI-hulpprogramma's uitgevoerd in een PowerShell-opdrachtvenster. We hello Azure PowerShell-cmdlets niet gebruiken, maar we gebruiken de scripting mogelijkheden tooimprove leesbaarheid en opnieuw gebruiken van PowerShell.
 
-1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../cli-install-nodejs.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
-2. Voer de **azure config mode** opdracht overschakelen naar de modus Resource Manager.
+1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [installeren en configureren van Azure CLI Hallo](../cli-install-nodejs.md) en volg de instructies Hallo toohello punt waar u uw Azure-account en abonnement selecteren.
+2. Voer Hallo **azure config mode** opdracht tooswitch tooResource Manager-modus.
 
     ```azurecli
     azure config mode arm
@@ -73,7 +73,7 @@ In dit voorbeeld wordt de CLI-hulpprogramma's uitgevoerd in een PowerShell-opdra
 
         info:    New mode is arm
 
-3. Aanmelden bij Azure en een lijst met abonnementen ophalen.
+3. Meld u aan tooAzure en een lijst met abonnementen ophalen.
 
     ```azurecli
     azure login
@@ -85,9 +85,9 @@ In dit voorbeeld wordt de CLI-hulpprogramma's uitgevoerd in een PowerShell-opdra
     azure account list
     ```
 
-    Kies het abonnement dat u wilt gebruiken. Noteer de abonnements-Id voor de volgende stap.
+    Kies Hallo abonnement die u wilt dat toouse. Noteer Hallo abonnements-Id voor de volgende stap Hallo.
 
-4. Variabelen voor gebruik met de CLI-opdrachten PowerShell instellen.
+4. Variabelen voor gebruik met CLI-opdrachten Hallo PowerShell instellen.
 
     ```powershell
     $subscriptionid = "########-####-####-####-############"  # enter subscription id
@@ -130,16 +130,16 @@ In dit voorbeeld wordt de CLI-hulpprogramma's uitgevoerd in een PowerShell-opdra
     $subnet2 = azure network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
     ```
 
-## <a name="create-public-ip-addresses-for-the-front-end-pool"></a>Openbare IP-adressen voor de front-pool maken
+## <a name="create-public-ip-addresses-for-hello-front-end-pool"></a>Openbare IP-adressen voor Hallo front-pool maken
 
-1. De PowerShell-variabelen instellen
+1. Hallo PowerShell variabelen instellen
 
     ```powershell
     $publicIpv4Name = "myIPv4Vip"
     $publicIpv6Name = "myIPv6Vip"
     ```
 
-2. Maak een openbaar IP-adres van de front-end-IP-adresgroep.
+2. Maak een openbare IP-Hallo front-end-IP-adresgroep.
 
     ```azurecli
     $publicipV4 = azure network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --ip-version IPv4 --allocation-method Dynamic --domain-name-label $dnsLabel
@@ -147,14 +147,14 @@ In dit voorbeeld wordt de CLI-hulpprogramma's uitgevoerd in een PowerShell-opdra
     ```
 
     > [!IMPORTANT]
-    > De load balancer gebruikt het domeinlabel van het openbare IP als FQDN. Dit een wijziging van de klassieke implementatie dat gebruikmaakt van de cloudservice naam als de load balancer FQDN-naam.
-    > In dit voorbeeld wordt de FQDN-naam is *contoso09152016.southcentralus.cloudapp.azure.com*.
+    > Hallo load balancer gebruikmaakt van Hallo domeinlabel van Hallo openbare IP-adres als de FQDN. Deze een wijziging van de klassieke implementatie dat gebruikmaakt van Hallo cloudservicenaam zoals Hallo load balancer FQDN-naam.
+    > In dit voorbeeld Hallo FQDN is *contoso09152016.southcentralus.cloudapp.azure.com*.
 
 ## <a name="create-front-end-and-back-end-pools"></a>Front-end en back-end-adresgroepen maken
 
-In dit voorbeeld maakt de front-end-IP-adresgroep die het inkomende netwerkverkeer op de load balancer ontvangt en de back-end-IP-adresgroep waar de front-groep het netwerkverkeer van taakverdeling verzendt.
+In dit voorbeeld maakt het front-end-IP-groep hello, die Hallo binnenkomend netwerkverkeer op Hallo load balancer ontvangt en Hallo backend-IP-groep waar front-pool Hallo Hallo taakverdeling netwerkverkeer verzendt.
 
-1. De PowerShell-variabelen instellen
+1. Hallo PowerShell variabelen instellen
 
     ```powershell
     $frontendV4Name = "FrontendVipIPv4"
@@ -163,7 +163,7 @@ In dit voorbeeld maakt de front-end-IP-adresgroep die het inkomende netwerkverke
     $backendAddressPoolV6Name = "BackendPoolIPv6"
     ```
 
-2. Maak een front-end-IP-adresgroep door het openbare IP dat u in de vorige stap hebt gemaakt en de load balancer te koppelen.
+2. Maak een front-end-IP-adresgroep Hallo openbare IP-adres gemaakt in de vorige stap Hallo en Hallo load balancer koppelen.
 
     ```azurecli
     $frontendV4 = azure network lb frontend-ip create --resource-group $rgname --name $frontendV4Name --public-ip-name $publicIpv4Name --lb-name $lbName
@@ -172,18 +172,18 @@ In dit voorbeeld maakt de front-end-IP-adresgroep die het inkomende netwerkverke
     $backendAddressPoolV6 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
     ```
 
-## <a name="create-the-probe-nat-rules-and-lb-rules"></a>De test, NAT-regels en LB regels maken
+## <a name="create-hello-probe-nat-rules-and-lb-rules"></a>Hallo test, NAT-regels en LB regels maken
 
-In dit voorbeeld worden de volgende items gemaakt:
+In dit voorbeeld maakt Hallo volgende items:
 
-* een regel test om te controleren op connectiviteit met TCP-poort 80
-* een NAT-regel voor het omzetten van alle binnenkomend verkeer op poort 3389 voor poort 3389 voor RDP<sup>1</sup>
-* een NAT-regel voor het omzetten van alle binnenkomend verkeer op poort 3391 tot poort 3389 voor RDP<sup>1</sup>
-* een load balancer-regel om al het verkeer dat binnenkomt op poort 80, gelijk te verdelen naar poort 80 op de adressen in de back-endgroep.
+* een test regel toocheck voor connectiviteit tooTCP poort 80
+* een NAT-regel tootranslate alle binnenkomend verkeer op poort 3389 tooport 3389 voor RDP<sup>1</sup>
+* een NAT-regel tootranslate alle binnenkomend verkeer op poort 3391 tooport 3389 voor RDP<sup>1</sup>
+* een load balancer-regel toobalance alle binnenkomend verkeer op poort 80 tooport 80 op Hallo adressen in Hallo back-end-pool.
 
-<sup>1</sup> NAT-regels worden gekoppeld aan een specifiek exemplaar van een virtuele machine achter de load balancer. Het netwerkverkeer dat binnenkomt op poort 3389 is verzonden naar de specifieke virtuele machine en de poort die is gekoppeld aan de NAT-regel. U moet een protocol (UDP of TCP) voor een NAT-regel opgeven. Beide protocollen kunnen niet worden toegewezen aan dezelfde poort.
+<sup>1</sup> NAT-regels zijn gekoppeld tooa specifieke virtuele machine exemplaar achter Hallo load balancer. Hallo-netwerkverkeer dat binnenkomt op poort 3389 verzonden toohello specifieke virtuele machine en de poort die is gekoppeld aan Hallo NAT-regel. U moet een protocol (UDP of TCP) voor een NAT-regel opgeven. Beide protocollen kunnen niet worden toegewezen toohello dezelfde poort.
 
-1. De PowerShell-variabelen instellen
+1. Hallo PowerShell variabelen instellen
 
     ```powershell
     $probeV4V6Name = "ProbeForIPv4AndIPv6"
@@ -193,22 +193,22 @@ In dit voorbeeld worden de volgende items gemaakt:
     $lbRule1V6Name = "LBRuleForIPv6-Port80"
     ```
 
-2. Maken van de test
+2. Hallo-test maken
 
-    Het volgende voorbeeld wordt elke 15 seconden gemaakt TCP voor een test waarmee wordt gecontroleerd of de verbinding met de back-end TCP-poort 80. Het markeert u de back-end-bron niet beschikbaar na twee achtereenvolgende mislukte pogingen.
+    Hallo wordt volgende voorbeeld een TCP-test waarmee wordt gecontroleerd of voor connectiviteit tooback-end TCP-poort 80 elke 15 seconden. Het markeert Hallo back-end-bron niet beschikbaar na twee achtereenvolgende mislukte pogingen.
 
     ```azurecli
     $probeV4V6 = azure network lb probe create --resource-group $rgname --name $probeV4V6Name --protocol tcp --port 80 --interval 15 --count 2 --lb-name $lbName
     ```
 
-3. Binnenkomende NAT-regels waarmee de RDP-verbindingen met de back-end-bronnen maken
+3. Binnenkomende NAT-regels waarmee de RDP-verbindingen toohello back-end resources maken
 
     ```azurecli
     $inboundNatRuleRdp1 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule1V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3389 --backend-port 3389 --lb-name $lbName
     $inboundNatRuleRdp2 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule2V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3391 --backend-port 3389 --lb-name $lbName
     ```
 
-4. Regels die verkeer naar andere back-end-poorten verzenden, afhankelijk van welke front-end heeft de aanvraag ontvangen voor een load balancer maken
+4. Regels die verkeer toodifferent back-end-poorten, afhankelijk van welke front-end ontvangen Hallo-aanvraag verzenden voor een load balancer maken
 
     ```azurecli
     $lbruleIPv4 = azure network lb rule create --resource-group $rgname --name $lbRule1V4Name --frontend-ip-name $frontendV4Name --backend-address-pool-name $backendAddressPoolV4Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 80 --lb-name $lbName
@@ -224,7 +224,7 @@ In dit voorbeeld worden de volgende items gemaakt:
     Verwachte uitvoer:
 
         info:    Executing command network lb show
-        info:    Looking up the load balancer "myIPv4IPv6Lb"
+        info:    Looking up hello load balancer "myIPv4IPv6Lb"
         data:    Id                              : /subscriptions/########-####-####-####-############/resourceGroups/pscontosorg1southctrlus09152016/providers/Microsoft.Network/loadBalancers/myIPv4IPv6Lb
         data:    Name                            : myIPv4IPv6Lb
         data:    Type                            : Microsoft.Network/loadBalancers
@@ -263,9 +263,9 @@ In dit voorbeeld worden de volgende items gemaakt:
 
 ## <a name="create-nics"></a>NIC's maken
 
-NIC's maken en deze koppelt aan de NAT-regels, load balancer-regels en -tests.
+NIC's maken en deze koppelt tooNAT regels, load balancer-regels en -tests.
 
-1. De PowerShell-variabelen instellen
+1. Hallo PowerShell variabelen instellen
 
     ```powershell
     $nic1Name = "myIPv4IPv6Nic1"
@@ -288,11 +288,11 @@ NIC's maken en deze koppelt aan de NAT-regels, load balancer-regels en -tests.
     $nic2IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic2Name
     ```
 
-## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>Maken van de back-end-VM-netwerkbronnen en elke NIC koppelen
+## <a name="create-hello-back-end-vm-resources-and-attach-each-nic"></a>Hallo back-end VM resources maken en koppelen van elke NIC
 
-Voor het maken van virtuele machines, moet u een opslagaccount hebben. De virtuele machines moeten lid zijn van een beschikbaarheidsset voor load balancing. Zie voor meer informatie over het maken van virtuele machines [maken van een virtuele machine in Azure met behulp van PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
+toocreate virtuele machines, moet u een opslagaccount hebben. Load balancing, moeten Hallo VMs toobe leden van een beschikbaarheidsset. Zie voor meer informatie over het maken van virtuele machines [maken van een virtuele machine in Azure met behulp van PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 
-1. De PowerShell-variabelen instellen
+1. Hallo PowerShell variabelen instellen
 
     ```powershell
     $storageAccountName = "ps08092016v6sa0"
@@ -311,23 +311,23 @@ Voor het maken van virtuele machines, moet u een opslagaccount hebben. De virtue
     ```
 
     > [!WARNING]
-    > Dit voorbeeld wordt de gebruikersnaam en het wachtwoord voor de virtuele machines in ongecodeerde tekst. Juiste Wees voorzichtig bij het gebruik van referenties in de wissen. Zie voor een veiligere methode afhandelen van referenties in PowerShell de [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
+    > Dit voorbeeld wordt Hallo gebruikersnaam en wachtwoord voor virtuele machines Hallo in ongecodeerde tekst. Juiste Wees voorzichtig bij het gebruik van referenties in Hallo wissen. Zie voor een veiligere methode afhandelen van referenties in PowerShell Hallo [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
 
-2. De set met storage-account en beschikbaarheid maken
+2. Hallo storage-account en beschikbaarheid set maken
 
-    U mag een bestaand opslagaccount gebruiken bij het maken van de virtuele machines. De volgende opdracht maakt een nieuw opslagaccount.
+    U mag een bestaand opslagaccount gebruiken bij het maken van Hallo virtuele machines. Hallo volgende opdracht maakt een nieuw opslagaccount.
 
     ```azurecli
     $storageAcc = azure storage account create $storageAccountName --resource-group $rgName --location $location --sku-name "LRS" --kind "Storage"
     ```
 
-    Maak vervolgens de beschikbaarheidsset.
+    Maak vervolgens Hallo beschikbaarheidsset.
 
     ```azurecli
     $availabilitySet = azure availset create --name $availabilitySetName --resource-group $rgName --location $location
     ```
 
-3. De virtuele machines maken met de gekoppelde NIC 's
+3. Hallo virtuele machines maken met de Hallo gekoppeld NIC 's
 
     ```azurecli
     $vm1 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm1Name --nic-id $nic1Id --os-disk-vhd $osDisk1Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension

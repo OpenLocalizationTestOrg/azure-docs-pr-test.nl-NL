@@ -4,16 +4,16 @@
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-direct-methods.md)
 
-Azure IoT Hub is een volledig beheerde service waarmee betrouwbare en veilige tweerichtingscommunicatie tussen miljoenen apparaten en een oplossing voor back-end. Vorige zelfstudies ([aan de slag met IoT Hub] en [Cloud naar apparaat verzenden met IoT Hub]) illustratie van de apparaat-naar-cloud- en cloud-naar-apparaat messaging basisfunctionaliteit van IoT-Hub. IoT Hub biedt u ook de mogelijkheid om aan te roepen niet duurzame methoden op apparaten vanuit de cloud. Rechtstreekse methoden vertegenwoordigen een request-reply interactie met een apparaat dat vergelijkbaar is met een HTTP-aanroep in dat ze slagen of onmiddellijk (na een door de gebruiker opgegeven time), mislukken zodat de gebruiker die de status van de aanroep kennen. [Een directe methode aangeroepen voor een apparaat] [ lnk-devguide-methods] worden direct methoden in meer detail beschreven en biedt hulp bij het gebruik van directe methoden in plaats van cloud naar apparaat-berichten of gewenste eigenschappen.
+Azure IoT Hub is een volledig beheerde service waarmee betrouwbare en veilige tweerichtingscommunicatie tussen miljoenen apparaten en een oplossing voor back-end. Vorige zelfstudies ([aan de slag met IoT Hub] en [Cloud naar apparaat verzenden met IoT Hub]) illustreren Hallo apparaat-naar-cloud- en cloud-naar-apparaat messaging basisfunctionaliteit van IoT-Hub. IoT Hub biedt u eveneens de mogelijkheid tooinvoke niet duurzame methoden op apparaten uit de cloud Hallo Hallo. Directe methoden vertegenwoordigen een request-reply interactie met een apparaat vergelijkbare tooan HTTP aanroepen in dat ze slagen of mislukken onmiddellijk (na een door de gebruiker opgegeven time) toolet Hallo gebruiker Hallo status van Hallo oproep kennen. [Een directe methode aangeroepen voor een apparaat] [ lnk-devguide-methods] worden direct methoden in meer detail beschreven en biedt hulp bij wanneer toouse directe methoden in plaats van cloud naar apparaat-berichten of gewenste eigenschappen.
 
 In deze handleiding ontdekt u hoe u:
 
-* De Azure portal gebruiken voor het maken van een IoT-hub en een apparaat-id maakt in uw IoT-hub.
-* Maak een gesimuleerde apparaattoepassing met een directe methode die kan worden aangeroepen door de cloud.
-* Een consoletoepassing maken die een directe methode wordt aangeroepen in de gesimuleerde apparaattoepassing via uw IoT-hub.
+* Gebruik Hallo toocreate met Azure portal een IoT-hub en een apparaat-id maakt in uw IoT-hub.
+* Een gesimuleerd apparaat-app met een directe methode die kan worden aangeroepen door Hallo cloud maken.
+* Een consoletoepassing maken die een directe methode wordt aangeroepen in Hallo gesimuleerde apparaattoepassing via uw IoT-hub.
 
 > [!NOTE]
-> Directe methoden worden op dit moment alleen ondersteund op apparaten die verbinding maken met behulp van het protocol MQTT IoT-Hub. Raadpleeg de [MQTT ondersteuning] [ lnk-devguide-mqtt] artikel voor instructies over het converteren van bestaande apparaattoepassing MQTT gebruiken.
+> Op dit moment rechtstreekse methoden worden alleen ondersteund op apparaten die verbinding maken met behulp van tooIoT Hub Hallo MQTT-protocol. Raadpleeg toohello [MQTT ondersteuning] [ lnk-devguide-mqtt] artikel voor instructies over het tooconvert bestaande apparaat app toouse MQTT.
 
 
 [lnk-devguide-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md

@@ -1,6 +1,6 @@
 ---
-title: Veelvoorkomende oorzaken van Cloud Service-rollen recyclen | Microsoft Docs
-description: De functie van een cloud-service die plotseling wordt gerecycled kan leiden tot aanzienlijke downtime. Hier volgen enkele veelvoorkomende problemen die ertoe leiden rollen dat worden gerecycled, waarmee u de uitvaltijd beperken.
+title: aaaCommon oorzaken van Cloud Service-rollen recyclen | Microsoft Docs
+description: De functie van een cloud-service die plotseling wordt gerecycled kan leiden tot aanzienlijke downtime. Hier volgen enkele veelvoorkomende problemen die ertoe leiden rollen-toobe gerecycled dat, waarmee u de uitvaltijd beperken.
 services: cloud-services
 documentationcenter: 
 author: simonxjx
@@ -15,50 +15,50 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/26/2017
 ms.author: v-six
-ms.openlocfilehash: e55009c72b977ee4a30f6c71043bde483849f78f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8fa152b33d2b22a8a02f834d4bc38519b4272f7b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="common-issues-that-cause-roles-to-recycle"></a>Algemene problemen waardoor rollen worden herhaald
-Dit artikel worden enkele van de algemene oorzaken van problemen met implementatie beschreven en biedt tips voor probleemoplossing waarmee u deze problemen oplossen. Geeft aan dat er een probleem met een toepassing is is wanneer de rolinstantie niet kan worden gestart, of deze replicatiecycli tussen de statussen initialiseren bezet en stoppen.
+# <a name="common-issues-that-cause-roles-toorecycle"></a>Veelvoorkomende problemen die leiden rollen toorecycle tot
+In dit artikel worden enkele algemene oorzaken van problemen met implementatie Hallo besproken en vindt u toohelp probleemoplossing tips u deze problemen oplossen. Geeft aan dat er een probleem met een toepassing is is wanneer Hallo rolinstantie toostart mislukt of het replicatiecycli tussen Hallo initialiseren bezet en stoppen statussen.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="missing-runtime-dependencies"></a>Ontbrekende runtime-afhankelijkheden
-Als een rol in uw toepassing afhankelijk van een is assembly die geen deel uitmaakt van de .NET Framework of de Azure beheerde bibliotheek, moet u die assembly expliciet opnemen in het toepassingspakket. Houd er rekening mee dat andere Microsoft-frameworks niet standaard beschikbaar in Azure. Als uw rol is afhankelijk van een dergelijke framework, moet u deze assembly's toevoegen aan het toepassingspakket.
+Als een rol in uw toepassing afhankelijk is van de assembly's die geen deel uitmaakt van Hallo .NET Framework of hello Azure beheerde bibliotheek, moet u expliciet die assembly in het toepassingspakket Hallo opnemen. Houd er rekening mee dat andere Microsoft-frameworks niet standaard beschikbaar in Azure. Als uw rol is afhankelijk van een dergelijke framework, moet u deze assembly's toohello application-pakket toevoegen.
 
-Voordat u bouwen en de toepassing van het pakket, Controleer het volgende:
+Controleer voordat u bouwen en de toepassing van het pakket, Hallo volgende:
 
-* Als u Visual studio gebruikt, controleert u of de **lokale kopie** eigenschap is ingesteld op **True** voor elke assembly waarnaar wordt verwezen in uw project die geen deel uitmaakt van de Azure SDK of .NET Framework.
-* Zorg ervoor dat het bestand web.config verwijst niet naar alle ongebruikte-assembly's in het element compilatie.
-* De **Build Action** van elke .cshtml bestand is ingesteld op **inhoud**. Dit zorgt ervoor dat de bestanden correct wordt weergegeven in het pakket en hiermee andere bestanden waarnaar wordt verwezen in het pakket wordt weergegeven.
+* Als Visual studio gebruikt, moet u ervoor dat Hallo **lokale kopie** eigenschap is ingesteld, te**True** voor elke assembly in uw project die geen deel uitmaakt van hello Azure SDK verwezen of Hallo van .NET Framework.
+* Zorg ervoor dat Hallo web.config-bestand verwijst niet naar alle ongebruikte-assembly's in Hallo compilatie-element.
+* Hallo **Build Action** van elke .cshtml bestand te ingesteld**inhoud**. Dit zorgt ervoor dat Hallo bestanden juist wordt weergegeven in het Hallo-pakket en andere tooappear bestanden waarnaar wordt verwezen in Hallo pakket kunt.
 
 ## <a name="assembly-targets-wrong-platform"></a>Assembly doelen onjuist platform
 Azure is een 64-bits-omgeving. .NET-assembly's die voor een 32-bits-doel is gecompileerd werkt daarom niet op Azure.
 
 ## <a name="role-throws-unhandled-exceptions-while-initializing-or-stopping"></a>Rol van niet-verwerkte uitzonderingen genereert tijdens het initialiseren van of stoppen
-Eventuele uitzonderingen die zijn gegenereerd door de methoden van de [RoleEntryPoint] klasse, waaronder de [OnStart], [OnStop], en [uitvoeren] methoden, zijn niet-verwerkte uitzonderingen. Als een niet-verwerkte uitzondering in een van deze methoden optreedt, wordt de rol gerecycled. Als de rol herhaaldelijk recyclen is, er het mogelijk een onverwerkte uitzondering telkens wanneer die deze probeert te starten.
+Eventuele uitzonderingen die worden veroorzaakt door methoden Hallo Hallo [RoleEntryPoint] klasse, waaronder Hallo [OnStart], [OnStop], en [uitvoeren]methoden, zijn niet-verwerkte uitzonderingen. Als een niet-verwerkte uitzondering in een van deze methoden optreedt, wordt Hallo-rol gerecycled. Als het Hallo-rol is herhaaldelijk recyclen, er het mogelijk een onverwerkte uitzondering telkens wanneer die wordt geprobeerd toostart.
 
 ## <a name="role-returns-from-run-method"></a>Rol wordt geactiveerd vanuit Run-methode
-De [uitvoeren] methode is bedoeld voor onbepaalde tijd worden uitgevoerd. Als uw code overschrijft de [uitvoeren] methode, dat deze moet slapen voor onbepaalde tijd. Als de [uitvoeren] methode retourneert de rol wordt gerecycled.
+Hallo [uitvoeren] methode is bedoeld toorun voor onbepaalde tijd. Als uw code Hallo overschrijft [uitvoeren] methode, dat deze moet slapen voor onbepaalde tijd. Als hello [uitvoeren] methode retourneert Hallo-rol wordt gerecycled.
 
 ## <a name="incorrect-diagnosticsconnectionstring-setting"></a>Onjuiste DiagnosticsConnectionString-instelling
-Als toepassing gebruikmaakt van Azure Diagnostics, uw serviceconfiguratiebestand moet opgeven de `DiagnosticsConnectionString` configuratie-instelling. Deze instelling moet een HTTPS-verbinding naar uw opslagaccount in Azure opgeven.
+Als de toepassing gebruikmaakt van Azure Diagnostics, uw serviceconfiguratiebestand Hallo moet opgeven `DiagnosticsConnectionString` configuratie-instelling. Deze instelling moet een HTTPS-verbinding tooyour storage-account in Azure opgeven.
 
-Om ervoor te zorgen dat uw `DiagnosticsConnectionString` instelling juist is voordat u uw toepassingspakket in Azure implementeert, controleert u het volgende:  
+tooensure die uw `DiagnosticsConnectionString` instelling juist is voordat u uw toepassing pakket tooAzure implementeert, controleert u of de volgende Hallo:  
 
-* De `DiagnosticsConnectionString` instelling verwijst naar een geldig opslagaccount in Azure.  
-  Standaard wijst deze instelling naar het geëmuleerde storage-account zodat u deze instelling expliciet wijzigen moet voordat u uw toepassingspakket implementeren. Als u deze instelling niet wijzigt, wordt een uitzondering opgetreden bij de rolinstantie wordt de diagnostische monitor gestart. Hierdoor kunnen de rolinstantie wilt recyclen voor onbepaalde tijd.
-* De verbindingsreeks is opgegeven in de volgende [indeling](../storage/common/storage-configure-connection-string.md). (Het protocol moet worden opgegeven als HTTPS). Vervang *MyAccountName* met de naam van uw opslagaccount en *MyAccountKey* door uw toegangssleutel:    
+* Hallo `DiagnosticsConnectionString` punten tooa geldig storage-account instellen in Azure.  
+  Deze instelling wijst standaard toohello geëmuleerde storage-account, dus u deze instelling expliciet wijzigen moet voordat u uw toepassingspakket implementeren. Als u deze instelling niet wijzigt, wordt een uitzondering gegenereerd wanneer de rolinstantie hello toostart Hallo diagnostische monitor probeert. Hierdoor kunnen Hallo rol exemplaar toorecycle voor onbepaalde tijd.
+* Hallo verbindingstekenreeks is opgegeven in de volgende Hallo [indeling](../storage/common/storage-configure-connection-string.md). (Hallo protocol moet worden opgegeven als HTTPS). Vervang *MyAccountName* met Hallo-naam van uw opslagaccount en *MyAccountKey* door uw toegangssleutel:    
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
-  Als u uw toepassing ontwikkelt met behulp van Azure-hulpprogramma's voor Microsoft Visual Studio, kunt u de eigenschappenpagina's kunt u deze waarde instellen.
+  Als u uw toepassing ontwikkelt met behulp van Azure-hulpprogramma's voor Microsoft Visual Studio, kunt u Hallo eigenschap pagina's tooset deze waarde gebruiken.
 
 ## <a name="exported-certificate-does-not-include-private-key"></a>Geëxporteerde certificaat bevat geen persoonlijke sleutel
-Voor het uitvoeren van een Webrol onder SSL, moet u ervoor zorgen dat het geëxporteerde management-certificaat de persoonlijke sleutel bevat. Als u de *Windows Certificate Manager* om het certificaat exporteren, moet u selecteren **Ja** voor de **de persoonlijke sleutel exporteren** optie. Het certificaat moet worden geëxporteerd in het PFX-indeling, dit de enige indeling die momenteel worden ondersteund is.
+toorun een Webrol onder SSL, moet u ervoor zorgen dat uw geëxporteerde beheercertificaat Hallo persoonlijke sleutel bevat. Als u Hallo *Windows Certificate Manager* tooexport Hallo certificaat ervoor tooselect worden **Ja** voor Hallo **Export Hallo persoonlijke sleutel** optie. Hallo-certificaat moet worden geëxporteerd in Hallo PFX-indeling, dit de enige indeling Hallo momenteel niet ondersteund is.
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer [probleemoplossing artikelen](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) voor cloudservices.

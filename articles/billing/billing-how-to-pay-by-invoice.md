@@ -1,6 +1,6 @@
 ---
-title: Betalen voor Azure-abonnementen door factuur | Microsoft Docs
-description: Hierin wordt beschreven hoe u betaalt voor Azure-abonnementen door factuur
+title: aaaPay voor Azure-abonnementen door factuur | Microsoft Docs
+description: Hierin wordt beschreven hoe toopay voor Azure-abonnementen door factuur
 services: 
 documentationcenter: 
 author: genlin
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: genli
-ms.openlocfilehash: edbeba95898a41e645b61aeaaec1fd897afadd61
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 416890cc1e5109ef4d2bf6a9c2a779ba835f410c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Een aanvraag indient bij de Azure-abonnement betalen met factuur
+# <a name="submit-a-request-toopay-azure-subscription-by-invoice"></a>Verzenden van een aanvraag toopay Azure-abonnement factuur
 
-U kunt de betalingsmethode voor uw Azure-abonnement naar factuur via een aanvraag voor de ondersteuning van Azure kunt wijzigen. Zodra de aanvraag is goedgekeurd, vindt u instructies over het instellen van uw abonnement voor de betalingsmethode factuur.
+U kunt Hallo betalingsmethode wijzigen voor uw Azure-abonnement tooinvoice door het indienen van een aanvraag tooAzure-ondersteuning. Zodra de aanvraag is goedgekeurd, u vindt u instructies voor het tooset van uw abonnement voor Hallo factuur betalingsmethode.
 
 > [!IMPORTANT]
 > * Betalen met factuur is alleen beschikbaar voor bedrijven-accounts.
-> * [Van derden en externe services](billing-understand-your-azure-marketplace-charges.md) kan niet worden aangeschaft of betaald factuur betalen. Als uw abonnement resources van externe services zoals ClearDB of SendGrid bevat, moeten ze worden verwijderd voordat u kunt wijzigen naar factuur betalen. Als u wilt aanschaffen externe services na het overschakelen naar factuur salaris, moet u een afzonderlijk abonnement met een creditcard.
-> * Wanneer u overschakelt naar betalen factuur, kunt u niet overschakelen terug naar de creditcardgegevens betaling.
+> * [Van derden en externe services](billing-understand-your-azure-marketplace-charges.md) kan niet worden aangeschaft of betaald factuur betalen. Als uw abonnement resources van externe services zoals ClearDB of SendGrid bevat, moeten ze worden verwijderd voordat u tooinvoice betalen wijzigt. externe services toopurchase na het overschakelen van tooinvoice salaris, moet u een afzonderlijk abonnement met een creditcard.
+> * Zodra u tooinvoice salaris overgaat, kunt u back toocredit of incasso betaling niet activeren.
 
 ## <a name="request-pay-by-invoice"></a>Aanvraag betalen met factuur
 
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com/). Selecteer **Help + ondersteuning** > **nieuw ondersteuningsverzoek**.
+1. Meld u aan bij Hallo [Azure-portal](https://portal.azure.com/). Selecteer **Help + ondersteuning** > **nieuw ondersteuningsverzoek**.
 
     ![Help en ondersteuning van de knop](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
-1. Selecteer **facturering** als het type probleem, selecteert u het abonnement waarvoor u wilt betalen met factuur, selecteert u een ondersteuningsplan en selecteer vervolgens **volgende**.
-1. In de **probleem** blade Selecteer **betalen met factuur** in de **probleemtype** vak.
-1. Voer de volgende informatie in de **Details** vak en selecteer vervolgens **volgende**.
+1. Selecteer **facturering** als type probleem hello, selecteer Hallo abonnement waarvoor u wilt toopay factuur, selecteert u een ondersteuningsplan en selecteer vervolgens **volgende**.
+1. In Hallo **probleem** blade Selecteer **betalen met factuur** in Hallo **probleemtype** vak.
+1. Voer de volgende informatie in Hallo Hallo **Details** vak en selecteer vervolgens **volgende**.
 
     * Bedrijfsnaam
     * Factuuradres
@@ -44,8 +44,8 @@ U kunt de betalingsmethode voor uw Azure-abonnement naar factuur via een aanvraa
 
 1. Controleer uw contactgegevens en contactwijze en klik vervolgens op **maken**.
 
-Als er een kredietcontrole uitgevoerd vanwege de hoeveelheid tegoed die u nodig hebt moet, sturen we dat u een creditcard toepassing controleren. Nadat u de toepassing hebt ingediend, kunnen de kredietaanvraag 5-7 dagen worden verwerkt.
+Als we toorun een kredietcontrole vanwege Hallo hoeveelheid tegoed die u nodig hebt moet, sturen we je een kredietaanvraag selectievakje. Nadat u de toepassing hello verzonden, kan Hallo kredietaanvraag tooprocess 5-7 dagen duren.
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 
-Als u nog hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.
+Als u nog hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) tooget uw probleem snel worden opgelost.

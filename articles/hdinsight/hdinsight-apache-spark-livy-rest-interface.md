@@ -1,6 +1,6 @@
 ---
-title: Livy Spark gebruiken voor het verzenden van taken met Spark op Azure HDInsight-cluster | Microsoft Docs
-description: Informatie over het Apache Spark REST API gebruiken om Spark-taken op afstand met een Azure HDInsight-cluster te verzenden.
+title: aaaUse Livy Spark toosubmit taken tooSpark-cluster in Azure HDInsight | Microsoft Docs
+description: Meer informatie over hoe toouse Apache Spark REST-API toosubmit Spark taken die op afstand tooan Azure HDInsight-cluster.
 keywords: Apache spark rest-api, spark livy
 services: hdinsight
 documentationcenter: 
@@ -17,47 +17,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: nitinme
-ms.openlocfilehash: e1a28d69bbf40ea3134a7899a0d2fe70e5fc9e71
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 417213b5f1db1522373188002fe05117faea5243
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API gebruiken om externe taken met een HDInsight Spark-cluster te verzenden
+# <a name="use-apache-spark-rest-api-toosubmit-remote-jobs-tooan-hdinsight-spark-cluster"></a>Apache Spark REST-API toosubmit externe taken tooan HDInsight Spark-cluster gebruiken
 
-Informatie over het gebruik van Livy, Apache Spark REST API, die wordt gebruikt voor het verzenden van externe taken naar een Azure HDInsight Spark-cluster. Zie voor gedetailleerde documentatie [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
+Meer informatie over hoe toouse Livy, Hallo Apache Spark REST API, namelijk gebruikte toosubmit externe taken tooan Azure HDInsight Spark-cluster. Zie voor gedetailleerde documentatie [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
-Hier kunt u interactieve Spark houders uitvoeren of verzenden van batchtaken worden uitgevoerd op Spark. In dit artikel wordt gesproken over met behulp van Livy om batchtaken te verzenden. De codefragmenten in dit artikel wordt cURL gebruiken om REST-API-aanroepen naar de Livy Spark-eindpunt.
+U kunt gebruiken Livy toorun interactieve Spark houders of batch-taken toobe uitvoeren op Spark verzenden. In dit artikel wordt gesproken over met behulp van Livy toosubmit batchtaken. Hallo codefragmenten in dit artikel gebruiken cURL toomake REST API-aanroepen toohello Livy Spark-eindpunt.
 
 **Vereisten:**
 
 * Een Apache Spark-cluster in HDInsight. Zie voor instructies [maken Apache Spark-clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-* [cURL](http://curl.haxx.se/). In dit artikel wordt cURL gebruikt om te laten zien hoe u REST-API-aanroepen op basis van een HDInsight Spark-cluster.
+* [cURL](http://curl.haxx.se/). Dit artikel wordt cURL toodemonstrate hoe toomake REST-API met een HDInsight Spark-cluster aanroept.
 
 ## <a name="submit-a-livy-spark-batch-job"></a>Een batchtaak Livy Spark verzenden
-Voordat u een batch-job indienen, kunt u de toepassing jar in de clusteropslag die is gekoppeld aan het cluster moet uploaden. U kunt [ **AzCopy**](../storage/common/storage-use-azcopy.md), een opdrachtregelprogramma, om dit te doen. Er zijn verschillende andere clients die u gebruiken kunt om gegevens te uploaden. U vindt meer informatie hierover op [gegevens voor Hadoop-taken in HDInsight uploaden](hdinsight-upload-data.md).
+Voordat u een batch-job indienen, moet u Hallo toepassing jar op Hallo clusteropslag die is gekoppeld aan cluster Hallo uploaden. U kunt [ **AzCopy**](../storage/common/storage-use-azcopy.md), een opdrachtregelprogramma, toodo zodat. Er zijn verschillende andere clients kunt u tooupload gegevens. U vindt meer informatie hierover op [gegevens voor Hadoop-taken in HDInsight uploaden](hdinsight-upload-data.md).
 
-    curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches'
+    curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path tooapplication jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches'
 
 **Voorbeelden**:
 
-* Als het jar-bestand in de clusteropslag (WASB)
+* Als Hallo jar-bestand zich op Hallo cluster storage (WASB)
   
         curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
-* Als u wilt de jar-bestandsnaam en de classname doorgeven als onderdeel van een bestand voor invoer (in dit voorbeeld input.txt)
+* Als u wilt toopass Hallo jar filename en classname Hallo als onderdeel van een bestand voor invoer (in dit voorbeeld input.txt)
   
         curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
-## <a name="get-information-on-livy-spark-batches-running-on-the-cluster"></a>Informatie over Livy Spark batches uitgevoerd op het cluster
+## <a name="get-information-on-livy-spark-batches-running-on-hello-cluster"></a>Informatie over Livy Spark batches uitgevoerd op Hallo-cluster
     curl -k --user "<hdinsight user>:<user password>" -v -X GET "https://<spark_cluster_name>.azurehdinsight.net/livy/batches"
 
 **Voorbeelden**:
 
-* Als u ophalen alle de Livy Spark batches uitgevoerd op het cluster wilt:
+* Als u wilt dat tooretrieve alle Hallo Livy Spark batches uitgevoerd op Hallo-cluster:
   
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
-* Als u wilt ophalen van een specifieke batch met een bepaalde batchId
+* Als u wilt dat een specifieke batch met een bepaalde batchId tooretrieve
   
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
 
@@ -69,24 +69,24 @@ Voordat u een batch-job indienen, kunt u de toepassing jar in de clusteropslag d
     curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
 
 ## <a name="livy-spark-and-high-availability"></a>Livy Spark en hoge beschikbaarheid
-Livy biedt hoge beschikbaarheid voor Spark taken uitgevoerd op het cluster. Hier volgt een aantal voorbeelden.
+Livy biedt hoge beschikbaarheid voor Spark taken uitgevoerd op Hallo-cluster. Hier volgt een aantal voorbeelden.
 
-* Als de service Livy uitvalt nadat u een taak op afstand voor een Spark-cluster hebt verzonden, blijft de taak op de achtergrond uitgevoerd. Hier wordt een back-up, wordt de status van de taak en de rapporten weer hersteld.
-* Jupyter-notebooks voor HDInsight worden door Livy van stroom voorzien in de back-end. Als een laptop een Spark-taak wordt uitgevoerd en de Livy-service opnieuw wordt gestart, blijft de notebook uitvoeren van de cellen van de code. 
+* Als Hallo Livy-service wordt uitgeschakeld nadat u een taak op afstand hebt verzonden tooa Spark-cluster, hello taak toorun op Hallo achtergrond blijft. Hier wordt een back-up, wordt Hallo status van taak Hallo en rapporten weer hersteld.
+* Jupyter-notebooks voor HDInsight worden van stroom voorzien door Livy in Hallo back-end. Als een laptop een Spark-taak wordt uitgevoerd en Hallo Livy-service opnieuw wordt gestart, blijft de notebook Hallo toorun Hallo code cellen. 
 
 ## <a name="show-me-an-example"></a>Een voorbeeld weergeven
-In dit gedeelte kijken we voorbeelden Livy Spark batchverwerking indienen, de voortgang van de taak en verwijder deze vervolgens gebruiken. De toepassing in dit voorbeeld we gebruiken is ontwikkeld in het artikel [maken van een zelfstandige toepassing Scala en uit te voeren op HDInsight Spark-cluster](hdinsight-apache-spark-create-standalone-application.md). De stappen die hier wordt ervan uitgegaan dat:
+In deze sectie we kijken voorbeelden toouse Livy Spark toosubmit batch-job Hallo voortgang van de taak Hallo en vervolgens te verwijderen. Hallo-toepassing in dit voorbeeld we gebruiken is een ontwikkeld in Hallo artikel Hallo [maken van een zelfstandige Scala toepassing en toorun op HDInsight Spark-cluster](hdinsight-apache-spark-create-standalone-application.md). Hier Hallo stappen wordt ervan uitgegaan dat:
 
-* U hebt al de jar toepassing gekopieerd naar het opslagaccount die is gekoppeld aan het cluster.
-* U hebt geïnstalleerd op de computer waarop u deze stappen probeert CuRL.
+* U hebt al Hallo toepassing jar toohello storage-account die is gekoppeld aan cluster Hallo gekopieerd.
+* U hebt geïnstalleerd op Hallo-computer waarop u deze stappen probeert CuRL.
 
-De volgende stappen uitvoeren:
+Voer Hallo stappen te volgen:
 
-1. Laten we eerst controleren of Livy Spark wordt uitgevoerd op het cluster. We kunnen dit doen door het ophalen van een lijst van het uitvoeren van batches. Als u een taak met behulp van Livy voor de eerste keer uitvoert, moet de uitvoer nul retourneren.
+1. Laat het ons moet u eerst controleren of Livy Spark op Hallo cluster wordt uitgevoerd. We kunnen dit doen door het ophalen van een lijst van het uitvoeren van batches. Als u een taak met behulp van Livy voor Hallo eerst uitvoert, moet Hallo uitvoer nul retourneren.
    
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
    
-    U moet uitvoer vergelijkbaar met het volgende fragment krijgen:
+    Deze krijgt u een vergelijkbare uitvoer-toohello codefragment te volgen:
    
         < HTTP/1.1 200 OK
         < Content-Type: application/json; charset=UTF-8
@@ -96,19 +96,19 @@ De volgende stappen uitvoeren:
         < Date: Fri, 20 Nov 2015 23:47:53 GMT
         < Content-Length: 34
         <
-        {"from":0,"total":0,"sessions":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
+        {"from":0,"total":0,"sessions":[]}* Connection #0 toohost mysparkcluster.azurehdinsight.net left intact
    
-    U ziet hoe de laatste regel in de uitvoer zegt **totaal: 0**, die geen actieve batches wordt voorgesteld.
+    U ziet hoe de laatste regel in de uitvoer van de Hallo Hallo zegt **totaal: 0**, die geen actieve batches wordt voorgesteld.
 
-2. Laten we nu een batch-job indienen. Het volgende fragment maakt gebruik van een bestand voor invoer (input.txt) om door te geven van de jar-naam en de naam van de klasse als parameters. Als u deze stappen vanuit een Windows-computer uitvoert, is met behulp van een bestand voor invoer de aanbevolen aanpak.
+2. Laten we nu een batch-job indienen. Hallo volgende codefragment maakt gebruik van een bestand voor invoer (input.txt) toopass Hallo jar naam en klassenaam Hallo als parameters. Als u deze stappen vanuit een Windows-computer uitvoert, is met behulp van een bestand voor invoer Hallo aanbevolen benadering.
    
         curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
    
-    De parameters in het bestand **input.txt** als volgt gedefinieerd:
+    parameters in bestand Hallo Hallo **input.txt** als volgt gedefinieerd:
    
         { "file":"wasb:///example/jars/SparkSimpleApp.jar", "className":"com.microsoft.spark.example.WasbIOTest" }
    
-    U ziet een uitvoer die vergelijkbaar is met het volgende fragment:
+    Hier ziet u een vergelijkbare uitvoer-toohello codefragment te volgen:
    
         < HTTP/1.1 201 Created
         < Content-Type: application/json; charset=UTF-8
@@ -119,15 +119,15 @@ De volgende stappen uitvoeren:
         < Date: Fri, 20 Nov 2015 23:51:30 GMT
         < Content-Length: 36
         <
-        {"id":0,"state":"starting","log":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
+        {"id":0,"state":"starting","log":[]}* Connection #0 toohost mysparkcluster.azurehdinsight.net left intact
    
-    U ziet hoe de laatste regel van de uitvoer zegt **status: vanaf**. Ook wordt, **-id: 0**. Hier **0** is van de batch-ID.
+    U ziet hoe de laatste regel van uitvoer Hallo Hallo zegt **status: vanaf**. Ook wordt, **-id: 0**. Hier **0** Hallo batch-id is.
 
-3. U kunt nu de status van deze specifieke batch met behulp van de batch-id ophalen
+3. U kunt nu ophalen Hallo status van deze specifieke batch Hallo batch-id.
    
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches/0"
    
-    U ziet een uitvoer die vergelijkbaar is met het volgende fragment:
+    Hier ziet u een vergelijkbare uitvoer-toohello codefragment te volgen:
    
         < HTTP/1.1 200 OK
         < Content-Type: application/json; charset=UTF-8
@@ -137,15 +137,15 @@ De volgende stappen uitvoeren:
         < Date: Fri, 20 Nov 2015 23:54:42 GMT
         < Content-Length: 509
         <
-        {"id":0,"state":"success","log":["\t diagnostics: N/A","\t ApplicationMaster host: 10.0.0.4","\t ApplicationMaster RPC port: 0","\t queue: default","\t start time: 1448063505350","\t final status: SUCCEEDED","\t tracking URL: http://hn0-myspar.lpel1gnnvxne3gwzqkfq5u5uzh.jx.internal.cloudapp.net:8088/proxy/application_1447984474852_0002/","\t user: root","15/11/20 23:52:47 INFO Utils: Shutdown hook called","15/11/20 23:52:47 INFO Utils: Deleting directory /tmp/spark-b72cd2bf-280b-4c57-8ceb-9e3e69ac7d0c"]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
+        {"id":0,"state":"success","log":["\t diagnostics: N/A","\t ApplicationMaster host: 10.0.0.4","\t ApplicationMaster RPC port: 0","\t queue: default","\t start time: 1448063505350","\t final status: SUCCEEDED","\t tracking URL: http://hn0-myspar.lpel1gnnvxne3gwzqkfq5u5uzh.jx.internal.cloudapp.net:8088/proxy/application_1447984474852_0002/","\t user: root","15/11/20 23:52:47 INFO Utils: Shutdown hook called","15/11/20 23:52:47 INFO Utils: Deleting directory /tmp/spark-b72cd2bf-280b-4c57-8ceb-9e3e69ac7d0c"]}* Connection #0 toohost mysparkcluster.azurehdinsight.net left intact
    
-    De uitvoer ziet u nu **status: geslaagd**, die wordt voorgesteld dat de taak is voltooid.
+    Hallo output wordt nu weergegeven **status: geslaagd**, die wordt voorgesteld die Hallo-taak is voltooid.
 
-4. Als u wilt, kunt u nu de batch verwijderen.
+4. Als u wilt, kunt u nu Hallo batch verwijderen.
    
         curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/0"
    
-    U ziet een uitvoer die vergelijkbaar is met het volgende fragment:
+    Hier ziet u een vergelijkbare uitvoer-toohello codefragment te volgen:
    
         < HTTP/1.1 200 OK
         < Content-Type: application/json; charset=UTF-8
@@ -155,33 +155,33 @@ De volgende stappen uitvoeren:
         < Date: Sat, 21 Nov 2015 18:51:54 GMT
         < Content-Length: 17
         <
-        {"msg":"deleted"}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
+        {"msg":"deleted"}* Connection #0 toohost mysparkcluster.azurehdinsight.net left intact
    
-    De laatste regel van de uitvoer bevat de batch is verwijderd. Verwijderen van een taak, terwijl deze wordt uitgevoerd, de taak ook is funest. Als u een taak die is voltooid, is of anderszins verwijdert worden verwijderd de taakgegevens volledig.
+    Hallo laatste regel van Hallo uitvoer toont dat die Hallo-batch is verwijderd. Verwijderen van een taak, terwijl deze wordt uitgevoerd, ook is funest Hallo-taak. Als u een taak die is voltooid, is of anderszins verwijdert worden verwijderd Hallo taakinformatie volledig.
 
 ## <a name="using-livy-spark-on-hdinsight-35-clusters"></a>Gebruik van Livy Spark in HDInsight 3.5 clusters
 
-3.5 HDInsight-cluster, schakelt het gebruik van lokale paden naar bestanden met voorbeeldgegevens toegang of potten standaard. We raden u aan het gebruik van de `wasb://` pad in plaats daarvan potten openen of voorbeeldgegevens bestanden van het cluster. Als u gebruiken, lokaal pad wilt, moet u de configuratie van de Ambari dienovereenkomstig bijwerken. Dit doet u als volgt:
+3.5 HDInsight-cluster, schakelt het gebruik van bestanden lokaal bestand paden tooaccess met voorbeeldgegevens of potten standaard. We raden u toouse hello `wasb://` pad in plaats daarvan tooaccess potten of voorbeeldgegevens bestanden van Hallo-cluster. Als u dat het lokale pad toouse wilt, moet u dienovereenkomstig Hallo Ambari configuratie bijwerken. toodo zodat:
 
-1. Ga naar de Ambari-portal voor het cluster. De Ambari-Webgebruikersinterface is beschikbaar op uw HDInsight-cluster op https://**CLUSTERNAME**. azurehdidnsight.net, waarbij CLUSTERNAME de naam van het cluster is.
+1. Ga toohello Ambari-portal voor Hallo-cluster. Hallo Ambari-Webgebruikersinterface is beschikbaar op uw HDInsight-cluster op https://**CLUSTERNAME**. azurehdidnsight.net, waarbij CLUSTERNAME Hallo-naam van het cluster is.
 
-2. Klik in het linkernavigatievenster op **Livy**, en klik vervolgens op **Configs**.
+2. Hallo linkernavigatiebalk, klik op **Livy**, en klik vervolgens op **Configs**.
 
-3. Onder **livy-standaard** toevoegen de naam van de eigenschap `livy.file.local-dir-whitelist` en stel de waarde op **'/'** als u wilt toestaan dat volledige toegang tot bestandssysteem. Als u toestaan dat alleen toegang tot een specifieke map wilt, geeft u het pad naar map als de waarde.
+3. Onder **livy-standaard** Hallo eigenschapsnaam toevoegen `livy.file.local-dir-whitelist` en stel de waarde te**'/'** als u tooallow volledige toegang toofile systeem wilt. Als u tooallow toegang alleen tooa specifieke map wilt, geeft u Hallo pad toothat directory Hallo-waarde.
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Verzenden van Livy taken voor een cluster binnen een virtuele Azure-netwerk
 
-Als u verbinding met een HDInsight Spark-cluster uit een Azure-netwerk maakt, kunt u rechtstreeks verbinding met Livy op het cluster. In dat geval moet de URL voor het eindpunt van Livy is `http://<IP address of the headnode>:8998/batches`. Hier **8998** is de poort waarop Livy wordt uitgevoerd op de cluster-headnode. Zie voor meer informatie over de toegang tot services op niet-openbaar poorten [poorten die worden gebruikt door de services van Hadoop op HDInsight](hdinsight-hadoop-port-settings-for-services.md).
+Als u verbinding maakt met tooan HDInsight Spark-cluster uit een Azure-netwerk, kunt u rechtstreeks tooLivy op Hallo-cluster. In dat geval Hallo URL voor Livy-eindpunt is `http://<IP address of hello headnode>:8998/batches`. Hier **8998** Hallo poort waarop Livy op Hallo cluster headnode wordt uitgevoerd. Zie voor meer informatie over de toegang tot services op niet-openbaar poorten [poorten die worden gebruikt door de services van Hadoop op HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Hier volgen enkele problemen beschreven die u tegenkomen kunt tijdens het gebruik van Livy voor verzenden van externe taak Spark-clusters.
+Hier volgen enkele problemen beschreven die u tegenkomen kunt tijdens het gebruik van Livy voor externe taak verzending tooSpark clusters.
 
-### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>Gebruik een externe jar uit de extra opslag wordt niet ondersteund
+### <a name="using-an-external-jar-from-hello-additional-storage-is-not-supported"></a>Gebruik een externe jar van Hallo extra opslagruimte wordt niet ondersteund
 
-**Probleem:** als uw job Livy Spark verwijst naar een externe jar vanuit het extra opslagaccount die is gekoppeld aan het cluster, de taak is mislukt.
+**Probleem:** als uw job Livy Spark verwijst naar een externe jar vanuit Hallo extra opslagaccount die is gekoppeld aan cluster hello, Hallo-taak is mislukt.
 
-**Oplossing:** Zorg ervoor dat de jar die u wilt gebruiken beschikbaar in de standaard-opslag die is gekoppeld aan het HDInsight-cluster is.
+**Oplossing:** Zorg ervoor dat Hallo jar gewenste toouse is beschikbaar in Hallo standaard opslag die is gekoppeld aan Hallo HDInsight-cluster.
 
 
 
@@ -189,6 +189,6 @@ Hier volgen enkele problemen beschreven die u tegenkomen kunt tijdens het gebrui
 
 ## <a name="next-step"></a>Volgende stap
 
-* [Resources beheren voor het Apache Spark-cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Resources beheren voor Hallo Apache Spark-cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Taken die worden uitgevoerd in een Apache Spark-cluster in HDInsight, traceren en er fouten in oplossen](hdinsight-apache-spark-job-debugging.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Gesimuleerde apparaten verbinding laten maken met Azure IoT Hub aan de slag | Microsoft Docs
-description: Informatie over het maken van de gesimuleerde IoT-apparaten en verbind ze met Azure IoT Hub. Uw apparaten kunnen verzenden telemetrie naar IoT Hub en Iot-Hub kunt controleren en beheren van uw apparaten.
+title: Verbinding maken met gesimuleerde apparaten tooAzure IoT-Hub aan de slag | Microsoft Docs
+description: Informatie over hoe toocreate gesimuleerde IoT-apparaten en verbind ze tooAzure IoT Hub. Uw apparaten kunnen verzenden telemetrie tooIoT Hub en Iot-Hub kunt controleren en beheren van uw apparaten.
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: dobett
-ms.openlocfilehash: 436b3057509a831837159e814490959a2d7455a4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c9b76477d12c853abd93aa96043417a013daaef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-iot-hub-get-started-with-simulated-devices-tutorials"></a>Azure IoT-Hub aan de slag met gesimuleerde apparaten zelfstudies
 
-Deze zelfstudies vindt u Azure IoT Hub en het apparaat-SDK's. De zelfstudies betrekking hebben op algemene IoT-scenario's om aan te tonen van de mogelijkheden van IoT-Hub. De zelfstudies ook te laten zien hoe IoT Hub worden gecombineerd met andere Azure-services en hulpprogramma's voor het bouwen van krachtige IoT-oplossingen. De zelfstudies die worden vermeld in de volgende tabel beschreven hoe u gesimuleerde IoT-apparaten maken.
+Deze zelfstudies introduceren tooAzure IoT Hub en Hallo apparaat-SDK's. Hallo zelfstudies omvatten algemene IoT scenario's toodemonstrate Hallo mogelijkheden van IoT-Hub. Hallo zelfstudies ook laten zien hoe toocombine IoT Hub met andere Azure-services en hulpprogramma's voor toobuild meer krachtige IoT-oplossingen. Hallo-zelfstudies die worden vermeld in de volgende tabel Hallo ziet u hoe toocreate gesimuleerde IoT-apparaten.
 
 | Programmeertaal |
 |----------------------|
@@ -31,7 +31,7 @@ Deze zelfstudies vindt u Azure IoT Hub en het apparaat-SDK's. De zelfstudies bet
 | [Node.js][Sim_Nd]    |
 | [Python][Sim_Pyth]   |
 
-Bovendien kunt u een gateway aan de rand van de IoT waarmee gesimuleerde apparaten verbinding maken met uw IoT-hub.
+Bovendien kunt u een IoT-Edge gateway tooenable gesimuleerde apparaten tooconnect tooyour IoT-hub.
 
 | Programmeertaal | Platform           |
 |----------------------|------------------- |

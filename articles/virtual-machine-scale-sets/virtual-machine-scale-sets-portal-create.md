@@ -1,5 +1,5 @@
 ---
-title: Maak een virtuele-Machineschaalset met de Azure portal | Microsoft Docs
+title: een virtuele-Machineschaalset met aaaCreate hello Azure-portal | Microsoft Docs
 description: Met Azure portal-schaalsets implementeren.
 keywords: Virtuele-machineschaalsets
 services: virtual-machine-scale-sets
@@ -17,57 +17,57 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7157a429829974b45dad29ac53fb5fb46c71f821
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 23c88f4b1ba99994a38f8886f60735da74e5c17e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-create-a-virtual-machine-scale-set-with-the-azure-portal"></a>Het maken van een virtuele-Machineschaalset met de Azure-portal
-Deze zelfstudie laat zien hoe eenvoudig het is een virtuele-Machineschaalset maken in een paar minuten met behulp van de Azure-portal. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
+# <a name="how-toocreate-a-virtual-machine-scale-set-with-hello-azure-portal"></a>Hoe toocreate een virtuele-Machineschaalset met hello Azure-portal
+Deze zelfstudie laat zien hoe eenvoudig het is een virtuele-Machineschaalset toocreate in een paar minuten met behulp van hello Azure-portal. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
-## <a name="choose-the-vm-image-from-the-marketplace"></a>Een installatiekopie voor de virtuele machine kiezen in de marketplace
-U kunt een schaal CentOS, virtuele CoreOS, Debian, Open Suse, Red Hat Enterprise Linux, SUSE Linux Enterprise Server, Ubuntu Server of installatiekopieën van Windows Server in te stellen eenvoudig implementeren vanuit de portal.
+## <a name="choose-hello-vm-image-from-hello-marketplace"></a>Kies Hallo VM-installatiekopie in marketplace Hallo
+U kunt eenvoudig een schaal CentOS, virtuele CoreOS, Debian, Open Suse, Red Hat Enterprise Linux, SUSE Linux Enterprise Server, Ubuntu Server of installatiekopieën van Windows Server in te stellen vanuit de portal Hallo implementeren.
 
-Eerst, navigeer naar de [Azure-portal](https://portal.azure.com) in een webbrowser. Klik op `New`, zoeken naar `scale set`, en selecteer vervolgens de `Virtual machine scale set` post:
+Ga eerst toohello [Azure-portal](https://portal.azure.com) in een webbrowser. Klik op `New`, zoeken naar `scale set`, en selecteer vervolgens Hallo `Virtual machine scale set` post:
 
 ![ScaleSetPortalOverview](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalOverview.PNG)
 
-## <a name="create-the-scale-set"></a>De schaalset maken
-U kunt nu de standaardinstellingen gebruiken en de schaalaanpassingsset snel maken.
+## <a name="create-hello-scale-set"></a>Hallo scale set maken
+U kunt nu Hallo standaardinstellingen gebruiken en snel maken Hallo schaalset.
 
-* Op de `Basics` blade een naam voor de scale-set. Deze naam wordt het grondtal van de FQDN-naam van de load balancer voor de schaalaanpassingsset, dus zorg ervoor dat de naam uniek is in alle Azure.
-* Selecteer het gewenste besturingssysteem typt u de gewenste gebruikersnaam invoeren en selecteren welke verificatiemethode typt u liever. Als u een wachtwoord kiest, moet deze zijn minstens 12 tekens lang en drie van de volgende vier complexiteitsvereisten voldoen aan: één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie meer informatie over [vereisten voor gebruikersnaam en wachtwoord](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). Als u ervoor kiest `SSH public key`, zorg ervoor dat alleen plakken in uw openbare sleutel niet uw persoonlijke sleutel:
+* Op Hallo `Basics` blade een naam voor het Hallo-schaalset. Deze naam wordt Hallo base Hallo FQDN Hallo load balancer voor schaalset hello, zorg er dus Hallo naam uniek is in alle Azure.
+* Selecteer het gewenste besturingssysteem typt u de gewenste gebruikersnaam invoeren en selecteren welke verificatiemethode typt u liever. Als u een wachtwoord kiest, moet deze zijn minstens 12 tekens lang en drie buiten Hallo de volgende vier complexiteitsvereisten voldoen aan: één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie meer informatie over [vereisten voor gebruikersnaam en wachtwoord](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). Als u ervoor kiest `SSH public key`, ervoor tooonly plakken in uw openbare sleutel niet uw persoonlijke sleutel:
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 
-* Kies of u wilt beperken van de schaal is ingesteld op een groep één plaatsing of of dit meerdere plaatsing groepen moet omvatten. Schaal kunt u de schaal is ingesteld op span plaatsing groepen toe, stelt u meer dan 100 virtuele machines in capaciteit (maximaal 1000) met bepaalde beperkingen. Zie voor meer informatie [deze documentatie](./virtual-machine-scale-sets-placement-groups.md).
+* Kies of u zou doen zoals toolimit hello tooa plaatsing van één groep schaalset of dat dit meerdere plaatsing groepen moet omvatten. Bij het toestaan van Hallo schaalset toospan plaatsing groepen kan voor de schaal wordt meer dan 100 virtuele machines in capaciteit (omhoog too1, 000) met bepaalde beperkingen. Zie voor meer informatie [deze documentatie](./virtual-machine-scale-sets-placement-groups.md).
 * Voer uw gewenste Resourcegroepnaam en de locatie en klik vervolgens op `OK`.
-* Op de `Virtual machine scale set service settings` blade: Geef de gewenste domeinnaamlabel (de basis van de FQDN-naam voor de load balancer voor de schaalaanpassingsset). Dit label moet uniek zijn binnen alle Azure.
+* Op Hallo `Virtual machine scale set service settings` blade: Geef de gewenste domeinnaamlabel (basis Hallo Hallo FQDN-naam voor de load balancer Hallo voor Hallo schaalset). Dit label moet uniek zijn binnen alle Azure.
 * Kies uw schijfimage gewenste besturingssysteem, het aantal exemplaren en de grootte van de machine.
-* De gewenste schijf kiezen: beheerd of onbeheerd. Zie voor meer informatie [deze documentatie](./virtual-machine-scale-sets-managed-disks.md). Als u hebt gekozen om de schaal instelt span meerdere plaatsing groepen, deze optie niet meer beschikbaar omdat de beheerde schijf is vereist voor schaalsets meerdere groepen voor plaatsing.
+* De gewenste schijf kiezen: beheerd of onbeheerd. Zie voor meer informatie [deze documentatie](./virtual-machine-scale-sets-managed-disks.md). Als u hebt gekozen toohave hello schaalset span meerdere plaatsing groepen, deze optie niet meer beschikbaar omdat de beheerde schijf is vereist voor schaal sets toospan plaatsing groepen.
 * In- of uitschakelen voor automatisch schalen en configureren als ingeschakeld:
 
 ![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
 
-* Op de `Summary` blade als validatie is voltooid, klikt u op `OK` ingesteld voor het starten van de schaal implementatie.
+* Op Hallo `Summary` blade als validatie is voltooid, klikt u op `OK` toostart hello schaalset implementatie.
 
 
-## <a name="connect-to-a-vm-in-the-scale-set"></a>Verbinding maken met een virtuele machine in de schaalset
-Als u wilt beperken schaal ingesteld op een enkele plaatsing-groep, wordt klikt u vervolgens de schaalaanpassingsset geïmplementeerd met NAT-regels geconfigureerd waarmee u verbinding maken met de schaal eenvoudig ingesteld (zo niet, verbinding maken met de virtuele machines in de schaalset, u waarschijnlijk hoeft te maken van een jumpbox in dezelfde  virtueel netwerk als de schaal instellen). Om ze te bekijken, gaat u naar de `Inbound NAT Rules` tabblad van de load balancer voor de schaalaanpassingsset:
+## <a name="connect-tooa-vm-in-hello-scale-set"></a>Verbinding maken met tooa VM in de schaalset Hallo
+Als u hebt gekozen toolimit schaal ingesteld tooa plaatsing van één groep, wordt de Hallo scale set wordt geïmplementeerd met NAT-regels geconfigureerd toolet u toohello scale ingesteld eenvoudig verbinding maken (als u niet het geval is, tooconnect toohello virtuele machines in Hallo scale is ingesteld, moet u waarschijnlijk toocreate een jumpbox in Hallo hetzelfde virtuele netwerk als Hallo schaalset). toosee, gaat u toohello `Inbound NAT Rules` tabblad Hallo load balancer voor Hallo scale set:
 
 ![ScaleSetPortalNatRules](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalNatRules.PNG)
 
-U kunt verbinding maken met elke virtuele machine in de schaal instelt met behulp van deze NAT-regels. Bijvoorbeeld: voor een Windows-scale set, als er een NAT-regel op de binnenkomende poort 50000 u kan verbinding maken met die machine via RDP op `<load-balancer-ip-address>:50000`. Voor een Linux-scale set, zou u verbinding met de opdracht `ssh -p 50000 <username>@<load-balancer-ip-address>`.
+U kunt deze NAT-regels met een VM in het Hallo-scale set tooeach verbinden. Bijvoorbeeld: voor een Windows-scale set, als er een NAT-regel op de binnenkomende poort 50000 u kan verbinding maken toothat machine via RDP op `<load-balancer-ip-address>:50000`. Voor een Linux-schaalset zou u verbinding met de opdracht Hallo `ssh -p 50000 <username>@<load-balancer-ip-address>`.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor documentatie over het implementeren van de schaal wordt ingesteld vanuit de CLI, [deze documentatie](virtual-machine-scale-sets-cli-quick-create.md).
+Zie voor documentatie op hoe toodeploy scale ingesteld van Hallo CLI [deze documentatie](virtual-machine-scale-sets-cli-quick-create.md).
 
-Zie voor documentatie over het implementeren van de schaal wordt ingesteld vanuit PowerShell, [deze documentatie](virtual-machine-scale-sets-windows-create.md).
+Zie voor documentatie over hoe toodeploy scale ingesteld van PowerShell, [deze documentatie](virtual-machine-scale-sets-windows-create.md).
 
-Zie voor documentatie over het implementeren van de schaal wordt ingesteld vanuit Visual Studio, [deze documentatie](virtual-machine-scale-sets-vs-create.md).
+Zie voor documentatie over hoe toodeploy schaal wordt ingesteld vanuit Visual Studio, [deze documentatie](virtual-machine-scale-sets-vs-create.md).
 
-Bekijk voor algemene documentatie, de [documentatie overzichtspagina voor schaalsets](virtual-machine-scale-sets-overview.md).
+Bekijk voor algemene documentatie Hallo [documentatie overzichtspagina voor schaalsets](virtual-machine-scale-sets-overview.md).
 
-Bekijk voor algemene informatie, de [belangrijkste startpagina voor schaalsets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+Raadpleeg voor algemene informatie Hallo [belangrijkste startpagina voor schaalsets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 

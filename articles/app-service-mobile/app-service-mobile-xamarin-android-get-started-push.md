@@ -1,6 +1,6 @@
 ---
-title: Pushmeldingen toevoegen aan uw Xamarin.Android-app | Microsoft Docs
-description: Informatie over het gebruik van Azure App Service en Azure Notification Hubs pushmeldingen verzendt naar uw Xamarin.Android-app
+title: aaaAdd push notifications tooyour Xamarin.Android-app | Microsoft Docs
+description: Meer informatie over hoe toouse Azure App Service en Azure Notification Hubs toosend push notifications tooyour Xamarin.Android-app
 services: app-service\mobile
 documentationcenter: xamarin
 author: ysxu
@@ -14,22 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: yuaxu
-ms.openlocfilehash: c3757d56fb1792092710740dc5ffbd64f18730cf
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c93d1d0cae06ab15e3e3e5c4b342808b2cd49113
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Pushmeldingen toevoegen aan uw Xamarin.Android-app
+# <a name="add-push-notifications-tooyour-xamarinandroid-app"></a>Push notifications tooyour Xamarin.Android-app toevoegen
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Overzicht
-In deze zelfstudie hebt u pushmeldingen toevoegen de [Xamarin.Android snel starten](app-service-mobile-windows-store-dotnet-get-started.md) project, zodat een pushmelding wordt verzonden naar het apparaat telkens wanneer een record wordt ingevoegd.
+In deze zelfstudie maakt u een push notifications toohello toevoegen [Xamarin.Android snel starten](app-service-mobile-windows-store-dotnet-get-started.md) project, zodat een push-melding toohello apparaat verzonden telkens wanneer een record wordt ingevoegd.
 
-Als u het gedownloade quick start-serverproject niet gebruikt, moet u het push notification-uitbreidingspakket. Zie [werken met de .NET-back-endserver SDK voor Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) voor meer informatie.
+Als u geen gebruik Hallo snel starten-serverproject gedownload, u moet Hallo push notification-uitbreidingspakket. Zie [werken met back-endserver voor Hallo .NET SDK voor Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
-Voor deze zelfstudie hebt u het volgende nodig:
+Deze zelfstudie vereist de volgende Hallo:
 
 * Een actief Google-account. U kunt zich aanmelden voor een Google-account bij [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 * [Google Cloud Messaging-clientonderdeel](http://components.xamarin.com/view/GCMClient/).
@@ -40,28 +40,28 @@ Voor deze zelfstudie hebt u het volgende nodig:
 ## <a id="register"></a>Inschakelen van Firebase Cloud-berichten
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-## <a name="configure-azure-to-send-push-requests"></a>Azure voor het verzenden van pushmeldingen aanvragen configureren
+## <a name="configure-azure-toosend-push-requests"></a>Azure toosend push aanvragen configureren
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
-## <a id="update-server"></a>Bijwerken van het serverproject om pushmeldingen te verzenden
+## <a id="update-server"></a>Hallo server project toosend-pushmeldingen bijwerken
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## <a id="configure-app"></a>Het clientproject voor pushmeldingen configureren
+## <a id="configure-app"></a>Hallo client-project voor pushmeldingen configureren
 [!INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
 
-## <a id="add-push"></a>Push notifications code toevoegen aan uw app
+## <a id="add-push"></a>Push notifications code tooyour app toevoegen
 [!INCLUDE [app-service-mobile-xamarin-android-push-add-to-app](../../includes/app-service-mobile-xamarin-android-push-add-to-app.md)]
 
 ## <a name="test"></a>Pushmeldingen testen in uw app
-U kunt de app testen met behulp van een virtueel apparaat in de emulator. Er zijn extra configuratiestappen vereist wanneer u gebruikmaakt van een emulator.
+U kunt Hallo app testen met behulp van een virtueel apparaat in Hallo-emulator. Er zijn extra configuratiestappen vereist wanneer u gebruikmaakt van een emulator.
 
-1. Zorg ervoor dat u implementeert voor of foutopsporing op een virtueel apparaat met Google APIs ingesteld als doel, zoals hieronder wordt weergegeven in de Android Virtual Device (AVD) manager.
+1. Zorg ervoor dat u tooor foutopsporing op een virtueel apparaat met Google APIs ingesteld als doel hello implementeert, zoals hieronder wordt weergegeven in Hallo Android Virtual Device (AVD) manager.
    
     ![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
-2. Een Google-account toevoegen aan de Android-apparaat door te klikken op **Apps** > **instellingen** > **account toevoegen**, volg de instructies.
+2. Een apparaat toohello Android van Google-account toevoegen door te klikken op **Apps** > **instellingen** > **account toevoegen**, volg de aanwijzingen Hallo.
    
     ![](./media/app-service-mobile-xamarin-android-get-started-push/add-google-account.png)
-3. Voer de todolist-app als voordat en een nieuwe taak invoegen. Dit moment wordt een pictogram weergegeven in het systeemvak. U kunt de meldingenlijst om weer te geven van de volledige tekst van de melding openen.
+3. Hallo todolist-app als voordat uitvoeren en een nieuwe taak invoegen. Dit moment wordt een pictogram weergegeven in het systeemvak Hallo. U kunt Hallo melding lade tooview Hallo volledige tekst van melding Hallo openen.
    
     ![](./media/app-service-mobile-xamarin-android-get-started-push/android-notifications.png)
 

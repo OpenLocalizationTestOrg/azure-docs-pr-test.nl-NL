@@ -14,70 +14,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: d6695b0c40f56093e8701dfe6394143268114453
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 86eb3513b7bc921c59287600b1b76eeda20c1356
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - probleemoplossingsgids
 Dit artikel bevat tips voor probleemoplossing voor problemen die optreden kunnen bij het instellen of het beheer van Azure Active Directory (AD) Domain Services.
 
 ## <a name="you-cannot-enable-azure-ad-domain-services-for-your-azure-ad-directory"></a>U kunt Azure AD Domain Services voor uw Azure AD-directory niet inschakelen
-Deze sectie helpt u fouten oplossen wanneer u Azure AD Domain Services inschakelt voor uw directory en deze mislukt of terug naar 'Disabled' opgehaald ingeschakeld.
+Dit gedeelte kunt u fouten oplossen wanneer u tooenable Azure AD Domain Services voor uw directory probeert en deze mislukt opgehaald of ingesteld uitgeschakeld back too'Disabled'.
 
-Kies de stappen voor probleemoplossing die overeenkomen met het foutbericht dat u ondervindt.
+Kies Hallo stappen die overeenkomen met het foutbericht toohello die u tegenkomt voor probleemoplossing.
 
 | **Foutbericht** | **Naamomzetting** |
 | --- |:--- |
-| *De naam contoso100.com is al in gebruik op dit netwerk. Geef een naam op die niet in gebruik is.* |[Naamconflict domein in het virtuele netwerk](active-directory-ds-troubleshooting.md#domain-name-conflict) |
-| *Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De service heeft niet voldoende machtigingen voor de toepassing met de naam 'Azure AD Domain Services Sync'. Verwijder de toepassing met de naam 'Azure AD Domain Services Sync' en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.* |[Domain Services heeft niet voldoende machtigingen voor de synchronisatie van Azure AD Domain Services-toepassing](active-directory-ds-troubleshooting.md#inadequate-permissions) |
-| *Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De toepassing Domain Services in uw Azure AD-tenant heeft niet de vereiste machtigingen om Domain Services in te schakelen. Verwijder de toepassing met de toepassings-id d87dcbc6-a371-462e-88e3-28ad15ec4e64 en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.* |[De toepassing Domain Services is niet juist geconfigureerd in uw tenant](active-directory-ds-troubleshooting.md#invalid-configuration) |
-| *Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De toepassing Microsoft Azure AD is uitgeschakeld in uw Azure AD-tenant. Schakel de toepassing met de toepassings-id 00000002-0000-0000-c000-000000000000 in en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.* |[De toepassing Microsoft Graph is uitgeschakeld in uw Azure AD-tenant](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
+| *Hallo naam contoso100.com is al in gebruik is op dit netwerk. Geef een naam op die niet in gebruik is.* |[Naamconflict domein in het virtuele netwerk Hallo](active-directory-ds-troubleshooting.md#domain-name-conflict) |
+| *Domain Services kunnen niet worden ingeschakeld in deze Azure AD-tenant. Hallo-service beschikt niet over voldoende machtigingen toohello toepassing met de naam 'Azure AD Domain Services Sync'. Hallo toepassing met de naam 'Azure AD Domain Services Sync' verwijderen en probeer vervolgens tooenable Domain Services voor uw Azure AD-tenant.* |[Domain Services beschikt niet over voldoende machtigingen toohello synchroniseren van Azure AD Domain Services-toepassing](active-directory-ds-troubleshooting.md#inadequate-permissions) |
+| *Domain Services kunnen niet worden ingeschakeld in deze Azure AD-tenant. Hallo Domain Services-toepassing in uw Azure AD-tenant niet hebben Hallo vereist machtigingen tooenable Domain Services. Hallo-toepassing met Hallo toepassing id d87dcbc6-a371-462e-88e3-28ad15ec4e64 verwijderen en probeer vervolgens tooenable Domain Services voor uw Azure AD-tenant.* |[Hallo Domain Services-toepassing is niet juist geconfigureerd in uw tenant](active-directory-ds-troubleshooting.md#invalid-configuration) |
+| *Domain Services kunnen niet worden ingeschakeld in deze Azure AD-tenant. Microsoft Azure AD-toepassing Hello is uitgeschakeld in uw Azure AD-tenant. Hallo-toepassing met Hallo toepassing id 00000002-0000-0000-c000-000000000000 inschakelen en probeer het vervolgens tooenable Domain Services voor uw Azure AD-tenant.* |[Hallo Microsoft Graph-toepassing is uitgeschakeld in uw Azure AD-tenant](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>Conflicten met domein
 **Foutbericht:**
 
-*De naam contoso100.com is al in gebruik op dit netwerk. Geef een naam op die niet in gebruik is.*
+*Hallo naam contoso100.com is al in gebruik is op dit netwerk. Geef een naam op die niet in gebruik is.*
 
 **Herstel:**
 
-Zorg ervoor dat u geen een bestaand domein met dezelfde domeinnaam beschikbaar is op dit virtuele netwerk hebt. Het domein met de naam contoso.com is bijvoorbeeld al beschikbaar op het geselecteerde virtuele netwerk. Later kunt proberen u om in te schakelen van een beheerd domein van Azure AD Domain Services met dezelfde domeinnaam (dat wil zeggen, ' contoso.com') op dit virtuele netwerk. U kunt een fout optreedt tijdens het inschakelen van Azure AD Domain Services.
+Zorg ervoor dat u geen een bestaand domein met Hallo hebt dezelfde domeinnaam beschikbaar is op dit virtuele netwerk. Bijvoorbeeld, wordt ervan uitgegaan hebben van een domein genaamd 'contoso.com' al beschikbaar op Hallo van de geselecteerde virtuele netwerk. Later kunt u een beheerd domein van Azure AD Domain Services met Hallo tooenable probeert dezelfde domeinnaam (dat wil zeggen, ' contoso.com') op dit virtuele netwerk. Er optreedt een fout bij een poging tooenable Azure AD Domain Services.
 
-Deze fout komt door naamconflicten voor de domeinnaam op dit virtuele netwerk. In dit geval moet u een andere naam gebruiken om het beheerde domein van Azure AD Domain Services in te stellen. U kunt ook de inrichting van het bestaande domein ongedaan maken en doorgaan met het inschakelen van Azure AD Domain Services.
+Deze fout is vanwege conflicten tooname voor Hallo-domeinnaam op dit virtuele netwerk. In dit geval moet u een andere naam tooset van uw Azure AD Domain Services beheerd domein. U kunt ook ongedaan inrichten Hallo bestaand domein en vervolgens doorgaan tooenable Azure AD Domain Services.
 
 ### <a name="inadequate-permissions"></a>Onvoldoende machtigingen
 **Foutbericht:**
 
-*Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De service heeft niet voldoende machtigingen voor de toepassing met de naam 'Azure AD Domain Services Sync'. Verwijder de toepassing met de naam 'Azure AD Domain Services Sync' en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.*
+*Domain Services kunnen niet worden ingeschakeld in deze Azure AD-tenant. Hallo-service beschikt niet over voldoende machtigingen toohello toepassing met de naam 'Azure AD Domain Services Sync'. Hallo toepassing met de naam 'Azure AD Domain Services Sync' verwijderen en probeer vervolgens tooenable Domain Services voor uw Azure AD-tenant.*
 
 **Herstel:**
 
-Controleer of er een toepassing met de naam 'Azure AD Domain Services Sync' in uw Azure AD-directory is. Als deze toepassing bestaat, verwijderen en Azure AD Domain Services opnieuw inschakelen.
+Controleer toosee als er een toepassing met Hallo-naam 'Azure AD Domain Services Sync' in uw Azure AD-directory. Als deze toepassing bestaat, verwijderen en Azure AD Domain Services opnieuw inschakelen.
 
-Voer de volgende stappen uit om te controleren op de aanwezigheid van de toepassing en verwijderen, als de toepassing bestaat:
+Voer Hallo volgende stappen toocheck op Hallo aanwezigheid van de toepassing hello en toodelete, als de toepassing hello bestaat:
 
-1. Navigeer naar de **klassieke Azure-portal** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
-2. Selecteer het knooppunt **Active Directory** in het linkerdeelvenster.
-3. Selecteer de Azure AD-tenant (directory) waarvoor u Azure AD Domain Services wilt inschakelen.
-4. Navigeer naar de **toepassingen** tabblad.
-5. Selecteer de **toepassingen mijn bedrijf eigenaar is van** optie in de vervolgkeuzelijst.
-6. Controleer voor een toepassing met de naam **Azure AD Domain Services Sync**. Als de toepassing bestaat, gaat u verder te verwijderen.
-7. Zodra u de toepassing hebt verwijderd, probeer het opnieuw inschakelen van Azure AD Domain Services.
+1. Navigeer toohello **klassieke Azure-portal** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
+2. Selecteer Hallo **Active Directory** knooppunt in het linkerdeelvenster Hallo.
+3. Selecteer hello Azure AD-tenant (directory) waarvoor u tooenable wilt dat Azure AD Domain Services.
+4. Navigeer toohello **toepassingen** tabblad.
+5. Selecteer Hallo **toepassingen mijn bedrijf eigenaar is van** optie Hallo vervolgkeuzelijst.
+6. Controleer voor een toepassing met de naam **Azure AD Domain Services Sync**. Als de toepassing hello bestaat, gaat u verder toodelete deze.
+7. Zodra u de toepassing hello hebt verwijderd, probeer het nogmaals tooenable Azure AD Domain Services.
 
 ### <a name="invalid-configuration"></a>Ongeldige configuratie
 **Foutbericht:**
 
-*Domain Services kan niet worden ingeschakeld in deze Azure AD-tenant. De toepassing Domain Services in uw Azure AD-tenant heeft niet de vereiste machtigingen om Domain Services in te schakelen. Verwijder de toepassing met de toepassings-id d87dcbc6-a371-462e-88e3-28ad15ec4e64 en probeer vervolgens om Domain Services in te schakelen voor uw Azure AD-tenant.*
+*Domain Services kunnen niet worden ingeschakeld in deze Azure AD-tenant. Hallo Domain Services-toepassing in uw Azure AD-tenant niet hebben Hallo vereist machtigingen tooenable Domain Services. Hallo-toepassing met Hallo toepassing id d87dcbc6-a371-462e-88e3-28ad15ec4e64 verwijderen en probeer vervolgens tooenable Domain Services voor uw Azure AD-tenant.*
 
 **Herstel:**
 
-Controleer als u een toepassing met de naam 'AzureActiveDirectoryDomainControllerServices' (met een toepassings-id van d87dcbc6-a371-462e-88e3-28ad15ec4e64) in uw Azure AD-directory hebt. Als deze toepassing bestaat, moet u deze verwijderen en Azure AD Domain Services opnieuw inschakelen.
+Controleer de toosee als u een toepassing met de naam van de Hallo 'AzureActiveDirectoryDomainControllerServices' (met een toepassings-id van d87dcbc6-a371-462e-88e3-28ad15ec4e64) in uw Azure AD-directory hebt. Als deze toepassing bestaat, moet u toodelete deze en klikt u vervolgens opnieuw in te schakelen Azure AD Domain Services.
 
-Gebruik de volgende PowerShell-script voor de toepassing zoeken en te verwijderen.
+Gebruik van de volgende PowerShell-script toofind Hallo toepassing hello en verwijder deze.
 
 > [!NOTE]
-> Dit script gebruikt **Azure AD PowerShell versie 2** cmdlets. Lees voor een volledige lijst van alle beschikbare cmdlets en om te downloaden van de module de [AzureAD PowerShell naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt757189.aspx).
+> Dit script gebruikt **Azure AD PowerShell versie 2** cmdlets. Lees voor een volledige lijst met alle beschikbare cmdlets en toodownload Hallo module Hallo [AzureAD PowerShell naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt757189.aspx).
 >
 >
 
@@ -90,7 +90,7 @@ if ($aadDsSp -ne $null)
 {
     Write-Information "Found Azure AD Domain Services application. Deleting it ..."
     Remove-AzureADServicePrincipal -ObjectId $aadDsSp.ObjectId
-    Write-Information "Deleted the Azure AD Domain Services application."
+    Write-Information "Deleted hello Azure AD Domain Services application."
 }
 
 $identifierUri = "https://sync.aaddc.activedirectory.windowsazure.com"
@@ -100,7 +100,7 @@ if ($app -ne $null)
 {
     Write-Information "Found Azure AD Domain Services Sync application. Deleting it ..."
     Remove-AzureADApplication -ObjectId $app.ObjectId
-    Write-Information "Deleted the Azure AD Domain Services Sync application."
+    Write-Information "Deleted hello Azure AD Domain Services Sync application."
 }
 
 $spFilter = "ServicePrincipalNames eq '" + $identifierUri + "'"
@@ -109,7 +109,7 @@ if ($sp -ne $null)
 {
     Write-Information "Found Azure AD Domain Services Sync service principal. Deleting it ..."
     Remove-AzureADServicePrincipal -ObjectId $sp.ObjectId
-    Write-Information "Deleted the Azure AD Domain Services Sync service principal."
+    Write-Information "Deleted hello Azure AD Domain Services Sync service principal."
 }
 ```
 <br>
@@ -117,43 +117,43 @@ if ($sp -ne $null)
 ### <a name="microsoft-graph-disabled"></a>Microsoft Graph uitgeschakeld
 **Foutbericht:**
 
-Domain Services kunnen niet worden ingeschakeld in deze Azure AD-tenant. De toepassing Microsoft Azure AD is uitgeschakeld in uw Azure AD-tenant. Inschakelen van de toepassing met de id-00000002-0000-0000-c000-000000000000 toepassing en probeer het vervolgens aan domeinservices inschakelen voor uw Azure AD-tenant.
+Domain Services kunnen niet worden ingeschakeld in deze Azure AD-tenant. Microsoft Azure AD-toepassing Hello is uitgeschakeld in uw Azure AD-tenant. Hallo-toepassing met Hallo toepassing id 00000002-0000-0000-c000-000000000000 inschakelen en probeer het vervolgens tooenable Domain Services voor uw Azure AD-tenant.
 
 **Herstel:**
 
-Controleer als u een toepassing met de id 00000002-0000-0000-c000-000000000000 hebt uitgeschakeld. Deze toepassing is de Microsoft Azure AD-toepassing en biedt Graph API toegang tot uw Azure AD-tenant. Azure AD Domain Services moet deze toepassing opnieuw moet worden ingeschakeld om te synchroniseren van uw Azure AD-tenant aan uw beheerde domein.
+Controleer de toosee als u een toepassing met Hallo id 00000002-0000-0000-c000-000000000000 hebt uitgeschakeld. Deze toepassing is Microsoft Azure AD-toepassing hello en biedt Graph API toegang tooyour Azure AD-tenant. Azure AD Domain Services moet u deze toepassing toobe ingeschakeld toosynchronize uw Azure AD-tenant tooyour beheerd domein.
 
-U lost deze fout door deze toepassing inschakelen en probeer vervolgens te domeinservices inschakelen voor uw Azure AD-tenant.
+tooresolve deze fout inschakelen van deze toepassing en probeer het vervolgens tooenable Domain Services voor uw Azure AD-tenant.
 
-## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Gebruikers kunnen zich niet aanmelden bij het in Azure AD Domain Services beheerde domein
-Als een of meer gebruikers in uw Azure AD-tenant kan niet aanmelden bij de zojuist gemaakte beheerd domein, voert u de volgende stappen uit:
+## <a name="users-are-unable-toosign-in-toohello-azure-ad-domain-services-managed-domain"></a>Gebruikers kunnen zich toosign in toohello beheerd domein van Azure AD Domain Services
+Als een of meer gebruikers in uw Azure AD-tenant niet kan toosign in het beheerde domein toohello nieuw gemaakt, voert u Hallo volgende stappen uit:
 
-* **Meld u aan met de UPN-indeling:** proberen aan te melden met behulp van de UPN-indeling (bijvoorbeeld 'joeuser@contoso.com') in plaats van de SAMAccountName-indeling (CONTOSO\joeuser). De SAMAccountName kan automatisch worden gegenereerd voor gebruikers waarvan UPN-voorvoegsel is te lang of hetzelfde is als een andere gebruiker op het beheerde domein. De UPN-indeling is gegarandeerd uniek zijn binnen een Azure AD-tenant.
+* **Meld u aan met de UPN-indeling:** probeer toosign in Hallo UPN-indeling (bijvoorbeeld 'joeuser@contoso.com') in plaats van Hallo SAMAccountName-indeling (CONTOSO\joeuser). Hallo SAMAccountName kan automatisch worden gegenereerd voor gebruikers wiens UPN-voorvoegsel is te lang of is dezelfde als een andere gebruiker op het beheerde domein Hallo Hallo. Hallo UPN-indeling kan worden gegarandeerd toobe uniek zijn binnen een Azure AD-tenant.
 
 > [!NOTE]
-> Het wordt aangeraden om aan te melden bij het beheerde domein van Azure AD Domain Services met behulp van de UPN-indeling.
+> U kunt het beste Hallo UPN-indeling toosign in toohello Azure AD Domain Services beheerd domein gebruikt.
 >
 >
 
-* Zorg ervoor dat u [wachtwoordsynchronisatie hebt ingeschakeld](active-directory-ds-getting-started-password-sync.md) volgens de stappen beschreven in de handleiding.
-* **Externe accounts:** Zorg ervoor dat het account van de betrokken gebruiker niet een externe account in de Azure AD-tenant. Voorbeelden van externe accounts zijn Microsoft-accounts (bijvoorbeeld 'joe@live.com') of gebruikersaccounts uit een extern Azure AD-directory. Omdat Azure AD Domain Services heeft geen referenties voor dergelijke gebruikersaccounts, kunnen deze gebruikers zich niet aanmelden bij het beheerde domein.
-* **Accounts die gesynchroniseerd:** als de betrokken gebruikersaccounts worden gesynchroniseerd vanuit een on-premises adreslijst, controleert u of die:
+* Zorg ervoor dat er [ingeschakeld Wachtwoordsynchronisatie](active-directory-ds-getting-started-password-sync.md) in overeenstemming met Hallo stappen in Hallo handleiding aan de slag.
+* **Externe accounts:** Controleer Hallo van invloed op een gebruikersaccount is niet een externe account in hello Azure AD-tenant. Voorbeelden van externe accounts zijn Microsoft-accounts (bijvoorbeeld 'joe@live.com') of gebruikersaccounts uit een extern Azure AD-directory. Omdat Azure AD Domain Services heeft geen referenties voor dergelijke gebruikersaccounts, kunnen deze gebruikers toohello beheerd domein aanmelden.
+* **Accounts die gesynchroniseerd:** als Hallo van invloed op gebruikersaccounts worden gesynchroniseerd vanuit een on-premises adreslijst, controleert u of die:
 
-  * U hebt geïmplementeerd of bijgewerkt naar de [meest recente versie van Azure AD Connect aanbevolen](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
-  * U hebt Azure AD Connect naar geconfigureerd [een volledige synchronisatie uitvoeren](active-directory-ds-getting-started-password-sync.md).
-  * Afhankelijk van de grootte van uw directory, kan het even duren voor gebruikersaccounts en referentie-hashes worden weergegeven in Azure AD Domain Services. Zorg ervoor dat u lang genoeg voordat u verificatie (afhankelijk van de grootte van uw directory - enkele uren in een dag of twee bij grote mappen) wachten.
-  * Als het probleem zich blijft voordoen nadat u de voorgaande stappen hebt gecontroleerd, probeert u de Microsoft Azure AD Sync-Service opnieuw te starten. Op uw machine synchronisatie start vanaf de opdrachtprompt en voer de volgende opdrachten:
+  * U hebt geïmplementeerd of bijgewerkt toohello [meest recente versie van Azure AD Connect aanbevolen](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+  * U hebt Azure AD Connect te geconfigureerd[een volledige synchronisatie uitvoeren](active-directory-ds-getting-started-password-sync.md).
+  * Afhankelijk van de grootte van de Hallo van uw directory, kan het even duren voor gebruikersaccounts en referentie-hashes toobe beschikbaar zijn in Azure AD Domain Services. Zorg ervoor dat u lang genoeg voordat u verificatie (afhankelijk van de grootte van de Hallo van uw directory - enkele uren tooa dag of twee bij grote mappen) wachten.
+  * Als Hallo probleem zich blijft voordoen nadat u hebt gecontroleerd Hallo vorige stappen, probeert u het Hallo Microsoft Azure AD Sync-Service opnieuw te starten. Op uw machine synchronisatie starten vanaf de opdrachtprompt en Voer Hallo volgende opdrachten:
 
     1. net stop 'Microsoft Azure AD Sync'
     2. net start 'Microsoft Azure AD Sync'
-* **Alleen in de cloud accounts**: als het account van de betrokken gebruiker een alleen-gebruikersaccount is, zorg ervoor dat de gebruiker het wachtwoord is gewijzigd nadat u Azure AD Domain Services hebt ingeschakeld. Door deze stap worden de referentie-hashes gegenereerd die zijn vereist voor Azure AD Domain Services.
+* **Alleen in de cloud accounts**: als Hallo van invloed op een gebruikersaccount een alleen-gebruikersaccount is, zorg er dan van die gebruiker Hallo hun wachtwoord is gewijzigd nadat u Azure AD Domain Services hebt ingeschakeld. Deze stap zorgt ervoor dat Hallo referentie-hashes voor Azure AD Domain Services toobe gegenereerd.
 
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Gebruikers van uw Azure AD-tenant is verwijderd, worden niet verwijderd van uw beheerde domein
-Azure AD voorkomt dat u onbedoeld gebruikersobjecten verwijdert. Wanneer u een gebruikersaccount uit uw Azure AD-tenant verwijdert, wordt het overeenkomstige gebruikersobject verplaatst naar de Prullenbak. Wanneer deze bewerking is gesynchroniseerd met uw beheerde domein, worden de bijbehorende gebruikersaccount zijn gemarkeerd als uitgeschakeld. Deze functie kunt u herstellen of het gebruikersaccount later ongedaan maken.
+Azure AD voorkomt dat u onbedoeld gebruikersobjecten verwijdert. Wanneer u een gebruikersaccount van uw Azure AD-tenant verwijdert, is de bijbehorende gebruikersobject Hallo verplaatste toohello Prullenbak. Wanneer u deze bewerking is gesynchroniseerde tooyour beheerd domein, wordt veroorzaakt Hallo overeenkomende gebruiker account toobe gemarkeerd als uitgeschakeld. Deze functie kunt u herstellen of later Hallo gebruikersaccount verwijderen ongedaan maken.
 
-Het gebruikersaccount blijft uitgeschakeld in uw beheerde domein, zelfs als u een gebruikersaccount met dezelfde UPN opnieuw in uw Azure AD-directory maken. Als het gebruikersaccount uit uw beheerde domein verwijderen, moet u deze verwijderen uit uw Azure AD-tenant.
+Hallo gebruikersaccount Hallo blijft uitgeschakeld staat in uw beheerde domein, zelfs als u een gebruikersaccount met de opnieuw maken Hallo dezelfde UPN in uw Azure AD-directory. Hallo gebruikersaccount tooremove van uw beheerde domein, moet u tooforce verwijderen uit uw Azure AD-tenant.
 
-Als het gebruikersaccount volledig uit uw beheerde domein verwijderen, de gebruiker verwijderen permanent van uw Azure AD-tenant. Gebruik de Remove-MsolUser PowerShell-cmdlet met de optie '-RemoveFromRecycleBin', zoals beschreven in dit [MSDN-artikel](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+tooremove Hallo-gebruikersaccount volledig uit uw beheerde domein, wordt de Hallo gebruiker permanent verwijderen uit uw Azure AD-tenant. Hallo verwijderen MsolUser PowerShell-cmdlet gebruiken met Hallo '-RemoveFromRecycleBin' optie, zoals beschreven in dit [MSDN-artikel](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
 ## <a name="contact-us"></a>Contact opnemen
-Neem contact op met de Azure Active Directory Domain Services-productteam voor [feedback delen of voor ondersteuning](active-directory-ds-contact-us.md).
+Contact opnemen met hello Azure Active Directory Domain Services-productteam te[feedback delen of voor ondersteuning](active-directory-ds-contact-us.md).
