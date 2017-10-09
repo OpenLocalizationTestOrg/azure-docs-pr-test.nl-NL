@@ -1,0 +1,2 @@
+<span data-ttu-id="fdd7d-101">Zie [Azure Functions triggers and bindings developer reference](../articles/azure-functions/functions-triggers-bindings.md) (Referentie voor ontwikkelaars van Azure Functions-triggers en -bindingen) voor meer informatie over andere bindingen en triggers voor Azure-functies.</span><span class="sxs-lookup"><span data-stu-id="fdd7d-101">For information about other bindings and triggers for Azure Functions, see [Azure Functions triggers and bindings developer reference](../articles/azure-functions/functions-triggers-bindings.md).</span></span>
+

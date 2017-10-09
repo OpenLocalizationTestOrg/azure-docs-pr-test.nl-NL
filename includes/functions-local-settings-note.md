@@ -1,0 +1,2 @@
+>[!Note]
+> <span data-ttu-id="bacbf-101">Het is raadzaam dat u een Azure Storage-account gebruiken bij het ontwikkelen van lokaal.</span><span class="sxs-lookup"><span data-stu-id="bacbf-101">We recommend that you use an Azure Storage account when developing locally.</span></span> <span data-ttu-id="bacbf-102">Gebruik van hello Azure-Opslagemulator wordt niet ondersteund door Azure Functions-hulpprogramma's.</span><span class="sxs-lookup"><span data-stu-id="bacbf-102">Use of hello Azure Storage Emulator is not supported by Azure Functions tools.</span></span>

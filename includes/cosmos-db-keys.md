@@ -1,4 +1,4 @@
-  <span data-ttu-id="e5cbd-101">Navigeer naar de blade Cosmos DB-account en klik op **Sleutels**. Deze waarden gebruiken we in de webtoepassing die we nu gaan maken.</span><span class="sxs-lookup"><span data-stu-id="e5cbd-101">Now navigate to the Cosmos DB account blade, and click **Keys**, as we use these values in the web application we create next.</span></span>
+  <span data-ttu-id="102b1-101">Nu gaat toohello Cosmos-DB-accountblade en klik op **sleutels**, zoals we deze waarden in de webtoepassing Hallo vervolgens we maken gebruiken.</span><span class="sxs-lookup"><span data-stu-id="102b1-101">Now navigate toohello Cosmos DB account blade, and click **Keys**, as we use these values in hello web application we create next.</span></span>
 
-![Schermopname van Azure Portal waarin een Cosmos DB-account wordt weergegeven met de knop Sleutels gemarkeerd op de blade Cosmos DB-account en de waarden URI, PRIMAIRE SLEUTEL en SECUNDAIRE SLEUTEL gemarkeerd op de blade Sleutels](./media/cosmos-db-keys/keys.png)
+![Schermopname van het Azure-portal, met een Cosmos-DB-account met de knop sleutels Hallo gemarkeerd op Hallo Cosmos-DB-accountblade en de waarden URI, primaire sleutel en secundaire sleutel Hallo Hallo gemarkeerd op Hallo blade sleutels](./media/cosmos-db-keys/keys.png)
 

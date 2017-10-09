@@ -1,0 +1,12 @@
+> [!IMPORTANT] 
+> <span data-ttu-id="3fc4a-101">U maken geen nieuwe ExpressRoute-circuits in het klassieke implementatiemodel Hallo vanaf 1 maart 2017.</span><span class="sxs-lookup"><span data-stu-id="3fc4a-101">As of March 1, 2017, you can't create new ExpressRoute circuits in hello classic deployment model.</span></span>
+> 
+> - <span data-ttu-id="3fc4a-102">U kunt een bestaand ExpressRoute-circuit verplaatsen van Hallo classic deployment model toohello Resource Manager-implementatiemodel zonder eventuele connectiviteit uitvaltijd ondervindt.</span><span class="sxs-lookup"><span data-stu-id="3fc4a-102">You can move an existing ExpressRoute circuit from hello classic deployment model toohello Resource Manager deployment model without experiencing any connectivity down time.</span></span> <span data-ttu-id="3fc4a-103">Zie [Een bestaand circuit verplaatsen](../articles/expressroute/expressroute-move.md) voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="3fc4a-103">For more information, see [Move an existing circuit](../articles/expressroute/expressroute-move.md).</span></span>
+> - <span data-ttu-id="3fc4a-104">Netwerken in het klassieke implementatiemodel Hallo toovirtual verbinding kan maken door in te stellen **allowClassicOperations** tooTRUE.</span><span class="sxs-lookup"><span data-stu-id="3fc4a-104">You can connect toovirtual networks in hello classic deployment model by setting **allowClassicOperations** tooTRUE.</span></span>
+> 
+> <span data-ttu-id="3fc4a-105">Gebruik Hallo toocreate koppelingen volgen en ExpressRoute-circuits Hallo Resource Manager-implementatiemodel beheren:</span><span class="sxs-lookup"><span data-stu-id="3fc4a-105">Use hello following links toocreate and manage ExpressRoute circuits in hello Resource Manager deployment model:</span></span>
+
+> - <span data-ttu-id="3fc4a-106">[Create and manage ExpressRoute circuits](../articles/expressroute/expressroute-howto-circuit-portal-resource-manager.md) (ExpressRoute-circuits maken en beheren)</span><span class="sxs-lookup"><span data-stu-id="3fc4a-106">[Create and manage ExpressRoute circuits](../articles/expressroute/expressroute-howto-circuit-portal-resource-manager.md)</span></span><br>
+> - [<span data-ttu-id="3fc4a-107">Routering (peering) configureren voor ExpressRoute-circuits</span><span class="sxs-lookup"><span data-stu-id="3fc4a-107">Configure routing (peering) for ExpressRoute circuits</span></span>](../articles/expressroute/expressroute-howto-routing-portal-resource-manager.md)
+>
+>

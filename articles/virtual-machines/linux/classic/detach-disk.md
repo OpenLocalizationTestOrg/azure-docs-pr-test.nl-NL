@@ -1,6 +1,6 @@
 ---
-title: Loskoppelen van een schijf van een Linux-VM in Azure | Microsoft Docs
-description: Meer informatie naar een gegevensschijf loskoppelen van Azure een virtuele machine gemaakt met behulp van het klassieke implementatiemodel.
+title: een schijf van een Linux-VM in Azure aaaDetach | Microsoft Docs
+description: Meer informatie over een gegevensschijf van Azure een virtuele machine gemaakt met het klassieke implementatiemodel Hallo toodetach.
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: ac982bc153d523de29940af9b9e2609a39cd48a6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d0ae362ab756dc4636bf5574deca7471223fb7f8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-detach-a-disk-from-a-linux-virtual-machine"></a><span data-ttu-id="a0356-103">Een schijf loskoppelen van een virtuele Linux-machine</span><span class="sxs-lookup"><span data-stu-id="a0356-103">How to Detach a Disk from a Linux Virtual Machine</span></span>
+# <a name="how-toodetach-a-disk-from-a-linux-virtual-machine"></a><span data-ttu-id="54d82-103">Hoe tooDetach een schijf van een virtuele Linux-Machine</span><span class="sxs-lookup"><span data-stu-id="54d82-103">How tooDetach a Disk from a Linux Virtual Machine</span></span>
 > [!IMPORTANT] 
-> <span data-ttu-id="a0356-104">Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="a0356-104">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="a0356-105">In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel.</span><span class="sxs-lookup"><span data-stu-id="a0356-105">This article covers using the Classic deployment model.</span></span> <span data-ttu-id="a0356-106">U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.</span><span class="sxs-lookup"><span data-stu-id="a0356-106">Microsoft recommends that most new deployments use the Resource Manager model.</span></span>
+> <span data-ttu-id="54d82-104">Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="54d82-104">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="54d82-105">In dit artikel bevat informatie over met behulp van Hallo klassieke implementatiemodel.</span><span class="sxs-lookup"><span data-stu-id="54d82-105">This article covers using hello Classic deployment model.</span></span> <span data-ttu-id="54d82-106">Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken.</span><span class="sxs-lookup"><span data-stu-id="54d82-106">Microsoft recommends that most new deployments use hello Resource Manager model.</span></span>
 
 [!INCLUDE [howto-detach-disk-windows-linux](../../../../includes/howto-detach-disk-linux.md)]
 
-## <a name="next-steps"></a><span data-ttu-id="a0356-107">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="a0356-107">Next steps</span></span>
-<span data-ttu-id="a0356-108">Meer informatie over het gebruik van uw Linux-VM in de volgende artikelen:</span><span class="sxs-lookup"><span data-stu-id="a0356-108">You can read more about using your Linux VM in the following articles:</span></span>
+## <a name="next-steps"></a><span data-ttu-id="54d82-107">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="54d82-107">Next steps</span></span>
+<span data-ttu-id="54d82-108">Meer informatie over het gebruik van uw Linux-VM in Hallo artikelen te volgen:</span><span class="sxs-lookup"><span data-stu-id="54d82-108">You can read more about using your Linux VM in hello following articles:</span></span>
 
-* [<span data-ttu-id="a0356-109">Hoe een gegevensschijf koppelen aan een virtuele Linux-Machine</span><span class="sxs-lookup"><span data-stu-id="a0356-109">How to Attach a Data Disk to a Linux Virtual Machine</span></span>](attach-disk.md)
-* [<span data-ttu-id="a0356-110">De Azure CLI gebruiken met het klassieke implementatiemodel</span><span class="sxs-lookup"><span data-stu-id="a0356-110">Using the Azure CLI with the Classic deployment model</span></span>](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [<span data-ttu-id="54d82-109">Hoe tooAttach een gegevensschijf tooa virtuele Linux-Machine</span><span class="sxs-lookup"><span data-stu-id="54d82-109">How tooAttach a Data Disk tooa Linux Virtual Machine</span></span>](attach-disk.md)
+* [<span data-ttu-id="54d82-110">Hello Azure CLI gebruiken met Hallo klassieke implementatiemodel</span><span class="sxs-lookup"><span data-stu-id="54d82-110">Using hello Azure CLI with hello Classic deployment model</span></span>](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 

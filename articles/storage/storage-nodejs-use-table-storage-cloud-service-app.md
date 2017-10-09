@@ -1,6 +1,6 @@
 ---
-title: Web-app met table storage (Node.js) | Microsoft Docs
-description: Een zelfstudie bouwt op de Web-App met snelle zelfstudie voort door toevoeging van Azure Storage-services en de Azure-module.
+title: aaaWeb app met table storage (Node.js) | Microsoft Docs
+description: Een zelfstudie die is gebaseerd op Hallo van Web-App met snelle zelfstudie door Azure Storage-services toe te voegen en hello Azure-module.
 services: cloud-services, storage
 documentationcenter: nodejs
 author: mmacy
@@ -14,77 +14,77 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-ms.openlocfilehash: 5d7ee2f529b5127ee60ec8b4f5acaa49e75ddf39
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4eba16f09f8b69cbc135d097e6ca71e08b33733c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="nodejs-web-application-using-storage"></a><span data-ttu-id="7bfed-103">Node.js-webtoepassing met opslag</span><span class="sxs-lookup"><span data-stu-id="7bfed-103">Node.js Web Application using Storage</span></span>
-## <a name="overview"></a><span data-ttu-id="7bfed-104">Overzicht</span><span class="sxs-lookup"><span data-stu-id="7bfed-104">Overview</span></span>
-<span data-ttu-id="7bfed-105">In deze zelfstudie wordt u uitbreiden van de toepassing gemaakt de [Node.js-webtoepassing met een snelle] zelfstudie met behulp van de Microsoft Azure-clientbibliotheken voor Node.js werken met data management-services.</span><span class="sxs-lookup"><span data-stu-id="7bfed-105">In this tutorial, you will extend the application created in the [Node.js Web Application using Express] tutorial by using the Microsoft Azure Client Libraries for Node.js to work with data management services.</span></span> <span data-ttu-id="7bfed-106">U kunt uw toepassing een webgebaseerde takenlijst-toepassing die u naar Azure implementeren kunt maken wordt uitbreiden.</span><span class="sxs-lookup"><span data-stu-id="7bfed-106">You will extend your application to create a web-based task-list application that you can deploy to Azure.</span></span> <span data-ttu-id="7bfed-107">De takenlijst kan een gebruiker taken ophalen, het toevoegen van nieuwe taken en taken te markeren als voltooid.</span><span class="sxs-lookup"><span data-stu-id="7bfed-107">The task list allows a user to retrieve tasks, add new tasks, and mark tasks as completed.</span></span>
+# <a name="nodejs-web-application-using-storage"></a><span data-ttu-id="18848-103">Node.js-webtoepassing met opslag</span><span class="sxs-lookup"><span data-stu-id="18848-103">Node.js Web Application using Storage</span></span>
+## <a name="overview"></a><span data-ttu-id="18848-104">Overzicht</span><span class="sxs-lookup"><span data-stu-id="18848-104">Overview</span></span>
+<span data-ttu-id="18848-105">In deze zelfstudie wordt u uitbreiden Hallo toepassing gemaakt in de [Node.js-webtoepassing met een snelle] zelfstudie via Hallo Microsoft Azure-clientbibliotheken voor Node.js toowork met data management-services.</span><span class="sxs-lookup"><span data-stu-id="18848-105">In this tutorial, you will extend hello application created in the [Node.js Web Application using Express] tutorial by using hello Microsoft Azure Client Libraries for Node.js toowork with data management services.</span></span> <span data-ttu-id="18848-106">Een web gebaseerde takenlijst toepassing dat u tooAzure kunt implementeren, gaat u uw toepassing toocreate uitbreiden.</span><span class="sxs-lookup"><span data-stu-id="18848-106">You will extend your application toocreate a web-based task-list application that you can deploy tooAzure.</span></span> <span data-ttu-id="18848-107">Hallo takenlijst kan een gebruiker taken ophalen, het toevoegen van nieuwe taken en taken te markeren als voltooid.</span><span class="sxs-lookup"><span data-stu-id="18848-107">hello task list allows a user to retrieve tasks, add new tasks, and mark tasks as completed.</span></span>
 
-<span data-ttu-id="7bfed-108">De items worden opgeslagen in Azure Storage.</span><span class="sxs-lookup"><span data-stu-id="7bfed-108">The task items are stored in Azure Storage.</span></span> <span data-ttu-id="7bfed-109">Azure Storage biedt niet-gestructureerde gegevensopslag die fouttolerante en maximaal beschikbaar is.</span><span class="sxs-lookup"><span data-stu-id="7bfed-109">Azure Storage provides unstructured data storage that is fault-tolerant and highly available.</span></span> <span data-ttu-id="7bfed-110">Azure Storage bevat verschillende gegevensstructuren waarin u kunt opslaan en toegang tot gegevens en u van de storage-services van de API's opgenomen in de Azure SDK voor Node.js of via de REST-API's gebruikmaken kunt.</span><span class="sxs-lookup"><span data-stu-id="7bfed-110">Azure Storage includes several data structures where you can store and access data, and you can leverage the storage services from the APIs included in the Azure SDK for Node.js or via REST APIs.</span></span> <span data-ttu-id="7bfed-111">Zie voor meer informatie [opslaan en toegang tot gegevens in Azure].</span><span class="sxs-lookup"><span data-stu-id="7bfed-111">For more information, see [Storing and Accessing Data in Azure].</span></span>
+<span data-ttu-id="18848-108">Hallo taakitems worden opgeslagen in Azure Storage.</span><span class="sxs-lookup"><span data-stu-id="18848-108">hello task items are stored in Azure Storage.</span></span> <span data-ttu-id="18848-109">Azure Storage biedt niet-gestructureerde gegevensopslag die fouttolerante en maximaal beschikbaar is.</span><span class="sxs-lookup"><span data-stu-id="18848-109">Azure Storage provides unstructured data storage that is fault-tolerant and highly available.</span></span> <span data-ttu-id="18848-110">Azure Storage bevat verschillende gegevensstructuren waarin u kunt opslaan en toegang tot gegevens en u van de opslagservices Hallo van Hallo API's die zijn opgenomen in hello Azure SDK voor Node.js of via de REST-API's gebruikmaken kunt.</span><span class="sxs-lookup"><span data-stu-id="18848-110">Azure Storage includes several data structures where you can store and access data, and you can leverage hello storage services from hello APIs included in hello Azure SDK for Node.js or via REST APIs.</span></span> <span data-ttu-id="18848-111">Zie voor meer informatie [opslaan en toegang tot gegevens in Azure].</span><span class="sxs-lookup"><span data-stu-id="18848-111">For more information, see [Storing and Accessing Data in Azure].</span></span>
 
-<span data-ttu-id="7bfed-112">Deze zelfstudie wordt ervan uitgegaan dat u hebt voltooid de [Node.js-webtoepassing] en [Node.js snelle][Node.js-webtoepassing met een snelle] zelfstudies.</span><span class="sxs-lookup"><span data-stu-id="7bfed-112">This tutorial assumes that you have completed the [Node.js Web Application] and [Node.js with Express][Node.js Web Application using Express] tutorials.</span></span>
+<span data-ttu-id="18848-112">Deze zelfstudie wordt ervan uitgegaan dat u Hallo hebt voltooid [Node.js-webtoepassing] en [Node.js snelle][Node.js-webtoepassing met een snelle] zelfstudies.</span><span class="sxs-lookup"><span data-stu-id="18848-112">This tutorial assumes that you have completed hello [Node.js Web Application] and [Node.js with Express][Node.js Web Application using Express] tutorials.</span></span>
 
-<span data-ttu-id="7bfed-113">U leert:</span><span class="sxs-lookup"><span data-stu-id="7bfed-113">You will learn:</span></span>
+<span data-ttu-id="18848-113">U leert:</span><span class="sxs-lookup"><span data-stu-id="18848-113">You will learn:</span></span>
 
-* <span data-ttu-id="7bfed-114">Werken met de engine Jade sjabloon</span><span class="sxs-lookup"><span data-stu-id="7bfed-114">How to work with the Jade template engine</span></span>
-* <span data-ttu-id="7bfed-115">Werken met Azure Data Management-services</span><span class="sxs-lookup"><span data-stu-id="7bfed-115">How to work with Azure Data Management services</span></span>
+* <span data-ttu-id="18848-114">Hoe toowork met Jade sjabloon engine Hallo</span><span class="sxs-lookup"><span data-stu-id="18848-114">How toowork with hello Jade template engine</span></span>
+* <span data-ttu-id="18848-115">Hoe toowork met Azure Data Management-services</span><span class="sxs-lookup"><span data-stu-id="18848-115">How toowork with Azure Data Management services</span></span>
 
-<span data-ttu-id="7bfed-116">Een schermopname van de voltooide toepassing lager is dan:</span><span class="sxs-lookup"><span data-stu-id="7bfed-116">A screenshot of the completed application is below:</span></span>
+<span data-ttu-id="18848-116">Een schermopname van de toepassing hello voltooid lager is dan:</span><span class="sxs-lookup"><span data-stu-id="18848-116">A screenshot of hello completed application is below:</span></span>
 
-![De voltooide webpagina in internet explorer](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
+![Hallo voltooid webpagina in internet explorer](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
 
-## <a name="setting-storage-credentials-in-webconfig"></a><span data-ttu-id="7bfed-118">Storage-referenties instelling in het bestand Web.Config</span><span class="sxs-lookup"><span data-stu-id="7bfed-118">Setting Storage Credentials in Web.Config</span></span>
-<span data-ttu-id="7bfed-119">U moet doorgeven in de storage-referenties voor toegang tot Azure Storage.</span><span class="sxs-lookup"><span data-stu-id="7bfed-119">To access Azure Storage, you need to pass in storage credentials.</span></span> <span data-ttu-id="7bfed-120">U doet dit door u toepassingsinstellingen web.config gebruiken.</span><span class="sxs-lookup"><span data-stu-id="7bfed-120">To do this, you utilize web.config application settings.</span></span>
-<span data-ttu-id="7bfed-121">Deze instellingen worden doorgegeven als omgevingsvariabelen knooppunt, die vervolgens worden gelezen door de Azure SDK.</span><span class="sxs-lookup"><span data-stu-id="7bfed-121">Those settings will be passed as environment variables to Node, which are then read by the Azure SDK.</span></span>
+## <a name="setting-storage-credentials-in-webconfig"></a><span data-ttu-id="18848-118">Storage-referenties instelling in het bestand Web.Config</span><span class="sxs-lookup"><span data-stu-id="18848-118">Setting Storage Credentials in Web.Config</span></span>
+<span data-ttu-id="18848-119">tooaccess Azure Storage, moet u toopass in de storage-referenties.</span><span class="sxs-lookup"><span data-stu-id="18848-119">tooaccess Azure Storage, you need toopass in storage credentials.</span></span> <span data-ttu-id="18848-120">toodo, gebruikmaken van web.config toepassingsinstellingen.</span><span class="sxs-lookup"><span data-stu-id="18848-120">toodo this, you utilize web.config application settings.</span></span>
+<span data-ttu-id="18848-121">Deze instellingen worden doorgegeven als omgeving variabelen tooNode, die vervolgens worden gelezen door hello Azure SDK.</span><span class="sxs-lookup"><span data-stu-id="18848-121">Those settings will be passed as environment variables tooNode, which are then read by hello Azure SDK.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="7bfed-122">Storage-referenties worden alleen gebruikt wanneer de toepassing wordt geïmplementeerd naar Azure.</span><span class="sxs-lookup"><span data-stu-id="7bfed-122">Storage credentials are only used when the application is deployed to Azure.</span></span> <span data-ttu-id="7bfed-123">Wanneer in de emulator wordt uitgevoerd, wordt de toepassing de opslagemulator gebruiken.</span><span class="sxs-lookup"><span data-stu-id="7bfed-123">When running in the emulator, the application will use the storage emulator.</span></span>
+> <span data-ttu-id="18848-122">Storage-referenties worden alleen gebruikt wanneer de toepassing hello geïmplementeerde tooAzure.</span><span class="sxs-lookup"><span data-stu-id="18848-122">Storage credentials are only used when hello application is deployed tooAzure.</span></span> <span data-ttu-id="18848-123">Wanneer in Hallo-emulator wordt uitgevoerd, wordt Hallo toepassing hello-opslagemulator gebruiken.</span><span class="sxs-lookup"><span data-stu-id="18848-123">When running in hello emulator, hello application will use hello storage emulator.</span></span>
 >
 >
 
-<span data-ttu-id="7bfed-124">Voer de volgende stappen uit om de opslagaccountreferenties ophalen en toe te voegen aan het web.config-instellingen:</span><span class="sxs-lookup"><span data-stu-id="7bfed-124">Perform the following steps to retrieve the storage account credentials and add them to the web.config settings:</span></span>
+<span data-ttu-id="18848-124">Uitvoeren van de volgende stappen tooretrieve hello opslagaccountreferenties Hallo en toohello web.config-instellingen toevoegen:</span><span class="sxs-lookup"><span data-stu-id="18848-124">Perform hello following steps tooretrieve hello storage account credentials and add them toohello web.config settings:</span></span>
 
-1. <span data-ttu-id="7bfed-125">Als deze nog niet is geopend, start u de Azure PowerShell uit de **Start** menu door het uitbreiden van **alle programma's, Azure**, met de rechtermuisknop op **Azure PowerShell**, en selecteer vervolgens **als Administrator uitvoeren**.</span><span class="sxs-lookup"><span data-stu-id="7bfed-125">If it is not already open, start the Azure PowerShell from the **Start** menu by expanding **All Programs, Azure**, right-click **Azure PowerShell**, and then select **Run As Administrator**.</span></span>
-2. <span data-ttu-id="7bfed-126">Wijzig de mappen in de map met uw toepassing.</span><span class="sxs-lookup"><span data-stu-id="7bfed-126">Change directories to the folder containing your application.</span></span> <span data-ttu-id="7bfed-127">Bijvoorbeeld: C:\\knooppunt\\tasklist\\WebRole1.</span><span class="sxs-lookup"><span data-stu-id="7bfed-127">For example, C:\\node\\tasklist\\WebRole1.</span></span>
-3. <span data-ttu-id="7bfed-128">Voer de volgende cmdlet om op te halen van de accountgegevens voor de opslag van de Azure Powershell-venster:</span><span class="sxs-lookup"><span data-stu-id="7bfed-128">From the Azure Powershell window enter the following cmdlet to retrieve the storage account information:</span></span>
+1. <span data-ttu-id="18848-125">Als deze nog niet is geopend, start u hello Azure PowerShell vanuit Hallo **Start** menu door het uitbreiden van **alle programma's, Azure**, met de rechtermuisknop op **Azure PowerShell**, en selecteer vervolgens  **Als Administrator uitvoeren**.</span><span class="sxs-lookup"><span data-stu-id="18848-125">If it is not already open, start hello Azure PowerShell from hello **Start** menu by expanding **All Programs, Azure**, right-click **Azure PowerShell**, and then select **Run As Administrator**.</span></span>
+2. <span data-ttu-id="18848-126">Mappen toohello map wijzigen met uw toepassing.</span><span class="sxs-lookup"><span data-stu-id="18848-126">Change directories toohello folder containing your application.</span></span> <span data-ttu-id="18848-127">Bijvoorbeeld: C:\\knooppunt\\tasklist\\WebRole1.</span><span class="sxs-lookup"><span data-stu-id="18848-127">For example, C:\\node\\tasklist\\WebRole1.</span></span>
+3. <span data-ttu-id="18848-128">Voer vanuit hello Azure Powershell-venster Hallo cmdlet tooretrieve Hallo-opslag-accountgegevens te volgen:</span><span class="sxs-lookup"><span data-stu-id="18848-128">From hello Azure Powershell window enter hello following cmdlet tooretrieve hello storage account information:</span></span>
 
     ```powershell
     PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
     ```
 
-   <span data-ttu-id="7bfed-129">Hiermee haalt de lijst met opslagaccounts en sleutels die zijn gekoppeld aan de gehoste service-account.</span><span class="sxs-lookup"><span data-stu-id="7bfed-129">This retrieves the list of storage accounts and account keys associated with your hosted service.</span></span>
+   <span data-ttu-id="18848-129">Hiermee haalt Hallo lijst van storage-accounts en sleutels die zijn gekoppeld aan de gehoste service-account.</span><span class="sxs-lookup"><span data-stu-id="18848-129">This retrieves hello list of storage accounts and account keys associated with your hosted service.</span></span>
 
    > [!NOTE]
-   > <span data-ttu-id="7bfed-130">Omdat de Azure SDK een opslagaccount maakt wanneer u een service implementeert, moet al een opslagaccount van het implementeren van uw toepassing in de vorige handleidingen bestaan.</span><span class="sxs-lookup"><span data-stu-id="7bfed-130">Since the Azure SDK creates a storage account when you deploy a service, a storage account should already exist from deploying your application in the previous guides.</span></span>
+   > <span data-ttu-id="18848-130">Omdat hello Azure SDK een opslagaccount maakt wanneer u een service implementeert, moet al een opslagaccount van het implementeren van uw toepassing in de vorige handleidingen Hallo bestaan.</span><span class="sxs-lookup"><span data-stu-id="18848-130">Since hello Azure SDK creates a storage account when you deploy a service, a storage account should already exist from deploying your application in hello previous guides.</span></span>
    >
    >
-4. <span data-ttu-id="7bfed-131">Open de **ServiceDefinition.csdef** bestand met de omgevingsinstellingen die worden gebruikt wanneer de toepassing wordt geïmplementeerd naar Azure:</span><span class="sxs-lookup"><span data-stu-id="7bfed-131">Open the **ServiceDefinition.csdef** file containing the environment settings that are used when the application is deployed to Azure:</span></span>
+4. <span data-ttu-id="18848-131">Open Hallo **ServiceDefinition.csdef** bestand met Hallo omgevingsinstellingen die worden gebruikt wanneer de toepassing hello geïmplementeerde tooAzure:</span><span class="sxs-lookup"><span data-stu-id="18848-131">Open hello **ServiceDefinition.csdef** file containing hello environment settings that are used when hello application is deployed tooAzure:</span></span>
 
     ```powershell
     PS C:\node\tasklist> notepad ServiceDefinition.csdef
     ```
 
-5. <span data-ttu-id="7bfed-132">Voeg het volgende blok onder **omgeving** element, vervangen door {OPSLAGACCOUNT} en {TOEGANGSSLEUTEL voor opslag} met de accountnaam en de primaire sleutel voor het opslagaccount dat u wilt gebruiken voor implementatie:</span><span class="sxs-lookup"><span data-stu-id="7bfed-132">Insert the following block under **Environment** element, substituting {STORAGE ACCOUNT} and {STORAGE ACCESS KEY} with the account name and the primary key for the storage account you want to use for deployment:</span></span>
+5. <span data-ttu-id="18848-132">INSERT Hallo volgende blokkeren onder **omgeving** element, vervangen door {OPSLAGACCOUNT} en {TOEGANGSSLEUTEL voor opslag} met Hallo-accountnaam en de primaire sleutel Hallo voor Hallo storage-account wilt van toouse voor de implementatie:</span><span class="sxs-lookup"><span data-stu-id="18848-132">Insert hello following block under **Environment** element, substituting {STORAGE ACCOUNT} and {STORAGE ACCESS KEY} with hello account name and hello primary key for hello storage account you want toouse for deployment:</span></span>
 
   <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
   <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
 
-   ![De inhoud van het bestand web.cloud.config](./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png)
+   ![Hallo web.cloud.config bestandsinhoud](./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png)
 
-6. <span data-ttu-id="7bfed-134">Sla het bestand op en sluit Kladblok.</span><span class="sxs-lookup"><span data-stu-id="7bfed-134">Save the file and close notepad.</span></span>
+6. <span data-ttu-id="18848-134">Hallo-bestand opslaan en sluit Kladblok.</span><span class="sxs-lookup"><span data-stu-id="18848-134">Save hello file and close notepad.</span></span>
 
-### <a name="install-additional-modules"></a><span data-ttu-id="7bfed-135">Aanvullende modules installeren</span><span class="sxs-lookup"><span data-stu-id="7bfed-135">Install additional modules</span></span>
-1. <span data-ttu-id="7bfed-136">Gebruik de volgende opdracht voor het installeren van de [azure] [knooppunt-uuid] [nconf] en [asynchrone] modules lokaal ook om op te slaan een vermelding voor hen de **package.json** bestand:</span><span class="sxs-lookup"><span data-stu-id="7bfed-136">Use the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the **package.json** file:</span></span>
+### <a name="install-additional-modules"></a><span data-ttu-id="18848-135">Aanvullende modules installeren</span><span class="sxs-lookup"><span data-stu-id="18848-135">Install additional modules</span></span>
+1. <span data-ttu-id="18848-136">Gebruik Hallo na de opdracht tooinstall Hallo [azure], [knooppunt-uuid] [nconf] en [asynchrone] modules lokaal alsmede toosave een vermelding voor hen toohello **package.json** bestand:</span><span class="sxs-lookup"><span data-stu-id="18848-136">Use hello following command tooinstall hello [azure], [node-uuid], [nconf] and [async] modules locally as well as toosave an entry for them toohello **package.json** file:</span></span>
 
   ```powershell
   PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
   ```
 
-  <span data-ttu-id="7bfed-137">De uitvoer van deze opdracht ziet er ongeveer als volgt:</span><span class="sxs-lookup"><span data-stu-id="7bfed-137">The output of this command should appear similar to the following:</span></span>
+  <span data-ttu-id="18848-137">Hallo-uitvoer van deze opdracht moet vergelijkbaar toohello volgende weergegeven:</span><span class="sxs-lookup"><span data-stu-id="18848-137">hello output of this command should appear similar toohello following:</span></span>
 
   ```
   node-uuid@1.4.1 node_modules\node-uuid
@@ -105,13 +105,13 @@ ms.lasthandoff: 07/11/2017
   └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
   ```
 
-## <a name="using-the-table-service-in-a-node-application"></a><span data-ttu-id="7bfed-138">De tabel-service in een knooppunttoepassing gebruiken</span><span class="sxs-lookup"><span data-stu-id="7bfed-138">Using the Table service in a node application</span></span>
-<span data-ttu-id="7bfed-139">In deze sectie kunt u de basistoepassing die is gemaakt door wordt uitgebreide de **snelle** door toe te voegen opdracht een **task.js** bestand waarin het model voor uw taken.</span><span class="sxs-lookup"><span data-stu-id="7bfed-139">In this section you will extend the basic application created by the **express** command by adding a **task.js** file which contains the model for your tasks.</span></span> <span data-ttu-id="7bfed-140">Ook wijzigt u de bestaande **app.js** en maak een nieuwe **tasklist.js** bestand dat gebruikmaakt van het model.</span><span class="sxs-lookup"><span data-stu-id="7bfed-140">You will also modify the existing **app.js** and create a new **tasklist.js** file that uses the model.</span></span>
+## <a name="using-hello-table-service-in-a-node-application"></a><span data-ttu-id="18848-138">Hallo tabel-service in een knooppunttoepassing gebruiken</span><span class="sxs-lookup"><span data-stu-id="18848-138">Using hello Table service in a node application</span></span>
+<span data-ttu-id="18848-139">In deze sectie wordt u Hallo eenvoudige toepassing gemaakt door Hallo uitbreiden **snelle** door toe te voegen opdracht een **task.js** bestand waarin Hallo-model voor uw taken.</span><span class="sxs-lookup"><span data-stu-id="18848-139">In this section you will extend hello basic application created by hello **express** command by adding a **task.js** file which contains hello model for your tasks.</span></span> <span data-ttu-id="18848-140">U wordt ook wijzigen Hallo bestaande **app.js** en maak een nieuwe **tasklist.js** bestand dat gebruikmaakt van Hallo-model.</span><span class="sxs-lookup"><span data-stu-id="18848-140">You will also modify hello existing **app.js** and create a new **tasklist.js** file that uses hello model.</span></span>
 
-### <a name="create-the-model"></a><span data-ttu-id="7bfed-141">Het model maken</span><span class="sxs-lookup"><span data-stu-id="7bfed-141">Create the model</span></span>
-1. <span data-ttu-id="7bfed-142">In de **WebRole1** directory, maak een nieuwe map met de naam **modellen**.</span><span class="sxs-lookup"><span data-stu-id="7bfed-142">In the **WebRole1** directory, create a new directory named **models**.</span></span>
-2. <span data-ttu-id="7bfed-143">In de **modellen** directory, maak een nieuw bestand met de naam **task.js**.</span><span class="sxs-lookup"><span data-stu-id="7bfed-143">In the **models** directory, create a new file named **task.js**.</span></span> <span data-ttu-id="7bfed-144">Dit bestand bevat het model voor de taken die zijn gemaakt door uw toepassing.</span><span class="sxs-lookup"><span data-stu-id="7bfed-144">This file will contain the model for the tasks created by your application.</span></span>
-3. <span data-ttu-id="7bfed-145">Aan het begin van de **task.js** bestand, voeg de volgende code om te verwijzen naar de vereiste bibliotheken:</span><span class="sxs-lookup"><span data-stu-id="7bfed-145">At the beginning of the **task.js** file, add the following code to reference required libraries:</span></span>
+### <a name="create-hello-model"></a><span data-ttu-id="18848-141">Hallo-model maken</span><span class="sxs-lookup"><span data-stu-id="18848-141">Create hello model</span></span>
+1. <span data-ttu-id="18848-142">In Hallo **WebRole1** directory, maak een nieuwe map met de naam **modellen**.</span><span class="sxs-lookup"><span data-stu-id="18848-142">In hello **WebRole1** directory, create a new directory named **models**.</span></span>
+2. <span data-ttu-id="18848-143">In Hallo **modellen** directory, maak een nieuw bestand met de naam **task.js**.</span><span class="sxs-lookup"><span data-stu-id="18848-143">In hello **models** directory, create a new file named **task.js**.</span></span> <span data-ttu-id="18848-144">Dit bestand bevat Hallo-model voor Hallo-taken die zijn gemaakt door uw toepassing.</span><span class="sxs-lookup"><span data-stu-id="18848-144">This file will contain hello model for hello tasks created by your application.</span></span>
+3. <span data-ttu-id="18848-145">Aan begin Hallo Hallo **task.js** bestand, het toevoegen van Hallo code tooreference vereist bibliotheken te volgen:</span><span class="sxs-lookup"><span data-stu-id="18848-145">At hello beginning of hello **task.js** file, add hello following code tooreference required libraries:</span></span>
 
     ```nodejs
     var azure = require('azure-storage');
@@ -119,7 +119,7 @@ ms.lasthandoff: 07/11/2017
     var entityGen = azure.TableUtilities.entityGenerator;
     ```
 
-4. <span data-ttu-id="7bfed-146">Vervolgens voegt u code toe om het taakobject te definiëren en te exporteren.</span><span class="sxs-lookup"><span data-stu-id="7bfed-146">Next, you will add code to define and export the Task object.</span></span> <span data-ttu-id="7bfed-147">Dit object is verantwoordelijk voor het verbinden met de tabel.</span><span class="sxs-lookup"><span data-stu-id="7bfed-147">This object is responsible for connecting to the table.</span></span>
+4. <span data-ttu-id="18848-146">Vervolgens moet u code toodefine toevoegen en Hallo taakobject exporteren.</span><span class="sxs-lookup"><span data-stu-id="18848-146">Next, you will add code toodefine and export hello Task object.</span></span> <span data-ttu-id="18848-147">Dit object is verantwoordelijk voor het verbinden van toohello tabel.</span><span class="sxs-lookup"><span data-stu-id="18848-147">This object is responsible for connecting toohello table.</span></span>
 
     ```nodejs
     module.exports = Task;
@@ -136,7 +136,7 @@ ms.lasthandoff: 07/11/2017
     };
     ```
 
-5. <span data-ttu-id="7bfed-148">Vervolgens voegt u de volgende code om aanvullende methoden voor het taakobject te definiëren waardoor er interactie met gegevens die zijn opgeslagen in de tabel:</span><span class="sxs-lookup"><span data-stu-id="7bfed-148">Next, add the following code to define additional methods on the Task object, which allow interactions with data stored in the table:</span></span>
+5. <span data-ttu-id="18848-148">Vervolgens voegt u Hallo code toodefine extra methoden volgen op Hallo taakobject, waardoor er interactie met gegevens die zijn opgeslagen in de tabel Hallo:</span><span class="sxs-lookup"><span data-stu-id="18848-148">Next, add hello following code toodefine additional methods on hello Task object, which allow interactions with data stored in hello table:</span></span>
 
     ```nodejs
     Task.prototype = {
@@ -153,7 +153,7 @@ ms.lasthandoff: 07/11/2017
 
       addItem: function(item, callback) {
         self = this;
-        // use entityGenerator to set types
+        // use entityGenerator tooset types
         // NOTE: RowKey must be a string type, even though
         // it contains a GUID in this example.
         var itemDescriptor = {
@@ -190,11 +190,11 @@ ms.lasthandoff: 07/11/2017
     }
     ```
 
-6. <span data-ttu-id="7bfed-149">Sla op en sluit de **task.js** bestand.</span><span class="sxs-lookup"><span data-stu-id="7bfed-149">Save and close the **task.js** file.</span></span>
+6. <span data-ttu-id="18848-149">Opslaan en sluiten Hallo **task.js** bestand.</span><span class="sxs-lookup"><span data-stu-id="18848-149">Save and close hello **task.js** file.</span></span>
 
-### <a name="create-the-controller"></a><span data-ttu-id="7bfed-150">De controller maken</span><span class="sxs-lookup"><span data-stu-id="7bfed-150">Create the controller</span></span>
-1. <span data-ttu-id="7bfed-151">In de **WebRole1/routes** directory, maak een nieuw bestand met de naam **tasklist.js** en open het in een teksteditor.</span><span class="sxs-lookup"><span data-stu-id="7bfed-151">In the **WebRole1/routes** directory, create a new file named **tasklist.js** and open it in a text editor.</span></span>
-2. <span data-ttu-id="7bfed-152">Voeg de volgende code toe aan het bestand **tasklist.js**.</span><span class="sxs-lookup"><span data-stu-id="7bfed-152">Add the following code to **tasklist.js**.</span></span> <span data-ttu-id="7bfed-153">Dit wordt geladen met de azure- en async-modules die worden gebruikt door **tasklist.js**.</span><span class="sxs-lookup"><span data-stu-id="7bfed-153">This loads the azure and async modules, which are used by **tasklist.js**.</span></span> <span data-ttu-id="7bfed-154">Hiermee ook definieert u de **TaskList** functie die wordt doorgegeven een exemplaar van de **taak** object eerder:</span><span class="sxs-lookup"><span data-stu-id="7bfed-154">This also defines the **TaskList** function, which is passed an instance of the **Task** object we defined earlier:</span></span>
+### <a name="create-hello-controller"></a><span data-ttu-id="18848-150">Hallo controller maken</span><span class="sxs-lookup"><span data-stu-id="18848-150">Create hello controller</span></span>
+1. <span data-ttu-id="18848-151">In Hallo **WebRole1/routes** directory, maak een nieuw bestand met de naam **tasklist.js** en open het in een teksteditor.</span><span class="sxs-lookup"><span data-stu-id="18848-151">In hello **WebRole1/routes** directory, create a new file named **tasklist.js** and open it in a text editor.</span></span>
+2. <span data-ttu-id="18848-152">Hallo code te volgen toevoegen**tasklist.js**.</span><span class="sxs-lookup"><span data-stu-id="18848-152">Add hello following code too**tasklist.js**.</span></span> <span data-ttu-id="18848-153">Dit wordt geladen hello azure en async-modules die worden gebruikt door **tasklist.js**.</span><span class="sxs-lookup"><span data-stu-id="18848-153">This loads hello azure and async modules, which are used by **tasklist.js**.</span></span> <span data-ttu-id="18848-154">Hiermee definieert u ook Hallo **TaskList** functie die een exemplaar van Hallo wordt doorgegeven **taak** object eerder:</span><span class="sxs-lookup"><span data-stu-id="18848-154">This also defines hello **TaskList** function, which is passed an instance of hello **Task** object we defined earlier:</span></span>
 
     ```nodejs
     var azure = require('azure-storage');
@@ -207,7 +207,7 @@ ms.lasthandoff: 07/11/2017
     }
     ```
 
-3. <span data-ttu-id="7bfed-155">Blijven toevoegen aan de **tasklist.js** bestand door het toevoegen van de methoden voor **showTasks**, **addTask**, en **completeTasks**:</span><span class="sxs-lookup"><span data-stu-id="7bfed-155">Continue adding to the **tasklist.js** file by adding the methods used to **showTasks**, **addTask**, and **completeTasks**:</span></span>
+3. <span data-ttu-id="18848-155">Doorgaan met het toevoegen van toohello **tasklist.js** bestand door toe te voegen Hallo methoden te**showTasks**, **addTask**, en **completeTasks**:</span><span class="sxs-lookup"><span data-stu-id="18848-155">Continue adding toohello **tasklist.js** file by adding hello methods used too**showTasks**, **addTask**, and **completeTasks**:</span></span>
 
     ```nodejs
     TaskList.prototype = {
@@ -253,11 +253,11 @@ ms.lasthandoff: 07/11/2017
     }
     ```
 
-4. <span data-ttu-id="7bfed-156">Sla de **tasklist.js** bestand.</span><span class="sxs-lookup"><span data-stu-id="7bfed-156">Save the **tasklist.js** file.</span></span>
+4. <span data-ttu-id="18848-156">Hallo opslaan **tasklist.js** bestand.</span><span class="sxs-lookup"><span data-stu-id="18848-156">Save hello **tasklist.js** file.</span></span>
 
-### <a name="modify-appjs"></a><span data-ttu-id="7bfed-157">App.js wijzigen</span><span class="sxs-lookup"><span data-stu-id="7bfed-157">Modify app.js</span></span>
-1. <span data-ttu-id="7bfed-158">In de **WebRole1** directory, open de **app.js** bestand in een teksteditor.</span><span class="sxs-lookup"><span data-stu-id="7bfed-158">In the **WebRole1** directory, open the **app.js** file in a text editor.</span></span>
-2. <span data-ttu-id="7bfed-159">Voeg de volgende voor het laden van de azure-module en stel de sleutel van naam en partitie in de tabel aan het begin van het bestand:</span><span class="sxs-lookup"><span data-stu-id="7bfed-159">At the beginning of the file, add the following to load the azure module and set the table name and partition key:</span></span>
+### <a name="modify-appjs"></a><span data-ttu-id="18848-157">App.js wijzigen</span><span class="sxs-lookup"><span data-stu-id="18848-157">Modify app.js</span></span>
+1. <span data-ttu-id="18848-158">In Hallo **WebRole1** directory, open Hallo **app.js** bestand in een teksteditor.</span><span class="sxs-lookup"><span data-stu-id="18848-158">In hello **WebRole1** directory, open hello **app.js** file in a text editor.</span></span>
+2. <span data-ttu-id="18848-159">Aan het begin van de Hallo van Hallo-bestand, Hallo na tooload hello azure module toevoegen en instellen van naam en partitie-sleutel van tabel Hallo:</span><span class="sxs-lookup"><span data-stu-id="18848-159">At hello beginning of hello file, add hello following tooload hello azure module and set hello table name and partition key:</span></span>
 
     ```nodejs
     var azure = require('azure-storage');
@@ -265,14 +265,14 @@ ms.lasthandoff: 07/11/2017
     var partitionKey = 'hometasks';
     ```
 
-3. <span data-ttu-id="7bfed-160">In het bestand app.js, bladert u omlaag naar waar u de volgende regel zien:</span><span class="sxs-lookup"><span data-stu-id="7bfed-160">In the app.js file, scroll down to where you see the following line:</span></span>
+3. <span data-ttu-id="18848-160">In het bestand app.js hello, schuif naar beneden toowhere u ziet Hallo volgende regel:</span><span class="sxs-lookup"><span data-stu-id="18848-160">In hello app.js file, scroll down toowhere you see hello following line:</span></span>
 
     ```nodejs
     app.use('/', routes);
     app.use('/users', users);
     ```
 
-    <span data-ttu-id="7bfed-161">Vervang de bovenstaande regels door de code hieronder wordt weergegeven.</span><span class="sxs-lookup"><span data-stu-id="7bfed-161">Replace the above lines with the code shown below.</span></span> <span data-ttu-id="7bfed-162">Hiermee wordt een exemplaar van initialiseren <strong>taak</strong> met een verbinding met uw storage-account.</span><span class="sxs-lookup"><span data-stu-id="7bfed-162">This will initialize an instance of <strong>Task</strong> with a connection to your storage account.</span></span> <span data-ttu-id="7bfed-163">Dit wordt doorgegeven aan de <strong>TaskList</strong>, die wordt gebruikt om communicatie met de tabel-service:</span><span class="sxs-lookup"><span data-stu-id="7bfed-163">This is passed to the <strong>TaskList</strong>, which will use it to communicate with the Table service:</span></span>
+    <span data-ttu-id="18848-161">Hallo boven regels vervangen door Hallo-code hieronder wordt weergegeven.</span><span class="sxs-lookup"><span data-stu-id="18848-161">Replace hello above lines with hello code shown below.</span></span> <span data-ttu-id="18848-162">Hiermee wordt een exemplaar van initialiseren <strong>taak</strong> met een verbinding tooyour storage-account.</span><span class="sxs-lookup"><span data-stu-id="18848-162">This will initialize an instance of <strong>Task</strong> with a connection tooyour storage account.</span></span> <span data-ttu-id="18848-163">Dit wordt doorgegeven toohello <strong>TaskList</strong>, welke gebruiken deze toocommunicate Hello tabelservice:</span><span class="sxs-lookup"><span data-stu-id="18848-163">This is passed toohello <strong>TaskList</strong>, which will use it toocommunicate with hello Table service:</span></span>
 
     ```nodejs
     var TaskList = require('./routes/tasklist');
@@ -285,11 +285,11 @@ ms.lasthandoff: 07/11/2017
     app.post('/completetask', taskList.completeTask.bind(taskList));
     ```
 
-4. <span data-ttu-id="7bfed-164">Sla de **app.js** bestand.</span><span class="sxs-lookup"><span data-stu-id="7bfed-164">Save the **app.js** file.</span></span>
+4. <span data-ttu-id="18848-164">Hallo opslaan **app.js** bestand.</span><span class="sxs-lookup"><span data-stu-id="18848-164">Save hello **app.js** file.</span></span>
 
-### <a name="modify-the-index-view"></a><span data-ttu-id="7bfed-165">Wijzig de weergave index</span><span class="sxs-lookup"><span data-stu-id="7bfed-165">Modify the index view</span></span>
-1. <span data-ttu-id="7bfed-166">Wijzig de mappen op de **weergaven** directory en open de **index.jade** bestand in een teksteditor.</span><span class="sxs-lookup"><span data-stu-id="7bfed-166">Change directories to the **views** directory and open the **index.jade** file in a text editor.</span></span>
-2. <span data-ttu-id="7bfed-167">Vervang de inhoud van de **index.jade** bestand met de volgende code.</span><span class="sxs-lookup"><span data-stu-id="7bfed-167">Replace the contents of the **index.jade** file with the code below.</span></span> <span data-ttu-id="7bfed-168">Hiermee definieert u de weergave voor het weergeven van bestaande taken, evenals een formulier voor het toevoegen van nieuwe taken en bestaande bestanden markeren als voltooid.</span><span class="sxs-lookup"><span data-stu-id="7bfed-168">This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.</span></span>
+### <a name="modify-hello-index-view"></a><span data-ttu-id="18848-165">Hallo index weergave wijzigen</span><span class="sxs-lookup"><span data-stu-id="18848-165">Modify hello index view</span></span>
+1. <span data-ttu-id="18848-166">Wijzig de mappen toohello **weergaven** directory en open Hallo **index.jade** bestand in een teksteditor.</span><span class="sxs-lookup"><span data-stu-id="18848-166">Change directories toohello **views** directory and open hello **index.jade** file in a text editor.</span></span>
+2. <span data-ttu-id="18848-167">Vervang de inhoud Hallo Hallo **index.jade** bestand met de Hallo-code hieronder.</span><span class="sxs-lookup"><span data-stu-id="18848-167">Replace hello contents of hello **index.jade** file with hello code below.</span></span> <span data-ttu-id="18848-168">Hiermee definieert u Hallo weergave voor het weergeven van bestaande taken, evenals een formulier voor het toevoegen van nieuwe taken en bestaande bestanden markeren als voltooid.</span><span class="sxs-lookup"><span data-stu-id="18848-168">This defines hello view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.</span></span>
 
     ```
     extends layout
@@ -330,50 +330,50 @@ ms.lasthandoff: 07/11/2017
         button.btn(type="submit") Add item
     ```
 
-3. <span data-ttu-id="7bfed-169">Opslaan en sluiten **index.jade** bestand.</span><span class="sxs-lookup"><span data-stu-id="7bfed-169">Save and close **index.jade** file.</span></span>
+3. <span data-ttu-id="18848-169">Opslaan en sluiten **index.jade** bestand.</span><span class="sxs-lookup"><span data-stu-id="18848-169">Save and close **index.jade** file.</span></span>
 
-### <a name="modify-the-global-layout"></a><span data-ttu-id="7bfed-170">De indeling van de globale wijzigen</span><span class="sxs-lookup"><span data-stu-id="7bfed-170">Modify the global layout</span></span>
-<span data-ttu-id="7bfed-171">Het bestand **layout.jade** in de map **views** wordt gebruikt als een algemeen sjabloon voor andere **.jade**-bestanden.</span><span class="sxs-lookup"><span data-stu-id="7bfed-171">The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files.</span></span> <span data-ttu-id="7bfed-172">In deze stap wordt het bestand aangepast voor het gebruik van [Twitter Bootstrap](https://github.com/twbs/bootstrap). Dit is een werkset waarmee u eenvoudig een aantrekkelijk ogende website kunt maken.</span><span class="sxs-lookup"><span data-stu-id="7bfed-172">In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking website.</span></span>
+### <a name="modify-hello-global-layout"></a><span data-ttu-id="18848-170">Hallo globale indeling wijzigen</span><span class="sxs-lookup"><span data-stu-id="18848-170">Modify hello global layout</span></span>
+<span data-ttu-id="18848-171">Hallo **layout.jade** bestand in Hallo **weergaven** directory wordt gebruikt als een algemeen sjabloon voor andere **.jade** bestanden.</span><span class="sxs-lookup"><span data-stu-id="18848-171">hello **layout.jade** file in hello **views** directory is used as a global template for other **.jade** files.</span></span> <span data-ttu-id="18848-172">In deze stap wijzigt u deze toouse [Twitter Bootstrap](https://github.com/twbs/bootstrap), dit is een werkset waarmee u eenvoudig toodesign een aantrekkelijk ogende website.</span><span class="sxs-lookup"><span data-stu-id="18848-172">In this step you will modify it toouse [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy toodesign a nice looking website.</span></span>
 
-1. <span data-ttu-id="7bfed-173">Downloaden en uitpakken van de bestanden voor [Twitter Bootstrap](http://getbootstrap.com/).</span><span class="sxs-lookup"><span data-stu-id="7bfed-173">Download and extract the files for [Twitter Bootstrap](http://getbootstrap.com/).</span></span> <span data-ttu-id="7bfed-174">Kopieer de **bootstrap.min.css** bestand van de **bootstrap\\verdeling\\css** map de **openbare\\stylesheets** map van uw toepassing tasklist.</span><span class="sxs-lookup"><span data-stu-id="7bfed-174">Copy the **bootstrap.min.css** file from the **bootstrap\\dist\\css** folder to the **public\\stylesheets** directory of your tasklist application.</span></span>
-2. <span data-ttu-id="7bfed-175">Van de **weergaven** map, open de **layout.jade** in een teksteditor en vervang de inhoud door het volgende:</span><span class="sxs-lookup"><span data-stu-id="7bfed-175">From the **views** folder, open the **layout.jade** in your text editor and replace the contents with the following:</span></span>
+1. <span data-ttu-id="18848-173">Downloaden en uitpakken van bestanden voor Hallo [Twitter Bootstrap](http://getbootstrap.com/).</span><span class="sxs-lookup"><span data-stu-id="18848-173">Download and extract hello files for [Twitter Bootstrap](http://getbootstrap.com/).</span></span> <span data-ttu-id="18848-174">Kopiëren Hallo **bootstrap.min.css** bestand van Hallo **bootstrap\\verdeling\\css** map toohello **openbare\\stylesheets** map van uw toepassing tasklist.</span><span class="sxs-lookup"><span data-stu-id="18848-174">Copy hello **bootstrap.min.css** file from hello **bootstrap\\dist\\css** folder toohello **public\\stylesheets** directory of your tasklist application.</span></span>
+2. <span data-ttu-id="18848-175">Van Hallo **weergaven** map, open Hallo **layout.jade** in uw editor en vervang Hallo tekstinhoud door Hallo volgende:</span><span class="sxs-lookup"><span data-stu-id="18848-175">From hello **views** folder, open hello **layout.jade** in your text editor and replace hello contents with hello following:</span></span>
 
-    <span data-ttu-id="7bfed-176">DOCTYPE HTML-html head titel = Titelkoppeling (rel = 'stylesheet', href='/stylesheets/bootstrap.min.css') koppeling (rel = 'stylesheet', href='/stylesheets/style.css') body.app nav.navbar.navbar-standaard div.navbar-header a.navbar-brand(href='/') inhoud van mijn taken blokkeren</span><span class="sxs-lookup"><span data-stu-id="7bfed-176">doctype html  html    head      title= title      link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')      link(rel='stylesheet', href='/stylesheets/style.css')    body.app      nav.navbar.navbar-default        div.navbar-header          a.navbar-brand(href='/') My Tasks      block content</span></span>
+    <span data-ttu-id="18848-176">DOCTYPE HTML-html head titel = Titelkoppeling (rel = 'stylesheet', href='/stylesheets/bootstrap.min.css') koppeling (rel = 'stylesheet', href='/stylesheets/style.css') body.app nav.navbar.navbar-standaard div.navbar-header a.navbar-brand(href='/') inhoud van mijn taken blokkeren</span><span class="sxs-lookup"><span data-stu-id="18848-176">doctype html  html    head      title= title      link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')      link(rel='stylesheet', href='/stylesheets/style.css')    body.app      nav.navbar.navbar-default        div.navbar-header          a.navbar-brand(href='/') My Tasks      block content</span></span>
 
-3. <span data-ttu-id="7bfed-177">Sla de **layout.jade** bestand.</span><span class="sxs-lookup"><span data-stu-id="7bfed-177">Save the **layout.jade** file.</span></span>
+3. <span data-ttu-id="18848-177">Hallo opslaan **layout.jade** bestand.</span><span class="sxs-lookup"><span data-stu-id="18848-177">Save hello **layout.jade** file.</span></span>
 
-### <a name="running-the-application-in-the-emulator"></a><span data-ttu-id="7bfed-178">De toepassing wordt uitgevoerd in de Emulator</span><span class="sxs-lookup"><span data-stu-id="7bfed-178">Running the Application in the Emulator</span></span>
-<span data-ttu-id="7bfed-179">Gebruik de volgende opdracht voor het starten van de toepassing in de emulator.</span><span class="sxs-lookup"><span data-stu-id="7bfed-179">Use the following command to start the application in the emulator.</span></span>
+### <a name="running-hello-application-in-hello-emulator"></a><span data-ttu-id="18848-178">Hallo toepassing uitgevoerd in de Emulator Hallo</span><span class="sxs-lookup"><span data-stu-id="18848-178">Running hello Application in hello Emulator</span></span>
+<span data-ttu-id="18848-179">Gebruik Hallo volgende opdracht toostart Hallo toepassing in Hallo-emulator.</span><span class="sxs-lookup"><span data-stu-id="18848-179">Use hello following command toostart hello application in hello emulator.</span></span>
 
 ```powershell
 PS C:\node\tasklist\WebRole1> start-azureemulator -launch
 ```
 
-<span data-ttu-id="7bfed-180">De browser wordt geopend en de volgende pagina wordt weergegeven:</span><span class="sxs-lookup"><span data-stu-id="7bfed-180">The browser will open and displays the following page:</span></span>
+<span data-ttu-id="18848-180">Hallo-browser wordt geopend en wordt na pagina Hallo weergegeven:</span><span class="sxs-lookup"><span data-stu-id="18848-180">hello browser will open and displays hello following page:</span></span>
 
-![Een web wisselbaar geheugen: met de titel van mijn takenlijst met een tabel met taken en velden in om een nieuwe taak toevoegen.](./media/storage-nodejs-use-table-storage-cloud-service-app/node44.png)
+![Een web-wisselbare getiteld mijn takenlijst met een tabel met taken en velden tooadd een nieuwe taak.](./media/storage-nodejs-use-table-storage-cloud-service-app/node44.png)
 
-<span data-ttu-id="7bfed-182">Gebruik het formulier items toevoegen of verwijderen van bestaande items door deze te markeren als voltooid.</span><span class="sxs-lookup"><span data-stu-id="7bfed-182">Use the form to add items, or remove existing items by marking them as completed.</span></span>
+<span data-ttu-id="18848-182">Hallo formulier tooadd items gebruiken of verwijderen van bestaande items door deze te markeren als voltooid.</span><span class="sxs-lookup"><span data-stu-id="18848-182">Use hello form tooadd items, or remove existing items by marking them as completed.</span></span>
 
-## <a name="publishing-the-application-to-azure"></a><span data-ttu-id="7bfed-183">Publiceren van de toepassing in Azure</span><span class="sxs-lookup"><span data-stu-id="7bfed-183">Publishing the Application to Azure</span></span>
-<span data-ttu-id="7bfed-184">Aanroepen in de Windows PowerShell-venster de volgende cmdlet als u wilt uw gehoste service in Azure implementeren.</span><span class="sxs-lookup"><span data-stu-id="7bfed-184">In the Windows PowerShell window, call the following cmdlet to redeploy your hosted service to Azure.</span></span>
+## <a name="publishing-hello-application-tooazure"></a><span data-ttu-id="18848-183">Publishing Hallo toepassing tooAzure</span><span class="sxs-lookup"><span data-stu-id="18848-183">Publishing hello Application tooAzure</span></span>
+<span data-ttu-id="18848-184">Aanroepen in de Windows PowerShell-venster Hallo Hallo cmdlet tooredeploy na uw tooAzure gehoste service.</span><span class="sxs-lookup"><span data-stu-id="18848-184">In hello Windows PowerShell window, call hello following cmdlet tooredeploy your hosted service tooAzure.</span></span>
 
 ```powershell
 PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -location datacentername -launch
 ```
 
-<span data-ttu-id="7bfed-185">Vervang **myuniquename** met een unieke naam voor deze toepassing.</span><span class="sxs-lookup"><span data-stu-id="7bfed-185">Replace **myuniquename** with a unique name for this application.</span></span> <span data-ttu-id="7bfed-186">Vervang **datacentername** met de naam van een Azure-Datacenter, zoals **VS-West**.</span><span class="sxs-lookup"><span data-stu-id="7bfed-186">Replace **datacentername** with the name of an Azure data center, such as **West US**.</span></span>
+<span data-ttu-id="18848-185">Vervang **myuniquename** met een unieke naam voor deze toepassing.</span><span class="sxs-lookup"><span data-stu-id="18848-185">Replace **myuniquename** with a unique name for this application.</span></span> <span data-ttu-id="18848-186">Vervang **datacentername** met Hallo-naam van een Azure-Datacenter, zoals **VS-West**.</span><span class="sxs-lookup"><span data-stu-id="18848-186">Replace **datacentername** with hello name of an Azure data center, such as **West US**.</span></span>
 
-<span data-ttu-id="7bfed-187">Nadat de implementatie voltooid is, ziet u een reactie vergelijkbaar met het volgende:</span><span class="sxs-lookup"><span data-stu-id="7bfed-187">After the deployment is complete, you should see a response similar to the following:</span></span>
+<span data-ttu-id="18848-187">Nadat het Hallo-implementatie is voltooid, ziet u een reactie vergelijkbaar toohello volgende:</span><span class="sxs-lookup"><span data-stu-id="18848-187">After hello deployment is complete, you should see a response similar toohello following:</span></span>
 
 ```
   PS C:\node\tasklist> publish-azureserviceproject -servicename tasklist -location "West US"
-  WARNING: Publishing tasklist to Microsoft Azure. This may take several minutes...
+  WARNING: Publishing tasklist tooMicrosoft Azure. This may take several minutes...
   WARNING: 2:18:42 PM - Preparing runtime deployment for service 'tasklist'
   WARNING: 2:18:42 PM - Verifying storage account 'tasklist'...
   WARNING: 2:18:43 PM - Preparing deployment for tasklist with Subscription ID: 65a1016d-0f67-45d2-b838-b8f373d6d52e...
   WARNING: 2:19:01 PM - Connecting...
-  WARNING: 2:19:02 PM - Uploading Package to storage service larrystore...
+  WARNING: 2:19:02 PM - Uploading Package toostorage service larrystore...
   WARNING: 2:19:40 PM - Upgrading...
   WARNING: 2:22:48 PM - Created Deployment ID: b7134ab29b1249ff84ada2bd157f296a.
   WARNING: 2:22:48 PM - Initializing...
@@ -381,38 +381,38 @@ PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -lo
   WARNING: 2:22:50 PM - Created Website URL: http://tasklist.cloudapp.net/.
 ```
 
-<span data-ttu-id="7bfed-188">Als voorheen omdat u opgegeven de **-starten** optie, de browser wordt geopend en geeft u uw toepassing in Azure wordt uitgevoerd als het publiceren is voltooid.</span><span class="sxs-lookup"><span data-stu-id="7bfed-188">As before, because you specified the **-launch** option, the browser opens and displays your application running in Azure when publishing is completed.</span></span>
+<span data-ttu-id="18848-188">Als voorheen omdat u Hallo opgegeven **-starten** optie Hallo browser wordt geopend en wordt uw toepassing in Azure wordt uitgevoerd als het publiceren is voltooid.</span><span class="sxs-lookup"><span data-stu-id="18848-188">As before, because you specified hello **-launch** option, hello browser opens and displays your application running in Azure when publishing is completed.</span></span>
 
-![Een browservenster met de pagina Mijn takenlijst.](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
+![Een browservenster Hallo mijn takenlijst pagina weergeven.](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
 
-## <a name="stopping-and-deleting-your-application"></a><span data-ttu-id="7bfed-191">Stoppen en verwijderen van uw toepassing</span><span class="sxs-lookup"><span data-stu-id="7bfed-191">Stopping and Deleting Your Application</span></span>
-<span data-ttu-id="7bfed-192">Na implementatie van uw toepassing, wilt u mogelijk uitgeschakeld zodat u kunt kosten voorkomen of bouwen en implementeren van andere toepassingen binnen de periode voor de gratis proefversie.</span><span class="sxs-lookup"><span data-stu-id="7bfed-192">After deploying your application, you may want to disable it so you can avoid costs or build and deploy other applications within the free trial time period.</span></span>
+## <a name="stopping-and-deleting-your-application"></a><span data-ttu-id="18848-191">Stoppen en verwijderen van uw toepassing</span><span class="sxs-lookup"><span data-stu-id="18848-191">Stopping and Deleting Your Application</span></span>
+<span data-ttu-id="18848-192">Na implementatie van uw toepassing, kunt u toodisable zodat u kunt voorkomen kosten of bouwen en implementeren van andere toepassingen binnen Hallo gratis proefabonnement periode.</span><span class="sxs-lookup"><span data-stu-id="18848-192">After deploying your application, you may want toodisable it so you can avoid costs or build and deploy other applications within hello free trial time period.</span></span>
 
-<span data-ttu-id="7bfed-193">Webrolexemplaren in Azure worden per uur van verbruikte servertijd in rekening gebracht.</span><span class="sxs-lookup"><span data-stu-id="7bfed-193">Azure bills web role instances per hour of server time consumed.</span></span>
-<span data-ttu-id="7bfed-194">Er wordt servertijd verbruikt zodra de toepassing is geïmplementeerd, zelfs als de exemplaren niet worden uitgevoerd en de gestopte status hebben.</span><span class="sxs-lookup"><span data-stu-id="7bfed-194">Server time is consumed once your application is deployed, even if the instances are not running and are in the stopped state.</span></span>
+<span data-ttu-id="18848-193">Webrolexemplaren in Azure worden per uur van verbruikte servertijd in rekening gebracht.</span><span class="sxs-lookup"><span data-stu-id="18848-193">Azure bills web role instances per hour of server time consumed.</span></span>
+<span data-ttu-id="18848-194">Er wordt servertijd verbruikt zodra uw toepassing is geïmplementeerd, zelfs als de exemplaren niet worden uitgevoerd en met de status Hallo gestopt.</span><span class="sxs-lookup"><span data-stu-id="18848-194">Server time is consumed once your application is deployed, even if the instances are not running and are in hello stopped state.</span></span>
 
-<span data-ttu-id="7bfed-195">De volgende stappen laten zien hoe om te stoppen en verwijderen van uw toepassing.</span><span class="sxs-lookup"><span data-stu-id="7bfed-195">The following steps show you how to stop and delete your application.</span></span>
+<span data-ttu-id="18848-195">Hallo volgende stappen ziet u hoe toostop en verwijderen van uw toepassing.</span><span class="sxs-lookup"><span data-stu-id="18848-195">hello following steps show you how toostop and delete your application.</span></span>
 
-1. <span data-ttu-id="7bfed-196">In het Windows PowerShell-venster stopt u de service-implementatie die u in de vorige sectie hebt gemaakt, met de volgende cmdlet:</span><span class="sxs-lookup"><span data-stu-id="7bfed-196">In the Windows PowerShell window, stop the service deployment created in the previous section with the following cmdlet:</span></span>
+1. <span data-ttu-id="18848-196">In Hallo Windows PowerShell-venster stopt Hallo service-implementatie gemaakt in de vorige sectie Hallo Hello volgende cmdlet:</span><span class="sxs-lookup"><span data-stu-id="18848-196">In hello Windows PowerShell window, stop hello service deployment created in hello previous section with hello following cmdlet:</span></span>
 
     ```powershell
     PS C:\node\tasklist\WebRole1> Stop-AzureService
     ```
 
-   <span data-ttu-id="7bfed-197">Het kan enkele minuten duren voordat de service is gestopt.</span><span class="sxs-lookup"><span data-stu-id="7bfed-197">Stopping the service may take several minutes.</span></span> <span data-ttu-id="7bfed-198">Als de service is gestopt, krijgt u een bericht waarin dit wordt aangegeven.</span><span class="sxs-lookup"><span data-stu-id="7bfed-198">When the service is stopped, you receive a message indicating that it has stopped.</span></span>
+   <span data-ttu-id="18848-197">Hallo-service wordt gestopt, kan dit enkele minuten duren.</span><span class="sxs-lookup"><span data-stu-id="18848-197">Stopping hello service may take several minutes.</span></span> <span data-ttu-id="18848-198">Wanneer het Hallo-service wordt gestopt, krijgt u een bericht weergegeven dat aangeeft dat deze is gestopt.</span><span class="sxs-lookup"><span data-stu-id="18848-198">When hello service is stopped, you receive a message indicating that it has stopped.</span></span>
 
-2. <span data-ttu-id="7bfed-199">Als u de service wilt verwijderen, roept u de volgende cmdlet aan:</span><span class="sxs-lookup"><span data-stu-id="7bfed-199">To delete the service, call the following cmdlet:</span></span>
+2. <span data-ttu-id="18848-199">toodelete hello service aanroep Hallo volgende cmdlet:</span><span class="sxs-lookup"><span data-stu-id="18848-199">toodelete hello service, call hello following cmdlet:</span></span>
 
     ```powershell
     PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
     ```
 
-   <span data-ttu-id="7bfed-200">Wanneer dit wordt gevraagd, typt u **Y** om de service te verwijderen.</span><span class="sxs-lookup"><span data-stu-id="7bfed-200">When prompted, enter **Y** to delete the service.</span></span>
+   <span data-ttu-id="18848-200">Wanneer u wordt gevraagd, typt u **Y** toodelete Hallo-service.</span><span class="sxs-lookup"><span data-stu-id="18848-200">When prompted, enter **Y** toodelete hello service.</span></span>
 
-   <span data-ttu-id="7bfed-201">Het kan enkele minuten duren voordat de service is verwijderd.</span><span class="sxs-lookup"><span data-stu-id="7bfed-201">Deleting the service may take several minutes.</span></span> <span data-ttu-id="7bfed-202">Als de service is verwijderd, krijgt u een bericht waarin dit wordt aangegeven.</span><span class="sxs-lookup"><span data-stu-id="7bfed-202">After the service has been deleted you receive a message indicating that the service was deleted.</span></span>
+   <span data-ttu-id="18848-201">Verwijderen van Hallo-service kan enkele minuten duren.</span><span class="sxs-lookup"><span data-stu-id="18848-201">Deleting hello service may take several minutes.</span></span> <span data-ttu-id="18848-202">U ontvangt een bericht weergegeven dat aangeeft dat het Hallo-service is verwijderd nadat het Hallo-service is verwijderd.</span><span class="sxs-lookup"><span data-stu-id="18848-202">After hello service has been deleted you receive a message indicating that hello service was deleted.</span></span>
 
-<span data-ttu-id="7bfed-203">[Node.js-webtoepassing met een snelle]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/</span><span class="sxs-lookup"><span data-stu-id="7bfed-203">[Node.js Web Application using Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/</span></span>
-<span data-ttu-id="7bfed-204">[opslaan en toegang tot gegevens in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx</span><span class="sxs-lookup"><span data-stu-id="7bfed-204">[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx</span></span>
-<span data-ttu-id="7bfed-205">[Node.js-webtoepassing]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/</span><span class="sxs-lookup"><span data-stu-id="7bfed-205">[Node.js Web Application]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/</span></span>
+[Node.js-webtoepassing met een snelle]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
+[opslaan en toegang tot gegevens in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Node.js-webtoepassing]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
 
 

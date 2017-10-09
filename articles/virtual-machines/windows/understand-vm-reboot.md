@@ -1,6 +1,6 @@
 ---
-title: Systeem opnieuw is opgestart voor de virtuele machine van Windows Azure kennen | Microsoft Docs
-description: Hier worden de gebeurtenissen die ertoe leiden de virtuele machine van Windows dat kunnen te starten
+title: systeem opnieuw is opgestart voor de virtuele machine van Windows Azure aaaUnderstand | Microsoft Docs
+description: Een lijst met Hallo gebeurtenissen die leiden Hallo Windows VM tooreboot tot kunnen
 services: virtual-machines-windows
 documentationcenter: 
 author: genlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: genli
-ms.openlocfilehash: da8c1bf3d283e7514e1ab13fd31d7d581771ea4f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b37b110e242570adda775da90bb106a1a924191e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="understand-a-system-reboot-for-azure-vm"></a><span data-ttu-id="acf5d-103">Systeem opnieuw is opgestart voor de virtuele machine van Azure kennen</span><span class="sxs-lookup"><span data-stu-id="acf5d-103">Understand a system reboot for Azure VM</span></span>
+# <a name="understand-a-system-reboot-for-azure-vm"></a><span data-ttu-id="5c269-103">Systeem opnieuw is opgestart voor de virtuele machine van Azure kennen</span><span class="sxs-lookup"><span data-stu-id="5c269-103">Understand a system reboot for Azure VM</span></span>
 
 [!INCLUDE [virtual-machines-understand-vm-reboot](../../../includes/virtual-machines-understand-vm-reboot.md)]

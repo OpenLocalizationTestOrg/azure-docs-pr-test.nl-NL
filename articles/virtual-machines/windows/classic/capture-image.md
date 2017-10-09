@@ -1,0 +1,85 @@
+---
+title: een installatiekopie van een Windows Azure VM aaaCapture | Microsoft Docs
+description: Een installatiekopie van een Windows Azure virtuele machine gemaakt met het klassieke implementatiemodel Hallo.
+services: virtual-machines-windows
+documentationcenter: 
+author: cynthn
+manager: timlt
+editor: tysonn
+tags: azure-service-management
+ms.assetid: a5986eac-4cf3-40bd-9b79-7c811806b880
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 05/30/2017
+ms.author: cynthn
+ms.openlocfilehash: b9bbc437012aa44295f90941c9d72e39509df28f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/06/2017
+---
+# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-hello-classic-deployment-model"></a><span data-ttu-id="53153-103">Een installatiekopie van een Windows Azure virtuele machine gemaakt met het klassieke implementatiemodel Hallo.</span><span class="sxs-lookup"><span data-stu-id="53153-103">Capture an image of an Azure Windows virtual machine created with hello classic deployment model.</span></span>
+> [!IMPORTANT]
+> <span data-ttu-id="53153-104">Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="53153-104">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="53153-105">In dit artikel bevat informatie over met behulp van Hallo klassieke implementatiemodel.</span><span class="sxs-lookup"><span data-stu-id="53153-105">This article covers using hello Classic deployment model.</span></span> <span data-ttu-id="53153-106">Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken.</span><span class="sxs-lookup"><span data-stu-id="53153-106">Microsoft recommends that most new deployments use hello Resource Manager model.</span></span> <span data-ttu-id="53153-107">Zie voor informatie over het model van de Resource Manager, [beheerde-installatiekopie van een gegeneraliseerde virtuele machine in Azure](../capture-image-resource.md).</span><span class="sxs-lookup"><span data-stu-id="53153-107">For Resource Manager model information, see [Capture a managed image of a generalized VM in Azure](../capture-image-resource.md).</span></span>
+
+<span data-ttu-id="53153-108">Dit artikel ziet u hoe toocapture Azure een virtuele machine met Windows zodat u deze als een installatiekopie toocreate gebruiken kunt andere virtuele machines.</span><span class="sxs-lookup"><span data-stu-id="53153-108">This article shows you how toocapture an Azure virtual machine running Windows so you can use it as an image toocreate other virtual machines.</span></span> <span data-ttu-id="53153-109">Deze installatiekopie bevat schijf Hallo-besturingssysteem en eventuele gegevensschijven die zijn gekoppeld toohello virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="53153-109">This image includes hello operating system disk and any data disks that are attached toohello virtual machine.</span></span> <span data-ttu-id="53153-110">Het bevat geen netwerkconfiguraties, dus u tooset up netwerkconfiguraties moet wanneer u andere virtuele machines die gebruikmaken van de installatiekopie van het Hallo Hallo maakt.</span><span class="sxs-lookup"><span data-stu-id="53153-110">It doesn't include networking configurations, so you'll need tooset up network configurations when you create hello other virtual machines that use hello image.</span></span>
+
+<span data-ttu-id="53153-111">Azure winkels Hallo afbeelding onder **VM-installatiekopieën (klassiek)**, een **Compute** service die wordt weergegeven wanneer u alle bekijkt hello Azure-services.</span><span class="sxs-lookup"><span data-stu-id="53153-111">Azure stores hello image under **VM images (classic)**, a **Compute** service that is listed when you view all hello Azure services.</span></span> <span data-ttu-id="53153-112">Dit is Hallo dezelfde locatie waar alle installatiekopieën die u hebt geüpload worden opgeslagen.</span><span class="sxs-lookup"><span data-stu-id="53153-112">This is hello same place where any images you've uploaded are stored.</span></span> <span data-ttu-id="53153-113">Zie voor meer informatie over installatiekopieën [over installatiekopieën voor virtuele machines](about-images.md?toc=%2fazure%2fvirtual-machines%2fWindows%2fclassic%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="53153-113">For details about images, see [About images for virtual machines](about-images.md?toc=%2fazure%2fvirtual-machines%2fWindows%2fclassic%2ftoc.json).</span></span>
+
+## <a name="before-you-begin"></a><span data-ttu-id="53153-114">Voordat u begint</span><span class="sxs-lookup"><span data-stu-id="53153-114">Before you begin</span></span>
+<span data-ttu-id="53153-115">Deze stappen wordt ervan uitgegaan dat u hebt al een virtuele machine in Azure gemaakt en geconfigureerd Hallo-besturingssysteem, met inbegrip van eventuele gegevensschijven koppelen.</span><span class="sxs-lookup"><span data-stu-id="53153-115">These steps assume that you've already created an Azure virtual machine and configured hello operating system, including attaching any data disks.</span></span> <span data-ttu-id="53153-116">Als u dit nog niet hebt gedaan, raadpleegt u Hallo volgende artikelen voor meer informatie over het maken en Hallo virtuele machine wordt voorbereid:</span><span class="sxs-lookup"><span data-stu-id="53153-116">If you haven't done this yet, see hello following articles for information on creating and preparing hello virtual machine:</span></span>
+
+* [<span data-ttu-id="53153-117">Een virtuele machine van een installatiekopie maken</span><span class="sxs-lookup"><span data-stu-id="53153-117">Create a virtual machine from an image</span></span>](createportal.md)
+* [<span data-ttu-id="53153-118">Hoe tooattach data schijf tooa virtuele machine</span><span class="sxs-lookup"><span data-stu-id="53153-118">How tooattach a data disk tooa virtual machine</span></span>](attach-disk.md)
+* <span data-ttu-id="53153-119">Zorg ervoor dat het Hallo-serverfuncties worden ondersteund met Sysprep.</span><span class="sxs-lookup"><span data-stu-id="53153-119">Make sure hello server roles are supported with Sysprep.</span></span> <span data-ttu-id="53153-120">Zie voor meer informatie [Sysprep-ondersteuning voor serverrollen](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).</span><span class="sxs-lookup"><span data-stu-id="53153-120">For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).</span></span>
+
+> [!WARNING]
+> <span data-ttu-id="53153-121">Dit proces verwijderd Hallo oorspronkelijke virtuele machine nadat deze vastgelegd.</span><span class="sxs-lookup"><span data-stu-id="53153-121">This process deletes hello original virtual machine after it's captured.</span></span>
+>
+>
+
+<span data-ttu-id="53153-122">Eerdere toocapturing een afbeelding van een virtuele machine van Azure wordt aanbevolen Hallo doel-virtuele machine een back-up.</span><span class="sxs-lookup"><span data-stu-id="53153-122">Prior toocapturing an image of an Azure virtual machine, it is recommended hello target virtual machine be backed up.</span></span> <span data-ttu-id="53153-123">Virtuele machines van Azure kan een back-up maken met Azure Backup.</span><span class="sxs-lookup"><span data-stu-id="53153-123">Azure virtual machines can be backed up using Azure Backup.</span></span> <span data-ttu-id="53153-124">Zie [Back-ups maken van virtuele machines van Azure](../../../backup/backup-azure-vms.md) voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="53153-124">For details, see [Back up Azure virtual machines](../../../backup/backup-azure-vms.md).</span></span> <span data-ttu-id="53153-125">Andere oplossingen zijn beschikbaar van gecertificeerde partners.</span><span class="sxs-lookup"><span data-stu-id="53153-125">Other solutions are available from certified partners.</span></span> <span data-ttu-id="53153-126">toofind informatie over wat er momenteel beschikbaar is, zoek hello Azure Marketplace.</span><span class="sxs-lookup"><span data-stu-id="53153-126">toofind out what’s currently available, search hello Azure Marketplace.</span></span>
+
+## <a name="capture-hello-virtual-machine"></a><span data-ttu-id="53153-127">Hallo-machine vastleggen</span><span class="sxs-lookup"><span data-stu-id="53153-127">Capture hello virtual machine</span></span>
+1. <span data-ttu-id="53153-128">In Hallo [Azure-portal](http://portal.azure.com), **Connect** toohello virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="53153-128">In hello [Azure portal](http://portal.azure.com), **Connect** toohello virtual machine.</span></span> <span data-ttu-id="53153-129">Zie voor instructies [hoe toosign in tooa virtuele machine met Windows Server][How toosign in tooa virtual machine running Windows Server].</span><span class="sxs-lookup"><span data-stu-id="53153-129">For instructions, see [How toosign in tooa virtual machine running Windows Server][How toosign in tooa virtual machine running Windows Server].</span></span>
+2. <span data-ttu-id="53153-130">Open een opdrachtpromptvenster als administrator.</span><span class="sxs-lookup"><span data-stu-id="53153-130">Open a Command Prompt window as an administrator.</span></span>
+3. <span data-ttu-id="53153-131">Hallo directory ook wijzigen`%windir%\system32\sysprep`, en voer vervolgens sysprep.exe.</span><span class="sxs-lookup"><span data-stu-id="53153-131">Change hello directory too`%windir%\system32\sysprep`, and then run sysprep.exe.</span></span>
+4. <span data-ttu-id="53153-132">Hallo **hulpprogramma voor systeemvoorbereiding** dialoogvenster wordt weergegeven.</span><span class="sxs-lookup"><span data-stu-id="53153-132">hello **System Preparation Tool** dialog box appears.</span></span> <span data-ttu-id="53153-133">Hallo te volgen:</span><span class="sxs-lookup"><span data-stu-id="53153-133">Do hello following:</span></span>
+
+   * <span data-ttu-id="53153-134">In **System opschonen actie**, selecteer **System Voer Out-of-Box Experience (OOBE)** en zorg ervoor dat **Generalize** is ingeschakeld.</span><span class="sxs-lookup"><span data-stu-id="53153-134">In **System Cleanup Action**, select **Enter System Out-of-Box Experience (OOBE)** and make sure that **Generalize** is checked.</span></span> <span data-ttu-id="53153-135">Zie voor meer informatie over het gebruik van Sysprep [hoe tooUse Sysprep: An Introduction][How tooUse Sysprep: An Introduction].</span><span class="sxs-lookup"><span data-stu-id="53153-135">For more information about using Sysprep, see [How tooUse Sysprep: An Introduction][How tooUse Sysprep: An Introduction].</span></span>
+   * <span data-ttu-id="53153-136">In **afsluitopties**, selecteer **afsluiten**.</span><span class="sxs-lookup"><span data-stu-id="53153-136">In **Shutdown Options**, select **Shutdown**.</span></span>
+   * <span data-ttu-id="53153-137">Klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="53153-137">Click **OK**.</span></span>
+
+   ![Voer Sysprep uit](./media/capture-image/SysprepGeneral.png)
+5. <span data-ttu-id="53153-139">Sysprep is afgesloten Hallo virtuele machine, waardoor Hallo status van Hallo virtuele machine in hello Azure-portal te wijzigt**gestopt**.</span><span class="sxs-lookup"><span data-stu-id="53153-139">Sysprep shuts down hello virtual machine, which changes hello status of hello virtual machine in hello Azure portal too**Stopped**.</span></span>
+6. <span data-ttu-id="53153-140">Klik in hello Azure-portal, op **virtuele Machines (klassiek)** en selecteer de virtuele machine die u wilt dat toocapture Hallo.</span><span class="sxs-lookup"><span data-stu-id="53153-140">In hello Azure portal, click **Virtual Machines (classic)** and select hello virtual machine you want toocapture.</span></span> <span data-ttu-id="53153-141">Hallo **VM-installatiekopieën (klassiek)** groep wordt vermeld onder **Compute** wanneer u bekijkt **meer services**.</span><span class="sxs-lookup"><span data-stu-id="53153-141">hello **VM images (classic)** group is listed under **Compute** when you view **More services**.</span></span>
+
+7. <span data-ttu-id="53153-142">Klik op de opdrachtbalk Hallo **vastleggen**.</span><span class="sxs-lookup"><span data-stu-id="53153-142">On hello command bar, click **Capture**.</span></span>
+
+   ![Virtuele machine vastleggen](./media/capture-image/CaptureVM.png)
+
+   <span data-ttu-id="53153-144">Hallo **vastleggen Hallo virtuele Machine** dialoogvenster wordt weergegeven.</span><span class="sxs-lookup"><span data-stu-id="53153-144">hello **Capture hello Virtual Machine** dialog box appears.</span></span>
+
+8. <span data-ttu-id="53153-145">In **installatiekopienaam**, typ een naam voor de nieuwe installatiekopie Hallo.</span><span class="sxs-lookup"><span data-stu-id="53153-145">In **Image name**, type a name for hello new image.</span></span> <span data-ttu-id="53153-146">In **installatiekopie label**, typt u een label voor de nieuwe installatiekopie Hallo.</span><span class="sxs-lookup"><span data-stu-id="53153-146">In **Image label**, type a label for hello new image.</span></span>
+
+9. <span data-ttu-id="53153-147">Klik op **ik heb Sysprep uitgevoerd op de virtuele machine van Hallo**.</span><span class="sxs-lookup"><span data-stu-id="53153-147">Click **I've run Sysprep on hello virtual machine**.</span></span> <span data-ttu-id="53153-148">Dit selectievakje verwijst toohello acties met Sysprep in stap 3-5.</span><span class="sxs-lookup"><span data-stu-id="53153-148">This checkbox refers toohello actions with Sysprep in steps 3-5.</span></span> <span data-ttu-id="53153-149">Een installatiekopie van een _moet_ worden gegeneraliseerd met Sysprep voordat u een Windows-Server toevoegen installatiekopie tooyour set aangepaste installatiekopieën.</span><span class="sxs-lookup"><span data-stu-id="53153-149">An image _must_ be generalized by running Sysprep before you add a Windows Server image tooyour set of custom images.</span></span>
+
+10. <span data-ttu-id="53153-150">Zodra Hallo vastleggen is voltooid, de nieuwe installatiekopie Hallo beschikbaar in Hallo **Marketplace**, in Hallo **Compute**, **VM-installatiekopieën (klassiek)** container.</span><span class="sxs-lookup"><span data-stu-id="53153-150">Once hello capture completes, hello new image becomes available in hello **Marketplace**, in hello **Compute**, **VM images (classic)** container.</span></span>
+
+    ![De installatiekopie is geslaagd](./media/capture-image/VMCapturedImageAvailable.png)
+
+## <a name="next-steps"></a><span data-ttu-id="53153-152">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="53153-152">Next steps</span></span>
+<span data-ttu-id="53153-153">Hallo-installatiekopie is gereed toobe gebruikt toocreate virtuele machines.</span><span class="sxs-lookup"><span data-stu-id="53153-153">hello image is ready toobe used toocreate virtual machines.</span></span> <span data-ttu-id="53153-154">toodo dit, maakt u een virtuele machine door het selecteren van Hallo **meer services** menuopdracht Hallo Hallo services menu, klikt u vervolgens onder aan **VM-installatiekopieën (klassiek)** in Hallo **Compute**groep.</span><span class="sxs-lookup"><span data-stu-id="53153-154">toodo this, you'll create a virtual machine by selecting hello **More services** menu item at hello bottom of hello services menu, then **VM images (classic)** in hello **Compute** group.</span></span> <span data-ttu-id="53153-155">Zie voor instructies [een virtuele machine maken van een installatiekopie van een](createportal.md).</span><span class="sxs-lookup"><span data-stu-id="53153-155">For instructions, see [Create a virtual machine from an image](createportal.md).</span></span>
+
+[How toosign in tooa virtual machine running Windows Server]:connect-logon.md
+[How tooUse Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx
+[Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
+[Enter Sysprep.exe options]: ./media/capture-image/SysprepGeneral.png
+[hello virtual machine is stopped]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
+[Capture an image of hello virtual machine]: ./media/capture-image/CaptureVM.png
+[Enter hello image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
+[Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
+[Use hello captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png

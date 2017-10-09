@@ -1,0 +1,11 @@
+<span data-ttu-id="2f062-101">Hallo Mobile Apps-functie van Azure App Service gebruikt [Azure Notification Hubs] toosend pushes, zodat u een notification hub voor uw mobiele app configureren.</span><span class="sxs-lookup"><span data-stu-id="2f062-101">hello Mobile Apps feature of Azure App Service uses [Azure Notification Hubs] toosend pushes, so you will be configuring a notification hub for your mobile app.</span></span>
+
+1. <span data-ttu-id="2f062-102">In Hallo [Azure-portal], gaat u te**App Services**, en klik vervolgens op de back-end van uw app.</span><span class="sxs-lookup"><span data-stu-id="2f062-102">In hello [Azure portal], go too**App Services**, and then click your app back end.</span></span> <span data-ttu-id="2f062-103">Onder **instellingen**, klikt u op **Push**.</span><span class="sxs-lookup"><span data-stu-id="2f062-103">Under **Settings**, click **Push**.</span></span>
+2. <span data-ttu-id="2f062-104">Klik op **Connect** tooadd een notification hub resource toohello app.</span><span class="sxs-lookup"><span data-stu-id="2f062-104">Click **Connect** tooadd a notification hub resource toohello app.</span></span> <span data-ttu-id="2f062-105">U kunt een hub maken of tooan een bestaande verbinding.</span><span class="sxs-lookup"><span data-stu-id="2f062-105">You can either create a hub or connect tooan existing one.</span></span>
+
+    ![](./media/app-service-mobile-create-notification-hub/configure-hub-flow.png)
+
+<span data-ttu-id="2f062-106">U hebt nu een notification hub tooyour Mobile Apps back-end-project gekoppeld.</span><span class="sxs-lookup"><span data-stu-id="2f062-106">Now you have connected a notification hub tooyour Mobile Apps back-end project.</span></span> <span data-ttu-id="2f062-107">U kunt deze notification hub tooconnect tooa platform notification system (PNS) toopush toodevices later wilt configureren.</span><span class="sxs-lookup"><span data-stu-id="2f062-107">Later you will configure this notification hub tooconnect tooa platform notification system (PNS) toopush toodevices.</span></span>
+
+[Azure-portal]: https://portal.azure.com/
+[Azure Notification Hubs]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/

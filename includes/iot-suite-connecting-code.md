@@ -1,24 +1,24 @@
-## <a name="specify-the-behavior-of-the-iot-device"></a><span data-ttu-id="0c063-101">Het gedrag van het IoT-apparaat opgeven</span><span class="sxs-lookup"><span data-stu-id="0c063-101">Specify the behavior of the IoT device</span></span>
+## <a name="specify-hello-behavior-of-hello-iot-device"></a><span data-ttu-id="fbede-101">Geef gedrag op Hallo van Hallo IoT-apparaat</span><span class="sxs-lookup"><span data-stu-id="fbede-101">Specify hello behavior of hello IoT device</span></span>
 
-<span data-ttu-id="0c063-102">De clientbibliotheek van de IoT Hub-serialisatiefunctie maakt gebruik van een model om de opmaak op te geven van de berichten die het apparaat uitwisselt met IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="0c063-102">The IoT Hub serializer client library uses a model to specify the format of the messages the device exchanges with IoT Hub.</span></span>
+<span data-ttu-id="fbede-102">Hallo clientbibliotheek van IoT Hub serialisatiefunctie gebruikt een model toospecify Hallo Hallo berichten Hallo apparaat uitwisselingen met IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="fbede-102">hello IoT Hub serializer client library uses a model toospecify hello format of hello messages hello device exchanges with IoT Hub.</span></span>
 
-1. <span data-ttu-id="0c063-103">Voeg de volgende variabelendeclaraties achter de `#include`-instructies toe.</span><span class="sxs-lookup"><span data-stu-id="0c063-103">Add the following variable declarations after the `#include` statements.</span></span> <span data-ttu-id="0c063-104">Vervang de waarden van de tijdelijke aanduidingen [apparaat-id] en [apparaatsleutel] door de waarden die u voor het apparaat hebt genoteerd in het dashboard van de oplossing voor externe controle.</span><span class="sxs-lookup"><span data-stu-id="0c063-104">Replace the placeholder values [Device Id] and [Device Key] with values you noted for your device in the remote monitoring solution dashboard.</span></span> <span data-ttu-id="0c063-105">Gebruik de hostnaam van de IoT Hub uit het oplossingsdashboard om [IoTHub-naam] te vervangen.</span><span class="sxs-lookup"><span data-stu-id="0c063-105">Use the IoT Hub Hostname from the solution dashboard to replace [IoTHub Name].</span></span> <span data-ttu-id="0c063-106">Als uw IoT Hub-hostnaam bijvoorbeeld **contoso.azure devices.net** is, vervangt u [IoTHub-naam] door **contoso**:</span><span class="sxs-lookup"><span data-stu-id="0c063-106">For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:</span></span>
+1. <span data-ttu-id="fbede-103">Hallo variabelendeclaraties volgen na Hallo toevoegen `#include` instructies.</span><span class="sxs-lookup"><span data-stu-id="fbede-103">Add hello following variable declarations after hello `#include` statements.</span></span> <span data-ttu-id="fbede-104">Vervang de waarden van de tijdelijke aanduiding Hallo [apparaat-Id] en [apparaatsleutel] met waarden die u voor uw apparaat in Hallo dashboard externe controle oplossing hebt genoteerd.</span><span class="sxs-lookup"><span data-stu-id="fbede-104">Replace hello placeholder values [Device Id] and [Device Key] with values you noted for your device in hello remote monitoring solution dashboard.</span></span> <span data-ttu-id="fbede-105">Hallo IoT Hub-hostnaam van Hallo oplossing dashboard tooreplace [IoTHub Name] gebruiken.</span><span class="sxs-lookup"><span data-stu-id="fbede-105">Use hello IoT Hub Hostname from hello solution dashboard tooreplace [IoTHub Name].</span></span> <span data-ttu-id="fbede-106">Als uw IoT Hub-hostnaam bijvoorbeeld **contoso.azure devices.net** is, vervangt u [IoTHub-naam] door **contoso**:</span><span class="sxs-lookup"><span data-stu-id="fbede-106">For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:</span></span>
    
     ```c
     static const char* deviceId = "[Device Id]";
     static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
     ```
 
-1. <span data-ttu-id="0c063-107">Voeg de volgende code toe om het model te definiëren dat het apparaat in staat stelt om met IoT Hub te communiceren.</span><span class="sxs-lookup"><span data-stu-id="0c063-107">Add the following code to define the model that enables the device to communicate with IoT Hub.</span></span> <span data-ttu-id="0c063-108">Dit model bepaalt dat het apparaat:</span><span class="sxs-lookup"><span data-stu-id="0c063-108">This model specifies that the device:</span></span>
+1. <span data-ttu-id="fbede-107">Voeg Hallo code toodefine Hallo model waarmee Hallo apparaat toocommunicate met IoT Hub te volgen.</span><span class="sxs-lookup"><span data-stu-id="fbede-107">Add hello following code toodefine hello model that enables hello device toocommunicate with IoT Hub.</span></span> <span data-ttu-id="fbede-108">Dit model geeft aan dat het Hallo-apparaat:</span><span class="sxs-lookup"><span data-stu-id="fbede-108">This model specifies that hello device:</span></span>
 
-   - <span data-ttu-id="0c063-109">Temperatuur, externe temperatuur, vochtigheid en een apparaat-id als telemetrie kan verzenden.</span><span class="sxs-lookup"><span data-stu-id="0c063-109">Can send temperature, external temperature, humidity, and a device id as telemetry.</span></span>
-   - <span data-ttu-id="0c063-110">Metagegevens over het apparaat naar IoT Hub kan verzenden.</span><span class="sxs-lookup"><span data-stu-id="0c063-110">Can send metadata about the device to IoT Hub.</span></span> <span data-ttu-id="0c063-111">Het apparaat verzendt bij het opstarten basismetagegevens in een **DeviceInfo**-object.</span><span class="sxs-lookup"><span data-stu-id="0c063-111">The device sends basic metadata in a **DeviceInfo** object at startup.</span></span>
-   - <span data-ttu-id="0c063-112">Gerapporteerde eigenschappen naar de apparaatdubbel in IoT Hub kan verzenden.</span><span class="sxs-lookup"><span data-stu-id="0c063-112">Can send reported properties, to the device twin in IoT Hub.</span></span> <span data-ttu-id="0c063-113">Deze gerapporteerde eigenschappen zijn gegroepeerd in configuratie-, apparaat- en systeemeigenschappen.</span><span class="sxs-lookup"><span data-stu-id="0c063-113">These reported properties are grouped into configuration, device, and system properties.</span></span>
-   - <span data-ttu-id="0c063-114">Gewenste eigenschappen die in de apparaatdubbel in IoT Hub zijn ingesteld, kan ontvangen en hierop kan reageren.</span><span class="sxs-lookup"><span data-stu-id="0c063-114">Can receive and act on desired properties set in the device twin in IoT Hub.</span></span>
-   - <span data-ttu-id="0c063-115">Kan reageren op de directe methoden **Reboot** en **InitiateFirmwareUpdate** die via de oplossingsportal worden aangeroepen.</span><span class="sxs-lookup"><span data-stu-id="0c063-115">Can respond to the **Reboot** and **InitiateFirmwareUpdate** direct methods invoked through the solution portal.</span></span> <span data-ttu-id="0c063-116">Met behulp van gerapporteerde eigenschappen stuurt het apparaat informatie over de ondersteunde directe methoden.</span><span class="sxs-lookup"><span data-stu-id="0c063-116">The device sends information about the direct methods it supports using reported properties.</span></span>
+   - <span data-ttu-id="fbede-109">Temperatuur, externe temperatuur, vochtigheid en een apparaat-id als telemetrie kan verzenden.</span><span class="sxs-lookup"><span data-stu-id="fbede-109">Can send temperature, external temperature, humidity, and a device id as telemetry.</span></span>
+   - <span data-ttu-id="fbede-110">Kan metagegevens over Hallo apparaat tooIoT Hub verzenden.</span><span class="sxs-lookup"><span data-stu-id="fbede-110">Can send metadata about hello device tooIoT Hub.</span></span> <span data-ttu-id="fbede-111">Hallo apparaat verzendt basismetagegevens een **DeviceInfo** object tijdens het opstarten.</span><span class="sxs-lookup"><span data-stu-id="fbede-111">hello device sends basic metadata in a **DeviceInfo** object at startup.</span></span>
+   - <span data-ttu-id="fbede-112">Kan verzenden gemelde eigenschappen toohello apparaat twin in IoT-Hub.</span><span class="sxs-lookup"><span data-stu-id="fbede-112">Can send reported properties, toohello device twin in IoT Hub.</span></span> <span data-ttu-id="fbede-113">Deze gerapporteerde eigenschappen zijn gegroepeerd in configuratie-, apparaat- en systeemeigenschappen.</span><span class="sxs-lookup"><span data-stu-id="fbede-113">These reported properties are grouped into configuration, device, and system properties.</span></span>
+   - <span data-ttu-id="fbede-114">Kan ontvangen van en reageren op de gewenste eigenschappen instellen in Hallo apparaat twin in IoT-Hub.</span><span class="sxs-lookup"><span data-stu-id="fbede-114">Can receive and act on desired properties set in hello device twin in IoT Hub.</span></span>
+   - <span data-ttu-id="fbede-115">Kan reageren toohello **opnieuw opstarten** en **InitiateFirmwareUpdate** methoden aangeroepen via de portal van de oplossing Hallo direct.</span><span class="sxs-lookup"><span data-stu-id="fbede-115">Can respond toohello **Reboot** and **InitiateFirmwareUpdate** direct methods invoked through hello solution portal.</span></span> <span data-ttu-id="fbede-116">Hallo apparaat verzendt informatie over Hallo rechtstreekse methoden ondersteunt met behulp van gerapporteerde eigenschappen.</span><span class="sxs-lookup"><span data-stu-id="fbede-116">hello device sends information about hello direct methods it supports using reported properties.</span></span>
    
     ```c
-    // Define the Model
+    // Define hello Model
     BEGIN_NAMESPACE(Contoso);
 
     /* Reported properties */
@@ -74,7 +74,7 @@
       WITH_DESIRED_PROPERTY(double, TemperatureMeanValue, onDesiredTemperatureMeanValue),
       WITH_DESIRED_PROPERTY(uint8_t, TelemetryInterval, onDesiredTelemetryInterval),
 
-      /* Direct methods implemented by the device */
+      /* Direct methods implemented by hello device */
       WITH_METHOD(Reboot),
       WITH_METHOD(InitiateFirmwareUpdate, ascii_char_ptr, FwPackageURI),
 
@@ -85,15 +85,15 @@
     END_NAMESPACE(Contoso);
     ```
 
-## <a name="implement-the-behavior-of-the-device"></a><span data-ttu-id="0c063-117">Het gedrag van het apparaat implementeren</span><span class="sxs-lookup"><span data-stu-id="0c063-117">Implement the behavior of the device</span></span>
-<span data-ttu-id="0c063-118">Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd.</span><span class="sxs-lookup"><span data-stu-id="0c063-118">Now add code that implements the behavior defined in the model.</span></span>
+## <a name="implement-hello-behavior-of-hello-device"></a><span data-ttu-id="fbede-117">Hallo-gedrag van Hallo-apparaat implementeren</span><span class="sxs-lookup"><span data-stu-id="fbede-117">Implement hello behavior of hello device</span></span>
+<span data-ttu-id="fbede-118">Voeg nu code Hallo gedrag in Hallo model gedefinieerd implementeert.</span><span class="sxs-lookup"><span data-stu-id="fbede-118">Now add code that implements hello behavior defined in hello model.</span></span>
 
-1. <span data-ttu-id="0c063-119">Voeg de volgende functies toe die de gewenste eigenschappen verwerken die in het oplossingsdashboard zijn ingesteld.</span><span class="sxs-lookup"><span data-stu-id="0c063-119">Add the following functions that handle the desired properties set in the solution dashboard.</span></span> <span data-ttu-id="0c063-120">De volgende gewenste eigenschappen zijn in het model gedefinieerd:</span><span class="sxs-lookup"><span data-stu-id="0c063-120">These desired properties are defined in the model:</span></span>
+1. <span data-ttu-id="fbede-119">Hallo functies dat gewenst Hallo-eigenschappen instellen in het dashboard van de oplossing Hallo verwerken na toevoegen.</span><span class="sxs-lookup"><span data-stu-id="fbede-119">Add hello following functions that handle hello desired properties set in hello solution dashboard.</span></span> <span data-ttu-id="fbede-120">Deze gewenste eigenschappen zijn gedefinieerd in Hallo model:</span><span class="sxs-lookup"><span data-stu-id="fbede-120">These desired properties are defined in hello model:</span></span>
 
     ```c
     void onDesiredTemperatureMeanValue(void* argument)
     {
-      /* By convention 'argument' is of the type of the MODEL */
+      /* By convention 'argument' is of hello type of hello MODEL */
       Thermostat* thermostat = argument;
       printf("Received a new desired_TemperatureMeanValue = %f\r\n", thermostat->TemperatureMeanValue);
 
@@ -101,13 +101,13 @@
 
     void onDesiredTelemetryInterval(void* argument)
     {
-      /* By convention 'argument' is of the type of the MODEL */
+      /* By convention 'argument' is of hello type of hello MODEL */
       Thermostat* thermostat = argument;
       printf("Received a new desired_TelemetryInterval = %d\r\n", thermostat->TelemetryInterval);
     }
     ```
 
-1. <span data-ttu-id="0c063-121">Voeg de volgende functies toe die de directe methoden verwerken die via de IoT Hub worden aangeroepen.</span><span class="sxs-lookup"><span data-stu-id="0c063-121">Add the following functions that handle the direct methods invoked through the IoT hub.</span></span> <span data-ttu-id="0c063-122">De volgende directe methoden zijn in het model gedefinieerd:</span><span class="sxs-lookup"><span data-stu-id="0c063-122">These direct methods are defined in the model:</span></span>
+1. <span data-ttu-id="fbede-121">Hallo functies waarmee Hallo rechtstreekse methoden aangeroepen via Hallo iothub worden verwerkt na toevoegen.</span><span class="sxs-lookup"><span data-stu-id="fbede-121">Add hello following functions that handle hello direct methods invoked through hello IoT hub.</span></span> <span data-ttu-id="fbede-122">Deze rechtstreekse methoden zijn gedefinieerd in Hallo model:</span><span class="sxs-lookup"><span data-stu-id="fbede-122">These direct methods are defined in hello model:</span></span>
 
     ```c
     /* Handlers for direct methods */
@@ -130,26 +130,26 @@
     }
     ```
 
-1. <span data-ttu-id="0c063-123">Voeg de volgende functie toe die een bericht naar de vooraf geconfigureerde oplossing verzendt:</span><span class="sxs-lookup"><span data-stu-id="0c063-123">Add the following function that sends a message to the preconfigured solution:</span></span>
+1. <span data-ttu-id="fbede-123">Hallo volgen functie die u een bericht toohello vooraf geconfigureerde oplossing verzendt toevoegen:</span><span class="sxs-lookup"><span data-stu-id="fbede-123">Add hello following function that sends a message toohello preconfigured solution:</span></span>
    
     ```c
-    /* Send data to IoT Hub */
+    /* Send data tooIoT Hub */
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
     {
       IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromByteArray(buffer, size);
       if (messageHandle == NULL)
       {
-        printf("unable to create a new IoTHubMessage\r\n");
+        printf("unable toocreate a new IoTHubMessage\r\n");
       }
       else
       {
         if (IoTHubClient_SendEventAsync(iotHubClientHandle, messageHandle, NULL, NULL) != IOTHUB_CLIENT_OK)
         {
-          printf("failed to hand over the message to IoTHubClient");
+          printf("failed toohand over hello message tooIoTHubClient");
         }
         else
         {
-          printf("IoTHubClient accepted the message for delivery\r\n");
+          printf("IoTHubClient accepted hello message for delivery\r\n");
         }
 
         IoTHubMessage_Destroy(messageHandle);
@@ -158,7 +158,7 @@
     }
     ```
 
-1. <span data-ttu-id="0c063-124">Voeg de volgende callbackhandler toe die wordt uitgevoerd wanneer het apparaat nieuwe gerapporteerde eigenschapswaarden naar de vooraf geconfigureerde oplossing heeft verzonden:</span><span class="sxs-lookup"><span data-stu-id="0c063-124">Add the following callback handler that runs when the device has sent new reported property values to the preconfigured solution:</span></span>
+1. <span data-ttu-id="fbede-124">Voeg Hallo retouraanroep-handler die wordt uitgevoerd wanneer het Hallo-apparaat heeft verzonden nieuwe gemelde eigenschapswaarden toohello vooraf geconfigureerde oplossing te volgen:</span><span class="sxs-lookup"><span data-stu-id="fbede-124">Add hello following callback handler that runs when hello device has sent new reported property values toohello preconfigured solution:</span></span>
 
     ```c
     /* Callback after sending reported properties */
@@ -169,29 +169,29 @@
     }
     ```
 
-1. <span data-ttu-id="0c063-125">Voeg de volgende functie toe om het apparaat te verbinden met de vooraf geconfigureerde oplossing in de cloud, en gegevens uit te wisselen.</span><span class="sxs-lookup"><span data-stu-id="0c063-125">Add the following function to connect your device to the preconfigured solution in the cloud, and exchange data.</span></span> <span data-ttu-id="0c063-126">Deze functie voert de volgende stappen uit:</span><span class="sxs-lookup"><span data-stu-id="0c063-126">This function performs the following steps:</span></span>
+1. <span data-ttu-id="fbede-125">Hallo volgende tooconnect werken uw apparaat toohello vooraf geconfigureerde oplossing in de cloud Hallo en uitwisselen van gegevens toevoegen.</span><span class="sxs-lookup"><span data-stu-id="fbede-125">Add hello following function tooconnect your device toohello preconfigured solution in hello cloud, and exchange data.</span></span> <span data-ttu-id="fbede-126">Deze functie voert Hallo stappen te volgen:</span><span class="sxs-lookup"><span data-stu-id="fbede-126">This function performs hello following steps:</span></span>
 
-    - <span data-ttu-id="0c063-127">Initialiseert het platform.</span><span class="sxs-lookup"><span data-stu-id="0c063-127">Initializes the platform.</span></span>
-    - <span data-ttu-id="0c063-128">Registreert de Contoso-naamruimte bij de serialisatiebibliotheek.</span><span class="sxs-lookup"><span data-stu-id="0c063-128">Registers the Contoso namespace with the serialization library.</span></span>
-    - <span data-ttu-id="0c063-129">Initialiseert de client met de verbindingsreeks van het apparaat.</span><span class="sxs-lookup"><span data-stu-id="0c063-129">Initializes the client with the device connection string.</span></span>
-    - <span data-ttu-id="0c063-130">Maakt een exemplaar van het **thermostaat**model.</span><span class="sxs-lookup"><span data-stu-id="0c063-130">Create an instance of the **Thermostat** model.</span></span>
-    - <span data-ttu-id="0c063-131">Maakt en verzendt gerapporteerde eigenschapswaarden.</span><span class="sxs-lookup"><span data-stu-id="0c063-131">Creates and sends reported property values.</span></span>
-    - <span data-ttu-id="0c063-132">Verzendt een **DeviceInfo**-object.</span><span class="sxs-lookup"><span data-stu-id="0c063-132">Sends a **DeviceInfo** object.</span></span>
-    - <span data-ttu-id="0c063-133">Maakt een lus om elke seconde telemetrie te verzenden.</span><span class="sxs-lookup"><span data-stu-id="0c063-133">Creates a loop to send telemetry every second.</span></span>
-    - <span data-ttu-id="0c063-134">Deïnitialiseert alle resources.</span><span class="sxs-lookup"><span data-stu-id="0c063-134">Deinitializes all resources.</span></span>
+    - <span data-ttu-id="fbede-127">Initialiseert Hallo-platform.</span><span class="sxs-lookup"><span data-stu-id="fbede-127">Initializes hello platform.</span></span>
+    - <span data-ttu-id="fbede-128">Registreert Hallo Contoso naamruimte met Hallo serialisatie-bibliotheek.</span><span class="sxs-lookup"><span data-stu-id="fbede-128">Registers hello Contoso namespace with hello serialization library.</span></span>
+    - <span data-ttu-id="fbede-129">Initialiseert Hallo-client met verbindingsreeks Hallo-apparaat.</span><span class="sxs-lookup"><span data-stu-id="fbede-129">Initializes hello client with hello device connection string.</span></span>
+    - <span data-ttu-id="fbede-130">Maak een instantie van Hallo **thermostaat** model.</span><span class="sxs-lookup"><span data-stu-id="fbede-130">Create an instance of hello **Thermostat** model.</span></span>
+    - <span data-ttu-id="fbede-131">Maakt en verzendt gerapporteerde eigenschapswaarden.</span><span class="sxs-lookup"><span data-stu-id="fbede-131">Creates and sends reported property values.</span></span>
+    - <span data-ttu-id="fbede-132">Verzendt een **DeviceInfo**-object.</span><span class="sxs-lookup"><span data-stu-id="fbede-132">Sends a **DeviceInfo** object.</span></span>
+    - <span data-ttu-id="fbede-133">Maakt een lus toosend telemetrie per seconde.</span><span class="sxs-lookup"><span data-stu-id="fbede-133">Creates a loop toosend telemetry every second.</span></span>
+    - <span data-ttu-id="fbede-134">Deïnitialiseert alle resources.</span><span class="sxs-lookup"><span data-stu-id="fbede-134">Deinitializes all resources.</span></span>
 
       ```c
       void remote_monitoring_run(void)
       {
         if (platform_init() != 0)
         {
-          printf("Failed to initialize the platform.\n");
+          printf("Failed tooinitialize hello platform.\n");
         }
         else
         {
           if (SERIALIZER_REGISTER_NAMESPACE(Contoso) == NULL)
           {
-            printf("Unable to SERIALIZER_REGISTER_NAMESPACE\n");
+            printf("Unable tooSERIALIZER_REGISTER_NAMESPACE\n");
           }
           else
           {
@@ -203,10 +203,10 @@
             else
             {
       #ifdef MBED_BUILD_TIMESTAMP
-              // For mbed add the certificate information
+              // For mbed add hello certificate information
               if (IoTHubClient_SetOption(iotHubClientHandle, "TrustedCerts", certificates) != IOTHUB_CLIENT_OK)
               {
-                  printf("Failed to set option \"TrustedCerts\"\n");
+                  printf("Failed tooset option \"TrustedCerts\"\n");
               }
       #endif // MBED_BUILD_TIMESTAMP
               Thermostat* thermostat = IoTHubDeviceTwin_CreateThermostat(iotHubClientHandle);
@@ -229,17 +229,17 @@
                 thermostat->System.Platform = "Plat 9.75";
                 thermostat->System.Processor = "i3-7";
                 thermostat->System.SerialNumber = "SER21";
-                /* Specify the signatures of the supported direct methods */
-                thermostat->SupportedMethods = "{\"Reboot\": \"Reboot the device\", \"InitiateFirmwareUpdate--FwPackageURI-string\": \"Updates device Firmware. Use parameter FwPackageURI to specifiy the URI of the firmware file\"}";
+                /* Specify hello signatures of hello supported direct methods */
+                thermostat->SupportedMethods = "{\"Reboot\": \"Reboot hello device\", \"InitiateFirmwareUpdate--FwPackageURI-string\": \"Updates device Firmware. Use parameter FwPackageURI toospecifiy hello URI of hello firmware file\"}";
 
-                /* Send reported properties to IoT Hub */
+                /* Send reported properties tooIoT Hub */
                 if (IoTHubDeviceTwin_SendReportedStateThermostat(thermostat, deviceTwinCallback, NULL) != IOTHUB_CLIENT_OK)
                 {
                   printf("Failed sending serialized reported state\n");
                 }
                 else
                 {
-                  printf("Send DeviceInfo object to IoT Hub at startup\n");
+                  printf("Send DeviceInfo object tooIoT Hub at startup\n");
       
                   thermostat->ObjectType = "DeviceInfo";
                   thermostat->IsSimulatedDevice = 0;
@@ -296,7 +296,7 @@
       }
     ```
    
-    <span data-ttu-id="0c063-135">Ter referentie volgt hier een voorbeeld van een **telemetrie**bericht dat naar de vooraf geconfigureerde oplossing is verzonden:</span><span class="sxs-lookup"><span data-stu-id="0c063-135">For reference, here is a sample **Telemetry** message sent to the preconfigured solution:</span></span>
+    <span data-ttu-id="fbede-135">Ter referentie: Hier volgt een voorbeeld **telemetrie** verzonden bericht toohello vooraf geconfigureerde oplossing:</span><span class="sxs-lookup"><span data-stu-id="fbede-135">For reference, here is a sample **Telemetry** message sent toohello preconfigured solution:</span></span>
    
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}

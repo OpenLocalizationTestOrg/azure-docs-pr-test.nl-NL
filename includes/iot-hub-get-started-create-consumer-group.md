@@ -1,0 +1,10 @@
+## <a name="add-a-consumer-group-tooyour-iot-hub"></a><span data-ttu-id="a849a-101">Toevoegen van een consumer groep tooyour IoT-hub</span><span class="sxs-lookup"><span data-stu-id="a849a-101">Add a consumer group tooyour IoT hub</span></span>
+
+<span data-ttu-id="a849a-102">Consumentengroepen worden gebruikt door toepassingen toopull gegevens van Azure IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="a849a-102">Consumer groups are used by applications toopull data from Azure IoT Hub.</span></span> <span data-ttu-id="a849a-103">In deze zelfstudie maakt u een consumer groep toobe gebruikt door een komende Azure service tooread gegevens uit uw IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="a849a-103">In this tutorial, you create a consumer group toobe used by a coming Azure service tooread data from your IoT hub.</span></span>
+
+<span data-ttu-id="a849a-104">tooadd een consumer groep tooyour IoT-hub als volgt te werk:</span><span class="sxs-lookup"><span data-stu-id="a849a-104">tooadd a consumer group tooyour IoT hub, follow these steps:</span></span>
+
+1. <span data-ttu-id="a849a-105">In Hallo [Azure-portal](https://ms.portal.azure.com/), opent u uw IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="a849a-105">In hello [Azure portal](https://ms.portal.azure.com/), open your IoT hub.</span></span>
+2. <span data-ttu-id="a849a-106">Klik in het linkerdeelvenster Hallo **eindpunten**, selecteer **gebeurtenissen** op Hallo middelste deelvenster, voer een naam onder **consumergroepen** op Hallo rechter deelvenster en klik vervolgens op  **Sla**.</span><span class="sxs-lookup"><span data-stu-id="a849a-106">In hello left pane, click **Endpoints**, select **Events** on hello middle pane, enter a name under **Consumer groups** on hello right pane, and then click **Save**.</span></span>
+
+   ![Een consumergroep in uw IoT-hub maken](../articles/iot-hub/media/iot-hub-create-consumer-group/1_iot-hub-create-consumer-group-azure.png)

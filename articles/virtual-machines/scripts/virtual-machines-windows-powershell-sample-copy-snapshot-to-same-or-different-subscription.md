@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-Script voorbeeld - exemplaar (verplaatsen)-momentopname van een beheerde schijf naar hetzelfde of een ander abonnement | Microsoft Docs
-description: Azure PowerShell-Script voorbeeld - exemplaar (verplaatsen)-momentopname van een beheerde schijf naar hetzelfde of een ander abonnement
+title: "aaaAzure PowerShell-voorbeeldscript - momentopname van een beheerde schijf toosame of een ander abonnement kopiëren (verplaatsen) | Microsoft Docs"
+description: Azure PowerShell-Script voorbeeld - exemplaar (verplaatsen)-momentopname van een beheerde schijf toosame of een ander abonnement
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -15,39 +15,39 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: f7b4869669a2c5e840f9bd384dcd6d6096ba58e2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d7b8a71cc09d1950271f472e89b95bb551323be5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a><span data-ttu-id="93ad7-103">Momentopname van een beheerde schijf kopiëren in hetzelfde abonnement of een ander abonnement met PowerShell</span><span class="sxs-lookup"><span data-stu-id="93ad7-103">Copy snapshot of a managed disk in same subscription or different subscription with PowerShell</span></span>
+# <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a><span data-ttu-id="9b2c5-103">Momentopname van een beheerde schijf kopiëren in hetzelfde abonnement of een ander abonnement met PowerShell</span><span class="sxs-lookup"><span data-stu-id="9b2c5-103">Copy snapshot of a managed disk in same subscription or different subscription with PowerShell</span></span>
 
-<span data-ttu-id="93ad7-104">Dit script maakt een kopie van een momentopname in de dezelfde hetzelfde abonnement of een ander abonnement.</span><span class="sxs-lookup"><span data-stu-id="93ad7-104">This script creates a copy of a snapshot in the same same subscription or different subscription.</span></span> <span data-ttu-id="93ad7-105">Dit script gebruiken voor het verplaatsen van een momentopname naar ander abonnement voor het bewaren van gegevens.</span><span class="sxs-lookup"><span data-stu-id="93ad7-105">Use this script to move a snapshot to different subscription for data retention.</span></span> <span data-ttu-id="93ad7-106">Opslag-momentopnamen in een ander abonnement bescherming tegen onopzettelijk verwijderen van momentopnamen in uw belangrijkste abonnement.</span><span class="sxs-lookup"><span data-stu-id="93ad7-106">Storing snapshots in different subscription protect you from accidental deletion of snapshots in your main subscription.</span></span> 
+<span data-ttu-id="9b2c5-104">Dit script maakt een kopie van een momentopname in Hallo dezelfde hetzelfde abonnement of een ander abonnement.</span><span class="sxs-lookup"><span data-stu-id="9b2c5-104">This script creates a copy of a snapshot in hello same same subscription or different subscription.</span></span> <span data-ttu-id="9b2c5-105">Gebruik dit script toomove een momentopname toodifferent abonnement voor bewaren van gegevens.</span><span class="sxs-lookup"><span data-stu-id="9b2c5-105">Use this script toomove a snapshot toodifferent subscription for data retention.</span></span> <span data-ttu-id="9b2c5-106">Opslag-momentopnamen in een ander abonnement bescherming tegen onopzettelijk verwijderen van momentopnamen in uw belangrijkste abonnement.</span><span class="sxs-lookup"><span data-stu-id="9b2c5-106">Storing snapshots in different subscription protect you from accidental deletion of snapshots in your main subscription.</span></span> 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a><span data-ttu-id="93ad7-107">Voorbeeld van een script</span><span class="sxs-lookup"><span data-stu-id="93ad7-107">Sample script</span></span>
+## <a name="sample-script"></a><span data-ttu-id="9b2c5-107">Voorbeeld van een script</span><span class="sxs-lookup"><span data-stu-id="9b2c5-107">Sample script</span></span>
 
-<span data-ttu-id="93ad7-108">[!code-powershell[belangrijkste](../../../powershell_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.ps1 "kopie momentopname")]</span><span class="sxs-lookup"><span data-stu-id="93ad7-108">[!code-powershell[main](../../../powershell_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.ps1 "Copy snapshot")]</span></span>
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.ps1 "Copy snapshot")]
 
 
-## <a name="script-explanation"></a><span data-ttu-id="93ad7-109">Script uitleg</span><span class="sxs-lookup"><span data-stu-id="93ad7-109">Script explanation</span></span>
+## <a name="script-explanation"></a><span data-ttu-id="9b2c5-108">Script uitleg</span><span class="sxs-lookup"><span data-stu-id="9b2c5-108">Script explanation</span></span>
 
-<span data-ttu-id="93ad7-110">Dit script gebruikt na de opdrachten voor het maken van een momentopname in het doelabonnement met de Id van de momentopname van de bron.</span><span class="sxs-lookup"><span data-stu-id="93ad7-110">This script uses following commands to create a snapshot in the target subscription using the Id of the source snapshot.</span></span> <span data-ttu-id="93ad7-111">Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.</span><span class="sxs-lookup"><span data-stu-id="93ad7-111">Each command in the table links to command specific documentation.</span></span>
+<span data-ttu-id="9b2c5-109">Dit script maakt gebruik van opdrachten toocreate na een momentopname aan Hallo doel abonnement met Hallo Hallo bron momentopname-Id.</span><span class="sxs-lookup"><span data-stu-id="9b2c5-109">This script uses following commands toocreate a snapshot in hello target subscription using hello Id of hello source snapshot.</span></span> <span data-ttu-id="9b2c5-110">Elke opdracht in Hallo tabel koppelingen toocommand specifieke documentatie.</span><span class="sxs-lookup"><span data-stu-id="9b2c5-110">Each command in hello table links toocommand specific documentation.</span></span>
 
-| <span data-ttu-id="93ad7-112">Opdracht</span><span class="sxs-lookup"><span data-stu-id="93ad7-112">Command</span></span> | <span data-ttu-id="93ad7-113">Opmerkingen</span><span class="sxs-lookup"><span data-stu-id="93ad7-113">Notes</span></span> |
+| <span data-ttu-id="9b2c5-111">Opdracht</span><span class="sxs-lookup"><span data-stu-id="9b2c5-111">Command</span></span> | <span data-ttu-id="9b2c5-112">Opmerkingen</span><span class="sxs-lookup"><span data-stu-id="9b2c5-112">Notes</span></span> |
 |---|---|
-| [<span data-ttu-id="93ad7-114">Nieuwe AzureRmSnapshotConfig</span><span class="sxs-lookup"><span data-stu-id="93ad7-114">New-AzureRmSnapshotConfig</span></span>](/powershell/module/azurerm.compute/New-AzureRmSnapshotConfig) | <span data-ttu-id="93ad7-115">Maakt de configuratie van de momentopnamen die wordt gebruikt voor het maken van momentopnamen.</span><span class="sxs-lookup"><span data-stu-id="93ad7-115">Creates snapshot configuration that is used for snapshot creation.</span></span> <span data-ttu-id="93ad7-116">Dit omvat de resource-Id van de momentopname van de bovenliggende en de locatie die is hetzelfde als de momentopname van de bovenliggende.</span><span class="sxs-lookup"><span data-stu-id="93ad7-116">It includes the resource Id of the parent snapshot and location that is same as the parent snapshot.</span></span>  |
-| [<span data-ttu-id="93ad7-117">Nieuwe AzureRmSnapshot</span><span class="sxs-lookup"><span data-stu-id="93ad7-117">New-AzureRmSnapshot</span></span>](/powershell/module/azurerm.compute/New-AzureRmDisk) | <span data-ttu-id="93ad7-118">Maakt een momentopname met configuratie van de momentopnamen, naam van de momentopname en de Resourcegroepnaam als parameters doorgegeven.</span><span class="sxs-lookup"><span data-stu-id="93ad7-118">Creates a snapshot using snapshot configuration, snapshot name, and resource group name passed as parameters.</span></span> |
+| [<span data-ttu-id="9b2c5-113">Nieuwe AzureRmSnapshotConfig</span><span class="sxs-lookup"><span data-stu-id="9b2c5-113">New-AzureRmSnapshotConfig</span></span>](/powershell/module/azurerm.compute/New-AzureRmSnapshotConfig) | <span data-ttu-id="9b2c5-114">Maakt de configuratie van de momentopnamen die wordt gebruikt voor het maken van momentopnamen.</span><span class="sxs-lookup"><span data-stu-id="9b2c5-114">Creates snapshot configuration that is used for snapshot creation.</span></span> <span data-ttu-id="9b2c5-115">Het bevat Hallo-resource-Id van de momentopname van de bovenliggende Hallo en de locatie die is hetzelfde als Hallo bovenliggende momentopname.</span><span class="sxs-lookup"><span data-stu-id="9b2c5-115">It includes hello resource Id of hello parent snapshot and location that is same as hello parent snapshot.</span></span>  |
+| [<span data-ttu-id="9b2c5-116">Nieuwe AzureRmSnapshot</span><span class="sxs-lookup"><span data-stu-id="9b2c5-116">New-AzureRmSnapshot</span></span>](/powershell/module/azurerm.compute/New-AzureRmDisk) | <span data-ttu-id="9b2c5-117">Maakt een momentopname met configuratie van de momentopnamen, naam van de momentopname en de Resourcegroepnaam als parameters doorgegeven.</span><span class="sxs-lookup"><span data-stu-id="9b2c5-117">Creates a snapshot using snapshot configuration, snapshot name, and resource group name passed as parameters.</span></span> |
 
 
-## <a name="next-steps"></a><span data-ttu-id="93ad7-119">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="93ad7-119">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="9b2c5-118">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="9b2c5-118">Next steps</span></span>
 
-[<span data-ttu-id="93ad7-120">Een virtuele machine maken vanuit een momentopname</span><span class="sxs-lookup"><span data-stu-id="93ad7-120">Create a virtual machine from a snapshot</span></span>](./virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[<span data-ttu-id="9b2c5-119">Een virtuele machine maken vanuit een momentopname</span><span class="sxs-lookup"><span data-stu-id="9b2c5-119">Create a virtual machine from a snapshot</span></span>](./virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-<span data-ttu-id="93ad7-121">Zie voor meer informatie over de Azure PowerShell-module [documentatie van Azure PowerShell](/powershell/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="93ad7-121">For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).</span></span>
+<span data-ttu-id="9b2c5-120">Zie voor meer informatie over hello Azure PowerShell-module [documentatie van Azure PowerShell](/powershell/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="9b2c5-120">For more information on hello Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).</span></span>
 
-<span data-ttu-id="93ad7-122">Voorbeelden van extra virtuele machine PowerShell-script kunnen worden gevonden in de [virtuele machine van Windows Azure-documentatie](../../app-service-web/app-service-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="93ad7-122">Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../../app-service-web/app-service-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span></span>
+<span data-ttu-id="9b2c5-121">Voorbeelden van extra virtuele machine PowerShell-script kunnen u vinden in Hallo [virtuele machine van Windows Azure-documentatie](../../app-service-web/app-service-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="9b2c5-121">Additional virtual machine PowerShell script samples can be found in hello [Azure Windows VM documentation](../../app-service-web/app-service-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span></span>

@@ -1,5 +1,5 @@
 ---
-title: Maken van virtuele-machineschaalsets met PowerShell-cmdlets | Microsoft Docs
+title: Virtuele-machineschaalset aaaCreating wilt instellen met PowerShell-cmdlets | Microsoft Docs
 description: Aan de slag maken en beheren van uw eerste Azure virtuele-Machineschaalsets met Azure PowerShell-cmdlets
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,54 +15,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: danielsollondon
-ms.openlocfilehash: a3a36028a75d6cb7eb36277f3e2b5ab833c96a96
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7979be367d04c904b60d78849c1b751a52cc8caf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="creating-virtual-machine-scale-sets-using-powershell-cmdlets"></a><span data-ttu-id="894ab-103">Maken van virtuele-Machineschaalsets met PowerShell-cmdlets</span><span class="sxs-lookup"><span data-stu-id="894ab-103">Creating Virtual Machine Scale Sets using PowerShell cmdlets</span></span>
-<span data-ttu-id="894ab-104">Dit artikel begeleidt bij een voorbeeld van het maken van een virtuele-machineschaalset (VMSS).</span><span class="sxs-lookup"><span data-stu-id="894ab-104">This article walks through an example of how to create a Virtual Machine scale set (VMSS).</span></span> <span data-ttu-id="894ab-105">Een set scale drie knooppunten wordt gemaakt met de gekoppelde netwerken en opslag.</span><span class="sxs-lookup"><span data-stu-id="894ab-105">It creates a scale set of three nodes, with associated Networking and Storage.</span></span>
+# <a name="creating-virtual-machine-scale-sets-using-powershell-cmdlets"></a><span data-ttu-id="6cc48-103">Maken van virtuele-Machineschaalsets met PowerShell-cmdlets</span><span class="sxs-lookup"><span data-stu-id="6cc48-103">Creating Virtual Machine Scale Sets using PowerShell cmdlets</span></span>
+<span data-ttu-id="6cc48-104">Dit artikel begeleidt bij een voorbeeld van hoe toocreate een virtuele-machineschaalset (VMSS).</span><span class="sxs-lookup"><span data-stu-id="6cc48-104">This article walks through an example of how toocreate a Virtual Machine scale set (VMSS).</span></span> <span data-ttu-id="6cc48-105">Een set scale drie knooppunten wordt gemaakt met de gekoppelde netwerken en opslag.</span><span class="sxs-lookup"><span data-stu-id="6cc48-105">It creates a scale set of three nodes, with associated Networking and Storage.</span></span>
 
-## <a name="first-steps"></a><span data-ttu-id="894ab-106">Eerste stappen</span><span class="sxs-lookup"><span data-stu-id="894ab-106">First Steps</span></span>
-<span data-ttu-id="894ab-107">Zorg ervoor dat u hebt de nieuwste Azure PowerShell-module geïnstalleerd om te controleren of u hebt de PowerShell-commandlets die nodig zijn voor het onderhouden en schaalsets maken.</span><span class="sxs-lookup"><span data-stu-id="894ab-107">Ensure you have the latest Azure PowerShell module installed, to make sure you have the PowerShell commandlets needed to maintain, and create scale sets.</span></span>
-<span data-ttu-id="894ab-108">Ga naar de opdrachtregel-hulpprogramma's [hier](http://aka.ms/webpi-azps) voor de meest recente beschikbare Azure Modules.</span><span class="sxs-lookup"><span data-stu-id="894ab-108">Go to the command line tools [here](http://aka.ms/webpi-azps) for the latest available Azure Modules.</span></span>
+## <a name="first-steps"></a><span data-ttu-id="6cc48-106">Eerste stappen</span><span class="sxs-lookup"><span data-stu-id="6cc48-106">First Steps</span></span>
+<span data-ttu-id="6cc48-107">Zorg ervoor dat u Hallo nieuwste Azure PowerShell-module geïnstalleerd hebt, hebt u Hallo PowerShell commandlets toomake toomaintain nodig en schaalsets maken.</span><span class="sxs-lookup"><span data-stu-id="6cc48-107">Ensure you have hello latest Azure PowerShell module installed, toomake sure you have hello PowerShell commandlets needed toomaintain, and create scale sets.</span></span>
+<span data-ttu-id="6cc48-108">Ga toohello opdrachtregelprogramma's [hier](http://aka.ms/webpi-azps) Hallo voor de meest recente beschikbare Azure-Modules.</span><span class="sxs-lookup"><span data-stu-id="6cc48-108">Go toohello command line tools [here](http://aka.ms/webpi-azps) for hello latest available Azure Modules.</span></span>
 
-<span data-ttu-id="894ab-109">Gerelateerde VMSS vinden commandlets, gebruikt u de zoekreeks \*VMSS\*.</span><span class="sxs-lookup"><span data-stu-id="894ab-109">To find VMSS related commandlets, use the search string \*VMSS\*.</span></span> <span data-ttu-id="894ab-110">Bijvoorbeeld: _gcm *vmss*_</span><span class="sxs-lookup"><span data-stu-id="894ab-110">For example, _gcm *vmss*_</span></span>
+<span data-ttu-id="6cc48-109">toofind VMSS gerelateerde commandlets, gebruiken de zoekreeks Hallo \*VMSS\*.</span><span class="sxs-lookup"><span data-stu-id="6cc48-109">toofind VMSS related commandlets, use hello search string \*VMSS\*.</span></span> <span data-ttu-id="6cc48-110">Bijvoorbeeld: _gcm *vmss*_</span><span class="sxs-lookup"><span data-stu-id="6cc48-110">For example, _gcm *vmss*_</span></span>
 
-## <a name="creating-a-vmss"></a><span data-ttu-id="894ab-111">Maken van een VMSS</span><span class="sxs-lookup"><span data-stu-id="894ab-111">Creating a VMSS</span></span>
-#### <a name="create-resource-group"></a><span data-ttu-id="894ab-112">Een resourcegroep maken</span><span class="sxs-lookup"><span data-stu-id="894ab-112">Create Resource Group</span></span>
+## <a name="creating-a-vmss"></a><span data-ttu-id="6cc48-111">Maken van een VMSS</span><span class="sxs-lookup"><span data-stu-id="6cc48-111">Creating a VMSS</span></span>
+#### <a name="create-resource-group"></a><span data-ttu-id="6cc48-112">Een resourcegroep maken</span><span class="sxs-lookup"><span data-stu-id="6cc48-112">Create Resource Group</span></span>
 ```
 $loc = 'westus';
 $rgname = 'mynewrgwu';
   New-AzureRmResourceGroup -Name $rgname -Location $loc -Force;
 ```
 
-### <a name="create-networking-vnet--subnet"></a><span data-ttu-id="894ab-113">Maken van netwerken (VNET / Subnet)</span><span class="sxs-lookup"><span data-stu-id="894ab-113">Create Networking (VNET / Subnet)</span></span>
-#### <a name="subnet-specification"></a><span data-ttu-id="894ab-114">Specificatie van het subnet</span><span class="sxs-lookup"><span data-stu-id="894ab-114">Subnet Specification</span></span>
+### <a name="create-networking-vnet--subnet"></a><span data-ttu-id="6cc48-113">Maken van netwerken (VNET / Subnet)</span><span class="sxs-lookup"><span data-stu-id="6cc48-113">Create Networking (VNET / Subnet)</span></span>
+#### <a name="subnet-specification"></a><span data-ttu-id="6cc48-114">Specificatie van het subnet</span><span class="sxs-lookup"><span data-stu-id="6cc48-114">Subnet Specification</span></span>
 ```
 $subnetName = 'websubnet'
   $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.0.0.0/24";
 ```
 
-#### <a name="vnet-specification"></a><span data-ttu-id="894ab-115">VNET-specificatie</span><span class="sxs-lookup"><span data-stu-id="894ab-115">VNET Specification</span></span>
+#### <a name="vnet-specification"></a><span data-ttu-id="6cc48-115">VNET-specificatie</span><span class="sxs-lookup"><span data-stu-id="6cc48-115">VNET Specification</span></span>
 ```
 $vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -Subnet $subnet;
 $vnet = Get-AzureRmVirtualNetwork -Name ('vnet' + $rgname) -ResourceGroupName $rgname;
 
-# In this case assume the new subnet is the only one
+# In this case assume hello new subnet is hello only one
 $subnetId = $vnet.Subnets[0].Id;
 ```
 
-#### <a name="create-public-ip-resource-to-allow-external-access"></a><span data-ttu-id="894ab-116">Openbare IP-Resource voor externe toegang maken</span><span class="sxs-lookup"><span data-stu-id="894ab-116">Create Public IP Resource to Allow External Access</span></span>
-<span data-ttu-id="894ab-117">Dit wordt gebonden aan de Load Balancer.</span><span class="sxs-lookup"><span data-stu-id="894ab-117">This will be bound to the Load Balancer.</span></span>
+#### <a name="create-public-ip-resource-tooallow-external-access"></a><span data-ttu-id="6cc48-116">Openbare IP-Resource tooAllow externe toegang maken</span><span class="sxs-lookup"><span data-stu-id="6cc48-116">Create Public IP Resource tooAllow External Access</span></span>
+<span data-ttu-id="6cc48-117">Dit is gebonden toohello Load Balancer.</span><span class="sxs-lookup"><span data-stu-id="6cc48-117">This will be bound toohello Load Balancer.</span></span>
 
 ```
 $pubip = New-AzureRmPublicIpAddress -Force -Name ('pubip' + $rgname) -ResourceGroupName $rgname -Location $loc -AllocationMethod Dynamic -DomainNameLabel ('pubip' + $rgname);
 $pubip = Get-AzureRmPublicIpAddress -Name ('pubip' + $rgname) -ResourceGroupName $rgname;
 ```
 
-#### <a name="create-load-balancer"></a><span data-ttu-id="894ab-118">Load Balancer maken</span><span class="sxs-lookup"><span data-stu-id="894ab-118">Create Load Balancer</span></span>
+#### <a name="create-load-balancer"></a><span data-ttu-id="6cc48-118">Load Balancer maken</span><span class="sxs-lookup"><span data-stu-id="6cc48-118">Create Load Balancer</span></span>
 ```
 $frontendName = 'fe' + $rgname
 $backendAddressPoolName = 'bepool' + $rgname
@@ -71,24 +71,24 @@ $inboundNatPoolName = 'innatpool' + $rgname
 $lbruleName = 'lbrule' + $rgname
 $lbName = 'vmsslb' + $rgname
 
-# Bind Public IP to Load Balancer
+# Bind Public IP tooLoad Balancer
 $frontend = New-AzureRmLoadBalancerFrontendIpConfig -Name $frontendName -PublicIpAddress $pubip
 ```
 
-#### <a name="configure-load-balancer"></a><span data-ttu-id="894ab-119">Load Balancer configureren</span><span class="sxs-lookup"><span data-stu-id="894ab-119">Configure Load Balancer</span></span>
-<span data-ttu-id="894ab-120">Maken van back-end adresgroep Config, dit wordt gedeeld door de NIC's van de virtuele machines in de schaalset.</span><span class="sxs-lookup"><span data-stu-id="894ab-120">Create Backend Address Pool Config, this will be shared by the NICs of the VMs in the scale set.</span></span>
+#### <a name="configure-load-balancer"></a><span data-ttu-id="6cc48-119">Load Balancer configureren</span><span class="sxs-lookup"><span data-stu-id="6cc48-119">Configure Load Balancer</span></span>
+<span data-ttu-id="6cc48-120">Maken van back-end adresgroep Config, dit worden gedeeld door Hallo NIC's van Hallo virtuele machines in de schaalset Hallo.</span><span class="sxs-lookup"><span data-stu-id="6cc48-120">Create Backend Address Pool Config, this will be shared by hello NICs of hello VMs in hello scale set.</span></span>
 
 ```
 $backendAddressPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name $backendAddressPoolName
 ```
 
-<span data-ttu-id="894ab-121">Stel Load Balanced Testpoort, wijzig de instellingen die geschikt is voor uw toepassing.</span><span class="sxs-lookup"><span data-stu-id="894ab-121">Set Load Balanced Probe Port, change the settings as appropriate for your application.</span></span>
+<span data-ttu-id="6cc48-121">Stel Load Balanced Testpoort, Hallo instellingen geschikt is voor uw toepassing wijzigen.</span><span class="sxs-lookup"><span data-stu-id="6cc48-121">Set Load Balanced Probe Port, change hello settings as appropriate for your application.</span></span>
 
 ```
 $probe = New-AzureRmLoadBalancerProbeConfig -Name $probeName -RequestPath healthcheck.aspx -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 ```
 
-<span data-ttu-id="894ab-122">Maak een binnenkomende NAT-adresgroep voor directe routering verbinding (geen taakverdeling) met de virtuele machines in de schaal instelt via de Load Balancer.</span><span class="sxs-lookup"><span data-stu-id="894ab-122">Create an inbound NAT pool for direct routed connectivity (not load balanced) to the VMs in the scale set via the Load Balancer.</span></span> <span data-ttu-id="894ab-123">Dit is om aan te tonen met RDP en kan niet in uw toepassing nodig zijn.</span><span class="sxs-lookup"><span data-stu-id="894ab-123">This is to demonstrate using RDP and may not be required in your application.</span></span>
+<span data-ttu-id="6cc48-122">Maken van een binnenkomende NAT-adresgroep voor directe routering verbinding (geen taakverdeling) toohello virtuele machines in Hallo scale ingesteld via Hallo Load Balancer.</span><span class="sxs-lookup"><span data-stu-id="6cc48-122">Create an inbound NAT pool for direct routed connectivity (not load balanced) toohello VMs in hello scale set via hello Load Balancer.</span></span> <span data-ttu-id="6cc48-123">Dit is toodemonstrate met RDP en kan niet in uw toepassing nodig zijn.</span><span class="sxs-lookup"><span data-stu-id="6cc48-123">This is toodemonstrate using RDP and may not be required in your application.</span></span>
 
 ```
 $frontendpoolrangestart = 3360
@@ -98,7 +98,7 @@ $inboundNatPool = New-AzureRmLoadBalancerInboundNatPoolConfig -Name $inboundNatP
 $frontend.Id -Protocol Tcp -FrontendPortRangeStart $frontendpoolrangestart -FrontendPortRangeEnd $frontendpoolrangeend -BackendPort $backendvmport;
 ```
 
-<span data-ttu-id="894ab-124">De Load Balanced regel maken, in dit voorbeeld toont laden taakverdeling poort 80 aanvragen, met behulp van de instellingen van de vorige stappen.</span><span class="sxs-lookup"><span data-stu-id="894ab-124">Create the Load Balanced Rule, this example shows load balancing port 80 requests, using the settings from previous steps.</span></span>
+<span data-ttu-id="6cc48-124">Hallo met gelijke taakverdeling regel laden in het volgende voorbeeld toont load balancing poort 80 aanvragen, met de Hallo-instellingen van de vorige stappen maken.</span><span class="sxs-lookup"><span data-stu-id="6cc48-124">Create hello Load Balanced Rule, this example shows load balancing port 80 requests, using hello settings from previous steps.</span></span>
 
 ```
 $protocol = 'Tcp'
@@ -111,7 +111,7 @@ $lbrule = New-AzureRmLoadBalancerRuleConfig -Name $lbruleName `
 -IdleTimeoutInMinutes 15 -EnableFloatingIP -LoadDistribution SourceIP -Verbose;
 ```
 
-<span data-ttu-id="894ab-125">Load Balancer maken met de configuratie.</span><span class="sxs-lookup"><span data-stu-id="894ab-125">Create Load Balancer with configuration.</span></span>
+<span data-ttu-id="6cc48-125">Load Balancer maken met de configuratie.</span><span class="sxs-lookup"><span data-stu-id="6cc48-125">Create Load Balancer with configuration.</span></span>
 
 ```
 $actualLb = New-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname -Location $loc `
@@ -119,14 +119,14 @@ $actualLb = New-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname -Lo
 -Probe $probe -LoadBalancingRule $lbrule -InboundNatPool $inboundNatPool -Verbose;
 ```
 
-<span data-ttu-id="894ab-126">Controleer de instellingen van de Load Balancer, controleert u taakverdeling poort configs, opmerking, ziet u inkomende NAT-regels totdat de virtuele machines in de schaalset zijn gemaakt.</span><span class="sxs-lookup"><span data-stu-id="894ab-126">Check  LB settings, check load balanced port configs, note, you will not see Inbound NAT rules until the VMs in the scale set are created.</span></span>
+<span data-ttu-id="6cc48-126">Controleer de instellingen van de Load Balancer, controleert u load balanced poort configs, houd er rekening mee, ziet u inkomende NAT-regels tot Hallo virtuele machines in de schaalset Hallo worden gemaakt.</span><span class="sxs-lookup"><span data-stu-id="6cc48-126">Check  LB settings, check load balanced port configs, note, you will not see Inbound NAT rules until hello VMs in hello scale set are created.</span></span>
 
 ```
 $expectedLb = Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname
 ```
 
-##### <a name="configure-and-create-the-scale-set"></a><span data-ttu-id="894ab-127">Configureer en maak de schaalset</span><span class="sxs-lookup"><span data-stu-id="894ab-127">Configure and Create the scale set</span></span>
-<span data-ttu-id="894ab-128">Houd er rekening mee deze infrastructuur voorbeeld ziet u hoe om in te stellen, distribueren en scale-webverkeer in de schaalset, maar de installatiekopieën van virtuele machines die u hier opgeeft hoeft niet elke webservice geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="894ab-128">Note, this infrastructure example shows how to set up distribute and scale web traffic across the scale set, but the VMs Images specified here do not have any web services installed.</span></span>
+##### <a name="configure-and-create-hello-scale-set"></a><span data-ttu-id="6cc48-127">Configureren en maken Hallo schaalset</span><span class="sxs-lookup"><span data-stu-id="6cc48-127">Configure and Create hello scale set</span></span>
+<span data-ttu-id="6cc48-128">Houd er rekening mee deze infrastructuur-voorbeeld laat zien hoe tooset up distribueren en scale-webverkeer over Hallo scale set echter Hallo installatiekopieën van virtuele machines die u hier opgeeft hoeft niet elke webservice geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="6cc48-128">Note, this infrastructure example shows how tooset up distribute and scale web traffic across hello scale set, but hello VMs Images specified here do not have any web services installed.</span></span>
 
 ```
 # specify scale set Name
@@ -149,7 +149,7 @@ $exttype = 'BGInfo';
 $extver = '2.1';
 ```
 
-<span data-ttu-id="894ab-129">NIC verbinden met Load Balancer en het Subnet</span><span class="sxs-lookup"><span data-stu-id="894ab-129">Bind NIC to Load Balancer and Subnet</span></span>
+<span data-ttu-id="6cc48-129">BIND NIC tooLoad Balancer en het Subnet</span><span class="sxs-lookup"><span data-stu-id="6cc48-129">Bind NIC tooLoad Balancer and Subnet</span></span>
 
 ```
 $ipCfg = New-AzureRmVmssIPConfig -Name 'nic' `
@@ -158,7 +158,7 @@ $ipCfg = New-AzureRmVmssIPConfig -Name 'nic' `
 -SubnetId $subnetId;
 ```
 
-<span data-ttu-id="894ab-130">Maken van scale set Config</span><span class="sxs-lookup"><span data-stu-id="894ab-130">Create scale set Config</span></span>
+<span data-ttu-id="6cc48-130">Maken van scale set Config</span><span class="sxs-lookup"><span data-stu-id="6cc48-130">Create scale set Config</span></span>
 
 ```
 # Specify number of nodes
@@ -173,13 +173,13 @@ $vmss = New-AzureRmVmssConfig -Location $loc -SkuCapacity $numberofnodes -SkuNam
     | Add-AzureRmVmssExtension -Name $extname -Publisher $publisher -Type $exttype -TypeHandlerVersion $extver -AutoUpgradeMinorVersion $true
 ```
 
-<span data-ttu-id="894ab-131">Configuratie van scale set bouwen</span><span class="sxs-lookup"><span data-stu-id="894ab-131">Build scale set configuration</span></span>
+<span data-ttu-id="6cc48-131">Configuratie van scale set bouwen</span><span class="sxs-lookup"><span data-stu-id="6cc48-131">Build scale set configuration</span></span>
 
 ```
 New-AzureRmVmss -ResourceGroupName $rgname -Name $vmssName -VirtualMachineScaleSet $vmss -Verbose;
 ```
 
-<span data-ttu-id="894ab-132">U hebt nu de schaalset gemaakt.</span><span class="sxs-lookup"><span data-stu-id="894ab-132">Now you have created the scale set.</span></span> <span data-ttu-id="894ab-133">U kunt testen om verbinding te maken met de afzonderlijke virtuele machine met RDP in dit voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="894ab-133">You can test connecting to the individual VM using RDP in this example:</span></span>
+<span data-ttu-id="6cc48-132">U hebt nu Hallo schaalset gemaakt.</span><span class="sxs-lookup"><span data-stu-id="6cc48-132">Now you have created hello scale set.</span></span> <span data-ttu-id="6cc48-133">U kunt testen verbindende toohello afzonderlijke virtuele machine met RDP in dit voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="6cc48-133">You can test connecting toohello individual VM using RDP in this example:</span></span>
 
 ```
 VM0 : pubipmynewrgwu.westus.cloudapp.azure.com:3360

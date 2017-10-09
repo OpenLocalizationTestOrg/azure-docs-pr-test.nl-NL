@@ -1,0 +1,4 @@
+> [!TIP]
+>
+> <span data-ttu-id="c4ea3-101">Als u toouse Hallo HTTP- of WebHook bindingen, plant u tooavoid poort uitputting die kan worden veroorzaakt door onjuiste instantiëring van `HttpClient`.</span><span class="sxs-lookup"><span data-stu-id="c4ea3-101">If you plan toouse hello HTTP or WebHook bindings, plan tooavoid port exhaustion that can be caused by improper instantiation of `HttpClient`.</span></span> <span data-ttu-id="c4ea3-102">Voor meer informatie raadpleegt u Hallo-artikel [onjuiste instantiëring antipattern](https://docs.microsoft.com/en-us/azure/architecture/antipatterns/improper-instantiation/).</span><span class="sxs-lookup"><span data-stu-id="c4ea3-102">For more information, review hello article [Improper Instantiation antipattern](https://docs.microsoft.com/en-us/azure/architecture/antipatterns/improper-instantiation/).</span></span>
+>

@@ -1,5 +1,5 @@
 ---
-title: Herstellen van Azure SQL Data Warehouse (Azure-portal) | Microsoft Docs
+title: aaaRestore Azure SQL Data Warehouse (Azure-portal) | Microsoft Docs
 description: Azure portal taken voor het herstellen van Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,85 +15,85 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 09/21/2016
 ms.author: lakshmir;barbkess
-ms.openlocfilehash: f6bc8671410dc7015a8d2a4bea1ba11f9ae526c3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cb225d2a21b61acab70a51b69c266f8d3ffacc9a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="restore-azure-sql-data-warehouse-portal"></a><span data-ttu-id="a0644-103">Herstellen van Azure SQL Data Warehouse (portal)</span><span class="sxs-lookup"><span data-stu-id="a0644-103">Restore Azure SQL Data Warehouse (portal)</span></span>
+# <a name="restore-azure-sql-data-warehouse-portal"></a><span data-ttu-id="449a0-103">Herstellen van Azure SQL Data Warehouse (portal)</span><span class="sxs-lookup"><span data-stu-id="449a0-103">Restore Azure SQL Data Warehouse (portal)</span></span>
 > [!div class="op_single_selector"]
-> * <span data-ttu-id="a0644-104">[Overzicht][Overview]</span><span class="sxs-lookup"><span data-stu-id="a0644-104">[Overview][Overview]</span></span>
-> * <span data-ttu-id="a0644-105">[Portal][Portal]</span><span class="sxs-lookup"><span data-stu-id="a0644-105">[Portal][Portal]</span></span>
-> * <span data-ttu-id="a0644-106">[PowerShell][PowerShell]</span><span class="sxs-lookup"><span data-stu-id="a0644-106">[PowerShell][PowerShell]</span></span>
-> * <span data-ttu-id="a0644-107">[REST][REST]</span><span class="sxs-lookup"><span data-stu-id="a0644-107">[REST][REST]</span></span>
+> * <span data-ttu-id="449a0-104">[Overzicht][Overview]</span><span class="sxs-lookup"><span data-stu-id="449a0-104">[Overview][Overview]</span></span>
+> * <span data-ttu-id="449a0-105">[Portal][Portal]</span><span class="sxs-lookup"><span data-stu-id="449a0-105">[Portal][Portal]</span></span>
+> * <span data-ttu-id="449a0-106">[PowerShell][PowerShell]</span><span class="sxs-lookup"><span data-stu-id="449a0-106">[PowerShell][PowerShell]</span></span>
+> * <span data-ttu-id="449a0-107">[REST][REST]</span><span class="sxs-lookup"><span data-stu-id="449a0-107">[REST][REST]</span></span>
 >
 >
-<span data-ttu-id="a0644-108">In dit artikel leert u hoe u Azure SQL Data Warehouse herstelt met behulp van de Azure-portal.</span><span class="sxs-lookup"><span data-stu-id="a0644-108">In this article, you will learn how to restore Azure SQL Data Warehouse by using the Azure portal.</span></span>
+<span data-ttu-id="449a0-108">In dit artikel leert u hoe toorestore Azure SQL Data Warehouse met behulp van hello Azure-portal.</span><span class="sxs-lookup"><span data-stu-id="449a0-108">In this article, you will learn how toorestore Azure SQL Data Warehouse by using hello Azure portal.</span></span>
 
-## <a name="before-you-begin"></a><span data-ttu-id="a0644-109">Voordat u begint</span><span class="sxs-lookup"><span data-stu-id="a0644-109">Before you begin</span></span>
-<span data-ttu-id="a0644-110">**Controleer of de capaciteit van de DTU.**</span><span class="sxs-lookup"><span data-stu-id="a0644-110">**Verify your DTU capacity.**</span></span> <span data-ttu-id="a0644-111">Elk exemplaar van SQL Data Warehouse wordt gehost door een SQL-server (bijvoorbeeld myserver.database.windows.net) waarvoor een standaardquotum gegevensdoorvoer unit (DTU).</span><span class="sxs-lookup"><span data-stu-id="a0644-111">Each instance of SQL Data Warehouse is hosted by a SQL server (for example, myserver.database.windows.net) which has a default data throughput unit (DTU) quota.</span></span> <span data-ttu-id="a0644-112">Voordat u SQL Data Warehouse herstellen kunt, Controleer of uw SQL server onvoldoende resterende DTU-quotum voor de database die u wilt herstellen.</span><span class="sxs-lookup"><span data-stu-id="a0644-112">Before you can restore SQL Data Warehouse, verify that your SQL server has enough remaining DTU quota for the database that you're restoring.</span></span> <span data-ttu-id="a0644-113">Zie voor meer informatie over het DTU-quotum berekenen of dat er meer dtu's, [een wijziging DTU-quotum aanvragen][Request a DTU quota change].</span><span class="sxs-lookup"><span data-stu-id="a0644-113">To learn how to calculate DTU quota or to request more DTUs, see [Request a DTU quota change][Request a DTU quota change].</span></span>
+## <a name="before-you-begin"></a><span data-ttu-id="449a0-109">Voordat u begint</span><span class="sxs-lookup"><span data-stu-id="449a0-109">Before you begin</span></span>
+<span data-ttu-id="449a0-110">**Controleer of de capaciteit van de DTU.**</span><span class="sxs-lookup"><span data-stu-id="449a0-110">**Verify your DTU capacity.**</span></span> <span data-ttu-id="449a0-111">Elk exemplaar van SQL Data Warehouse wordt gehost door een SQL-server (bijvoorbeeld myserver.database.windows.net) waarvoor een standaardquotum gegevensdoorvoer unit (DTU).</span><span class="sxs-lookup"><span data-stu-id="449a0-111">Each instance of SQL Data Warehouse is hosted by a SQL server (for example, myserver.database.windows.net) which has a default data throughput unit (DTU) quota.</span></span> <span data-ttu-id="449a0-112">Voordat u SQL Data Warehouse herstellen kunt, Controleer of uw SQL server onvoldoende resterende DTU-quotum voor Hallo-database die u wilt herstellen.</span><span class="sxs-lookup"><span data-stu-id="449a0-112">Before you can restore SQL Data Warehouse, verify that your SQL server has enough remaining DTU quota for hello database that you're restoring.</span></span> <span data-ttu-id="449a0-113">toolearn hoe toocalculate DTU-quotum of toorequest meer dtu's, Zie [een wijziging DTU-quotum aanvragen][Request a DTU quota change].</span><span class="sxs-lookup"><span data-stu-id="449a0-113">toolearn how toocalculate DTU quota or toorequest more DTUs, see [Request a DTU quota change][Request a DTU quota change].</span></span>
 
-## <a name="restore-an-active-or-paused-database"></a><span data-ttu-id="a0644-114">Herstel de database van een actieve of onderbroken</span><span class="sxs-lookup"><span data-stu-id="a0644-114">Restore an active or paused database</span></span>
-<span data-ttu-id="a0644-115">Een database te herstellen:</span><span class="sxs-lookup"><span data-stu-id="a0644-115">To restore a database:</span></span>
+## <a name="restore-an-active-or-paused-database"></a><span data-ttu-id="449a0-114">Herstel de database van een actieve of onderbroken</span><span class="sxs-lookup"><span data-stu-id="449a0-114">Restore an active or paused database</span></span>
+<span data-ttu-id="449a0-115">een database toorestore:</span><span class="sxs-lookup"><span data-stu-id="449a0-115">toorestore a database:</span></span>
 
-1. <span data-ttu-id="a0644-116">Meld u aan bij [Azure Portal][Azure portal].</span><span class="sxs-lookup"><span data-stu-id="a0644-116">Sign in to the [Azure portal][Azure portal].</span></span>
-2. <span data-ttu-id="a0644-117">Selecteer in het linkerdeelvenster **Bladeren**, en selecteer vervolgens **SQL-servers**.</span><span class="sxs-lookup"><span data-stu-id="a0644-117">In the left pane, select **Browse**, and then select **SQL servers**.</span></span>
+1. <span data-ttu-id="449a0-116">Meld u aan toohello [Azure-portal][Azure portal].</span><span class="sxs-lookup"><span data-stu-id="449a0-116">Sign in toohello [Azure portal][Azure portal].</span></span>
+2. <span data-ttu-id="449a0-117">Selecteer in het linkerdeelvenster Hallo **Bladeren**, en selecteer vervolgens **SQL-servers**.</span><span class="sxs-lookup"><span data-stu-id="449a0-117">In hello left pane, select **Browse**, and then select **SQL servers**.</span></span>
 
     ![Selecteer Bladeren > SQL-servers](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
-3. <span data-ttu-id="a0644-119">Zoek uw server en selecteert u vervolgens.</span><span class="sxs-lookup"><span data-stu-id="a0644-119">Find your server, and then select it.</span></span>
+3. <span data-ttu-id="449a0-119">Zoek uw server en selecteert u vervolgens.</span><span class="sxs-lookup"><span data-stu-id="449a0-119">Find your server, and then select it.</span></span>
 
     ![Selecteer de server](./media/sql-data-warehouse-restore-database-portal/01-select-server.png)
-4. <span data-ttu-id="a0644-121">Zoek het exemplaar van SQL Data Warehouse die u herstellen wilt uit en selecteert u vervolgens.</span><span class="sxs-lookup"><span data-stu-id="a0644-121">Find the instance of SQL Data Warehouse that you want to restore from, and then select it.</span></span>
+4. <span data-ttu-id="449a0-121">Hallo-exemplaar van SQL Data Warehouse vinden dat u wilt toorestore uit en selecteert u vervolgens.</span><span class="sxs-lookup"><span data-stu-id="449a0-121">Find hello instance of SQL Data Warehouse that you want toorestore from, and then select it.</span></span>
 
-    ![Selecteer het exemplaar van SQL Data Warehouse herstellen](./media/sql-data-warehouse-restore-database-portal/01-select-active-dw.png)
-5. <span data-ttu-id="a0644-123">Selecteer boven aan de blade Data Warehouse **herstellen**.</span><span class="sxs-lookup"><span data-stu-id="a0644-123">At the top of the Data Warehouse blade, select **Restore**.</span></span>
+    ![Hallo-exemplaar van SQL Data Warehouse toorestore selecteren](./media/sql-data-warehouse-restore-database-portal/01-select-active-dw.png)
+5. <span data-ttu-id="449a0-123">Selecteer bovenaan Hallo Hallo Data Warehouse blade, **herstellen**.</span><span class="sxs-lookup"><span data-stu-id="449a0-123">At hello top of hello Data Warehouse blade, select **Restore**.</span></span>
 
     ![Selecteer herstellen](./media/sql-data-warehouse-restore-database-portal/01-select-restore-from-active.png)
-6. <span data-ttu-id="a0644-125">Geef een nieuwe **databasenaam**.</span><span class="sxs-lookup"><span data-stu-id="a0644-125">Specify a new **Database name**.</span></span>
-7. <span data-ttu-id="a0644-126">Selecteer de meest recente **herstelpunt**.</span><span class="sxs-lookup"><span data-stu-id="a0644-126">Select the latest **Restore point**.</span></span>
+6. <span data-ttu-id="449a0-125">Geef een nieuwe **databasenaam**.</span><span class="sxs-lookup"><span data-stu-id="449a0-125">Specify a new **Database name**.</span></span>
+7. <span data-ttu-id="449a0-126">Meest recente Selecteer Hallo **herstelpunt**.</span><span class="sxs-lookup"><span data-stu-id="449a0-126">Select hello latest **Restore point**.</span></span>
 
-   <span data-ttu-id="a0644-127">Zorg ervoor dat u de meest recente herstelpunt kiezen.</span><span class="sxs-lookup"><span data-stu-id="a0644-127">Make sure you choose the latest restore point.</span></span> <span data-ttu-id="a0644-128">Omdat herstelpunten worden weergegeven in Coordinated Universal Time (UTC), is de standaardoptie mogelijk niet de meest recente herstelpunt.</span><span class="sxs-lookup"><span data-stu-id="a0644-128">Because restore points are shown in Coordinated Universal Time (UTC), the default option might not be the latest restore point.</span></span>
+   <span data-ttu-id="449a0-127">Zorg ervoor dat u de meest recente herstelpunt Hallo kiezen.</span><span class="sxs-lookup"><span data-stu-id="449a0-127">Make sure you choose hello latest restore point.</span></span> <span data-ttu-id="449a0-128">Omdat herstelpunten worden weergegeven in Coordinated Universal Time (UTC), is de standaardoptie Hallo mogelijk niet de meest recente herstelpunt Hallo.</span><span class="sxs-lookup"><span data-stu-id="449a0-128">Because restore points are shown in Coordinated Universal Time (UTC), hello default option might not be hello latest restore point.</span></span>
 
       ![Selecteer een herstelpunt](./media/sql-data-warehouse-restore-database-portal/01-restore-blade-from-active.png)
-8. <span data-ttu-id="a0644-130">Selecteer **OK**.</span><span class="sxs-lookup"><span data-stu-id="a0644-130">Select **OK**.</span></span>
-9. <span data-ttu-id="a0644-131">Het proces van de database herstellen wordt gestart en u kunt **meldingen** om het proces te bewaken.</span><span class="sxs-lookup"><span data-stu-id="a0644-131">The database restore process will begin, and you can use **NOTIFICATIONS** to monitor the process.</span></span>
+8. <span data-ttu-id="449a0-130">Selecteer **OK**.</span><span class="sxs-lookup"><span data-stu-id="449a0-130">Select **OK**.</span></span>
+9. <span data-ttu-id="449a0-131">Hallo-database terugzetten proces wordt gestart en u kunt **meldingen** toomonitor Hallo proces.</span><span class="sxs-lookup"><span data-stu-id="449a0-131">hello database restore process will begin, and you can use **NOTIFICATIONS** toomonitor hello process.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="a0644-132">Nadat het herstel is voltooid, kunt u de herstelde database configureren door [uw database na herstel configureren][Configure your database after recovery].</span><span class="sxs-lookup"><span data-stu-id="a0644-132">After the restore has finished, you can configure your recovered database by following [Configure your database after recovery][Configure your database after recovery].</span></span>
+> <span data-ttu-id="449a0-132">Nadat het Hallo terugzetten is voltooid, kunt u de herstelde database configureren door [uw database na herstel configureren][Configure your database after recovery].</span><span class="sxs-lookup"><span data-stu-id="449a0-132">After hello restore has finished, you can configure your recovered database by following [Configure your database after recovery][Configure your database after recovery].</span></span>
 >
 >
 
-## <a name="restore-a-deleted-database"></a><span data-ttu-id="a0644-133">Een verwijderde database herstellen</span><span class="sxs-lookup"><span data-stu-id="a0644-133">Restore a deleted database</span></span>
-<span data-ttu-id="a0644-134">Een verwijderde database herstellen:</span><span class="sxs-lookup"><span data-stu-id="a0644-134">To restore a deleted database:</span></span>
+## <a name="restore-a-deleted-database"></a><span data-ttu-id="449a0-133">Een verwijderde database herstellen</span><span class="sxs-lookup"><span data-stu-id="449a0-133">Restore a deleted database</span></span>
+<span data-ttu-id="449a0-134">een verwijderde database toorestore:</span><span class="sxs-lookup"><span data-stu-id="449a0-134">toorestore a deleted database:</span></span>
 
-1. <span data-ttu-id="a0644-135">Meld u aan bij [Azure Portal][Azure portal].</span><span class="sxs-lookup"><span data-stu-id="a0644-135">Sign in to the [Azure portal][Azure portal].</span></span>
-2. <span data-ttu-id="a0644-136">Selecteer in het linkerdeelvenster **Bladeren**, en selecteer vervolgens **SQL-servers**.</span><span class="sxs-lookup"><span data-stu-id="a0644-136">In the left pane, select **Browse**, and then select **SQL servers**.</span></span>
+1. <span data-ttu-id="449a0-135">Meld u aan toohello [Azure-portal][Azure portal].</span><span class="sxs-lookup"><span data-stu-id="449a0-135">Sign in toohello [Azure portal][Azure portal].</span></span>
+2. <span data-ttu-id="449a0-136">Selecteer in het linkerdeelvenster Hallo **Bladeren**, en selecteer vervolgens **SQL-servers**.</span><span class="sxs-lookup"><span data-stu-id="449a0-136">In hello left pane, select **Browse**, and then select **SQL servers**.</span></span>
 
     ![Selecteer Bladeren > SQL-servers](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
-3. <span data-ttu-id="a0644-138">Zoek uw server en selecteert u vervolgens.</span><span class="sxs-lookup"><span data-stu-id="a0644-138">Find your server, and then select it.</span></span>
+3. <span data-ttu-id="449a0-138">Zoek uw server en selecteert u vervolgens.</span><span class="sxs-lookup"><span data-stu-id="449a0-138">Find your server, and then select it.</span></span>
 
     ![Selecteer de server](./media/sql-data-warehouse-restore-database-portal/02-select-server.png)
-4. <span data-ttu-id="a0644-140">Schuif omlaag naar de **Operations** sectie op de blade van uw server.</span><span class="sxs-lookup"><span data-stu-id="a0644-140">Scroll down to the **Operations** section on your server's blade.</span></span>
-5. <span data-ttu-id="a0644-141">Selecteer de **databases verwijderd** tegel.</span><span class="sxs-lookup"><span data-stu-id="a0644-141">Select the **Deleted databases** tile.</span></span>
+4. <span data-ttu-id="449a0-140">Schuif omlaag toohello **Operations** sectie op de blade van uw server.</span><span class="sxs-lookup"><span data-stu-id="449a0-140">Scroll down toohello **Operations** section on your server's blade.</span></span>
+5. <span data-ttu-id="449a0-141">Selecteer Hallo **databases verwijderd** tegel.</span><span class="sxs-lookup"><span data-stu-id="449a0-141">Select hello **Deleted databases** tile.</span></span>
 
-    ![Selecteer de verwijderde databases tegel](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dws.png)
-6. <span data-ttu-id="a0644-143">Selecteer de verwijderde database die u wilt herstellen.</span><span class="sxs-lookup"><span data-stu-id="a0644-143">Select the deleted database that you want to restore.</span></span>
+    ![Hallo verwijderde databases tegel selecteren](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dws.png)
+6. <span data-ttu-id="449a0-143">Selecteer Hallo gewenste toorestore database verwijderd.</span><span class="sxs-lookup"><span data-stu-id="449a0-143">Select hello deleted database that you want toorestore.</span></span>
 
-    ![Selecteer een database herstellen](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dw.png)
-7. <span data-ttu-id="a0644-145">Geef een nieuwe **databasenaam**.</span><span class="sxs-lookup"><span data-stu-id="a0644-145">Specify a new **Database name**.</span></span>
+    ![Selecteer een database toorestore](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dw.png)
+7. <span data-ttu-id="449a0-145">Geef een nieuwe **databasenaam**.</span><span class="sxs-lookup"><span data-stu-id="449a0-145">Specify a new **Database name**.</span></span>
 
-    ![Voeg een naam voor de database](./media/sql-data-warehouse-restore-database-portal/02-restore-blade-from-deleted.png)
-8. <span data-ttu-id="a0644-147">Selecteer **OK**.</span><span class="sxs-lookup"><span data-stu-id="a0644-147">Select **OK**.</span></span>
-9. <span data-ttu-id="a0644-148">Het proces van de database herstellen wordt gestart en u kunt **meldingen** om het proces te bewaken.</span><span class="sxs-lookup"><span data-stu-id="a0644-148">The database restore process will begin, and you can use **NOTIFICATIONS** to monitor the process.</span></span>
+    ![Een naam voor de database Hallo toevoegen](./media/sql-data-warehouse-restore-database-portal/02-restore-blade-from-deleted.png)
+8. <span data-ttu-id="449a0-147">Selecteer **OK**.</span><span class="sxs-lookup"><span data-stu-id="449a0-147">Select **OK**.</span></span>
+9. <span data-ttu-id="449a0-148">Hallo-database terugzetten proces wordt gestart en u kunt **meldingen** toomonitor Hallo proces.</span><span class="sxs-lookup"><span data-stu-id="449a0-148">hello database restore process will begin, and you can use **NOTIFICATIONS** toomonitor hello process.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="a0644-149">Voor het configureren van uw database nadat het herstel is voltooid. Zie [uw database na herstel configureren][Configure your database after recovery].</span><span class="sxs-lookup"><span data-stu-id="a0644-149">To configure your database after the restore has finished, see [Configure your database after recovery][Configure your database after recovery].</span></span>
+> <span data-ttu-id="449a0-149">tooconfigure uw database nadat Hallo terugzetten is voltooid, Zie [uw database na herstel configureren][Configure your database after recovery].</span><span class="sxs-lookup"><span data-stu-id="449a0-149">tooconfigure your database after hello restore has finished, see [Configure your database after recovery][Configure your database after recovery].</span></span>
 >
 >
 
-## <a name="next-steps"></a><span data-ttu-id="a0644-150">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="a0644-150">Next steps</span></span>
-<span data-ttu-id="a0644-151">Lees voor meer informatie over de zakelijke continuïteit functies van Azure SQL Database-versies, de [Azure SQL Database business continuity overview][Azure SQL Database business continuity overview].</span><span class="sxs-lookup"><span data-stu-id="a0644-151">To learn about the business continuity features of Azure SQL Database editions, read the [Azure SQL Database business continuity overview][Azure SQL Database business continuity overview].</span></span>
+## <a name="next-steps"></a><span data-ttu-id="449a0-150">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="449a0-150">Next steps</span></span>
+<span data-ttu-id="449a0-151">toolearn over Hallo zakelijke continuïteit functies van Azure SQL Database-edities worden gelezen Hallo [Azure SQL Database business continuity overview][Azure SQL Database business continuity overview].</span><span class="sxs-lookup"><span data-stu-id="449a0-151">toolearn about hello business continuity features of Azure SQL Database editions, read hello [Azure SQL Database business continuity overview][Azure SQL Database business continuity overview].</span></span>
 
 <!--Image references-->
 

@@ -1,8 +1,8 @@
 > [!TIP]
 > 
-> **Microsoft Azure Storage Explorer proberen**
+> <span data-ttu-id="8a052-101">**Probeer Microsoft Azure Storage Explorer Hallo**</span><span class="sxs-lookup"><span data-stu-id="8a052-101">**Try hello Microsoft Azure Storage Explorer**</span></span>
 > 
-> [Microsoft Azure Storage Explorer](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken in Windows, macOS en Linux.
+> <span data-ttu-id="8a052-102">[Microsoft Azure Storage Explorer](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md) is een gratis, zelfstandige app van Microsoft waarmee u toowork visueel met Azure Storage-gegevens op Windows-, Mac OS- en Linux.</span><span class="sxs-lookup"><span data-stu-id="8a052-102">[Microsoft Azure Storage Explorer](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you toowork visually with Azure Storage data on Windows, macOS, and Linux.</span></span>
 > 
 > 
 

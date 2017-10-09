@@ -1,6 +1,6 @@
 ---
-title: Routering in een Azure Virtual Network - PowerShell - klassiek beheren | Microsoft Docs
-description: Meer informatie over het beheren van routering in VNets met behulp van PowerShell | Klassieke
+title: aaaControl routering in een Azure Virtual Network - PowerShell - klassiek | Microsoft Docs
+description: Meer informatie over hoe toocontrol routering in VNets met behulp van PowerShell | Klassieke
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,44 +15,44 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-ms.openlocfilehash: e9564d223cb85529f1fa97bc398d35c6debcedae
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 36edf263fb434d5fb13310d4324da20e57f016a9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a><span data-ttu-id="f8172-103">Beheren van Routering en het gebruik van virtuele apparaten (klassiek) met behulp van PowerShell</span><span class="sxs-lookup"><span data-stu-id="f8172-103">Control routing and use virtual appliances (classic) using PowerShell</span></span>
+# <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a><span data-ttu-id="4cdcc-103">Beheren van Routering en het gebruik van virtuele apparaten (klassiek) met behulp van PowerShell</span><span class="sxs-lookup"><span data-stu-id="4cdcc-103">Control routing and use virtual appliances (classic) using PowerShell</span></span>
 
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="f8172-104">PowerShell</span><span class="sxs-lookup"><span data-stu-id="f8172-104">PowerShell</span></span>](virtual-network-create-udr-arm-ps.md)
-> * [<span data-ttu-id="f8172-105">Azure CLI</span><span class="sxs-lookup"><span data-stu-id="f8172-105">Azure CLI</span></span>](virtual-network-create-udr-arm-cli.md)
-> * [<span data-ttu-id="f8172-106">Sjabloon</span><span class="sxs-lookup"><span data-stu-id="f8172-106">Template</span></span>](virtual-network-create-udr-arm-template.md)
-> * [<span data-ttu-id="f8172-107">PowerShell (klassiek)</span><span class="sxs-lookup"><span data-stu-id="f8172-107">PowerShell (Classic)</span></span>](virtual-network-create-udr-classic-ps.md)
-> * [<span data-ttu-id="f8172-108">CLI (klassiek)</span><span class="sxs-lookup"><span data-stu-id="f8172-108">CLI (Classic)</span></span>](virtual-network-create-udr-classic-cli.md)
+> * [<span data-ttu-id="4cdcc-104">PowerShell</span><span class="sxs-lookup"><span data-stu-id="4cdcc-104">PowerShell</span></span>](virtual-network-create-udr-arm-ps.md)
+> * [<span data-ttu-id="4cdcc-105">Azure CLI</span><span class="sxs-lookup"><span data-stu-id="4cdcc-105">Azure CLI</span></span>](virtual-network-create-udr-arm-cli.md)
+> * [<span data-ttu-id="4cdcc-106">Sjabloon</span><span class="sxs-lookup"><span data-stu-id="4cdcc-106">Template</span></span>](virtual-network-create-udr-arm-template.md)
+> * [<span data-ttu-id="4cdcc-107">PowerShell (klassiek)</span><span class="sxs-lookup"><span data-stu-id="4cdcc-107">PowerShell (Classic)</span></span>](virtual-network-create-udr-classic-ps.md)
+> * [<span data-ttu-id="4cdcc-108">CLI (klassiek)</span><span class="sxs-lookup"><span data-stu-id="4cdcc-108">CLI (Classic)</span></span>](virtual-network-create-udr-classic-cli.md)
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> <span data-ttu-id="f8172-109">Voordat u met Azure-resources gaat werken, is het belangrijk om te weten dat Azure momenteel twee implementatiemodellen heeft: Azure Resource Manager en het klassieke model.</span><span class="sxs-lookup"><span data-stu-id="f8172-109">Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic.</span></span> <span data-ttu-id="f8172-110">Zorg ervoor dat u begrijpt wat [implementatiemodellen en hulpprogramma's](../azure-resource-manager/resource-manager-deployment-model.md) zijn voordat u met een Azure-resource gaat werken.</span><span class="sxs-lookup"><span data-stu-id="f8172-110">Make sure you understand [deployment models and tools](../azure-resource-manager/resource-manager-deployment-model.md) before you work with any Azure resource.</span></span> <span data-ttu-id="f8172-111">U kunt de documentatie voor verschillende hulpprogramma's bekijken door een optie boven aan dit artikel te selecteren.</span><span class="sxs-lookup"><span data-stu-id="f8172-111">You can view the documentation for different tools by selecting an option at the top of this article.</span></span> <span data-ttu-id="f8172-112">Dit artikel is van toepassing op het klassieke implementatiemodel.</span><span class="sxs-lookup"><span data-stu-id="f8172-112">This article covers the classic deployment model.</span></span>
+> <span data-ttu-id="4cdcc-109">Voordat u met Azure-resources werkt, is het belangrijk toounderstand dat Azure momenteel twee implementatiemodellen heeft: Azure Resource Manager en het klassieke model.</span><span class="sxs-lookup"><span data-stu-id="4cdcc-109">Before you work with Azure resources, it's important toounderstand that Azure currently has two deployment models: Azure Resource Manager and classic.</span></span> <span data-ttu-id="4cdcc-110">Zorg ervoor dat u begrijpt wat [implementatiemodellen en hulpprogramma's](../azure-resource-manager/resource-manager-deployment-model.md) zijn voordat u met een Azure-resource gaat werken.</span><span class="sxs-lookup"><span data-stu-id="4cdcc-110">Make sure you understand [deployment models and tools](../azure-resource-manager/resource-manager-deployment-model.md) before you work with any Azure resource.</span></span> <span data-ttu-id="4cdcc-111">U kunt Hallo-documentatie voor verschillende hulpprogramma's bekijken door een optie Hallo boven aan dit artikel te selecteren.</span><span class="sxs-lookup"><span data-stu-id="4cdcc-111">You can view hello documentation for different tools by selecting an option at hello top of this article.</span></span> <span data-ttu-id="4cdcc-112">In dit artikel bevat informatie over Hallo klassieke implementatiemodel.</span><span class="sxs-lookup"><span data-stu-id="4cdcc-112">This article covers hello classic deployment model.</span></span>
 > 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-<span data-ttu-id="f8172-113">Het voorbeeld Azure PowerShell onderstaande opdrachten een eenvoudige omgeving al gemaakt verwacht op basis van het bovenstaande scenario.</span><span class="sxs-lookup"><span data-stu-id="f8172-113">The sample Azure PowerShell commands below expect a simple environment already created based on the scenario above.</span></span> <span data-ttu-id="f8172-114">Als u uitvoeren van de opdrachten wilt zoals ze worden weergegeven in dit document, maakt u de omgeving wordt weergegeven in [maken van een VNet (klassiek) met behulp van PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md).</span><span class="sxs-lookup"><span data-stu-id="f8172-114">If you want to run the commands as they are displayed in this document, create the environment shown in [create a VNet (classic) using PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md).</span></span>
+<span data-ttu-id="4cdcc-113">Hallo voorbeeld Azure PowerShell onderstaande opdrachten verwacht een eenvoudige omgeving al gemaakt dat is gebaseerd op Hallo bovenstaande scenario.</span><span class="sxs-lookup"><span data-stu-id="4cdcc-113">hello sample Azure PowerShell commands below expect a simple environment already created based on hello scenario above.</span></span> <span data-ttu-id="4cdcc-114">Als u toorun Hallo opdrachten wilt zoals ze worden weergegeven in dit document, maakt u Hallo-omgeving wordt weergegeven in [maken van een VNet (klassiek) met behulp van PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md).</span><span class="sxs-lookup"><span data-stu-id="4cdcc-114">If you want toorun hello commands as they are displayed in this document, create hello environment shown in [create a VNet (classic) using PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md).</span></span>
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-the-udr-for-the-front-end-subnet"></a><span data-ttu-id="f8172-115">De UDR voor de front-end-subnet maken</span><span class="sxs-lookup"><span data-stu-id="f8172-115">Create the UDR for the front end subnet</span></span>
-<span data-ttu-id="f8172-116">Volg de onderstaande stappen voor het maken van de routetabel en de route die nodig zijn voor de front-end-subnet op basis van de bovenstaande scenario.</span><span class="sxs-lookup"><span data-stu-id="f8172-116">To create the route table and route needed for the front end subnet based on the scenario above, follow the steps below.</span></span>
+## <a name="create-hello-udr-for-hello-front-end-subnet"></a><span data-ttu-id="4cdcc-115">Hallo UDR voor Hallo front-end-subnet maken</span><span class="sxs-lookup"><span data-stu-id="4cdcc-115">Create hello UDR for hello front end subnet</span></span>
+<span data-ttu-id="4cdcc-116">toocreate hello routetabel en route die nodig zijn voor Hallo front-end-subnet op basis van Hallo scenario bovenstaande stappen Hallo hieronder.</span><span class="sxs-lookup"><span data-stu-id="4cdcc-116">toocreate hello route table and route needed for hello front end subnet based on hello scenario above, follow hello steps below.</span></span>
 
-1. <span data-ttu-id="f8172-117">Voer de volgende opdracht voor het maken van een routetabel voor de front-end-subnet:</span><span class="sxs-lookup"><span data-stu-id="f8172-117">Run the following command to create a route table for the front-end subnet:</span></span>
+1. <span data-ttu-id="4cdcc-117">Voer Hallo opdracht toocreate na een routetabel voor Hallo front-end-subnet:</span><span class="sxs-lookup"><span data-stu-id="4cdcc-117">Run hello following command toocreate a route table for hello front-end subnet:</span></span>
 
     ```powershell
     New-AzureRouteTable -Name UDR-FrontEnd -Location uswest `
     -Label "Route table for front end subnet"
     ```
 
-2. <span data-ttu-id="f8172-118">Voer de volgende opdracht voor het maken van een route in de routetabel alle verkeer dat is bestemd voor het subnet voor back-end (192.168.2.0/24) te verzenden naar de **FW1** VM (192.168.0.4):</span><span class="sxs-lookup"><span data-stu-id="f8172-118">Run the following command to create a route in the route table to send all traffic destined to the back-end subnet (192.168.2.0/24) to the **FW1** VM (192.168.0.4):</span></span>
+2. <span data-ttu-id="4cdcc-118">Uitvoeren na de opdracht toocreate een route in Hallo route tabel toosend Hallo alle verkeer dat is bestemd toohello back-end-subnet (192.168.2.0/24) toohello **FW1** VM (192.168.0.4):</span><span class="sxs-lookup"><span data-stu-id="4cdcc-118">Run hello following command toocreate a route in hello route table toosend all traffic destined toohello back-end subnet (192.168.2.0/24) toohello **FW1** VM (192.168.0.4):</span></span>
 
     ```powershell
     Get-AzureRouteTable UDR-FrontEnd `
@@ -61,7 +61,7 @@ ms.lasthandoff: 07/11/2017
     -NextHopIpAddress 192.168.0.4
     ```
 
-3. <span data-ttu-id="f8172-119">Voer de volgende opdracht om te koppelen van de routetabel met de **FrontEnd** subnet:</span><span class="sxs-lookup"><span data-stu-id="f8172-119">Run the following command to associate the route table with the **FrontEnd** subnet:</span></span>
+3. <span data-ttu-id="4cdcc-119">Voer hello na de opdracht tooassociate Hallo routetabel Hello **FrontEnd** subnet:</span><span class="sxs-lookup"><span data-stu-id="4cdcc-119">Run hello following command tooassociate hello route table with hello **FrontEnd** subnet:</span></span>
 
     ```powershell
     Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
@@ -69,10 +69,10 @@ ms.lasthandoff: 07/11/2017
     -RouteTableName UDR-FrontEnd
     ```
 
-## <a name="create-the-udr-for-the-back-end-subnet"></a><span data-ttu-id="f8172-120">De UDR voor de back-end-subnet maken</span><span class="sxs-lookup"><span data-stu-id="f8172-120">Create the UDR for the back-end subnet</span></span>
-<span data-ttu-id="f8172-121">Voor het maken van de routetabel en de route die nodig zijn voor de back-end-subnet op basis van het scenario, moet u de volgende stappen uitvoeren:</span><span class="sxs-lookup"><span data-stu-id="f8172-121">To create the route table and route needed for the back end subnet based on the scenario, complete the following steps:</span></span>
+## <a name="create-hello-udr-for-hello-back-end-subnet"></a><span data-ttu-id="4cdcc-120">Hallo UDR voor Hallo back-end subnet maken</span><span class="sxs-lookup"><span data-stu-id="4cdcc-120">Create hello UDR for hello back-end subnet</span></span>
+<span data-ttu-id="4cdcc-121">toocreate hello routetabel en route die nodig zijn voor Hallo back subnet op basis van Hallo scenario beëindigen, voltooien Hallo stappen te volgen:</span><span class="sxs-lookup"><span data-stu-id="4cdcc-121">toocreate hello route table and route needed for hello back end subnet based on hello scenario, complete hello following steps:</span></span>
 
-1. <span data-ttu-id="f8172-122">Voer de volgende opdracht voor het maken van een routetabel voor de back-end-subnet:</span><span class="sxs-lookup"><span data-stu-id="f8172-122">Run the following command to create a route table for the back-end subnet:</span></span>
+1. <span data-ttu-id="4cdcc-122">Voer Hallo opdracht toocreate na een routetabel voor Hallo back-end-subnet:</span><span class="sxs-lookup"><span data-stu-id="4cdcc-122">Run hello following command toocreate a route table for hello back-end subnet:</span></span>
 
     ```powershell
     New-AzureRouteTable -Name UDR-BackEnd `
@@ -80,7 +80,7 @@ ms.lasthandoff: 07/11/2017
     -Label "Route table for back end subnet"
     ```
 
-2. <span data-ttu-id="f8172-123">Voer de volgende opdracht voor het maken van een route in de routetabel alle verkeer dat is bestemd voor het front-end-subnet (192.168.1.0/24) te verzenden naar de **FW1** VM (192.168.0.4):</span><span class="sxs-lookup"><span data-stu-id="f8172-123">Run the following command to create a route in the route table to send all traffic destined to the front-end subnet (192.168.1.0/24) to the **FW1** VM (192.168.0.4):</span></span>
+2. <span data-ttu-id="4cdcc-123">Uitvoeren na de opdracht toocreate een route in Hallo route tabel toosend Hallo alle verkeer dat is bestemd toohello front-end-subnet (192.168.1.0/24) toohello **FW1** VM (192.168.0.4):</span><span class="sxs-lookup"><span data-stu-id="4cdcc-123">Run hello following command toocreate a route in hello route table toosend all traffic destined toohello front-end subnet (192.168.1.0/24) toohello **FW1** VM (192.168.0.4):</span></span>
 
     ```powershell
     Get-AzureRouteTable UDR-BackEnd
@@ -91,7 +91,7 @@ ms.lasthandoff: 07/11/2017
     -NextHopIpAddress 192.168.0.4
     ```
 
-3. <span data-ttu-id="f8172-124">Voer de volgende opdracht om te koppelen van de routetabel met de **back-end** subnet:</span><span class="sxs-lookup"><span data-stu-id="f8172-124">Run the following command to associate the route table with the **BackEnd** subnet:</span></span>
+3. <span data-ttu-id="4cdcc-124">Voer hello na de opdracht tooassociate Hallo routetabel Hello **back-end** subnet:</span><span class="sxs-lookup"><span data-stu-id="4cdcc-124">Run hello following command tooassociate hello route table with hello **BackEnd** subnet:</span></span>
 
     ```powershell
     Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
@@ -99,18 +99,18 @@ ms.lasthandoff: 07/11/2017
     -RouteTableName UDR-BackEnd
     ```
 
-## <a name="enable-ip-forwarding-on-the-fw1-vm"></a><span data-ttu-id="f8172-125">Doorsturen via IP op de VM FW1 inschakelen</span><span class="sxs-lookup"><span data-stu-id="f8172-125">Enable IP forwarding on the FW1 VM</span></span>
+## <a name="enable-ip-forwarding-on-hello-fw1-vm"></a><span data-ttu-id="4cdcc-125">Doorsturen via IP op Hallo FW1 VM inschakelen</span><span class="sxs-lookup"><span data-stu-id="4cdcc-125">Enable IP forwarding on hello FW1 VM</span></span>
 
-<span data-ttu-id="f8172-126">Om in te schakelen IP doorsturen in de VM FW1, moet u de volgende stappen uitvoeren:</span><span class="sxs-lookup"><span data-stu-id="f8172-126">To enable IP forwarding in the FW1 VM, complete the following steps:</span></span>
+<span data-ttu-id="4cdcc-126">tooenable doorsturen via IP in Hallo FW1 VM, volledige Hallo stappen te volgen:</span><span class="sxs-lookup"><span data-stu-id="4cdcc-126">tooenable IP forwarding in hello FW1 VM, complete hello following steps:</span></span>
 
-1. <span data-ttu-id="f8172-127">Voer de volgende opdracht om de status van doorsturen via IP te controleren:</span><span class="sxs-lookup"><span data-stu-id="f8172-127">Run the following command to check the status of IP forwarding:</span></span>
+1. <span data-ttu-id="4cdcc-127">Voer Hallo opdracht toocheck Hallo status van doorsturen via IP te volgen:</span><span class="sxs-lookup"><span data-stu-id="4cdcc-127">Run hello following command toocheck hello status of IP forwarding:</span></span>
 
     ```powershell
     Get-AzureVM -Name FW1 -ServiceName TestRGFW `
     | Get-AzureIPForwarding
     ```
 
-2. <span data-ttu-id="f8172-128">Voer de volgende opdracht om in te schakelen doorsturen via IP voor de *FW1* VM:</span><span class="sxs-lookup"><span data-stu-id="f8172-128">Run the following command to enable IP forwarding for the *FW1* VM:</span></span>
+2. <span data-ttu-id="4cdcc-128">Voer Hallo volgende opdracht doorsturen via IP voor Hallo tooenable *FW1* VM:</span><span class="sxs-lookup"><span data-stu-id="4cdcc-128">Run hello following command tooenable IP forwarding for hello *FW1* VM:</span></span>
 
     ```powershell
     Get-AzureVM -Name FW1 -ServiceName TestRGFW `

@@ -1,6 +1,6 @@
 ---
-title: Verplaatsen van een virtuele machine van Windows-resource in Azure | Microsoft Docs
-description: Een Windows-VM verplaatsen naar een andere Azure-abonnement of de resource-groep in het Resource Manager-implementatiemodel.
+title: een virtuele machine van Windows-resource in Azure aaaMove | Microsoft Docs
+description: Een tooanother van de virtuele machine van Windows Azure-abonnement of resourcegroep verplaatsen Hallo Resource Manager-implementatiemodel.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 1db25a5d9ff5cb6aa2787a0cafa40cfb010e3b06
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 859e78dce9acf1168780d4ee8e9f6dac0e3c11cf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a><span data-ttu-id="721d7-103">Een Windows VM verplaatsen naar een andere Azure-abonnement of resourcegroep groep</span><span class="sxs-lookup"><span data-stu-id="721d7-103">Move a Windows VM to another Azure subscription or resource group</span></span>
-<span data-ttu-id="721d7-104">Dit artikel begeleidt u bij het verplaatsen van een virtuele machine van Windows tussen resourcegroepen of abonnementen.</span><span class="sxs-lookup"><span data-stu-id="721d7-104">This article walks you through how to move a Windows VM between resource groups or subscriptions.</span></span> <span data-ttu-id="721d7-105">Verplaatsen tussen abonnementen kan handig zijn als u een virtuele machine hebt gemaakt in een persoonlijke abonnement en wilt verplaatsen naar een abonnement van uw bedrijf om na te gaan met uw werk.</span><span class="sxs-lookup"><span data-stu-id="721d7-105">Moving between subscriptions can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work.</span></span>
+# <a name="move-a-windows-vm-tooanother-azure-subscription-or-resource-group"></a><span data-ttu-id="183b6-103">Een tooanother van de virtuele machine van Windows Azure-abonnement of resourcegroep verplaatsen</span><span class="sxs-lookup"><span data-stu-id="183b6-103">Move a Windows VM tooanother Azure subscription or resource group</span></span>
+<span data-ttu-id="183b6-104">In dit artikel leert u hoe u een Windows-VM tussen resourcegroepen of abonnementen toomove.</span><span class="sxs-lookup"><span data-stu-id="183b6-104">This article walks you through how toomove a Windows VM between resource groups or subscriptions.</span></span> <span data-ttu-id="183b6-105">Verplaatsen tussen abonnementen kan handig zijn als u een virtuele machine hebt gemaakt in een persoonlijke abonnement en nu wilt toomove deze van het bedrijf tooyour abonnement toocontinue uw werk.</span><span class="sxs-lookup"><span data-stu-id="183b6-105">Moving between subscriptions can be handy if you originally created a VM in a personal subscription and now want toomove it tooyour company's subscription toocontinue your work.</span></span>
 
 > [!IMPORTANT]
-><span data-ttu-id="721d7-106">U kunt beheerde schijven op dit moment niet verplaatsen.</span><span class="sxs-lookup"><span data-stu-id="721d7-106">You cannot move Managed Disks at this time.</span></span> 
+><span data-ttu-id="183b6-106">U kunt beheerde schijven op dit moment niet verplaatsen.</span><span class="sxs-lookup"><span data-stu-id="183b6-106">You cannot move Managed Disks at this time.</span></span> 
 >
-><span data-ttu-id="721d7-107">Nieuwe resource-id's worden gemaakt als onderdeel van de verplaatsing.</span><span class="sxs-lookup"><span data-stu-id="721d7-107">New resource IDs are created as part of the move.</span></span> <span data-ttu-id="721d7-108">Nadat de virtuele machine is verplaatst, moet u de hulpprogramma's en scripts die de nieuwe resource-ID bijwerken.</span><span class="sxs-lookup"><span data-stu-id="721d7-108">Once the VM has been moved, you need to update your tools and scripts to use the new resource IDs.</span></span> 
+><span data-ttu-id="183b6-107">Nieuwe resource-id's worden gemaakt als onderdeel van Hallo verplaatsen.</span><span class="sxs-lookup"><span data-stu-id="183b6-107">New resource IDs are created as part of hello move.</span></span> <span data-ttu-id="183b6-108">Als hello VM is verplaatst, moet u tooupdate de hulpprogramma's en scripts toouse Hallo nieuwe resource-id.</span><span class="sxs-lookup"><span data-stu-id="183b6-108">Once hello VM has been moved, you need tooupdate your tools and scripts toouse hello new resource IDs.</span></span> 
 > 
 > 
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
-## <a name="use-powershell-to-move-a-vm"></a><span data-ttu-id="721d7-109">Powershell gebruiken voor het verplaatsen van een virtuele machine</span><span class="sxs-lookup"><span data-stu-id="721d7-109">Use Powershell to move a VM</span></span>
-<span data-ttu-id="721d7-110">Als een virtuele machine naar een andere resourcegroep verplaatsen, moet u ervoor zorgen dat u ook alle afhankelijke resources verplaatsen.</span><span class="sxs-lookup"><span data-stu-id="721d7-110">To move a virtual machine to another resource group, you need to make sure that you also move all of the dependent resources.</span></span> <span data-ttu-id="721d7-111">Voor het gebruik van de cmdlet Move-AzureRMResource, moet u de naam van de bron en het type resource.</span><span class="sxs-lookup"><span data-stu-id="721d7-111">To use the Move-AzureRMResource cmdlet, you need the resource name and the type of resource.</span></span> <span data-ttu-id="721d7-112">U kunt beide van de cmdlet zoeken AzureRMResource ophalen.</span><span class="sxs-lookup"><span data-stu-id="721d7-112">You can get both from the Find-AzureRMResource cmdlet.</span></span>
+## <a name="use-powershell-toomove-a-vm"></a><span data-ttu-id="183b6-109">Gebruik Powershell toomove een virtuele machine</span><span class="sxs-lookup"><span data-stu-id="183b6-109">Use Powershell toomove a VM</span></span>
+<span data-ttu-id="183b6-110">een resourcegroep van de virtuele machine tooanother toomove, moet u ervoor dat u ook Verplaats alle afhankelijke resources Hallo toomake.</span><span class="sxs-lookup"><span data-stu-id="183b6-110">toomove a virtual machine tooanother resource group, you need toomake sure that you also move all of hello dependent resources.</span></span> <span data-ttu-id="183b6-111">toouse hello verplaatsen AzureRMResource cmdlet, moet u Hallo resourcenaam en Hallo type resource.</span><span class="sxs-lookup"><span data-stu-id="183b6-111">toouse hello Move-AzureRMResource cmdlet, you need hello resource name and hello type of resource.</span></span> <span data-ttu-id="183b6-112">U kunt zowel vanuit Hallo zoeken AzureRMResource cmdlet ophalen.</span><span class="sxs-lookup"><span data-stu-id="183b6-112">You can get both from hello Find-AzureRMResource cmdlet.</span></span>
 
     Find-AzureRMResource -ResourceGroupNameContains "<sourceResourceGroupName>"
 
 
-<span data-ttu-id="721d7-113">Voor het verplaatsen van een virtuele machine moet worden verplaatst van meerdere resources.</span><span class="sxs-lookup"><span data-stu-id="721d7-113">To move a VM we need to move multiple resources.</span></span> <span data-ttu-id="721d7-114">We kunnen alleen afzonderlijke variabelen voor elke resource maken en deze vervolgens te vermelden.</span><span class="sxs-lookup"><span data-stu-id="721d7-114">We can just create separate variables for each resource and then list them.</span></span> <span data-ttu-id="721d7-115">In dit voorbeeld bevat het merendeel van de algemene resources voor een virtuele machine, maar u kunt meer behoefte toevoegen.</span><span class="sxs-lookup"><span data-stu-id="721d7-115">This example includes most of the basic resources for a VM, but you can add more as needed.</span></span>
+<span data-ttu-id="183b6-113">toomove een virtuele machine moet toomove meerdere resources.</span><span class="sxs-lookup"><span data-stu-id="183b6-113">toomove a VM we need toomove multiple resources.</span></span> <span data-ttu-id="183b6-114">We kunnen alleen afzonderlijke variabelen voor elke resource maken en deze vervolgens te vermelden.</span><span class="sxs-lookup"><span data-stu-id="183b6-114">We can just create separate variables for each resource and then list them.</span></span> <span data-ttu-id="183b6-115">In dit voorbeeld bevat de meest Hallo basic resources voor een virtuele machine, maar u kunt meer behoefte toevoegen.</span><span class="sxs-lookup"><span data-stu-id="183b6-115">This example includes most of hello basic resources for a VM, but you can add more as needed.</span></span>
 
     $sourceRG = "<sourceResourceGroupName>"
     $destinationRG = "<destinationResourceGroupName>"
@@ -54,14 +54,14 @@ ms.lasthandoff: 07/11/2017
 
     Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vm.ResourceId, $storageAccount.ResourceId, $diagStorageAccount.ResourceId, $vNet.ResourceId, $nic.ResourceId, $ip.ResourceId, $nsg.ResourceId
 
-<span data-ttu-id="721d7-116">De om resources te verplaatsen naar een ander abonnement, omvatten de **- DestinationSubscriptionId** parameter.</span><span class="sxs-lookup"><span data-stu-id="721d7-116">To move the resources to different subscription, include the **-DestinationSubscriptionId** parameter.</span></span> 
+<span data-ttu-id="183b6-116">toomove Hallo resources toodifferent abonnement, omvatten Hallo **- DestinationSubscriptionId** parameter.</span><span class="sxs-lookup"><span data-stu-id="183b6-116">toomove hello resources toodifferent subscription, include hello **-DestinationSubscriptionId** parameter.</span></span> 
 
     Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vm.ResourceId, $storageAccount.ResourceId, $diagStorageAccount.ResourceId, $vNet.ResourceId, $nic.ResourceId, $ip.ResourceId, $nsg.ResourceId
 
 
 
-<span data-ttu-id="721d7-117">U wordt gevraagd om te bevestigen dat u wilt verplaatsen van de opgegeven resources.</span><span class="sxs-lookup"><span data-stu-id="721d7-117">You will be asked to confirm that you want to move the specified resources.</span></span> <span data-ttu-id="721d7-118">Type **Y** om te bevestigen dat u wilt verplaatsen van de resources.</span><span class="sxs-lookup"><span data-stu-id="721d7-118">Type **Y** to confirm that you want to move the resources.</span></span>
+<span data-ttu-id="183b6-117">U wordt gevraagd dat u wilt dat toomove hello tooconfirm opgegeven resources.</span><span class="sxs-lookup"><span data-stu-id="183b6-117">You will be asked tooconfirm that you want toomove hello specified resources.</span></span> <span data-ttu-id="183b6-118">Type **Y** tooconfirm dat u wilt dat toomove Hallo resources.</span><span class="sxs-lookup"><span data-stu-id="183b6-118">Type **Y** tooconfirm that you want toomove hello resources.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="721d7-119">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="721d7-119">Next steps</span></span>
-<span data-ttu-id="721d7-120">U kunt verschillende soorten resources verplaatsen tussen resourcegroepen en abonnementen.</span><span class="sxs-lookup"><span data-stu-id="721d7-120">You can move many different types of resources between resource groups and subscriptions.</span></span> <span data-ttu-id="721d7-121">Zie voor meer informatie [Resources verplaatsen naar een nieuwe resourcegroep of een nieuw abonnement](../../resource-group-move-resources.md).</span><span class="sxs-lookup"><span data-stu-id="721d7-121">For more information, see [Move resources to new resource group or subscription](../../resource-group-move-resources.md).</span></span>    
+## <a name="next-steps"></a><span data-ttu-id="183b6-119">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="183b6-119">Next steps</span></span>
+<span data-ttu-id="183b6-120">U kunt verschillende soorten resources verplaatsen tussen resourcegroepen en abonnementen.</span><span class="sxs-lookup"><span data-stu-id="183b6-120">You can move many different types of resources between resource groups and subscriptions.</span></span> <span data-ttu-id="183b6-121">Zie voor meer informatie [verplaatsen van resources toonew resourcegroep of abonnement](../../resource-group-move-resources.md).</span><span class="sxs-lookup"><span data-stu-id="183b6-121">For more information, see [Move resources toonew resource group or subscription](../../resource-group-move-resources.md).</span></span>    
 

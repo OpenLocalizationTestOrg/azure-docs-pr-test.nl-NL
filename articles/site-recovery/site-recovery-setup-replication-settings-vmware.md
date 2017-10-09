@@ -1,6 +1,6 @@
 ---
-title: Replicatie-instellingen voor Azure Site Recovery instellen | Microsoft Docs
-description: Dit artikel beschrijft hoe u Site Recovery implementeert om replicatie, failovers en herstel van virtuele Hyper-V-machines in VMM-clouds naar Azure te beheren.
+title: aaaSet van replicatie-instellingen voor Azure Site Recovery | Microsoft Docs
+description: Hierin wordt beschreven hoe clouds tooAzure toodeploy siteherstel tooorchestrate replicatie, failovers en herstel van Hyper-V-machines in VMM.
 services: site-recovery
 documentationcenter: 
 author: sujayt
@@ -14,75 +14,75 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2017
 ms.author: sutalasi
-ms.openlocfilehash: 73a1f19177f23441f5f7165cf2bc92ba85e62aa5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 618e92e42411732a2a1bb75c5e5ea8a433cd7d58
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-replication-policy-for-vmware-to-azure"></a><span data-ttu-id="11a43-103">Replicatiebeleid voor VMware naar Azure beheren</span><span class="sxs-lookup"><span data-stu-id="11a43-103">Manage replication policy for VMware to Azure</span></span>
+# <a name="manage-replication-policy-for-vmware-tooazure"></a><span data-ttu-id="42ba4-103">Replicatiebeleid voor voor VMware tooAzure beheren</span><span class="sxs-lookup"><span data-stu-id="42ba4-103">Manage replication policy for VMware tooAzure</span></span>
 
 
-## <a name="create-a-replication-policy"></a><span data-ttu-id="11a43-104">Een replicatiebeleid maken</span><span class="sxs-lookup"><span data-stu-id="11a43-104">Create a replication policy</span></span>
+## <a name="create-a-replication-policy"></a><span data-ttu-id="42ba4-104">Een replicatiebeleid maken</span><span class="sxs-lookup"><span data-stu-id="42ba4-104">Create a replication policy</span></span>
 
-1. <span data-ttu-id="11a43-105">Selecteer **Beheren** > **Infrastructuur voor Site Recovery**.</span><span class="sxs-lookup"><span data-stu-id="11a43-105">Select **Manage** > **Site Recovery Infrastructure**.</span></span>
-2. <span data-ttu-id="11a43-106">Selecteer **Replicatiebeleid** onder **Voor VMware en fysieke machines**.</span><span class="sxs-lookup"><span data-stu-id="11a43-106">Select **Replication policies** under **For VMware and Physical machines**.</span></span>
-3. <span data-ttu-id="11a43-107">Selecteer **+Replicatiebeleid**.</span><span class="sxs-lookup"><span data-stu-id="11a43-107">Select **+Replication policy**.</span></span>
+1. <span data-ttu-id="42ba4-105">Selecteer **Beheren** > **Infrastructuur voor Site Recovery**.</span><span class="sxs-lookup"><span data-stu-id="42ba4-105">Select **Manage** > **Site Recovery Infrastructure**.</span></span>
+2. <span data-ttu-id="42ba4-106">Selecteer **Replicatiebeleid** onder **Voor VMware en fysieke machines**.</span><span class="sxs-lookup"><span data-stu-id="42ba4-106">Select **Replication policies** under **For VMware and Physical machines**.</span></span>
+3. <span data-ttu-id="42ba4-107">Selecteer **+Replicatiebeleid**.</span><span class="sxs-lookup"><span data-stu-id="42ba4-107">Select **+Replication policy**.</span></span>
 
     ![Replicatiebeleid maken](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
 
-4. <span data-ttu-id="11a43-109">Voer de naam van het beleid in.</span><span class="sxs-lookup"><span data-stu-id="11a43-109">Enter the policy name.</span></span>
+4. <span data-ttu-id="42ba4-109">Voer de beleidsnaam Hallo.</span><span class="sxs-lookup"><span data-stu-id="42ba4-109">Enter hello policy name.</span></span>
 
-5. <span data-ttu-id="11a43-110">Geef de limiet voor de RPO op bij **RPO-drempelwaarde**.</span><span class="sxs-lookup"><span data-stu-id="11a43-110">In **RPO threshold**, specify the RPO limit.</span></span> <span data-ttu-id="11a43-111">Wanneer de continue replicatie deze limiet overschrijdt, worden er waarschuwingen gegenereerd.</span><span class="sxs-lookup"><span data-stu-id="11a43-111">Alerts will be generated when continuous replication exceeds this limit.</span></span>
-6. <span data-ttu-id="11a43-112">Geef in **Bewaarperiode van het herstelpunt** de duur (in uren) op dat elk herstelpunt moet worden bewaard.</span><span class="sxs-lookup"><span data-stu-id="11a43-112">In **Recovery point retention**, specify (in hours) the duration of the retention window for each recovery point.</span></span> <span data-ttu-id="11a43-113">Beveiligde machines kunnen binnen een bepaald tijdsvenster te allen tijde worden hersteld naar een willekeurig punt.</span><span class="sxs-lookup"><span data-stu-id="11a43-113">Protected machines can be recovered to any point within a retention window.</span></span>
-
-    > [!NOTE]
-    > <span data-ttu-id="11a43-114">Een bewaarperiode van maximaal 24 uur wordt ondersteund voor computers die worden gerepliceerd naar Premium Storage.</span><span class="sxs-lookup"><span data-stu-id="11a43-114">Up to 24 hours of retention is supported for machines replicated to premium storage.</span></span> <span data-ttu-id="11a43-115">Een bewaarperiode van maximaal 72 uur wordt ondersteund voor computers die worden gerepliceerd naar Standard Storage.</span><span class="sxs-lookup"><span data-stu-id="11a43-115">Up to 72 hours of retention is supported for machines replicated to standard storage.</span></span>
+5. <span data-ttu-id="42ba4-110">In **RPO drempelwaarde**, Hallo RPO grootte opgeven.</span><span class="sxs-lookup"><span data-stu-id="42ba4-110">In **RPO threshold**, specify hello RPO limit.</span></span> <span data-ttu-id="42ba4-111">Wanneer de continue replicatie deze limiet overschrijdt, worden er waarschuwingen gegenereerd.</span><span class="sxs-lookup"><span data-stu-id="42ba4-111">Alerts will be generated when continuous replication exceeds this limit.</span></span>
+6. <span data-ttu-id="42ba4-112">In **herstel bewaarperiode**, geef (in uren) Hallo duur van de bewaarperiode Hallo voor elk herstelpunt.</span><span class="sxs-lookup"><span data-stu-id="42ba4-112">In **Recovery point retention**, specify (in hours) hello duration of hello retention window for each recovery point.</span></span> <span data-ttu-id="42ba4-113">Beveiligde machines kunnen worden hersteld tooany punt binnen een bewaarperiode.</span><span class="sxs-lookup"><span data-stu-id="42ba4-113">Protected machines can be recovered tooany point within a retention window.</span></span>
 
     > [!NOTE]
-    > <span data-ttu-id="11a43-116">Er wordt automatisch een replicatiebeleid voor failback gemaakt.</span><span class="sxs-lookup"><span data-stu-id="11a43-116">A replication policy for failback is automatically created.</span></span>
+    > <span data-ttu-id="42ba4-114">Too24 uur retentieperiode wordt ondersteund voor de opslag van de gerepliceerde toopremium machines.</span><span class="sxs-lookup"><span data-stu-id="42ba4-114">Up too24 hours of retention is supported for machines replicated toopremium storage.</span></span> <span data-ttu-id="42ba4-115">Too72 uur retentieperiode wordt ondersteund voor de opslag van de gerepliceerde toostandard machines.</span><span class="sxs-lookup"><span data-stu-id="42ba4-115">Up too72 hours of retention is supported for machines replicated toostandard storage.</span></span>
 
-7. <span data-ttu-id="11a43-117">Geef in **Frequentie van de app-consistente momentopname** op hoe vaak (in minuten) er herstelpunten moeten worden gemaakt met toepassingsconsistente momentopnamen.</span><span class="sxs-lookup"><span data-stu-id="11a43-117">In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points that contain application-consistent snapshots will be created.</span></span>
+    > [!NOTE]
+    > <span data-ttu-id="42ba4-116">Er wordt automatisch een replicatiebeleid voor failback gemaakt.</span><span class="sxs-lookup"><span data-stu-id="42ba4-116">A replication policy for failback is automatically created.</span></span>
 
-8. <span data-ttu-id="11a43-118">Klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="11a43-118">Click **OK**.</span></span> <span data-ttu-id="11a43-119">Het beleid wordt binnen 30 seconden tot 60 minuut gemaakt.</span><span class="sxs-lookup"><span data-stu-id="11a43-119">The policy should be created in 30 to 60 seconds.</span></span>
+7. <span data-ttu-id="42ba4-117">Geef in **Frequentie van de app-consistente momentopname** op hoe vaak (in minuten) er herstelpunten moeten worden gemaakt met toepassingsconsistente momentopnamen.</span><span class="sxs-lookup"><span data-stu-id="42ba4-117">In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points that contain application-consistent snapshots will be created.</span></span>
+
+8. <span data-ttu-id="42ba4-118">Klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="42ba4-118">Click **OK**.</span></span> <span data-ttu-id="42ba4-119">Hallo-beleid moet worden gemaakt in 30 too60 seconden.</span><span class="sxs-lookup"><span data-stu-id="42ba4-119">hello policy should be created in 30 too60 seconds.</span></span>
 
 ![Replicatiebeleid genereren](./media/site-recovery-setup-replication-settings-vmware/Creating-Policy.png)
 
-## <a name="associate-a-configuration-server-with-a-replication-policy"></a><span data-ttu-id="11a43-121">Een configuratieserver koppelen aan het replicatiebeleid</span><span class="sxs-lookup"><span data-stu-id="11a43-121">Associate a configuration server with a replication policy</span></span>
-1. <span data-ttu-id="11a43-122">Kies het replicatiebeleid waaraan u de configuratieserver wilt koppelen.</span><span class="sxs-lookup"><span data-stu-id="11a43-122">Choose the replication policy to which you want to associate the configuration server.</span></span>
-2. <span data-ttu-id="11a43-123">Klik op **Koppelen**.</span><span class="sxs-lookup"><span data-stu-id="11a43-123">Click **Associate**.</span></span>
-<span data-ttu-id="11a43-124">![Configuratieserver koppelen](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)</span><span class="sxs-lookup"><span data-stu-id="11a43-124">![Associate configuration server](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)</span></span>
+## <a name="associate-a-configuration-server-with-a-replication-policy"></a><span data-ttu-id="42ba4-121">Een configuratieserver koppelen aan het replicatiebeleid</span><span class="sxs-lookup"><span data-stu-id="42ba4-121">Associate a configuration server with a replication policy</span></span>
+1. <span data-ttu-id="42ba4-122">Kies Hallo replicatie beleid toowhich gewenste tooassociate Hallo configuratieserver.</span><span class="sxs-lookup"><span data-stu-id="42ba4-122">Choose hello replication policy toowhich you want tooassociate hello configuration server.</span></span>
+2. <span data-ttu-id="42ba4-123">Klik op **Koppelen**.</span><span class="sxs-lookup"><span data-stu-id="42ba4-123">Click **Associate**.</span></span>
+<span data-ttu-id="42ba4-124">![Configuratieserver koppelen](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)</span><span class="sxs-lookup"><span data-stu-id="42ba4-124">![Associate configuration server](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)</span></span>
 
-3. <span data-ttu-id="11a43-125">Selecteer de configuratieserver in de lijst met servers.</span><span class="sxs-lookup"><span data-stu-id="11a43-125">Select the configuration server from the list of servers.</span></span>
-4. <span data-ttu-id="11a43-126">Klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="11a43-126">Click **OK**.</span></span> <span data-ttu-id="11a43-127">De configuratieserver wordt binnen één tot twee minuten gekoppeld.</span><span class="sxs-lookup"><span data-stu-id="11a43-127">The configuration server should be associated in one to two minutes.</span></span>
+3. <span data-ttu-id="42ba4-125">Selecteer Hallo configuratieserver uit Hallo lijst met servers.</span><span class="sxs-lookup"><span data-stu-id="42ba4-125">Select hello configuration server from hello list of servers.</span></span>
+4. <span data-ttu-id="42ba4-126">Klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="42ba4-126">Click **OK**.</span></span> <span data-ttu-id="42ba4-127">Hallo configuratieserver moet worden gekoppeld in één tootwo minuten.</span><span class="sxs-lookup"><span data-stu-id="42ba4-127">hello configuration server should be associated in one tootwo minutes.</span></span>
 
 ![Configuratieserver koppelen](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
 
-## <a name="edit-a-replication-policy"></a><span data-ttu-id="11a43-129">Een replicatiebeleid bewerken</span><span class="sxs-lookup"><span data-stu-id="11a43-129">Edit a replication policy</span></span>
-1. <span data-ttu-id="11a43-130">Kies het replicatiebeleid waarvan u de replicatie-instellingen wilt bewerken.</span><span class="sxs-lookup"><span data-stu-id="11a43-130">Choose the replication policy for which you want to edit replication settings.</span></span>
-<span data-ttu-id="11a43-131">![Replicatiebeleid bewerken](./media/site-recovery-setup-replication-settings-vmware/Select-Policy.png)</span><span class="sxs-lookup"><span data-stu-id="11a43-131">![Edit replication policy](./media/site-recovery-setup-replication-settings-vmware/Select-Policy.png)</span></span>
+## <a name="edit-a-replication-policy"></a><span data-ttu-id="42ba4-129">Een replicatiebeleid bewerken</span><span class="sxs-lookup"><span data-stu-id="42ba4-129">Edit a replication policy</span></span>
+1. <span data-ttu-id="42ba4-130">Hallo replicatiebeleid waarvoor u tooedit replicatie-instellingen wilt kiezen.</span><span class="sxs-lookup"><span data-stu-id="42ba4-130">Choose hello replication policy for which you want tooedit replication settings.</span></span>
+<span data-ttu-id="42ba4-131">![Replicatiebeleid bewerken](./media/site-recovery-setup-replication-settings-vmware/Select-Policy.png)</span><span class="sxs-lookup"><span data-stu-id="42ba4-131">![Edit replication policy](./media/site-recovery-setup-replication-settings-vmware/Select-Policy.png)</span></span>
 
-2. <span data-ttu-id="11a43-132">Klik op **Instellingen bewerken**.</span><span class="sxs-lookup"><span data-stu-id="11a43-132">Click **Edit Settings**.</span></span>
-<span data-ttu-id="11a43-133">![Instellingen van replicatiebeleid bewerken](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)</span><span class="sxs-lookup"><span data-stu-id="11a43-133">![Edit replication policy settings](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)</span></span>
+2. <span data-ttu-id="42ba4-132">Klik op **Instellingen bewerken**.</span><span class="sxs-lookup"><span data-stu-id="42ba4-132">Click **Edit Settings**.</span></span>
+<span data-ttu-id="42ba4-133">![Instellingen van replicatiebeleid bewerken](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)</span><span class="sxs-lookup"><span data-stu-id="42ba4-133">![Edit replication policy settings](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)</span></span>
 
-3. <span data-ttu-id="11a43-134">Wijzig de instellingen op basis van uw behoeften.</span><span class="sxs-lookup"><span data-stu-id="11a43-134">Change the settings based on your need.</span></span>
-4. <span data-ttu-id="11a43-135">Klik op **Opslaan**.</span><span class="sxs-lookup"><span data-stu-id="11a43-135">Click **Save**.</span></span> <span data-ttu-id="11a43-136">Het beleid wordt binnen twee tot vijf minuten opgeslagen. Dit is afhankelijk van hoeveel virtuele machines gebruikmaken van dit replicatiebeleid.</span><span class="sxs-lookup"><span data-stu-id="11a43-136">The policy should be saved in two to five minutes, depending on how many VMs are using that replication policy.</span></span>
+3. <span data-ttu-id="42ba4-134">Hallo wijzigen op basis van uw behoeften.</span><span class="sxs-lookup"><span data-stu-id="42ba4-134">Change hello settings based on your need.</span></span>
+4. <span data-ttu-id="42ba4-135">Klik op **Opslaan**.</span><span class="sxs-lookup"><span data-stu-id="42ba4-135">Click **Save**.</span></span> <span data-ttu-id="42ba4-136">Hallo-beleid moet worden opgeslagen in twee toofive minuten, afhankelijk van hoeveel virtuele machines die replicatiebeleid gebruikt.</span><span class="sxs-lookup"><span data-stu-id="42ba4-136">hello policy should be saved in two toofive minutes, depending on how many VMs are using that replication policy.</span></span>
 
 ![Replicatiebeleid opslaan](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
 
-## <a name="dissociate-a-configuration-server-from-a-replication-policy"></a><span data-ttu-id="11a43-138">Een configuratieserver loskoppelen van een replicatiebeleid</span><span class="sxs-lookup"><span data-stu-id="11a43-138">Dissociate a configuration server from a replication policy</span></span>
-1. <span data-ttu-id="11a43-139">Kies het replicatiebeleid waaraan u de configuratieserver wilt koppelen.</span><span class="sxs-lookup"><span data-stu-id="11a43-139">Choose the replication policy to which you want to associate the configuration server.</span></span>
-2. <span data-ttu-id="11a43-140">Klik op **Ontkoppelen**.</span><span class="sxs-lookup"><span data-stu-id="11a43-140">Click **Dissociate**.</span></span>
-3. <span data-ttu-id="11a43-141">Selecteer de configuratieserver in de lijst met servers.</span><span class="sxs-lookup"><span data-stu-id="11a43-141">Select the configuration server from the list of servers.</span></span>
-4. <span data-ttu-id="11a43-142">Klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="11a43-142">Click **OK**.</span></span> <span data-ttu-id="11a43-143">De configuratieserver wordt binnen één tot twee minuten ontkoppeld.</span><span class="sxs-lookup"><span data-stu-id="11a43-143">The configuration server should be dissociated in one to two minutes.</span></span>
+## <a name="dissociate-a-configuration-server-from-a-replication-policy"></a><span data-ttu-id="42ba4-138">Een configuratieserver loskoppelen van een replicatiebeleid</span><span class="sxs-lookup"><span data-stu-id="42ba4-138">Dissociate a configuration server from a replication policy</span></span>
+1. <span data-ttu-id="42ba4-139">Kies Hallo replicatie beleid toowhich gewenste tooassociate Hallo configuratieserver.</span><span class="sxs-lookup"><span data-stu-id="42ba4-139">Choose hello replication policy toowhich you want tooassociate hello configuration server.</span></span>
+2. <span data-ttu-id="42ba4-140">Klik op **Ontkoppelen**.</span><span class="sxs-lookup"><span data-stu-id="42ba4-140">Click **Dissociate**.</span></span>
+3. <span data-ttu-id="42ba4-141">Selecteer Hallo configuratieserver uit Hallo lijst met servers.</span><span class="sxs-lookup"><span data-stu-id="42ba4-141">Select hello configuration server from hello list of servers.</span></span>
+4. <span data-ttu-id="42ba4-142">Klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="42ba4-142">Click **OK**.</span></span> <span data-ttu-id="42ba4-143">Hallo configuratieserver moet worden ontkoppeld in één tootwo minuten.</span><span class="sxs-lookup"><span data-stu-id="42ba4-143">hello configuration server should be dissociated in one tootwo minutes.</span></span>
 
     > [!NOTE]
-    > <span data-ttu-id="11a43-144">U kunt een configuratieserver niet ontkoppelen als het beleid door een of meer gerepliceerde items wordt gebruikt.</span><span class="sxs-lookup"><span data-stu-id="11a43-144">You cannot dissociate a configuration server if there is at least one replicated item using the policy.</span></span> <span data-ttu-id="11a43-145">Voordat u de configuratieserver ontkoppelt, moet u ervoor zorgen dat het beleid niet door gerepliceerde items wordt gebruikt.</span><span class="sxs-lookup"><span data-stu-id="11a43-145">Make sure there are no replicated items using the policy before you dissociate the configuration server.</span></span>
+    > <span data-ttu-id="42ba4-144">U kunt een configuratieserver kan niet ontkoppelen als er ten minste één gerepliceerde item met behulp van Hallo-beleid.</span><span class="sxs-lookup"><span data-stu-id="42ba4-144">You cannot dissociate a configuration server if there is at least one replicated item using hello policy.</span></span> <span data-ttu-id="42ba4-145">Zorg ervoor dat er zijn geen gerepliceerde items met behulp van Hallo beleid voordat u de configuratieserver Hallo ontkoppelen.</span><span class="sxs-lookup"><span data-stu-id="42ba4-145">Make sure there are no replicated items using hello policy before you dissociate hello configuration server.</span></span>
 
-## <a name="delete-a-replication-policy"></a><span data-ttu-id="11a43-146">Een replicatiebeleid verwijderen</span><span class="sxs-lookup"><span data-stu-id="11a43-146">Delete a replication policy</span></span>
+## <a name="delete-a-replication-policy"></a><span data-ttu-id="42ba4-146">Een replicatiebeleid verwijderen</span><span class="sxs-lookup"><span data-stu-id="42ba4-146">Delete a replication policy</span></span>
 
-1. <span data-ttu-id="11a43-147">Kies het replicatiebeleid dat u wilt verwijderen.</span><span class="sxs-lookup"><span data-stu-id="11a43-147">Choose the replication policy that you want to delete.</span></span>
-2. <span data-ttu-id="11a43-148">Klik op **Verwijderen**.</span><span class="sxs-lookup"><span data-stu-id="11a43-148">Click **Delete**.</span></span> <span data-ttu-id="11a43-149">Het beleid wordt binnen 30 seconden tot 60 minuut verwijderd.</span><span class="sxs-lookup"><span data-stu-id="11a43-149">The policy should be deleted in 30 to 60 seconds.</span></span>
+1. <span data-ttu-id="42ba4-147">Hallo replicatiebeleid kiezen dat u wilt dat toodelete.</span><span class="sxs-lookup"><span data-stu-id="42ba4-147">Choose hello replication policy that you want toodelete.</span></span>
+2. <span data-ttu-id="42ba4-148">Klik op **Verwijderen**.</span><span class="sxs-lookup"><span data-stu-id="42ba4-148">Click **Delete**.</span></span> <span data-ttu-id="42ba4-149">Hallo-beleid moet worden verwijderd in 30 too60 seconden.</span><span class="sxs-lookup"><span data-stu-id="42ba4-149">hello policy should be deleted in 30 too60 seconds.</span></span>
 
     > [!NOTE]
-    > <span data-ttu-id="11a43-150">U kunt een replicatiebeleid niet verwijderen als er een of meer configuratieservers aan zijn gekoppeld.</span><span class="sxs-lookup"><span data-stu-id="11a43-150">You cannot delete a replication policy if it has at least one configuration server associated to it.</span></span> <span data-ttu-id="11a43-151">Zorg ervoor dat het beleid niet door gerepliceerde items wordt gebruikt en verwijder alle gekoppelde configuratieservers voordat u het beleid verwijdert.</span><span class="sxs-lookup"><span data-stu-id="11a43-151">Make sure there are no replicated items using the policy and delete all the associated configuration servers before you delete the policy.</span></span>
+    > <span data-ttu-id="42ba4-150">U kunt een beleid voor wachtwoordreplicatie niet verwijderen als er ten minste één tooit voor configuratie-server die is gekoppeld.</span><span class="sxs-lookup"><span data-stu-id="42ba4-150">You cannot delete a replication policy if it has at least one configuration server associated tooit.</span></span> <span data-ttu-id="42ba4-151">Controleer of er zijn geen gerepliceerde items met behulp van beleid Hallo en verwijder die alle Hallo configuratieservers gekoppeld voordat u Hallo beleid verwijderen.</span><span class="sxs-lookup"><span data-stu-id="42ba4-151">Make sure there are no replicated items using hello policy and delete all hello associated configuration servers before you delete hello policy.</span></span>

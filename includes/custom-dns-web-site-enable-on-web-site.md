@@ -1,0 +1,22 @@
+<span data-ttu-id="922a4-101">Nadat het Hallo-records voor uw domeinnaam hebt doorgegeven, moet u ze aan uw Web-App koppelen.</span><span class="sxs-lookup"><span data-stu-id="922a4-101">After hello records for your domain name have propagated, you must associate them with your Web App.</span></span> <span data-ttu-id="922a4-102">Volgende stappen tooenable Hallo domeinnamen via uw webbrowser hello gebruiken.</span><span class="sxs-lookup"><span data-stu-id="922a4-102">Use hello following steps tooenable hello domain names using your web browser.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="922a4-103">Het kan even duren voor TXT-records gemaakt in de vorige stappen toopropagate Hallo via Hallo DNS-systeem.</span><span class="sxs-lookup"><span data-stu-id="922a4-103">It can take some time for TXT records created in hello previous steps toopropagate through hello DNS system.</span></span> <span data-ttu-id="922a4-104">U kunt geen Hallo-domeinnaam van de web-app tooyour toevoegen totdat Hallo TXT-record is doorgegeven.</span><span class="sxs-lookup"><span data-stu-id="922a4-104">You cannot add hello domain name of tooyour web app until hello TXT record has propagated.</span></span> <span data-ttu-id="922a4-105">Als u een A-record gebruikt, kunt u Hallo een record domain name tooyour web-app niet toevoegen totdat Hallo TXT-record gemaakt in de vorige stap Hallo heeft doorgegeven.</span><span class="sxs-lookup"><span data-stu-id="922a4-105">If you are using an A record, you cannot add hello A record domain name tooyour web app until hello TXT record created in hello previous step has propagated.</span></span>
+> 
+> <span data-ttu-id="922a4-106">U kunt een service zoals <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> tooverify die Hallo TXT-record is beschikbaar.</span><span class="sxs-lookup"><span data-stu-id="922a4-106">You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> tooverify that hello TXT record is available.</span></span>
+> 
+> 
+
+1. <span data-ttu-id="922a4-107">Open in uw browser Hallo [Azure Portal](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="922a4-107">In your browser, open hello [Azure Portal](https://portal.azure.com).</span></span>
+2. <span data-ttu-id="922a4-108">In Hallo **Web-Apps** tabblad, klik op Hallo-naam van uw web-app en selecteer vervolgens **aangepaste domeinen**</span><span class="sxs-lookup"><span data-stu-id="922a4-108">In hello **Web Apps** tab, click hello name of your web app, and then select **Custom domains**</span></span>
+   
+    ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+3. <span data-ttu-id="922a4-109">In Hallo **aangepaste domeinen** blade, klikt u op **hostnaam toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="922a4-109">In hello **Custom domains** blade, click **Add hostname**.</span></span>
+4. <span data-ttu-id="922a4-110">Gebruik Hallo **hostnaam** tekst vakken tooenter Hallo domein namen tooassociate met deze web-app.</span><span class="sxs-lookup"><span data-stu-id="922a4-110">Use hello **Hostname** text boxes tooenter hello domain names tooassociate with this web app.</span></span>
+   
+    ![](./media/custom-dns-web-site/add-custom-domain.png)
+5. <span data-ttu-id="922a4-111">Klik op **valideren**.</span><span class="sxs-lookup"><span data-stu-id="922a4-111">Click **Validate**.</span></span>
+6. <span data-ttu-id="922a4-112">Wanneer u op klikt **valideren** Azure wordt ere van domeinverificatie werkstroom.</span><span class="sxs-lookup"><span data-stu-id="922a4-112">Upon clicking **Validate** Azure will kick off Domain Verification workflow.</span></span> <span data-ttu-id="922a4-113">Hiermee wordt gecontroleerd op domein eigendom, evenals de beschikbaarheid en rapport geslaagd hostnaam of gedetailleerde fout met prescriptieve guidence op hoe toofix fout Hallo.</span><span class="sxs-lookup"><span data-stu-id="922a4-113">This will check for Domain ownership as well as Hostname availability and report success or detailed error with prescriptive guidence on how toofix hello error.</span></span>    
+
+<span data-ttu-id="922a4-114">U moet op dit moment kunnen tooenter Hallo aangepaste domeinnaam worden in uw browser en Zie dat het met succes duurt u tooyour web-app voordat.</span><span class="sxs-lookup"><span data-stu-id="922a4-114">At this point, you should be able tooenter hello custom domain name in your browser and see that it successfully takes you tooyour web app.</span></span>
+

@@ -1,6 +1,6 @@
 ---
-title: Taakstatus Azure Import/Export - v1 controleren | Microsoft Docs
-description: Informatie over het gebruik van de logboekbestanden gemaakt wanneer de taak importeren of exporteren werd uitgevoerd voor de status van de taak voor importeren/exporteren.
+title: aaaReviewing taakstatus Azure Import/Export - v1 | Microsoft Docs
+description: Meer informatie over hoe toouse Hallo logboekbestanden wanneer Hallo importeren of exporteren van de taak toosee Hallo status van Hallo Import/Export-taak werd uitgevoerd.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: muralikk
-ms.openlocfilehash: 621e41df127fded6ec6fe1f71e86cb8630965a70
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 378bc9a7ef6bfe65209413c8c4134f313a2c0d79
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a><span data-ttu-id="6a9c3-103">De status van de Azure Import/Export-taak controleren met logboekbestanden kopiëren</span><span class="sxs-lookup"><span data-stu-id="6a9c3-103">Reviewing Azure Import/Export job status with copy log files</span></span>
-<span data-ttu-id="6a9c3-104">Wanneer de Microsoft Azure Import/Export-service stations die zijn gekoppeld aan een taak importeren of exporteren verwerkt, schrijft kopie logboekbestanden naar het opslagaccount naar of van waaruit u importeert of exporteert blobs.</span><span class="sxs-lookup"><span data-stu-id="6a9c3-104">When the Microsoft Azure Import/Export service processes drives associated with an import or export job, it writes copy log files to the storage account to or from which you are importing or exporting blobs.</span></span> <span data-ttu-id="6a9c3-105">Het logboekbestand bevat een gedetailleerde status van elk bestand dat is geïmporteerd of geëxporteerd.</span><span class="sxs-lookup"><span data-stu-id="6a9c3-105">The log file contains detailed status about each file that was imported or exported.</span></span> <span data-ttu-id="6a9c3-106">De URL naar het logboekbestand van elke kopie wordt geretourneerd wanneer u een query uitvoeren op de status van een voltooide taak; Zie [Get Job](/rest/api/storageservices/Get-Job3) voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="6a9c3-106">The URL to each copy log file is returned when you query the status of a completed job; see [Get Job](/rest/api/storageservices/Get-Job3) for more information.</span></span>  
+# <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a><span data-ttu-id="640d7-103">De status van de Azure Import/Export-taak controleren met logboekbestanden kopiëren</span><span class="sxs-lookup"><span data-stu-id="640d7-103">Reviewing Azure Import/Export job status with copy log files</span></span>
+<span data-ttu-id="640d7-104">Wanneer Hallo Microsoft Azure Import/Export-service stations die zijn gekoppeld aan een taak importeren of exporteren verwerkt, schrijft deze kopie logboek bestanden toohello storage account tooor van waaruit u importeert of exporteert blobs.</span><span class="sxs-lookup"><span data-stu-id="640d7-104">When hello Microsoft Azure Import/Export service processes drives associated with an import or export job, it writes copy log files toohello storage account tooor from which you are importing or exporting blobs.</span></span> <span data-ttu-id="640d7-105">Hallo-logboekbestand bevat gedetailleerde status van elk bestand dat is geïmporteerd of geëxporteerd.</span><span class="sxs-lookup"><span data-stu-id="640d7-105">hello log file contains detailed status about each file that was imported or exported.</span></span> <span data-ttu-id="640d7-106">Hallo URL tooeach kopie-logboekbestand wordt geretourneerd wanneer u een query uitvoeren op Hallo status van een voltooide taak; Zie [Get Job](/rest/api/storageservices/Get-Job3) voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="640d7-106">hello URL tooeach copy log file is returned when you query hello status of a completed job; see [Get Job](/rest/api/storageservices/Get-Job3) for more information.</span></span>  
 
-## <a name="example-urls"></a><span data-ttu-id="6a9c3-107">Voorbeeld-URL 's</span><span class="sxs-lookup"><span data-stu-id="6a9c3-107">Example URLs</span></span>
+## <a name="example-urls"></a><span data-ttu-id="640d7-107">Voorbeeld-URL 's</span><span class="sxs-lookup"><span data-stu-id="640d7-107">Example URLs</span></span>
 
-<span data-ttu-id="6a9c3-108">Het volgende zijn voorbeeld-URL's voor kopiëren-logboekbestanden voor een import-taak met twee schijven:</span><span class="sxs-lookup"><span data-stu-id="6a9c3-108">The following are example URLs for copy log files for an import job with two drives:</span></span>  
+<span data-ttu-id="640d7-108">Hallo hieronder vindt u voorbeeld-URL's voor kopiëren-logboekbestanden voor een import-taak met twee schijven:</span><span class="sxs-lookup"><span data-stu-id="640d7-108">hello following are example URLs for copy log files for an import job with two drives:</span></span>  
   
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM35C2V_20130921-034307-902_error.xml`  
   
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM45A6Q_20130921-042122-021_error.xml`  
   
- <span data-ttu-id="6a9c3-109">Zie [Import/Export-service indeling van logboekbestand](storage-import-export-file-format-log.md) voor de indeling van de logboeken van kopiëren en een volledige lijst met statuscodes.</span><span class="sxs-lookup"><span data-stu-id="6a9c3-109">See [Import/Export service Log File Format](storage-import-export-file-format-log.md) for the format of copy logs and the full list of status codes.</span></span>  
+ <span data-ttu-id="640d7-109">Zie [Import/Export-service indeling van logboekbestand](storage-import-export-file-format-log.md) voor Hallo-indeling van Logboeken voor kopiëren en Hallo volledige lijst met statuscodes.</span><span class="sxs-lookup"><span data-stu-id="640d7-109">See [Import/Export service Log File Format](storage-import-export-file-format-log.md) for hello format of copy logs and hello full list of status codes.</span></span>  
   
-## <a name="next-steps"></a><span data-ttu-id="6a9c3-110">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="6a9c3-110">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="640d7-110">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="640d7-110">Next steps</span></span>
  
- * [<span data-ttu-id="6a9c3-111">Instellen van het hulpprogramma Azure Import/Export</span><span class="sxs-lookup"><span data-stu-id="6a9c3-111">Setting Up the Azure Import/Export Tool</span></span>](storage-import-export-tool-setup-v1.md)   
- * [<span data-ttu-id="6a9c3-112">Harde schijven voorbereiden voor een importtaak</span><span class="sxs-lookup"><span data-stu-id="6a9c3-112">Preparing hard drives for an import job</span></span>](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
- * [<span data-ttu-id="6a9c3-113">Een importtaak herstellen</span><span class="sxs-lookup"><span data-stu-id="6a9c3-113">Repairing an import job</span></span>](storage-import-export-tool-repairing-an-import-job-v1.md)   
- * [<span data-ttu-id="6a9c3-114">Een exporttaak herstellen</span><span class="sxs-lookup"><span data-stu-id="6a9c3-114">Repairing an export job</span></span>](storage-import-export-tool-repairing-an-export-job-v1.md)   
- * [<span data-ttu-id="6a9c3-115">Problemen met het hulpprogramma Azure Import/Export oplossen</span><span class="sxs-lookup"><span data-stu-id="6a9c3-115">Troubleshooting the Azure Import/Export Tool</span></span>](storage-import-export-tool-troubleshooting-v1.md)
+ * [<span data-ttu-id="640d7-111">Hallo-instelling van Azure-hulpprogramma voor importeren/exporteren</span><span class="sxs-lookup"><span data-stu-id="640d7-111">Setting Up hello Azure Import/Export Tool</span></span>](storage-import-export-tool-setup-v1.md)   
+ * [<span data-ttu-id="640d7-112">Harde schijven voorbereiden voor een importtaak</span><span class="sxs-lookup"><span data-stu-id="640d7-112">Preparing hard drives for an import job</span></span>](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+ * [<span data-ttu-id="640d7-113">Een importtaak herstellen</span><span class="sxs-lookup"><span data-stu-id="640d7-113">Repairing an import job</span></span>](storage-import-export-tool-repairing-an-import-job-v1.md)   
+ * [<span data-ttu-id="640d7-114">Een exporttaak herstellen</span><span class="sxs-lookup"><span data-stu-id="640d7-114">Repairing an export job</span></span>](storage-import-export-tool-repairing-an-export-job-v1.md)   
+ * [<span data-ttu-id="640d7-115">Het oplossen van problemen hello Azure-hulpprogramma voor importeren/exporteren</span><span class="sxs-lookup"><span data-stu-id="640d7-115">Troubleshooting hello Azure Import/Export Tool</span></span>](storage-import-export-tool-troubleshooting-v1.md)

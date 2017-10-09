@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> <span data-ttu-id="5c997-101">Voordat u met Azure-resources werkt, raken met de Hallo implementatiemodellen: [Resource Manager en classic](../articles/azure-resource-manager/resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="5c997-101">Before you work with Azure resources, get familiar with hello deployment models: [Resource Manager, and classic](../articles/azure-resource-manager/resource-manager-deployment-model.md).</span></span>

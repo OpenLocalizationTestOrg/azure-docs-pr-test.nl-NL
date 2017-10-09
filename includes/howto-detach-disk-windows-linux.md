@@ -1,39 +1,39 @@
-<span data-ttu-id="04964-101">Wanneer u een gegevensschijf die is gekoppeld aan een virtuele machine niet meer nodig hebt, kunt u deze eenvoudig loskoppelen.</span><span class="sxs-lookup"><span data-stu-id="04964-101">When you no longer need a data disk that's attached to a virtual machine, you can easily detach it.</span></span> <span data-ttu-id="04964-102">Als u een schijf loskoppelt, wordt de schijf van de virtuele machine verwijderd, maar wordt de schijf niet verwijderd uit het Azure-opslagaccount.</span><span class="sxs-lookup"><span data-stu-id="04964-102">Detaching a disk removes the disk from the virtual machine, but doesn't delete the disk from the Azure storage account.</span></span>
+<span data-ttu-id="80404-101">Wanneer u een gegevensschijf die is aangesloten tooa virtuele machine niet meer nodig hebt, kunt u deze eenvoudig loskoppelen.</span><span class="sxs-lookup"><span data-stu-id="80404-101">When you no longer need a data disk that's attached tooa virtual machine, you can easily detach it.</span></span> <span data-ttu-id="80404-102">Een schijf wordt losgekoppeld Hallo schijf verwijdert uit Hallo virtuele machine, maar niet Hallo schijf verwijderen uit hello Azure storage-account.</span><span class="sxs-lookup"><span data-stu-id="80404-102">Detaching a disk removes hello disk from hello virtual machine, but doesn't delete hello disk from hello Azure storage account.</span></span>
 
-<span data-ttu-id="04964-103">Als u de bestaande gegevens op de schijf opnieuw wilt gebruiken, kunt u de schijf opnieuw koppelen aan dezelfde of een andere virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="04964-103">If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.</span></span>  
+<span data-ttu-id="80404-103">Als u toouse Hallo bestaande gegevens op Hallo schijf opnieuw wilt, u kunt opnieuw het toohello dezelfde virtuele machine of een andere naam.</span><span class="sxs-lookup"><span data-stu-id="80404-103">If you want toouse hello existing data on hello disk again, you can reattach it toohello same virtual machine, or another one.</span></span>  
 
 > [!NOTE]
-> <span data-ttu-id="04964-104">Als u de schijf van een besturingssysteem wilt loskoppelen, moet u eerst de virtuele machine verwijderen.</span><span class="sxs-lookup"><span data-stu-id="04964-104">To detach an operating system disk, you first need to delete the virtual machine.</span></span>
+> <span data-ttu-id="80404-104">toodetach schijf van een besturingssysteem, moet u eerst toodelete Hallo virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="80404-104">toodetach an operating system disk, you first need toodelete hello virtual machine.</span></span>
 >
 
-## <a name="find-the-disk"></a><span data-ttu-id="04964-105">De schijf vinden</span><span class="sxs-lookup"><span data-stu-id="04964-105">Find the disk</span></span>
-<span data-ttu-id="04964-106">Als u de naam van de schijf niet weet of de schijf wilt controleren voordat u deze loskoppelt, volgt u deze stappen.</span><span class="sxs-lookup"><span data-stu-id="04964-106">If you don't know the name of the disk or want to verify it before you detach it, follow these steps.</span></span>
+## <a name="find-hello-disk"></a><span data-ttu-id="80404-105">Hallo schijf gevonden</span><span class="sxs-lookup"><span data-stu-id="80404-105">Find hello disk</span></span>
+<span data-ttu-id="80404-106">Als u de naam van de Hallo van schijf Hallo of tooverify wilt niet weet het voordat u deze loskoppelen, als volgt te werk.</span><span class="sxs-lookup"><span data-stu-id="80404-106">If you don't know hello name of hello disk or want tooverify it before you detach it, follow these steps.</span></span>
 
-1. <span data-ttu-id="04964-107">Meld u aan bij de [Azure-portal](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="04964-107">Sign in to the [Azure portal](https://portal.azure.com).</span></span>
+1. <span data-ttu-id="80404-107">Meld u aan toohello [Azure-portal](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="80404-107">Sign in toohello [Azure portal](https://portal.azure.com).</span></span>
 
-2. <span data-ttu-id="04964-108">Klik op **Virtuele machines** en selecteer vervolgens de toepasselijke VM.</span><span class="sxs-lookup"><span data-stu-id="04964-108">Click **Virtual Machines**, and then select the appropriate VM.</span></span>
+2. <span data-ttu-id="80404-108">Klik op **virtuele Machines**, en vervolgens selecteert Hallo juiste VM.</span><span class="sxs-lookup"><span data-stu-id="80404-108">Click **Virtual Machines**, and then select hello appropriate VM.</span></span>
 
-3. <span data-ttu-id="04964-109">Klik onder **Instellingen** op **Schijven** aan de linkerkant van het dashboard van de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="04964-109">Click **Disks** along the left edge of the virtual machine dashboard, under **Settings**.</span></span>
+3. <span data-ttu-id="80404-109">Klik op **schijven** langs Hallo de linkerrand van dashboard van de virtuele machine hello, onder **instellingen**.</span><span class="sxs-lookup"><span data-stu-id="80404-109">Click **Disks** along hello left edge of hello virtual machine dashboard, under **Settings**.</span></span>
 
- <span data-ttu-id="04964-110">Het dashboard van de virtuele machine bevat de naam en het type van alle gekoppelde schijven.</span><span class="sxs-lookup"><span data-stu-id="04964-110">The virtual machine dashboard lists the name and type of all attached disks.</span></span> <span data-ttu-id="04964-111">Op dit scherm wordt bijvoorbeeld een virtuele machine weergegeven met een besturingssysteemschijf en een gegevensschijf:</span><span class="sxs-lookup"><span data-stu-id="04964-111">For example, this screen shows a virtual machine with one operating system (OS) disk and one data disk:</span></span>
+ <span data-ttu-id="80404-110">Hallo virtuele machine dashboard geeft een lijst Hallo naam en type van alle gekoppelde schijven.</span><span class="sxs-lookup"><span data-stu-id="80404-110">hello virtual machine dashboard lists hello name and type of all attached disks.</span></span> <span data-ttu-id="80404-111">Op dit scherm wordt bijvoorbeeld een virtuele machine weergegeven met een besturingssysteemschijf en een gegevensschijf:</span><span class="sxs-lookup"><span data-stu-id="80404-111">For example, this screen shows a virtual machine with one operating system (OS) disk and one data disk:</span></span>
 
     ![Gegevensschijf vinden](./media/howto-detach-disk-windows-linux/vmwithdisklist.png)
 
-## <a name="detach-the-disk"></a><span data-ttu-id="04964-113">De schijf loskoppelen</span><span class="sxs-lookup"><span data-stu-id="04964-113">Detach the disk</span></span>
-1. <span data-ttu-id="04964-114">Klik in Azure Portal op **Virtuele machines** en klik vervolgens op de naam van de virtuele machine die de gegevensschijf heeft die u wilt loskoppelen.</span><span class="sxs-lookup"><span data-stu-id="04964-114">From the Azure portal, click **Virtual Machines**, and then click the name of the virtual machine that has the data disk you want to detach.</span></span>
+## <a name="detach-hello-disk"></a><span data-ttu-id="80404-113">Ontkoppel de schijf Hallo</span><span class="sxs-lookup"><span data-stu-id="80404-113">Detach hello disk</span></span>
+1. <span data-ttu-id="80404-114">Hallo Azure-portal, klik op **virtuele Machines**, en klik vervolgens op Hallo-naam van Hallo virtuele machine die Hallo gegevensschijf gewenste toodetach heeft.</span><span class="sxs-lookup"><span data-stu-id="80404-114">From hello Azure portal, click **Virtual Machines**, and then click hello name of hello virtual machine that has hello data disk you want toodetach.</span></span>
 
-2. <span data-ttu-id="04964-115">Klik onder **Instellingen** op **Schijven** aan de linkerkant van het dashboard van de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="04964-115">Click **Disks** along the left edge of the virtual machine dashboard, under **Settings**.</span></span>
+2. <span data-ttu-id="80404-115">Klik op **schijven** langs Hallo de linkerrand van dashboard van de virtuele machine hello, onder **instellingen**.</span><span class="sxs-lookup"><span data-stu-id="80404-115">Click **Disks** along hello left edge of hello virtual machine dashboard, under **Settings**.</span></span>
 
-3. <span data-ttu-id="04964-116">Klik op de schijf die u wilt loskoppelen.</span><span class="sxs-lookup"><span data-stu-id="04964-116">Click the disk you want to detach.</span></span>
+3. <span data-ttu-id="80404-116">Klik op de gewenste toodetach Hallo-schijf.</span><span class="sxs-lookup"><span data-stu-id="80404-116">Click hello disk you want toodetach.</span></span>
 
-  ![De schijf zoeken die u wilt loskoppelen](./media/howto-detach-disk-windows-linux/disklist.png)
+  ![Hallo schijf toodetach identificeren](./media/howto-detach-disk-windows-linux/disklist.png)
 
-4. <span data-ttu-id="04964-118">Klik vanuit de opdrachtbalk op **Loskoppelen**.</span><span class="sxs-lookup"><span data-stu-id="04964-118">From the command bar, click **Detach**.</span></span>
+4. <span data-ttu-id="80404-118">Hallo opdrachtbalk en klik op **Detach**.</span><span class="sxs-lookup"><span data-stu-id="80404-118">From hello command bar, click **Detach**.</span></span>
 
-  ![De opdracht Loskoppelen vinden](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
+  ![Zoek Hallo loskoppelen van de opdracht](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
 
-5. <span data-ttu-id="04964-120">Klik in het bevestigingsvenster op **Ja** om de schijf los te koppelen.</span><span class="sxs-lookup"><span data-stu-id="04964-120">In the confirmation window, click **Yes** to detach the disk.</span></span>
+5. <span data-ttu-id="80404-120">Klik in het bevestigingsvenster hello, **Ja** toodetach Hallo schijf.</span><span class="sxs-lookup"><span data-stu-id="80404-120">In hello confirmation window, click **Yes** toodetach hello disk.</span></span>
 
-  ![Het loskoppelen van de schijf bevestigen](./media/howto-detach-disk-windows-linux/confirmdetach.png)
+  ![Loskoppelen Hallo schijf bevestigen](./media/howto-detach-disk-windows-linux/confirmdetach.png)
 
-<span data-ttu-id="04964-122">De schijf blijft in de opslag, maar is niet meer gekoppeld aan een virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="04964-122">The disk remains in storage but is no longer attached to a virtual machine.</span></span>
+<span data-ttu-id="80404-122">Hallo schijf blijft in de opslag, maar is niet langer gekoppelde tooa virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="80404-122">hello disk remains in storage but is no longer attached tooa virtual machine.</span></span>

@@ -1,6 +1,6 @@
 ---
-title: Een schijf toevoegen aan de Linux-VM met de Azure CLI | Microsoft Docs
-description: Meer informatie over een permanente schijf toevoegen aan uw Linux-VM met de Azure CLI 1.0 en 2.0.
+title: een schijf tooLinux VM met aaaAdd hello Azure CLI | Microsoft Docs
+description: Meer informatie over tooadd een permanente schijf tooyour Linux-VM met hello Azure CLI 1.0 en 2.0.
 keywords: virtuele Linux-machine, resource-schijf toevoegen
 services: virtual-machines-linux
 documentationcenter: 
@@ -17,57 +17,57 @@ ms.devlang: azurecli
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 185dd276cd79cb7053605d651e8ecdc7fd1e7636
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 0dc5236be62d96b70dd47a7f621f626a037e22aa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-a-disk-to-a-linux-vm"></a><span data-ttu-id="9fb67-104">Een schijf toevoegen aan een virtuele Linux-machine</span><span class="sxs-lookup"><span data-stu-id="9fb67-104">Add a disk to a Linux VM</span></span>
-<span data-ttu-id="9fb67-105">In dit artikel laat zien hoe een permanente schijf koppelen met uw virtuele machine zodat u kunt uw gegevens - zelfs als uw virtuele machine is ingericht vanwege onderhoud vergroten of verkleinen.</span><span class="sxs-lookup"><span data-stu-id="9fb67-105">This article shows how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing.</span></span> 
+# <a name="add-a-disk-tooa-linux-vm"></a><span data-ttu-id="e2615-104">Voeg een schijf tooa Linux VM</span><span class="sxs-lookup"><span data-stu-id="e2615-104">Add a disk tooa Linux VM</span></span>
+<span data-ttu-id="e2615-105">Dit artikel laat zien hoe tooattach een permanente schijf tooyour VM zodat u kunt uw gegevens - zelfs als uw virtuele machine is ingericht vanwege toomaintenance vergroten of verkleinen.</span><span class="sxs-lookup"><span data-stu-id="e2615-105">This article shows how tooattach a persistent disk tooyour VM so that you can preserve your data - even if your VM is reprovisioned due toomaintenance or resizing.</span></span> 
 
-## <a name="quick-commands"></a><span data-ttu-id="9fb67-106">Snelle opdrachten</span><span class="sxs-lookup"><span data-stu-id="9fb67-106">Quick Commands</span></span>
-<span data-ttu-id="9fb67-107">Het volgende voorbeeld wordt een `50`GB schijf naar de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`:</span><span class="sxs-lookup"><span data-stu-id="9fb67-107">The following example attaches a `50`GB disk to the VM named `myVM` in the resource group named `myResourceGroup`:</span></span>
+## <a name="quick-commands"></a><span data-ttu-id="e2615-106">Snelle opdrachten</span><span class="sxs-lookup"><span data-stu-id="e2615-106">Quick Commands</span></span>
+<span data-ttu-id="e2615-107">Hallo volgende voorbeeld wordt een `50`GB schijf toohello VM met de naam `myVM` in Hallo resourcegroep met de naam `myResourceGroup`:</span><span class="sxs-lookup"><span data-stu-id="e2615-107">hello following example attaches a `50`GB disk toohello VM named `myVM` in hello resource group named `myResourceGroup`:</span></span>
 
-<span data-ttu-id="9fb67-108">Beheerde schijven gebruiken:</span><span class="sxs-lookup"><span data-stu-id="9fb67-108">To use managed disks:</span></span>
+<span data-ttu-id="e2615-108">toouse schijven die worden beheerd:</span><span class="sxs-lookup"><span data-stu-id="e2615-108">toouse managed disks:</span></span>
 
 ```azurecli
 az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
   --new --size-gb 50
 ```
 
-<span data-ttu-id="9fb67-109">Niet-beheerde schijven gebruiken:</span><span class="sxs-lookup"><span data-stu-id="9fb67-109">To use unmanaged disks:</span></span>
+<span data-ttu-id="e2615-109">toouse zonder begeleiding schijven:</span><span class="sxs-lookup"><span data-stu-id="e2615-109">toouse unmanaged disks:</span></span>
 
 ```azurecli
 az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
   --new --size-gb 50
 ```
 
-## <a name="attach-a-managed-disk"></a><span data-ttu-id="9fb67-110">Een beheerde schijf koppelen</span><span class="sxs-lookup"><span data-stu-id="9fb67-110">Attach a managed disk</span></span>
+## <a name="attach-a-managed-disk"></a><span data-ttu-id="e2615-110">Een beheerde schijf koppelen</span><span class="sxs-lookup"><span data-stu-id="e2615-110">Attach a managed disk</span></span>
 
-<span data-ttu-id="9fb67-111">Beheerde schijven kunt u zich kunt richten op uw virtuele machines en hun schijven zonder dat u Azure Storage-accounts.</span><span class="sxs-lookup"><span data-stu-id="9fb67-111">Using managed disks enables you to focus on your VMs and their disks without worrying about Azure Storage accounts.</span></span> <span data-ttu-id="9fb67-112">Kunt u snel maken en een beheerde schijf koppelen aan een virtuele machine met behulp van de dezelfde Azure-resourcegroep, of u kunt een willekeurig aantal schijven maken en deze vervolgens te koppelen.</span><span class="sxs-lookup"><span data-stu-id="9fb67-112">You can quickly create and attach a managed disk to a VM using the same Azure resource group, or you can create any number of disks and then attach them.</span></span>
+<span data-ttu-id="e2615-111">Beheerde schijven kunt u toofocus op uw virtuele machines en hun schijven zonder dat u Azure Storage-accounts.</span><span class="sxs-lookup"><span data-stu-id="e2615-111">Using managed disks enables you toofocus on your VMs and their disks without worrying about Azure Storage accounts.</span></span> <span data-ttu-id="e2615-112">U kunt snel maken en koppelen van een beheerde schijf tooa virtuele machine met behulp van dezelfde Azure-resourcegroep Hallo of u kunt een willekeurig aantal schijven maken en deze vervolgens te koppelen.</span><span class="sxs-lookup"><span data-stu-id="e2615-112">You can quickly create and attach a managed disk tooa VM using hello same Azure resource group, or you can create any number of disks and then attach them.</span></span>
 
 
-### <a name="attach-a-new-disk-to-a-vm"></a><span data-ttu-id="9fb67-113">Een nieuwe schijf koppelen aan een virtuele machine</span><span class="sxs-lookup"><span data-stu-id="9fb67-113">Attach a new disk to a VM</span></span>
+### <a name="attach-a-new-disk-tooa-vm"></a><span data-ttu-id="e2615-113">Een nieuwe schijf tooa VM koppelen</span><span class="sxs-lookup"><span data-stu-id="e2615-113">Attach a new disk tooa VM</span></span>
 
-<span data-ttu-id="9fb67-114">Als u alleen een nieuwe schijf nodig op de virtuele machine, kunt u de `az vm disk attach` opdracht.</span><span class="sxs-lookup"><span data-stu-id="9fb67-114">If you just need a new disk on your VM, you can use the `az vm disk attach` command.</span></span>
+<span data-ttu-id="e2615-114">Als u alleen een nieuwe schijf nodig op de virtuele machine, kunt u Hallo `az vm disk attach` opdracht.</span><span class="sxs-lookup"><span data-stu-id="e2615-114">If you just need a new disk on your VM, you can use hello `az vm disk attach` command.</span></span>
 
 ```azurecli
 az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
   --new --size-gb 50
 ```
 
-### <a name="attach-an-existing-disk"></a><span data-ttu-id="9fb67-115">Een bestaande schijf koppelen</span><span class="sxs-lookup"><span data-stu-id="9fb67-115">Attach an existing disk</span></span> 
+### <a name="attach-an-existing-disk"></a><span data-ttu-id="e2615-115">Een bestaande schijf koppelen</span><span class="sxs-lookup"><span data-stu-id="e2615-115">Attach an existing disk</span></span> 
 
-<span data-ttu-id="9fb67-116">In veel gevallen koppelt u de schijven die al zijn gemaakt.</span><span class="sxs-lookup"><span data-stu-id="9fb67-116">In many cases you attach disks that have already been created.</span></span> <span data-ttu-id="9fb67-117">U eerst de schijf-id vinden en geeft die aan de `az vm disk attach` opdracht.</span><span class="sxs-lookup"><span data-stu-id="9fb67-117">You first find the disk id and then pass that to the `az vm disk attach` command.</span></span> <span data-ttu-id="9fb67-118">Het volgende voorbeeld wordt een schijf die is gemaakt met `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.</span><span class="sxs-lookup"><span data-stu-id="9fb67-118">The following example uses a disk created with `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.</span></span>
+<span data-ttu-id="e2615-116">In veel gevallen koppelt u de schijven die al zijn gemaakt.</span><span class="sxs-lookup"><span data-stu-id="e2615-116">In many cases you attach disks that have already been created.</span></span> <span data-ttu-id="e2615-117">U eerst vinden Hallo schijf-id en vervolgens doorgeven dat toohello `az vm disk attach` opdracht.</span><span class="sxs-lookup"><span data-stu-id="e2615-117">You first find hello disk id and then pass that toohello `az vm disk attach` command.</span></span> <span data-ttu-id="e2615-118">Hallo volgende voorbeeld wordt een schijf die is gemaakt met `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.</span><span class="sxs-lookup"><span data-stu-id="e2615-118">hello following example uses a disk created with `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.</span></span>
 
 ```azurecli
-# find the disk id
+# find hello disk id
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
 az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 ```
 
-<span data-ttu-id="9fb67-119">De uitvoer ziet er ongeveer als volgt (u kunt de `-o table` optie als u wilt willekeurige opdracht van de uitvoer in opmaken):</span><span class="sxs-lookup"><span data-stu-id="9fb67-119">The output looks something like the following (you can use the `-o table` option to any command to format the output in ):</span></span>
+<span data-ttu-id="e2615-119">Hallo uitvoer ziet er ongeveer zo Hallo volgende (kunt u Hallo `-o table` tooany tooformat Hallo opdrachtuitvoer in optie):</span><span class="sxs-lookup"><span data-stu-id="e2615-119">hello output looks something like hello following (you can use hello `-o table` option tooany command tooformat hello output in ):</span></span>
 
 ```json
 {
@@ -95,36 +95,36 @@ az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 ```
 
 
-## <a name="attach-an-unmanaged-disk"></a><span data-ttu-id="9fb67-120">Een niet-beheerde schijf koppelen</span><span class="sxs-lookup"><span data-stu-id="9fb67-120">Attach an unmanaged disk</span></span>
+## <a name="attach-an-unmanaged-disk"></a><span data-ttu-id="e2615-120">Een niet-beheerde schijf koppelen</span><span class="sxs-lookup"><span data-stu-id="e2615-120">Attach an unmanaged disk</span></span>
 
-<span data-ttu-id="9fb67-121">Een nieuwe schijf koppelen is snelle als u niet erg vindt voor het maken van een schijf in hetzelfde opslagaccount als uw virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="9fb67-121">Attaching a new disk is quick if you do not mind creating a disk in the same storage account as your VM.</span></span> <span data-ttu-id="9fb67-122">Type `azure vm disk attach-new` maken en koppelen van een nieuwe schijf GB voor de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="9fb67-122">Type `azure vm disk attach-new` to create and attach a new GB disk for your VM.</span></span> <span data-ttu-id="9fb67-123">Als u een opslagaccount niet expliciet identificeren, wordt de schijf die u maakt geplaatst in hetzelfde opslagaccount waarin de OS-schijf zich bevindt.</span><span class="sxs-lookup"><span data-stu-id="9fb67-123">If you do not explicitly identify a storage account, any disk you create is placed in the same storage account where your OS disk resides.</span></span> <span data-ttu-id="9fb67-124">Het volgende voorbeeld wordt een `50`GB schijf naar de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`:</span><span class="sxs-lookup"><span data-stu-id="9fb67-124">The following example attaches a `50`GB disk to the VM named `myVM` in the resource group named `myResourceGroup`:</span></span>
+<span data-ttu-id="e2615-121">Een nieuwe schijf koppelen is snel als u niet erg vindt voor het maken van een schijf in Hallo hetzelfde opslagaccount als uw virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="e2615-121">Attaching a new disk is quick if you do not mind creating a disk in hello same storage account as your VM.</span></span> <span data-ttu-id="e2615-122">Type `azure vm disk attach-new` toocreate en koppelt u een nieuwe schijf GB voor de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="e2615-122">Type `azure vm disk attach-new` toocreate and attach a new GB disk for your VM.</span></span> <span data-ttu-id="e2615-123">Als u een opslagaccount niet expliciet identificeren, de schijf die u maakt in geplaatst Hallo dezelfde opslagaccount waarin de OS-schijf zich bevindt.</span><span class="sxs-lookup"><span data-stu-id="e2615-123">If you do not explicitly identify a storage account, any disk you create is placed in hello same storage account where your OS disk resides.</span></span> <span data-ttu-id="e2615-124">Hallo volgende voorbeeld wordt een `50`GB schijf toohello VM met de naam `myVM` in Hallo resourcegroep met de naam `myResourceGroup`:</span><span class="sxs-lookup"><span data-stu-id="e2615-124">hello following example attaches a `50`GB disk toohello VM named `myVM` in hello resource group named `myResourceGroup`:</span></span>
 
 ```azurecli
 az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
   --new --size-gb 50
 ```
 
-## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a><span data-ttu-id="9fb67-125">Verbinding maken met de Linux-VM naar de nieuwe schijf koppelen</span><span class="sxs-lookup"><span data-stu-id="9fb67-125">Connect to the Linux VM to mount the new disk</span></span>
+## <a name="connect-toohello-linux-vm-toomount-hello-new-disk"></a><span data-ttu-id="e2615-125">Verbinding maken met toohello Linux VM toomount Hallo nieuwe schijf</span><span class="sxs-lookup"><span data-stu-id="e2615-125">Connect toohello Linux VM toomount hello new disk</span></span>
 > [!NOTE]
-> <span data-ttu-id="9fb67-126">In dit onderwerp maakt verbinding met een virtuele machine met behulp van gebruikersnamen en wachtwoorden.</span><span class="sxs-lookup"><span data-stu-id="9fb67-126">This topic connects to a VM using usernames and passwords.</span></span> <span data-ttu-id="9fb67-127">Zie voor het gebruik van paren van openbare en persoonlijke sleutels om te communiceren met uw virtuele machine, [het gebruik van SSH met Linux op Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="9fb67-127">To use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span></span> 
+> <span data-ttu-id="e2615-126">In dit onderwerp tooa VM verbinding maakt met behulp van gebruikersnamen en wachtwoorden.</span><span class="sxs-lookup"><span data-stu-id="e2615-126">This topic connects tooa VM using usernames and passwords.</span></span> <span data-ttu-id="e2615-127">toouse paren van openbare en persoonlijke sleutels toocommunicate met uw virtuele machine, Zie [hoe tooUse SSH met Linux op Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="e2615-127">toouse public and private key pairs toocommunicate with your VM, see [How tooUse SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span></span> 
 > 
 > 
 
-<span data-ttu-id="9fb67-128">U moet SSH in uw Azure-virtuele machine aan partitie formatteren en de nieuwe schijf koppelen zodat uw Linux-VM kan worden gebruikt.</span><span class="sxs-lookup"><span data-stu-id="9fb67-128">You need to SSH into your Azure VM to partition, format, and mount your new disk so your Linux VM can use it.</span></span> <span data-ttu-id="9fb67-129">Als u niet bekend bent met verbinding te maken met **ssh**, de opdracht heeft de vorm `ssh <username>@<FQDNofAzureVM> -p <the ssh port>`, en ziet er ongeveer als volgt:</span><span class="sxs-lookup"><span data-stu-id="9fb67-129">If you're not familiar with connecting with **ssh**, the command takes the form `ssh <username>@<FQDNofAzureVM> -p <the ssh port>`, and looks like the following:</span></span>
+<span data-ttu-id="e2615-128">U moet tooSSH in uw Azure VM-toopartition opmaken en de nieuwe schijf koppelen zodat uw Linux-VM kan worden gebruikt.</span><span class="sxs-lookup"><span data-stu-id="e2615-128">You need tooSSH into your Azure VM toopartition, format, and mount your new disk so your Linux VM can use it.</span></span> <span data-ttu-id="e2615-129">Als u niet bekend bent met verbinding te maken met **ssh**, Hallo-opdracht heeft Hallo vorm `ssh <username>@<FQDNofAzureVM> -p <hello ssh port>`, en lijkt op Hallo volgende:</span><span class="sxs-lookup"><span data-stu-id="e2615-129">If you're not familiar with connecting with **ssh**, hello command takes hello form `ssh <username>@<FQDNofAzureVM> -p <hello ssh port>`, and looks like hello following:</span></span>
 
 ```bash
 ssh ops@mypublicdns.westus.cloudapp.azure.com -p 22
 ```
 
-<span data-ttu-id="9fb67-130">Uitvoer</span><span class="sxs-lookup"><span data-stu-id="9fb67-130">Output</span></span>
+<span data-ttu-id="e2615-130">Uitvoer</span><span class="sxs-lookup"><span data-stu-id="e2615-130">Output</span></span>
 
 ```bash
-The authenticity of host 'mypublicdns.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
+hello authenticity of host 'mypublicdns.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
 ECDSA key fingerprint is bx:xx:xx:xx:xx:xx:xx:xx:xx:x:x:x:x:x:x:xx.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'mypublicdns.westus.cloudapp.azure.com,191.239.51.1' (ECDSA) to the list of known hosts.
+Are you sure you want toocontinue connecting (yes/no)? yes
+Warning: Permanently added 'mypublicdns.westus.cloudapp.azure.com,191.239.51.1' (ECDSA) toohello list of known hosts.
 ops@mypublicdns.westus.cloudapp.azure.com's password:
-Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.16.0-37-generic x86_64)
+Welcome tooUbuntu 14.04.2 LTS (GNU/Linux 3.16.0-37-generic x86_64)
 
 * Documentation:  https://help.ubuntu.com/
 
@@ -142,23 +142,23 @@ Get cloud support with Ubuntu Advantage Cloud Guest:
 0 packages can be updated.
 0 updates are security updates.
 
-The programs included with the Ubuntu system are free software;
-the exact distribution terms for each program are described in the
+hello programs included with hello Ubuntu system are free software;
+hello exact distribution terms for each program are described in the
 individual files in /usr/share/doc/*/copyright.
 
-Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+Ubuntu comes with ABSOLUTELY NO WARRANTY, toohello extent permitted by
 applicable law.
 
 ops@myVM:~$
 ```
 
-<span data-ttu-id="9fb67-131">Nu dat u met uw virtuele machine verbonden bent, kunt u kunt een schijf koppelen.</span><span class="sxs-lookup"><span data-stu-id="9fb67-131">Now that you're connected to your VM, you're ready to attach a disk.</span></span>  <span data-ttu-id="9fb67-132">Zoek eerst de schijf met behulp van `dmesg | grep SCSI` (de methode die u gebruikt voor het detecteren van de nieuwe schijf kan variëren).</span><span class="sxs-lookup"><span data-stu-id="9fb67-132">First find the disk, using `dmesg | grep SCSI` (the method you use to discover your new disk may vary).</span></span> <span data-ttu-id="9fb67-133">In dit geval wordt er ongeveer als volgt uitziet:</span><span class="sxs-lookup"><span data-stu-id="9fb67-133">In this case, it looks something like:</span></span>
+<span data-ttu-id="e2615-131">Nu dat u bent verbonden tooyour VM, kunt u nu tooattach een schijf.</span><span class="sxs-lookup"><span data-stu-id="e2615-131">Now that you're connected tooyour VM, you're ready tooattach a disk.</span></span>  <span data-ttu-id="e2615-132">Zoek eerst Hallo schijf, met `dmesg | grep SCSI` (Hallo methode gebruik toodiscover de nieuwe schijf kan verschillen).</span><span class="sxs-lookup"><span data-stu-id="e2615-132">First find hello disk, using `dmesg | grep SCSI` (hello method you use toodiscover your new disk may vary).</span></span> <span data-ttu-id="e2615-133">In dit geval wordt er ongeveer als volgt uitziet:</span><span class="sxs-lookup"><span data-stu-id="e2615-133">In this case, it looks something like:</span></span>
 
 ```bash
 dmesg | grep SCSI
 ```
 
-<span data-ttu-id="9fb67-134">Uitvoer</span><span class="sxs-lookup"><span data-stu-id="9fb67-134">Output</span></span>
+<span data-ttu-id="e2615-134">Uitvoer</span><span class="sxs-lookup"><span data-stu-id="e2615-134">Output</span></span>
 
 ```bash
 [    0.294784] SCSI subsystem initialized
@@ -168,19 +168,19 @@ dmesg | grep SCSI
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-<span data-ttu-id="9fb67-135">en in het geval van dit onderwerp, de `sdc` schijf is die we willen.</span><span class="sxs-lookup"><span data-stu-id="9fb67-135">and in the case of this topic, the `sdc` disk is the one that we want.</span></span> <span data-ttu-id="9fb67-136">De schijf met nu partitioneren `sudo fdisk /dev/sdc` --ervan uitgaande dat in uw geval de schijf is `sdc`, en u een primaire schijf op partitie 1 maken en de andere standaardinstellingen accepteren.</span><span class="sxs-lookup"><span data-stu-id="9fb67-136">Now partition the disk with `sudo fdisk /dev/sdc` -- assuming that in your case the disk was `sdc`, and make it a primary disk on partition 1, and accept the other defaults.</span></span>
+<span data-ttu-id="e2615-135">en in geval van dit onderwerp Hallo Hallo `sdc` schijf is Hallo die we willen.</span><span class="sxs-lookup"><span data-stu-id="e2615-135">and in hello case of this topic, hello `sdc` disk is hello one that we want.</span></span> <span data-ttu-id="e2615-136">Nu partitie Hallo schijf met `sudo fdisk /dev/sdc` --ervan uitgaande dat in uw aanvraag Hallo schijf is `sdc`, en u een primaire schijf op partitie 1 maken en accepteren Hallo andere standaardinstellingen.</span><span class="sxs-lookup"><span data-stu-id="e2615-136">Now partition hello disk with `sudo fdisk /dev/sdc` -- assuming that in your case hello disk was `sdc`, and make it a primary disk on partition 1, and accept hello other defaults.</span></span>
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-<span data-ttu-id="9fb67-137">Uitvoer</span><span class="sxs-lookup"><span data-stu-id="9fb67-137">Output</span></span>
+<span data-ttu-id="e2615-137">Uitvoer</span><span class="sxs-lookup"><span data-stu-id="e2615-137">Output</span></span>
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
 Building a new DOS disklabel with disk identifier 0x2a59b123.
-Changes will remain in memory only, until you decide to write them.
-After that, of course, the previous content won't be recoverable.
+Changes will remain in memory only, until you decide toowrite them.
+After that, of course, hello previous content won't be recoverable.
 
 Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)
 
@@ -196,7 +196,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-<span data-ttu-id="9fb67-138">De partitie maken door te typen `p` bij de opdrachtprompt:</span><span class="sxs-lookup"><span data-stu-id="9fb67-138">Create the partition by typing `p` at the prompt:</span></span>
+<span data-ttu-id="e2615-138">Hallo partitie maken door te typen `p` Hallo een opdrachtprompt:</span><span class="sxs-lookup"><span data-stu-id="e2615-138">Create hello partition by typing `p` at hello prompt:</span></span>
 
 ```bash
 Command (m for help): p
@@ -212,19 +212,19 @@ Disk identifier: 0x2a59b123
 /dev/sdc1            2048    10485759     5241856   83  Linux
 
 Command (m for help): w
-The partition table has been altered!
+hello partition table has been altered!
 
-Calling ioctl() to re-read partition table.
+Calling ioctl() toore-read partition table.
 Syncing disks.
 ```
 
-<span data-ttu-id="9fb67-139">En een bestandssysteem schrijven naar de partitie met behulp van de **mkfs** opdracht opgeven van het type van uw bestandssysteem en de naam van het apparaat.</span><span class="sxs-lookup"><span data-stu-id="9fb67-139">And write a file system to the partition by using the **mkfs** command, specifying your filesystem type and the device name.</span></span> <span data-ttu-id="9fb67-140">In dit onderwerp we maken gebruik van `ext4` en `/dev/sdc1` van boven:</span><span class="sxs-lookup"><span data-stu-id="9fb67-140">In this topic, we're using `ext4` and `/dev/sdc1` from above:</span></span>
+<span data-ttu-id="e2615-139">En een partitie bestandssysteem toohello schrijven met Hallo **mkfs** opdracht geven bestandssysteem Hallo type en de naam van het apparaat.</span><span class="sxs-lookup"><span data-stu-id="e2615-139">And write a file system toohello partition by using hello **mkfs** command, specifying your filesystem type and hello device name.</span></span> <span data-ttu-id="e2615-140">In dit onderwerp we maken gebruik van `ext4` en `/dev/sdc1` van boven:</span><span class="sxs-lookup"><span data-stu-id="e2615-140">In this topic, we're using `ext4` and `/dev/sdc1` from above:</span></span>
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
 ```
 
-<span data-ttu-id="9fb67-141">Uitvoer</span><span class="sxs-lookup"><span data-stu-id="9fb67-141">Output</span></span>
+<span data-ttu-id="e2615-141">Uitvoer</span><span class="sxs-lookup"><span data-stu-id="e2615-141">Output</span></span>
 
 ```bash
 mke2fs 1.42.9 (4-Feb-2014)
@@ -235,7 +235,7 @@ Block size=4096 (log=2)
 Fragment size=4096 (log=2)
 Stride=0 blocks, Stripe width=0 blocks
 327680 inodes, 1310464 blocks
-65523 blocks (5.00%) reserved for the super user
+65523 blocks (5.00%) reserved for hello super user
 First data block=0
 Maximum filesystem blocks=1342177280
 40 block groups
@@ -249,38 +249,38 @@ Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-<span data-ttu-id="9fb67-142">Nu we een directory maken te koppelen van het bestandssysteem via `mkdir`:</span><span class="sxs-lookup"><span data-stu-id="9fb67-142">Now we create a directory to mount the file system using `mkdir`:</span></span>
+<span data-ttu-id="e2615-142">Nu we een directory toomount Hallo bestandssysteem via maken `mkdir`:</span><span class="sxs-lookup"><span data-stu-id="e2615-142">Now we create a directory toomount hello file system using `mkdir`:</span></span>
 
 ```bash
 sudo mkdir /datadrive
 ```
 
-<span data-ttu-id="9fb67-143">En koppelt u het gebruik van de directory `mount`:</span><span class="sxs-lookup"><span data-stu-id="9fb67-143">And you mount the directory using `mount`:</span></span>
+<span data-ttu-id="e2615-143">En koppelt u de directory met behulp van Hallo `mount`:</span><span class="sxs-lookup"><span data-stu-id="e2615-143">And you mount hello directory using `mount`:</span></span>
 
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
 
-<span data-ttu-id="9fb67-144">De gegevensschijf is nu gereed voor gebruik als `/datadrive`.</span><span class="sxs-lookup"><span data-stu-id="9fb67-144">The data disk is now ready to use as `/datadrive`.</span></span>
+<span data-ttu-id="e2615-144">Hallo gegevensschijf is nu gereed toouse als `/datadrive`.</span><span class="sxs-lookup"><span data-stu-id="e2615-144">hello data disk is now ready toouse as `/datadrive`.</span></span>
 
 ```bash
 ls
 ```
 
-<span data-ttu-id="9fb67-145">Uitvoer</span><span class="sxs-lookup"><span data-stu-id="9fb67-145">Output</span></span>
+<span data-ttu-id="e2615-145">Uitvoer</span><span class="sxs-lookup"><span data-stu-id="e2615-145">Output</span></span>
 
 ```bash
 bin   datadrive  etc   initrd.img  lib64       media  opt   root  sbin  sys  usr  vmlinuz
 boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 ```
 
-<span data-ttu-id="9fb67-146">Om te controleren of dat de schijf automatisch opnieuw wordt gekoppeld na opnieuw opstarten moet deze worden toegevoegd aan het bestand/etc/fstab-fouten.</span><span class="sxs-lookup"><span data-stu-id="9fb67-146">To ensure the drive is remounted automatically after a reboot it must be added to the /etc/fstab file.</span></span> <span data-ttu-id="9fb67-147">Bovendien is het raadzaam dat de UUID (Universally Unique IDentifier) wordt gebruikt in/etc/fstab om te verwijzen naar het station in plaats van alleen de naam van het apparaat (zoals `/dev/sdc1`).</span><span class="sxs-lookup"><span data-stu-id="9fb67-147">In addition, it is highly recommended that the UUID (Universally Unique IDentifier) is used in /etc/fstab to refer to the drive rather than just the device name (such as, `/dev/sdc1`).</span></span> <span data-ttu-id="9fb67-148">Als het besturingssysteem een schijffout tijdens het opstarten detecteert, voorkomt met behulp van de UUID de onjuiste schijf wordt gekoppeld aan een bepaalde locatie.</span><span class="sxs-lookup"><span data-stu-id="9fb67-148">If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location.</span></span> <span data-ttu-id="9fb67-149">Resterende gegevensschijven zou worden toegewezen die dezelfde apparaat-id.</span><span class="sxs-lookup"><span data-stu-id="9fb67-149">Remaining data disks would then be assigned those same device IDs.</span></span> <span data-ttu-id="9fb67-150">Als de UUID van het nieuwe station zoekt, volgt u de **blkid** hulpprogramma:</span><span class="sxs-lookup"><span data-stu-id="9fb67-150">To find the UUID of the new drive, use the **blkid** utility:</span></span>
+<span data-ttu-id="e2615-146">tooensure hello station wordt automatisch opnieuw gekoppeld nadat deze moet opnieuw worden opgestart toohello /etc/fstab bestand toegevoegd.</span><span class="sxs-lookup"><span data-stu-id="e2615-146">tooensure hello drive is remounted automatically after a reboot it must be added toohello /etc/fstab file.</span></span> <span data-ttu-id="e2615-147">Bovendien is het raadzaam die Hallo UUID (Universally Unique IDentifier) wordt gebruikt in/etc/fstab toorefer toohello station in plaats van alleen Hallo apparaatnaam (zoals `/dev/sdc1`).</span><span class="sxs-lookup"><span data-stu-id="e2615-147">In addition, it is highly recommended that hello UUID (Universally Unique IDentifier) is used in /etc/fstab toorefer toohello drive rather than just hello device name (such as, `/dev/sdc1`).</span></span> <span data-ttu-id="e2615-148">Als een schijffout Hallo OS tijdens het opstarten detecteert, met behulp van Hallo UUID Hallo foutieve schijfconfiguratie gekoppelde tooa opgegeven locatie wordt voorkomt.</span><span class="sxs-lookup"><span data-stu-id="e2615-148">If hello OS detects a disk error during boot, using hello UUID avoids hello incorrect disk being mounted tooa given location.</span></span> <span data-ttu-id="e2615-149">Resterende gegevensschijven zou worden toegewezen die dezelfde apparaat-id.</span><span class="sxs-lookup"><span data-stu-id="e2615-149">Remaining data disks would then be assigned those same device IDs.</span></span> <span data-ttu-id="e2615-150">toofind Hallo UUID van het nieuwe station hello, gebruikt u Hallo **blkid** hulpprogramma:</span><span class="sxs-lookup"><span data-stu-id="e2615-150">toofind hello UUID of hello new drive, use hello **blkid** utility:</span></span>
 
 ```bash
 sudo -i blkid
 ```
 
-<span data-ttu-id="9fb67-151">De uitvoer ziet er ongeveer als volgt uit:</span><span class="sxs-lookup"><span data-stu-id="9fb67-151">The output looks similar to the following:</span></span>
+<span data-ttu-id="e2615-151">Hallo-uitvoer ziet er vergelijkbare toohello volgende:</span><span class="sxs-lookup"><span data-stu-id="e2615-151">hello output looks similar toohello following:</span></span>
 
 ```bash
 /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -289,58 +289,58 @@ sudo -i blkid
 ```
 
 > [!NOTE]
-> <span data-ttu-id="9fb67-152">Onjuist bewerken van de **/etc/fstab** bestand kan leiden tot een systeem opgestart.</span><span class="sxs-lookup"><span data-stu-id="9fb67-152">Improperly editing the **/etc/fstab** file could result in an unbootable system.</span></span> <span data-ttu-id="9fb67-153">Als u niet zeker, Raadpleeg de distributie-documentatie voor informatie over het correct dit bestand te bewerken.</span><span class="sxs-lookup"><span data-stu-id="9fb67-153">If unsure, refer to the distribution's documentation for information on how to properly edit this file.</span></span> <span data-ttu-id="9fb67-154">Het is ook raadzaam dat een back-up van het bestand /etc/fstab is gemaakt voordat u bewerkt.</span><span class="sxs-lookup"><span data-stu-id="9fb67-154">It is also recommended that a backup of the /etc/fstab file is created before editing.</span></span>
+> <span data-ttu-id="e2615-152">Onjuist bewerken van Hallo **/etc/fstab** bestand kan leiden tot een systeem opgestart.</span><span class="sxs-lookup"><span data-stu-id="e2615-152">Improperly editing hello **/etc/fstab** file could result in an unbootable system.</span></span> <span data-ttu-id="e2615-153">Als u niet zeker, Raadpleeg toohello distributie van documentatie voor informatie over hoe tooproperly dit bestand bewerken.</span><span class="sxs-lookup"><span data-stu-id="e2615-153">If unsure, refer toohello distribution's documentation for information on how tooproperly edit this file.</span></span> <span data-ttu-id="e2615-154">Het is ook raadzaam dat een back-up van Hallo /etc/fstab bestand is gemaakt voordat u bewerkt.</span><span class="sxs-lookup"><span data-stu-id="e2615-154">It is also recommended that a backup of hello /etc/fstab file is created before editing.</span></span>
 > 
 > 
 
-<span data-ttu-id="9fb67-155">Open vervolgens de **/etc/fstab** bestand in een teksteditor:</span><span class="sxs-lookup"><span data-stu-id="9fb67-155">Next, open the **/etc/fstab** file in a text editor:</span></span>
+<span data-ttu-id="e2615-155">Open vervolgens Hallo **/etc/fstab** bestand in een teksteditor:</span><span class="sxs-lookup"><span data-stu-id="e2615-155">Next, open hello **/etc/fstab** file in a text editor:</span></span>
 
 ```bash
 sudo vi /etc/fstab
 ```
 
-<span data-ttu-id="9fb67-156">In dit voorbeeld gebruiken we de UUID-waarde voor de nieuwe **/dev/sdc1** apparaat dat is gemaakt in de vorige stappen en het koppelpunt **/datadrive**.</span><span class="sxs-lookup"><span data-stu-id="9fb67-156">In this example, we use the UUID value for the new **/dev/sdc1** device that was created in the previous steps, and the mountpoint **/datadrive**.</span></span> <span data-ttu-id="9fb67-157">Voeg de volgende regel toe aan het einde van de **/etc/fstab** bestand:</span><span class="sxs-lookup"><span data-stu-id="9fb67-157">Add the following line to the end of the **/etc/fstab** file:</span></span>
+<span data-ttu-id="e2615-156">In dit voorbeeld gebruiken we Hallo UUID-waarde voor Hallo nieuwe **/dev/sdc1** apparaat dat is gemaakt in de vorige stappen Hallo en Hallo koppelpunt **/datadrive**.</span><span class="sxs-lookup"><span data-stu-id="e2615-156">In this example, we use hello UUID value for hello new **/dev/sdc1** device that was created in hello previous steps, and hello mountpoint **/datadrive**.</span></span> <span data-ttu-id="e2615-157">Voeg na einde van regel toohello Hallo Hallo **/etc/fstab** bestand:</span><span class="sxs-lookup"><span data-stu-id="e2615-157">Add hello following line toohello end of hello **/etc/fstab** file:</span></span>
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
 > [!NOTE]
-> <span data-ttu-id="9fb67-158">Later een gegevensschijf verwijderen zonder te bewerken fstab kan ervoor zorgen dat de virtuele machine niet kunnen worden opgestart.</span><span class="sxs-lookup"><span data-stu-id="9fb67-158">Later removing a data disk without editing fstab could cause the VM to fail to boot.</span></span> <span data-ttu-id="9fb67-159">De meeste distributies Geef ofwel de `nofail` en/of `nobootwait` fstab-opties.</span><span class="sxs-lookup"><span data-stu-id="9fb67-159">Most distributions provide either the `nofail` and/or `nobootwait` fstab options.</span></span> <span data-ttu-id="9fb67-160">Deze opties kunt een systeem op te starten, zelfs als de schijf niet koppelen tijdens het opstarten.</span><span class="sxs-lookup"><span data-stu-id="9fb67-160">These options allow a system to boot even if the disk fails to mount at boot time.</span></span> <span data-ttu-id="9fb67-161">Raadpleeg de distributie-documentatie voor meer informatie over deze parameters.</span><span class="sxs-lookup"><span data-stu-id="9fb67-161">Consult your distribution's documentation for more information on these parameters.</span></span>
+> <span data-ttu-id="e2615-158">Later kan een gegevensschijf zonder te bewerken fstab verwijdert Hallo VM toofail tooboot.</span><span class="sxs-lookup"><span data-stu-id="e2615-158">Later removing a data disk without editing fstab could cause hello VM toofail tooboot.</span></span> <span data-ttu-id="e2615-159">De meeste distributies bieden beide Hallo `nofail` en/of `nobootwait` fstab-opties.</span><span class="sxs-lookup"><span data-stu-id="e2615-159">Most distributions provide either hello `nofail` and/or `nobootwait` fstab options.</span></span> <span data-ttu-id="e2615-160">Deze opties kunnen een tooboot systeem, zelfs als de schijf Hallo toomount tijdens het opstarten mislukt.</span><span class="sxs-lookup"><span data-stu-id="e2615-160">These options allow a system tooboot even if hello disk fails toomount at boot time.</span></span> <span data-ttu-id="e2615-161">Raadpleeg de distributie-documentatie voor meer informatie over deze parameters.</span><span class="sxs-lookup"><span data-stu-id="e2615-161">Consult your distribution's documentation for more information on these parameters.</span></span>
 > 
-> <span data-ttu-id="9fb67-162">De **nofail** optie zorgt ervoor dat de VM start zelfs als het bestandssysteem beschadigd is of de schijf tijdens het opstarten niet bestaat.</span><span class="sxs-lookup"><span data-stu-id="9fb67-162">The **nofail** option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time.</span></span> <span data-ttu-id="9fb67-163">Zonder deze optie kunnen optreden gedrag zoals beschreven in [niet kan SSH voor Linux VM vanwege FSTAB-fouten](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)</span><span class="sxs-lookup"><span data-stu-id="9fb67-163">Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)</span></span>
+> <span data-ttu-id="e2615-162">Hallo **nofail** optie zorgt ervoor dat Hallo VM start, zelfs als Hallo bestandssysteem beschadigd is of Hallo schijf tijdens het opstarten niet bestaat.</span><span class="sxs-lookup"><span data-stu-id="e2615-162">hello **nofail** option ensures that hello VM starts even if hello filesystem is corrupt or hello disk does not exist at boot time.</span></span> <span data-ttu-id="e2615-163">Zonder deze optie kunnen optreden gedrag zoals beschreven in [niet kan SSH tooLinux VM vanwege tooFSTAB fouten](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)</span><span class="sxs-lookup"><span data-stu-id="e2615-163">Without this option, you may encounter behavior as described in [Cannot SSH tooLinux VM due tooFSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)</span></span>
 
-### <a name="trimunmap-support-for-linux-in-azure"></a><span data-ttu-id="9fb67-164">TRIM/UNMAP ondersteuning voor Linux in Azure</span><span class="sxs-lookup"><span data-stu-id="9fb67-164">TRIM/UNMAP support for Linux in Azure</span></span>
-<span data-ttu-id="9fb67-165">Sommige kernels Linux ondersteuning TRIM/UNMAP bewerkingen voor het negeren van niet-gebruikte blokken op de schijf.</span><span class="sxs-lookup"><span data-stu-id="9fb67-165">Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk.</span></span> <span data-ttu-id="9fb67-166">Dit is vooral handig in standard-opslag om te informeren over Azure die verwijderde pagina's zijn niet langer geldig en kan worden verwijderd.</span><span class="sxs-lookup"><span data-stu-id="9fb67-166">This is primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded.</span></span> <span data-ttu-id="9fb67-167">Dit bespaart kosten als u grote bestanden maken en deze vervolgens te verwijderen.</span><span class="sxs-lookup"><span data-stu-id="9fb67-167">This can save cost if you create large files and then delete them.</span></span>
+### <a name="trimunmap-support-for-linux-in-azure"></a><span data-ttu-id="e2615-164">TRIM/UNMAP ondersteuning voor Linux in Azure</span><span class="sxs-lookup"><span data-stu-id="e2615-164">TRIM/UNMAP support for Linux in Azure</span></span>
+<span data-ttu-id="e2615-165">Sommige kernels Linux ondersteunen TRIM/UNMAP operations toodiscard niet-gebruikte blokken op Hallo schijf.</span><span class="sxs-lookup"><span data-stu-id="e2615-165">Some Linux kernels support TRIM/UNMAP operations toodiscard unused blocks on hello disk.</span></span> <span data-ttu-id="e2615-166">Dit is vooral handig in standard-opslag tooinform Azure die verwijderde pagina's zijn niet langer geldig en kan worden verwijderd.</span><span class="sxs-lookup"><span data-stu-id="e2615-166">This is primarily useful in standard storage tooinform Azure that deleted pages are no longer valid and can be discarded.</span></span> <span data-ttu-id="e2615-167">Dit bespaart kosten als u grote bestanden maken en deze vervolgens te verwijderen.</span><span class="sxs-lookup"><span data-stu-id="e2615-167">This can save cost if you create large files and then delete them.</span></span>
 
-<span data-ttu-id="9fb67-168">Er zijn twee manieren om in te schakelen TRIM ondersteunen in uw Linux-VM.</span><span class="sxs-lookup"><span data-stu-id="9fb67-168">There are two ways to enable TRIM support in your Linux VM.</span></span> <span data-ttu-id="9fb67-169">Raadpleeg uw distributiepunt gebruikelijke voor de aanbevolen aanpak:</span><span class="sxs-lookup"><span data-stu-id="9fb67-169">As usual, consult your distribution for the recommended approach:</span></span>
+<span data-ttu-id="e2615-168">Er zijn twee manieren tooenable TRIM ondersteunen in uw Linux-VM.</span><span class="sxs-lookup"><span data-stu-id="e2615-168">There are two ways tooenable TRIM support in your Linux VM.</span></span> <span data-ttu-id="e2615-169">Raadpleeg uw distributiepunt gebruikelijke voor Hallo aanbevolen benadering:</span><span class="sxs-lookup"><span data-stu-id="e2615-169">As usual, consult your distribution for hello recommended approach:</span></span>
 
-* <span data-ttu-id="9fb67-170">Gebruik de `discard` koppelen optie in `/etc/fstab`, bijvoorbeeld:</span><span class="sxs-lookup"><span data-stu-id="9fb67-170">Use the `discard` mount option in `/etc/fstab`, for example:</span></span>
+* <span data-ttu-id="e2615-170">Gebruik Hallo `discard` koppelen optie in `/etc/fstab`, bijvoorbeeld:</span><span class="sxs-lookup"><span data-stu-id="e2615-170">Use hello `discard` mount option in `/etc/fstab`, for example:</span></span>
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* <span data-ttu-id="9fb67-171">In sommige gevallen de `discard` optie prestaties gevolgen kan hebben.</span><span class="sxs-lookup"><span data-stu-id="9fb67-171">In some cases the `discard` option may have performance implications.</span></span> <span data-ttu-id="9fb67-172">U kunt ook uitvoeren de `fstrim` opdracht handmatig vanaf de opdrachtregel of toe te voegen aan uw crontab regelmatig wordt uitgevoerd:</span><span class="sxs-lookup"><span data-stu-id="9fb67-172">Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:</span></span>
+* <span data-ttu-id="e2615-171">In sommige gevallen Hallo `discard` optie prestaties gevolgen kan hebben.</span><span class="sxs-lookup"><span data-stu-id="e2615-171">In some cases hello `discard` option may have performance implications.</span></span> <span data-ttu-id="e2615-172">U kunt ook uitvoeren Hallo `fstrim` opdracht handmatig vanaf de opdrachtregel Hallo of voeg tooyour crontab toorun regelmatig:</span><span class="sxs-lookup"><span data-stu-id="e2615-172">Alternatively, you can run hello `fstrim` command manually from hello command line, or add it tooyour crontab toorun regularly:</span></span>
   
-    <span data-ttu-id="9fb67-173">**Ubuntu**</span><span class="sxs-lookup"><span data-stu-id="9fb67-173">**Ubuntu**</span></span>
+    <span data-ttu-id="e2615-173">**Ubuntu**</span><span class="sxs-lookup"><span data-stu-id="e2615-173">**Ubuntu**</span></span>
   
     ```bash
     sudo apt-get install util-linux
     sudo fstrim /datadrive
     ```
   
-    <span data-ttu-id="9fb67-174">**RHEL/CentOS**</span><span class="sxs-lookup"><span data-stu-id="9fb67-174">**RHEL/CentOS**</span></span>
+    <span data-ttu-id="e2615-174">**RHEL/CentOS**</span><span class="sxs-lookup"><span data-stu-id="e2615-174">**RHEL/CentOS**</span></span>
 
     ```bash
     sudo yum install util-linux
     sudo fstrim /datadrive
     ```
 
-## <a name="troubleshooting"></a><span data-ttu-id="9fb67-175">Problemen oplossen</span><span class="sxs-lookup"><span data-stu-id="9fb67-175">Troubleshooting</span></span>
+## <a name="troubleshooting"></a><span data-ttu-id="e2615-175">Problemen oplossen</span><span class="sxs-lookup"><span data-stu-id="e2615-175">Troubleshooting</span></span>
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
-## <a name="next-steps"></a><span data-ttu-id="9fb67-176">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="9fb67-176">Next Steps</span></span>
-* <span data-ttu-id="9fb67-177">Denk eraan dat de nieuwe schijf is niet beschikbaar voor de virtuele machine als deze opnieuw is opgestart tenzij u deze informatie om te schrijven uw [fstab](http://en.wikipedia.org/wiki/Fstab) bestand.</span><span class="sxs-lookup"><span data-stu-id="9fb67-177">Remember, that your new disk is not available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file.</span></span>
-* <span data-ttu-id="9fb67-178">Bekijk uw Linux-VM juist is geconfigureerd, zodat de [optimaliseren van de prestaties van uw Linux-machine](optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aanbevelingen.</span><span class="sxs-lookup"><span data-stu-id="9fb67-178">To ensure your Linux VM is configured correctly, review the [Optimize your Linux machine performance](optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) recommendations.</span></span>
-* <span data-ttu-id="9fb67-179">Uw opslagcapaciteit uitbreiden door extra schijven toe te voegen en [configureren RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor extra prestaties.</span><span class="sxs-lookup"><span data-stu-id="9fb67-179">Expand your storage capacity by adding additional disks and [configure RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional performance.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="e2615-176">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="e2615-176">Next Steps</span></span>
+* <span data-ttu-id="e2615-177">Denk eraan dat dat de nieuwe schijf is niet beschikbaar toohello VM als opnieuw wordt opgestart tenzij u die informatie tooyour schrijven [fstab](http://en.wikipedia.org/wiki/Fstab) bestand.</span><span class="sxs-lookup"><span data-stu-id="e2615-177">Remember, that your new disk is not available toohello VM if it reboots unless you write that information tooyour [fstab](http://en.wikipedia.org/wiki/Fstab) file.</span></span>
+* <span data-ttu-id="e2615-178">tooensure uw Linux-VM is onjuist geconfigureerd; revisie Hallo [optimaliseren van de prestaties van uw Linux-machine](optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aanbevelingen.</span><span class="sxs-lookup"><span data-stu-id="e2615-178">tooensure your Linux VM is configured correctly, review hello [Optimize your Linux machine performance](optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) recommendations.</span></span>
+* <span data-ttu-id="e2615-179">Uw opslagcapaciteit uitbreiden door extra schijven toe te voegen en [configureren RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor extra prestaties.</span><span class="sxs-lookup"><span data-stu-id="e2615-179">Expand your storage capacity by adding additional disks and [configure RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional performance.</span></span>
 

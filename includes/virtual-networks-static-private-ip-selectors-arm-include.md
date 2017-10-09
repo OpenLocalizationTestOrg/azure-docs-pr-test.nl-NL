@@ -1,7 +1,7 @@
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="143ab-101">Azure Portal</span><span class="sxs-lookup"><span data-stu-id="143ab-101">Azure portal</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md)
-> * [<span data-ttu-id="143ab-102">PowerShell</span><span class="sxs-lookup"><span data-stu-id="143ab-102">PowerShell</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-arm-ps.md)
-> * [<span data-ttu-id="143ab-103">Azure CLI</span><span class="sxs-lookup"><span data-stu-id="143ab-103">Azure CLI</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-arm-cli.md)
-> * [<span data-ttu-id="143ab-104">Azure-portal (klassiek)</span><span class="sxs-lookup"><span data-stu-id="143ab-104">Azure portal (Classic)</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-classic-pportal.md)
-> * [<span data-ttu-id="143ab-105">PowerShell (klassiek)</span><span class="sxs-lookup"><span data-stu-id="143ab-105">PowerShell (Classic)</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-classic-ps.md)
-> * [<span data-ttu-id="143ab-106">Azure CLI (klassiek)</span><span class="sxs-lookup"><span data-stu-id="143ab-106">Azure CLI (Classic)</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-classic-cli.md)
+> * [<span data-ttu-id="a5d9d-101">Azure Portal</span><span class="sxs-lookup"><span data-stu-id="a5d9d-101">Azure portal</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md)
+> * [<span data-ttu-id="a5d9d-102">PowerShell</span><span class="sxs-lookup"><span data-stu-id="a5d9d-102">PowerShell</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-arm-ps.md)
+> * [<span data-ttu-id="a5d9d-103">Azure-CLI</span><span class="sxs-lookup"><span data-stu-id="a5d9d-103">Azure CLI</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-arm-cli.md)
+> * [<span data-ttu-id="a5d9d-104">Azure-portal (klassiek)</span><span class="sxs-lookup"><span data-stu-id="a5d9d-104">Azure portal (Classic)</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-classic-pportal.md)
+> * [<span data-ttu-id="a5d9d-105">PowerShell (klassiek)</span><span class="sxs-lookup"><span data-stu-id="a5d9d-105">PowerShell (Classic)</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-classic-ps.md)
+> * [<span data-ttu-id="a5d9d-106">Azure CLI (klassiek)</span><span class="sxs-lookup"><span data-stu-id="a5d9d-106">Azure CLI (Classic)</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-classic-cli.md)
