@@ -1,6 +1,6 @@
 ---
-title: Een Azure VPN-gateway als u wilt herstellen IPsec-tunnels opnieuw instellen | Microsoft Docs
-description: Dit artikel begeleidt u bij het opnieuw instellen van uw Azure VPN-Gateway als u wilt herstellen IPsec-tunnels. Het artikel is van toepassing op VPN-gateways in het klassieke en het Resource Manager-implementatiemodel.
+title: Opnieuw instellen van een Azure VPN-gateway tooreestablish IPsec-tunnels | Microsoft Docs
+description: Dit artikel begeleidt u bij het opnieuw instellen van uw Azure VPN-Gateway tooreestablish IPsec-tunnels. Hallo-artikel geldt tooVPN gateways in Hallo-classic en Hallo Resource Manager-implementatiemodel.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,53 +15,53 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: 7c5ba9310568571991708ab54a5275df6ea84a39
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 84dd741f0bebd6b18cb235216a68a88da5fe17b9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reset-a-vpn-gateway"></a>Een VPN Gateway opnieuw instellen
 
-Het opnieuw instellen van een Azure VPN-gateway is handig als u cross-premises VPN-connectiviteit verliest in een of meer Site-to-Site VPN-tunnels. In een dergelijke situatie functioneren al uw on-premises VPN-apparaten naar behoren, maar kunnen ze geen IPSec-tunnels tot stand brengen met de Azure VPN-gateways. In dit artikel helpt u bij uw VPN-gateway opnieuw instellen.
+Het opnieuw instellen van een Azure VPN-gateway is handig als u cross-premises VPN-connectiviteit verliest in een of meer Site-to-Site VPN-tunnels. In dit geval uw on-premises VPN-apparaten zijn alle naar behoren werkt, maar er kan geen tooestablish IPsec-tunnels met hello Azure VPN-gateways zijn. In dit artikel helpt u bij uw VPN-gateway opnieuw instellen.
 
 ### <a name="what-happens-during-a-reset"></a>Wat er gebeurt tijdens het opnieuw instellen?
 
-Een VPN-gateway bestaat uit twee VM-instanties uitgevoerd in een actief/stand-byconfiguratie. Wanneer u de gateway opnieuw instelt, wordt de gateway opnieuw opgestart en vervolgens wordt de cross-premises configuraties opnieuw toegepast. De gateway behoudt hetzelfde openbare IP-adres. Dat betekent dat u de VPN-routerconfiguratie niet hoeft bij te werken met een nieuw openbaar IP-adres voor de Azure VPN-gateway.
+Een VPN-gateway bestaat uit twee VM-instanties uitgevoerd in een actief/stand-byconfiguratie. Wanneer u opnieuw Hallo-gateway, Hallo-gateway opnieuw opgestart en vervolgens opnieuw toegepast Hallo cross-premises configuraties tooit. Hallo gateway houdt Hallo openbaar IP-adres al heeft. Dit betekent dat u hoeft niet tooupdate Hallo VPN-routerconfiguratie met een nieuw openbaar IP-adres voor de Azure VPN-gateway.
 
-Wanneer u de opdracht opnieuw in te stellen van de gateway, de huidige instantie van de Azure VPN-gateway wordt onmiddellijk opnieuw opgestart. Er is een korte onderbreking tijdens de failover van de actieve instantie (opnieuw wordt opgestart), naar de stand-by-instantie. Deze onderbreking zou niet langer dan een minuut moeten duren.
+Wanneer u Hallo opdracht tooreset Hallo gateway verzendt, Hallo huidige instantie van hello Azure VPN-gateway wordt onmiddellijk opnieuw opgestart. Er is een korte onderbreking tijdens de failover van Hallo van Hallo actieve instantie (opnieuw wordt opgestart), toohello stand-by-exemplaar. Hallo onderbreking moet minder dan een minuut.
 
-Als de verbinding na de eerste keer opnieuw opstarten niet is hersteld, voert u deze opdracht opnieuw uit om de tweede VM-instantie (de nieuwe actieve gateway) opnieuw op te starten. Als de twee keer opnieuw opstarten direct na elkaar wordt aangevraagd, duurt het iets langer omdat beide VM-exemplaren (actief en stand-by) opnieuw worden opgestart. Dit veroorzaakt een langere onderbreking van de VPN-verbinding, die twee tot vier minuten kan duren, voordat de virtuele machines opnieuw zijn opgestart.
+Als het Hallo-verbinding is niet hersteld na de eerste keer opnieuw opstarten hello, probleem Hallo dezelfde opdracht opnieuw tooreboot Hallo tweede VM-instantie (Hallo nieuwe actieve gateway). Als twee keer opnieuw opstarten Hallo aangevraagde back tooback, zal er iets langer waar beide VM-instanties (actieve en stand-by) worden opnieuw opgestart. Hierdoor wordt een gap langer op Hallo VPN-verbinding van too2 too4 minuten voordat VMs toocomplete Hallo opnieuw wordt opgestart.
 
-Na twee keer opnieuw opstarten als u steeds cross-premises connectiviteitsproblemen ondervindt nog, opent u een verzoek om ondersteuning van de Azure-portal.
+Na twee keer opnieuw opstarten als u steeds cross-premises connectiviteitsproblemen ondervindt nog, opent u een verzoek om ondersteuning van hello Azure-portal.
 
 ## <a name="before"></a>Voordat u begint
 
-Controleer voordat u de gateway opnieuw instelt de hieronder vermelde belangrijke zaken voor elke S2S-VPN-tunnel (site-naar-site) met IPsec. Als items niet overeenkomen, wordt de verbinding met S2SVPN-tunnels verbroken. Controleren en te corrigeren van de configuraties voor uw on-premises en Azure VPN-gateways slaat u onnodig opnieuw moet opstarten en dat de andere werkende verbindingen op de gateways.
+Voordat u de gateway opnieuw instelt, moet u controleren Hallo essentiële items voor elke IPsec-Site-naar-Site (S2S) VPN-tunnel hieronder vermeld. Hallo verbinding verbreken van de S2S VPN-tunnels leidt ertoe dat Hallo items niet overeenkomen. Controleren en te corrigeren Hallo configuraties voor uw on-premises en Azure VPN-gateways voorkomt dat u onnodig opnieuw moet opstarten en onderbrekingen voor Hallo andere werkende verbindingen op Hallo gateways.
 
-Controleer of u de volgende items voordat het opnieuw instellen van uw gateway:
+Controleer of de volgende items voordat het opnieuw instellen van uw gateway Hallo:
 
-* Controleer of de internet-IP-adressen (VIP's) voor zowel de Azure VPN-gateway als de on-premises VPN-gateway correct zijn geconfigureerd in zowel het Azure- als het lokale VPN-beleid.
-* De vooraf gedeelde sleutel moet hetzelfde zijn in de Azure- en de on-premises VPN-gateway.
-* Als u een specifieke IPsec/IKE-configuratie, zoals versleuteling, hash-algoritmen en PFS (Perfect Forward Secrecy) toepast, moet u controleren of de Azure- en on-premises VPN-gateway dezelfde configuratie hebben.
+* Hallo Internet-IP-adressen (VIP's) voor beide hello Azure VPN-gateway en Hallo on-premises VPN-gateway correct zijn geconfigureerd in beide hello Azure en Hallo lokale VPN-beleid.
+* Hallo vooraf gedeelde sleutel moet hetzelfde zijn op zowel Azure en on-premises VPN-gateways Hallo.
+* Als u specifieke IPsec/IKE-configuratie toepassen, zoals versleuteling, hash-algoritmen en PFS (Perfect Forward Secrecy), zorg ervoor dat beide hello Azure en lokale VPN-gateways Hallo hebben dezelfde configuraties.
 
 ## <a name="portal"></a>Azure-portal
 
-U kunt een Resource Manager-VPN-gateway met behulp van de Azure-portal opnieuw instellen. Als u een klassieke gateway opnieuw instellen wilt, raadpleegt u de [PowerShell](#resetclassic) stappen.
+U kunt een Resource Manager-VPN-gateway met behulp van hello Azure-portal opnieuw instellen. Als u tooreset een klassieke gateway wilt, Zie Hallo [PowerShell](#resetclassic) stappen.
 
 ### <a name="resource-manager-deployment-model"></a>Resource Manager-implementatiemodel
 
-1. Open de [Azure-portal](https://portal.azure.com) en navigeer naar de virtuele netwerkgateway van Resource Manager die u wilt instellen.
-2. Klik op 'Herstellen' op de blade voor de virtuele netwerkgateway.
+1. Open Hallo [Azure-portal](https://portal.azure.com) en navigeer toohello Resource Manager virtuele netwerkgateway die u tooreset wilt.
+2. Klik op 'Herstellen' op de blade voor de virtuele netwerkgateway Hallo Hallo.
 
   ![Opnieuw instellen van VPN-Gateway-blade](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
-3. Klik op de blade opnieuw instellen op de **opnieuw** knop.
+3. Op Hallo blade, klikt u op Hallo **opnieuw** knop.
 
 ## <a name="ps"></a>PowerShell
 
 ### <a name="resource-manager-deployment-model"></a>Resource Manager-implementatiemodel
 
-De cmdlet voor het opnieuw instellen van een gateway is **Reset AzureRmVirtualNetworkGateway**. Voordat u een reset uitvoert, zorg ervoor dat de nieuwste versie van de [Resource Manager PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0). Het volgende voorbeeld wordt een virtuele netwerkgateway VNet1GW met de naam in de resourcegroep TestRG1:
+Hallo cmdlet voor opnieuw instellen van een gateway is **Reset AzureRmVirtualNetworkGateway**. Voordat u een reset uitvoert, zorg ervoor dat u beschikt over de nieuwste versie van de Hallo Hallo [Resource Manager PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0). Hallo wordt volgende voorbeeld een virtuele netwerkgateway met de naam VNet1GW in Hallo TestRG1 resourcegroep:
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
@@ -70,11 +70,11 @@ Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 
 Resultaat:
 
-Wanneer u een resultaat geretourneerd ontvangt, kunt u aannemen opnieuw instellen van de gateway is geslaagd. Maar is er niets in de geretourneerde resultatenset die expliciet aangeeft dat het opnieuw instellen voltooid is. Als u kijken nauw de geschiedenis om te zien precies wanneer het opnieuw instellen van de gateway is opgetreden wilt, kunt u bekijken die informatie in de [Azure-portal](https://portal.azure.com). Navigeer in de portal naar **'GatewayName' -> resourcestatus**.
+Wanneer u een resultaat geretourneerd ontvangt, kunt u aannemen Hallo gateway opnieuw instellen is voltooid. Maar is er niets in Hallo return resultaat die expliciet aangeeft dat Hallo opnieuw instellen is voltooid. Als u wilt dat toolook nauw op Hallo geschiedenis toosee precies wanneer Hallo-gateway opnieuw instellen is opgetreden, kunt u die informatie weergeven in Hallo [Azure-portal](https://portal.azure.com). Navigeer te in Hallo portal**'GatewayName' -> resourcestatus**.
 
 ### <a name="resetclassic"></a>Klassieke implementatiemodel
 
-De cmdlet voor het opnieuw instellen van een gateway is **Reset-AzureVNetGateway**. Voordat u een reset uitvoert, zorg ervoor dat de nieuwste versie van de [Service Management (SM) PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0). Het volgende voorbeeld wordt de gateway voor een virtueel netwerk met de naam 'ContosoVNet':
+Hallo cmdlet voor opnieuw instellen van een gateway is **Reset-AzureVNetGateway**. Voordat u een reset uitvoert, zorg ervoor dat u beschikt over de nieuwste versie van de Hallo Hallo [Service Management (SM) PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0). Hallo hersteld volgende voorbeeld Hallo gateway voor een virtueel netwerk met de naam 'ContosoVNet':
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”
@@ -93,7 +93,7 @@ StatusCode     : OK
 
 ## <a name="cli"></a>Azure CLI
 
-Om de gateway opnieuw instellen, gebruikt u de [az vnet-netwerkgateway opnieuw](https://docs.microsoft.com/cli/azure/network/vnet-gateway#reset) opdracht. Het volgende voorbeeld wordt een virtuele netwerkgateway VNet5GW met de naam in de resourcegroep TestRG5:
+Gebruik Hallo-gateway Hallo tooreset [az vnet-netwerkgateway opnieuw](https://docs.microsoft.com/cli/azure/network/vnet-gateway#reset) opdracht. Hallo wordt volgende voorbeeld een virtuele netwerkgateway met de naam VNet5GW in Hallo TestRG5 resourcegroep:
 
 ```azurecli
 az network vnet-gateway reset -n VNet5GW -g TestRG5
@@ -101,4 +101,4 @@ az network vnet-gateway reset -n VNet5GW -g TestRG5
 
 Resultaat:
 
-Wanneer u een resultaat geretourneerd ontvangt, kunt u aannemen opnieuw instellen van de gateway is geslaagd. Maar is er niets in de geretourneerde resultatenset die expliciet aangeeft dat het opnieuw instellen voltooid is. Als u kijken nauw de geschiedenis om te zien precies wanneer het opnieuw instellen van de gateway is opgetreden wilt, kunt u bekijken die informatie in de [Azure-portal](https://portal.azure.com). Navigeer in de portal naar **'GatewayName' -> resourcestatus**.
+Wanneer u een resultaat geretourneerd ontvangt, kunt u aannemen Hallo gateway opnieuw instellen is voltooid. Maar is er niets in Hallo return resultaat die expliciet aangeeft dat Hallo opnieuw instellen is voltooid. Als u wilt dat toolook nauw op Hallo geschiedenis toosee precies wanneer Hallo-gateway opnieuw instellen is opgetreden, kunt u die informatie weergeven in Hallo [Azure-portal](https://portal.azure.com). Navigeer te in Hallo portal**'GatewayName' -> resourcestatus**.

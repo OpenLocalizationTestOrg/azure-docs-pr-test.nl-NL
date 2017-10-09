@@ -15,50 +15,50 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 798014b6e8d4495db99ef2e2d2ea487ae7d02fd0
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f8d2e29276efdec7071f2aa0d463b1abd64a5253
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Beleid voor IPsec/IKE voor S2S-VPN- of VNet-naar-VNet-verbindingen configureren
 
-Dit artikel begeleidt u bij de stappen voor het configureren van beleid voor IPsec/IKE voor Site-naar-Site VPN- of VNet-naar-VNet-verbindingen met het Resource Manager-implementatiemodel en PowerShell.
+Dit artikel begeleidt u bij Hallo stappen tooconfigure IPsec/IKE-beleid voor Site-naar-Site VPN- of VNet-naar-VNet-verbindingen met Hallo Resource Manager-implementatiemodel en PowerShell.
 
 ## <a name="about"></a>Informatie over IPsec en IKE beleidsparameters voor Azure VPN-gateways
-IPsec en IKE-protocol standaard ondersteunt een groot aantal cryptografische algoritmen in verschillende combinaties. Raadpleeg [over cryptografische vereisten en Azure VPN-gateways](vpn-gateway-about-compliance-crypto.md) om te zien hoe dit kan helpen waarborgen cross-premises en VNet-naar-VNet-connectiviteit voldoen aan uw vereisten voor naleving of beveiliging.
+IPsec en IKE-protocol standaard ondersteunt een groot aantal cryptografische algoritmen in verschillende combinaties. Raadpleeg te[over cryptografische vereisten en Azure VPN-gateways](vpn-gateway-about-compliance-crypto.md) toosee hoe dit kan helpen waarborgen cross-premises en VNet-naar-VNet-connectiviteit voldoen aan uw vereisten voor naleving of beveiliging.
 
-Dit artikel bevat instructies voor het maken en een IPsec/IKE-beleid configureren en toepassen op een nieuwe of bestaande verbinding:
+In dit artikel biedt instructies toocreate en een IPsec/IKE-beleid configureren en toepassen van de nieuwe of bestaande verbinding tooa:
 
-* [Deel 1: werkstroom voor het maken en IPsec/IKE-beleid instellen](#workflow)
+* [Deel 1 - werkstroom toocreate en IPsec/IKE-beleid instellen](#workflow)
 * [Deel 2 - ondersteund cryptografische algoritmen en de belangrijkste voordelen](#params)
 * [Deel 3: een nieuwe S2S VPN-verbinding maken met IPsec/IKE-beleid](#crossprem)
 * [Deel 4: een nieuwe VNet-naar-VNet-verbinding maken met IPsec/IKE-beleid](#vnet2vnet)
 * [Deel 5 - beheren (maken, toevoegen, verwijderen) IPsec/IKE-beleid voor een verbinding](#managepolicy)
 
 > [!IMPORTANT]
-> 1. Houd er rekening mee dat IPsec/IKE-beleid alleen op de volgende gateway-SKU's werkt:
+> 1. Houd er rekening mee dat IPsec/IKE-beleid alleen werkt op Hallo gateway-SKU's te volgen:
 >    * ***VpnGw1, VpnGw2, VpnGw3*** (op route gebaseerd)
 >    * ***Standaard*** en ***HighPerformance*** (op route gebaseerd)
 > 2. U kunt maar ***één*** beleidscombinatie opgeven voor een bepaalde verbinding.
 > 3. U moet alle algoritmen en parameters opgeven voor zowel IKE (hoofdmodus) en IPsec (snelle modus). Gedeeltelijke beleidsspecificatie is niet toegestaan.
-> 4. Neem contact op met de VPN-leverancier apparaatspecificaties om te controleren of dat het beleid wordt ondersteund op uw on-premises VPN-apparaten. S2S of VNet-naar-VNet-verbindingen kunnen niet tot stand brengen als het beleid niet compatibel zijn.
+> 4. Neem contact op met uw VPN-apparaat Leverancierspecificaties tooensure Hallo beleid op uw on-premises VPN-apparaten wordt ondersteund. S2S of VNet-naar-VNet-verbindingen kunnen niet tot stand brengen als Hallo beleid niet compatibel zijn.
 
-## <a name ="workflow"></a>Deel 1: werkstroom voor het maken en IPsec/IKE-beleid instellen
-Deze sectie geeft een overzicht van de werkstroom voor het maken en IPsec/IKE-beleid op een S2S VPN- of VNet-naar-VNet-verbinding bijwerken:
+## <a name ="workflow"></a>Deel 1 - werkstroom toocreate en IPsec/IKE-beleid instellen
+Deze sectie geeft een overzicht van Hallo werkstroom toocreate en update IPsec/IKE-beleid op een S2S VPN- of VNet-naar-VNet-verbinding:
 1. Een virtueel netwerk en een VPN-gateway maken
 2. Maak een lokale netwerkgateway voor cross-premises-verbinding of een ander virtueel netwerk en de gateway voor VNet-naar-VNet-verbinding
 3. Een beleid voor IPsec/IKE maken met geselecteerde algoritmen en parameters
-4. Maak een verbinding (IPSec- of VNet2VNet) met het beleid voor IPsec/IKE
+4. Maak een verbinding (IPSec- of VNet2VNet) met Hallo IPsec/IKE-beleid
 5. Toevoegen/bijwerken/verwijderen uit een IPsec/IKE-beleid voor een bestaande verbinding
 
-De instructies in dit artikel helpt u bij het instellen en configureren van IPsec/IKE-beleid, zoals wordt weergegeven in het diagram:
+Hallo-instructies in dit artikel helpt u bij het instellen en configureren van beleid voor IPsec/IKE zoals u in Hallo diagram:
 
 ![ike-IPSec-beleid](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 ## <a name ="params"></a>Deel 2 - ondersteund cryptografische algoritmen en kracht van
 
-De volgende tabel bevat de ondersteunde cryptografische algoritmen en kracht kunnen worden geconfigureerd door de klanten:
+Hallo volgende tabel bevat Hallo ondersteund cryptografische algoritmen en kracht kunnen worden geconfigureerd door Hallo-klanten:
 
 | **IPsec/IKEv2**  | **Opties**    |
 | ---  | --- 
@@ -73,9 +73,9 @@ De volgende tabel bevat de ondersteunde cryptografische algoritmen en kracht kun
 |  |  |
 
 > [!IMPORTANT]
-> 1. **Als GCMAES als voor IPsec-versleutelingsalgoritme wordt gebruikt, moet u de dezelfde GCMAES algoritme en de lengte van de sleutel selecteren voor IPSec-integriteit; bijvoorbeeld, met behulp van GCMAES128 voor beide**
-> 2. SA-levensduur voor IKEv2 Main Mode staat vastgesteld op 28.800 seconden op de Azure VPN-gateways
-> 3. 'UsePolicyBasedTrafficSelectors' op $True instellen op een verbinding, wordt de Azure VPN-gateway verbinding maken met op beleid gebaseerde VPN-firewall on-premises configureren. Als u PolicyBasedTrafficSelectors inschakelt, moet u ervoor zorgen dat uw VPN-apparaat heeft de overeenkomende verkeer selectoren gedefinieerd met behulp van alle combinaties van uw on-premises voorvoegsels (lokale netwerkgateway) van de voorvoegsels virtuele Azure-netwerk in plaats van het netwerk any-to-any. Als uw lokale netwerkvoorvoegsels bijvoorbeeld 10.1.0.0/16 en 10.2.0.0/16 zijn, en de voorvoegsels van uw virtuele netwerk 192.168.0.0/16 en 172.16.0.0/16, moet u de volgende verkeersselectoren opgeven:
+> 1. **Als GCMAES als voor IPsec-versleutelingsalgoritme wordt gebruikt, moet u dezelfde GCMAES algoritme en de sleutellengte Hallo voor IPSec-integriteit; bijvoorbeeld, met behulp van GCMAES128 voor beide**
+> 2. Levensduur voor de Hoofdmodus IKEv2 wordt vastgesteld op 28.800 seconden op Hallo Azure VPN-gateways
+> 3. Instelling 'UsePolicyBasedTrafficSelectors' te$ True voor een verbinding configureert hello Azure VPN-gateway tooconnect toopolicy gebaseerde VPN-firewall on-premises. Als u PolicyBasedTrafficSelectors inschakelt, moet u uw VPN-apparaat Hallo overeenkomende verkeer selectoren gedefinieerd met behulp van alle combinaties van uw lokale netwerk (lokale netwerkgateway) voorvoegsels van voorvoegsels Hallo virtuele Azure-netwerk heeft, tooensure in plaats van any-to-any. Als uw lokale netwerkvoorvoegsels 10.1.0.0/16 en 10.2.0.0/16 zijn, en de voorvoegsels van uw virtuele netwerk 192.168.0.0/16 en 172.16.0.0/16 zijn, moet u bijvoorbeeld toospecify Hallo verkeer selectoren te volgen:
 >    * 10.1.0.0/16 <====> 192.168.0.0/16
 >    * 10.1.0.0/16 <====> 172.16.0.0/16
 >    * 10.2.0.0/16 <====> 192.168.0.0/16
@@ -83,7 +83,7 @@ De volgende tabel bevat de ondersteunde cryptografische algoritmen en kracht kun
 
 Zie voor meer informatie over op beleid gebaseerde verkeer selectoren [verbinding maken met meerdere on-premises op beleid gebaseerde VPN-apparaten](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
-De volgende tabel worden de bijbehorende Diffie-Hellman-groepen wordt ondersteund door het aangepaste beleid:
+Hallo volgende Tabellijsten Hallo bijbehorende Diffie-Hellman-groepen die worden ondersteund door het aangepaste beleid Hallo:
 
 | **Diffie-Hellman-groep**  | **DHGroup**              | **PFSGroup** | **Sleutellengte** |
 | --- | --- | --- | --- |
@@ -94,11 +94,11 @@ De volgende tabel worden de bijbehorende Diffie-Hellman-groepen wordt ondersteun
 | 20                        | ECP384                   | ECP284       | 384-bits ECP    |
 | 24                        | DHGroup24                | PFS24        | 2048-bits MODP  |
 
-Raadpleeg [RFC3526](https://tools.ietf.org/html/rfc3526) en [RFC5114](https://tools.ietf.org/html/rfc5114) voor meer informatie.
+Raadpleeg te[RFC3526](https://tools.ietf.org/html/rfc3526) en [RFC5114](https://tools.ietf.org/html/rfc5114) voor meer informatie.
 
 ## <a name ="crossprem"></a>Deel 3: een nieuwe S2S VPN-verbinding maken met IPsec/IKE-beleid
 
-In deze sectie leidt u door de stappen voor het maken van een S2S VPN-verbinding met een IPsec/IKE-beleid. De volgende stappen maakt de verbinding zoals weergegeven in het diagram:
+In deze sectie leert u Hallo van een S2S VPN-verbinding maken met een IPsec/IKE-beleid. Hallo volgt Hallo verbinding maken zoals u in Hallo diagram:
 
 ![s2s-beleid](./media/vpn-gateway-ipsecikepolicy-rm-powershell/s2spolicy.png)
 
@@ -107,13 +107,13 @@ Zie [een S2S VPN-verbinding](vpn-gateway-create-site-to-site-rm-powershell.md) v
 ### <a name="before"></a>Voordat u begint
 
 * Controleer of u een Azure-abonnement hebt. Als u nog geen Azure-abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of [u aanmelden voor een gratis account](https://azure.microsoft.com/pricing/free-trial/).
-* Installeer de Azure Resource Manager PowerShell-cmdlets. Zie [overzicht van Azure PowerShell](/powershell/azure/overview) voor meer informatie over het installeren van de PowerShell-cmdlets.
+* Hello Azure Resource Manager PowerShell-cmdlets installeren. Zie [overzicht van Azure PowerShell](/powershell/azure/overview) voor meer informatie over het installeren van Hallo PowerShell-cmdlets.
 
-### <a name="createvnet1"></a>Stap 1: het virtuele netwerk, de VPN-gateway en de lokale netwerkgateway maken
+### <a name="createvnet1"></a>Stap 1: Hallo virtueel netwerk, VPN-gateway en de lokale netwerkgateway maken
 
 #### <a name="1-declare-your-variables"></a>1. De variabelen declareren
 
-Voor deze oefening eerst we onze variabelen declareren. Zorg dat u de waarden door uw eigen waarden vervangt wanneer u configureert voor productie.
+Voor deze oefening eerst we onze variabelen declareren. Ervoor tooreplace Hallo waarden door uw eigen worden wanneer u configureert voor productie.
 
 ```powershell
 $Sub1          = "<YourSubscriptionName>"
@@ -140,11 +140,11 @@ $LNGPrefix62   = "10.62.0.0/16"
 $LNGIP6        = "131.107.72.22"
 ```
 
-#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Verbinding maken met uw abonnement en een nieuwe resourcegroep maken
+#### <a name="2-connect-tooyour-subscription-and-create-a-new-resource-group"></a>2. Verbinding maken met tooyour abonnement en een nieuwe resourcegroep maken
 
-Zorg ervoor dat u overschakelt naar de PowerShell-modus als u de Resource Manager-cmdlets wilt gebruiken. Zie [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md) (Windows PowerShell gebruiken met Resource Manager) voor meer informatie.
+Zorg ervoor dat u overschakelt tooPowerShell modus toouse Hallo Resource Manager-cmdlets. Zie [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md) (Windows PowerShell gebruiken met Resource Manager) voor meer informatie.
 
-Open de PowerShell-console en maak verbinding met uw account. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
+Open de PowerShell-console en tooyour-account koppelen. Gebruik Hallo volgende steekproef toohelp die u verbinding kunt maken:
 
 ```powershell
 Login-AzureRmAccount
@@ -152,9 +152,9 @@ Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. Het virtuele netwerk, de VPN-gateway en de lokale netwerkgateway maken
+#### <a name="3-create-hello-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. Hallo virtueel netwerk, VPN-gateway en de lokale netwerkgateway maken
 
-Het volgende voorbeeld maakt het virtuele netwerk, TestVNet1 met drie subnetten en de VPN-gateway. Wanneer u de waarden vervangt, is het belangrijk dat u de juiste namen voor de gatewaysubnets gebruikt, in het bijzonder GatewaySubnet. Als u een andere naam kiest, mislukt het maken van de gateway.
+Hallo volgende voorbeeld maakt Hallo virtueel netwerk TestVNet1, met drie subnetten en Hallo VPN-gateway. Wanneer u de waarden vervangt, is het belangrijk dat u de juiste namen voor de gatewaysubnets gebruikt, in het bijzonder GatewaySubnet. Als u een andere naam kiest, mislukt het maken van de gateway.
 
 ```powershell
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -177,7 +177,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 
 #### <a name="1-create-an-ipsecike-policy"></a>1. Een IPsec/IKE-beleid maken
 
-Het volgende voorbeeldscript wordt een beleid voor IPsec/IKE gemaakt met de volgende algoritmen en parameters:
+Hallo volgende voorbeeldscript maakt u een beleid voor IPsec/IKE met Hallo algoritmen en parameters te volgen:
 
 * IKEv2: AES256, SHA384 DHGroup24
 * IPsec: AES256, SHA256, PFS24, SA levensduur 7200 seconden & 2048KB
@@ -186,7 +186,7 @@ Het volgende voorbeeldscript wordt een beleid voor IPsec/IKE gemaakt met de volg
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
 ```
 
-Als u GCMAES voor IPSec-authenticatie gebruikt, moet u de dezelfde GCMAES algoritme en de lengte van de sleutel voor de IPsec-codering en integriteit, bijvoorbeeld:
+Als u GCMAES voor IPSec-authenticatie gebruikt, moet u dezelfde GCMAES algoritme en de sleutellengte voor IPSec-codering en integriteit, bijvoorbeeld Hallo:
 
 * IKEv2: AES256, SHA384 DHGroup24
 * IPsec: **GCMAES256, GCMAES256**, PFS24, SA levensduur 7200 seconden & 2048 KB
@@ -195,9 +195,9 @@ Als u GCMAES voor IPSec-authenticatie gebruikt, moet u de dezelfde GCMAES algori
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
 ```
 
-#### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. De S2S VPN-verbinding maken met het beleid voor IPsec/IKE
+#### <a name="2-create-hello-s2s-vpn-connection-with-hello-ipsecike-policy"></a>2. Hallo S2S VPN-verbinding maken met Hallo IPsec/IKE-beleid
 
-Maak een S2S VPN-verbinding en het eerder gemaakte IPsec/IKE-beleid toepassen.
+Een S2S VPN-verbinding maken en toepassen van beleid voor IPsec/IKE Hallo eerder hebt gemaakt.
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
@@ -206,25 +206,25 @@ $lng6 = Get-AzureRmLocalNetworkGateway  -Name $LNGName6 -ResourceGroupName $RG1
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng6 -Location $Location1 -ConnectionType IPsec -IpsecPolicies $ipsecpolicy6 -SharedKey 'AzureA1b2C3'
 ```
 
-U kunt optioneel toevoegen '-UsePolicyBasedTrafficSelectors $True ' aan de cmdlet van de verbinding maken inschakelen Azure VPN-gateway verbinding maken met op beleid gebaseerde VPN-apparaten on-premises, zoals hierboven is beschreven.
+U kunt optioneel toevoegen '-UsePolicyBasedTrafficSelectors $True ' toohello verbinding maken cmdlet tooenable Azure VPN-gateway tooconnect toopolicy gebaseerde VPN-apparaten on-premises, zoals hierboven is beschreven.
 
 > [!IMPORTANT]
-> Als een beleid voor IPsec/IKE op een verbinding is opgegeven, wordt de Azure VPN-gateway alleen verzenden of de voorstel IPsec/IKE met opgegeven cryptografische algoritmen en de belangrijkste sterkte op die bepaalde verbinding accepteren. Controleer of uw on-premises VPN-apparaat voor de verbinding wordt gebruikt of accepteert de combinatie exacte beleid anders de S2S VPN-tunnel niet tot stand brengen.
+> Als een beleid voor IPsec/IKE op een verbinding is opgegeven, wordt alleen hello Azure VPN-gateway verzenden of Hallo IPsec/IKE voorstel met opgegeven cryptografische algoritmen en de belangrijkste sterkte op die bepaalde verbinding accepteren. Controleer of uw on-premises VPN-apparaat voor verbinding Hallo gebruikt of accepteert Hallo exacte beleid combinatie, anders Hallo S2S VPN-tunnel niet tot stand brengen.
 
 
 ## <a name ="vnet2vnet"></a>Deel 4: een nieuwe VNet-naar-VNet-verbinding maken met IPsec/IKE-beleid
 
-De stappen voor het maken van een VNet-naar-VNet-verbinding met een beleid voor IPsec/IKE zijn vergelijkbaar met die van een S2S VPN-verbinding. De volgende voorbeeldscripts maken de verbinding, zoals weergegeven in het diagram:
+Hallo-stappen voor het maken van een VNet-naar-VNet-verbinding met een beleid voor IPsec/IKE zijn vergelijkbaar toothat van een S2S VPN-verbinding. Hallo volgende voorbeeldscripts Hallo verbinding maken zoals u in Hallo diagram:
 
 ![V2V-beleid](./media/vpn-gateway-ipsecikepolicy-rm-powershell/v2vpolicy.png)
 
-Zie [Maak een VNet-naar-VNet-verbinding](vpn-gateway-vnet-vnet-rm-ps.md) voor stappen gedetailleerde voor het maken van een VNet-naar-VNet-verbinding. U moet voltooien [deel 3](#crossprem) naar TestVNet1 en de VPN-Gateway maken en configureren.
+Zie [Maak een VNet-naar-VNet-verbinding](vpn-gateway-vnet-vnet-rm-ps.md) voor stappen gedetailleerde voor het maken van een VNet-naar-VNet-verbinding. U moet voltooien [deel 3](#crossprem) toocreate en configureer TestVNet1 en Hallo VPN-Gateway.
 
-### <a name="createvnet2"></a>Stap 1: het tweede virtuele netwerk en de VPN-gateway maken
+### <a name="createvnet2"></a>Stap 1: Hallo tweede virtuele netwerk- en VPN-gateway maken
 
 #### <a name="1-declare-your-variables"></a>1. De variabelen declareren
 
-Zorg ervoor dat u de waarden vervangt door de waarden die u voor uw configuratie wilt gebruiken.
+Worden ervoor tooreplace Hallo waarden Hello groepen wilt u toouse voor uw configuratie.
 
 ```powershell
 $RG2          = "TestPolicyRG2"
@@ -246,7 +246,7 @@ $Connection21 = "VNet2toVNet1"
 $Connection12 = "VNet1toVNet2"
 ```
 
-#### <a name="2-create-the-second-virtual-network-and-vpn-gateway-in-the-new-resource-group"></a>2. Het tweede virtuele netwerk en de VPN-gateway in de nieuwe resourcegroep maken
+#### <a name="2-create-hello-second-virtual-network-and-vpn-gateway-in-hello-new-resource-group"></a>2. Hallo tweede virtuele netwerk- en VPN-gateway in Hallo nieuwe resourcegroep maken
 
 ```powershell
 New-AzureRmResourceGroup -Name $RG2 -Location $Location2
@@ -265,13 +265,13 @@ $gw2ipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW2IPconf1 -Subnet
 New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance
 ```
 
-### <a name="step-2---create-a-vnet-tovnet-connection-with-the-ipsecike-policy"></a>Stap 2: een VNet-toVNet verbinding maken met het beleid voor IPsec/IKE
+### <a name="step-2---create-a-vnet-tovnet-connection-with-hello-ipsecike-policy"></a>Stap 2: een VNet-toVNet verbinding maken met Hallo IPsec/IKE-beleid
 
-Vergelijkbaar met de S2S VPN-verbinding, een IPsec/IKE-beleid maken en toepassen op beleid naar de nieuwe verbinding.
+Vergelijkbare toohello S2S VPN-verbinding een IPsec/IKE-beleid maken en toepassen van toopolicy toohello nieuwe verbinding.
 
 #### <a name="1-create-an-ipsecike-policy"></a>1. Een IPsec/IKE-beleid maken
 
-Het volgende voorbeeldscript wordt een ander beleid voor IPsec/IKE gemaakt met de volgende algoritmen en parameters:
+Hallo volgende voorbeeldscript maakt u een ander IPsec/IKE-beleid met Hallo algoritmen en parameters te volgen:
 * IKEv2: AES128, SHA1, DHGroup14
 * IPsec: GCMAES128, GCMAES128, PFS14, SA levensduur 7200 seconden en 4096KB
 
@@ -279,9 +279,9 @@ Het volgende voorbeeldscript wordt een ander beleid voor IPsec/IKE gemaakt met d
 $ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 4096
 ```
 
-#### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2. VNet-naar-VNet-verbindingen maken met het beleid voor IPsec/IKE
+#### <a name="2-create-vnet-to-vnet-connections-with-hello-ipsecike-policy"></a>2. VNet-naar-VNet-verbindingen maken met de Hallo IPsec/IKE-beleid
 
-Een VNet-naar-VNet-verbinding maken en toepassen van de IPsec/IKE-beleid dat u hebt gemaakt. In dit voorbeeld zijn beide gateways in hetzelfde abonnement. Het is daarom mogelijk te maken en configureren van beide verbindingen met hetzelfde IPsec/IKE-beleid in dezelfde PowerShell-sessie.
+Een VNet-naar-VNet-verbinding maken en toepassen van Hallo IPsec/IKE-beleid die u hebt gemaakt. In dit voorbeeld beide gateways zijn in Hallo hetzelfde abonnement. Zodat het is mogelijk toocreate en configureren van beide verbindingen met dezelfde IPsec/IKE-beleid in Hallo Hallo dezelfde PowerShell-sessie.
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
@@ -293,29 +293,29 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 ```
 
 > [!IMPORTANT]
-> Als een beleid voor IPsec/IKE op een verbinding is opgegeven, wordt de Azure VPN-gateway alleen verzenden of de voorstel IPsec/IKE met opgegeven cryptografische algoritmen en de belangrijkste sterkte op die bepaalde verbinding accepteren. Zorg ervoor dat de IPSec-beleid voor beide verbindingen zijn hetzelfde, anders de VNet-naar-VNet-verbinding niet tot stand brengen.
+> Als een beleid voor IPsec/IKE op een verbinding is opgegeven, wordt alleen hello Azure VPN-gateway verzenden of Hallo IPsec/IKE voorstel met opgegeven cryptografische algoritmen en de belangrijkste sterkte op die bepaalde verbinding accepteren. Zorg ervoor dat Hallo IPSec-beleid voor beide verbindingen zijn Hallo dezelfde, anders de VNet-naar-VNet-verbinding niet tot stand brengen.
 
-De verbinding is gemaakt in een paar minuten en hebt u de volgende netwerktopologie zoals weergegeven in het begin na het voltooien van deze stappen:
+Hallo-verbinding is gemaakt in een paar minuten na het voltooien van deze stappen en hebt u Hallo netwerktopologie te volgen, zoals wordt weergegeven in Hallo vanaf:
 
 ![ike-IPSec-beleid](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 
 ## <a name ="managepolicy"></a>Deel 5 - Update IPsec/IKE-beleid voor een verbinding
 
-De laatste sectie leest u hoe voor het beheren van IPsec/IKE-beleid voor een bestaande S2S of VNet-naar-VNet-verbinding. De oefening hieronder wordt u begeleid bij de volgende bewerkingen uit op een verbinding:
+de laatste sectie Hallo ziet u hoe toomanage IPsec/IKE-beleid voor een bestaande S2S of VNet-naar-VNet-verbinding. Hallo oefening hieronder wordt u begeleid bij Hallo bewerkingen op een verbinding te volgen:
 
-1. Het beleid voor IPsec/IKE van een verbinding weergeven
-2. Toevoegen of bijwerken van het beleid voor IPsec/IKE naar een verbinding
-3. Het beleid voor IPsec/IKE verwijderen uit een verbinding
+1. Hallo IPsec/IKE-beleid van een verbinding weergeven
+2. Toevoegen of bijwerken van Hallo IPsec/IKE-beleid tooa verbinding
+3. Hallo IPsec/IKE-beleid verwijderen uit een verbinding
 
-Dezelfde stappen van toepassing op S2S- en VNet-naar-VNet-verbindingen.
+Hallo dezelfde stappen van toepassing tooboth S2S- en VNet-naar-VNet-verbindingen.
 
 > [!IMPORTANT]
-> IPsec/IKE-beleid wordt ondersteund op *standaard* en *HighPerformance* op route gebaseerde VPN-gateways alleen. Deze werkt niet op de standaard gateway-SKU of de op beleid gebaseerde VPN-gateway.
+> IPsec/IKE-beleid wordt ondersteund op *standaard* en *HighPerformance* op route gebaseerde VPN-gateways alleen. Deze werkt niet op Hallo Basic gateway-SKU of Hallo op beleid gebaseerde VPN-gateway.
 
-#### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1. Het beleid voor IPsec/IKE van een verbinding weergeven
+#### <a name="1-show-hello-ipsecike-policy-of-a-connection"></a>1. Hallo IPsec/IKE-beleid van een verbinding weergeven
 
-Het volgende voorbeeld laat zien hoe om de IPsec/IKE-beleid dat is geconfigureerd op een verbinding te krijgen. De scripts blijven ook uit de bovenstaande oefeningen.
+Hallo volgende voorbeeld ziet u hoe tooget Hallo IPsec/IKE-beleid op een verbinding is geconfigureerd. Hallo scripts blijven ook uit Hallo oefeningen hierboven.
 
 ```powershell
 $RG1          = "TestPolicyRG1"
@@ -324,7 +324,7 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 $connection6.IpsecPolicies
 ```
 
-De laatste opdracht geeft het huidige IPsec/IKE-beleid dat is geconfigureerd op de verbinding indien deze aanwezig is. De volgende voorbeelduitvoer wordt voor de verbinding:
+de laatste opdracht Hallo bevat Hallo huidige IPsec/IKE-beleid geconfigureerd op Hallo verbinding, indien deze aanwezig is. Hallo volgende voorbeelduitvoer wordt voor Hallo verbinding:
 
 ```powershell
 SALifeTimeSeconds   : 3600
@@ -337,11 +337,11 @@ DhGroup             : DHGroup24
 PfsGroup            : PFS24
 ```
 
-Als er geen beleid voor IPsec/IKE geconfigureerd, de opdracht (PS > $connection6.policy) een leeg retourtype opgehaald. Dit betekent niet dat IPsec/IKE is niet geconfigureerd op de verbinding, maar er is geen aangepaste IPsec/IKE-beleid. De huidige verbinding maakt gebruik van het standaardbeleid onderhandeld tussen uw on-premises VPN-apparaat en de Azure VPN-gateway.
+Als er geen IPsec/IKE-beleid dat is geconfigureerd, Hallo opdracht (PS > $connection6.policy) een leeg retourtype opgehaald. Dit betekent niet dat IPsec/IKE is niet geconfigureerd op Hallo verbinding, maar er is geen aangepaste IPsec/IKE-beleid. de huidige verbinding Hallo maakt gebruik van Hallo standaardbeleid onderhandeld tussen uw on-premises VPN-apparaat en hello Azure VPN-gateway.
 
 #### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. Toevoegen of bijwerken van een beleid voor IPsec/IKE voor een verbinding
 
-De stappen voor het toevoegen van een nieuw beleid of een bestaand beleid op een verbinding bijwerken zijn hetzelfde: een nieuw beleid maken en vervolgens het nieuwe beleid toepassen op de verbinding.
+een nieuw beleid voor stappen tooadd Hallo of update zijn van een bestaand beleid op een verbinding Hallo dezelfde: een nieuw beleid maken en toepassen van Hallo nieuwe beleid toohello verbinding.
 
 ```powershell
 $RG1          = "TestPolicyRG1"
@@ -353,20 +353,20 @@ $newpolicy6   = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
 ```
 
-Toevoegen om te schakelen "UsePolicyBasedTrafficSelectors" bij het verbinden met een on-premises op beleid gebaseerde VPN-apparaat, de '-UsePolicyBaseTrafficSelectors ' parameter aan de cmdlet, of stel deze in op $False de optie uitschakelen:
+tooenable 'UsePolicyBasedTrafficSelectors' wanneer tooan verbinding maken met on-premises op beleid gebaseerde VPN-apparaat toevoegen Hallo '-UsePolicyBaseTrafficSelectors ' parameter toohello cmdlet, of stel deze in te$ False toodisable Hallo optie:
 
 ```powershell
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6 -UsePolicyBasedTrafficSelectors $True
 ```
 
-U kunt de verbinding opnieuw om te controleren als het beleid wordt bijgewerkt.
+U krijgt Hallo verbinding opnieuw toocheck als Hallo beleid wordt bijgewerkt.
 
 ```powershell
 $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 $connection6.IpsecPolicies
 ```
 
-U ziet de uitvoer van de laatste regel, zoals wordt weergegeven in het volgende voorbeeld:
+U ziet Hallo-uitvoer van de laatste regel hello, zoals wordt weergegeven in Hallo voorbeeld te volgen:
 
 ```powershell
 SALifeTimeSeconds   : 3600
@@ -381,7 +381,7 @@ PfsGroup            : None
 
 #### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. Een beleid voor IPsec/IKE verwijderen uit een verbinding
 
-Wanneer u het aangepaste beleid van een verbinding verwijdert, wordt de Azure VPN-gateway teruggedraaid naar de [standaardlijst met IPsec/IKE voorstellen](vpn-gateway-about-vpn-devices.md) en start een opnieuw nieuwe onderhandeling met uw on-premises VPN-apparaat.
+Wanneer u een aangepast beleid Hallo van een verbinding verwijdert, hello Azure VPN-gateway wordt teruggezet back toohello [standaardlijst met IPsec/IKE voorstellen](vpn-gateway-about-vpn-devices.md) en start een opnieuw nieuwe onderhandeling met uw on-premises VPN-apparaat.
 
 ```powershell
 $RG1           = "TestPolicyRG1"
@@ -394,10 +394,10 @@ $connection6.IpsecPolicies.Remove($currentpolicy)
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6
 ```
 
-U kunt hetzelfde script gebruiken om te controleren als het beleid van de verbinding is verwijderd.
+U kunt hetzelfde script toocheck Hallo als Hallo beleid uit Hallo-verbinding is verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie [verbinding maken met meerdere on-premises op beleid gebaseerde VPN-apparaten](vpn-gateway-connect-multiple-policybased-rm-ps.md) voor meer informatie over op beleid gebaseerde verkeer selectoren.
 
-Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Een virtuele machine maken](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor de stappen.
+Zodra de verbinding voltooid is, kunt u virtuele netwerken van virtuele machines tooyour kunt toevoegen. Zie [Een virtuele machine maken](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor de stappen.

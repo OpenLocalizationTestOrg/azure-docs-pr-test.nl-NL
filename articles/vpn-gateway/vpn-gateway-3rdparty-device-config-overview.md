@@ -1,6 +1,6 @@
 ---
-title: Over 3e partij VPN-apparaatconfiguratie verbinding maken met Azure VPN-gateways | Microsoft Docs
-description: Dit artikel bevat een overzicht van 3e partij VPN-apparaatconfiguraties voor het verbinden met Azure VPN-gateways.
+title: aaaAbout 3e partij VPN-apparaat configuratie tooconnect tooAzure VPN-gateways | Microsoft Docs
+description: Dit artikel bevat een overzicht van 3e partij VPN-apparaatconfiguraties voor het verbinden van tooAzure VPN-gateways.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 72dab85bb882b05d72cef26bef70437695b70416
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3bb4fc94bc625386c2d0a02e1dcbdeb38ee0665e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-3rd-party-vpn-device-configurations"></a>Overzicht van 3e partij VPN-apparaatconfiguraties
-Dit artikel bevat een overzicht van de lokale VPN-apparaatconfiguraties voor het verbinden met Azure VPN-gateways. Verbinding maken met verschillende on-premises VPN-apparaten met dezelfde parameters wordt de steekproef virtuele Azure-netwerk en de VPN-gateway-installatie gebruikt.
+Dit artikel bevat een overzicht van de lokale VPN-apparaatconfiguraties voor het verbinden van tooAzure VPN-gateways. Hallo voorbeeld virtuele Azure-netwerk- en VPN-gateway setup wordt gebruikte tooconnect toodifferent on-premises VPN-apparaten met Hallo worden dezelfde parameters.
 
 ## <a name="device-requirements"></a>Vereisten voor apparaten
-Standaard IPsec/IKE-protocol suites Azure VPN-gateways gebruiken voor S2S-VPN-tunnels. Raadpleeg [over VPN-apparaten](vpn-gateway-about-vpn-devices.md) voor de parameters van gedetailleerde IPsec/IKE-protocol en de standaard cryptografische algoritmen voor Azure VPN-gateways. U kunt optioneel de exacte combinatie van cryptografische algoritmen en de belangrijkste sterkte voor een specifieke verbinding opgeven zoals beschreven in [over de vereisten voor cryptografische](vpn-gateway-about-compliance-crypto.md).
+Standaard IPsec/IKE-protocol suites Azure VPN-gateways gebruiken voor S2S-VPN-tunnels. Raadpleeg te[over VPN-apparaten](vpn-gateway-about-vpn-devices.md) voor Hallo gedetailleerde parameters voor IPsec/IKE-protocol en standaard cryptografische algoritmen voor Azure VPN-gateways. U kunt optioneel Hallo exact dezelfde combinatie van cryptografische algoritmen en de belangrijkste sterkte voor een specifieke verbinding opgeven zoals beschreven in [over de vereisten voor cryptografische](vpn-gateway-about-compliance-crypto.md).
 
 ## <a name ="singletunnel"></a>Één VPN-tunnel
-De eerste topologie bestaat uit één S2S-VPN-tunnel tussen een Azure VPN-gateway en uw on-premises VPN-apparaat. U kunt desgewenst BGP configureren via de VPN-tunnel.
+de eerste topologie Hallo bestaat uit één S2S-VPN-tunnel tussen een Azure VPN-gateway en uw on-premises VPN-apparaat. Desgewenst kunt u BGP configureren op Hallo VPN-tunnel.
 
 ![één tunnel](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
-Raadpleeg [site-naar-site-verbinding configureren](vpn-gateway-howto-site-to-site-resource-manager-portal.md) voor gedetailleerde, stapsgewijze instructies. De volgende secties de parameters en een PowerShell-voorbeeldscript om u aan de slag te bieden.
+Raadpleeg te[site-naar-site-verbinding configureren](vpn-gateway-howto-site-to-site-resource-manager-portal.md) voor gedetailleerde, stapsgewijze instructies. Hallo volgende secties Hallo parameters en geef een voorbeeld PowerShell script toohelp die u aan de slag.
 
 ### <a name="network-and-vpn-gateway-information"></a>Gegevens voor netwerk- en VPN-gateway
-Deze sectie lijst van de parameters voor de bovenstaande voorbeelden.
+Deze sectie lijst Hallo parameters op voor het bovenstaande Hallo voorbeelden.
 
 | **Parameter**                | **Waarde**                    |
 | ---                          | ---                          |
@@ -51,7 +51,7 @@ Deze sectie lijst van de parameters voor de bovenstaande voorbeelden.
 * (*) Optionele parameters voor BGP alleen
 
 ### <a name="sample-powershell-script"></a>PowerShell-voorbeeldscript
-[Een S2S VPN-verbinding maken met PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) gedetailleerde instructies. Deze sectie bevat een voorbeeldscript om u op weg.
+[Een S2S VPN-verbinding maken met PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) heeft Hallo gedetailleerde instructies. Deze sectie bevat een voorbeeld script tooget die u gestart.
 
 ```powershell
 # Declare your variables
@@ -82,7 +82,7 @@ $LNGIP5        = "Your_VPN_Device_IP"
 $LNGASN5       = 65050
 $BGPPeerIP5    = "10.52.255.254"
 
-# Connect to your subscription and create a new resource group
+# Connect tooyour subscription and create a new resource group
 
 Login-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
@@ -108,7 +108,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Locatio
 
 New-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix51,$LNGPrefix52 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
 
-# Create the S2S VPN connection
+# Create hello S2S VPN connection
 
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
 $lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
@@ -117,16 +117,16 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupNam
 ```
 
 ### <a name ="policybased"></a>[Optioneel] Aangepaste IPsec/IKE-beleid met 'UsePolicyBasedTrafficSelectors' gebruiken
-Als uw VPN-apparaten 'any-to-any' verkeer selectoren (op route gebaseerd/VTI-gebaseerde configuration) niet ondersteunen, moet u een aangepast IPsec/IKE-beleid maken en configureren van de optie 'UsePolicyBasedTrafficSelectors' zoals beschreven in [in dit artikel ](vpn-gateway-connect-multiple-policybased-rm-ps.md).
+Als uw VPN-apparaten 'any-to-any' verkeer selectoren (op route gebaseerd/VTI-gebaseerde configuration) niet ondersteunen, u moet een aangepast beleid voor IPsec/IKE toocreate en configureer de optie 'UsePolicyBasedTrafficSelectors', zoals beschreven in [in dit artikel ](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 > [!IMPORTANT]
-> U moet een IPsec/IKE-beleid maken om in te schakelen, de optie 'UsePolicyBasedTrafficSelectors' op de verbinding.
+> U moet een beleid voor IPsec/IKE in volgorde tooenable 'UsePolicyBasedTrafficSelectors' optie op Hallo verbinding toocreate.
 
-Het onderstaande voorbeeldscript maakt een IPsec/IKE-beleid met de volgende algoritmen en parameters:
+Hallo-voorbeeldscript maakt u een beleid voor IPsec/IKE met Hallo algoritmen en parameters te volgen:
 * IKEv2: AES256, SHA384 DHGroup24
 * IPsec: AES256, SHA1, PFS24, SA levensduur 7200 seconden & 20480000KB (20GB)
 
-Het beleid van toepassing is en het schakelt 'UesPolicyBasedTrafficSelectors' op de verbinding.
+Hallo-beleid van toepassing is en het 'UesPolicyBasedTrafficSelectors' op Hallo verbinding maakt.
 
 ```powershell
 $ipsecpolicy5 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA1 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 20480000
@@ -138,20 +138,20 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupNam
 ```
 
 ### <a name ="bgp"></a>[Optioneel] BGP gebruiken voor S2S-VPN-verbinding
-U kunt desgewenst BGP gebruiken op de verbinding. Zie [BGP voor VPN-gateway](vpn-gateway-bgp-resource-manager-ps.md). Er zijn twee verschillen:
+U kunt desgewenst BGP op Hallo verbinding gebruiken. Zie [BGP voor VPN-gateway](vpn-gateway-bgp-resource-manager-ps.md). Er zijn twee verschillen:
 
-De lokale adresvoorvoegsels kunnen een enkele host-adres, het lokale BGP-peer-IP-adres zijn:
+Hallo lokale adresvoorvoegsels kunnen een enkele host-adres, IP-adres van Hallo lokale BGP-peer zijn:
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
 ```
 
-U moet instellen '-EnableBGP ' op $True bij het maken van de verbinding:
+U moet instellen '-EnableBGP ' te$ True bij het maken van Hallo verbinding:
 
 ```powershell
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [Actief/actief VPN-gateways configureren voor cross-premises en VNet-naar-VNet-verbindingen](vpn-gateway-activeactive-rm-powershell.md) voor de stappen om actief/actief on-premises en VNet-naar-VNet-verbindingen te configureren.
+Zie [actieve VPN-Gateways voor Cross-Premises en VNet-naar-VNet-verbindingen configureren](vpn-gateway-activeactive-rm-powershell.md) voor stappen tooconfigure actieve cross-premises en VNet-naar-VNet-verbindingen.
 

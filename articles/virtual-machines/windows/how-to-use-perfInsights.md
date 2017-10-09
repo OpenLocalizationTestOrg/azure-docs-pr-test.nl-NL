@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van PerfInsights in Microsoft Azure | Microsoft Docs
-description: Leert PerfInsights gebruiken voor het oplossen van prestatieproblemen met virtuele machine van Windows.
+title: aaaHow toouse PerfInsights in Microsoft Azure | Microsoft Docs
+description: Leert hoe toouse PerfInsights tootroubleshoot Windows VM-prestatieproblemen.
 services: virtual-machines-windows'
 documentationcenter: 
 author: genlin
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: genli
-ms.openlocfilehash: f22bd42302b96118dba0d4e5e387c6798a0b8777
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f23ff7708c0c63bd02674b1bdc07753e8a89d9be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-perfinsights"></a>Het gebruik van PerfInsights 
+# <a name="how-toouse-perfinsights"></a>Hoe toouse PerfInsights 
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) is een geautomatiseerd script die handig diagnostische gegevens verzamelt, i/o-intensieve belastingen wordt uitgevoerd en biedt een analyserapport bij het oplossen van prestatieproblemen met virtuele machine van Windows in Microsoft Azure. 
+[PerfInsights](http://aka.ms/perfinsightsdownload) is een geautomatiseerd script die handig diagnostische gegevens verzamelt, i/o-intensieve belastingen wordt uitgevoerd en biedt een rapport analyse toohelp oplossen van prestatieproblemen met virtuele machine van Windows in Microsoft Azure. 
 
 Het is raadzaam dat u dit script uitvoert voordat u een ondersteuningsticket met Microsoft om de prestaties van de virtuele machine opent.
 
@@ -32,7 +32,7 @@ PerfInsights kunt verzamelen en analyseren van verschillende soorten gegevens di
 
 ### <a name="collect-disk-configuration"></a>De schijfconfiguratie verzamelen 
 
-Dit scenario worden verzameld voor de configuratie van de schijf en andere belangrijke informatie, met inbegrip van de volgende items:
+Dit scenario worden verzameld Hallo schijfconfiguratie en andere belangrijke informatie, met inbegrip van Hallo volgende items:
 
 -   Gebeurtenislogboeken
 
@@ -40,11 +40,11 @@ Dit scenario worden verzameld voor de configuratie van de schijf en andere belan
 
 -   Netwerk- en firewallinstellingen configuratie-instellingen
 
--   Lijst met taken voor alle toepassingen die momenteel worden uitgevoerd op het systeem
+-   Lijst met taken voor alle toepassingen die momenteel worden uitgevoerd op Hallo-systeem
 
--   Informatiebestand gemaakt door msinfo32 voor de virtuele machine (VM)
+-   Informatiebestand gemaakt door msinfo32 voor Hallo virtuele machine (VM)
 
--   Microsoft SQL Server-database configuratie-instellingen (als de virtuele machine wordt geïdentificeerd als een server waarop SQL Server)
+-   Microsoft SQL Server-database configuratie-instellingen (als Hallo VM wordt geïdentificeerd als een server waarop SQL Server)
 
 -   Opslag betrouwbaarheid prestatiemeteritems
 
@@ -52,34 +52,34 @@ Dit scenario worden verzameld voor de configuratie van de schijf en andere belan
 
 -   Geïnstalleerde filterstuurprogramma 's
 
-Dit is een passief verzamelen van informatie die mag niet van invloed zijn op het systeem. 
+Dit is een passief verzamelen van informatie die mag niet van invloed zijn op Hallo-systeem. 
 
 >[!Note]
->Dit scenario wordt automatisch opgenomen in elk van de volgende scenario's.
+>Dit scenario wordt automatisch opgenomen in elk van de volgende scenario's Hallo.
 
 ### <a name="benchmarkstorage-performance-test"></a>De prestatietest benchmark/opslag
 
-Dit scenario wordt uitgevoerd de [diskspd](https://github.com/Microsoft/diskspd) benchmarktest (IOPS en MBPS) voor alle stations die zijn gekoppeld aan de virtuele machine. 
+Dit scenario wordt uitgevoerd Hallo [diskspd](https://github.com/Microsoft/diskspd) benchmark test (IOPS en MBPS) voor alle stations die zijn gekoppeld toohello VM. 
 
 > [!Note]
-> Dit scenario kan invloed hebben op het systeem en mag niet worden uitgevoerd op een live productiesysteem. Voer indien nodig in dit scenario in een speciale onderhoudsvenster om eventuele problemen te voorkomen. Een grotere werkbelasting die wordt veroorzaakt door een tracering of benchmark-test kan een nadelige invloed heeft op de prestaties van uw virtuele machine.
+> Dit scenario kan invloed hebben op Hallo systeem en mag niet worden uitgevoerd op een live productiesysteem. Voer indien nodig in dit scenario in een speciale onderhoudsmodus venster tooavoid problemen. Een grotere werkbelasting die wordt veroorzaakt door een tracering of benchmark-test, kan een nadelige invloed heeft op de prestaties van uw VM Hallo.
 >
 
 ### <a name="general-vm-slow-analysis"></a>Algemene VM langzaam analyse 
 
-Dit scenario wordt uitgevoerd een [prestatiemeteritem](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) traceren met behulp van de items die zijn opgegeven in het bestand Generalcounters.txt. Als de virtuele machine wordt geïdentificeerd als een server waarop SQL Server wordt uitgevoerd, wordt een teller prestatietracering uitgevoerd met behulp van de items die zijn gevonden in het bestand Sqlcounters.txt. Dit omvat ook prestaties Diagnostics-gegevens.
+Dit scenario wordt uitgevoerd een [prestatiemeteritem](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) traceren met behulp van Hallo-items die zijn opgegeven in Hallo Generalcounters.txt bestand. Als hello VM wordt geïdentificeerd als een server waarop SQL Server wordt uitgevoerd, wordt een teller prestatietracering uitgevoerd met behulp van Hallo tellers die worden in Hallo Sqlcounters.txt bestand gevonden. Dit omvat ook prestaties Diagnostics-gegevens.
 
 ### <a name="vm-slow-analysis-and-benchmark"></a>Trage VM analyse en benchmark
 
 Dit scenario wordt uitgevoerd een [prestatiemeteritem](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace die wordt gevolgd door een [diskspd](https://github.com/Microsoft/diskspd) benchmarktest. 
 
 > [!Note]
-> Dit scenario kan invloed hebben op het systeem en mag niet worden uitgevoerd op een live productiesysteem. Voer indien nodig in dit scenario in een speciale onderhoudsvenster om eventuele problemen te voorkomen. Een grotere werkbelasting die wordt veroorzaakt door een tracering of benchmark-test kan een nadelige invloed heeft op de prestaties van uw virtuele machine.
+> Dit scenario kan invloed hebben op Hallo systeem en mag niet worden uitgevoerd op een live productiesysteem. Voer indien nodig in dit scenario in een speciale onderhoudsmodus venster tooavoid problemen. Een grotere werkbelasting die wordt veroorzaakt door een tracering of benchmark-test, kan een nadelige invloed heeft op de prestaties van uw VM Hallo.
 >
 
 ### <a name="azure-files-analysis"></a>Azure bestanden analyse 
 
-Dit scenario voert een speciale prestaties teller vastleggen samen met een netwerktracering maken. Het vastleggen omvat alle 'SMB-Client Shares' prestatiemeteritems. Hier volgen enkele belangrijke SMB-share clientprestatietellers die deel van het vastleggen uitmaken:
+Dit scenario voert een speciale prestaties teller vastleggen samen met een netwerktracering maken. Het vastleggen bevat alle Hallo 'SMB-Client Shares' items. Hallo Hieronder volgen enkele belangrijke SMB-share clientprestatietellers die deel van Hallo vastleggen uitmaken:
 
 | **Type**     | **SMB-client shares teller** |
 |--------------|-------------------------------|
@@ -101,15 +101,15 @@ Dit scenario voert een speciale prestaties teller vastleggen samen met een netwe
 
 ### <a name="custom-configuration"></a>Aangepaste configuratie 
 
-Wanneer u een aangepaste configuratie hebt uitgevoerd, uitvoert u alle traces (prestatiecontrole, prestatiemeteritems, xperf, netwerk, storport) parallel, afhankelijk van hoeveel andere traceringen zijn geselecteerd. Nadat de tracering is voltooid, wordt door het hulpprogramma de benchmark diskspd uitgevoerd als deze optie is geselecteerd. 
+Wanneer u een aangepaste configuratie hebt uitgevoerd, uitvoert u alle traces (prestatiecontrole, prestatiemeteritems, xperf, netwerk, storport) parallel, afhankelijk van hoeveel andere traceringen zijn geselecteerd. Nadat de tracering is voltooid, wordt in het hulpprogramma Hallo Hallo diskspd benchmark, wordt uitgevoerd als deze optie is geselecteerd. 
 
 > [!Note]
-> Dit scenario kan invloed hebben op het systeem en mag niet worden uitgevoerd op een live productiesysteem. Voer indien nodig in dit scenario in een speciale onderhoudsvenster om eventuele problemen te voorkomen. Een grotere werkbelasting die wordt veroorzaakt door een tracering of benchmark-test kan een nadelige invloed heeft op de prestaties van uw virtuele machine.
+> Dit scenario kan invloed hebben op Hallo systeem en mag niet worden uitgevoerd op een live productiesysteem. Voer indien nodig in dit scenario in een speciale onderhoudsmodus venster tooavoid problemen. Een grotere werkbelasting die wordt veroorzaakt door een tracering of benchmark-test, kan een nadelige invloed heeft op de prestaties van uw VM Hallo.
 >
 
-## <a name="what-kind-of-information-is-collected-by-the-script"></a>Wat voor soort informatie wordt verzameld door het script?
+## <a name="what-kind-of-information-is-collected-by-hello-script"></a>Wat voor soort informatie wordt verzameld door Hallo script?
 
-Informatie over de virtuele machine van Windows, schijven of storage pools configuratie, prestatiemeteritems, logboeken en verschillende traceringen worden verzameld, afhankelijk van de prestaties scenario gebruikt:
+Informatie over de virtuele machine van Windows, schijven of storage pools configuratie, prestatiemeteritems, logboeken en verschillende traceringen worden verzameld, afhankelijk van Hallo prestaties scenario gebruikt:
 
 |Gegevens die worden verzameld                              |  |  | Scenario's voor prestaties |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
@@ -139,19 +139,19 @@ Informatie over de virtuele machine van Windows, schijven of storage pools confi
 
 ### <a name="performance-diagnostics-trace-"></a>Diagnostische traceerlogboeken voor prestaties (*)
 
-Een op regels gebaseerde engine op de achtergrond voor het verzamelen van gegevens en prestatieproblemen analyseren voortdurend uitgevoerd. De volgende regels worden momenteel ondersteund:
+Een op regels gebaseerde engine op Hallo toocollect ACHTERGRONDGEGEVENS wordt uitgevoerd en er prestatieproblemen. Hallo volgens de regels worden momenteel ondersteund:
 
-- HighCpuUsage regel: hoog CPU-gebruik perioden detecteert en de bovenste consumenten van de CPU-gebruik tijdens deze perioden weergegeven.
-- HighDiskUsage regel: hoge schijf gebruik punten op fysieke schijven detecteert en ziet u de eerste schijf gebruik consumenten tijdens deze perioden.
-- HighResolutionDiskMetric regel: toont IOPS, doorvoer en latentie metrische gegevens over i/o per 50 milliseconden voor elke fysieke schijf. Het helpt snel schijf perioden beperking kan identificeren.
-- HighMemoryUsage regel: veel geheugen gebruik perioden detecteert en het bovenste geheugen gebruik consumenten tijdens deze perioden weergegeven.
+- HighCpuUsage regel: hoog CPU-gebruik perioden detecteert en Hallo hoogste CPU-gebruik consumenten tijdens deze perioden weergegeven.
+- HighDiskUsage regel: hoge schijf gebruik punten op fysieke schijven detecteert en toont Hallo bovenste schijf gebruik consumenten tijdens deze perioden.
+- HighResolutionDiskMetric regel: toont IOPS, doorvoer en latentie metrische gegevens over i/o per 50 milliseconden voor elke fysieke schijf. Zo kunt u tooquickly schijf beperking perioden identificeren.
+- HighMemoryUsage regel: veel geheugen gebruik perioden detecteert en toont Hallo bovenste geheugen gebruik consumenten tijdens deze perioden.
 
 > [!NOTE] 
-> Windows-versies met .NET Framework 3.5 of hoger worden momenteel ondersteund.
+> Windows-versies die Hallo .NET Framework 3.5 zijn of hoger worden momenteel ondersteund.
 
 ### <a name="performance-counter-trace-"></a>Teller prestatietracering (*)
 
-Verzamelt de volgende prestatiemeteritems:
+Verzamelt Hallo prestatiemeteritems te volgen:
 
 - \Process, \Processor, \Memory, \Thread, \PhysicalDisk, \LogicalDisk
 - \Cache\Dirty pagina's, \Cache\Lazy schrijfbewerkingen per seconde, \Server\Pool wisselbaar, fouten, fouten \Server\Pool wisselbaar geheugen:
@@ -168,117 +168,117 @@ Verzamelt de volgende prestatiemeteritems:
 ### <a name="diskspd-benchmark-trace-"></a>Diskspd Benchmark-tracering (*)
 Diskspd IO werkbelasting tests [Besturingssysteemschijf (schrijven) en groep-schijven (lezen/schrijven)]
 
-## <a name="run-the-perfinsights-on-your-vm"></a>De PerfInsights uitvoeren op de virtuele machine
+## <a name="run-hello-perfinsights-on-your-vm"></a>Hallo PerfInsights uitvoeren op de virtuele machine
 
-### <a name="what-do-i-have-to-know-before-i-run-the-script"></a>Wat heb ik moet weten voordat ik het script uitvoeren? 
+### <a name="what-do-i-have-tooknow-before-i-run-hello-script"></a>Wat heb ik tooknow voordat ik Hallo-script uitvoeren? 
 
 **Scriptvereisten**
 
-1.  Dit script moet worden uitgevoerd op de virtuele machine met het prestatieprobleem. 
+1.  Dit script moet worden uitgevoerd op virtuele machine die het prestatieprobleem Hallo is Hallo. 
 
-2.  De volgende besturingssystemen worden ondersteund: Windows Server 2008 R2, 2012, 2012 R2, 2016; Windows 8.1 en Windows 10.
+2.  Hallo volgende besturingssystemen worden ondersteund: Windows Server 2008 R2, 2012, 2012 R2, 2016; Windows 8.1 en Windows 10.
 
-**Mogelijke problemen wanneer u het script voor productie-virtuele machines uitvoert:**
+**Mogelijke problemen wanneer u Hallo script voor productie-virtuele machines uitvoert:**
 
-1.  Het script mogelijk nadelige invloed heeft op de prestaties van de virtuele machine als deze wordt gebruikt samen met het 'Benchmark' of 'Aangepaste'-scenario dat is geconfigureerd met behulp van XPerf of DiskSpd. Wees voorzichtig wanneer u het script in een productieomgeving uitvoert.
+1.  Hallo script mogelijk nadelig beïnvloeden Hallo Hallo VM als deze wordt gebruikt samen met de Hallo 'Benchmark' of 'Aangepaste'-scenario dat is geconfigureerd met behulp van XPerf of DiskSpd. Wees voorzichtig wanneer u Hallo-script in een productieomgeving uitvoeren.
 
-2.  Wanneer u het script samen met het 'Benchmark' of 'Aangepaste'-scenario dat wordt geconfigureerd met behulp van DiskSpd gebruiken, moet u dat er geen andere activiteit op de achtergrond de i/o-werkbelasting op de schijven geteste verstoort.
+2.  Wanneer u Hallo script samen met de Hallo 'Benchmark' of 'Aangepaste'-scenario dat wordt geconfigureerd met behulp van DiskSpd gebruiken, moet u dat er geen andere activiteit op de achtergrond Hallo i/o-werkbelasting op Hallo getest schijven verstoort.
 
-3.  Het script maakt standaard gebruik van het station voor tijdelijke opslag om gegevens te verzamelen. Als u tracering blijft ingeschakeld gedurende een langere periode, kan de hoeveelheid gegevens die worden verzameld relevant zijn. Hierdoor kan de beschikbaarheid van de ruimte op de tijdelijke schijf, dus die invloed hebben op alle toepassingen die afhankelijk van dit station is.
+3.  Hallo-script gebruikt standaard Hallo tijdelijke opslag station toocollect gegevens. Als u tracering blijft ingeschakeld gedurende een langere periode, kan Hallo hoeveelheid gegevens die worden verzameld relevant zijn. Hierdoor kunnen Hallo beschikbaarheid van de ruimte op de tijdelijke schijf hello, daarom die invloed hebben op alle toepassingen die afhankelijk van dit station is.
 
 ### <a name="how-do-i-run-perfinsights"></a>Hoe kan ik PerfInsights uitvoeren? 
 
-Het script wordt uitgevoerd, de volgende stappen uit:
+toorun Hallo script, als volgt te werk:
 
 1. Download [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
 
-2. Het bestand PerfInsights.zip deblokkeren. U doet dit door met de rechtermuisknop op het bestand PerfInsights.zip, selecteert u **eigenschappen**. In de **algemene** tabblad **blokkering** en selecteer vervolgens **OK**. Hiermee zorgt u ervoor dat het script wordt uitgevoerd zonder extra beveiliging wordt gevraagd.  
+2. Hallo PerfInsights.zip bestand deblokkeren. toodo dit met de rechtermuisknop op Hallo PerfInsights.zip bestand, selecteer **eigenschappen**. In Hallo **algemene** tabblad **blokkering** en selecteer vervolgens **OK**. Hiermee zorgt u ervoor dat het Hallo-script wordt uitgevoerd zonder extra beveiliging wordt gevraagd.  
 
-    ![Ontgrendelen van het zip-bestand](media/how-to-use-perfInsights/unlock-file.png)
+    ![Hallo zip-bestand te ontgrendelen](media/how-to-use-perfInsights/unlock-file.png)
 
-3.  Het gecomprimeerde bestand voor PerfInsights.zip uitbreiden naar de tijdelijke schijf (standaard is dit meestal station D). Het gecomprimeerde bestand moet bevatten de volgende bestanden en mappen:
+3.  Hallo gecomprimeerd PerfInsights.zip bestand uitbreiden naar de tijdelijke schijf (standaard is dit doorgaans Hallo D-station). Hallo gecomprimeerd bestand moet bevatten de volgende Hallo bestanden en mappen:
 
-    ![bestanden in de gecomprimeerde map](media/how-to-use-perfInsights/file-folder.png)
+    ![bestanden in Hallo gecomprimeerde map](media/how-to-use-perfInsights/file-folder.png)
 
-4.  Open Windows PowerShell als beheerder en voer het script PerfInsights.ps1.
+4.  Open Windows PowerShell als beheerder en vervolgens Hallo PerfInsights.ps1 script uitvoeren.
 
     ```
-    cd <the path of PerfInsights folder >
+    cd <hello path of PerfInsights folder >
     Powershell.exe -ExecutionPolicy UnRestricted -NoProfile -File .\\PerfInsights.ps1
     ```
 
-    U moet wellicht voert u naar 'y' als u wordt gevraagd te bevestigen dat u wilt het uitvoeringsbeleid wijzigen.
+    Moet u wellicht tooenter 'y' tooif u worden gevraagd tooconfirm dat u wilt dat toochange Hallo uitvoeringsbeleid.
 
-    Klik in het dialoogvenster Disclaimer krijgt u de optie voor diagnostische gegevens delen met Microsoft Support. U moet ook toestemming geven om de gebruiksrechtovereenkomst om door te gaan. Selecteer de gewenste opties en klik vervolgens op **-Script uitvoeren**.
+    Hallo Disclaimer in het dialoogvenster krijgt u Hallo optie tooshare diagnostische gegevens met Microsoft Support. U moet ook toohello license agreement toocontinue toestemming te geven. Selecteer de gewenste opties en klik vervolgens op **-Script uitvoeren**.
 
     ![Disclaimer vak](media/how-to-use-perfInsights/disclaimer.png)
 
-5.  De aanvraagnummer verzenden als deze beschikbaar is wanneer u het script (dit is voor onze statistieken) uitvoeren. Klik vervolgens op **OK**.
+5.  Indienen aanvraagnummer hello, als deze beschikbaar is wanneer u Hallo-script (dit is voor onze statistieken) uitvoert. Klik vervolgens op **OK**.
     
     ![ondersteunings-ID invoeren](media/how-to-use-perfInsights/enter-support-number.png)
 
-6.  Selecteer het station voor tijdelijke opslag. Het Script kunt automatische detectie de stationsletter van het station. Als er problemen in deze fase optreden, wordt u mogelijk gevraagd om het station (het standaardstation is D) te selecteren. Hier gegenereerde logboeken worden opgeslagen in het logboek\_verzamelingsmap. Nadat u invoert of accepteer de stationsletter, klikt u op **OK**.
+6.  Selecteer het station voor tijdelijke opslag. Hallo Script kunt automatische detectie stationsletter op Hallo van Hallo-station. Als er problemen in deze fase optreden, bent u mogelijk gevraagd tooselect Hallo station (Hallo standaardstation is D). Hier gegenereerde logboeken worden opgeslagen in logboek Hallo\_verzamelingsmap. Nadat u invoert of Hallo stationsletter accepteren, klikt u op **OK**.
 
     ![Geef station](media/how-to-use-perfInsights/enter-drive.png)
 
-7.  Selecteer een scenario voor het oplossen van problemen in de opgegeven lijst.
+7.  Selecteer een scenario voor het oplossen van problemen in Hallo opgegeven lijst met items.
 
        ![Scenario's selecteren](media/how-to-use-perfInsights/select-scenarios.png)
 
 8.  U kunt ook PerfInsights zonder gebruikersinterface uitvoeren.
 
-    De volgende opdracht wordt uitgevoerd de 'algemene VM langzaam analyse' scenario zonder een prompt UI probleemoplossing of vastleggen van gegevens gedurende 30 seconden. U wordt gevraagd toestemming te geven tot dezelfde afwijzing en overeenkomst die worden vermeld in stap 4.
+    Hallo volgende opdracht wordt uitgevoerd Hallo 'Algemene VM langzaam analysis' scenario zonder een prompt UI probleemoplossing of vastleggen van gegevens gedurende 30 seconden. Wordt u gevraagd tooconsent toohello dezelfde afwijzing en overeenkomst die worden vermeld in stap 4.
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
 
-    Als u wilt dat PerfInsights in stille modus uit te voeren, gebruikt u de **- AcceptDisclaimerAndShareDiagnostics** parameter. Gebruik bijvoorbeeld de volgende opdracht:
+    Als u PerfInsights toorun in stille modus wilt, gebruikt de **- AcceptDisclaimerAndShareDiagnostics** parameter. Gebruik bijvoorbeeld Hallo volgende opdracht:
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30 -AcceptDisclaimerAndShareDiagnostics"
 
-### <a name="how-do-i-troubleshoot-issues-while-running-the-script"></a>Hoe kan ik problemen oplossen tijdens het uitvoeren van het script?
+### <a name="how-do-i-troubleshoot-issues-while-running-hello-script"></a>Hoe kan ik problemen oplossen tijdens het Hallo-script uitvoeren?
 
-Als het script is beëindigd, kunt u een inconsistente status opschonen door het uitvoeren van het script samen met de - switch opschonen als volgt:
+Als het Hallo-script is beëindigd, kunt u opruimen een inconsistente status heeft met een script samen met Hallo Hallo - switch, opruimen, als volgt:
 
     powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -Cleanup"
 
-Als er problemen tijdens de automatische detectie van de tijdelijke schijf optreden, wordt u mogelijk gevraagd om het station (het standaardstation is D) te selecteren.
+Als er problemen tijdens de automatische detectie van tijdelijke station Hallo Hallo optreden, bent u mogelijk gevraagd tooselect Hallo station (Hallo standaardstation is D).
 
 ![Voer station](media/how-to-use-perfInsights/enter-drive.png)
 
-Het script wordt verwijderd van de hulpprogramma's en verwijdert u tijdelijke mappen.
+Hallo-script wordt verwijderd Hallo hulpprogramma's en verwijdert u tijdelijke mappen.
 
 ### <a name="troubleshooting-other-script-issues"></a>Andere problemen met het script 
 
-Als er problemen optreden wanneer u het script uitvoert, drukt u op Ctrl + C om de uitvoering van het script worden onderbroken. Zie de sectie 'Opschonen na niet normaal beëindigd' voor het verwijderen van tijdelijke objecten.
+Als er problemen optreden wanneer u Hallo script uitvoert, drukt u op Ctrl + C toointerrupt Hallo script worden uitgevoerd. tooremove tijdelijke objecten, raadpleegt u 'Opschonen na niet normaal beëindigd' Hallo-sectie.
 
-Als u fout optreden zelfs na verschillende pogingen blijven, raden wij aan dat u het script in de 'foutopsporingsmodus' uitvoeren met behulp van de '-fouten opsporen in ' parameteroptie bij het opstarten.
+Als u tooexperience fout zelfs na verschillende pogingen doorgaat, raden wij aan Hallo script in 'foutopsporingsmodus' uit te voeren met behulp van Hallo '-fouten opsporen in ' parameteroptie bij het opstarten.
 
-Nadat de fout zich voordoet, Kopieer de volledige uitvoer van de PowerShell-console en verzonden naar de agent van Microsoft Support helpt u bij het oplossen van het probleem.
+Nadat het Hallo-fout treedt op als kopie Hallo volledige uitvoer van Hallo PowerShell-console, en verzend het toohello Microsoft Support-agent die is die u helpt toohelp Hallo probleem kan oplossen.
 
-### <a name="how-do-i-run-the-script-in-custom-configuration-mode"></a>Hoe voer het script in de modus voor aangepaste configuratie?
+### <a name="how-do-i-run-hello-script-in-custom-configuration-mode"></a>Hoe voer ik Hallo script in de modus voor aangepaste configuratie
 
-U selecteert de **aangepaste** configuratie, kunt u verschillende traceringen parallel (gebruik SHIFT ingedrukt om meerdere selecteren) inschakelen:
+Door het selecteren van Hallo **aangepaste** configuratie, kunt u verschillende traceringen parallel (Gebruik Shift toomulti selecteren) inschakelen:
 
 ![scenario's selecteren](media/how-to-use-perfInsights/select-scenario.png)
 
-Wanneer u de prestaties van diagnostische gegevens selecteert, teller prestatietracering, XPerf Trace, netwerktracering of Storport Trace-scenario's, volg de instructies in de dialoogvensters en probeer het probleem te reproduceren trage prestaties na het starten van de traceringen.
+Wanneer u prestatiecontrole Hallo selecteert, teller prestatietracering, XPerf Trace, netwerktracering of Storport Trace-scenario's, Hallo-instructies in de dialoogvensters Hallo en probeer tooreproduce Hallo trage prestatieprobleem nadat u Hallo traceringen hebt gestart.
 
-Het volgende dialoogvenster kunt u een tracering starten:
+Hallo volgen in het dialoogvenster kunt u een tracering starten:
 
 ![Tracering starten](media/how-to-use-perfInsights/start-trace-message.png)
 
-U hebt om te stoppen anders de traceringen, om te bevestigen dat de opdracht in een tweede dialoogvenster.
+toostop hello traceringen, hebt u tooconfirm Hallo opdracht in een tweede dialoogvenster.
 
 ![tracering stoppen](media/how-to-use-perfInsights/stop-trace-message.png)
 ![tracering stoppen](media/how-to-use-perfInsights/ok-trace-message.png)
 
-Als de traceringen of bewerkingen zijn voltooid, wordt een nieuw bestand gegenereerd in D:\\logboek\_verzameling (of de tijdelijke schijf) met de naam **CollectedData\_jjjj-MM-dd\_hh\_mm\_ss.zip.** U kunt dit bestand verzenden naar de agent ondersteuning voor analyse.
+Wanneer traceringen Hallo of bewerkingen zijn voltooid, wordt een nieuw bestand gegenereerd in D:\\logboek\_verzameling (of Hallo tijdelijke station) met de naam **CollectedData\_jjjj-MM-dd\_hh\_mm \_ss.zip.** U kunt deze agent bestand toohello ondersteuning voor analyse verzenden.
 
-## <a name="review-the-diagnostics-report-created-by-perfinsights"></a>Bekijk het rapport diagnostische gegevens is gemaakt door PerfInsights
+## <a name="review-hello-diagnostics-report-created-by-perfinsights"></a>Hallo diagnostisch rapport gemaakt door PerfInsights controleren
 
-Binnen de **CollectedData\_jjjj-MM-dd\_hh\_mm\_ss.zip bestand** die is gegenereerd door PerfInsights, kunt u een HTML-rapport met details van de resultaten van PerfInsights vinden. Als u wilt controleren in het rapport, vouw de **CollectedData\_jjjj-MM-dd\_hh\_mm\_ss.zip** bestand en open vervolgens de **PerfInsights Report.html** het bestand.
+Binnen Hallo **CollectedData\_jjjj-MM-dd\_hh\_mm\_ss.zip bestand** die is gegenereerd door PerfInsights, vindt u een HTML-rapport waarin wordt uitgelegd Hallo bevindingen van PerfInsights. tooreview Hallo rapport uit, vouw Hallo **CollectedData\_jjjj-MM-dd\_hh\_mm\_ss.zip** bestand en open vervolgens Hallo **PerfInsights Report.html**bestand.
 
-Selecteer de **bevindingen** tabblad.
+Selecteer Hallo **bevindingen** tabblad.
 
 ![tabblad Zoeken](media/how-to-use-perfInsights/findingtab.png)
 
@@ -290,62 +290,62 @@ Selecteer de **bevindingen** tabblad.
 
 -   Berichten in blauw zijn alleen informatief instructies.
 
-Bekijk de HTTP-koppelingen voor alle foutberichten in rood meer gedetailleerde informatie over de bevindingen en kunnen invloed op de prestaties of de aanbevolen procedures voor optimale prestaties van configuraties ophalen.
+Bekijk Hallo HTTP-koppelingen voor alle foutberichten in rood tooget meer gedetailleerde informatie over de bevindingen Hallo en hoe deze Hallo prestatie- of aanbevolen procedures voor optimale prestaties van configuraties kunnen beïnvloeden.
 
 ### <a name="disk-configuration-tab"></a>Tabblad voor schijf-configuratie
 
-De **overzicht** sectie vindt u verschillende weergaven van de opslagconfiguratie, inclusief de gegevens van Diskpart en opslagruimten
+Hallo **overzicht** sectie vindt u verschillende weergaven van de opslagconfiguratie hello, inclusief de gegevens van Diskpart en opslagruimten
 
-De **DiskMap** en **VolumeMap** secties wordt beschreven in een dubbele perspectief logische volumes en fysieke schijven aan elkaar zijn gerelateerd.
+Hallo **DiskMap** en **VolumeMap** secties wordt beschreven in een dubbele perspectief logische volumes en fysieke schijven zijn andere gerelateerde tooeach.
 
-In het perspectief van het fysieke schijf (DiskMap) ziet de tabel u alle logische volumes die worden uitgevoerd op de schijf. In het volgende voorbeeld wordt uitgevoerd PhysicalDrive2 2 logische Volumes die zijn gemaakt op meerdere partities (J en H):
+In het perspectief van de fysieke schijf (DiskMap) hello ziet Hallo tabel u alle logische volumes die worden uitgevoerd op Hallo schijf. In de Hallo voorbeeld te volgen, voert PhysicalDrive2 2 logische Volumes die zijn gemaakt op meerdere partities (J en H):
 
 ![tabblad gegevens](media/how-to-use-perfInsights/disktab.png)
 
-In het perspectief van het Volume (*VolumeMap*), de tabellen geven de fysieke schijven onder elke logische volume. U ziet dat een logisch volume van meerdere fysieke schijven voor RAID/dynamische schijven wordt mogelijk uitgevoerd. In het volgende voorbeeld *C:\\koppelen* is van een koppelpunt geconfigureerd als *SpannedDisk* op PhysicalDisks \#2 en \#3:
+In Hallo Volume perspectief (*VolumeMap*), Hallo tabellen tonen alle fysieke schijven van de Hallo onder elke logische volume. U ziet dat een logisch volume van meerdere fysieke schijven voor RAID/dynamische schijven wordt mogelijk uitgevoerd. In het voorbeeld te volgen Hallo *C:\\koppelen* is van een koppelpunt geconfigureerd als *SpannedDisk* op PhysicalDisks \#2 en \#3:
 
 ![tabblad volume](media/how-to-use-perfInsights/volumetab.png)
 
 ### <a name="sql-server-tab"></a>SQL Server-tabblad
 
-Als het doel-virtuele machine fungeert als host voor alle exemplaren van SQL Server, ziet u een extra tabblad in de lijst met de naam **SQL Server**:
+Als doel Hallo VM als host fungeert voor alle exemplaren van SQL Server, ziet u een extra tabblad in Hallo-rapport met de naam **SQL Server**:
 
 ![SQL-tabblad](media/how-to-use-perfInsights/sqltab.png)
 
-Deze sectie bevat een 'overzicht' en aanvullende sub tabbladen voor elk van de SQL Server-exemplaren die worden gehost op de virtuele machine.
+Deze sectie bevat een 'overzicht' en aanvullende sub tabbladen voor elk Hallo SQL Server-exemplaren die worden gehost op Hallo VM.
 
-De sectie 'Overzicht' bevat een handig tabel overzicht van alle fysieke schijven (systeem- en gegevensschijven) die worden uitgevoerd en die een mengeling van gegevensbestanden en transactielogboekbestanden bevatten.
+Hallo sectie 'Overzicht' bevat een handig tabel overzicht van alle Hallo fysieke schijven (systeem- en gegevensschijven) die worden uitgevoerd en die een mengeling van gegevensbestanden en transactielogboekbestanden bevatten.
 
-In het volgende voorbeeld *PhysicalDrive0* (het station C wordt uitgevoerd) wordt weergegeven, omdat zowel de *modeldev* en *modellog* bestanden bevinden zich op station C, en ze zijn van verschillende typen (zoals het gegevensbestand en het transactielogboek, respectievelijk):
+In Hallo bijvoorbeeld na *PhysicalDrive0* (uitgevoerd Hallo C-station) wordt weergegeven, omdat beide Hallo *modeldev* en *modellog* bestanden bevinden zich op station C hello, en ze zijn van verschillende typen (zoals het gegevensbestand en het transactielogboek, respectievelijk):
 
 ![LogInfo](media/how-to-use-perfInsights/loginfo.png)
 
-De SQL Server-exemplaar-specifieke tabbladen bevatten een algemene sectie waarin algemene informatie over het geselecteerde exemplaar en extra secties voor gedetailleerde informatie, waaronder instellingen, configuraties en opties voor gebruikers.
+Hallo SQL Server-exemplaar-specifieke tabbladen bevatten een algemene sectie waarin algemene informatie over het geselecteerde exemplaar Hallo en extra secties voor gedetailleerde informatie, waaronder instellingen, configuraties en opties voor gebruikers.
 
-## <a name="references-to-the-external-tools-used"></a>Verwijzingen naar de externe hulpprogramma's gebruikt
+## <a name="references-toohello-external-tools-used"></a>Verwijst naar toohello externe hulpprogramma's gebruikt
 
 ### <a name="diskspd"></a>Diskspd
 
-DISKSPD is een opslag laden generator en prestaties van de test hulpprogramma van de Windows- en Windows Server- en Cloud-serverinfrastructuur engineering-teams. Zie voor meer informatie [Diskspd](https://github.com/Microsoft/diskspd).
+DISKSPD is een opslag laden en prestaties van de generator test hulpprogramma uit Hallo Windows- en Windows Server- en Cloud-serverinfrastructuur engineering-teams. Zie voor meer informatie [Diskspd](https://github.com/Microsoft/diskspd).
 
 ### <a name="xperf"></a>XPerf
 
-XPerf is een opdrachtregelprogramma voor het vastleggen van traces van de Windows Performance Tools Kit.
+XPerf is een opdrachtregelprogramma toocapture traceringen van Hallo Windows Performance Tools Kit.
 
 Zie voor meer informatie [Windows prestaties Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-### <a name="upload-diagnostics-logs-and-reports-to-microsoft-support-for-further-review"></a>Diagnostische logboeken en rapporten uploaden naar Microsoft Support om verder te bestuderen
+### <a name="upload-diagnostics-logs-and-reports-toomicrosoft-support-for-further-review"></a>Uploaden van diagnostische logboeken en rapporten tooMicrosoft ondersteuning om verder te bestuderen
 
-Wanneer u met het Microsoft Support-personeel werkt, mogelijk wordt u gevraagd voor het verzenden van de uitvoer die wordt gegenereerd door PerfInsights om te helpen het probleemoplossingsproces.
+Wanneer u met Hallo Microsoft Support-personeel werkt, hebt u mogelijk aangevraagde tootransmit Hallo uitvoer die wordt gegenereerd door PerfInsights tooassist Hallo procedure voor probleemoplossing.
 
-De agent ondersteuning voor u maakt een werkruimte DTM en ontvangt u een e-mailbericht een koppeling naar bevat de [DTM portal (https://filetransfer.support.microsoft.com/EFTClient/Account/Login.htm) en een unieke gebruikersnaam en het wachtwoord.
+Hallo ondersteuning agent een werkruimte DTM voor u maakt en u ontvangt een e-mailbericht met een koppeling toohello [DTM portal (https://filetransfer.support.microsoft.com/EFTClient/Account/Login.htm) en een unieke gebruikersnaam en wachtwoord.
 
 Dit bericht wordt verzonden via **CTS Automated Diagnostics Services** (ctsadiag@microsoft.com).
 
-![Voorbeeld van het bericht](media/how-to-use-perfInsights/supportemail.png)
+![Voorbeeld van het Hallo-bericht](media/how-to-use-perfInsights/supportemail.png)
 
-Voor extra beveiliging moet u uw wachtwoord bij het eerste gebruik te wijzigen.
+Voor extra beveiliging kunt u zich vereist toochange uw wachtwoord op voor het eerst gebruiken.
 
-Nadat u zich bij DTM aanmelden, vindt u een dialoogvenster voor het uploaden van de **CollectedData\_jjjj-MM-dd\_hh\_mm\_ss.zip** -bestand dat is verzameld door PerfInsights.
+Nadat u zich aanmeldt tooDTM, vindt u een dialoogvenster vak tooupload hello **CollectedData\_jjjj-MM-dd\_hh\_mm\_ss.zip** -bestand dat is verzameld door PerfInsights.

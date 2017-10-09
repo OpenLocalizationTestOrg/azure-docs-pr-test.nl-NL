@@ -1,6 +1,6 @@
 ---
-title: Publiceren WebApplicationVM | Microsoft Docs
-description: Informatie over het implementeren van een webtoepassing met een virtuele machine. Dit script maakt de vereiste resources in uw Azure-abonnement als deze nog niet bestaan.
+title: aaaPublish WebApplicationVM | Microsoft Docs
+description: Meer informatie over hoe toodeploy een web application tooa virtuele machine. Dit script maakt Hallo vereist resources in uw Azure-abonnement als deze nog niet bestaan.
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: 2738fc1dff50a177a227ae2c7719bd9a192d82ad
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e4b52b620bebf44b87ddfc3b19c155bb65111814
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publiceren WebApplicationVM (Windows PowerShell-script)
-Een webtoepassing met een virtuele machine implementeert. Het script maakt de vereiste resources in uw Azure-abonnement als deze nog niet bestaan.
+Een web application tooa virtuele machine implementeert. Hallo script maakt Hallo vereist resources in uw Azure-abonnement als deze nog niet bestaan.
 
 ```
 Publish-WebApplicationVM
@@ -35,7 +35,7 @@ Publish-WebApplicationVM
 ```
 
 ### <a name="configuration"></a>Configuratie
-Het pad naar het JSON-configuratiebestand dat u de details van de implementatie worden beschreven.
+Hallo pad toohello JSON-configuratiebestand dat Hallo details van Hallo implementatie beschrijft.
 
 | Aliassen | Geen |
 | --- | --- |
@@ -46,18 +46,18 @@ Het pad naar het JSON-configuratiebestand dat u de details van de implementatie 
 | Jokertekens accepteren? |ONWAAR |
 
 ### <a name="subscriptionname"></a>SubscriptionName
-De naam van het Azure-abonnement waarin u wilt maken van de virtuele machine.
+Hallo-naam van hello Azure-abonnement waaraan u toocreate Hallo virtuele machine wilt.
 
 | Aliassen | Geen |
 | --- | --- |
 | Vereist? |ONWAAR |
 | Positie |Met de naam |
-| Standaardwaarde |Maakt gebruik van het eerste abonnement in het abonnementsbestand |
+| Standaardwaarde |Maakt gebruik van het eerste abonnement Hallo in Hallo abonnementsbestand |
 | Pijpleidinginvoer accepteren? |ONWAAR |
 | Jokertekens accepteren? |ONWAAR |
 
 ### <a name="webdeploypackage"></a>WebDeployPackage
-Het pad naar het implementatiepakket web publiceren naar de virtuele machine. U kunt dit pakket kunt maken met behulp van de wizard webpublicatie in Visual Studio. Zie [procedure: een Web-implementatiepakket maken in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
+Hallo pad toohello web deployment pakket toopublish toohello virtuele machine. U kunt dit pakket kunt maken met behulp van de wizard webpublicatie Hallo in Visual Studio. Zie [procedure: een Web-implementatiepakket maken in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
 
 | Aliassen | Geen |
 | --- | --- |
@@ -68,7 +68,7 @@ Het pad naar het implementatiepakket web publiceren naar de virtuele machine. U 
 | Jokertekens accepteren? |ONWAAR |
 
 ### <a name="allowuntrusted"></a>AllowUntrusted
-Indien waar, wordt het gebruik van certificaten die niet zijn ondertekend door een vertrouwde basiscertificeringsinstantie toestaan.
+Indien waar, mogen Hallo gebruik van certificaten die niet zijn ondertekend door een vertrouwde basiscertificeringsinstantie.
 
 | Aliassen | Geen |
 | --- | --- |
@@ -79,7 +79,7 @@ Indien waar, wordt het gebruik van certificaten die niet zijn ondertekend door e
 | Jokertekens accepteren? |ONWAAR |
 
 ### <a name="vmpassword"></a>VMPassword
-De referenties voor de account van de virtuele machine. Voorbeeld: - VMPassword @{naam = 'admin'; Wachtwoord = 'password'}
+Hallo-referenties voor de account van de virtuele machine Hallo. Voorbeeld: - VMPassword @{naam = 'admin'; Wachtwoord = 'password'}
 
 | Aliassen | Geen |
 | --- | --- |
@@ -90,7 +90,7 @@ De referenties voor de account van de virtuele machine. Voorbeeld: - VMPassword 
 | Jokertekens accepteren? |ONWAAR |
 
 ### <a name="databaseserverpassword"></a>DatabaseServerPassword
-De referenties voor de SQL-database in Azure. Voorbeeld: - DatabaseServerPassword @{naam = 'admin'; Wachtwoord = 'password'}
+Hallo-referenties voor Hallo SQL-database in Azure. Voorbeeld: - DatabaseServerPassword @{naam = 'admin'; Wachtwoord = 'password'}
 
 | Aliassen | Geen |
 | --- | --- |
@@ -101,7 +101,7 @@ De referenties voor de SQL-database in Azure. Voorbeeld: - DatabaseServerPasswor
 | Jokertekens accepteren? |ONWAAR |
 
 ### <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
-Indien waar, wordt de status van afdrukken berichten van het script naar de uitvoerstroom.
+Indien waar, uitvoer afdrukken berichten van Hallo script toohello stroom.
 
 | Aliassen | Geen |
 | --- | --- |
@@ -112,9 +112,9 @@ Indien waar, wordt de status van afdrukken berichten van het script naar de uitv
 | Jokertekens accepteren? |ONWAAR |
 
 ## <a name="remarks"></a>Opmerkingen
-Zie voor een volledige uitleg over het gebruik van het script maken Dev- en testomgevingen, [Windows PowerShell-Scripts gebruiken om te publiceren op de ontwikkeling en testomgevingen](vs-azure-tools-publishing-using-powershell-scripts.md).
+Voor een volledige beschrijving van hoe toouse Hallo script toocreate Dev- en testomgevingen, Zie [tooPublish tooDev van Windows PowerShell-Scripts en testomgevingen](vs-azure-tools-publishing-using-powershell-scripts.md).
 
-Het JSON-configuratiebestand geeft de details van wat is geïmplementeerd. Deze bevat de informatie die u hebt opgegeven toen u het project, zoals de naam, de affiniteitsgroep, de VHD-installatiekopie en de grootte van de virtuele machine hebt gemaakt. Ook bevat de eindpunten van de virtuele machine en de databases naar inricht, indien van toepassing en implementatieparameters van web. De volgende code toont een voorbeeld van de JSON-configuratiebestand:
+Hallo JSON-configuratiebestand geeft details over Hallo van wat toobe geïmplementeerd is. Deze bevat Hallo-informatie die u hebt opgegeven toen u Hallo-project, zoals het Hallo-naam, affiniteitsgroep, VHD-installatiekopie en grootte van Hallo virtuele machine hebt gemaakt. Ook bevat Hallo-eindpunten op Hallo virtuele machine, Hallo databases tooprovision, indien van toepassing en web-implementatieparameters. Hallo volgende code toont een voorbeeld van de JSON-configuratiebestand:
 
 ```
 {
@@ -183,5 +183,5 @@ Het JSON-configuratiebestand geeft de details van wat is geïmplementeerd. Deze 
 }
 ```
 
-U kunt het JSON-configuratiebestand om te wijzigen wat is ingericht bewerken. Een virtuele machine en een cloudservice zijn vereist, maar de database-sectie is optioneel.
+Hallo JSON configuration file toochange wat is ingericht, kunt u bewerken. Een virtuele machine en een cloudservice zijn vereist, maar Hallo database sectie is optioneel.
 

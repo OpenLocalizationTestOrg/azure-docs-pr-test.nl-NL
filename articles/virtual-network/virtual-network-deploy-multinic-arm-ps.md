@@ -1,6 +1,6 @@
 ---
-title: Een virtuele machine maken met meerdere NIC's - Azure PowerShell | Microsoft Docs
-description: Informatie over het maken van een virtuele machine met meerdere NIC's met behulp van PowerShell.
+title: een virtuele machine met meerdere NIC's - Azure PowerShell aaaCreate | Microsoft Docs
+description: Meer informatie over hoe toocreate een virtuele machine met meerdere NIC's met behulp van PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3a11afd8fbd6a5e6b94cf1ebee7ea20665421bd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 507a413510da3ee69aefed324977ee40e442268b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-vm-with-multiple-nics-using-powershell"></a>Een virtuele machine maken met meerdere NIC's met behulp van PowerShell
 
@@ -34,19 +34,19 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
 > [!NOTE]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md).  Dit artikel bevat informatie over het Resource Manager-implementatiemodel, dat door Microsoft wordt aanbevolen voor de meeste nieuwe implementaties in plaats van het [klassieke implementatiemodel](virtual-network-deploy-multinic-classic-ps.md).
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md).  In dit artikel wordt beschreven hoe u Hallo Resource Manager-implementatiemodel, die Microsoft voor de meeste nieuwe implementaties in plaats van Hallo aanbeveelt [klassieke implementatiemodel](virtual-network-deploy-multinic-classic-ps.md).
 >
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-De volgende stappen gebruikt u een resourcegroep met de naam *IaaSStory* voor de webservers en een resourcegroep met de naam *IaaSStory-back-end* voor de database-servers.
+Hallo volgt gebruik van een resourcegroep met de naam *IaaSStory* voor Hallo-webservers en een resourcegroep met de naam *IaaSStory-back-end* voor Hallo DB-servers.
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u de database-servers maken kunt, moet u maken de *IaaSStory* resourcegroep met alle benodigde resources voor dit scenario. Voor het maken van deze bronnen, moet u de volgende stappen uitvoeren:
+Voordat u Hallo DB servers maken kunt, moet u toocreate hello *IaaSStory* resourcegroep met alle Hallo benodigde resources voor dit scenario. toocreate voltooien van deze resources Hallo volgende stappen:
 
-1. Navigeer naar [de sjabloonpagina](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
-2. Op de sjabloonpagina rechts van **bovenliggende resourcegroep**, klikt u op **implementeren in Azure**.
-3. Indien nodig, de parameterwaarden te wijzigen en volg de stappen in de Azure preview-portal voor het implementeren van de resourcegroep.
+1. Navigeer te[Hallo sjabloonpagina](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
+2. Hallo sjabloon pagina toohello rechts van **bovenliggende resourcegroep**, klikt u op **tooAzure implementeren**.
+3. Indien nodig, Hallo parameterwaarden te wijzigen en volg de stappen Hallo in hello Azure preview portal toodeploy Hallo-resourcegroep.
 
 > [!IMPORTANT]
 > Zorg ervoor dat de namen van opslagaccounts uniek zijn. Er kan geen dubbele opslagaccountnamen in Azure.
@@ -54,17 +54,17 @@ Voordat u de database-servers maken kunt, moet u maken de *IaaSStory* resourcegr
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-the-back-end-vms"></a>De back-end virtuele machines maken
-De back-end virtuele machines, is afhankelijk van het maken van de volgende bronnen:
+## <a name="create-hello-back-end-vms"></a>Hallo back-end virtuele machines maken
+Hallo die back-end-VM's afhankelijk zijn van Hallo maken van Hallo resources te volgen:
 
-* **Storage-account voor gegevensschijven**. Voor betere prestaties wordt de gegevensschijven op de databaseservers Solid-State station (SSD)-technologie, waarvoor een premium storage-account gebruiken. Zorg ervoor dat de Azure-locatie u implementeren ter ondersteuning van premium-opslag.
+* **Storage-account voor gegevensschijven**. Voor betere prestaties Hallo gegevensschijven op Hallo databaseservers Solid-State station (SSD)-technologie, waarvoor een premium storage-account gebruikt. Zorg ervoor dat hello Azure-locatie implementeren van toosupport premium-opslag.
 * **NIC's**. Elke virtuele machine heeft twee NIC's, één voor toegang tot de database, en één voor beheer.
-* **Beschikbaarheidsset**. Alle databaseservers wordt toegevoegd aan een enkele beschikbaarheid instellen, zodat ten minste één van de virtuele machines actief is en wordt uitgevoerd tijdens het onderhoud.  
+* **Beschikbaarheidsset**. Alle databaseservers tooa één beschikbaarheidsset worden toegevoegd, tooensure ten minste één Hallo VM's actief is tijdens het onderhoud.  
 
 ### <a name="step-1---start-your-script"></a>Stap 1: uw script starten
-U kunt de volledige PowerShell-script gebruikt downloaden [hier](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-ps.ps1). Volg onderstaande stappen voor het wijzigen van het script te laten werken in uw omgeving.
+U kunt downloaden Hallo volledige PowerShell-script gebruikt [hier](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-ps.ps1). Hallo stappen hieronder toochange Hallo script toowork in uw omgeving.
 
-1. Wijzig de waarden van de variabelen op basis van uw bestaande resourcegroep geïmplementeerd boven in [vereisten](#Prerequisites).
+1. Hallo-waarden van Hallo variabelen hieronder op basis van uw bestaande resourcegroep geïmplementeerd boven in wijzigen [vereisten](#Prerequisites).
 
     ```powershell
     $existingRGName        = "IaaSStory"
@@ -75,7 +75,7 @@ U kunt de volledige PowerShell-script gebruikt downloaden [hier](https://raw.git
     $stdStorageAccountName = "wtestvnetstoragestd"
     ```
 
-2. Wijzig de waarden van de variabelen op basis van de waarden die u wilt gebruiken voor uw back-end-implementatie.
+2. Hallo waarden wijzigen van Hallo variabelen hieronder op basis van waarden Hallo gewenste toouse voor uw back-end-implementatie.
 
     ```powershell
     $backendRGName         = "IaaSStory-Backend"
@@ -94,7 +94,7 @@ U kunt de volledige PowerShell-script gebruikt downloaden [hier](https://raw.git
     $ipAddressPrefix       = "192.168.2."
     $numberOfVMs           = 2
     ```
-3. Ophalen van de bestaande resources die nodig zijn voor uw implementatie.
+3. Hallo bestaande resources die nodig zijn voor uw implementatie worden opgehaald.
 
     ```powershell
     $vnet                  = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $existingRGName
@@ -104,14 +104,14 @@ U kunt de volledige PowerShell-script gebruikt downloaden [hier](https://raw.git
     ```
 
 ### <a name="step-2---create-necessary-resources-for-your-vms"></a>Stap 2: de benodigde resources voor uw virtuele machines maken
-U moet een nieuwe resourcegroep, een opslagaccount voor de gegevensschijven en beschikbaarheidsset voor alle virtuele machines maken. U standaardquery ook nodig de accountreferenties van de lokale beheerder voor elke virtuele machine. De volgende stappen uit voor het maken van deze resources worden uitgevoerd.
+Moet u een nieuwe resourcegroep, een opslagaccount voor gegevensschijven hello, toocreate en een beschikbaarheidsset voor alle virtuele machines. U standaardquery ook nodig Hallo lokale administrator-accountreferenties voor elke virtuele machine. toocreate uitvoeren van deze resources Hallo volgende stappen.
 
 1. Maak een nieuwe resourcegroep.
 
     ```powershell
     New-AzureRmResourceGroup -Name $backendRGName -Location $location
     ```
-2. Maak een nieuwe premium storage-account in de resourcegroep die eerder is gemaakt.
+2. Maak een nieuwe premium storage-account in Hallo resourcegroep die eerder is gemaakt.
 
     ```powershell
     $prmStorageAccount = New-AzureRmStorageAccount -Name $prmStorageAccountName `
@@ -122,22 +122,22 @@ U moet een nieuwe resourcegroep, een opslagaccount voor de gegevensschijven en b
     ```powershell
     $avSet = New-AzureRmAvailabilitySet -Name $avSetName -ResourceGroupName $backendRGName -Location $location
     ```
-4. Ophalen van de lokale beheerder accountreferenties op om te worden gebruikt voor elke virtuele machine.
+4. Lokale beheerder Hallo account referenties toobe gebruikt voor elke VM ophalen.
 
     ```powershell
-    $cred = Get-Credential -Message "Type the name and password for the local administrator account."
+    $cred = Get-Credential -Message "Type hello name and password for hello local administrator account."
     ```
 
-### <a name="step-3---create-the-nics-and-back-end-vms"></a>Stap 3: Maak de NIC's en back-end virtuele machines
-U moet een lus gebruiken als veel virtuele machines als u wilt gebruiken en de benodigde NIC's en virtuele machines binnen de lus maken maken. De volgende stappen uit voor het maken van de NIC's en virtuele machines worden uitgevoerd.
+### <a name="step-3---create-hello-nics-and-back-end-vms"></a>Stap 3: Hallo NIC's en back-end virtuele machines maken
+U moet een lus toocreate toouse zoals veel VM's als u wilt gebruiken en maken Hallo nodig NIC's en virtuele machines in hello for-lus. toocreate hello NIC's en virtuele machines, uitvoeren Hallo stappen te volgen.
 
-1. Start een `for` herhalen als u wilt herhalen van de opdrachten voor het maken van een virtuele machine en twee NIC's zo vaak als nodig, op basis van de waarde van de `$numberOfVMs` variabele.
+1. Start een `for` lus toorepeat Hallo opdrachten toocreate een virtuele machine en twee NIC's vaak als nodig, op basis van de waarde van Hallo Hallo `$numberOfVMs` variabele.
    
     ```powershell
     for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
     ```
 
-2. Maak de NIC die wordt gebruikt voor toegang tot de database.
+2. Hallo die NIC voor toegang tot de database gebruikt maken.
 
     ```powershell
     $nic1Name = $nicNamePrefix + $suffixNumber + "-DA"
@@ -146,7 +146,7 @@ U moet een lus gebruiken als veel virtuele machines als u wilt gebruiken en de b
     -Location $location -SubnetId $backendSubnet.Id -PrivateIpAddress $ipAddress1
     ```
 
-3. Maak de NIC die wordt gebruikt voor externe toegang. U ziet hoe deze NIC een NSG is gekoppeld.
+3. Hallo die NIC voor externe toegang gebruikt maken. U ziet hoe deze NIC een tooit NSG die is gekoppeld.
 
     ```powershell
     $nic2Name = $nicNamePrefix + $suffixNumber + "-RA"
@@ -163,7 +163,7 @@ U moet een lus gebruiken als veel virtuele machines als u wilt gebruiken en de b
     $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id
     ```
 
-5. Maak twee gegevensschijven per VM. U ziet dat de gegevensschijven in het premium-opslagaccount eerder hebt gemaakt.
+5. Maak twee gegevensschijven per VM. U ziet dat Hallo gegevensschijven in Hallo premium storage-account eerder hebt gemaakt.
 
     ```powershell
     $dataDisk1Name = $vmName + "-" + $osDiskPrefix + "-1"
@@ -177,21 +177,21 @@ U moet een lus gebruiken als veel virtuele machines als u wilt gebruiken en de b
     -VhdUri $data2VhdUri -CreateOption empty -Lun 1
     ```
 
-6. Configureren van het besturingssysteem en afbeelding om te worden gebruikt voor de virtuele machine.
+6. Hallo-besturingssysteem en afbeelding toobe gebruikt voor Hallo VM configureren.
 
     ```powershell
     $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
     $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisher -Offer $offer -Skus $sku -Version $version
     ```
 
-7. Toevoegen van de twee NIC's die eerder is gemaakt voor de `vmConfig` object.
+7. Hallo twee NIC's bovenstaande toohello toevoegen `vmConfig` object.
 
     ```powershell
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic1.Id -Primary
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic2.Id
     ```
 
-8. De OS-schijf maken en de virtuele machine maken. U ziet de `}` eindigt de `for` lus.
+8. Hallo OS-schijf maken en Hallo VM maken. Kennisgeving Hallo `}` eindigt Hallo `for` lus.
 
     ```powershell
     $osDiskName = $vmName + "-" + $osDiskSuffix
@@ -201,10 +201,10 @@ U moet een lus gebruiken als veel virtuele machines als u wilt gebruiken en de b
     }
     ```
 
-### <a name="step-4---run-the-script"></a>Stap 4: Voer het script
-Nu dat u hebt gedownload en gewijzigd van het script op basis van uw behoeften, runt hij een script voor het maken van de back-end database VM's met meerdere NIC's.
+### <a name="step-4---run-hello-script"></a>Stap 4: Hallo-script uitvoeren
+Nu dat u hebt gedownload en gewijzigd Hallo script op basis van uw behoeften runt hij toocreate Hallo-database voor back-end virtuele machines met meerdere NIC's een script.
 
-1. Sla uw script en voer deze uit de **PowerShell** opdrachtprompt of **PowerShell ISE**. U ziet de uitvoer van de eerste als volgt:
+1. Sla uw script en voer dit uit Hallo **PowerShell** opdrachtprompt of **PowerShell ISE**. Ziet u Hallo initiële uitvoer, als volgt:
 
         ResourceGroupName : IaaSStory-Backend
         Location          : westus
@@ -217,7 +217,7 @@ Nu dat u hebt gedownload en gewijzigd van het script op basis van uw behoeften, 
 
         ResourceId        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend
 
-2. Na een paar minuten vult de referentieprompt en klik op **OK**. De onderstaande uitvoer vertegenwoordigt één VM. U ziet het hele proces 8 minuten duurde om te voltooien.
+2. Na een paar minuten invullen Hallo referenties gevraagd en klik op **OK**. Hallo onderstaande uitvoer vertegenwoordigt één VM. Kennisgeving Hallo hele proces duurt 8 minuten toocomplete.
 
         ResourceGroupName            :
         Id                           :

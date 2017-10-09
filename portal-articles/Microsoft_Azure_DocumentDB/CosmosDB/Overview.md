@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Azure DB Cosmos | Microsoft Docs
+title: overzicht van de Cosmos-DB aaaAzure | Microsoft Docs
 description: Help-inhoud voor Azure DB die Cosmos-overzicht in Azure portal
 services: cosmos-db
 author: sewatson
@@ -8,19 +8,19 @@ ms.service: cosmos-db
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
-ms.openlocfilehash: 30ffaff9c4a7bacbda1f6b973f328a345eb5d5b0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d38c1983a766660f448ca36c23435cf604a174b6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cosmos-db-documentation"></a>Documentatie voor Azure Cosmos DB
 
-Azure Cosmos DB is een wereldwijd verspreide databaseservice waarmee u doorvoer en opslag flexibel en onafhankelijk kunt schalen voor een willekeurig aantal geografische regio's met een uitgebreide SLA. U kunt document-, sleutel/waarde- of grafiekdatabases ontwikkelen met Cosmos DB met behulp van een reeks populaire API's en programmeermodellen. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Cosmos DB gebruikt.
+Azure Cosmos-database is een wereldwijd gedistribueerde database service ontworpen tooenable u tooelastically en onafhankelijk van elkaar schalen doorvoer en opslag via verschillende geografische regio's met een uitgebreide SLA. U kunt document-, sleutel/waarde- of grafiekdatabases ontwikkelen met Cosmos DB met behulp van een reeks populaire API's en programmeermodellen. Meer informatie over hoe toouse Cosmos DB met onze snelstartgidsen, zelfstudies en voorbeelden.
 
 ## <a name="5-minute-quickstarts"></a>QuickStarts van vijf minuten
 
-Meer informatie over het gebruik van Azure Cosmos DB om een globaal gedistribueerde database te maken met een van de API's voor meerdere modellen:
+Meer informatie over hoe toouse Azure Cosmos DB toocreate een globaal gedistribueerde database met een van meerdere model-API's Hallo:
 
 ### <a name="documentdb-api"></a>DocumentDB-API
 
@@ -48,22 +48,22 @@ Meer informatie over het gebruik van Azure Cosmos DB om een globaal gedistribuee
 
 ## <a name="step-by-step-tutorials"></a>Zelfstudies met stapsgewijze instructies
 
-Meer informatie over het ontwikkelen van apps met behulp van Azure DB die Cosmos:
+Meer informatie over hoe toodevelop apps met behulp van Azure DB die Cosmos:
 
 - Een app met Cosmos DB ontwikkelen: [DocumentDB](/azure/cosmos-db/tutorial-develop-documentdb-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [tabel](/azure/cosmos-db/tutorial-develop-table-dotnet) | [grafiek](/azure/cosmos-db/tutorial-develop-graph-dotnet)
 - Gegevens importeren in Cosmos DB [DocumentDB](/azure/documentdb/documentdb-import-data) | [MongoDB](/azure/documentdb/documentdb-mongodb-migrate) 
 - Opvragen van gegevens met Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-query-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [tabel](/azure/cosmos-db/tutorial-query-table) | [grafiek](/azure/cosmos-db/tutorial-query-graph)
 - Globale databasereplicatie met Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-global-distribution-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Tabel] (/ azure/cosmos-db/zelfstudie-globale-distributie-tabel | [Grafiek](/azure/cosmos-db/tutorial-global-distribution-graph)
-- [Uw toepassing lokaal ontwikkelen met behulp van de emulator](/azure/documentdb/documentdb-nosql-local-emulator)
+- [Ontwikkelen van uw toepassing lokaal via Hallo emulator](/azure/documentdb/documentdb-nosql-local-emulator)
 
 ## <a name="samples"></a>Voorbeelden
 
-Zoek scripts om algemene taken te beheren.
+Scripts toomanage algemene taken vinden.
 
 - [Azure-CLI](/azure/cosmos-db/cli-samples)
 - [Azure PowerShell](/azure/cosmos-db/powershell-samples)
 
 ## <a name="more"></a>Meer
 
-- [Ga naar de documentatie voor meer informatie](/azure/cosmos-db/index)
+- [Ga naar de documentatie bij toolearn meer](/azure/cosmos-db/index)
 - [Meer informatie over alle Azure-Services](https://aka.ms/j3wr7y)

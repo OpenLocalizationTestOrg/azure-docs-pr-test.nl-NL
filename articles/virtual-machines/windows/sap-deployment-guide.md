@@ -1,6 +1,6 @@
 ---
-title: Azure virtuele Machines-implementatie voor SAP in Windows | Microsoft Docs
-description: Informatie over het implementeren van SAP-software op Windows virtuele machines in Azure.
+title: implementatie van virtuele Machines voor SAP op Windows aaaAzure | Microsoft Docs
+description: Meer informatie over hoe toodeploy SAP-software op Windows virtuele machines in Azure.
 services: virtual-machines-windows
 documentationcenter: 
 author: MSSedusch
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ac7c1e3b015a21fe06f27205b27a53fc4d2f3df7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 121e317afc6498a896959e58ebfbdcbef9432ef5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-sap-on-windows-vms-in-azure"></a>SAP op Windows-machines in Azure implementeren
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -86,9 +86,9 @@ ms.lasthandoff: 07/11/2017
 [dbms-guide-3]:sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 (High availability and disaster recovery with Azure VMs)
 [dbms-guide-5.5.1]:sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 SP1 CU4 and later)
 [dbms-guide-5.5.2]:sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 SP1 CU3 and earlier releases)
-[dbms-guide-5.6]:sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Using a SQL Server image from the Azure Marketplace)
+[dbms-guide-5.6]:sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Using a SQL Server image from hello Azure Marketplace)
 [dbms-guide-5.8]:sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 (General SQL Server for SAP on Azure summary)
-[dbms-guide-5]:sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 (Specifics to SQL Server RDBMS)
+[dbms-guide-5]:sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 (Specifics tooSQL Server RDBMS)
 [dbms-guide-8.4.1]:sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Storage configuration)
 [dbms-guide-8.4.2]:sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Backup and restore)
 [dbms-guide-8.4.3]:sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Performance considerations for backup and restore)
@@ -108,24 +108,24 @@ ms.lasthandoff: 07/11/2017
 [deployment-guide]:sap-deployment-guide.md (Azure Virtual Machines deployment for SAP on Windows)
 [deployment-guide-2.2]:#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (SAP resources)
 [deployment-guide-3.1.2]:#3688666f-281f-425b-a312-a77e7db2dfab (Deploying a VM by using a custom image)
-[deployment-guide-3.2]:#db477013-9060-4602-9ad4-b0316f8bb281 (Scenario 1: Deploying a VM from the Azure Marketplace for SAP)
+[deployment-guide-3.2]:#db477013-9060-4602-9ad4-b0316f8bb281 (Scenario 1: Deploying a VM from hello Azure Marketplace for SAP)
 [deployment-guide-3.3]:#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 (Scenario 2: Deploying a VM with a custom image for SAP)
 [deployment-guide-3.4]:#a9a60133-a763-4de8-8986-ac0fa33aa8c1 (Scenario 3: Moving a VM from on-premises using a non-generalized Azure VHD with SAP)
 [deployment-guide-3]:#b3253ee3-d63b-4d74-a49b-185e76c4088e (Deployment scenarios of VMs for SAP on Microsoft Azure)
 [deployment-guide-4.1]:#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Deploying Azure PowerShell cmdlets)
 [deployment-guide-4.2]:#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e (Download and import SAP-relevant PowerShell cmdlets)
-[deployment-guide-4.3]:#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Join a VM to an on-premises domain - Windows only)
+[deployment-guide-4.3]:#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Join a VM tooan on-premises domain - Windows only)
 [deployment-guide-4.4.2]:#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 (Linux)
-[deployment-guide-4.4]:#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Download, install, and enable the Azure VM Agent)
+[deployment-guide-4.4]:#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Download, install, and enable hello Azure VM Agent)
 [deployment-guide-4.5.1]:#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell)
 [deployment-guide-4.5.2]:#408f3779-f422-4413-82f8-c57a23b4fc2f (Azure CLI)
-[deployment-guide-4.5]:#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Configure the Azure Enhanced Monitoring Extension for SAP)
+[deployment-guide-4.5]:#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Configure hello Azure Enhanced Monitoring Extension for SAP)
 [deployment-guide-5.1]:#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Readiness check for Azure Enhanced Monitoring for SAP)
-[deployment-guide-5.2]:#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Health check for the Azure monitoring infrastructure)
+[deployment-guide-5.2]:#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Health check for hello Azure monitoring infrastructure)
 [deployment-guide-5.3]:#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Troubleshooting Azure monitoring for SAP)
 
 [deployment-guide-configure-monitoring-scenario-1]:#ec323ac3-1de9-4c3a-b770-4ff701def65b (Configure monitoring)
-[deployment-guide-configure-proxy]:#baccae00-6f79-4307-ade4-40292ce4e02d (Configure the proxy)
+[deployment-guide-configure-proxy]:#baccae00-6f79-4307-ade4-40292ce4e02d (Configure hello proxy)
 [deployment-guide-figure-100]:./media/virtual-machines-shared-sap-deployment-guide/100-deploy-vm-image.png
 [deployment-guide-figure-1000]:./media/virtual-machines-shared-sap-deployment-guide/1000-service-properties.png
 [deployment-guide-figure-11]:#figure-11
@@ -182,21 +182,21 @@ ms.lasthandoff: 07/11/2017
 [planning-guide-11]:sap-planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 (High availability and disaster recovery for SAP NetWeaver running on Azure Virtual Machines)
 [planning-guide-11.4.1]:sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (High availability for SAP Application Servers)
 [planning-guide-11.5]:sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f (Using Autostart for SAP instances)
-[planning-guide-2.1]:sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Cloud-only - Virtual Machine deployments in Azure without dependencies on the on-premises customer network)
-[planning-guide-2.2]:sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Cross-premises - Deployment of single or multiple SAP VMs in Azure fully integrated with the on-premises network)
+[planning-guide-2.1]:sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Cloud-only - Virtual Machine deployments in Azure without dependencies on hello on-premises customer network)
+[planning-guide-2.2]:sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Cross-premises - Deployment of single or multiple SAP VMs in Azure fully integrated with hello on-premises network)
 [planning-guide-3.1]:sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a (Azure regions)
 [planning-guide-3.2.1]:sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 (Fault domains)
 [planning-guide-3.2.2]:sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Upgrade domains)
 [planning-guide-3.2.3]:sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Azure availability sets)
 [planning-guide-3.2]:sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Microsoft Azure virtual machines concept)
 [planning-guide-3.3.2]:sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure Premium Storage)
-[planning-guide-5.1.1]:sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Moving a VM from on-premises to Azure with a non-generalized disk)
+[planning-guide-5.1.1]:sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Moving a VM from on-premises tooAzure with a non-generalized disk)
 [planning-guide-5.1.2]:sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Deploying a VM with a customer specific image)
-[planning-guide-5.2.1]:sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Preparation for moving a VM from on-premises to Azure with a non-generalized disk)
+[planning-guide-5.2.1]:sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Preparation for moving a VM from on-premises tooAzure with a non-generalized disk)
 [planning-guide-5.2.2]:sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 (Preparation for deploying a VM with a customer specific image for SAP)
 [planning-guide-5.2]:sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 (Preparing VMs with SAP for Azure)
 [planning-guide-5.3.1]:sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 (Difference between an Azure disk and an Azure image)
-[planning-guide-5.3.2]:sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (Uploading a VHD from on-premises to Azure)
+[planning-guide-5.3.2]:sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (Uploading a VHD from on-premises tooAzure)
 [planning-guide-5.4.2]:sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Copying disks between Azure Storage accounts)
 [planning-guide-5.5.1]:sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (VM/VHD structure for SAP deployments)
 [planning-guide-5.5.3]:sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Setting automount for attached disks)
@@ -257,7 +257,7 @@ ms.lasthandoff: 07/11/2017
 [virtual-machines-azure-resource-manager-architecture]:../../resource-manager-deployment-model.md
 [virtual-machines-azurerm-versus-azuresm]:virtual-machines-windows-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../virtual-machines-windows-classic-configure-oracle-data-guard.md
-[virtual-machines-linux-cli-deploy-templates]:../linux/cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
+[virtual-machines-linux-cli-deploy-templates]:../linux/cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and hello Azure CLI)
 [virtual-machines-deploy-rmtemplates-powershell]:../virtual-machines-windows-ps-manage.md (Manage virtual machines using Azure Resource Manager and PowerShell)
 [virtual-machines-linux-agent-user-guide]:../linux/agent-user-guide.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:../linux/agent-user-guide.md#command-line-options
@@ -305,66 +305,66 @@ ms.lasthandoff: 07/11/2017
 [xplat-cli]:../../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../../xplat-cli-azure-resource-manager.md
 
-Virtuele Machines in Azure is de oplossing voor organisaties die berekenings-en opslagbronnen in de minimale tijd en zonder langdurige inkoop cycli. U kunt Azure Virtual Machines gebruiken voor het implementeren van klassieke toepassingen, zoals SAP NetWeaver gebaseerde toepassingen in Azure. Uitbreiden van een toepassing betrouwbaarheid en beschikbaarheid zonder dat extra on-premises resources. Virtuele Machines in Azure ondersteunt cross-premises connectiviteit, zodat u kunt Azure Virtual Machines integreren in uw organisatie lokale domeinen, privéclouds en SAP system Liggend.
+Virtuele Machines in Azure is Hallo-oplossing voor organisaties die berekenings-en opslagbronnen nodig in de minimale tijd en zonder langdurige inkoop cycli. U kunt Azure Virtual Machines toodeploy klassieke toepassingen, zoals SAP NetWeaver gebaseerde toepassingen in Azure gebruiken. Uitbreiden van een toepassing betrouwbaarheid en beschikbaarheid zonder dat extra on-premises resources. Virtuele Machines in Azure ondersteunt cross-premises connectiviteit, zodat u kunt Azure Virtual Machines integreren in uw organisatie lokale domeinen, privéclouds en SAP system Liggend.
 
-In dit artikel komen we de stappen voor het implementeren van SAP-toepassingen op virtuele machines (VM's) in Azure. In dit artikel is gebaseerd op de informatie in [Azure Virtual Machines planning en implementatie voor SAP op Windows][planning-guide]. Ook als aanvulling SAP installatie documentatie en SAP-opmerkingen, de primaire resources zijn voor het installeren en implementeren van software voor SAP op.
+In dit artikel komen we Hallo stappen toodeploy SAP-toepassingen op virtuele machines (VM's) in Azure. In dit artikel is gebaseerd op informatie Hallo in [Azure Virtual Machines planning en implementatie voor SAP op Windows][planning-guide]. Ook als aanvulling SAP installatie documentatie en SAP-opmerkingen, de primaire bronnen voor het installeren en implementeren van software voor SAP Hallo op.
 
 ## <a name="prerequisites"></a>Vereisten
-Instellen van een virtuele machine van Azure voor SAP-software-implementatie omvat meerdere stappen en bronnen. Voordat u begint, controleert u dat u voldoet aan de vereisten voor SAP-software installeren op Windows virtuele machines in Azure.
+Instellen van een virtuele machine van Azure voor SAP-software-implementatie omvat meerdere stappen en bronnen. Zorg voordat u begint, dat u voldoet aan de Hallo-vereisten voor het SAP-software installeren op Windows virtuele machines in Azure.
 
 ### <a name="local-computer"></a>Lokale computer
-U kunt een PowerShell-script en de Azure portal gebruiken voor het beheren van Windows of Linux-machines. Voor beide hulpprogramma's moet u een lokale computer met Windows 7 of een latere versie van Windows. Als u wilt beheren, alleen virtuele Linux-machines en u wilt een Linux-computer om deze taak gebruiken, kunt u Azure CLI.
+toomanage Windows of Linux-machines, kunt u een PowerShell-script en hello Azure-portal. Voor beide hulpprogramma's moet u een lokale computer met Windows 7 of een latere versie van Windows. Als u wilt dat toomanage alleen virtuele Linux-machines en u wilt dat toouse een Linux-computer om deze taak kunt u Azure CLI.
 
 ### <a name="internet-connection"></a>Internetverbinding
-Als u wilt downloaden en uitvoeren van de hulpprogramma's en scripts die vereist voor software-SAP-implementatie zijn, moet u verbonden zijn met Internet. De Azure-VM met de Azure verbeterde extensie Monitoring voor SAP moet ook toegang tot het Internet. Als de virtuele machine in Azure deel uit van een virtuele Azure-netwerk of het lokale domein maakt, zorg ervoor dat de relevante proxy-instellingen zijn ingesteld, zoals beschreven in [configureert de proxy][deployment-guide-configure-proxy].
+toodownload en Voer Hallo-hulpprogramma's en scripts die vereist voor software-SAP-implementatie zijn, moet u toohello Internet is verbonden. virtuele machine van Azure met Azure verbeterde extensie Monitoring voor SAP Hallo Hallo moet ook toegang toohello Internet. Als hello Azure virtuele machine deel van een virtuele Azure-netwerk of het lokale domein uitmaakt, zorg ervoor dat Hallo relevante proxy-instellingen zijn ingesteld, zoals beschreven in [Hallo proxy configureren][deployment-guide-configure-proxy].
 
 ### <a name="microsoft-azure-subscription"></a>Microsoft Azure-abonnement
 U moet een actief Azure-account.
 
 ### <a name="topology-and-networking"></a>Topologie en netwerken
-U moet de topologie en de architectuur van de SAP-implementatie definiëren in Azure:
+U moet toodefine Hallo topologie en architectuur van Hallo SAP-implementatie in Azure:
 
-* Azure storage-accounts moeten worden gebruikt
-* Virtueel netwerk waar u het SAP-systeem implementeren
-* Resourcegroep die u wilt implementeren de SAP-systeem
-* Azure-regio waar u het SAP-systeem implementeren
+* Azure storage-accounts toobe gebruikt
+* Virtueel netwerk waar u toodeploy Hallo SAP-systeem
+* Resource group toowhich gewenste toodeploy Hallo SAP-systeem
+* Azure-regio waar u toodeploy Hallo SAP-systeem
 * SAP-configuratie (twee lagen of drie lagen)
-* VM-grootten en het aantal extra virtuele harde schijven (VHD's) worden gekoppeld aan de virtuele machines
+* VM-grootten en Hallo aantal extra virtuele harde schijven (VHD's) toobe gekoppeld toohello virtuele machines
 * Configuratie van SAP correctie en Transport-systeem (CTS)
 
-Maak en configureer Azure storage-accounts of Azure virtual networks voordat u begint met de SAP-software-implementatieproces. Zie voor meer informatie over het maken en configureren van deze resources [Azure Virtual Machines planning en implementatie voor SAP op Windows][planning-guide].
+Maak en configureer Azure storage-accounts of Azure virtual networks voordat u begint met Hallo SAP software-implementatieproces. Voor informatie over het toocreate en configureren van deze resources, zien [Azure Virtual Machines planning en implementatie voor SAP op Windows][planning-guide].
 
 ### <a name="sap-sizing"></a>SAP-schaling
-Weten voor SAP-schaling van de volgende informatie:
+Hallo volgende informatie voor SAP sizing weten:
 
-* Verwachte SAP-werkbelasting, bijvoorbeeld met behulp van de SAP toepassing prestaties Standard (SAP's) en het hulpprogramma snelle Sizer SAP-nummer
-* Vereiste resource en geheugen processorgebruik van het SAP-systeem
+* Geprojecteerd SAP-werkbelasting, bijvoorbeeld met behulp van Hallo SAP snelle Sizer tool en Hallo SAP toepassing prestaties Standard (SAP's) getal
+* Vereiste resource en geheugen processorgebruik van Hallo SAP-systeem
 * Vereiste input/output (I/O)-bewerkingen per seconde
 * Netwerkbandbreedte van uiteindelijke communicatie tussen virtuele machines in Azure vereist
-* Vereiste netwerkbandbreedte tussen lokale activa en het Azure geïmplementeerd SAP-systeem
+* Vereiste netwerkbandbreedte tussen lokale activa en hello Azure geïmplementeerd SAP-systeem
 
 ### <a name="resource-groups"></a>Resourcegroepen
-In Azure Resource Manager, u kunt resourcegroepen gebruiken voor het beheren van alle toepassingsresources in uw Azure-abonnement. Zie voor meer informatie [overzicht van Azure Resource Manager][resource-group-overview].
+In Azure Resource Manager kunt u resource groepen toomanage alle Hallo toepassingsresources in uw Azure-abonnement. Zie voor meer informatie [overzicht van Azure Resource Manager][resource-group-overview].
 
 ## <a name="resources"></a>Resources
 
 ### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>SAP-resources
-Wanneer u uw SAP-software-implementatie instelt, moet u de volgende SAP-bronnen:
+Wanneer u uw SAP-software-implementatie instelt, moet u Hallo SAP-resources te volgen:
 
 * SAP-notitie [1928533], die is:
-  * Lijst met Azure VM-grootten die worden ondersteund voor de implementatie van SAP-software
+  * Lijst met Azure VM-grootten die worden ondersteund voor de implementatie van Hallo van SAP-software
   * Informatie over belangrijke capaciteit voor Azure VM-grootten
   * Ondersteunde SAP-software en besturingssysteem (OS) en combinaties van de database
   * Vereiste SAP-kernel-versie voor Windows en Linux op Microsoft Azure
 
 * SAP-notitie [2015553] bevat vereisten voor software-implementaties SAP SAP ondersteund in Azure.
 * SAP-notitie [2178632] bevat gedetailleerde informatie over alle bewaking metrische gegevens die zijn gerapporteerd voor SAP in Azure.
-* SAP-notitie [1409604] heeft de vereiste Hostagent SAP-versie voor Windows in Azure.
-* SAP-notitie [2191498] heeft de vereiste Hostagent SAP-versie voor Linux in Azure.
+* SAP-notitie [1409604] heeft Hallo SAP Host Agent-versie vereist voor Windows in Azure.
+* SAP-notitie [2191498] Hallo vereist SAP Host Agent-versie voor Linux in Azure.
 * SAP-notitie [2243692] bevat informatie over SAP licentieverlening op Linux in Azure.
 * SAP-notitie [1984787] heeft algemene informatie over SUSE Linux Enterprise Server 12.
 * SAP-notitie [2002167] heeft algemene informatie over Red Hat Enterprise Linux 7.x.
-* SAP-notitie [1999351] bevat aanvullende informatie over probleemoplossing voor de Azure verbeterde extensie Monitoring voor SAP.
+* SAP-notitie [1999351] bevat aanvullende informatie over probleemoplossing voor hello Azure verbeterde extensie Monitoring voor SAP.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) heeft alle SAP-opmerkingen voor Linux vereist.
 * SAP-specifieke PowerShell-cmdlets die deel van uitmaken [Azure PowerShell][azure-ps].
 * SAP-specifieke Azure CLI-opdrachten die deel van uitmaken [Azure CLI][azure-cli].
@@ -380,196 +380,196 @@ Deze artikelen Microsoft omvatten SAP-implementaties in Azure:
 * [Azure-portal][azure-portal]
 
 ## <a name="b3253ee3-d63b-4d74-a49b-185e76c4088e"></a>Implementatiescenario's voor SAP-software op Azure Virtual machines
-U hebt meerdere mogelijkheden voor het implementeren van virtuele machines en gekoppelde schijven in Azure. Het is belangrijk om te begrijpen van de verschillen tussen implementatieopties, omdat u andere stappen nemen mogelijk om uw virtuele machines voorbereiden voor implementatie op basis van het implementatietype dat u kiest.
+U hebt meerdere mogelijkheden voor het implementeren van virtuele machines en gekoppelde schijven in Azure. Het is belangrijk toounderstand Hallo verschillen tussen implementatieopties, omdat u mogelijk verschillende stappen tooprepare nemen uw VM's voor implementatie op basis van implementatietype Hallo die u kiest.
 
-### <a name="db477013-9060-4602-9ad4-b0316f8bb281"></a>Scenario 1: Implementatie van een virtuele machine uit Azure Marketplace voor SAP
-U kunt een installatiekopie van een geleverd door Microsoft of door een derde partij in Azure Marketplace gebruiken voor het implementeren van uw virtuele machine. De Marketplace biedt een aantal standaard installatiekopieën van het besturingssysteem van Windows Server en verschillende Linux-distributies. U kunt een installatiekopie die database-beheer bevat ook implementeren system (DBMS) SKU's, bijvoorbeeld Microsoft SQL Server. Zie voor meer informatie over het gebruik van afbeeldingen met DBMS SKU's [Azure virtuele Machines DBMS-implementatie voor SAP op Linux][dbms-guide].
+### <a name="db477013-9060-4602-9ad4-b0316f8bb281"></a>Scenario 1: Implementatie van een virtuele machine uit Azure Marketplace voor SAP Hallo
+U kunt een installatiekopie van een geleverd door Microsoft gebruiken of door een derde partij in hello Azure Marketplace toodeploy uw virtuele machine. Hallo Marketplace biedt een aantal standaard installatiekopieën van het besturingssysteem van Windows Server en verschillende Linux-distributies. U kunt een installatiekopie die database-beheer bevat ook implementeren system (DBMS) SKU's, bijvoorbeeld Microsoft SQL Server. Zie voor meer informatie over het gebruik van afbeeldingen met DBMS SKU's [Azure virtuele Machines DBMS-implementatie voor SAP op Linux][dbms-guide].
 
-Het volgende stroomdiagram toont de SAP-specifieke volgorde van stappen voor het implementeren van een virtuele machine uit Azure Marketplace:
+Hallo toont volgende stroomdiagram Hallo SAP-specifieke volgorde van de stappen voor het implementeren van een virtuele machine uit Azure Marketplace Hallo:
 
-![Stroomdiagram van VM-implementatie voor SAP-systemen met behulp van een installatiekopie van een virtuele machine uit Azure Marketplace][deployment-guide-figure-100]
+![Stroomdiagram van VM-implementatie voor SAP-systemen met behulp van een VM-installatiekopie uit hello Azure Marketplace][deployment-guide-figure-100]
 
-#### <a name="create-a-virtual-machine-by-using-the-azure-portal"></a>Een virtuele machine maken met behulp van de Azure-portal
-De eenvoudigste manier om een nieuwe virtuele machine maken met een installatiekopie vanuit Azure Marketplace is via de Azure-portal.
+#### <a name="create-a-virtual-machine-by-using-hello-azure-portal"></a>Een virtuele machine maken met behulp van hello Azure-portal
+Hallo gemakkelijkste manier toocreate een nieuwe virtuele machine met een installatiekopie van hello Azure Marketplace is via hello Azure-portal.
 
-1.  Ga naar <https://portal.azure.com/#create>.  Of Selecteer in het menu van Azure portal, **+ nieuw**.
-2.  Selecteer **Compute**, en selecteer vervolgens het type van het besturingssysteem die u wilt implementeren. Bijvoorbeeld, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12) of Red Hat Enterprise Linux 7.2 (RHEL 7.2). De standaardweergave voor de lijst wordt niet weergegeven voor dat alle ondersteunde besturingssystemen. Selecteer **alle** voor een volledige lijst. Zie voor meer informatie over ondersteunde besturingssystemen voor software-implementatie voor SAP SAP-notitie [1928533].
-3.  Controleer de voorwaarden en bepalingen op de volgende pagina.
-4.  In de **een implementatiemodel selecteren** Selecteer **Resource Manager**.
+1.  Ga te<https://portal.azure.com/#create>.  Of Selecteer in het menu van Azure portal hello, **+ nieuw**.
+2.  Selecteer **Compute**, en selecteer vervolgens Hallo-type van het besturingssysteem die u wilt dat toodeploy. Bijvoorbeeld, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12) of Red Hat Enterprise Linux 7.2 (RHEL 7.2). Hallo lijst standaardweergave wordt niet weergegeven voor dat alle ondersteunde besturingssystemen. Selecteer **alle** voor een volledige lijst. Zie voor meer informatie over ondersteunde besturingssystemen voor software-implementatie voor SAP SAP-notitie [1928533].
+3.  Controleer op de volgende pagina Hallo voorwaarden en bepalingen.
+4.  In Hallo **een implementatiemodel selecteren** Selecteer **Resource Manager**.
 5.  Selecteer **Maken**.
 
-De wizard begeleidt u bij het instellen van de vereiste parameters voor het maken van de virtuele machine, naast alle vereiste bronnen, zoals netwerkinterfaces en storage-accounts. Enkele van deze parameters zijn:
+Hallo wizard begeleidt u bij het instellen van Hallo vereist parameters toocreate Hallo virtuele machine, moet bovendien tooall bronnen, zoals netwerkinterfaces en storage-accounts. Enkele van deze parameters zijn:
 
 1. **Basisprincipes**:
-  * **Naam**: de naam van de resource (de naam van de virtuele machine).
- * **Gebruikersnaam en wachtwoord** of **openbare SSH-sleutel**: Geef de gebruikersnaam en wachtwoord van de gebruiker die is gemaakt tijdens het inrichten. Voor een virtuele Linux-machine, kunt u de openbare sleutel voor Secure Shell (SSH) die u aan te melden bij de computer gebruikt.
- * **Abonnement**: Selecteer het abonnement dat u gebruiken wilt voor het inrichten van de nieuwe virtuele machine.
- * **Resourcegroep**: de naam van de resourcegroep voor de virtuele machine. U kunt u de naam van een nieuwe resourcegroep of de naam van een resourcegroep die al bestaat.
- * **Locatie**: waar u de nieuwe virtuele machine te implementeren. Als u wilt dat de virtuele machine verbinden met uw on-premises netwerk Controleer of selecteert u de locatie van het virtuele netwerk die Azure met uw on-premises netwerk verbindt. Zie voor meer informatie [Microsoft Azure-netwerken] [ planning-guide-microsoft-azure-networking] in [Azure Virtual Machines planning en implementatie voor SAP op Linux][planning-guide].
+  * **Naam**: Hallo-naam van Hallo bron (naam Hallo virtuele machine).
+ * **Gebruikersnaam en wachtwoord** of **openbare SSH-sleutel**: Hallo gebruikersnaam en wachtwoord van Hallo-gebruiker die is gemaakt tijdens het inrichten van Hallo invoeren. Voor een virtuele Linux-machine, kunt u Hallo openbare Secure Shell (SSH) sleutel toosign in toohello machine te gebruiken.
+ * **Abonnement**: Selecteer Hallo-abonnement dat u wilt dat toouse tooprovision Hallo nieuwe virtuele machine.
+ * **Resourcegroep**: Hallo-naam van resourcegroep Hallo voor Hallo VM. U kunt beide Hallo-naam van een nieuwe groep of Hallo resourcenaam van een resourcegroep die al bestaat.
+ * **Locatie**: waar toodeploy Hallo nieuwe virtuele machine. Als u tooconnect Hallo virtuele machine tooyour on-premises netwerk wilt, zorg ervoor dat u selecteert Hallo-locatie van het virtuele netwerk Hallo die Azure tooyour on-premises netwerk verbindt. Zie voor meer informatie [Microsoft Azure-netwerken] [ planning-guide-microsoft-azure-networking] in [Azure Virtual Machines planning en implementatie voor SAP op Linux][planning-guide].
 2. **De grootte van**:
 
-     Zie voor een lijst van ondersteunde VM typen SAP-notitie [1928533]. Zorg ervoor dat u het juiste type van de virtuele machine selecteren als u wilt gebruiken van Azure Premium-opslag. Niet alle VM-typen bieden ondersteuning voor Premium-opslag. Zie voor meer informatie [opslag: Microsoft Azure Storage- en gegevensschijven] [ planning-guide-storage-microsoft-azure-storage-and-data-disks] en [Azure Premium-opslag] [ planning-guide-azure-premium-storage] in [Azure Virtual Machines planning en implementatie voor SAP op Linux][planning-guide].
+     Zie voor een lijst van ondersteunde VM typen SAP-notitie [1928533]. Zorg ervoor dat u Hallo juiste VM-type selecteren als u wilt dat toouse Azure Premium-opslag. Niet alle VM-typen bieden ondersteuning voor Premium-opslag. Zie voor meer informatie [opslag: Microsoft Azure Storage- en gegevensschijven] [ planning-guide-storage-microsoft-azure-storage-and-data-disks] en [Azure Premium-opslag] [ planning-guide-azure-premium-storage] in [Azure Virtual Machines planning en implementatie voor SAP op Linux][planning-guide].
 
 3. **Instellingen**:
    * **Storage-account**: Selecteer een bestaand opslagaccount of maak een nieuwe. Niet alle opslagtypen werken voor SAP-toepassingen. Zie voor meer informatie over opslagtypen [Microsoft Azure Storage] [ dbms-guide-2.3] in [Azure virtuele Machines DBMS-implementatie voor SAP op Linux][dbms-guide].
-   * **Virtueel netwerk** en **Subnet**: voor het integreren van de virtuele machine met het intranet, selecteer het virtuele netwerk die is verbonden met uw on-premises netwerk.
-   * **Openbaar IP-adres**: Selecteer het openbare IP-adres dat u wilt gebruiken, of parameters voor het maken van een nieuw openbaar IP-adres invoeren. U kunt een openbare IP-adres gebruiken voor toegang tot uw virtuele machine via het Internet. Zorg ervoor dat u ook een netwerkbeveiligingsgroep voor beveiligde toegang tot uw virtuele machine te maken.
+   * **Virtueel netwerk** en **Subnet**: toointegrate Hallo virtuele machine met het intranet, selecteer Hallo virtueel netwerk dat is verbonden tooyour on-premises netwerk.
+   * **Openbaar IP-adres**: Selecteer Hallo openbare IP-adres dat u toouse wilt, of Geef parameters toocreate een nieuw openbaar IP-adres. U kunt een openbare IP-adres tooaccess uw virtuele machine via Hallo Internet. Zorg ervoor dat ook een network security groep toohelp veilige toegang tooyour virtuele machine te maken.
    * **Netwerkbeveiligingsgroep**: Zie voor meer informatie [beheren van netwerkverkeer met netwerkbeveiligingsgroepen][virtual-networks-nsg].
-   * **Beschikbaarheid**: een beschikbaarheidsset selecteren of geef de parameters voor het maken van een nieuwe beschikbaarheidsset. Zie voor meer informatie [Azure beschikbaarheidssets][planning-guide-3.2.3].
-   * **Bewaking**: U kunt selecteren **uitschakelen** voor het bewaken van diagnostische gegevens. Er wordt automatisch ingeschakeld tijdens het uitvoeren van de opdrachten voor het inschakelen van de Azure verbeterde extensie Monitoring, zoals beschreven in [configureren bewaking][deployment-guide-configure-monitoring-scenario-1].
+   * **Beschikbaarheid**: een beschikbaarheidsset selecteren of Voer Hallo parameters toocreate een nieuwe beschikbaarheid instellen. Zie voor meer informatie [Azure beschikbaarheidssets][planning-guide-3.2.3].
+   * **Bewaking**: U kunt selecteren **uitschakelen** voor het bewaken van diagnostische gegevens. Er wordt automatisch ingeschakeld tijdens het uitvoeren van Hallo opdrachten tooenable hello Azure verbeterde extensie Monitoring, zoals beschreven in [configureren bewaking][deployment-guide-configure-monitoring-scenario-1].
 
 4. **Samenvatting**:
 
   Bekijk uw selecties en selecteer vervolgens **OK**.
 
-De virtuele machine wordt geïmplementeerd in de resourcegroep die u hebt geselecteerd.
+De virtuele machine wordt geïmplementeerd in Hallo-resourcegroep die u hebt geselecteerd.
 
 #### <a name="create-a-virtual-machine-by-using-a-template"></a>Een virtuele machine met behulp van een sjabloon maken
-U kunt een virtuele machine maken met behulp van een van de SAP-sjablonen gepubliceerd in de [GitHub-opslagplaats voor azure-snelstartsjablonen][azure-quickstart-templates-github]. U kunt ook handmatig maken een virtuele machine met behulp van de [Azure-portal][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms], of [Azure CLI][virtual-machines-linux-tutorial].
+U kunt een virtuele machine maken met behulp van een Hallo SAP sjablonen zijn gepubliceerd in Hallo [GitHub-opslagplaats voor azure-snelstartsjablonen][azure-quickstart-templates-github]. U kunt ook handmatig maken een virtuele machine met behulp van Hallo [Azure-portal][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms], of [Azure CLI ][virtual-machines-linux-tutorial].
 
 * [**Met twee lagen (slechts één virtuele machine) configuratiesjabloon** (sap-2-laag-marketplace-installatiekopie)][sap-templates-2-tier-marketplace-image]
 
-  Voor het maken van een systeem met twee lagen met behulp van slechts één virtuele machine, moet u deze sjabloon gebruiken.
+  toocreate een systeem met twee lagen met behulp van slechts één virtuele machine, gebruik deze sjabloon.
 * [**Configuratie met drie lagen (meerdere virtuele machines) sjabloon** (sap-3-tier-marketplace-installatiekopie)][sap-templates-3-tier-marketplace-image]
 
-  Voor het maken van een systeem met drie lagen met behulp van meerdere virtuele machines, moet u deze sjabloon gebruiken.
+  een systeem met drie lagen met behulp van meerdere virtuele machines toocreate deze sjabloon gebruiken.
 
-Voer de volgende parameters voor de sjabloon in de Azure-portal:
+Voer in hello Azure-portal, Hallo parameters voor de sjabloon hello te volgen:
 
 1. **Basisprincipes**:
-  * **Abonnement**: het abonnement moet worden gebruikt om de sjabloon te implementeren.
-  * **Resourcegroep**: de resourcegroep moet worden gebruikt om de sjabloon te implementeren. U kunt een nieuwe resourcegroep maken of u kunt een bestaande resourcegroep selecteren in het abonnement.
-  * **Locatie**: waar u de sjabloon implementeert. Als u een bestaande resourcegroep hebt geselecteerd, wordt de locatie van die resourcegroep wordt gebruikt.
+  * **Abonnement**: Hallo abonnement toouse toodeploy Hallo sjabloon.
+  * **Resourcegroep**: Hallo resource groep toouse toodeploy Hallo-sjabloon. U kunt een nieuwe resourcegroep maken of u kunt een bestaande resourcegroep in Hallo abonnement selecteren.
+  * **Locatie**: waar toodeploy Hallo sjabloon. Als u een bestaande resourcegroep hebt geselecteerd, wordt Hallo-locatie van die resourcegroep gebruikt.
 
 2. **Instellingen**:
-  * **ID van het systeem SAP**: de SAP-systeem-ID (SID).
-  * **Type besturingssysteem**: het besturingssysteem die u implementeren wilt, bijvoorbeeld, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12) of Red Hat Enterprise Linux 7.2 (RHEL 7.2).
+  * **ID van het systeem SAP**: Hallo SAP systeem-ID (SID).
+  * **Type besturingssysteem**: Hallo besturingssysteem die u wilt dat toodeploy, bijvoorbeeld, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12) of Red Hat Enterprise Linux 7.2 (RHEL 7.2).
 
-    De standaardweergave voor de lijst wordt niet weergegeven voor dat alle ondersteunde besturingssystemen. Selecteer **alle** voor een volledige lijst. Zie voor meer informatie over ondersteunde besturingssystemen voor software-implementatie voor SAP SAP-notitie [1928533].
-  * **Grootte van het SAP**: de grootte van het SAP-systeem.
+    Hallo lijst standaardweergave wordt niet weergegeven voor dat alle ondersteunde besturingssystemen. Selecteer **alle** voor een volledige lijst. Zie voor meer informatie over ondersteunde besturingssystemen voor software-implementatie voor SAP SAP-notitie [1928533].
+  * **Grootte van het SAP**: Hallo grootte van Hallo SAP-systeem.
 
-    Het aantal SAP's het nieuwe systeem biedt. Als u niet zeker weet hoeveel SAP's het systeem vereist is, vraagt u uw SAP-technologie Partner of System Integrator.
-  * **Beschikbaarheid van het systeem** (alleen drie lagen-sjabloon): de beschikbaarheid van het systeem.
+    aantal nieuwe systeem voor SAP's Hallo Hallo biedt. Als u niet zeker hoeveel SAP's Hallo systeem vereist is weet, vraagt u uw SAP-technologie Partner of System Integrator.
+  * **Beschikbaarheid van het systeem** (alleen drie lagen-sjabloon): Hallo beschikbaarheid van het systeem.
 
     Selecteer **HA** voor een configuratie die geschikt is voor de installatie van een hoge beschikbaarheid. Twee databaseservers en twee servers voor ABAP SAP centrale Services (ASC's) worden gemaakt.
-  * **Opslagtype** (alleen twee lagen-sjabloon): het type opslag te gebruiken.
+  * **Opslagtype** (alleen twee lagen-sjabloon): type opslag toouse Hallo.
 
     Voor grotere systemen ten zeerste aangeraden Azure Premium-opslag. Zie de volgende bronnen voor meer informatie over opslagtypen:
       * [Gebruik van Azure Premium-SSD-opslag voor SAP DBMS exemplaar][2367194]
       * [Microsoft Azure Storage] [ dbms-guide-2.3] in [Azure virtuele Machines DBMS-implementatie voor SAP op Linux][dbms-guide]
       * [Premium-opslag: Krachtige opslag voor Azure Virtual Machine-werkbelasting][storage-premium-storage-preview-portal]
-      * [Inleiding tot Microsoft Azure Storage][storage-introduction]
+      * [Inleiding tooMicrosoft Azure Storage][storage-introduction]
   * **Gebruikersnaam van de beheerder** en **beheerderswachtwoord**: een gebruikersnaam en wachtwoord.
-    Een nieuwe gebruiker is voor aanmelding bij de virtuele machine gemaakt.
-  * **Nieuwe of bestaande subnet**: bepaalt of een nieuw virtueel netwerk en subnet worden gemaakt of een bestaand subnet wordt gebruikt. Als u al een virtueel netwerk dat is verbonden met uw on-premises netwerk hebt, selecteert u **bestaande**.
-  * **Subnet-ID**: de ID van het subnet in de virtuele machines verbinding maken. Selecteer het subnet van uw virtueel particulier netwerk (VPN) of Azure ExpressRoute virtueel netwerk te gebruiken voor de virtuele machine verbinding met uw on-premises netwerk. De ID meestal uitziet: /subscriptions/&lt;abonnements-id > /resourceGroups/&lt;Resourcegroepnaam > /providers/Microsoft.Network/virtualNetworks/&lt;virtuele-netwerknaam > /subnets/&lt;subnetnaam >
+    Een nieuwe gebruiker is gemaakt voor het aanmelden toohello virtuele machine.
+  * **Nieuwe of bestaande subnet**: bepaalt of een nieuw virtueel netwerk en subnet worden gemaakt of een bestaand subnet wordt gebruikt. Als u al een virtueel netwerk dat is verbonden tooyour on-premises netwerk hebt, selecteert u **bestaande**.
+  * **Subnet-ID**: Hallo-ID van Hallo subnet Hallo virtuele machines verbinding maken. Selecteer subnet Hallo van uw virtueel particulier netwerk (VPN) of Azure ExpressRoute virtueel netwerk toouse tooconnect Hallo virtuele machine tooyour on-premises netwerk. Hallo-ID meestal uitziet: /subscriptions/&lt;abonnements-id > /resourceGroups/&lt;Resourcegroepnaam > /providers/Microsoft.Network/virtualNetworks/&lt;virtuele-netwerknaam > /subnets/&lt;subnetnaam >
 
 3. **Voorwaarden en bepalingen**:  
-    Lees en accepteer de juridische voorwaarden.
+    Lees en accepteer de juridische voorwaarden Hallo.
 
 4.  Selecteer **aankoop**.
 
-De Azure VM-Agent wordt geïmplementeerd standaard, wanneer u een installatiekopie uit Azure Marketplace gebruiken.
+Hello Azure VM-Agent wordt geïmplementeerd standaard, wanneer u een installatiekopie van hello Azure Marketplace.
 
 #### <a name="configure-proxy-settings"></a>Proxy-instellingen configureren
-Afhankelijk van hoe uw on-premises netwerk is geconfigureerd, moet u mogelijk de proxy op de virtuele machine niet instellen. Als uw VM is verbonden met uw on-premises netwerk via VPN- of ExpressRoute, de virtuele machine mogelijk geen toegang tot Internet, en niet kunnen downloaden van de vereiste extensies of bewakingsgegevens verzamelen. Zie voor meer informatie [configureert de proxy][deployment-guide-configure-proxy].
+Afhankelijk van hoe uw on-premises netwerk is geconfigureerd, moet u mogelijk tooset up Hallo proxy op de virtuele machine. Als uw VM verbonden tooyour on-premises netwerk via VPN- of ExpressRoute is, Hallo VM mogelijk niet worden kunnen tooaccess Hallo Internet, en won't kunnen toodownload Hallo vereist extensies of bewakingsgegevens verzamelen. Zie voor meer informatie [Hallo proxy configureren][deployment-guide-configure-proxy].
 
 #### <a name="join-a-domain-windows-only"></a>Lid worden van een domein (alleen Windows)
-Als uw Azure-implementatie is verbonden met een lokale Active Directory- of DNS-exemplaar op via een Azure site-naar-site VPN-verbinding of ExpressRoute (dit heet *cross-premises* in [Azure Virtual Machines planning en implementatie voor SAP op Linux][planning-guide]), wordt verwacht dat de virtuele machine lid wordt een lokaal domein. Zie voor meer informatie over overwegingen voor deze taak [een virtuele machine toevoegen aan een lokaal domein (alleen Windows)][deployment-guide-4.3].
+Als uw Azure-implementatie verbonden tooan lokale Active Directory- of DNS-exemplaar is via een Azure site-naar-site VPN-verbinding of ExpressRoute (dit heet *cross-premises* in [Azure Virtual Machines plannen en de implementatie voor SAP op Linux][planning-guide]), wordt verwacht dat Hallo VM lid wordt van een lokaal domein. Zie voor meer informatie over overwegingen voor deze taak [toevoegen aan een VM tooan lokale domein (alleen Windows)][deployment-guide-4.3].
 
 #### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>Bewaking configureren
-Om er zeker van te zijn dat uw omgeving ondersteuning biedt voor SAP, instellen van de extensie Azure Monitoring voor SAP, zoals beschreven in [configureren van de Azure verbeterde extensie Monitoring voor SAP][deployment-guide-4.5]. Controleer de vereisten voor het bewaken van SAP en vereist minimaal vereiste versies van de Kernel SAP en SAP-Agent Host in de resources die worden weergegeven [SAP resources][deployment-guide-2.2].
+controleren of uw omgeving ondersteunt SAP, hello Azure extensie Monitoring voor SAP ingesteld zoals beschreven toobe [configureren hello Azure verbeterde extensie Monitoring voor SAP][deployment-guide-4.5]. Hallo-vereisten voor SAP controle en de vereiste minimale versie van SAP Kernel en SAP-Agent Host in Hallo bronnen in [SAP resources][deployment-guide-2.2].
 
 #### <a name="monitoring-check"></a>Bewaking van selectievakje
 Controleer of bewaking werkt, zoals beschreven in [controles en het oplossen van problemen voor het instellen van het end-to-end bewaking][deployment-guide-troubleshooting-chapter].
 
 #### <a name="post-deployment-steps"></a>Stappen na de implementatie
-Nadat u de virtuele machine maken en de virtuele machine is geïmplementeerd, moet u de vereiste software-onderdelen installeren op de virtuele machine. Vanwege de volgorde van de installatie van implementatie/software in dit type van de VM-implementatie van moet de software worden geïnstalleerd al beschikbaar zijn, in Azure, op een andere virtuele machine of als een schijf die kan worden gekoppeld. Of Overweeg het gebruik van een cross-premises-scenario in welke verbinding met de on-premises assets (installatie shares) is opgegeven.
+Nadat u hebt gemaakt Hallo VM en Hallo VM is geïmplementeerd, moet u tooinstall Hallo vereist softwareonderdelen in Hallo VM. Vanwege Hallo implementatie/software-installatie sequence in dit type implementatie VM moet Hallo software toobe geïnstalleerd al beschikbaar zijn, in Azure, op een andere virtuele machine of als een schijf die kan worden gekoppeld. Of u kunt met behulp van een cross-premises-scenario in welke connectiviteit toohello lokale activa (installatie shares) krijgt.
 
-Wanneer u uw virtuele machine in Azure implementeert, volgt u dezelfde richtlijnen en hulpprogramma's voor de SAP-software installeren op de virtuele machine als in een on-premises omgeving. SAP om software te installeren op een virtuele machine in Azure, zowel SAP en Microsoft raden u aan dat u uploadt en de SAP-installatiemedia op Azure VHD's opslaan, of dat u een virtuele machine van Azure die maakt fungeert als een bestandsserver met alle de vereiste SAP-installatiemedia.
+Nadat u uw virtuele machine in Azure implementeert, volg dezelfde Hallo richtlijnen en hulpprogramma's voor tooinstall Hallo SAP-software op uw virtuele machine als u zou doen in een on-premises omgeving. tooinstall SAP-software op een virtuele machine in Azure, beide SAP en Microsoft u het beste uploaden en Hallo SAP-installatiemedia op Azure VHD's opslaan, of dat u maakt een virtuele machine van Azure die geschikt is als een bestandsserver met alle Hallo vereist SAP-installatiemedia.
 
-[comment]: <> (MSSedusch TODO waarom moet ik een bestandsbeheer, bijvoorbeeld het beste, bestands- of VHD? Is dit dus verschillende on-premises?)
+[comment]: <> (MSSedusch TODO waarom ik een Bestandsbeheer toorecommend bijvoorbeeld moet, bestands- of VHD? Is dit dus verschillende on-premises?)
 
 ### <a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>Scenario 2: Een virtuele machine met een aangepaste installatiekopie voor SAP implementeren
-Omdat verschillende versies van een besturingssysteem of DBMS patch verschillende behoeften hebben, de installatiekopieën u in Azure Marketplace vindt mogelijk niet voldoet aan uw behoeften. Mogelijk wilt u in plaats daarvan een virtuele machine maken met behulp van uw eigen OS/DBMS VM-installatiekopie, die u later opnieuw kunt implementeren.
-Verschillende stappen u maakt een persoonlijke installatiekopie voor Linux dan als u wilt maken van een voor Windows.
+Omdat er verschillende versies van een besturingssysteem of DBMS patch verschillende behoeften hebben, u in Azure Marketplace Hallo vindt Hallo-afbeeldingen mogelijk niet voldoet aan uw behoeften. U kunt in plaats daarvan toocreate een virtuele machine met behulp van uw eigen OS/DBMS VM-installatiekopie, die u later opnieuw kunt implementeren.
+U verschillende stappen toocreate een installatiekopie van een persoonlijke voor Linux dan toocreate voor Windows.
 
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> Als u een Windows-installatiekopie die u gebruiken kunt om meerdere virtuele machines te implementeren, moeten de Windows-instellingen (zoals Windows SID en de hostnaam) worden gescheiden of op de lokale virtuele machine worden gegeneraliseerd. U kunt [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) om dit te doen.
+> een Windows-installatiekopie die u toodeploy meerdere virtuele machines, Hallo Windows-instellingen (zoals Windows SID en de hostnaam kunt) moeten worden gescheiden of gegeneraliseerd op Hallo tooprepare lokale VM. U kunt [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) toodo dit.
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Als u een Linux-installatiekopie die u gebruiken kunt om meerdere virtuele machines te implementeren, worden sommige instellingen Linux gescheiden of op de lokale virtuele machine worden gegeneraliseerd. U kunt `waagent -deprovision` om dit te doen. Zie voor meer informatie [vastleggen van een virtuele Linux-machine uitgevoerd op Azure] [ virtual-machines-linux-capture-image] en de [gebruikershandleiding voor Azure Linux agent][virtual-machines-linux-agent-user-guide-command-line-options].
+> tooprepare een Linux-installatiekopie die u toodeploy meerdere virtuele machines gebruiken kunt, sommige instellingen Linux moet abstracte of gegeneraliseerde op Hallo lokale VM. U kunt `waagent -deprovision` toodo dit. Zie voor meer informatie [vastleggen van een virtuele Linux-machine uitgevoerd op Azure] [ virtual-machines-linux-capture-image] en Hallo [gebruikershandleiding voor Azure Linux agent][virtual-machines-linux-agent-user-guide-command-line-options].
 >
 >
 
 - - -
-U kunt voorbereiden en een aangepaste installatiekopie maken en vervolgens worden gebruikt voor het maken van meerdere nieuwe virtuele machines. Dit wordt beschreven in [Azure Virtual Machines planning en implementatie voor SAP op Linux][planning-guide]. Uw database inhoud instellen met behulp van SAP Software inrichting Manager voor het installeren van een nieuw SAP-systeem (u herstelt een databaseback-up van een VHD die gekoppeld aan de virtuele machine) of door rechtstreeks een databaseback-up terugzetten vanuit Azure-opslag, als dit het DBMS ondersteunt. Zie voor meer informatie [Azure virtuele Machines DBMS-implementatie voor SAP op Linux][dbms-guide]. Als u al een SAP-systeem op uw lokale virtuele machine (vooral voor systemen met twee lagen) hebt geïnstalleerd, kunt u de instellingen van het SAP na de implementatie van de Azure VM aanpassen met behulp van de procedure System wijzigen ondersteund door SAP Software inrichting Manager (SAP-notitie [1619720]). Anders kunt u de SAP-software installeren nadat u de virtuele machine in Azure implementeert.
+U kunt voorbereiden en een aangepaste installatiekopie maken en gebruik vervolgens toocreate meerdere nieuwe virtuele machines. Dit wordt beschreven in [Azure Virtual Machines planning en implementatie voor SAP op Linux][planning-guide]. Instellen van uw database inhoud met behulp van SAP Software inrichting Manager tooinstall een nieuw SAP-systeem (u herstelt een databaseback-up van een VHD die is aangesloten toohello virtuele machine) of door rechtstreeks een back-up van de database herstellen naar Azure storage als het DBMS ondersteuning voor biedt. Zie voor meer informatie [Azure virtuele Machines DBMS-implementatie voor SAP op Linux][dbms-guide]. Als u al een SAP-systeem op uw lokale virtuele machine (vooral voor systemen met twee lagen) hebt geïnstalleerd, kunt u Hallo SAP-systeeminstellingen na de implementatie van hello Azure VM Hallo aanpassen met behulp van Hallo System wijzigen procedure ondersteund door de SAP softwarelevering Manager (SAP-notitie [1619720]). U kunt anders Hallo SAP-software installeren nadat u hello Azure VM implementeren.
 
-Het volgende stroomdiagram toont de SAP-specifieke volgorde van stappen voor het implementeren van een virtuele machine van een aangepaste installatiekopie:
+Hallo toont volgende stroomdiagram Hallo SAP-specifieke volgorde van de stappen voor het implementeren van een virtuele machine van een aangepaste installatiekopie:
 
 ![Stroomdiagram van VM-implementatie voor SAP-systemen met behulp van een VM-installatiekopie in Marketplace persoonlijke][deployment-guide-figure-300]
 
-#### <a name="create-the-virtual-machine"></a>De virtuele machine maken
-Voor het maken van een implementatie met behulp van een persoonlijke installatiekopie van het besturingssysteem van de Azure-portal, een van de volgende SAP-sjablonen te gebruiken. Deze sjablonen zijn gepubliceerd in de [GitHub-opslagplaats voor azure-snelstartsjablonen][azure-quickstart-templates-github]. U kunt ook handmatig maken een virtuele machine, met behulp van [PowerShell][virtual-machines-upload-image-windows-resource-manager].
+#### <a name="create-hello-virtual-machine"></a>Hallo virtuele machine maken
+toocreate een implementatie met behulp van een persoonlijke installatiekopie van het besturingssysteem van hello Azure-portal, gebruikt u een Hallo SAP-sjablonen te volgen. Deze sjablonen zijn gepubliceerd in Hallo [GitHub-opslagplaats voor azure-snelstartsjablonen][azure-quickstart-templates-github]. U kunt ook handmatig maken een virtuele machine, met behulp van [PowerShell][virtual-machines-upload-image-windows-resource-manager].
 
 * [**Met twee lagen (slechts één virtuele machine) configuratiesjabloon** (sap-2-laag-gebruiker-installatiekopie)][sap-templates-2-tier-user-image]
 
-  Voor het maken van een systeem met twee lagen met behulp van slechts één virtuele machine, moet u deze sjabloon gebruiken.
+  toocreate een systeem met twee lagen met behulp van slechts één virtuele machine, gebruik deze sjabloon.
 * [**Configuratie met drie lagen (meerdere virtuele machines) sjabloon** (sap-3-tier-gebruiker-installatiekopie)][sap-templates-3-tier-user-image]
 
-  Voor het maken van een systeem met drie lagen met meerdere virtuele machines of uw eigen installatiekopie van het besturingssysteem, moet u deze sjabloon gebruiken.
+  toocreate een systeem met drie lagen met meerdere virtuele machines of uw eigen installatiekopie van het besturingssysteem deze sjabloon gebruiken.
 
-Voer de volgende parameters voor de sjabloon in de Azure-portal:
+Voer in hello Azure-portal, Hallo parameters voor de sjabloon hello te volgen:
 
 1. **Basisprincipes**:
-  * **Abonnement**: het abonnement moet worden gebruikt om de sjabloon te implementeren.
-  * **Resourcegroep**: de resourcegroep moet worden gebruikt om de sjabloon te implementeren. U kunt een nieuwe resourcegroep maken of een bestaande resourcegroep selecteren in het abonnement.
-  * **Locatie**: waar u de sjabloon implementeert. Als u een bestaande resourcegroep hebt geselecteerd, wordt de locatie van die resourcegroep wordt gebruikt.
+  * **Abonnement**: Hallo abonnement toouse toodeploy Hallo sjabloon.
+  * **Resourcegroep**: Hallo resource groep toouse toodeploy Hallo-sjabloon. U kunt een nieuwe resourcegroep maken of een bestaande resourcegroep selecteren in het Hallo-abonnement.
+  * **Locatie**: waar toodeploy Hallo sjabloon. Als u een bestaande resourcegroep hebt geselecteerd, wordt Hallo-locatie van die resourcegroep gebruikt.
 2. **Instellingen**:
-  * **ID van het systeem SAP**: de SAP-systeem-ID.
-  * **Type besturingssysteem**: het besturingssysteemtype die u implementeren wilt (Windows of Linux).
-  * **Grootte van het SAP**: de grootte van het SAP-systeem.
+  * **ID van het systeem SAP**: Hallo SAP-systeem-ID.
+  * **Type besturingssysteem**: Hallo van het besturingssysteemtype u wilt dat toodeploy (Windows of Linux).
+  * **Grootte van het SAP**: Hallo grootte van Hallo SAP-systeem.
 
-    Het aantal SAP's het nieuwe systeem biedt. Als u niet zeker weet hoeveel SAP's het systeem vereist is, vraagt u uw SAP-technologie Partner of System Integrator.
-  * **Beschikbaarheid van het systeem** (alleen drie lagen-sjabloon): de beschikbaarheid van het systeem.
+    aantal nieuwe systeem voor SAP's Hallo Hallo biedt. Als u niet zeker hoeveel SAP's Hallo systeem vereist is weet, vraagt u uw SAP-technologie Partner of System Integrator.
+  * **Beschikbaarheid van het systeem** (alleen drie lagen-sjabloon): Hallo beschikbaarheid van het systeem.
 
     Selecteer **HA** voor een configuratie die geschikt is voor de installatie van een hoge beschikbaarheid. Twee databaseservers en twee servers voor ASC's worden gemaakt.
-  * **Opslagtype** (alleen twee lagen-sjabloon): het type opslag te gebruiken.
+  * **Opslagtype** (alleen twee lagen-sjabloon): type opslag toouse Hallo.
 
-    Voor grotere systemen ten zeerste aangeraden Azure Premium-opslag. Zie de volgende bronnen voor meer informatie over opslagtypen:
+    Voor grotere systemen ten zeerste aangeraden Azure Premium-opslag. Zie voor meer informatie over opslagtypen Hallo resources te volgen:
       * [Gebruik van Azure Premium-SSD-opslag voor SAP DBMS exemplaar][2367194]
       * [Microsoft Azure Storage] [ dbms-guide-2.3] in [Azure virtuele Machines DBMS-implementatie voor SAP op Linux][dbms-guide]
       * [Premium-opslag: Krachtige opslag voor workloads van de virtuele machine van Azure][storage-premium-storage-preview-portal]
-      * [Inleiding tot Microsoft Azure Storage][storage-introduction]
-  * **Gebruikersinstallatiekopie VHD-URI**: de URI van de persoonlijke OS-installatiekopie VHD, bijvoorbeeld: https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
-  * **Opslag van de gebruikersaccount installatiekopie**: de naam van het opslagaccount waar de persoonlijke OS-installatiekopie wordt opgeslagen, bijvoorbeeld &lt;accountname > in https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
-  * **Gebruikersnaam van de beheerder** en **beheerderswachtwoord**: gebruikersnaam en wachtwoord.
+      * [Inleiding tooMicrosoft Azure Storage][storage-introduction]
+  * **Gebruikersinstallatiekopie VHD-URI**: de URI van persoonlijke besturingssysteemkopie Hallo VHD, bijvoorbeeld https:// Hallo&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
+  * **Opslag van de gebruikersaccount installatiekopie**: Hallo-naam van Hallo storage-account waarin Hallo persoonlijke OS-installatiekopie is opgeslagen, bijvoorbeeld &lt;accountname > in https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
+  * **Gebruikersnaam van de beheerder** en **beheerderswachtwoord**: Hallo gebruikersnaam en wachtwoord.
 
-    Een nieuwe gebruiker is voor aanmelding bij de virtuele machine gemaakt.
-  * **Nieuwe of bestaande subnet**: bepaalt of een nieuw virtueel netwerk en subnet wordt gemaakt of een bestaand subnet wordt gebruikt. Als u al een virtueel netwerk dat is verbonden met uw on-premises netwerk hebt, selecteert u **bestaande**.
-  * **Subnet-ID**: de ID van het subnet waarmee de virtuele machines verbinding maken op. Selecteer het subnet van uw VPN- of ExpressRoute virtueel netwerk gebruiken voor de virtuele machine verbinding met uw on-premises netwerk. De ID ziet er meestal als volgt uit:
+    Een nieuwe gebruiker is gemaakt voor het aanmelden toohello virtuele machine.
+  * **Nieuwe of bestaande subnet**: bepaalt of een nieuw virtueel netwerk en subnet wordt gemaakt of een bestaand subnet wordt gebruikt. Als u al een virtueel netwerk dat is verbonden tooyour on-premises netwerk hebt, selecteert u **bestaande**.
+  * **Subnet-ID**: Hallo-ID van Hallo subnet toowhich Hallo virtuele machines verbinding maken. Selecteer subnet Hallo van uw VPN- of ExpressRoute virtueel netwerk toouse tooconnect Hallo virtuele machine tooyour on-premises netwerk. Hallo-ID ziet er meestal als volgt uit:
 
     /Subscriptions/&lt;abonnements-id > /resourceGroups/&lt;Resourcegroepnaam > /providers/Microsoft.Network/virtualNetworks/&lt;virtuele-netwerknaam > /subnets/&lt;subnetnaam >
 
 3. **Voorwaarden en bepalingen**:  
-    Lees en accepteer de juridische voorwaarden.
+    Lees en accepteer de juridische voorwaarden Hallo.
 
 4.  Selecteer **aankoop**.
 
-#### <a name="install-the-vm-agent-linux-only"></a>Installeer de VM-Agent (alleen voor Linux)
-Voor het gebruik van de sjablonen die zijn beschreven in de vorige sectie, moet de Linux-Agent al zijn geïnstalleerd in de gebruikersinstallatiekopie van de of mislukt de implementatie. Download en installeer de VM-Agent in de gebruikersinstallatiekopie van de, zoals beschreven in [downloaden, installeren en inschakelen van de Azure VM-Agent][deployment-guide-4.4]. Als u de sjablonen niet gebruikt, kunt u ook de VM-Agent later installeren.
+#### <a name="install-hello-vm-agent-linux-only"></a>Hallo VM-Agent (alleen voor Linux) installeren
+toouse hello sjablonen wordt beschreven in voorgaande sectie Hallo Hallo die Linux-Agent moet al zijn geïnstalleerd in de gebruikersinstallatiekopie Hallo of Hallo implementatie mislukt. Download en installeer Hallo VM-Agent in Hallo gebruikersinstallatiekopie zoals beschreven in [downloaden, installeren en inschakelen van hello Azure VM-Agent][deployment-guide-4.4]. Als u geen Hallo sjablonen gebruikt, kunt u ook later Hallo VM-Agent installeren.
 
 #### <a name="join-a-domain-windows-only"></a>Lid worden van een domein (alleen Windows)
-Als uw Azure-implementatie is verbonden met een lokale Active Directory- of DNS-exemplaar op via een Azure site-naar-site VPN-verbinding of Azure ExpressRoute (dit heet *cross-premises* in [Azure Virtual Machines planning en implementatie voor SAP op Linux][planning-guide]), wordt verwacht dat de virtuele machine lid wordt een lokaal domein. Zie voor meer informatie over overwegingen voor deze stap [een virtuele machine toevoegen aan een lokaal domein (alleen Windows)][deployment-guide-4.3].
+Als uw Azure-implementatie verbonden tooan lokale Active Directory- of DNS-exemplaar is via een Azure site-naar-site VPN-verbinding of Azure ExpressRoute (dit heet *cross-premises* in [Azure Virtual Machines planning en implementatie voor SAP op Linux][planning-guide]), wordt verwacht dat Hallo VM lid wordt van een lokaal domein. Zie voor meer informatie over overwegingen voor deze stap [toevoegen aan een VM tooan lokale domein (alleen Windows)][deployment-guide-4.3].
 
 #### <a name="configure-proxy-settings"></a>Proxy-instellingen configureren
-Afhankelijk van hoe uw on-premises netwerk is geconfigureerd, moet u mogelijk de proxy op de virtuele machine niet instellen. Als uw VM is verbonden met uw on-premises netwerk via VPN- of ExpressRoute, de virtuele machine mogelijk geen toegang tot Internet, en niet kunnen downloaden van de vereiste extensies of bewakingsgegevens verzamelen. Zie voor meer informatie [configureert de proxy][deployment-guide-configure-proxy].
+Afhankelijk van hoe uw on-premises netwerk is geconfigureerd, moet u mogelijk tooset up Hallo proxy op de virtuele machine. Als uw VM verbonden tooyour on-premises netwerk via VPN- of ExpressRoute is, Hallo VM mogelijk niet worden kunnen tooaccess Hallo Internet, en won't kunnen toodownload Hallo vereist extensies of bewakingsgegevens verzamelen. Zie voor meer informatie [Hallo proxy configureren][deployment-guide-configure-proxy].
 
 #### <a name="configure-monitoring"></a>Bewaking configureren
-Om er zeker van te zijn dat uw omgeving ondersteuning biedt voor SAP, instellen van de extensie Azure Monitoring voor SAP, zoals beschreven in [configureren van de Azure verbeterde extensie Monitoring voor SAP][deployment-guide-4.5]. Controleer de vereisten voor het bewaken van SAP en vereist minimaal vereiste versies van de Kernel SAP en SAP-Agent Host in de resources die worden weergegeven [SAP resources][deployment-guide-2.2].
+controleren of uw omgeving ondersteunt SAP, hello Azure extensie Monitoring voor SAP ingesteld zoals beschreven toobe [configureren hello Azure verbeterde extensie Monitoring voor SAP][deployment-guide-4.5]. Hallo-vereisten voor SAP controle en de vereiste minimale versie van SAP Kernel en SAP-Agent Host in Hallo bronnen in [SAP resources][deployment-guide-2.2].
 
 #### <a name="monitoring-check"></a>Bewaking van selectievakje
 Controleer of bewaking werkt, zoals beschreven in [controles en het oplossen van problemen voor het instellen van het end-to-end bewaking][deployment-guide-troubleshooting-chapter].
@@ -578,11 +578,11 @@ Controleer of bewaking werkt, zoals beschreven in [controles en het oplossen van
 
 
 ### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Scenario 3: Het verplaatsen van een lokale virtuele machine met behulp van een VHD Azure niet gegeneraliseerd met SAP
-In dit scenario dat u wilt verplaatsen van een specifiek SAP-systeem van een on-premises-omgeving naar Azure. U kunt dit doen door het uploaden van de VHD met het besturingssysteem, de SAP-binaire bestanden en uiteindelijk de DBMS-binaire bestanden, plus de VHD's met de bestanden voor gegevens en logboekbestanden van het DBMS naar Azure. In tegenstelling tot het scenario dat wordt beschreven in [Scenario 2: een virtuele machine met een aangepaste installatiekopie implementeren voor SAP][deployment-guide-3.3], in dit geval blijven van de hostnaam, SAP-SID en SAP gebruikersaccounts in de Azure VM, omdat ze zijn geconfigureerd in de on-premises omgeving. U hoeft niet het besturingssysteem te generaliseren. Dit scenario geldt doorgaans voor cross-premises scenario's waarbij deel uit van de SAP-liggend lokaal wordt uitgevoerd en deel ervan wordt uitgevoerd op Azure.
+In dit scenario plant u een specifiek SAP-systeem van een lokale omgeving tooAzure toomove. U kunt dit doen door Hallo VHD die Hallo OS Hallo SAP binaire bestanden is, uploaden en uiteindelijk Hallo DBMS binaire bestanden, plus Hallo VHD's met Hallo gegevens en logboekbestanden Hallo DBMS, tooAzure. In tegenstelling tot Hallo scenario wordt beschreven in [Scenario 2: een virtuele machine met een aangepaste installatiekopie implementeren voor SAP][deployment-guide-3.3], in dit geval blijven Hallo hostnaam, SAP-SID en SAP gebruikersaccounts in hello Azure VM, omdat ze zijn geconfigureerd in Hallo on-premises omgeving. U hoeft niet toogeneralize Hallo OS. Dit scenario geldt meestal toocross-premises scenario's waarbij deel uit van Hallo SAP liggend lokaal wordt uitgevoerd en deel ervan wordt uitgevoerd op Azure.
 
-In dit scenario wordt wordt de VM-Agent niet automatisch geïnstalleerd tijdens de implementatie. Omdat de VM-Agent en de Azure verbeterde extensie Monitoring voor SAP vereist voor SAP uitvoeren, die u wilt downloaden, installeren en beide onderdelen handmatig inschakelen nadat u de virtuele machine hebt gemaakt.
+In dit scenario Hallo VM-Agent wordt niet automatisch geïnstalleerd tijdens de implementatie. Omdat Hallo VM-Agent en Hallo Azure verbeterde extensie Monitoring voor SAP voor toorun SAP vereist, moet u toodownload, installeren en schakelt u beide onderdelen handmatig nadat u Hallo virtuele machine hebt gemaakt.
 
-Zie de volgende bronnen voor meer informatie over de Azure VM-Agent.
+Zie voor meer informatie over hello Azure VM-Agent Hallo resources te volgen.
 
 [comment]: <> (Onderstaande MSSedusch TODO Update Windows-koppeling)
 
@@ -599,158 +599,158 @@ Zie de volgende bronnen voor meer informatie over de Azure VM-Agent.
 
 - - -
 
-Het volgende stroomdiagram toont de volgorde van stappen voor het verplaatsen van een lokale virtuele machine met behulp van een Azure niet gegeneraliseerd VHD:
+Hallo volgende stroomdiagram ziet Hallo-volgorde van de stappen voor het verplaatsen van een lokale virtuele machine met behulp van een Azure niet gegeneraliseerd VHD:
 
 ![Stroomdiagram van VM-implementatie voor SAP-systemen met behulp van een VM-schijf][deployment-guide-figure-400]
 
-Ervan uitgaande dat de schijf al geüpload en gedefinieerd in Azure (Zie [Azure Virtual Machines planning en implementatie voor SAP op Linux][planning-guide]), voer de taken beschreven in de volgende secties.
+Ervan uitgaande dat hello schijf is al geüpload en gedefinieerd in Azure (Zie [Azure Virtual Machines planning en implementatie voor SAP op Linux][planning-guide]), doen Hallo taken hieronder wordt beschreven in Hallo enkele secties.
 
 #### <a name="create-a-virtual-machine"></a>Een virtuele machine maken
-Maakt u een implementatie met behulp van een persoonlijke besturingssysteemschijf via de Azure portal met de SAP-sjabloon is gepubliceerd in de [GitHub-opslagplaats voor azure-snelstartsjablonen][azure-quickstart-templates-github]. U kunt ook handmatig maken een virtuele machine, met behulp van PowerShell.
+toocreate een implementatie met behulp van een persoonlijke besturingssysteemschijf via hello Azure-portal Hallo SAP-sjabloon is gepubliceerd in hello gebruiken [GitHub-opslagplaats voor azure-snelstartsjablonen][azure-quickstart-templates-github]. U kunt ook handmatig maken een virtuele machine, met behulp van PowerShell.
 
 * [**Met twee lagen (slechts één virtuele machine) configuratiesjabloon** (sap-2-laag-gebruiker-disk)][sap-templates-2-tier-os-disk]
 
-  Voor het maken van een systeem met twee lagen met behulp van slechts één virtuele machine, moet u deze sjabloon gebruiken.
+  toocreate een systeem met twee lagen met behulp van slechts één virtuele machine, gebruik deze sjabloon.
 
-Voer de volgende parameters voor de sjabloon in de Azure-portal:
+Voer in hello Azure-portal, Hallo parameters voor de sjabloon hello te volgen:
 
 1. **Basisprincipes**:
-  * **Abonnement**: het abonnement moet worden gebruikt om de sjabloon te implementeren.
-  * **Resourcegroep**: de resourcegroep moet worden gebruikt om de sjabloon te implementeren. U kunt een nieuwe resourcegroep maken of een bestaande resourcegroep selecteren in het abonnement.
-  * **Locatie**: waar u de sjabloon implementeert. Als u een bestaande resourcegroep hebt geselecteerd, wordt de locatie van die resourcegroep wordt gebruikt.
+  * **Abonnement**: Hallo abonnement toouse toodeploy Hallo sjabloon.
+  * **Resourcegroep**: Hallo resource groep toouse toodeploy Hallo-sjabloon. U kunt een nieuwe resourcegroep maken of een bestaande resourcegroep selecteren in het Hallo-abonnement.
+  * **Locatie**: waar toodeploy Hallo sjabloon. Als u een bestaande resourcegroep hebt geselecteerd, wordt Hallo-locatie van die resourcegroep gebruikt.
 2. **Instellingen**:
-  * **ID van het systeem SAP**: de SAP-systeem-ID.
-  * **Type besturingssysteem**: het besturingssysteemtype die u implementeren wilt (Windows of Linux).
-  * **Grootte van het SAP**: de grootte van het SAP-systeem.
+  * **ID van het systeem SAP**: Hallo SAP-systeem-ID.
+  * **Type besturingssysteem**: Hallo van het besturingssysteemtype u wilt dat toodeploy (Windows of Linux).
+  * **Grootte van het SAP**: Hallo grootte van Hallo SAP-systeem.
 
-    Het aantal SAP's het nieuwe systeem biedt. Als u niet zeker weet hoeveel SAP's het systeem vereist is, vraagt u uw SAP-technologie Partner of System Integrator.
-  * **Opslagtype** (alleen twee lagen-sjabloon): het type opslag te gebruiken.
+    aantal nieuwe systeem voor SAP's Hallo Hallo biedt. Als u niet zeker hoeveel SAP's Hallo systeem vereist is weet, vraagt u uw SAP-technologie Partner of System Integrator.
+  * **Opslagtype** (alleen twee lagen-sjabloon): type opslag toouse Hallo.
 
-    Voor grotere systemen ten zeerste aangeraden Azure Premium-opslag. Zie de volgende bronnen voor meer informatie over opslagtypen:
+    Voor grotere systemen ten zeerste aangeraden Azure Premium-opslag. Zie voor meer informatie over opslagtypen Hallo resources te volgen:
       * [Gebruik van Azure Premium-SSD-opslag voor SAP DBMS exemplaar][2367194]
       * [Microsoft Azure Storage] [ dbms-guide-2.3] in [Azure virtuele Machine DBMS-implementatie voor SAP op Linux][dbms-guide]
       * [Premium-opslag: Krachtige opslag voor Azure Virtual Machine-werkbelasting][storage-premium-storage-preview-portal]
-      * [Inleiding tot Microsoft Azure Storage][storage-introduction]
-  * **VHD-URI op besturingssysteemschijf**: de URI van de persoonlijke besturingssysteemschijf, bijvoorbeeld https://&lt;accountname >.blob.core.windows.net/vhds/osdisk.vhd.
-  * **Nieuwe of bestaande subnet**: bepaalt of een nieuw virtueel netwerk en subnet worden gemaakt of een bestaand subnet wordt gebruikt. Als u al een virtueel netwerk dat is verbonden met uw on-premises netwerk hebt, selecteert u **bestaande**.
-  * **Subnet-ID**: de ID van het subnet waarmee de virtuele machines verbinding maken op. Selecteer het subnet van het virtuele netwerk te gebruiken voor de virtuele machine verbinding met uw on-premises netwerk VPN of Azure ExpressRoute. De ID ziet er meestal als volgt uit:
+      * [Inleiding tooMicrosoft Azure Storage][storage-introduction]
+  * **VHD-URI op besturingssysteemschijf**: de URI van Hallo persoonlijke besturingssysteemschijf, bijvoorbeeld https:// Hallo&lt;accountname >.blob.core.windows.net/vhds/osdisk.vhd.
+  * **Nieuwe of bestaande subnet**: bepaalt of een nieuw virtueel netwerk en subnet worden gemaakt of een bestaand subnet wordt gebruikt. Als u al een virtueel netwerk dat is verbonden tooyour on-premises netwerk hebt, selecteert u **bestaande**.
+  * **Subnet-ID**: Hallo-ID van Hallo subnet toowhich Hallo virtuele machines verbinding maken. Selecteer subnet Hallo van uw VPN- of Azure ExpressRoute virtueel netwerk toouse tooconnect Hallo virtuele machine tooyour on-premises netwerk. Hallo-ID ziet er meestal als volgt uit:
 
     /Subscriptions/&lt;abonnements-id > /resourceGroups/&lt;Resourcegroepnaam > /providers/Microsoft.Network/virtualNetworks/&lt;virtuele-netwerknaam > /subnets/&lt;subnetnaam >
 
 3. **Voorwaarden en bepalingen**:  
-    Lees en accepteer de juridische voorwaarden.
+    Lees en accepteer de juridische voorwaarden Hallo.
 
 4.  Selecteer **aankoop**.
 
-#### <a name="install-the-vm-agent"></a>De VM-Agent installeren
-Voor het gebruik van de sjablonen die zijn beschreven in de vorige sectie, de VM-Agent moet worden geïnstalleerd op de schijf met het besturingssysteem of mislukt de implementatie. Download en installeer de VM-Agent in de virtuele machine, zoals beschreven in [downloaden, installeren en inschakelen van de Azure VM-Agent][deployment-guide-4.4].
+#### <a name="install-hello-vm-agent"></a>Hallo VM-Agent installeren
+toouse hello sjablonen die zijn beschreven in voorgaande sectie hello, hello VM-Agent moet worden geïnstalleerd op Hallo OS-schijf of Hallo implementatie mislukt. Download en installeer Hallo VM-Agent in Hallo VM, zoals beschreven in [downloaden, installeren en inschakelen van hello Azure VM-Agent][deployment-guide-4.4].
 
-Als u de sjablonen die zijn beschreven in de vorige sectie niet gebruikt, kunt u de VM-Agent ook later installeren.
+Als u niet beschreven in voorgaande sectie Hallo Hallo-sjablonen gebruikt, kunt u Hallo VM-Agent ook later installeren.
 
 #### <a name="join-a-domain-windows-only"></a>Lid worden van een domein (alleen Windows)
-Als uw Azure-implementatie is verbonden met een lokale Active Directory- of DNS-exemplaar op via een Azure site-naar-site VPN-verbinding of ExpressRoute (dit heet *cross-premises* in [Azure Virtual Machines planning en implementatie voor SAP op Linux][planning-guide]), wordt verwacht dat de virtuele machine lid wordt een lokaal domein. Zie voor meer informatie over overwegingen voor deze taak [een virtuele machine toevoegen aan een lokaal domein (alleen Windows)][deployment-guide-4.3].
+Als uw Azure-implementatie verbonden tooan lokale Active Directory- of DNS-exemplaar is via een Azure site-naar-site VPN-verbinding of ExpressRoute (dit heet *cross-premises* in [Azure Virtual Machines plannen en de implementatie voor SAP op Linux][planning-guide]), wordt verwacht dat Hallo VM lid wordt van een lokaal domein. Zie voor meer informatie over overwegingen voor deze taak [toevoegen aan een VM tooan lokale domein (alleen Windows)][deployment-guide-4.3].
 
 #### <a name="configure-proxy-settings"></a>Proxy-instellingen configureren
-Afhankelijk van hoe uw on-premises netwerk is geconfigureerd, moet u mogelijk de proxy op de virtuele machine niet instellen. Als uw VM is verbonden met uw on-premises netwerk via VPN- of ExpressRoute, de virtuele machine mogelijk geen toegang tot Internet, en niet kunnen downloaden van de vereiste extensies of bewakingsgegevens verzamelen. Zie voor meer informatie [configureert de proxy][deployment-guide-configure-proxy].
+Afhankelijk van hoe uw on-premises netwerk is geconfigureerd, moet u mogelijk tooset up Hallo proxy op de virtuele machine. Als uw VM verbonden tooyour on-premises netwerk via VPN- of ExpressRoute is, Hallo VM mogelijk niet worden kunnen tooaccess Hallo Internet, en won't kunnen toodownload Hallo vereist extensies of bewakingsgegevens verzamelen. Zie voor meer informatie [Hallo proxy configureren][deployment-guide-configure-proxy].
 
 #### <a name="configure-monitoring"></a>Bewaking configureren
-Om er zeker van te zijn dat uw omgeving ondersteuning biedt voor SAP, instellen van de extensie Azure Monitoring voor SAP, zoals beschreven in [configureren van de Azure verbeterde extensie Monitoring voor SAP][deployment-guide-4.5]. Controleer de vereisten voor het bewaken van SAP en vereist minimaal vereiste versies van de Kernel SAP en SAP-Agent Host in de resources die worden weergegeven [SAP resources][deployment-guide-2.2].
+controleren of uw omgeving ondersteunt SAP, hello Azure extensie Monitoring voor SAP ingesteld zoals beschreven toobe [configureren hello Azure verbeterde extensie Monitoring voor SAP][deployment-guide-4.5]. Hallo-vereisten voor SAP controle en de vereiste minimale versie van SAP Kernel en SAP-Agent Host in Hallo bronnen in [SAP resources][deployment-guide-2.2].
 
 #### <a name="monitoring-check"></a>Bewaking van selectievakje
 Controleer of bewaking werkt, zoals beschreven in [controles en het oplossen van problemen voor het instellen van het end-to-end bewaking][deployment-guide-troubleshooting-chapter].
 
-## <a name="update-the-monitoring-configuration-for-sap"></a>Bijwerken van de bewakingsconfiguratie voor SAP
-Werk de SAP-bewakingsconfiguratie in een van de volgende scenario's:
-* Het gemeenschappelijke Microsoft/SAP-team breidt de mogelijkheden voor bewaking en meer of minder items aanvragen.
-* Introduceert een nieuwe versie van de onderliggende Azure-infrastructuur die zorgt voor de bewakingsgegevens van Microsoft en de Azure verbeterde extensie Monitoring voor SAP moet worden aangepast aan deze wijzigingen.
-* U extra virtuele harde schijven gekoppeld aan uw Azure VM of u een VHD verwijderen. Bijwerken van de verzameling van gegevens met betrekking tot opslag in dit scenario. U kunt de configuratie wijzigt door toevoegen of verwijderen van eindpunten of door het IP-adressen toewijzen aan een virtuele machine heeft geen invloed op de configuratie van bewaking.
-* De grootte van uw Azure VM die u uit een grootte A5 naar een ander VM-formaat bijvoorbeeld wijzigen.
-* U voegt nieuwe netwerkinterfaces aan uw Azure-VM.
+## <a name="update-hello-monitoring-configuration-for-sap"></a>Hallo controleconfiguratie voor SAP bijwerken
+Hallo SAP controleconfiguratie in een van de volgende scenario's Hallo bijwerken:
+* Hallo gezamenlijke Microsoft/SAP-team breidt de Hallo bewakingsmogelijkheden en meer of minder items-aanvragen.
+* Microsoft introduceert een nieuwe versie van Hallo onderliggende Azure-infrastructuur die zorgt voor Hallo bewakingsgegevens en hello Azure uitgebreide bewaking extensie voor SAP behoeften toobe toothose wijzigingen aangepast.
+* U extra virtuele harde schijven tooyour Azure VM koppelen of te verwijderen van een VHD. In dit scenario bijwerken Hallo-verzameling van gegevens met betrekking tot opslag. U kunt de configuratie wijzigt door toevoegen of verwijderen van eindpunten of door het toewijzen van IP-adressen tooa VM heeft geen invloed op Hallo bewakingsconfiguratie.
+* U wijzigen Hallo grootte van uw Azure VM, bijvoorbeeld van grootte A5 tooany andere VM-grootte.
+* U toevoegen nieuwe netwerkinterfaces tooyour virtuele Azure-machine.
 
-Bijwerken voor het bijwerken van controle-instellingen van de bewakingsinfrastructuur door de stappen in [configureren van de Azure verbeterde extensie Monitoring voor SAP][deployment-guide-4.5].
+controle-instellingen, update Hallo infrastructuur bewaking door de volgende Hallo tooupdate stappen in [configureren hello Azure verbeterde extensie Monitoring voor SAP][deployment-guide-4.5].
 
 ## <a name="detailed-tasks-for-sap-software-deployment-on-a-windows-vm"></a>Gedetailleerde taken voor SAP software-implementatie op een virtuele machine van Windows
-In deze sectie bevat gedetailleerde stappen voor het uitvoeren van specifieke taken in de configuratie en implementatie-proces.
+In deze sectie bevat gedetailleerde stappen voor het uitvoeren van specifieke taken in de configuratie en implementatie proces Hallo.
 
 ### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Azure PowerShell-cmdlets implementeren
-1.  Ga naar [Downloads van Microsoft Azure](https://azure.microsoft.com/downloads/).
+1.  Ga te[Microsoft Azure Downloads](https://azure.microsoft.com/downloads/).
 2.  Onder **opdrachtregelprogramma's**onder **PowerShell**, selecteer **Windows installeren**.
-3.  Selecteer in het Microsoft Download Manager in het dialoogvenster voor het gedownloade bestand (bijvoorbeeld WindowsAzurePowershellGet.3f.3f.3fnew.exe) **uitvoeren**.
-4.  Voor het uitvoeren van Microsoft Web Platform Installer (Microsoft Web PI), selecteer **Ja**.
+3.  Hallo Microsoft Download Manager in het dialoogvenster voor Hallo gedownload bestand (bijvoorbeeld WindowsAzurePowershellGet.3f.3f.3fnew.exe), selecteer **uitvoeren**.
+4.  toorun Microsoft Web Platform Installer (Microsoft Web PI), selecteer **Ja**.
 5.  Een pagina die lijkt erop dat deze wordt weergegeven:
 
   ![De installatiepagina voor Azure PowerShell-cmdlets][deployment-guide-figure-500]<a name="figure-5"></a>
 
-6.  Selecteer **installeren**, en accepteer de licentievoorwaarden voor Microsoft-Software.
-7.  PowerShell is geïnstalleerd. Selecteer **voltooien** om de installatiewizard te sluiten.
+6.  Selecteer **installeren**, en accepteer de licentievoorwaarden voor Microsoft-Software Hallo.
+7.  PowerShell is geïnstalleerd. Selecteer **voltooien** tooclose Hallo-installatiewizard.
 
-Controleer regelmatig de updates van de PowerShell-cmdlets die meestal maandelijks worden bijgewerkt. De eenvoudigste manier om te controleren op updates is de voorgaande installatiestappen, tot aan de installatiepagina wordt weergegeven in stap 5 doen. Het versienummer voor datum en de versie van de cmdlets zijn opgenomen op de pagina wordt weergegeven in stap 5. Tenzij anders vermeld in SAP-notitie [1928533] of SAP-notitie [2015553], het is raadzaam dat u met de nieuwste versie van Azure PowerShell-cmdlets werken.
+Controleer regelmatig de voor updates toohello PowerShell-cmdlets die meestal maandelijks worden bijgewerkt. Hallo gemakkelijkste manier toocheck voor updates is toodo Hallo voorafgaand aan de installatiestappen up toohello installatiepagina weergegeven in stap 5. Hallo release datum- en release aantal Hallo-cmdlets zijn opgenomen op Hallo pagina wordt weergegeven in stap 5. Tenzij anders vermeld in SAP-notitie [1928533] of SAP-notitie [2015553], het is raadzaam dat u met Hallo meest recente versie van Azure PowerShell-cmdlets werkt.
 
-Als u wilt controleren de versie van de Azure PowerShell-cmdlets die zijn geïnstalleerd op uw computer, moet u deze PowerShell-opdracht uitvoeren:
+toocheck hello versie van hello Azure PowerShell-cmdlets die zijn geïnstalleerd op uw computer, deze PowerShell-opdracht uitvoeren:
 ```powershell
 Import-Module Azure
 (Get-Module Azure).Version
 ```
-Het resultaat ziet er als volgt:
+Hallo resultaat ziet er als volgt:
 
 ![Resultaat van controle van versie van Azure PowerShell-cmdlet][deployment-guide-figure-600]
 <a name="figure-6"></a>
 
-Als de cmdlet voor Azure-versie die is geïnstalleerd op uw computer de huidige versie is, de eerste pagina van de installatiewizard aangeeft dat ze door toe te voegen **(geïnstalleerd)** naar de Producttitel (Zie de volgende schermafbeelding). Uw PowerShell Azure-cmdlets zijn bijgewerkt. Selecteer om de installatiewizard sluit, **afsluiten**.
+Als hello Azure cmdlet versie is geïnstalleerd op uw computer de huidige versie hello is, eerste pagina van de installatiewizard Hallo Hallo aangeeft dat ze door toe te voegen **(geïnstalleerd)** toohello Producttitel (Zie de volgende schermafbeelding Hallo). Uw PowerShell Azure-cmdlets zijn bijgewerkt. tooclose hello installatiewizard selecteert **afsluiten**.
 
-![De installatiepagina voor Azure PowerShell-cmdlets die aangeeft dat de meest recente versie van Azure PowerShell-cmdlets zijn geïnstalleerd][deployment-guide-figure-700]
+![De installatiepagina voor Azure PowerShell-cmdlets waarmee wordt aangegeven die Hallo meest recente versie van Azure PowerShell-cmdlets zijn geïnstalleerd][deployment-guide-figure-700]
 <a name="figure-7"></a>
 
 ### <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Azure CLI implementeren
-1.  Ga naar [Downloads van Microsoft Azure](https://azure.microsoft.com/downloads/).
-2.  Onder **opdrachtregelprogramma's**onder **Azure-opdrachtregelinterface**, selecteer de **installeren** koppeling voor uw besturingssysteem.
-3.  Selecteer in het Microsoft Download Manager in het dialoogvenster voor het gedownloade bestand (bijvoorbeeld WindowsAzureXPlatCLI.3f.3f.3fnew.exe) **uitvoeren**.
-4.  Voor het uitvoeren van Microsoft Web Platform Installer (Microsoft Web PI), selecteer **Ja**.
+1.  Ga te[Microsoft Azure Downloads](https://azure.microsoft.com/downloads/).
+2.  Onder **opdrachtregelprogramma's**onder **Azure-opdrachtregelinterface**, selecteer Hallo **installeren** koppeling voor uw besturingssysteem.
+3.  Hallo Microsoft Download Manager in het dialoogvenster voor Hallo gedownload bestand (bijvoorbeeld WindowsAzureXPlatCLI.3f.3f.3fnew.exe), selecteer **uitvoeren**.
+4.  toorun Microsoft Web Platform Installer (Microsoft Web PI), selecteer **Ja**.
 5.  Een pagina die lijkt erop dat deze wordt weergegeven:
 
   ![De installatiepagina voor Azure PowerShell-cmdlets][deployment-guide-figure-500]<a name="figure-5"></a>
 
-6.  Selecteer **installeren**, en accepteer de licentievoorwaarden voor Microsoft-Software.
-7.  Azure CLI is geïnstalleerd. Selecteer **voltooien** om de installatiewizard te sluiten.
+6.  Selecteer **installeren**, en accepteer de licentievoorwaarden voor Microsoft-Software Hallo.
+7.  Azure CLI is geïnstalleerd. Selecteer **voltooien** tooclose Hallo-installatiewizard.
 
-Controleer regelmatig op updates voor Azure CLI, die meestal maandelijks wordt bijgewerkt. De eenvoudigste manier om te controleren op updates is de voorgaande installatiestappen, tot aan de installatiepagina wordt weergegeven in stap 5 doen.
+Controleer regelmatig de voor updates tooAzure CLI, die meestal maandelijks wordt bijgewerkt. Hallo gemakkelijkste manier toocheck voor updates is toodo Hallo voorafgaand aan de installatiestappen up toohello installatiepagina weergegeven in stap 5.
 
 
-Als u wilt controleren de versie van Azure CLI op uw computer is geïnstalleerd, moet u deze opdracht uitvoeren:
+toocheck hello versie van Azure CLI die is geïnstalleerd op uw computer, wordt deze opdracht uitvoeren:
 ```
 azure --version
 ```
 
-Het resultaat ziet er als volgt:
+Hallo resultaat ziet er als volgt:
 
 ![Resultaat van controle van versie van Azure CLI][deployment-guide-figure-760]
 <a name="0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda"></a>
 
-### <a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Een virtuele machine toevoegen aan een lokaal domein (alleen Windows)
-Als u virtuele machines SAP in een cross-premises-scenario waarin lokale Active Directory en DNS zijn uitgebreid in Azure implementeert, wordt verwacht dat de virtuele machines zijn worden gebruikt voor het lidmaatschap van een lokaal domein. De gedetailleerde stappen u rekening houden met een virtuele machine toevoegen aan een lokaal domein en de aanvullende software vereist voor het lid zijn van een lokale domein, hangt af van de klant. Als u wilt toevoegen aan een virtuele machine op het lokale domein, moet u doorgaans aanvullende software, zoals antimalware-software en de back-up of controle-software installeren.
+### <a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Lid worden van een VM tooan lokale domein (alleen Windows)
+Als u virtuele machines SAP in een cross-premises-scenario implementeert, wordt waarin lokale Active Directory en DNS zijn uitgebreid in Azure, verwacht dat Hallo VM's zijn worden gebruikt voor het lidmaatschap van een lokaal domein. gedetailleerde stappen toojoin een VM tooan lokale domein Hallo en hello extra software nodig toobe lid is van een lokale domein, hangt af van de klant. Meestal toojoin een VM-tooan lokale domein, moet u tooinstall aanvullende software zoals antimalware-software en back-up of controle-software.
 
-In dit scenario moet u ook om ervoor te zorgen dat als InternetProxy-instellingen worden afgedwongen wanneer een virtuele machine lid van een domein in uw omgeving, de Windows lokale systeemaccount (S-1-5-18) in de Gast-VM heeft de dezelfde proxyinstellingen. De eenvoudigste optie is om af te dwingen de proxy met behulp van Groepsbeleid, is van toepassing op systemen in het domein van een domein.
+In dit scenario moet u ook toomake ervoor dat als InternetProxy-instellingen worden afgedwongen wanneer een virtuele machine lid van een domein in uw omgeving, Hallo Hallo Windows lokale systeemaccount (S-1-5-18) in Hallo Gast-VM heeft dezelfde proxy-instellingen. de eenvoudigste optie Hallo is tooforce Hallo proxy met behulp van Groepsbeleid, die van toepassing toosystems in Hallo domein is van een domein.
 
-### <a name="c7cbb0dc-52a4-49db-8e03-83e7edc2927d"></a>Downloaden, installeren en inschakelen van de Azure VM-Agent
-Voor virtuele machines die vanuit een installatiekopie van het besturingssysteem die niet is gegeneraliseerd (bijvoorbeeld een afbeelding die niet afkomstig zijn uit het hulpprogramma Windows System Preparation of sysprep,) worden geïmplementeerd, moet u handmatig downloaden, installeren en inschakelen van de Azure VM-Agent.
+### <a name="c7cbb0dc-52a4-49db-8e03-83e7edc2927d"></a>Downloaden, installeren en inschakelen van hello Azure VM-Agent
+Voor virtuele machines die vanuit een installatiekopie van het besturingssysteem die niet is gegeneraliseerd (bijvoorbeeld een afbeelding die niet afkomstig zijn uit Hallo Windows System Preparation of sysprep, hulpprogramma) worden geïmplementeerd, moet u toomanually downloaden, installeren en inschakelen hello Azure VM-Agent.
 
-Als u een virtuele machine uit Azure Marketplace implementeert, is deze stap niet vereist. Afbeeldingen vanuit Azure Marketplace hebben al de Azure VM-Agent.
+Als u een virtuele machine uit Azure Marketplace Hallo implementeert, is deze stap niet vereist. Installatiekopieën van hello Azure Marketplace al hello Azure VM-Agent.
 
 #### <a name="b2db5c9a-a076-42c6-9835-16945868e866"></a>Windows
-1.  Download de Azure VM-Agent:
-  1.  Download de [Azure VM-Agent-installatiepakket](https://go.microsoft.com/fwlink/?LinkId=394789).
-  2.  Het VM-Agent-MSI-pakket lokaal opslaan op een pc of de server.
-2.  De Azure VM-Agent installeren:
-  1.  Verbinding maken met de geïmplementeerde virtuele machine in Azure met behulp van Remote Desktop Protocol (RDP).
-  2.  Open een venster van Windows Verkenner op de virtuele machine en selecteer de doelmap voor het MSI-bestand van de VM-Agent.
-  3.  Sleep de Azure VM-Agent-installatieprogramma MSI-bestand van uw lokale computer/server naar de doelmap van de VM-Agent op de virtuele machine.
-  4.  Dubbelklik op het MSI-bestand op de virtuele machine.
-3.  Voor virtuele machines die lid zijn van lokale domeinen, zorg ervoor dat eventuele InternetProxy-instellingen ook van toepassing op het lokale Windows-systeem-account (S-1-5-18) in de virtuele machine, zoals beschreven in [configureert de proxy][deployment-guide-configure-proxy]. De VM-Agent wordt uitgevoerd in deze context en moet kunnen verbinding maken met Azure.
+1.  Hello Azure VM-Agent downloaden:
+  1.  Hallo downloaden [Azure VM-Agent-installatiepakket](https://go.microsoft.com/fwlink/?LinkId=394789).
+  2.  Hallo VM-Agent-MSI-pakket lokaal opslaan op een pc of de server.
+2.  Hello Azure VM-Agent installeren:
+  1.  Verbinding maken met toohello Azure VM geïmplementeerd met behulp van Remote Desktop Protocol (RDP).
+  2.  Open een venster van Windows Verkenner op Hallo VM en selecteer Hallo doelmap voor de MSI-bestand Hallo Hallo VM-Agent.
+  3.  Sleep hello Azure VM-Agent-installatieprogramma MSI-bestand van uw lokale computer of de server toohello doelmap Hallo VM-Agent op Hallo VM.
+  4.  Dubbelklik op Hallo MSI-bestand op Hallo VM.
+3.  Voor virtuele machines die gekoppeld tooon-premises domeinen zijn, zorg ervoor dat eventuele InternetProxy-instellingen ook van toepassing toohello Windows lokale systeemaccount (S-1-5-18) in Hallo VM, zoals beschreven in [Hallo proxy configureren] [ deployment-guide-configure-proxy]. Hallo VM-Agent wordt uitgevoerd in deze context en moet toobe kunnen tooconnect tooAzure.
 
-Er is geen gebruikersinteractie is vereist voor het bijwerken van de Azure VM-Agent. De VM-Agent wordt automatisch bijgewerkt en vereist geen virtuele machine opnieuw opstarten.
+Er geen gebruikersinteractie is vereist tooupdate hello Azure VM-Agent. Hallo VM-Agent wordt automatisch bijgewerkt en vereist geen virtuele machine opnieuw opstarten.
 
 #### <a name="6889ff12-eaaf-4f3c-97e1-7c9edc7f7542"></a>Linux
-Gebruik de volgende opdrachten voor het installeren van de VM-Agent voor Linux:
+Gebruik Hallo deze opdrachten tooinstall Hallo VM-Agent voor Linux:
 
 * **SUSE Linux Enterprise Server (SLES)**
 
@@ -764,109 +764,109 @@ Gebruik de volgende opdrachten voor het installeren van de VM-Agent voor Linux:
   sudo yum install WALinuxAgent
   ```
 
-Als de agent al is geïnstalleerd, de stappen in voor het bijwerken van de Azure Linux Agent doen [bijwerken van de Azure Linux Agent op een virtuele machine naar de nieuwste versie van GitHub][virtual-machines-linux-update-agent].
+Als het Hallo-agent al is geïnstalleerd, tooupdate hello Azure Linux Agent in beschreven stappen Hallo [Update hello Azure Linux Agent op een VM toohello meest recente versie van GitHub][virtual-machines-linux-update-agent].
 
-### <a name="baccae00-6f79-4307-ade4-40292ce4e02d"></a>Configureer de proxy
-De stappen waarmee u de proxy configureren in Windows wijken af van de manier waarop die u de proxy in Linux configureren.
+### <a name="baccae00-6f79-4307-ade4-40292ce4e02d"></a>Hallo proxy configureren
+Hallo u stappen tooconfigure Hallo proxy in Windows ondernemen zijn anders dan Hallo manier u Hallo proxy in Linux configureert.
 
 #### <a name="windows"></a>Windows
-Proxy-instellingen moeten correct worden ingesteld voor het lokale systeemaccount gebruikt voor toegang tot het Internet. Als de proxy-instellingen niet zijn ingesteld door Groepsbeleid, kunt u de instellingen voor het lokale systeemaccount configureren.
+Proxy-instellingen moeten correct worden ingesteld voor Hallo lokale systeemaccount tooaccess Hallo Internet. Als de proxy-instellingen niet zijn ingesteld door Groepsbeleid, kunt u Hallo-instellingen voor Hallo lokale systeemaccount configureren.
 
-1. Ga naar **Start**, voer **gpedit.msc**, en selecteer vervolgens **Enter**.
-2. Selecteer **Computerconfiguratie** > **Beheersjablonen** > **Windows-onderdelen** > **Internet Explorer**. Zorg ervoor dat de instelling **proxy maken instellingen per computer (in plaats per gebruiker)** is uitgeschakeld of niet is geconfigureerd.
-3. In **Configuratiescherm**, gaat u naar **Netwerkcentrum** > **Internetopties**.
-4. Op de **verbindingen** tabblad de **LAN-instellingen** knop.
-5. Schakel de **-instellingen automatisch detecteren** selectievakje.
-6. Selecteer de **een proxyserver gebruiken voor uw LAN** uit en voer vervolgens de proxy-adres en poort.
-7. Selecteer de **Geavanceerd** knop.
-8. In de **uitzonderingen** Voer het IP-adres **168.63.129.16**. Selecteer **OK**.
+1. Ga te**Start**, voer **gpedit.msc**, en selecteer vervolgens **Enter**.
+2. Selecteer **Computerconfiguratie** > **Beheersjablonen** > **Windows-onderdelen** > **Internet Explorer**. Zorg ervoor dat deze instelling Hallo **proxy maken instellingen per computer (in plaats per gebruiker)** is uitgeschakeld of niet is geconfigureerd.
+3. In **Configuratiescherm**, gaat u te**Netwerkcentrum** > **Internetopties**.
+4. Op Hallo **verbindingen** tabblad, selecteer Hallo **LAN-instellingen** knop.
+5. Schakel Hallo **-instellingen automatisch detecteren** selectievakje.
+6. Selecteer Hallo **een proxyserver gebruiken voor uw LAN** selectievakje en voer vervolgens Hallo proxy-adres en poort.
+7. Selecteer Hallo **Geavanceerd** knop.
+8. In Hallo **uitzonderingen** Voer Hallo IP-adres **168.63.129.16**. Selecteer **OK**.
 
 
 #### <a name="linux"></a>Linux
-Configureer de juiste proxy in het configuratiebestand van de Microsoft Azure Guest-Agent, dat zich op \\enzovoort\\waagent.conf.
+Hallo juiste proxy configureren in het configuratiebestand Hallo Hallo Microsoft Azure Guest-Agent, dat zich op \\enzovoort\\waagent.conf.
 
-De volgende parameters instellen:
+Hallo volgende parameters instellen:
 
-1.  **HTTP-proxyhost**. Bijvoorbeeld ingesteld op **proxy.corp.local**.
+1.  **HTTP-proxyhost**. Bijvoorbeeld, te ingesteld**proxy.corp.local**.
   ```
   HttpProxy.Host=<proxy host>
 
   ```
-2.  **HTTP-proxypoort**. Bijvoorbeeld ingesteld op **80**.
+2.  **HTTP-proxypoort**. Bijvoorbeeld, te ingesteld**80**.
   ```
-  HttpProxy.Port=<port of the proxy host>
+  HttpProxy.Port=<port of hello proxy host>
 
   ```
-3.  Start de agent opnieuw.
+3.  Hallo-agent opnieuw opstarten
 
   ```
   sudo service waagent restart
   ```
 
-De proxy-instellingen in \\enzovoort\\waagent.conf ook van toepassing op het vereiste VM-extensies. Als u wilt gebruiken, de Azure-opslagplaatsen Controleer of het verkeer naar deze opslagplaatsen gaat niet via het lokale intranet. Als u de gebruiker gedefinieerde routes geforceerde tunneling inschakelen Controleer of u een route toevoegen gemaakt routeert die verkeer naar de opslagplaatsen rechtstreeks met het Internet en niet via uw site-naar-site VPN-verbinding.
+proxy-instellingen in Hallo \\enzovoort\\waagent.conf toohello vereiste VM-extensies ook van toepassing. Als u wilt dat toouse Hallo Azure-opslagplaatsen, zorg ervoor dat Hallo verkeer toothese opslagplaatsen niet wordt verzonden via het lokale intranet. Als u hebt gemaakt gebruiker gedefinieerde routes tooenable geforceerde tunneling, zorg ervoor dat u een route die verkeer toohello opslagplaatsen van routes toevoegen rechtstreeks toohello Internet, en niet via uw site-naar-site VPN-verbinding.
 
 * **SLES**
 
-  U moet ook routes toevoegen voor de IP-adressen die worden vermeld \\enzovoort\\regionserverclnt.cfg. De volgende afbeelding toont een voorbeeld:
+  U moet ook tooadd routes voor Hallo IP-adressen die worden vermeld \\enzovoort\\regionserverclnt.cfg. Hallo toont volgende afbeelding een voorbeeld:
 
   ![Geforceerde tunneling][deployment-guide-figure-50]
 
 
 * **RHEL**
 
-  U moet ook routes toevoegen voor de IP-adressen van de hosts die worden vermeld in \\enzovoort\\yum.repos.d\\rhui netwerktaakverdelers. Zie de voorgaande afbeelding voor een voorbeeld.
+  U moet ook tooadd routes voor Hallo IP-adressen van hosts Hallo vermeld in \\enzovoort\\yum.repos.d\\rhui netwerktaakverdelers. Zie voor een voorbeeld Hallo voorgaande afbeelding.
 
 Zie voor meer informatie over de gebruiker gedefinieerde routes [gebruiker gedefinieerde routes en doorsturen via IP][virtual-networks-udr-overview].
 
-### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configureren van de Azure uitgebreide controle-extensie voor SAP
-Wanneer u de virtuele machine hebt voorbereid, zoals beschreven in [implementatiescenario's van virtuele machines voor SAP op Azure][deployment-guide-3], de Azure VM-Agent is geïnstalleerd op de virtuele machine. De volgende stap is voor het implementeren van de Azure verbeterde extensie Monitoring voor SAP, die beschikbaar is in de Azure-opslagplaats voor uitbreiding in de globale Azure-datacenters. Zie voor meer informatie [Azure Virtual Machines planning en implementatie voor SAP op Linux][planning-guide-9.1].
+### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Hello Azure verbeterde extensie Monitoring voor SAP configureren
+Wanneer u Hallo VM hebt voorbereid, zoals beschreven in [implementatiescenario's van virtuele machines voor SAP op Azure][deployment-guide-3], hello Azure VM-Agent is geïnstalleerd op Hallo virtuele machine. de volgende stap Hallo is toodeploy hello Azure verbeterde extensie Monitoring voor SAP, die beschikbaar in hello Azure-opslagplaats voor uitbreiding in Hallo globale Azure-datacenters is. Zie voor meer informatie [Azure Virtual Machines planning en implementatie voor SAP op Linux][planning-guide-9.1].
 
-U kunt PowerShell of Azure CLI installeren en configureren van de Azure verbeterde extensie Monitoring voor SAP. Zie de extensie installeren op een Windows- of Linux-VM met behulp van een Windows-machine [Azure PowerShell][deployment-guide-4.5.1]. Zie de extensie installeren op een Linux-VM met behulp van een bureaublad Linux [Azure CLI][deployment-guide-4.5.2].
+U kunt gebruik PowerShell of Azure CLI tooinstall en hello Azure verbeterde extensie Monitoring voor SAP configureren. Zie tooinstall Hallo-extensie op een Windows- of Linux-VM met behulp van een Windows-computer [Azure PowerShell][deployment-guide-4.5.1]. Zie tooinstall Hallo-extensie op een Linux-VM met behulp van een bureaublad Linux [Azure CLI][deployment-guide-4.5.2].
 
 #### <a name="987cf279-d713-4b4c-8143-6b11589bb9d4"></a>Azure PowerShell voor Linux en Windows-VM 's
-De Azure verbeterde extensie Monitoring voor SAP installeren met behulp van PowerShell:
+tooinstall hello Azure verbeterde extensie Monitoring voor SAP met behulp van PowerShell:
 
-1. Zorg ervoor dat u de nieuwste versie van de Azure PowerShell-cmdlet hebt geïnstalleerd. Zie voor meer informatie [implementeren van Azure PowerShell-cmdlets][deployment-guide-4.1].  
-2. Voer de volgende PowerShell-cmdlet.
-  Voor een lijst met beschikbare omgevingen, voert u `commandlet Get-AzureRmEnvironment`. Als u gebruiken van openbare Azure wilt, uw omgeving is **AzureCloud**. Selecteer voor Azure China **AzureChinaCloud**.
+1. Zorg ervoor dat u de meest recente versie van Azure PowerShell-cmdlet Hallo Hallo hebt geïnstalleerd. Zie voor meer informatie [implementeren van Azure PowerShell-cmdlets][deployment-guide-4.1].  
+2. Hallo volgende PowerShell-cmdlet uitvoeren.
+  Voor een lijst met beschikbare omgevingen, voert u `commandlet Get-AzureRmEnvironment`. Als u wilt dat toouse openbare Azure, uw omgeving is **AzureCloud**. Selecteer voor Azure China **AzureChinaCloud**.
 
 
       ```powershell
-      $env = Get-AzureRmEnvironment -Name <name of the environment>
+      $env = Get-AzureRmEnvironment -Name <name of hello environment>
       Login-AzureRmAccount -Environment $env
       Set-AzureRmContext -SubscriptionName <subscription name>
 
       Set-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
       ```
 
-Nadat u de accountgegevens van uw invoeren en identificeren van de virtuele machine van Azure, wordt het script implementeert de vereiste uitbreidingen en kunt de vereiste onderdelen. Dit kan enkele minuten duren.
+Nadat u de accountgegevens van uw invoeren en hello Azure virtuele machine te identificeren, wordt Hallo script Hallo vereist extensies implementeert en maakt Hallo vereist functies. Dit kan enkele minuten duren.
 Voor meer informatie over `Set-AzureRmVMAEMExtension`, Zie [Set AzureRmVMAEMExtension][msdn-set-azurermvmaemextension].
 
 ![Voltooiing van uitvoering van SAP-specifieke Azure-cmdlet Set-AzureRmVMAEMExtension][deployment-guide-figure-900]
 
-De `Set-AzureRmVMAEMExtension` configuratie biedt de stappen voor het configureren van de bewaking voor SAP host.
+Hallo `Set-AzureRmVMAEMExtension` configuratie biedt alle Hallo stappen tooconfigure host bewaking voor SAP.
 
-De uitvoer van het script bevat de volgende informatie:
+Hallo-scriptuitvoer bevat Hallo volgende informatie:
 
-* Bevestiging dat de bewaking voor de base VHD (met het besturingssysteem) en alle extra virtuele harde schijven gekoppeld aan de virtuele machine is geconfigureerd.
-* De volgende twee berichten Bevestig de configuratie van Storage metrische gegevens voor een specifieke storage-account.
-* Een line-of-uitvoer geeft de status van de werkelijke update van de bewakingsconfiguratie.
-* Een andere line-of-uitvoer wordt bevestigd dat de configuratie zijn geïmplementeerd of bijgewerkt.
-* De laatste regel van de uitvoer is informatief. Het bevat uw opties voor het testen van de bewakingsconfiguratie.
+* Bevestiging die bewaking voor Hallo base VHD (met Hallo OS) en alle aanvullende VHD's gekoppelde toohello die VM is geconfigureerd.
+* de volgende twee berichten Hallo Bevestig Hallo configuratie van Storage metrische gegevens voor een specifieke storage-account.
+* Een line-of-uitvoer geeft Hallo-status van de werkelijke update Hallo van Hallo controleconfiguratie.
+* Een andere line-of-uitvoer wordt bevestigd dat Hallo de configuratie zijn geïmplementeerd of bijgewerkt.
+* Hallo laatste regel van uitvoer is informatief. Uw opties voor het testen Hallo controleconfiguratie weergeven
 
-Als u wilt controleren of alle stappen van de Azure-uitgebreide bewaking is uitgevoerd en dat de Azure-infrastructuur de benodigde gegevens biedt, doorgaan met de gereedheidscontrole voor de Azure verbeterde extensie Monitoring voor SAP, zoals beschreven in [gereedheidscontrole voor Azure-uitgebreide bewaking voor SAP][deployment-guide-5.1]. Wacht 15-30 minuten voor Azure Diagnostics de relevante gegevens te verzamelen.
+toocheck dat alle stappen van de Azure-uitgebreide bewaking met succes zijn uitgevoerd en die hello Azure-infrastructuur Hallo gegevens die nodig zijn biedt, doorgaan met de gereedheidscontrole Hallo voor hello Azure verbeterde extensie Monitoring voor SAP, zoals beschreven in [Gereedheidscontrole voor Azure-uitgebreide bewaking voor SAP][deployment-guide-5.1]. Wacht 15-30 minuten tot Azure Diagnostics toocollect Hallo relevante gegevens.
 
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Azure CLI voor virtuele Linux-machines
-De Azure verbeterde extensie Monitoring voor SAP met behulp van Azure CLI installeren:
+tooinstall hello Azure verbeterde extensie Monitoring voor SAP met Azure CLI:
 
-1. Azure CLI installeren zoals is beschreven in [Azure CLI installeren][azure-cli].
+1. Azure CLI installeren zoals is beschreven in [installeren hello Azure CLI][azure-cli].
 2. Aanmelden met uw Azure-account:
 
   ```
   azure login
   ```
 
-3. Schakel over naar modus Azure Resource Manager:
+3. De modus Resource Manager tooAzure switch:
 
   ```
   azure config mode arm
@@ -878,12 +878,12 @@ De Azure verbeterde extensie Monitoring voor SAP met behulp van Azure CLI instal
   azure vm enable-aem <resource-group-name> <vm-name>
   ```
 
-5. Controleer of de extensie Azure verbeterde Monitoring actief zijn op de Azure Linux VM. Controleer of het bestand \\var\\lib\\AzureEnhancedMonitor\\PerfCounters bestaat. Als dit bestaat, bij een opdrachtprompt, voer deze opdracht om informatie die is verzameld door de Azure verbeterde Monitor weer te geven:
+5. Controleer of dat Hallo-extensie voor Azure verbeterde Monitoring op Hallo Azure Linux VM actief is. Controleer of bestand Hallo \\var\\lib\\AzureEnhancedMonitor\\PerfCounters bestaat. Voer deze opdracht toodisplay gegevens worden verzameld door hello Azure verbeterde Monitor indien aanwezig, bij een opdrachtprompt:
 ```
 cat /var/lib/AzureEnhancedMonitor/PerfCounters
 ```
 
-De uitvoer ziet er als volgt:
+Hallo-uitvoer ziet er als volgt:
 ```
 2;cpu;Current Hw Frequency;;0;2194.659;MHz;60;1444036656;saplnxmon;
 2;cpu;Max Hw Frequency;;0;2194.659;MHz;0;1444036656;saplnxmon;
@@ -892,190 +892,190 @@ De uitvoer ziet er als volgt:
 ```
 
 ## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Controles en het oplossen van problemen voor het bewaken van end-to-end
-Nadat u hebt uw Azure-virtuele machine wordt geïmplementeerd en instellen van de relevante Azure bewakingsinfrastructuur, controleert u of alle onderdelen van de extensie Azure verbeterde Monitoring werkt zoals verwacht.
+Nadat u hebt uw Azure-virtuele machine wordt geïmplementeerd en Hallo relevante Azure bewakingsinfrastructuur instellen, moet u controleren of alle onderdelen van Hallo Hallo extensie voor Azure verbeterde Monitoring werkt zoals verwacht.
 
-Voer de gereedheidscontrole voor de Azure verbeterde extensie Monitoring voor SAP zoals beschreven [gereedheidscontrole voor de Azure verbeterde extensie Monitoring voor SAP][deployment-guide-5.1]. Als alle resultaten van de gereedheid van positieve en alle relevante prestatiemeteritems weergegeven OK, Azure bewaking is ingesteld. U kunt doorgaan met de installatie van SAP Host Agent dat wordt beschreven in de notities SAP in [SAP resources][deployment-guide-2.2]. Als de gereedheidscontrole geeft aan dat items ontbreken, voert u de statuscontrole voor de Azure monitoring-infrastructuur, zoals beschreven in [Statuscontrole voor Azure infrastructuur controleconfiguratie][deployment-guide-5.2]. Zie voor meer opties voor probleemoplossing, [probleemoplossing voor Azure-bewaking voor SAP][deployment-guide-5.3].
+Controle op Hallo gereedheid voor hello Azure verbeterde extensie Monitoring voor SAP uitvoeren, zoals beschreven in [gereedheidscontrole voor hello Azure verbeterde extensie Monitoring voor SAP][deployment-guide-5.1]. Als alle resultaten van de gereedheid van positieve en alle relevante prestatiemeteritems weergegeven OK, Azure bewaking is ingesteld. U kunt doorgaan met installatie van de Hallo van SAP Host Agent dat wordt beschreven in de opmerkingen bij de Hallo SAP in [SAP resources][deployment-guide-2.2]. Als de gereedheidscontrole Hallo aangeeft dat prestatiemeteritems ontbreken zijn, Hallo Statuscontrole voor hello Azure bewakingsinfrastructuur uitvoeren, zoals beschreven in [Statuscontrole voor Azure infrastructuur controleconfiguratie] [ deployment-guide-5.2]. Zie voor meer opties voor probleemoplossing, [probleemoplossing voor Azure-bewaking voor SAP][deployment-guide-5.3].
 
-### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Gereedheid controleren op de Azure verbeterde extensie Monitoring voor SAP
-Deze controle zorgt ervoor dat alle maatstaven voor prestaties die worden gebruikt in uw toepassing SAP worden geleverd door de onderliggende Azure monitoring-infrastructuur.
+### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Gereedheidscontrole voor hello Azure verbeterde extensie Monitoring voor SAP
+Deze controle zorgt ervoor dat alle maatstaven voor prestaties die worden gebruikt in uw toepassing SAP worden geleverd door Hallo onderliggende Azure-infrastructuur bewaken.
 
-#### <a name="run-the-readiness-check-on-a-windows-vm"></a>Voer de gereedheidscontrole uit op een virtuele machine van Windows
+#### <a name="run-hello-readiness-check-on-a-windows-vm"></a>Hallo-gereedheidscontrole op een virtuele machine van Windows worden uitgevoerd
 
-1.  Aanmelden bij de virtuele machine van Azure (met behulp van een beheerdersaccount is niet nodig).
+1.  Meld u aan de virtuele machine van Azure toohello (met behulp van een beheerdersaccount is niet nodig).
 2.  Open een opdrachtpromptvenster.
-3.  Wijzig bij de opdrachtprompt de map naar de installatiemap van de Azure verbeterde extensie Monitoring voor SAP: C:\\pakketten\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;versie >\\verwijderen
+3.  Bij de opdrachtprompt Hallo Hallo directory toohello-installatiemap van hello Azure verbeterde extensie Monitoring voor SAP wijzigen: C:\\pakketten\\Plugins\\ Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;versie >\\verwijderen
 
-  De *versie* in het pad naar de controle-extensie kan variëren. Als u mappen voor meerdere versies van de controle-extensie in de installatiemap ziet, Controleer de configuratie van de AzureEnhancedMonitoring Windows-service en ga vervolgens naar de map aangegeven als *pad naar het uitvoerbare bestand*.
+  Hallo *versie* in Hallo pad toohello extensie bewaking kan variëren. Als u mappen voor meerdere versies van Hallo bewaking van de extensie in de installatiemap hello, Controleer de configuratie van de Hallo Hallo AzureEnhancedMonitoring Windows-service, bekijken en vervolgens switch toohello map als aangegeven *pad tooexecutable* .
 
-  ![Eigenschappen van de Azure verbeterde extensie Monitoring voor SAP-service][deployment-guide-figure-1000]
+  ![Eigenschappen van de service wordt uitgevoerd hello Azure verbeterde extensie Monitoring voor SAP][deployment-guide-figure-1000]
 
-4.  Voer bij de opdrachtprompt **azperflib.exe** zonder parameters.
+4.  Bij de opdrachtprompt Hallo uitvoeren **azperflib.exe** zonder parameters.
 
   > [!NOTE]
-  > Azperflib.exe wordt uitgevoerd in een lus en updates van de verzamelde prestatiemeteritems elke 60 seconden. Als u wilt beëindigen van de lus, sluit het opdrachtpromptvenster.
+  > Azperflib.exe wordt uitgevoerd in een lus en updates Hallo verzameld tellers elke 60 seconden. tooend hello lus sluiten Hallo-opdrachtpromptvenster.
   >
   >
 
-Als de extensie Azure verbeterde Monitoring is niet geïnstalleerd of de AzureEnhancedMonitoring-service niet wordt uitgevoerd, is de extensie niet goed geconfigureerd. Zie voor gedetailleerde informatie over het implementeren van de extensie [probleemoplossing van de Azure-bewaking infrastructuur voor SAP][deployment-guide-5.3].
+Als het Hallo-extensie voor Azure verbeterde Monitoring is niet geïnstalleerd of Hallo AzureEnhancedMonitoring service niet wordt uitgevoerd, is Hallo-extensie niet goed geconfigureerd. Zie voor gedetailleerde informatie over hoe toodeploy extensie Hallo [probleemoplossing hello Azure bewakingsinfrastructuur voor SAP][deployment-guide-5.3].
 
-##### <a name="check-the-output-of-azperflibexe"></a>Controleer de uitvoer van azperflib.exe
-Azperflib.exe uitvoer toont dat alle Azure-prestatiemeteritems voor SAP ingevuld. Een indicator samenvatting en health weergeven onder aan de lijst met items die worden verzameld, de status van de bewaking van Azure.
+##### <a name="check-hello-output-of-azperflibexe"></a>Hallo-uitvoer van azperflib.exe controleren
+Azperflib.exe uitvoer toont dat alle Azure-prestatiemeteritems voor SAP ingevuld. Hallo onderaan Hallo lijst met items die worden verzameld in een indicator samenvatting en health weergeven Hallo status van de Azure-bewaking
 
 ![Uitvoer van de statuscontrole van de door het uitvoeren van azperflib.exe waarmee wordt aangegeven dat er geen problemen aanwezig][deployment-guide-figure-1100]
 <a name="figure-11"></a>
 
-Controleer het resultaat geretourneerd voor de **tellers totaal** uitvoer, die wordt gerapporteerd als leeg en voor **gezondheidsstatus**, in de voorgaande afbeelding wordt weergegeven.
+Controleer Hallo resultaat geretourneerd voor Hallo **tellers totaal** uitvoer, die wordt gerapporteerd als leeg en voor **gezondheidsstatus**, weergegeven in de voorgaande afbeelding Hallo.
 
-De resulterende waarden als volgt interpreteren:
+Interpreteren Hallo resulterende waarden als volgt:
 
 | Waarden van Azperflib.exe | Azure health-status controleren |
 | --- | --- |
-| **API-aanroepen - niet beschikbaar** | Items die niet beschikbaar is mogelijk niet van toepassing op de virtuele-machineconfiguratie of fouten zijn. Zie **gezondheidsstatus**. |
-| **Prestatiemeteritems van de totale - leeg** |De volgende twee Azure storage-items kunnen niet leeg zijn: <ul><li>Opslag Op latentie lezen Server msec</li><li>Opslag Op latentie lezen E2E msec</li></ul>Alle andere items moeten waarden hebben. |
+| **API-aanroepen - niet beschikbaar** | Items die niet beschikbaar zijn mogelijk de configuratie van de virtuele machine niet van toepassing toohello, of zijn fouten opgetreden. Zie **gezondheidsstatus**. |
+| **Prestatiemeteritems van de totale - leeg** |Hallo na twee prestatiemeteritems van Azure-opslag kan niet leeg zijn: <ul><li>Opslag Op latentie lezen Server msec</li><li>Opslag Op latentie lezen E2E msec</li></ul>Alle andere items moeten waarden hebben. |
 | **Health-status** |Alleen OK als retourneren status bevat **OK**. |
 | **Diagnostics** |Gedetailleerde informatie over de status. |
 
-Als de **gezondheidsstatus** waarde is geen **OK**, volg de instructies in [Statuscontrole voor Azure infrastructuur controleconfiguratie][deployment-guide-5.2].
+Als hello **gezondheidsstatus** -waarde is niet **OK**, volg de instructies in Hallo [Statuscontrole voor Azure infrastructuur controleconfiguratie] [ deployment-guide-5.2].
 
-#### <a name="run-the-readiness-check-on-a-linux-vm"></a>Voer de gereedheidscontrole uit op een Linux-VM
+#### <a name="run-hello-readiness-check-on-a-linux-vm"></a>De Gereedheidscontrole uitvoeren Hallo op een Linux-VM
 
-1.  Verbinding maken met de Azure-VM met behulp van SSH.
+1.  Verbinding toohello Azure virtuele Machine via SSH.
 
-2.  Controleer de uitvoer van de extensie Azure verbeterde Monitoring.
+2.  Hallo-uitvoer van de extensie voor Azure verbeterde Monitoring Hallo controleren.
 
   a.  Voer `more /var/lib/AzureEnhancedMonitor/PerfCounters` uit.
 
-   **Resultaat verwacht**: lijst met prestatiemeteritems retourneert. Het bestand mag niet leeg zijn.
+   **Resultaat verwacht**: lijst met prestatiemeteritems retourneert. Hallo-bestand mag niet leeg zijn.
 
  b. Voer `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error` uit.
 
-   **Resultaat verwacht**: retourneert één regel waar de fout is **geen**, bijvoorbeeld **3; config; Fout; 0; 0; geen; 0; 1456416792; tst-servercs;**
+   **Resultaat verwacht**: retourneert één regel waar Hallo fout **geen**, bijvoorbeeld **3; config; Fout; 0; 0; geen; 0; 1456416792; tst-servercs;**
 
   c. Voer `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord` uit.
 
     **Resultaat verwacht**: retourneert als leeg of bestaat niet.
 
-Als de voorgaande controle niet geslaagd is, voert u deze extra controles:
+Als hello voorgaande selectievakje niet geslaagd is, voert u deze extra controles:
 
-1.  Zorg ervoor dat de waagent is geïnstalleerd en ingeschakeld.
+1.  Zorg ervoor dat waagent Hallo is geïnstalleerd en ingeschakeld.
 
   a.  Voer `sudo ls -al /var/lib/waagent/` uit.
 
-      **Resultaat verwacht**: geeft een lijst van de inhoud van de map waagent.
+      **Resultaat verwacht**: Hallo inhoud van het Hallo waagent directory bevat.
 
   b.  Voer `ps -ax | grep waagent` uit.
 
    **Resultaat verwacht**: één vermelding strekking weergegeven:`python /usr/sbin/waagent -daemon`
 
-2. Zorg ervoor dat de Linux-extensie voor diagnostische is geïnstalleerd en ingeschakeld.
+2. Zorg ervoor dat Hallo diagnostische Linux-uitbreiding is geïnstalleerd en ingeschakeld.
 
   a.  Voer `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-'` uit.
 
-   **Resultaat verwacht**: geeft een lijst van de inhoud van de map diagnostische Linux-extensie.
+   **Resultaat verwacht**: Hallo inhoud van het Hallo Linux diagnostische map_uitbreiding bevat.
 
  b. Voer `ps -ax | grep diagnostic` uit.
 
    **Resultaat verwacht**: één vermelding strekking weergegeven:`python /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.0.92/diagnostic.py -daemon`
 
-3.   Zorg ervoor dat de extensie Azure verbeterde Monitoring geïnstalleerd en actief is.
+3.   Zorg ervoor dat hello Azure uitgebreide bewaking uitbreiding is geïnstalleerd en wordt uitgevoerd.
 
   a.  Voer `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-/'` uit.
 
-    **Resultaat verwacht**: geeft een lijst van de inhoud van de extensie voor Azure verbeterde Monitoring-map.
+    **Resultaat verwacht**: geeft een lijst van Hallo inhoud van het Hallo-extensie voor Azure verbeterde Monitoring-directory.
 
   b. Voer `ps -ax | grep AzureEnhanced` uit.
 
      **Resultaat verwacht**: één vermelding strekking weergegeven:`python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
 
-3. SAP Host-Agent installeren zoals is beschreven in SAP-notitie [1031096], en controleer de uitvoer van `saposcol`.
+3. SAP Host-Agent installeren zoals is beschreven in SAP-notitie [1031096], en controleer de uitvoer van Hallo `saposcol`.
 
   a.  Voer `/usr/sap/hostctrl/exe/saposcol -d` uit.
 
   b.  Voer `dump ccm` uit.
 
-  c.  Controleer of de **Virtualization_Configuration\Enhanced bewaking toegang** meetwaarde is **true**.
+  c.  Controleer of Hallo **Virtualization_Configuration\Enhanced bewaking toegang** meetwaarde is **true**.
 
 Als u al een SAP NetWeaver ABAP application server geïnstalleerd hebt, transactie ST06 openen en controleer of de uitgebreide bewaking is ingeschakeld.
 
-Als een van deze controles mislukken, en Zie voor gedetailleerde informatie over het implementeren van de extensie [probleemoplossing van de Azure-bewaking infrastructuur voor SAP][deployment-guide-5.3].
+Als een van deze controles mislukken, en Zie voor gedetailleerde informatie over hoe tooredeploy extensie Hallo [probleemoplossing hello Azure bewakingsinfrastructuur voor SAP][deployment-guide-5.3].
 
-### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Serverstatus controleren voor de Azure bewakingsconfiguratie infrastructuur
-Als sommige van de bewaking gegevens niet bezorgd correct zoals aangegeven door de test wordt beschreven in [gereedheidscontrole voor Azure-uitgebreide bewaking voor SAP][deployment-guide-5.1], voert de `Test-AzureRmVMAEMExtension` cmdlet om te controleren of de bewaking van infrastructuur en de bewaking Azure-extensie voor SAP correct zijn geconfigureerd.
+### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Serverstatus controleren voor hello Azure infrastructuur controleconfiguratie
+Als sommige Hallo bewakingsgegevens niet correct zoals aangegeven door bezorgd Hallo test beschreven in [gereedheidscontrole voor Azure-uitgebreide bewaking voor SAP][deployment-guide-5.1], voert hello `Test-AzureRmVMAEMExtension` cmdlet toocheck Hiermee wordt aangegeven of hello Azure-infrastructuur en controle-extensie voor SAP Hallo bewaking correct zijn geconfigureerd.
 
-1.  Zorg ervoor dat u de nieuwste versie van de Azure PowerShell-cmdlet hebt geïnstalleerd, zoals beschreven in [implementeren van Azure PowerShell-cmdlets][deployment-guide-4.1].
-2.  Voer de volgende PowerShell-cmdlet. Voor een lijst met beschikbare omgevingen, voert u de cmdlet `Get-AzureRmEnvironment`. Voor het gebruik van openbare Azure, selecteer de **AzureCloud** omgeving. Selecteer voor Azure China **AzureChinaCloud**.
+1.  Zorg ervoor dat u de nieuwste versie Hallo van hello Azure PowerShell-cmdlet hebt geïnstalleerd, zoals beschreven in [implementeren van Azure PowerShell-cmdlets][deployment-guide-4.1].
+2.  Hallo volgende PowerShell-cmdlet uitvoeren. Voor een lijst van beschikbare omgevingen Hallo cmdlet uitvoeren `Get-AzureRmEnvironment`. openbare Azure, selecteer toouse hello **AzureCloud** omgeving. Selecteer voor Azure China **AzureChinaCloud**.
   ```powershell
-  $env = Get-AzureRmEnvironment -Name <name of the environment>
+  $env = Get-AzureRmEnvironment -Name <name of hello environment>
   Login-AzureRmAccount -Environment $env
   Set-AzureRmContext -SubscriptionName <subscription name>
   Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
   ```
 
-3.  Voer de gegevens van uw account en identificeren van de virtuele machine van Azure.
+3.  Voer de gegevens van uw account en identificeren hello Azure virtuele machine.
 
   ![Invoer pagina van de SAP-specifieke Azure cmdlet Test-VMConfigForSAP_GUI][deployment-guide-figure-1200]
 
-4. Het script test de configuratie van de virtuele machine die u selecteert.
+4. Hallo script tests Hallo configuratie van Hallo virtuele machine die u selecteert.
 
-  ![Uitvoer van een geslaagde test van de Azure bewakingsinfrastructuur voor SAP][deployment-guide-figure-1300]
+  ![Uitvoer van een geslaagde test Hallo Azure bewakingsinfrastructuur voor SAP][deployment-guide-figure-1300]
 
-Zorg ervoor dat elke status resultaat **OK**. Als u een aantal controles worden niet weergegeven **OK**, voert u de cmdlet update zoals beschreven in [configureren van de Azure verbeterde extensie Monitoring voor SAP][deployment-guide-4.5]. Wacht 15 minuten en Herhaal de controles die wordt beschreven in [gereedheidscontrole voor Azure-uitgebreide bewaking voor SAP] [ deployment-guide-5.1] en [Statuscontrole voor de configuratie van Azure-infrastructuur bewaking][deployment-guide-5.2]. Als de controles nog steeds een probleem met enkele of alle items blijkt, Zie [probleemoplossing van de Azure-bewaking infrastructuur voor SAP][deployment-guide-5.3].
+Zorg ervoor dat elke status resultaat **OK**. Als u een aantal controles worden niet weergegeven **OK**, Hallo update cmdlet uitvoeren, zoals beschreven in [configureren hello Azure verbeterde extensie Monitoring voor SAP][deployment-guide-4.5]. Wacht 15 minuten en herhaaldelijk Hallo controles wordt beschreven in [gereedheidscontrole voor Azure-uitgebreide bewaking voor SAP] [ deployment-guide-5.1] en [Statuscontrole voor Azure-infrastructuur configuratie van de bewaking] [deployment-guide-5.2]. Als Hallo controles nog steeds een probleem met enkele of alle items blijkt, Zie [probleemoplossing hello Azure bewakingsinfrastructuur voor SAP][deployment-guide-5.3].
 
-### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>De Azure-bewaking infrastructuur voor probleemoplossing voor SAP
+### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Hello Azure bewakingsinfrastructuur voor probleemoplossing voor SAP
 
 #### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Azure prestatiemeteritems worden niet weergegeven op alle
-De AzureEnhancedMonitoring Windows-service verzamelt maatstaven voor prestaties in Azure. Als de service is niet juist geïnstalleerd of als deze niet in uw virtuele machine wordt uitgevoerd, kunnen geen prestatiegegevens worden verzameld.
+Hallo AzureEnhancedMonitoring Windows-service verzamelt maatstaven voor prestaties in Azure. Als het Hallo-service is niet juist geïnstalleerd of als deze niet wordt uitgevoerd in uw virtuele machine, kunnen geen prestatiegegevens worden verzameld.
 
-##### <a name="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty"></a>De installatiemap van de extensie Azure verbeterde Monitoring is leeg
+##### <a name="hello-installation-directory-of-hello-azure-enhanced-monitoring-extension-is-empty"></a>Hallo-installatiemap van hello Azure uitgebreide bewaking uitbreiding is leeg
 
 ###### <a name="issue"></a>Probleem
-De installatiemap C:\\pakketten\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;versie >\\vervolgkeuzelijst is leeg.
+Hallo-installatiemap C:\\pakketten\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;versie >\\vervolgkeuzelijst is leeg.
 
 ###### <a name="solution"></a>Oplossing
-De extensie is niet geïnstalleerd. Bepalen of dit een probleem met de proxy (zoals eerder beschreven). U moet mogelijk opnieuw opstarten van de machine of opnieuw uit de `Set-AzureRmVMAEMExtension` configuratiescript.
+Hallo-extensie is niet geïnstalleerd. Bepalen of dit een probleem met de proxy (zoals eerder beschreven). Mogelijk moet u toorestart Hallo machine of Voer Hallo `Set-AzureRmVMAEMExtension` configuratiescript.
 
 ##### <a name="service-for-azure-enhanced-monitoring-does-not-exist"></a>Service voor Azure-uitgebreide bewaking bestaat niet
 
 ###### <a name="issue"></a>Probleem
-De AzureEnhancedMonitoring Windows-service bestaat niet.
+Hallo AzureEnhancedMonitoring Windows-service bestaat niet.
 
 Azperflib.exe uitvoer is een fout genereert:
 
-![De uitvoering van azperflib.exe geeft aan dat de service van de extensie Azure uitgebreide bewaking voor SAP niet wordt uitgevoerd][deployment-guide-figure-1400]
+![De uitvoering van azperflib.exe geeft aan dat Hallo-service van het Hallo-extensie voor Azure verbeterde Monitoring voor SAP niet wordt uitgevoerd][deployment-guide-figure-1400]
 <a name="figure-14"></a>
 
 ###### <a name="solution"></a>Oplossing
-Als de service niet bestaat, is de Azure verbeterde extensie Monitoring voor SAP niet correct is geïnstalleerd. De extensie implementeren met behulp van de stappen beschreven voor het implementatiescenario in [implementatiescenario's van virtuele machines voor SAP in Azure][deployment-guide-3].
+Als Hallo-service niet bestaat, heeft hello Azure verbeterde extensie Monitoring voor SAP niet goed is geïnstalleerd. Hallo-extensie implementeren met behulp van Hallo stappen beschreven voor het implementatiescenario in [implementatiescenario's van virtuele machines voor SAP in Azure][deployment-guide-3].
 
-Nadat u de extensie geïmplementeerd na een uur, controleer opnieuw of de Azure-prestatiemeteritems u in de Azure VM vindt.
+Nadat u Hallo-extensie geïmplementeerd na een uur, controleer opnieuw of hello Azure prestatiemeteritems u in hello Azure VM vindt.
 
-##### <a name="service-for-azure-enhanced-monitoring-exists-but-fails-to-start"></a>Service voor Azure-uitgebreide bewaking bestaat, maar niet kan worden gestart
+##### <a name="service-for-azure-enhanced-monitoring-exists-but-fails-toostart"></a>Service voor Azure-uitgebreide bewaking bestaat, maar toostart is mislukt
 
 ###### <a name="issue"></a>Probleem
-De AzureEnhancedMonitoring Windows-service bestaat en is ingeschakeld, maar niet kan worden gestart. Controleer het toepassingslogboek voor meer informatie.
+Hallo AzureEnhancedMonitoring Windows-service bestaat en is ingeschakeld, maar toostart is mislukt. Controleer de Hallo toepassingslogboek voor meer informatie.
 
 ###### <a name="solution"></a>Oplossing
-De configuratie is onjuist. Opnieuw opstarten van de controle-extensie voor de virtuele machine, zoals beschreven in [configureren van de Azure verbeterde extensie Monitoring voor SAP][deployment-guide-4.5].
+Hallo-configuratie is onjuist. Hallo-extensie voor Hallo VM, bewaking starten zoals beschreven in [configureren hello Azure verbeterde extensie Monitoring voor SAP][deployment-guide-4.5].
 
 #### <a name="windowslogowindows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Sommige Azure prestatiemeters ontbreken.
-De AzureEnhancedMonitoring Windows-service verzamelt maatstaven voor prestaties in Azure. De service ontvangt gegevens van diverse bronnen. Sommige configuratiegegevens lokaal worden verzameld en bepaalde maatstaven voor prestaties van Azure Diagnostics worden gelezen. Tellers voor opslag worden van uw logboekregistratie op het abonnementsniveau opslag gebruikt.
+Hallo AzureEnhancedMonitoring Windows-service verzamelt maatstaven voor prestaties in Azure. Hallo-service ontvangt gegevens van diverse bronnen. Sommige configuratiegegevens lokaal worden verzameld en bepaalde maatstaven voor prestaties van Azure Diagnostics worden gelezen. Tellers voor opslag worden van uw abonnement Hallo-opslag-Logboeken gebruikt.
 
-Als u problemen oplossen met behulp van SAP-notitie [1999351] niet los het probleem moet opnieuw de `Set-AzureRmVMAEMExtension` configuratiescript. U moet wellicht een uur wachten omdat storage analytics of diagnostics items mogelijk niet worden gemaakt, onmiddellijk nadat ze zijn ingeschakeld. Als het probleem zich blijft voordoen, open een SAP customer support bericht op het onderdeel BC-OP-NT-AZR voor Windows of BC-OP-LNX-AZR voor een virtuele Linux-machine.
+Als u problemen oplossen met behulp van SAP-notitie [1999351] niet los Hallo probleem moet Hallo opnieuw `Set-AzureRmVMAEMExtension` configuratiescript. U hebt mogelijk toowait uur omdat storage analytics of diagnostics items mogelijk niet worden gemaakt, onmiddellijk nadat ze zijn ingeschakeld. Als Hallo probleem zich blijft voordoen, opent u een bericht SAP klant ondersteuning op Hallo onderdeel BC-OP-NT-AZR voor Windows of BC-OP-LNX-AZR voor een virtuele Linux-machine.
 
 #### <a name="linuxlogolinux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Azure prestatiemeteritems worden niet weergegeven op alle
-Maatstaven voor prestaties in Azure worden door een daemon verzameld. Als de daemon niet wordt uitgevoerd, kunnen geen prestatiegegevens worden verzameld.
+Maatstaven voor prestaties in Azure worden door een daemon verzameld. Als het Hallo-daemon niet wordt uitgevoerd, kunnen geen prestatiegegevens worden verzameld.
 
-##### <a name="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty"></a>De installatiemap van de extensie Azure verbeterde Monitoring is leeg
+##### <a name="hello-installation-directory-of-hello-azure-enhanced-monitoring-extension-is-empty"></a>Hallo-installatiemap van de extensie Azure verbeterde Monitoring Hallo is leeg
 
 ###### <a name="issue"></a>Probleem
-De map \\var\\lib\\waagent\\ heeft geen submap voor de extensie Azure verbeterde Monitoring.
+Hallo directory \\var\\lib\\waagent\\ heeft geen submap voor Hallo extensie Azure verbeterde Monitoring.
 
 ###### <a name="solution"></a>Oplossing
-De extensie is niet geïnstalleerd. Bepalen of dit een probleem met de proxy (zoals eerder beschreven). Mogelijk moet u start de computer opnieuw op en/of opnieuw de `Set-AzureRmVMAEMExtension` configuratiescript.
+Hallo-extensie is niet geïnstalleerd. Bepalen of dit een probleem met de proxy (zoals eerder beschreven). Mogelijk moet u toorestart Hallo apparaat en/of Voer Hallo `Set-AzureRmVMAEMExtension` configuratiescript.
 
 #### <a name="linuxlogolinux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Sommige Azure prestatiemeters ontbreken.
-Maatstaven voor prestaties in Azure worden door een daemon die gegevens uit diverse bronnen ontvangt verzameld. Sommige configuratiegegevens lokaal worden verzameld en bepaalde maatstaven voor prestaties van Azure Diagnostics worden gelezen. Tellers voor opslag is afkomstig van de logboeken in uw opslagabonnement.
+Maatstaven voor prestaties in Azure worden door een daemon die gegevens uit diverse bronnen ontvangt verzameld. Sommige configuratiegegevens lokaal worden verzameld en bepaalde maatstaven voor prestaties van Azure Diagnostics worden gelezen. Tellers voor opslag is afkomstig van Hallo Logboeken in uw opslagabonnement.
 
 Zie voor een volledige en bijgewerkte lijst met bekende problemen, SAP-notitie [1999351], die extra informatie over probleemoplossing voor verbeterde Azure-bewaking voor SAP heeft.
 
-Als u problemen oplossen met behulp van SAP-notitie [1999351] niet los het probleem moet opnieuw de `Set-AzureRmVMAEMExtension` configuratiescript zoals beschreven in [configureren van de Azure verbeterde extensie Monitoring voor SAP][deployment-guide-4.5]. Mogelijk moet wachten op een uur omdat storage analytics of diagnostics items mogelijk niet worden gemaakt, onmiddellijk nadat ze zijn ingeschakeld. Als het probleem zich blijft voordoen, open een SAP customer support bericht op het onderdeel BC-OP-NT-AZR voor Windows of BC-OP-LNX-AZR voor een virtuele Linux-machine.
+Als u problemen oplossen met behulp van SAP-notitie [1999351] niet Hallo oplossen, opnieuw uitvoeren Hallo `Set-AzureRmVMAEMExtension` configuratiescript zoals beschreven in [configureren hello Azure verbeterde extensie Monitoring voor SAP][deployment-guide-4.5]. U wellicht toowait een uur omdat storage analytics of diagnostics items mogelijk niet worden gemaakt, onmiddellijk nadat ze zijn ingeschakeld. Als Hallo probleem zich blijft voordoen, opent u een bericht SAP klant ondersteuning op Hallo onderdeel BC-OP-NT-AZR voor Windows of BC-OP-LNX-AZR voor een virtuele Linux-machine.
