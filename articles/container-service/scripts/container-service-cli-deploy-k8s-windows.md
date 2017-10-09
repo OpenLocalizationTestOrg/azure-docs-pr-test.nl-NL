@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Sample Script - ACS Windows Kubernetes Cluster maken | Microsoft Docs
+title: aaaAzure voorbeeldscript CLI - ACS Windows Kubernetes Cluster maken | Microsoft Docs
 description: Azure CLI Sample Script - ACS Windows Kubernetes Cluster maken
 services: container-service
 documentationcenter: 
@@ -16,21 +16,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 3cba915e3cf3aaaeb3faf14c2000ca94f61d28a5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ace2f7a6dcd3ab02b61217766f4774cddbe8828b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-azure-container-service-kubernetes-windows-cluster"></a><span data-ttu-id="e8b27-104">Een Azure Container Service Kubernetes Windows-Cluster maken</span><span class="sxs-lookup"><span data-stu-id="e8b27-104">Create an Azure Container Service Kubernetes Windows Cluster</span></span>
+# <a name="create-an-azure-container-service-kubernetes-windows-cluster"></a><span data-ttu-id="63ecb-104">Een Azure Container Service Kubernetes Windows-Cluster maken</span><span class="sxs-lookup"><span data-stu-id="63ecb-104">Create an Azure Container Service Kubernetes Windows Cluster</span></span>
 
-<span data-ttu-id="e8b27-105">In dit voorbeeld wordt een Azure Container Service-cluster met Kubernetes voor Windows op basis van containers.</span><span class="sxs-lookup"><span data-stu-id="e8b27-105">This sample creates an Azure Container Service cluster running Kubernetes for Windows based containers.</span></span>
+<span data-ttu-id="63ecb-105">In dit voorbeeld wordt een Azure Container Service-cluster met Kubernetes voor Windows op basis van containers.</span><span class="sxs-lookup"><span data-stu-id="63ecb-105">This sample creates an Azure Container Service cluster running Kubernetes for Windows based containers.</span></span>
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a><span data-ttu-id="e8b27-106">Voorbeeld van een script</span><span class="sxs-lookup"><span data-stu-id="e8b27-106">Sample script</span></span>
+## <a name="sample-script"></a><span data-ttu-id="63ecb-106">Voorbeeld van een script</span><span class="sxs-lookup"><span data-stu-id="63ecb-106">Sample script</span></span>
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -45,25 +45,25 @@ az acs create \
   --windows
 ```
 
-## <a name="clean-up-deployment"></a><span data-ttu-id="e8b27-107">Opschonen van implementatie</span><span class="sxs-lookup"><span data-stu-id="e8b27-107">Clean up deployment</span></span> 
+## <a name="clean-up-deployment"></a><span data-ttu-id="63ecb-107">Opschonen van implementatie</span><span class="sxs-lookup"><span data-stu-id="63ecb-107">Clean up deployment</span></span> 
 
-<span data-ttu-id="e8b27-108">Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.</span><span class="sxs-lookup"><span data-stu-id="e8b27-108">Run the following command to remove the resource group, VM, and all related resources.</span></span>
+<span data-ttu-id="63ecb-108">Hallo na de opdracht tooremove Hallo-resourcegroep, VM en alle gerelateerde resources worden uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="63ecb-108">Run hello following command tooremove hello resource group, VM, and all related resources.</span></span>
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a><span data-ttu-id="e8b27-109">Script uitleg</span><span class="sxs-lookup"><span data-stu-id="e8b27-109">Script explanation</span></span>
+## <a name="script-explanation"></a><span data-ttu-id="63ecb-109">Script uitleg</span><span class="sxs-lookup"><span data-stu-id="63ecb-109">Script explanation</span></span>
 
-<span data-ttu-id="e8b27-110">Dit script maakt gebruik van de volgende opdrachten om de implementatie te maken.</span><span class="sxs-lookup"><span data-stu-id="e8b27-110">This script uses the following commands to create the deployment.</span></span> <span data-ttu-id="e8b27-111">Elk item in de tabel is gekoppeld aan de specifieke documentatie opdracht.</span><span class="sxs-lookup"><span data-stu-id="e8b27-111">Each item in the table links to command specific documentation.</span></span>
+<span data-ttu-id="63ecb-110">Dit script maakt gebruik van Hallo opdrachten toocreate Hallo implementatie te volgen.</span><span class="sxs-lookup"><span data-stu-id="63ecb-110">This script uses hello following commands toocreate hello deployment.</span></span> <span data-ttu-id="63ecb-111">Elk item in de tabel Hallo koppelingen toocommand specifieke documentatie.</span><span class="sxs-lookup"><span data-stu-id="63ecb-111">Each item in hello table links toocommand specific documentation.</span></span>
 
-| <span data-ttu-id="e8b27-112">Opdracht</span><span class="sxs-lookup"><span data-stu-id="e8b27-112">Command</span></span> | <span data-ttu-id="e8b27-113">Opmerkingen</span><span class="sxs-lookup"><span data-stu-id="e8b27-113">Notes</span></span> |
+| <span data-ttu-id="63ecb-112">Opdracht</span><span class="sxs-lookup"><span data-stu-id="63ecb-112">Command</span></span> | <span data-ttu-id="63ecb-113">Opmerkingen</span><span class="sxs-lookup"><span data-stu-id="63ecb-113">Notes</span></span> |
 |---|---|
-| [<span data-ttu-id="e8b27-114">AZ groep maken</span><span class="sxs-lookup"><span data-stu-id="e8b27-114">az group create</span></span>](https://docs.microsoft.com/cli/azure/group#create) | <span data-ttu-id="e8b27-115">Maakt een resourcegroep waarin alle resources worden opgeslagen.</span><span class="sxs-lookup"><span data-stu-id="e8b27-115">Creates a resource group in which all resources are stored.</span></span> |
-| [<span data-ttu-id="e8b27-116">AZ acs maken</span><span class="sxs-lookup"><span data-stu-id="e8b27-116">az acs create</span></span>](https://docs.microsoft.com/cli/azure/acs#create) | <span data-ttu-id="e8b27-117">Maakt en ACS-cluster.</span><span class="sxs-lookup"><span data-stu-id="e8b27-117">Creates and ACS cluster.</span></span> |
+| [<span data-ttu-id="63ecb-114">AZ groep maken</span><span class="sxs-lookup"><span data-stu-id="63ecb-114">az group create</span></span>](https://docs.microsoft.com/cli/azure/group#create) | <span data-ttu-id="63ecb-115">Maakt een resourcegroep waarin alle resources worden opgeslagen.</span><span class="sxs-lookup"><span data-stu-id="63ecb-115">Creates a resource group in which all resources are stored.</span></span> |
+| [<span data-ttu-id="63ecb-116">AZ acs maken</span><span class="sxs-lookup"><span data-stu-id="63ecb-116">az acs create</span></span>](https://docs.microsoft.com/cli/azure/acs#create) | <span data-ttu-id="63ecb-117">Maakt en ACS-cluster.</span><span class="sxs-lookup"><span data-stu-id="63ecb-117">Creates and ACS cluster.</span></span> |
 
-## <a name="next-steps"></a><span data-ttu-id="e8b27-118">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="e8b27-118">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="63ecb-118">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="63ecb-118">Next steps</span></span>
 
-<span data-ttu-id="e8b27-119">Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="e8b27-119">For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).</span></span>
+<span data-ttu-id="63ecb-119">Zie voor meer informatie over hello Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="63ecb-119">For more information on hello Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).</span></span>
 
-<span data-ttu-id="e8b27-120">Extra Azure Container Service CLI scriptvoorbeelden vindt u in de [Azure Container Service documentatie](../cli-samples.md).</span><span class="sxs-lookup"><span data-stu-id="e8b27-120">Additional Azure Container Service CLI script samples can be found in the [Azure Container Service documentation](../cli-samples.md).</span></span>
+<span data-ttu-id="63ecb-120">Extra Azure Container Service CLI scriptvoorbeelden kunnen u vinden in Hallo [Azure Container Service documentatie](../cli-samples.md).</span><span class="sxs-lookup"><span data-stu-id="63ecb-120">Additional Azure Container Service CLI script samples can be found in hello [Azure Container Service documentation](../cli-samples.md).</span></span>

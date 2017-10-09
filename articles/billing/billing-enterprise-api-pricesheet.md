@@ -1,6 +1,6 @@
 ---
-title: Azure API's van Enterprise - prijslijst facturering | Microsoft Docs
-description: Meer informatie over de rapportage-API's waarmee Azure Enterprise-klanten voor het ophalen van gegevens over het verbruik programmatisch.
+title: aaaAzure facturering Enterprise-API's - prijslijst | Microsoft Docs
+description: Meer informatie over Hallo rapportage-API's waarmee Azure Enterprise-klanten toopull verbruiksgegevens programmatisch.
 services: 
 documentationcenter: 
 author: aedwin
@@ -15,29 +15,29 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 2e7d6e883abe4cee13bc5f684baf2a1ea9c6c397
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4cfe694c63fba266d117054b046d9caacb3b7197
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="reporting-apis-for-enterprise-customers---price-sheet"></a><span data-ttu-id="ba26e-103">Rapportage-API's voor Enterprise-klanten - prijslijst</span><span class="sxs-lookup"><span data-stu-id="ba26e-103">Reporting APIs for Enterprise customers - Price Sheet</span></span>
+# <a name="reporting-apis-for-enterprise-customers---price-sheet"></a><span data-ttu-id="4d443-103">Rapportage-API's voor Enterprise-klanten - prijslijst</span><span class="sxs-lookup"><span data-stu-id="4d443-103">Reporting APIs for Enterprise customers - Price Sheet</span></span>
 
-<span data-ttu-id="ba26e-104">De prijs blad API biedt het tarief voor elke meten voor de opgegeven registratie en facturering periode.</span><span class="sxs-lookup"><span data-stu-id="ba26e-104">The Price Sheet API provides the applicable rate for each Meter for the given Enrollment and Billing Period.</span></span>
+<span data-ttu-id="4d443-104">Hallo Price Sheet API biedt Hallo toepasselijke frequentie voor elke Meter voor Hallo opgegeven registratie en facturering periode.</span><span class="sxs-lookup"><span data-stu-id="4d443-104">hello Price Sheet API provides hello applicable rate for each Meter for hello given Enrollment and Billing Period.</span></span>
 
-##<a name="request"></a><span data-ttu-id="ba26e-105">Aanvraag</span><span class="sxs-lookup"><span data-stu-id="ba26e-105">Request</span></span>
-<span data-ttu-id="ba26e-106">Algemene Kopteksteigenschappen voor die moeten worden toegevoegd, zijn opgegeven [hier](billing-enterprise-api.md).</span><span class="sxs-lookup"><span data-stu-id="ba26e-106">Common header properties that need to be added are specified [here](billing-enterprise-api.md).</span></span> <span data-ttu-id="ba26e-107">Als een factureringsperiode niet is opgegeven, wordt de gegevens voor de huidige factureringsperiode geretourneerd.</span><span class="sxs-lookup"><span data-stu-id="ba26e-107">If a billing period is not specified, then data for the current billing period is returned.</span></span>
+##<a name="request"></a><span data-ttu-id="4d443-105">Aanvraag</span><span class="sxs-lookup"><span data-stu-id="4d443-105">Request</span></span>
+<span data-ttu-id="4d443-106">Algemene Kopteksteigenschappen voor die toobe toegevoegd moeten zijn opgegeven [hier](billing-enterprise-api.md).</span><span class="sxs-lookup"><span data-stu-id="4d443-106">Common header properties that need toobe added are specified [here](billing-enterprise-api.md).</span></span> <span data-ttu-id="4d443-107">Als een factureringsperiode niet is opgegeven, klikt u vervolgens gegevens voor de huidige facturering Hallo periode geretourneerd.</span><span class="sxs-lookup"><span data-stu-id="4d443-107">If a billing period is not specified, then data for hello current billing period is returned.</span></span>
 
-|<span data-ttu-id="ba26e-108">Methode</span><span class="sxs-lookup"><span data-stu-id="ba26e-108">Method</span></span> | <span data-ttu-id="ba26e-109">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="ba26e-109">Request URI</span></span>|
+|<span data-ttu-id="4d443-108">Methode</span><span class="sxs-lookup"><span data-stu-id="4d443-108">Method</span></span> | <span data-ttu-id="4d443-109">Aanvraag-URI</span><span class="sxs-lookup"><span data-stu-id="4d443-109">Request URI</span></span>|
 |-|-|
-|<span data-ttu-id="ba26e-110">TOEVOEGEN</span><span class="sxs-lookup"><span data-stu-id="ba26e-110">GET</span></span>|<span data-ttu-id="ba26e-111">https://consumption.Azure.com/v2/enrollments/ {enrollmentNumber} / prijslijst</span><span class="sxs-lookup"><span data-stu-id="ba26e-111">https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/pricesheet</span></span>|
-|<span data-ttu-id="ba26e-112">TOEVOEGEN</span><span class="sxs-lookup"><span data-stu-id="ba26e-112">GET</span></span>|<span data-ttu-id="ba26e-113">https://consumption.Azure.com/v2/enrollments/ {enrollmentNumber} /billingPeriods/ {billingPeriod} / prijslijst</span><span class="sxs-lookup"><span data-stu-id="ba26e-113">https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/pricesheet</span></span>|
+|<span data-ttu-id="4d443-110">TOEVOEGEN</span><span class="sxs-lookup"><span data-stu-id="4d443-110">GET</span></span>|<span data-ttu-id="4d443-111">https://consumption.Azure.com/v2/enrollments/ {enrollmentNumber} / prijslijst</span><span class="sxs-lookup"><span data-stu-id="4d443-111">https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/pricesheet</span></span>|
+|<span data-ttu-id="4d443-112">TOEVOEGEN</span><span class="sxs-lookup"><span data-stu-id="4d443-112">GET</span></span>|<span data-ttu-id="4d443-113">https://consumption.Azure.com/v2/enrollments/ {enrollmentNumber} /billingPeriods/ {billingPeriod} / prijslijst</span><span class="sxs-lookup"><span data-stu-id="4d443-113">https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/pricesheet</span></span>|
 
 > [!Note]
-> <span data-ttu-id="ba26e-114">Voor het gebruik van de preview-versie van de API v1 in de bovenstaande URL vervangen v2.</span><span class="sxs-lookup"><span data-stu-id="ba26e-114">To use the preview version of API, replace v2 with v1 in the above URL.</span></span>
+> <span data-ttu-id="4d443-114">toouse hello preview-versie van de API, v2 vervangen door v1 in Hallo bovenstaande URL.</span><span class="sxs-lookup"><span data-stu-id="4d443-114">toouse hello preview version of API, replace v2 with v1 in hello above URL.</span></span>
 >
 
-## <a name="response"></a><span data-ttu-id="ba26e-115">Antwoord</span><span class="sxs-lookup"><span data-stu-id="ba26e-115">Response</span></span>
+## <a name="response"></a><span data-ttu-id="4d443-115">Antwoord</span><span class="sxs-lookup"><span data-stu-id="4d443-115">Response</span></span>
 
     
         [
@@ -68,29 +68,29 @@ ms.lasthandoff: 08/03/2017
     
 
 > [!Note]
-><span data-ttu-id="ba26e-116">Als u de Preview-API gebruikt, is meterId veld niet beschikbaar.</span><span class="sxs-lookup"><span data-stu-id="ba26e-116">If you are using the Preview API, meterId field is not available.</span></span>
+><span data-ttu-id="4d443-116">Als u van Hallo Preview-API gebruikmaakt, is meterId veld niet beschikbaar.</span><span class="sxs-lookup"><span data-stu-id="4d443-116">If you are using hello Preview API, meterId field is not available.</span></span>
 >
 
-<span data-ttu-id="ba26e-117">**Broneigenschapdefinities antwoord**</span><span class="sxs-lookup"><span data-stu-id="ba26e-117">**Response property definitions**</span></span>
+<span data-ttu-id="4d443-117">**Broneigenschapdefinities antwoord**</span><span class="sxs-lookup"><span data-stu-id="4d443-117">**Response property definitions**</span></span>
 
-|<span data-ttu-id="ba26e-118">De naam van eigenschap</span><span class="sxs-lookup"><span data-stu-id="ba26e-118">Property Name</span></span>| <span data-ttu-id="ba26e-119">Type</span><span class="sxs-lookup"><span data-stu-id="ba26e-119">Type</span></span>| <span data-ttu-id="ba26e-120">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="ba26e-120">Description</span></span>
+|<span data-ttu-id="4d443-118">De naam van eigenschap</span><span class="sxs-lookup"><span data-stu-id="4d443-118">Property Name</span></span>| <span data-ttu-id="4d443-119">Type</span><span class="sxs-lookup"><span data-stu-id="4d443-119">Type</span></span>| <span data-ttu-id="4d443-120">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="4d443-120">Description</span></span>
 |-|-|-|
-|<span data-ttu-id="ba26e-121">id</span><span class="sxs-lookup"><span data-stu-id="ba26e-121">id</span></span>| <span data-ttu-id="ba26e-122">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="ba26e-122">string</span></span>| <span data-ttu-id="ba26e-123">De unieke Id die staat voor een bepaald prijslijst item (meter door periode facturering)</span><span class="sxs-lookup"><span data-stu-id="ba26e-123">The unique Id that represents a particular PriceSheet item (meter by billing period)</span></span>|
-|<span data-ttu-id="ba26e-124">billingPeriodId</span><span class="sxs-lookup"><span data-stu-id="ba26e-124">billingPeriodId</span></span>| <span data-ttu-id="ba26e-125">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="ba26e-125">string</span></span>| <span data-ttu-id="ba26e-126">De unieke Id die staat voor een bepaalde periode voor facturering</span><span class="sxs-lookup"><span data-stu-id="ba26e-126">The unique Id that represents a particular Billing period</span></span>|
-|<span data-ttu-id="ba26e-127">meterId</span><span class="sxs-lookup"><span data-stu-id="ba26e-127">meterId</span></span>| <span data-ttu-id="ba26e-128">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="ba26e-128">string</span></span>| <span data-ttu-id="ba26e-129">De id voor de meter.</span><span class="sxs-lookup"><span data-stu-id="ba26e-129">The identifier for the meter.</span></span> <span data-ttu-id="ba26e-130">Deze kan worden toegewezen aan de meterId informatie over het gebruik.</span><span class="sxs-lookup"><span data-stu-id="ba26e-130">It can be mapped to the usage meterId.</span></span>|
-|<span data-ttu-id="ba26e-131">meterName</span><span class="sxs-lookup"><span data-stu-id="ba26e-131">meterName</span></span>| <span data-ttu-id="ba26e-132">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="ba26e-132">string</span></span>| <span data-ttu-id="ba26e-133">De naam van de meter</span><span class="sxs-lookup"><span data-stu-id="ba26e-133">The meter name</span></span>|
-|<span data-ttu-id="ba26e-134">unitOfMeasure</span><span class="sxs-lookup"><span data-stu-id="ba26e-134">unitOfMeasure</span></span>| <span data-ttu-id="ba26e-135">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="ba26e-135">string</span></span>| <span data-ttu-id="ba26e-136">De eenheid voor het meten van de service</span><span class="sxs-lookup"><span data-stu-id="ba26e-136">The Unit of Measure for measuring the service</span></span>|
-|<span data-ttu-id="ba26e-137">includedQuantity</span><span class="sxs-lookup"><span data-stu-id="ba26e-137">includedQuantity</span></span>| <span data-ttu-id="ba26e-138">Decimale</span><span class="sxs-lookup"><span data-stu-id="ba26e-138">decimal</span></span>| <span data-ttu-id="ba26e-139">Aantal dat is opgenomen</span><span class="sxs-lookup"><span data-stu-id="ba26e-139">Quantity that is included</span></span> |
-|<span data-ttu-id="ba26e-140">partNumber</span><span class="sxs-lookup"><span data-stu-id="ba26e-140">partNumber</span></span>| <span data-ttu-id="ba26e-141">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="ba26e-141">string</span></span>| <span data-ttu-id="ba26e-142">Het onderdeelnummer die zijn gekoppeld aan de Meter</span><span class="sxs-lookup"><span data-stu-id="ba26e-142">The part number associated with the Meter</span></span>|
-|<span data-ttu-id="ba26e-143">prijs per eenheid</span><span class="sxs-lookup"><span data-stu-id="ba26e-143">unitPrice</span></span>| <span data-ttu-id="ba26e-144">Decimale</span><span class="sxs-lookup"><span data-stu-id="ba26e-144">decimal</span></span>| <span data-ttu-id="ba26e-145">De prijs per eenheid voor de meter</span><span class="sxs-lookup"><span data-stu-id="ba26e-145">The unit price for the meter</span></span>|
-|<span data-ttu-id="ba26e-146">currencyCode</span><span class="sxs-lookup"><span data-stu-id="ba26e-146">currencyCode</span></span>| <span data-ttu-id="ba26e-147">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="ba26e-147">string</span></span>| <span data-ttu-id="ba26e-148">De valutacode voor de prijs per eenheid</span><span class="sxs-lookup"><span data-stu-id="ba26e-148">The currency code for the unitPrice</span></span>|
+|<span data-ttu-id="4d443-121">id</span><span class="sxs-lookup"><span data-stu-id="4d443-121">id</span></span>| <span data-ttu-id="4d443-122">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="4d443-122">string</span></span>| <span data-ttu-id="4d443-123">Hallo unieke Id die staat voor een bepaald prijslijst item (meter door periode facturering)</span><span class="sxs-lookup"><span data-stu-id="4d443-123">hello unique Id that represents a particular PriceSheet item (meter by billing period)</span></span>|
+|<span data-ttu-id="4d443-124">billingPeriodId</span><span class="sxs-lookup"><span data-stu-id="4d443-124">billingPeriodId</span></span>| <span data-ttu-id="4d443-125">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="4d443-125">string</span></span>| <span data-ttu-id="4d443-126">Hallo unieke Id die staat voor een bepaalde periode voor facturering</span><span class="sxs-lookup"><span data-stu-id="4d443-126">hello unique Id that represents a particular Billing period</span></span>|
+|<span data-ttu-id="4d443-127">meterId</span><span class="sxs-lookup"><span data-stu-id="4d443-127">meterId</span></span>| <span data-ttu-id="4d443-128">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="4d443-128">string</span></span>| <span data-ttu-id="4d443-129">Hallo-id voor Hallo meter.</span><span class="sxs-lookup"><span data-stu-id="4d443-129">hello identifier for hello meter.</span></span> <span data-ttu-id="4d443-130">Het kan toegewezen toohello gebruik meterId zijn.</span><span class="sxs-lookup"><span data-stu-id="4d443-130">It can be mapped toohello usage meterId.</span></span>|
+|<span data-ttu-id="4d443-131">meterName</span><span class="sxs-lookup"><span data-stu-id="4d443-131">meterName</span></span>| <span data-ttu-id="4d443-132">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="4d443-132">string</span></span>| <span data-ttu-id="4d443-133">de naam van de meter Hallo</span><span class="sxs-lookup"><span data-stu-id="4d443-133">hello meter name</span></span>|
+|<span data-ttu-id="4d443-134">unitOfMeasure</span><span class="sxs-lookup"><span data-stu-id="4d443-134">unitOfMeasure</span></span>| <span data-ttu-id="4d443-135">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="4d443-135">string</span></span>| <span data-ttu-id="4d443-136">Hallo eenheid voor het meten van Hallo-service</span><span class="sxs-lookup"><span data-stu-id="4d443-136">hello Unit of Measure for measuring hello service</span></span>|
+|<span data-ttu-id="4d443-137">includedQuantity</span><span class="sxs-lookup"><span data-stu-id="4d443-137">includedQuantity</span></span>| <span data-ttu-id="4d443-138">Decimale</span><span class="sxs-lookup"><span data-stu-id="4d443-138">decimal</span></span>| <span data-ttu-id="4d443-139">Aantal dat is opgenomen</span><span class="sxs-lookup"><span data-stu-id="4d443-139">Quantity that is included</span></span> |
+|<span data-ttu-id="4d443-140">partNumber</span><span class="sxs-lookup"><span data-stu-id="4d443-140">partNumber</span></span>| <span data-ttu-id="4d443-141">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="4d443-141">string</span></span>| <span data-ttu-id="4d443-142">Hallo-onderdeelnummer Hallo Meter gekoppeld</span><span class="sxs-lookup"><span data-stu-id="4d443-142">hello part number associated with hello Meter</span></span>|
+|<span data-ttu-id="4d443-143">prijs per eenheid</span><span class="sxs-lookup"><span data-stu-id="4d443-143">unitPrice</span></span>| <span data-ttu-id="4d443-144">Decimale</span><span class="sxs-lookup"><span data-stu-id="4d443-144">decimal</span></span>| <span data-ttu-id="4d443-145">prijs per eenheid Hallo voor Hallo meter</span><span class="sxs-lookup"><span data-stu-id="4d443-145">hello unit price for hello meter</span></span>|
+|<span data-ttu-id="4d443-146">currencyCode</span><span class="sxs-lookup"><span data-stu-id="4d443-146">currencyCode</span></span>| <span data-ttu-id="4d443-147">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="4d443-147">string</span></span>| <span data-ttu-id="4d443-148">Hallo-valutacode voor Hallo prijs per eenheid</span><span class="sxs-lookup"><span data-stu-id="4d443-148">hello currency code for hello unitPrice</span></span>|
 <br/>
-## <a name="see-also"></a><span data-ttu-id="ba26e-149">Zie ook</span><span class="sxs-lookup"><span data-stu-id="ba26e-149">See also</span></span>
+## <a name="see-also"></a><span data-ttu-id="4d443-149">Zie ook</span><span class="sxs-lookup"><span data-stu-id="4d443-149">See also</span></span>
 
-* [<span data-ttu-id="ba26e-150">Facturering perioden API</span><span class="sxs-lookup"><span data-stu-id="ba26e-150">Billing Periods API</span></span>](billing-enterprise-api-billing-periods.md)
+* [<span data-ttu-id="4d443-150">Facturering perioden API</span><span class="sxs-lookup"><span data-stu-id="4d443-150">Billing Periods API</span></span>](billing-enterprise-api-billing-periods.md)
 
-* [<span data-ttu-id="ba26e-151">Gebruik Detail API</span><span class="sxs-lookup"><span data-stu-id="ba26e-151">Usage Detail API</span></span>](billing-enterprise-api-usage-detail.md)
+* [<span data-ttu-id="4d443-151">Gebruik Detail API</span><span class="sxs-lookup"><span data-stu-id="4d443-151">Usage Detail API</span></span>](billing-enterprise-api-usage-detail.md)
 
-* [<span data-ttu-id="ba26e-152">Saldo en samenvatting API</span><span class="sxs-lookup"><span data-stu-id="ba26e-152">Balance and Summary API</span></span>](billing-enterprise-api-balance-summary.md)
+* [<span data-ttu-id="4d443-152">Saldo en samenvatting API</span><span class="sxs-lookup"><span data-stu-id="4d443-152">Balance and Summary API</span></span>](billing-enterprise-api-balance-summary.md)
 
-* [<span data-ttu-id="ba26e-153">Marketplace Store kosten API</span><span class="sxs-lookup"><span data-stu-id="ba26e-153">Marketplace Store Charge API</span></span>](billing-enterprise-api-marketplace-storecharge.md)
+* [<span data-ttu-id="4d443-153">Marketplace Store kosten API</span><span class="sxs-lookup"><span data-stu-id="4d443-153">Marketplace Store Charge API</span></span>](billing-enterprise-api-marketplace-storecharge.md)

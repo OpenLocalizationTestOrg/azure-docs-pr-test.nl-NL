@@ -1,0 +1,54 @@
+---
+title: RemoteApp-probleemoplossing - aaaAzure voor starten en verbinding toepassingsfouten | Microsoft Docs
+description: Meer informatie over hoe tootroubleshoot problemen met een begin- en verbinding maken met tooapplications in Azure RemoteApp.
+services: remoteapp
+documentationcenter: 
+author: ericorman
+manager: mbaldwin
+ms.assetid: e5cf7171-d1c2-4053-a38b-5af7821305e1
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 04/26/2017
+ms.author: mbaldwin
+ms.openlocfilehash: e51d480c9d3fa1f2076f95b63c7a8cd2f6956a4a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/06/2017
+---
+# <a name="troubleshoot-azure-remoteapp---application-launch-and-connection-failures"></a><span data-ttu-id="5f0d5-103">Problemen met Azure RemoteApp - toepassingsfouten voor starten en verbinding</span><span class="sxs-lookup"><span data-stu-id="5f0d5-103">Troubleshoot Azure RemoteApp - Application launch and connection failures</span></span>
+> [!IMPORTANT]
+> <span data-ttu-id="5f0d5-104">Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-104">Azure RemoteApp is being discontinued on August 31, 2017.</span></span> <span data-ttu-id="5f0d5-105">Lees Hallo [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-105">Read hello [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.</span></span>
+> 
+> 
+
+<span data-ttu-id="5f0d5-106">Toepassingen die worden gehost in Azure RemoteApp kunnen toolaunch om een paar verschillende redenen mislukken.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-106">Applications hosted in Azure RemoteApp can fail toolaunch for a few different reasons.</span></span> <span data-ttu-id="5f0d5-107">Dit artikel wordt beschreven diverse redenen en foutberichten die gebruikers mogelijk ontvangen wanneer het toolaunch toepassingen proberen.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-107">This article describes various reasons and error messages users might receive when trying toolaunch applications.</span></span> <span data-ttu-id="5f0d5-108">Het is ook wordt gesproken over verbindingsfouten.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-108">It also talks about connection failures.</span></span> <span data-ttu-id="5f0d5-109">(Maar in dit artikel wordt niet beschreven hoe problemen bij het ondertekenen van hello Azure RemoteApp-client.)</span><span class="sxs-lookup"><span data-stu-id="5f0d5-109">(But this article does not describe issues when signing into hello Azure RemoteApp client.)</span></span>  
+
+<span data-ttu-id="5f0d5-110">Lees verder voor meer informatie over algemene foutberichten vanwege tooapp voor starten en verbinding fouten.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-110">Read on for information about common error messages due tooapp launch and connection failures.</span></span>
+
+## <a name="were-getting-you-set-up-try-again-in-10-minutes"></a><span data-ttu-id="5f0d5-111">Wij krijgen instellen... Probeer het over 10 minuten opnieuw.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-111">We're getting you set up... Try again in 10 minutes.</span></span>
+<span data-ttu-id="5f0d5-112">Deze fout betekent dat Azure RemoteApp wordt geschaald up toomeet Hallo capaciteit behoeften van uw gebruikers.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-112">This error means Azure RemoteApp is scaling up toomeet hello capacity need of your users.</span></span> <span data-ttu-id="5f0d5-113">Op de achtergrond Hallo worden meer exemplaren van de virtuele machine in Azure RemoteApp gemaakt toohandle Hallo capaciteitsbehoeften van uw gebruikers.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-113">In hello background more Azure RemoteApp VM instances are being created toohandle hello capacity needs of your users.</span></span> <span data-ttu-id="5f0d5-114">Meestal dit duurt ongeveer vijf minuten maar too10 minuten kan duren.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-114">Typically this takes around five minutes but can take up too10 minutes.</span></span> <span data-ttu-id="5f0d5-115">Soms wordt dit gebeurt niet snel genoeg en resources onmiddellijk nodig.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-115">Sometimes, this doesn't happen fast enough and resources are needed immediately.</span></span> <span data-ttu-id="5f0d5-116">Bijvoorbeeld een 9: 00 uur scenario waar veel gebruikers toouse uw app in Azure RemoteAppn op Hallo moeten hetzelfde moment.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-116">For example a 9 AM scenario where many users need toouse your app in Azure RemoteAppn at hello same time.</span></span> <span data-ttu-id="5f0d5-117">Als dit tooyou gebeurt schakelen we **capaciteit modus** op Hallo back-end.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-117">If this happens tooyou we can enable **capacity mode** on hello back end.</span></span> <span data-ttu-id="5f0d5-118">toodo dat openen ticket van een Azure-ondersteuning.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-118">toodo this open an Azure Support ticket.</span></span> <span data-ttu-id="5f0d5-119">Bepaalde tooinclude uw abonnements-ID in Hallo-aanvraag niet.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-119">Be certain tooinclude your subscription ID in hello request.</span></span>  
+
+![Wij krijgen instellen](./media/remoteapp-apptrouble/ra-apptrouble1.png)
+
+## <a name="could-not-auto-reconnect-tooyour-applications-please-re-launch-your-application"></a><span data-ttu-id="5f0d5-121">Kan niet automatisch verbinding maken tooyour-toepassingen opnieuw start uw toepassing</span><span class="sxs-lookup"><span data-stu-id="5f0d5-121">Could not auto-reconnect tooyour applications, please re-launch your application</span></span>
+<span data-ttu-id="5f0d5-122">Dit foutbericht wordt vaak gezien als u Azure RemoteApp en zet u uw PC toosleep langer zijn dan 4 uur gebruikt en vervolgens uw PC woke up en hello Azure RemoteApp-client poging tooauto opnieuw verbinding maken en time-out is overschreden.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-122">This error message is often seen if you were using Azure RemoteApp and then put your PC toosleep longer than 4 hours and then woke your PC up and hello Azure RemoteApp client attempt tooauto reconnect and timeout was exceeded.</span></span>  <span data-ttu-id="5f0d5-123">Gebruikers toonavigate back toohello toepassing instrueren en tooopen proberen via hello Azure RemoteApp-client.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-123">Instruct users toonavigate back toohello application and attempt tooopen it from hello Azure RemoteApp client.</span></span>
+
+![Kan niet automatisch verbinding maken tooyour toepassingen](./media/remoteapp-apptrouble/ra-apptrouble2.png) 
+
+## <a name="problems-with-hello-temp-profile"></a><span data-ttu-id="5f0d5-125">Problemen met tijdelijke profielen Hallo</span><span class="sxs-lookup"><span data-stu-id="5f0d5-125">Problems with hello temp profile</span></span>
+<span data-ttu-id="5f0d5-126">Deze fout treedt op wanneer het gebruikersprofiel (Gebruikersprofielschijf) is mislukt toomount en Hallo gebruiker een tijdelijk profiel ontvangen.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-126">This error occurs when your user profile (User Profile Disk) failed toomount and hello user received a temporary profile.</span></span>  <span data-ttu-id="5f0d5-127">Beheerders moeten navigeren toohello verzameling in hello Azure-portal en gaat u toohello **sessies** tabblad en proberen te**Afmelden** Hallo-gebruiker.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-127">Administrators should navigate toohello collection in hello Azure portal and then go toohello **Sessions** tab and attempt too**Log Off** hello user.</span></span> <span data-ttu-id="5f0d5-128">Hiermee wordt een volledige logboek af gebruikerssessie Hallo - force vervolgens Hallo gebruiker poging toolaunch opnieuw een app hebt.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-128">This will force a full log off of hello user session - then have hello user attempt toolaunch an app again.</span></span> <span data-ttu-id="5f0d5-129">Als dat Neem contact op met de ondersteuning van Azure mislukt.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-129">If that fails contact Azure support.</span></span>
+
+## <a name="azure-remoteapp-has-stopped-working"></a><span data-ttu-id="5f0d5-130">Azure RemoteApp werkt niet</span><span class="sxs-lookup"><span data-stu-id="5f0d5-130">Azure RemoteApp has stopped working</span></span>
+<span data-ttu-id="5f0d5-131">Dit foutbericht geeft hello Azure RemoteApp-client heeft een probleem en moet toobe opnieuw gestart.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-131">This error message means hello Azure RemoteApp client is having an issue and needs toobe restarted.</span></span> <span data-ttu-id="5f0d5-132">Gebruikers tooclose instrueren: Selecteer **programma afsluiten** en hello Azure RemoteApp-client vervolgens opnieuw te starten.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-132">Instruct users tooclose: select **Close program** and then launch hello Azure RemoteApp client again.</span></span>  <span data-ttu-id="5f0d5-133">Als Hallo probleem blijft openen en de Azure-ondersteuningsticket optreden.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-133">If hello issue continues open and Azure Support ticket.</span></span>
+
+![Azure RemoteApp werkt niet](./media/remoteapp-apptrouble/ra-apptrouble3.png)  
+
+## <a name="an-error-occurred-while-remote-desktop-connection-was-accessing-this-resource-retry-hello-connection-or-contact-your-system-administrator"></a><span data-ttu-id="5f0d5-135">Er is een fout opgetreden tijdens het verbinding met extern bureaublad is toegang tot deze bron.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-135">An error occurred while Remote Desktop Connection was accessing this resource.</span></span> <span data-ttu-id="5f0d5-136">Hallo-verbinding opnieuw of neem contact op met uw systeembeheerder</span><span class="sxs-lookup"><span data-stu-id="5f0d5-136">Retry hello connection or contact your system administrator</span></span>
+<span data-ttu-id="5f0d5-137">Dit is een algemene foutmelding: Neem contact op met de ondersteuning van Azure zodat we kunt onderzoeken.</span><span class="sxs-lookup"><span data-stu-id="5f0d5-137">This is a generic error message - contact Azure support so we can investigate.</span></span> 
+
+![Algemene Azure RemoteApp-bericht](./media/remoteapp-apptrouble/ra-apptrouble4.png) 
+

@@ -1,6 +1,6 @@
 ---
-title: Azure-resources voor het repliceren van fysieke on-premises servers naar Azure met Azure Site Recovery voorbereiden | Microsoft Docs
-description: Beschrijft wat u moet in de Azure voordat u begint met het lokale servers repliceren naar Azure met behulp van de Azure Site Recovery-service
+title: aaaPrepare Azure-resources tooreplicate lokale fysieke servers tooAzure met Azure Site Recovery | Microsoft Docs
+description: Beschrijft wat u moet in de Azure voordat u lokale servers tooAzure, repliceren met behulp van hello Azure Site Recovery-service
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,50 +14,50 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: raynew
-ms.openlocfilehash: b7411fa6aba04ffd34f3f4bd03e706ca75afc9c8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b1d008dac278bc7797188a3c9c15f2a3b5fe12d7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-5-prepare-azure-resources-for-physical-server-replication-to-azure"></a><span data-ttu-id="5674b-103">Stap 5: Azure-resources voorbereiden voor replicatie van de fysieke server naar Azure</span><span class="sxs-lookup"><span data-stu-id="5674b-103">Step 5: Prepare Azure resources for physical server replication to Azure</span></span>
+# <a name="step-5-prepare-azure-resources-for-physical-server-replication-tooazure"></a><span data-ttu-id="60a63-103">Stap 5: Azure-resources voor de fysieke server replicatie tooAzure voorbereiden</span><span class="sxs-lookup"><span data-stu-id="60a63-103">Step 5: Prepare Azure resources for physical server replication tooAzure</span></span>
 
 
-<span data-ttu-id="5674b-104">Volg de instructies in dit artikel voor het voorbereiden van Azure-resources, zodat u lokale servers naar Azure worden verkregen met repliceren kunt de [Azure Site Recovery](site-recovery-overview.md) service.</span><span class="sxs-lookup"><span data-stu-id="5674b-104">Use the instructions in this article to prepare Azure resources so that you can replicate on-premises servers to Azure using the [Azure Site Recovery](site-recovery-overview.md) service.</span></span>
+<span data-ttu-id="60a63-104">Volg Hallo-instructies in dit artikel tooprepare Azure resources zodat u kunt repliceren lokale servers tooAzure Hallo met [Azure Site Recovery](site-recovery-overview.md) service.</span><span class="sxs-lookup"><span data-stu-id="60a63-104">Use hello instructions in this article tooprepare Azure resources so that you can replicate on-premises servers tooAzure using hello [Azure Site Recovery](site-recovery-overview.md) service.</span></span>
 
-<span data-ttu-id="5674b-105">Opmerkingen en vragen plaatsen onder aan dit artikel of op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).</span><span class="sxs-lookup"><span data-stu-id="5674b-105">Post comments and questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).</span></span>
+<span data-ttu-id="60a63-105">Opmerkingen en vragen plaatsen Hallo onder aan dit artikel of op Hallo [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).</span><span class="sxs-lookup"><span data-stu-id="60a63-105">Post comments and questions at hello bottom of this article, or on hello [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).</span></span>
 
-## <a name="before-you-start"></a><span data-ttu-id="5674b-106">Voordat u begint</span><span class="sxs-lookup"><span data-stu-id="5674b-106">Before you start</span></span>
+## <a name="before-you-start"></a><span data-ttu-id="60a63-106">Voordat u begint</span><span class="sxs-lookup"><span data-stu-id="60a63-106">Before you start</span></span>
 
-<span data-ttu-id="5674b-107">Zorg ervoor dat u hebt gelezen de [vereisten](physical-walkthrough-prerequisites.md).</span><span class="sxs-lookup"><span data-stu-id="5674b-107">Make sure you've read the [prerequisites](physical-walkthrough-prerequisites.md).</span></span>
+<span data-ttu-id="60a63-107">Zorg ervoor dat u hebt Hallo gelezen [vereisten](physical-walkthrough-prerequisites.md).</span><span class="sxs-lookup"><span data-stu-id="60a63-107">Make sure you've read hello [prerequisites](physical-walkthrough-prerequisites.md).</span></span>
 
-## <a name="set-up-an-azure-account"></a><span data-ttu-id="5674b-108">Een Azure-account instellen</span><span class="sxs-lookup"><span data-stu-id="5674b-108">Set up an Azure account</span></span>
+## <a name="set-up-an-azure-account"></a><span data-ttu-id="60a63-108">Een Azure-account instellen</span><span class="sxs-lookup"><span data-stu-id="60a63-108">Set up an Azure account</span></span>
 
-- <span data-ttu-id="5674b-109">Ophalen van een [Microsoft Azure-account](http://azure.microsoft.com/).</span><span class="sxs-lookup"><span data-stu-id="5674b-109">Get a [Microsoft Azure account](http://azure.microsoft.com/).</span></span>
-- <span data-ttu-id="5674b-110">U kunt beginnen met een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="5674b-110">You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
-- <span data-ttu-id="5674b-111">Controleren van de ondersteunde regio's voor herstel van sites onder **geografische beschikbaarheid** in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).</span><span class="sxs-lookup"><span data-stu-id="5674b-111">Check the supported regions for Site Recovery, under **Geographic Availability** in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).</span></span>
-- <span data-ttu-id="5674b-112">Meer informatie over [prijzen voor Site Recovery](site-recovery-faq.md#pricing), en de [prijsinformatie](https://azure.microsoft.com/pricing/details/site-recovery/).</span><span class="sxs-lookup"><span data-stu-id="5674b-112">Learn about [Site Recovery pricing](site-recovery-faq.md#pricing), and get the [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).</span></span>
-
-
-
-## <a name="set-up-an-azure-network"></a><span data-ttu-id="5674b-113">Een Azure-netwerk instellen</span><span class="sxs-lookup"><span data-stu-id="5674b-113">Set up an Azure network</span></span>
-
-- <span data-ttu-id="5674b-114">Een Azure-netwerk instellen.</span><span class="sxs-lookup"><span data-stu-id="5674b-114">Set up an Azure network.</span></span> <span data-ttu-id="5674b-115">Virtuele machines in Azure worden geplaatst in dit netwerk wanneer ze zijn gemaakt na een failover.</span><span class="sxs-lookup"><span data-stu-id="5674b-115">Azure VMs are placed in this network when they're created after failover.</span></span>
-- <span data-ttu-id="5674b-116">Site Recovery in de Azure portal kunt instellen netwerken [Resource Manager](../resource-manager-deployment-model.md), of in de klassieke modus.</span><span class="sxs-lookup"><span data-stu-id="5674b-116">Site Recovery in the Azure portal can use networks set up in [Resource Manager](../resource-manager-deployment-model.md), or in classic mode.</span></span>
-- <span data-ttu-id="5674b-117">Het netwerk moet zich in dezelfde regio bevinden als de Recovery Services-kluis.</span><span class="sxs-lookup"><span data-stu-id="5674b-117">The network should be in the same region as the Recovery Services vault.</span></span>
-- <span data-ttu-id="5674b-118">Meer informatie over [virtueel netwerk prijzen](https://azure.microsoft.com/pricing/details/virtual-network/).</span><span class="sxs-lookup"><span data-stu-id="5674b-118">Learn about [virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).</span></span>
-- <span data-ttu-id="5674b-119">Meer informatie over [Azure VM-connectiviteit](physical-walkthrough-network.md) na een failover.</span><span class="sxs-lookup"><span data-stu-id="5674b-119">Learn more about [Azure VM connectivity](physical-walkthrough-network.md) after failover.</span></span>
+- <span data-ttu-id="60a63-109">Ophalen van een [Microsoft Azure-account](http://azure.microsoft.com/).</span><span class="sxs-lookup"><span data-stu-id="60a63-109">Get a [Microsoft Azure account](http://azure.microsoft.com/).</span></span>
+- <span data-ttu-id="60a63-110">U kunt beginnen met een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="60a63-110">You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="60a63-111">Hallo ondersteunde regio's onder controleren voor de Site Recovery **geografische beschikbaarheid** in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).</span><span class="sxs-lookup"><span data-stu-id="60a63-111">Check hello supported regions for Site Recovery, under **Geographic Availability** in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).</span></span>
+- <span data-ttu-id="60a63-112">Meer informatie over [prijzen voor Site Recovery](site-recovery-faq.md#pricing), en krijgt u Hallo [prijsinformatie](https://azure.microsoft.com/pricing/details/site-recovery/).</span><span class="sxs-lookup"><span data-stu-id="60a63-112">Learn about [Site Recovery pricing](site-recovery-faq.md#pricing), and get hello [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).</span></span>
 
 
-## <a name="set-up-an-azure-storage-account"></a><span data-ttu-id="5674b-120">Een Azure-opslagaccount instellen</span><span class="sxs-lookup"><span data-stu-id="5674b-120">Set up an Azure storage account</span></span>
 
-- <span data-ttu-id="5674b-121">Lokale servers repliceert siteherstel naar Azure storage.</span><span class="sxs-lookup"><span data-stu-id="5674b-121">Site Recovery replicates on-premises servers to Azure storage.</span></span> <span data-ttu-id="5674b-122">Virtuele machines in Azure worden gemaakt van de opslag nadat de failover plaatsvindt.</span><span class="sxs-lookup"><span data-stu-id="5674b-122">Azure VMs are created from the storage after failover occurs.</span></span>
-- <span data-ttu-id="5674b-123">Instellen van een [Azure storage-account](../storage/common/storage-create-storage-account.md#create-a-storage-account) voor gerepliceerde gegevens.</span><span class="sxs-lookup"><span data-stu-id="5674b-123">Set up an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for replicated data.</span></span>
-- <span data-ttu-id="5674b-124">Site Recovery in de Azure portal kunt instellen in Resource Manager, of in de klassieke modus storage-accounts gebruiken.</span><span class="sxs-lookup"><span data-stu-id="5674b-124">Site Recovery in the Azure portal can use storage accounts set up in Resource Manager, or in classic mode.</span></span>
-- <span data-ttu-id="5674b-125">Het opslagaccount kan worden standaard of [premium](../storage/common/storage-premium-storage.md).</span><span class="sxs-lookup"><span data-stu-id="5674b-125">The storage account can be standard or [premium](../storage/common/storage-premium-storage.md).</span></span>
-- <span data-ttu-id="5674b-126">Als u een premium-account hebt ingesteld, moet u ook een extra standaardaccount voor logboekgegevens.</span><span class="sxs-lookup"><span data-stu-id="5674b-126">If you set up a premium account, you will also need an additional standard account for log data.</span></span>
+## <a name="set-up-an-azure-network"></a><span data-ttu-id="60a63-113">Een Azure-netwerk instellen</span><span class="sxs-lookup"><span data-stu-id="60a63-113">Set up an Azure network</span></span>
+
+- <span data-ttu-id="60a63-114">Een Azure-netwerk instellen.</span><span class="sxs-lookup"><span data-stu-id="60a63-114">Set up an Azure network.</span></span> <span data-ttu-id="60a63-115">Virtuele machines in Azure worden geplaatst in dit netwerk wanneer ze zijn gemaakt na een failover.</span><span class="sxs-lookup"><span data-stu-id="60a63-115">Azure VMs are placed in this network when they're created after failover.</span></span>
+- <span data-ttu-id="60a63-116">Site Recovery in hello Azure-portal kunt instellen netwerken [Resource Manager](../resource-manager-deployment-model.md), of in de klassieke modus.</span><span class="sxs-lookup"><span data-stu-id="60a63-116">Site Recovery in hello Azure portal can use networks set up in [Resource Manager](../resource-manager-deployment-model.md), or in classic mode.</span></span>
+- <span data-ttu-id="60a63-117">Hallo-netwerk moet zich in Hallo dezelfde regio bevinden als Hallo Recovery Services-kluis.</span><span class="sxs-lookup"><span data-stu-id="60a63-117">hello network should be in hello same region as hello Recovery Services vault.</span></span>
+- <span data-ttu-id="60a63-118">Meer informatie over [virtueel netwerk prijzen](https://azure.microsoft.com/pricing/details/virtual-network/).</span><span class="sxs-lookup"><span data-stu-id="60a63-118">Learn about [virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).</span></span>
+- <span data-ttu-id="60a63-119">Meer informatie over [Azure VM-connectiviteit](physical-walkthrough-network.md) na een failover.</span><span class="sxs-lookup"><span data-stu-id="60a63-119">Learn more about [Azure VM connectivity](physical-walkthrough-network.md) after failover.</span></span>
 
 
-## <a name="next-steps"></a><span data-ttu-id="5674b-127">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="5674b-127">Next steps</span></span>
+## <a name="set-up-an-azure-storage-account"></a><span data-ttu-id="60a63-120">Een Azure-opslagaccount instellen</span><span class="sxs-lookup"><span data-stu-id="60a63-120">Set up an Azure storage account</span></span>
 
-<span data-ttu-id="5674b-128">Ga naar [stap 6: een kluis instellen](physical-walkthrough-create-vault.md)</span><span class="sxs-lookup"><span data-stu-id="5674b-128">Go to [Step 6: Set up a vault](physical-walkthrough-create-vault.md)</span></span>
+- <span data-ttu-id="60a63-121">Site Recovery repliceert lokale servers tooAzure opslag.</span><span class="sxs-lookup"><span data-stu-id="60a63-121">Site Recovery replicates on-premises servers tooAzure storage.</span></span> <span data-ttu-id="60a63-122">Virtuele machines in Azure worden gemaakt van Hallo opslag nadat de failover plaatsvindt.</span><span class="sxs-lookup"><span data-stu-id="60a63-122">Azure VMs are created from hello storage after failover occurs.</span></span>
+- <span data-ttu-id="60a63-123">Instellen van een [Azure storage-account](../storage/common/storage-create-storage-account.md#create-a-storage-account) voor gerepliceerde gegevens.</span><span class="sxs-lookup"><span data-stu-id="60a63-123">Set up an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for replicated data.</span></span>
+- <span data-ttu-id="60a63-124">Site Recovery in hello Azure-portal kunt instellen in Resource Manager, of in de klassieke modus storage-accounts gebruiken.</span><span class="sxs-lookup"><span data-stu-id="60a63-124">Site Recovery in hello Azure portal can use storage accounts set up in Resource Manager, or in classic mode.</span></span>
+- <span data-ttu-id="60a63-125">Hallo storage-account kan worden standaard of [premium](../storage/common/storage-premium-storage.md).</span><span class="sxs-lookup"><span data-stu-id="60a63-125">hello storage account can be standard or [premium](../storage/common/storage-premium-storage.md).</span></span>
+- <span data-ttu-id="60a63-126">Als u een premium-account hebt ingesteld, moet u ook een extra standaardaccount voor logboekgegevens.</span><span class="sxs-lookup"><span data-stu-id="60a63-126">If you set up a premium account, you will also need an additional standard account for log data.</span></span>
+
+
+## <a name="next-steps"></a><span data-ttu-id="60a63-127">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="60a63-127">Next steps</span></span>
+
+<span data-ttu-id="60a63-128">Ga te[stap 6: een kluis instellen](physical-walkthrough-create-vault.md)</span><span class="sxs-lookup"><span data-stu-id="60a63-128">Go too[Step 6: Set up a vault](physical-walkthrough-create-vault.md)</span></span>

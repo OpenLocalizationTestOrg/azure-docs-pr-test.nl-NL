@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure Site Recovery - zelfstudies, API-verwijzing | Microsoft Docs
-description: "Leer hoe u herstel na noodgevallen en bedrijfscontinuïteit in de cloud kunt instellen voor fysieke servers en virtuele machines door het implementeren en beheren van replicatie."
+title: aaaAzure Site Recovery-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: "Meer informatie over hoe tooset up cloud disaster recovery en zakelijke continuïteit voor fysieke servers en virtuele machines door te implementeren en beheren van replicatie."
 services: site-recovery
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 06/05/2017
 ms.author: carolz
-ms.openlocfilehash: ef7a25de4536cfd54331e1bce7d22f351768585c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 08c295488f2e9058922a495ffac24ee96f33fbda
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="site-recovery-documentation"></a>Documentatie over Site Recovery
 
-Leer hoe u Site Recovery kunt gebruiken voor het verbeteren van uw bedrijfscontinuïteit en uw strategie voor herstel na noodgevallen, zodat apps en workloads beschikbaar blijven tijdens downtime. Zelfstudies en andere artikelen beschreven hoe u de replicatie, de failover en het herstel van on-premises machines en virtuele Azure-machines kunt plannen, implementeren en beheren.
+Meer informatie over hoe toouse Site Recovery toocontribute tooyour zakelijke continuïteit en noodherstel herstelstrategie, tookeep toepassingen en workloads beschikbaar zijn tijdens de uitvaltijd. Zelfstudies en andere artikelen kunt laten u zien hoe tooplan, implementeren en beheren van Hallo replicatie, failovers en herstel van on-premises machines en virtuele Azure-machines.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -88,7 +88,7 @@ Leer hoe u Site Recovery kunt gebruiken voor het verbeteren van uw bedrijfsconti
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met replicatie van virtuele Hyper-V-machines naar Azure (zonder VMM)</h3>
+                        <h3>Aan de slag met de replicatie van Hyper-V-machines tooAzure (zonder VMM)</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Leer hoe u Site Recovery kunt gebruiken voor het verbeteren van uw bedrijfsconti
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met replicatie van virtuele Hyper-V-machines in VMM-clouds naar Azure</h3>
+                        <h3>Aan de slag met de replicatie van Hyper-V-machines in VMM-clouds tooAzure</h3>
                     </div>
                 </div>
             </div>

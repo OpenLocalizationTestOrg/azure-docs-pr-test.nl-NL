@@ -22,7 +22,7 @@
 ## Sjablonen maken
 ### [Aanbevolen procedures voor sjablonen](resource-manager-template-best-practices.md)
 ### [Sjabloonsecties](resource-group-authoring-templates.md)
-### [Koppeling naar andere sjablonen](resource-group-linked-templates.md)
+### [Koppeling tooother sjablonen](resource-group-linked-templates.md)
 ### [Afhankelijkheid tussen resources definiëren](resource-group-define-dependencies.md)
 ### [Meerdere exemplaren maken](resource-group-create-multiple.md)
 ### [Locatie instellen](resource-manager-template-location.md)
@@ -52,9 +52,9 @@
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
 ### [Portal](resource-group-portal.md)
-### [REST-API](resource-manager-rest-api.md)
-### [Tags gebruiken om resources te organiseren](resource-group-using-tags.md)
-### [Resources verplaatsen naar nieuwe groep of abonnement](resource-group-move-resources.md)
+### [REST API](resource-manager-rest-api.md)
+### [Labels tooorganize resources gebruiken](resource-group-using-tags.md)
+### [Verplaatsen van resources toonew-groep of -abonnement](resource-group-move-resources.md)
 ### [Voorbeelden governance](resource-manager-subscription-examples.md)
 
 ## Toegang beheren
@@ -63,13 +63,13 @@
 #### [Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 #### [Portal](resource-group-create-service-principal-portal.md)
-### [Verificatie-API om toegang te krijgen tot abonnementen](resource-manager-api-authentication.md)
+### [Authenticatie-API tooaccess abonnementen](resource-manager-api-authentication.md)
 ### [Resources vergrendelen](resource-group-lock-resources.md)
 
 ## Resourcebeleid instellen
 ### [Wat is een resourcebeleid?](resource-manager-policy.md)
-### [Portal gebruiken voor het toewijzen van beleid](resource-manager-policy-portal.md)
-### [Scripts gebruiken voor het toewijzen van beleid](resource-manager-policy-create-assign.md)
+### [Portal tooassign beleid gebruiken](resource-manager-policy-portal.md)
+### [Scripts tooassign beleid gebruiken](resource-manager-policy-create-assign.md)
 ### Voorbeelden
 #### [Tags](resource-manager-policy-tags.md)
 #### [Naamconventies](resource-manager-policy-naming-convention.md)

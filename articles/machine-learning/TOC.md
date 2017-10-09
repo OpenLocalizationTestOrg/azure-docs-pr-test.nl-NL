@@ -17,7 +17,7 @@
 ### [Met Azure ML](http://aka.ms/datascienceprocess)
 
 ## Machine Learning Studio
-### [Wat is de Studio?](machine-learning-what-is-ml-studio.md)
+### [Wat is Hallo Studio?](machine-learning-what-is-ml-studio.md)
 ### [Studiocapaciteiten](machine-learning-studio-overview-diagram.md)
 ### [Infographic: basiskennis van ML](machine-learning-basics-infographic-with-algorithm-examples.md)
 
@@ -40,7 +40,7 @@
 ## Wetenschappelijke gegevens voor beginners
 ### [1: Vijf vragen](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
 ### [2: Zijn de gegevens klaar?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
-### [3: De juiste vraag stellen](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
+### [3: Stel de juiste vraag Hallo](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
 ### [4: Een antwoord voorspellen](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5: Werk van anderen kopiëren](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
@@ -54,8 +54,8 @@
 ### [Hadoop aanpassen](machine-learning-data-science-customize-hadoop-cluster.md)
 ### Een virtuele machine instellen
 #### [Overzicht van DS-VM](machine-learning-data-science-virtual-machine-overview.md)
-#### [De DS-VM gebruiken](machine-learning-data-science-vm-do-ten-things.md)
-#### [De DS-VM inrichten](machine-learning-data-science-provision-vm.md)
+#### [Hoe toouse Hallo DS VM](machine-learning-data-science-vm-do-ten-things.md)
+#### [Hallo DS VM inrichten](machine-learning-data-science-provision-vm.md)
 #### [Azure VM instellen](machine-learning-data-science-setup-virtual-machine.md)
 #### [SQL VM instellen](machine-learning-data-science-setup-sql-server-virtual-machine.md)
 #### [Linux-VM inrichten](machine-learning-data-science-linux-dsvm-intro.md)
@@ -79,8 +79,8 @@
 #### [AzCopy gebruiken](machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md)
 #### [Python gebruiken](machine-learning-data-science-move-data-to-azure-blob-using-python.md)
 #### [SSIS gebruiken](machine-learning-data-science-move-data-to-azure-blob-using-ssis.md)
-#### [Verplaatsen naar een virtuele machine](machine-learning-data-science-move-sql-server-virtual-machine.md)
-#### [Verplaatsen naar een SQL-database](machine-learning-data-science-move-sql-azure.md)
+#### [Tooa VM verplaatsen](machine-learning-data-science-move-sql-server-virtual-machine.md)
+#### [TooSQL-database verplaatsen](machine-learning-data-science-move-sql-azure.md)
 #### [In hive-tabellen laden](machine-learning-data-science-move-hive-tables.md)
 #### [Laden uit on-premises SQL](machine-learning-data-science-move-sql-azure-adf.md)
 #### [Laden vanuit SQL-partitietabellen](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)
@@ -119,7 +119,7 @@
 ### Modellen maken en trainen
 #### [Beheer van de levenscyclus van experimenten](machine-learning-version-control.md)
 #### [Iteraties beheren](machine-learning-manage-experiment-iterations.md)
-#### [PowerShell gebruiken om modellen te maken](machine-learning-create-models-and-endpoints-with-powershell.md)
+#### [PowerShell toocreate modellen gebruiken](machine-learning-create-models-and-endpoints-with-powershell.md)
 #### Algoritmen selecteren
 ##### [Algoritmen kiezen](machine-learning-algorithm-choice.md)
 ##### [Overzichtskaart algoritmen](machine-learning-algorithm-cheat-sheet.md)

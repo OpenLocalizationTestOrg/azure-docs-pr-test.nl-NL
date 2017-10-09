@@ -1,5 +1,5 @@
 ---
-title: Wijzig de instellingen in Azure microservices FabricTransport | Microsoft Docs
+title: aaaChange FabricTransport instellingen in Azure microservices | Microsoft Docs
 description: Meer informatie over het configureren van Azure Service Fabric actor communicatie-instellingen.
 services: Service-Fabric
 documentationcenter: .net
@@ -14,49 +14,49 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 75bdd4644f4ccc583271b9169c50a375e2cd6629
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e312b475407eb95a435b93d80c0f2e9618b9ea1f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-fabrictransport-settings-for-reliable-actors"></a><span data-ttu-id="58050-103">FabricTransport instellingen configureren voor Reliable Actors</span><span class="sxs-lookup"><span data-stu-id="58050-103">Configure FabricTransport settings for Reliable Actors</span></span>
+# <a name="configure-fabrictransport-settings-for-reliable-actors"></a><span data-ttu-id="f407c-103">FabricTransport instellingen configureren voor Reliable Actors</span><span class="sxs-lookup"><span data-stu-id="f407c-103">Configure FabricTransport settings for Reliable Actors</span></span>
 
-<span data-ttu-id="58050-104">Hier volgen de instellingen die u kunt configureren:</span><span class="sxs-lookup"><span data-stu-id="58050-104">Here are the settings that you can configure:</span></span>
-- <span data-ttu-id="58050-105">C#: [FabricTransportRemotingSettings](
-https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)</span><span class="sxs-lookup"><span data-stu-id="58050-105">C#: [FabricTransportRemotingSettings](
+<span data-ttu-id="f407c-104">Hier volgen Hallo-instellingen die u kunt configureren:</span><span class="sxs-lookup"><span data-stu-id="f407c-104">Here are hello settings that you can configure:</span></span>
+- <span data-ttu-id="f407c-105">C#: [FabricTransportRemotingSettings](
+https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)</span><span class="sxs-lookup"><span data-stu-id="f407c-105">C#: [FabricTransportRemotingSettings](
 https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)</span></span>
-- <span data-ttu-id="58050-106">Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)</span><span class="sxs-lookup"><span data-stu-id="58050-106">Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)</span></span>
+- <span data-ttu-id="f407c-106">Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)</span><span class="sxs-lookup"><span data-stu-id="f407c-106">Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)</span></span>
 
-<span data-ttu-id="58050-107">U kunt de standaardconfiguratie van FabricTransport wijzigen in de volgende manieren.</span><span class="sxs-lookup"><span data-stu-id="58050-107">You can modify the default configuration of FabricTransport in following ways.</span></span>
+<span data-ttu-id="f407c-107">U kunt de standaardconfiguratie Hallo van FabricTransport wijzigen in de volgende manieren.</span><span class="sxs-lookup"><span data-stu-id="f407c-107">You can modify hello default configuration of FabricTransport in following ways.</span></span>
 
-## <a name="assembly-attribute"></a><span data-ttu-id="58050-108">Assembly-kenmerk</span><span class="sxs-lookup"><span data-stu-id="58050-108">Assembly attribute</span></span>
+## <a name="assembly-attribute"></a><span data-ttu-id="f407c-108">Assembly-kenmerk</span><span class="sxs-lookup"><span data-stu-id="f407c-108">Assembly attribute</span></span>
 
-<span data-ttu-id="58050-109">De [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) kenmerk moet worden toegepast op de actor-client en de assembly's actor-service.</span><span class="sxs-lookup"><span data-stu-id="58050-109">The [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) attribute needs to be applied on the actor client and actor service assemblies.</span></span>
+<span data-ttu-id="f407c-109">Hallo [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) moet het kenmerk toobe toegepast op Hallo actor-client en actor service assembly's.</span><span class="sxs-lookup"><span data-stu-id="f407c-109">hello [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) attribute needs toobe applied on hello actor client and actor service assemblies.</span></span>
 
-<span data-ttu-id="58050-110">Het volgende voorbeeld ziet u hoe de standaardwaarde van FabricTransport OperationTimeout instellingen wijzigen:</span><span class="sxs-lookup"><span data-stu-id="58050-110">The following example shows how to change the default value of FabricTransport OperationTimeout settings:</span></span>
+<span data-ttu-id="f407c-110">Hallo volgende voorbeeld ziet u hoe toochange Hallo standaardwaarde FabricTransport OperationTimeout-instellingen:</span><span class="sxs-lookup"><span data-stu-id="f407c-110">hello following example shows how toochange hello default value of FabricTransport OperationTimeout settings:</span></span>
 
   ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600)]
    ```
 
-   <span data-ttu-id="58050-111">Tweede voorbeeld wordt standaard waarden van FabricTransport MaxMessageSize en OperationTimeoutInSeconds.</span><span class="sxs-lookup"><span data-stu-id="58050-111">Second example changes default Values of FabricTransport MaxMessageSize and OperationTimeoutInSeconds.</span></span>
+   <span data-ttu-id="f407c-111">Tweede voorbeeld wordt standaard waarden van FabricTransport MaxMessageSize en OperationTimeoutInSeconds.</span><span class="sxs-lookup"><span data-stu-id="f407c-111">Second example changes default Values of FabricTransport MaxMessageSize and OperationTimeoutInSeconds.</span></span>
 
   ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600,MaxMessageSize = 134217728)]
    ```
 
-## <a name="config-package"></a><span data-ttu-id="58050-112">Configuratiepakket</span><span class="sxs-lookup"><span data-stu-id="58050-112">Config package</span></span>
+## <a name="config-package"></a><span data-ttu-id="f407c-112">Configuratiepakket</span><span class="sxs-lookup"><span data-stu-id="f407c-112">Config package</span></span>
 
-<span data-ttu-id="58050-113">U kunt een [configuratiepakket](service-fabric-application-model.md) te wijzigen van de standaardconfiguratie.</span><span class="sxs-lookup"><span data-stu-id="58050-113">You can use a [config package](service-fabric-application-model.md) to modify the default configuration.</span></span>
+<span data-ttu-id="f407c-113">U kunt een [configuratiepakket](service-fabric-application-model.md) toomodify Hallo standaardconfiguratie.</span><span class="sxs-lookup"><span data-stu-id="f407c-113">You can use a [config package](service-fabric-application-model.md) toomodify hello default configuration.</span></span>
 
-### <a name="configure-fabrictransport-settings-for-the-actor-service"></a><span data-ttu-id="58050-114">Instellingen voor de service actor FabricTransport configureren</span><span class="sxs-lookup"><span data-stu-id="58050-114">Configure FabricTransport settings for the actor service</span></span>
+### <a name="configure-fabrictransport-settings-for-hello-actor-service"></a><span data-ttu-id="f407c-114">Instellingen voor Hallo actor service FabricTransport configureren</span><span class="sxs-lookup"><span data-stu-id="f407c-114">Configure FabricTransport settings for hello actor service</span></span>
 
-<span data-ttu-id="58050-115">Een sectie TransportSettings in het bestand settings.xml toevoegen.</span><span class="sxs-lookup"><span data-stu-id="58050-115">Add a TransportSettings section in the settings.xml file.</span></span>
+<span data-ttu-id="f407c-115">Een sectie TransportSettings in Hallo settings.xml bestand toevoegen.</span><span class="sxs-lookup"><span data-stu-id="f407c-115">Add a TransportSettings section in hello settings.xml file.</span></span>
 
-<span data-ttu-id="58050-116">Standaard actor code zoekt SectionName als '&lt;ActorName&gt;TransportSettings '.</span><span class="sxs-lookup"><span data-stu-id="58050-116">By default, actor code looks for SectionName as "&lt;ActorName&gt;TransportSettings".</span></span> <span data-ttu-id="58050-117">Als dat niet wordt gevonden, controleert deze voor SectionName als 'TransportSettings'.</span><span class="sxs-lookup"><span data-stu-id="58050-117">If that's not found, it checks for SectionName as "TransportSettings".</span></span>
+<span data-ttu-id="f407c-116">Standaard actor code zoekt SectionName als '&lt;ActorName&gt;TransportSettings '.</span><span class="sxs-lookup"><span data-stu-id="f407c-116">By default, actor code looks for SectionName as "&lt;ActorName&gt;TransportSettings".</span></span> <span data-ttu-id="f407c-117">Als dat niet wordt gevonden, controleert deze voor SectionName als 'TransportSettings'.</span><span class="sxs-lookup"><span data-stu-id="f407c-117">If that's not found, it checks for SectionName as "TransportSettings".</span></span>
 
   ```xml
   <Section Name="MyActorServiceTransportSettings">
@@ -73,9 +73,9 @@ https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remot
    </Section>
   ```
 
-### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a><span data-ttu-id="58050-118">Instellingen voor de assembly van de client actor FabricTransport configureren</span><span class="sxs-lookup"><span data-stu-id="58050-118">Configure FabricTransport settings for the actor client assembly</span></span>
+### <a name="configure-fabrictransport-settings-for-hello-actor-client-assembly"></a><span data-ttu-id="f407c-118">Instellingen voor Hallo actor client assembly FabricTransport configureren</span><span class="sxs-lookup"><span data-stu-id="f407c-118">Configure FabricTransport settings for hello actor client assembly</span></span>
 
-<span data-ttu-id="58050-119">Als de client wordt niet uitgevoerd als onderdeel van een service, kunt u een '&lt;Client Exe-naam&gt;. settings.xml ' bestand in dezelfde locatie als de client .exe-bestand.</span><span class="sxs-lookup"><span data-stu-id="58050-119">If the client is not running as part of a service, you can create a "&lt;Client Exe Name&gt;.settings.xml" file in the same location as the client .exe file.</span></span> <span data-ttu-id="58050-120">Voeg een sectie TransportSettings in dat bestand.</span><span class="sxs-lookup"><span data-stu-id="58050-120">Then add a TransportSettings section in that file.</span></span> <span data-ttu-id="58050-121">SectionName moet 'TransportSettings'.</span><span class="sxs-lookup"><span data-stu-id="58050-121">SectionName should be "TransportSettings".</span></span>
+<span data-ttu-id="f407c-119">Als het Hallo-client wordt niet uitgevoerd als onderdeel van een service, kunt u een '&lt;Client Exe-naam&gt;. settings.xml ' bestand in Hallo dezelfde locatie als Hallo client .exe-bestand.</span><span class="sxs-lookup"><span data-stu-id="f407c-119">If hello client is not running as part of a service, you can create a "&lt;Client Exe Name&gt;.settings.xml" file in hello same location as hello client .exe file.</span></span> <span data-ttu-id="f407c-120">Voeg een sectie TransportSettings in dat bestand.</span><span class="sxs-lookup"><span data-stu-id="f407c-120">Then add a TransportSettings section in that file.</span></span> <span data-ttu-id="f407c-121">SectionName moet 'TransportSettings'.</span><span class="sxs-lookup"><span data-stu-id="f407c-121">SectionName should be "TransportSettings".</span></span>
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -95,9 +95,9 @@ https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remot
   </Settings>
    ```
 
-  * <span data-ttu-id="58050-122">Instellingen voor veilige Actor Client-Service FabricTransport configureren met secundair certificaat.</span><span class="sxs-lookup"><span data-stu-id="58050-122">Configuring FabricTransport Settings for Secure Actor Service/Client With Secondary Certificate.</span></span>
-  <span data-ttu-id="58050-123">Secundaire certificaatgegevens kan toegevoegd worden door de parameter CertificateFindValuebySecondary toe te voegen.</span><span class="sxs-lookup"><span data-stu-id="58050-123">Secondary certificate information can be added by adding parameter CertificateFindValuebySecondary.</span></span>
-  <span data-ttu-id="58050-124">Hieronder volgt het voorbeeld voor de Listener TransportSettings.</span><span class="sxs-lookup"><span data-stu-id="58050-124">Below is the example for the Listener TransportSettings.</span></span>
+  * <span data-ttu-id="f407c-122">Instellingen voor veilige Actor Client-Service FabricTransport configureren met secundair certificaat.</span><span class="sxs-lookup"><span data-stu-id="f407c-122">Configuring FabricTransport Settings for Secure Actor Service/Client With Secondary Certificate.</span></span>
+  <span data-ttu-id="f407c-123">Secundaire certificaatgegevens kan toegevoegd worden door de parameter CertificateFindValuebySecondary toe te voegen.</span><span class="sxs-lookup"><span data-stu-id="f407c-123">Secondary certificate information can be added by adding parameter CertificateFindValuebySecondary.</span></span>
+  <span data-ttu-id="f407c-124">Hieronder vindt u voorbeeld Hallo voor Hallo Listener TransportSettings.</span><span class="sxs-lookup"><span data-stu-id="f407c-124">Below is hello example for hello Listener TransportSettings.</span></span>
 
     ```xml
     <Section Name="TransportSettings">
@@ -111,7 +111,7 @@ https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remot
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
     </Section>
      ```
-     <span data-ttu-id="58050-125">Hieronder volgt het voorbeeld voor de Client-TransportSettings.</span><span class="sxs-lookup"><span data-stu-id="58050-125">Below is the example for the Client TransportSettings.</span></span>
+     <span data-ttu-id="f407c-125">Hieronder vindt u voorbeeld Hallo voor Hallo Client TransportSettings.</span><span class="sxs-lookup"><span data-stu-id="f407c-125">Below is hello example for hello Client TransportSettings.</span></span>
 
     ```xml
    <Section Name="TransportSettings">
@@ -125,9 +125,9 @@ https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remot
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
     </Section>
      ```
-    * <span data-ttu-id="58050-126">FabricTransport instellingen configureren voor het beveiligen van Actor Service /-Client met behulp van de onderwerpnaam.</span><span class="sxs-lookup"><span data-stu-id="58050-126">Configuring FabricTransport  Settings for Securing Actor Service/Client Using Subject Name.</span></span>
-    <span data-ttu-id="58050-127">Gebruiker moet voor het opgeven van findType als findbysubjectname zijn CertificateIssuerThumbprints en CertificateRemoteCommonNames waarden toevoegen.</span><span class="sxs-lookup"><span data-stu-id="58050-127">User needs to provide findType as FindBySubjectName,add CertificateIssuerThumbprints and CertificateRemoteCommonNames values.</span></span>
-  <span data-ttu-id="58050-128">Hieronder volgt het voorbeeld voor de Listener TransportSettings.</span><span class="sxs-lookup"><span data-stu-id="58050-128">Below is the example for the Listener TransportSettings.</span></span>
+    * <span data-ttu-id="f407c-126">FabricTransport instellingen configureren voor het beveiligen van Actor Service /-Client met behulp van de onderwerpnaam.</span><span class="sxs-lookup"><span data-stu-id="f407c-126">Configuring FabricTransport  Settings for Securing Actor Service/Client Using Subject Name.</span></span>
+    <span data-ttu-id="f407c-127">Gebruiker moet tooprovide findType als findbysubjectname zijn, CertificateIssuerThumbprints en CertificateRemoteCommonNames waarden toevoegen.</span><span class="sxs-lookup"><span data-stu-id="f407c-127">User needs tooprovide findType as FindBySubjectName,add CertificateIssuerThumbprints and CertificateRemoteCommonNames values.</span></span>
+  <span data-ttu-id="f407c-128">Hieronder vindt u voorbeeld Hallo voor Hallo Listener TransportSettings.</span><span class="sxs-lookup"><span data-stu-id="f407c-128">Below is hello example for hello Listener TransportSettings.</span></span>
 
      ```xml
     <Section Name="TransportSettings">
@@ -141,7 +141,7 @@ https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remot
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
     </Section>
     ```
-  <span data-ttu-id="58050-129">Hieronder volgt het voorbeeld voor de Client-TransportSettings.</span><span class="sxs-lookup"><span data-stu-id="58050-129">Below is the example for the Client TransportSettings.</span></span>
+  <span data-ttu-id="f407c-129">Hieronder vindt u voorbeeld Hallo voor Hallo Client TransportSettings.</span><span class="sxs-lookup"><span data-stu-id="f407c-129">Below is hello example for hello Client TransportSettings.</span></span>
 
     ```xml
      <Section Name="TransportSettings">

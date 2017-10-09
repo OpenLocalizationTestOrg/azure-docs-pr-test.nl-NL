@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure AD aanmelden en afmelden met behulp van Node.js | Microsoft Docs
-description: Informatie over het bouwen van een Node.js Express MVC-web-app die met Azure AD voor aanmelden integreert.
+title: aaaGetting gestart met Azure AD aanmelden en afmelden met behulp van Node.js | Microsoft Docs
+description: Meer informatie over hoe een Node.js Express MVC toobuild web-app die integreert met Azure AD voor aanmelden.
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
@@ -15,53 +15,53 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 13317b016f9ff3955f376b858645c42668b0de42
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 26481899c74741743b947bd891b65ff24ffc43c6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a><span data-ttu-id="6cf6b-103">Node.js-web-app aanmelden en afmelden met Azure AD</span><span class="sxs-lookup"><span data-stu-id="6cf6b-103">Node.js web app sign-in and sign-out with Azure AD</span></span>
-<span data-ttu-id="6cf6b-104">We gebruiken hier Passport:</span><span class="sxs-lookup"><span data-stu-id="6cf6b-104">Here we use Passport to:</span></span>
+# <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a><span data-ttu-id="5d642-103">Node.js-web-app aanmelden en afmelden met Azure AD</span><span class="sxs-lookup"><span data-stu-id="5d642-103">Node.js web app sign-in and sign-out with Azure AD</span></span>
+<span data-ttu-id="5d642-104">We gebruiken hier Passport:</span><span class="sxs-lookup"><span data-stu-id="5d642-104">Here we use Passport to:</span></span>
 
-* <span data-ttu-id="6cf6b-105">De gebruiker zich aanmeldt bij de app met Azure Active Directory (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="6cf6b-105">Sign the user in to the app with Azure Active Directory (Azure AD).</span></span>
-* <span data-ttu-id="6cf6b-106">Informatie over de gebruiker weergegeven.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-106">Display information about the user.</span></span>
-* <span data-ttu-id="6cf6b-107">Meld u aan de gebruiker buiten de app.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-107">Sign the user out of the app.</span></span>
+* <span data-ttu-id="5d642-105">Meld u Hallo gebruiker in toohello app met Azure Active Directory (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="5d642-105">Sign hello user in toohello app with Azure Active Directory (Azure AD).</span></span>
+* <span data-ttu-id="5d642-106">Informatie over Hallo gebruiker weergegeven.</span><span class="sxs-lookup"><span data-stu-id="5d642-106">Display information about hello user.</span></span>
+* <span data-ttu-id="5d642-107">Meld u Hallo gebruiker buiten het Hallo-app.</span><span class="sxs-lookup"><span data-stu-id="5d642-107">Sign hello user out of hello app.</span></span>
 
-<span data-ttu-id="6cf6b-108">Passport is verificatiemiddleware voor Node.js.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-108">Passport is authentication middleware for Node.js.</span></span> <span data-ttu-id="6cf6b-109">Flexibel en modulair, Passport kan worden onopvallend verwijderd voor een Express- of restify-webtoepassing.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-109">Flexible and modular, Passport can be unobtrusively dropped in to any Express-based or restify web application.</span></span> <span data-ttu-id="6cf6b-110">Een uitgebreide set strategieën ondersteunt verificatie met behulp van een gebruikersnaam en wachtwoord, Facebook, Twitter en meer.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-110">A comprehensive set of strategies support authentication that uses a username and password, Facebook, Twitter, and more.</span></span> <span data-ttu-id="6cf6b-111">We hebben een strategie ontwikkeld voor Microsoft Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-111">We have developed a strategy for Microsoft Azure Active Directory.</span></span> <span data-ttu-id="6cf6b-112">We installeert deze module en voegt u de Microsoft Azure Active Directory `passport-azure-ad` invoegtoepassing.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-112">We install this module and then add the Microsoft Azure Active Directory `passport-azure-ad` plug-in.</span></span>
+<span data-ttu-id="5d642-108">Passport is verificatiemiddleware voor Node.js.</span><span class="sxs-lookup"><span data-stu-id="5d642-108">Passport is authentication middleware for Node.js.</span></span> <span data-ttu-id="5d642-109">Flexibel en modulair, Passport onopvallend in tooany kan worden verwijderd op basis van de Express of restify-webtoepassing.</span><span class="sxs-lookup"><span data-stu-id="5d642-109">Flexible and modular, Passport can be unobtrusively dropped in tooany Express-based or restify web application.</span></span> <span data-ttu-id="5d642-110">Een uitgebreide set strategieën ondersteunt verificatie met behulp van een gebruikersnaam en wachtwoord, Facebook, Twitter en meer.</span><span class="sxs-lookup"><span data-stu-id="5d642-110">A comprehensive set of strategies support authentication that uses a username and password, Facebook, Twitter, and more.</span></span> <span data-ttu-id="5d642-111">We hebben een strategie ontwikkeld voor Microsoft Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="5d642-111">We have developed a strategy for Microsoft Azure Active Directory.</span></span> <span data-ttu-id="5d642-112">We installeert deze module en voegt u Hallo Microsoft Azure Active Directory `passport-azure-ad` invoegtoepassing.</span><span class="sxs-lookup"><span data-stu-id="5d642-112">We install this module and then add hello Microsoft Azure Active Directory `passport-azure-ad` plug-in.</span></span>
 
-<span data-ttu-id="6cf6b-113">U doet dit door de volgende stappen uitvoeren:</span><span class="sxs-lookup"><span data-stu-id="6cf6b-113">To do this, take the following steps:</span></span>
+<span data-ttu-id="5d642-113">toodo deze, nemen Hallo stappen te volgen:</span><span class="sxs-lookup"><span data-stu-id="5d642-113">toodo this, take hello following steps:</span></span>
 
-1. <span data-ttu-id="6cf6b-114">Een app te registreren.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-114">Register an app.</span></span>
-2. <span data-ttu-id="6cf6b-115">Uw app instellen om te gebruiken de `passport-azure-ad` strategie.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-115">Set up your app to use the `passport-azure-ad` strategy.</span></span>
-3. <span data-ttu-id="6cf6b-116">U gebruikt Passport om aan- en afmeldingsaanvragen te verzenden naar Azure AD.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-116">Use Passport to issue sign-in and sign-out requests to Azure AD.</span></span>
-4. <span data-ttu-id="6cf6b-117">Gegevens over de gebruiker afdrukken.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-117">Print data about the user.</span></span>
+1. <span data-ttu-id="5d642-114">Een app te registreren.</span><span class="sxs-lookup"><span data-stu-id="5d642-114">Register an app.</span></span>
+2. <span data-ttu-id="5d642-115">Instellen van uw app toouse hello `passport-azure-ad` strategie.</span><span class="sxs-lookup"><span data-stu-id="5d642-115">Set up your app toouse hello `passport-azure-ad` strategy.</span></span>
+3. <span data-ttu-id="5d642-116">Passport tooissue aanmelden en afmelden aanvragen tooAzure AD gebruiken.</span><span class="sxs-lookup"><span data-stu-id="5d642-116">Use Passport tooissue sign-in and sign-out requests tooAzure AD.</span></span>
+4. <span data-ttu-id="5d642-117">Gegevens over Hallo gebruiker afdrukken.</span><span class="sxs-lookup"><span data-stu-id="5d642-117">Print data about hello user.</span></span>
 
-<span data-ttu-id="6cf6b-118">De code voor deze zelfstudie wordt onderhouden in [GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS).</span><span class="sxs-lookup"><span data-stu-id="6cf6b-118">The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS).</span></span>  <span data-ttu-id="6cf6b-119">Als u wilt volgen, kunt u [basis van de app downloaden als ZIP-bestand](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) of het geraamte:</span><span class="sxs-lookup"><span data-stu-id="6cf6b-119">To follow along, you can [download the app's skeleton as a .zip file](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) or clone the skeleton:</span></span>
+<span data-ttu-id="5d642-118">Hallo-code voor deze zelfstudie wordt bijgehouden [op GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS).</span><span class="sxs-lookup"><span data-stu-id="5d642-118">hello code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS).</span></span>  <span data-ttu-id="5d642-119">toofollow langs, kunt u [basis van Hallo app downloaden als ZIP-bestand](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) of kloon Hallo basisproject:</span><span class="sxs-lookup"><span data-stu-id="5d642-119">toofollow along, you can [download hello app's skeleton as a .zip file](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) or clone hello skeleton:</span></span>
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
-<span data-ttu-id="6cf6b-120">De voltooide toepassing wordt verstrekt aan het einde van deze zelfstudie ook.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-120">The completed application is provided at the end of this tutorial as well.</span></span>
+<span data-ttu-id="5d642-120">toepassing Hello voltooid wordt op Hallo einde van deze zelfstudie ook aangeboden.</span><span class="sxs-lookup"><span data-stu-id="5d642-120">hello completed application is provided at hello end of this tutorial as well.</span></span>
 
-## <a name="step-1-register-an-app"></a><span data-ttu-id="6cf6b-121">Stap 1: Een app registreren</span><span class="sxs-lookup"><span data-stu-id="6cf6b-121">Step 1: Register an app</span></span>
-1. <span data-ttu-id="6cf6b-122">Meld u aan bij [Azure Portal](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="6cf6b-122">Sign in to the [Azure portal](https://portal.azure.com).</span></span>
+## <a name="step-1-register-an-app"></a><span data-ttu-id="5d642-121">Stap 1: Een app registreren</span><span class="sxs-lookup"><span data-stu-id="5d642-121">Step 1: Register an app</span></span>
+1. <span data-ttu-id="5d642-122">Meld u aan toohello [Azure-portal](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="5d642-122">Sign in toohello [Azure portal](https://portal.azure.com).</span></span>
 
-2. <span data-ttu-id="6cf6b-123">Selecteer in het menu aan de bovenkant van de pagina uw account.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-123">In the menu at the top of the page, select your account.</span></span> <span data-ttu-id="6cf6b-124">Onder de **Directory** kiest u de Active Directory-tenant waar u uw toepassing registreren.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-124">Under the **Directory** list, choose the Active Directory tenant where you want to register your application.</span></span>
+2. <span data-ttu-id="5d642-123">Selecteer in het menu bovenaan Hallo Hallo pagina Hallo uw account.</span><span class="sxs-lookup"><span data-stu-id="5d642-123">In hello menu at hello top of hello page, select your account.</span></span> <span data-ttu-id="5d642-124">Onder Hallo **Directory** Hallo Active Directory-tenant waar u tooregister Kies uw toepassing.</span><span class="sxs-lookup"><span data-stu-id="5d642-124">Under hello **Directory** list, choose hello Active Directory tenant where you want tooregister your application.</span></span>
 
-3. <span data-ttu-id="6cf6b-125">Selecteer **meer Services** in het menu aan de linkerkant van het scherm en selecteer **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-125">Select **More Services** in the menu on the left side of the screen, and then select **Azure Active Directory**.</span></span>
+3. <span data-ttu-id="5d642-125">Selecteer **meer Services** in Hallo gelaten menu op Hallo van welkomstscherm clientzijde en selecteert u vervolgens **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="5d642-125">Select **More Services** in hello menu on hello left side of hello screen, and then select **Azure Active Directory**.</span></span>
 
-4. <span data-ttu-id="6cf6b-126">Selecteer **App registraties**, en selecteer vervolgens **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-126">Select **App registrations**, and then select **Add**.</span></span>
+4. <span data-ttu-id="5d642-126">Selecteer **App registraties**, en selecteer vervolgens **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="5d642-126">Select **App registrations**, and then select **Add**.</span></span>
 
-5. <span data-ttu-id="6cf6b-127">Volg de aanwijzingen voor het maken van een **webtoepassing** en/of **WebAPI**.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-127">Follow the prompts to create a **Web Application** and/or **WebAPI**.</span></span>
-  * <span data-ttu-id="6cf6b-128">De **naam** beschrijft uw toepassing voor gebruikers van de toepassing.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-128">The **name** of the application describes your application to users.</span></span>
+5. <span data-ttu-id="5d642-127">Ga als volgt Hallo prompts toocreate een **webtoepassing** en/of **WebAPI**.</span><span class="sxs-lookup"><span data-stu-id="5d642-127">Follow hello prompts toocreate a **Web Application** and/or **WebAPI**.</span></span>
+  * <span data-ttu-id="5d642-128">Hallo **naam** Hallo toepassing beschrijft de toousers van uw toepassing.</span><span class="sxs-lookup"><span data-stu-id="5d642-128">hello **name** of hello application describes your application toousers.</span></span>
 
-  * <span data-ttu-id="6cf6b-129">De **aanmeldings-URL** is de basis-URL van uw app.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-129">The **Sign-On URL** is the base URL of your app.</span></span>  <span data-ttu-id="6cf6b-130">Het basisproject standaardwaarde is "http://localhost: 3000/auth/openid/return ''.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-130">The skeleton's default is `http://localhost:3000/auth/openid/return`\`.</span></span>
+  * <span data-ttu-id="5d642-129">Hallo **aanmeldings-URL** Hallo basis-URL van uw app is.</span><span class="sxs-lookup"><span data-stu-id="5d642-129">hello **Sign-On URL** is hello base URL of your app.</span></span>  <span data-ttu-id="5d642-130">Hallo van een geraamte standaardwaarde is "http://localhost: 3000/auth/openid/return ''.</span><span class="sxs-lookup"><span data-stu-id="5d642-130">hello skeleton's default is `http://localhost:3000/auth/openid/return`\`.</span></span>
 
-6. <span data-ttu-id="6cf6b-131">Nadat u hebt geregistreerd, wijst Azure AD van uw app een unieke toepassings-ID.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-131">After you register, Azure AD assigns your app a unique application ID.</span></span> <span data-ttu-id="6cf6b-132">U moet deze waarde in de volgende secties, dus kopiëren van de toepassingspagina.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-132">You need this value in the following sections, so copy it from the application page.</span></span>
-7. <span data-ttu-id="6cf6b-133">Van de **instellingen** -> **eigenschappen** pagina voor uw toepassing, het bijwerken van de App ID URI.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-133">From the **Settings** -> **Properties** page for your application, update the App ID URI.</span></span> <span data-ttu-id="6cf6b-134">De **App ID URI** is de unieke id voor uw toepassing.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-134">The **App ID URI** is a unique identifier for your application.</span></span> <span data-ttu-id="6cf6b-135">De overeenkomst is met de indeling `https://<tenant-domain>/<app-name>`, bijvoorbeeld: `https://contoso.onmicrosoft.com/my-first-aad-app`.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-135">The convention is to use the format `https://<tenant-domain>/<app-name>`, for example: `https://contoso.onmicrosoft.com/my-first-aad-app`.</span></span>
+6. <span data-ttu-id="5d642-131">Nadat u hebt geregistreerd, wijst Azure AD van uw app een unieke toepassings-ID.</span><span class="sxs-lookup"><span data-stu-id="5d642-131">After you register, Azure AD assigns your app a unique application ID.</span></span> <span data-ttu-id="5d642-132">U moet deze waarde in de volgende Hallo secties, dus kopieer het uit de pagina van de toepassing hello.</span><span class="sxs-lookup"><span data-stu-id="5d642-132">You need this value in hello following sections, so copy it from hello application page.</span></span>
+7. <span data-ttu-id="5d642-133">Van Hallo **instellingen** -> **eigenschappen** pagina voor uw toepassing, Hallo App ID URI bijwerken.</span><span class="sxs-lookup"><span data-stu-id="5d642-133">From hello **Settings** -> **Properties** page for your application, update hello App ID URI.</span></span> <span data-ttu-id="5d642-134">Hallo **App ID URI** is de unieke id voor uw toepassing.</span><span class="sxs-lookup"><span data-stu-id="5d642-134">hello **App ID URI** is a unique identifier for your application.</span></span> <span data-ttu-id="5d642-135">Hallo conventies is toouse Hallo indeling `https://<tenant-domain>/<app-name>`, bijvoorbeeld: `https://contoso.onmicrosoft.com/my-first-aad-app`.</span><span class="sxs-lookup"><span data-stu-id="5d642-135">hello convention is toouse hello format `https://<tenant-domain>/<app-name>`, for example: `https://contoso.onmicrosoft.com/my-first-aad-app`.</span></span>
 
-## <a name="step-2-add-prerequisites-to-your-directory"></a><span data-ttu-id="6cf6b-136">Stap 2: Vereisten voor uw directory toevoegen</span><span class="sxs-lookup"><span data-stu-id="6cf6b-136">Step 2: Add prerequisites to your directory</span></span>
-1. <span data-ttu-id="6cf6b-137">Vanaf de opdrachtregel, wijzig de mappen in de hoofdmap bent u niet al er, en voer de volgende opdrachten:</span><span class="sxs-lookup"><span data-stu-id="6cf6b-137">From the command line, change directories to your root folder if you're not already there, and then run the following commands:</span></span>
+## <a name="step-2-add-prerequisites-tooyour-directory"></a><span data-ttu-id="5d642-136">Stap 2: Vereisten tooyour map toevoegen</span><span class="sxs-lookup"><span data-stu-id="5d642-136">Step 2: Add prerequisites tooyour directory</span></span>
+1. <span data-ttu-id="5d642-137">Vanaf de opdrachtregel Hallo mappen tooyour hoofdmap wijzigen als u niet al er, en vervolgens uitvoeren Hallo opdrachten:</span><span class="sxs-lookup"><span data-stu-id="5d642-137">From hello command line, change directories tooyour root folder if you're not already there, and then run hello following commands:</span></span>
 
     * `npm install express`
     * `npm install ejs`
@@ -72,23 +72,23 @@ ms.lasthandoff: 07/11/2017
     * `npm install assert-plus`
     * `npm install passport`
 
-2. <span data-ttu-id="6cf6b-138">U moet bovendien `passport-azure-ad`:</span><span class="sxs-lookup"><span data-stu-id="6cf6b-138">In addition, you need `passport-azure-ad`:</span></span>
+2. <span data-ttu-id="5d642-138">U moet bovendien `passport-azure-ad`:</span><span class="sxs-lookup"><span data-stu-id="5d642-138">In addition, you need `passport-azure-ad`:</span></span>
     * `npm install passport-azure-ad`
 
-<span data-ttu-id="6cf6b-139">Hiermee installeert u de bibliotheken die `passport-azure-ad` is afhankelijk van.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-139">This installs the libraries that `passport-azure-ad` depends on.</span></span>
+<span data-ttu-id="5d642-139">Hiermee installeert u Hallo bibliotheken die `passport-azure-ad` is afhankelijk van.</span><span class="sxs-lookup"><span data-stu-id="5d642-139">This installs hello libraries that `passport-azure-ad` depends on.</span></span>
 
-## <a name="step-3-set-up-your-app-to-use-the-passport-node-js-strategy"></a><span data-ttu-id="6cf6b-140">Stap 3: Uw app instellen voor het gebruik van de strategie passport-knooppunt-js</span><span class="sxs-lookup"><span data-stu-id="6cf6b-140">Step 3: Set up your app to use the passport-node-js strategy</span></span>
-<span data-ttu-id="6cf6b-141">We configureren hier snelle voor het gebruik van het OpenID Connect-verificatieprotocol.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-141">Here, we configure Express to use the OpenID Connect authentication protocol.</span></span>  <span data-ttu-id="6cf6b-142">Passport wordt gebruikt om verschillende dingen, met inbegrip van probleem aanmelden en afmeldingsaanvragen te verzenden, sessie van de gebruiker beheren en informatie ophalen over de gebruiker.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-142">Passport is used to do various things, including issue sign-in and sign-out requests, manage the user's session, and get information about the user.</span></span>
+## <a name="step-3-set-up-your-app-toouse-hello-passport-node-js-strategy"></a><span data-ttu-id="5d642-140">Stap 3: Uw app toouse Hallo passport-knooppunt-js strategie instellen</span><span class="sxs-lookup"><span data-stu-id="5d642-140">Step 3: Set up your app toouse hello passport-node-js strategy</span></span>
+<span data-ttu-id="5d642-141">We configureren hier snelle toouse hello OpenID Connect-verificatieprotocol.</span><span class="sxs-lookup"><span data-stu-id="5d642-141">Here, we configure Express toouse hello OpenID Connect authentication protocol.</span></span>  <span data-ttu-id="5d642-142">Passport is gebruikte toodo verschillende dingen, zoals het probleem aanmelden en afmeldingsaanvragen te verzenden, Hallo gebruikerssessie beheren en informatie over Hallo gebruiker ophalen.</span><span class="sxs-lookup"><span data-stu-id="5d642-142">Passport is used toodo various things, including issue sign-in and sign-out requests, manage hello user's session, and get information about hello user.</span></span>
 
-1. <span data-ttu-id="6cf6b-143">Om te beginnen, opent u de `config.js` bestand in de hoofdmap van het project en voer vervolgens de configuratiewaarden van uw app in de `exports.creds` sectie.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-143">To begin, open the `config.js` file at the root of the project, and then enter your app's configuration values in the `exports.creds` section.</span></span>
+1. <span data-ttu-id="5d642-143">toobegin, open Hallo `config.js` bestand in de hoofdmap Hallo van Hallo-project en voer vervolgens de configuratiewaarden van uw app in Hallo `exports.creds` sectie.</span><span class="sxs-lookup"><span data-stu-id="5d642-143">toobegin, open hello `config.js` file at hello root of hello project, and then enter your app's configuration values in hello `exports.creds` section.</span></span>
 
-  * <span data-ttu-id="6cf6b-144">De `clientID` is de **toepassings-Id** die toegewezen aan uw app in de portal voor wachtwoordregistratie.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-144">The `clientID` is the **Application Id** that's assigned to your app in the registration portal.</span></span>
+  * <span data-ttu-id="5d642-144">Hallo `clientID` Hallo is **toepassings-Id** die is toegewezen tooyour-app in Hallo-portal voor wachtwoordregistratie.</span><span class="sxs-lookup"><span data-stu-id="5d642-144">hello `clientID` is hello **Application Id** that's assigned tooyour app in hello registration portal.</span></span>
 
-  * <span data-ttu-id="6cf6b-145">De `returnURL` is de **omleidings-Uri** die u hebt ingevoerd in de portal.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-145">The `returnURL` is the **Redirect Uri** that you entered in the portal.</span></span>
+  * <span data-ttu-id="5d642-145">Hallo `returnURL` Hallo is **omleidings-Uri** die u hebt ingevoerd in Hallo-portal.</span><span class="sxs-lookup"><span data-stu-id="5d642-145">hello `returnURL` is hello **Redirect Uri** that you entered in hello portal.</span></span>
 
-  * <span data-ttu-id="6cf6b-146">De `clientSecret` is het geheim die u hebt gegenereerd in de portal.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-146">The `clientSecret` is the secret that you generated in the portal.</span></span>
+  * <span data-ttu-id="5d642-146">Hallo `clientSecret` Hallo geheim dat u hebt gegenereerd in de portal Hallo is.</span><span class="sxs-lookup"><span data-stu-id="5d642-146">hello `clientSecret` is hello secret that you generated in hello portal.</span></span>
 
-2. <span data-ttu-id="6cf6b-147">Open vervolgens de `app.js` bestand in de hoofdmap van het project.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-147">Next, open the `app.js` file in the root of the project.</span></span> <span data-ttu-id="6cf6b-148">Voeg de volgende oproep verzenden om aan te roepen de `OIDCStrategy` strategie die wordt geleverd met `passport-azure-ad`.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-148">Then add the following call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`.</span></span>
+2. <span data-ttu-id="5d642-147">Open vervolgens Hallo `app.js` bestand in de hoofdmap Hallo van Hallo-project.</span><span class="sxs-lookup"><span data-stu-id="5d642-147">Next, open hello `app.js` file in hello root of hello project.</span></span> <span data-ttu-id="5d642-148">Voeg vervolgens na de aanroep tooinvoke Hallo Hallo `OIDCStrategy` strategie die wordt geleverd met `passport-azure-ad`.</span><span class="sxs-lookup"><span data-stu-id="5d642-148">Then add hello following call tooinvoke hello `OIDCStrategy` strategy that comes with `passport-azure-ad`.</span></span>
 
     ```JavaScript
     var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -100,10 +100,10 @@ ms.lasthandoff: 07/11/2017
     });
     ```
 
-3. <span data-ttu-id="6cf6b-149">Gebruik daarna de strategie die we zojuist waarnaar wordt verwezen voor het afhandelen van onze aanvragen aanmelden.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-149">After that, use the strategy we just referenced to handle our sign-in requests.</span></span>
+3. <span data-ttu-id="5d642-149">Gebruik daarna Hallo strategie die we zojuist waarnaar wordt verwezen toohandle onze aanvragen aanmelden.</span><span class="sxs-lookup"><span data-stu-id="5d642-149">After that, use hello strategy we just referenced toohandle our sign-in requests.</span></span>
 
     ```JavaScript
-    // Use the OIDCStrategy within Passport. (Section 2)
+    // Use hello OIDCStrategy within Passport. (Section 2)
     //
     //   Strategies in passport require a `validate` function that accepts
     //   credentials (in this case, an OpenID identifier), and invokes a callback
@@ -140,22 +140,22 @@ ms.lasthandoff: 07/11/2017
     }
     ));
     ```
-<span data-ttu-id="6cf6b-150">Passport wordt een vergelijkbaar patroon gebruikt voor alle strategieën (Twitter, Facebook, enzovoort) die alle schrijvers van strategieën voor.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-150">Passport uses a similar pattern for all its strategies (Twitter, Facebook, and so on) that all strategy writers adhere to.</span></span> <span data-ttu-id="6cf6b-151">De strategie bekijkt, ziet u dat geven we een functie die een token en een gereed als parameters heeft.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-151">Looking at the strategy, you see that we pass it a function that has a token and a done as the parameters.</span></span> <span data-ttu-id="6cf6b-152">De strategie komt weer naar ons nadat deze zijn werk doet.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-152">The strategy comes back to us after it does its work.</span></span> <span data-ttu-id="6cf6b-153">We willen vervolgens om de gebruiker op te slaan en het token niet initialiseren zodat we niet hoeven te vragen voor het opnieuw.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-153">Then we want to store the user and stash the token so we don't need to ask for it again.</span></span>
+<span data-ttu-id="5d642-150">Passport wordt een vergelijkbaar patroon gebruikt voor alle strategieën (Twitter, Facebook, enzovoort) die alle schrijvers van strategieën voor.</span><span class="sxs-lookup"><span data-stu-id="5d642-150">Passport uses a similar pattern for all its strategies (Twitter, Facebook, and so on) that all strategy writers adhere to.</span></span> <span data-ttu-id="5d642-151">Hallo-strategie bekijkt, ziet u dat we geven deze een functie die een token en een gereed heeft als Hallo-parameters.</span><span class="sxs-lookup"><span data-stu-id="5d642-151">Looking at hello strategy, you see that we pass it a function that has a token and a done as hello parameters.</span></span> <span data-ttu-id="5d642-152">Hallo-strategie komt weer toous nadat deze zijn werk doet.</span><span class="sxs-lookup"><span data-stu-id="5d642-152">hello strategy comes back toous after it does its work.</span></span> <span data-ttu-id="5d642-153">We willen vervolgens toostore Hallo gebruiker en stash Hallo token dus we er geen tooask voor het opnieuw moeten.</span><span class="sxs-lookup"><span data-stu-id="5d642-153">Then we want toostore hello user and stash hello token so we don't need tooask for it again.</span></span>
 
 > [!IMPORTANT]
-<span data-ttu-id="6cf6b-154">De vorige code wordt elke gebruiker die plaatsvindt om te verifiëren met onze server.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-154">The previous code takes any user that happens to authenticate to our server.</span></span> <span data-ttu-id="6cf6b-155">Dit wordt automatische registratie genoemd.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-155">This is known as auto-registration.</span></span> <span data-ttu-id="6cf6b-156">Het is raadzaam dat u niet toestaan dat iedereen bij een productieserver zonder dat zij worden geregistreerd via een proces dat u kiest eerst geverifieerd.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-156">We    recommend that you don't let anyone authenticate to a production server without first having them register via a process that you decide on.</span></span> <span data-ttu-id="6cf6b-157">Dit is doorgaans het patroon die u ziet in consumenten-apps, waarmee u kunt registreren met Facebook, maar vervolgens vraagt u om aanvullende informatie te geven.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-157">This is usually the pattern you see in consumer apps, which allow you to register with Facebook but then ask you to provide additional information.</span></span> <span data-ttu-id="6cf6b-158">Als dit niet een voorbeeldtoepassing, kan hebben we e-mailadres van de gebruiker opgehaald uit het Tokenobject dat wordt geretourneerd en wordt vervolgens gevraagd de gebruiker om aanvullende informatie in te vullen.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-158">If this weren't a sample application, we could have extracted the user's email address from the token object that is returned and then asked the user to fill out additional information.</span></span> <span data-ttu-id="6cf6b-159">Omdat dit een testserver is, wordt deze toevoegen aan de database in het geheugen.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-159">Because this is a test server, we add them to the in-memory database.</span></span>
+<span data-ttu-id="5d642-154">Hallo vorige code wordt elke gebruiker die tooauthenticate tooour server plaatsvindt.</span><span class="sxs-lookup"><span data-stu-id="5d642-154">hello previous code takes any user that happens tooauthenticate tooour server.</span></span> <span data-ttu-id="5d642-155">Dit wordt automatische registratie genoemd.</span><span class="sxs-lookup"><span data-stu-id="5d642-155">This is known as auto-registration.</span></span> <span data-ttu-id="5d642-156">Het is raadzaam dat u niet toestaan dat iedereen tooa productieserver zonder dat zij worden geregistreerd via een proces dat u kiest eerst worden geverifieerd.</span><span class="sxs-lookup"><span data-stu-id="5d642-156">We    recommend that you don't let anyone authenticate tooa production server without first having them register via a process that you decide on.</span></span> <span data-ttu-id="5d642-157">Dit is meestal Hallo patroon dat u ziet in consumenten-apps, die vervolgens vraagt u tooprovide aanvullende informatie, maar kunnen u tooregister met Facebook.</span><span class="sxs-lookup"><span data-stu-id="5d642-157">This is usually hello pattern you see in consumer apps, which allow you tooregister with Facebook but then ask you tooprovide additional information.</span></span> <span data-ttu-id="5d642-158">Als dit niet een voorbeeldtoepassing, kan hebben we e-mailadres van de gebruiker Hallo opgehaald uit Hallo Tokenobject dat wordt geretourneerd en wordt vervolgens gevraagd Hallo gebruiker toofill aanvullende informatie.</span><span class="sxs-lookup"><span data-stu-id="5d642-158">If this weren't a sample application, we could have extracted hello user's email address from hello token object that is returned and then asked hello user toofill out additional information.</span></span> <span data-ttu-id="5d642-159">Omdat dit een testserver, we ze toohello in-memory database toevoegen.</span><span class="sxs-lookup"><span data-stu-id="5d642-159">Because this is a test server, we add them toohello in-memory database.</span></span>
 
 
-4. <span data-ttu-id="6cf6b-160">Vervolgens laten we de methoden waarmee we voor het bijhouden van de aangemelde gebruikers zoals vereist door Passport toevoegen.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-160">Next, let's add the methods that enable us to track the signed-in users as required by Passport.</span></span> <span data-ttu-id="6cf6b-161">Deze methoden omvatten serialiseren en deserialiseren van gegevens van de gebruiker.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-161">These methods include serializing and deserializing the user's information.</span></span>
+4. <span data-ttu-id="5d642-160">Vervolgens laten we Hallo-methoden die ons in staat tootrack Hallo aangemelde gebruikers zoals vereist door Passport stellen toevoegen.</span><span class="sxs-lookup"><span data-stu-id="5d642-160">Next, let's add hello methods that enable us tootrack hello signed-in users as required by Passport.</span></span> <span data-ttu-id="5d642-161">Deze methoden omvatten serialiseren en deserialiseren van Hallo gebruikersgegevens.</span><span class="sxs-lookup"><span data-stu-id="5d642-161">These methods include serializing and deserializing hello user's information.</span></span>
 
     ```JavaScript
 
             // Passport session setup. (Section 2)
 
-            //   To support persistent sign-in sessions, Passport needs to be able to
-            //   serialize users into the session and deserialize them out of the session. Typically,
-            //   this is done simply by storing the user ID when serializing and finding
-            //   the user by ID when deserializing.
+            //   toosupport persistent sign-in sessions, Passport needs toobe able to
+            //   serialize users into hello session and deserialize them out of hello session. Typically,
+            //   this is done simply by storing hello user ID when serializing and finding
+            //   hello user by ID when deserializing.
             passport.serializeUser(function(user, done) {
             done(null, user.email);
             });
@@ -166,7 +166,7 @@ ms.lasthandoff: 07/11/2017
             });
             });
 
-            // array to hold signed-in users
+            // array toohold signed-in users
             var users = [];
 
             var findByEmail = function(email, fn) {
@@ -181,7 +181,7 @@ ms.lasthandoff: 07/11/2017
             };
     ```
 
-5.  <span data-ttu-id="6cf6b-162">Vervolgens voegen we de code voor het laden van de Express-engine.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-162">Next, let's add the code to load the Express engine.</span></span> <span data-ttu-id="6cf6b-163">Hier gebruiken we de standaard /views en /routes patroon dat Express biedt.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-163">Here we use the default /views and /routes pattern that Express provides.</span></span>
+5.  <span data-ttu-id="5d642-162">Vervolgens voegen we Hallo code tooload Hallo Express-engine.</span><span class="sxs-lookup"><span data-stu-id="5d642-162">Next, let's add hello code tooload hello Express engine.</span></span> <span data-ttu-id="5d642-163">Hier gebruiken we Hallo standaard /views en /routes patroon dat Express biedt.</span><span class="sxs-lookup"><span data-stu-id="5d642-163">Here we use hello default /views and /routes pattern that Express provides.</span></span>
 
     ```JavaScript
 
@@ -196,7 +196,7 @@ ms.lasthandoff: 07/11/2017
           app.use(cookieParser());
           app.use(expressSession({ secret: 'keyboard cat', resave: true, saveUninitialized: false }));
           app.use(bodyParser.urlencoded({ extended : true }));
-          // Initialize Passport!  Also use passport.session() middleware, to support
+          // Initialize Passport!  Also use passport.session() middleware, toosupport
           // persistent login sessions (recommended).
           app.use(passport.initialize());
           app.use(passport.session());
@@ -206,7 +206,7 @@ ms.lasthandoff: 07/11/2017
 
     ```
 
-6. <span data-ttu-id="6cf6b-164">Laten we Voeg de routes die aanlevert de werkelijke aanmelden aanvragen voor de `passport-azure-ad` engine:</span><span class="sxs-lookup"><span data-stu-id="6cf6b-164">Finally, let's add the routes that hand off the actual sign-in requests to the `passport-azure-ad` engine:</span></span>
+6. <span data-ttu-id="5d642-164">Tot slot gaan we toevoegen Hallo routes die lever Hallo werkelijke aanmelden aanvragen toohello `passport-azure-ad` engine:</span><span class="sxs-lookup"><span data-stu-id="5d642-164">Finally, let's add hello routes that hand off hello actual sign-in requests toohello `passport-azure-ad` engine:</span></span>
 
 
        ```JavaScript
@@ -214,23 +214,23 @@ ms.lasthandoff: 07/11/2017
         // Our Auth routes (section 3)
 
         // GET /auth/openid
-        //   Use passport.authenticate() as route middleware to authenticate the
-        //   request. The first step in OpenID authentication involves redirecting
-        //   the user to their OpenID provider. After authenticating, the OpenID
-        //   provider redirects the user back to this application at
+        //   Use passport.authenticate() as route middleware tooauthenticate the
+        //   request. hello first step in OpenID authentication involves redirecting
+        //   hello user tootheir OpenID provider. After authenticating, hello OpenID
+        //   provider redirects hello user back toothis application at
         //   /auth/openid/return.
         app.get('/auth/openid',
         passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
         function(req, res) {
-            log.info('Authentication was called in the Sample');
+            log.info('Authentication was called in hello Sample');
             res.redirect('/');
         });
 
             // GET /auth/openid/return
-            //   Use passport.authenticate() as route middleware to authenticate the
-            //   request. If authentication fails, the user is redirected back to the
-            //   sign-in page. Otherwise, the primary route function is called,
-            //   which, in this example, redirects the user to the home page.
+            //   Use passport.authenticate() as route middleware tooauthenticate the
+            //   request. If authentication fails, hello user is redirected back toothe
+            //   sign-in page. Otherwise, hello primary route function is called,
+            //   which, in this example, redirects hello user toohello home page.
             app.get('/auth/openid/return',
               passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
               function(req, res) {
@@ -239,10 +239,10 @@ ms.lasthandoff: 07/11/2017
               });
 
             // POST /auth/openid/return
-            //   Use passport.authenticate() as route middleware to authenticate the
-            //   request. If authentication fails, the user is redirected back to the
-            //   sign-in page. Otherwise, the primary route function is called,
-            //   which, in this example, redirects the user to the home page.
+            //   Use passport.authenticate() as route middleware tooauthenticate the
+            //   request. If authentication fails, hello user is redirected back toothe
+            //   sign-in page. Otherwise, hello primary route function is called,
+            //   which, in this example, redirects hello user toohello home page.
             app.post('/auth/openid/return',
               passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
               function(req, res) {
@@ -252,10 +252,10 @@ ms.lasthandoff: 07/11/2017
        ```
 
 
-## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a><span data-ttu-id="6cf6b-165">Stap 4: Gebruik Passport om aan- en afmeldingsaanvragen te verzenden naar Azure AD</span><span class="sxs-lookup"><span data-stu-id="6cf6b-165">Step 4: Use Passport to issue sign-in and sign-out requests to Azure AD</span></span>
-<span data-ttu-id="6cf6b-166">Uw app is nu geconfigureerd om te communiceren met het eindpunt met behulp van het OpenID Connect-verificatieprotocol.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-166">Your app is now properly configured to communicate with the endpoint by using the OpenID Connect authentication protocol.</span></span>  <span data-ttu-id="6cf6b-167">`passport-azure-ad`heeft gezorgd voor de details van verificatieberichten, het valideren van tokens van Azure AD en het onderhoud van gebruikerssessies.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-167">`passport-azure-ad` has taken care of all the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user sessions.</span></span> <span data-ttu-id="6cf6b-168">Alle resterende is door uw gebruikers te kunnen aanmelden en afmelden en verzamelen van aanvullende informatie over de aangemelde gebruikers.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-168">All that remains is giving your users a way to sign in and sign out, and gathering additional information about the signed-in users.</span></span>
+## <a name="step-4-use-passport-tooissue-sign-in-and-sign-out-requests-tooazure-ad"></a><span data-ttu-id="5d642-165">Stap 4: Gebruik Passport tooissue aanmelden en afmelden aanvragen tooAzure AD</span><span class="sxs-lookup"><span data-stu-id="5d642-165">Step 4: Use Passport tooissue sign-in and sign-out requests tooAzure AD</span></span>
+<span data-ttu-id="5d642-166">Uw app is nu correct geconfigureerde toocommunicate met Hallo-eindpunt met behulp van Hallo OpenID Connect-verificatieprotocol.</span><span class="sxs-lookup"><span data-stu-id="5d642-166">Your app is now properly configured toocommunicate with hello endpoint by using hello OpenID Connect authentication protocol.</span></span>  <span data-ttu-id="5d642-167">`passport-azure-ad`heeft gezorgd voor alle Hallo details van verificatieberichten, het valideren van tokens van Azure AD en het onderhoud van gebruikerssessies.</span><span class="sxs-lookup"><span data-stu-id="5d642-167">`passport-azure-ad` has taken care of all hello details of crafting authentication messages, validating tokens from Azure AD, and maintaining user sessions.</span></span> <span data-ttu-id="5d642-168">Alles wat blijft is zodat u uw gebruikers een manier toosign in en meld u af en verzamelen van aanvullende gegevens over Hallo aangemelde gebruikers.</span><span class="sxs-lookup"><span data-stu-id="5d642-168">All that remains is giving your users a way toosign in and sign out, and gathering additional information about hello signed-in users.</span></span>
 
-1. <span data-ttu-id="6cf6b-169">Eerst gaan we de standaard, aanmelden, account en toevoegen afmeldingsmethoden toe aan onze `app.js` bestand:</span><span class="sxs-lookup"><span data-stu-id="6cf6b-169">First, let's add the default, sign-in, account, and sign-out methods to our `app.js` file:</span></span>
+1. <span data-ttu-id="5d642-169">Eerst laten we toevoegen Hallo standaard, aanmelden, account en afmeldingsmethoden toe tooour `app.js` bestand:</span><span class="sxs-lookup"><span data-stu-id="5d642-169">First, let's add hello default, sign-in, account, and sign-out methods tooour `app.js` file:</span></span>
 
     ```JavaScript
 
@@ -272,7 +272,7 @@ ms.lasthandoff: 07/11/2017
         app.get('/login',
           passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
           function(req, res) {
-            log.info('Login was called in the Sample');
+            log.info('Login was called in hello Sample');
             res.redirect('/');
         });
 
@@ -283,22 +283,22 @@ ms.lasthandoff: 07/11/2017
 
     ```
 
-2.  <span data-ttu-id="6cf6b-170">Laten we controleert deze onderdelen:</span><span class="sxs-lookup"><span data-stu-id="6cf6b-170">Let's review these in detail:</span></span>
+2.  <span data-ttu-id="5d642-170">Laten we controleert deze onderdelen:</span><span class="sxs-lookup"><span data-stu-id="5d642-170">Let's review these in detail:</span></span>
 
-  * <span data-ttu-id="6cf6b-171">De `/`route wordt omgeleid naar de weergave index.ejs doorgeven van de gebruiker in de aanvraag (indien aanwezig).</span><span class="sxs-lookup"><span data-stu-id="6cf6b-171">The `/`route redirects to the index.ejs view, passing the user in the request (if it exists).</span></span>
-  * <span data-ttu-id="6cf6b-172">De `/account` eerst routeren *zorgt ervoor dat we worden geverifieerd* (we implementeren die in het volgende voorbeeld), en wordt de gebruiker doorgegeven in de aanvraag zodat we extra informatie over de gebruiker kunt ophalen.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-172">The `/account` route first *ensures we are authenticated* (we implement that in the following example), and then passes the user in the request so that we can get additional information about the user.</span></span>
-  * <span data-ttu-id="6cf6b-173">De `/login` route roept onze verificator azuread openidconnect van `passport-azuread`.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-173">The `/login` route calls our azuread-openidconnect authenticator from `passport-azuread`.</span></span> <span data-ttu-id="6cf6b-174">Als dat niet lukt, wordt de gebruiker omgeleid naar /login.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-174">If that doesn't succeed, it redirects the user back to /login.</span></span>
-  * <span data-ttu-id="6cf6b-175">De `/logout` gewoon aanroepen de logout.ejs (en route) die worden cookies gewist en retourneert vervolgens de gebruiker terug naar index.ejs routeren.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-175">The `/logout` route simply calls the logout.ejs (and route), which clears cookies and then returns the user back to index.ejs.</span></span>
+  * <span data-ttu-id="5d642-171">Hallo `/`route leidt toohello index.ejs weergave Hallo gebruiker doorgeven in Hallo-aanvraag (indien aanwezig).</span><span class="sxs-lookup"><span data-stu-id="5d642-171">hello `/`route redirects toohello index.ejs view, passing hello user in hello request (if it exists).</span></span>
+  * <span data-ttu-id="5d642-172">Hallo `/account` eerst routeren *zorgt ervoor dat we worden geverifieerd* (we implementeren die in het volgende voorbeeld Hallo), en vervolgens geeft de gebruiker in de aanvraag Hallo Hallo zodat we extra informatie over Hallo-gebruiker kunt ophalen.</span><span class="sxs-lookup"><span data-stu-id="5d642-172">hello `/account` route first *ensures we are authenticated* (we implement that in hello following example), and then passes hello user in hello request so that we can get additional information about hello user.</span></span>
+  * <span data-ttu-id="5d642-173">Hallo `/login` route roept onze verificator azuread openidconnect van `passport-azuread`.</span><span class="sxs-lookup"><span data-stu-id="5d642-173">hello `/login` route calls our azuread-openidconnect authenticator from `passport-azuread`.</span></span> <span data-ttu-id="5d642-174">Als dat niet lukt, wordt hij omgeleid Hallo terug te/gebruikersaanmelding.</span><span class="sxs-lookup"><span data-stu-id="5d642-174">If that doesn't succeed, it redirects hello user back too/login.</span></span>
+  * <span data-ttu-id="5d642-175">Hallo `/logout` route roept Hallo logout.ejs (en route), welke cookies wist en retourneert Hallo back tooindex.ejs gebruiker.</span><span class="sxs-lookup"><span data-stu-id="5d642-175">hello `/logout` route simply calls hello logout.ejs (and route), which clears cookies and then returns hello user back tooindex.ejs.</span></span>
 
-3. <span data-ttu-id="6cf6b-176">Voor het laatste deel van `app.js`, voegen we de **EnsureAuthenticated** methode die wordt gebruikt in `/account`, zoals eerder is weergegeven.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-176">For the last part of `app.js`, let's add the **EnsureAuthenticated** method that is used in `/account`, as shown earlier.</span></span>
+3. <span data-ttu-id="5d642-176">Voor het laatste deel van Hallo `app.js`, gaan we voegen Hallo **EnsureAuthenticated** methode die wordt gebruikt in `/account`, zoals eerder is weergegeven.</span><span class="sxs-lookup"><span data-stu-id="5d642-176">For hello last part of `app.js`, let's add hello **EnsureAuthenticated** method that is used in `/account`, as shown earlier.</span></span>
 
     ```JavaScript
 
-        // Simple route middleware to ensure user is authenticated. (section 4)
+        // Simple route middleware tooensure user is authenticated. (section 4)
 
-        //   Use this route middleware on any resource that needs to be protected. If
-        //   the request is authenticated (typically via a persistent sign-in session),
-        //   the request proceeds. Otherwise, the user is redirected to the
+        //   Use this route middleware on any resource that needs toobe protected. If
+        //   hello request is authenticated (typically via a persistent sign-in session),
+        //   hello request proceeds. Otherwise, hello user is redirected toothe
         //   sign-in page.
         function ensureAuthenticated(req, res, next) {
           if (req.isAuthenticated()) { return next(); }
@@ -306,7 +306,7 @@ ms.lasthandoff: 07/11/2017
         }
     ```
 
-4. <span data-ttu-id="6cf6b-177">Maak ten slotte de server zelf laten we in `app.js`:</span><span class="sxs-lookup"><span data-stu-id="6cf6b-177">Finally, let's create the server itself in `app.js`:</span></span>
+4. <span data-ttu-id="5d642-177">Maak ten slotte Hallo-server zelf laten we in `app.js`:</span><span class="sxs-lookup"><span data-stu-id="5d642-177">Finally, let's create hello server itself in `app.js`:</span></span>
 
 ```JavaScript
 
@@ -315,10 +315,10 @@ ms.lasthandoff: 07/11/2017
 ```
 
 
-## <a name="step-5-to-display-our-user-in-the-website-create-the-views-and-routes-in-express"></a><span data-ttu-id="6cf6b-178">Stap 5: Zodat de gebruiker in de website maken de weergaven en routes in Express</span><span class="sxs-lookup"><span data-stu-id="6cf6b-178">Step 5: To display our user in the website, create the views and routes in Express</span></span>
-<span data-ttu-id="6cf6b-179">Nu `app.js` is voltooid.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-179">Now `app.js` is complete.</span></span> <span data-ttu-id="6cf6b-180">Moet u de routes en weergaven waarin de informatie die we u aan de gebruiker, evenals verwerken toevoegen de `/logout` en `/login` routes die we hebben gemaakt.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-180">We simply need to add the routes and views that show the information we get to the user, as well as handle the `/logout` and `/login` routes that we  created.</span></span>
+## <a name="step-5-toodisplay-our-user-in-hello-website-create-hello-views-and-routes-in-express"></a><span data-ttu-id="5d642-178">Stap 5: toodisplay onze gebruiker op Hallo website maken Hallo weergaven en routes in Express</span><span class="sxs-lookup"><span data-stu-id="5d642-178">Step 5: toodisplay our user in hello website, create hello views and routes in Express</span></span>
+<span data-ttu-id="5d642-179">Nu `app.js` is voltooid.</span><span class="sxs-lookup"><span data-stu-id="5d642-179">Now `app.js` is complete.</span></span> <span data-ttu-id="5d642-180">We gewoon moet tooadd Hallo routes en weergaven die informatie weergeven Hallo we toohello gebruiker ophalen, evenals verwerken Hallo `/logout` en `/login` routes die we hebben gemaakt.</span><span class="sxs-lookup"><span data-stu-id="5d642-180">We simply need tooadd hello routes and views that show hello information we get toohello user, as well as handle hello `/logout` and `/login` routes that we  created.</span></span>
 
-1. <span data-ttu-id="6cf6b-181">Maak de route `/routes/index.js` onder de hoofddirectory.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-181">Create the `/routes/index.js` route under the root directory.</span></span>
+1. <span data-ttu-id="5d642-181">Hallo maken `/routes/index.js` route onder Hallo-hoofdmap.</span><span class="sxs-lookup"><span data-stu-id="5d642-181">Create hello `/routes/index.js` route under hello root directory.</span></span>
 
     ```JavaScript
                 /*
@@ -330,7 +330,7 @@ ms.lasthandoff: 07/11/2017
                 };
     ```
 
-2. <span data-ttu-id="6cf6b-182">Maak de route `/routes/user.js` onder de hoofddirectory.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-182">Create the `/routes/user.js` route under the root directory.</span></span>
+2. <span data-ttu-id="5d642-182">Hallo maken `/routes/user.js` route onder Hallo-hoofdmap.</span><span class="sxs-lookup"><span data-stu-id="5d642-182">Create hello `/routes/user.js` route under hello root directory.</span></span>
 
                 ```JavaScript
                 /*
@@ -342,9 +342,9 @@ ms.lasthandoff: 07/11/2017
                 };
                 ```
 
- <span data-ttu-id="6cf6b-183">Deze doorgegeven de aanvraag aan onze weergaven, met inbegrip van de gebruiker, indien aanwezig.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-183">These pass along the request to our views, including the user if present.</span></span>
+ <span data-ttu-id="5d642-183">Deze doorgegeven Hallo aanvraag tooour weergaven, met inbegrip van Hallo gebruiker, indien aanwezig.</span><span class="sxs-lookup"><span data-stu-id="5d642-183">These pass along hello request tooour views, including hello user if present.</span></span>
 
-3. <span data-ttu-id="6cf6b-184">Maak de weergave `/views/index.ejs` onder de hoofddirectory.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-184">Create the `/views/index.ejs` view under the root directory.</span></span> <span data-ttu-id="6cf6b-185">Dit is een eenvoudige pagina waarmee onze aanmelding en afmelding methoden aangeroepen en kan we accountgegevens halen.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-185">This is a simple page that calls our login and logout methods and enables us to grab account information.</span></span> <span data-ttu-id="6cf6b-186">U ziet dat we de voorwaardelijke kunnen gebruiken `if (!user)` als de gebruiker wordt doorgegeven in de aanvraag is bewijs hebben we een aangemelde gebruiker.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-186">Notice that we can use the conditional `if (!user)` as the user being passed through in the request is evidence we have a signed-in user.</span></span>
+3. <span data-ttu-id="5d642-184">Hallo maken `/views/index.ejs` weergave onder Hallo-hoofdmap.</span><span class="sxs-lookup"><span data-stu-id="5d642-184">Create hello `/views/index.ejs` view under hello root directory.</span></span> <span data-ttu-id="5d642-185">Dit is een eenvoudige pagina die onze aanmelding en afmelding methoden aanroept en kunnen we toograb accountgegevens.</span><span class="sxs-lookup"><span data-stu-id="5d642-185">This is a simple page that calls our login and logout methods and enables us toograb account information.</span></span> <span data-ttu-id="5d642-186">U ziet dat we kunnen gebruiken Hallo voorwaardelijke `if (!user)` omdat Hallo gebruiker wordt doorgegeven in de aanvraag Hallo bewijs hebben we een aangemelde gebruiker.</span><span class="sxs-lookup"><span data-stu-id="5d642-186">Notice that we can use hello conditional `if (!user)` as hello user being passed through in hello request is evidence we have a signed-in user.</span></span>
 
     ```JavaScript
     <% if (!user) { %>
@@ -357,7 +357,7 @@ ms.lasthandoff: 07/11/2017
     <% } %>
     ```
 
-4. <span data-ttu-id="6cf6b-187">Maak de `/views/account.ejs` weergeven onder de hoofddirectory, zodat we extra informatie kunt bekijken die `passport-azuread` in de gebruikersaanvraag heeft geplaatst.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-187">Create the `/views/account.ejs` view under the root directory so that we can view additional information that `passport-azuread` has put in the user request.</span></span>
+4. <span data-ttu-id="5d642-187">Hallo maken `/views/account.ejs` weergeven onder de hoofdmap hello, zodat we extra informatie kunt bekijken die `passport-azuread` in Hallo gebruikersaanvraag heeft geplaatst.</span><span class="sxs-lookup"><span data-stu-id="5d642-187">Create hello `/views/account.ejs` view under hello root directory so that we can view additional information that `passport-azuread` has put in hello user request.</span></span>
 
     ```Javascript
     <% if (!user) { %>
@@ -376,7 +376,7 @@ ms.lasthandoff: 07/11/2017
     <% } %>
     ```
 
-5. <span data-ttu-id="6cf6b-188">We maken dit goed door het toevoegen van een lay-out.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-188">Let's make this look good by adding a layout.</span></span> <span data-ttu-id="6cf6b-189">Maak de ' / views/layout.ejs' weergave onder de hoofdmap.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-189">Create the '/views/layout.ejs' view under the root directory.</span></span>
+5. <span data-ttu-id="5d642-188">We maken dit goed door het toevoegen van een lay-out.</span><span class="sxs-lookup"><span data-stu-id="5d642-188">Let's make this look good by adding a layout.</span></span> <span data-ttu-id="5d642-189">Hallo maken ' / views/layout.ejs' weergave onder Hallo root directory.</span><span class="sxs-lookup"><span data-stu-id="5d642-189">Create hello '/views/layout.ejs' view under hello root directory.</span></span>
 
     ```HTML
 
@@ -403,17 +403,17 @@ ms.lasthandoff: 07/11/2017
     </html>
     ```
 
-##<a name="next-steps"></a><span data-ttu-id="6cf6b-190">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="6cf6b-190">Next steps</span></span>
-<span data-ttu-id="6cf6b-191">Ten slotte bouwen en uitvoeren van uw app.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-191">Finally, build and run your app.</span></span> <span data-ttu-id="6cf6b-192">Voer `node app.js`, en ga vervolgens naar `http://localhost:3000`.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-192">Run `node app.js`, and then go to `http://localhost:3000`.</span></span>
+##<a name="next-steps"></a><span data-ttu-id="5d642-190">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="5d642-190">Next steps</span></span>
+<span data-ttu-id="5d642-191">Ten slotte bouwen en uitvoeren van uw app.</span><span class="sxs-lookup"><span data-stu-id="5d642-191">Finally, build and run your app.</span></span> <span data-ttu-id="5d642-192">Voer `node app.js`, en ga te`http://localhost:3000`.</span><span class="sxs-lookup"><span data-stu-id="5d642-192">Run `node app.js`, and then go too`http://localhost:3000`.</span></span>
 
-<span data-ttu-id="6cf6b-193">Meld u aan met een persoonlijk Microsoft-account of een account voor werk of school en zien hoe de identiteit van de gebruiker wordt weergegeven in de lijst /account.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-193">Sign in with either a personal Microsoft account or a work or school account, and notice how the user's identity is reflected in the /account list.</span></span> <span data-ttu-id="6cf6b-194">U hebt nu een web-app die beveiligd met standaardprotocollen die gebruikers met hun persoonlijke en zakelijke/school accounts kunnen worden geverifieerd.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-194">You now have a web app that's secured with industry standard protocols that can authenticate users with both their personal and work/school accounts.</span></span>
+<span data-ttu-id="5d642-193">Meld u aan met een persoonlijk Microsoft-account of een account voor werk of school en u ziet hoe Hallo gebruikersidentiteit in Hallo /account lijst wordt weergegeven.</span><span class="sxs-lookup"><span data-stu-id="5d642-193">Sign in with either a personal Microsoft account or a work or school account, and notice how hello user's identity is reflected in hello /account list.</span></span> <span data-ttu-id="5d642-194">U hebt nu een web-app die beveiligd met standaardprotocollen die gebruikers met hun persoonlijke en zakelijke/school accounts kunnen worden geverifieerd.</span><span class="sxs-lookup"><span data-stu-id="5d642-194">You now have a web app that's secured with industry standard protocols that can authenticate users with both their personal and work/school accounts.</span></span>
 
-<span data-ttu-id="6cf6b-195">Voor naslag is het voltooide voorbeeld (zonder uw configuratiewaarden) [geleverd als zip-bestand](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip).</span><span class="sxs-lookup"><span data-stu-id="6cf6b-195">For reference, the completed sample (without your configuration values) [is provided as a .zip file](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip).</span></span> <span data-ttu-id="6cf6b-196">U kunt dit ook klonen vanuit GitHub:</span><span class="sxs-lookup"><span data-stu-id="6cf6b-196">Alternatively, you can clone it from GitHub:</span></span>
+<span data-ttu-id="5d642-195">Ter referentie: voltooid Hallo voorbeeld (zonder uw configuratiewaarden) [wordt geleverd als ZIP-bestand](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip).</span><span class="sxs-lookup"><span data-stu-id="5d642-195">For reference, hello completed sample (without your configuration values) [is provided as a .zip file](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip).</span></span> <span data-ttu-id="5d642-196">U kunt dit ook klonen vanuit GitHub:</span><span class="sxs-lookup"><span data-stu-id="5d642-196">Alternatively, you can clone it from GitHub:</span></span>
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
-<span data-ttu-id="6cf6b-197">U kunt nu verplaatsen naar geavanceerdere onderwerpen.</span><span class="sxs-lookup"><span data-stu-id="6cf6b-197">You can now move onto more advanced topics.</span></span> <span data-ttu-id="6cf6b-198">Het is raadzaam om te proberen:</span><span class="sxs-lookup"><span data-stu-id="6cf6b-198">You might want to try:</span></span>
+<span data-ttu-id="5d642-197">U kunt nu verplaatsen naar geavanceerdere onderwerpen.</span><span class="sxs-lookup"><span data-stu-id="5d642-197">You can now move onto more advanced topics.</span></span> <span data-ttu-id="5d642-198">U kunt tootry:</span><span class="sxs-lookup"><span data-stu-id="5d642-198">You might want tootry:</span></span>
 
-[<span data-ttu-id="6cf6b-199">Een Web-API met Azure AD beveiligen</span><span class="sxs-lookup"><span data-stu-id="6cf6b-199">Secure a Web API with Azure AD</span></span>](active-directory-devquickstarts-webapi-nodejs.md)
+[<span data-ttu-id="5d642-199">Een Web-API met Azure AD beveiligen</span><span class="sxs-lookup"><span data-stu-id="5d642-199">Secure a Web API with Azure AD</span></span>](active-directory-devquickstarts-webapi-nodejs.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

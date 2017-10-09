@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure API Management - zelfstudies, API-verwijzing | Microsoft Docs
-description: Leer hoe u API Management kunt gebruiken om API's veilig en op schaal te publiceren. Documentatie laat zien hoe u moderne API-gateways voor bestaande back-endservices kunt maken.
+title: aaaAzure API Management-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Meer informatie over hoe toouse API Management toopublish API's veilig en op schaal. Documentatie toont hoe toocreate moderne API gateways voor bestaande back-end-services.
 services: api-management
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c2bd5d7dc7c6df3ad01a704fdd28c9437d39a04b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-management-documentation"></a>Documentatie over API Management
 
-Leer hoe u API Management kunt gebruiken voor het veilig en op schaal publiceren van API's naar externe, partner- en werknemerontwikkelaars. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u moderne API-gateways voor bestaande back-endservices kunt maken en beheren die overal ter wereld worden gehost.
+Meer informatie over hoe toouse API Management toopublish API's tooexternal, partner en werknemer ontwikkelaars veilig en op schaal. Zelfstudies, API-referenties en andere documentatie die u zien hoe toocreate en moderne API gateways voor bestaande back-end-services die worden gehost overal beheren.
 
 <ul class="panelContent cardsFTitle">
     <li>

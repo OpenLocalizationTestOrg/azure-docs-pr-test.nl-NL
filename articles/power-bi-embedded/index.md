@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure Power BI Embedded - zelfstudies, API-verwijzing | Microsoft Docs
-description: Meer informatie over het insluiten van Power BI-gegevensvisualisaties en interactieve rapporten in apps. Zelfstudies, API-verwijzingen en andere documentatie.
+title: aaaAzure Power BI Embedded-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Meer informatie over hoe tooembed Power BI gegevensvisualisaties en interactieve rapporten in apps. Zelfstudies, API-verwijzingen en andere documentatie.
 services: power-bi-embedded
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c1e12dc71ce823425971beeb9db1cc5abd2aa12b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e01a812ccc3b8daeb0569df90bad87f12c649db5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="power-bi-embedded-documentation"></a>Documentatie over Power BI Embedded
 
-Meer informatie over hoe u met Power BI Embedded gegevensvisualisaties en interactieve rapporten toevoegt aan toepassingen. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u Power BI-rapporten en -dashboards naadloos insluit in apps.
+Meer informatie over hoe tooadd gegevensvisualisaties en interactieve rapporten tooapplications met Power BI Embedded. Zelfstudies, API-referenties en andere documentatie die laten zien u hoe tooseamlessly Power BI-rapporten en dashboards kunnen insluiten in apps.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -88,7 +88,7 @@ Meer informatie over hoe u met Power BI Embedded gegevensvisualisaties en intera
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Power BI-rapporten maken met de galerie met voorbeelden</h3>
+                        <h3>Power BI-rapporten te maken met de galerie met voorbeelden van Hallo</h3>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 ---
-title: Servicelimieten voor Azure Sleutelkluis | Microsoft Docs
-description: Meer informatie over de grenzen van de service voor Azure Sleutelkluis.
+title: aaaAzure Sleutelkluis Servicelimieten | Microsoft Docs
+description: Meer informatie over Hallo Servicelimieten voor Azure Sleutelkluis.
 documentationcenter: dev-center-name
 services: key-vault
 author: cabailey
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
 ms.author: ambapat
-ms.openlocfilehash: b34c67ecc1bd50157ded790948ac7b88a5807ddb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ebd78281f2428790486c928e5a6415cf479a6439
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-key-vault-service-limits"></a><span data-ttu-id="40bca-103">Servicelimieten voor Azure Sleutelkluis</span><span class="sxs-lookup"><span data-stu-id="40bca-103">Azure Key Vault service limits</span></span>
-<span data-ttu-id="40bca-104">Hier volgen de Servicelimieten voor Azure Sleutelkluis.</span><span class="sxs-lookup"><span data-stu-id="40bca-104">Here are the service limits for Azure Key Vault.</span></span>
+# <a name="azure-key-vault-service-limits"></a><span data-ttu-id="2ebd6-103">Servicelimieten voor Azure Sleutelkluis</span><span class="sxs-lookup"><span data-stu-id="2ebd6-103">Azure Key Vault service limits</span></span>
+<span data-ttu-id="2ebd6-104">Hier volgen Hallo Servicelimieten voor Azure Sleutelkluis.</span><span class="sxs-lookup"><span data-stu-id="2ebd6-104">Here are hello service limits for Azure Key Vault.</span></span>
 
 [!INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]
 

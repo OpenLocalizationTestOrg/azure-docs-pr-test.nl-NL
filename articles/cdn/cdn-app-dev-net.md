@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met de Azure CDN-bibliotheek voor .NET | Microsoft Docs
-description: Informatie over het schrijven van .NET-toepassingen voor het beheren van Azure CDN met Visual Studio.
+title: aaaGet slag Hello Azure CDN-bibliotheek voor .NET | Microsoft Docs
+description: Meer informatie over hoe toowrite .NET-toepassingen toomanage Azure CDN met Visual Studio.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5379586355ece98af6295236d6cbd09cb31c742b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9753e48c7469072cef6b2ac728e18c78121c97f7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-azure-cdn-development"></a><span data-ttu-id="54892-103">Aan de slag met Azure CDN-ontwikkeling</span><span class="sxs-lookup"><span data-stu-id="54892-103">Get started with Azure CDN development</span></span>
+# <a name="get-started-with-azure-cdn-development"></a><span data-ttu-id="41572-103">Aan de slag met Azure CDN-ontwikkeling</span><span class="sxs-lookup"><span data-stu-id="41572-103">Get started with Azure CDN development</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="54892-104">Node.js</span><span class="sxs-lookup"><span data-stu-id="54892-104">Node.js</span></span>](cdn-app-dev-node.md)
-> * [<span data-ttu-id="54892-105">.NET</span><span class="sxs-lookup"><span data-stu-id="54892-105">.NET</span></span>](cdn-app-dev-net.md)
+> * [<span data-ttu-id="41572-104">Node.js</span><span class="sxs-lookup"><span data-stu-id="41572-104">Node.js</span></span>](cdn-app-dev-node.md)
+> * [<span data-ttu-id="41572-105">.NET</span><span class="sxs-lookup"><span data-stu-id="41572-105">.NET</span></span>](cdn-app-dev-net.md)
 > 
 > 
 
-<span data-ttu-id="54892-106">U kunt de [Azure CDN-bibliotheek voor .NET](https://msdn.microsoft.com/library/mt657769.aspx) te maken en beheren van CDN-profielen en eindpunten te automatiseren.</span><span class="sxs-lookup"><span data-stu-id="54892-106">You can use the [Azure CDN Library for .NET](https://msdn.microsoft.com/library/mt657769.aspx) to automate creation and management of CDN profiles and endpoints.</span></span>  <span data-ttu-id="54892-107">Deze zelfstudie helpt bij het maken van een eenvoudige .NET-consoletoepassing die u laat zien dat verschillende van de beschikbare bewerkingen.</span><span class="sxs-lookup"><span data-stu-id="54892-107">This tutorial walks through the creation of a simple .NET console application that demonstrates several of the available operations.</span></span>  <span data-ttu-id="54892-108">Deze zelfstudie is niet bedoeld om alle aspecten van de Azure CDN-bibliotheek voor .NET in detail beschrijven.</span><span class="sxs-lookup"><span data-stu-id="54892-108">This tutorial is not intended to describe all aspects of the Azure CDN Library for .NET in detail.</span></span>
+<span data-ttu-id="41572-106">U kunt Hallo [Azure CDN-bibliotheek voor .NET](https://msdn.microsoft.com/library/mt657769.aspx) tooautomate maken en beheren van CDN-profielen en eindpunten.</span><span class="sxs-lookup"><span data-stu-id="41572-106">You can use hello [Azure CDN Library for .NET](https://msdn.microsoft.com/library/mt657769.aspx) tooautomate creation and management of CDN profiles and endpoints.</span></span>  <span data-ttu-id="41572-107">Deze zelfstudie wordt begeleid Hallo maken van een eenvoudige .NET-consoletoepassing die u laat zien dat verschillende Hallo beschikbare bewerkingen.</span><span class="sxs-lookup"><span data-stu-id="41572-107">This tutorial walks through hello creation of a simple .NET console application that demonstrates several of hello available operations.</span></span>  <span data-ttu-id="41572-108">Deze zelfstudie is niet bedoeld toodescribe alle aspecten van hello Azure CDN-bibliotheek voor .NET in detail.</span><span class="sxs-lookup"><span data-stu-id="41572-108">This tutorial is not intended toodescribe all aspects of hello Azure CDN Library for .NET in detail.</span></span>
 
-<span data-ttu-id="54892-109">Moet u Visual Studio 2015 om deze zelfstudie te voltooien.</span><span class="sxs-lookup"><span data-stu-id="54892-109">You need Visual Studio 2015 to complete this tutorial.</span></span>  <span data-ttu-id="54892-110">[Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) is gratis te downloaden.</span><span class="sxs-lookup"><span data-stu-id="54892-110">[Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) is freely available for download.</span></span>
+<span data-ttu-id="41572-109">U moet deze zelfstudie toocomplete Visual Studio 2015.</span><span class="sxs-lookup"><span data-stu-id="41572-109">You need Visual Studio 2015 toocomplete this tutorial.</span></span>  <span data-ttu-id="41572-110">[Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) is gratis te downloaden.</span><span class="sxs-lookup"><span data-stu-id="41572-110">[Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) is freely available for download.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="54892-111">De [voltooid project uit deze zelfstudie](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) is beschikbaar voor downloaden op MSDN.</span><span class="sxs-lookup"><span data-stu-id="54892-111">The [completed project from this tutorial](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) is available for download on MSDN.</span></span>
+> <span data-ttu-id="41572-111">Hallo [voltooid project uit deze zelfstudie](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) is beschikbaar voor downloaden op MSDN.</span><span class="sxs-lookup"><span data-stu-id="41572-111">hello [completed project from this tutorial](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) is available for download on MSDN.</span></span>
 > 
 > 
 
 [!INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
-## <a name="create-your-project-and-add-nuget-packages"></a><span data-ttu-id="54892-112">Maken van uw project en Nuget-pakketten toevoegen</span><span class="sxs-lookup"><span data-stu-id="54892-112">Create your project and add Nuget packages</span></span>
-<span data-ttu-id="54892-113">Nu dat we hebben een resourcegroep gemaakt voor onze CDN-profielen en toestemming van onze Azure AD-toepassing voor het beheren van CDN-profielen en eindpunten binnen die groep, kunnen we beginnen met het maken van de toepassing.</span><span class="sxs-lookup"><span data-stu-id="54892-113">Now that we've created a resource group for our CDN profiles and given our Azure AD application permission to manage CDN profiles and endpoints within that group, we can start creating our application.</span></span>
+## <a name="create-your-project-and-add-nuget-packages"></a><span data-ttu-id="41572-112">Maken van uw project en Nuget-pakketten toevoegen</span><span class="sxs-lookup"><span data-stu-id="41572-112">Create your project and add Nuget packages</span></span>
+<span data-ttu-id="41572-113">Nu dat we hebben een resourcegroep gemaakt voor onze CDN-profielen en bepaalde onze Azure AD-toepassing machtiging toomanage CDN-profielen en de eindpunten in die groep, kunnen we beginnen met het maken van de toepassing.</span><span class="sxs-lookup"><span data-stu-id="41572-113">Now that we've created a resource group for our CDN profiles and given our Azure AD application permission toomanage CDN profiles and endpoints within that group, we can start creating our application.</span></span>
 
-<span data-ttu-id="54892-114">Klik in Visual Studio 2015 op **bestand**, **nieuw**, **Project...**  openen van het dialoogvenster new project.</span><span class="sxs-lookup"><span data-stu-id="54892-114">From within Visual Studio 2015, click **File**, **New**, **Project...** to open the new project dialog.</span></span>  <span data-ttu-id="54892-115">Vouw **Visual C#**, selecteer daarna **Windows** in het deelvenster aan de linkerkant.</span><span class="sxs-lookup"><span data-stu-id="54892-115">Expand **Visual C#**, then select **Windows** in the pane on the left.</span></span>  <span data-ttu-id="54892-116">Klik op **consoletoepassing** in het middelste deelvenster.</span><span class="sxs-lookup"><span data-stu-id="54892-116">Click **Console Application** in the center pane.</span></span>  <span data-ttu-id="54892-117">Uw project een naam en klik vervolgens op **OK**.</span><span class="sxs-lookup"><span data-stu-id="54892-117">Name your project, then click **OK**.</span></span>  
+<span data-ttu-id="41572-114">Klik in Visual Studio 2015 op **bestand**, **nieuw**, **Project...**  tooopen Hallo het dialoogvenster new project.</span><span class="sxs-lookup"><span data-stu-id="41572-114">From within Visual Studio 2015, click **File**, **New**, **Project...** tooopen hello new project dialog.</span></span>  <span data-ttu-id="41572-115">Vouw **Visual C#**, selecteer daarna **Windows** in Hallo deelvenster op Hallo links.</span><span class="sxs-lookup"><span data-stu-id="41572-115">Expand **Visual C#**, then select **Windows** in hello pane on hello left.</span></span>  <span data-ttu-id="41572-116">Klik op **consoletoepassing** in Hallo middelste deelvenster.</span><span class="sxs-lookup"><span data-stu-id="41572-116">Click **Console Application** in hello center pane.</span></span>  <span data-ttu-id="41572-117">Uw project een naam en klik vervolgens op **OK**.</span><span class="sxs-lookup"><span data-stu-id="41572-117">Name your project, then click **OK**.</span></span>  
 
 ![Nieuw project](./media/cdn-app-dev-net/cdn-new-project.png)
 
-<span data-ttu-id="54892-119">Onze project gaat een aantal Azure-bibliotheken die zijn opgenomen in de Nuget-pakketten gebruiken.</span><span class="sxs-lookup"><span data-stu-id="54892-119">Our project is going to use some Azure libraries contained in Nuget packages.</span></span>  <span data-ttu-id="54892-120">Laten we deze toevoegen aan het project.</span><span class="sxs-lookup"><span data-stu-id="54892-120">Let's add those to the project.</span></span>
+<span data-ttu-id="41572-119">Onze project gaat toouse sommige Azure-bibliotheken die zijn opgenomen in de Nuget-pakketten.</span><span class="sxs-lookup"><span data-stu-id="41572-119">Our project is going toouse some Azure libraries contained in Nuget packages.</span></span>  <span data-ttu-id="41572-120">Laten we deze toohello-project toevoegen.</span><span class="sxs-lookup"><span data-stu-id="41572-120">Let's add those toohello project.</span></span>
 
-1. <span data-ttu-id="54892-121">Klik op de **extra** menu **Nuget Package Manager**, klikt u vervolgens **Package Manager Console**.</span><span class="sxs-lookup"><span data-stu-id="54892-121">Click the **Tools** menu, **Nuget Package Manager**, then **Package Manager Console**.</span></span>
+1. <span data-ttu-id="41572-121">Klik op Hallo **extra** menu **Nuget Package Manager**, klikt u vervolgens **Package Manager Console**.</span><span class="sxs-lookup"><span data-stu-id="41572-121">Click hello **Tools** menu, **Nuget Package Manager**, then **Package Manager Console**.</span></span>
    
     ![Nuget-pakketten beheren](./media/cdn-app-dev-net/cdn-manage-nuget.png)
-2. <span data-ttu-id="54892-123">Voer de volgende opdracht om te installeren in de Package Manager-Console de **Active Directory Authentication Library (ADAL)**:</span><span class="sxs-lookup"><span data-stu-id="54892-123">In the Package Manager Console, execute the following command to install the **Active Directory Authentication Library (ADAL)**:</span></span>
+2. <span data-ttu-id="41572-123">In Hallo Package Manager-Console, uitvoeren na de opdracht tooinstall Hallo Hallo **Active Directory Authentication Library (ADAL)**:</span><span class="sxs-lookup"><span data-stu-id="41572-123">In hello Package Manager Console, execute hello following command tooinstall hello **Active Directory Authentication Library (ADAL)**:</span></span>
    
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
-3. <span data-ttu-id="54892-124">Voer het volgende uit voor het installeren van de **Azure CDN bibliotheek**:</span><span class="sxs-lookup"><span data-stu-id="54892-124">Execute the following to install the **Azure CDN Management Library**:</span></span>
+3. <span data-ttu-id="41572-124">Uitvoeren van de volgende tooinstall Hallo Hallo **Azure CDN bibliotheek**:</span><span class="sxs-lookup"><span data-stu-id="41572-124">Execute hello following tooinstall hello **Azure CDN Management Library**:</span></span>
    
     `Install-Package Microsoft.Azure.Management.Cdn`
 
-## <a name="directives-constants-main-method-and-helper-methods"></a><span data-ttu-id="54892-125">Richtlijnen, constanten hoofdmethode en Help-methoden</span><span class="sxs-lookup"><span data-stu-id="54892-125">Directives, constants, main method, and helper methods</span></span>
-<span data-ttu-id="54892-126">Laten we de basisstructuur van ons programma geschreven worden opgehaald.</span><span class="sxs-lookup"><span data-stu-id="54892-126">Let's get the basic structure of our program written.</span></span>
+## <a name="directives-constants-main-method-and-helper-methods"></a><span data-ttu-id="41572-125">Richtlijnen, constanten hoofdmethode en Help-methoden</span><span class="sxs-lookup"><span data-stu-id="41572-125">Directives, constants, main method, and helper methods</span></span>
+<span data-ttu-id="41572-126">Laten we ophalen Hallo basisstructuur van onze programma geschreven.</span><span class="sxs-lookup"><span data-stu-id="41572-126">Let's get hello basic structure of our program written.</span></span>
 
-1. <span data-ttu-id="54892-127">Vervang terug op het tabblad Program.cs de `using` richtlijnen aan de bovenkant door het volgende:</span><span class="sxs-lookup"><span data-stu-id="54892-127">Back in the Program.cs tab, replace the `using` directives at the top with the following:</span></span>
+1. <span data-ttu-id="41572-127">Vervang terug in Hallo Program.cs tabblad Hallo `using` richtlijnen boven Hallo Hallo volgende:</span><span class="sxs-lookup"><span data-stu-id="41572-127">Back in hello Program.cs tab, replace hello `using` directives at hello top with hello following:</span></span>
    
     ```csharp
     using System;
@@ -72,7 +72,7 @@ ms.lasthandoff: 07/11/2017
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. <span data-ttu-id="54892-128">We moeten sommige constanten die onze methoden gebruikt definiëren.</span><span class="sxs-lookup"><span data-stu-id="54892-128">We need to define some constants our methods will use.</span></span>  <span data-ttu-id="54892-129">In de `Program` klasse, maar voordat de `Main` methode, voeg de volgende.</span><span class="sxs-lookup"><span data-stu-id="54892-129">In the `Program` class, but before the `Main` method, add the following.</span></span>  <span data-ttu-id="54892-130">Zorg ervoor dat u de tijdelijke aanduidingen, met inbegrip van de  **&lt;punthaken&gt;**, met uw eigen waarden zo nodig.</span><span class="sxs-lookup"><span data-stu-id="54892-130">Be sure to replace the placeholders, including the **&lt;angle brackets&gt;**, with your own values as needed.</span></span>
+2. <span data-ttu-id="41572-128">We moeten toodefine sommige constanten die onze methoden gebruiken.</span><span class="sxs-lookup"><span data-stu-id="41572-128">We need toodefine some constants our methods will use.</span></span>  <span data-ttu-id="41572-129">In Hallo `Program` klasse, maar voordat Hallo `Main` methode, voeg de volgende Hallo.</span><span class="sxs-lookup"><span data-stu-id="41572-129">In hello `Program` class, but before hello `Main` method, add hello following.</span></span>  <span data-ttu-id="41572-130">Worden ervoor tooreplace Hallo tijdelijke aanduidingen, met inbegrip van Hallo  **&lt;punthaken&gt;**, met uw eigen waarden zo nodig.</span><span class="sxs-lookup"><span data-stu-id="41572-130">Be sure tooreplace hello placeholders, including hello **&lt;angle brackets&gt;**, with your own values as needed.</span></span>
    
     ```csharp
     //Tenant app constants
@@ -87,13 +87,13 @@ ms.lasthandoff: 07/11/2017
     private const string resourceGroupName = "CdnConsoleTutorial";
     private const string resourceLocation = "<YOUR PREFERRED AZURE LOCATION, SUCH AS Central US>";
     ```
-3. <span data-ttu-id="54892-131">Ook op het klasseniveau van de deze twee variabelen definiëren.</span><span class="sxs-lookup"><span data-stu-id="54892-131">Also at the class level, define these two variables.</span></span>  <span data-ttu-id="54892-132">We gebruiken deze later om te bepalen als onze profiel en een eindpunt al bestaan.</span><span class="sxs-lookup"><span data-stu-id="54892-132">We'll use these later to determine if our profile and endpoint already exist.</span></span>
+3. <span data-ttu-id="41572-131">Ook op het niveau van de klasse hello, deze twee variabelen definiëren.</span><span class="sxs-lookup"><span data-stu-id="41572-131">Also at hello class level, define these two variables.</span></span>  <span data-ttu-id="41572-132">We gebruiken deze later toodetermine als onze profiel en een eindpunt bestaat.</span><span class="sxs-lookup"><span data-stu-id="41572-132">We'll use these later toodetermine if our profile and endpoint already exist.</span></span>
    
     ```csharp
     static bool profileAlreadyExists = false;
     static bool endpointAlreadyExists = false;
     ```
-4. <span data-ttu-id="54892-133">Vervang de `Main` methode als volgt:</span><span class="sxs-lookup"><span data-stu-id="54892-133">Replace the `Main` method as follows:</span></span>
+4. <span data-ttu-id="41572-133">Vervang Hallo `Main` methode als volgt:</span><span class="sxs-lookup"><span data-stu-id="41572-133">Replace hello `Main` method as follows:</span></span>
    
    ```csharp
    static void Main(string[] args)
@@ -124,11 +124,11 @@ ms.lasthandoff: 07/11/2017
        // Delete CDN Profile
        PromptDeleteCdnProfile(cdn);
    
-       Console.WriteLine("Press Enter to end program.");
+       Console.WriteLine("Press Enter tooend program.");
        Console.ReadLine();
    }
    ```
-5. <span data-ttu-id="54892-134">Enkele van onze andere methoden gaat het bericht met "Ja/Nee" vragen.</span><span class="sxs-lookup"><span data-stu-id="54892-134">Some of our other methods are going to prompt the user with "Yes/No" questions.</span></span>  <span data-ttu-id="54892-135">Voeg de volgende methode die een beetje om gemakkelijker te maken:</span><span class="sxs-lookup"><span data-stu-id="54892-135">Add the following method to make that a little easier:</span></span>
+5. <span data-ttu-id="41572-134">Enkele van onze andere methoden gaan tooprompt Hallo gebruiker met "Ja/Nee" vragen.</span><span class="sxs-lookup"><span data-stu-id="41572-134">Some of our other methods are going tooprompt hello user with "Yes/No" questions.</span></span>  <span data-ttu-id="41572-135">Hallo na methode toomake toevoegen die gemakkelijker:</span><span class="sxs-lookup"><span data-stu-id="41572-135">Add hello following method toomake that a little easier:</span></span>
    
     ```csharp
     private static bool PromptUser(string Question)
@@ -152,10 +152,10 @@ ms.lasthandoff: 07/11/2017
     }
     ```
 
-<span data-ttu-id="54892-136">Nu dat de basisstructuur van het programma is geschreven, maken we de methoden die worden aangeroepen door de `Main` methode.</span><span class="sxs-lookup"><span data-stu-id="54892-136">Now that the basic structure of our program is written, we should create the methods called by the `Main` method.</span></span>
+<span data-ttu-id="41572-136">Nu dat de basisstructuur Hallo van het programma is geschreven, maken we Hallo methoden die worden aangeroepen door Hallo `Main` methode.</span><span class="sxs-lookup"><span data-stu-id="41572-136">Now that hello basic structure of our program is written, we should create hello methods called by hello `Main` method.</span></span>
 
-## <a name="authentication"></a><span data-ttu-id="54892-137">Authentication</span><span class="sxs-lookup"><span data-stu-id="54892-137">Authentication</span></span>
-<span data-ttu-id="54892-138">Voordat we de Beheerbibliotheek van Azure CDN gebruiken kunnen, moeten we onze service-principal te verifiëren en geen verificatietoken ophalen.</span><span class="sxs-lookup"><span data-stu-id="54892-138">Before we can use the Azure CDN Management Library, we need to authenticate our service principal and obtain an authentication token.</span></span>  <span data-ttu-id="54892-139">Deze methode maakt gebruik van ADAL voor het ophalen van het token.</span><span class="sxs-lookup"><span data-stu-id="54892-139">This method uses ADAL to retrieve the token.</span></span>
+## <a name="authentication"></a><span data-ttu-id="41572-137">Authentication</span><span class="sxs-lookup"><span data-stu-id="41572-137">Authentication</span></span>
+<span data-ttu-id="41572-138">Voordat we hello Azure CDN bibliotheek gebruiken kunt, moet we moet tooauthenticate onze service principal en geen verificatietoken ophalen.</span><span class="sxs-lookup"><span data-stu-id="41572-138">Before we can use hello Azure CDN Management Library, we need tooauthenticate our service principal and obtain an authentication token.</span></span>  <span data-ttu-id="41572-139">Deze methode maakt gebruik van ADAL tooretrieve Hallo-token.</span><span class="sxs-lookup"><span data-stu-id="41572-139">This method uses ADAL tooretrieve hello token.</span></span>
 
 ```csharp
 private static AuthenticationResult GetAccessToken()
@@ -169,10 +169,10 @@ private static AuthenticationResult GetAccessToken()
 }
 ```
 
-<span data-ttu-id="54892-140">Als u afzonderlijke gebruikersverificatie, de `GetAccessToken` methode er iets anders.</span><span class="sxs-lookup"><span data-stu-id="54892-140">If you are using individual user authentication, the `GetAccessToken` method will look slightly different.</span></span>
+<span data-ttu-id="41572-140">Als u afzonderlijke gebruikersverificatie, Hallo `GetAccessToken` methode er iets anders.</span><span class="sxs-lookup"><span data-stu-id="41572-140">If you are using individual user authentication, hello `GetAccessToken` method will look slightly different.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="54892-141">Dit voorbeeld alleen gebruiken als u ervoor kiest om de verificatie van afzonderlijke gebruikers in plaats van een service-principal.</span><span class="sxs-lookup"><span data-stu-id="54892-141">Only use this code sample if you are choosing to have individual user authentication instead of a service principal.</span></span>
+> <span data-ttu-id="41572-141">Dit voorbeeld wordt alleen gebruiken als u afzonderlijke gebruikersverificatie toohave in plaats van een service-principal kiest.</span><span class="sxs-lookup"><span data-stu-id="41572-141">Only use this code sample if you are choosing toohave individual user authentication instead of a service principal.</span></span>
 > 
 > 
 
@@ -187,26 +187,26 @@ private static AuthenticationResult GetAccessToken()
 }
 ```
 
-<span data-ttu-id="54892-142">Zorg ervoor dat u `<redirect URI>` met de omleidings-URI die u hebt opgegeven bij de registratie van de toepassing in Azure AD.</span><span class="sxs-lookup"><span data-stu-id="54892-142">Be sure to replace `<redirect URI>` with the redirect URI you entered when you registered the application in Azure AD.</span></span>
+<span data-ttu-id="41572-142">Ervoor tooreplace worden `<redirect URI>` Hello omleidings-URI die u hebt ingevoerd toen u de toepassing hello geregistreerd in Azure AD.</span><span class="sxs-lookup"><span data-stu-id="41572-142">Be sure tooreplace `<redirect URI>` with hello redirect URI you entered when you registered hello application in Azure AD.</span></span>
 
-## <a name="list-cdn-profiles-and-endpoints"></a><span data-ttu-id="54892-143">Lijst met CDN-profielen en -eindpunten</span><span class="sxs-lookup"><span data-stu-id="54892-143">List CDN profiles and endpoints</span></span>
-<span data-ttu-id="54892-144">Nu we gaan CDN bewerkingen uit te voeren.</span><span class="sxs-lookup"><span data-stu-id="54892-144">Now we're ready to perform CDN operations.</span></span>  <span data-ttu-id="54892-145">Het eerste wat dat onze methode doet is de lijst met alle profielen en -eindpunten in de resourcegroep en als er een overeenkomst wordt gevonden voor de namen van de profiel- en eindpunt opgegeven in onze constanten maakt een notitie van die in voor later zodat we niet proberen te maken van duplicaten.</span><span class="sxs-lookup"><span data-stu-id="54892-145">The first thing our method does is list all the profiles and endpoints in our resource group, and if it finds a match for the profile and endpoint names specified in our constants, makes a note of that for later so we don't try to create duplicates.</span></span>
+## <a name="list-cdn-profiles-and-endpoints"></a><span data-ttu-id="41572-143">Lijst met CDN-profielen en -eindpunten</span><span class="sxs-lookup"><span data-stu-id="41572-143">List CDN profiles and endpoints</span></span>
+<span data-ttu-id="41572-144">Nu we klaar tooperform CDN bewerkingen.</span><span class="sxs-lookup"><span data-stu-id="41572-144">Now we're ready tooperform CDN operations.</span></span>  <span data-ttu-id="41572-145">Hello allereerst die onze webmethode is lijst alle Hallo profielen en -eindpunten in de resourcegroep en als er een overeenkomst wordt gevonden voor Hallo-profiel en -eindpunt namen opgegeven in onze constanten, maakt een notitie van die in voor later zodat we toocreate duplicaten niet proberen.</span><span class="sxs-lookup"><span data-stu-id="41572-145">hello first thing our method does is list all hello profiles and endpoints in our resource group, and if it finds a match for hello profile and endpoint names specified in our constants, makes a note of that for later so we don't try toocreate duplicates.</span></span>
 
 ```csharp
 private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
 {
-    // List all the CDN profiles in this resource group
+    // List all hello CDN profiles in this resource group
     var profileList = cdn.Profiles.ListByResourceGroup(resourceGroupName);
     foreach (Profile p in profileList)
     {
         Console.WriteLine("CDN profile {0}", p.Name);
         if (p.Name.Equals(profileName, StringComparison.OrdinalIgnoreCase))
         {
-            // Hey, that's the name of the CDN profile we want to create!
+            // Hey, that's hello name of hello CDN profile we want toocreate!
             profileAlreadyExists = true;
         }
 
-        //List all the CDN endpoints on this CDN profile
+        //List all hello CDN endpoints on this CDN profile
         Console.WriteLine("Endpoints:");
         var endpointList = cdn.Endpoints.ListByProfile(p.Name, resourceGroupName);
         foreach (Endpoint e in endpointList)
@@ -214,7 +214,7 @@ private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
             Console.WriteLine("-{0} ({1})", e.Name, e.HostName);
             if (e.Name.Equals(endpointName, StringComparison.OrdinalIgnoreCase))
             {
-                // The unique endpoint name already exists.
+                // hello unique endpoint name already exists.
                 endpointAlreadyExists = true;
             }
         }
@@ -223,8 +223,8 @@ private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
 }
 ```
 
-## <a name="create-cdn-profiles-and-endpoints"></a><span data-ttu-id="54892-146">CDN-profielen en eindpunten maken</span><span class="sxs-lookup"><span data-stu-id="54892-146">Create CDN profiles and endpoints</span></span>
-<span data-ttu-id="54892-147">Vervolgens maken we een profiel.</span><span class="sxs-lookup"><span data-stu-id="54892-147">Next, we'll create a profile.</span></span>
+## <a name="create-cdn-profiles-and-endpoints"></a><span data-ttu-id="41572-146">CDN-profielen en eindpunten maken</span><span class="sxs-lookup"><span data-stu-id="41572-146">Create CDN profiles and endpoints</span></span>
+<span data-ttu-id="41572-147">Vervolgens maken we een profiel.</span><span class="sxs-lookup"><span data-stu-id="41572-147">Next, we'll create a profile.</span></span>
 
 ```csharp
 private static void CreateCdnProfile(CdnManagementClient cdn)
@@ -243,7 +243,7 @@ private static void CreateCdnProfile(CdnManagementClient cdn)
 }
 ```
 
-<span data-ttu-id="54892-148">Zodra het profiel is gemaakt, maakt u een eindpunt.</span><span class="sxs-lookup"><span data-stu-id="54892-148">Once the profile is created, we'll create an endpoint.</span></span>
+<span data-ttu-id="41572-148">Zodra het Hallo-profiel is gemaakt, maakt u een eindpunt.</span><span class="sxs-lookup"><span data-stu-id="41572-148">Once hello profile is created, we'll create an endpoint.</span></span>
 
 ```csharp
 private static void CreateCdnEndpoint(CdnManagementClient cdn)
@@ -269,12 +269,12 @@ private static void CreateCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> <span data-ttu-id="54892-149">Het bovenstaande voorbeeld wijst het eindpunt van een bron met de naam *Contoso* met een hostnaam `www.contoso.com`.</span><span class="sxs-lookup"><span data-stu-id="54892-149">The example above assigns the endpoint an origin named *Contoso* with a hostname `www.contoso.com`.</span></span>  <span data-ttu-id="54892-150">U moet dit om te verwijzen naar de hostnaam van uw eigen oorsprong wijzigen.</span><span class="sxs-lookup"><span data-stu-id="54892-150">You should change this to point to your own origin's hostname.</span></span>
+> <span data-ttu-id="41572-149">Hallo in bovenstaand voorbeeld wijst Hallo eindpunt een bron met de naam *Contoso* met een hostnaam `www.contoso.com`.</span><span class="sxs-lookup"><span data-stu-id="41572-149">hello example above assigns hello endpoint an origin named *Contoso* with a hostname `www.contoso.com`.</span></span>  <span data-ttu-id="41572-150">U moet deze toopoint tooyour eigen van de hostnaam van oorsprong wijzigen.</span><span class="sxs-lookup"><span data-stu-id="41572-150">You should change this toopoint tooyour own origin's hostname.</span></span>
 > 
 > 
 
-## <a name="purge-an-endpoint"></a><span data-ttu-id="54892-151">Een eindpunt leegmaken</span><span class="sxs-lookup"><span data-stu-id="54892-151">Purge an endpoint</span></span>
-<span data-ttu-id="54892-152">Ervan uitgaande dat het eindpunt is gemaakt, is één algemene taak die we wilt uitvoeren in onze programma opschonen van de inhoud van het eindpunt.</span><span class="sxs-lookup"><span data-stu-id="54892-152">Assuming the endpoint has been created, one common task that we might want to perform in our program is purging the content in our endpoint.</span></span>
+## <a name="purge-an-endpoint"></a><span data-ttu-id="41572-151">Een eindpunt leegmaken</span><span class="sxs-lookup"><span data-stu-id="41572-151">Purge an endpoint</span></span>
+<span data-ttu-id="41572-152">Ervan uitgaande dat Hallo-eindpunt is gemaakt, is één algemene taak dat we tooperform in onze programma willen mogelijk opschonen Hallo inhoud in onze eindpunt.</span><span class="sxs-lookup"><span data-stu-id="41572-152">Assuming hello endpoint has been created, one common task that we might want tooperform in our program is purging hello content in our endpoint.</span></span>
 
 ```csharp
 private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
@@ -290,12 +290,12 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> <span data-ttu-id="54892-153">In het bovenstaande voorbeeld wordt de tekenreeks `/*` geeft aan dat ik wil opschonen alles in de hoofdmap van het eindpuntpad.</span><span class="sxs-lookup"><span data-stu-id="54892-153">In the example above, the string `/*` denotes that I want to purge everything in the root of the endpoint path.</span></span>  <span data-ttu-id="54892-154">Dit komt overeen met het controleren van **alle opschonen** in het dialoogvenster voor de Azure portal 'verwijderen'.</span><span class="sxs-lookup"><span data-stu-id="54892-154">This is equivalent to checking **Purge All** in the Azure portal's "purge" dialog.</span></span> <span data-ttu-id="54892-155">In de `CreateCdnProfile` methode, ik heb gemaakt onze profiel als een **Azure CDN van Verizon** profiel met de code `Sku = new Sku(SkuName.StandardVerizon)`, zodat dit geverifieerd worden kan.</span><span class="sxs-lookup"><span data-stu-id="54892-155">In the `CreateCdnProfile` method, I created our profile as an **Azure CDN from Verizon** profile using the code `Sku = new Sku(SkuName.StandardVerizon)`, so this will be successful.</span></span>  <span data-ttu-id="54892-156">Echter, **Azure CDN van Akamai** profielen bieden geen ondersteuning voor **alle opschonen**, dus als ik een profiel Akamai is voor deze zelfstudie gebruikt, moet ik specifieke paden opgeven om op te schonen.</span><span class="sxs-lookup"><span data-stu-id="54892-156">However, **Azure CDN from Akamai** profiles do not support **Purge All**, so if I was using an Akamai profile for this tutorial, I would need to include specific paths to purge.</span></span>
+> <span data-ttu-id="41572-153">Hallo Hallo bovenstaande voorbeeld tekenreeks `/*` geeft aan dat ik wil toopurge alles in de hoofdmap Hallo van Hallo eindpuntpad.</span><span class="sxs-lookup"><span data-stu-id="41572-153">In hello example above, hello string `/*` denotes that I want toopurge everything in hello root of hello endpoint path.</span></span>  <span data-ttu-id="41572-154">Dit is gelijkwaardig toochecking **alle opschonen** in hello Azure portal 'verwijderen' dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="41572-154">This is equivalent toochecking **Purge All** in hello Azure portal's "purge" dialog.</span></span> <span data-ttu-id="41572-155">In Hallo `CreateCdnProfile` methode, ik heb gemaakt onze profiel als een **Azure CDN van Verizon** profiel met behulp van Hallo code `Sku = new Sku(SkuName.StandardVerizon)`, zodat dit geverifieerd worden kan.</span><span class="sxs-lookup"><span data-stu-id="41572-155">In hello `CreateCdnProfile` method, I created our profile as an **Azure CDN from Verizon** profile using hello code `Sku = new Sku(SkuName.StandardVerizon)`, so this will be successful.</span></span>  <span data-ttu-id="41572-156">Echter, **Azure CDN van Akamai** profielen bieden geen ondersteuning voor **alle opschonen**, dus als ik een profiel Akamai is voor deze zelfstudie gebruikt, ik tooinclude specifieke paden toopurge moet.</span><span class="sxs-lookup"><span data-stu-id="41572-156">However, **Azure CDN from Akamai** profiles do not support **Purge All**, so if I was using an Akamai profile for this tutorial, I would need tooinclude specific paths toopurge.</span></span>
 > 
 > 
 
-## <a name="delete-cdn-profiles-and-endpoints"></a><span data-ttu-id="54892-157">CDN-profielen en eindpunten verwijderen</span><span class="sxs-lookup"><span data-stu-id="54892-157">Delete CDN profiles and endpoints</span></span>
-<span data-ttu-id="54892-158">De laatste methoden verwijderd onze eindpunt en het profiel.</span><span class="sxs-lookup"><span data-stu-id="54892-158">The last methods will delete our endpoint and profile.</span></span>
+## <a name="delete-cdn-profiles-and-endpoints"></a><span data-ttu-id="41572-157">CDN-profielen en eindpunten verwijderen</span><span class="sxs-lookup"><span data-stu-id="41572-157">Delete CDN profiles and endpoints</span></span>
+<span data-ttu-id="41572-158">onze eindpunt en het profiel verwijderd Hallo laatste methoden.</span><span class="sxs-lookup"><span data-stu-id="41572-158">hello last methods will delete our endpoint and profile.</span></span>
 
 ```csharp
 private static void PromptDeleteCdnEndpoint(CdnManagementClient cdn)
@@ -321,23 +321,23 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 }
 ```
 
-## <a name="running-the-program"></a><span data-ttu-id="54892-159">Het programma uitvoeren</span><span class="sxs-lookup"><span data-stu-id="54892-159">Running the program</span></span>
-<span data-ttu-id="54892-160">We kunnen nu worden gecompileerd en voer het programma door te klikken op de **Start** knop in Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="54892-160">We can now compile and run the program by clicking the **Start** button in Visual Studio.</span></span>
+## <a name="running-hello-program"></a><span data-ttu-id="41572-159">Hallo-programma uitvoeren</span><span class="sxs-lookup"><span data-stu-id="41572-159">Running hello program</span></span>
+<span data-ttu-id="41572-160">We kunnen nu worden gecompileerd en Hallo programma uitvoeren door te klikken op Hallo **Start** knop in Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="41572-160">We can now compile and run hello program by clicking hello **Start** button in Visual Studio.</span></span>
 
 ![Programma wordt uitgevoerd](./media/cdn-app-dev-net/cdn-program-running-1.png)
 
-<span data-ttu-id="54892-162">Wanneer het programma de bovenstaande prompt bereikt, moet u mogelijk zijn om te retourneren aan de resourcegroep in de Azure portal en Zie dat het profiel is gemaakt.</span><span class="sxs-lookup"><span data-stu-id="54892-162">When the program reaches the above prompt, you should be able to return to your resource group in the Azure portal and see that the profile has been created.</span></span>
+<span data-ttu-id="41572-162">Wanneer Hallo programma Hallo hierboven prompt bereikt, moet u kunnen tooreturn tooyour resourcegroep in hello Azure-portal en Zie dat Hallo-profiel is gemaakt.</span><span class="sxs-lookup"><span data-stu-id="41572-162">When hello program reaches hello above prompt, you should be able tooreturn tooyour resource group in hello Azure portal and see that hello profile has been created.</span></span>
 
 ![Success!](./media/cdn-app-dev-net/cdn-success.png)
 
-<span data-ttu-id="54892-164">We kunnen de aanwijzingen voor het uitvoeren van de rest van het programma vervolgens bevestigen.</span><span class="sxs-lookup"><span data-stu-id="54892-164">We can then confirm the prompts to run the rest of the program.</span></span>
+<span data-ttu-id="41572-164">We kunnen vervolgens Hallo prompts toorun Hallo rest van Hallo programma bevestigen.</span><span class="sxs-lookup"><span data-stu-id="41572-164">We can then confirm hello prompts toorun hello rest of hello program.</span></span>
 
 ![Programma uitvoeren](./media/cdn-app-dev-net/cdn-program-running-2.png)
 
-## <a name="next-steps"></a><span data-ttu-id="54892-166">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="54892-166">Next Steps</span></span>
-<span data-ttu-id="54892-167">Om te zien van de voltooide project van dit scenario [het voorbeeld downloaden](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).</span><span class="sxs-lookup"><span data-stu-id="54892-167">To see the completed project from this walkthrough, [download the sample](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="41572-166">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="41572-166">Next Steps</span></span>
+<span data-ttu-id="41572-167">toosee hello voltooid project van dit scenario [Hallo voorbeeld downloaden](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).</span><span class="sxs-lookup"><span data-stu-id="41572-167">toosee hello completed project from this walkthrough, [download hello sample](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).</span></span>
 
-<span data-ttu-id="54892-168">Ga voor aanvullende documentatie over de Azure CDN Management-bibliotheek voor .NET weergeven de [-verwijzingen op MSDN](https://msdn.microsoft.com/library/mt657769.aspx).</span><span class="sxs-lookup"><span data-stu-id="54892-168">To find additional documentation on the Azure CDN Management Library for .NET, view the [reference on MSDN](https://msdn.microsoft.com/library/mt657769.aspx).</span></span>
+<span data-ttu-id="41572-168">toofind aanvullende documentatie over hello Azure CDN Management-bibliotheek voor .NET, weergave Hallo [-verwijzingen op MSDN](https://msdn.microsoft.com/library/mt657769.aspx).</span><span class="sxs-lookup"><span data-stu-id="41572-168">toofind additional documentation on hello Azure CDN Management Library for .NET, view hello [reference on MSDN](https://msdn.microsoft.com/library/mt657769.aspx).</span></span>
 
-<span data-ttu-id="54892-169">Uw CDN-resources beheren met [PowerShell](cdn-manage-powershell.md).</span><span class="sxs-lookup"><span data-stu-id="54892-169">Manage your CDN resources with [PowerShell](cdn-manage-powershell.md).</span></span>
+<span data-ttu-id="41572-169">Uw CDN-resources beheren met [PowerShell](cdn-manage-powershell.md).</span><span class="sxs-lookup"><span data-stu-id="41572-169">Manage your CDN resources with [PowerShell](cdn-manage-powershell.md).</span></span>
 

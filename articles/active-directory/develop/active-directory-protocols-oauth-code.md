@@ -1,6 +1,6 @@
 ---
-title: De OAuth 2.0-autorisatiecodestroom inzicht in Azure AD | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u met HTTP-berichten toestaan van toegang tot webtoepassingen en web-API's in uw tenant met behulp van Azure Active Directory en OAuth 2.0.
+title: aaaUnderstand hello OAuth 2.0-autorisatiecodestroom in Azure AD | Microsoft Docs
+description: Dit artikel wordt beschreven hoe toouse HTTP-berichten tooauthorize toegang tot tooweb toepassingen en web-API's in uw tenant met behulp van Azure Active Directory en OAuth 2.0.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 35132eae4d6a7f85b19a7a49ad4034e795d7df13
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4a6fe67d786a5fcb87d1059c2e94ba0c88d26cd3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# Toegang verlenen aan webtoepassingen die gebruikmaken van OAuth 2.0 en Azure Active Directory
-Azure Active Directory (Azure AD) maakt gebruik van OAuth 2.0 waarmee u toegang verlenen aan webtoepassingen en web-API's in uw Azure AD-tenant. Deze handleiding is taalonafhankelijk en wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van onze open source-bibliotheken.
+# Toegang tooweb toepassingen met behulp van OAuth 2.0 en Azure Active Directory autoriseren
+Azure Active Directory (Azure AD) maakt gebruik van OAuth 2.0 tooenable u tooauthorize toegang tooweb toepassingen en web-API's in uw Azure AD-tenant. Deze handleiding is taalonafhankelijk en beschrijft hoe toosend en HTTP-berichten ontvangen zonder dat u een van onze open source-bibliotheken.
 
-De OAuth 2.0-autorisatiecodestroom wordt beschreven in [sectie 4.1 van de OAuth 2.0-specificatie](https://tools.ietf.org/html/rfc6749#section-4.1). Het wordt gebruikt voor verificatie en autorisatie in de meeste toepassingstypen, met inbegrip van web-apps en systeemeigen apps hebben geïnstalleerd.
+Hallo OAuth 2.0-autorisatiecodestroom wordt beschreven in [sectie 4.1 van Hallo OAuth 2.0-specificatie](https://tools.ietf.org/html/rfc6749#section-4.1). Het is gebruikte tooperform verificatie en autorisatie in de meeste toepassingstypen, met inbegrip van web-apps en systeemeigen apps hebben geïnstalleerd.
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
 ## Stroom van OAuth 2.0-autorisatie
-Op een hoog niveau ziet de volledige autorisatie-stroom voor een toepassing er nogal zo:
+Op een hoog niveau ziet Hallo volledige autorisatie stroom voor een toepassing er nogal zo:
 
 ![OAuth autorisatiecode stroom](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## Aanvraag een autorisatiecode
-De autorisatiecodestroom begint met de client voor het routeren van de gebruiker de `/authorize` eindpunt. De client wijst de machtigingen die te verkrijgen van de gebruiker moet op deze aanvraag. U kunt de OAuth 2.0-eindpunten ophalen via uw toepassing pagina in de klassieke Azure-Portal in de **eindpunten weergeven** knop in de onderste lade.
+Hallo-autorisatiecodestroom begint met de Hallo client doorsturen Hallo gebruiker toohello `/authorize` eindpunt. In deze aanvraag Hallo-client geeft aan Hallo machtigingen moet tooacquire van Hallo-gebruiker. U krijgt Hallo OAuth 2.0-eindpunten van uw toepassing pagina in de klassieke Azure-Portal in Hallo **eindpunten weergeven** knop in Hallo onder lade.
 
 ```
 // Line breaks for legibility only
@@ -50,23 +50,23 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| Tenant |Vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie bij de toepassing aanmelden kunt.  De toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
-| client_id |Vereist |De toepassings-Id toegewezen aan uw app bij de registratie met Azure AD. U kunt dit vinden in de Azure Portal. Klik op **Active Directory**, klikt u op de directory, kies de toepassing en klik op **configureren** |
-| response_type |Vereist |Moet bevatten `code` voor de autorisatiecodestroom. |
-| redirect_uri |Aanbevolen |De redirect_uri van uw app, waarbij verificatie reacties kunnen worden verzonden en ontvangen door uw app.  Er moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen.  Voor mobiele en systeemeigen apps, moet u de standaardwaarde van `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |Aanbevolen |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van het resulterende token terug naar uw app.  Kan `query` of `form_post`. |
-| state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een willekeurig gegenereerde unieke waarde wordt doorgaans gebruikt voor [voorkomen van aanvraagvervalsing op meerdere sites aanvallen](http://tools.ietf.org/html/rfc6749#section-10.12).  De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de weergave op. |
-| Resource |Optioneel |De App ID URI van de web-API (beveiligde resource). Klik op de URI van de App-ID van de web-API, informatie in de Azure Portal **Active Directory**, klikt u op de map, klik op de toepassing en klik vervolgens op **configureren**. |
-| prompt |Optioneel |Geef het type van de interactie van de gebruiker die is vereist.<p> Geldige waarden zijn: <p> *aanmelding*: de gebruiker moet worden gevraagd om te verifiëren. <p> *toestemming*: gebruiker toestemming heeft gekregen, maar moet worden bijgewerkt. De gebruiker moet worden gevraagd om toestemming. <p> *admin_consent*: een beheerder moet worden gevraagd om toestemming namens alle gebruikers in hun organisatie |
-| login_hint |Optioneel |Kan worden gebruikt voor het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf worden ingevuld als u hun gebruikersnaam tevoren weten.  Vaak apps Gebruik deze parameter tijdens verificatie wordt uitgevoerd, de gebruikersnaam die al worden opgehaald uit een eerdere aanmelden met de `preferred_username` claim. |
-| domain_hint |Optioneel |Biedt een aanwijzing over de tenant of het domein dat de gebruiker gebruiken moet om aan te melden. De waarde van de domain_hint is een geregistreerd domein voor de tenant. Als de tenant aan een lokale directory is gefedereerd, is AAD wordt omgeleid naar de opgegeven tenant federation-server. |
+| Tenant |Vereist |Hallo `{tenant}` waarde in het pad van Hallo aanvraag Hallo gebruikte toocontrol die zich in de toepassing hello aanmelden kan kan zijn.  Hallo toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
+| client_id |Vereist |Hallo toepassings-Id toegewezen tooyour app bij de registratie met Azure AD. U kunt dit vinden in hello Azure-Portal. Klik op **Active Directory**, klikt u op Hallo directory, kies de toepassing hello en klikt u op **configureren** |
+| response_type |Vereist |Moet bevatten `code` voor Hallo-autorisatiecodestroom. |
+| redirect_uri |Aanbevolen |Hallo redirect_uri van uw app, waarbij verificatie reacties kunnen worden verzonden en ontvangen door uw app.  Deze moet exact overeenkomen met een Hallo redirect_uris die u geregistreerd in het Hallo-portal, behalve url gecodeerd moet.  Voor mobiele en systeemeigen apps, moet u de standaardwaarde Hallo van `urn:ietf:wg:oauth:2.0:oob`. |
+| response_mode |Aanbevolen |Hiermee geeft u Hallo-methode die gebruikt toosend Hallo resulterende token back tooyour app worden moet.  Kan `query` of `form_post`. |
+| state |Aanbevolen |Een waarde die is opgenomen in Hallo-aanvraag wordt ook Hallo token antwoord geretourneerd. Een willekeurig gegenereerde unieke waarde wordt doorgaans gebruikt voor [voorkomen van aanvraagvervalsing op meerdere sites aanvallen](http://tools.ietf.org/html/rfc6749#section-10.12).  Hallo-status is bovendien gebruikte tooencode informatie over de status van de gebruiker van het Hallo in Hallo app voordat Hallo verificatieverzoek opgetreden, zoals het Hallo-pagina of weergave op. |
+| Resource |Optioneel |Hallo App ID URI van Hallo web-API (beveiligde resource). toofind hello App ID URI van Hallo web-API, in hello Azure-Portal klikt u op **Active Directory**, klikt u op Hallo directory, klikt u op de toepassing hello en klik vervolgens op **configureren**. |
+| prompt |Optioneel |Geven Hallo type gebruikersinteractie is vereist.<p> Geldige waarden zijn: <p> *aanmelding*: Hallo gebruiker zou na vragen aan gebruiker tooreauthenticate. <p> *toestemming*: gebruiker toestemming heeft gekregen, maar moet toobe bijgewerkt. Hallo-gebruiker moet na vragen aan gebruiker tooconsent. <p> *admin_consent*: een beheerder moet na vragen aan gebruiker tooconsent namens alle gebruikers in hun organisatie |
+| login_hint |Optioneel |Mag gebruikte toopre-opvulling Hallo gebruikersnaam, e adresveld van het Hallo-aanmeldingspagina voor de gebruiker hello, als u hun gebruikersnaam tevoren weet.  Vaak apps Gebruik deze parameter tijdens verificatie wordt uitgevoerd, dat al Hallo gebruikersnaam opgehaald uit een eerdere aanmelden met behulp van Hallo `preferred_username` claim. |
+| domain_hint |Optioneel |Biedt een aanwijzing over Hallo tenant of het aanmeldingsdomein waarmee gebruiker Hallo toosign in gebruik. Hallo-waarde van Hallo domain_hint is een geregistreerd domein voor Hallo-tenant. Als Hallo tenant federatieve tooan on-premises adreslijst, leidt AAD toohello opgegeven tenant federation-server. |
 
 > [!NOTE]
-> Als de gebruiker deel van een organisatie uitmaakt, kan een beheerder van de organisatie toestemming geven of weigeren namens de gebruiker of toestaan van de gebruiker om toestemming. De gebruiker krijgt de mogelijkheid om toestemming alleen wanneer de beheerder toestaat.
+> Als Hallo gebruiker deel van een organisatie uitmaakt, kunt een beheerder van de organisatie Hallo toestemming geven of weigeren van de gebruiker Hallo namens of Hallo gebruiker tooconsent toestaan. Hallo gebruiker krijgt Hallo optie tooconsent alleen wanneer Hallo beheerder toestaat.
 >
 >
 
-Op dit punt wordt de gebruiker wordt gevraagd om hun referenties invoeren en instemming met de machtigingen die zijn aangegeven in de `scope` queryparameter. Als de gebruiker wordt geverifieerd en toestemming verleent, Azure AD stuurt een antwoord naar uw app op de `redirect_uri` adres in uw aanvraag.
+Op dit moment Hallo gebruiker tooenter gevraagd hun referenties en toestemming toohello machtigingen die zijn aangegeven in Hallo `scope` queryparameter. Zodra het Hallo-gebruiker wordt geverifieerd en toestemming verleent, Azure AD een antwoord tooyour app verzendt op Hallo `redirect_uri` adres in uw aanvraag.
 
 ### Geslaagde reactie
 Een geslaagde reactie kan er als volgt uitzien:
@@ -78,13 +78,13 @@ Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 
 | Parameter | Beschrijving |
 | --- | --- |
-| admin_consent |De waarde is waar als een beheerder wil een aanvraag-instemmingsprompt. |
-| code |De autorisatiecode die de toepassing aangevraagd. De toepassing kunt u de autorisatiecode gebruiken om aan te vragen van een toegangstoken voor de doelresource. |
-| session_state |Een unieke waarde die de huidige gebruikerssessie identificeert. Deze waarde is een GUID, maar moet worden behandeld als een ondoorzichtige waarde die wordt doorgegeven zonder onderzoek. |
-| state |Als een parameter state is opgenomen in de aanvraag, moet dezelfde waarde weergegeven in het antwoord. Het is raadzaam voor de toepassing om te controleren dat de statuswaarden in de aanvraag en antwoord identiek zijn voordat u het antwoord. Hiermee kunt u detecteren [Cross-Site aanvragen kunnen worden vervalst (CSRF) aanvallen](https://tools.ietf.org/html/rfc6749#section-10.12) op basis van de client. |
+| admin_consent |Hallo-waarde is True als een beheerder ingestemd tooa aanvraag instemmingsprompt. |
+| code |Hallo autorisatie-code die de toepassing hello aangevraagd. Hallo-toepassing kan Hallo autorisatie code toorequest een toegangstoken voor de doelresource hello gebruiken. |
+| session_state |Een unieke waarde die de huidige gebruikerssessie Hallo identificeert. Deze waarde is een GUID, maar moet worden behandeld als een ondoorzichtige waarde die wordt doorgegeven zonder onderzoek. |
+| state |Als een parameter state is opgenomen in de aanvraag hello, hello dezelfde waarde moet worden weergegeven in het Hallo-antwoord. Het is raadzaam voor Hallo toepassing tooverify dat Hallo statuswaarden in Hallo-aanvraag en -antwoord voordat u antwoord Hallo identiek zijn. Dit helpt toodetect [Cross-Site aanvragen kunnen worden vervalst (CSRF) aanvallen](https://tools.ietf.org/html/rfc6749#section-10.12) tegen Hallo-client. |
 
 ### Foutbericht
-Foutberichten kunnen ook worden verzonden naar de `redirect_uri` zodat de toepassing ze op de juiste wijze kan verwerken.
+Foutberichten kunnen ook worden verzonden toohello `redirect_uri` zodat de toepassing hello ze op de juiste wijze kan verwerken.
 
 ```
 GET http://localhost:12345/?
@@ -94,25 +94,25 @@ error=access_denied
 
 | Parameter | Beschrijving |
 | --- | --- |
-| error |Een foutwaarde code gedefinieerd in de sectie 5.2 van de [OAuth 2.0 autorisatie Framework](http://tools.ietf.org/html/rfc6749). De volgende tabel beschrijft de foutcodes die Azure AD als resultaat geeft. |
-| error_description |Een gedetailleerdere beschrijving van de fout. Dit bericht is niet bedoeld als gebruiksvriendelijke door eindgebruikers. |
-| state |De waarde van de status is een willekeurig gegenereerde niet opnieuw gebruikt waarde dat wordt verzonden in de aanvraag en geretourneerd in het antwoord om aanvraagvervalsing op meerdere sites (CSRF) aanvallen te voorkomen. |
+| error |Een foutwaarde code gedefinieerd in de sectie 5.2 Hallo [OAuth 2.0 autorisatie Framework](http://tools.ietf.org/html/rfc6749). de volgende tabel Hallo Hallo worden foutcodes beschreven die Azure AD als resultaat gegeven. |
+| error_description |Een gedetailleerde beschrijving van Hallo-fout. Dit bericht is niet bedoeld toobe eindgebruiker gebruiksvriendelijke. |
+| state |Hallo staat een willekeurig gegenereerde niet opnieuw gebruikt getal is dat wordt verzonden in Hallo-aanvraag en geretourneerd in Hallo antwoord tooprevent aanvraagvervalsing op meerdere sites (CSRF) aanvallen. |
 
 #### Foutcodes voor autorisatie eindpunt fouten
-De volgende tabel beschrijft de verschillende foutcodes die kunnen worden geretourneerd in de `error` parameter van het foutbericht.
+Hallo volgende tabel beschrijft Hallo verschillende foutcodes die kunnen worden geretourneerd in Hallo `error` parameter van het Hallo-foutmelding.
 
 | Foutcode | Beschrijving | Clientactie |
 | --- | --- | --- |
-| invalid_request |Protocolfout, zoals een ontbrekende vereiste parameter. |Herstel en verzend de aanvraag opnieuw. Dit is een fout voor ontwikkeling en meestal wordt onderschept tijdens de eerste test. |
-| unauthorized_client |De clienttoepassing is niet toegestaan om aan te vragen een autorisatiecode. |Dit gebeurt meestal wanneer de clienttoepassing is niet geregistreerd in Azure AD of is niet toegevoegd aan Azure AD-tenant van de gebruiker. De toepassing kan het bericht met instructies voor het installeren van de toepassing en deze naar Azure AD toe te voegen. |
-| ACCESS_DENIED |Resource-eigenaar toestemming geweigerd |De clienttoepassing kan de gebruiker die deze kan niet worden voortgezet tenzij de gebruiker akkoord gaat melden. |
-| unsupported_response_type |De autorisatie-server biedt geen ondersteuning voor het antwoordtype in de aanvraag. |Herstel en verzend de aanvraag opnieuw. Dit is een fout voor ontwikkeling en meestal wordt onderschept tijdens de eerste test. |
-| server_error |De server heeft een onverwachte fout aangetroffen. |De aanvraag opnieuw proberen. Deze fouten kunnen worden veroorzaakt door tijdelijke omstandigheden. Aan de gebruiker kan de clienttoepassing verklaren dat het antwoord is vertraagd vanwege een tijdelijke fout. |
-| temporarily_unavailable |De server is tijdelijk te druk bezet om de aanvraag te verwerken. |De aanvraag opnieuw proberen. Aan de gebruiker kan de clienttoepassing verklaren dat het antwoord is vertraagd doordat een tijdelijke situatie. |
-| invalid_resource |De doelresource is ongeldig omdat deze niet bestaat, Azure AD kan niet worden gevonden of is niet correct geconfigureerd. |Dit betekent dat de resource als deze bestaat, is niet geconfigureerd in de tenant. De toepassing kan het bericht met instructies voor het installeren van de toepassing en deze naar Azure AD toe te voegen. |
+| invalid_request |Protocolfout, zoals een ontbrekende vereiste parameter. |Herstel en Hallo aanvraag opnieuw indienen. Dit is een fout voor ontwikkeling en meestal wordt onderschept tijdens de eerste test. |
+| unauthorized_client |Hallo-clienttoepassing is niet toegestaan toorequest een autorisatiecode. |Dit gebeurt meestal wanneer de clienttoepassing Hallo is niet geregistreerd in Azure AD of Azure AD-tenant van toohello gebruiker niet is toegevoegd. Hallo-toepassing kunt Hallo-gebruiker met instructies voor het Hallo-toepassing installeren en deze toe te voegen tooAzure AD gevraagd. |
+| ACCESS_DENIED |Resource-eigenaar toestemming geweigerd |Hallo-clienttoepassing kan melden Hallo-gebruiker die deze kan niet worden voortgezet tenzij Hallo gebruiker hiermee akkoord gaat. |
+| unsupported_response_type |Hallo autorisatie server biedt geen ondersteuning voor antwoordtype Hallo Hallo-aanvraag. |Herstel en Hallo aanvraag opnieuw indienen. Dit is een fout voor ontwikkeling en meestal wordt onderschept tijdens de eerste test. |
+| server_error |Hallo-server heeft een onverwachte fout aangetroffen. |Hallo aanvraag opnieuw proberen. Deze fouten kunnen worden veroorzaakt door tijdelijke omstandigheden. Hallo-clienttoepassing kan toohello gebruiker verklaren dat het antwoord is vertraagd vanwege tooa tijdelijke fout. |
+| temporarily_unavailable |Hallo-server is tijdelijk bezet toohandle Hallo-aanvraag. |Hallo aanvraag opnieuw proberen. Hallo-clienttoepassing kan toohello gebruiker verklaren dat het antwoord is vertraagd vanwege tooa tijdelijke situatie. |
+| invalid_resource |Hallo doelbron is ongeldig omdat deze niet bestaat, Azure AD kan niet worden gevonden of is niet correct geconfigureerd. |Hiermee wordt aangegeven met het Hallo-resource, indien aanwezig, is niet geconfigureerd in Hallo-tenant. Hallo-toepassing kunt Hallo-gebruiker met instructies voor het Hallo-toepassing installeren en deze toe te voegen tooAzure AD gevraagd. |
 
-## De autorisatiecode gebruiken om aan te vragen van een toegangstoken
-Nu dat u hebt aangeschaft een autorisatiecode en gemachtigd door de gebruiker, kunt u de code voor een toegangstoken op de gewenste resource inwisselen door te sturen een POST-aanvraag naar de `/token` eindpunt:
+## Hallo autorisatie code toorequest een toegangstoken gebruiken
+Nu dat u hebt aangeschaft een autorisatiecode en gemachtigd door de gebruiker hello, kunt u Hallo-code voor een resource van de token toohello gewenst toegang inwisselen door te sturen een POST-aanvraag toohello `/token` eindpunt:
 
 ```
 // Line breaks for legibility only
@@ -132,20 +132,20 @@ grant_type=authorization_code
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| Tenant |Vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie bij de toepassing aanmelden kunt.  De toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
-| client_id |Vereist |De toepassings-Id toegewezen aan uw app bij de registratie met Azure AD. U kunt dit vinden in de klassieke Azure-Portal. Klik op **Active Directory**, klikt u op de directory, kies de toepassing en klik op **configureren** |
-| grant_type |Vereist |Moet `authorization_code` voor de autorisatiecodestroom. |
-| code |Vereist |De `authorization_code` die u in de vorige sectie hebt verkregen |
-| redirect_uri |Vereist |Dezelfde `redirect_uri` waarde die is gebruikt voor het verkrijgen van de `authorization_code`. |
-| client_secret |vereist voor web-apps |De toepassingsgeheim die u in de portal van de registratie van de app voor uw app hebt gemaakt.  Deze mag niet worden gebruikt in een eigen app omdat client_secrets betrouwbaar kunnen niet worden opgeslagen op apparaten.  Het is vereist voor de web-apps en web-API's die u de mogelijkheid hebt voor het opslaan van de `client_secret` veilig op de server. |
-| Resource |vereist als het opgegeven in de autorisatieaanvraag, anders optioneel |De App ID URI van de web-API (beveiligde resource). |
+| Tenant |Vereist |Hallo `{tenant}` waarde in het pad van Hallo aanvraag Hallo gebruikte toocontrol die zich in de toepassing hello aanmelden kan kan zijn.  Hallo toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
+| client_id |Vereist |Hallo toepassings-Id toegewezen tooyour app bij de registratie met Azure AD. U kunt dit vinden in Hallo klassieke Azure-Portal. Klik op **Active Directory**, klikt u op Hallo directory, kies de toepassing hello en klikt u op **configureren** |
+| grant_type |Vereist |Moet `authorization_code` voor Hallo-autorisatiecodestroom. |
+| code |Vereist |Hallo `authorization_code` die u hebt verkregen in de vorige sectie Hallo |
+| redirect_uri |Vereist |Hallo dezelfde `redirect_uri` waarde die gebruikt tooacquire hello is `authorization_code`. |
+| client_secret |vereist voor web-apps |Hallo-toepassingsgeheim die u in de registratieportal Hallo-app voor uw app hebt gemaakt.  Deze mag niet worden gebruikt in een eigen app omdat client_secrets betrouwbaar kunnen niet worden opgeslagen op apparaten.  Het is vereist voor de web-apps en web-API's, waarvoor Hallo mogelijkheid toostore hello `client_secret` veilig aan de serverzijde Hallo. |
+| Resource |vereist als het opgegeven in de autorisatieaanvraag, anders optioneel |Hallo App ID URI van Hallo web-API (beveiligde resource). |
 
-Klik op de App ID URI, informatie in de Azure-beheerportal **Active Directory**, klikt u op de map, klik op de toepassing en klik vervolgens op **configureren**.
+toofind hello App ID URI, in hello Azure-beheerportal, klikt u op **Active Directory**, klikt u op Hallo directory, klikt u op Hallo-toepassing en klik vervolgens op **configureren**.
 
 ### Geslaagde reactie
-Azure AD retourneert een toegangstoken na een geslaagde reactie. Om te beperken netwerk aanroepen vanuit de clienttoepassing en hun bijbehorende latentie, moet de clienttoepassing voor de levensduur van het token dat is opgegeven in het antwoord OAuth 2.0-toegangstokens cache. Om te bepalen van de levensduur van tokens, gebruiken de `expires_in` of `expires_on` parameterwaarden.
+Azure AD retourneert een toegangstoken na een geslaagde reactie. toominimize netwerk aanroepen vanuit de clienttoepassing Hallo en hun bijbehorende latentie, client-toepassing hello moet in de cache toegangstokens Hallo levensduur van token die is opgegeven in Hallo OAuth 2.0-antwoord. toodetermine hello levensduur van token, gebruiken beide Hallo `expires_in` of `expires_on` parameterwaarden.
 
-Als een web API-resource geeft een `invalid_token` foutcode: dit kan betekenen dat de resource heeft vastgesteld dat het token is verlopen. Als de klok client- en tijden zijn verschillende (bekend als een 'scheeftrekken keer'), is de resource overwegen het token is verlopen voordat het token van de clientcache is uitgeschakeld. Als dit het geval is, schakelt u het token uit de cache, zelfs als deze nog steeds binnen de berekende levensduur.
+Als een web API-resource geeft een `invalid_token` foutcode: dit kan duiden op Hallo resource heeft vastgesteld dat Hallo-token is verlopen. Als het Hallo-client en resource klok tijden zijn verschillende (bekend als een 'scheeftrekken keer'), kunt Hallo resource Hallo token toobe verlopen voordat het Hallo-token van de clientcache Hallo is uitgeschakeld. Als dit het geval is, schakelt u Hallo-token van Hallo-cache, zelfs als deze nog steeds binnen de berekende levensduur.
 
 Een geslaagde reactie kan er als volgt uitzien:
 
@@ -165,17 +165,17 @@ Een geslaagde reactie kan er als volgt uitzien:
 
 | Parameter | Beschrijving |
 | --- | --- |
-| access_token |Het aangevraagde toegangstoken. De app kunt dit token gebruiken om de beveiligde resource, zoals een web-API te verifiëren. |
-| token_type |Geeft de waarde van het type token. Het enige type dat ondersteuning biedt voor Azure AD is Bearer. Zie voor meer informatie over Bearer-tokens [OAuth2.0 autorisatie Framework: Bearer-Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
-| expires_in |Hoe lang het toegangstoken is ongeldig (in seconden). |
-| expires_on |De tijd wanneer het toegangstoken is verlopen. De datum die wordt weergegeven als het aantal seconden van 1970-01-01T0:0:0Z UTC totdat de verlooptijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache. |
-| Resource |De App ID URI van de web-API (beveiligde resource). |
-| Bereik |Imitatie gemachtigd om de clienttoepassing. Standaard de machtiging is `user_impersonation`. De eigenaar van de beveiligde bron kunt u aanvullende waarden registreren in Azure AD. |
-| refresh_token |Een OAuth 2.0-vernieuwingstoken. De app kunt dit token gebruiken voor aanvullende toegangstokens verkrijgen nadat het huidige toegangstoken is verlopen.  Vernieuwen van tokens worden lange levensduur hebben en kunnen worden gebruikt voor toegang tot bronnen voor langere tijd te behouden. |
-| id_token |Een niet-ondertekende JSON Web Token (JWT). De app kan base64Url decoderen de segmenten van dit token informatie opvragen over de gebruiker die zich aangemeld. De app kan de waarden in de cache en deze weer te geven, maar deze niet verstandig deze beveiligingsgrenzen of autorisatie. |
+| access_token |Hallo aangevraagde toegangstoken. Hallo-app kunt dit token tooauthenticate toohello beveiligd resource, zoals een web-API gebruiken. |
+| token_type |Hiermee wordt aangegeven Hallo type token waarde. Hallo alleen typen dat ondersteunt Azure AD Bearer is. Zie voor meer informatie over Bearer-tokens [OAuth2.0 autorisatie Framework: Bearer-Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
+| expires_in |Hoe lang Hallo toegangstoken is ongeldig (in seconden). |
+| expires_on |Hallo tijd wanneer Hallo toegangstoken is verlopen. Hallo datum wordt weergegeven als het aantal seconden Hallo vanaf 1970-01-01T0:0:0Z UTC tot verlooptijd Hallo. Deze waarde is gebruikte toodetermine Hallo levensduur van tokens in de cache. |
+| Resource |Hallo App ID URI van Hallo web-API (beveiligde resource). |
+| Bereik |Imitatie machtigingen verleend toohello client-toepassing. Hallo standaardmachtiging `user_impersonation`. Hallo-eigenaar van beveiligde resource Hallo kunt u aanvullende waarden registreren in Azure AD. |
+| refresh_token |Een OAuth 2.0-vernieuwingstoken. Hallo-app kunt dit token tooacquire extra toegangstokens gebruiken nadat Hallo huidige toegangstoken is verlopen.  Vernieuwen van tokens worden lange levensduur en gebruikte tooretain toegang tooresources voor langere tijd kan worden. |
+| id_token |Een niet-ondertekende JSON Web Token (JWT). Hallo-app kan base64Url decoderen Hallo segmenten van deze informatie token toorequest over Hallo-gebruiker die zich aangemeld. Hallo-app kunt Hallo waarden in de cache en deze weer te geven, maar moet niet vertrouwen op deze beveiligingsgrenzen of autorisatie. |
 
 ### JWT-Token Claims
-De JWT-token in de waarde van de `id_token` parameter in de volgende claims kan worden gedecodeerd:
+Hallo JWT-token in Hallo-waarde van Hallo `id_token` parameter kan worden gedecodeerd naar Hallo claims te volgen:
 
 ```
 {
@@ -199,35 +199,35 @@ De JWT-token in de waarde van de `id_token` parameter in de volgende claims kan 
 }.
 ```
 
-Zie voor meer informatie over de JSON-webtokens de [JWT IETF conceptspecificatie](http://go.microsoft.com/fwlink/?LinkId=392344). Lees voor meer informatie over de typen tokens en claims [ondersteund Token en claimtypen](active-directory-token-and-claims.md)
+Zie voor meer informatie over de JSON-webtokens hello [JWT IETF conceptspecificatie](http://go.microsoft.com/fwlink/?LinkId=392344). Lees voor meer informatie over Hallo token typen of claims [ondersteund Token en claimtypen](active-directory-token-and-claims.md)
 
-De `id_token` parameter bevat de volgende claimtypen:
+Hallo `id_token` parameter Hallo claimtypen volgende bevat:
 
 | Claimtype | Beschrijving |
 | --- | --- |
-| AUD |De doelgroep van het token. Wanneer het token wordt verleend aan een clienttoepassing, de doelgroep is de `client_id` van de client. |
-| EXP |Verlooptijd. De tijd waarop het token verloopt. Voor het token geldig, de huidige datum en tijd moet kleiner dan of gelijk aan de `exp` waarde. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat de tijd die het token is uitgegeven. |
-| family_name |Van de gebruiker achternaam of achternaam. De toepassing kan deze waarde weergeven. |
-| given_name |De voornaam van de gebruiker. De toepassing kan deze waarde weergeven. |
-| IAT |Op tijdstip afgegeven. De tijd waarop de JWT is uitgegeven. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat de tijd die het token is uitgegeven. |
-| ISS |Identificeert de uitgever van het beveiligingstoken |
-| NBF |Niet voor de tijd. De tijd waarop het token van kracht. Voor het token geldig, moet de huidige datum en tijd groter dan of gelijk aan de Nbf-waarde. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat de tijd die het token is uitgegeven. |
-| OID |Object-id (ID) van het gebruikersobject in Azure AD. |
-| Sub |Token onderwerp-id. Dit is een permanente en onveranderbare id voor de gebruiker die het token wordt beschreven. Gebruik deze waarde in de cache logica. |
-| TID |Tenant-id (ID) van de Azure AD-tenant die het token heeft uitgegeven. |
-| unique_name |Een unieke id voor die kan worden weergegeven voor de gebruiker. Dit is meestal een UPN (user Principal name). |
-| UPN |De UPN van de gebruiker. |
-| ver |Versie. De versie van de JWT-token, doorgaans 1.0. |
+| AUD |De doelgroep van Hallo-token. Wanneer het Hallo-token is uitgegeven tooa clienttoepassing, Hallo doelgroep Hallo is `client_id` van Hallo-client. |
+| EXP |Verlooptijd. Hallo-tijd waarop het Hallo-token verloopt. Voor de token toobe voor Hallo is geldig, Hallo huidige datum en tijd moet kleiner zijn dan of gelijk toohello `exp` waarde. Hallo tijd wordt weergegeven als het aantal seconden Hallo vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat Hallo tijd Hallo token is uitgegeven. |
+| family_name |Van de gebruiker achternaam of achternaam. Hallo-toepassing kunt u deze waarde weergeven. |
+| given_name |De voornaam van de gebruiker. Hallo-toepassing kunt u deze waarde weergeven. |
+| IAT |Op tijdstip afgegeven. Hallo tijd wanneer Hallo JWT is uitgegeven. Hallo tijd wordt weergegeven als het aantal seconden Hallo vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat Hallo tijd Hallo token is uitgegeven. |
+| ISS |Hallo token verlener identificeert |
+| NBF |Niet voor de tijd. Hallo-tijd waarop token Hallo van kracht. Voor de token toobe voor Hallo is geldig moet Hallo huidige datum en tijd groter dan of gelijk toohello Nbf waarde. Hallo tijd wordt weergegeven als het aantal seconden Hallo vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat Hallo tijd Hallo token is uitgegeven. |
+| OID |Object-id (ID) van het gebruikersobject Hallo in Azure AD. |
+| Sub |Token onderwerp-id. Dit is een permanente en onveranderbare id voor het Hallo-gebruiker die de token Hallo beschrijft. Gebruik deze waarde in de cache logica. |
+| TID |Tenant-id (ID) van hello Azure AD-tenant die Hallo token heeft uitgegeven. |
+| unique_name |Een unieke id voor dat kan worden weergegeven toohello gebruiker. Dit is meestal een UPN (user Principal name). |
+| UPN |De UPN van Hallo-gebruiker. |
+| ver |Versie. Hallo-versie van Hallo JWT-token, doorgaans 1.0. |
 
 ### Foutbericht
-De uitgifte van tokens eindpunt fouten zijn foutcodes voor HTTP, omdat de client het eindpunt van de uitgifte van tokens rechtstreeks aanroept. Naast de HTTP-statuscode retourneert het eindpunt van de uitgifte van tokens Azure AD ook een JSON-document met objecten die de fout wordt beschreven.
+Hallo uitgifte van tokens eindpunt fouten zijn foutcodes voor HTTP, omdat het Hallo-clientaanroepen Hallo eindpunt van de uitgifte van tokens rechtstreeks. Bovendien toohello HTTP-statuscode hello Azure AD uitgifte van tokens eindpunt ook retourneert een JSON-document met objecten die Hallo fout wordt beschreven.
 
 Een voorbeeld-foutmelding kan uitzien:
 
 ```
 {
   "error": "invalid_grant",
-  "error_description": "AADSTS70002: Error validating credentials. AADSTS70008: The provided authorization code or refresh token is expired. Send a new interactive authorization request for this user and resource.\r\nTrace ID: 3939d04c-d7ba-42bf-9cb7-1e5854cdce9e\r\nCorrelation ID: a8125194-2dc8-4078-90ba-7b6592a7f231\r\nTimestamp: 2016-04-11 18:00:12Z",
+  "error_description": "AADSTS70002: Error validating credentials. AADSTS70008: hello provided authorization code or refresh token is expired. Send a new interactive authorization request for this user and resource.\r\nTrace ID: 3939d04c-d7ba-42bf-9cb7-1e5854cdce9e\r\nCorrelation ID: a8125194-2dc8-4078-90ba-7b6592a7f231\r\nTimestamp: 2016-04-11 18:00:12Z",
   "error_codes": [
     70002,
     70008
@@ -239,37 +239,37 @@ Een voorbeeld-foutmelding kan uitzien:
 ```
 | Parameter | Beschrijving |
 | --- | --- |
-| error |Een tekenreeks van de fout code die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
-| error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
+| error |Een tekenreeks van de fout code die zijn gebruikt tooclassify typen fouten die optreden en kan gebruikte tooreact tooerrors. |
+| error_description |Een specifiek foutbericht waarmee een ontwikkelaar kan identificeren Hallo hoofdoorzaak van een verificatiefout. |
 | error_codes |Een lijst met foutcodes STS-specifieke die bij het diagnostische gegevens helpen. |
-| tijdstempel |De tijd waarop de fout is opgetreden. |
-| trace_id |Een unieke id voor de aanvraag die bij het diagnostische gegevens helpen. |
-| correlation_id |Een unieke id voor de aanvraag die bij het diagnostische gegevens over de onderdelen helpen. |
+| tijdstempel |Hallo tijd waarin Hallo-fout is opgetreden. |
+| trace_id |Een unieke id voor Hallo-aanvraag die bij het diagnostische gegevens helpen. |
+| correlation_id |Een unieke id voor Hallo-aanvraag die bij het diagnostische gegevens over de onderdelen helpen. |
 
 #### HTTP-statuscodes
-De volgende tabel bevat de HTTP-statuscodes die het eindpunt van de uitgifte van tokens retourneert. In sommige gevallen kan de foutcode is voldoende om te beschrijven van het antwoord, maar als er fouten zijn, moet u de bijbehorende JSON-document te parseren en bekijk de foutcode.
+Hallo bevat volgende tabel Hallo HTTP-statuscodes die Hallo uitgifte van tokens eindpunt retourneert. In sommige gevallen Hallo foutcode voldoende toodescribe Hallo antwoord is, maar als er fouten zijn, moet u tooparse Hallo begeleidende JSON-document en bekijk de foutcode.
 
 | HTTP-Code | Beschrijving |
 | --- | --- |
-| 400 |Standaardcode voor HTTP. In de meeste gevallen gebruikt en wordt meestal veroorzaakt door een onjuist gevormde aanvraag. Herstel en verzend de aanvraag opnieuw. |
-| 401 |Verificatie is mislukt. De aanvraag is bijvoorbeeld de client_secret-parameter ontbreekt. |
-| 403 |Autorisatie is mislukt. Bijvoorbeeld: de gebruiker heeft geen machtiging voor toegang tot de resource. |
-| 500 |Een interne fout opgetreden bij de service. De aanvraag opnieuw proberen. |
+| 400 |Standaardcode voor HTTP. In de meeste gevallen gebruikt en is meestal vanwege tooa onjuist gevormde aanvraag. Herstel en Hallo aanvraag opnieuw indienen. |
+| 401 |Verificatie is mislukt. Hallo-aanvraag is bijvoorbeeld Hallo client_secret parameter ontbreekt. |
+| 403 |Autorisatie is mislukt. Bijvoorbeeld, Hallo gebruiker geen machtiging tooaccess Hallo resource. |
+| 500 |Een interne fout opgetreden bij het Hallo-service. Hallo aanvraag opnieuw proberen. |
 
 #### Foutcodes voor token-eindpunt fouten
 | Foutcode | Beschrijving | Clientactie |
 | --- | --- | --- |
-| invalid_request |Protocolfout, zoals een ontbrekende vereiste parameter. |Herstel en verzend de aanvraag opnieuw |
-| invalid_grant |De autorisatiecode is ongeldig of is verlopen. |Probeer een nieuwe aanvraag naar de `/authorize` eindpunt |
-| unauthorized_client |De geverifieerde client is niet gemachtigd deze machtiging grant methode gebruiken. |Dit gebeurt meestal wanneer de clienttoepassing is niet geregistreerd in Azure AD of is niet toegevoegd aan Azure AD-tenant van de gebruiker. De toepassing kan het bericht met instructies voor het installeren van de toepassing en deze naar Azure AD toe te voegen. |
-| invalid_client |Clientverificatie is mislukt. |De clientreferenties zijn niet geldig. Als u wilt oplossen, werkt de beheerder van de toepassing de referenties. |
-| unsupported_grant_type |De autorisatie-server biedt geen ondersteuning voor de machtiging grant-type. |Het type grant in de aanvraag wijzigen. Dit type fout moet worden uitgevoerd tijdens de ontwikkeling en worden gedetecteerd tijdens de eerste test. |
-| invalid_resource |De doelresource is ongeldig omdat deze niet bestaat, Azure AD kan niet worden gevonden of is niet correct geconfigureerd. |Dit betekent dat de resource als deze bestaat, is niet geconfigureerd in de tenant. De toepassing kan het bericht met instructies voor het installeren van de toepassing en deze naar Azure AD toe te voegen. |
-| interaction_required |De aanvraag vereist gebruikersinteractie. Bijvoorbeeld, is een stap extra authenticatie vereist. | In plaats van een niet-interactieve aanvraag, probeer het opnieuw met een interactieve autorisatieaanvraag voor dezelfde resource. |
-| temporarily_unavailable |De server is tijdelijk te druk bezet om de aanvraag te verwerken. |De aanvraag opnieuw proberen. Aan de gebruiker kan de clienttoepassing verklaren dat het antwoord is vertraagd doordat een tijdelijke situatie. |
+| invalid_request |Protocolfout, zoals een ontbrekende vereiste parameter. |Herstel en Hallo aanvraag opnieuw indienen |
+| invalid_grant |Hallo autorisatiecode is ongeldig of is verlopen. |Probeer een nieuwe aanvraag toohello `/authorize` eindpunt |
+| unauthorized_client |Hallo geverifieerde client is niet geautoriseerd toouse deze toestemming verlenen type. |Dit gebeurt meestal wanneer de clienttoepassing Hallo is niet geregistreerd in Azure AD of Azure AD-tenant van toohello gebruiker niet is toegevoegd. Hallo-toepassing kunt Hallo-gebruiker met instructies voor het Hallo-toepassing installeren en deze toe te voegen tooAzure AD gevraagd. |
+| invalid_client |Clientverificatie is mislukt. |Hallo-clientreferenties zijn niet geldig. toofix, beheerder van de toepassing hello updates Hallo-referenties. |
+| unsupported_grant_type |Hallo autorisatie server biedt geen ondersteuning voor Hallo authorization grant type. |Wijziging Hallo machtigingstype in Hallo-aanvraag. Dit type fout moet worden uitgevoerd tijdens de ontwikkeling en worden gedetecteerd tijdens de eerste test. |
+| invalid_resource |Hallo doelbron is ongeldig omdat deze niet bestaat, Azure AD kan niet worden gevonden of is niet correct geconfigureerd. |Hiermee wordt aangegeven met het Hallo-resource, indien aanwezig, is niet geconfigureerd in Hallo-tenant. Hallo-toepassing kunt Hallo-gebruiker met instructies voor het Hallo-toepassing installeren en deze toe te voegen tooAzure AD gevraagd. |
+| interaction_required |Hallo aanvraag vereist gebruikersinteractie. Bijvoorbeeld, is een stap extra authenticatie vereist. | In plaats van een niet-interactieve aanvraag, probeer het opnieuw met een interactieve autorisatieaanvraag voor Hallo dezelfde resource. |
+| temporarily_unavailable |Hallo-server is tijdelijk bezet toohandle Hallo-aanvraag. |Hallo aanvraag opnieuw proberen. Hallo-clienttoepassing kan toohello gebruiker verklaren dat het antwoord is vertraagd vanwege tooa tijdelijke situatie. |
 
-## Gebruik het toegangstoken voor toegang tot de bron
-Nu dat u hebt gekregen een `access_token`, kunt u het token in hun aanvragen aan de Web-API's, door te nemen in de `Authorization` header. De [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) specificatie legt uit hoe u toegang tot beveiligde bronnen met bearer-tokens in HTTP-aanvragen.
+## Hallo access token tooaccess Hallo bron gebruiken
+Nu dat u hebt gekregen een `access_token`, kunt u Hallo-token in aanvragen tooWeb API's, door deze in Hallo `Authorization` header. Hallo [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) specificatie legt uit hoe toouse bearer-tokens in HTTP-aanvragen tooaccess beveiligde bronnen.
 
 ### Voorbeeld van een aanvraag
 ```
@@ -279,41 +279,41 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ### Foutbericht
-Beveiligde bronnen en RFC 6750 probleem HTTP-statuscodes implementeren. Als de aanvraag geen verificatiereferenties bevat of het token ontbreekt, wordt het antwoord bevat een `WWW-Authenticate` header. Wanneer een aanvraag is mislukt, wordt de resource-server reageert met de HTTP-statuscode en een foutcode.
+Beveiligde bronnen en RFC 6750 probleem HTTP-statuscodes implementeren. Als het Hallo-aanvraag bevat geen referenties voor verificatie of het token, Hallo antwoord Hallo ontbreekt bevat een `WWW-Authenticate` header. Wanneer een aanvraag is mislukt, wordt Hallo resource server reageert met Hallo HTTP-statuscode en een foutcode.
 
-Hier volgt een voorbeeld van een mislukte reactie wanneer de aanvraag van de client geen bearer-token:
+Hallo Hieronder volgt een voorbeeld van een mislukte reactie wanneer clientaanvraag Hallo Hallo bearer-token niet omvat:
 
 ```
 HTTP/1.1 401 Unauthorized
-WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
+WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="hello access token is missing.",
 ```
 
 #### Foutparameters
 | Parameter | Beschrijving |
 | --- | --- |
-| authorization_uri |De URI (fysieke eindpunt) van de autorisatie-server. Deze waarde wordt ook gebruikt als een zoeksleutel voor meer informatie over de server van een detectie-eindpunt. <p><p> De client moet valideren dat de autorisatie-server vertrouwd wordt. Wanneer de bron wordt beveiligd door Azure AD, is voldoende om te controleren dat de URL begint met https://login.microsoftonline.com of een andere hostnaam die ondersteuning biedt voor Azure AD. Een resource tenantspecifieke moet altijd een verificatie-URI van de tenant-specifieke retourneren. |
-| error |Een foutwaarde code gedefinieerd in de sectie 5.2 van de [OAuth 2.0 autorisatie Framework](http://tools.ietf.org/html/rfc6749). |
-| error_description |Een gedetailleerdere beschrijving van de fout. Dit bericht is niet bedoeld als gebruiksvriendelijke door eindgebruikers. |
-| bron-id |Retourneert de unieke id van de resource. De clienttoepassing deze id kunt gebruiken als de waarde van de `resource` parameter na het aanvragen van een token voor de resource. <p><p> Het is belangrijk voor de clienttoepassing om te controleren of deze waarde, anders een schadelijke service mogelijk om te veroorzaken een **verhoging van bevoegdheden** aanval <p><p> Ter voorkoming van een aanval wordt u aangeraden om te controleren of de `resource_id` overeenkomt met het grondtal van de web-API-URL die wordt geopend. Bijvoorbeeld, als https://service.contoso.com/data wordt geopend, de `resource_id` htttps://service.contoso.com/ kan zijn. De clienttoepassing moet afwijzen een `resource_id` die begint niet met de basis-URL tenzij er een betrouwbare alternatieve manier om te controleren of de id. |
+| authorization_uri |Hallo-URI (fysieke eindpunt) van Hallo autorisatie-server. Deze waarde wordt ook gebruikt als een lookup key tooget meer informatie over Hallo server vanaf een detectie-eindpunt. <p><p> Hallo-client moet valideren die Hallo autorisatie-server wordt vertrouwd. Wanneer het Hallo-resource is beveiligd door Azure AD, is het voldoende tooverify die Hallo URL met https://login.microsoftonline.com begint of een andere hostnaam die ondersteuning biedt voor Azure AD. Een resource tenantspecifieke moet altijd een verificatie-URI van de tenant-specifieke retourneren. |
+| error |Een foutwaarde code gedefinieerd in de sectie 5.2 Hallo [OAuth 2.0 autorisatie Framework](http://tools.ietf.org/html/rfc6749). |
+| error_description |Een gedetailleerde beschrijving van Hallo-fout. Dit bericht is niet bedoeld toobe eindgebruiker gebruiksvriendelijke. |
+| bron-id |Retourneert Hallo de unieke id van resource Hallo. Hallo-clienttoepassing deze id kunt gebruiken als de waarde Hallo Hallo `resource` parameter wanneer deze een token voor Hallo bron aanvraagt. <p><p> Het is belangrijk voor Hallo van client-toepassing tooverify deze waarde, anders een schadelijke service kunnen tooinduce mogelijk een **verhoging van bevoegdheden** aanval <p><p> Hallo aanbevolen strategie voor een aanval waardoor is tooverify die Hallo `resource_id` komt overeen met Hallo base van Hallo web API-URL die wordt geopend. Bijvoorbeeld, als https://service.contoso.com/data wordt geopend, Hallo `resource_id` htttps://service.contoso.com/ kan zijn. Hallo-clienttoepassing afwijzen moet een `resource_id` die begint niet met Hallo basis-URL tenzij er een betrouwbare alternatieve manier tooverify Hallo-id. |
 
 #### Foutcodes voor Bearer-schema
-De specificatie RFC 6750 definieert de volgende fouten voor resources die gebruikmaken van de WWW-Authenticate-header en Bearer-schema in het antwoord.
+Hallo RFC 6750 specificatie definieert Hallo volgende fouten voor resources die Hallo WWW-verificatie-header en Bearer-schema in het antwoord Hallo gebruikt.
 
 | HTTP-statuscode | Foutcode | Beschrijving | Clientactie |
 | --- | --- | --- | --- |
-| 400 |invalid_request |De aanvraag is niet grammaticaal correct. Bijvoorbeeld, het mogelijk ontbreekt een parameter of met behulp van dezelfde parameter twee keer. |Los de fout en probeer de aanvraag. Dit type fout moet worden uitgevoerd tijdens de ontwikkeling en tests van de eerste worden gedetecteerd. |
-| 401 |invalid_token |Het toegangstoken ontbreekt, is ongeldig of is ingetrokken. De waarde van de parameter error_description biedt aanvullende informatie. |Een nieuw token aangevraagd van de autorisatie-server. Als het nieuwe token is mislukt, heeft een onverwachte fout opgetreden. Een foutbericht voor de gebruiker en probeer het opnieuw na willekeurige vertraging verzenden. |
-| 403 |insufficient_scope |Het toegangstoken bevat niet de imitatie-machtigingen vereist voor toegang tot de resource. |Een nieuwe autorisatieaanvraag verzenden naar het eindpunt voor autorisatie. Als het antwoord de bereikparameter bevat, gebruikt u de bereikwaarde in de aanvraag voor de resource. |
-| 403 |insufficient_access |Het onderwerp van het token beschikt niet over de machtigingen die nodig zijn voor toegang tot de bron. |De gebruiker gevraagd naar een ander account of om aan te vragen van machtigingen voor de opgegeven bron. |
+| 400 |invalid_request |Hallo-aanvraag is niet grammaticaal correct. Bijvoorbeeld: er ontbreekt een parameter of dezelfde parameter met behulp van twee keer Hallo. |Hallo fout corrigeren en Hallo aanvraag opnieuw proberen. Dit type fout moet worden uitgevoerd tijdens de ontwikkeling en tests van de eerste worden gedetecteerd. |
+| 401 |invalid_token |Hallo toegangstoken ontbreekt, is ongeldig of is ingetrokken. Hallo-waarde van de Hallo error_description parameter biedt aanvullende informatie. |Een nieuw token aanvragen van Hallo autorisatie-server. Als nieuw Hallo-token is mislukt, heeft een onverwachte fout opgetreden. Verzenden van een gebruiker fout bericht toohello en opnieuw proberen na willekeurige vertraging. |
+| 403 |insufficient_scope |Hallo toegangstoken bevat geen Hallo imitatie machtigingen vereist tooaccess Hallo resource. |Verzend een nieuwe autorisatie aanvraag toohello autorisatie-eindpunt. Als antwoord Hallo bereikparameter hello bevat, gebruikt u de bereikwaarde Hallo in Hallo aanvraag toohello resource. |
+| 403 |insufficient_access |Hallo-onderwerp van het Hallo-token heeft geen Hallo machtigingen die vereist tooaccess Hallo resource zijn. |Vragen Hallo gebruiker toouse een ander account of toorequest machtigingen toohello van de opgegeven bron. |
 
-## De toegangstokens te vernieuwen
-Toegangstokens tijdelijke zijn en moeten worden vernieuwd nadat ze zijn verlopen om door te gaan met het openen van bronnen. Vernieuwt u de `access_token` door het indienen van een andere `POST` aanvraag voor de `/token` eindpunt, maar deze tijd bieden de `refresh_token` in plaats van de `code`.
+## Hallo-toegangstokens vernieuwen
+Toegangstokens tijdelijke zijn en moeten worden vernieuwd nadat ze toegang krijgen tot bronnen toocontinue verlopen. Kunt u Hallo vernieuwen `access_token` door het indienen van een andere `POST` aanvragen toohello `/token` eindpunt, maar dit moment bieden Hallo `refresh_token` in plaats van Hallo `code`.
 
-Vernieuwen van tokens hebben geen opgegeven levensduur. De levensduur van het vernieuwen van tokens zijn meestal relatief lange. Echter, in sommige gevallen vernieuwen van tokens verlopen, worden ingetrokken of niet over voldoende bevoegdheden voor de gewenste actie. Uw toepassing moet verwacht en fouten geretourneerd door het eindpunt van de uitgifte van tokens correct verwerkt.
+Vernieuwen van tokens hebben geen opgegeven levensduur. Hallo-levensduur van het vernieuwen van tokens zijn meestal relatief lange. Echter in sommige gevallen vernieuwen van tokens verlopen, worden ingetrokken of niet over voldoende bevoegdheden voor Hallo gewenst actie. Uw toepassing moet tooexpect en ingang fouten geretourneerd door Hallo uitgifte van tokens eindpunt goed.
 
-Wanneer u een antwoord met een token fout vernieuwen ontvangt, de huidige vernieuwingstoken negeren en vraag een nieuwe autorisatiecode of toegangstoken. In het bijzonder wanneer met behulp van een vernieuwing token in de stroom Authorization Code Grant als er een antwoord met de `interaction_required` of `invalid_grant` foutcodes, het vernieuwingstoken negeren en vraag een nieuwe autorisatiecode.
+Wanneer u een antwoord met een token fout vernieuwen ontvangt, de huidige vernieuwingstoken Hallo negeren en vraag een nieuwe autorisatiecode of toegangstoken. In het bijzonder wanneer met behulp van een vernieuwing token in Hallo Authorization Code Grant flow, als er een antwoord Hello `interaction_required` of `invalid_grant` foutcodes Hallo vernieuwingstoken negeren en vraag een nieuwe autorisatiecode.
 
-Een voorbeeld van een aanvraag naar de **tenantspecifieke** eindpunt (u kunt ook de **algemene** eindpunt) om een nieuwe toegang te krijgen met behulp van een vernieuwingstoken token uitziet:
+Een voorbeeld aanvraag toohello **tenantspecifieke** eindpunt (u kunt ook Hallo **algemene** eindpunt) tooget een nieuw toegangstoken met behulp van een vernieuwingstoken uitziet:
 
 ```
 // Line breaks for legibility only
@@ -344,13 +344,13 @@ Een geslaagde reactie token, ziet er als:
 ```
 | Parameter | Beschrijving |
 | --- | --- |
-| token_type |Het type token. De enige ondersteunde waarde is **bearer**. |
-| expires_in |De resterende levensduur van het token in seconden. Een typische waarde is 3600 (één uur). |
-| expires_on |De datum en tijd waarop het token verloopt. De datum die wordt weergegeven als het aantal seconden van 1970-01-01T0:0:0Z UTC totdat de verlooptijd. |
-| Resource |Geeft de beveiligde bron die het toegangstoken kan worden gebruikt voor toegang. |
-| Bereik |Imitatie gemachtigd om de native client-toepassing. Standaard de machtiging is **user_impersonation**. De eigenaar van de doelbron kunt alternatieve waarden registreren in Azure AD. |
-| access_token |Het nieuwe toegangstoken die is aangevraagd. |
-| refresh_token |Een nieuwe OAuth 2.0-refresh_token die kunnen worden gebruikt om aan te vragen van nieuwe toegangstokens wanneer de structuur in voor deze reactie is verlopen. |
+| token_type |Hallo type token. Hallo alleen ondersteunde waarde is **bearer**. |
+| expires_in |Hallo resterende levensduur van token Hallo in seconden. Een typische waarde is 3600 (één uur). |
+| expires_on |Hallo-datum en tijd waarop Hallo-token is verlopen. Hallo datum wordt weergegeven als het aantal seconden Hallo vanaf 1970-01-01T0:0:0Z UTC tot verlooptijd Hallo. |
+| Resource |Hallo identificeert resource beveiligd, kan dat toegangstoken hello worden gebruikt tooaccess. |
+| Bereik |Imitatie machtigingen verleend toohello native client-toepassing. Hallo standaardmachtiging **user_impersonation**. Hallo-eigenaar van de doelbron Hallo kunt alternatieve waarden registreren in Azure AD. |
+| access_token |Hallo nieuw toegangstoken die is aangevraagd. |
+| refresh_token |Een nieuwe OAuth 2.0-refresh_token die nieuwe toegangstokens gebruikte toorequest worden kunnen wanneer Hallo in dit antwoord is verlopen. |
 
 ### Foutbericht
 Een voorbeeld-foutmelding kan uitzien:
@@ -358,7 +358,7 @@ Een voorbeeld-foutmelding kan uitzien:
 ```
 {
   "error": "invalid_resource",
-  "error_description": "AADSTS50001: The application named https://foo.microsoft.com/mail.read was not found in the tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872.  This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant.  You might have sent your authentication request to the wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
+  "error_description": "AADSTS50001: hello application named https://foo.microsoft.com/mail.read was not found in hello tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872.  This can happen if hello application has not been installed by hello administrator of hello tenant or consented tooby any user in hello tenant.  You might have sent your authentication request toohello wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
   "error_codes": [
     50001
   ],
@@ -370,11 +370,11 @@ Een voorbeeld-foutmelding kan uitzien:
 
 | Parameter | Beschrijving |
 | --- | --- |
-| error |Een tekenreeks van de fout code die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
-| error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
+| error |Een tekenreeks van de fout code die zijn gebruikt tooclassify typen fouten die optreden en kan gebruikte tooreact tooerrors. |
+| error_description |Een specifiek foutbericht waarmee een ontwikkelaar kan identificeren Hallo hoofdoorzaak van een verificatiefout. |
 | error_codes |Een lijst met foutcodes STS-specifieke die bij het diagnostische gegevens helpen. |
-| tijdstempel |De tijd waarop de fout is opgetreden. |
-| trace_id |Een unieke id voor de aanvraag die bij het diagnostische gegevens helpen. |
-| correlation_id |Een unieke id voor de aanvraag die bij het diagnostische gegevens over de onderdelen helpen. |
+| tijdstempel |Hallo tijd waarin Hallo-fout is opgetreden. |
+| trace_id |Een unieke id voor Hallo-aanvraag die bij het diagnostische gegevens helpen. |
+| correlation_id |Een unieke id voor Hallo-aanvraag die bij het diagnostische gegevens over de onderdelen helpen. |
 
-Zie voor een beschrijving van de foutcodes en de aanbevolen clientactie [foutcodes voor token-eindpunt fouten](#error-codes-for-token-endpoint-errors).
+Zie voor een beschrijving van Hallo-foutcodes en de aanbevolen clientactie Hallo [foutcodes voor token-eindpunt fouten](#error-codes-for-token-endpoint-errors).

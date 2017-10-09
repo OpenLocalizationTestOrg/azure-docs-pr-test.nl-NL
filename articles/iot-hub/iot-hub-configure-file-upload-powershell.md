@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell gebruiken om te uploaden bestand configureren | Microsoft Docs
-description: Het gebruik van de Azure PowerShell-cmdlets voor het configureren van uw IoT-hub zodat bestand uploadt van verbonden apparaten. Bevat informatie over het configureren van de doel-Azure storage-account.
+title: uploaden van aaaUse hello Azure PowerShell tooconfigure bestand | Microsoft Docs
+description: Hoe toouse hello Azure PowerShell-cmdlets tooconfigure uw IoT hub tooenable bestand uploadt van verbonden apparaten. Bevat informatie over het configureren van Hallo bestemming Azure storage-account.
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: a72bda794b2da3e044c46249559610d06b1f1843
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9dcdc41693c09cece411921b30c91d7b3db47395
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-iot-hub-file-uploads-using-powershell"></a><span data-ttu-id="57d3f-104">Uploaden van bestanden met PowerShell IoT-Hub configureren</span><span class="sxs-lookup"><span data-stu-id="57d3f-104">Configure IoT Hub file uploads using PowerShell</span></span>
+# <a name="configure-iot-hub-file-uploads-using-powershell"></a><span data-ttu-id="0eef2-104">Uploaden van bestanden met PowerShell IoT-Hub configureren</span><span class="sxs-lookup"><span data-stu-id="0eef2-104">Configure IoT Hub file uploads using PowerShell</span></span>
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-<span data-ttu-id="57d3f-105">Gebruik de [bestand uploaden functionaliteit in IoT-Hub][lnk-upload], moet u eerst een Azure storage-account koppelen met uw IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="57d3f-105">To use the [file upload functionality in IoT Hub][lnk-upload], you must first associate an Azure storage account with your IoT hub.</span></span> <span data-ttu-id="57d3f-106">U kunt een bestaand opslagaccount gebruiken of een nieuwe maken.</span><span class="sxs-lookup"><span data-stu-id="57d3f-106">You can use an existing storage account or create a new one.</span></span>
+<span data-ttu-id="0eef2-105">Hallo toouse [bestand uploaden functionaliteit in IoT-Hub][lnk-upload], moet u eerst een Azure storage-account koppelen met uw IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="0eef2-105">toouse hello [file upload functionality in IoT Hub][lnk-upload], you must first associate an Azure storage account with your IoT hub.</span></span> <span data-ttu-id="0eef2-106">U kunt een bestaand opslagaccount gebruiken of een nieuwe maken.</span><span class="sxs-lookup"><span data-stu-id="0eef2-106">You can use an existing storage account or create a new one.</span></span>
 
-<span data-ttu-id="57d3f-107">Voor het voltooien van deze zelfstudie hebt u het volgende nodig:</span><span class="sxs-lookup"><span data-stu-id="57d3f-107">To complete this tutorial, you need the following:</span></span>
+<span data-ttu-id="0eef2-107">toocomplete in deze zelfstudie, moet u hello te volgen:</span><span class="sxs-lookup"><span data-stu-id="0eef2-107">toocomplete this tutorial, you need hello following:</span></span>
 
-* <span data-ttu-id="57d3f-108">Een actief Azure-account.</span><span class="sxs-lookup"><span data-stu-id="57d3f-108">An active Azure account.</span></span> <span data-ttu-id="57d3f-109">Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.</span><span class="sxs-lookup"><span data-stu-id="57d3f-109">If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.</span></span>
-* <span data-ttu-id="57d3f-110">[Azure PowerShell-cmdlets][lnk-powershell-install].</span><span class="sxs-lookup"><span data-stu-id="57d3f-110">[Azure PowerShell cmdlets][lnk-powershell-install].</span></span>
-* <span data-ttu-id="57d3f-111">Een Azure-IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="57d3f-111">An Azure IoT hub.</span></span> <span data-ttu-id="57d3f-112">Als u een IoT-hub hebt, kunt u de [cmdlet New-AzureRmIoTHub] [ lnk-powershell-iothub] te maken of de portal gebruiken om [een iothub maken][lnk-portal-hub].</span><span class="sxs-lookup"><span data-stu-id="57d3f-112">If you don't have an IoT hub, you can use the [New-AzureRmIoTHub cmdlet][lnk-powershell-iothub] to create one or use the portal to [Create an IoT hub][lnk-portal-hub].</span></span>
-* <span data-ttu-id="57d3f-113">Een Azure Storage-account.</span><span class="sxs-lookup"><span data-stu-id="57d3f-113">An Azure storage account.</span></span> <span data-ttu-id="57d3f-114">Als u geen Azure storage-account hebt, kunt u de [Azure PowerShell-cmdlets Storage] [ lnk-powershell-storage] te maken of de portal gebruiken om [een opslagaccount maken] [lnk-portal-storage].</span><span class="sxs-lookup"><span data-stu-id="57d3f-114">If you don't have an Azure storage account, you can use the [Azure Storage PowerShell cmdlets][lnk-powershell-storage] to create one or use the portal to [Create a storage account][lnk-portal-storage].</span></span>
+* <span data-ttu-id="0eef2-108">Een actief Azure-account.</span><span class="sxs-lookup"><span data-stu-id="0eef2-108">An active Azure account.</span></span> <span data-ttu-id="0eef2-109">Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.</span><span class="sxs-lookup"><span data-stu-id="0eef2-109">If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.</span></span>
+* <span data-ttu-id="0eef2-110">[Azure PowerShell-cmdlets][lnk-powershell-install].</span><span class="sxs-lookup"><span data-stu-id="0eef2-110">[Azure PowerShell cmdlets][lnk-powershell-install].</span></span>
+* <span data-ttu-id="0eef2-111">Een Azure-IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="0eef2-111">An Azure IoT hub.</span></span> <span data-ttu-id="0eef2-112">Als u een IoT-hub hebt, kunt u Hallo [cmdlet New-AzureRmIoTHub] [ lnk-powershell-iothub] toocreate one of gebruik Hallo u portal te[een iothub maken] [ lnk-portal-hub].</span><span class="sxs-lookup"><span data-stu-id="0eef2-112">If you don't have an IoT hub, you can use hello [New-AzureRmIoTHub cmdlet][lnk-powershell-iothub] toocreate one or use hello portal too[Create an IoT hub][lnk-portal-hub].</span></span>
+* <span data-ttu-id="0eef2-113">Een Azure Storage-account.</span><span class="sxs-lookup"><span data-stu-id="0eef2-113">An Azure storage account.</span></span> <span data-ttu-id="0eef2-114">Als u geen Azure storage-account hebt, kunt u Hallo [Azure PowerShell-cmdlets Storage] [ lnk-powershell-storage] toocreate one of gebruik Hallo u portal te[een opslagaccount maken] [ lnk-portal-storage].</span><span class="sxs-lookup"><span data-stu-id="0eef2-114">If you don't have an Azure storage account, you can use hello [Azure Storage PowerShell cmdlets][lnk-powershell-storage] toocreate one or use hello portal too[Create a storage account][lnk-portal-storage].</span></span>
 
-## <a name="sign-in-and-set-your-azure-account"></a><span data-ttu-id="57d3f-115">Aanmelden en uw Azure-account instellen</span><span class="sxs-lookup"><span data-stu-id="57d3f-115">Sign in and set your Azure account</span></span>
+## <a name="sign-in-and-set-your-azure-account"></a><span data-ttu-id="0eef2-115">Aanmelden en uw Azure-account instellen</span><span class="sxs-lookup"><span data-stu-id="0eef2-115">Sign in and set your Azure account</span></span>
 
-<span data-ttu-id="57d3f-116">Aanmelden bij uw Azure-account en uw abonnement te selecteren.</span><span class="sxs-lookup"><span data-stu-id="57d3f-116">Sign in to your Azure account and select your subscription.</span></span>
+<span data-ttu-id="0eef2-116">Meld u aan tooyour Azure-account en uw abonnement te selecteren.</span><span class="sxs-lookup"><span data-stu-id="0eef2-116">Sign in tooyour Azure account and select your subscription.</span></span>
 
-1. <span data-ttu-id="57d3f-117">Uitvoeren op de PowerShell-prompt de **Login-AzureRmAccount** cmdlet:</span><span class="sxs-lookup"><span data-stu-id="57d3f-117">At the PowerShell prompt, run the **Login-AzureRmAccount** cmdlet:</span></span>
+1. <span data-ttu-id="0eef2-117">Uitvoeren bij de PowerShell-prompt Hallo Hallo **Login-AzureRmAccount** cmdlet:</span><span class="sxs-lookup"><span data-stu-id="0eef2-117">At hello PowerShell prompt, run hello **Login-AzureRmAccount** cmdlet:</span></span>
 
     ```powershell
     Login-AzureRmAccount
     ```
 
-1. <span data-ttu-id="57d3f-118">Als u meerdere Azure-abonnementen hebt, verleent aanmelden bij Azure u toegang tot alle de Azure-abonnementen die zijn gekoppeld aan uw referenties.</span><span class="sxs-lookup"><span data-stu-id="57d3f-118">If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials.</span></span> <span data-ttu-id="57d3f-119">Gebruik de volgende opdracht voor een lijst met de Azure-abonnementen beschikbaar moet worden gebruikt:</span><span class="sxs-lookup"><span data-stu-id="57d3f-119">Use the following command to list the Azure subscriptions available for you to use:</span></span>
+1. <span data-ttu-id="0eef2-118">Aanmelden tooAzure verleent u tooall toegang tot Azure-abonnementen die zijn gekoppeld aan uw referenties in Media Player Hallo als u meerdere Azure-abonnementen hebt.</span><span class="sxs-lookup"><span data-stu-id="0eef2-118">If you have multiple Azure subscriptions, signing in tooAzure grants you access tooall hello Azure subscriptions associated with your credentials.</span></span> <span data-ttu-id="0eef2-119">Hallo opdracht toolist hello Azure-abonnementen beschikbaar voor u toouse volgende gebruiken:</span><span class="sxs-lookup"><span data-stu-id="0eef2-119">Use hello following command toolist hello Azure subscriptions available for you toouse:</span></span>
 
     ```powershell
     Get-AzureRMSubscription
     ```
 
-    <span data-ttu-id="57d3f-120">Gebruik de volgende opdracht om abonnement die u gebruiken wilt voor het uitvoeren van de opdrachten voor het beheren van uw IoT-hub te selecteren.</span><span class="sxs-lookup"><span data-stu-id="57d3f-120">Use the following command to select subscription that you want to use to run the commands to manage your IoT hub.</span></span> <span data-ttu-id="57d3f-121">U kunt de naam van abonnement of de ID van de uitvoer van de vorige opdracht gebruiken:</span><span class="sxs-lookup"><span data-stu-id="57d3f-121">You can use either the subscription name or ID from the output of the previous command:</span></span>
+    <span data-ttu-id="0eef2-120">Gebruik Hallo opdracht tooselect abonnement dat u wilt dat uw IoT-hub-opdrachten toomanage toouse toorun hello te volgen.</span><span class="sxs-lookup"><span data-stu-id="0eef2-120">Use hello following command tooselect subscription that you want toouse toorun hello commands toomanage your IoT hub.</span></span> <span data-ttu-id="0eef2-121">U kunt Hallo abonnementsnaam of ID van uitvoer van de vorige opdracht Hallo Hallo gebruiken:</span><span class="sxs-lookup"><span data-stu-id="0eef2-121">You can use either hello subscription name or ID from hello output of hello previous command:</span></span>
 
     ```powershell
     Select-AzureRMSubscription `
         -SubscriptionName "{your subscription name}"
     ```
 
-## <a name="retrieve-your-storage-account-details"></a><span data-ttu-id="57d3f-122">De gegevens van uw storage-account ophalen</span><span class="sxs-lookup"><span data-stu-id="57d3f-122">Retrieve your storage account details</span></span>
+## <a name="retrieve-your-storage-account-details"></a><span data-ttu-id="0eef2-122">De gegevens van uw storage-account ophalen</span><span class="sxs-lookup"><span data-stu-id="0eef2-122">Retrieve your storage account details</span></span>
 
-<span data-ttu-id="57d3f-123">De volgende stappen wordt ervan uitgegaan dat u hebt gemaakt dat uw storage-account met de **Resource Manager** -implementatiemodel, en niet de **klassieke** implementatiemodel.</span><span class="sxs-lookup"><span data-stu-id="57d3f-123">The following steps assume that you created your storage account using the **Resource Manager** deployment model, and not the **Classic** deployment model.</span></span>
+<span data-ttu-id="0eef2-123">Hallo volgende stappen wordt ervan uitgegaan dat u uw storage-account met behulp van Hallo gemaakt **Resource Manager** implementatiemodel en niet Hallo **klassieke** implementatiemodel.</span><span class="sxs-lookup"><span data-stu-id="0eef2-123">hello following steps assume that you created your storage account using hello **Resource Manager** deployment model, and not hello **Classic** deployment model.</span></span>
 
-<span data-ttu-id="57d3f-124">Als u wilt configureren bestandsuploads van uw apparaten, moet u de verbindingsreeks voor Azure storage-account.</span><span class="sxs-lookup"><span data-stu-id="57d3f-124">To configure file uploads from your devices, you need the connection string for an Azure storage account.</span></span> <span data-ttu-id="57d3f-125">Het opslagaccount moet zich in hetzelfde abonnement als uw IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="57d3f-125">The storage account must be in the same subscription as your IoT hub.</span></span> <span data-ttu-id="57d3f-126">U moet ook de naam van een blob-container in het opslagaccount.</span><span class="sxs-lookup"><span data-stu-id="57d3f-126">You also need the name of a blob container in the storage account.</span></span> <span data-ttu-id="57d3f-127">Gebruik de volgende opdracht voor het ophalen van uw toegangscodes voor opslag:</span><span class="sxs-lookup"><span data-stu-id="57d3f-127">Use the following command to retrieve your storage account keys:</span></span>
+<span data-ttu-id="0eef2-124">tooconfigure bestand uploadt van uw apparaten, moet u Hallo-verbindingsreeks voor Azure storage-account.</span><span class="sxs-lookup"><span data-stu-id="0eef2-124">tooconfigure file uploads from your devices, you need hello connection string for an Azure storage account.</span></span> <span data-ttu-id="0eef2-125">Hallo storage-account moet zich in Hallo hetzelfde abonnement als uw IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="0eef2-125">hello storage account must be in hello same subscription as your IoT hub.</span></span> <span data-ttu-id="0eef2-126">U moet ook Hallo-naam van een blob-container in Hallo storage-account.</span><span class="sxs-lookup"><span data-stu-id="0eef2-126">You also need hello name of a blob container in hello storage account.</span></span> <span data-ttu-id="0eef2-127">Hallo opdracht tooretrieve na uw toegangscodes voor opslag gebruiken:</span><span class="sxs-lookup"><span data-stu-id="0eef2-127">Use hello following command tooretrieve your storage account keys:</span></span>
 
 ```powershell
 Get-AzureRmStorageAccountKey `
@@ -68,11 +68,11 @@ Get-AzureRmStorageAccountKey `
   -ResourceGroupName {your storage account resource group}
 ```
 
-<span data-ttu-id="57d3f-128">Noteer de **key1** sleutelwaarde storage-account.</span><span class="sxs-lookup"><span data-stu-id="57d3f-128">Make a note of the **key1** storage account key value.</span></span> <span data-ttu-id="57d3f-129">U moet deze in de volgende stappen.</span><span class="sxs-lookup"><span data-stu-id="57d3f-129">You need it in the following steps.</span></span>
+<span data-ttu-id="0eef2-128">Maak een notitie van Hallo **key1** sleutelwaarde storage-account.</span><span class="sxs-lookup"><span data-stu-id="0eef2-128">Make a note of hello **key1** storage account key value.</span></span> <span data-ttu-id="0eef2-129">U moet het Hallo stappen te volgen.</span><span class="sxs-lookup"><span data-stu-id="0eef2-129">You need it in hello following steps.</span></span>
 
-<span data-ttu-id="57d3f-130">U kunt een bestaande blobcontainer voor uw bestandsuploads gebruiken of nieuwe maken:</span><span class="sxs-lookup"><span data-stu-id="57d3f-130">You can either use an existing blob container for your file uploads or create new one:</span></span>
+<span data-ttu-id="0eef2-130">U kunt een bestaande blobcontainer voor uw bestandsuploads gebruiken of nieuwe maken:</span><span class="sxs-lookup"><span data-stu-id="0eef2-130">You can either use an existing blob container for your file uploads or create new one:</span></span>
 
-* <span data-ttu-id="57d3f-131">Als de bestaande blobcontainers in uw opslagaccount wilt weergeven, gebruikt u de volgende opdrachten:</span><span class="sxs-lookup"><span data-stu-id="57d3f-131">To list the existing blob containers in your storage account, use the following commands:</span></span>
+* <span data-ttu-id="0eef2-131">toolist hello bestaande blob-containers in uw opslagaccount gebruiken Hallo volgende opdrachten:</span><span class="sxs-lookup"><span data-stu-id="0eef2-131">toolist hello existing blob containers in your storage account, use hello following commands:</span></span>
 
     ```powershell
     $ctx = New-AzureStorageContext `
@@ -81,7 +81,7 @@ Get-AzureRmStorageAccountKey `
     Get-AzureStorageContainer -Context $ctx
     ```
 
-* <span data-ttu-id="57d3f-132">Voor het maken van een blob-container in uw opslagaccount, gebruik de volgende opdrachten:</span><span class="sxs-lookup"><span data-stu-id="57d3f-132">To create a blob container in your storage account, use the following commands:</span></span>
+* <span data-ttu-id="0eef2-132">toocreate een blob-container in uw opslagaccount, gebruik Hallo volgende opdrachten:</span><span class="sxs-lookup"><span data-stu-id="0eef2-132">toocreate a blob container in your storage account, use hello following commands:</span></span>
 
     ```powershell
     $ctx = New-AzureStorageContext `
@@ -93,23 +93,23 @@ Get-AzureRmStorageAccountKey `
         -Context $ctx
     ```
 
-## <a name="configure-your-iot-hub"></a><span data-ttu-id="57d3f-133">Configureren van uw IoT-hub</span><span class="sxs-lookup"><span data-stu-id="57d3f-133">Configure your IoT hub</span></span>
+## <a name="configure-your-iot-hub"></a><span data-ttu-id="0eef2-133">Configureren van uw IoT-hub</span><span class="sxs-lookup"><span data-stu-id="0eef2-133">Configure your IoT hub</span></span>
 
-<span data-ttu-id="57d3f-134">U kunt nu uw IoT-hub om in te schakelen configureren [bestand uploaden functionaliteit] [ lnk-upload] met behulp van de gegevens van uw opslag.</span><span class="sxs-lookup"><span data-stu-id="57d3f-134">You can now configure your IoT hub to enable [file upload functionality][lnk-upload] using your storage account details.</span></span>
+<span data-ttu-id="0eef2-134">U kunt nu uw IoT hub tooenable configureren [bestand uploaden functionaliteit] [ lnk-upload] met behulp van de gegevens van uw opslag.</span><span class="sxs-lookup"><span data-stu-id="0eef2-134">You can now configure your IoT hub tooenable [file upload functionality][lnk-upload] using your storage account details.</span></span>
 
-<span data-ttu-id="57d3f-135">De configuratie is vereist voor de volgende waarden:</span><span class="sxs-lookup"><span data-stu-id="57d3f-135">The configuration requires the following values:</span></span>
+<span data-ttu-id="0eef2-135">Hallo configuratie vereist Hallo volgende waarden:</span><span class="sxs-lookup"><span data-stu-id="0eef2-135">hello configuration requires hello following values:</span></span>
 
-<span data-ttu-id="57d3f-136">**Storage-container**: een blobcontainer in Azure storage-account in uw huidige Azure-abonnement wilt koppelen aan uw IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="57d3f-136">**Storage container**: A blob container in an Azure storage account in your current Azure subscription to associate with your IoT hub.</span></span> <span data-ttu-id="57d3f-137">U hebt de accountgegevens voor de benodigde opslag in de vorige sectie hebt opgehaald.</span><span class="sxs-lookup"><span data-stu-id="57d3f-137">You retrieved the necessary storage account information in the preceding section.</span></span> <span data-ttu-id="57d3f-138">IoT Hub genereert automatisch SAS URI's met schrijfmachtigingen in voor deze blob-container voor apparaten voor gebruik bij het uploaden van bestanden.</span><span class="sxs-lookup"><span data-stu-id="57d3f-138">IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files.</span></span>
+<span data-ttu-id="0eef2-136">**Storage-container**: een blobcontainer in Azure storage-account in uw huidige Azure-abonnement tooassociate met uw IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="0eef2-136">**Storage container**: A blob container in an Azure storage account in your current Azure subscription tooassociate with your IoT hub.</span></span> <span data-ttu-id="0eef2-137">Hallo benodigde opslag accountgegevens in de voorgaande sectie Hallo dat u hebt opgehaald.</span><span class="sxs-lookup"><span data-stu-id="0eef2-137">You retrieved hello necessary storage account information in hello preceding section.</span></span> <span data-ttu-id="0eef2-138">IoT Hub genereert automatisch SAS URI's met schrijven machtigingen toothis blob-container voor apparaten toouse wanneer het uploaden van bestanden.</span><span class="sxs-lookup"><span data-stu-id="0eef2-138">IoT Hub automatically generates SAS URIs with write permissions toothis blob container for devices toouse when they upload files.</span></span>
 
-<span data-ttu-id="57d3f-139">**Meldingen ontvangen voor de geüploade bestanden**: bestand uploaden meldingen- of uitschakelen.</span><span class="sxs-lookup"><span data-stu-id="57d3f-139">**Receive notifications for uploaded files**: Enable or disable file upload notifications.</span></span>
+<span data-ttu-id="0eef2-139">**Meldingen ontvangen voor de geüploade bestanden**: bestand uploaden meldingen- of uitschakelen.</span><span class="sxs-lookup"><span data-stu-id="0eef2-139">**Receive notifications for uploaded files**: Enable or disable file upload notifications.</span></span>
 
-<span data-ttu-id="57d3f-140">**SAS TTL**: deze instelling wordt de time-to-live van de SAS-URI's die aan het apparaat wordt geretourneerd door de IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="57d3f-140">**SAS TTL**: This setting is the time-to-live of the SAS URIs returned to the device by IoT Hub.</span></span> <span data-ttu-id="57d3f-141">Standaard ingesteld op één uur.</span><span class="sxs-lookup"><span data-stu-id="57d3f-141">Set to one hour by default.</span></span>
+<span data-ttu-id="0eef2-140">**SAS TTL**: deze instelling is Hallo time-to-live Hallo SAS URI's toohello apparaat geretourneerd door de IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="0eef2-140">**SAS TTL**: This setting is hello time-to-live of hello SAS URIs returned toohello device by IoT Hub.</span></span> <span data-ttu-id="0eef2-141">Standaard tooone uur.</span><span class="sxs-lookup"><span data-stu-id="0eef2-141">Set tooone hour by default.</span></span>
 
-<span data-ttu-id="57d3f-142">**Bestand notification instellingen standaard TTL**: de time-to-live van een bestand uploaden melding voordat het is verlopen.</span><span class="sxs-lookup"><span data-stu-id="57d3f-142">**File notification settings default TTL**: The time-to-live of a file upload notification before it is expired.</span></span> <span data-ttu-id="57d3f-143">Standaard ingesteld op één dag.</span><span class="sxs-lookup"><span data-stu-id="57d3f-143">Set to one day by default.</span></span>
+<span data-ttu-id="0eef2-142">**Bestand notification instellingen standaard TTL**: Hallo time-to-live van een bestand uploaden melding voordat het is verlopen.</span><span class="sxs-lookup"><span data-stu-id="0eef2-142">**File notification settings default TTL**: hello time-to-live of a file upload notification before it is expired.</span></span> <span data-ttu-id="0eef2-143">Tooone dag standaard ingesteld.</span><span class="sxs-lookup"><span data-stu-id="0eef2-143">Set tooone day by default.</span></span>
 
-<span data-ttu-id="57d3f-144">**Melding levering van het maximum aantal bestanden**: het aantal keren dat de IoT-Hub probeert een bestand uploaden een melding.</span><span class="sxs-lookup"><span data-stu-id="57d3f-144">**File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification.</span></span> <span data-ttu-id="57d3f-145">Standaard ingesteld op 10.</span><span class="sxs-lookup"><span data-stu-id="57d3f-145">Set to 10 by default.</span></span>
+<span data-ttu-id="0eef2-144">**Melding levering van het maximum aantal bestanden**: Hallo aantal keren dat Hallo IoT Hub pogingen toodeliver een melding van bestand uploaden.</span><span class="sxs-lookup"><span data-stu-id="0eef2-144">**File notification maximum delivery count**: hello number of times hello IoT Hub attempts toodeliver a file upload notification.</span></span> <span data-ttu-id="0eef2-145">Too10 standaard ingesteld.</span><span class="sxs-lookup"><span data-stu-id="0eef2-145">Set too10 by default.</span></span>
 
-<span data-ttu-id="57d3f-146">Gebruik de volgende PowerShell-cmdlet voor het configureren van het bestand uploaden instellingen op uw IoT-hub:</span><span class="sxs-lookup"><span data-stu-id="57d3f-146">Use the following PowerShell cmdlet to configure the file upload settings on your IoT hub:</span></span>
+<span data-ttu-id="0eef2-146">Gebruik Hallo PowerShell cmdlet tooconfigure Hallo-bestand uploaden instellingen op uw IoT-hub te volgen:</span><span class="sxs-lookup"><span data-stu-id="0eef2-146">Use hello following PowerShell cmdlet tooconfigure hello file upload settings on your IoT hub:</span></span>
 
 ```powershell
 Set-AzureRmIotHub `
@@ -123,21 +123,21 @@ Set-AzureRmIotHub `
     -FileUploadNotificationMaxDeliveryCount 10
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="57d3f-147">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="57d3f-147">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="0eef2-147">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="0eef2-147">Next steps</span></span>
 
-<span data-ttu-id="57d3f-148">Zie voor meer informatie over de functies voor het uploaden van bestanden van IoT Hub [uploaden van bestanden van een apparaat][lnk-upload].</span><span class="sxs-lookup"><span data-stu-id="57d3f-148">For more information about the file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload].</span></span>
+<span data-ttu-id="0eef2-148">Zie voor meer informatie over functies voor het uploaden van bestanden Hallo van IoT Hub [uploaden van bestanden van een apparaat][lnk-upload].</span><span class="sxs-lookup"><span data-stu-id="0eef2-148">For more information about hello file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload].</span></span>
 
-<span data-ttu-id="57d3f-149">Volg deze koppelingen voor meer informatie over het beheren van Azure IoT Hub:</span><span class="sxs-lookup"><span data-stu-id="57d3f-149">Follow these links to learn more about managing Azure IoT Hub:</span></span>
+<span data-ttu-id="0eef2-149">Volg deze koppelingen toolearn meer over het beheren van Azure IoT Hub:</span><span class="sxs-lookup"><span data-stu-id="0eef2-149">Follow these links toolearn more about managing Azure IoT Hub:</span></span>
 
-* <span data-ttu-id="57d3f-150">[Bulksgewijs IoT-apparaten beheren][lnk-bulk]</span><span class="sxs-lookup"><span data-stu-id="57d3f-150">[Bulk manage IoT devices][lnk-bulk]</span></span>
-* <span data-ttu-id="57d3f-151">[IoT Hub metrische gegevens][lnk-metrics]</span><span class="sxs-lookup"><span data-stu-id="57d3f-151">[IoT Hub metrics][lnk-metrics]</span></span>
-* <span data-ttu-id="57d3f-152">[Bewerkingen controleren][lnk-monitor]</span><span class="sxs-lookup"><span data-stu-id="57d3f-152">[Operations monitoring][lnk-monitor]</span></span>
+* <span data-ttu-id="0eef2-150">[Bulksgewijs IoT-apparaten beheren][lnk-bulk]</span><span class="sxs-lookup"><span data-stu-id="0eef2-150">[Bulk manage IoT devices][lnk-bulk]</span></span>
+* <span data-ttu-id="0eef2-151">[IoT Hub metrische gegevens][lnk-metrics]</span><span class="sxs-lookup"><span data-stu-id="0eef2-151">[IoT Hub metrics][lnk-metrics]</span></span>
+* <span data-ttu-id="0eef2-152">[Bewerkingen controleren][lnk-monitor]</span><span class="sxs-lookup"><span data-stu-id="0eef2-152">[Operations monitoring][lnk-monitor]</span></span>
 
-<span data-ttu-id="57d3f-153">Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:</span><span class="sxs-lookup"><span data-stu-id="57d3f-153">To further explore the capabilities of IoT Hub, see:</span></span>
+<span data-ttu-id="0eef2-153">toofurther verkennen Hallo-mogelijkheden van IoT Hub, Zie:</span><span class="sxs-lookup"><span data-stu-id="0eef2-153">toofurther explore hello capabilities of IoT Hub, see:</span></span>
 
-* <span data-ttu-id="57d3f-154">[Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide]</span><span class="sxs-lookup"><span data-stu-id="57d3f-154">[IoT Hub developer guide][lnk-devguide]</span></span>
-* <span data-ttu-id="57d3f-155">[Een apparaat simuleren met IoT rand][lnk-iotedge]</span><span class="sxs-lookup"><span data-stu-id="57d3f-155">[Simulating a device with IoT Edge][lnk-iotedge]</span></span>
-* <span data-ttu-id="57d3f-156">[Beveiligen van uw IoT-oplossing bouwen up][lnk-securing]</span><span class="sxs-lookup"><span data-stu-id="57d3f-156">[Secure your IoT solution from the ground up][lnk-securing]</span></span>
+* <span data-ttu-id="0eef2-154">[Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide]</span><span class="sxs-lookup"><span data-stu-id="0eef2-154">[IoT Hub developer guide][lnk-devguide]</span></span>
+* <span data-ttu-id="0eef2-155">[Een apparaat simuleren met IoT rand][lnk-iotedge]</span><span class="sxs-lookup"><span data-stu-id="0eef2-155">[Simulating a device with IoT Edge][lnk-iotedge]</span></span>
+* <span data-ttu-id="0eef2-156">[Uw IoT-oplossing van Hallo gemalen beveiligen][lnk-securing]</span><span class="sxs-lookup"><span data-stu-id="0eef2-156">[Secure your IoT solution from hello ground up][lnk-securing]</span></span>
 
 [lnk-upload]: iot-hub-devguide-file-upload.md
 

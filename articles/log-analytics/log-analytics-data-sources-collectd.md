@@ -1,5 +1,5 @@
 ---
-title: Gegevens verzamelen van CollectD in OMS Log Analytics | Microsoft Docs
+title: aaaCollect gegevens van CollectD in OMS Log Analytics | Microsoft Docs
 description: CollectD is een open-source Linux-daemonwijzigingen waarmee periodiek gegevens worden verzameld van toepassingen en het niveau van systeemgegevens.  In dit artikel bevat informatie over het verzamelen van gegevens van CollectD in logboekanalyse.
 services: log-analytics
 documentationcenter: 
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
-ms.openlocfilehash: a63b15ca5126b45451f0694c9ee75d7b67b1ceaf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7ad82c9c67a664aabd44f08bef2253d84cd2dfba
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a><span data-ttu-id="b1e05-104">Gegevens verzamelen van CollectD op Linux-agents in Log Analytics</span><span class="sxs-lookup"><span data-stu-id="b1e05-104">Collect data from CollectD on Linux agents in Log Analytics</span></span>
-<span data-ttu-id="b1e05-105">[CollectD](https://collectd.org/) is een open-source Linux-daemonwijzigingen die regelmatig maatstaven voor prestaties van toepassingen en het niveau van systeemgegevens verzamelt.</span><span class="sxs-lookup"><span data-stu-id="b1e05-105">[CollectD](https://collectd.org/) is an open source Linux daemon that periodically collects performance metrics from applications and system level information.</span></span> <span data-ttu-id="b1e05-106">Voorbeeldtoepassingen bevatten de Java Virtual Machine (JVM), MySQL-Server en Nginx.</span><span class="sxs-lookup"><span data-stu-id="b1e05-106">Example applications include the Java Virtual Machine (JVM), MySQL Server, and Nginx.</span></span> <span data-ttu-id="b1e05-107">In dit artikel bevat informatie over het verzamelen van prestatiegegevens van CollectD in logboekanalyse.</span><span class="sxs-lookup"><span data-stu-id="b1e05-107">This article provides information on collecting performance data from CollectD in Log Analytics.</span></span>
+# <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a><span data-ttu-id="a4b0a-104">Gegevens verzamelen van CollectD op Linux-agents in Log Analytics</span><span class="sxs-lookup"><span data-stu-id="a4b0a-104">Collect data from CollectD on Linux agents in Log Analytics</span></span>
+<span data-ttu-id="a4b0a-105">[CollectD](https://collectd.org/) is een open-source Linux-daemonwijzigingen die regelmatig maatstaven voor prestaties van toepassingen en het niveau van systeemgegevens verzamelt.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-105">[CollectD](https://collectd.org/) is an open source Linux daemon that periodically collects performance metrics from applications and system level information.</span></span> <span data-ttu-id="a4b0a-106">Van de voorbeeldtoepassingen zijn Hallo Java Virtual Machine (JVM), MySQL-Server en Nginx.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-106">Example applications include hello Java Virtual Machine (JVM), MySQL Server, and Nginx.</span></span> <span data-ttu-id="a4b0a-107">In dit artikel bevat informatie over het verzamelen van prestatiegegevens van CollectD in logboekanalyse.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-107">This article provides information on collecting performance data from CollectD in Log Analytics.</span></span>
 
-<span data-ttu-id="b1e05-108">Een volledige lijst met beschikbare invoegtoepassingen kan worden gevonden op [tabel van invoegtoepassingen](https://collectd.org/wiki/index.php/Table_of_Plugins).</span><span class="sxs-lookup"><span data-stu-id="b1e05-108">A full list of available plugins can be found at [Table of Plugins](https://collectd.org/wiki/index.php/Table_of_Plugins).</span></span>
+<span data-ttu-id="a4b0a-108">Een volledige lijst met beschikbare invoegtoepassingen kan worden gevonden op [tabel van invoegtoepassingen](https://collectd.org/wiki/index.php/Table_of_Plugins).</span><span class="sxs-lookup"><span data-stu-id="a4b0a-108">A full list of available plugins can be found at [Table of Plugins](https://collectd.org/wiki/index.php/Table_of_Plugins).</span></span>
 
 ![Overzicht van CollectD](media/log-analytics-data-sources-collectd/overview.png)
 
-<span data-ttu-id="b1e05-110">De volgende CollectD-configuratie is opgenomen in de OMS-Agent voor Linux CollectD gegevens routeren naar de OMS-Agent voor Linux.</span><span class="sxs-lookup"><span data-stu-id="b1e05-110">The following CollectD configuration is included in the OMS Agent for Linux to route  CollectD data to the OMS Agent for Linux.</span></span>
+<span data-ttu-id="a4b0a-110">Hallo is volgende CollectD configuratie opgenomen in Hallo OMS-Agent voor Linux tooroute CollectD gegevens toohello OMS-Agent voor Linux.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-110">hello following CollectD configuration is included in hello OMS Agent for Linux tooroute  CollectD data toohello OMS Agent for Linux.</span></span>
 
     LoadPlugin write_http
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 07/11/2017
          </Node>
     </Plugin>
 
-<span data-ttu-id="b1e05-111">Bovendien, als u een versie van collectD voordat 5.5 in plaats daarvan de volgende configuratie gebruiken.</span><span class="sxs-lookup"><span data-stu-id="b1e05-111">Additionally, if using an versions of collectD before 5.5 use the following configuration instead.</span></span>
+<span data-ttu-id="a4b0a-111">Bovendien, als u een versie van collectD voordat 5.5 Hallo na configuratie in plaats daarvan gebruikt.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-111">Additionally, if using an versions of collectD before 5.5 use hello following configuration instead.</span></span>
 
     LoadPlugin write_http
 
@@ -50,12 +50,12 @@ ms.lasthandoff: 07/11/2017
        </URL>
     </Plugin>
 
-<span data-ttu-id="b1e05-112">De configuratie van de CollectD gebruikt de standaardinstallatielocatie`write_http` invoegtoepassing prestaties metrische gegevens verzenden via poort 26000 naar OMS-Agent voor Linux.</span><span class="sxs-lookup"><span data-stu-id="b1e05-112">The CollectD configuration uses the default`write_http` plugin to send performance metric data over port 26000 to OMS Agent for Linux.</span></span> 
+<span data-ttu-id="a4b0a-112">Hallo CollectD configuratie maakt gebruik van standaard Hallo`write_http` invoegtoepassing toosend prestaties metrische gegevens via poort 26000 tooOMS Agent voor Linux.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-112">hello CollectD configuration uses hello default`write_http` plugin toosend performance metric data over port 26000 tooOMS Agent for Linux.</span></span> 
 
 > [!NOTE]
-> <span data-ttu-id="b1e05-113">Deze poort kan worden geconfigureerd voor een aangepaste poort indien nodig.</span><span class="sxs-lookup"><span data-stu-id="b1e05-113">This port can be configured to a custom-defined port if needed.</span></span>
+> <span data-ttu-id="a4b0a-113">Deze poort kan geconfigureerde tooa aangepaste poort zijn, indien nodig.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-113">This port can be configured tooa custom-defined port if needed.</span></span>
 
-<span data-ttu-id="b1e05-114">De OMS-Agent voor Linux ook luistert op poort 26000 voor CollectD metrische gegevens en converteert ze met OMS schema metrische gegevens.</span><span class="sxs-lookup"><span data-stu-id="b1e05-114">The OMS Agent for Linux also listens on port 26000 for CollectD metrics and then converts them to OMS schema metrics.</span></span> <span data-ttu-id="b1e05-115">Hieronder volgt de OMS-Agent voor Linux-configuratie `collectd.conf`.</span><span class="sxs-lookup"><span data-stu-id="b1e05-115">The following is the OMS Agent for Linux configuration  `collectd.conf`.</span></span>
+<span data-ttu-id="a4b0a-114">Hallo OMS-Agent voor Linux ook luistert op poort 26000 voor CollectD metrische gegevens en zet deze tooOMS schema metrische gegevens.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-114">hello OMS Agent for Linux also listens on port 26000 for CollectD metrics and then converts them tooOMS schema metrics.</span></span> <span data-ttu-id="a4b0a-115">Hallo volgt Hallo OMS-Agent voor Linux-configuratie `collectd.conf`.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-115">hello following is hello OMS Agent for Linux configuration  `collectd.conf`.</span></span>
 
     <source>
       type http
@@ -68,58 +68,58 @@ ms.lasthandoff: 07/11/2017
     </filter>
 
 
-## <a name="versions-supported"></a><span data-ttu-id="b1e05-116">Ondersteunde versies van</span><span class="sxs-lookup"><span data-stu-id="b1e05-116">Versions supported</span></span>
-- <span data-ttu-id="b1e05-117">Log Analytics ondersteunt momenteel CollectD versie 4.8 en hoger.</span><span class="sxs-lookup"><span data-stu-id="b1e05-117">Log Analytics currently supports CollectD version 4.8 and above.</span></span>
-- <span data-ttu-id="b1e05-118">OMS-Agent voor Linux v1.1.0-217 of hoger is vereist voor CollectD metrische verzameling.</span><span class="sxs-lookup"><span data-stu-id="b1e05-118">OMS Agent for Linux v1.1.0-217 or above is required for CollectD metric collection.</span></span>
+## <a name="versions-supported"></a><span data-ttu-id="a4b0a-116">Ondersteunde versies van</span><span class="sxs-lookup"><span data-stu-id="a4b0a-116">Versions supported</span></span>
+- <span data-ttu-id="a4b0a-117">Log Analytics ondersteunt momenteel CollectD versie 4.8 en hoger.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-117">Log Analytics currently supports CollectD version 4.8 and above.</span></span>
+- <span data-ttu-id="a4b0a-118">OMS-Agent voor Linux v1.1.0-217 of hoger is vereist voor CollectD metrische verzameling.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-118">OMS Agent for Linux v1.1.0-217 or above is required for CollectD metric collection.</span></span>
 
 
-## <a name="configuration"></a><span data-ttu-id="b1e05-119">Configuratie</span><span class="sxs-lookup"><span data-stu-id="b1e05-119">Configuration</span></span>
-<span data-ttu-id="b1e05-120">Hieronder vindt u eenvoudige stappen voor het verzamelen van gegevens CollectD configureren in logboekanalyse.</span><span class="sxs-lookup"><span data-stu-id="b1e05-120">The following are basic steps to configure collection of CollectD data in Log Analytics.</span></span>
+## <a name="configuration"></a><span data-ttu-id="a4b0a-119">Configuratie</span><span class="sxs-lookup"><span data-stu-id="a4b0a-119">Configuration</span></span>
+<span data-ttu-id="a4b0a-120">Hallo hieronder vindt u eenvoudige stappen tooconfigure verzamelen van gegevens van de CollectD in logboekanalyse.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-120">hello following are basic steps tooconfigure collection of CollectD data in Log Analytics.</span></span>
 
-1. <span data-ttu-id="b1e05-121">CollectD om gegevens te verzenden naar de OMS-Agent voor Linux met behulp van de invoegtoepassing write_http configureren.</span><span class="sxs-lookup"><span data-stu-id="b1e05-121">Configure CollectD to send data to the OMS Agent for Linux using the write_http plugin.</span></span>  
-2. <span data-ttu-id="b1e05-122">De OMS-Agent voor Linux te luisteren naar de CollectD gegevens op de juiste poort configureren.</span><span class="sxs-lookup"><span data-stu-id="b1e05-122">Configure the OMS Agent for Linux to listen for the CollectD data on the appropriate port.</span></span>
-3. <span data-ttu-id="b1e05-123">CollectD en OMS-Agent voor Linux opnieuw gestart.</span><span class="sxs-lookup"><span data-stu-id="b1e05-123">Restart CollectD and OMS Agent for Linux.</span></span>
+1. <span data-ttu-id="a4b0a-121">CollectD toosend gegevens toohello OMS-Agent voor Linux met Hallo write_http-invoegtoepassing configureren.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-121">Configure CollectD toosend data toohello OMS Agent for Linux using hello write_http plugin.</span></span>  
+2. <span data-ttu-id="a4b0a-122">Hallo OMS-Agent voor Linux-toolisten voor Hallo CollectD gegevens op de juiste poort Hallo configureren.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-122">Configure hello OMS Agent for Linux toolisten for hello CollectD data on hello appropriate port.</span></span>
+3. <span data-ttu-id="a4b0a-123">CollectD en OMS-Agent voor Linux opnieuw gestart.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-123">Restart CollectD and OMS Agent for Linux.</span></span>
 
-### <a name="configure-collectd-to-forward-data"></a><span data-ttu-id="b1e05-124">CollectD voor het doorsturen van gegevens configureren</span><span class="sxs-lookup"><span data-stu-id="b1e05-124">Configure CollectD to forward data</span></span> 
+### <a name="configure-collectd-tooforward-data"></a><span data-ttu-id="a4b0a-124">CollectD tooforward gegevens configureren</span><span class="sxs-lookup"><span data-stu-id="a4b0a-124">Configure CollectD tooforward data</span></span> 
 
-1. <span data-ttu-id="b1e05-125">Gegevens van de CollectD routeren naar de OMS-Agent voor Linux `oms.conf` moet worden toegevoegd aan de configuratiemap van CollectD.</span><span class="sxs-lookup"><span data-stu-id="b1e05-125">To route CollectD data to the OMS Agent for Linux, `oms.conf` needs to be added to CollectD's configuration directory.</span></span> <span data-ttu-id="b1e05-126">Het doel van dit bestand is afhankelijk van de Linux-distro van uw machine.</span><span class="sxs-lookup"><span data-stu-id="b1e05-126">The destination of this file depends on the Linux  distro of your machine.</span></span>
+1. <span data-ttu-id="a4b0a-125">tooroute CollectD gegevens toohello OMS-Agent voor Linux `oms.conf` behoeften toobe van tooCollectD configuratiemap toegevoegd.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-125">tooroute CollectD data toohello OMS Agent for Linux, `oms.conf` needs toobe added tooCollectD's configuration directory.</span></span> <span data-ttu-id="a4b0a-126">Hallo-doel van dit bestand is afhankelijk van Hallo Linux distro van uw machine.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-126">hello destination of this file depends on hello Linux  distro of your machine.</span></span>
 
-    <span data-ttu-id="b1e05-127">Als uw CollectD config directory bevindt zich in /etc/collectd.d/:</span><span class="sxs-lookup"><span data-stu-id="b1e05-127">If your CollectD config directory is located in /etc/collectd.d/:</span></span>
+    <span data-ttu-id="a4b0a-127">Als uw CollectD config directory bevindt zich in /etc/collectd.d/:</span><span class="sxs-lookup"><span data-stu-id="a4b0a-127">If your CollectD config directory is located in /etc/collectd.d/:</span></span>
 
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd.d/oms.conf
 
-    <span data-ttu-id="b1e05-128">Als uw CollectD config directory bevindt zich in /etc/collectd/collectd.conf.d/:</span><span class="sxs-lookup"><span data-stu-id="b1e05-128">If your CollectD config directory is located in /etc/collectd/collectd.conf.d/:</span></span>
+    <span data-ttu-id="a4b0a-128">Als uw CollectD config directory bevindt zich in /etc/collectd/collectd.conf.d/:</span><span class="sxs-lookup"><span data-stu-id="a4b0a-128">If your CollectD config directory is located in /etc/collectd/collectd.conf.d/:</span></span>
 
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd/collectd.conf.d/oms.conf
 
     >[!NOTE]
-    ><span data-ttu-id="b1e05-129">Voor versies van CollectD voor 5.5 u moet de labels in wijzigen `oms.conf` zoals hierboven.</span><span class="sxs-lookup"><span data-stu-id="b1e05-129">For CollectD versions before 5.5 you will have to modify the tags in `oms.conf` as shown above.</span></span>
+    ><span data-ttu-id="a4b0a-129">Voor versies van CollectD voor 5.5 hebt uitgevoerd, toomodify Hallo labels `oms.conf` zoals hierboven.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-129">For CollectD versions before 5.5 you will have toomodify hello tags in `oms.conf` as shown above.</span></span>
     >
 
-2. <span data-ttu-id="b1e05-130">Kopieer collectd.conf naar de gewenste werkruimte omsagent configuratiemap.</span><span class="sxs-lookup"><span data-stu-id="b1e05-130">Copy collectd.conf to the desired workspace's omsagent configuration directory.</span></span>
+2. <span data-ttu-id="a4b0a-130">Kopieer collectd.conf toohello gewenst werkruimte omsagent configuratiemap.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-130">Copy collectd.conf toohello desired workspace's omsagent configuration directory.</span></span>
 
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
         sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
 
-3. <span data-ttu-id="b1e05-131">Start CollectD en OMS-Agent voor Linux opnieuw met de volgende opdrachten.</span><span class="sxs-lookup"><span data-stu-id="b1e05-131">Restart CollectD and OMS Agent for Linux with the following commands.</span></span>
+3. <span data-ttu-id="a4b0a-131">En opnieuw gestart CollectD OMS-Agent voor Linux Hello opdrachten te volgen.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-131">Restart CollectD and OMS Agent for Linux with hello following commands.</span></span>
 
-    <span data-ttu-id="b1e05-132">sudo service collectd sudo /opt/microsoft/omsagent/bin/service_control opnieuw starten</span><span class="sxs-lookup"><span data-stu-id="b1e05-132">sudo service collectd restart  sudo /opt/microsoft/omsagent/bin/service_control restart</span></span>
+    <span data-ttu-id="a4b0a-132">sudo service collectd sudo /opt/microsoft/omsagent/bin/service_control opnieuw starten</span><span class="sxs-lookup"><span data-stu-id="a4b0a-132">sudo service collectd restart  sudo /opt/microsoft/omsagent/bin/service_control restart</span></span>
 
-## <a name="collectd-metrics-to-log-analytics-schema-conversion"></a><span data-ttu-id="b1e05-133">CollectD metrische gegevens voor de conversie van logboekanalyse schema</span><span class="sxs-lookup"><span data-stu-id="b1e05-133">CollectD metrics to Log Analytics schema conversion</span></span>
-<span data-ttu-id="b1e05-134">Voor het onderhouden van een vertrouwde model tussen infrastructuur metrische gegevens die al zijn verzameld door de OMS-Agent voor Linux en de nieuwe metrische gegevens die worden verzameld door CollectD de volgende schematoewijzing wordt gebruikt:</span><span class="sxs-lookup"><span data-stu-id="b1e05-134">To maintain a familiar model between infrastructure metrics already collected by OMS Agent for Linux and the new metrics collected by CollectD the following schema mapping is used:</span></span>
+## <a name="collectd-metrics-toolog-analytics-schema-conversion"></a><span data-ttu-id="a4b0a-133">CollectD metrische gegevens tooLog Analytics schema conversie</span><span class="sxs-lookup"><span data-stu-id="a4b0a-133">CollectD metrics tooLog Analytics schema conversion</span></span>
+<span data-ttu-id="a4b0a-134">toomaintain een vertrouwde model tussen infrastructuur metrische gegevens die al zijn verzameld door de OMS-Agent voor Linux- en Hallo nieuwe metrische gegevens die worden verzameld door CollectD Hallo schematoewijzing volgende wordt gebruikt:</span><span class="sxs-lookup"><span data-stu-id="a4b0a-134">toomaintain a familiar model between infrastructure metrics already collected by OMS Agent for Linux and hello new metrics collected by CollectD hello following schema mapping is used:</span></span>
 
-| <span data-ttu-id="b1e05-135">CollectD metriek veld</span><span class="sxs-lookup"><span data-stu-id="b1e05-135">CollectD Metric field</span></span> | <span data-ttu-id="b1e05-136">Log Analytics-veld</span><span class="sxs-lookup"><span data-stu-id="b1e05-136">Log Analytics field</span></span> |
+| <span data-ttu-id="a4b0a-135">CollectD metriek veld</span><span class="sxs-lookup"><span data-stu-id="a4b0a-135">CollectD Metric field</span></span> | <span data-ttu-id="a4b0a-136">Log Analytics-veld</span><span class="sxs-lookup"><span data-stu-id="a4b0a-136">Log Analytics field</span></span> |
 |:--|:--|
-| <span data-ttu-id="b1e05-137">host</span><span class="sxs-lookup"><span data-stu-id="b1e05-137">host</span></span> | <span data-ttu-id="b1e05-138">Computer</span><span class="sxs-lookup"><span data-stu-id="b1e05-138">Computer</span></span> |
-| <span data-ttu-id="b1e05-139">Invoegtoepassing</span><span class="sxs-lookup"><span data-stu-id="b1e05-139">plugin</span></span> | <span data-ttu-id="b1e05-140">Geen</span><span class="sxs-lookup"><span data-stu-id="b1e05-140">None</span></span> |
-| <span data-ttu-id="b1e05-141">plugin_instance</span><span class="sxs-lookup"><span data-stu-id="b1e05-141">plugin_instance</span></span> | <span data-ttu-id="b1e05-142">Exemplaarnaam</span><span class="sxs-lookup"><span data-stu-id="b1e05-142">Instance Name</span></span><br><span data-ttu-id="b1e05-143">Als **plugin_instance** is *null* vervolgens InstanceName = "*_Totaal*'</span><span class="sxs-lookup"><span data-stu-id="b1e05-143">If **plugin_instance** is *null* then InstanceName="*_Total*"</span></span> |
-| <span data-ttu-id="b1e05-144">type</span><span class="sxs-lookup"><span data-stu-id="b1e05-144">type</span></span> | <span data-ttu-id="b1e05-145">Objectnaam</span><span class="sxs-lookup"><span data-stu-id="b1e05-145">ObjectName</span></span> |
-| <span data-ttu-id="b1e05-146">type_instance</span><span class="sxs-lookup"><span data-stu-id="b1e05-146">type_instance</span></span> | <span data-ttu-id="b1e05-147">CounterName</span><span class="sxs-lookup"><span data-stu-id="b1e05-147">CounterName</span></span><br><span data-ttu-id="b1e05-148">Als **type_instance** is *null* vervolgens CounterName =**leeg**</span><span class="sxs-lookup"><span data-stu-id="b1e05-148">If **type_instance** is *null* then CounterName=**blank**</span></span> |
-| <span data-ttu-id="b1e05-149">dsnames]</span><span class="sxs-lookup"><span data-stu-id="b1e05-149">dsnames[]</span></span> | <span data-ttu-id="b1e05-150">CounterName</span><span class="sxs-lookup"><span data-stu-id="b1e05-150">CounterName</span></span> |
-| <span data-ttu-id="b1e05-151">dstypes</span><span class="sxs-lookup"><span data-stu-id="b1e05-151">dstypes</span></span> | <span data-ttu-id="b1e05-152">Geen</span><span class="sxs-lookup"><span data-stu-id="b1e05-152">None</span></span> |
-| <span data-ttu-id="b1e05-153">[] waarden</span><span class="sxs-lookup"><span data-stu-id="b1e05-153">values[]</span></span> | <span data-ttu-id="b1e05-154">Tegenwaarde</span><span class="sxs-lookup"><span data-stu-id="b1e05-154">CounterValue</span></span> |
+| <span data-ttu-id="a4b0a-137">host</span><span class="sxs-lookup"><span data-stu-id="a4b0a-137">host</span></span> | <span data-ttu-id="a4b0a-138">Computer</span><span class="sxs-lookup"><span data-stu-id="a4b0a-138">Computer</span></span> |
+| <span data-ttu-id="a4b0a-139">Invoegtoepassing</span><span class="sxs-lookup"><span data-stu-id="a4b0a-139">plugin</span></span> | <span data-ttu-id="a4b0a-140">Geen</span><span class="sxs-lookup"><span data-stu-id="a4b0a-140">None</span></span> |
+| <span data-ttu-id="a4b0a-141">plugin_instance</span><span class="sxs-lookup"><span data-stu-id="a4b0a-141">plugin_instance</span></span> | <span data-ttu-id="a4b0a-142">Exemplaarnaam</span><span class="sxs-lookup"><span data-stu-id="a4b0a-142">Instance Name</span></span><br><span data-ttu-id="a4b0a-143">Als **plugin_instance** is *null* vervolgens InstanceName = "*_Totaal*'</span><span class="sxs-lookup"><span data-stu-id="a4b0a-143">If **plugin_instance** is *null* then InstanceName="*_Total*"</span></span> |
+| <span data-ttu-id="a4b0a-144">type</span><span class="sxs-lookup"><span data-stu-id="a4b0a-144">type</span></span> | <span data-ttu-id="a4b0a-145">Objectnaam</span><span class="sxs-lookup"><span data-stu-id="a4b0a-145">ObjectName</span></span> |
+| <span data-ttu-id="a4b0a-146">type_instance</span><span class="sxs-lookup"><span data-stu-id="a4b0a-146">type_instance</span></span> | <span data-ttu-id="a4b0a-147">CounterName</span><span class="sxs-lookup"><span data-stu-id="a4b0a-147">CounterName</span></span><br><span data-ttu-id="a4b0a-148">Als **type_instance** is *null* vervolgens CounterName =**leeg**</span><span class="sxs-lookup"><span data-stu-id="a4b0a-148">If **type_instance** is *null* then CounterName=**blank**</span></span> |
+| <span data-ttu-id="a4b0a-149">dsnames]</span><span class="sxs-lookup"><span data-stu-id="a4b0a-149">dsnames[]</span></span> | <span data-ttu-id="a4b0a-150">CounterName</span><span class="sxs-lookup"><span data-stu-id="a4b0a-150">CounterName</span></span> |
+| <span data-ttu-id="a4b0a-151">dstypes</span><span class="sxs-lookup"><span data-stu-id="a4b0a-151">dstypes</span></span> | <span data-ttu-id="a4b0a-152">Geen</span><span class="sxs-lookup"><span data-stu-id="a4b0a-152">None</span></span> |
+| <span data-ttu-id="a4b0a-153">[] waarden</span><span class="sxs-lookup"><span data-stu-id="a4b0a-153">values[]</span></span> | <span data-ttu-id="a4b0a-154">Tegenwaarde</span><span class="sxs-lookup"><span data-stu-id="a4b0a-154">CounterValue</span></span> |
 
-## <a name="next-steps"></a><span data-ttu-id="b1e05-155">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="b1e05-155">Next steps</span></span>
-* <span data-ttu-id="b1e05-156">Meer informatie over [Meld zoekopdrachten](log-analytics-log-searches.md) om de gegevens verzameld van gegevensbronnen en oplossingen te analyseren.</span><span class="sxs-lookup"><span data-stu-id="b1e05-156">Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.</span></span> 
-* <span data-ttu-id="b1e05-157">Gebruik [aangepaste velden](log-analytics-custom-fields.md) parseren van gegevens van syslog-records in afzonderlijke velden.</span><span class="sxs-lookup"><span data-stu-id="b1e05-157">Use [Custom Fields](log-analytics-custom-fields.md) to parse data from syslog records into individual fields.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="a4b0a-155">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="a4b0a-155">Next steps</span></span>
+* <span data-ttu-id="a4b0a-156">Meer informatie over [Meld zoekopdrachten](log-analytics-log-searches.md) tooanalyze Hallo gegevens verzameld van gegevensbronnen en oplossingen.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-156">Learn about [log searches](log-analytics-log-searches.md) tooanalyze hello data collected from data sources and solutions.</span></span> 
+* <span data-ttu-id="a4b0a-157">Gebruik [aangepaste velden](log-analytics-custom-fields.md) tooparse gegevens van syslog-records in afzonderlijke velden.</span><span class="sxs-lookup"><span data-stu-id="a4b0a-157">Use [Custom Fields](log-analytics-custom-fields.md) tooparse data from syslog records into individual fields.</span></span>
 

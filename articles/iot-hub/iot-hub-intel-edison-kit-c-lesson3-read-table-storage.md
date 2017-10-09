@@ -1,12 +1,12 @@
 ---
-title: 'Connect Intel Edison (C) naar Azure IoT - les 3: berichten | Microsoft Docs'
-description: De apparaat-naar-cloud-berichten bewaken omdat ze naar uw Azure Table-opslag zijn geschreven.
+title: 'Connect Intel Edison (C) tooAzure IoT - les 3: berichten | Microsoft Docs'
+description: Hallo apparaat-naar-cloud-berichten bewaken tijdens deze tooyour Azure Table storage worden geschreven.
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: gegevens in de cloud, cloud gegevensverzameling, iot-cloudservice, iot-gegevens
+keywords: gegevens in de cloud hello, cloud gegevensverzameling, iot-cloudservice, iot-gegevens
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
 ms.assetid: cad545c3-dd88-486c-a663-d587a924ccd4
@@ -17,36 +17,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 249b5e0e96051fa2adeedfb9befd98fc939b4d40
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2679b22f2987f77ecd1eea03044ed8ea03bf73f8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="read-messages-persisted-in-azure-storage"></a><span data-ttu-id="23ce8-104">Alleen berichten permanent in Azure Storage</span><span class="sxs-lookup"><span data-stu-id="23ce8-104">Read messages persisted in Azure Storage</span></span>
-## <a name="what-you-will-do"></a><span data-ttu-id="23ce8-105">Wat u doet</span><span class="sxs-lookup"><span data-stu-id="23ce8-105">What you will do</span></span>
-<span data-ttu-id="23ce8-106">Controleer de apparaat-naar-cloud-berichten die vanaf Intel Edison naar uw IoT-hub worden verzonden omdat de berichten naar uw Azure Table-opslag zijn geschreven.</span><span class="sxs-lookup"><span data-stu-id="23ce8-106">Monitor the device-to-cloud messages that are sent from Intel Edison to your IoT hub as the messages are written to your Azure Table storage.</span></span> <span data-ttu-id="23ce8-107">Als u problemen hebt, moet u uitkijken voor oplossingen op de [probleemoplossing pagina][troubleshooting].</span><span class="sxs-lookup"><span data-stu-id="23ce8-107">If you have any problems, look for solutions on the [troubleshooting page][troubleshooting].</span></span>
+# <a name="read-messages-persisted-in-azure-storage"></a><span data-ttu-id="cd1fd-104">Alleen berichten permanent in Azure Storage</span><span class="sxs-lookup"><span data-stu-id="cd1fd-104">Read messages persisted in Azure Storage</span></span>
+## <a name="what-you-will-do"></a><span data-ttu-id="cd1fd-105">Wat u doet</span><span class="sxs-lookup"><span data-stu-id="cd1fd-105">What you will do</span></span>
+<span data-ttu-id="cd1fd-106">Monitor Hallo apparaat-naar-cloud-berichten dat uit Intel Edison tooyour iothub worden verzonden als Hallo-berichten worden geschreven tooyour Azure Table storage.</span><span class="sxs-lookup"><span data-stu-id="cd1fd-106">Monitor hello device-to-cloud messages that are sent from Intel Edison tooyour IoT hub as hello messages are written tooyour Azure Table storage.</span></span> <span data-ttu-id="cd1fd-107">Als u problemen hebt, zoekt u naar oplossingen op Hallo [probleemoplossing pagina][troubleshooting].</span><span class="sxs-lookup"><span data-stu-id="cd1fd-107">If you have any problems, look for solutions on hello [troubleshooting page][troubleshooting].</span></span>
 
-## <a name="what-you-will-learn"></a><span data-ttu-id="23ce8-108">Wat u leert</span><span class="sxs-lookup"><span data-stu-id="23ce8-108">What you will learn</span></span>
-<span data-ttu-id="23ce8-109">In dit artikel leert u hoe u met de taak bericht lezen gulp lezen berichten permanent in uw Azure Table-opslag.</span><span class="sxs-lookup"><span data-stu-id="23ce8-109">In this article, you will learn how to use the gulp read-message task to read messages persisted in your Azure Table storage.</span></span>
+## <a name="what-you-will-learn"></a><span data-ttu-id="cd1fd-108">Wat u leert</span><span class="sxs-lookup"><span data-stu-id="cd1fd-108">What you will learn</span></span>
+<span data-ttu-id="cd1fd-109">In dit artikel leert u hoe toouse hello gulp bericht lezen taak tooread-berichten permanent in uw Azure Table-opslag.</span><span class="sxs-lookup"><span data-stu-id="cd1fd-109">In this article, you will learn how toouse hello gulp read-message task tooread messages persisted in your Azure Table storage.</span></span>
 
-## <a name="what-you-need"></a><span data-ttu-id="23ce8-110">Wat u nodig hebt</span><span class="sxs-lookup"><span data-stu-id="23ce8-110">What you need</span></span>
-<span data-ttu-id="23ce8-111">Voordat u deze procedure begint, moet is voltooid [uitvoeren van de voorbeeldtoepassing Azure knipperen op Intel Edison][run-the-azure-blink-sample-application-on-intel-edison].</span><span class="sxs-lookup"><span data-stu-id="23ce8-111">Before starting this process, you must have successfully completed [Run the Azure blink sample application on Intel Edison][run-the-azure-blink-sample-application-on-intel-edison].</span></span>
+## <a name="what-you-need"></a><span data-ttu-id="cd1fd-110">Wat u nodig hebt</span><span class="sxs-lookup"><span data-stu-id="cd1fd-110">What you need</span></span>
+<span data-ttu-id="cd1fd-111">Voordat u deze procedure begint, moet is voltooid [hello Azure knipperen voorbeeldtoepassing uitvoeren op Intel Edison][run-the-azure-blink-sample-application-on-intel-edison].</span><span class="sxs-lookup"><span data-stu-id="cd1fd-111">Before starting this process, you must have successfully completed [Run hello Azure blink sample application on Intel Edison][run-the-azure-blink-sample-application-on-intel-edison].</span></span>
 
-## <a name="read-new-messages-from-your-storage-account"></a><span data-ttu-id="23ce8-112">Nieuwe berichten in uw storage-account lezen</span><span class="sxs-lookup"><span data-stu-id="23ce8-112">Read new messages from your storage account</span></span>
-<span data-ttu-id="23ce8-113">In het vorige artikel kunt u een voorbeeld van toepassing op Edison uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="23ce8-113">In the previous article, you ran a sample application on Edison.</span></span> <span data-ttu-id="23ce8-114">De voorbeeld-toepassing verzonden berichten naar uw Azure-IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="23ce8-114">The sample application sent messages to your Azure IoT hub.</span></span> <span data-ttu-id="23ce8-115">De verzonden naar uw IoT-hub berichten worden opgeslagen in uw Azure Table storage via de Azure-functie-app.</span><span class="sxs-lookup"><span data-stu-id="23ce8-115">The messages sent to your IoT hub are stored into your Azure Table storage via the Azure function app.</span></span> <span data-ttu-id="23ce8-116">U moet de verbindingsreeks voor Azure-opslag om berichten te lezen uit uw Azure-tabelopslag.</span><span class="sxs-lookup"><span data-stu-id="23ce8-116">You need the Azure storage connection string to read messages from your Azure Table storage.</span></span>
+## <a name="read-new-messages-from-your-storage-account"></a><span data-ttu-id="cd1fd-112">Nieuwe berichten in uw storage-account lezen</span><span class="sxs-lookup"><span data-stu-id="cd1fd-112">Read new messages from your storage account</span></span>
+<span data-ttu-id="cd1fd-113">In het vorige artikel hello, kunt u een voorbeeld van toepassing op Edison uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="cd1fd-113">In hello previous article, you ran a sample application on Edison.</span></span> <span data-ttu-id="cd1fd-114">Hallo-voorbeeldtoepassing verzonden berichten tooyour Azure IoT hub.</span><span class="sxs-lookup"><span data-stu-id="cd1fd-114">hello sample application sent messages tooyour Azure IoT hub.</span></span> <span data-ttu-id="cd1fd-115">IoT-hub tooyour verzonden Hello-berichten worden opgeslagen in uw Azure-tabelopslag via hello Azure functie-app.</span><span class="sxs-lookup"><span data-stu-id="cd1fd-115">hello messages sent tooyour IoT hub are stored into your Azure Table storage via hello Azure function app.</span></span> <span data-ttu-id="cd1fd-116">U moet Hallo Azure storage connection string tooread berichten uit uw Azure-tabelopslag.</span><span class="sxs-lookup"><span data-stu-id="cd1fd-116">You need hello Azure storage connection string tooread messages from your Azure Table storage.</span></span>
 
-<span data-ttu-id="23ce8-117">Als u wilt lezen van berichten die zijn opgeslagen in uw Azure Table storage, de volgende stappen uit:</span><span class="sxs-lookup"><span data-stu-id="23ce8-117">To read messages stored in your Azure Table storage, follow these steps:</span></span>
+<span data-ttu-id="cd1fd-117">tooread berichten die zijn opgeslagen in uw Azure Table storage, als volgt te werk:</span><span class="sxs-lookup"><span data-stu-id="cd1fd-117">tooread messages stored in your Azure Table storage, follow these steps:</span></span>
 
-1. <span data-ttu-id="23ce8-118">De verbindingsreeks ophalen met de volgende opdrachten:</span><span class="sxs-lookup"><span data-stu-id="23ce8-118">Get the connection string by running the following commands:</span></span>
+1. <span data-ttu-id="cd1fd-118">Hallo-verbindingsreeks ophalen door het uitvoeren van de volgende opdrachten Hallo:</span><span class="sxs-lookup"><span data-stu-id="cd1fd-118">Get hello connection string by running hello following commands:</span></span>
 
    ```bash
    az storage account list -g iot-sample --query [].name
    az storage account show-connection-string -g iot-sample -n {storage name}
    ```
 
-   <span data-ttu-id="23ce8-119">De eerste opdracht haalt de `storage name` die wordt gebruikt in de tweede opdracht om de verbindingsreeks ophalen.</span><span class="sxs-lookup"><span data-stu-id="23ce8-119">The first command retrieves the `storage name` that is used in the second command to get the connection string.</span></span> <span data-ttu-id="23ce8-120">Gebruik `iot-sample` als de waarde van `{resource group name}` als u de waarde niet wijzigen.</span><span class="sxs-lookup"><span data-stu-id="23ce8-120">Use `iot-sample` as the value of `{resource group name}` if you didn't change the value.</span></span>
-2. <span data-ttu-id="23ce8-121">Open het configuratiebestand `config-edison.json` in Visual Studio Code met de volgende opdracht:</span><span class="sxs-lookup"><span data-stu-id="23ce8-121">Open the configuration file `config-edison.json` in Visual Studio Code by running the following command:</span></span>
+   <span data-ttu-id="cd1fd-119">de eerste opdracht Hallo haalt Hallo `storage name` die wordt gebruikt in Hallo tweede opdracht tooget Hallo verbindingsreeks.</span><span class="sxs-lookup"><span data-stu-id="cd1fd-119">hello first command retrieves hello `storage name` that is used in hello second command tooget hello connection string.</span></span> <span data-ttu-id="cd1fd-120">Gebruik `iot-sample` als Hallo-waarde van `{resource group name}` als u Hallo-waarde niet wijzigt.</span><span class="sxs-lookup"><span data-stu-id="cd1fd-120">Use `iot-sample` as hello value of `{resource group name}` if you didn't change hello value.</span></span>
+2. <span data-ttu-id="cd1fd-121">Open Hallo-configuratiebestand `config-edison.json` in Visual Studio Code door te voeren Hallo volgende opdracht:</span><span class="sxs-lookup"><span data-stu-id="cd1fd-121">Open hello configuration file `config-edison.json` in Visual Studio Code by running hello following command:</span></span>
 
    ```bash
    # For Windows command prompt
@@ -55,23 +55,23 @@ ms.lasthandoff: 07/11/2017
    # For MacOS or Ubuntu
    code ~/.iot-hub-getting-started/config-edison.json
    ```
-3. <span data-ttu-id="23ce8-122">Vervang `[Azure storage connection string]` met de verbindingsreeks die u in stap 1 hebt verkregen.</span><span class="sxs-lookup"><span data-stu-id="23ce8-122">Replace `[Azure storage connection string]` with the connection string you got in step 1.</span></span>
-4. <span data-ttu-id="23ce8-123">Sla de `config-edison.json` bestand.</span><span class="sxs-lookup"><span data-stu-id="23ce8-123">Save the `config-edison.json` file.</span></span>
-5. <span data-ttu-id="23ce8-124">Berichten opnieuw verzenden en ze uit uw Azure-tabelopslag lezen door de volgende opdracht uit te voeren:</span><span class="sxs-lookup"><span data-stu-id="23ce8-124">Send messages again and read them from your Azure Table storage by running the following command:</span></span>
+3. <span data-ttu-id="cd1fd-122">Vervang `[Azure storage connection string]` met Hallo-verbindingsreeks die u in stap 1 hebt verkregen.</span><span class="sxs-lookup"><span data-stu-id="cd1fd-122">Replace `[Azure storage connection string]` with hello connection string you got in step 1.</span></span>
+4. <span data-ttu-id="cd1fd-123">Hallo opslaan `config-edison.json` bestand.</span><span class="sxs-lookup"><span data-stu-id="cd1fd-123">Save hello `config-edison.json` file.</span></span>
+5. <span data-ttu-id="cd1fd-124">Berichten opnieuw verzenden en ze door het uitvoeren van de volgende opdracht Hallo uit uw Azure-tabelopslag lezen:</span><span class="sxs-lookup"><span data-stu-id="cd1fd-124">Send messages again and read them from your Azure Table storage by running hello following command:</span></span>
 
    ```bash
    gulp run --read-storage
    ```
 
-   <span data-ttu-id="23ce8-125">De logica voor het lezen van Azure Table storage is in de `azure-table.js` bestand.</span><span class="sxs-lookup"><span data-stu-id="23ce8-125">The logic for reading from Azure Table storage is in the `azure-table.js` file.</span></span>
+   <span data-ttu-id="cd1fd-125">Hallo logica voor het lezen van Azure Table storage is in Hallo `azure-table.js` bestand.</span><span class="sxs-lookup"><span data-stu-id="cd1fd-125">hello logic for reading from Azure Table storage is in hello `azure-table.js` file.</span></span>
 
    ![gulp uitgevoerd--lezen-opslag][gulp run]
 
-## <a name="summary"></a><span data-ttu-id="23ce8-127">Samenvatting</span><span class="sxs-lookup"><span data-stu-id="23ce8-127">Summary</span></span>
-<span data-ttu-id="23ce8-128">U hebt met succes Edison verbonden met uw IoT-hub in de cloud en de voorbeeldtoepassing knipperen gebruikt om apparaat-naar-cloud-berichten te verzenden.</span><span class="sxs-lookup"><span data-stu-id="23ce8-128">You've successfully connected Edison to your IoT hub in the cloud and used the blink sample application to send device-to-cloud messages.</span></span> <span data-ttu-id="23ce8-129">U hebt ook de functie Azure-app gebruikt voor het opslaan van IoT hub berichten naar uw Azure Table-opslag.</span><span class="sxs-lookup"><span data-stu-id="23ce8-129">You also used the Azure function app to store incoming IoT hub messages to your Azure Table storage.</span></span> <span data-ttu-id="23ce8-130">U kunt nu naar Edison cloud-naar-apparaat-berichten verzenden van uw IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="23ce8-130">You can now send cloud-to-device messages from your IoT hub to Edison.</span></span>
+## <a name="summary"></a><span data-ttu-id="cd1fd-127">Samenvatting</span><span class="sxs-lookup"><span data-stu-id="cd1fd-127">Summary</span></span>
+<span data-ttu-id="cd1fd-128">U hebt met succes Edison tooyour iothub in de cloud Hallo verbonden en hello knipperen voorbeeld toepassing toosend apparaat-naar-cloud-berichten gebruikt.</span><span class="sxs-lookup"><span data-stu-id="cd1fd-128">You've successfully connected Edison tooyour IoT hub in hello cloud and used hello blink sample application toosend device-to-cloud messages.</span></span> <span data-ttu-id="cd1fd-129">U hebt ook hello Azure functie app toostore binnenkomende IoT hub berichten tooyour Azure Table-opslag gebruikt.</span><span class="sxs-lookup"><span data-stu-id="cd1fd-129">You also used hello Azure function app toostore incoming IoT hub messages tooyour Azure Table storage.</span></span> <span data-ttu-id="cd1fd-130">Nu kunt u cloud-naar-apparaat-berichten verzenden van uw IoT hub tooEdison.</span><span class="sxs-lookup"><span data-stu-id="cd1fd-130">You can now send cloud-to-device messages from your IoT hub tooEdison.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="23ce8-131">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="23ce8-131">Next steps</span></span>
-<span data-ttu-id="23ce8-132">[Voer een voorbeeldtoepassing cloud-naar-apparaat-berichten ontvangen][receive-cloud-to-device-messages]</span><span class="sxs-lookup"><span data-stu-id="23ce8-132">[Run a sample application to receive cloud-to-device messages][receive-cloud-to-device-messages]</span></span>
+## <a name="next-steps"></a><span data-ttu-id="cd1fd-131">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="cd1fd-131">Next steps</span></span>
+<span data-ttu-id="cd1fd-132">[Uitvoeren van een toepassing voorbeeld tooreceive cloud-naar-apparaat-berichten][receive-cloud-to-device-messages]</span><span class="sxs-lookup"><span data-stu-id="cd1fd-132">[Run a sample application tooreceive cloud-to-device messages][receive-cloud-to-device-messages]</span></span>
 <!-- Images and links -->
 
 [troubleshooting]: iot-hub-intel-edison-kit-c-troubleshooting.md

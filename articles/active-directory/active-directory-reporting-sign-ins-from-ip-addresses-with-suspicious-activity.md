@@ -1,5 +1,5 @@
 ---
-title: Aanmeldingen vanaf IP-adressen met verdachte activiteiten
+title: aaaSign aanmeldingen van IP-adressen met verdachte activiteiten
 description: Een rapport met Meld u aan bij pogingen die zijn uitgevoerd van IP-adressen waarop verdachte activiteit is vastgesteld.
 services: active-directory
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah; kenhoff
-ms.openlocfilehash: d4168f2a674a90237ff5fa1c51518a711a1c2897
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3b959269eb792083af0a0795d319d9712cb4c5ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a><span data-ttu-id="b042e-103">Aanmeldingen vanaf IP-adressen met verdachte activiteiten</span><span class="sxs-lookup"><span data-stu-id="b042e-103">Sign ins from IP addresses with suspicious activity</span></span>
-<span data-ttu-id="b042e-104">Dit rapport geeft de aanmeldingen van IP-adressen waarop verdachte activiteit gedetecteerd.</span><span class="sxs-lookup"><span data-stu-id="b042e-104">This report shows sign-ins from IP addresses where suspicious activity has been detected.</span></span> <span data-ttu-id="b042e-105">Verdachte activiteiten wordt in dit geval gedefinieerd als een ongewoon hoge verhouding van mislukte aanmeldingen aan geslaagde aanmeldingen, dit kan duiden op een IP-adres dat wordt gebruikt voor schadelijke doeleinden.</span><span class="sxs-lookup"><span data-stu-id="b042e-105">Suspicious activity in this case is defined to be an unusually high ratio of failed sign-ins to successful sign-ins, which may indicate that an IP address is being used for malicious purposes.</span></span>
+# <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a><span data-ttu-id="c142d-103">Aanmeldingen vanaf IP-adressen met verdachte activiteiten</span><span class="sxs-lookup"><span data-stu-id="c142d-103">Sign ins from IP addresses with suspicious activity</span></span>
+<span data-ttu-id="c142d-104">Dit rapport geeft de aanmeldingen van IP-adressen waarop verdachte activiteit gedetecteerd.</span><span class="sxs-lookup"><span data-stu-id="c142d-104">This report shows sign-ins from IP addresses where suspicious activity has been detected.</span></span> <span data-ttu-id="c142d-105">Verdachte activiteit wordt in dit geval gedefinieerde toobe aanmeldingen toosuccessful aanmeldingen, dit kan duiden op een IP-adres voor schadelijke doeleinden wordt gebruikt door een ongewoon hoge ratio van is mislukt.</span><span class="sxs-lookup"><span data-stu-id="c142d-105">Suspicious activity in this case is defined toobe an unusually high ratio of failed sign-ins toosuccessful sign-ins, which may indicate that an IP address is being used for malicious purposes.</span></span>
 
 ![Aanmeldingen vanaf IP-adressen met verdachte activiteiten](./media/active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity/signInsFromIPAddressesWithSuspiciousActivity.PNG)
 

@@ -12,7 +12,7 @@
 ### [Algemene scenario's](power-bi-embedded-scenarios.md)
 
 ## Beheren
-### [Verbinding maken met een gegevensbron](power-bi-embedded-connect-datasource.md)
+### [Verbinding maken met gegevensbron tooa](power-bi-embedded-connect-datasource.md)
 ### [Een Power BI-rapport insluiten](power-bi-embedded-embed-report.md)
 ### [Werken met rapporten](power-bi-embedded-interact-with-reports.md)
 ### [Een nieuw rapport maken op basis van een gegevensset](power-bi-embedded-create-report-from-dataset.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2.0 gebruiken voor toegang tot beveiligde bronnen zonder gebruikersinteractie | Microsoft Docs
-description: Webtoepassingen bouwen met behulp van de Azure AD-implementatie van het protocol OAuth 2.0-verificatie.
+title: aaaUse Azure AD v2.0 tooaccess resources zonder gebruikersinteractie beveiligen | Microsoft Docs
+description: Webtoepassingen bouwen met behulp van hello Azure AD-implementatie van Hallo OAuth 2.0-protocol voor verificatie.
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,61 +15,61 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 93b54c3fc4397573f77b2e157c6f1866786690da
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0003ec836d633a5466c48033adedac1108f27203
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# Azure Active Directory-v2.0 en de clientreferentiestroom van OAuth 2.0
-U kunt de [OAuth 2.0-clientreferenties verlenen](http://tools.ietf.org/html/rfc6749#section-4.4), soms ook wel *tweearmige OAuth*, toegang krijgen tot bronnen web gehost met behulp van de identiteit van een toepassing. Dit type grant vaak wordt gebruikt voor de server naar server interacties dat moeten worden uitgevoerd op de achtergrond, zonder directe interactie met een gebruiker. Deze typen toepassingen vaak worden aangeduid als *daemons* of *-serviceaccounts*.
+# Azure Active Directory v2.0 en Hallo OAuth 2.0 clientreferenties stromen
+Kunt u Hallo [OAuth 2.0-clientreferenties verlenen](http://tools.ietf.org/html/rfc6749#section-4.4), soms ook wel *tweearmige OAuth*, tooaccess web gehoste bronnen met behulp van de identiteit van een toepassing hello. Dit type grant vaak wordt gebruikt voor de server naar server interacties dat moeten worden uitgevoerd op de achtergrond hello, zonder directe interactie met een gebruiker. Deze typen toepassingen worden vaak waarnaar wordt verwezen tooas *daemons* of *-serviceaccounts*.
 
 > [!NOTE]
-> Het v2.0-eindpunt biedt geen ondersteuning voor alle Azure Active Directory-scenario's en onderdelen. Meer informatie over om te bepalen of het v2.0-eindpunt moet worden gebruikt, [v2.0 beperkingen](active-directory-v2-limitations.md).
+> Hallo v2.0-eindpunt biedt geen ondersteuning voor alle Azure Active Directory-scenario's en onderdelen. toodetermine of Hallo v2.0-eindpunt, moet u meer informatie over [v2.0 beperkingen](active-directory-v2-limitations.md).
 >
 >
 
-In de typische *OAuth driearmige*, een clienttoepassing, is gemachtigd voor toegang tot een bron namens een specifieke gebruiker. De machtiging is overgedragen van de gebruiker aan de toepassing, meestal tijdens de [toestemming](active-directory-v2-scopes.md) proces. In de clientreferentiestroom de machtigingen worden verleend rechtstreeks naar de toepassing zelf. Wanneer de app geeft die een token voor een resource, de bron wordt afgedwongen dat de app zelf autorisatie heeft voor het uitvoeren van een actie en niet dat heeft de gebruiker toestemming.
+In Hallo vaker voorkomende *OAuth driearmige*, een clienttoepassing toegekende machtiging tooaccess een bron is namens een specifieke gebruiker. Hallo-machtiging is overgedragen Hallo gebruiker toohello tijdens van toepassing, meestal Hallo [toestemming](active-directory-v2-scopes.md) proces. Echter, in de clientreferentiestroom hello, machtigingen worden verleend rechtstreeks toohello toepassing zelf. Wanneer Hallo app een token tooa resource geeft, Hallo resource wordt afgedwongen dat Hallo app zelf autorisatie tooperform een actie heeft en niet die Hallo de gebruiker toestemming heeft.
 
 ## Protocol-diagram
-De volledige clientreferentiestroom lijkt op het volgende diagram. Elk van de stappen verderop in dit artikel worden beschreven.
+Hallo gehele clientreferentiestroom lijkt vergelijkbare toohello volgende diagram. Hallo stappen verderop in dit artikel worden beschreven.
 
 ![Clientreferentiestroom](../../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)
 
 ## Directe autorisatie ophalen
-Een app ontvangt doorgaans direct autorisatie voor toegang tot een bron op twee manieren: via een toegangsbeheerlijst (ACL) op de bron of toepassing machtigingen worden toegewezen in Azure Active Directory (Azure AD). Deze twee methoden zijn de meest voorkomende in Azure AD en het is raadzaam deze voor clients en resources waarmee de client referentiestroom. Een bron kunt voor het autoriseren van de clients op andere manieren echter kiezen. Elke resource-server kan de methode die het meest zinvol voor de toepassing kiezen.
+Een app ontvangt doorgaans direct autorisatie tooaccess een resource op twee manieren: via een toegangsbeheerlijst (ACL) op Hallo resource of machtingstoewijzing toepassing in Azure Active Directory (Azure AD). Deze twee methoden zijn Hallo meest voorkomende in Azure AD en het is raadzaam deze voor clients en bronnen die Hallo clientreferentiestroom uitvoeren. Een resource kunt tooauthorize de clients op andere manieren echter. Elke resource-server kunt Hallo-methode die zinvol Hallo meeste voor de toepassing.
 
 ### Toegangsbeheerlijsten
-Een resourceprovider mogelijk een autorisatie-controle op basis van een lijst met toepassings-id's die deze kent en een specifiek niveau van toegang tot verleent afdwingen. Wanneer de bron een token van het v2.0-eindpunt ontvangt, kan decoderen van het token en uitpakken van de client toepassings-ID van de `appid` en `iss` claims. Vergelijkt vervolgens de toepassing op basis van een ACL die wordt bijgehouden. De granulatie de ACL's en de methode kunnen aanzienlijk variëren tussen resources.
+Een resourceprovider mogelijk een autorisatie-controle op basis van een lijst met toepassings-id's die deze kent en een specifiek niveau van toegang tot verleent afdwingen. Wanneer Hallo resource een token uit Hallo v2.0-eindpunt ontvangt, kan het decoderen Hallo token en Hallo-client toepassings-ID ophalen uit het Hallo `appid` en `iss` claims. Vergelijkt vervolgens de toepassing hello tegen een ACL die wordt bijgehouden. Hallo granulatie van de ACL's en de methode kan aanzienlijk variëren tussen resources.
 
-Een algemene gebruiksvoorbeeld is het gebruik van een ACL testen voor een webtoepassing of voor een Web-API. De Web-API kan alleen een subset van de volledige machtigingen verlenen aan een specifieke client. End-to-end-tests uitgevoerd op de API, een testclient die tokens van het v2.0-eindpunt verkrijgt en zendt deze naar de API te maken. De API controleert vervolgens de ACL voor de toepassings-ID van de testclient voor volledige toegang tot de volledige functionaliteit van de API. Als u dit soort ACL gebruikt, moet u niet alleen de aanroeper valideren `appid` waarde. Ook valideren dat de `iss` waarde van het token wordt vertrouwd.
+Een algemene gebruiksvoorbeeld is toouse een ACL-toorun voor een webtoepassing of voor een Web-API test. Hallo-Web-API kan alleen een subset van de volledige machtigingen tooa specifieke client verlenen. een testclient die u verkrijgt tokens van Hallo v2.0-eindpunt en verzendt deze API toohello maken toorun end-to-end tests op Hallo-API Hallo API vervolgens controles Hallo ACL voor Hallo test de toepassings-ID van de client voor volledige toegang tot de volledige functionaliteit van toohello-API's. Als u dit soort ACL gebruikt, moet u niet alleen Hallo aanroeper toovalidate `appid` waarde. Ook valideren dat Hallo `iss` waarde Hallo-token wordt vertrouwd.
 
-Dit type verificatie is gebruikelijk daemons en serviceaccounts voor groepen die toegang moeten krijgen tot gegevens die eigendom zijn van de consumer-gebruikers die persoonlijke Microsoft-accounts hebben. Voor gegevens die eigendom zijn van organisaties, is het raadzaam dat u de benodigde machtiging via machtigingen voor een toepassing krijgt.
+Dit type verificatie is gebruikelijk daemons en serviceaccounts voor groepen die tooaccess gegevens die eigendom zijn van de consument gebruikers met persoonlijke Microsoft-account nodig. Voor gegevens die eigendom zijn van organisaties, is het raadzaam dat u nodig autorisatie Hallo via Toepassingsmachtigingen voor de krijgt.
 
 ### Toepassingsmachtigingen
-U kunt in plaats van ACL's, API's gebruiken om een reeks Toepassingsmachtigingen weer te geven. Een toepassing toestemming te krijgen tot een toepassing door de beheerder van een organisatie en kan alleen worden gebruikt voor toegang tot gegevens die eigendom zijn van die organisatie en werknemers. Bijvoorbeeld: Microsoft Graph beschrijft de verschillende Toepassingsmachtigingen het volgende doen:
+U kunt in plaats van ACL's, API's tooexpose een reeks Toepassingsmachtigingen. Een toepassing toestemming tooan toepassing is verleend door een beheerder en kunt gebruikte alleen tooaccess gegevens eigendom zijn van die organisatie en werknemers. Bijvoorbeeld: Microsoft Graph beschrijft de verschillende toepassing machtigingen toodo Hallo volgende:
 
 * E-mail in alle postvakken lezen
 * E-mail in alle postvakken lezen en schrijven
 * E-mail met elke willekeurige gebruiker als afzender verzenden
 * Active directory-gegevens lezen
 
-Voor meer informatie over de machtigingen van een toepassing, gaat u naar [Microsoft Graph](https://graph.microsoft.io).
+Voor meer informatie over de machtigingen van een toepassing, gaat u te[Microsoft Graph](https://graph.microsoft.io).
 
-Voor het gebruik van machtigingen voor een toepassing in uw app, moet u in de volgende secties we bespreken stappen uitvoeren.
+Toepassingsmachtigingen toouse in uw app stappen bespreken we in de volgende secties Hallo Hallo.
 
-#### De machtigingen in de app-portal voor registratie van aanvragen
-1. Ga naar uw toepassing in de [toepassing Registratieportal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), of [maken van een app](active-directory-v2-app-registration.md), als u dat nog niet gedaan hebt. U moet ten minste één Toepassingsgeheim gebruiken bij het maken van uw app.
-2. Zoek de **Direct Toepassingsmachtigingen** sectie en voeg vervolgens de machtigingen die vereist dat uw app.
-3. **Sla** de registratie van de app.
+#### Hallo machtigingen in Hallo-portal voor registratie van app
+1. Ga tooyour toepassing in Hallo [toepassing-Portal voor Wachtwoordregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), of [maken van een app](active-directory-v2-app-registration.md), als u dat nog niet gedaan hebt. U moet toouse ten minste één Toepassingsgeheim bij het maken van uw app.
+2. Zoek Hallo **Direct Toepassingsmachtigingen** sectie en voeg vervolgens Hallo machtigingen die vereist dat uw app.
+3. **Sla** Hallo van app-registratie.
 
-#### Aanbevolen: De gebruiker zich aanmeldt bij uw app
-Wanneer u een toepassing die gebruikmaakt van machtigingen voor een toepassing maakt, is de app doorgaans, een pagina of weergave waarin de beheerder van de app-machtigingen goedkeurt. Deze pagina kan deel uitmaken van de app aanmelden stroom, onderdeel van de instellingen van de app, of een specifieke stroom van 'verbinding'. In veel gevallen is het zinvol voor de app weer te geven 'verbinding' weergave pas nadat een gebruiker is aangemeld met een werk- of school Microsoft-account.
+#### Aanbevolen: Meld u Hallo gebruiker in tooyour app
+Normaal gesproken als u een toepassing die gebruikmaakt van machtigingen voor een toepassing bouwen, Hallo app vereist dat een pagina of weergave op welke Hallo beheerder keurt deze goed Hallo-app-machtigingen. Deze pagina kan deel uitmaken van Hallo-app aanmelden flow, onderdeel van de Hallo-app-instellingen of deze kan worden toegewezen 'verbinding' stroom. In veel gevallen kan zinvol het voor Hallo app tooshow dit "verbinding maken' weergave alleen nadat een gebruiker is aangemeld met een werk- of school Microsoft-account.
 
-Als u de gebruiker zich aanmeldt bij uw app, kunt u de organisatie die de gebruiker behoort, voordat u vraagt de gebruiker om goed te keuren van de toepassing worden machtigingen kunt identificeren. Hoewel niet strikt noodzakelijk is, kunt u u bij het maken van een intuïtieve ervaring voor uw gebruikers. De gebruiker in ondertekenen, volgt u onze [v2.0 protocol zelfstudies](active-directory-v2-protocols.md).
+Als u zich Hallo-gebruiker in de app tooyour aanmeldt, kunt u identificeren Hallo organisatie toowhich Hallo gebruiker behoort Toepassingsmachtigingen Hallo Hallo gebruiker tooapprove vergeet. Hoewel niet strikt noodzakelijk is, kunt u u bij het maken van een intuïtieve ervaring voor uw gebruikers. toosign hello gebruiker in Volg ons [v2.0 protocol zelfstudies](active-directory-v2-protocols.md).
 
-#### De machtigingen aanvragen bij een directory-beheerder
-Wanneer u klaar bent om machtigingen van de beheerder van de organisatie, kunt u de gebruiker omgeleid naar het v2.0 *toestemming beheereindpunt*.
+#### Hallo-machtigingen voor aanvragen van een directory-beheerder
+Wanneer u klaar toorequest machtigingen van de organisatie Hallo beheerder bent, kunt u Hallo gebruiker toohello v2.0 omleiden *toestemming beheereindpunt*.
 
 ```
 // Line breaks are for legibility only.
@@ -81,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 ```
-// Pro tip: Try pasting the following request in a browser!
+// Pro tip: Try pasting hello following request in a browser!
 ```
 
 ```
@@ -90,15 +90,15 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parameter | Voorwaarde | Beschrijving |
 | --- | --- | --- |
-| Tenant |Vereist |De directory-tenant die u wilt machtiging van aanvragen. Dit kan zijn in de beschrijvende naam van de indeling of GUID. Als u niet welk tenant de gebruiker behoort en u laten aanmelden met een tenant weet wilt, gebruikt u `common`. |
-| client_id |Vereist |De aanvraag-ID die de [Registratieportal toepassing](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
-| redirect_uri |Vereist |De omleidings-URI waar u het antwoord moet worden verzonden voor uw app om af te handelen. Moet exact overeenkomen met een van de omleidings-URI's die u in de portal hebt geregistreerd, behalve dat het moet een URL zijn gecodeerd en kunnen extra padsegmenten hebben. |
-| state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een tekenreeks van inhoud die u wilt dat kan zijn. De status wordt gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de weergave op. |
+| Tenant |Vereist |Hallo directory-tenant die u wilt dat de machtiging toorequest van. Dit kan zijn in de beschrijvende naam van de indeling of GUID. Als u niet weet welke tenant Hallo-gebruiker behoort tooand die u wilt dat ze met een tenant, gebruik aanmelden toolet `common`. |
+| client_id |Vereist |Hallo toepassing-ID die Hallo [toepassing Registratieportal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tooyour app toegewezen. |
+| redirect_uri |Vereist |Hallo omleidings-URI waar u Hallo antwoord toobe voor uw app toohandle verzonden. Deze moet exact overeenkomen met een van Hallo omleidings-URI's die u hebt geregistreerd in Hallo-portal, behalve dat het URL-codering moet en aanvullende padsegmenten kan hebben. |
+| state |Aanbevolen |Een waarde die is opgenomen in Hallo-aanvraag die ook in Hallo token antwoord wordt geretourneerd. Een tekenreeks van inhoud die u wilt dat kan zijn. Hallo-status is gebruikte tooencode informatie over de status van de gebruiker van het Hallo in Hallo app voordat Hallo verificatieverzoek opgetreden, zoals het Hallo-pagina of weergave op. |
 
-Azure AD wordt op dit punt wordt afgedwongen dat alleen een tenantbeheerder aanmelden kan bij de aanvraag niet voltooien. De beheerder wordt gevraagd om goed te keuren alle machtigingen van rechtstreekse toepassing die u hebt aangevraagd voor uw app in de app-portal voor wachtwoordregistratie.
+Azure AD wordt op dit punt wordt afgedwongen of alleen een tenantbeheerder toocomplete Hallo aanvraag kunt aanmelden. Hallo beheerder wordt tooapprove die alle rechtstreekse Toepassingsmachtigingen die u hebt aangevraagd voor uw app in app-registratieportal Hallo Hallo gevraagd.
 
 ##### Geslaagde reactie
-Als de beheerder heeft de machtigingen voor uw toepassing goedgekeurd, is geslaagd antwoord ziet er als volgt:
+Hallo beheerder machtigingen voor uw toepassing hello goedkeurt, Hallo geslaagd antwoord ziet er uit als volgt:
 
 ```
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
@@ -106,12 +106,12 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parameter | Beschrijving |
 | --- | --- | --- |
-| Tenant |De directory-tenant die uw toepassing, de machtigingen die zij gevraagd in GUID-indeling. |
-| state |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een tekenreeks van inhoud die u wilt dat kan zijn. De status wordt gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de weergave op. |
-| admin_consent |Ingesteld op **true**. |
+| Tenant |Hallo directory-tenant die uw toepassing hello worden machtigingen verleend die deze aangevraagd, in GUID-indeling. |
+| state |Een waarde die is opgenomen in Hallo-aanvraag die ook in Hallo token antwoord wordt geretourneerd. Een tekenreeks van inhoud die u wilt dat kan zijn. Hallo-status is gebruikte tooencode informatie over de status van de gebruiker van het Hallo in Hallo app voordat Hallo verificatieverzoek opgetreden, zoals het Hallo-pagina of weergave op. |
+| admin_consent |Stel te**true**. |
 
 ##### Foutbericht
-Als de beheerder worden niet goedgekeurd voor de machtigingen voor uw toepassing, uitziet de mislukte reactie:
+Als Hallo beheerder machtigingen voor uw toepassing hello niet goedkeurt, mislukt de Hallo antwoord ziet er als volgt:
 
 ```
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
@@ -119,13 +119,13 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | Parameter | Beschrijving |
 | --- | --- | --- |
-| error |Een code-tekenreeks voor fout die u gebruiken kunt voor het classificeren van typen fouten, en dat u kunt gebruiken om te reageren op fouten. |
-| error_description |Een specifiek foutbericht waarmee u kunt identificeren de hoofdoorzaak van een fout. |
+| error |Een code fouttekenreeks waarmee u tooclassify typen kunt van fouten en waarmee u tooreact tooerrors kunt gebruiken. |
+| error_description |Een specifiek foutbericht waarmee u kunt identificeren Hallo hoofdoorzaak van een fout. |
 
-Nadat u een geslaagde reactie van het eindpunt van app-inrichting ontvangen hebt, hebben de rechtstreekse toepassing worden machtigingen aangevraagde opgedaan met uw app. U kunt nu een token voor de resource die u wilt aanvragen.
+Nadat u een geslaagde reactie van Hallo app inrichting eindpunt ontvangen hebt, is uw app Hallo direct Toepassingsmachtigingen aangevraagde ervaring. U kunt nu een token voor Hallo-bron die u wilt aanvragen.
 
 ## Een token ophalen
-Nadat u de benodigde machtiging hebt voor uw toepassing hebt verkregen, doorgaan met het ophalen van de toegangstokens voor API's. Voor een token met behulp van de client referenties ken stuurt u een POST-aanvraag naar de `/token` v2.0-eindpunt:
+Nadat u Hallo benodigde machtiging hebt voor uw toepassing hebt verkregen, kunt u doorgaan met het ophalen van de toegangstokens voor API's. een token met behulp van Hallo client referenties grant tooget verzenden een POST-aanvraag toohello `/token` v2.0-eindpunt:
 
 ### Het eerste aanvraagnummer: aanvraag voor toegang tot token met een gedeeld geheim
 
@@ -143,9 +143,9 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | Parameter | Voorwaarde | Beschrijving |
 | --- | --- | --- |
-| client_id |Vereist |De aanvraag-ID die de [Registratieportal toepassing](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
-| Bereik |Vereist |De doorgegeven waarde voor de `scope` parameter in deze aanvraag moet de resource identifier (URI toepassing-ID) van de resource die u wilt gebruiken, aangebracht met de `.default` achtervoegsel. De waarde voor de voorbeeld Microsoft Graph heeft `https://graph.microsoft.com/.default`. Deze waarde informeert het v2.0-eindpunt dat alle rechtstreekse toepassing machtigingen die u voor uw app hebt geconfigureerd, deze moet uitgeven van een token voor de regels die zijn gekoppeld aan de resource die u wilt gebruiken. |
-| client_secret |Vereist |De Toepassingsgeheim die u voor uw app in de portal van de registratie van de app hebt gegenereerd. |
+| client_id |Vereist |Hallo toepassing-ID die Hallo [toepassing Registratieportal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tooyour app toegewezen. |
+| Bereik |Vereist |Hallo-waarde doorgegeven voor Hallo `scope` parameter in deze aanvraag moet Hallo resource identifier (URI van aanvraag-ID) van het Hallo-bron die u wilt dat, aangebracht Hello `.default` achtervoegsel. Hallo Microsoft Graph Hallo-waarde is bijvoorbeeld `https://graph.microsoft.com/.default`. Deze waarde informeert Hallo v2.0-eindpunt dat alle Hallo rechtstreekse toepassing machtiging die u voor uw app hebt geconfigureerd, deze moet uitgeven van een token voor Hallo die zijn gekoppeld aan het Hallo-bron die u wilt dat toouse. |
+| client_secret |Vereist |Hello Toepassingsgeheim die u voor uw app in de portal voor wachtwoordregistratie Hallo-app hebt gegenereerd. |
 | grant_type |Vereist |Moet `client_credentials`. |
 
 ### Tweede geval: aanvraag voor toegang tot token met een certificaat
@@ -160,13 +160,13 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-
 
 | Parameter | Voorwaarde | Beschrijving |
 | --- | --- | --- |
-| client_id |Vereist |De aanvraag-ID die de [Registratieportal toepassing](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
-| Bereik |Vereist |De doorgegeven waarde voor de `scope` parameter in deze aanvraag moet de resource identifier (URI toepassing-ID) van de resource die u wilt gebruiken, aangebracht met de `.default` achtervoegsel. De waarde voor de voorbeeld Microsoft Graph heeft `https://graph.microsoft.com/.default`. Deze waarde informeert het v2.0-eindpunt dat alle rechtstreekse toepassing machtigingen die u voor uw app hebt geconfigureerd, deze moet uitgeven van een token voor de regels die zijn gekoppeld aan de resource die u wilt gebruiken. |
-| client_assertion_type |Vereist |De waarde moet liggen`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Vereist | Een bewering (een JSON Web Token) die u nodig hebt voor het maken en te ondertekenen met het certificaat u geregistreerd als referenties voor uw toepassing. Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de bevestiging.|
+| client_id |Vereist |Hallo toepassing-ID die Hallo [toepassing Registratieportal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tooyour app toegewezen. |
+| Bereik |Vereist |Hallo-waarde doorgegeven voor Hallo `scope` parameter in deze aanvraag moet Hallo resource identifier (URI van aanvraag-ID) van het Hallo-bron die u wilt dat, aangebracht Hello `.default` achtervoegsel. Hallo Microsoft Graph Hallo-waarde is bijvoorbeeld `https://graph.microsoft.com/.default`. Deze waarde informeert Hallo v2.0-eindpunt dat alle Hallo rechtstreekse toepassing machtiging die u voor uw app hebt geconfigureerd, deze moet uitgeven van een token voor Hallo die zijn gekoppeld aan het Hallo-bron die u wilt dat toouse. |
+| client_assertion_type |Vereist |Hallo-waarde moet liggen`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |Vereist | Een (een JSON Web Token) bewering die u toocreate nodig hebt en ondertekenen met het Hallo-certificaat geregistreerd als de referenties voor uw toepassing. Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) toolearn hoe tooregister uw certificaat en het Hallo-indeling van Hallo verklaring.|
 | grant_type |Vereist |Moet `client_credentials`. |
 
-De parameters zijn bijna hetzelfde is in het geval van de aanvraag door een gedeeld geheim, behalve dat de parameter client_secret wordt vervangen door twee parameters: een client_assertion_type en client_assertion.
+Hallo-parameters zijn bijna Hallo dezelfde net als bij Hallo Hallo aanvraag door een gedeeld geheim, behalve dat Hallo client_secret parameter wordt vervangen door twee parameters: een client_assertion_type en client_assertion.
 
 ### Geslaagde reactie
 Een geslaagde reactie ziet er als volgt:
@@ -181,9 +181,9 @@ Een geslaagde reactie ziet er als volgt:
 
 | Parameter | Beschrijving |
 | --- | --- |
-| access_token |Het aangevraagde toegangstoken. De app kunt dit token gebruiken om te verifiëren met de beveiligde bron, zoals een Web-API. |
-| token_type |Geeft de waarde van het type token. Het enige type dat ondersteunt Azure AD is `bearer`. |
-| expires_in |Hoe lang het toegangstoken is ongeldig (in seconden). |
+| access_token |Hallo aangevraagde toegangstoken. Hallo-app kunt dit token tooauthenticate toohello beveiligd resource, zoals tooa Web-API gebruiken. |
+| token_type |Hiermee wordt aangegeven Hallo type token waarde. Hallo alleen type dat ondersteunt Azure AD `bearer`. |
+| expires_in |Hoe lang Hallo toegangstoken is ongeldig (in seconden). |
 
 ### Foutbericht
 Een foutmelding ziet er als volgt:
@@ -191,7 +191,7 @@ Een foutmelding ziet er als volgt:
 ```
 {
   "error": "invalid_scope",
-  "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://foo.microsoft.com/.default is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
+  "error_description": "AADSTS70011: hello provided value for hello input parameter 'scope' is not valid. hello scope https://foo.microsoft.com/.default is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
   "error_codes": [
     70011
   ],
@@ -203,15 +203,15 @@ Een foutmelding ziet er als volgt:
 
 | Parameter | Beschrijving |
 | --- | --- |
-| error |Een tekenreeks van de fout code die u gebruiken kunt voor het classificeren van typen fouten die optreden en om te reageren op fouten. |
-| error_description |Een specifiek foutbericht die u kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
+| error |Een tekenreeks van de fout code die u tooclassify typen fouten die optreden en tooreact tooerrors kunt gebruiken. |
+| error_description |Een specifiek foutbericht die u kan helpen identificeren Hallo hoofdoorzaak van een verificatiefout. |
 | error_codes |Een lijst met foutcodes STS-specifieke die met diagnostische gegevens helpen kunnen. |
-| tijdstempel |De tijd waarop de fout is opgetreden. |
-| trace_id |Een unieke id voor de aanvraag die met diagnostische gegevens helpen kan. |
-| correlation_id |Een unieke id voor de aanvraag die met diagnostische gegevens over de onderdelen helpen kan. |
+| tijdstempel |Hallo tijd waarin Hallo-fout is opgetreden. |
+| trace_id |Een unieke id voor Hallo-aanvraag die u met diagnostische gegevens helpen kan. |
+| correlation_id |Een unieke id voor Hallo-aanvraag die u met diagnostische gegevens over de onderdelen helpen kan. |
 
 ## Gebruik een token
-Nu u een token hebt aangeschaft, gebruiken het token waarmee aanvragen op de resource. Wanneer het token is verlopen, herhaalt u de aanvraag voor de `/token` eindpunt te verkrijgen van een nieuw toegangstoken.
+Nu u een token hebt aangeschaft, gebruiken Hallo token toomake aanvragen toohello resource. Wanneer het Hallo-token is verlopen, herhaalt u Hallo aanvraag toohello `/token` eindpunt tooacquire een nieuw toegangstoken.
 
 ```
 GET /v1.0/me/messages
@@ -220,7 +220,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ```
-// Pro tip: Try the following command! (Replace the token with your own.)
+// Pro tip: Try hello following command! (Replace hello token with your own.)
 ```
 
 ```
@@ -228,4 +228,4 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 ```
 
 ## Codevoorbeeld
-Zie voor een voorbeeld van een toepassing of implementeert de referenties van de client met behulp van de beheerder verleent toestemming eindpunt geven onze [v2.0-daemon-codevoorbeeld](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+een voorbeeld van een toepassing dat implements client referenties grant Hallo via Hallo beheerder toestemming eindpunt toosee Zie onze [v2.0-daemon-codevoorbeeld](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

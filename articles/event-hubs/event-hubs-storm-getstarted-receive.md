@@ -1,5 +1,5 @@
 ---
-title: Ontvangen van gebeurtenissen van Azure Event Hubs met behulp van Apache Storm | Microsoft Docs
+title: gebeurtenissen van Azure Event Hubs met behulp van Apache Storm aaaReceive | Microsoft Docs
 description: Aan de slag van Event Hubs met behulp van Apache Storm ontvangen
 services: event-hubs
 documentationcenter: 
@@ -14,36 +14,36 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3e15370c7602276ef323708632b324fe05497f41
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a0ab860ee8d504a28aac380c504c928f0d6dbc1e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="receive-events-from-event-hubs-using-apache-storm"></a><span data-ttu-id="64291-103">Gebeurtenissen van Event Hubs met behulp van Apache Storm ontvangen</span><span class="sxs-lookup"><span data-stu-id="64291-103">Receive events from Event Hubs using Apache Storm</span></span>
+# <a name="receive-events-from-event-hubs-using-apache-storm"></a><span data-ttu-id="2bf00-103">Gebeurtenissen van Event Hubs met behulp van Apache Storm ontvangen</span><span class="sxs-lookup"><span data-stu-id="2bf00-103">Receive events from Event Hubs using Apache Storm</span></span>
 
-<span data-ttu-id="64291-104">[Apache Storm](https://storm.incubator.apache.org) is een gedistribueerde realtime berekeningssysteem die betrouwbare verwerking van unbounded gegevensstromen vereenvoudigt.</span><span class="sxs-lookup"><span data-stu-id="64291-104">[Apache Storm](https://storm.incubator.apache.org) is a distributed real-time computation system that simplifies reliable processing of unbounded streams of data.</span></span> <span data-ttu-id="64291-105">Deze sectie wordt beschreven hoe u met een Azure Event Hubs Storm spout ontvangen van gebeurtenissen van Event Hubs.</span><span class="sxs-lookup"><span data-stu-id="64291-105">This section shows how to use an Azure Event Hubs Storm spout to receive events from Event Hubs.</span></span> <span data-ttu-id="64291-106">Apache Storm kunt u gebeurtenissen splitsen in meerdere processen die worden gehost in verschillende knooppunten.</span><span class="sxs-lookup"><span data-stu-id="64291-106">Using Apache Storm, you can split events across multiple processes hosted in different nodes.</span></span> <span data-ttu-id="64291-107">De integratie van Event Hubs met Storm vereenvoudigt de gebeurtenis verbruik door transparant plaatsen van controlepunten de voortgang van Storm Zookeeper-installatie, het beheren van permanente controlepunten en parallelle ontvangst van Event Hubs.</span><span class="sxs-lookup"><span data-stu-id="64291-107">The Event Hubs integration with Storm simplifies event consumption by transparently checkpointing its progress using Storm's Zookeeper installation, managing persistent checkpoints and parallel receives from Event Hubs.</span></span>
+<span data-ttu-id="2bf00-104">[Apache Storm](https://storm.incubator.apache.org) is een gedistribueerde realtime berekeningssysteem die betrouwbare verwerking van unbounded gegevensstromen vereenvoudigt.</span><span class="sxs-lookup"><span data-stu-id="2bf00-104">[Apache Storm](https://storm.incubator.apache.org) is a distributed real-time computation system that simplifies reliable processing of unbounded streams of data.</span></span> <span data-ttu-id="2bf00-105">Deze sectie wordt beschreven hoe een Azure Event Hubs Storm toouse spout tooreceive gebeurtenissen van Event Hubs.</span><span class="sxs-lookup"><span data-stu-id="2bf00-105">This section shows how toouse an Azure Event Hubs Storm spout tooreceive events from Event Hubs.</span></span> <span data-ttu-id="2bf00-106">Apache Storm kunt u gebeurtenissen splitsen in meerdere processen die worden gehost in verschillende knooppunten.</span><span class="sxs-lookup"><span data-stu-id="2bf00-106">Using Apache Storm, you can split events across multiple processes hosted in different nodes.</span></span> <span data-ttu-id="2bf00-107">Hallo Event Hubs-integratie met Storm vereenvoudigt de gebeurtenis verbruik door transparant plaatsen van controlepunten de voortgang van Storm Zookeeper-installatie, het beheren van permanente controlepunten en parallelle ontvangst van Event Hubs.</span><span class="sxs-lookup"><span data-stu-id="2bf00-107">hello Event Hubs integration with Storm simplifies event consumption by transparently checkpointing its progress using Storm's Zookeeper installation, managing persistent checkpoints and parallel receives from Event Hubs.</span></span>
 
-<span data-ttu-id="64291-108">Voor meer informatie over Event Hubs ontvangen patronen, Zie de [overzicht van Event Hubs][Event Hubs overview].</span><span class="sxs-lookup"><span data-stu-id="64291-108">For more information about Event Hubs receive patterns, see the [Event Hubs overview][Event Hubs overview].</span></span>
+<span data-ttu-id="2bf00-108">Voor meer informatie over Event Hubs ontvangen patronen, Zie Hallo [overzicht van Event Hubs][Event Hubs overview].</span><span class="sxs-lookup"><span data-stu-id="2bf00-108">For more information about Event Hubs receive patterns, see hello [Event Hubs overview][Event Hubs overview].</span></span>
 
-## <a name="create-project-and-add-code"></a><span data-ttu-id="64291-109">Project maken en voeg code toe</span><span class="sxs-lookup"><span data-stu-id="64291-109">Create project and add code</span></span>
+## <a name="create-project-and-add-code"></a><span data-ttu-id="2bf00-109">Project maken en voeg code toe</span><span class="sxs-lookup"><span data-stu-id="2bf00-109">Create project and add code</span></span>
 
-<span data-ttu-id="64291-110">In deze zelfstudie wordt een [HDInsight Storm] [ HDInsight Storm] installatie, die wordt geleverd met het Event Hubs spout al beschikbaar.</span><span class="sxs-lookup"><span data-stu-id="64291-110">This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which comes with the Event Hubs spout already available.</span></span>
+<span data-ttu-id="2bf00-110">In deze zelfstudie wordt een [HDInsight Storm] [ HDInsight Storm] installatie, die wordt geleverd met Event Hubs spout Hallo al beschikbaar.</span><span class="sxs-lookup"><span data-stu-id="2bf00-110">This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which comes with hello Event Hubs spout already available.</span></span>
 
-1. <span data-ttu-id="64291-111">Ga als volgt de [HDInsight Storm - aan de slag](../hdinsight/hdinsight-storm-overview.md) procedure voor het maken van een nieuwe HDInsight-cluster en er verbinding mee maken via Extern bureaublad.</span><span class="sxs-lookup"><span data-stu-id="64291-111">Follow the [HDInsight Storm - Get Started](../hdinsight/hdinsight-storm-overview.md) procedure to create a new HDInsight cluster, and connect to it via Remote Desktop.</span></span>
-2. <span data-ttu-id="64291-112">Kopieer de `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` bestand op uw lokale ontwikkelomgeving.</span><span class="sxs-lookup"><span data-stu-id="64291-112">Copy the `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` file to your local development environment.</span></span> <span data-ttu-id="64291-113">Deze bevat gebeurtenissen-storm-spout.</span><span class="sxs-lookup"><span data-stu-id="64291-113">This contains the events-storm-spout.</span></span>
-3. <span data-ttu-id="64291-114">Gebruik de volgende opdracht voor het installeren van het pakket in het lokale archief van Maven.</span><span class="sxs-lookup"><span data-stu-id="64291-114">Use the following command to install the package into the local Maven store.</span></span> <span data-ttu-id="64291-115">Hiermee kunt u het toe te voegen als een verwijzing in de Storm-project in een latere stap.</span><span class="sxs-lookup"><span data-stu-id="64291-115">This enables you to add it as a reference in the Storm project in a later step.</span></span>
+1. <span data-ttu-id="2bf00-111">Ga als volgt Hallo [HDInsight Storm - aan de slag](../hdinsight/hdinsight-storm-overview.md) toocreate procedure een nieuwe HDInsight-cluster en tooit via Extern bureaublad verbinding.</span><span class="sxs-lookup"><span data-stu-id="2bf00-111">Follow hello [HDInsight Storm - Get Started](../hdinsight/hdinsight-storm-overview.md) procedure toocreate a new HDInsight cluster, and connect tooit via Remote Desktop.</span></span>
+2. <span data-ttu-id="2bf00-112">Kopiëren Hallo `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` bestand tooyour lokale ontwikkelingsomgeving.</span><span class="sxs-lookup"><span data-stu-id="2bf00-112">Copy hello `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` file tooyour local development environment.</span></span> <span data-ttu-id="2bf00-113">Dit document bevat Hallo gebeurtenissen-storm-spout.</span><span class="sxs-lookup"><span data-stu-id="2bf00-113">This contains hello events-storm-spout.</span></span>
+3. <span data-ttu-id="2bf00-114">Gebruik Hallo volgende opdracht tooinstall Hallo pakket aan Hallo lokale Maven-archief.</span><span class="sxs-lookup"><span data-stu-id="2bf00-114">Use hello following command tooinstall hello package into hello local Maven store.</span></span> <span data-ttu-id="2bf00-115">Hiermee kunt u tooadd als een verwijzing in Hallo Storm-project in een later stadium.</span><span class="sxs-lookup"><span data-stu-id="2bf00-115">This enables you tooadd it as a reference in hello Storm project in a later step.</span></span>
 
     ```shell
     mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
     ```
-4. <span data-ttu-id="64291-116">Maak in Eclipse een nieuw Maven-project (Klik op **bestand**, klikt u vervolgens **nieuw**, klikt u vervolgens **Project**).</span><span class="sxs-lookup"><span data-stu-id="64291-116">In Eclipse, create a new Maven project (click **File**, then **New**, then **Project**).</span></span>
+4. <span data-ttu-id="2bf00-116">Maak in Eclipse een nieuw Maven-project (Klik op **bestand**, klikt u vervolgens **nieuw**, klikt u vervolgens **Project**).</span><span class="sxs-lookup"><span data-stu-id="2bf00-116">In Eclipse, create a new Maven project (click **File**, then **New**, then **Project**).</span></span>
    
     ![][12]
-5. <span data-ttu-id="64291-117">Selecteer **standaard werkruimte gebruiken**, klikt u vervolgens op **volgende**</span><span class="sxs-lookup"><span data-stu-id="64291-117">Select **Use default Workspace location**, then click **Next**</span></span>
-6. <span data-ttu-id="64291-118">Selecteer de **maven-archetype-Quick Start** archetype, klikt u vervolgens op **volgende**</span><span class="sxs-lookup"><span data-stu-id="64291-118">Select the **maven-archetype-quickstart** archetype, then click **Next**</span></span>
-7. <span data-ttu-id="64291-119">Voeg een **GroupId** en **artefact-id**, klikt u vervolgens op **voltooien**</span><span class="sxs-lookup"><span data-stu-id="64291-119">Insert a **GroupId** and **ArtifactId**, then click **Finish**</span></span>
-8. <span data-ttu-id="64291-120">In **pom.xml**, voeg de volgende afhankelijkheden in de `<dependency>` knooppunt.</span><span class="sxs-lookup"><span data-stu-id="64291-120">In **pom.xml**, add the following dependencies in the `<dependency>` node.</span></span>
+5. <span data-ttu-id="2bf00-117">Selecteer **standaard werkruimte gebruiken**, klikt u vervolgens op **volgende**</span><span class="sxs-lookup"><span data-stu-id="2bf00-117">Select **Use default Workspace location**, then click **Next**</span></span>
+6. <span data-ttu-id="2bf00-118">Selecteer Hallo **maven-archetype-Quick Start** archetype, klikt u vervolgens op **volgende**</span><span class="sxs-lookup"><span data-stu-id="2bf00-118">Select hello **maven-archetype-quickstart** archetype, then click **Next**</span></span>
+7. <span data-ttu-id="2bf00-119">Voeg een **GroupId** en **artefact-id**, klikt u vervolgens op **voltooien**</span><span class="sxs-lookup"><span data-stu-id="2bf00-119">Insert a **GroupId** and **ArtifactId**, then click **Finish**</span></span>
+8. <span data-ttu-id="2bf00-120">In **pom.xml**, toevoegen van de volgende afhankelijkheden in Hallo Hallo `<dependency>` knooppunt.</span><span class="sxs-lookup"><span data-stu-id="2bf00-120">In **pom.xml**, add hello following dependencies in hello `<dependency>` node.</span></span>
 
     ```xml  
     <dependency>
@@ -75,7 +75,7 @@ ms.lasthandoff: 08/18/2017
     </dependency>
     ```
 
-9. <span data-ttu-id="64291-121">In de **src** map maken van een bestand met de naam **Config.properties** en kopieer de volgende inhoud, vervangen door de `receive rule key` en `event hub name` waarden:</span><span class="sxs-lookup"><span data-stu-id="64291-121">In the **src** folder, create a file called **Config.properties** and copy the following content, substituting the `receive rule key` and `event hub name` values:</span></span>
+9. <span data-ttu-id="2bf00-121">In Hallo **src** map maken van een bestand met de naam **Config.properties** en kopiëren Hallo inhoud te volgen, vervangen door Hallo `receive rule key` en `event hub name` waarden:</span><span class="sxs-lookup"><span data-stu-id="2bf00-121">In hello **src** folder, create a file called **Config.properties** and copy hello following content, substituting hello `receive rule key` and `event hub name` values:</span></span>
 
     ```java
     eventhubspout.username = ReceiveRule
@@ -90,8 +90,8 @@ ms.lasthandoff: 08/18/2017
     eventhubspout.checkpoint.interval = 10
     eventhub.receiver.credits = 10
     ```
-    <span data-ttu-id="64291-122">De waarde voor **eventhub.receiver.credits** bepaalt het aantal gebeurtenissen in batch worden opgenomen voordat ze vrijgeven aan de Storm-pijplijn.</span><span class="sxs-lookup"><span data-stu-id="64291-122">The value for **eventhub.receiver.credits** determines how many events are batched before releasing them to the Storm pipeline.</span></span> <span data-ttu-id="64291-123">In dit voorbeeld wordt omwille van de eenvoud deze waarde ingesteld op 10.</span><span class="sxs-lookup"><span data-stu-id="64291-123">For the sake of simplicity, this example sets this value to 10.</span></span> <span data-ttu-id="64291-124">In productie, moet deze meestal worden ingesteld op hogere waarden; bijvoorbeeld 1024.</span><span class="sxs-lookup"><span data-stu-id="64291-124">In production, it should usually be set to higher values; for example, 1024.</span></span>
-10. <span data-ttu-id="64291-125">Maak een nieuwe klasse aangeroepen **LoggerBolt** met de volgende code:</span><span class="sxs-lookup"><span data-stu-id="64291-125">Create a new class called **LoggerBolt** with the following code:</span></span>
+    <span data-ttu-id="2bf00-122">waarde voor Hallo **eventhub.receiver.credits** bepaalt hoeveel gebeurtenissen voordat toohello Storm pijplijn in batch worden opgenomen.</span><span class="sxs-lookup"><span data-stu-id="2bf00-122">hello value for **eventhub.receiver.credits** determines how many events are batched before releasing them toohello Storm pipeline.</span></span> <span data-ttu-id="2bf00-123">Dit voorbeeld wordt voor Hallo mogelijk te houden van eenvoud, deze too10 waarde.</span><span class="sxs-lookup"><span data-stu-id="2bf00-123">For hello sake of simplicity, this example sets this value too10.</span></span> <span data-ttu-id="2bf00-124">In productie, meestal ingesteld toohigher waarden; bijvoorbeeld 1024.</span><span class="sxs-lookup"><span data-stu-id="2bf00-124">In production, it should usually be set toohigher values; for example, 1024.</span></span>
+10. <span data-ttu-id="2bf00-125">Maak een nieuwe klasse aangeroepen **LoggerBolt** Hello code te volgen:</span><span class="sxs-lookup"><span data-stu-id="2bf00-125">Create a new class called **LoggerBolt** with hello following code:</span></span>
     
     ```java
     import java.util.Map;
@@ -130,8 +130,8 @@ ms.lasthandoff: 08/18/2017
     }
     ```
     
-    <span data-ttu-id="64291-126">Deze bolt Storm Hiermee wordt de inhoud van de ontvangen gebeurtenissen.</span><span class="sxs-lookup"><span data-stu-id="64291-126">This Storm bolt logs the content of the received events.</span></span> <span data-ttu-id="64291-127">Dit kan eenvoudig worden uitgebreid voor het opslaan van tuples in een storage-service.</span><span class="sxs-lookup"><span data-stu-id="64291-127">This can easily be extended to store tuples in a storage service.</span></span> <span data-ttu-id="64291-128">De [HDInsight sensor analysis zelfstudie] gebruikt deze dezelfde benadering voor het opslaan van gegevens in HBase.</span><span class="sxs-lookup"><span data-stu-id="64291-128">The [HDInsight sensor analysis tutorial] uses this same approach to store data into HBase.</span></span>
-11. <span data-ttu-id="64291-129">Maak een klasse aangeroepen **LogTopology** met de volgende code:</span><span class="sxs-lookup"><span data-stu-id="64291-129">Create a class called **LogTopology** with the following code:</span></span>
+    <span data-ttu-id="2bf00-126">Deze bolt Storm Hiermee Hallo inhoud van Hallo ontvangen gebeurtenissen.</span><span class="sxs-lookup"><span data-stu-id="2bf00-126">This Storm bolt logs hello content of hello received events.</span></span> <span data-ttu-id="2bf00-127">Dit kan eenvoudig worden uitgebreid toostore tuples in een storage-service.</span><span class="sxs-lookup"><span data-stu-id="2bf00-127">This can easily be extended toostore tuples in a storage service.</span></span> <span data-ttu-id="2bf00-128">Hallo [HDInsight sensor analysis zelfstudie] maakt gebruik van deze dezelfde benadering toostore gegevens in HBase.</span><span class="sxs-lookup"><span data-stu-id="2bf00-128">hello [HDInsight sensor analysis tutorial] uses this same approach toostore data into HBase.</span></span>
+11. <span data-ttu-id="2bf00-129">Maak een klasse aangeroepen **LogTopology** Hello code te volgen:</span><span class="sxs-lookup"><span data-stu-id="2bf00-129">Create a class called **LogTopology** with hello following code:</span></span>
     
     ```java
     import java.io.FileReader;
@@ -182,9 +182,9 @@ ms.lasthandoff: 08/18/2017
                     namespaceName, entityPath, partitionCount, zkEndpointAddress,
                     checkpointIntervalInSeconds, receiverCredits);
         
-            // set the number of workers to be the same as partition number.
-            // the idea is to have a spout and a logger bolt co-exist in one
-            // worker to avoid shuffling messages across workers in storm cluster.
+            // set hello number of workers toobe hello same as partition number.
+            // hello idea is toohave a spout and a logger bolt co-exist in one
+            // worker tooavoid shuffling messages across workers in storm cluster.
             numWorkers = spoutConfig.getPartitionCount();
         
             if (args.length > 0) {
@@ -235,19 +235,19 @@ ms.lasthandoff: 08/18/2017
     }
     ```
 
-    <span data-ttu-id="64291-130">Deze klasse wordt gemaakt van een nieuwe Event Hubs-spout met behulp van de eigenschappen in het configuratiebestand om deze te instantiëren.</span><span class="sxs-lookup"><span data-stu-id="64291-130">This class creates a new Event Hubs spout, using the properties in the configuration file to instantiate it.</span></span> <span data-ttu-id="64291-131">Het is belangrijk te weten dat in dit voorbeeld zoveel spouts taken als het aantal partities in de event hub, maakt om te kunnen gebruiken van de maximale parallelle uitvoering toegestaan door de event hub.</span><span class="sxs-lookup"><span data-stu-id="64291-131">It is important to note that this example creates as many spouts tasks as the number of partitions in the event hub, in order to use the maximum parallelism allowed by that event hub.</span></span>
+    <span data-ttu-id="2bf00-130">Deze klasse wordt gemaakt van een nieuwe Event Hubs-spout met Hallo eigenschappen in Hallo configuration file tooinstantiate deze.</span><span class="sxs-lookup"><span data-stu-id="2bf00-130">This class creates a new Event Hubs spout, using hello properties in hello configuration file tooinstantiate it.</span></span> <span data-ttu-id="2bf00-131">Het is belangrijk toonote die in dit voorbeeld zo veel mogelijk maakt spouts taken als Hallo aantal partities in Hallo event hub, in volgorde toouse Hallo maximale parallelle uitvoering toegestaan door de event hub.</span><span class="sxs-lookup"><span data-stu-id="2bf00-131">It is important toonote that this example creates as many spouts tasks as hello number of partitions in hello event hub, in order toouse hello maximum parallelism allowed by that event hub.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="64291-132">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="64291-132">Next steps</span></span>
-<span data-ttu-id="64291-133">U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:</span><span class="sxs-lookup"><span data-stu-id="64291-133">You can learn more about Event Hubs by visiting the following links:</span></span>
+## <a name="next-steps"></a><span data-ttu-id="2bf00-132">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="2bf00-132">Next steps</span></span>
+<span data-ttu-id="2bf00-133">U meer informatie over Event Hubs via Hallo koppelingen te volgen:</span><span class="sxs-lookup"><span data-stu-id="2bf00-133">You can learn more about Event Hubs by visiting hello following links:</span></span>
 
-* <span data-ttu-id="64291-134">[Event Hubs-overzicht][Event Hubs overview]</span><span class="sxs-lookup"><span data-stu-id="64291-134">[Event Hubs overview][Event Hubs overview]</span></span>
-* [<span data-ttu-id="64291-135">Een Event Hub maken</span><span class="sxs-lookup"><span data-stu-id="64291-135">Create an event hub</span></span>](event-hubs-create.md)
-* [<span data-ttu-id="64291-136">Veelgestelde vragen over Event Hubs</span><span class="sxs-lookup"><span data-stu-id="64291-136">Event Hubs FAQ</span></span>](event-hubs-faq.md)
+* <span data-ttu-id="2bf00-134">[Event Hubs-overzicht][Event Hubs overview]</span><span class="sxs-lookup"><span data-stu-id="2bf00-134">[Event Hubs overview][Event Hubs overview]</span></span>
+* [<span data-ttu-id="2bf00-135">Een Event Hub maken</span><span class="sxs-lookup"><span data-stu-id="2bf00-135">Create an event hub</span></span>](event-hubs-create.md)
+* [<span data-ttu-id="2bf00-136">Veelgestelde vragen over Event Hubs</span><span class="sxs-lookup"><span data-stu-id="2bf00-136">Event Hubs FAQ</span></span>](event-hubs-faq.md)
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
-<span data-ttu-id="64291-137">[HDInsight sensor analysis zelfstudie]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md</span><span class="sxs-lookup"><span data-stu-id="64291-137">[HDInsight sensor analysis tutorial]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md</span></span>
+[HDInsight sensor analysis zelfstudie]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 
 <!-- Images -->
 

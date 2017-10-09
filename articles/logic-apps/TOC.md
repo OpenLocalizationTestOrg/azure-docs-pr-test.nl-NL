@@ -7,7 +7,7 @@
 ## [Een logische app maken](logic-apps-create-a-logic-app.md)
 ## [Sjablonen voor logische apps](logic-apps-use-logic-app-templates.md)
 ## [Logische apps maken met sjablonen](logic-apps-arm-provision.md)
-## [MABS-apps verplaatsen naar logische apps](logic-apps-move-from-mabs.md)
+## [MABS apps toologic apps verplaatsen](logic-apps-move-from-mabs.md)
 
 # Procedures
 ## Ontwikkelen
@@ -46,7 +46,7 @@
 ### [EDIFACT-bedrijfsintegratie](logic-apps-enterprise-integration-edifact.md)
 ### [EDIFACT-codering](logic-apps-enterprise-integration-edifact-encode.md)
 ### [EDIFACT-decodering](logic-apps-enterprise-integration-edifact-decode.md)
-### [EDIFACT-documenten met een UNH2.5-segment verwerken](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
+### [Hoe toohandle EDIFACT documenten met een segment UNH2.5](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 ### [X12-bedrijfsintegratie](logic-apps-enterprise-integration-x12.md)
 ### [X12-codering](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12-decodering](logic-apps-enterprise-integration-x12-decode.md)
@@ -54,7 +54,7 @@
 ### [Fouten en oplossingen](logic-apps-enterprise-integration-b2b-list-errors-solutions.md)
 
 ## Toegang tot on-premises gegevens
-### [Verbinding maken met on-premises gegevens](logic-apps-gateway-connection.md)
+### [Verbinding maken met tooon lokale gegevens](logic-apps-gateway-connection.md)
 ### [Gegevensgateway installeren](logic-apps-gateway-install.md)
 
 ## Automatiseren en implementeren

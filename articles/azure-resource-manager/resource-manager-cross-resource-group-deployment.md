@@ -1,6 +1,6 @@
 ---
-title: Azure-resources implementeren op meerdere resourcegroepen | Microsoft Docs
-description: "Laat zien hoe u meer dan één Azure-resourcegroep als doel tijdens de implementatie."
+title: aaaDeploy Azure-resources toomultiple resourcegroepen | Microsoft Docs
+description: "Toont hoe tootarget meer dan één Azure-resource groep tijdens de implementatie."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: d8b041213b269775175a810e585103d3c538557f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 93a39a26e0ca18dfcb5c6e8de95c38a64186d6de
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-azure-resources-to-more-than-one-resource-group"></a><span data-ttu-id="b9bf0-103">Azure-resources implementeren op meer dan één resourcegroep</span><span class="sxs-lookup"><span data-stu-id="b9bf0-103">Deploy Azure resources to more than one resource group</span></span>
+# <a name="deploy-azure-resources-toomore-than-one-resource-group"></a><span data-ttu-id="4719f-103">Azure-resources toomore dan één resourcegroep implementeren</span><span class="sxs-lookup"><span data-stu-id="4719f-103">Deploy Azure resources toomore than one resource group</span></span>
 
-<span data-ttu-id="b9bf0-104">Normaal gesproken implementeren u alle resources in de sjabloon één resourcegroep.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-104">Typically, you deploy all the resources in your template to a single resource group.</span></span> <span data-ttu-id="b9bf0-105">Er zijn echter scenario's waarin u wilt implementeren van een set resources samen, maar in verschillende resourcegroepen plaatsen.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-105">However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups.</span></span> <span data-ttu-id="b9bf0-106">U wilt bijvoorbeeld de back-virtuele machine voor Azure Site Recovery implementeert naar een afzonderlijke resourcegroep en locatie.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-106">For example, you may want to deploy the backup virtual machine for Azure Site Recovery to a separate resource group and location.</span></span> <span data-ttu-id="b9bf0-107">Resource Manager kunt u geneste sjablonen met verschillende resourcegroepen bevinden dan de resourcegroep voor de bovenliggende sjabloon gebruikt als doel.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-107">Resource Manager enables you to use nested templates to target different resource groups than the resource group used for the parent template.</span></span>
+<span data-ttu-id="4719f-104">Normaal gesproken implementeren u alle Hallo resources in uw sjabloon tooa één resource-groep.</span><span class="sxs-lookup"><span data-stu-id="4719f-104">Typically, you deploy all hello resources in your template tooa single resource group.</span></span> <span data-ttu-id="4719f-105">Er zijn echter scenario's waarbij u toodeploy een set resources samen, maar in verschillende resourcegroepen plaatsen.</span><span class="sxs-lookup"><span data-stu-id="4719f-105">However, there are scenarios where you want toodeploy a set of resources together but place them in different resource groups.</span></span> <span data-ttu-id="4719f-106">U kunt bijvoorbeeld toodeploy Hallo back-virtuele machine voor Azure Site Recovery tooa afzonderlijke resourcegroep en locatie.</span><span class="sxs-lookup"><span data-stu-id="4719f-106">For example, you may want toodeploy hello backup virtual machine for Azure Site Recovery tooa separate resource group and location.</span></span> <span data-ttu-id="4719f-107">Resource Manager kunt u toouse geneste sjablonen tootarget verschillende resourcegroepen bevinden dan Hallo resourcegroep gebruikt voor Hallo bovenliggende sjabloon.</span><span class="sxs-lookup"><span data-stu-id="4719f-107">Resource Manager enables you toouse nested templates tootarget different resource groups than hello resource group used for hello parent template.</span></span>
 
-<span data-ttu-id="b9bf0-108">De resourcegroep is de container levenscyclus voor de toepassing en de verzameling van resources.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-108">The resource group is the lifecycle container for the application and its collection of resources.</span></span> <span data-ttu-id="b9bf0-109">U maakt de resourcegroep buiten de sjabloon en geef de resourcegroep toe te passen tijdens de implementatie.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-109">You create the resource group outside of the template, and specify the resource group to target during deployment.</span></span> <span data-ttu-id="b9bf0-110">Zie voor een inleiding tot resourcegroepen, [overzicht van Azure Resource Manager](resource-group-overview.md).</span><span class="sxs-lookup"><span data-stu-id="b9bf0-110">For an introduction to resource groups, see [Azure Resource Manager overview](resource-group-overview.md).</span></span>
+<span data-ttu-id="4719f-108">Hallo-resourcegroep is Hallo lifecycle container voor de toepassing hello en de verzameling van resources.</span><span class="sxs-lookup"><span data-stu-id="4719f-108">hello resource group is hello lifecycle container for hello application and its collection of resources.</span></span> <span data-ttu-id="4719f-109">U de resourcegroep Hallo buiten Hallo-sjabloon maken en Hallo resource groep tootarget opgeven tijdens de implementatie.</span><span class="sxs-lookup"><span data-stu-id="4719f-109">You create hello resource group outside of hello template, and specify hello resource group tootarget during deployment.</span></span> <span data-ttu-id="4719f-110">Zie voor een inleiding tooresource groepen, [overzicht van Azure Resource Manager](resource-group-overview.md).</span><span class="sxs-lookup"><span data-stu-id="4719f-110">For an introduction tooresource groups, see [Azure Resource Manager overview](resource-group-overview.md).</span></span>
 
-## <a name="example-template"></a><span data-ttu-id="b9bf0-111">Van de voorbeeldsjabloon</span><span class="sxs-lookup"><span data-stu-id="b9bf0-111">Example template</span></span>
+## <a name="example-template"></a><span data-ttu-id="4719f-111">Van de voorbeeldsjabloon</span><span class="sxs-lookup"><span data-stu-id="4719f-111">Example template</span></span>
 
-<span data-ttu-id="b9bf0-112">Als u wilt richten op een andere resource, moet u een sjabloon geneste of gekoppelde tijdens de implementatie.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-112">To target a different resource, you must use a nested or linked template during deployment.</span></span> <span data-ttu-id="b9bf0-113">De `Microsoft.Resources/deployments` brontype beschikt over een `resourceGroup` parameter waarmee u een andere resourcegroep voor de geneste implementatie opgeven.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-113">The `Microsoft.Resources/deployments` resource type provides a `resourceGroup` parameter that enables you to specify a different resource group for the nested deployment.</span></span> <span data-ttu-id="b9bf0-114">Alle brongroepen moeten bestaan voordat de implementatie wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-114">All the resource groups must exist before running the deployment.</span></span> <span data-ttu-id="b9bf0-115">Het volgende voorbeeld worden twee storage-accounts: in de resourcegroep die is opgegeven tijdens de implementatie, geïmplementeerd en één in een resourcegroep met de naam `crossResourceGroupDeployment`:</span><span class="sxs-lookup"><span data-stu-id="b9bf0-115">The following example deploys two storage accounts - one in the resource group specified during deployment, and one in a resource group named `crossResourceGroupDeployment`:</span></span>
+<span data-ttu-id="4719f-112">een andere resource tootarget, moet u een sjabloon geneste of gekoppelde gebruiken tijdens de implementatie.</span><span class="sxs-lookup"><span data-stu-id="4719f-112">tootarget a different resource, you must use a nested or linked template during deployment.</span></span> <span data-ttu-id="4719f-113">Hallo `Microsoft.Resources/deployments` brontype beschikt over een `resourceGroup` parameter waarmee u een andere resourcegroep voor Hallo toospecify geneste implementatie.</span><span class="sxs-lookup"><span data-stu-id="4719f-113">hello `Microsoft.Resources/deployments` resource type provides a `resourceGroup` parameter that enables you toospecify a different resource group for hello nested deployment.</span></span> <span data-ttu-id="4719f-114">Alle brongroepen voor Hallo moeten bestaan voordat Hallo-implementatie wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="4719f-114">All hello resource groups must exist before running hello deployment.</span></span> <span data-ttu-id="4719f-115">Hallo volgende voorbeeld implementeert twee storage-accounts: een in de resourcegroep Hallo opgegeven tijdens de implementatie, en één in een resourcegroep met de naam `crossResourceGroupDeployment`:</span><span class="sxs-lookup"><span data-stu-id="4719f-115">hello following example deploys two storage accounts - one in hello resource group specified during deployment, and one in a resource group named `crossResourceGroupDeployment`:</span></span>
 
 ```json
 {
@@ -83,13 +83,13 @@ ms.lasthandoff: 07/11/2017
 }
 ```
 
-<span data-ttu-id="b9bf0-116">Als u instelt `resourceGroup` op de naam van een resourcegroep die niet bestaat, mislukt de implementatie.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-116">If you set `resourceGroup` to the name of a resource group that does not exist, the deployment fails.</span></span> <span data-ttu-id="b9bf0-117">Als u een waarde op voor geen specifieke `resourceGroup`, Resource Manager maakt gebruik van de bovenliggende resource-groep.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-117">If you do not provide a value for `resourceGroup`, Resource Manager uses the parent resource group.</span></span>  
+<span data-ttu-id="4719f-116">Als u instelt `resourceGroup` toohello-naam van een resourcegroep die niet bestaat, Hallo implementatie mislukt.</span><span class="sxs-lookup"><span data-stu-id="4719f-116">If you set `resourceGroup` toohello name of a resource group that does not exist, hello deployment fails.</span></span> <span data-ttu-id="4719f-117">Als u een waarde op voor geen specifieke `resourceGroup`, Hallo bovenliggende resourcegroep maakt gebruik van Resource Manager.</span><span class="sxs-lookup"><span data-stu-id="4719f-117">If you do not provide a value for `resourceGroup`, Resource Manager uses hello parent resource group.</span></span>  
 
-## <a name="deploy-the-template"></a><span data-ttu-id="b9bf0-118">De sjabloon implementeren</span><span class="sxs-lookup"><span data-stu-id="b9bf0-118">Deploy the template</span></span>
+## <a name="deploy-hello-template"></a><span data-ttu-id="4719f-118">Hallo-sjabloon implementeren</span><span class="sxs-lookup"><span data-stu-id="4719f-118">Deploy hello template</span></span>
 
-<span data-ttu-id="b9bf0-119">U kunt de portal, Azure PowerShell of Azure CLI gebruiken voor het implementeren van de voorbeeldsjabloon.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-119">To deploy the example template, you can use the portal, Azure PowerShell, or Azure CLI.</span></span> <span data-ttu-id="b9bf0-120">Voor Azure PowerShell of Azure CLI, moet u een release in mei 2017 of hoger.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-120">For Azure PowerShell or Azure CLI, you must use a release from May 2017 or later.</span></span> <span data-ttu-id="b9bf0-121">De voorbeelden wordt ervan uitgegaan dat u de sjabloon lokaal hebt opgeslagen als een bestand met de naam **crossrgdeployment.json**.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-121">The examples assume you have saved the template locally as a file named **crossrgdeployment.json**.</span></span>
+<span data-ttu-id="4719f-119">toodeploy hello voorbeeldsjabloon, kunt u Hallo-portal, Azure PowerShell of Azure CLI.</span><span class="sxs-lookup"><span data-stu-id="4719f-119">toodeploy hello example template, you can use hello portal, Azure PowerShell, or Azure CLI.</span></span> <span data-ttu-id="4719f-120">Voor Azure PowerShell of Azure CLI, moet u een release in mei 2017 of hoger.</span><span class="sxs-lookup"><span data-stu-id="4719f-120">For Azure PowerShell or Azure CLI, you must use a release from May 2017 or later.</span></span> <span data-ttu-id="4719f-121">Hallo voorbeelden wordt ervan uitgegaan dat u hebt Hallo sjabloon lokaal opgeslagen als een bestand met de naam **crossrgdeployment.json**.</span><span class="sxs-lookup"><span data-stu-id="4719f-121">hello examples assume you have saved hello template locally as a file named **crossrgdeployment.json**.</span></span>
 
-<span data-ttu-id="b9bf0-122">Voor PowerShell:</span><span class="sxs-lookup"><span data-stu-id="b9bf0-122">For PowerShell:</span></span>
+<span data-ttu-id="4719f-122">Voor PowerShell:</span><span class="sxs-lookup"><span data-stu-id="4719f-122">For PowerShell:</span></span>
 
 ```powershell
 Login-AzureRmAccount
@@ -100,7 +100,7 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ma
   -TemplateFile c:\MyTemplates\crossrgdeployment.json
 ```
 
-<span data-ttu-id="b9bf0-123">Voor Azure CLI:</span><span class="sxs-lookup"><span data-stu-id="b9bf0-123">For Azure CLI:</span></span>
+<span data-ttu-id="4719f-123">Voor Azure CLI:</span><span class="sxs-lookup"><span data-stu-id="4719f-123">For Azure CLI:</span></span>
 
 ```azurecli
 az login
@@ -113,13 +113,13 @@ az group deployment create \
     --template-file crossrgdeployment.json
 ```
 
-<span data-ttu-id="b9bf0-124">Nadat de implementatie is voltooid, ziet u twee resourcegroepen.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-124">After deployment completes, you see two resource groups.</span></span> <span data-ttu-id="b9bf0-125">Elke resourcegroep bevat een opslagaccount.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-125">Each resource group contains a storage account.</span></span>
+<span data-ttu-id="4719f-124">Nadat de implementatie is voltooid, ziet u twee resourcegroepen.</span><span class="sxs-lookup"><span data-stu-id="4719f-124">After deployment completes, you see two resource groups.</span></span> <span data-ttu-id="4719f-125">Elke resourcegroep bevat een opslagaccount.</span><span class="sxs-lookup"><span data-stu-id="4719f-125">Each resource group contains a storage account.</span></span>
 
-## <a name="use-resourcegroup-function"></a><span data-ttu-id="b9bf0-126">Gebruik de functie resourceGroup()</span><span class="sxs-lookup"><span data-stu-id="b9bf0-126">Use resourceGroup() function</span></span>
+## <a name="use-resourcegroup-function"></a><span data-ttu-id="4719f-126">Gebruik de functie resourceGroup()</span><span class="sxs-lookup"><span data-stu-id="4719f-126">Use resourceGroup() function</span></span>
 
-<span data-ttu-id="b9bf0-127">Voor cross-resourcegroepimplementaties, de [resouceGroup() functie](resource-group-template-functions-resource.md#resourcegroup) wordt omgezet is anders op basis van hoe u de geneste sjabloon opgeven.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-127">For cross resource group deployments, the [resouceGroup() function](resource-group-template-functions-resource.md#resourcegroup) resolves differently based on how you specify the nested template.</span></span> 
+<span data-ttu-id="4719f-127">Voor cross-resourcegroepimplementaties, hello [resouceGroup() functie](resource-group-template-functions-resource.md#resourcegroup) wordt omgezet is anders op basis van hoe u Hallo geneste sjabloon opgeven.</span><span class="sxs-lookup"><span data-stu-id="4719f-127">For cross resource group deployments, hello [resouceGroup() function](resource-group-template-functions-resource.md#resourcegroup) resolves differently based on how you specify hello nested template.</span></span> 
 
-<span data-ttu-id="b9bf0-128">Als u een sjabloon in een andere sjabloon insluit, is resouceGroup() in de geneste sjabloon wordt omgezet naar de bovenliggende resource-groep.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-128">If you embed one template within another template, resouceGroup() in the nested template resolves to the parent resource group.</span></span> <span data-ttu-id="b9bf0-129">Een ingesloten sjabloon maakt gebruik van de volgende indeling:</span><span class="sxs-lookup"><span data-stu-id="b9bf0-129">An embedded template uses the following format:</span></span>
+<span data-ttu-id="4719f-128">Als u een sjabloon in een andere sjabloon insluit, opgelost resouceGroup() in geneste sjabloon Hallo toohello bovenliggende resourcegroep.</span><span class="sxs-lookup"><span data-stu-id="4719f-128">If you embed one template within another template, resouceGroup() in hello nested template resolves toohello parent resource group.</span></span> <span data-ttu-id="4719f-129">Een ingesloten sjabloon maakt gebruik van Hallo volgende indeling:</span><span class="sxs-lookup"><span data-stu-id="4719f-129">An embedded template uses hello following format:</span></span>
 
 ```json
 "apiVersion": "2017-05-10",
@@ -130,12 +130,12 @@ az group deployment create \
     "mode": "Incremental",
     "template": {
         ...
-        resourceGroup() refers to parent resource group
+        resourceGroup() refers tooparent resource group
     }
 }
 ```
 
-<span data-ttu-id="b9bf0-130">Als u een koppeling naar een afzonderlijke sjabloon, wordt resouceGroup() in de gekoppelde sjabloon omgezet in de geneste resourcegroep.</span><span class="sxs-lookup"><span data-stu-id="b9bf0-130">If you link to a separate template, resouceGroup() in the linked template resolves to the nested resource group.</span></span> <span data-ttu-id="b9bf0-131">Een gekoppelde sjabloon maakt gebruik van de volgende indeling:</span><span class="sxs-lookup"><span data-stu-id="b9bf0-131">A linked template uses the following format:</span></span>
+<span data-ttu-id="4719f-130">Als u afzonderlijke sjabloon tooa koppelt, oplossing resouceGroup() in de gekoppelde sjabloon Hallo toohello geneste resourcegroep.</span><span class="sxs-lookup"><span data-stu-id="4719f-130">If you link tooa separate template, resouceGroup() in hello linked template resolves toohello nested resource group.</span></span> <span data-ttu-id="4719f-131">Een gekoppelde sjabloon maakt gebruik van Hallo volgende indeling:</span><span class="sxs-lookup"><span data-stu-id="4719f-131">A linked template uses hello following format:</span></span>
 
 ```json
 "apiVersion": "2017-05-10",
@@ -146,13 +146,13 @@ az group deployment create \
     "mode": "Incremental",
     "templateLink": {
         ...
-        resourceGroup() in linked template refers to linked resource group
+        resourceGroup() in linked template refers toolinked resource group
     }
 }
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="b9bf0-132">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="b9bf0-132">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="4719f-132">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="4719f-132">Next steps</span></span>
 
-* <span data-ttu-id="b9bf0-133">Om te begrijpen hoe parameters in de sjabloon definieert, Zie [inzicht in de structuur en de syntaxis van Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).</span><span class="sxs-lookup"><span data-stu-id="b9bf0-133">To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).</span></span>
-* <span data-ttu-id="b9bf0-134">Zie voor tips over het oplossen van algemene implementatiefouten [oplossen van veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager](resource-manager-common-deployment-errors.md).</span><span class="sxs-lookup"><span data-stu-id="b9bf0-134">For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).</span></span>
-* <span data-ttu-id="b9bf0-135">Zie voor meer informatie over het implementeren van een sjabloon waarvoor een SAS-token [persoonlijke sjabloon implementeren met SAS-token](resource-manager-powershell-sas-token.md).</span><span class="sxs-lookup"><span data-stu-id="b9bf0-135">For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-powershell-sas-token.md).</span></span>
+* <span data-ttu-id="4719f-133">hoe toodefine-parameters in de sjabloon zien toounderstand [begrijpen Hallo structuur en syntaxis van Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).</span><span class="sxs-lookup"><span data-stu-id="4719f-133">toounderstand how toodefine parameters in your template, see [Understand hello structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).</span></span>
+* <span data-ttu-id="4719f-134">Zie voor tips over het oplossen van algemene implementatiefouten [oplossen van veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager](resource-manager-common-deployment-errors.md).</span><span class="sxs-lookup"><span data-stu-id="4719f-134">For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).</span></span>
+* <span data-ttu-id="4719f-135">Zie voor meer informatie over het implementeren van een sjabloon waarvoor een SAS-token [persoonlijke sjabloon implementeren met SAS-token](resource-manager-powershell-sas-token.md).</span><span class="sxs-lookup"><span data-stu-id="4719f-135">For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-powershell-sas-token.md).</span></span>

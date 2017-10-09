@@ -1,0 +1,51 @@
+- name: Container Instances
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Over Azure Container Instances
+      href: container-instances-overview.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: Een container maken
+      href: container-instances-quickstart.md
+- name: Zelfstudies
+  items:
+    - name: Een container bouwen en implementeren
+      items:
+        - name: 1 - Een containerinstallatiekopie maken
+          href: container-instances-tutorial-prepare-app.md
+        - name: 2 - Een containerregister maken
+          href: container-instances-tutorial-prepare-acr.md
+        - name: 3 - De app implementeren
+          href: container-instances-tutorial-deploy-app.md
+- name: Concepten
+  items:
+    - name: Relatie met orchestrators
+      href: container-instances-orchestrator-relationship.md
+    - name: Containergroepen
+      href: container-instances-container-groups.md
+- name: Handleidingen
+  items:
+    - name: Groepen met meerdere containers implementeren
+      href: container-instances-multi-container-group.md
+    - name: Status beheren met Azure-bestandsshares
+      href: container-instances-mounting-azure-files-volume.md
+    - name: Implementeren vanuit Azure Container Registry
+      href: container-instances-using-azure-container-registry.md
+    - name: Problemen met implementaties in Azure Container Instances oplossen
+      href: container-instances-troubleshooting.md
+- name: Naslaginformatie
+  items:
+    - name: Azure CLI 2.0
+      href: /cli/azure/container
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Sjablonen - Container Instances
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Beschikbaarheid in regio’s
+      href: 'https://azure.microsoft.com/regions/services/'

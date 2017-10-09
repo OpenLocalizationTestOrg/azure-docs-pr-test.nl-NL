@@ -1,6 +1,6 @@
 ---
-title: Weer prognose met Azure Machine Learning met gegevens uit IoT Hub | Microsoft Docs
-description: Gebruik Azure Machine Learning de kans op regen voorspellen op basis van de temperatuur en vochtigheid die uw IoT-hub uit een sensor verzamelt.
+title: aaaWeather prognose met Azure Machine Learning met gegevens uit IoT Hub | Microsoft Docs
+description: Azure Machine Learning regen toopredict Hallo kans op basis van Hallo temperatuur en vochtigheid gegevens die uw IoT-hub worden verzameld van een sensor gebruiken.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,144 +15,144 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 50ae54b9476c49b80236e295c0bf244df8236cff
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 04abe97558ccfc152bae2e0d435033433c0023dd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a><span data-ttu-id="8a421-104">Weer voorspellen met behulp van de sensorgegevens uit uw IoT-hub in Azure Machine Learning</span><span class="sxs-lookup"><span data-stu-id="8a421-104">Weather forecast using the sensor data from your IoT hub in Azure Machine Learning</span></span>
+# <a name="weather-forecast-using-hello-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a><span data-ttu-id="55b92-104">Weer voor de prognose met Hallo sensorgegevens uit uw IoT-hub in Azure Machine Learning</span><span class="sxs-lookup"><span data-stu-id="55b92-104">Weather forecast using hello sensor data from your IoT hub in Azure Machine Learning</span></span>
 
 ![End-to-end-diagram](media/iot-hub-get-started-e2e-diagram/6.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-<span data-ttu-id="8a421-106">Machine learning is een techniek voor gegevenswetenschap waarmee computers leren van bestaande gegevens te voorspellen van toekomstige gedrag, resultaten en trends.</span><span class="sxs-lookup"><span data-stu-id="8a421-106">Machine learning is a technique of data science that helps computers learn from existing data to forecast future behaviors, outcomes, and trends.</span></span> <span data-ttu-id="8a421-107">Azure Machine Learning is een cloudservice voor predictive analytics waarmee u snel voorspellende modellen kunt maken en implementeren als analytics-oplossingen.</span><span class="sxs-lookup"><span data-stu-id="8a421-107">Azure Machine Learning is a cloud predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions.</span></span>
+<span data-ttu-id="55b92-106">Machine learning is een techniek voor gegevenswetenschap waarmee computers leren van bestaande gegevens tooforecast toekomstig gedrag, resultaten en trends.</span><span class="sxs-lookup"><span data-stu-id="55b92-106">Machine learning is a technique of data science that helps computers learn from existing data tooforecast future behaviors, outcomes, and trends.</span></span> <span data-ttu-id="55b92-107">Azure Machine Learning is een cloudservice voor predictive analytics waarmee u mogelijke tooquickly kunt maken en implementeren van voorspellende modellen als analytics-oplossingen.</span><span class="sxs-lookup"><span data-stu-id="55b92-107">Azure Machine Learning is a cloud predictive analytics service that makes it possible tooquickly create and deploy predictive models as analytics solutions.</span></span>
 
-## <a name="what-you-learn"></a><span data-ttu-id="8a421-108">Wat u leert</span><span class="sxs-lookup"><span data-stu-id="8a421-108">What you learn</span></span>
+## <a name="what-you-learn"></a><span data-ttu-id="55b92-108">Wat u leert</span><span class="sxs-lookup"><span data-stu-id="55b92-108">What you learn</span></span>
 
-<span data-ttu-id="8a421-109">U leert hoe u met Azure Machine Learning weerbericht prognose (kans regen) met behulp van de temperatuur en vochtigheid gegevens van uw Azure-IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="8a421-109">You learn how to use Azure Machine Learning to do weather forecast (chance of rain) using the temperature and humidity data from your Azure IoT hub.</span></span> <span data-ttu-id="8a421-110">De kans op regen is de uitvoer van een model van de voorspelling voorbereide weer.</span><span class="sxs-lookup"><span data-stu-id="8a421-110">The chance of rain is the output of a prepared weather prediction model.</span></span> <span data-ttu-id="8a421-111">Het model is gebaseerd op historische gegevens te voorspellen op basis van temperatuur en vochtigheid regen kans.</span><span class="sxs-lookup"><span data-stu-id="8a421-111">The model is built upon historic data to forecast chance of rain based on temperature and humidity.</span></span>
+<span data-ttu-id="55b92-109">U leert hoe toouse Azure Machine Learning toodo weer prognose (kans regen) met behulp van Hallo temperatuur en vochtigheid gegevens van uw Azure-IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="55b92-109">You learn how toouse Azure Machine Learning toodo weather forecast (chance of rain) using hello temperature and humidity data from your Azure IoT hub.</span></span> <span data-ttu-id="55b92-110">Hallo kans regen is Hallo-uitvoer van een model van de voorspelling voorbereide weer.</span><span class="sxs-lookup"><span data-stu-id="55b92-110">hello chance of rain is hello output of a prepared weather prediction model.</span></span> <span data-ttu-id="55b92-111">Hallo-model is gebaseerd op historische gegevens tooforecast kans regen op basis van temperatuur en vochtigheid.</span><span class="sxs-lookup"><span data-stu-id="55b92-111">hello model is built upon historic data tooforecast chance of rain based on temperature and humidity.</span></span>
 
-## <a name="what-you-do"></a><span data-ttu-id="8a421-112">Wat u doet</span><span class="sxs-lookup"><span data-stu-id="8a421-112">What you do</span></span>
+## <a name="what-you-do"></a><span data-ttu-id="55b92-112">Wat u doet</span><span class="sxs-lookup"><span data-stu-id="55b92-112">What you do</span></span>
 
-- <span data-ttu-id="8a421-113">Het model van de voorspelling weer als een webservice implementeren.</span><span class="sxs-lookup"><span data-stu-id="8a421-113">Deploy the weather prediction model as a web service.</span></span>
-- <span data-ttu-id="8a421-114">Bereid uw IoT-hub voor toegang tot gegevens door een consumergroep toe te voegen.</span><span class="sxs-lookup"><span data-stu-id="8a421-114">Get your IoT hub ready for data access by adding a consumer group.</span></span>
-- <span data-ttu-id="8a421-115">Een Stream Analytics-taak maken en configureren van de taak is:</span><span class="sxs-lookup"><span data-stu-id="8a421-115">Create a Stream Analytics job and configure the job to:</span></span>
-  - <span data-ttu-id="8a421-116">Temperatuur en vochtigheid gegevens lezen uit uw IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="8a421-116">Read temperature and humidity data from your IoT hub.</span></span>
-  - <span data-ttu-id="8a421-117">De webservice om de kans op regen aanroept.</span><span class="sxs-lookup"><span data-stu-id="8a421-117">Call the web service to get the rain chance.</span></span>
-  - <span data-ttu-id="8a421-118">Het resultaat opslaan naar een Azure blob storage.</span><span class="sxs-lookup"><span data-stu-id="8a421-118">Save the result to an Azure blob storage.</span></span>
-- <span data-ttu-id="8a421-119">Microsoft Azure Storage Explorer gebruiken om weer te geven van de prognose weer.</span><span class="sxs-lookup"><span data-stu-id="8a421-119">Use Microsoft Azure Storage Explorer to view the weather forecast.</span></span>
+- <span data-ttu-id="55b92-113">Hallo weer voorspellingsmodel implementeren als een webservice.</span><span class="sxs-lookup"><span data-stu-id="55b92-113">Deploy hello weather prediction model as a web service.</span></span>
+- <span data-ttu-id="55b92-114">Bereid uw IoT-hub voor toegang tot gegevens door een consumergroep toe te voegen.</span><span class="sxs-lookup"><span data-stu-id="55b92-114">Get your IoT hub ready for data access by adding a consumer group.</span></span>
+- <span data-ttu-id="55b92-115">Een Stream Analytics-taak maken en Hallo taak te configureren:</span><span class="sxs-lookup"><span data-stu-id="55b92-115">Create a Stream Analytics job and configure hello job to:</span></span>
+  - <span data-ttu-id="55b92-116">Temperatuur en vochtigheid gegevens lezen uit uw IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="55b92-116">Read temperature and humidity data from your IoT hub.</span></span>
+  - <span data-ttu-id="55b92-117">Hallo web service tooget Hallo regen kans aanroepen.</span><span class="sxs-lookup"><span data-stu-id="55b92-117">Call hello web service tooget hello rain chance.</span></span>
+  - <span data-ttu-id="55b92-118">Sla Hallo resultaat tooan Azure blob-opslag.</span><span class="sxs-lookup"><span data-stu-id="55b92-118">Save hello result tooan Azure blob storage.</span></span>
+- <span data-ttu-id="55b92-119">Microsoft Azure Storage Explorer tooview Hallo weer prognose gebruiken.</span><span class="sxs-lookup"><span data-stu-id="55b92-119">Use Microsoft Azure Storage Explorer tooview hello weather forecast.</span></span>
 
-## <a name="what-you-need"></a><span data-ttu-id="8a421-120">Wat u nodig hebt</span><span class="sxs-lookup"><span data-stu-id="8a421-120">What you need</span></span>
+## <a name="what-you-need"></a><span data-ttu-id="55b92-120">Wat u nodig hebt</span><span class="sxs-lookup"><span data-stu-id="55b92-120">What you need</span></span>
 
-- <span data-ttu-id="8a421-121">Zelfstudie [instellen van uw apparaat](iot-hub-raspberry-pi-kit-node-get-started.md) voltooid die wordt ingegaan op de volgende vereisten:</span><span class="sxs-lookup"><span data-stu-id="8a421-121">Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:</span></span>
-  - <span data-ttu-id="8a421-122">Een actief Azure-abonnement.</span><span class="sxs-lookup"><span data-stu-id="8a421-122">An active Azure subscription.</span></span>
-  - <span data-ttu-id="8a421-123">Een Azure-IoT-hub in uw abonnement.</span><span class="sxs-lookup"><span data-stu-id="8a421-123">An Azure IoT hub under your subscription.</span></span>
-  - <span data-ttu-id="8a421-124">Een clienttoepassing dat berichten naar uw Azure-IoT-hub verzendt.</span><span class="sxs-lookup"><span data-stu-id="8a421-124">A client application that sends messages to your Azure IoT hub.</span></span>
-- <span data-ttu-id="8a421-125">Een Azure Machine Learning Studio-account.</span><span class="sxs-lookup"><span data-stu-id="8a421-125">An Azure Machine Learning Studio account.</span></span> <span data-ttu-id="8a421-126">([Machine Learning Studio gratis proberen](https://studio.azureml.net/)).</span><span class="sxs-lookup"><span data-stu-id="8a421-126">([Try Machine Learning Studio for free](https://studio.azureml.net/)).</span></span>
+- <span data-ttu-id="55b92-121">Zelfstudie [instellen van uw apparaat](iot-hub-raspberry-pi-kit-node-get-started.md) voltooid die Hallo volgens de vereisten worden behandeld:</span><span class="sxs-lookup"><span data-stu-id="55b92-121">Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers hello following requirements:</span></span>
+  - <span data-ttu-id="55b92-122">Een actief Azure-abonnement.</span><span class="sxs-lookup"><span data-stu-id="55b92-122">An active Azure subscription.</span></span>
+  - <span data-ttu-id="55b92-123">Een Azure-IoT-hub in uw abonnement.</span><span class="sxs-lookup"><span data-stu-id="55b92-123">An Azure IoT hub under your subscription.</span></span>
+  - <span data-ttu-id="55b92-124">Een clienttoepassing die berichten tooyour Azure IoT hub verzendt.</span><span class="sxs-lookup"><span data-stu-id="55b92-124">A client application that sends messages tooyour Azure IoT hub.</span></span>
+- <span data-ttu-id="55b92-125">Een Azure Machine Learning Studio-account.</span><span class="sxs-lookup"><span data-stu-id="55b92-125">An Azure Machine Learning Studio account.</span></span> <span data-ttu-id="55b92-126">([Machine Learning Studio gratis proberen](https://studio.azureml.net/)).</span><span class="sxs-lookup"><span data-stu-id="55b92-126">([Try Machine Learning Studio for free](https://studio.azureml.net/)).</span></span>
 
-## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a><span data-ttu-id="8a421-127">Het model van de voorspelling weer als een webservice implementeren</span><span class="sxs-lookup"><span data-stu-id="8a421-127">Deploy the weather prediction model as a web service</span></span>
+## <a name="deploy-hello-weather-prediction-model-as-a-web-service"></a><span data-ttu-id="55b92-127">Hallo weer voorspellingsmodel als een webservice implementeren</span><span class="sxs-lookup"><span data-stu-id="55b92-127">Deploy hello weather prediction model as a web service</span></span>
 
-1. <span data-ttu-id="8a421-128">Ga naar de [weer voorspelling modelpagina](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).</span><span class="sxs-lookup"><span data-stu-id="8a421-128">Go to the [weather prediction model page](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).</span></span>
-1. <span data-ttu-id="8a421-129">Klik op **openen in Studio** in Microsoft Azure Machine Learning Studio.</span><span class="sxs-lookup"><span data-stu-id="8a421-129">Click **Open in Studio** in Microsoft Azure Machine Learning Studio.</span></span>
-   <span data-ttu-id="8a421-130">![Open de weer voorspelling modelpagina in Cortana Intelligence Gallery](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)</span><span class="sxs-lookup"><span data-stu-id="8a421-130">![Open the weather prediction model page in Cortana Intelligence Gallery](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)</span></span>
-1. <span data-ttu-id="8a421-131">Klik op **uitvoeren** valideren van de stappen in het model.</span><span class="sxs-lookup"><span data-stu-id="8a421-131">Click **Run** to validate the steps in the model.</span></span> <span data-ttu-id="8a421-132">Deze stap kan twee minuten duren.</span><span class="sxs-lookup"><span data-stu-id="8a421-132">This step might take 2 minutes to complete.</span></span>
-   <span data-ttu-id="8a421-133">![Open het model van de voorspelling weer in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)</span><span class="sxs-lookup"><span data-stu-id="8a421-133">![Open the weather prediction model in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)</span></span>
-1. <span data-ttu-id="8a421-134">Klik op **instellen van WEBSERVICE** > **voorspellende webservice**.</span><span class="sxs-lookup"><span data-stu-id="8a421-134">Click **SET UP WEB SERVICE** > **Predictive Web Service**.</span></span>
-   <span data-ttu-id="8a421-135">![Het model van de voorspelling weer in Azure Machine Learning Studio implementeren](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)</span><span class="sxs-lookup"><span data-stu-id="8a421-135">![Deploy the weather prediction model in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)</span></span>
-1. <span data-ttu-id="8a421-136">In het diagram, sleept u de **Web service invoer** module ergens in de buurt van de **Score Model** module.</span><span class="sxs-lookup"><span data-stu-id="8a421-136">In the diagram, drag the **Web service input** module somewhere near the **Score Model** module.</span></span>
-1. <span data-ttu-id="8a421-137">Verbinding maken met de **Web service invoer** module die u wilt de **Score Model** module.</span><span class="sxs-lookup"><span data-stu-id="8a421-137">Connect the **Web service input** module to the **Score Model** module.</span></span>
-   <span data-ttu-id="8a421-138">![Verbinding maken met twee modules in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)</span><span class="sxs-lookup"><span data-stu-id="8a421-138">![Connect two modules in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)</span></span>
-1. <span data-ttu-id="8a421-139">Klik op **uitvoeren** valideren van de stappen in het model.</span><span class="sxs-lookup"><span data-stu-id="8a421-139">Click **RUN** to validate the steps in the model.</span></span>
-1. <span data-ttu-id="8a421-140">Klik op **WEBSERVICE implementeren** voor het implementeren van het model als een webservice.</span><span class="sxs-lookup"><span data-stu-id="8a421-140">Click **DEPLOY WEB SERVICE** to deploy the model as a web service.</span></span>
-1. <span data-ttu-id="8a421-141">Op het dashboard van het model, downloaden de **Excel 2010 of ouder werkmap** voor **aanvraag/antwoord**.</span><span class="sxs-lookup"><span data-stu-id="8a421-141">On the dashboard of the model, download the **Excel 2010 or earlier workbook** for **REQUEST/RESPONSE**.</span></span>
+1. <span data-ttu-id="55b92-128">Ga toohello [weer voorspelling modelpagina](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).</span><span class="sxs-lookup"><span data-stu-id="55b92-128">Go toohello [weather prediction model page](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).</span></span>
+1. <span data-ttu-id="55b92-129">Klik op **openen in Studio** in Microsoft Azure Machine Learning Studio.</span><span class="sxs-lookup"><span data-stu-id="55b92-129">Click **Open in Studio** in Microsoft Azure Machine Learning Studio.</span></span>
+   <span data-ttu-id="55b92-130">![Open Hallo weer voorspelling modelpagina in Cortana Intelligence Gallery](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)</span><span class="sxs-lookup"><span data-stu-id="55b92-130">![Open hello weather prediction model page in Cortana Intelligence Gallery](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)</span></span>
+1. <span data-ttu-id="55b92-131">Klik op **uitvoeren** toovalidate Hallo stappen voor het Hallo-model.</span><span class="sxs-lookup"><span data-stu-id="55b92-131">Click **Run** toovalidate hello steps in hello model.</span></span> <span data-ttu-id="55b92-132">Deze stap kan toocomplete 2 minuten duren.</span><span class="sxs-lookup"><span data-stu-id="55b92-132">This step might take 2 minutes toocomplete.</span></span>
+   <span data-ttu-id="55b92-133">![Open Hallo weer voorspellingsmodel in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)</span><span class="sxs-lookup"><span data-stu-id="55b92-133">![Open hello weather prediction model in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)</span></span>
+1. <span data-ttu-id="55b92-134">Klik op **instellen van WEBSERVICE** > **voorspellende webservice**.</span><span class="sxs-lookup"><span data-stu-id="55b92-134">Click **SET UP WEB SERVICE** > **Predictive Web Service**.</span></span>
+   <span data-ttu-id="55b92-135">![Hallo weer voorspellingsmodel in Azure Machine Learning Studio implementeren](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)</span><span class="sxs-lookup"><span data-stu-id="55b92-135">![Deploy hello weather prediction model in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)</span></span>
+1. <span data-ttu-id="55b92-136">Sleep in Hallo diagram Hallo **Web service invoer** module ergens in de buurt van Hallo **Score Model** module.</span><span class="sxs-lookup"><span data-stu-id="55b92-136">In hello diagram, drag hello **Web service input** module somewhere near hello **Score Model** module.</span></span>
+1. <span data-ttu-id="55b92-137">Verbinding maken met de Hallo **Web service invoer** module toohello **Score Model** module.</span><span class="sxs-lookup"><span data-stu-id="55b92-137">Connect hello **Web service input** module toohello **Score Model** module.</span></span>
+   <span data-ttu-id="55b92-138">![Verbinding maken met twee modules in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)</span><span class="sxs-lookup"><span data-stu-id="55b92-138">![Connect two modules in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)</span></span>
+1. <span data-ttu-id="55b92-139">Klik op **uitvoeren** toovalidate Hallo stappen voor het Hallo-model.</span><span class="sxs-lookup"><span data-stu-id="55b92-139">Click **RUN** toovalidate hello steps in hello model.</span></span>
+1. <span data-ttu-id="55b92-140">Klik op **WEBSERVICE implementeren** toodeploy Hallo model als een webservice.</span><span class="sxs-lookup"><span data-stu-id="55b92-140">Click **DEPLOY WEB SERVICE** toodeploy hello model as a web service.</span></span>
+1. <span data-ttu-id="55b92-141">Op Hallo dashboard van Hallo-model downloaden Hallo **Excel 2010 of ouder werkmap** voor **aanvraag/antwoord**.</span><span class="sxs-lookup"><span data-stu-id="55b92-141">On hello dashboard of hello model, download hello **Excel 2010 or earlier workbook** for **REQUEST/RESPONSE**.</span></span>
 
    > [!Note]
-   > <span data-ttu-id="8a421-142">Zorg ervoor dat u downloadt de **Excel 2010 of ouder werkmap** zelfs als u een nieuwere versie van Excel worden uitgevoerd op uw computer.</span><span class="sxs-lookup"><span data-stu-id="8a421-142">Ensure that you download the **Excel 2010 or earlier workbook** even if you are running a later version of Excel on your computer.</span></span>
+   > <span data-ttu-id="55b92-142">Zorg ervoor dat u Hallo downloaden **Excel 2010 of ouder werkmap** zelfs als u een nieuwere versie van Excel worden uitgevoerd op uw computer.</span><span class="sxs-lookup"><span data-stu-id="55b92-142">Ensure that you download hello **Excel 2010 or earlier workbook** even if you are running a later version of Excel on your computer.</span></span>
 
-   ![De Excel voor het eindpunt REQUEST RESPONSE downloaden](media/iot-hub-weather-forecast-machine-learning/5_download-endpoint-app-excel-for-request-response.png)
+   ![Hallo Excel voor Hallo REQUEST RESPONSE-eindpunt downloaden](media/iot-hub-weather-forecast-machine-learning/5_download-endpoint-app-excel-for-request-response.png)
 
-1. <span data-ttu-id="8a421-144">Open de Excel-werkmap, noteert u de **URL van WEBSERVICE** en **TOEGANGSSLEUTEL**.</span><span class="sxs-lookup"><span data-stu-id="8a421-144">Open the Excel workbook, make a note of the **WEB SERVICE URL** and **ACCESS KEY**.</span></span>
+1. <span data-ttu-id="55b92-144">Hallo Excel-werkmap opent, noteer Hallo **URL van WEBSERVICE** en **TOEGANGSSLEUTEL**.</span><span class="sxs-lookup"><span data-stu-id="55b92-144">Open hello Excel workbook, make a note of hello **WEB SERVICE URL** and **ACCESS KEY**.</span></span>
 
 [!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
-## <a name="create-configure-and-run-a-stream-analytics-job"></a><span data-ttu-id="8a421-145">Maken, configureren en uitvoeren van een Stream Analytics-taak</span><span class="sxs-lookup"><span data-stu-id="8a421-145">Create, configure, and run a Stream Analytics job</span></span>
+## <a name="create-configure-and-run-a-stream-analytics-job"></a><span data-ttu-id="55b92-145">Maken, configureren en uitvoeren van een Stream Analytics-taak</span><span class="sxs-lookup"><span data-stu-id="55b92-145">Create, configure, and run a Stream Analytics job</span></span>
 
-### <a name="create-a-stream-analytics-job"></a><span data-ttu-id="8a421-146">Een Stream Analytics-taak maken</span><span class="sxs-lookup"><span data-stu-id="8a421-146">Create a Stream Analytics job</span></span>
+### <a name="create-a-stream-analytics-job"></a><span data-ttu-id="55b92-146">Een Stream Analytics-taak maken</span><span class="sxs-lookup"><span data-stu-id="55b92-146">Create a Stream Analytics job</span></span>
 
-1. <span data-ttu-id="8a421-147">In de [Azure-portal](https://ms.portal.azure.com/), klikt u op **nieuw** > **Internet der dingen** > **Stream Analytics-taak**.</span><span class="sxs-lookup"><span data-stu-id="8a421-147">In the [Azure portal](https://ms.portal.azure.com/), click **New** > **Internet of Things** > **Stream Analytics job**.</span></span>
-1. <span data-ttu-id="8a421-148">Voer de volgende informatie voor de taak.</span><span class="sxs-lookup"><span data-stu-id="8a421-148">Enter the following information for the job.</span></span>
+1. <span data-ttu-id="55b92-147">In Hallo [Azure-portal](https://ms.portal.azure.com/), klikt u op **nieuw** > **Internet der dingen** > **Stream Analytics-taak**.</span><span class="sxs-lookup"><span data-stu-id="55b92-147">In hello [Azure portal](https://ms.portal.azure.com/), click **New** > **Internet of Things** > **Stream Analytics job**.</span></span>
+1. <span data-ttu-id="55b92-148">Voer Hallo informatie voor de taak hello te volgen.</span><span class="sxs-lookup"><span data-stu-id="55b92-148">Enter hello following information for hello job.</span></span>
 
-   <span data-ttu-id="8a421-149">**Taaknaam**: de naam van de taak.</span><span class="sxs-lookup"><span data-stu-id="8a421-149">**Job name**: The name of the job.</span></span> <span data-ttu-id="8a421-150">De naam moet wereldwijd uniek zijn.</span><span class="sxs-lookup"><span data-stu-id="8a421-150">The name must be globally unique.</span></span>
+   <span data-ttu-id="55b92-149">**Taaknaam**: Hallo-naam van Hallo-taak.</span><span class="sxs-lookup"><span data-stu-id="55b92-149">**Job name**: hello name of hello job.</span></span> <span data-ttu-id="55b92-150">Hallo-naam moet uniek zijn.</span><span class="sxs-lookup"><span data-stu-id="55b92-150">hello name must be globally unique.</span></span>
 
-   <span data-ttu-id="8a421-151">**Resourcegroep**: gebruik dezelfde resourcegroep die gebruikmaakt van uw IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="8a421-151">**Resource group**: Use the same resource group that your IoT hub uses.</span></span>
+   <span data-ttu-id="55b92-151">**Resourcegroep**: gebruik Hallo dezelfde resourcegroep die gebruikmaakt van uw IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="55b92-151">**Resource group**: Use hello same resource group that your IoT hub uses.</span></span>
 
-   <span data-ttu-id="8a421-152">**Locatie**: gebruik dezelfde locatie als uw resourcegroep.</span><span class="sxs-lookup"><span data-stu-id="8a421-152">**Location**: Use the same location as your resource group.</span></span>
+   <span data-ttu-id="55b92-152">**Locatie**: gebruik Hallo dezelfde locatie als de resourcegroep.</span><span class="sxs-lookup"><span data-stu-id="55b92-152">**Location**: Use hello same location as your resource group.</span></span>
 
-   <span data-ttu-id="8a421-153">**Vastmaken aan dashboard**: Schakel deze optie voor eenvoudige toegang naar uw IoT-hub vanuit het dashboard.</span><span class="sxs-lookup"><span data-stu-id="8a421-153">**Pin to dashboard**: Check this option for easy access to your IoT hub from the dashboard.</span></span>
+   <span data-ttu-id="55b92-153">**Pincode toodashboard**: Schakel deze optie voor eenvoudige toegang tooyour iothub uit het Hallo-dashboard.</span><span class="sxs-lookup"><span data-stu-id="55b92-153">**Pin toodashboard**: Check this option for easy access tooyour IoT hub from hello dashboard.</span></span>
 
    ![Een Stream Analytics-taak maken in Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
-1. <span data-ttu-id="8a421-155">Klik op **Create**.</span><span class="sxs-lookup"><span data-stu-id="8a421-155">Click **Create**.</span></span>
+1. <span data-ttu-id="55b92-155">Klik op **Create**.</span><span class="sxs-lookup"><span data-stu-id="55b92-155">Click **Create**.</span></span>
 
-### <a name="add-an-input-to-the-stream-analytics-job"></a><span data-ttu-id="8a421-156">Invoer voor de Stream Analytics-taak toevoegen</span><span class="sxs-lookup"><span data-stu-id="8a421-156">Add an input to the Stream Analytics job</span></span>
+### <a name="add-an-input-toohello-stream-analytics-job"></a><span data-ttu-id="55b92-156">Toevoegen van een invoer toohello Stream Analytics-taak</span><span class="sxs-lookup"><span data-stu-id="55b92-156">Add an input toohello Stream Analytics job</span></span>
 
-1. <span data-ttu-id="8a421-157">Open de Stream Analytics-taak.</span><span class="sxs-lookup"><span data-stu-id="8a421-157">Open the Stream Analytics job.</span></span>
-1. <span data-ttu-id="8a421-158">Onder **taak topologie**, klikt u op **invoer**.</span><span class="sxs-lookup"><span data-stu-id="8a421-158">Under **Job Topology**, click **Inputs**.</span></span>
-1. <span data-ttu-id="8a421-159">In de **invoer** deelvenster, klikt u op **toevoegen**, en voer de volgende informatie:</span><span class="sxs-lookup"><span data-stu-id="8a421-159">In the **Inputs** pane, click **Add**, and then enter the following information:</span></span>
+1. <span data-ttu-id="55b92-157">Open Hallo Stream Analytics-taak.</span><span class="sxs-lookup"><span data-stu-id="55b92-157">Open hello Stream Analytics job.</span></span>
+1. <span data-ttu-id="55b92-158">Onder **taak topologie**, klikt u op **invoer**.</span><span class="sxs-lookup"><span data-stu-id="55b92-158">Under **Job Topology**, click **Inputs**.</span></span>
+1. <span data-ttu-id="55b92-159">In Hallo **invoer** deelvenster, klikt u op **toevoegen**, en voer de volgende informatie Hallo:</span><span class="sxs-lookup"><span data-stu-id="55b92-159">In hello **Inputs** pane, click **Add**, and then enter hello following information:</span></span>
 
-   <span data-ttu-id="8a421-160">**Invoeralias**: de alias die uniek zijn voor de invoer.</span><span class="sxs-lookup"><span data-stu-id="8a421-160">**Input alias**: The unique alias for the input.</span></span>
+   <span data-ttu-id="55b92-160">**Invoeralias**: Hallo unieke alias voor Hallo-invoer.</span><span class="sxs-lookup"><span data-stu-id="55b92-160">**Input alias**: hello unique alias for hello input.</span></span>
 
-   <span data-ttu-id="8a421-161">**Bron**: Selecteer **IoT-hub**.</span><span class="sxs-lookup"><span data-stu-id="8a421-161">**Source**: Select **IoT hub**.</span></span>
+   <span data-ttu-id="55b92-161">**Bron**: Selecteer **IoT-hub**.</span><span class="sxs-lookup"><span data-stu-id="55b92-161">**Source**: Select **IoT hub**.</span></span>
 
-   <span data-ttu-id="8a421-162">**Consumergroep**: Selecteer de consumergroep die u hebt gemaakt.</span><span class="sxs-lookup"><span data-stu-id="8a421-162">**Consumer group**: Select the consumer group you created.</span></span>
+   <span data-ttu-id="55b92-162">**Consumergroep**: Selecteer Hallo consumergroep u hebt gemaakt.</span><span class="sxs-lookup"><span data-stu-id="55b92-162">**Consumer group**: Select hello consumer group you created.</span></span>
 
-   ![Invoer voor de Stream Analytics-taak toevoegen in Azure](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
+   ![Toevoegen van een invoer toohello Stream Analytics-taak in Azure](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
-1. <span data-ttu-id="8a421-164">Klik op **Create**.</span><span class="sxs-lookup"><span data-stu-id="8a421-164">Click **Create**.</span></span>
+1. <span data-ttu-id="55b92-164">Klik op **Create**.</span><span class="sxs-lookup"><span data-stu-id="55b92-164">Click **Create**.</span></span>
 
-### <a name="add-an-output-to-the-stream-analytics-job"></a><span data-ttu-id="8a421-165">Uitvoer toevoegen aan Stream Analytics-taak</span><span class="sxs-lookup"><span data-stu-id="8a421-165">Add an output to the Stream Analytics job</span></span>
+### <a name="add-an-output-toohello-stream-analytics-job"></a><span data-ttu-id="55b92-165">Toevoegen van een uitvoer toohello Stream Analytics-taak</span><span class="sxs-lookup"><span data-stu-id="55b92-165">Add an output toohello Stream Analytics job</span></span>
 
-1. <span data-ttu-id="8a421-166">Onder **taak topologie**, klikt u op **uitvoer**.</span><span class="sxs-lookup"><span data-stu-id="8a421-166">Under **Job Topology**, click **Outputs**.</span></span>
-1. <span data-ttu-id="8a421-167">In de **uitvoer** deelvenster, klikt u op **toevoegen**, en voer de volgende informatie:</span><span class="sxs-lookup"><span data-stu-id="8a421-167">In the **Outputs** pane, click **Add**, and then enter the following information:</span></span>
+1. <span data-ttu-id="55b92-166">Onder **taak topologie**, klikt u op **uitvoer**.</span><span class="sxs-lookup"><span data-stu-id="55b92-166">Under **Job Topology**, click **Outputs**.</span></span>
+1. <span data-ttu-id="55b92-167">In Hallo **uitvoer** deelvenster, klikt u op **toevoegen**, en voer de volgende informatie Hallo:</span><span class="sxs-lookup"><span data-stu-id="55b92-167">In hello **Outputs** pane, click **Add**, and then enter hello following information:</span></span>
 
-   <span data-ttu-id="8a421-168">**Uitvoeraliassen**: de alias die uniek zijn voor de uitvoer.</span><span class="sxs-lookup"><span data-stu-id="8a421-168">**Output alias**: The unique alias for the output.</span></span>
+   <span data-ttu-id="55b92-168">**Uitvoeraliassen**: Hallo unieke alias voor Hallo uitvoer.</span><span class="sxs-lookup"><span data-stu-id="55b92-168">**Output alias**: hello unique alias for hello output.</span></span>
 
-   <span data-ttu-id="8a421-169">**Sink**: Selecteer **Blob Storage**.</span><span class="sxs-lookup"><span data-stu-id="8a421-169">**Sink**: Select **Blob Storage**.</span></span>
+   <span data-ttu-id="55b92-169">**Sink**: Selecteer **Blob Storage**.</span><span class="sxs-lookup"><span data-stu-id="55b92-169">**Sink**: Select **Blob Storage**.</span></span>
 
-   <span data-ttu-id="8a421-170">**Storage-account**: het storage-account voor de blob-opslag.</span><span class="sxs-lookup"><span data-stu-id="8a421-170">**Storage account**: The storage account for your blob storage.</span></span> <span data-ttu-id="8a421-171">U kunt een opslagaccount maken of een bestaande gebruiken.</span><span class="sxs-lookup"><span data-stu-id="8a421-171">You can create a storage account or use an existing one.</span></span>
+   <span data-ttu-id="55b92-170">**Storage-account**: Hallo storage-account voor de blob-opslag.</span><span class="sxs-lookup"><span data-stu-id="55b92-170">**Storage account**: hello storage account for your blob storage.</span></span> <span data-ttu-id="55b92-171">U kunt een opslagaccount maken of een bestaande gebruiken.</span><span class="sxs-lookup"><span data-stu-id="55b92-171">You can create a storage account or use an existing one.</span></span>
 
-   <span data-ttu-id="8a421-172">**Container**: de container waarin de blob is opgeslagen.</span><span class="sxs-lookup"><span data-stu-id="8a421-172">**Container**: The container where the blob is saved.</span></span> <span data-ttu-id="8a421-173">U kunt een container maken of een bestaande gebruiken.</span><span class="sxs-lookup"><span data-stu-id="8a421-173">You can create a container or use an existing one.</span></span>
+   <span data-ttu-id="55b92-172">**Container**: Hallo container waarin Hallo blob is opgeslagen.</span><span class="sxs-lookup"><span data-stu-id="55b92-172">**Container**: hello container where hello blob is saved.</span></span> <span data-ttu-id="55b92-173">U kunt een container maken of een bestaande gebruiken.</span><span class="sxs-lookup"><span data-stu-id="55b92-173">You can create a container or use an existing one.</span></span>
 
-   <span data-ttu-id="8a421-174">**Gebeurtenis serialisatie-indeling**: Selecteer **CSV**.</span><span class="sxs-lookup"><span data-stu-id="8a421-174">**Event serialization format**: Select **CSV**.</span></span>
+   <span data-ttu-id="55b92-174">**Gebeurtenis serialisatie-indeling**: Selecteer **CSV**.</span><span class="sxs-lookup"><span data-stu-id="55b92-174">**Event serialization format**: Select **CSV**.</span></span>
 
-   ![Uitvoer toevoegen aan Stream Analytics-taak in Azure](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
+   ![Een uitvoer toohello Stream Analytics-taak toevoegen in Azure](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
 
-1. <span data-ttu-id="8a421-176">Klik op **Create**.</span><span class="sxs-lookup"><span data-stu-id="8a421-176">Click **Create**.</span></span>
+1. <span data-ttu-id="55b92-176">Klik op **Create**.</span><span class="sxs-lookup"><span data-stu-id="55b92-176">Click **Create**.</span></span>
 
-### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a><span data-ttu-id="8a421-177">Een functie toevoegen aan de Stream Analytics-taak voor het aanroepen van de webservice die u hebt geïmplementeerd</span><span class="sxs-lookup"><span data-stu-id="8a421-177">Add a function to the Stream Analytics job to call the web service you deployed</span></span>
+### <a name="add-a-function-toohello-stream-analytics-job-toocall-hello-web-service-you-deployed"></a><span data-ttu-id="55b92-177">Een functie toohello Stream Analytics-taak toocall Hallo u geïmplementeerde webservice toevoegen</span><span class="sxs-lookup"><span data-stu-id="55b92-177">Add a function toohello Stream Analytics job toocall hello web service you deployed</span></span>
 
-1. <span data-ttu-id="8a421-178">Onder **taak topologie**, klikt u op **functies** > **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="8a421-178">Under **Job Topology**, click **Functions** > **Add**.</span></span>
-1. <span data-ttu-id="8a421-179">Voer de volgende informatie in:</span><span class="sxs-lookup"><span data-stu-id="8a421-179">Enter the following information:</span></span>
+1. <span data-ttu-id="55b92-178">Onder **taak topologie**, klikt u op **functies** > **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="55b92-178">Under **Job Topology**, click **Functions** > **Add**.</span></span>
+1. <span data-ttu-id="55b92-179">Voer Hallo volgende informatie:</span><span class="sxs-lookup"><span data-stu-id="55b92-179">Enter hello following information:</span></span>
 
-   <span data-ttu-id="8a421-180">**Functie Alias**: Voer `machinelearning`.</span><span class="sxs-lookup"><span data-stu-id="8a421-180">**Function Alias**: Enter `machinelearning`.</span></span>
+   <span data-ttu-id="55b92-180">**Functie Alias**: Voer `machinelearning`.</span><span class="sxs-lookup"><span data-stu-id="55b92-180">**Function Alias**: Enter `machinelearning`.</span></span>
 
-   <span data-ttu-id="8a421-181">**Type functie**: Selecteer **Azure ML**.</span><span class="sxs-lookup"><span data-stu-id="8a421-181">**Function Type**: Select **Azure ML**.</span></span>
+   <span data-ttu-id="55b92-181">**Type functie**: Selecteer **Azure ML**.</span><span class="sxs-lookup"><span data-stu-id="55b92-181">**Function Type**: Select **Azure ML**.</span></span>
 
-   <span data-ttu-id="8a421-182">**Optie importeren**: Selecteer **importeren uit een ander abonnement**.</span><span class="sxs-lookup"><span data-stu-id="8a421-182">**Import option**: Select **Import from a different subscription**.</span></span>
+   <span data-ttu-id="55b92-182">**Optie importeren**: Selecteer **importeren uit een ander abonnement**.</span><span class="sxs-lookup"><span data-stu-id="55b92-182">**Import option**: Select **Import from a different subscription**.</span></span>
 
-   <span data-ttu-id="8a421-183">**URL**: Voer de URL van de WEBSERVICE die u hebt genoteerd omlaag uit de Excel-werkmap.</span><span class="sxs-lookup"><span data-stu-id="8a421-183">**URL**: Enter the WEB SERVICE URL that you noted down from the Excel workbook.</span></span>
+   <span data-ttu-id="55b92-183">**URL**: Voer Hallo WEBSERVICE-URL die u hebt genoteerd omlaag van Hallo Excel-werkmap.</span><span class="sxs-lookup"><span data-stu-id="55b92-183">**URL**: Enter hello WEB SERVICE URL that you noted down from hello Excel workbook.</span></span>
 
-   <span data-ttu-id="8a421-184">**Sleutel**: Voer de TOEGANGSSLEUTEL die u hebt genoteerd af van de Excel-werkmap.</span><span class="sxs-lookup"><span data-stu-id="8a421-184">**Key**: Enter the ACCESS KEY that you noted down from the Excel workbook.</span></span>
+   <span data-ttu-id="55b92-184">**Sleutel**: Voer Hallo TOEGANGSSLEUTEL die u hebt genoteerd omlaag van Hallo Excel-werkmap.</span><span class="sxs-lookup"><span data-stu-id="55b92-184">**Key**: Enter hello ACCESS KEY that you noted down from hello Excel workbook.</span></span>
 
-   ![Een functie toevoegen aan Stream Analytics-taak in Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
+   ![Een functie toohello Stream Analytics-taak niet toevoegen in Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
-1. <span data-ttu-id="8a421-186">Klik op **Create**.</span><span class="sxs-lookup"><span data-stu-id="8a421-186">Click **Create**.</span></span>
+1. <span data-ttu-id="55b92-186">Klik op **Create**.</span><span class="sxs-lookup"><span data-stu-id="55b92-186">Click **Create**.</span></span>
 
-### <a name="configure-the-query-of-the-stream-analytics-job"></a><span data-ttu-id="8a421-187">De query van de Stream Analytics-taak configureren</span><span class="sxs-lookup"><span data-stu-id="8a421-187">Configure the query of the Stream Analytics job</span></span>
+### <a name="configure-hello-query-of-hello-stream-analytics-job"></a><span data-ttu-id="55b92-187">Hallo query van de Stream Analytics-taak Hallo configureren</span><span class="sxs-lookup"><span data-stu-id="55b92-187">Configure hello query of hello Stream Analytics job</span></span>
 
-1. <span data-ttu-id="8a421-188">Onder **taak topologie**, klikt u op **Query**.</span><span class="sxs-lookup"><span data-stu-id="8a421-188">Under **Job Topology**, click **Query**.</span></span>
-1. <span data-ttu-id="8a421-189">Vervang de bestaande code door de volgende code:</span><span class="sxs-lookup"><span data-stu-id="8a421-189">Replace the existing code with the following code:</span></span>
+1. <span data-ttu-id="55b92-188">Onder **taak topologie**, klikt u op **Query**.</span><span class="sxs-lookup"><span data-stu-id="55b92-188">Under **Job Topology**, click **Query**.</span></span>
+1. <span data-ttu-id="55b92-189">De bestaande code Hallo vervangen door Hallo code te volgen:</span><span class="sxs-lookup"><span data-stu-id="55b92-189">Replace hello existing code with hello following code:</span></span>
 
    ```sql
    WITH machinelearning AS (
@@ -163,33 +163,33 @@ ms.lasthandoff: 08/29/2017
    From machinelearning
    ```
 
-   <span data-ttu-id="8a421-190">Vervang `[YourInputAlias]` met de ingevoerde alias van de taak.</span><span class="sxs-lookup"><span data-stu-id="8a421-190">Replace `[YourInputAlias]` with the input alias of the job.</span></span>
+   <span data-ttu-id="55b92-190">Vervang `[YourInputAlias]` met alias van de taak Hallo Hallo invoer.</span><span class="sxs-lookup"><span data-stu-id="55b92-190">Replace `[YourInputAlias]` with hello input alias of hello job.</span></span>
 
-   <span data-ttu-id="8a421-191">Vervang `[YourOutputAlias]` met de uitvoeralias van de taak.</span><span class="sxs-lookup"><span data-stu-id="8a421-191">Replace `[YourOutputAlias]` with the output alias of the job.</span></span>
+   <span data-ttu-id="55b92-191">Vervang `[YourOutputAlias]` met Hallo uitvoeralias van Hallo-taak.</span><span class="sxs-lookup"><span data-stu-id="55b92-191">Replace `[YourOutputAlias]` with hello output alias of hello job.</span></span>
 
-1. <span data-ttu-id="8a421-192">Klik op **Opslaan**.</span><span class="sxs-lookup"><span data-stu-id="8a421-192">Click **Save**.</span></span>
+1. <span data-ttu-id="55b92-192">Klik op **Opslaan**.</span><span class="sxs-lookup"><span data-stu-id="55b92-192">Click **Save**.</span></span>
 
-### <a name="run-the-stream-analytics-job"></a><span data-ttu-id="8a421-193">De Stream Analytics-taak uitvoeren</span><span class="sxs-lookup"><span data-stu-id="8a421-193">Run the Stream Analytics job</span></span>
+### <a name="run-hello-stream-analytics-job"></a><span data-ttu-id="55b92-193">Hallo Stream Analytics-taak uitgevoerd</span><span class="sxs-lookup"><span data-stu-id="55b92-193">Run hello Stream Analytics job</span></span>
 
-<span data-ttu-id="8a421-194">Klik in de Stream Analytics-taak op **Start** > **nu** > **Start**.</span><span class="sxs-lookup"><span data-stu-id="8a421-194">In the Stream Analytics job, click **Start** > **Now** > **Start**.</span></span> <span data-ttu-id="8a421-195">Zodra de taak kan worden gestart, wordt de taakstatus verandert van **gestopt** naar **met**.</span><span class="sxs-lookup"><span data-stu-id="8a421-195">Once the job successfully starts, the job status changes from **Stopped** to **Running**.</span></span>
+<span data-ttu-id="55b92-194">Klik in het Hallo-Stream Analytics-taak op **Start** > **nu** > **Start**.</span><span class="sxs-lookup"><span data-stu-id="55b92-194">In hello Stream Analytics job, click **Start** > **Now** > **Start**.</span></span> <span data-ttu-id="55b92-195">Zodra het Hallo-taak is gestart, Hallo taakstatus verandert van **gestopt** te**met**.</span><span class="sxs-lookup"><span data-stu-id="55b92-195">Once hello job successfully starts, hello job status changes from **Stopped** too**Running**.</span></span>
 
-![De Stream Analytics-taak uitvoeren](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
+![Hallo Stream Analytics-taak uitgevoerd](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
 
-## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a><span data-ttu-id="8a421-197">Microsoft Azure Storage Explorer gebruiken om weer te geven van de prognose weer</span><span class="sxs-lookup"><span data-stu-id="8a421-197">Use Microsoft Azure Storage Explorer to view the weather forecast</span></span>
+## <a name="use-microsoft-azure-storage-explorer-tooview-hello-weather-forecast"></a><span data-ttu-id="55b92-197">Microsoft Azure Storage Explorer tooview Hallo weer prognose gebruiken</span><span class="sxs-lookup"><span data-stu-id="55b92-197">Use Microsoft Azure Storage Explorer tooview hello weather forecast</span></span>
 
-<span data-ttu-id="8a421-198">Voer de clienttoepassing om te beginnen met het verzamelen en verzenden van temperatuur en vochtigheid gegevens naar uw IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="8a421-198">Run the client application to start collecting and sending temperature and humidity data to your IoT hub.</span></span> <span data-ttu-id="8a421-199">Voor elk bericht dat uw IoT-hub ontvangt, roept de Stream Analytics-taak de webservice voor de prognose weer om de kans op regen produceren.</span><span class="sxs-lookup"><span data-stu-id="8a421-199">For each message that your IoT hub receives, the Stream Analytics job calls the weather forecast web service to produce the chance of rain.</span></span> <span data-ttu-id="8a421-200">Het resultaat wordt vervolgens opgeslagen in de Azure blob-opslag.</span><span class="sxs-lookup"><span data-stu-id="8a421-200">The result is then saved to your Azure blob storage.</span></span> <span data-ttu-id="8a421-201">Azure Storage Explorer is een hulpprogramma dat u gebruiken kunt om het resultaat weer te geven.</span><span class="sxs-lookup"><span data-stu-id="8a421-201">Azure Storage Explorer is a tool that you can use to view the result.</span></span>
+<span data-ttu-id="55b92-198">Voer Hallo client toepassing toostart verzamelen en verzenden van temperatuur en vochtigheid gegevens tooyour IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="55b92-198">Run hello client application toostart collecting and sending temperature and humidity data tooyour IoT hub.</span></span> <span data-ttu-id="55b92-199">Voor elk bericht dat uw IoT-hub ontvangt, roept Hallo Stream Analytics-taak Hallo weer prognose web service tooproduce Hallo kans regen.</span><span class="sxs-lookup"><span data-stu-id="55b92-199">For each message that your IoT hub receives, hello Stream Analytics job calls hello weather forecast web service tooproduce hello chance of rain.</span></span> <span data-ttu-id="55b92-200">Hallo resultaat wordt vervolgens opgeslagen tooyour Azure blob-opslag.</span><span class="sxs-lookup"><span data-stu-id="55b92-200">hello result is then saved tooyour Azure blob storage.</span></span> <span data-ttu-id="55b92-201">Azure Storage Explorer is een hulpprogramma waarmee u tooview Hallo resultaat kunt.</span><span class="sxs-lookup"><span data-stu-id="55b92-201">Azure Storage Explorer is a tool that you can use tooview hello result.</span></span>
 
-1. <span data-ttu-id="8a421-202">[Download en installeer Microsoft Azure Storage Explorer](http://storageexplorer.com/).</span><span class="sxs-lookup"><span data-stu-id="8a421-202">[Download and install Microsoft Azure Storage Explorer](http://storageexplorer.com/).</span></span>
-1. <span data-ttu-id="8a421-203">Open Azure Opslagverkenner.</span><span class="sxs-lookup"><span data-stu-id="8a421-203">Open Azure Storage Explorer.</span></span>
-1. <span data-ttu-id="8a421-204">Aanmelden bij uw Azure-account.</span><span class="sxs-lookup"><span data-stu-id="8a421-204">Sign in to your Azure account.</span></span>
-1. <span data-ttu-id="8a421-205">Selecteer uw abonnement.</span><span class="sxs-lookup"><span data-stu-id="8a421-205">Select your subscription.</span></span>
-1. <span data-ttu-id="8a421-206">Klik op uw abonnement > **Opslagaccounts** > uw storage-account > **Blob-Containers** > uw container.</span><span class="sxs-lookup"><span data-stu-id="8a421-206">Click your subscription > **Storage Accounts** > your storage account > **Blob Containers** > your container.</span></span>
-1. <span data-ttu-id="8a421-207">Open een CSV-bestand om het resultaat te bekijken.</span><span class="sxs-lookup"><span data-stu-id="8a421-207">Open a .csv file to see the result.</span></span> <span data-ttu-id="8a421-208">De laatste kolom registreert de kans op regen.</span><span class="sxs-lookup"><span data-stu-id="8a421-208">The last column records the chance of rain.</span></span>
+1. <span data-ttu-id="55b92-202">[Download en installeer Microsoft Azure Storage Explorer](http://storageexplorer.com/).</span><span class="sxs-lookup"><span data-stu-id="55b92-202">[Download and install Microsoft Azure Storage Explorer](http://storageexplorer.com/).</span></span>
+1. <span data-ttu-id="55b92-203">Open Azure Opslagverkenner.</span><span class="sxs-lookup"><span data-stu-id="55b92-203">Open Azure Storage Explorer.</span></span>
+1. <span data-ttu-id="55b92-204">Meld u aan tooyour Azure-account.</span><span class="sxs-lookup"><span data-stu-id="55b92-204">Sign in tooyour Azure account.</span></span>
+1. <span data-ttu-id="55b92-205">Selecteer uw abonnement.</span><span class="sxs-lookup"><span data-stu-id="55b92-205">Select your subscription.</span></span>
+1. <span data-ttu-id="55b92-206">Klik op uw abonnement > **Opslagaccounts** > uw storage-account > **Blob-Containers** > uw container.</span><span class="sxs-lookup"><span data-stu-id="55b92-206">Click your subscription > **Storage Accounts** > your storage account > **Blob Containers** > your container.</span></span>
+1. <span data-ttu-id="55b92-207">Open een .csv-bestand toosee Hallo resultaat.</span><span class="sxs-lookup"><span data-stu-id="55b92-207">Open a .csv file toosee hello result.</span></span> <span data-ttu-id="55b92-208">de laatste kolom records Hallo Hallo kans regen.</span><span class="sxs-lookup"><span data-stu-id="55b92-208">hello last column records hello chance of rain.</span></span>
 
    ![Resultaat van de prognose weer met Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/12_get-weather-forecast-result-azure-machine-learning.png)
 
-## <a name="summary"></a><span data-ttu-id="8a421-210">Samenvatting</span><span class="sxs-lookup"><span data-stu-id="8a421-210">Summary</span></span>
+## <a name="summary"></a><span data-ttu-id="55b92-210">Samenvatting</span><span class="sxs-lookup"><span data-stu-id="55b92-210">Summary</span></span>
 
-<span data-ttu-id="8a421-211">U hebt Azure Machine Learning is gebruikt voor het produceren van de kans op regen op basis van de temperatuur en vochtigheid gegevens die uw IoT-hub ontvangt.</span><span class="sxs-lookup"><span data-stu-id="8a421-211">You’ve successfully used Azure Machine Learning to produce the chance of rain based on the temperature and humidity data that your IoT hub receives.</span></span>
+<span data-ttu-id="55b92-211">U hebt Azure Machine Learning tooproduce Hallo kans op basis van Hallo temperatuur en vochtigheid gegevens die uw IoT-hub ontvangt regen is gebruikt.</span><span class="sxs-lookup"><span data-stu-id="55b92-211">You’ve successfully used Azure Machine Learning tooproduce hello chance of rain based on hello temperature and humidity data that your IoT hub receives.</span></span>
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

@@ -1,12 +1,12 @@
 # Overzicht
-## [Inleiding tot Azure Data Factory](data-factory-introduction.md)
+## [Inleiding tooAzure Data Factory](data-factory-introduction.md)
 ## Concepten
 ### [Pijplijnen en activiteiten](data-factory-create-pipelines.md)
 ### [Gegevenssets](data-factory-create-datasets.md)
 ### [Plannen en uitvoeren](data-factory-scheduling-and-execution.md)
 
 # Aan de slag
-## [Zelfstudie: Een pijplijn maken om gegevens te kopiëren](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+## [Zelfstudie: Een pijplijn toocopy gegevens maken](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 ### [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
 ### [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 ### [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
@@ -14,7 +14,7 @@
 ### [Azure Resource Manager-sjabloon](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 ### [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 ### [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-## [Zelfstudie: Een pijplijn maken om gegevens te transformeren](data-factory-build-your-first-pipeline.md)
+## [Zelfstudie: Een pijplijn tootransform gegevens maken](data-factory-build-your-first-pipeline.md)
 ### [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 ### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
@@ -64,7 +64,7 @@
 ### Gegevensbeheergateway
 #### [Overzicht](data-factory-data-management-gateway.md)
 #### [Hoge beschikbaarheid en schaalbaarheid (preview)](data-factory-data-management-gateway-high-availability-scalability.md)
-#### [Overzicht: gegevens van een on-premises SQL-server verplaatsen naar Azure Blob Storage](data-factory-move-data-between-onprem-and-cloud.md)
+#### [Overzicht: Gegevens van een lokale SQL Server tooAzure Blob-opslag verplaatsen](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## [Gegevens transformeren](data-factory-data-transformation-activities.md)

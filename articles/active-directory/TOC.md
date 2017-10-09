@@ -10,8 +10,8 @@
 ## [Meld u aan voor Azure AD Premium](active-directory-get-started-premium.md)
 ## [Een aangepaste domeinnaam toevoegen](add-custom-domain.md)
 ## [Een bedrijfshuisstijl toevoegen](customize-branding.md)
-## [Gebruikers toevoegen aan Azure AD](add-users-azure-active-directory.md)
-## [Licenties toewijzen aan een gebruikers](license-users-groups.md)
+## [Toevoegen van gebruikers tooAzure AD](add-users-azure-active-directory.md)
+## [Toewijzen van licenties toousers](license-users-groups.md)
 ## [Self-service voor wachtwoord opnieuw instellen configureren](active-directory-passwords-getting-started.md)
 
 
@@ -38,9 +38,9 @@
 
 ## Gebruikers beheren
 ### [Licenties toewijzen met behulp van groepen](active-directory-licensing-whatis-azure-portal.md)
-#### [Licenties toewijzen aan een groep](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Licenties tooa groep worden toegewezen](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Licentieproblemen in een groep vaststellen en oplossen](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
+#### [Migreren van afzonderlijke gelicentieerde gebruikers op basis van toogroup licentieverlening](active-directory-licensing-group-migration-azure-portal.md)
 #### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
 #### [PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
 ### [Gebruikers uit andere directory's toevoegen (klassieke portal)](active-directory-create-users-external.md)
@@ -60,15 +60,15 @@
 ### [Eigenaren van groepen beheren](active-directory-accessmanagement-managing-group-owners.md)
 ### [Groepslidmaatschap beheren](active-directory-groups-membership-azure-portal.md)
 ### [Licenties toewijzen met behulp van groepen](active-directory-licensing-whatis-azure-portal.md)
-#### [Licenties toewijzen aan een groep](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Licenties tooa groep worden toegewezen](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Licentieproblemen in een groep vaststellen en oplossen](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
+#### [Migreren van afzonderlijke gelicentieerde gebruikers op basis van toogroup licentieverlening](active-directory-licensing-group-migration-azure-portal.md)
 #### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
 #### [PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
 ### [Vervaldatum instellen voor Office 365-groepen](active-directory-groups-lifecycle-azure-portal.md)
 ### [Alle groepen weergeven](active-directory-groups-view-azure-portal.md)
 ### [Toegewezen groepen inschakelen](active-directory-accessmanagement-dedicated-groups.md)
-### [Groepstoegang tot SaaS-apps toevoegen](active-directory-accessmanagement-group-saasapps.md)
+### [Groep toegang tooSaaS apps toevoegen](active-directory-accessmanagement-group-saasapps.md)
 ### [Herstellen van een verwijderde Office 365-groep](active-directory-groups-restore-azure-portal.md)
 ### Groepsinstellingen beheren
 #### [Azure Portal](active-directory-groups-settings-azure-portal.md)
@@ -89,7 +89,7 @@
 ### Taken
 #### [Benoemde locaties configureren](active-directory-named-locations.md)
 #### [Activiteitenrapporten vinden](active-directory-reporting-migration.md)
-#### [Het Power BI-inhoudspakket van Azure Active Directory gebruiken](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Hello Azure Active Directory Power BI-inhoudspakket gebruiken](active-directory-reporting-power-bi-content-pack-how-to.md)
 ### Naslaginformatie
 #### [Retentie](active-directory-reporting-retention.md)
 #### [Wachttijden](active-directory-reporting-latencies-azure-portal.md)
@@ -131,7 +131,7 @@
 
 ## Apparaten beheren
 ### [Inleiding](device-management-introduction.md)
-### [Azure Portal gebruiken](device-management-azure-portal.md)
+### [Met behulp van hello Azure-portal](device-management-azure-portal.md)
 ### [Veelgestelde vragen](device-management-faq.md)
 ### Taken
 #### [Hybride, in Azure AD gekoppelde apparaten configureren](device-management-hybrid-azuread-joined-devices-setup.md) 
@@ -188,7 +188,7 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Problemen oplossen](active-directory-application-proxy-troubleshoot.md)
-#### De klassieke portal gebruiken
+#### Hallo klassieke portal gebruiken
 ##### [Connectors downloaden](application-proxy-enable-classic-portal.md)
 ##### [Apps publiceren](active-directory-application-proxy-publish.md)
 ##### [Connectors gebruiken](active-directory-application-proxy-connectors.md)
@@ -202,7 +202,7 @@
 #### [Al mijn apps weergeven](active-directory-coreapps-view-azure-portal.md)
 #### [Inrichting van gebruikersaccount beheren](active-directory-enterprise-apps-manage-provisioning.md)
 
-### [Toegang tot apps beheren](active-directory-managing-access-to-apps.md)
+### [Toegang tooapps beheren](active-directory-managing-access-to-apps.md)
 #### [Selfservice toegang](active-directory-self-service-application-access.md)
 #### [Toegang via eenmalige aanmelding](active-directory-appssoaccess-whatis.md)
 #### [Certificaten voor SSO](active-directory-sso-certs.md)
@@ -253,7 +253,7 @@
 #### [B2B-gebruikers zonder uitnodiging toevoegen](active-directory-b2b-add-user-without-invite.md)
 #### [Voorwaardelijke toegang voor B2B](active-directory-b2b-mfa-instructions.md)
 #### [Beleid voor B2B-deling](active-directory-b2b-delegate-invitations.md)
-#### [Een B2B-gebruiker toevoegen aan een rol](active-directory-b2b-add-guest-to-role.md)
+#### [Een B2B tooa gebruikersrol toevoegen](active-directory-b2b-add-guest-to-role.md)
 #### [Dynamische groepen en B2B-gebruikers](active-directory-b2b-dynamic-groups.md)
 #### [Controle en rapportage](active-directory-b2b-auditing-and-reporting.md)
 #### [Extern delen B2B en Office 365](active-directory-b2b-o365-external-user.md)
@@ -261,16 +261,16 @@
 #### [Huidige beperkingen](active-directory-b2b-current-limitations.md)
 #### [Veelgestelde vragen](active-directory-b2b-faq.md)
 #### [Problemen oplossen voor B2B](active-directory-b2b-troubleshooting.md)
-#### [Informatie over de B2B-gebruiker](active-directory-b2b-user-properties.md)
+#### [Hallo B2B gebruiker begrijpen](active-directory-b2b-user-properties.md)
 #### [B2B-gebruikerstoken](active-directory-b2b-user-token.md)
 #### [B2B voor in Azure AD geïntegreerde apps](active-directory-b2b-configure-saas-apps.md)
 #### [B2B-gebruikersclaims toewijzen](active-directory-b2b-claims-mapping.md)
-#### [B2B-samenwerking vergelijken met B2C](active-directory-b2b-compare-b2c.md)
+#### [B2B-samenwerking tooB2C vergelijken](active-directory-b2b-compare-b2c.md)
 #### [Ondersteuning krijgen voor B2B](active-directory-b2b-support.md)
 
 ### [On-premises identiteiten integreren met Azure AD Connect](./connect/active-directory-aadconnect.md)
 
-## Toegang tot resources delegeren
+## Gemachtigde toegang tooresources
 ### [Beheerdersrollen](active-directory-assign-admin-roles.md)
 #### [Beheerdersrollen toewijzen](active-directory-users-assign-role-azure-portal.md)
 ### [Beheereenheden](active-directory-administrative-units-management.md)
@@ -283,8 +283,8 @@
 #### [Aangepaste rollen](role-based-access-control-custom-roles.md)
 #### [Aangepaste rollen toewijzen voor interne en externe gebruikers](role-based-access-control-create-custom-roles-for-internal-external-users.md)
 #### [Rapportage](role-based-access-control-access-change-history-report.md)
-#### Meer manieren om rollen te beheren
-##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+#### Meer manieren toomanage functies
+##### [Azure-CLI](role-based-access-control-manage-access-azure-cli.md)
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
 #### [Verhoogde bevoegdheden voor tenantbeheerders](role-based-access-control-tenant-admin-access.md)
@@ -299,7 +299,7 @@
 #### [Technische naslaginformatie](active-directory-conditional-access-technical-reference.md)
 #### [Ondersteunde apps](active-directory-conditional-access-supported-apps.md)
 #### [Meer informatie over apparaatbeleidsregels](active-directory-conditional-access-device-policies.md)
-#### [Toegang tot verbonden apps instellen](active-directory-conditional-access-policy-connected-applications.md)
+#### [Toegang tooconnected apps instellen](active-directory-conditional-access-policy-connected-applications.md)
 #### [Herstel](active-directory-conditional-access-device-remediation.md)
 #### [Veelgestelde vragen](active-directory-conditional-faqs.md)
 #### [Klassieke portal](active-directory-conditional-access.md)
