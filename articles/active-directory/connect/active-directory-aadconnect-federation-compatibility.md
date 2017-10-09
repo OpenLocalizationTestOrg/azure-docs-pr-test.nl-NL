@@ -1,6 +1,6 @@
 ---
-title: Azure AD-federation compatibiliteitslijst
-description: Deze pagina bevat een niet-Microsoft-id-providers die kunnen worden gebruikt voor het implementeren van eenmalige aanmelding.
+title: aaaAzure AD-federatiecompatibiliteitslijst
+description: Deze pagina is niet-Microsoft id-providers die gebruikt tooimplement worden kunnen eenmalige aanmelding.
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: bce5867017647764546d872d97943d5d4f01f2d2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ac2f9ad324c8ca6b587b73ea465426ad6b074b03
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Azure AD-federation compatibiliteitslijst
-Azure Active Directory biedt eenmalige aanmelding op en verbeterde beveiliging van toepassingen toegang voor Office 365 en andere Microsoft Online services voor hybride en alleen in de cloud-implementaties zonder een niet-Microsoft-oplossing. Office 365, zoals de meeste van de Microsoft Online services, is geïntegreerd met Azure Active Directory voor adreslijstservices, verificatie en autorisatie. Azure Active Directory biedt ook eenmalige aanmelding tot duizenden SaaS-toepassingen en lokale webtoepassingen. Raadpleeg de Azure Active Directory-toepassingsgalerie voor ondersteunde SaaS-toepassingen.
+Azure Active Directory biedt eenmalige aanmelding op en verbeterde beveiliging van toepassingen toegang voor Office 365 en andere Microsoft Online services voor hybride en alleen in de cloud-implementaties zonder een niet-Microsoft-oplossing. Office 365, zoals de meeste van de Microsoft Online services, is geïntegreerd met Azure Active Directory voor adreslijstservices, verificatie en autorisatie. Azure Active Directory biedt ook eenmalige aanmelding toothousands van SaaS-toepassingen en lokale webtoepassingen. Zie hello Azure Active Directory-toepassingsgalerie voor ondersteunde SaaS-toepassingen.
 
-Voor organisaties die hebben geïnvesteerd in niet-Microsoft-federatieoplossingen, bevat dit onderwerp instructies voor het configureren van eenmalige aanmelding voor de Windows Server Active Directory-gebruikers met Microsoft Online services met behulp van niet-Microsoft-id-providers van de 'Azure Active Directory federation compatibiliteitslijst' hieronder. 
+Voor organisaties die hebben geïnvesteerd in niet-Microsoft-federatieoplossingen, bevat dit onderwerp instructies voor het configureren van eenmalige aanmelding voor de Windows Server Active Directory-gebruikers met Microsoft Online services met behulp van niet-Microsoft-id-providers van Hallo 'Azure Active Directory federatiecompatibiliteitslijst' hieronder. 
 
 ![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg)   
 [Computergroep Oxford](http://oxfordcomputergroup.com/), een derde getest namens Microsoft, deze eenmalige aanmelding met niet-Microsoft-identiteitsproviders op basis van een verzameling van algemene gebruiksvoorbeelden met Azure Active Directory.
@@ -31,9 +31,9 @@ Voor organisaties die hebben geïnvesteerd in niet-Microsoft-federatieoplossinge
 Voor informatie over hoe u hier vermeld van derden id-provider kan krijgen, neem contact op met de computergroep Oxford op [ idp@oxfordcomputergroup.com ](mailto:idp@oxfordcomputergroup.com).
 
 > [!IMPORTANT]
-> Computergroep Oxford getest alleen de federation-functionaliteit van deze scenario voor eenmalige aanmelding. Computergroep Oxford heeft geen uitgevoerd voor alle tests van de synchronisatie, tweeledige verificatie, enzovoort onderdelen van deze scenario voor eenmalige aanmelding.
+> Computergroep Oxford getest alleen Hallo federation functionaliteit van deze scenario voor eenmalige aanmelding. Computergroep Oxford heeft geen uitgevoerd voor alle tests van Hallo synchronisatie, tweeledige verificatie, enzovoort onderdelen van deze scenario voor eenmalige aanmelding.
 > 
-> Gebruik van aanmelden met een alternatieve UPN-ID is ook niet getest in dit programma.
+> Gebruik van de aanmelding door alternatieve ID tooUPN is ook niet getest in dit programma.
 > 
 > 
 
@@ -64,15 +64,15 @@ Voor informatie over hoe u hier vermeld van derden id-provider kan krijgen, neem
 
 
 > [!IMPORTANT]
-> Aangezien deze producten van derden, biedt Microsoft geen ondersteuning voor de implementatie, configuratie, probleemoplossing, best practices, enz. problemen en vragen met betrekking tot deze id-providers. Voor ondersteuning en vragen met betrekking tot deze id-providers rechtstreeks contact op met de ondersteunde derden.
+> Aangezien deze producten van derden, biedt Microsoft geen ondersteuning voor Hallo implementatie, configuratie, probleemoplossing, best practices, enz. problemen en vragen met betrekking tot deze id-providers. Voor ondersteuning en vragen met betrekking tot deze id-providers rechtstreeks contact opnemen met derden Hallo ondersteund.
 > 
-> Deze derde partij identiteitsproviders zijn getest op compatibiliteit met Microsoft cloudservices met behulp van WS-Federation en alleen de WS-Trust-protocollen. Testen bevat geen met het SAML-protocol.
+> Deze derde partij identiteitsproviders zijn getest op compatibiliteit met Microsoft cloudservices met behulp van WS-Federation en alleen de WS-Trust-protocollen. Testen bevat geen met Hallo SAML-protocol.
 > 
 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding: 
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding: 
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -87,7 +87,7 @@ Zie voor meer informatie over het gebruik van Azure Active Directory met Passwor
 
 ## <a name="authanvil-single-sign-on-45"></a>AuthAnvil eenmalige aanmelding 4.5
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding:
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding:
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -100,7 +100,7 @@ Zie voor meer informatie [AuthAnvil eenmalige aanmelding.](https://help.scorpion
 
 ## <a name="big-ip-with-access-policy-manager-big-ip-ver-113x--116x"></a>BIG-IP-adres met beleidsbeheer toegang BIG-IP-versie 11, lid 3 x – 11, 6 x
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding: 
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding: 
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -110,11 +110,11 @@ Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aa
 
 Zie voor meer informatie over BIG-IP Access Policy Manager [beleidsbeheer BIG-IP-toegang.](https://f5.com/products/modules/access-policy-manager) 
 
-Voor instructies over het configureren van dit BIG-IP Access Policy Manager STS de ervaring voor eenmalige aanmelding bieden aan uw Active Directory-gebruikers het PDF-bestand downloaden [BIG-IP](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf).
+Hallo voor Hallo BIG-IP Access Policy Manager instructies over hoe tooconfigure deze STS tooprovide Hallo ervaring voor eenmalige aanmelding tooyour Active Directory: gebruikers downloaden pdf [BIG-IP](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf).
 
 ## <a name="bitglass"></a>BitGlass
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding:
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding:
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -126,7 +126,7 @@ Zie voor meer informatie over BitGlass [BitGlass](http://www.bitglass.com).
 
 ## <a name="ca-secure-cloud"></a>Beveiligde CA-Cloud
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding:
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding:
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -138,7 +138,7 @@ Zie voor meer informatie over CA Secure Cloud [CA Secure Cloud](http://www.ca.co
 
 ## <a name="ca-siteminder-1252-sp1-cumulative-release-4"></a>CA SiteMinder 12.52 SP1 cumulatieve versie 4
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding: 
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding: 
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -150,7 +150,7 @@ Zie voor meer informatie over CA SiteMinder [CA SiteMinder Federation](http://ww
 
 ## <a name="centrify"></a>Centrify
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding:
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding:
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -162,7 +162,7 @@ Zie voor meer informatie over Centrify [Centrify](http://www.centrify.com/cloud/
 
 ## <a name="dell-one-identity-cloud-access-manager-v71"></a>Dell één identiteitsbeheer Cloud toegang v7.1
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding:
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding:
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -172,11 +172,11 @@ Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aa
 
 Zie voor meer informatie over Dell één identiteit Cloud Access Manager [Dell één Cloud toegang identiteitsbeheer](http://software.dell.com/products/cloud-access-manager).
 
- Zie voor instructies over het configureren van deze STS de ervaring voor eenmalige aanmelding bieden aan uw Office 365-gebruikers [Office 365-gebruikers configureren](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365). 
+ Voor Hallo instructies over hoe tooconfigure deze STS tooprovide Hallo ervaring voor eenmalige aanmelding tooyour Office 365-gebruikers zien [Office 365-gebruikers configureren](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365). 
 
 ## <a name="digitalpersona-composite-authentication"></a>DigitalPersona samengestelde verificatie  
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding:
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding:
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -189,7 +189,7 @@ Zie voor meer informatie [DigitalPersona samengestelde verificatie](http://www.c
 
 ## <a name="ibm-tivoli-federated-identity-manager-622"></a>IBM Tivoli federatieve Identity Manager 6.2.2
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding: 
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding: 
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -201,7 +201,7 @@ Zie voor meer informatie over IBM Tivoli federatieve Identity Manager [IBM Secur
 
 ## <a name="icewall-federation-version-30"></a>IceWall Federation versie 3.0
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding:
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding:
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -213,7 +213,7 @@ Zie voor meer informatie over IceWall Federation [IceWall Federation versie 3.0]
 
 ## <a name="memority"></a>Memority
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding: 
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding: 
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -226,7 +226,7 @@ Zie voor meer informatie over het gebruik van Memority [Memority](http://www.mem
 
 ## <a name="netiq-access-manager-4x"></a>NetIQ Access Manager 4.x
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding:
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding:
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -238,7 +238,7 @@ Zie voor meer informatie [NetIQ Access Manager](https://www.netiq.com/documentat
 
 ## <a name="okta"></a>Okta
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding: 
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding: 
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -250,7 +250,7 @@ Zie voor meer informatie over Okta [Okta](https://www.okta.com/).
 
 ## <a name="onelogin"></a>OneLogin
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding: 
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding: 
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -262,7 +262,7 @@ Zie voor meer informatie over OneLogin [OneLogin](https://www.onelogin.com/).
 
 ## <a name="optimal-idm-virtual-identity-server-federation-services"></a>Optimale IDM identiteit van virtuele Server Federatieservices
 
-Hieronder ziet u het scenario ondersteuningsmatrix deze ervaring voor eenmalige aanmelding:
+Hallo volgende Hallo scenario ondersteuningsmatrix-deze ervaring voor eenmalige aanmelding:
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -270,7 +270,7 @@ Hieronder ziet u het scenario ondersteuningsmatrix deze ervaring voor eenmalige 
 | Interactieve toepassingen zoals Lync, Office-abonnement, CRM |Ondersteund |Geïntegreerde Windows-verificatie |
 | E-rich clients, zoals Outlook en ActiveSync |Ondersteund |
 
-Voor meer informatie over clienttoegang beleidsregels Zie [beperken van toegang tot Office 365-Services is gebaseerd op de locatie van de Client](https://technet.microsoft.com/library/hh526961.aspx).
+Voor meer informatie over client toegangsbeleid Zie [toegang beperken tooOffice 365 Services op basis van locatie van de Client Hallo Hallo](https://technet.microsoft.com/library/hh526961.aspx).
 
 
 
@@ -278,7 +278,7 @@ Voor meer informatie over clienttoegang beleidsregels Zie [beperken van toegang 
 
 ## <a name="pingfederate-611-72-8x"></a>PingFederate 6.11, 7.2, 8.x
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding:
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding:
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -286,7 +286,7 @@ Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aa
 | Interactieve toepassingen zoals Lync, Office-abonnement, CRM |Ondersteund |Geen |
 | E-rich clients, zoals Outlook en ActiveSync |Ondersteund |Geen |
 
-Zie een van de volgende opties voor PingFederate instructies over het configureren van deze STS de ervaring voor eenmalige aanmelding bieden aan uw Active Directory-gebruikers: 
+Voor Hallo PingFederate instructies over hoe tooconfigure deze STS tooprovide Hallo eenmalige aanmelding optreden Zie tooyour Active Directory-gebruikers, een van de volgende Hallo: 
 
 - [PingFederate 6.11](http://go.microsoft.com/fwlink/?LinkID=266321)
 - [7.2 PingFederate](http://documentation.pingidentity.com/display/PF72/PingFederate+7.2)
@@ -294,7 +294,7 @@ Zie een van de volgende opties voor PingFederate instructies over het configurer
 
 ## <a name="radiantone-cfs-30"></a>RadiantOne CFS 3.0
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding: 
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding: 
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -306,7 +306,7 @@ Zie voor meer informatie over RadiantOne CFS [RadiantOne CFS](http://www.radiant
 
 ## <a name="sailpoint-identitynow"></a>Sailpoint IdentityNow
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding:
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding:
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -318,7 +318,7 @@ Zie voor meer informatie [Sailpoint IdentityNow](https://www.sailpoint.com/idaas
 
 ## <a name="secureauth-idp-720"></a>SecureAuth IdP 7.2.0
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding: 
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding: 
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -343,7 +343,7 @@ Zie voor meer informatie over SecureAuth [SecureAuth IdP](http://go.microsoft.co
 
 ## <a name="signgo-53"></a>Meld u aan & 5.3 start
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding:
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding:
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -351,11 +351,11 @@ Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aa
 | Interactieve toepassingen zoals Lync, Office-abonnement, CRM |Ondersteund |Geen |
 | E-rich clients, zoals Outlook en ActiveSync |Ondersteund |Geen |
 
-Aanmelding & Ga 5.3 biedt ondersteuning voor Kerberos-verificatie via configuratie van een Kerberos-Contract.  Neem voor hulp bij deze configuratie kunt contact op met Ilex of weergeven van de setup guide [aanmelding & Ga](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
+Aanmelding & Ga 5.3 biedt ondersteuning voor Kerberos-verificatie via configuratie van een Kerberos-Contract.  Neem voor hulp bij deze configuratie kunt contact op met Ilex of weergave Hallo installatiehandleiding [aanmelding & Ga](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
 
 ## <a name="softbank-technology-online-service-gate"></a>SoftBank technologie Online Service-Gate
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding:
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding:
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |
@@ -367,7 +367,7 @@ Zie voor meer informatie over SoftBank technologie Online Service-Gate [Softbank
 
 ## <a name="vmware-workspace-one"></a>VMware-werkruimte een
 
-Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding:
+Hallo volgt Hallo scenario ondersteuningsmatrix voor deze ervaring voor eenmalige aanmelding:
 
 | Client | Ondersteuning | Uitzonderingen |
 | --- | --- | --- |

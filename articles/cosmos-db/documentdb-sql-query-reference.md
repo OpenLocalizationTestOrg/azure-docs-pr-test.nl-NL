@@ -1,35 +1,21 @@
 ---
-title: 'Azure DB Cosmos DocumentDB API: SQL-syntaxis voor | Microsoft Docs'
-description: Documentatie voor de taal van Azure Cosmos DB DocumentDB API SQL-query.
-services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: mimig
-documentationcenter: 
-ms.assetid: 
-ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: reference
-ms.date: 06/13/2017
-ms.author: mimig
-ms.openlocfilehash: 63b2d20c74df4fd6173994ee1a727594ba8afba3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+titel: aaa "Azure Cosmos DB DocumentDB-API: SQL-syntaxis | Microsoft Docs' Beschrijving: verwijzen naar de documentatie voor hello Azure Cosmos DB DocumentDB API SQL-querytaal.
+Services: cosmos-db auteur: mimig1 manager: jhubbard-editor: mimig documentationcenter: ''
+
+MS.AssetID: ms.service: cosmos-db ms.workload: data services ms.tgt_pltfrm: na ms.devlang: n.v.t. ms.topic: verwijzen naar ms.date: 13-06/2017 ms.author: mimig
+
 ---
+
 # <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>Azure DB Cosmos DocumentDB API: Verwijzing naar SQL
 
-De Azure-API voor DocumentDB Cosmos DB ondersteunt documentquery's die gebruikmaken van een bekende SQL (Structured Query Language) zoals grammatica via hiërarchische JSON-documenten zonder expliciet schema of het maken van secundaire indexen. Dit onderwerp vindt u documentatie voor de DocumentDB API SQL query language reference.
+Hello Azure Cosmos DB DocumentDB API ondersteunt documentquery's die gebruikmaken van een bekende SQL (Structured Query Language) zoals grammatica via hiërarchische JSON-documenten zonder expliciet schema of het maken van secundaire indexen. Dit onderwerp bevat de naslagdocumentatie voor Hallo DocumentDB API SQL-querytaal.
 
-Zie voor een overzicht van de DocumentDB API SQL-querytaal [SQL-query's voor Azure Cosmos DB DocumentDB API](documentdb-sql-query.md).  
+Zie voor een overzicht van Hallo DocumentDB API SQL-querytaal [SQL-query's voor Azure Cosmos DB DocumentDB API](documentdb-sql-query.md).  
   
-We nodigen ook u gaat u naar de [Query Playground](http://www.documentdb.com/sql/demo) kunt u proberen Azure Cosmos DB en SQL-query's uitvoeren op onze gegevensset.  
+We ook nodigen u toovisit hello [Query Playground](http://www.documentdb.com/sql/demo) kunt u proberen Azure Cosmos DB en SQL-query's uitvoeren op onze gegevensset.  
   
 ## <a name="select-query"></a>SELECT-query  
-JSON-documenten opgehaald uit de database. Ondersteunt de evaluatie van de expressie, projecties, filteren en lid wordt.  De conventies voor de beschrijving van de SELECT-instructies zijn in een tabel in de sectie syntaxis overeenkomsten weergegeven.  
+Haalt de JSON-documenten uit Hallo-database. Ondersteunt de evaluatie van de expressie, projecties, filteren en lid wordt.  Hallo syntaxis conventies sectie geeft een tabelindeling van Hallo conventies voor het beschrijven van Hallo SELECT-instructies.  
   
 **Syntaxis**  
   
@@ -53,31 +39,31 @@ SELECT <select_specification>
   
 -   [ORDER BY-component](#bk_orderby_clause)  
   
-De componenten in de SELECT-instructie moeten worden besteld, zoals hierboven. Een van de optionele componenten kan worden weggelaten. Maar als optionele componenten worden gebruikt, moeten ze worden weergegeven in de juiste volgorde.  
+Hallo-componenten in Hallo SELECT-instructie moeten worden besteld, zoals hierboven. Een van de optionele componenten Hallo kan worden weggelaten. Maar als optionele componenten worden gebruikt, moeten ze worden weergegeven in de juiste volgorde Hallo.  
   
-**Logische verwerkingsvolgorde van de SELECT-instructie**  
+**Logische verwerkingsvolgorde Hallo SELECT-instructie**  
   
-De volgorde waarin componenten worden verwerkt is:  
+Hallo in welke volgorde componenten zijn verwerkt is:  
 
 1.  [FROM-component](#bk_from_clause)  
 2.  [WHERE-component](#bk_where_clause)  
 3.  [ORDER BY-component](#bk_orderby_clause)  
 4.  [SELECT-component](#bk_select_query)  
 
-Houd er rekening mee dat dit verschilt van de volgorde waarin ze worden weergegeven in de syntaxis. De volgorde is dat alle nieuwe symbolen die zijn geïntroduceerd in een component verwerkte zichtbaar zijn en kunnen worden gebruikt in de componenten die later wordt verwerkt. Bijvoorbeeld, aliassen die zijn gedeclareerd in een FROM-component in, waarbij toegankelijk zijn en SELECT-component.  
+Houd er rekening mee dat dit verschilt van Hallo volgorde waarin ze worden weergegeven in het Hallo-syntaxis. Hallo ordening is dat alle nieuwe symbolen die zijn geïntroduceerd in een component verwerkte zichtbaar zijn en kunnen worden gebruikt in de componenten die later wordt verwerkt. Bijvoorbeeld, aliassen die zijn gedeclareerd in een FROM-component in, waarbij toegankelijk zijn en SELECT-component.  
 
 **Spaties en -opmerkingen**  
 
-Alle spatietekens die deel uitmaken van een tekenreeks tussen aanhalingstekens of aanhalingstekens id maken geen deel uit van de taal-grammatica en worden genegeerd tijdens het parseren.  
+Alle spatietekens die deel uitmaken van een tekenreeks tussen aanhalingstekens of aanhalingstekens id maken geen deel uit van Hallo taal grammatica en worden genegeerd tijdens het parseren.  
 
-De query language ondersteunt T-SQL-stijl opmerkingen zoals  
+Hallo-querytaal biedt ondersteuning voor T-SQL-stijl opmerkingen zoals  
 
 -   SQL-instructie`-- comment text [newline]`  
 
-Terwijl uit witruimte bestaat en -opmerkingen bevatten geen betekenis in de grammatica, moet het worden gebruikt voor het scheiden van tokens. Bijvoorbeeld: `-1e5` is één nummer token, even`: – 1 e5` wordt een min token gevolgd door nummer 1 en id e5.  
+Terwijl uit witruimte bestaat en -opmerkingen niet alle significante in grammatica hello zijn, moeten ze gebruikte tooseparate tokens zijn. Bijvoorbeeld: `-1e5` is één nummer token, even`: – 1 e5` wordt een min token gevolgd door nummer 1 en id e5.  
 
 ##  <a name="bk_select_query"></a>SELECT-component  
-De componenten in de SELECT-instructie moeten worden besteld, zoals hierboven. Een van de optionele componenten kan worden weggelaten. Maar als optionele componenten worden gebruikt, moeten ze worden weergegeven in de juiste volgorde.  
+Hallo-componenten in Hallo SELECT-instructie moeten worden besteld, zoals hierboven. Een van de optionele componenten Hallo kan worden weggelaten. Maar als optionele componenten worden gebruikt, moeten ze worden weergegeven in de juiste volgorde Hallo.  
 
 **Syntaxis**  
 ```  
@@ -97,27 +83,27 @@ SELECT <select_specification>
   
  `<select_specification>`  
   
- Eigenschappen of -waarde worden geselecteerd voor de resultatenset.  
+ Eigenschappen of waarde toobe geselecteerd voor Hallo resultaat ingesteld.  
   
  `'*'`  
   
-Hiermee geeft u op dat de waarde zonder wijzigingen moet worden opgehaald. Specifiek als de verwerkte waarde een object is, worden alle eigenschappen worden opgehaald.  
+Hiermee geeft u op dat Hallo waarde zonder wijzigingen moet worden opgehaald. Specifiek als Hallo verwerkt waarde een object is, worden alle eigenschappen worden opgehaald.  
   
  `<object_property_list>`  
   
-Hiermee geeft u de lijst met eigenschappen worden opgehaald. Elke geretourneerde waarde is een object met de eigenschappen die zijn opgegeven.  
+Hiermee geeft lijst op Hallo van eigenschappen toobe opgehaald. Elke geretourneerde waarde is een object met Hallo eigenschappen opgegeven.  
   
 `VALUE`  
   
-Geeft aan dat de JSON-waarde moet worden opgehaald in plaats van de volledige JSON-object. Dit, in tegenstelling tot `<property_list>` loopt niet de verwachte waarde in een object.  
+Hiermee geeft u op dat Hallo JSON-waarde moet worden opgehaald in plaats van Hallo voltooid JSON-object. Dit, in tegenstelling tot `<property_list>` loopt Hallo geprojecteerd waarde niet in een object.  
   
 `<scalar_expression>`  
   
-De expressie voor de waarde moeten worden berekend. Zie [scalaire expressies](#bk_scalar_expressions) sectie voor meer informatie.  
+Expressie die aangeeft Hallo waarde toobe berekend. Zie [scalaire expressies](#bk_scalar_expressions) sectie voor meer informatie.  
   
 **Opmerkingen**  
   
-De `SELECT *` syntaxis is alleen geldig als FROM-component precies één alias is gedeclareerd. `SELECT *`biedt een identity-projectie handig is als er geen projectie is vereist. Selecteer * is alleen geldig als FROM-component is opgegeven en er slechts één invoer bron geïntroduceerd.  
+Hallo `SELECT *` syntaxis is alleen geldig als FROM-component precies één alias is gedeclareerd. `SELECT *`biedt een identity-projectie handig is als er geen projectie is vereist. Selecteer * is alleen geldig als FROM-component is opgegeven en er slechts één invoer bron geïntroduceerd.  
   
 Houd er rekening mee dat `SELECT <select_list>` en `SELECT *` 'syntactische suiker' zijn en u kunt ook kan worden uitgedrukt met behulp van eenvoudige SELECT-instructies zoals hieronder wordt weergegeven.  
   
@@ -139,7 +125,7 @@ Houd er rekening mee dat `SELECT <select_list>` en `SELECT *` 'syntactische suik
 [SELECT-component](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a>FROM-component  
-Hiermee geeft u de bron- of gekoppelde bronnen. De component FROM is optioneel. Als dat niet wordt opgegeven, andere componenten nog steeds uitgevoerd alsof FROM-component opgegeven één document.  
+Hiermee geeft u op Hallo bron of gekoppelde bronnen. Hallo FROM-component is optioneel. Als dat niet wordt opgegeven, andere componenten nog steeds uitgevoerd alsof FROM-component opgegeven één document.  
   
 **Syntaxis**  
   
@@ -165,47 +151,47 @@ FROM <from_specification>
   
 `<from_source>`  
   
-Hiermee geeft u een gegevensbron met of zonder een alias. Als alias niet opgegeven is, wordt deze afgeleid van de `<collection_expression>` met volgende regels:  
+Hiermee geeft u een gegevensbron met of zonder een alias. Als alias niet opgegeven is, wordt deze worden afgeleid van Hallo `<collection_expression>` met volgende regels:  
   
--   De expressie is een verzamelingnaam, wordt verzamelingnaam worden gebruikt als een alias.  
+-   Hallo-expressie is een verzamelingnaam, wordt verzamelingnaam worden gebruikt als een alias.  
   
--   Als de expressie `<collection_expression>`, en vervolgens kubuskenmerkbinding en vervolgens kubuskenmerkbinding wordt gebruikt als alias. De expressie is een verzamelingnaam, wordt verzamelingnaam worden gebruikt als een alias.  
+-   Als de expressie Hallo `<collection_expression>`, en vervolgens kubuskenmerkbinding en vervolgens kubuskenmerkbinding wordt gebruikt als alias. Hallo-expressie is een verzamelingnaam, wordt verzamelingnaam worden gebruikt als een alias.  
   
 ALS IN DE`input_alias`  
   
-Hiermee wordt aangegeven dat de `input_alias` is een set met waarden geretourneerd door de onderliggende verzamelingsexpressie.  
+Hiermee geeft u op dat Hallo `input_alias` is een set met waarden geretourneerd door Hallo onderliggende verzamelingsexpressie.  
  
 `input_alias`IN  
   
-Hiermee wordt aangegeven dat de `input_alias` moet de set met waarden die zijn verkregen door iteratie van alle matrixelementen van elke matrix geretourneerd door de onderliggende verzamelingsexpressie vertegenwoordigen. Een waarde die is geretourneerd door de onderliggende verzamelingsexpressie is geen matrix wordt genegeerd.  
+Hiermee geeft u op dat Hallo `input_alias` Hallo verzameling waarden die zijn verkregen door iteratie van alle matrixelementen van elke matrix geretourneerd door de onderliggende verzamelingsexpressie Hallo moet vertegenwoordigen. Een waarde die is geretourneerd door de onderliggende verzamelingsexpressie is geen matrix wordt genegeerd.  
   
 `<collection_expression>`  
   
-Hiermee geeft u de verzamelingsexpressie voor het ophalen van de documenten worden gebruikt in de.  
+Hiermee geeft u op Hallo verzameling expressie toobe gebruikte tooretrieve Hallo documenten.  
   
 `ROOT`  
   
-Hiermee geeft u op dat document moet worden opgehaald van de standaardwaarde, momenteel verbonden verzameling.  
+Hiermee geeft u op dat document uit de momenteel verbonden verzameling Hallo standaard moet worden opgehaald.  
   
 `collection_name`  
   
-Hiermee geeft u op dat document moet worden opgehaald uit de opgegeven verzameling. De naam van de verzameling moet overeenkomen met de naam van de momenteel verbonden met verzameling.  
+Hiermee geeft u op dat document moet worden opgehaald uit de verzameling Hallo opgegeven. Hallo-naam van verzameling op Hallo moet overeenkomen met de Hallo-naam van verzameling op Hallo momenteel verbonden.  
   
 `input_alias`  
   
-Hiermee geeft u op dat document moet worden opgehaald uit de andere bron gedefinieerd door de opgegeven alias.  
+Geeft aan dat document moet worden opgehaald uit Hallo andere bron gedefinieerd door Hallo opgegeven alias.  
   
 `<collection_expression> '.' property_`  
   
-Geeft aan dat document moet worden opgehaald door het openen van de `property_name` eigenschap of matrixindex matrixelement voor alle documenten die worden opgehaald door opgegeven verzamelingsexpressie.  
+Geeft aan dat document moet worden opgehaald door het openen van Hallo `property_name` eigenschap of matrixindex matrixelement voor alle documenten die worden opgehaald door opgegeven verzamelingsexpressie.  
   
 `<collection_expression> '[' "property_name" | array_index ']'`  
   
-Geeft aan dat document moet worden opgehaald door het openen van de `property_name` eigenschap of matrixindex matrixelement voor alle documenten die worden opgehaald door opgegeven verzamelingsexpressie.  
+Geeft aan dat document moet worden opgehaald door het openen van Hallo `property_name` eigenschap of matrixindex matrixelement voor alle documenten die worden opgehaald door opgegeven verzamelingsexpressie.  
   
 **Opmerkingen**  
   
-Alle aliassen verstrekt of afgeleid in de `<from_source>(`s) moet uniek zijn. De syntaxis van de `<collection_expression>.`kubuskenmerkbinding is hetzelfde als `<collection_expression>' ['"property_name"']'`. De syntaxis van de laatste kan echter worden gebruikt als een eigenschapsnaam een niet-id-tekens bevat.  
+Alle aliassen verstrekt of afgeleid in Hallo `<from_source>(`s) moet uniek zijn. Hallo syntaxis `<collection_expression>.`kubuskenmerkbinding is gelijk aan Hallo `<collection_expression>' ['"property_name"']'`. Hallo laatstgenoemde syntaxis kan echter worden gebruikt als een eigenschapsnaam een niet-id-tekens bevat.  
   
 **Ontbrekende eigenschappen, ontbrekende matrixelementen, niet-gedefinieerde waarden verwerken**  
   
@@ -215,27 +201,27 @@ Als een verzamelingsexpressie voor een naar eigenschappen of matrixelementen en 
   
 Een verzamelingsexpressie is mogelijk binnen het bereik van verzameling of binnen het bereik van document:  
   
--   Een expressie is verzameling-bereik, als de onderliggende gegevensbron van de verzamelingsexpressie ofwel ROOT is of `collection_name`. Een dergelijke expressie vertegenwoordigt een verzameling van documenten die zijn opgehaald uit de verzameling rechtstreeks en is niet afhankelijk van de verwerking van andere expressies verzameling.  
+-   Een expressie is gericht op de verzameling, als hello onderliggende gegevensbron Hallo verzamelingsexpressie beide ROOT of `collection_name`. Een dergelijke expressie vertegenwoordigt een verzameling van documenten die zijn opgehaald uit de verzameling Hallo rechtstreeks en is niet afhankelijk van het Hallo-verwerking van andere expressies verzameling.  
   
--   Een expressie is document-bereik, als de onderliggende gegevensbron van de verzamelingsexpressie `input_alias` geïntroduceerd eerder in de query. Een dergelijke expressie vertegenwoordigt een verzameling van documenten die zijn verkregen door het evalueren van de verzamelingsexpressie in het bereik van de van elk document die horen bij de set die zijn gekoppeld aan de verzameling alias hebben.  De resulterende set worden een samenvoeging van die worden verkregen door de verzamelingsexpressie voor elk van de documenten in de onderliggende set te evalueren.  
+-   Een expressie is binnen het bereik van document, als hello onderliggende gegevensbron Hallo verzamelingsexpressie `input_alias` geïntroduceerd eerder in het Hallo-query. Een dergelijke expressie vertegenwoordigt een verzameling van documenten die zijn verkregen door het evalueren van Hallo verzamelingsexpressie in Hallo bereik van elk document die behoren toohello set Hallo alias verzameling gekoppeld.  de resulterende set Hallo worden een samenvoeging van die worden verkregen door Hallo verzamelingsexpressie voor elke Hallo documenten in Hallo onderliggende set te evalueren.  
   
 **Joins**  
   
-In de huidige release ondersteunt Azure Cosmos DB inner joins. Er zijn extra join mechanismen toekomstige.
+In de huidige release Hallo ondersteunt Azure Cosmos DB inner joins. Er zijn extra join mechanismen toekomstige.
 
-Inner join resulteert in een volledige vectorproduct van de sets die deel uitmaken van de join. Het resultaat van een join N manier is een set met tuples zijn N-element, waarbij elke waarde in de tuple is gekoppeld aan de alias instellen die deel uitmaken van de join en toegankelijk zijn voor het verwijzen naar deze alias in andere componenten.  
+Inner join in een volledige vectorproduct Hallo resultatensets die deel uitmaken van Hallo join. Hallo-resultaat van een join N manier is een set met tuples zijn N-element, waarbij elke waarde in het Hallo-tuple is gekoppeld aan het Hallo-alias instellen die deel Hallo join en toegankelijk zijn voor het verwijzen naar deze alias in andere componenten.  
   
-De evaluatie van de join, is afhankelijk van het bereik van de context van de deelnemende sets:  
+Hallo-evaluatie van Hallo join, is afhankelijk van Hallo context bereik van Hallo deelnemende sets:  
   
 -  Een join tussen verzamelingsset A en gericht op de verzameling ingesteld B, resulteert in een vectorproduct van alle elementen in sets A en B.
   
 -   Een koppeling tussen het paar A en binnen het bereik van document set B, resulteert in een samenvoeging van alle sets die zijn verkregen door het evalueren van binnen het bereik van document set B voor elk document van A. instellen  
   
- In de huidige release wordt maximaal één expressie gericht op de verzameling ondersteund door de queryprocessor.  
+ In de huidige release Hallo wordt maximaal één expressie gericht op de verzameling ondersteund door de queryprocessor Hallo.  
   
 **Voorbeelden van joins:**  
   
-Bekijk de volgende FROM-component:`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
+Bekijk hello FROM-component te volgen:`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
  Elke bron definiëren, kunnen `input_alias1, input_alias2, …, input_aliasN`. Deze component FROM retourneert een set met N-tuples (tuple met N waarden). Elke tuple heeft geproduceerd door alle verzameling aliassen iteratie van hun respectieve sets waarden.  
   
@@ -251,7 +237,7 @@ Bekijk de volgende FROM-component:`<from_source1> JOIN <from_source2> JOIN ... J
   
     {4, 5} voor`input_alias1 = C,`  
   
-- De component FROM `<from_source1> JOIN <from_source2>` leidt ertoe dat de volgende tuples:  
+- Hallo FROM-component `<from_source1> JOIN <from_source2>` leidt ertoe dat Hallo tuples te volgen:  
   
     (`input_alias1, input_alias2`):  
   
@@ -275,14 +261,14 @@ Bekijk de volgende FROM-component:`<from_source1> JOIN <from_source2> JOIN ... J
   
     {300} voor`input_alias2 = 3,`  
   
-- De component FROM `<from_source1> JOIN <from_source2> JOIN <from_source3>` leidt ertoe dat de volgende tuples:  
+- Hallo FROM-component `<from_source1> JOIN <from_source2> JOIN <from_source3>` leidt ertoe dat Hallo tuples te volgen:  
   
     (input_alias1, input_alias2, input_alias3):  
   
     (A, 1, 100), (A, 1, 200), (B, 3, 300)  
   
 > [!NOTE]
-> Gebrek aan tuples voor andere waarden van `input_alias1`, `input_alias2`, waarvoor de `<from_source3>` heeft geen waarden retourneren.  
+> Gebrek aan tuples voor andere waarden van `input_alias1`, `input_alias2`, voor welke Hallo `<from_source3>` heeft geen waarden retourneren.  
   
 *Voorbeeld 3, met 3 bronnen JOIN:*  
   
@@ -298,27 +284,27 @@ Bekijk de volgende FROM-component:`<from_source1> JOIN <from_source2> JOIN ... J
   
     {4, 5} voor`input_alias1 = C,`  
   
-- Laat `<from_source3>` moet binnen het bereik `input_alias1` sets omvatten:  
+- Laat `<from_source3>` moet binnen het bereik te`input_alias1` sets omvatten:  
   
     {100, 200} voor`input_alias2 = A,`  
   
     {300} voor`input_alias2 = C,`  
   
-- De component FROM `<from_source1> JOIN <from_source2> JOIN <from_source3>` leidt ertoe dat de volgende tuples:  
+- Hallo FROM-component `<from_source1> JOIN <from_source2> JOIN <from_source3>` leidt ertoe dat Hallo tuples te volgen:  
   
     (`input_alias1, input_alias2, input_alias3`):  
   
     (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200), C, 4, 300, (C, 5, 300)  
   
 > [!NOTE]
-> Dit resulteerde in vectorproduct tussen `<from_source2>` en `<from_source3>` omdat beide zijn gericht op hetzelfde `<from_source1>`.  Dit resulteerde in 4 (2 x 2) tuples met waarde A, 0 tuples met waarde B (1 x 0) en 2 (2 x 1) tuples met waarde C.  
+> Dit resulteerde in vectorproduct tussen `<from_source2>` en `<from_source3>` omdat beide bereik toohello dezelfde `<from_source1>`.  Dit resulteerde in 4 (2 x 2) tuples met waarde A, 0 tuples met waarde B (1 x 0) en 2 (2 x 1) tuples met waarde C.  
   
 **Zie ook**  
   
  [SELECT-component](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a>WHERE-component  
- Hiermee geeft u het zoekcriterium voor de documenten die worden geretourneerd door de query.  
+ Hiermee geeft u Hallo zoekcriterium voor Hallo documenten die worden geretourneerd door Hallo-query.  
   
  **Syntaxis**  
   
@@ -332,18 +318,18 @@ WHERE <filter_condition>
   
 -   `<filter_condition>`  
   
-     Geeft aan welke voorwaarde moet worden voldaan om de documenten die moeten worden geretourneerd.  
+     Hiermee geeft u Hallo voorwaarde toobe voldaan voor Hallo documenten toobe geretourneerd.  
   
 -   `<scalar_expression>`  
   
-     De expressie voor de waarde moeten worden berekend. Zie de [scalaire expressies](#bk_scalar_expressions) sectie voor meer informatie.  
+     Expressie die aangeeft Hallo waarde toobe berekend. Zie Hallo [scalaire expressies](#bk_scalar_expressions) sectie voor meer informatie.  
   
  **Opmerkingen**  
   
- Om het document moet worden geretourneerd van een expressie die is opgegeven als filter moet voorwaarde resulteren in waar. Alleen Booleaanse waarde true voldoen aan de voorwaarde, een andere waarde: niet-gedefinieerde, null, false, getal, matrix of Object niet voldoen aan de voorwaarde.  
+ Opdat Hallo geretourneerd document toobe een expressie die is opgegeven als filtervoorwaarde tootrue moet worden geëvalueerd. Alleen Booleaanse waarde true voldoen aan Hallo voorwaarde, een andere waarde: niet-gedefinieerde, null, false, getal, matrix of Object niet voldoen aan Hallo voorwaarde.  
   
 ##  <a name="bk_orderby_clause"></a>ORDER BY-component  
- Hiermee geeft u de sorteervolgorde voor de resultaten die door de query zijn geretourneerd.  
+ Hiermee geeft u Hallo sorteervolgorde voor de resultaten van Hallo-query.  
   
  **Syntaxis**  
   
@@ -358,30 +344,30 @@ ORDER BY <sort_specification>
   
 -   `<sort_specification>`  
   
-     Hiermee geeft u een eigenschap of een expressie waarmee moet worden gesorteerd van de queryresultatenset. Een kolom sorteren kan worden opgegeven als een alias voor een naam of kolom.  
+     Hiermee geeft u een eigenschap of een expressie waarop toosort Hallo queryresultaatset. Een kolom sorteren kan worden opgegeven als een alias voor een naam of kolom.  
   
-     Meerdere sortering-kolommen kunnen worden opgegeven. Kolomnamen moet uniek zijn. De volgorde van de kolommen sorteren in de component ORDER BY definieert de organisatie van de gesorteerde resultatenset. Dat wil zeggen, de resultatenset is gesorteerd op de eerste eigenschap en vervolgens die geordende lijst is gesorteerd op de tweede eigenschap, enzovoort.  
+     Meerdere sortering-kolommen kunnen worden opgegeven. Kolomnamen moet uniek zijn. Hallo Hallo sorteren kolommen in component ORDER BY Hallo reeks definieert Hallo organisatie van de resultaatset Hallo gesorteerd. Dat wil zeggen, Hallo resultatenset is gesorteerd op de eerste eigenschap Hallo en vervolgens die geordende lijst is gesorteerd op de tweede eigenschap hello, enzovoort.  
   
-     De kolomnamen van de waarnaar wordt verwezen in de component ORDER BY moeten naar een kolom in de selectielijst of naar een kolom die is gedefinieerd in een tabel die is opgegeven in de component FROM zonder eventuele dubbelzinnigheden overeenkomen.  
+     Hallo kolomnamen waarnaar wordt verwezen in de component ORDER BY Hallo moeten overeenkomen met een kolom in Hallo lijst of tooa kolom gedefinieerd in een tabel die is opgegeven in de FROM-component Hallo zonder eventuele dubbelzinnigheden selecteren tooeither.  
   
 -   `<sort_expression>`  
   
-     Hiermee geeft u een één eigenschap of een expressie waarmee moet worden gesorteerd van de queryresultatenset.  
+     Hiermee geeft u een één eigenschap of een expressie op welke queryresultaatset Hallo toosort.  
   
 -   `<scalar_expression>`  
   
-     Zie de [scalaire expressies](#bk_scalar_expressions) sectie voor meer informatie.  
+     Zie Hallo [scalaire expressies](#bk_scalar_expressions) sectie voor meer informatie.  
   
 -   `ASC | DESC`  
   
-     Hiermee geeft u op dat de waarden in de opgegeven kolom in oplopende of aflopende volgorde moeten worden gesorteerd. ASC sorteren van de laagste waarde naar de hoogste waarde. DESC sorteren van hoogste waarde naar de laagste waarde. ASC is de standaardsorteervolgorde. Null-waarden worden behandeld als de laagst mogelijke waarden.  
+     Hiermee geeft u op dat Hallo waarden in de opgegeven kolom Hallo in oplopende of aflopende volgorde moeten worden gesorteerd. ASC sorteert van Hallo laagste waarde toohighest waarde. DESC sorteren van hoogste waarde toolowest waarde. ASC is Hallo standaardsorteervolgorde. Null-waarden worden behandeld als Hallo laagst mogelijke waarden.  
   
  **Opmerkingen**  
   
- Terwijl de querygrammatica meerdere volgorde door eigenschappen ondersteunt, wordt de runtime van Azure DB die Cosmos-query ondersteunt alleen tegen één eigenschap, en alleen eigenschapnamen, dat wil zeggen, niet op berekende eigenschappen sorteren. Sorteren is ook vereist dat het indexeringsbeleid een bereikindex voor de eigenschap en het opgegeven type met de maximale precisie bevat. Raadpleeg de indexering beleid-documentatie voor meer informatie.  
+ Tijdens het Hallo-querygrammatica ondersteunt meerdere volgorde door eigenschappen, ondersteunt hello Azure Cosmos DB query runtime alleen tegen één eigenschap, en alleen eigenschapnamen, dat wil zeggen, niet op berekende eigenschappen sorteren. Sorteren is ook vereist dat Hallo indexeren beleid bevat een bereikindex voor de eigenschap Hallo en Hallo opgegeven type, met Hallo maximumprecisie. Raadpleeg toohello indexeren beleid-documentatie voor meer informatie.  
   
 ##  <a name="bk_scalar_expressions"></a>Scalaire expressies  
- Een scalaire expressie die is een combinatie van de symbolen en operators die kunnen worden geëvalueerd om te verkrijgen van een enkele waarde. Eenvoudige expressies kunnen bestaan constanten, eigenschap verwijzingen, matrix element verwijzingen, alias-verwijzingen of functieaanroepen. Eenvoudige expressies kunnen worden gecombineerd tot complexe expressies met operators.  
+ Een scalaire expressie die is een combinatie van symbolen en operators die kunnen worden geëvalueerd tooobtain één waarde. Eenvoudige expressies kunnen bestaan constanten, eigenschap verwijzingen, matrix element verwijzingen, alias-verwijzingen of functieaanroepen. Eenvoudige expressies kunnen worden gecombineerd tot complexe expressies met operators.  
   
  Zie voor informatie over welke scalaire expressie die u wellicht waarden, [constanten](#bk_constants) sectie.  
   
@@ -422,24 +408,24 @@ ORDER BY <sort_specification>
   
 -   `input_alias`  
   
-     Hiermee geeft u een waarde die is gedefinieerd door de `input_alias` geïntroduceerd in de `FROM` component.  
-    Deze waarde kan niet worden gegarandeerd **niet-gedefinieerde** –**niet-gedefinieerde** waarden in de invoer worden overgeslagen.  
+     Hiermee geeft u een waarde die is gedefinieerd door Hallo `input_alias` geïntroduceerd in Hallo `FROM` component.  
+    Deze waarde is gegarandeerd toonot worden **niet-gedefinieerde** –**niet-gedefinieerde** waarden in de Hallo invoer worden overgeslagen.  
   
 -   `<scalar_expression>.property_name`  
   
-     Vertegenwoordigt een waarde van de eigenschap van een object. Als de eigenschap niet bestaat of eigenschap van een waarde die niet een object wordt verwezen, wordt de expressie resulteert in **niet-gedefinieerde** waarde.  
+     Vertegenwoordigt een waarde van Hallo-eigenschap van een object. Als Hallo-eigenschap niet bestaat of eigenschap van een waarde die niet een object wordt verwezen, Hallo expressie evalueert vervolgens te**niet-gedefinieerde** waarde.  
   
 -   `<scalar_expression>'['"property_name"|array_index']'`  
   
-     Hiermee geeft u een waarde van de eigenschap met de naam `property_name` of matrixelement met index `array_index` van een objectmatrix. Als de eigenschap/matrixindex niet bestaat of de eigenschap/matrixindex op een waarde die niet een objectmatrix wordt verwezen, klikt u vervolgens resulteert de expressie in niet-gedefinieerde waarde.  
+     Vertegenwoordigt een waarde van eigenschap met de naam Hallo `property_name` of matrixelement met index `array_index` van een objectmatrix. Als Hallo eigenschappenmatrix/index niet bestaat of Hallo eigenschappenmatrix/index op een waarde die niet een objectmatrix wordt verwezen, evalueert Hallo expressie tooundefined waarde.  
   
 -   `unary_operator <scalar_expression>`  
   
-     Vertegenwoordigt een operator die wordt toegepast op een enkele waarde. Zie [Operators](#bk_operators) sectie voor meer informatie.  
+     Vertegenwoordigt een operator die wordt toegepast tooa één waarde. Zie [Operators](#bk_operators) sectie voor meer informatie.  
   
 -   `<scalar_expression> binary_operator <scalar_expression>`  
   
-     Vertegenwoordigt een operator die wordt toegepast op twee waarden. Zie [Operators](#bk_operators) sectie voor meer informatie.  
+     Een operator die is toegepast tootwo waarden vertegenwoordigt. Zie [Operators](#bk_operators) sectie voor meer informatie.  
   
 -   `<scalar_function_expression>`  
   
@@ -447,11 +433,11 @@ ORDER BY <sort_specification>
   
 -   `udf_scalar_function`  
   
-     Naam van de gebruiker gedefinieerde scalaire functie.  
+     Naam van de gebruiker Hallo scalaire functie gedefinieerd.  
   
 -   `builtin_scalar_function`  
   
-     De naam van de ingebouwde scalaire functie.  
+     Naam van de ingebouwde scalaire functie Hallo.  
   
 -   `<create_object_expression>`  
   
@@ -463,18 +449,18 @@ ORDER BY <sort_specification>
   
 -   `parameter_name`  
   
-     Vertegenwoordigt een waarde van de opgegeven parameternaam. Parameternamen moeten één @ hebben als het eerste teken.  
+     Vertegenwoordigt een waarde van de opgegeven parameternaam Hallo. Parameternamen moeten één @ hebben als eerste teken Hallo.  
   
  **Opmerkingen**  
   
- Bij het aanroepen van een ingebouwde of de gebruiker gedefinieerde scalaire functie moeten alle argumenten worden gedefinieerd. Als een van de argumenten is gedefinieerd, wordt de functie wordt niet aangeroepen en wordt het resultaat is niet gedefinieerd.  
+ Bij het aanroepen van een ingebouwde of de gebruiker gedefinieerde scalaire functie moeten alle argumenten worden gedefinieerd. Als een van de argumenten Hallo is gedefinieerd, Hallo-functie wordt niet aangeroepen en Hallo resultaat is niet gedefinieerd.  
   
- Bij het maken van een object, worden alle eigenschappen die niet-gedefinieerde waarde is toegewezen overgeslagen en niet is opgenomen in het gemaakte object.  
+ Bij het maken van een object, worden alle eigenschappen die niet-gedefinieerde waarde is toegewezen overgeslagen en niet is opgenomen in het Hallo-object gemaakt.  
   
- Wanneer het maken van een matrix, maar een elementwaarde die is toegewezen **niet-gedefinieerde** waarde wordt overgeslagen en niet is opgenomen in het gemaakte object. Hierdoor wordt het volgende gedefinieerde element de plaatsvindt zodanig dat de gemaakte matrix wordt niet hebt overgeslagen indexen.  
+ Wanneer het maken van een matrix, maar een elementwaarde die is toegewezen **niet-gedefinieerde** waarde wordt overgeslagen en niet is opgenomen in object Hallo gemaakt. Hierdoor wordt vervolgens gedefinieerd Hallo element tootake plaats zodanig dat matrix Hallo gemaakt wordt niet hebt overgeslagen indexen.  
   
 ##  <a name="bk_operators"></a>Operators  
- Deze sectie beschrijft de ondersteunde operators. Elke operator kan worden toegewezen aan één categorie.  
+ Deze sectie beschrijft operators Hallo ondersteund. Elke operator kan worden toegewezen tooexactly één categorie.  
   
  Zie **Operator categorieën** tabel hieronder voor meer informatie met betrekking tot de verwerking van **niet-gedefinieerde** waarden, type-vereisten voor de invoerwaarden en verwerking van waarden met niet overeenkomende typen.  
   
@@ -482,17 +468,17 @@ ORDER BY <sort_specification>
   
 |**Categorie**|**Details**|  
 |-|-|  
-|**rekenkundige bewerking**|Operator input(s) (s) worden verwacht. Uitvoer is ook een getal. Als een van de invoerwaarden **niet-gedefinieerde** of type dan het aantal vervolgens het resultaat is **niet-gedefinieerde**.|  
-|**Bitsgewijze**|Operator verwacht input(s) worden 32-bits geheel getal met teken (s). Uitvoer is ook een 32-bits geheel getal.<br /><br /> Een niet-integerwaarde worden afgerond. Positieve waarde wordt afgerond, negatieve getallen naar boven afgerond.<br /><br /> Een willekeurige waarde die buiten het bereik voor 32-bits geheel getal wordt geconverteerd, door middel van de laatste 32-bits van de twee van bits.<br /><br /> Als een van de invoerwaarden **niet-gedefinieerde** of andere dan getal, typ dan is het resultaat **niet-gedefinieerde**.<br /><br /> **Opmerking:** het bovenstaande gedrag is compatibel met JavaScript bitsgewijze operator gedrag.|  
-|**logische**|Operator input(s) Boolean(s) worden verwacht. Uitvoer is ook een Booleaanse waarde.<br />Als een van de invoerwaarden **niet-gedefinieerde** of typ dan Boolean, wordt het resultaat **niet-gedefinieerde**.|  
-|**vergelijking**|Operator verwacht input(s) hetzelfde type en niet worden gedefinieerd. Uitvoer is een Booleaanse waarde.<br /><br /> Als een van de invoerwaarden **niet-gedefinieerde** of de invoerwaarden hebben verschillende typen en vervolgens het resultaat is **niet-gedefinieerde**.<br /><br /> Zie **volgorde van waarden voor vergelijking** tabel voor waarde ordening details.|  
-|**tekenreeks**|Operator input(s) meer worden verwacht. Uitvoer is ook een tekenreeks.<br />Als een van de invoerwaarden **niet-gedefinieerde** of andere dan tekenreeks typen en vervolgens het resultaat is **niet-gedefinieerde**.|  
+|**rekenkundige bewerking**|Operator verwacht input(s) toobe (s). Uitvoer is ook een getal. Als een van de invoerwaarden Hallo **niet-gedefinieerde** of type dan het aantal vervolgens Hallo resultaat is **niet-gedefinieerde**.|  
+|**Bitsgewijze**|Operator verwacht input(s) toobe 32-bits geheel getal met teken (s). Uitvoer is ook een 32-bits geheel getal.<br /><br /> Een niet-integerwaarde worden afgerond. Positieve waarde wordt afgerond, negatieve getallen naar boven afgerond.<br /><br /> Een waarde die buiten het bereik van Hallo 32-bits geheel getal wordt geconverteerd, door te nemen van de laatste 32-bits van de twee van bits.<br /><br /> Als een van de invoerwaarden Hallo **niet-gedefinieerde** of andere dan getal, typt u vervolgens Hallo resultaat is **niet-gedefinieerde**.<br /><br /> **Opmerking:** Hallo hierboven gedrag is compatibel met JavaScript bitsgewijze operator gedrag.|  
+|**logische**|Operator verwacht input(s) toobe Boolean(s). Uitvoer is ook een Booleaanse waarde.<br />Als een van de invoerwaarden Hallo **niet-gedefinieerde** of andere dan Boolean, typ wordt Hallo resultaat **niet-gedefinieerde**.|  
+|**vergelijking**|Operator verwacht input(s) toohave Hallo dezelfde typt en niet worden gedefinieerd. Uitvoer is een Booleaanse waarde.<br /><br /> Als een van de invoerwaarden Hallo **niet-gedefinieerde** of Hallo-invoer hebben verschillende typen en vervolgens Hallo resultaat is **niet-gedefinieerde**.<br /><br /> Zie **volgorde van waarden voor vergelijking** tabel voor waarde ordening details.|  
+|**tekenreeks**|Operator verwacht input(s) toobe meer. Uitvoer is ook een tekenreeks.<br />Als een van de invoerwaarden Hallo **niet-gedefinieerde** of type heeft dan tekenreeks vervolgens Hallo resultaat is **niet-gedefinieerde**.|  
   
  **Unaire operators:**  
   
 |**Naam**|**Operator**|**Details**|  
 |-|-|-|  
-|**rekenkundige bewerking**|+<br /><br /> -|Retourneert de waarde.<br /><br /> Bitsgewijze onderhandeling. De numerieke waarde retourneert genegeerde.|  
+|**rekenkundige bewerking**|+<br /><br /> -|Hallo getal-waarde als resultaat gegeven.<br /><br /> Bitsgewijze onderhandeling. De numerieke waarde retourneert genegeerde.|  
 |**Bitsgewijze**|~|Toepassingsgroepen de aanvulling. Retourneert een reeks een numerieke waarde.|  
 |**Logische**|**NIET**|Negatie. Retourneert genegeerde Booleaanse waarde.|  
   
@@ -503,12 +489,12 @@ ORDER BY <sort_specification>
 |**rekenkundige bewerking**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Toevoeging.<br /><br /> Aftrekken.<br /><br /> Vermenigvuldigen.<br /><br /> Deling.<br /><br /> Modulatie.|  
 |**Bitsgewijze**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Bitsgewijze OR.<br /><br /> Bitsgewijze AND.<br /><br /> Bitsgewijze XOR.<br /><br /> Verschuiving naar links.<br /><br /> Rechts verplaatsen.<br /><br /> Nul opvulling rechts verplaatsen.|  
 |**logische**|**EN**<br /><br /> **OR**|Logische verbinding. Retourneert **true** als beide argumenten zijn **true**, retourneert **false** anders.<br /><br /> Logische verbinding. Retourneert **true** als beide argumenten zijn **true**, retourneert **false** anders.|  
-|**vergelijking**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Is gelijk aan. Retourneert **true** als argumenten gelijk zijn, retourneert **false** anders.<br /><br /> Niet gelijk aan. Retourneert **true** als argumenten niet gelijk zijn, retourneert **false** anders.<br /><br /> Groter dan. Retourneert **true** als eerste argument groter dan het tweede is, retourneren **false** anders.<br /><br /> Groter dan of gelijk zijn aan. Retourneert **true** als eerste argument groter dan of gelijk aan het tweede is, geretourneerd **false** anders.<br /><br /> Minder dan. Retourneert **true** als eerste argument kleiner is dan de tweede één terugkeer **false** anders.<br /><br /> Kleiner dan of gelijk zijn aan. Retourneert **true** als eerste argument kleiner dan of gelijk zijn aan de tweede waarde is retourneren **false** anders.<br /><br /> Coalesce. Het tweede argument retourneert als het eerste argument is een **niet-gedefinieerde** waarde.|  
+|**vergelijking**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Is gelijk aan. Retourneert **true** als argumenten gelijk zijn, retourneert **false** anders.<br /><br /> Niet gelijk aan. Retourneert **true** als argumenten niet gelijk zijn, retourneert **false** anders.<br /><br /> Groter dan. Retourneert **true** als eerste argument groter is dan de tweede hello, retourneren **false** anders.<br /><br /> Groter dan of gelijk zijn aan. Retourneert **true** als eerste argument is groter dan of gelijk zijn aan toohello tweede, retourneren **false** anders.<br /><br /> Minder dan. Retourneert **true** als eerste argument lager is dan het tweede hello, geretourneerd **false** anders.<br /><br /> Kleiner dan of gelijk zijn aan. Retourneert **true** als eerste argument kleiner dan of gelijk is toohello tweede een return **false** anders.<br /><br /> Coalesce. Retourneert Hallo tweede argument als eerste argument Hallo een **niet-gedefinieerde** waarde.|  
 |**Tekenreeks**|**&#124;&#124;**|Samenvoeging. Retourneert een samenvoeging van beide argumenten.|  
   
  **Ternair operators:**  
   
-|Ternaire operator|?|Het tweede argument retourneert als het eerste argument wordt geëvalueerd naar **true**; anders het derde argument retourneren.|  
+|Ternaire operator|?|Retourneert Hallo tweede argument als eerste argument Hallo te evalueert**true**; anders Hallo derde argument retourneren.|  
 |-|-|-|  
   
  **Ordening van waarden voor vergelijking**  
@@ -524,20 +510,20 @@ ORDER BY <sort_specification>
   
  **Opmerkingen**  
   
- In Azure Cosmos DB, worden de typen waarden vaak niet bekend totdat ze daadwerkelijk worden opgehaald uit de database. Om efficiënt uitvoeren van query's te ondersteunen, hebben de meeste van de operators strikt type vereisten. Operators zelf voeren ook geen impliciete conversies.  
+ In Azure Cosmos DB Hallo typen waarden vaak niet bekend zijn totdat ze daadwerkelijk worden opgehaald uit Hallo-database. In volgorde toosupport efficiënte uitvoering van query's hebben de meeste Hallo operators strikt type vereisten. Operators zelf voeren ook geen impliciete conversies.  
   
- Dit betekent dat een query, zoals: Selecteer * van ROOT r waar r.Age = 21 retourneert alleen documenten met eigenschap leeftijd gelijk zijn aan het getal 21. Documenten met leeftijd gelijk is aan de tekenreeks '21' of de tekenreeks '0021'-eigenschap wordt niet overeenkomen, als de expressie '21' = 21 naar niet-gedefinieerde evalueert. Hiermee kunt u een beter gebruik van indexen, omdat het opzoeken van een specifieke waarde (dat wil zeggen 21 number) is sneller dan zoeken naar oneindig aantal mogelijke overeenkomsten (dat wil zeggen getal 21 of tekenreeksen '21', '021', "21.0"...). Dit wijkt af van hoe JavaScript operators van waarden van verschillende typen evalueert.  
+ Dit betekent dat een query, zoals: Selecteer * van ROOT r waar r.Age = 21 retourneert alleen documenten met leeftijd gelijk toohello getal 21-eigenschap. Documenten met de eigenschap leeftijd gelijk toohello tekenreeks '21' of Hallo tekenreeks '0021' wordt niet overeenkomen, als Hallo expressie '21' = 21 tooundefined evalueert. Hiermee kunt u een beter gebruik van indexen, omdat Hallo opzoeken van een specifieke waarde (dat wil zeggen 21 number) is sneller dan zoeken naar oneindig aantal mogelijke overeenkomsten (dat wil zeggen getal 21 of tekenreeksen '21', '021', "21.0"...). Dit wijkt af van hoe JavaScript operators van waarden van verschillende typen evalueert.  
   
  **Matrices en objecten gelijkheid en het vergelijkingstype**  
   
  Vergelijken van de matrix of Object waarden met bereik operators (>, > =, <, < =) leidt ertoe dat niet-gedefinieerde omdat er geen volgorde gedefinieerd op het Object of de matrix waarden. Echter met gelijk-ongelijk operators (=,! =, <>) wordt ondersteund en waarden structureel's worden vergeleken.  
   
- Matrices zijn gelijk als beide matrices hetzelfde aantal elementen hebben en elementen op die overeenkomt met de posities ook gelijk zijn. Het resultaat van de vergelijking van de matrix is niet gedefinieerd als niet alle elementen resulteert in een paar vergelijken gedefinieerd.  
+ Matrices zijn gelijk als beide matrices hetzelfde aantal elementen hebben en elementen op die overeenkomt met de posities ook gelijk zijn. Als een combinatie van elementen vergelijken in een niet-gedefinieerde, Hallo resultaat van de vergelijking van de matrix resulteert is niet gedefinieerd.  
   
- Objecten zijn gelijk als beide objecten hebben dezelfde eigenschappen die zijn gedefinieerd, en als de waarden van eigenschappen die overeenkomt met ook gelijk zijn. Als het vergelijken van elk paar eigenschap waarden resulteert in een niet-gedefinieerd, is het resultaat van de vergelijking object is niet gedefinieerd.  
+ Objecten zijn gelijk als beide objecten hebben dezelfde eigenschappen die zijn gedefinieerd, en als de waarden van eigenschappen die overeenkomt met ook gelijk zijn. Als elk paar eigenschapswaarden vergelijken in een niet-gedefinieerde, Hallo resultaat van het object vergelijking resulteert is niet gedefinieerd.  
   
 ##  <a name="bk_constants"></a>Constanten  
- Een constante, ook wel bekend als een letterlijke waarde of een scalaire waarde is een symbool dat de waarde van een specifieke gegevens vertegenwoordigt. De indeling van een constante is afhankelijk van het gegevenstype van de waarde vertegenwoordigt.  
+ Een constante, ook wel bekend als een letterlijke waarde of een scalaire waarde is een symbool dat de waarde van een specifieke gegevens vertegenwoordigt. Hallo-indeling van een constante is afhankelijk van Hallo-gegevenstype van Hallo-waarde vertegenwoordigt.  
   
  **Scalaire-gegevenstypen ondersteund:**  
   
@@ -639,23 +625,23 @@ ORDER BY <sort_specification>
 |\uXXXX|Een Unicode-teken is gedefinieerd door 4 hexadecimale cijfers.|U + XXXX|  
   
 ##  <a name="bk_query_perf_guidelines"></a>Richtlijnen voor query-prestaties  
- Om een query voor het efficiënt voor een grote verzameling worden uitgevoerd, moet deze filters die kunnen worden geleverd via een of meer indexen gebruiken.  
+ Om een query toobe efficiënt voor een grote verzameling wordt uitgevoerd, moet deze filters die kunnen worden geleverd via een of meer indexen gebruiken.  
   
- De volgende filters wordt voor het opzoeken van de index beschouwd:  
+ Hallo na filters wordt voor het opzoeken van de index beschouwd:  
   
 -   Gebruik gelijkheidsoperator (=) met een padexpressie document en een constante.  
   
 -   Bereikoperatoren gebruiken (<, \<=, >, > =) met een padexpressie document en aantal constanten.  
   
--   Document padexpressie staat voor een expressie waarmee een constante pad in de documenten uit de verzameling database waarnaar wordt verwezen.  
+-   Document padexpressie staat voor een expressie waarmee een constante pad in Hallo documenten uit de database-collectie Hallo waarnaar wordt verwezen.  
   
  **Document padexpressie**  
   
- Document padexpressies zijn expressies die een pad van de eigenschap of matrix indexeerfunctie beoordelaars via een document dat afkomstig is van de database verzameling documenten. Dit pad kan worden gebruikt voor het identificeren van de locatie van de waarden waarnaar wordt verwezen in een filter rechtstreeks in de documenten in de database-verzameling.  
+ Document padexpressies zijn expressies die een pad van de eigenschap of matrix indexeerfunctie beoordelaars via een document dat afkomstig is van de database verzameling documenten. Dit pad mag gebruikte tooidentify Hallo locatie waarnaar wordt verwezen in een filter rechtstreeks in het Hallo-documenten in Hallo database verzameling waarden.  
   
- Voor een expressie die moet worden beschouwd als een document padexpressie, de volgende vereisten:  
+ Voor een expressie toobe beschouwd als een document padexpressie, de volgende vereisten:  
   
-1.  Verwijst rechtstreeks naar de hoofdmap van de verzameling.  
+1.  Verwijzing Hallo verzameling root rechtstreeks.  
   
 2.  Verwijzing naar eigenschap of constante matrix indexeerfunctie van sommige padexpressie document  
   
@@ -663,36 +649,36 @@ ORDER BY <sort_specification>
   
      **Syntaxis conventies**  
   
-     De volgende tabel beschrijft de conventies gebruikt om te beschrijven syntaxis in de Quertytaal van de API-verwijzing.  
+     Hallo volgende tabel beschrijft Hallo conventies toodescribe syntaxis in Hallo Quertytaal API-verwijzing.  
   
     |**Conventies**|**Gebruikt voor**|  
     |-|-|    
     |HOOFDLETTERS|Niet-hoofdlettergevoelige trefwoorden.|  
     |kleine letters|Trefwoorden hoofdlettergevoelig.|  
     |\<nonterminal >|Niet-eindigende, die is gedefinieerd afzonderlijk.|  
-    |\<nonterminal >:: =|De definitie van de syntaxis van de nonterminal.|  
+    |\<nonterminal >:: =|De definitie van de syntaxis van Hallo nonterminal.|  
     |other_terminal|Terminal (token) in de woorden in detail beschreven.|  
     |ID|ID. Kan de volgende tekens bevatten: a-z A-Z 0-9 _First teken mag niet een cijfer.|  
     |'tekenreeks'|Tekenreeks tussen aanhalingstekens. Hiermee kunt een geldige tekenreeks. Zie de beschrijving van een string_literal.|  
-    |"symbool"|Letterlijke symbool die deel uitmaakt van de syntaxis.|  
-    |&#124; (verticale balk)|Alternatieven voor de syntaxis van de items. U kunt slechts één van de items die zijn opgegeven.|  
+    |"symbool"|Letterlijke symbool die deel uitmaakt van het Hallo-syntaxis.|  
+    |&#124; (verticale balk)|Alternatieven voor de syntaxis van de items. U kunt slechts één van de opgegeven Hallo-items.|  
     |[] /(brackets)|Vierkante haken plaatst u een of meer optionele items.|  
-    |[,.. .n]|Hiermee geeft u het vorige item kunt herhaalde n het aantal keren. De exemplaren worden gescheiden door komma's.|  
-    |[.. .n]|Hiermee geeft u het vorige item kunt herhaalde n het aantal keren. De exemplaren worden gescheiden door spaties.|  
+    |[,.. .n]|Geeft aan Hallo voorgaande item herhaalde n het aantal keren dat kan worden. Hallo-instanties worden gescheiden door komma's.|  
+    |[.. .n]|Geeft aan Hallo voorgaande item herhaalde n het aantal keren dat kan worden. Hallo-instanties worden gescheiden door spaties.|  
   
 ##  <a name="bk_built_in_functions"></a>Ingebouwde functies  
- Azure Cosmos DB biedt veel ingebouwde SQL-functies. De categorieën van ingebouwde functies worden hieronder vermeld.  
+ Azure Cosmos DB biedt veel ingebouwde SQL-functies. Hallo categorieën van ingebouwde functies worden hieronder vermeld.  
   
 |Functie|Beschrijving|  
 |--------------|-----------------|  
-|[Wiskundige functies](#bk_mathematical_functions)|De rekenkundige functies elke uitvoeren een berekening, meestal op basis van de invoerwaarden die zijn opgegeven als argumenten en een numerieke waarde retourneren.|  
-|[Controle van de functies van het type](#bk_type_checking_functions)|Het type controleren of functies kunnen u om te controleren van het type van een expressie in SQL-query's.|  
-|[Tekenreeksfuncties](#bk_string_functions)|De tekenreeksfuncties een bewerking uitvoeren op een tekenreekswaarde van de invoer en een tekenreeks, numerieke of Booleaanse waarde retourneren.|  
-|[Matrixfuncties](#bk_array_functions)|De matrixfuncties uitvoeren voor een bewerking in een matrix invoerwaarde en keer terug numerieke, de waarde voor Boole-waarde of een matrix.|  
-|[Ruimtelijke functies](#bk_spatial_functions)|De ruimtelijke functies een bewerking uitvoeren op een invoerwaarde ruimtelijke object en een numeriek gegevenstype of Booleaanse waarde retourneren.|  
+|[Wiskundige functies](#bk_mathematical_functions)|Hallo wiskundige functies elke uitvoeren van een berekening, meestal op basis van de invoerwaarden die zijn opgegeven als argumenten en een numerieke waarde retourneren.|  
+|[Controle van de functies van het type](#bk_type_checking_functions)|Hallo type controleren of functies kunnen u toocheck Hallo-type van een expressie in SQL-query's.|  
+|[Tekenreeksfuncties](#bk_string_functions)|Hallo tekenreeksfuncties een bewerking uitvoeren op een tekenreekswaarde van de invoer en een tekenreeks, numerieke of Booleaanse waarde retourneren.|  
+|[Matrixfuncties](#bk_array_functions)|Hallo matrixfuncties uitvoeren voor een bewerking in een matrix invoerwaarde en keer terug numerieke, de waarde voor Boole-waarde of een matrix.|  
+|[Ruimtelijke functies](#bk_spatial_functions)|Hallo ruimtelijke functies een bewerking uitvoeren op een invoerwaarde ruimtelijke object en een numeriek gegevenstype of Booleaanse waarde retourneren.|  
   
 ###  <a name="bk_mathematical_functions"></a>Wiskundige functies  
- De volgende functies elke uitvoeren van een berekening, meestal op basis van de invoerwaarden die zijn opgegeven als argumenten en een numerieke waarde retourneren.  
+ Hallo volgende functies een berekening uitgevoerd, meestal op basis van de invoerwaarden die zijn opgegeven als argumenten en een numerieke waarde retourneren.  
   
 ||||  
 |-|-|-|  
@@ -706,7 +692,7 @@ ORDER BY <sort_specification>
 |[TAN](#bk_tan)|[GEHEEL](#bk_trunc)||  
   
 ####  <a name="bk_abs"></a>ABS  
- Retourneert de absolute (positieve) waarde van de opgegeven numerieke expressie.  
+ Retourneert Hallo absolute (positieve) waarde Hallo opgegeven numerieke expressie.  
   
  **Syntaxis**  
   
@@ -726,20 +712,20 @@ ABS (<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld toont de resultaten van het gebruik van de functie ABS op drie verschillende aantallen.  
+ Hallo ziet volgende voorbeeld Hallo resultaten van het gebruik van de functie ABS Hallo op drie verschillende aantallen.  
   
 ```  
 SELECT ABS(-1), ABS(0), ABS(1)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: 1, $2: 0, $3: 1}]  
 ```  
   
 ####  <a name="bk_acos"></a>BOOGCOS  
- Retourneert de hoek in radialen, waarvan de cosinus de opgegeven numerieke expressie is. ook wel de boogcosinus genoemd.  
+ Retourneert Hallo hoek in radialen, waarvan de cosinus is Hallo opgegeven numerieke expressie. ook wel de boogcosinus genoemd.  
   
  **Syntaxis**  
   
@@ -759,20 +745,20 @@ ACOS(<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld retourneert de BOOGCOS van-1.  
+ Hallo retourneert volgende voorbeeld Hallo BOOGCOS van-1.  
   
 ```  
 SELECT ACOS(-1)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": 3.1415926535897931}]  
 ```  
   
 ####  <a name="bk_asin"></a>ASIN  
- Retourneert de hoek in radialen, waarvan de sinus de opgegeven numerieke expressie is. Dit wordt ook boogsinus genoemd.  
+ Retourneert Hallo hoek in radialen, waarvan de sinus Hallo is opgegeven numerieke expressie. Dit wordt ook boogsinus genoemd.  
   
  **Syntaxis**  
   
@@ -792,20 +778,20 @@ ASIN(<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld retourneert de ASIN van-1.  
+ Hallo retourneert volgende voorbeeld Hallo ASIN van-1.  
   
 ```  
 SELECT ASIN(-1)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": -1.5707963267948966}]  
 ```  
   
 ####  <a name="bk_atan"></a>BOOGTAN  
- Retourneert de hoek in radialen, waarvan de tangens de opgegeven numerieke expressie is. Dit wordt ook arctangens genoemd.  
+ Retourneert Hallo hoek in radialen, waarvan de tangens Hallo is opgegeven numerieke expressie. Dit wordt ook arctangens genoemd.  
   
  **Syntaxis**  
   
@@ -825,20 +811,20 @@ ATAN(<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld retourneert de BOOGTAN van de opgegeven waarde.  
+ Hallo volgende voorbeeld retourneert Hallo BOOGTAN Hallo waarde opgegeven.  
   
 ```  
 SELECT ATAN(-45.01)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": -1.5485826962062663}]  
 ```  
   
 ####  <a name="bk_atn2"></a>ATN2  
- Retourneert de hoofdsom van de arctangens van y / x, uitgedrukt in radialen.  
+ Retourneert de hoofdsom Hallo van Hallo arctangens van y / x, uitgedrukt in radialen.  
   
  **Syntaxis**  
   
@@ -858,20 +844,20 @@ ATN2(<numeric_expression>, <numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld wordt de ATN2 voor het opgegeven berekend x en y onderdelen.  
+ Hallo volgende voorbeeld wordt berekend Hallo ATN2 voor Hallo opgegeven x en y onderdelen.  
   
 ```  
 SELECT ATN2(35.175643, 129.44)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": 1.3054517947300646}]  
 ```  
   
 ####  <a name="bk_ceiling"></a>MAXIMUM  
- Retourneert de kleinste waarde van geheel getal groter dan of gelijk zijn aan de opgegeven numerieke expressie.  
+ Retourneert Hallo kleinste geheel getal groter dan of gelijk zijn aan om Hallo opgegeven numerieke expressie.  
   
  **Syntaxis**  
   
@@ -891,20 +877,20 @@ CEILING (<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld toont een positieve numerieke, negatieve en nulwaarden met de functie CEILING.  
+ Hallo volgende voorbeeld toont positieve numerieke negatief, en nulwaarden met Hallo functie CEILING.  
   
 ```  
 SELECT CEILING(123.45), CEILING(-123.45), CEILING(0.0)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: 124, $2: -123, $3: 0}]  
 ```  
   
 ####  <a name="bk_cos"></a>CO 'S  
- Retourneert de trigonometrische cosinus van de opgegeven hoek in radialen in de opgegeven expressie.  
+ Retourneert Hallo trigonometrische cosinus van Hallo hoek aangeduid in radialen, in Hallo opgegeven expressie.  
   
  **Syntaxis**  
   
@@ -924,20 +910,20 @@ COS(<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld berekent de Cosinus van de opgegeven hoek.  
+ Hallo volgt berekent Hallo CO Hallo opgegeven hoek.  
   
 ```  
 SELECT COS(14.78)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": -0.59946542619465426}]  
 ```  
   
 ####  <a name="bk_cot"></a>COT  
- Retourneert de trigonometrische cotangens van de opgegeven hoek in radialen in het opgegeven numerieke expressie.  
+ Retourneert Hallo trigonometrische cotangens van Hallo hoek aangeduid in radialen, opgegeven in Hallo numerieke expressie.  
   
  **Syntaxis**  
   
@@ -957,20 +943,20 @@ COT(<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld berekent de COT van de opgegeven hoek.  
+ Hallo volgt berekent Hallo COT van Hallo opgegeven hoek.  
   
 ```  
 SELECT COT(124.1332)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": -0.040311998371148884}]  
 ```  
   
 ####  <a name="bk_degrees"></a>GRADEN  
- Retourneert de overeenkomstige hoek in graden voor een hoek aangeduid in radialen.  
+ Retourneert Hallo bijbehorende hoek in graden voor een hoek aangeduid in radialen.  
   
  **Syntaxis**  
   
@@ -990,20 +976,20 @@ DEGREES (<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld retourneert het aantal graden in een hoek van PI/2 radialen.  
+ Hallo volgende voorbeeld wordt het aantal graden Hallo in een hoek van radialen PI/2.  
   
 ```  
 SELECT DEGREES(PI()/2)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": 90}]  
 ```  
   
 ####  <a name="bk_floor"></a>FLOOR  
- Retourneert het grootste gehele getal kleiner dan of gelijk zijn aan de opgegeven numerieke expressie.  
+ Retourneert de grootste integer Hallo kleiner dan of gelijk toohello numerieke expressie opgegeven.  
   
  **Syntaxis**  
   
@@ -1023,20 +1009,20 @@ FLOOR (<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld toont een positieve numerieke, negatieve en nulwaarden met de functie FLOOR.  
+ Hallo volgende voorbeeld toont positieve numerieke negatief, en nulwaarden met Hallo functie FLOOR.  
   
 ```  
 SELECT FLOOR(123.45), FLOOR(-123.45), FLOOR(0.0)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: 123, $2: -124, $3: 0}]  
 ```  
   
 ####  <a name="bk_exp"></a>EXP  
- Berekent de exponentiële waarde van de opgegeven numerieke expressie.  
+ Retourneert Hallo exponentiële waarde Hallo opgegeven numerieke expressie.  
   
  **Syntaxis**  
   
@@ -1056,40 +1042,40 @@ EXP (<numeric_expression>)
   
  **Opmerkingen**  
   
- De constante **e** (2.718281...) de basis van de natuurlijke logaritme.  
+ Hallo constante **e** (2.718281...) is Hallo grondtal van de natuurlijke logaritme.  
   
- De exponent van een getal is de constante **e** tot de macht van het getal. Bijvoorbeeld EXP(1.0) e = ^ 1.0 = 2.71828182845905 en EXP(10) e = ^ 10 = 22026.4657948067.  
+ Hallo exponent van een getal is Hallo constante **e** toohello macht van Hallo getal gegenereerd. Bijvoorbeeld EXP(1.0) e = ^ 1.0 = 2.71828182845905 en EXP(10) e = ^ 10 = 22026.4657948067.  
   
- De exponentiële waarde van de natuurlijke logaritme van een getal is het aantal zelf: EXP (LOGBOEKREGISTRATIE (n)) = n. En de natuurlijke logaritme van de exponentiële van een getal is het aantal zelf: logboek (EXP (n)) = n.  
+ Hallo exponentiële van Hallo natuurlijke logaritme van een getal is Hallo getal zichzelf: EXP (LOGBOEKREGISTRATIE (n)) = n. En Hallo natuurlijke logaritme van een getal exponentiële Hallo Hallo getal zichzelf: logboek (EXP (n)) = n.  
   
  **Voorbeelden**  
   
- Het volgende voorbeeld wordt een variabele gedeclareerd en berekent de exponentiële waarde van de opgegeven variabele (10).  
+ Hallo volgende voorbeeld wordt een variabele gedeclareerd en retourneert Hallo exponentiële waarde van Hallo opgegeven variabele (10).  
   
 ```  
 SELECT EXP(10)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: 22026.465794806718}]  
 ```  
   
- Het volgende voorbeeld retourneert de exponentiële waarde van de natural logarithm van 20 en de natuurlijke logaritme van de exponentiële van 20. Omdat deze functies inverse functies van elkaar zijn, is de retourwaarde voor drijvende punt math in beide gevallen afgeronde 20.  
+ Hallo retourneert volgende voorbeeld Hallo exponentiële waarde van Hallo natuurlijke logaritme van 20 en Hallo natuurlijke logaritme van Hallo exponentiële van 20. Omdat deze functies inverse functies van elkaar, Hallo retourwaarde zijn afgeronde voor drijvende komma berekening in beide gevallen is 20.  
   
 ```  
 SELECT EXP(LOG(20)), LOG(EXP(20))  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: 19.999999999999996, $2: 20}]  
 ```  
   
 ####  <a name="bk_log"></a>LOGBOEK  
- Retourneert de natuurlijke logaritme van de opgegeven numerieke expressie.  
+ Retourneert Hallo natuurlijke logaritme van Hallo opgegeven numerieke expressie.  
   
  **Syntaxis**  
   
@@ -1105,7 +1091,7 @@ LOG (<numeric_expression> [, <base>])
   
 -   `base`  
   
-     Optionele numerieke argument dat Hiermee stelt u de basis voor de logaritme.  
+     Optionele numerieke argument dat Hallo voor Hallo logaritme ingesteld.  
   
  **Retourtypen**  
   
@@ -1113,40 +1099,40 @@ LOG (<numeric_expression> [, <base>])
   
  **Opmerkingen**  
   
- Standaard retourneert LOG() de natuurlijke logaritme. U kunt het grondtal van de logaritme met een andere waarde wijzigen met behulp van de optionele parameter basis.  
+ Standaard retourneert LOG() Hallo natuurlijke logaritme. U kunt Hallo base Hallo logaritme tooanother waarde wijzigen met behulp van Hallo optionele base-parameter.  
   
- De natuurlijke logaritme is de logaritme met het grondtal **e**, waarbij **e** is een constante irrational ongeveer gelijk aan 2.718281828.  
+ Hallo natuurlijke logaritme is Hallo logaritme toohello base **e**, waarbij **e** een irrational constante ongeveer gelijk too2.718281828 is.  
   
- De natuurlijke logaritme van de exponentiële van een getal is het aantal zelf: logboek (EXP (n)) = n. En de exponentiële waarde van de natuurlijke logaritme van een getal is het aantal zelf: EXP (LOGBOEKREGISTRATIE (n)) = n.  
+ Hallo natuurlijke logaritme van Hallo exponentiële van een getal is Hallo getal zichzelf: logboek (EXP (n)) = n. En exponentiële van Hallo natuurlijke logaritme van een getal Hallo Hallo getal zichzelf: EXP (LOGBOEKREGISTRATIE (n)) = n.  
   
  **Voorbeelden**  
   
- Het volgende voorbeeld wordt een variabele gedeclareerd en retourneert de waarde van de logaritme van de opgegeven variabele (10).  
+ Hallo volgende voorbeeld wordt een variabele gedeclareerd en retourneert Hallo logaritme waarde van Hallo opgegeven variabele (10).  
   
 ```  
 SELECT LOG(10)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: 2.3025850929940459}]  
 ```  
   
- Het volgende voorbeeld wordt het logboek voor de exponent van een getal berekend.  
+ Hallo volgende voorbeeld wordt berekend Hallo logboek voor Hallo exponent van een getal.  
   
 ```  
 SELECT EXP(LOG(10))  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: 10.000000000000002}]  
 ```  
   
 ####  <a name="bk_log10"></a>LOG10  
- Retourneert de logaritme met grondtal 10 van de opgegeven numerieke expressie.  
+ Retourneert Hallo logaritme met grondtal 10 van Hallo opgegeven numerieke expressie.  
   
  **Syntaxis**  
   
@@ -1166,24 +1152,24 @@ LOG10 (<numeric_expression>)
   
  **Opmerkingen**  
   
- De functies LOG10 en POWER zijn omgekeerd aan elkaar gerelateerd. Bijvoorbeeld 10 ^ LOG10(n) = n.  
+ Hallo LOG10 en functies van POWER worden omgekeerd gerelateerde tooone een andere. Bijvoorbeeld 10 ^ LOG10(n) = n.  
   
  **Voorbeelden**  
   
- Het volgende voorbeeld wordt een variabele gedeclareerd en retourneert de waarde LOG10 van de opgegeven variabele (100).  
+ Hallo volgende voorbeeld wordt een variabele gedeclareerd en retourneert Hallo LOG10 waarde van Hallo opgegeven variabele (100).  
   
 ```  
 SELECT LOG10(100)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: 2}]  
 ```  
   
 ####  <a name="bk_pi"></a>PI  
- Retourneert de constante waarde van PI.  
+ Retourneert Hallo constante waarde van PI.  
   
  **Syntaxis**  
   
@@ -1203,20 +1189,20 @@ PI ()
   
  **Voorbeelden**  
   
- Het volgende voorbeeld retourneert de waarde van PI.  
+ Hallo retourneert volgende voorbeeld Hallo-waarde van PI.  
   
 ```  
 SELECT PI()  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": 3.1415926535897931}]  
 ```  
   
 ####  <a name="bk_power"></a>ENERGIEBEHEER  
- Retourneert de waarde van de opgegeven expressie voor de opgegeven macht.  
+ Retourneert de waarde van de opgegeven Hallo Hallo expressie toohello opgegeven macht.  
   
  **Syntaxis**  
   
@@ -1232,7 +1218,7 @@ POWER (<numeric_expression>, <y>)
   
 -   `y`  
   
-     Is de macht waarnaar u wilt activeren `numeric_expression`.  
+     Hallo power toowhich tooraise is `numeric_expression`.  
   
  **Retourtypen**  
   
@@ -1240,13 +1226,13 @@ POWER (<numeric_expression>, <y>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld wordt een getal tot de macht 3 (de kubus van het getal) te verhogen.  
+ Hallo volgende voorbeeld laat zien verhogen van een aantal toohello macht 3 (Hallo kubus van Hallo getal).  
   
 ```  
 SELECT POWER(2, 3), POWER(2.5, 3)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: 8, $2: 15.625}]  
@@ -1273,13 +1259,13 @@ RADIANS (<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld duurt een paar hoeken als invoer en de bijbehorende Radiaal waarden retourneert.  
+ Hallo volgende voorbeeld duurt enkele hoeken als invoer en de bijbehorende Radiaal waarden retourneert.  
   
 ```  
 SELECT RADIANS(-45.01), RADIANS(-181.01), RADIANS(0), RADIANS(0.1472738), RADIANS(197.1099392)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{  
@@ -1292,7 +1278,7 @@ SELECT RADIANS(-45.01), RADIANS(-181.01), RADIANS(0), RADIANS(0.1472738), RADIAN
 ```  
   
 ####  <a name="bk_round"></a>AFRONDEN  
- Retourneert een numerieke waarde, op het dichtstbijzijnde gehele getal afgerond.  
+ Retourneert een numerieke waarde afgeronde toohello dichtstbijzijnde integer-waarde.  
   
  **Syntaxis**  
   
@@ -1312,20 +1298,20 @@ ROUND(<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld wordt de volgende positieve en negatieve getallen naar het dichtstbijzijnde gehele getal afgerond.  
+ Hallo volgende voorbeeld wordt afgerond Hallo positieve en negatieve getallen toohello dichtstbijzijnde integer te volgen.  
   
 ```  
 SELECT ROUND(2.4), ROUND(2.6), ROUND(2.5), ROUND(-2.4), ROUND(-2.6)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: 2, $2: 3, $3: 3, $4: -2, $5: -3}]  
 ```  
   
 ####  <a name="bk_sign"></a>AANMELDING  
- Retourneert de positief (+ 1), nul (0) of minteken (-1) van de opgegeven numerieke expressie.  
+ Retourneert Hallo positieve (+ 1), nul (0) of minteken (-1) Hallo opgegeven numerieke expressie.  
   
  **Syntaxis**  
   
@@ -1345,20 +1331,20 @@ SIGN(<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld retourneert de waarden van de aanmelding van de getallen van -2 op 2.  
+ Hallo volgende voorbeeld wordt Hallo aanmelding waarden van de getallen uit too2-2.  
   
 ```  
 SELECT SIGN(-2), SIGN(-1), SIGN(0), SIGN(1), SIGN(2)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: -1, $2: -1, $3: 0, $4: 1, $5: 1}]  
 ```  
   
 ####  <a name="bk_sin"></a>SIN  
- Retourneert de trigonometrische sinus van de opgegeven hoek in radialen in de opgegeven expressie.  
+ Retourneert Hallo trigonometrische sinus van Hallo hoek aangeduid in radialen, in Hallo opgegeven expressie.  
   
  **Syntaxis**  
   
@@ -1378,20 +1364,20 @@ SIN(<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld berekent de SINUS van de opgegeven hoek.  
+ Hallo voorbeeld te volgen berekent Hallo SIN van Hallo opgegeven hoek.  
   
 ```  
 SELECT SIN(45.175643)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": 0.929607286611012}]  
 ```  
   
 ####  <a name="bk_sqrt"></a>SQRT  
- Retourneert de vierkantswortel van de numerieke waarde die is opgegeven.  
+ Retourneert de vierkantswortel van Hallo Hallo opgegeven numerieke waarde.  
   
  **Syntaxis**  
   
@@ -1411,20 +1397,20 @@ SQRT(<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld retourneert de hoofdmappen kwadraat van getallen 1-3.  
+ Hallo retourneert volgende voorbeeld Hallo vierkante roots van de getallen 1-3.  
   
 ```  
 SELECT SQRT(1), SQRT(2.0), SQRT(3)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: 1, $2: 1.4142135623730952, $3: 1.7320508075688772}]  
 ```  
   
 ####  <a name="bk_square"></a>VIERKANTE  
- Retourneert het kwadraat van de numerieke waarde die is opgegeven.  
+ Retourneert Hallo vierkante Hallo opgegeven numerieke waarde.  
   
  **Syntaxis**  
   
@@ -1444,20 +1430,20 @@ SQUARE(<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld retourneert de kwadraten van getallen 1-3.  
+ Hallo wordt volgende voorbeeld de kwadraten Hallo van getallen 1-3.  
   
 ```  
 SELECT SQUARE(1), SQUARE(2.0), SQUARE(3)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: 1, $2: 4, $3: 9}]  
 ```  
   
 ####  <a name="bk_tan"></a>TAN  
- Retourneert de tangens van de opgegeven hoek in radialen in de opgegeven expressie.  
+ Retourneert de tangens Hallo Hallo hoek aangeduid in radialen, in Hallo opgegeven expressie.  
   
  **Syntaxis**  
   
@@ -1477,20 +1463,20 @@ TAN (<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld wordt de tangens van PI () berekend / 2.  
+ Hallo volgende voorbeeld wordt berekend Hallo tangens van PI () / 2.  
   
 ```  
 SELECT TAN(PI()/2);  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": 16331239353195370 }]  
 ```  
   
 ####  <a name="bk_trunc"></a>GEHEEL  
- Retourneert een numerieke waarde, afgekapt tot het dichtstbijzijnde gehele getal.  
+ Retourneert een numerieke waarde ingekorte toohello dichtstbijzijnde integer-waarde.  
   
  **Syntaxis**  
   
@@ -1510,20 +1496,20 @@ TRUNC(<numeric_expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld wordt de volgende positieve en negatieve getallen naar het dichtstbijzijnde gehele getal afgekapt.  
+ Hallo volgende voorbeeld wordt afgekapt Hallo positieve en negatieve getallen toohello dichtstbijzijnde integerwaarde te volgen.  
   
 ```  
 SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: 2, $2: 2, $3: 2, $4: -2, $5: -2}]  
 ```  
   
 ###  <a name="bk_type_checking_functions"></a>Controle van de functies van het type  
- De volgende functies ondersteunen typecontrole tegen invoerwaarden en elk een Booleaanse waarde retourneren.  
+ Hallo volgende functies ondersteunen typecontrole tegen invoerwaarden en elk een Booleaanse waarde retourneren.  
   
 ||||  
 |-|-|-|  
@@ -1532,7 +1518,7 @@ SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)
 |[IS_PRIMITIVE](#bk_is_primitive)|[IS_STRING](#bk_is_string)||  
   
 ####  <a name="bk_is_array"></a>IS_ARRAY  
- Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een matrix is.  
+ Retourneert een Booleaanse waarde die aangeeft als Hallo type Hallo expressie opgegeven is een matrix.  
   
  **Syntaxis**  
   
@@ -1552,7 +1538,7 @@ IS_ARRAY(<expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld controleert objecten van JSON Boolean, getal, string, null, object, matrix en niet-gedefinieerde typen met de functie IS_ARRAY.  
+ Hallo volgende voorbeeld wordt gecontroleerd objecten van JSON Boolean, getal, string, null, object, matrix en niet-gedefinieerde typen met behulp van Hallo IS_ARRAY-functie.  
   
 ```  
 SELECT   
@@ -1565,14 +1551,14 @@ SELECT
  IS_ARRAY({prop: "value"}.prop2)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: false, $2: false, $3: false, $4: false, $5: false, $6: true}]  
 ```  
   
 ####  <a name="bk_is_bool"></a>IS_BOOL  
- Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een Booleaanse waarde is.  
+ Retourneert een Booleaanse waarde die aangeeft als Hallo type Hallo expressie opgegeven is een Booleaanse waarde.  
   
  **Syntaxis**  
   
@@ -1592,7 +1578,7 @@ IS_BOOL(<expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld controleert objecten van JSON Boolean, getal, string, null, object, matrix en niet-gedefinieerde typen met de functie IS_BOOL.  
+ Hallo volgende voorbeeld wordt gecontroleerd objecten van JSON Boolean, getal, string, null, object, matrix en niet-gedefinieerde typen met behulp van Hallo IS_BOOL-functie.  
   
 ```  
 SELECT   
@@ -1605,14 +1591,14 @@ SELECT
     IS_BOOL({prop: "value"}.prop2)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: true, $2: false, $3: false, $4: false, $5: false, $6: false}]  
 ```  
   
 ####  <a name="bk_is_defined"></a>IS_DEFINED  
- Retourneert een Booleaanse waarde die aangeeft of de eigenschap een waarde is toegewezen.  
+ Retourneert een Booleaanse waarde die aangeeft of Hallo eigenschap een waarde is toegewezen.  
   
  **Syntaxis**  
   
@@ -1632,13 +1618,13 @@ IS_DEFINED(<expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld wordt gecontroleerd op de aanwezigheid van een eigenschap binnen het opgegeven JSON-document. De eerste retourneert true omdat "a" aanwezig is, maar de tweede onwaar retourneert omdat "b" ontbreekt.  
+ voorbeeld-controles voor de aanwezigheid van een eigenschap binnen Hallo HALLO hallo opgegeven JSON-document. Hallo eerst ' true ' geretourneerd omdat "a" aanwezig is, maar Hallo tweede onwaar retourneert omdat "b" ontbreekt.  
   
 ```  
 SELECT IS_DEFINED({ "a" : 5 }.a), IS_DEFINED({ "a" : 5 }.b)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{  
@@ -1648,7 +1634,7 @@ SELECT IS_DEFINED({ "a" : 5 }.a), IS_DEFINED({ "a" : 5 }.b)
 ```  
   
 ####  <a name="bk_is_null"></a>IS_NULL  
- Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie null is.  
+ Retourneert een Booleaanse waarde die aangeeft als Hallo type Hallo expressie opgegeven is null.  
   
  **Syntaxis**  
   
@@ -1668,7 +1654,7 @@ IS_NULL(<expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld controleert objecten van JSON Boolean, getal, string, null, object, matrix en niet-gedefinieerde typen met de functie IS_NULL.  
+ Hallo volgende voorbeeld wordt gecontroleerd objecten van JSON Boolean, getal, string, null, object, matrix en niet-gedefinieerde typen met behulp van Hallo IS_NULL-functie.  
   
 ```  
 SELECT   
@@ -1681,14 +1667,14 @@ SELECT
     IS_NULL({prop: "value"}.prop2)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: false, $2: false, $3: false, $4: true, $5: false, $6: false}]  
 ```  
   
 ####  <a name="bk_is_number"></a>IS_NUMBER  
- Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie is van een getal.  
+ Retourneert een Booleaanse waarde die aangeeft als Hallo type Hallo expressie opgegeven is een getal.  
   
  **Syntaxis**  
   
@@ -1708,7 +1694,7 @@ IS_NUMBER(<expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld controleert objecten van JSON Boolean, getal, string, null, object, matrix en niet-gedefinieerde typen met de functie IS_NULL.  
+ Hallo volgende voorbeeld wordt gecontroleerd objecten van JSON Boolean, getal, string, null, object, matrix en niet-gedefinieerde typen met behulp van Hallo IS_NULL-functie.  
   
 ```  
 SELECT   
@@ -1721,14 +1707,14 @@ SELECT
     IS_NUMBER({prop: "value"}.prop2)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: false, $2: true, $3: false, $4: false, $5: false, $6: false}]  
 ```  
   
 ####  <a name="bk_is_object"></a>IS_OBJECT  
- Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een JSON-object is.  
+ Retourneert een Booleaanse waarde die aangeeft als Hallo type Hallo expressie opgegeven is een JSON-object.  
   
  **Syntaxis**  
   
@@ -1748,7 +1734,7 @@ IS_OBJECT(<expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld controleert objecten van JSON Boolean, getal, string, null, object, matrix en niet-gedefinieerde typen met de functie IS_OBJECT.  
+ Hallo volgende voorbeeld wordt gecontroleerd objecten van JSON Boolean, getal, string, null, object, matrix en niet-gedefinieerde typen met behulp van Hallo IS_OBJECT-functie.  
   
 ```  
 SELECT   
@@ -1761,14 +1747,14 @@ SELECT
     IS_OBJECT({prop: "value"}.prop2)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: false, $2: false, $3: false, $4: false, $5: true, $6: false}]  
 ```  
   
 ####  <a name="bk_is_primitive"></a>IS_PRIMITIVE  
- Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie is van een primitief (string, Boolean, numerieke of null).  
+ Retourneert een Booleaanse waarde waarmee wordt aangegeven als Hallo type Hallo opgegeven expressie is een primitief (string, Boolean, numerieke of null).  
   
  **Syntaxis**  
   
@@ -1788,7 +1774,7 @@ IS_PRIMITIVE(<expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld controleert objecten van JSON Boolean, getal, string, null, object, matrix en niet-gedefinieerde typen met de functie IS_PRIMITIVE.  
+ Hallo volgende voorbeeld wordt gecontroleerd objecten van JSON Boolean, getal, string, null, object, matrix en niet-gedefinieerde typen met behulp van Hallo IS_PRIMITIVE-functie.  
   
 ```  
 SELECT   
@@ -1801,14 +1787,14 @@ SELECT
            IS_PRIMITIVE({prop: "value"}.prop2)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": true, "$2": true, "$3": true, "$4": true, "$5": false, "$6": false, "$7": false}]  
 ```  
   
 ####  <a name="bk_is_string"></a>IS_STRING  
- Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een tekenreeks is.  
+ Retourneert een Booleaanse waarde die aangeeft als Hallo type Hallo expressie opgegeven is een tekenreeks.  
   
  **Syntaxis**  
   
@@ -1828,7 +1814,7 @@ IS_STRING(<expression>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld controleert objecten van JSON Boolean, getal, string, null, object, matrix en niet-gedefinieerde typen met de functie IS_STRING.  
+ Hallo volgende voorbeeld wordt gecontroleerd objecten van JSON Boolean, getal, string, null, object, matrix en niet-gedefinieerde typen met behulp van Hallo IS_STRING-functie.  
   
 ```  
 SELECT   
@@ -1841,14 +1827,14 @@ SELECT
        IS_STRING({prop: "value"}.prop2)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{$1: false, $2: false, $3: true, $4: false, $5: false, $6: false}]  
 ```  
   
 ###  <a name="bk_string_functions"></a>Tekenreeks-functies  
- De volgende scalaire functies een bewerking uitvoeren op een tekenreekswaarde van de invoer en een tekenreeks, numerieke of Booleaanse waarde retourneren.  
+ Hallo volgende scalaire functies een bewerking uitvoeren op een tekenreekswaarde van de invoer en een tekenreeks, numerieke of Booleaanse waarde retourneren.  
   
 ||||  
 |-|-|-|  
@@ -1860,7 +1846,7 @@ SELECT
 |[BOVENSTE](#bk_upper)|||  
   
 ####  <a name="bk_concat"></a>CONCAT  
- Retourneert een tekenreeks die het resultaat van het samenvoegen van twee of meer tekenreekswaarden.  
+ Retourneert een tekenreeks die Hallo resultaat is van het samenvoegen van twee of meer tekenreekswaarden.  
   
  **Syntaxis**  
   
@@ -1880,20 +1866,20 @@ CONCAT(<str_expr>, <str_expr> [, <str_expr>])
   
  **Voorbeelden**  
   
- Het volgende voorbeeld retourneert de samengevoegde tekenreeks van de opgegeven waarden.  
+ Hallo volgende voorbeeld retourneert Hallo samengevoegd tekenreeks Hallo opgegeven waarden.  
   
 ```  
 SELECT CONCAT("abc", "def")  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": "abcdef"}  
 ```  
   
 ####  <a name="bk_contains"></a>BEVAT  
- Retourneert een Boolean die aangeeft of de eerste expressie tekenreeks de tweede bevat.  
+ Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie Hallo Hallo op de tweede bevat.  
   
  **Syntaxis**  
   
@@ -1913,20 +1899,20 @@ CONTAINS(<str_expr>, <str_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld controleert als "abc" bevat "ab" en "d".  
+ Hallo volgende voorbeeld wordt gecontroleerd als "abc" bevat "ab" en "d".  
   
 ```  
 SELECT CONTAINS("abc", "ab"), CONTAINS("abc", "d")  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": true, "$2": false}]  
 ```  
   
 ####  <a name="bk_endswith"></a>ENDSWITH  
- Retourneert een Boolean die aangeeft of de eerste tekenreeksexpressie eindigt op de tweede.  
+ Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie Hallo Hallo tweede eindigt.  
   
  **Syntaxis**  
   
@@ -1946,20 +1932,20 @@ ENDSWITH(<str_expr>, <str_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld retourneert dat de "abc" eindigt op "b" en 'bc'.  
+ Hallo retourneert volgende voorbeeld Hallo "abc" op "b" en 'bc eindigt'.  
   
 ```  
 SELECT ENDSWITH("abc", "b"), ENDSWITH("abc", "bc")  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": false, "$2": true}]  
 ```  
   
 ####  <a name="bk_index_of"></a>INDEX_OF  
- Retourneert de beginpositie van het eerste exemplaar van de tweede tekenreeksexpressie binnen de eerste expressie in de opgegeven tekenreeks is of -1 als de tekenreeks is niet gevonden.  
+ Retourneert Hallo beginpositie van de eerste instantie Hallo van tweede tekenreeksexpressie Hallo binnen Hallo eerste opgegeven tekenreeksexpressie of -1 als het Hallo-tekenreeks is niet gevonden.  
   
  **Syntaxis**  
   
@@ -1979,20 +1965,20 @@ INDEX_OF(<str_expr>, <str_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld wordt de index van verschillende subtekenreeksen binnen "abc".  
+ Hallo wordt volgende voorbeeld de index Hallo van verschillende subtekenreeksen binnen "abc".  
   
 ```  
 SELECT INDEX_OF("abc", "ab"), INDEX_OF("abc", "b"), INDEX_OF("abc", "c")  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": 0, "$2": 1, "$3": -1}]  
 ```  
   
 ####  <a name="bk_left"></a>LINKS  
- Retourneert het linkergedeelte van een tekenreeks zijn met het opgegeven aantal tekens.  
+ Retourneert het linkergedeelte van een tekenreeks Hallo Hello opgegeven aantal tekens.  
   
  **Syntaxis**  
   
@@ -2016,20 +2002,20 @@ LEFT(<str_expr>, <num_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld wordt het linkergedeelte van "abc" voor verschillende lengtewaarden.  
+ Hallo volgende voorbeeld retourneert Hallo links onderdeel van "abc" voor waarden van verschillende lengte.  
   
 ```  
 SELECT LEFT("abc", 1), LEFT("abc", 2)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": "ab", "$2": "ab"}]  
 ```  
   
 ####  <a name="bk_length"></a>LENGTE  
- Retourneert het aantal tekens van de opgegeven tekenreeksexpressie.  
+ Retourneert Hallo aantal tekens Hallo opgegeven tekenreeksexpressie.  
   
  **Syntaxis**  
   
@@ -2049,20 +2035,20 @@ LENGTH(<str_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld retourneert de lengte van een tekenreeks.  
+ Hallo retourneert volgende voorbeeld Hallo lengte van een tekenreeks.  
   
 ```  
 SELECT LENGTH("abc")  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": 3}]  
 ```  
   
 ####  <a name="bk_lower"></a>LAGERE  
- Retourneert een tekenreeksexpressie na hoofdletter gegevens converteren naar kleine letters.  
+ Retourneert een tekenreeksexpressie na hoofdletter gegevens toolowercase converteren.  
   
  **Syntaxis**  
   
@@ -2082,13 +2068,13 @@ LOWER(<str_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld laat zien hoe lager gebruiken in een query.  
+ Hallo volgende voorbeeld wordt getoond hoe toouse lager in een query.  
   
 ```  
 SELECT LOWER("Abc")  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": "abc"}]  
@@ -2116,13 +2102,13 @@ LTRIM(<str_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld laat zien hoe LTRIM gebruiken binnen een query.  
+ Hallo volgende voorbeeld wordt getoond hoe toouse LTRIM binnen een query.  
   
 ```  
 SELECT LTRIM("  abc"), LTRIM("abc"), LTRIM("abc   ")  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": "abc", "$2": "abc", "$3": "abc   "}]  
@@ -2149,13 +2135,13 @@ REPLACE(<str_expr>, <str_expr>, <str_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld ziet hoe u vervangen in een query.  
+ Hallo volgende voorbeeld ziet u hoe toouse vervangen in een query.  
   
 ```  
 SELECT REPLACE("This is a Test", "Test", "desk")  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": "This is a desk"}]  
@@ -2186,20 +2172,20 @@ REPLICATE(<str_expr>, <num_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld ziet hoe u REPLICEREN in een query.  
+ Hallo volgende voorbeeld ziet u hoe toouse REPLICEREN in een query.  
   
 ```  
 SELECT REPLICATE("a", 3)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": "aaa"}]  
 ```  
   
 ####  <a name="bk_reverse"></a>OMKEREN  
- Retourneert de omgekeerde volgorde van een string-waarde.  
+ Retourneert de omgekeerde volgorde Hallo van een string-waarde.  
   
  **Syntaxis**  
   
@@ -2219,20 +2205,20 @@ REVERSE(<str_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld laat zien hoe REVERSE gebruiken in een query.  
+ Hallo volgende voorbeeld ziet u hoe toouse REVERSE in een query.  
   
 ```  
 SELECT REVERSE("Abc")  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": "cbA"}]  
 ```  
   
 ####  <a name="bk_right"></a>RECHTS  
- Retourneert de juiste deel van een tekenreeks zijn met het opgegeven aantal tekens.  
+ Hallo rechts deel uit van een tekenreeks retourneert Hello opgegeven aantal tekens.  
   
  **Syntaxis**  
   
@@ -2256,13 +2242,13 @@ RIGHT(<str_expr>, <num_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld wordt het rechterdeel van "abc" voor verschillende lengtewaarden.  
+ Hello wordt volgende voorbeeld het rechterdeel Hallo van "abc" voor verschillende lengtewaarden.  
   
 ```  
 SELECT RIGHT("abc", 1), RIGHT("abc", 2)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": "c", "$2": "bc"}]  
@@ -2289,20 +2275,20 @@ RTRIM(<str_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld laat zien hoe RTRIM gebruiken binnen een query.  
+ Hallo volgende voorbeeld wordt getoond hoe toouse RTRIM binnen een query.  
   
 ```  
 SELECT RTRIM("  abc"), RTRIM("abc"), RTRIM("abc   ")  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": "   abc", "$2": "abc", "$3": "abc"}]  
 ```  
   
 ####  <a name="bk_startswith"></a>STARTSWITH  
- Retourneert een Boolean die aangeeft of de eerste expressie tekenreeks begint met het tweede.  
+ Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie Hallo op de tweede met de Hallo begint.  
   
  **Syntaxis**  
   
@@ -2322,20 +2308,20 @@ STARTSWITH(<str_expr>, <str_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld wordt gecontroleerd of de tekenreeks "abc" met "b begint" en "a".  
+ Hallo volgende voorbeeld controleert of hello string "abc" begint met "b" en "a".  
   
 ```  
 SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": false, "$2": true}]  
 ```  
   
 ####  <a name="bk_substring"></a>DE SUBTEKENREEKS  
- Retourneert deel van een tekenreeksexpressie die beginnen bij de op nul gebaseerde positie opgegeven teken en blijft de opgegeven lengte of het einde van de tekenreeks.  
+ Retourneert deel uit van een tekenreeksexpressie die begint bij Hallo opgegeven teken op nul gebaseerde positie en blijft toohello opgegeven lengte of toohello einde van de Hallo-tekenreeks.  
   
  **Syntaxis**  
   
@@ -2359,20 +2345,20 @@ SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])
   
  **Voorbeelden**  
   
- Het volgende voorbeeld retourneert de subtekenreeks van "abc" beginnen bij 1 en voor een lengte van 1 teken.  
+ Hallo retourneert volgende voorbeeld Hallo subtekenreeks van "abc" beginnen bij 1 en voor een lengte van 1 teken.  
   
 ```  
 SELECT SUBSTRING("abc", 1, 1)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": "b"}]  
 ```  
   
 ####  <a name="bk_upper"></a>BOVENSTE  
- Retourneert een tekenreeksexpressie na kleine letter gegevens converteren naar hoofdletters.  
+ Retourneert een tekenreeksexpressie na kleine letter gegevens toouppercase converteren.  
   
  **Syntaxis**  
   
@@ -2392,20 +2378,20 @@ UPPER(<str_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld ziet het gebruik van hoofdletters in een query  
+ Hallo volgende voorbeeld wordt getoond hoe toouse hoofdletters in een query  
   
 ```  
 SELECT UPPER("Abc")  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": "ABC"}]  
 ```  
   
 ###  <a name="bk_array_functions"></a>Matrixfuncties  
- De volgende scalaire functies uitvoeren van een bewerking op een matrix invoerwaarde en retourneren numerieke, Booleaanse waarde of een matrix van waarde  
+ Hallo scalaire functies na een bewerking uitvoeren op een matrix invoerwaarde en retourneren numerieke, Booleaanse waarde of een matrix van waarde  
   
 ||||  
 |-|-|-|  
@@ -2413,7 +2399,7 @@ SELECT UPPER("Abc")
 |[ARRAY_SLICE](#bk_array_slice)|||  
   
 ####  <a name="bk_array_concat"></a>ARRAY_CONCAT  
- Retourneert een matrix die het resultaat van het samenvoegen van twee of meer matrixwaarden.  
+ Retourneert een matrix die Hallo resultaat is van het samenvoegen van twee of meer matrixwaarden.  
   
  **Syntaxis**  
   
@@ -2433,20 +2419,20 @@ ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])
   
  **Voorbeelden**  
   
- Het volgende voorbeeld hoe u voor het samenvoegen van twee matrices.  
+ Hallo volgende voorbeeld hoe tooconcatenate twee matrices.  
   
 ```  
 SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": ["apples", "strawberries", "bananas"]}]  
 ```  
   
 ####  <a name="bk_array_contains"></a>ARRAY_CONTAINS  
- Retourneert een Booleaanse waarde die aangeeft of de matrix bevat met de opgegeven waarde.  
+ Retourneert een Booleaanse waarde die aangeeft of de matrix Hallo Hallo bevat een waarde opgegeven.  
   
  **Syntaxis**  
   
@@ -2470,7 +2456,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld voor het lidmaatschap van een matrix met ARRAY_CONTAINS controleren.  
+ Hallo volgt hoe toocheck voor lidmaatschap in een matrix met ARRAY_CONTAINS.  
   
 ```  
 SELECT   
@@ -2478,14 +2464,14 @@ SELECT
            ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "mangoes")  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": true, "$2": false}]  
 ```  
   
 ####  <a name="bk_array_length"></a>ARRAY_LENGTH  
- Retourneert het aantal elementen van de opgegeven matrix-expressie.  
+ Retourneert Hallo aantal elementen Hallo matrixexpressie opgegeven.  
   
  **Syntaxis**  
   
@@ -2505,13 +2491,13 @@ ARRAY_LENGTH(<arr_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld de lengte van een matrix met ARRAY_LENGTH krijgen.  
+ Hallo volgende voorbeeld hoe tooget lengte van een matrix met ARRAY_LENGTH Hallo.  
   
 ```  
 SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{"$1": 3}]  
@@ -2542,7 +2528,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
  **Voorbeelden**  
   
- Het volgende voorbeeld het ophalen van een deel van een matrix met ARRAY_SLICE.  
+ Hallo volgt hoe tooget deel uit van een matrix met ARRAY_SLICE.  
   
 ```  
 SELECT   
@@ -2550,7 +2536,7 @@ SELECT
            ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1)  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{  
@@ -2560,7 +2546,7 @@ SELECT
 ```  
   
 ###  <a name="bk_spatial_functions"></a>Ruimtelijke functies  
- De volgende scalaire functies een bewerking uitvoeren op een invoerwaarde ruimtelijke object en een numeriek gegevenstype of Booleaanse waarde retourneren.  
+ Hallo volgende scalaire functies een bewerking uitvoeren op een invoerwaarde ruimtelijke object en een numeriek gegevenstype of Booleaanse waarde retourneren.  
   
 ||||  
 |-|-|-|  
@@ -2568,7 +2554,7 @@ SELECT
 |[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)|||  
   
 ####  <a name="bk_st_distance"></a>ST_DISTANCE  
- Retourneert de afstand tussen de twee GeoJSON punt, Polygon of LineString expressies.  
+ Retourneert Hallo afstand tussen twee Hallo GeoJSON punt, Polygon of LineString expressies.  
   
  **Syntaxis**  
   
@@ -2584,11 +2570,11 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
  **Retourtypen**  
   
- Retourneert een numerieke expressie met de afstand. Dit wordt uitgedrukt in meters voor de verwijzing van het systeem.  
+ Retourneert een numerieke expressie met Hallo afstand. Dit wordt uitgedrukt in meters voor referentiesysteem Hallo-standaard.  
   
  **Voorbeelden**  
   
- Het volgende voorbeeld laat zien hoe alle familie documenten die binnen 30 km van de opgegeven locatie met de ingebouwde functie ST_DISTANCE retourneren. .  
+ Hallo volgende voorbeeld wordt getoond hoe tooreturn alle familie documenten die binnen 30 km Hallo locatie met Hallo de ingebouwde functie ST_DISTANCE opgegeven. .  
   
 ```  
 SELECT f.id   
@@ -2596,7 +2582,7 @@ FROM Families f
 WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{  
@@ -2605,7 +2591,7 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 ```  
   
 ####  <a name="bk_st_within"></a>ST_WITHIN  
- Retourneert een Booleaanse expressie die aangeeft of het GeoJSON-object opgegeven in het eerste argument (punt, Polygon of LineString) binnen het GeoJSON (punt, Polygon of LineString) in het tweede argument.  
+ Retourneert een Booleaanse expressie Hallo GeoJSON (punt, Polygon of LineString) opgegeven object in het eerste argument Hallo is binnen Hallo GeoJSON (punt, Polygon of LineString) in het tweede argument Hallo.  
   
  **Syntaxis**  
   
@@ -2629,7 +2615,7 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld laat zien hoe alle familie documenten binnen een veelhoek met ST_WITHIN vinden.  
+ Hallo volgende voorbeeld ziet u hoe toofind alle familie documenten binnen een veelhoek met ST_WITHIN.  
   
 ```  
 SELECT f.id   
@@ -2640,14 +2626,14 @@ WHERE ST_WITHIN(f.location, {
 })  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{ "id": "WakefieldFamily" }]  
 ```  
 
 ####  <a name="bk_st_intersects"></a>ST_INTERSECTS  
- Retourneert een Booleaanse expressie die aangeeft of het GeoJSON-object opgegeven in het eerste argument (punt, Polygon of LineString) in de polygoonring GeoJSON (punt, Polygon of LineString) in het tweede argument.  
+ Retourneert een Booleaanse expressie waarmee wordt aangegeven of de Hallo GeoJSON object (punt, Polygon of LineString) opgegeven in het eerste argument Hallo Hallo GeoJSON (punt, Polygon of LineString) in het tweede argument Hallo polygoonring.  
   
  **Syntaxis**  
   
@@ -2671,7 +2657,7 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld laat zien hoe vinden alle gebieden die in de polygoonring met de opgegeven veelhoek.  
+ Hallo volgende voorbeeld wordt getoond hoe toofind alle gebieden die in de polygoonring met Hallo gegeven veelhoek.  
   
 ```  
 SELECT a.id   
@@ -2682,14 +2668,14 @@ WHERE ST_INTERSECTS(a.location, {
 })  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{ "id": "IntersectingPolygon" }]  
 ```  
   
 ####  <a name="bk_st_isvalid"></a>ST_ISVALID  
- Retourneert een Booleaanse waarde die aangeeft of de opgegeven expressie voor GeoJSON punt, Polygon of LineString ongeldig is.  
+ Retourneert een Booleaanse waarde die aangeeft of Hallo opgegeven GeoJSON punt, Polygon of LineString expressie is ongeldig.  
   
  **Syntaxis**  
   
@@ -2709,24 +2695,24 @@ ST_ISVALID(<spatial_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld laat zien hoe controleren of een punt ST_VALID geldig is.  
+ Hallo volgende voorbeeld wordt getoond hoe toocheck als een punt ST_VALID geldig is.  
   
- Dit punt heeft bijvoorbeeld een Breedtegraadwaarde die niet in het geldige waardenbereik [-90, 90], dus de query retourneert false.  
+ Dit punt heeft bijvoorbeeld een Breedtegraadwaarde die niet in Hallo geldig waardenbereik [-90, 90], dus Hallo query retourneert false.  
   
- Voor multilinestring vereist de specificatie GeoJSON dat de opgegeven combinatie van laatste coördinaat moet hetzelfde zijn als de eerste pagina, voor het maken van een gesloten vorm. Punten in een polygoon moeten worden opgegeven in rechtsom volgorde. Een polygoon die is opgegeven in rechtsom volgorde vertegenwoordigt de inverse van de regio binnen deze.  
+ Voor multilinestring, Hallo GeoJSON specificatie moet Hallo laatste coördinaat paar opgegeven Hallo dezelfde als de eerste, toocreate Hallo een gesloten vorm. Punten in een polygoon moeten worden opgegeven in rechtsom volgorde. Een veelhoek in rechtsom order opgegeven vertegenwoordigt Hallo inverse van Hallo regio erin.  
   
 ```  
 SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{ "$1": false }]  
 ```  
   
 ####  <a name="bk_st_isvaliddetailed"></a>ST_ISVALIDDETAILED  
- Retourneert een JSON-waarde met een Booleaanse waarde als de opgegeven expressie voor GeoJSON punt, Polygon of LineString is geldig, en als ongeldig, ook de reden als een string-waarde.  
+ Retourneert een JSON-waarde met een Boolean-waarde als Hallo GeoJSON punt, Polygon of LineString expressie opgegeven geldig is en als ongeldig, bovendien Hallo reden als een string-waarde.  
   
  **Syntaxis**  
   
@@ -2742,11 +2728,11 @@ ST_ISVALID(<spatial_expr>)
   
  **Retourtypen**  
   
- Retourneert een JSON-waarde met een Booleaanse waarde als de opgegeven GeoJSON-punt of de veelhoek expressie is geldig, en als ongeldig, ook de reden als een string-waarde.  
+ Retourneert een JSON-waarde met een Boolean-waarde als Hallo GeoJSON punt opgegeven of veelhoek expressie geldig is en als ongeldig, bovendien Hallo reden als een string-waarde.  
   
  **Voorbeelden**  
   
- Het volgende voorbeeld geldigheid (met details) met behulp van ST_ISVALIDDETAILED controleren.  
+ Hallo volgt hoe geldigheid van de toocheck (met details) met behulp van ST_ISVALIDDETAILED.  
   
 ```  
 SELECT ST_ISVALIDDETAILED({   
@@ -2755,13 +2741,13 @@ SELECT ST_ISVALIDDETAILED({
 })  
 ```  
   
- Hier volgt de resultatenset.  
+ Hier volgt Hallo resultatenset.  
   
 ```  
 [{  
   "$1": {   
     "valid": false,   
-    "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points."   
+    "reason": "hello Polygon input is not valid because hello start and end points of hello ring number 1 are not hello same. Each ring of a polygon must have hello same start and end points."   
   }  
 }]  
 ```  
